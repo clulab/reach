@@ -1,0 +1,50 @@
+#- name: amino_acid
+#  label: Gene_or_gen_product
+#  priority: 3
+#  type: token
+#  action: mkTextBoundMention
+#  pattern: |
+#    [word=/(?i)alanine|arginine|asparagine|aspartic acid|cysteine|glutamic acid|glutamine|glycine|histidine|isoleucine|leucine|lysine|methionine|phenylalanine|proline|serine|threonine|tryptophan|tyrosine|valine/ & !mention=/./]
+
+- name: site_long
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    [word = /(?i)glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine/ & !word=/-rich/]
+    [word = /acid/]?
+    [word = /(?i)residue/]?
+    [word = /\d{3}$/]?
+
+- name: site_1letter
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    [word=/(?i)[ACDEFGHIKLMNPQRSTVWY]\d[ACDEFGHIKLMNPQRSTVWY]/] [word=/mutant/]?
+
+- name: site_3letter
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   [word=/(?i)(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)/]
+   [word=/mutant/]?
+
+- name: simple_chem
+  label: Simple_chemical
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: (/(?i)GDP|GTP|ATP|ADP|adenine|adenosine|guanine|guanosine(-(ribose|methyl|acetyl))?/ /group/?)|(/(?i)fatty/ /acid/)
+
+- name: banner_entities
+  label: Gene_or_gene_product
+  priority: 2
+  type: token
+  action: mkBannerMention
+  pattern: |
+    [entity='B-GENE'] [entity='I-GENE']*
