@@ -3,5 +3,13 @@
   priority: 3
   action: mkBindingEvent
   pattern: |
+    trigger: bind
+    theme: nsubj | prep_to
+
+- name: bind_rule_2
+  label: Binding
+  priority: 3
+  action: mkBindingEvent
+  pattern: |
     trigger: binding
     theme: <prep_by nsubj | prep_such_as
