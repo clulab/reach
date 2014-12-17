@@ -34,4 +34,12 @@ class DarpaActions extends Actions {
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
   }
+
+  def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+    val themes = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, "Gene_or_gene_product"))
+    val args = Map("Theme" -> themes)
+    val event = new EventMention(label, trigger, args, sent, doc, ruleName)
+    Seq(trigger, event)
+  }
 }
