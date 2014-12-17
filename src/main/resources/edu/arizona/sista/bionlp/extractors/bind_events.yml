@@ -1,0 +1,7 @@
+- name: bind_rule_1
+  label: Binding
+  priority: 3
+  action: mkBindingEvent
+  pattern: |
+    trigger: binding
+    theme: <prep_by nsubj | prep_such_as
