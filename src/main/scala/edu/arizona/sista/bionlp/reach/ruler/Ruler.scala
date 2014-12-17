@@ -51,7 +51,7 @@ object Ruler {
 
   def readEntityRules: String = {
     val dir = "/edu/arizona/sista/bionlp/extractors"
-    val files = Seq(s"$dir/default_entities.yml") //, s"$dir/DARPA_entities.yml"
+    val files = Seq(s"$dir/default_entities.yml", s"$dir/DARPA_entities.yml") //,
     (files map readFile).mkString("\n\n")
   }
 
