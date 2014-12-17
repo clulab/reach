@@ -25,6 +25,14 @@
   pattern: |
     [word=/(?i)[ACDEFGHIKLMNPQRSTVWY]\d[ACDEFGHIKLMNPQRSTVWY]/] [word=/mutant/]?
 
+- name: site_1letter_alt
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    [word=/(?i)[ACDEFGHIKLMNPQRSTVWY]\d{3}/] [word=/mutant/]?
+
 - name: site_3letter
   label: Site
   priority: 1
