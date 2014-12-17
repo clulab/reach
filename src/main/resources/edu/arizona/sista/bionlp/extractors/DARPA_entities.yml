@@ -65,10 +65,10 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-   ([word=/(?i)Epidermal/] growth factor receptor) |
-   (EGFR) |
-   ([word=/(?i)Receptor/] [word=/(?i)tyrosine(-protein)?/] kinase "erbB-1") |
-   ([word=/(?i)Proto(-oncogene)?/] "c-ErbB-1")
+   ([word=/(?i)^Epidermal$/] growth factor receptor) |
+   ([word=/(?i)^EGFR$/]) |
+   ([word=/(?i)^Receptor$/] [word=/(?i)^tyrosine(-protein)?$/] kinase "erbB-1") |
+   ([word=/(?i)^Proto(-oncogene)?$/] "c-ErbB-1")
 
 - name: uniprotID_HBEGF_HUMAN
   label: Gene_or_gene_product
@@ -199,3 +199,34 @@
    (VEGFA) |
    ([word=/(?i)Vascular/] endothelial growth factor A) |
    ([word=/(?i)Vascular/] permeability factor)
+
+
+- name: uniprotID_NRG1_HUMAN #from "neighbors"
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)^Neuregulin-1$/]) |
+   ([word=/(?i)^Heregulin$/]) |
+   ([word=/(?i)^Glial$/] growth factor) |
+   ([word=/(?i)^Acetylcholine$/] [word=/(?i)^receptor(-inducing)?$/] [word=/(?i)^-?inducing$/]? activity) |
+   ([word=/(?i)^ARIA$/]) |
+   ([word=/(?i)^Sensory$/] and motor [word=/(?i)^neuron(-derived)?$/] factor) |
+   ([word=/(?i)^Breast$/] cancer cell differentiation factor "p45") |
+   ([word=/(?i)^Neu$/] differentiation factor) |
+   ([word=/(?i)^Pro(-neuregulin)?-1$/] ","  [word=/(?i)^membrane(-bound)?$/] isoform) |
+   ([word=/(?i)^Pro-NRG1$/]) |
+   ([word=/(?i)^NRG1$/]) |
+   ([word=/(?i)^HRG$/])
+
+- name: uniprotID_ERBB3_HUMAN #from "neighbors"
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)^ERBB3$/]) |
+   ([word=/(?i)^Tyrosine$/] [word=/(?i)^kinase(-type)?$/] cell surface receptor [word=/(?i)^HER3$/]) |
+   ([word=/(?i)^Receptor$/] [word=/(?i)^tyrosine(-protein)?$/] kinase "erbB-3") |
+   ([word=/(?i)^Proto(-oncogene)?(-like)?$/] [word=/(?i)^protein$/]? "c-ErbB-3")
