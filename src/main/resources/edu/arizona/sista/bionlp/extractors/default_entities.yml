@@ -51,6 +51,14 @@
   pattern: |
     [word = /(?i)^(glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine)/ & !word=/-rich/ & !mention=/./]
 
+- name: HER_default
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    /HER2/
+
 - name: banner_entities
   label: Gene_or_gene_product
   priority: 2
