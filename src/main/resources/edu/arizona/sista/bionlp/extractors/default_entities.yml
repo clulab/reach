@@ -24,7 +24,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    [word=/(?i)^[ACDEFGHIKLMNPQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/] [word=/mutant/]?
+    [word=/(?i)^[ACDEFGHIKLMNPQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]?
 
 - name: site_3letter
   label: Site
@@ -58,6 +58,16 @@
   action: mkTextBoundMention
   pattern: |
     /HER2/
+
+- name: Families
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    /(?i)^(k-)?ras$/ |
+    /(?i)^mek$/ |
+    /(?i)^erk$/
 
 - name: banner_entities
   label: Gene_or_gene_product
