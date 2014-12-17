@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp.reach
 
 import java.io.{File, FileWriter}
+import scala.language.reflectiveCalls
 
 package object brat {
   type Closeable = { def close(): Unit }
