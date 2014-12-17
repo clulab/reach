@@ -20,13 +20,13 @@ object RuleShell extends App {
   val actions = new DarpaActions
 
   val proc = new BioNLPProcessor
+  val extractor = new ExtractorEngine(rules, actions)
 
   breakable {
     while (true) {
       val text = readLine(prompt)
       if (text == null) break
       val doc = proc.annotate(text)
-      val extractor = new ExtractorEngine(rules, actions)
       val mentions = extractor.extractFrom(doc)
       displayMentions(mentions, doc)
     }
