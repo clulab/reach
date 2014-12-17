@@ -12,7 +12,7 @@ class DarpaActions extends Actions {
   }
 
   def mkBannerMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
-    val allMentions = state.allMentions.filter(m => m.sentence == sent && m.matches("Gene_or_gene_product")).map(_.tokenInterval)
+    val allMentions = state.allMentions.filter(_.sentence == sent).map(_.tokenInterval)
     // make sure each interval doesn't intersect with existing Gene_or_gene_product mentions previously found
     for (m <- mention("--GLOBAL--") if allMentions.forall(!_.intersects(m))) yield new TextBoundMention(label, m, sent, doc, ruleName)
   }
