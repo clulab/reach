@@ -1,0 +1,201 @@
+
+- name: uniprotID_AKT1_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Protein/] kinase B alpha) |
+   (PKB alpha) |
+   (PKB) |
+   (AKT1) |
+   ([word=/(?i)RAC-PK(-alpha)?/]) |
+   ([word=/(?i)RAC(-alpha)?/] [word=/(?i)serine|threonine/] [word=/(?i)-?protein/]? kinase) |
+   ([word=/(?i)Proto(-oncogene)?/] c-Akt) |
+   ([word=/(?i)Protein/] kinase B)
+
+- name: uniprotID_AKTS1_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (40 kDa [word=/(?i)proline(-rich)?/] AKT substrate) |
+   ([word=/(?i)Proline(-rich)?/] AKT1 substrate 1) |
+   (AKT1S1) |
+   (PRAS40)
+
+- name: uniprotID_BRAS2_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (BRWD1 intronic transcript 2) |
+   ([word=/(?i)Putative/] uncharacterized [word=/(?i)protein/]? encoded by BRWD1-AS2) |
+   (ATP1A1 antisense RNA 1) |
+   (BRWD1-AS2) |
+   (ATP1A1 antisense gene [word=/(?i)protein/]? 1)
+
+- name: uniprotID_CRAS1_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (CRYM antisense gene [word=/(?i)protein/]? 1) |
+   (CRYM antisense RNA 1) |
+   (CRYM-AS1) |
+   ([word=/(?i)Putative/] uncharacterized [word=/(?i)protein/]? CRYM-AS1)
+
+- name: uniprotID_EGFL6_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Epidermal/] growth [word=/(?i)factor(-like)?/] [word=/(?i)protein/]? 6) |
+   (EGFL6) |
+   (MAM and EGF [word=/(?i)domains(-containing)?/] [word=/(?i)-containing/]? gene [word=/(?i)protein/]?) |
+   ([word=/(?i)EGF(-like)?/] [word=/(?i)protein/]? 6)
+
+- name: uniprotID_EGFR_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Epidermal/] growth factor receptor) |
+   (EGFR) |
+   ([word=/(?i)Receptor/] [word=/(?i)tyrosine(-protein)?/] kinase erbB-1) |
+   ([word=/(?i)Proto(-oncogene)?/] c-ErbB-1)
+
+- name: uniprotID_HBEGF_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Diphtheria/] toxin receptor) |
+   (HBEGF) |
+   (HB-EGF) |
+   ([word=/(?i)Proheparin(-binding)?/] [word=/(?i)-binding/]? [word=/(?i)EGF(-like)?/] growth factor) |
+   (DT-R) |
+   ([word=/(?i)Heparin(-binding)?/] [word=/(?i)-binding/]? [word=/(?i)EGF(-like)?/] growth factor)
+
+- name: uniprotID_HERC2_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (E3 [word=/(?i)ubiquitin(-protein)?/] ligase HERC2) |
+   (HECT domain and [word=/(?i)RCC1(-like)?/] [word=/(?i)domain(-containing)?/] [word=/(?i)-containing/]? [word=/(?i)protein/]? 2) |
+   (HERC2)
+
+- name: uniprotID_HERC6_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (HERC6) |
+   ([word=/(?i)Probable/] E3 [word=/(?i)ubiquitin(-protein)?/] ligase HERC6) |
+   (HECT domain and [word=/(?i)RCC1(-like)?/] [word=/(?i)domain(-containing)?/] [word=/(?i)-containing/]? [word=/(?i)protein/]? 6)
+
+- name: uniprotID_MEGF8_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Multiple/] epidermal growth [word=/(?i)factor(-like)?/] domains [word=/(?i)protein/]? 8) |
+   ([word=/(?i)Epidermal/] growth [word=/(?i)factor(-like)?/] [word=/(?i)protein/]? 4) |
+   ([word=/(?i)EGF(-like)?/] [word=/(?i)protein/]? 4) |
+   (MEGF8) |
+   ([word=/(?i)Multiple/] [word=/(?i)EGF(-like)?/] domains [word=/(?i)protein/]? 8)
+
+- name: uniprotID_RASA3_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Ras/] [word=/(?i)GTPase(-activating)?/] [word=/(?i)-activating/]? [word=/(?i)protein/]? 3) |
+   (GAP1(IP4BP)) |
+   ([word=/(?i)Ins/] [word=/(?i)P4(-binding)?/] [word=/(?i)-binding/]? [word=/(?i)protein/]?) |
+   (RASA3)
+
+- name: uniprotID_RASF1_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (RASSF1) |
+   ([word=/(?i)Ras/] association [word=/(?i)domain(-containing)?/] [word=/(?i)-containing/]? [word=/(?i)protein/]? 1) |
+   (RDA32)
+
+- name: uniprotID_RASF5_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Regulator/] for cell adhesion and polarization enriched in lymphoid tissues) |
+   ([word=/(?i)New/] ras effector 1) |
+   (RASSF5) |
+   ([word=/(?i)Ras/] association [word=/(?i)domain(-containing)?/] [word=/(?i)-containing/]? [word=/(?i)protein/]? 5) |
+   (RAPL)
+
+- name: uniprotID_RASF9_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Peptidylglycine/] [word=/(?i)alpha(-amidating)?/] [word=/(?i)-amidating/]? monooxygenase [word=/(?i)COOH(-terminal)?/] interactor) |
+   ([word=/(?i)Ras/] association [word=/(?i)domain(-containing)?/] [word=/(?i)-containing/]? [word=/(?i)protein/]? 9) |
+   (P-CIP1) |
+   (RASSF9) |
+   (PAM [word=/(?i)COOH(-terminal)?/] interactor [word=/(?i)protein/]? 1)
+
+- name: uniprotID_RASL1_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (RASAL1) |
+   ([word=/(?i)RasGAP(-activating)?(-like)?/] [word=/(?i)-activating/]? [word=/(?i)protein/]? 1)
+
+- name: uniprotID_RASM_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Ras(-related)?/] [word=/(?i)protein/]? [word=/(?i)M-Ras/]) |
+   ([word=/(?i)Ras(-related)?/] [word=/(?i)protein/]? [word=/(?i)R-Ras3/]) |
+   (MRAS)
+
+- name: uniprotID_SMEK3_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)Putative/] SMEK homolog 3) |
+   (SMEK3P)
+
+- name: uniprotID_VEGFA_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   (VEGF-A) |
+   (VPF) |
+   (VEGFA) |
+   ([word=/(?i)Vascular/] endothelial growth factor A) |
+   ([word=/(?i)Vascular/] permeability factor)
