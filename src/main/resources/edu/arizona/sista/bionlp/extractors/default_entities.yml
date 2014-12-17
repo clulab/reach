@@ -31,7 +31,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    [word=/(?i)[ACDEFGHIKLMNPQRSTVWY]\d{3}/] [word=/mutant/]?
+    [word=/(?i)[ACDEFGHIKLMNPQRSTVWY]\d{2,}/] [word=/mutant/]?
 
 - name: site_3letter
   label: Site
