@@ -1,5 +1,16 @@
-- name: Phosphorylation_1
+- name: protein_with_site
+  label: Protein_with_site
   priority: 3
+  type: token
+  action: mkComplexEntity
+  pattern: |
+    ((?<site> [mention=Site]) | (?<protein>[mention=/Protein|Gene_or_gene_product/]))
+    (?<trigger>[tag=IN])
+    /./*?
+    ((?<protein>[mention=/Protein|Gene_or_gene_product/]) | (?<site> [mention=Site]))
+
+- name: Phosphorylation_1
+  priority: 4
   action: mkPhosphorylation
   example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together phosphorylated araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
   type: dependency
@@ -12,7 +23,7 @@
 
 
 - name: Phosphorylation_2
-  priority: 3
+  priority: 4
   action: mkPhosphorylation
   type: dependency
   label: Phosphorylation
@@ -23,33 +34,32 @@
 
 
 - name: Phosphorylation_3
-  priority: 3
+  priority: 4
   action: mkPhosphorylation
   example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases"
   type: dependency
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
-    theme: /prep_/* /nn|conj_|cc/*
+    theme: prep_of
     cause?: <dobj agent|prep_by nn*
-    site?: <dobj prep_at nn*
+    #site?: (/prep_/ nn*)+
     constraint: <dobj [lemma=/prevent|inhibit|block/]
 
+
 - name: Phosphorylation_4
-  priority: 3
+  priority: 4
   action: mkPhosphorylation
   example: "Overexpressed PRAS40 suppressed the phosphorylation of S6K1 and 4E-BP1 at their rapamycin-sensitive phosphorylation sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed phosphorylation of PRAS40 (Ser(183)) and its binding to raptor."
   type: dependency
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
-    theme: prep_of /nn|conj_|cc/*
-    cause?: <nn* | (prep_by nn*)
-    site?: prep_of? prep_at nn*
-
+    theme: /prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
+    cause?: <nn* | (prep_by nn*) | <dobj nsubj dep* nn*
 
 - name: Phosphorylation_5
-  priority: 3
+  priority: 4
   action: mkPhosphorylation
   example: " ... mediated by inter-Rad53 phosphorylation."
   type: dependency
@@ -60,8 +70,20 @@
     constraint: </prep_/ | rcmod
 
 
+- name: Phosphorylation_6
+  priority: 4
+  action: mkPhosphorylation
+  example: " ... we detected a 66 % average decrease in EGFR T669 phosphorylation"
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    theme: nn+
+    site: nn+ [mention="Site"]
+
+
 - name: Phosphorylation_DARPA_0
-  priority: 3
+  priority: 4
   action: mkPhosphorylation
   example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
   type: dependency
@@ -74,7 +96,7 @@
 
 
 - name: Phosphorylation_DARPA_3
-  priority: 3
+  priority: 4
   action: mkPhosphorylation
   example: "... the transcriptional cofactor beta-catenin is destabilized via phosphorylation by protein kinase GSK3beta in complex with Axin family members"
   type: dependency
