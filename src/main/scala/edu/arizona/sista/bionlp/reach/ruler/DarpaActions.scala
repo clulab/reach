@@ -26,21 +26,32 @@ class DarpaActions extends Actions {
     Seq(trigger, event)
   }
 
+  def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    // construct an event mention from a complex entity like "Protein_with_site"
+    val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+
+    val protein = state.mentionsFor(sent, mention("protein").head.start, Seq("Protein", "Gene_or_gene_product")).head
+    val site = state.mentionsFor(sent, mention("site").head.start, Seq("Site")).head
+    val event = new EventMention(label, trigger, Map("Theme" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
+
+    Seq(trigger, event)
+  }
+
   def mkPhosphorylation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     // not sure if this should be simple chemical...
     // TODO: don't just check mentions, see if matched word is all uppercase, etc. (use "dumb" tricks to detect a likely entity)
 
-    def getMentions(argName:String, validLabels:Seq[String]):Seq[Mention] = mention.getOrElse (argName, Nil) match {
+    def getMentions(argName: String, validLabels: Seq[String]): Seq[Mention] = mention.getOrElse(argName, Nil) match {
       case Nil => Seq();
-      case someArgs => state.mentionsFor (sent, someArgs.map (_.start), validLabels ).distinct;
+      case someArgs => state.mentionsFor(sent, someArgs.map(_.start), validLabels).distinct;
     }
 
-    val themes = getMentions("theme", Seq("Simple_chemical", "Complex", "Gene_or_gene_product", "GENE"))
+    val themes = getMentions("theme", Seq("Simple_chemical", "Complex", "Protein_with_site", "Gene_or_gene_product", "GENE"))
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil
 
-    val sites = getMentions("site", Seq("Simple_chemical", "GENE"))
+    val sites = getMentions("site", Seq("Site", "Protein_with_site"))
 
     val causes = getMentions("cause", Seq("Simple_chemical", "Complex", "Gene_or_gene_product", "GENE"))
 
