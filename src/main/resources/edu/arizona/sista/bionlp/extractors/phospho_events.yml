@@ -1,0 +1,85 @@
+- name: Phosphorylation_1
+  priority: 3
+  action: mkPhosphorylation
+  example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together phosphorylated araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
+    cause?: (nsubj | <vmod) /appos|nn|conj_|cc/*
+    theme: (dobj | xcomp) /appos|nn|conj_|cc/*
+    site?: >dobj? prep_(at|on) /nn|conj_|cc/*
+
+
+- name: Phosphorylation_2
+  priority: 3
+  action: mkPhosphorylation
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylated/ & !word=/^de/]
+    theme: >nsubjpass
+    cause?: agent|prep_by
+
+
+- name: Phosphorylation_3
+  priority: 3
+  action: mkPhosphorylation
+  example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases"
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    theme: /prep_/* /nn|conj_|cc/*
+    cause?: <dobj agent|prep_by nn*
+    site?: <dobj prep_at nn*
+    constraint: <dobj [lemma=/prevent|inhibit|block/]
+
+- name: Phosphorylation_4
+  priority: 3
+  action: mkPhosphorylation
+  example: "Overexpressed PRAS40 suppressed the phosphorylation of S6K1 and 4E-BP1 at their rapamycin-sensitive phosphorylation sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed phosphorylation of PRAS40 (Ser(183)) and its binding to raptor."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    theme: prep_of /nn|conj_|cc/*
+    cause?: <nn* | (prep_by nn*)
+    site?: prep_of? prep_at nn*
+
+
+- name: Phosphorylation_5
+  priority: 3
+  action: mkPhosphorylation
+  example: " ... mediated by inter-Rad53 phosphorylation."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    cause: nn /conj_|cc|nn/*
+    constraint: </prep_/ | rcmod
+
+
+- name: Phosphorylation_DARPA_0
+  priority: 3
+  action: mkPhosphorylation
+  example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
+    cause: <xcomp <rcmod? /appos|nn|conj_|cc/*
+    theme: (dobj | xcomp) /appos|nn|conj_|cc/*
+    site?: dobj? prep_(at|on) /nn|conj_|cc/*
+
+
+- name: Phosphorylation_DARPA_3
+  priority: 3
+  action: mkPhosphorylation
+  example: "... the transcriptional cofactor beta-catenin is destabilized via phosphorylation by protein kinase GSK3beta in complex with Axin family members"
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    cause: <prep_via agent|prep_by /nn|conj_|cc/*
+    theme: (prep_of /nn|conj_|cc/*)+
