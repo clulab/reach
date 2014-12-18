@@ -19,11 +19,39 @@ class DarpaActions extends Actions {
 
   def mkConversion(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val theme = state.mentionsFor(sent, mention("theme").head.start, "Protein").head
-    val cause = if (mention contains "cause") state.mentionsFor(sent, mention("cause").head.start, "Protein").headOption else None
+    val theme = state.mentionsFor(sent, mention("theme").head.start, "Gene_or_gene_product").head
+    val cause = if (mention contains "cause") state.mentionsFor(sent, mention("cause").head.start, "Gene_or_gene_product").headOption else None
     val args = if (cause.isDefined) Map("Theme" -> Seq(theme), "Cause" -> Seq(cause.get)) else Map("Theme" -> Seq(theme))
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
+  }
+
+  def mkPhosphorylation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+    // not sure if this should be simple chemical...
+    // TODO: don't just check mentions, see if matched word is all uppercase, etc. (use "dumb" tricks to detect a likely entity)
+
+    def getMentions(argName:String, validLabels:Seq[String]):Seq[Mention] = mention.getOrElse (argName, Nil) match {
+      case Nil => Seq();
+      case someArgs => state.mentionsFor (sent, someArgs.map (_.start), validLabels ).distinct;
+    }
+
+    val themes = getMentions("theme", Seq("Simple_chemical", "Complex", "Gene_or_gene_product", "GENE"))
+    // Only propagate EventMentions containing a theme
+    if (themes.isEmpty) return Nil
+
+    val sites = getMentions("site", Seq("Simple_chemical", "GENE"))
+
+    val causes = getMentions("cause", Seq("Simple_chemical", "Complex", "Gene_or_gene_product", "GENE"))
+
+    val mentions = trigger match {
+      case hasCauseHasThemeHasSite if causes.nonEmpty && themes.nonEmpty && sites.nonEmpty => for (cause <- causes; site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site), "Cause" -> Seq(cause)), sent, doc, ruleName)
+      case hasCauseHasThemeNoSite if causes.nonEmpty && themes.nonEmpty && sites.isEmpty => for (cause <- causes; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Cause" -> Seq(cause)), sent, doc, ruleName)
+      case noCauseHasThemeHasSite if causes.isEmpty && sites.nonEmpty && themes.nonEmpty => for (site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site)), sent, doc, ruleName)
+      case noCauseNoSiteHasTheme if causes.isEmpty && sites.isEmpty && themes.nonEmpty => for (theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme)), sent, doc, ruleName)
+      case _ => Seq()
+    }
+    if (mentions.nonEmpty) trigger +: mentions else Nil
   }
 
   def mkRegulation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
