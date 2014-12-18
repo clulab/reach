@@ -24,7 +24,8 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    [word=/(?i)^[ACDEFGHIKLMNPQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]?
+    [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]? |
+    /P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?
 
 - name: site_3letter
   label: Site
@@ -83,7 +84,7 @@
     /(?i)^RASSF[0-9]+$/ |
     /(?i)^AF6$/ |
     /(?i)^Rabex[0-9]+$/
-
+    
 - name: banner_entities
   label: Gene_or_gene_product
   priority: 2
