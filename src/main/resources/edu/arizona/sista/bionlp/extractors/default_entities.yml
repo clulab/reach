@@ -32,7 +32,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]
    [word=/mutant/]?
 
 - name: simple_chem
@@ -65,9 +65,24 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    /(?i)^(k-)?ras$/ |
+    /(?i)^[HKN]?-?ras$/ |
+    /(?i)^RASSF$/ |
     /(?i)^mek$/ |
     /(?i)^erk$/
+
+- name: our_proteins
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    /(?i)-ras$/ |
+    /(?i)^PI3K$/ |
+    /(?i)^BRAF$/ |
+    /(?i)^AF6$/ |
+    /(?i)^RASSF[0-9]+$/ |
+    /(?i)^AF6$/ |
+    /(?i)^Rabex[0-9]+$/
 
 - name: banner_entities
   label: Gene_or_gene_product
