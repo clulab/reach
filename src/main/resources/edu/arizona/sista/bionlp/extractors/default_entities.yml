@@ -69,7 +69,8 @@
     /(?i)^[HKN]?-?ras$/ |
     /(?i)^RASSF$/ |
     /(?i)^mek$/ |
-    /(?i)^erk$/
+    /(?i)^erk$/ |
+    /(?i)^Wnt$/
 
 - name: our_proteins
   label: Gene_or_gene_product
