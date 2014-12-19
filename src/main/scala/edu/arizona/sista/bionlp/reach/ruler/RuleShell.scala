@@ -49,10 +49,12 @@ object RuleShell extends App {
     println(s"rule: ${mention.foundBy}")
     mention match {
       case m: TextBoundMention =>
+        println(m.repr)
         println(s"${m.label} (TextBoundMention)")
         println(m.text)
         println
       case m: EventMention =>
+        println(m.repr)
         println(s"${m.label} (EventMention)")
         println(s"trigger = ${m.trigger.text}")
         m.arguments foreach {
@@ -61,5 +63,22 @@ object RuleShell extends App {
         println
       case _ => ()
     }
+  }
+
+  // generates a representation of the mention that can be used
+  // for the csv file expected by darpa
+  implicit class Repr(mention: Mention) {
+    def repr: String = mention match {
+      case m: TextBoundMention => s"${m.label}(${m.text})"
+      case m: EventMention => s"${m.label}(${dumpArgs(m.arguments)})"
+      // case m: RelationMention => s"${m.label}(${dumpArgs(m)})"
+    }
+
+    private def dumpArgs(arguments: Map[String, Seq[Mention]]): String =
+      arguments.map{ case (k, v) => s"$k=${dumpArgVal(v)}" }.mkString(", ")
+
+    private def dumpArgVal(mentions: Seq[Mention]): String =
+      if (mentions.size == 1) mentions(0).repr
+      else s"[${mentions.map(_.repr).mkString(", ")}]"
   }
 }
