@@ -1,5 +1,7 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import edu.arizona.sista.bionlp.reach.core.RelationMention
+
 import scala.util.control.Breaks._
 import edu.arizona.sista.matcher.{ExtractorEngine, Mention, TextBoundMention, EventMention}
 import edu.arizona.sista.processors.Document

@@ -1,5 +1,6 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import edu.arizona.sista.bionlp.reach.core.RelationMention
 import edu.arizona.sista.matcher.{Actions, Mention, EventMention, TextBoundMention, State}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.Interval
