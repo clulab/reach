@@ -104,15 +104,22 @@ object Brat {
       case m: TextBoundMention => tracker.getId(m, doc)
       case m: EventMention => tracker.getId(m, doc)
     }
+
+    def displayRuleName(m: Mention): String = {
+      //example:
+      //#10     Origin E4       Rulename1
+      s"#${getId(m).drop(1)}\tOrigin ${getId(m)}\t${m.foundBy}"
+    }
+
     mention match {
       case m: TextBoundMention =>
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = sentence.words.slice(m.start, m.end).mkString(" ")
-        s"${getId(m)}\t${m.label} $offsets\t$str"
+        s"${getId(m)}\t${m.label} $offsets\t$str\n${displayRuleName(m)}"
       case m: EventMention =>
         val trigger = getId(m.trigger)
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name}:${getId(v)}") }.mkString(" ")
-        s"${getId(m)}\t${m.label}:$trigger $arguments"
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
+        s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m)}"
     }
   }
 
@@ -120,11 +127,11 @@ object Brat {
     val idTracker = IdTracker()
     val tags = (doc.sentences.zipWithIndex flatMap {
       case (s, i) => s.tags.get.zipWithIndex map {
-        case (tag, j) => ((i,j) -> new TextBoundMention(tag, Interval(j), i, doc, "syntax"))
+        case (tag, j) => (i,j) -> new TextBoundMention(tag, Interval(j), i, doc, "syntax")
       }
     }).toMap
 
-    val tbIds = tags map { case (k,v) => (k -> idTracker.getId(v, doc)) }
+    val tbIds = tags map { case (k,v) => k -> idTracker.getId(v, doc) }
 
     var id = 0
     val rels = doc.sentences.zipWithIndex flatMap {
