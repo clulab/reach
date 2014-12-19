@@ -5,6 +5,7 @@ import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.{Document, Sentence}
 import edu.arizona.sista.matcher.{Mention, EventMention, TextBoundMention}
+import edu.arizona.sista.bionlp.reach.core.RelationMention
 
 object Brat {
   def readStandOff(input: String): Seq[Annotation] =
@@ -103,6 +104,7 @@ object Brat {
     def getId(m: Mention): String = m match {
       case m: TextBoundMention => tracker.getId(m, doc)
       case m: EventMention => tracker.getId(m, doc)
+      case m: RelationMention => tracker.getId(m, doc)
     }
 
     def displayRuleName(m: Mention): String = {
@@ -120,6 +122,10 @@ object Brat {
         val trigger = getId(m.trigger)
         val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
         s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m)}"
+
+      case m: RelationMention =>
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
+        s"${getId(m)}\tOrigin $arguments\n${displayRuleName(m)}"
     }
   }
 
@@ -152,7 +158,7 @@ object Brat {
 
 
 class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
-  val eventLUT = new HashMap[EventMention, String]
+  val mentionLUT = new HashMap[Mention, String]
 
   def getId(mention: TextBoundMention, doc: Document): String = {
     val span = charInterval(mention, doc)
@@ -168,7 +174,10 @@ class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
   }
 
   def getId(mention: EventMention, doc: Document): String =
-    eventLUT.getOrElseUpdate(mention, s"E${eventLUT.size + 1}")
+    mentionLUT.getOrElseUpdate(mention, s"E${mentionLUT.size + 1}")
+
+  def getId(mention: RelationMention, doc: Document): String =
+    mentionLUT.getOrElseUpdate(mention, s"R${mentionLUT.size + 1}")
 
   def charInterval(mention: Mention, document: Document): Interval =
     charInterval(mention, document.sentences(mention.sentence))

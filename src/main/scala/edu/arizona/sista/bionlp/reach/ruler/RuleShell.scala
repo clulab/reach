@@ -1,5 +1,7 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import edu.arizona.sista.bionlp.reach.core.RelationMention
+
 import scala.util.control.Breaks._
 import edu.arizona.sista.matcher.{ExtractorEngine, Mention, TextBoundMention, EventMention}
 import edu.arizona.sista.processors.Document
@@ -57,6 +59,12 @@ object RuleShell extends App {
         println(m.repr)
         println(s"${m.label} (EventMention)")
         println(s"trigger = ${m.trigger.text}")
+        m.arguments foreach {
+          case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
+        }
+        println
+      case m: RelationMention =>
+        println(s"${m.label} (RelationMention)")
         m.arguments foreach {
           case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
         }
