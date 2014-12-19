@@ -10,9 +10,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.0.M6-SNAP17" % "test",
-  "junit" % "junit" % "4.10" % "test",
-  "com.novocode" % "junit-interface" % "0.11" % "test",
+  "org.scalatest" %% "scalatest" % "2.2.1" % "test",
   "edu.arizona.sista" %% "processors" % "4.0-SNAPSHOT",
   "edu.arizona.sista" %% "processors" % "4.0-SNAPSHOT" classifier "models",
   "org.apache.lucene" % "lucene-core" % "4.2.1",
