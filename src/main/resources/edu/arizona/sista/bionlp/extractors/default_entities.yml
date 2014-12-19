@@ -36,6 +36,34 @@
    [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]
    [word=/mutant/]?
 
+- name: site_3letterALT
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
+   [word=/residue/]?
+   [word=/\d+/]
+
+- name: multi_site
+  label: Multiple_sites
+  priority: 3
+  type: token
+  action: mkMultiSite
+  pattern: |
+    (?<parent> [mention=Site]) [word=/,|and/ | tag=CD]+ (?<site> [tag=CD])
+
+- name: protein_with_site
+  label: Protein_with_site
+  priority: 3
+  type: token
+  action: mkComplexEntity
+  pattern: |
+    (?<site> [mention=Site]) [tag=IN] /./*? (?<protein>[mention=/Protein|Gene_or_gene_product/])
+        |
+    (?<protein>[mention=/Protein|Gene_or_gene_product/]) [tag=IN] /./*? (?<site> [mention=Site])
+
 - name: simple_chem
   label: Simple_chemical
   priority: 1
