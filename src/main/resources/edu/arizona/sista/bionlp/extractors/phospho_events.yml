@@ -1,16 +1,7 @@
-- name: protein_with_site
-  label: Protein_with_site
-  priority: 3
-  type: token
-  action: mkComplexEntity
-  pattern: |
-    (?<site> [mention=Site]) (?<trigger>[tag=IN]) /./*? (?<protein>[mention=/Protein|Gene_or_gene_product/])
-        |
-    (?<protein>[mention=/Protein|Gene_or_gene_product/]) (?<trigger>[tag=IN]) /./*? (?<site> [mention=Site])
 
 - name: Phosphorylation_1
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together phosphorylated araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
   type: dependency
   label: Phosphorylation
@@ -23,7 +14,7 @@
 
 - name: Phosphorylation_2
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   type: dependency
   label: Phosphorylation
   pattern: |
@@ -34,7 +25,7 @@
 
 - name: Phosphorylation_3
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases"
   type: dependency
   label: Phosphorylation
@@ -48,7 +39,7 @@
 
 - name: Phosphorylation_4
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: "Overexpressed PRAS40 suppressed the phosphorylation of S6K1 and 4E-BP1 at their rapamycin-sensitive phosphorylation sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed phosphorylation of PRAS40 (Ser(183)) and its binding to raptor."
   type: dependency
   label: Phosphorylation
@@ -59,7 +50,7 @@
 
 - name: Phosphorylation_5
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: " ... mediated by inter-Rad53 phosphorylation."
   type: dependency
   label: Phosphorylation
@@ -71,7 +62,7 @@
 
 - name: Phosphorylation_6
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: " ... we detected a 66 % average decrease in EGFR T669 phosphorylation"
   type: dependency
   label: Phosphorylation
@@ -83,7 +74,7 @@
 
 - name: Phosphorylation_DARPA_0
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
   type: dependency
   label: Phosphorylation
@@ -96,7 +87,7 @@
 
 - name: Phosphorylation_DARPA_3
   priority: 4
-  action: mkPhosphorylation
+  action: mkSimpleEvent
   example: "... the transcriptional cofactor beta-catenin is destabilized via phosphorylation by protein kinase GSK3beta in complex with Axin family members"
   type: dependency
   label: Phosphorylation
