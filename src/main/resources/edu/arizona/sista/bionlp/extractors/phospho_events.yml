@@ -4,10 +4,9 @@
   type: token
   action: mkComplexEntity
   pattern: |
-    ((?<site> [mention=Site]) | (?<protein>[mention=/Protein|Gene_or_gene_product/]))
-    (?<trigger>[tag=IN])
-    /./*?
-    ((?<protein>[mention=/Protein|Gene_or_gene_product/]) | (?<site> [mention=Site]))
+    (?<site> [mention=Site]) (?<trigger>[tag=IN]) /./*? (?<protein>[mention=/Protein|Gene_or_gene_product/])
+        |
+    (?<protein>[mention=/Protein|Gene_or_gene_product/]) (?<trigger>[tag=IN]) /./*? (?<site> [mention=Site])
 
 - name: Phosphorylation_1
   priority: 4
@@ -18,7 +17,7 @@
   pattern: |
     trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
     cause?: (nsubj | <vmod) /appos|nn|conj_|cc/*
-    theme: (dobj | xcomp) /appos|nn|conj_|cc/*
+    theme: (dobj | xcomp) /./*
     site?: >dobj? prep_(at|on) /nn|conj_|cc/*
 
 
