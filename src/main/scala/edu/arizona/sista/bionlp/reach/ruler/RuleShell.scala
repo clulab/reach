@@ -61,6 +61,12 @@ object RuleShell extends App {
           case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
         }
         println
+      case m: RelationMention =>
+        println(s"${m.label} (RelationMention)")
+        m.arguments foreach {
+          case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
+        }
+        println
       case _ => ()
     }
   }
