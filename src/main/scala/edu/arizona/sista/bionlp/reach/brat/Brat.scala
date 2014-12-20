@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp.reach.brat
 
 import java.io.{File, InputStream}
+import scala.collection.mutable
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.{Document, Sentence}
@@ -102,30 +103,30 @@ object Brat {
   def dumpStandoff(mention: Mention, doc: Document, tracker: IdTracker): String = {
     val sentence = doc.sentences(mention.sentence)
     def getId(m: Mention): String = m match {
-      case m: TextBoundMention => tracker.getId(m, doc)
-      case m: EventMention => tracker.getId(m, doc)
-      case m: RelationMention => tracker.getId(m, doc)
+      case t: TextBoundMention => tracker.getId(t, doc)
+      case e: EventMention => tracker.getId(e, doc)
+      case r: RelationMention => tracker.getId(r, doc)
     }
 
-    def displayRuleName(m: Mention): String = {
+    def displayRuleName(m: Mention, doc:Document): String = {
       //example:
       //#10     Origin E4       Rulename1
-      s"#${getId(m).drop(1)}\tOrigin ${getId(m)}\t${m.foundBy}"
+      s"${tracker.getUniqueId(m, doc)}\tOrigin ${getId(m)}\t${m.foundBy}"
     }
 
     mention match {
       case m: TextBoundMention =>
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = sentence.words.slice(m.start, m.end).mkString(" ")
-        s"${getId(m)}\t${m.label} $offsets\t$str\n${displayRuleName(m)}"
+        s"${getId(m)}\t${m.label} $offsets\t$str\n${displayRuleName(m, doc)}"
       case m: EventMention =>
         val trigger = getId(m.trigger)
         val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
-        s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m)}"
+        s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m, doc)}"
 
       case m: RelationMention =>
         val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
-        s"${getId(m)}\tOrigin $arguments\n${displayRuleName(m)}"
+        s"${getId(m)}\tOrigin $arguments\n${displayRuleName(m, doc)}"
     }
   }
 
@@ -158,7 +159,9 @@ object Brat {
 
 
 class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
-  val mentionLUT = new HashMap[Mention, String]
+  val eventLUT = new HashMap[EventMention, String]
+  val relationLUT = new HashMap[RelationMention, String]
+  val uniqueLUT = new HashMap[Mention, String]
 
   def getId(mention: TextBoundMention, doc: Document): String = {
     val span = charInterval(mention, doc)
@@ -174,10 +177,13 @@ class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
   }
 
   def getId(mention: EventMention, doc: Document): String =
-    mentionLUT.getOrElseUpdate(mention, s"E${mentionLUT.size + 1}")
+    eventLUT.getOrElseUpdate(mention, s"E${eventLUT.size + 1}")
 
   def getId(mention: RelationMention, doc: Document): String =
-    mentionLUT.getOrElseUpdate(mention, s"R${mentionLUT.size + 1}")
+    relationLUT.getOrElseUpdate(mention, s"R${relationLUT.size + 1}")
+
+  def getUniqueId(mention: Mention, doc: Document): String =
+    uniqueLUT.getOrElseUpdate(mention, s"#${uniqueLUT.size + 1}")
 
   def charInterval(mention: Mention, document: Document): Interval =
     charInterval(mention, document.sentences(mention.sentence))
