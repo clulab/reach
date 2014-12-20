@@ -23,7 +23,7 @@ object Brat {
     val elems = chunks(1).split(" ")
 
     def arguments(elems: Seq[String]): Map[String, Seq[String]] =
-      elems map (_.split(":")) groupBy (_(0)) mapValues(_.map(_(1)))
+      elems map (_.split(":")) groupBy (_(0)) mapValues (_.map(_(1)))
 
     chunks.head match {
       // text bound annotation
@@ -108,7 +108,7 @@ object Brat {
       case r: RelationMention => tracker.getId(r, doc)
     }
 
-    def displayRuleName(m: Mention, doc:Document): String = {
+    def displayRuleName(m: Mention, doc: Document): String = {
       //example:
       //#10     Origin E4       Rulename1
       s"${tracker.getUniqueId(m, doc)}\tOrigin ${getId(m)}\t${m.foundBy}"
@@ -119,13 +119,14 @@ object Brat {
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = sentence.words.slice(m.start, m.end).mkString(" ")
         s"${getId(m)}\t${m.label} $offsets\t$str\n${displayRuleName(m, doc)}"
+
       case m: EventMention =>
         val trigger = getId(m.trigger)
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
+        val arguments = m.arguments.flatMap { case (name, vals) => vals map (v => s"$name:${getId(v)}")}.mkString(" ")
         s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m, doc)}"
 
       case m: RelationMention =>
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
+        val arguments = m.arguments.flatMap { case (name, vals) => vals map (v => s"$name:${getId(v)}")}.mkString(" ")
         s"${getId(m)}\tOrigin $arguments\n${displayRuleName(m, doc)}"
     }
   }
@@ -134,11 +135,11 @@ object Brat {
     val idTracker = IdTracker()
     val tags = (doc.sentences.zipWithIndex flatMap {
       case (s, i) => s.tags.get.zipWithIndex map {
-        case (tag, j) => (i,j) -> new TextBoundMention(tag, Interval(j), i, doc, "syntax")
+        case (tag, j) => (i, j) -> new TextBoundMention(tag, Interval(j), i, doc, "syntax")
       }
     }).toMap
 
-    val tbIds = tags map { case (k,v) => k -> idTracker.getId(v, doc) }
+    val tbIds = tags map { case (k, v) => k -> idTracker.getId(v, doc)}
 
     var id = 0
     val rels = doc.sentences.zipWithIndex flatMap {
@@ -148,7 +149,7 @@ object Brat {
           j => outgoing(j) map {
             case (k, dep) =>
               id += 1
-              s"R$id\t$dep governor:${tbIds((i,j))} dependent:${tbIds((i,k))}"
+              s"R$id\t$dep governor:${tbIds((i, j))} dependent:${tbIds((i, k))}"
           }
         }
     }
@@ -167,7 +168,7 @@ class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
     val span = charInterval(mention, doc)
     val ids = textBoundLUT.keys filter (id => textBoundLUT(id) intersects span)
     if (ids.size == 1) ids.head
-    else if (ids.size > 1) ids.head  // arbitrarily returning the first one
+    else if (ids.size > 1) ids.head // arbitrarily returning the first one
     else {
       val id = s"T${textBoundLUT.size + 1}"
       val kv = (id -> span)
