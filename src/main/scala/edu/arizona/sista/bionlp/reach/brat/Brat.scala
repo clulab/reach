@@ -1,7 +1,6 @@
 package edu.arizona.sista.bionlp.reach.brat
 
 import java.io.{File, InputStream}
-import scala.collection.mutable
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.{Document, Sentence}
@@ -68,7 +67,10 @@ object Brat {
   }
 
   def alignLabels(document: Document, annotations: Seq[Annotation]): Seq[Seq[String]] = {
-    val textBound = annotations filter (_.isInstanceOf[TextBound]) map (_.asInstanceOf[TextBound])
+    val textBound = annotations flatMap (_ match {
+      case annotation: TextBound => Some(annotation)
+      case _ => None
+    })
     document.sentences map (alignSentenceLabels(_, textBound))
   }
 
@@ -122,11 +124,11 @@ object Brat {
 
       case m: EventMention =>
         val trigger = getId(m.trigger)
-        val arguments = m.arguments.flatMap { case (name, vals) => vals map (v => s"$name:${getId(v)}")}.mkString(" ")
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
         s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m, doc)}"
 
       case m: RelationMention =>
-        val arguments = m.arguments.flatMap { case (name, vals) => vals map (v => s"$name:${getId(v)}")}.mkString(" ")
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
         s"${getId(m)}\tOrigin $arguments\n${displayRuleName(m, doc)}"
     }
   }
