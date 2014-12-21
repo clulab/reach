@@ -13,7 +13,6 @@
   action: mkTextBoundMention
   pattern: |
     [word = /(?i)^(glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine)$/]
-    [!word = /phosphorylation/]
     [word = /acid/]?
     [word = /(?i)residue/]?
     [word = /\d{3}$/]?
