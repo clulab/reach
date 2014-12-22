@@ -1,6 +1,6 @@
 
 - name: uniprotID_AKT1_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -15,7 +15,7 @@
    ([word=/(?i)^Protein$/] kinase [word=/(?i)^B$/])
 
 - name: uniprotID_AKTS1_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -26,7 +26,7 @@
    ([word=/(?i)^PRAS40$/])
 
 - name: uniprotID_BRAS2_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -38,7 +38,7 @@
    ([word=/(?i)^ATP1A1$/] antisense gene [word=/(?i)^protein$/]? "1")
 
 - name: uniprotID_CRAS1_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -49,7 +49,7 @@
    ([word=/(?i)^Putative$/] uncharacterized [word=/(?i)^protein$/]? [word=/(?i)^CRYM-AS1$/])
 
 - name: uniprotID_EGFL6_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -60,7 +60,7 @@
    ([word=/(?i)^EGF(-like)?$/] [word=/(?i)^protein$/]? "6")
 
 - name: uniprotID_EGFR_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -71,7 +71,7 @@
    ([word=/(?i)^Proto(-oncogene)?$/] "c-ErbB-1")
 
 - name: uniprotID_HBEGF_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -84,7 +84,7 @@
    ([word=/(?i)^Heparin(-binding)?$/] [word=/(?i)^-?binding$/]? [word=/(?i)^EGF(-like)?$/] growth factor)
 
 - name: uniprotID_HERC2_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -94,7 +94,7 @@
    ([word=/(?i)^HERC2$/])
 
 - name: uniprotID_HERC6_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -104,7 +104,7 @@
    ([word=/(?i)^HECT$/] domain and [word=/(?i)^RCC1(-like)?$/] [word=/(?i)^domain(-containing)?$/] [word=/(?i)^-?containing$/]? [word=/(?i)^protein$/]? "6")
 
 - name: uniprotID_MEGF8_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -116,7 +116,7 @@
    ([word=/(?i)^Multiple$/] [word=/(?i)^EGF(-like)?$/] domains [word=/(?i)^protein$/]? "8")
 
 - name: uniprotID_RASA3_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -127,7 +127,7 @@
    ([word=/(?i)^RASA3$/])
 
 - name: uniprotID_RASF1_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -137,7 +137,7 @@
    ([word=/(?i)^RDA32$/])
 
 - name: uniprotID_RASF5_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -149,7 +149,7 @@
    ([word=/(?i)^RAPL$/])
 
 - name: uniprotID_RASF9_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -161,7 +161,7 @@
    ([word=/(?i)^PAM$/] [word=/(?i)^COOH(-terminal)?$/] interactor [word=/(?i)^protein$/]? "1")
 
 - name: uniprotID_RASL1_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -170,7 +170,7 @@
    ([word=/(?i)^RasGAP(-activating)?(-like)?$/] [word=/(?i)^-?activating$/]? [word=/(?i)^protein$/]? "1")
 
 - name: uniprotID_RASM_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -180,7 +180,7 @@
    ([word=/(?i)^MRAS$/])
 
 - name: uniprotID_SMEK3_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -189,7 +189,7 @@
    ([word=/(?i)^SMEK3P$/])
 
 - name: uniprotID_VEGFA_HUMAN
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -202,7 +202,7 @@
 
 
 - name: uniprotID_NRG1_HUMAN #from "neighbors"
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -221,7 +221,7 @@
    ([word=/(?i)^HRG$/])
 
 - name: uniprotID_ERBB3_HUMAN #from "neighbors"
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
