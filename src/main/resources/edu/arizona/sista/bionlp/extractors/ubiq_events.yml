@@ -1,0 +1,98 @@
+
+- name: Ubiquitination_1
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitinat.*/ & !word=/^de/]
+    cause?: (nsubj | <vmod) /appos|nn|conj_|cc/*
+    theme: (dobj | xcomp) /./*
+    site?: >dobj? prep_(at|on) /nn|conj_|cc/*
+
+
+- name: Ubiquitination_2
+  priority: 4
+  action: mkSimpleEvent
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitinated/ & !word=/^de/]
+    theme: >nsubjpass
+    cause?: agent|prep_by
+
+
+- name: Ubiquitination_3
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitination/ & !word=/^de/]
+    theme: prep_of
+    cause?: <dobj agent|prep_by nn*
+    #site?: (/prep_/ nn*)+
+    constraint: <dobj [lemma=/prevent|inhibit|block/]
+
+
+- name: Ubiquitination_4
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitination/ & !word=/^de/]
+    theme: (/prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
+    site?:  (/prep_|conj_|nn/+ [mention=Site]) | (< /prep_|conj_|nn/+ [mention=Site])
+    cause?: <nn* | (prep_by nn*) | <dobj nsubj dep* nn*
+
+- name: Ubiquitination_5
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitination/ & !word=/^de/]
+    cause: nn /conj_|cc|nn/*
+    constraint: </prep_/ | rcmod
+
+
+- name: Ubiquitination_6
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitination/ & !word=/^de/]
+    theme: nn+
+    site: nn+ [mention="Site"]
+
+
+- name: Ubiquitination_DARPA_0
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitinat.*/ & !word=/^de/]
+    cause: <xcomp <rcmod? /appos|nn|conj_|cc/*
+    theme: (dobj | xcomp) /appos|nn|conj_|cc/*
+    site?: dobj? prep_(at|on) /nn|conj_|cc/*
+
+
+- name: Ubiquitination_DARPA_3
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i).*ubiquitination/ & !word=/^de/]
+    cause: <prep_via agent|prep_by /nn|conj_|cc/*
+    theme: (prep_of /nn|conj_|cc/*)+

@@ -80,7 +80,7 @@
     [word = /(?i)^(glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine)/ & !word=/-rich/ & !mention=/./]
 
 - name: HER_default
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -88,7 +88,7 @@
     /HER2/
 
 - name: Families
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
@@ -100,7 +100,7 @@
     /(?i)^Wnt$/
 
 - name: our_proteins
-  label: Gene_or_gene_product
+  label: Protein
   priority: 1
   type: token
   action: mkTextBoundMention
