@@ -79,7 +79,7 @@ object RuleShell extends App {
     def repr: String = mention match {
       case m: TextBoundMention => s"${m.label}(${m.text})"
       case m: EventMention => s"${m.label}(${dumpArgs(m.arguments)})"
-      // case m: RelationMention => s"${m.label}(${dumpArgs(m)})"
+      case m: RelationMention => s"${m.label}(${dumpArgs(m.arguments)}"
     }
 
     private def dumpArgs(arguments: Map[String, Seq[Mention]]): String =
