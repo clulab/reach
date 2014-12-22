@@ -57,7 +57,7 @@ object Ruler {
 
   def readEventRules: String = {
     val dir = "/edu/arizona/sista/bionlp/extractors"
-    val files = Seq(s"$dir/phospho_events.yml", s"$dir/bind_events.yml", s"$dir/exchange_events.yml", s"$dir/degrad_events.yml")
+    val files = Seq(s"$dir/phospho_events.yml", s"$dir/ubiq_events.yml", s"$dir/hydrox_events.yml", s"$dir/bind_events.yml", s"$dir/exchange_events.yml", s"$dir/degrad_events.yml")
     (files map readFile).mkString("\n\n")
   }
 
