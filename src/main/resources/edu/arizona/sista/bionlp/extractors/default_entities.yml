@@ -67,9 +67,9 @@
   type: token
   action: mkComplexEntity
   pattern: |
-    (?<site> [mention=Site]) [tag=IN] /./*? (?<protein>[mention=/Protein|Gene_or_gene_product/])
+    (?<site> [mention=Site]) [tag=IN] [!tag=/^V/]*? (?<protein>[mention=/Protein|Gene_or_gene_product/])
         |
-    (?<protein>[mention=/Protein|Gene_or_gene_product/]) [tag=IN] /./*? (?<site> [mention=Site])
+    (?<protein>[mention=/Protein|Gene_or_gene_product/]) [tag=IN] [!tag=/^V/]*? (?<site> [mention=Site])
 
 - name: simple_chem
   label: Simple_chemical
