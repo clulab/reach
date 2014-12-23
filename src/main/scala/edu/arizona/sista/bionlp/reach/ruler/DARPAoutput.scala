@@ -39,12 +39,12 @@ object DARPAoutput extends App {
 
   println(s"Writing output to $outName")
   output.write(header)
-  val mentions: Map[String, Seq[Mention]] =
+  val mentions: Map[String, Seq[EventMention]] =
     papers
       .map(d => retrieveMentions(d))
       .flatten
       .groupBy(_.repr)
-  mentions.foreach(pair => displayMention(pair._1, pair._2))
+  mentions.foreach(pair => displayEvents(pair._1, pair._2))
 
   def docFromSerializedFile(filename: String): Document = {
     val br = new BufferedReader(new FileReader(filename))
@@ -52,11 +52,11 @@ object DARPAoutput extends App {
     doc
   }
 
-  def retrieveMentions(doc: Document): Seq[Mention] = {
+  def retrieveMentions(doc: Document): Seq[EventMention] = {
     extractor.extractFrom(doc).filter(_.isInstanceOf[EventMention]).map(_.asInstanceOf[EventMention])
   }
 
-  def displayMention(representation:String, mentions:Seq[Mention]) {
+  def displayEvents(representation:String, mentions:Seq[EventMention]) {
     def getText:String = {
       mentions.sortBy(m => (passageID(m.document), m.sentence, m.start)) // sort by doc, sentence, start idx
         .map(m => m.document.sentences(m.sentence).getSentenceText()) // get text
