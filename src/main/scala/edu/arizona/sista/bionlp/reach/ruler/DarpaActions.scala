@@ -8,6 +8,11 @@ import edu.arizona.sista.struct.Interval
 class DarpaActions extends Actions {
   // NOTE these are example actions that should be adapted for the darpa evaluation
 
+  //
+  val proteinLabels = Seq("Simple_chemical", "Complex", "Protein", "Protein_with_site", "Gene_or_gene_product", "GENE")
+  val simpleProteinLabels = Seq("Protein", "Gene_or_gene_product")
+  val siteLabels = Seq("Site", "Protein_with_site")
+
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     Seq(new TextBoundMention(label, mention("--GLOBAL--").head, sent, doc, ruleName))
   }
@@ -20,8 +25,8 @@ class DarpaActions extends Actions {
 
   def mkConversion(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val theme = state.mentionsFor(sent, mention("theme").head.start, "Gene_or_gene_product").head
-    val cause = if (mention contains "cause") state.mentionsFor(sent, mention("cause").head.start, "Gene_or_gene_product").headOption else None
+    val theme = state.mentionsFor(sent, mention("theme").head.start, simpleProteinLabels).head
+    val cause = if (mention contains "cause") state.mentionsFor(sent, mention("cause").head.start, simpleProteinLabels).headOption else None
     val args = if (cause.isDefined) Map("Theme" -> Seq(theme), "Cause" -> Seq(cause.get)) else Map("Theme" -> Seq(theme))
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
@@ -29,7 +34,7 @@ class DarpaActions extends Actions {
 
   def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // construct an event mention from a complex entity like "Protein_with_site"
-    val protein = state.mentionsFor(sent, mention("protein").head.start, Seq("Protein", "Gene_or_gene_product")).head
+    val protein = state.mentionsFor(sent, mention("protein").head.start, simpleProteinLabels).head
     val site = state.mentionsFor(sent, mention("site").head.start, Seq("Site")).head
     val event = new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
 
