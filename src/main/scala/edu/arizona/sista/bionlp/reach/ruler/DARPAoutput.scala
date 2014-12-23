@@ -35,36 +35,34 @@ object DARPAoutput extends App {
   val papers = Seq(docFromSerializedFile(s"$dir/MEKinhibition.txt.ser"), docFromSerializedFile(s"$dir/UbiquitinationofRas.txt.ser"))
   val passageID = Map(papers.head -> 1, papers.last -> 2)
 
-  val header = s"Pass ID;Relation;Model Link (BioPax or BEL);‘English-like’ Description;Model Representation;Source Text\n"
+  val header = s"Mention Count;Relation;Model Link (BioPax or BEL);‘English-like’ Description;Model Representation;Source Text\n"
 
   println(s"Writing output to $outName")
   output.write(header)
-  papers.foreach(d => retrieveMentions(d))
+  val mentions: Map[String, Seq[Mention]] =
+    papers
+      .map(d => retrieveMentions(d))
+      .flatten
+      .groupBy(_.repr)
+  mentions.foreach(pair => displayMention(pair._1, pair._2))
 
-  def docFromSerializedFile(filename: String):Document = {
+  def docFromSerializedFile(filename: String): Document = {
     val br = new BufferedReader(new FileReader(filename))
     val doc = ds.load(br)
     doc
   }
 
-  def retrieveMentions(doc:Document) {
-    val mentions = extractor.extractFrom(doc).filter(_.isInstanceOf[EventMention]).distinct.sortBy(m => (m.sentence, m.start))
-    mentions.foreach(m => displayMention(m))
+  def retrieveMentions(doc: Document): Seq[Mention] = {
+    extractor.extractFrom(doc).filter(_.isInstanceOf[EventMention]).map(_.asInstanceOf[EventMention])
   }
 
-  def displayMention(mention: Mention) {
-    mention match {
-      case m: EventMention =>
-        // UNIQUE ID;RYAN's stuff;RYAN model link? (representative entities);some simple language generation here??;model representation;source text
-        output.write(s"D${passageID.getOrElse(mention.document, "?")}-S${m.sentence};;;;${m.repr};${m.document.sentences(m.sentence).getSentenceText()}\n")
-        //println(s"${m.label} (EventMention)")
-        //println(s"trigger = ${m.trigger.text}")
-        //m.arguments foreach {
-        //  case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
-        //}
-        //println
-      case _ => ()
+  def displayMention(representation:String, mentions:Seq[Mention]) {
+    def getText:String = {
+      mentions.sortBy(m => (passageID(m.document), m.sentence, m.start)) // sort by doc, sentence, start idx
+        .map(m => m.document.sentences(m.sentence).getSentenceText()) // get text
+        .mkString("  ")
     }
+    output.write(s"${mentions.size};;;;$representation;$getText\n")
   }
 
   // generates a representation of the mention that can be used
@@ -77,16 +75,17 @@ object DARPAoutput extends App {
     }
 
     private def dumpArgs(arguments: Map[String, Seq[Mention]]): String =
-      arguments.map{ case (k, v) => s"$k=${dumpArgVal(v)}" }.mkString(", ")
+      arguments.map { case (k, v) => s"$k=${dumpArgVal(v)}"}.mkString(", ")
 
     private def dumpArgVal(mentions: Seq[Mention]): String =
       if (mentions.size == 1) mentions(0).repr
       else s"[${mentions.map(_.repr).mkString(", ")}]"
   }
+
 }
 
 
-/***
+/** *
 
    case m: TextBoundMention =>
         println(m.repr)
@@ -107,4 +106,4 @@ object DARPAoutput extends App {
           case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
         }
         println
-  ***/
+  * **/
