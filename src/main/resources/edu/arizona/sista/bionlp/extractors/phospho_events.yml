@@ -18,7 +18,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylated/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylated/ & !word=/^de/]
     theme: >nsubjpass
     cause?: agent|prep_by
 
@@ -30,7 +30,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: prep_of
     cause?: <dobj agent|prep_by nn*
     #site?: (/prep_/ nn*)+
@@ -44,7 +44,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: (/prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
     site?:  (/prep_|conj_|nn/+ [mention=Site]) | (< /prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by nn*) | <dobj nsubj dep* nn*
@@ -56,7 +56,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
     cause: nn /conj_|cc|nn/*
     constraint: </prep_/ | rcmod
 
@@ -68,10 +68,9 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
     theme: nn+
     site: nn+ [mention="Site"]
-
 
 - name: Phosphorylation_DARPA_0
   priority: 4
@@ -80,7 +79,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     cause: <xcomp <rcmod? /appos|nn|conj_|cc/*
     theme: (dobj | xcomp) /appos|nn|conj_|cc/*
     site?: dobj? prep_(at|on) /nn|conj_|cc/*
@@ -93,6 +92,6 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i).*phosphorylation/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
     cause: <prep_via agent|prep_by /nn|conj_|cc/*
     theme: (prep_of /nn|conj_|cc/*)+
