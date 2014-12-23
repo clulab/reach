@@ -92,7 +92,7 @@ class DarpaActions extends Actions {
 
   def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val themes = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, "Gene_or_gene_product"))
+    val themes = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     val args = Map("Theme" -> themes)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
@@ -102,8 +102,8 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme1 = mention("theme1") flatMap (m => state.mentionsFor(sent, m.start, "Simple_chemical"))
     val theme2 = mention("theme2") flatMap (m => state.mentionsFor(sent, m.start, "Simple_chemical"))
-    val goal = mention("goal") flatMap (m => state.mentionsFor(sent, m.start, "Gene_or_gene_product"))
-    val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, "Gene_or_gene_product"))
+    val goal = mention("goal") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
+    val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     val args = Map("Theme1" -> theme1, "Theme2" -> theme2, "Goal" -> goal, "Cause" -> cause)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
@@ -111,8 +111,8 @@ class DarpaActions extends Actions {
 
   def mkDegradation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val theme = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, "Gene_or_gene_product"))
-    val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, "Gene_or_gene_product"))
+    val theme = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
+    val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     val args = Map("Theme" -> theme, "Cause" -> cause)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
