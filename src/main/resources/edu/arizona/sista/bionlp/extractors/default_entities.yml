@@ -45,6 +45,14 @@
    [word=/residue/]?
    [word=/\d+/]
 
+- name: site_domain
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    /\(/? /^[A-Z0-9-]+$/ /\)/? /domain/
+
 - name: multi_site
   label: Multiple_sites
   priority: 3
