@@ -108,10 +108,13 @@ object Brat {
 
     val ruleNames = mentions.distinct.map(m => displayRuleName(m, doc, idTracker))
 
+    // returns the num. value of the entity name
+    def getNum(text:String):Int = if (text.isEmpty) -1 else text.split("\\s+").head.tail.toInt
+
     // sort mention representations
-    (mentionRepresentations("T").sorted ++
-      mentionRepresentations("R").sorted ++
-      mentionRepresentations("E").sorted ++
+    (mentionRepresentations("T").sortBy(getNum) ++
+      mentionRepresentations("R").sortBy(getNum) ++
+      mentionRepresentations("E").sortBy(getNum)  ++
       ruleNames)
       .mkString("\n")
   }
