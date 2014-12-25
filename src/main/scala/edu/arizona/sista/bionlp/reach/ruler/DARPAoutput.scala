@@ -2,11 +2,10 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 
 import java.io.{PrintWriter, File, BufferedReader, FileReader}
-import edu.arizona.sista.matcher.{ExtractorEngine, Mention, TextBoundMention, EventMention}
-import edu.arizona.sista.bionlp.reach.core.RelationMention
+import edu.arizona.sista.matcher.{ExtractorEngine, EventMention}
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-
+import RuleShell.Repr
 /**
  * Created by gus on 12/22/14.
  */
@@ -64,46 +63,6 @@ object DARPAoutput extends App {
     }
     output.write(s"${mentions.size};;;;$representation;$getText\n")
   }
-
-  // generates a representation of the mention that can be used
-  // for the csv file expected by darpa
-  implicit class Repr(mention: Mention) {
-    def repr: String = mention match {
-      case m: TextBoundMention => s"${m.label}(${m.text})"
-      case m: EventMention => s"${m.label}(${dumpArgs(m.arguments)})"
-      case m: RelationMention => s"${m.label}(${dumpArgs(m.arguments)}"
-    }
-
-    private def dumpArgs(arguments: Map[String, Seq[Mention]]): String =
-      arguments.map { case (k, v) => s"$k=${dumpArgVal(v)}"}.mkString(", ")
-
-    private def dumpArgVal(mentions: Seq[Mention]): String =
-      if (mentions.size == 1) mentions(0).repr
-      else s"[${mentions.map(_.repr).mkString(", ")}]"
-  }
-
 }
 
 
-/** *
-
-   case m: TextBoundMention =>
-        println(m.repr)
-        println(s"${m.label} (TextBoundMention)")
-        println(m.text)
-        println
-      case m: EventMention =>
-        println(m.repr)
-        println(s"${m.label} (EventMention)")
-        println(s"trigger = ${m.trigger.text}")
-        m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
-        }
-        println
-      case m: RelationMention =>
-        println(s"${m.label} (RelationMention)")
-        m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
-        }
-        println
-  * **/
