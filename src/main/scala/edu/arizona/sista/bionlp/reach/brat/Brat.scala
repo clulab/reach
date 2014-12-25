@@ -97,39 +97,54 @@ object Brat {
   def dumpStandoff(mentions: Seq[Mention], doc: Document): String =
     dumpStandoff(mentions, doc, Nil)
 
+
   def dumpStandoff(mentions: Seq[Mention], doc: Document, annotations: Seq[Annotation]): String = {
+
     val idTracker = IdTracker(annotations)
-    mentions.map(m => dumpStandoff(m, doc, idTracker)).mkString("\n")
+
+    val mentionRepresentations = mentions.map(m => dumpStandoff(m, doc, idTracker))
+      .distinct // just to be safe...
+      .groupBy(_.head.toString) // first character
+
+    val ruleNames = mentions.distinct.map(m => displayRuleName(m, doc, idTracker))
+
+    // sort mention representations
+    (mentionRepresentations("T").sorted ++
+      mentionRepresentations("R").sorted ++
+      mentionRepresentations("E").sorted ++
+      ruleNames)
+      .mkString("\n")
+  }
+
+  def displayRuleName(m: Mention, doc: Document, tracker: IdTracker): String = {
+    //example:
+    //#10     Origin E4       Rulename1
+    s"${tracker.getUniqueId(m, doc)}\tOrigin ${getId(m, doc, tracker)}\t${m.foundBy}"
+  }
+
+  def getId(m: Mention, doc: Document, tracker: IdTracker): String = m match {
+    case t: TextBoundMention => tracker.getId(t, doc)
+    case e: EventMention => tracker.getId(e, doc)
+    case r: RelationMention => tracker.getId(r, doc)
   }
 
   def dumpStandoff(mention: Mention, doc: Document, tracker: IdTracker): String = {
     val sentence = doc.sentences(mention.sentence)
-    def getId(m: Mention): String = m match {
-      case t: TextBoundMention => tracker.getId(t, doc)
-      case e: EventMention => tracker.getId(e, doc)
-      case r: RelationMention => tracker.getId(r, doc)
-    }
-
-    def displayRuleName(m: Mention, doc: Document): String = {
-      //example:
-      //#10     Origin E4       Rulename1
-      s"${tracker.getUniqueId(m, doc)}\tOrigin ${getId(m)}\t${m.foundBy}"
-    }
 
     mention match {
       case m: TextBoundMention =>
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = sentence.words.slice(m.start, m.end).mkString(" ")
-        s"${getId(m)}\t${m.label} $offsets\t$str\n${displayRuleName(m, doc)}"
+        s"${getId(m, doc, tracker)}\t${m.label} $offsets\t$str"
 
       case m: EventMention =>
-        val trigger = getId(m.trigger)
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
-        s"${getId(m)}\t${m.label}:$trigger $arguments\n${displayRuleName(m, doc)}"
+        val trigger = getId(m.trigger, doc, tracker)
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v, doc, tracker)}") }.mkString(" ")
+        s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
 
       case m: RelationMention =>
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v)}") }.mkString(" ")
-        s"${getId(m)}\tOrigin $arguments\n${displayRuleName(m, doc)}"
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v, doc, tracker)}") }.mkString(" ")
+        s"${getId(m, doc, tracker)}\tOrigin $arguments"
     }
   }
 
