@@ -112,11 +112,11 @@ object Brat {
     def getNum(text:String):Int = if (text.isEmpty) -1 else text.split("\\s+").head.tail.toInt
 
     // sort mention representations
-    (mentionRepresentations("T").sortBy(getNum) ++
-      mentionRepresentations("R").sortBy(getNum) ++
-      mentionRepresentations("E").sortBy(getNum)  ++
-      ruleNames)
-      .mkString("\n")
+    (mentionRepresentations.getOrElse("T", Seq.empty).sortBy(getNum) ++
+     mentionRepresentations.getOrElse("R", Seq.empty).sortBy(getNum) ++
+     mentionRepresentations.getOrElse("E", Seq.empty).sortBy(getNum)  ++
+     ruleNames)
+       .mkString("\n")
   }
 
   def displayRuleName(m: Mention, doc: Document, tracker: IdTracker): String = {
