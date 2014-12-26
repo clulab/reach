@@ -2,7 +2,7 @@
   priority: 4
   action: mkSimpleEvent
   example: "PTEN protein expression was detectable by Western blot in all cell lines."
-  label: "Gene transcription"
+  label: Transcription
   type: dependency
   pattern: |
     trigger: [word=/(?i)(over)?express/ & tag=/^N/]
@@ -13,7 +13,7 @@
   priority: 4
   action: mkSimpleEvent
   example: "We went on to examine the levels of MCL-1 and BIM expressed in several uveal melanoma cell lines following exposure to AZD8055 and selumetinib (Figure 7A)."
-  label: "Gene transcription"
+  label: Transcription
   type: dependency
   pattern: |
     trigger: [word=/(?i)(over)?express/ & tag=/^V/]
@@ -23,7 +23,7 @@
   priority: 4
   action: mkSimpleEvent
   example: "Indeed, EGFR is overexpressed in 30%-85% patients with CRC."
-  label: "Gene transcription"
+  label: Transcription
   type: dependency
   pattern: |
     trigger: [word=/(?i)(over)?express/ & tag=/^V/]
@@ -33,17 +33,17 @@
   priority: 4
   action: mkSimpleEvent
   example: "When looking at oxaliplatin, it can be concluded that when B-Raf is wild type (regardless of K-Ras mutation), increased levels of p73 protein correlate enhanced TAp73 transcription, in the presence of cetuximab (cetuximab or cetuximab plus oxaliplatin)."
-  label: "Gene transcription"
+  label: Transcription
   type: dependency
   pattern: |
     trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
-    theme: nn+  
+    theme: nn+
 
 - name: transcription_2
   priority: 4
   action: mkSimpleEvent
   example: "ErbB3 gene transcription"
-  label: "Gene transcription"
+  label: Transcription
   type: dependency
   pattern: |
     trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
@@ -53,7 +53,7 @@
   priority: 4
   action: mkSimpleEvent
   example: "Transcription of genes"
-  label: "Gene transcription"
+  label: Transcription
   type: dependency
   pattern: |
     trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
