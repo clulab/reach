@@ -133,6 +133,35 @@ class TestDarpaRules extends AssertionsForJUnit {
     // TODO: this fails: the site is attached to the incorrect entity
     assertTrue(hasEntityWithSite("HER2", "T677A mutant", mentions))
   }
+
+  @Test def testRules7() {
+    val doc = proc.annotate("ERK negatively regulates the epidermal growth factor mediated interaction of Gab1 and the phosphatidylinositol 3-kinase.")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+
+    // TODO: this fails
+    assertTrue(hasEventWithArguments("Binding", List("Gab1", "phosphatidylinositol 3-kinase"), mentions))
+  }
+
+  @Test def testRules8() {
+    val doc = proc.annotate("Figure 3 Raf and PI3K bind more to ubiquitinated Ras than to non- ubiquitinated Ras To examine whether the binding of ubiquitinated K-Ras to Raf and PI3K inhibits or can actually enhance their kinase activity, both total G12V-K-Ras and the ubiquitinated subfraction of G12V-K-Ras were purified from cell lysates and subjected to an in vitro kinase (I.V.K.) assay (Fig. 4A).")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+    assertTrue(hasEventWithArguments("Binding", List("Raf", "PI3K", "K-Ras"), mentions))
+  }
+
+  @Test def testRules9() {
+    val doc = proc.annotate("Figure 5 MEK inhibition blocks phosphorylation of a direct ERK target site in the conserved JM domains of EGFR and HER2 We hypothesized that the MEK/ERK pathway may suppress trans-phosphorylation of ERBB3 by directly phosphorylating the JM domains of EGFR and HER2, and that this could be a dominant MEK inhibitor induced feedback leading to AKT activation in these cancers.")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+
+    assertTrue(hasEntityWithSite("HER2", "JM domains", mentions)) // TODO: this fails
+    assertTrue(hasEntityWithSite("EGFR", "JM domains", mentions))
+
+    assertTrue(hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
+    assertTrue(hasEventWithArguments("Phosphorylation", List("HER2"), mentions))
+
+  }
 }
 
 object TestDarpaRules {
