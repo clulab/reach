@@ -1,5 +1,6 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import edu.arizona.sista.bionlp.reach.core.RelationMention
 import edu.arizona.sista.matcher._
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import org.scalatest.junit.AssertionsForJUnit
@@ -39,6 +40,40 @@ class TestDarpaRules extends AssertionsForJUnit {
     false
   }
 
+  def hasEntity(text:String, mentions:Seq[Mention]):Boolean = {
+    for(m <- mentions) {
+      if (m.isInstanceOf[TextBoundMention]) {
+        val tm = m.asInstanceOf[TextBoundMention]
+        if (tm.text == text) {
+          println(s"\t==> found entity mention: ${tm.text}")
+          return true
+        }
+      }
+    }
+    false
+  }
+
+  def hasEntityWithSite(text:String, site:String, mentions:Seq[Mention]):Boolean = {
+    for(m <- mentions) {
+      if (m.isInstanceOf[RelationMention]) {
+        val rm = m.asInstanceOf[RelationMention]
+        if (rm.arguments.contains("Site") &&
+            contains(rm.arguments.get("Site").get, site) &&
+            rm.arguments.contains("Protein") &&
+            contains(rm.arguments.get("Protein").get, text)) {
+          println(s"\t==> found entity mention with site: ${rm.text}")
+          return true
+        }
+      }
+    }
+    false
+  }
+
+  def contains(mentions:Seq[Mention], text:String):Boolean = {
+    for(m <- mentions) if(m.text == text) return true
+    false
+  }
+
   @Test def testRules1() {
     val doc = proc.annotate("As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B).")
     val mentions = extractor.extractFrom(doc)
@@ -52,6 +87,51 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
     assertTrue(hasEventWithArguments("Binding", List("Raf", "PI3K", "Ras"), mentions))
+  }
+
+  @Test def testRules3() {
+    val doc = proc.annotate("We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation.")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+    // TODO: all these Phosphorylations fail!
+    assertTrue(hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
+    assertTrue(hasEventWithArguments("Phosphorylation", List("HER2"), mentions))
+    assertTrue(hasEventWithArguments("Phosphorylation", List("ERBB3"), mentions))
+  }
+
+  @Test def testRules4() {
+    val doc = proc.annotate("We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation.")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+    assertTrue(hasEntity("ERK", mentions))
+    assertTrue(hasEntity("EGFR", mentions))
+    assertTrue(hasEntity("HER2", mentions))
+    assertTrue(hasEntity("ERBB3", mentions))
+
+    assertTrue(hasEntityWithSite("EGFR", "JM domains", mentions))
+    // TODO: this fails because of not handling the coordination
+    assertTrue(hasEntityWithSite("HER2", "JM domains", mentions))
+  }
+
+  @Test def testRules5() {
+    val doc = proc.annotate("To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wildtype ERBB3 with either wild-type EGFR or EGFR T669A.")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+    assertTrue(hasEntity("ERBB receptors", mentions))
+    assertTrue(hasEntity("ERBB3", mentions))
+    assertTrue(hasEntity("EGFR", mentions))
+
+    // TODO: this fails: the site is attached to the incorrect entity
+    assertTrue(hasEntityWithSite("EGFR", "T669A", mentions))
+  }
+
+  @Test def testRules6() {
+    val doc = proc.annotate("We observed analogous results in CHO-KI cells expressing wild-type ERBB3 in combination with wild-type or T677A mutant HER2 (Figure 6B)")
+    val mentions = extractor.extractFrom(doc)
+    RuleShell.displayMentions(mentions, doc)
+
+    // TODO: this fails: the site is attached to the incorrect entity
+    assertTrue(hasEntityWithSite("HER2", "T677A mutant", mentions))
   }
 }
 
