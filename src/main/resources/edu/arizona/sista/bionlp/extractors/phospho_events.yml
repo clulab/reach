@@ -9,7 +9,7 @@
     trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
     cause?: (nsubj | <vmod) /appos|nn|conj_|cc/*
     theme: (dobj | xcomp) /./*
-    site?: dobj? /prep_(at|on)|nn|conj_|cc/*
+    #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
 
 - name: Phosphorylation_2
@@ -46,7 +46,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: (/prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
-    site?:  (/prep_|conj_|nn/+ [mention=Site]) | (< /prep_|conj_|nn/+ [mention=Site])
+    #site?:  (/prep_|conj_|nn/+ [mention=Site]) | (< /prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by nn*) | <dobj nsubj dep* nn*
 
 - name: Phosphorylation_5
@@ -82,7 +82,7 @@
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     cause: <xcomp <rcmod? /appos|nn|conj_|cc/*
     theme: (dobj | xcomp) /appos|nn|conj_|cc/*
-    site?: dobj? prep_(at|on) /nn|conj_|cc/*
+    #site?: dobj? prep_(at|on) /nn|conj_|cc/*
 
 
 - name: Phosphorylation_DARPA_3
