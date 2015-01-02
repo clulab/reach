@@ -35,11 +35,10 @@ class DarpaActions extends Actions {
   def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // construct an event mention from a complex entity like "Protein_with_site"
     //mention("protein").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
-    val protein = state.mentionsFor(sent, mention("protein").head.start, simpleProteinLabels).head
-    val site = state.mentionsFor(sent, mention("site").head.start, Seq("Site")).head
-    val event = new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
-
-    Seq(event)
+    val proteins = state.mentionsFor(sent, mention("protein").map(_.start), simpleProteinLabels)
+    val sites = state.mentionsFor(sent, mention("site").map(_.start), Seq("Site"))
+    val events = for (protein <- proteins; site <- sites) yield new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
+    events
   }
 
   def mkMultiSite(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
