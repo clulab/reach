@@ -1,0 +1,8 @@
+
+- name: Down_regulation_1
+  priority: 5
+  action: mkComplexEvent
+  type: token
+  label: Down_regulation
+  pattern: |
+    (?<cause> [mention=/./]) /./*? (?<trigger> [word=/(?i)block|inhibit|reduce/]) /./*? (?<theme> [mention=/./])
