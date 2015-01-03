@@ -72,6 +72,25 @@
     theme: nn+
     site: nn+ [mention="Site"]
 
+
+- name: Phosphorylation_token_1
+  priority: 4
+  action: mkSimpleEvent
+  example: " ... which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2"
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [tag=/IN/] /./*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
+
+- name: Phosphorylation_token_2
+  priority: 4
+  action: mkSimpleEvent
+  example: " ... , thereby increasing ERBB3 phosphorylation."
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [!tag=/IN/]
+
 - name: Phosphorylation_DARPA_0
   priority: 4
   action: mkSimpleEvent
