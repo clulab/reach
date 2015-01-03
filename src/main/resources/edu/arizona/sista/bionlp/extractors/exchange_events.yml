@@ -48,7 +48,7 @@
   type: dependency
   pattern: |
     trigger: [word=/exchange/ & tag=/^NN/]
-    goal?: <dep nn
+    goal?: (<dep nn) | prep_of
     cause?: <dep <dobj nsubj [mention=/Gene_or_gene_product|Complex/]
     theme1: nn [mention=/Simple_chemical/] # GDP
     theme2: <dep [mention=/Simple_chemical/] # GTP
@@ -66,3 +66,5 @@
     cause?: <xcomp <rcmod <dep <prep_as nn [mention=/Gene_or_gene_product|Complex/]
     theme1: dobj # GDP
     theme2: <xcomp <rcmod <dep <prep_as <nsubj ccomp nsubj prep_to [mention=/Simple_chemical/] # GTP
+
+
