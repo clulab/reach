@@ -43,6 +43,16 @@ class DarpaActions extends Actions {
     events
   }
 
+  def mkProteinWithSiteSyntax(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    // construct an event mention from a complex entity like "Protein_with_site"
+    val trigger = state.mentionsFor(sent, mention("trigger").map(_.start))
+    val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), simpleProteinLabels) else trigger
+    val sites = if (mention contains "site") state.mentionsFor(sent, mention("site").map(_.start), Seq("Site")) else trigger
+
+    val events = for (protein <- proteins; site <- sites) yield new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
+    events
+  }
+
   def mkMultiSite(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // construct an event mention from a complex entity like "Protein_with_site"
 
