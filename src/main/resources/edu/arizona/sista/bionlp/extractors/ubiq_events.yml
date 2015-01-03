@@ -45,8 +45,8 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/^de/]
-    theme: (/prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
-    site?:  (/prep_|conj_|nn/+ [mention=Site]) | (< /prep_|conj_|nn/+ [mention=Site])
+    theme: (/pobj|prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /pobj|prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
+    site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by nn*) | <dobj nsubj dep* nn*
 
 - name: Ubiquitination_5
