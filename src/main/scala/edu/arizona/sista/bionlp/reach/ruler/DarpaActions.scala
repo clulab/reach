@@ -75,11 +75,32 @@ class DarpaActions extends Actions {
       case someArgs => state.mentionsFor(sent, someArgs.map(_.start), validLabels).distinct;
     }
 
-    val themes = getMentions("theme",proteinLabels)
+    def filterRelationMentions(mentions:Seq[Mention], argNames:Seq[String]):Seq[Mention]= {
+
+      // unpack RelationMention arguments
+      val relationMentions =
+        mentions
+        .filter(_.isInstanceOf[RelationMention])
+        .map(_.asInstanceOf[RelationMention])
+
+      // check all arguments
+      (for (arg <- argNames; rel <- relationMentions) yield rel.arguments.getOrElse(arg, Seq()))
+        .flatten
+        .distinct
+    }
+
+    // We want to unpack relation mentions...
+    val allThemes = getMentions("theme", proteinLabels)
+
+    // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
+    val themes = allThemes.filter(!_.isInstanceOf[RelationMention]) ++
+      filterRelationMentions(allThemes, proteinLabels.filter(_!= "Protein_with_site"))
+
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil
 
-    val sites = getMentions("site", siteLabels)
+    // unpack any RelationMentions
+    val sites = getMentions("site", siteLabels) ++ filterRelationMentions(allThemes, Seq("Site"))
 
     val causes = getMentions("cause", proteinLabels)
 
