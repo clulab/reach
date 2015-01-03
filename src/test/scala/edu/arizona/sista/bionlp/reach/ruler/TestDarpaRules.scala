@@ -93,7 +93,7 @@ class TestDarpaRules extends AssertionsForJUnit {
     val doc = proc.annotate("We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation.")
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
-    // TODO: all these Phosphorylations fail! (GUS)
+
     assertTrue(hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
     assertTrue(hasEventWithArguments("Phosphorylation", List("HER2"), mentions))
     assertTrue(hasEventWithArguments("Phosphorylation", List("ERBB3"), mentions))
@@ -109,7 +109,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     assertTrue(hasEntity("ERBB3", mentions))
 
     assertTrue(hasEntityWithSite("EGFR", "JM domains", mentions))
-    // TODO: this fails because of not handling the coordination (GUS)
     assertTrue(hasEntityWithSite("HER2", "JM domains", mentions))
   }
 
@@ -121,7 +120,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     assertTrue(hasEntity("ERBB3", mentions))
     assertTrue(hasEntity("EGFR", mentions))
 
-    // TODO: this fails: the site is attached to the incorrect entity (GUS)
     assertTrue(hasEntityWithSite("EGFR", "T669A", mentions))
   }
 
@@ -130,7 +128,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails: the site is attached to the incorrect entity (GUS)
     assertTrue(hasEntityWithSite("HER2", "T677A mutant", mentions))
   }
 
@@ -155,7 +152,7 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
 
-    assertTrue(hasEntityWithSite("HER2", "JM domains", mentions)) // TODO: this fails (GUS)
+    assertTrue(hasEntityWithSite("HER2", "JM domains", mentions))
     assertTrue(hasEntityWithSite("EGFR", "JM domains", mentions))
 
     assertTrue(hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
@@ -179,7 +176,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails due to coordination (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
     assertTrue(hasEventWithArguments("Phosphorylation", List("ERBB3"), mentions))
   }
