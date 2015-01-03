@@ -12,6 +12,7 @@ class DarpaActions extends Actions {
   val proteinLabels = Seq("Simple_chemical", "Complex", "Protein", "Protein_with_site", "Gene_or_gene_product", "GENE")
   val simpleProteinLabels = Seq("Protein", "Gene_or_gene_product")
   val siteLabels = Seq("Site", "Protein_with_site")
+  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Transcription", "Up_regulation", "Down_regulation")
 
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     Seq(new TextBoundMention(label, mention("--GLOBAL--").head, sent, doc, ruleName))
@@ -35,6 +36,7 @@ class DarpaActions extends Actions {
   def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // construct an event mention from a complex entity like "Protein_with_site"
     //mention("protein").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
+    println(s"number of protein matches:\t${mention("protein").length}")
     val proteins = state.mentionsFor(sent, mention("protein").map(_.start), simpleProteinLabels)
     val sites = state.mentionsFor(sent, mention("site").map(_.start), Seq("Site"))
     val events = for (protein <- proteins; site <- sites) yield new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
@@ -76,6 +78,25 @@ class DarpaActions extends Actions {
       case hasCauseHasThemeNoSite if causes.nonEmpty && themes.nonEmpty && sites.isEmpty => for (cause <- causes; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Cause" -> Seq(cause)), sent, doc, ruleName)
       case noCauseHasThemeHasSite if causes.isEmpty && sites.nonEmpty && themes.nonEmpty => for (site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site)), sent, doc, ruleName)
       case noCauseNoSiteHasTheme if causes.isEmpty && sites.isEmpty && themes.nonEmpty => for (theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme)), sent, doc, ruleName)
+      case _ => Seq()
+    }
+    if (mentions.nonEmpty) trigger +: mentions else Nil
+  }
+
+  def mkComplexEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    // Don't change this, but feel free to make a new action based on this one.
+
+    val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+
+    val themes = state.mentionsFor(sent, mention("theme").map(_.start))
+    // Only propagate EventMentions containing a theme
+    if (themes.isEmpty) return Nil
+
+    val causes = state.mentionsFor(sent, mention("cause").map(_.start))
+
+    val mentions = trigger match {
+      case hasCauseHasTheme if causes.nonEmpty && themes.nonEmpty => for (cause <- causes; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Cause" -> Seq(cause)), sent, doc, ruleName)
+      case noCauseHasTheme if causes.isEmpty && themes.nonEmpty => for (theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme)), sent, doc, ruleName)
       case _ => Seq()
     }
     if (mentions.nonEmpty) trigger +: mentions else Nil
