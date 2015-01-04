@@ -147,7 +147,7 @@ object Brat {
 
       case m: RelationMention =>
         val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v, doc, tracker)}") }.mkString(" ")
-        s"${getId(m, doc, tracker)}\tOrigin $arguments"
+        s"${getId(m, doc, tracker)}\t${m.label} $arguments"
     }
   }
 
