@@ -136,7 +136,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails (MARCO)
     assertTrue(hasEventWithArguments("Binding", List("Gab1", "phosphatidylinositol 3-kinase"), mentions))
   }
 

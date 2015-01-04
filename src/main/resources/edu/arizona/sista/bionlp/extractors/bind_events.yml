@@ -69,7 +69,7 @@
   action: mkBindingEvent
   pattern: |
       trigger: interaction
-      theme: nn | <dobj >prep_with >/./*
+      theme: nn | prep_of | <dobj >prep_with >/./*
 
 - name: binding10
   label: Binding
