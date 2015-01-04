@@ -78,8 +78,8 @@ class TestDarpaRules extends AssertionsForJUnit {
     val doc = proc.annotate("As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B).")
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
-    assertTrue(hasEventWithArguments("Binding", List("K-Ras"), mentions)) // TODO: add 32P-GDP (MARCO)
-    assertTrue(hasEventWithArguments("Binding", List("G12V-Ras"), mentions)) // TODO: add 32P-GTP (MARCO)
+    assertTrue(hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions))
+    assertTrue(hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions))
   }
 
   @Test def testRules2() {
