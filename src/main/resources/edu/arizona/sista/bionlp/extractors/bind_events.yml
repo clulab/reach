@@ -111,3 +111,15 @@
   pattern: |
       trigger: interactions
       theme: <dobj <rcmod >dep >conj_and?
+
+# added to catch patterns like "increased XX binding to YY"
+# when the prep_to is (wrongly) attached to increased instead of binding
+- name: binding15
+  label: Binding
+  priority: 4
+  type: token
+  action: mkBindingEvent
+  pattern: |
+    (?<theme1> [mention=Protein | mention=Gene_or_gene_product])
+    (?<trigger> binding) to
+    (?<theme2> [mention=Protein | mention=Gene_or_gene_product])

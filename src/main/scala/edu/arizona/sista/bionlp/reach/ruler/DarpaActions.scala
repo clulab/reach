@@ -144,9 +144,14 @@ class DarpaActions extends Actions {
 
   def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val themes = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
+    val themes = for {
+      k <- mention.keys
+      if k.startsWith("theme")
+      m <- mention(k)
+      theme <- state.mentionsFor(sent, m.start, simpleProteinLabels)
+    } yield theme
     // we may get the same entity several times but we want distinct entities only
-    val args = Map("Theme" -> themes.distinct)
+    val args = Map("Theme" -> themes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
   }

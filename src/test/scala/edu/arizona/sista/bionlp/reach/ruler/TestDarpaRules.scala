@@ -196,7 +196,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails, missing PI3K (MARCO)
     assertTrue(hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions))
 
     // TODO: missing positive regulation of Binding, Controller: MEK. Please add assert for this (MARCO or GUS)
