@@ -206,7 +206,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails, missing Ras (DANE)
     assertTrue(hasEventWithArguments("Exchange", List("GTP", "GDP", "Ras"), mentions))
   }
 }
