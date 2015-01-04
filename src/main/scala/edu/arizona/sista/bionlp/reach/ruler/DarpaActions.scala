@@ -148,7 +148,7 @@ class DarpaActions extends Actions {
       k <- mention.keys
       if k.startsWith("theme")
       m <- mention(k)
-      theme <- state.mentionsFor(sent, m.start, simpleProteinLabels)
+      theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
     // we may get the same entity several times but we want distinct entities only
     val args = Map("Theme" -> themes.toSeq.distinct)
