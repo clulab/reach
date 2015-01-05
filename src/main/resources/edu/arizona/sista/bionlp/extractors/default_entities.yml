@@ -154,6 +154,27 @@
     /(?i)^RASSF[0-9]+$/ |
     /(?i)^AF6$/ |
     /(?i)^Rabex[0-9]+$/
+
+- name: cell_parts
+  label: Cellular_component
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    # rough endoplasmic reticulum
+    /(?i)rough/ /(?i)endoplasmic/ /(?i)reticulum/ | /(?i)rough/ ER | RER
+      |
+    # golgi apparatus
+    /(?i)golgi/ /(?i)apparatus|complex|body/?
+      |
+    # smooth endoplasmic reticulum
+    /(?i)smooth/ /(?i)endoplasmic/ /(?i)reticulum/ | SER
+      |
+    # membrane
+    /(?i)cell/? /(?i)membrane/
+      |
+    # the rest of the locations (single token)
+    /(?i)nucleolus|nucleus|ribosome|vesicle|golgi|cytoskeleton|mitochondrion|mitochondria|vacuole|cytosol|lysosome|centrosome/
     
 - name: banner_entities
   label: Gene_or_gene_product
