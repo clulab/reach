@@ -1,78 +1,19 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
-import edu.arizona.sista.bionlp.reach.core.RelationMention
 import edu.arizona.sista.matcher._
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import org.scalatest.junit.AssertionsForJUnit
 import org.junit.Test
 import org.junit.Assert._
-import TestDarpaRules._
-
+import TestDarpaEval2015Training._
+import DarpaEvalUtils._
 
 /**
- * Unit test for rules tailored for the DARPA evaluation
+ * Unit test for rules tailored for the DARPA evaluation; using the training corpus
  * User: mihais
  * Date: 12/29/14
  */
-class TestDarpaRules extends AssertionsForJUnit {
-  def hasEventWithArguments(label:String, args:Seq[String], mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
-      if(m.isInstanceOf[EventMention]) {
-        val em = m.asInstanceOf[EventMention]
-        if(em.label == label) { // found the label
-        var count = 0
-          for(arg <- args) {
-            for (a <- em.arguments.values.flatten) {
-              if(arg == a.text) {
-                count += 1
-              }
-            }
-          }
-          if(count == args.size) {
-            // found all args as well
-
-            println(s"\t==> found event mention: ${em.text}")
-            return true
-          }
-        }
-      }
-    }
-    false
-  }
-
-  def hasEntity(text:String, mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
-      if (m.isInstanceOf[TextBoundMention]) {
-        val tm = m.asInstanceOf[TextBoundMention]
-        if (tm.text == text) {
-          println(s"\t==> found entity mention: ${tm.text}")
-          return true
-        }
-      }
-    }
-    false
-  }
-
-  def hasEntityWithSite(text:String, site:String, mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
-      if (m.isInstanceOf[RelationMention]) {
-        val rm = m.asInstanceOf[RelationMention]
-        if (rm.arguments.contains("Site") &&
-            contains(rm.arguments.get("Site").get, site) &&
-            rm.arguments.contains("Protein") &&
-            contains(rm.arguments.get("Protein").get, text)) {
-          println(s"\t==> found entity mention with site: ${rm.text}")
-          return true
-        }
-      }
-    }
-    false
-  }
-
-  def contains(mentions:Seq[Mention], text:String):Boolean = {
-    for(m <- mentions) if(m.text == text) return true
-    false
-  }
+class TestDarpaEval2015Training extends AssertionsForJUnit {
 
   @Test def testRules1() {
     val doc = proc.annotate("As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B).")
@@ -224,7 +165,7 @@ class TestDarpaRules extends AssertionsForJUnit {
   }
 }
 
-object TestDarpaRules {
+object TestDarpaEval2015Training {
   val proc = new BioNLPProcessor
 
   val extractor = mkExtractor
