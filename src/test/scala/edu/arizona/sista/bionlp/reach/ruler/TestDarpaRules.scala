@@ -79,8 +79,8 @@ class TestDarpaRules extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     println("testRules1 ==>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     RuleShell.displayMentions(mentions, doc)
-    assertTrue(hasEventWithArguments("Binding", List("K-Ras"), mentions)) // TODO: add 32P-GDP (MARCO)
-    assertTrue(hasEventWithArguments("Binding", List("G12V-Ras"), mentions)) // TODO: add 32P-GTP (MARCO)
+    assertTrue(hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions))
+    assertTrue(hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions))
   }
 
   @Test def testRules2() {
@@ -143,7 +143,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     println("testRules7 ==>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails (MARCO)
     assertTrue(hasEventWithArguments("Binding", List("Gab1", "phosphatidylinositol 3-kinase"), mentions))
   }
 
@@ -210,7 +209,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     println("testRules13 ==>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails, missing PI3K (MARCO)
     assertTrue(hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions))
 
     // TODO: missing positive regulation of Binding, Controller: MEK. Please add assert for this (MARCO or GUS)
@@ -222,7 +220,6 @@ class TestDarpaRules extends AssertionsForJUnit {
     println("testRules14 ==>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails, missing Ras (DANE)
     assertTrue(hasEventWithArguments("Exchange", List("GTP", "GDP", "Ras"), mentions))
   }
 }
