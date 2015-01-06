@@ -107,11 +107,11 @@
     /(?i)^(GDP|GTP|ATP|ADP|adenine|adenosine|guanine|guanosine)(-(ribose|methyl|acetyl))?$/ /(?i)group/?
       |
     /(?i)fatty/ /(?i)acid/
-    #  |
+      |
     # Radioactive forms of GDP and GTP used in experiments.
     # Capturing 32P-GDP, 32P-GTP, 33P-GDP, and 33P-GTP should be enough.
     # (32P and 33P are the only useful isotopes of phosphorus, and 32P is much more common in laboratory usage.)
-    # /3[23]P-G[DT]P/
+     /^\d\d*?P-G[DT]P/
 
 - name: acid
   label: Gene_or_gene_product
