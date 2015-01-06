@@ -237,48 +237,26 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    P53
-         |
-    /^RAPGEF/
-         |
-    /^RASGEF/
-         |
-    /^RASGR/
-         |
-    /^RGL\d/
-         |
-    /^RASAL?\d/
-         |
-    /^IQGAP\d/
-         |
-    /^GAPVD\d/
-         |
-    /^DAB2IP/
-         |
-    /^SOS\d/
-         |
-    /^SYNGAP1/
-         |
-    /^RAPG/
-         |
-    /RAF$/
-         |
-    /RAS$/
-         |
-    /^MEK\d/
-         |
-    /^ERK\d/
-         |
-    /^ASPP\d/
-         |
-    ATG5
-         |
-    Q12967
-         |
-    Q9P212
-         |
-    Q76NI1
-         |
-    /^NF\d/
-         |
+    P53 |
+    /^RAPGEF/ |
+    /^RASGEF/ |
+    /^RASGR/ |
+    /^RGL\d/ |
+    /^RASAL?\d/ |
+    /^IQGAP\d/ |
+    /^GAPVD\d/ |
+    /^DAB2IP/ |
+    /^SOS\d/ |
+    /^SYNGAP1/ |
+    /^RAPG/ |
+    /RAF$/ |
+    /RAS$/ |
+    /^MEK\d/ |
+    /^ERK\d/ |
+    /^ASPP\d/ |
+    ATG5 |
+    Q12967 |
+    Q9P212 |
+    Q76NI1 |
+    /^NF\d/ |
     /^DAB2IP/
