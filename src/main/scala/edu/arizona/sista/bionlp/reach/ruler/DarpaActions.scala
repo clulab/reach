@@ -35,10 +35,13 @@ class DarpaActions extends Actions {
 
   def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // construct an event mention from a complex entity like "Protein_with_site"
-    //mention("protein").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
     println(s"number of protein matches:\t${mention("protein").length}")
-    val proteins = state.mentionsFor(sent, mention("protein").map(_.start), simpleProteinLabels)
-    val sites = state.mentionsFor(sent, mention("site").map(_.start), Seq("Site"))
+    mention("protein").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
+    println(s"number of site matches:\t${mention("protein").length}")
+    mention("site").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
+
+    val proteins = state.mentionsFor(sent, mention("protein").flatMap(_.toSeq), simpleProteinLabels).distinct
+    val sites = state.mentionsFor(sent, mention("site").flatMap(_.toSeq), Seq("Site")).distinct
     val events = for (protein <- proteins; site <- sites) yield new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
     events
   }
