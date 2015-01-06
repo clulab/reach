@@ -15,6 +15,7 @@ class DarpaActions extends Actions {
   val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Up_regulation", "Down_regulation")
 
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    //mention("--GLOBAL--").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
     Seq(new TextBoundMention(label, mention("--GLOBAL--").head, sent, doc, ruleName))
   }
 
@@ -35,10 +36,6 @@ class DarpaActions extends Actions {
 
   def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // construct an event mention from a complex entity like "Protein_with_site"
-    println(s"number of protein matches:\t${mention("protein").length}")
-    mention("protein").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
-    println(s"number of site matches:\t${mention("protein").length}")
-    mention("site").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
 
     val proteins = state.mentionsFor(sent, mention("protein").flatMap(_.toSeq), simpleProteinLabels).distinct
     val sites = state.mentionsFor(sent, mention("site").flatMap(_.toSeq), Seq("Site")).distinct
