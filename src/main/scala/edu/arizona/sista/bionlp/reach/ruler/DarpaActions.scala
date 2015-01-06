@@ -145,6 +145,7 @@ class DarpaActions extends Actions {
 
   def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+    //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
     val themes = for {
       k <- mention.keys
       if k.startsWith("theme")
