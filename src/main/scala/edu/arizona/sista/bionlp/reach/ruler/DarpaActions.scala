@@ -152,6 +152,8 @@ class DarpaActions extends Actions {
       theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
     // we may get the same entity several times but we want distinct entities only
+    // FYI: This distinct fails if two TextBound Mentions have the same span but a different label
+    // (i.e. Simple_chemical vs Protein or Gene_or_gene_product)
     val args = Map("Theme" -> themes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
