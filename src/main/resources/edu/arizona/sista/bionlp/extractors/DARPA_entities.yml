@@ -237,7 +237,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    /(-[AG]TP|[AG]TP-)/ |
+    /(-[AG][DT]P|[AG][DT]P-)/ |
     p53 |
     /^RAPGEF/ |
     /^RASGEF/ |
