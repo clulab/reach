@@ -67,6 +67,7 @@ class DarpaActions extends Actions {
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // Don't change this, but feel free to make a new action based on this one.
+    // println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
 
