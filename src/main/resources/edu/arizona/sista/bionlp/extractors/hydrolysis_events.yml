@@ -1,0 +1,9 @@
+- name: hydrolysis_1
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "We compared the rate of GTP hydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)^hydrolysis/]
+    theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Complex/]

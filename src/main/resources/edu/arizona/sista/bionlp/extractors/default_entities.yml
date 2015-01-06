@@ -62,25 +62,25 @@
     (?<parent> [mention=Site]) [word=/,|and/ | tag=CD]+ (?<site> [tag=CD])
 
 
-- name: protein_with_site_1
+- name: protein_with_site_token_1
   label: Protein_with_site
   priority: 3
   type: token
   action: mkComplexEntity
   pattern: |
-    (?<protein> [mention=/Protein|Gene_or_gene_product/]) (?<site> [mention=Site])
+    (?<protein> [mention=/^Protein$|Gene_or_gene_product/]) (?<site> [mention=Site])
 
-- name: protein_with_site_2
+- name: protein_with_site_token_2
   label: Protein_with_site
   priority: 3
   type: token
   action: mkComplexEntity
   pattern: |
-    (?<site> [mention=Site]) [tag=IN] [tag=/NN|CC|,/]* (?<protein> [mention=/Protein|Gene_or_gene_product/])
-        |
-    (?<protein> [mention=/Protein|Gene_or_gene_product/]) [tag=IN] [tag=/NN|CC|,/]* (?<site> [mention=Site])
+    (?<site> [mention=Site]) [tag=IN] (?<protein> [mention=/^(Protein|Gene_or_gene_product)$/] ([tag=/(,|CC)/]+ [mention=/^(Protein|Gene_or_gene_product)$/])*)
+      |
+    (?<protein> [mention=/^(Protein|Gene_or_gene_product)$/]) [tag=IN] (?<site> [mention=Site] ([tag=/(,|CC)/]+ [mention=Site])*)
 
-- name: site_with_protein_syntax
+- name: site_with_protein_syntax_1
   label: Protein_with_site
   priority: 3
   type: dependency
@@ -89,7 +89,7 @@
     trigger: [mention=Site]
     protein: /pobj|prep_|conj_|nn/+ [mention=/^Protein$|^Gene_or_gene_product$/]
 
-- name: protein_with_site_syntax
+- name: protein_with_site_syntax_1
   label: Protein_with_site
   priority: 3
   type: dependency
@@ -154,6 +154,27 @@
     /(?i)^RASSF[0-9]+$/ |
     /(?i)^AF6$/ |
     /(?i)^Rabex[0-9]+$/
+
+- name: cell_parts
+  label: Cellular_component
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+    # rough endoplasmic reticulum
+    /(?i)rough/ /(?i)endoplasmic/ /(?i)reticulum/ | /(?i)rough/ ER | RER
+      |
+    # golgi apparatus
+    /(?i)golgi/ /(?i)apparatus|complex|body/?
+      |
+    # smooth endoplasmic reticulum
+    /(?i)smooth/ /(?i)endoplasmic/ /(?i)reticulum/ | SER
+      |
+    # membrane
+    /(?i)cell/? /(?i)membrane/
+      |
+    # the rest of the locations (single token)
+    /(?i)nucleolus|nucleus|ribosome|vesicle|golgi|cytoskeleton|mitochondrion|mitochondria|vacuole|cytosol|lysosome|centrosome/
     
 - name: banner_entities
   label: Gene_or_gene_product

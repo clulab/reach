@@ -72,6 +72,14 @@
     theme: nn+
     site: nn+ [mention="Site"]
 
+- name: Ubiquitination_token_1
+  priority: 4
+  action: mkSimpleEvent
+  example: "To address the effect of K-Ras ubiquitination on its binding to PI3K and Raf family members .."
+  type: token
+  label: Ubiquitination
+  pattern: |
+    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)ubiquitination/])
 
 - name: Ubiquitination_DARPA_0
   priority: 4
