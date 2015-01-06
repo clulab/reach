@@ -137,7 +137,6 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     header("testRules12")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: this fails due to weird rule (GUS)
     assertTrue(hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
     assertTrue(hasEventWithArguments("Binding", List("PI3K", "Raf family members"), mentions))
 
