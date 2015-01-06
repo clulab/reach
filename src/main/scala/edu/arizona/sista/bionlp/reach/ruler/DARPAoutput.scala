@@ -5,17 +5,13 @@ import java.io.{PrintWriter, File, BufferedReader, FileReader}
 import edu.arizona.sista.matcher.{ExtractorEngine, EventMention}
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import RuleShell.Repr
 /**
  * Created by gus on 12/22/14.
  */
-class DARPAoutput {
-}
-
 object DARPAoutput extends App {
 
-  val entityRules = Ruler.readEntityRules
-  val eventRules = Ruler.readEventRules
+  val entityRules = BasicRuler.readEntityRules
+  val eventRules = BasicRuler.readEventRules
   val rules = entityRules + "\n\n" + eventRules
 
   val ds = new DocumentSerializer
@@ -23,7 +19,7 @@ object DARPAoutput extends App {
   val actions = new DarpaActions
 
   val proc = new BioNLPProcessor()
-  val extractor = new ExtractorEngine(rules, actions)
+  val extractor = new BasicRuler(rules, actions)
 
   //val text = "We hypothesized that the MEK / ERK pathway may suppress trans-phosphorylation of ERBB3 by directly phosphorylating the JM domains of EGFR and HER2 , and that this could be a dominant MEK inhibitor induced feedback leading to AKT activation in these cancers ."
   //val doc = proc.annotate(text)
