@@ -20,6 +20,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules1")
     RuleShell.displayMentions(mentions, doc)
+
     assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
   }
 
@@ -51,7 +52,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules4")
     RuleShell.displayMentions(mentions, doc)
-    // TODO: missing trigger (GUS)
+
     assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
   }
 
@@ -108,7 +109,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules8")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing entities (GUS)
     assertTrue(hasEntity("RAS", mentions))
     assertTrue(hasEntity("p53", mentions))
     assertTrue(hasEntity("ASPP1", mentions))
@@ -121,14 +121,11 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules9")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing entities (GUS)
     assertTrue(hasEntity("RAS-GTP", mentions))
     assertTrue(hasEntity("RAS", mentions))
     assertTrue(hasEntity("p53", mentions))
     assertTrue(hasEntity("ASPP1", mentions))
     assertTrue(hasEntity("ASPP2", mentions))
-
-    // TODO: missing Binding (MARCO)
     assertTrue(hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
   }
 
@@ -138,14 +135,11 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules10")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing entities (GUS)
     assertTrue(hasEntity("RAS-GTP", mentions))
     assertTrue(hasEntity("RAS", mentions))
     assertTrue(hasEntity("p53", mentions))
     assertTrue(hasEntity("ASPP1", mentions))
     assertTrue(hasEntity("ASPP2", mentions))
-
-    // TODO: missing Binding (MARCO)
     assertTrue(hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
   }
 
@@ -155,12 +149,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules11")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing entities (GUS)
     assertTrue(hasEntity("MAPK", mentions))
     assertTrue(hasEntity("ASPP1", mentions))
     assertTrue(hasEntity("ASPP2", mentions))
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP1"), mentions))
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
@@ -175,7 +167,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules12")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
@@ -188,7 +179,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules13")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
@@ -202,6 +192,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     RuleShell.displayMentions(mentions, doc)
 
     // TODO: missing Phospho (GUS)
+    // TODO: Add Site rule for (\d+-\d+) fragment pattern
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
@@ -214,7 +205,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules15")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
   }
 
@@ -224,7 +214,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules16")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
@@ -237,7 +226,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules17")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
@@ -260,7 +248,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules19")
     RuleShell.displayMentions(mentions, doc)
 
-    // TODO: missing Phospho (GUS)
     assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing transport (ENRIQUE)
