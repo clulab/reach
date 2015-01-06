@@ -121,8 +121,8 @@ object Brat {
 
   def displayRuleName(m: Mention, doc: Document, tracker: IdTracker): String = {
     //example:
-    //#10     Origin E4       Rulename1
-    s"${tracker.getUniqueId(m, doc)}\tOrigin ${getId(m, doc, tracker)}\t${m.foundBy}"
+    //#10     FoundByRule E4       Rulename1
+    s"${tracker.getUniqueId(m, doc)}\tFoundByRule ${getId(m, doc, tracker)}\t${m.foundBy}"
   }
 
   def getId(m: Mention, doc: Document, tracker: IdTracker): String = m match {
@@ -147,7 +147,7 @@ object Brat {
 
       case m: RelationMention =>
         val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v, doc, tracker)}") }.mkString(" ")
-        s"${getId(m, doc, tracker)}\tOrigin $arguments"
+        s"${getId(m, doc, tracker)}\t${m.label} $arguments"
     }
   }
 
