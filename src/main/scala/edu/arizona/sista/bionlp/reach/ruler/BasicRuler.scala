@@ -9,6 +9,9 @@ class BasicRuler(val rules: String, val actions: Actions) {
 
   def extractFrom(doc: Document): Seq[Mention] = postprocess(engine.extractFrom(doc))
 
+  // TODO this method should inspect the mentions and return a new sequence
+  // that may include new mentions or discard some
+  // NOTE now it returns the same sequence
   def postprocess(mentions: Seq[Mention]): Seq[Mention] = mentions
 }
 
