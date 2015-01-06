@@ -16,7 +16,7 @@ import org.scalatest.junit.AssertionsForJUnit
 class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules1() {
-    val doc = proc.annotate("We next considered the effect of Ras monoubiquitination on GAP–mediated hydrolysis")
+    val doc = proc.annotate("We next considered the effect of Ras monoubiquitination on GAP-mediated hydrolysis")
     val mentions = extractor.extractFrom(doc)
     header("testRules1")
     displayMentions(mentions, doc)
@@ -48,7 +48,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
   }
 
   @Test def testRules4() {
-    val doc = proc.annotate("The effects of monoubiquitination on Ras are not isoform–specific.")
+    val doc = proc.annotate("The effects of monoubiquitination on Ras are not isoform-specific.")
     val mentions = extractor.extractFrom(doc)
     header("testRules4")
     displayMentions(mentions, doc)
@@ -57,7 +57,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
   }
 
   @Test def testRules5() {
-    val doc = proc.annotate("We measured the rate of GAP–mediated GTP hydrolysis and observed that the response of Ras ligated to Ubiquitin was identical")
+    val doc = proc.annotate("We measured the rate of GAP-mediated GTP hydrolysis and observed that the response of Ras ligated to Ubiquitin was identical")
     val mentions = extractor.extractFrom(doc)
     header("testRules5")
     displayMentions(mentions, doc)
@@ -71,22 +71,22 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
   }
 
   @Test def testRules6() {
-    val doc = proc.annotate("monoubiquitinated K–Ras is less sensitive than the unmodified protein to GAP–mediated GTP hydrolysis")
+    val doc = proc.annotate("monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis")
     val mentions = extractor.extractFrom(doc)
     header("testRules6")
     displayMentions(mentions, doc)
     // TODO: this fails (DANE)
     assertTrue(hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
 
-    // TODO: missing keyword (GUS). Should "K-Ras" be "K - Ras" because of tokenization?
-    assertTrue(hasEventWithArguments("Ubiquitination", List("K - Ras"), mentions))
+    // TODO: missing keyword (GUS).
+    assertTrue(hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
 
     // TODO: up-regulation ( MARCO + GUS)
     assertTrue(hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
   }
 
   @Test def testRules7() {
-    val doc = proc.annotate("Here we show that monoubiquitination decreases the sensitivity of Ras to GAP–mediated hydrolysis")
+    val doc = proc.annotate("Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis")
     val mentions = extractor.extractFrom(doc)
     header("testRules7")
     displayMentions(mentions, doc)
