@@ -5,7 +5,6 @@ import java.io.{PrintWriter, File, BufferedReader, FileReader}
 import edu.arizona.sista.matcher.{ExtractorEngine, EventMention}
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import RuleShell.Repr
 /**
  * Created by gus on 12/22/14.
  */
