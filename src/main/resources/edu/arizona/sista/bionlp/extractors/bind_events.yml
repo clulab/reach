@@ -123,3 +123,11 @@
     (?<theme1> [mention=Protein | mention=Gene_or_gene_product])
     (?<trigger> binding) to
     (?<theme2> [mention=Protein | mention=Gene_or_gene_product])
+
+- name: binding16_syntax
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  pattern: |
+      trigger: [lemma=bind]
+      theme: (< rcmod /appos|nn|conj_|cc/*) | (nsubj|dobj /appos|nn|conj_|cc/*) [mention=/^Protein|Gene_or_gene_product$/]
