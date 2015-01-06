@@ -12,24 +12,24 @@ object RuleShell extends App {
 
   val prompt = ">>> "
 
-  val entityRules = Ruler.readEntityRules
+  val entityRules = BasicRuler.readEntityRules
 
   val ruleArgIndex = args.indexOf("--rules")
-  val eventRules = if (ruleArgIndex == -1) Ruler.readEventRules else Ruler.readFile(args(ruleArgIndex + 1))
+  val eventRules = if (ruleArgIndex == -1) BasicRuler.readEventRules else BasicRuler.readFile(args(ruleArgIndex + 1))
 
   val rules = entityRules + "\n\n" + eventRules
 
   val actions = new DarpaActions
 
   val proc = new BioNLPProcessor
-  val extractor = new ExtractorEngine(rules, actions)
+  val basicRuler = new BasicRuler(rules, actions)
 
   breakable {
     while (true) {
       val text = readLine(prompt)
       if (text == null) break
       val doc = proc.annotate(text)
-      val mentions = extractor.extractFrom(doc)
+      val mentions = basicRuler.extractFrom(doc)
       displayMentions(mentions, doc)
     }
   }

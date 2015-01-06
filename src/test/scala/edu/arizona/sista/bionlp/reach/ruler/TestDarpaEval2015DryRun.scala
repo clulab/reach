@@ -275,9 +275,7 @@ object TestDarpaEval2015DryRun {
 
   def mkExtractor = {
     val actions = new DarpaActions
-    val entityRules = Ruler.readEntityRules
-    val eventRules = Ruler.readEventRules // reads all entity/event rules for the DARPA eval
-    val rules = entityRules + "\n\n" + eventRules
-    new ExtractorEngine(rules, actions)
+    val rules = BasicRuler.readRules
+    new BasicRuler(rules, actions)
   }
 }
