@@ -135,7 +135,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    /(?i)^[HKN]?-?ras$/ | (([word=/(?i)^[khn]$/] "–")? [word=/(?i)^RAS$/]) |          # tokenization of hyphenated words changed
+    /(?i)^[HKN]?-?ras$/ |
     /(?i)^RASSF$/ |
     /(?i)^mek$/ |
     /(?i)^erk$/ |
