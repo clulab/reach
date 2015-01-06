@@ -24,7 +24,7 @@
   action: mkTextBoundMention
   pattern: |
     [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]? |
-    /P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?
+    /^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?
 
 - name: site_3letter
   label: Site
