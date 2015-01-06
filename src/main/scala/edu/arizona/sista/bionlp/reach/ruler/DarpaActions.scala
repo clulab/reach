@@ -12,7 +12,7 @@ class DarpaActions extends Actions {
   val proteinLabels = Seq("Simple_chemical", "Complex", "Protein", "Protein_with_site", "Gene_or_gene_product", "GENE")
   val simpleProteinLabels = Seq("Protein", "Gene_or_gene_product")
   val siteLabels = Seq("Site", "Protein_with_site")
-  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Up_regulation", "Down_regulation")
+  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Up_regulation", "Down_regulation", "Transport")
 
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     Seq(new TextBoundMention(label, mention("--GLOBAL--").head, sent, doc, ruleName))
@@ -185,6 +185,16 @@ class DarpaActions extends Actions {
     //val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
     //val args = Map("Theme" -> theme, "Cause" -> cause)
     val args = Map("Theme" -> theme)
+    val event = new EventMention(label, trigger, args, sent, doc, ruleName)
+    Seq(trigger, event)
+  }
+  
+  def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+    val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Phosphorylation", "Ubiquitination", "Exchange", "Degradation", "Hydrolysis")).find(_.isInstanceOf[EventMention]).get
+    val src = state.mentionsFor(sent, mention("source").head.start)
+    val dst = state.mentionsFor(sent, mention.getOrElse("destination", None).head.start)
+    val args = Map("Theme" -> Seq(theme), "Source" -> Seq(src), "Destination" -> Seq(dst))
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
   }
