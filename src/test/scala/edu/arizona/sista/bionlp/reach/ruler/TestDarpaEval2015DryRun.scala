@@ -77,8 +77,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     // TODO: this fails (DANE)
     assertTrue(hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
 
-    // TODO: missing keyword (GUS)
-    assertTrue(hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
+    // TODO: missing keyword (GUS). Should "K-Ras" be "K - Ras" because of tokenization?
+    assertTrue(hasEventWithArguments("Ubiquitination", List("K - Ras"), mentions))
 
     // TODO: up-regulation ( MARCO + GUS)
     assertTrue(hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
