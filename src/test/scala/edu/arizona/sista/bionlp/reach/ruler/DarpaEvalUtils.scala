@@ -68,4 +68,50 @@ object DarpaEvalUtils {
     false
   }
 
+  def hasUpRegulationByEntity(controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], mentions:Seq[Mention]):Boolean =
+    hasRegulationByEntity("UpRegulation", controllerEntity, controlledLabel, controlledArgs, mentions)
+
+  def hasDownRegulationByEntity(controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], mentions:Seq[Mention]):Boolean =
+    hasRegulationByEntity("DownRegulation", controllerEntity, controlledLabel, controlledArgs, mentions)
+
+  def hasRegulationByEntity(label:String,
+                            controllerEntity:String,
+                            controlledLabel:String,
+                            controlledArgs:Seq[String],
+                            mentions:Seq[Mention]):Boolean = {
+    for(m <- mentions) {
+      if(m.isInstanceOf[EventMention]) {
+        val em = m.asInstanceOf[EventMention]
+        if(em.label == label) { // found the regulation label
+          val controller = em.arguments.get("Controller")
+          val controlled = em.arguments.get("Controlled")
+
+          if(controller.isDefined && controlled.isDefined && controlled.isInstanceOf[EventMention]) { // some obvious sanity checks
+            val controlledEvent = m.asInstanceOf[EventMention]
+            if(controller.get.head.text == controllerEntity && // found the controller entity
+               controlledEvent.label == controlledLabel) { // found the correct label for the controlled event
+              var count = 0
+              for(arg <- controlledArgs) {
+                for (a <- em.arguments.values.flatten) {
+                  if(arg == a.text) {
+                    count += 1
+                  }
+                }
+              }
+              if(count == controlledArgs.size) {
+                // found all args for the controlled event as well
+                println(s"\t==> found ${label} with Controller:${controllerEntity} and Controlled:${controlledLabel} with arguments:${controlledArgs.mkString(",")}")
+                return true
+              }
+            }
+          }
+        }
+      }
+    }
+    false
+  }
+
+  def header(name:String) {
+    println(name + " ==>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  }
 }
