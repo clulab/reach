@@ -31,7 +31,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     // TODO: both these fail (DANE)
     assertTrue(hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
     assertTrue(hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
+
     // TODO: can we catch the UpRegulation by GAP here?
+    //assertTrue(hasUpRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
+    //assertTrue(hasUpRegulationByEntity("GAPs", "Hydrolysis", List("mUbRas-GTP"), mentions))
   }
 
   @Test def testRules3() {
