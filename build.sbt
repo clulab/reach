@@ -22,5 +22,6 @@ libraryDependencies ++= Seq(
   "org.apache.lucene" % "lucene-analyzers-common" % "4.2.1",
   "org.apache.lucene" % "lucene-queryparser" % "4.2.1",
   "org.apache.lucene" % "lucene-highlighter" % "4.2.1",
-  "org.biopax.paxtools" % "paxtools-core" % "4.2.1"
+  "org.biopax.paxtools" % "paxtools-core" % "4.2.1",
+  "jline" % "jline" % "2.11"
 )
