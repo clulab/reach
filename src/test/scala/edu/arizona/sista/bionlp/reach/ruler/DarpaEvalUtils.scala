@@ -86,13 +86,13 @@ object DarpaEvalUtils {
           val controller = em.arguments.get("Controller")
           val controlled = em.arguments.get("Controlled")
 
-          if(controller.isDefined && controlled.isDefined && controlled.get.isInstanceOf[EventMention]) { // some obvious sanity checks
-            val controlledEvent = m.asInstanceOf[EventMention]
+          if(controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) { // some obvious sanity checks
+            val controlledEvent = controlled.get.head.asInstanceOf[EventMention]
             if(controller.get.head.text == controllerEntity && // found the controller entity
                controlledEvent.label == controlledLabel) { // found the correct label for the controlled event
               var count = 0
               for(arg <- controlledArgs) {
-                for (a <- em.arguments.values.flatten) {
+                for (a <- controlledEvent.arguments.values.flatten) {
                   if(arg == a.text) {
                     count += 1
                   }
