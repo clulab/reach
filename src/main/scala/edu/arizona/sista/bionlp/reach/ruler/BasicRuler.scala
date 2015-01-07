@@ -12,6 +12,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
 
   def postprocess(mentions: Seq[Mention]): Seq[Mention] = {
     mentions flatMap { mention => mention match {
+
         // the event mention should not be a regulation and it must contain a cause
         case m: EventMention if !m.label.contains("Regulation") && m.arguments.contains("Cause") =>
           val controller = m.arguments("Cause")
