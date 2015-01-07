@@ -81,9 +81,8 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
-    cause: nn /conj_|cc|nn/*
-    constraint: </prep_/ | rcmod
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & !outgoing=/prep_(by|of)/]
+    theme: nn /conj_|cc|nn/*
 
 - name: Phosphorylation_8
   priority: 4
