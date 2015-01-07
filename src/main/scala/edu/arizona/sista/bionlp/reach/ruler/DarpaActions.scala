@@ -217,7 +217,6 @@ class DarpaActions extends Actions {
       new EventMention(label, trigger, args, sent, doc, ruleName)
     }
 
-    println("XXXXX" + events)
     trigger +: events
   }
 
