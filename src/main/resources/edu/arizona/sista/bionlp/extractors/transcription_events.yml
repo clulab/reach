@@ -1,33 +1,33 @@
-- name: expression_1
-  priority: 4
-  action: mkSimpleEvent
-  example: "PTEN protein expression was detectable by Western blot in all cell lines."
-  label: Transcription
-  type: dependency
-  pattern: |
-    trigger: [word=/(?i)(over)?express/ & tag=/^N/]
-      theme: nn+ [mention=Gene_or_gene_product|mention=Protein]
-
-
-- name: expressioni_2
-  priority: 4
-  action: mkSimpleEvent
-  example: "We went on to examine the levels of MCL-1 and BIM expressed in several uveal melanoma cell lines following exposure to AZD8055 and selumetinib (Figure 7A)."
-  label: Transcription
-  type: dependency
-  pattern: |
-    trigger: [word=/(?i)(over)?express/ & tag=/^V/]
-      theme: < /vmod|conj_|cc/+ [mention=Gene_or_gene_product|mention=Protein]
-
-- name: expression_3
-  priority: 4
-  action: mkSimpleEvent
-  example: "Indeed, EGFR is overexpressed in 30%-85% patients with CRC."
-  label: Transcription
-  type: dependency
-  pattern: |
-    trigger: [word=/(?i)(over)?express/ & tag=/^V/]
-    theme: > /nsubjpass/+ [mention=Gene_or_gene_product|mention=Protein]
+#- name: expression_1
+#  priority: 4
+#  action: mkSimpleEvent
+#  example: "PTEN protein expression was detectable by Western blot in all cell lines."
+#  label: Transcription
+#  type: dependency
+#  pattern: |
+#    trigger: [word=/(?i)(over)?express/ & tag=/^N/]
+#      theme: nn+ [mention=Gene_or_gene_product|mention=Protein]
+#
+#
+#- name: expressioni_2
+#  priority: 4
+#  action: mkSimpleEvent
+#  example: "We went on to examine the levels of MCL-1 and BIM expressed in several uveal melanoma cell lines following exposure to AZD8055 and selumetinib (Figure 7A)."
+#  label: Transcription
+#  type: dependency
+#  pattern: |
+#    trigger: [word=/(?i)(over)?express/ & tag=/^V/]
+#      theme: < /vmod|conj_|cc/+ [mention=Gene_or_gene_product|mention=Protein]
+#
+#- name: expression_3
+#  priority: 4
+#  action: mkSimpleEvent
+#  example: "Indeed, EGFR is overexpressed in 30%-85% patients with CRC."
+#  label: Transcription
+#  type: dependency
+#  pattern: |
+#    trigger: [word=/(?i)(over)?express/ & tag=/^V/]
+#    theme: > /nsubjpass/+ [mention=Gene_or_gene_product|mention=Protein]
 
 - name: transcription_1
   priority: 4
