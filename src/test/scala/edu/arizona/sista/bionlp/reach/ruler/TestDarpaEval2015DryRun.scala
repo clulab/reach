@@ -74,11 +74,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules6")
     displayMentions(mentions, doc)
     assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
-
-    // TODO: missing keyword (GUS).
     assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
 
-    // TODO: up-regulation ( MARCO + GUS)
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
   }
 
@@ -92,8 +89,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     // TODO: missing keyword, missing protein - needs coref (GUS)
     assertTrue("ubiquitination +coref (GUS/DANE)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
-
-    // TODO: up-regulation ( MARCO + GUS)
+    
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
 
     // TODO: another down-regulation controller the ubiquitination, and controlled the GAP up-regulation??? Not sure about this...
