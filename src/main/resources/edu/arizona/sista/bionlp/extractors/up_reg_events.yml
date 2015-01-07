@@ -1,4 +1,4 @@
-- name: up_reg_1
+- name: Up_regulation_1
   label: UpRegulation
   priority: 5
   action: mkRegulation
@@ -6,3 +6,34 @@
     trigger: regulate
     controller: nsubj nn*
     controlled: dobj
+
+- name: Up_regulation_2
+  priority: 5
+  action: mkRegulation
+  type: dependency
+  label: UpRegulation
+  pattern: |
+    trigger: /^regulat/
+    constraint: advmod [word=/^postive/]
+    controller: nsubj nn*
+    controlled: dobj
+
+- name: Up_regulation_3
+  priority: 5
+  action: mkRegulation
+  type: dependency
+  label: UpRegulation
+  pattern: |
+    trigger: /^able/
+    constraint: /^[^n][^e][^g]/ # is there an easier way to say some edge can't exist?
+    controller: nsubj nn*
+    controlled: xcomp dobj?
+
+- name: Up_regulation_4
+  priority: 5
+  action: mkRegulation
+  type: token
+  label: UpRegulation
+  example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
+  pattern: |
+    (?<controller> [mention=/./])? (?<trigger> [word=/^mediat/]) (?<controlled> [mention=/./])
