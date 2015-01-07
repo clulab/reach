@@ -66,43 +66,36 @@ class DarpaActions extends Actions {
   }
 
   def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, anttype: Seq[String], n: Int = 1): Seq[Mention] = {
-    // TODO: Change to take Interval instead of Mention
+    var leftwd = if (lspan > 0) {
+      (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, anttype))
+    } else Nil
+    var lremainder = lspan - anchor.start
+    var iter = 1
+    while (lremainder > 0 & sent-iter >= 0) {
+      leftwd = leftwd ++ ((math.max(0, doc.sentences(sent-iter).size - lremainder) until doc.sentences(sent-iter).size).reverse flatMap (i => state.mentionsFor(sent-iter, i, anttype)))
+      lremainder = lremainder - doc.sentences(sent-iter).size
+      iter += 1
+    }
 
-    val mentions = state.mentionsFor(sent, anchor.toSeq, anttype)
-    // This shouldn't happen, because you shouldn't call mkCoref if you don't need a coreference.
-    if (mentions.nonEmpty) Nil
-    else {
-      var leftwd = if (lspan > 0) {
-        (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, anttype))
-      } else Nil
-      var lremainder = lspan - anchor.start
-      var iter = 1
-      while (lremainder > 0 & sent-iter >= 0) {
-        leftwd = leftwd ++ ((math.max(0, doc.sentences(sent-iter).size - lremainder) until doc.sentences(sent-iter).size).reverse flatMap (i => state.mentionsFor(sent-iter, i, anttype)))
-        lremainder = lremainder - doc.sentences(sent-iter).size
-        iter += 1
-      }
+    var rightwd = if (rspan > 0) {
+      (anchor.end + 1) to math.min(anchor.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, anttype))
+    } else Nil
+    var rremainder = rspan - (doc.sentences(sent).size - anchor.end - 1)
+    iter = 1
+    while (rremainder > 0 & sent + iter < doc.sentences.length) {
+      rightwd = rightwd ++ (0 until math.min(rspan, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, anttype)))
+      rremainder = rremainder - doc.sentences(sent + iter).size
+      iter += 1
+    }
 
-      var rightwd = if (rspan > 0) {
-        (anchor.end + 1) to math.min(anchor.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, anttype))
-      } else Nil
-      var rremainder = rspan - (doc.sentences(sent).size - anchor.end - 1)
-      iter = 1
-      while (rremainder > 0 & sent + iter < doc.sentences.length) {
-        rightwd = rightwd ++ (0 until math.min(rspan, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, anttype)))
-        rremainder = rremainder - doc.sentences(sent + iter).size
-        iter += 1
-      }
+    val leftright = leftwd ++ rightwd
+    val adcedentMentions = if(leftright.nonEmpty) Some(leftright.slice(0,n))
+    else None
 
-      val leftright = leftwd ++ rightwd
-      val adcedentMentions = if(leftright.nonEmpty) Some(leftright.slice(0,n))
-      else None
-
-      if (adcedentMentions.isDefined) {
-        adcedentMentions.get
-      } else {
-        Nil
-      }
+    if (adcedentMentions.isDefined) {
+      adcedentMentions.get
+    } else {
+      Nil
     }
   }
 
@@ -129,6 +122,7 @@ class DarpaActions extends Actions {
 
     findCoref(state, doc, sent, anchor, lspan, rspan, anttype, retrieveInt(n))
   }
+
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // Don't change this, but feel free to make a new action based on this one.
