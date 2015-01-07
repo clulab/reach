@@ -237,7 +237,9 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing transport (ENRIQUE)
-    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol/nucleus"), mentions))
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("nucleus"), mentions))
+    // TODO: missing transport (ENRIQUE)
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol"), mentions))
 
     // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
     assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
@@ -250,7 +252,9 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     displayMentions(mentions, doc)
 
     // TODO: missing transport (ENRIQUE)
-    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "cytosol/nucleus"), mentions))
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "cytosol"), mentions))
+    // TODO: missing transport (ENRIQUE)
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "nucleus"), mentions))
   }
 }
 
