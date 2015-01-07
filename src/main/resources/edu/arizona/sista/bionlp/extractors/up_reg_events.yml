@@ -24,8 +24,7 @@
   type: dependency
   label: UpRegulation
   pattern: |
-    trigger: /^able/
-    constraint: /^[^n][^e][^g]/ # is there an easier way to say some edge can't exist?
+    trigger: [word=/^able/ & outgoing=neg]
     controller: nsubj nn*
     controlled: xcomp dobj?
 

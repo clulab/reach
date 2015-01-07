@@ -7,7 +7,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
-    cause?: (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
+    cause?: <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
     theme: (dobj | xcomp) /./*
     #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
@@ -44,10 +44,11 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
-    theme: (/pobj|prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /pobj|prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & !outgoing=nsubjpass]
+    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein_with_site|Gene_or_gene_product/]
     #site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by nn*) # | <dobj nsubj dep* nn*
+
 
 - name: Phosphorylation_5
   priority: 4
@@ -72,6 +73,7 @@
     theme: nn+
     site: nn+ [mention="Site"]
 
+
 - name: Phosphorylation_7
   priority: 4
   action: mkSimpleEvent
@@ -91,6 +93,7 @@
   pattern: |
     (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [tag=/IN/] /./*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
 
+
 - name: Phosphorylation_token_2
   priority: 4
   action: mkSimpleEvent
@@ -100,6 +103,7 @@
   pattern: |
     (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [!tag=/IN/]
 
+
 - name: Phosphorylation_token_3
   priority: 4
   action: mkSimpleEvent
@@ -108,6 +112,7 @@
   label: Phosphorylation
   pattern: |
     (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylat/]) [tag=IN] (?<cause> [mention=/Protein|Gene_or_gene_product/])?
+
 
 - name: Phosphorylation_DARPA_0
   priority: 4
