@@ -79,10 +79,12 @@ object DarpaEvalUtils {
                             controlledLabel:String,
                             controlledArgs:Seq[String],
                             mentions:Seq[Mention]):Boolean = {
+    type MentionWithArgs = { def arguments: Map[String, Seq[Mention]] }
+
     for(m <- mentions) {
-      if(m.isInstanceOf[EventMention]) {
-        val em = m.asInstanceOf[EventMention]
-        if(em.label == label) { // found the regulation label
+      if(m.isInstanceOf[MentionWithArgs]) {
+        val em = m.asInstanceOf[MentionWithArgs]
+        if(m.label == label) { // found the regulation label
           val controller = em.arguments.get("Controller")
           val controlled = em.arguments.get("Controlled")
 
