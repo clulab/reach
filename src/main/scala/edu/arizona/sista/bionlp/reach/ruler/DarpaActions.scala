@@ -90,20 +90,27 @@ class DarpaActions extends Actions {
         .distinct
     }
 
+    def getSimpleEntities(mentions:Seq[Mention], labels:Seq[String]):Seq[Mention]= {
+      mentions.filter(!_.isInstanceOf[RelationMention]) ++
+        filterRelationMentions(mentions, labels.filter(_!= "Protein_with_site"))
+    }
+
     // We want to unpack relation mentions...
     val allThemes = getMentions("theme", proteinLabels)
 
     // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
-    val themes = allThemes.filter(!_.isInstanceOf[RelationMention]) ++
-      filterRelationMentions(allThemes, proteinLabels.filter(_!= "Protein_with_site"))
+    val themes = getSimpleEntities(allThemes, proteinLabels)
 
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil
 
-    // unpack any RelationMentions
-    val sites = getMentions("site", siteLabels) ++ filterRelationMentions(allThemes, Seq("Site"))
+    val allCauses = getMentions("cause", proteinLabels)
 
-    val causes = getMentions("cause", proteinLabels)
+    // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
+    val causes = getSimpleEntities(allCauses, proteinLabels)
+
+    // unpack any RelationMentions
+    val sites = (getMentions("site", siteLabels) ++ filterRelationMentions(allCauses ++ allThemes, Seq("Site"))).distinct
 
     val mentions = trigger match {
       case hasCauseHasThemeHasSite if causes.nonEmpty && themes.nonEmpty && sites.nonEmpty => for (cause <- causes; site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site), "Cause" -> Seq(cause)), sent, doc, ruleName)
