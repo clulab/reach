@@ -35,7 +35,8 @@ object BasicRuler {
                     s"$dir/degrad_events.yml",
                     s"$dir/transcription_events.yml",
                     s"$dir/down_reg_events.yml",
-                    s"$dir/up_reg_events.yml")
+                    s"$dir/up_reg_events.yml",
+                    s"$dir/transport_events.yml")
     (files map readFile).mkString("\n\n")
   }
 
