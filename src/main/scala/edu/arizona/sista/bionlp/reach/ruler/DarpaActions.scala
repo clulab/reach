@@ -204,7 +204,7 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val controller = for {
       m <- mention.getOrElse("controller", Nil)
-      c <- state.mentionsFor(sent, m.toSeq, simpleProteinLabels).distinct
+      c <- state.mentionsFor(sent, m.toSeq).distinct
     } yield c
     val controlled = for {
       m <- mention("controlled")
