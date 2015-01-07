@@ -80,7 +80,7 @@
   type: token
   action: mkComplexEntity
   pattern: |
-    (?<protein> [mention=/^Protein$|Gene_or_gene_product/]) (?<site> [mention=Site])
+    (?<protein> [mention=/^Protein$|Gene_or_gene_product/]) /./? (?<site> [mention=Site])
 
 - name: protein_with_site_token_2
   label: Protein_with_site
