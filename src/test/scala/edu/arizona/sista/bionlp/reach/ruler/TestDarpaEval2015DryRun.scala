@@ -166,8 +166,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-    // TODO: missing regulations (MARCO + GUS)
-    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("RAS", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("regulation (MARCO/GUS)", hasRegulationByEntity("Regulation", "RAS", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules13() {

@@ -1,3 +1,13 @@
+- name: Regulation_1
+  priority: 5
+  action: mkRegulation
+  type: dependency
+  label: Regulation
+  pattern: |
+    trigger: [!word=/^(postive|negative)/] /^regulat/
+    controller: nsubj nn*
+    controlled: dobj
+
 # Regulation
 
 #   58 regulation

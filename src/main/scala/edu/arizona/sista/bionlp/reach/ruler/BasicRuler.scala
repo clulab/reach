@@ -42,6 +42,7 @@ object BasicRuler {
                     s"$dir/exchange_events.yml",
                     s"$dir/degrad_events.yml",
                     s"$dir/transcription_events.yml",
+                    s"$dir/regulation_events.yml",
                     s"$dir/down_reg_events.yml",
                     s"$dir/up_reg_events.yml",
                     s"$dir/transport_events.yml")
