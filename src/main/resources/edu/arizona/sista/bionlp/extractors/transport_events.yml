@@ -5,16 +5,31 @@
   label: Transport
   type: dependency
   pattern: |
-    trigger: [word=/(?i)^transloc/] #[tag=/^N/]
-    theme: /nn+|prep_of/ [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    trigger: [word=/(?i)^transloc/ | word=/(?i)^transport/] #[tag=/^N/]
+    theme: /nn+|prep_of|nsubj/ [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
     source: /prep_of/? prep_from [tag=/^N/]
-    destination?: <prep_in prep_to /conj_and*/ [tag=/^N/] 
+    destination?: </prep_in/? prep_to /conj|nn|cc|dep/* [mention=Cellular_component] 
 
-#- name: trasport_2
-#  priority: 4
-#  action: mkSimpleEvent
-#  example: ""
-#  label: Transport
-#  type: dependency
-#  pattern: |
-#    trigger: [
+- name: trasport_2
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  label: Transport
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)^transloc/ | word=/(?i)^transport/]
+    theme: </./+ /nn|prep_of|nsubjpass/ [tag=/^N/] #[mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    #source: /prep_of/? prep_from [tag=/^N/]
+    #destination?: <prep_in prep_to /conj_and*/ [tag=/^N/]
+
+- name: trasport_3
+  priority: 4
+  action: mkTransport
+  example: ""
+  label: Transport
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)^transloc/ | word=/(?i)^transport/]
+    theme: </./+ /nn|prep_of|nsubjpass/ [tag=/^N/] #[mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    #source?: /prep_of/? prep_from [tag=/^N/]
+    #destination: <prep_in prep_to /conj_and*/ [tag=/^N/]
