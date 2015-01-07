@@ -119,6 +119,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     assertTrue(hasEventWithArguments("Binding", List("GAB1-PI3K"), mentions))
 
     // TODO: there are 2 regulations here! Whoever works on this, please add asserts for these two (MARCO or GUS)
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("ERK-", "Phosphorylation", List("serine", "GAB1 adaptor"), mentions))
   }
 
   @Test def testRules11() {
