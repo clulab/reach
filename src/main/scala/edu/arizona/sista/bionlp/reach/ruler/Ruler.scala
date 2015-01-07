@@ -14,11 +14,11 @@ object Ruler {
     val actions = new DarpaActions
 
     // read default rules if needed
-    val rules = if (rulesStr.trim.isEmpty) readRules else rulesStr
+    val rules = if (rulesStr.trim.isEmpty) BasicRuler.readRules else rulesStr
 
     val doc = proc.annotate(text)
-    val extractor = new ExtractorEngine(rules, actions)
-    val mentions = extractor.extractFrom(doc)
+    val basicRuler = new BasicRuler(rules, actions)
+    val mentions = basicRuler.extractFrom(doc)
 
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
@@ -45,37 +45,6 @@ object Ruler {
       s.syntacticTree.getOrElse("()").toString()
     }
     allTrees.toArray
-  }
-
-  def readRules: String = readEntityRules + "\n\n" + readEventRules
-
-  def readEntityRules: String = {
-    val dir = "/edu/arizona/sista/bionlp/extractors"
-    val files = Seq(s"$dir/default_entities.yml", s"$dir/DARPA_entities.yml" )
-    (files map readFile).mkString("\n\n")
-  }
-
-  def readEventRules: String = {
-    val dir = "/edu/arizona/sista/bionlp/extractors"
-    val files = Seq(s"$dir/phospho_events.yml",
-                    s"$dir/ubiq_events.yml",
-                    s"$dir/hydrox_events.yml",
-                    s"$dir/hydrolysis_events.yml",
-                    s"$dir/bind_events.yml",
-                    s"$dir/exchange_events.yml",
-                    s"$dir/degrad_events.yml",
-                    s"$dir/transcription_events.yml",
-                    s"$dir/down_reg_events.yml",
-                    s"$dir/up_reg_events.yml",
-                    s"$dir/transport_events.yml")
-    (files map readFile).mkString("\n\n")
-  }
-
-  def readFile(filename: String) = {
-    val source = io.Source.fromURL(getClass.getResource(filename))
-    val data = source.mkString
-    source.close()
-    data
   }
 }
 
