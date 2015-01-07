@@ -21,7 +21,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules1")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
+    assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
   }
 
   @Test def testRules2() {
@@ -30,12 +30,12 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules2")
     displayMentions(mentions, doc)
     // TODO: both these fail (DANE)
-    assertTrue(hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
-    assertTrue(hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
 
     // TODO: can we catch the UpRegulation by GAP here?
-    //assertTrue(hasUpRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
-    //assertTrue(hasUpRegulationByEntity("GAPs", "Hydrolysis", List("mUbRas-GTP"), mentions))
+    //assertTrue("upregulation + black magic (MARCO/GUS)", hasUpRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
+    //assertTrue("upregulation + black magic (MARCO/GUS)", hasUpRegulationByEntity("GAPs", "Hydrolysis", List("mUbRas-GTP"), mentions))
   }
 
   @Test def testRules3() {
@@ -44,7 +44,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules3")
     displayMentions(mentions, doc)
     // TODO: this fails (DANE)
-    assertTrue(hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
   }
 
   @Test def testRules4() {
@@ -53,7 +53,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules4")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
+    assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
   }
 
   @Test def testRules5() {
@@ -62,12 +62,12 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules5")
     displayMentions(mentions, doc)
     // TODO: this fails (DANE)
-    assertTrue(hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
     // TODO: appears as binding but it's ubiquitination (GUS + MARCO)
-    assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
+    assertTrue("binding -> ubiqutination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
     // TODO: up-regulation ( MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
   }
 
   @Test def testRules6() {
@@ -76,13 +76,13 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules6")
     displayMentions(mentions, doc)
     // TODO: this fails (DANE)
-    assertTrue(hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
 
     // TODO: missing keyword (GUS).
-    assertTrue(hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
+    assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
 
     // TODO: up-regulation ( MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
   }
 
   @Test def testRules7() {
@@ -91,13 +91,13 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules7")
     displayMentions(mentions, doc)
     // TODO: this fails (DANE)
-    assertTrue(hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
 
     // TODO: missing keyword, missing protein - needs coref (GUS)
-    assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
+    assertTrue("ubiquitination +coref (GUS/DANE)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
     // TODO: up-regulation ( MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
 
     // TODO: another down-regulation controller the ubiquitination, and controlled the GAP up-regulation??? Not sure about this...
     // assertTrue(hasDownRegulationByEvent("Ubiquitination", List("Ras"), "UpRegulation", List("")))
@@ -109,10 +109,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules8")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEntity("RAS", mentions))
-    assertTrue(hasEntity("p53", mentions))
-    assertTrue(hasEntity("ASPP1", mentions))
-    assertTrue(hasEntity("ASPP2", mentions))
+    assertTrue("model entity (GUS)", hasEntity("RAS", mentions))
+    assertTrue("model entity (GUS)", hasEntity("p53", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP1", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP2", mentions))
   }
 
   @Test def testRules9() {
@@ -121,12 +121,12 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules9")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEntity("RAS-GTP", mentions))
-    assertTrue(hasEntity("RAS", mentions))
-    assertTrue(hasEntity("p53", mentions))
-    assertTrue(hasEntity("ASPP1", mentions))
-    assertTrue(hasEntity("ASPP2", mentions))
-    assertTrue(hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
+    assertTrue("model entity (GUS)", hasEntity("RAS-GTP", mentions))
+    assertTrue("model entity (GUS)", hasEntity("RAS", mentions))
+    assertTrue("model entity (GUS)", hasEntity("p53", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP1", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP2", mentions))
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
   }
 
   @Test def testRules10() {
@@ -135,12 +135,12 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules10")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEntity("RAS-GTP", mentions))
-    assertTrue(hasEntity("RAS", mentions))
-    assertTrue(hasEntity("p53", mentions))
-    assertTrue(hasEntity("ASPP1", mentions))
-    assertTrue(hasEntity("ASPP2", mentions))
-    assertTrue(hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
+    assertTrue("model entity (GUS)", hasEntity("RAS-GTP", mentions))
+    assertTrue("model entity (GUS)", hasEntity("RAS", mentions))
+    assertTrue("model entity (GUS)", hasEntity("p53", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP1", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP2", mentions))
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
   }
 
   @Test def testRules11() {
@@ -149,16 +149,16 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules11")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEntity("MAPK", mentions))
-    assertTrue(hasEntity("ASPP1", mentions))
-    assertTrue(hasEntity("ASPP2", mentions))
+    assertTrue("model entity (GUS)", hasEntity("MAPK", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP1", mentions))
+    assertTrue("model entity (GUS)", hasEntity("ASPP2", mentions))
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP1"), mentions))
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP1"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("MAPK", "Phosphorylation", List("ASPP1"), mentions))
-    assertTrue(hasUpRegulationByEntity("MAPK", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK", "Phosphorylation", List("ASPP1"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules12() {
@@ -167,10 +167,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules12")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("RAS", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("RAS", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules13() {
@@ -179,10 +179,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules13")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules14() {
@@ -193,10 +193,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     // TODO: missing Phospho (GUS)
     // TODO: Add Site rule for (\d+-\d+) fragment pattern
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation missing site (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules15() {
@@ -205,7 +205,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules15")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules16() {
@@ -214,10 +214,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules16")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules17() {
@@ -226,10 +226,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules17")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
-    assertTrue(hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
   }
 
   @Test def testRules18() {
@@ -239,7 +239,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     displayMentions(mentions, doc)
 
     // TODO: Binding with 1 argument, which is a complex (MARCO)
-    assertTrue(hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
   }
 
   @Test def testRules19() {
@@ -248,13 +248,13 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules19")
     displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
+    assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing transport (ENRIQUE)
-    assertTrue(hasEventWithArguments("Transport", List("cytosol/nucleus"), mentions))
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol/nucleus"), mentions))
 
     // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
-    assertTrue(hasEventWithArguments("Binding", List("p53"), mentions))
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
   }
 
   @Test def testRules20() {
@@ -264,7 +264,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     displayMentions(mentions, doc)
 
     // TODO: missing transport (ENRIQUE)
-    assertTrue(hasEventWithArguments("Transport", List("ASPP2", "membrane", "cytosol/nucleus"), mentions))
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "cytosol/nucleus"), mentions))
   }
 }
 
