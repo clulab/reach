@@ -1,9 +1,8 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
-import edu.arizona.sista.matcher.ExtractorEngine
+import edu.arizona.sista.bionlp.reach.ruler.DarpaEvalUtils._
+import edu.arizona.sista.bionlp.reach.ruler.TestDarpaEval2015DryRun._
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import DarpaEvalUtils._
-import TestDarpaEval2015DryRun._
 import org.junit.Assert._
 import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
@@ -29,9 +28,9 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules2")
     displayMentions(mentions, doc)
-    // TODO: both these fail (DANE) COREF required
-    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
-    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
+    // TODO: both these fail (DANE)
+    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
 
     // TODO: can we catch the UpRegulation by GAP here?
     //assertTrue("upregulation + black magic (MARCO/GUS)", hasUpRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
@@ -43,8 +42,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules3")
     displayMentions(mentions, doc)
-    // TODO: this fails (DANE) COREF required
-    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    // TODO: this fails (DANE)
+    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
   }
 
   @Test def testRules4() {
@@ -88,8 +87,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules7")
     displayMentions(mentions, doc)
-    // TODO: this fails (DANE) COREF required
-    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
+    // TODO: this fails (DANE)
+    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
 
     // TODO: missing keyword, missing protein - needs coref (GUS)
     assertTrue("ubiquitination +coref (GUS/DANE)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
