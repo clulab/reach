@@ -238,8 +238,7 @@
   action: mkTextBoundMention
   pattern: |
     /^[^0-9].*(-[AG][DT]P|[AG][DT]P-)/ |
-    p53 |
-    /^SAP/ |
+    /p\d+/? /^SAP/ | #TODO: I think we need to detect complexes as sequences of Proteins at step 3
     /^RAPGEF/ |
     /^RASGEF/ |
     /^RASGR/ |
@@ -259,7 +258,8 @@
     Q9P212 |
     Q76NI1 |
     /^NF\d/ |
-    /^DAB2IP/
+    /^DAB2IP/ |
+    /p\d+/
 
 
 - name: uniprotID_ASPP2_HUMAN
