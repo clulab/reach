@@ -45,6 +45,18 @@
    [word=/residue/]?
    [word=/\d+/]
 
+- name: site_fragment
+  label: Site
+  priority: 1
+  type: token
+  example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
+  action: mkTextBoundMention
+  pattern: |
+    "("
+    /^\d+-\d+$/
+    ")"
+    "fragment"
+
 - name: site_domain
   label: Site
   priority: 1
