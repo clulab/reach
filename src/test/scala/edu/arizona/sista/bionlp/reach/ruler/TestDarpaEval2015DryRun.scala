@@ -241,6 +241,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
     assertTrue("binding with coref (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
+
+    // TODO: missing two regulations:  phosphorylation leads to transport and binding
   }
 
   @Test def testRules20() {
