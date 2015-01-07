@@ -89,7 +89,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     // TODO: missing keyword, missing protein - needs coref (GUS)
     assertTrue("ubiquitination +coref (GUS/DANE)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
-    
+
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
 
     // TODO: another down-regulation controller the ubiquitination, and controlled the GAP up-regulation??? Not sure about this...
@@ -185,7 +185,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     
     assertTrue("phosphorylation missing site (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-    // TODO: missing regulations (MARCO + GUS)
+    // TODO: missing regulations (MARCO + GUS); I don't understand this regulation...
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
   }
 
@@ -229,7 +229,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     displayMentions(mentions, doc)
 
     // TODO: Binding with 1 argument, which is a complex (MARCO)
-    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
+    assertTrue("binding -> splitting elements of complex (MARCO/GUS)", hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
   }
 
   @Test def testRules19() {
