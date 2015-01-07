@@ -173,7 +173,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-    // TODO: missing regulations (MARCO + GUS)
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
   }
 
@@ -185,7 +184,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     
     assertTrue("phosphorylation missing site (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-    // TODO: missing regulations (MARCO + GUS); I don't understand this regulation...
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
   }
 
@@ -217,7 +215,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-    // TODO: missing regulations (MARCO + GUS)
     assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
   }
 
@@ -228,7 +225,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     displayMentions(mentions, doc)
 
     // TODO: Binding with 1 argument, which is a complex (MARCO)
-    assertTrue("binding -> splitting elements of complex (MARCO/GUS)", hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
+    //assertTrue("binding -> splitting elements of complex (MARCO/GUS)", hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
   }
 
   @Test def testRules19() {
