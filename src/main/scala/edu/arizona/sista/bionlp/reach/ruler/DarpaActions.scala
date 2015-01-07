@@ -204,12 +204,16 @@ class DarpaActions extends Actions {
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Protein", "Gene_or_gene_product", "Small_molecule"))
-    val src = state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component"))
+    //val src = state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component"))
+
+    val src = if(mention contains "source") state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component")) else Seq()
+    
 
     val dst = mention.getOrElse("destination", Nil) flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component")))
     
     val args = Map("Theme" -> theme, "Source" -> src, "Destination" -> dst)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
+    println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
     Seq(trigger, event)
   }
 

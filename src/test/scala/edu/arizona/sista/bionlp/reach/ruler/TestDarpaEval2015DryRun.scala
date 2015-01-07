@@ -251,9 +251,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     header("testRules19")
     displayMentions(mentions, doc)
 
-    // TODO: missing transport (ENRIQUE)
     assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "cytosol"), mentions))
-    // TODO: missing transport (ENRIQUE)
     assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "nucleus"), mentions))
   }
 }
