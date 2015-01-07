@@ -1,11 +1,11 @@
 
 - name: Down_regulation_1
   priority: 5
-  action: mkComplexEvent
+  action: mkRegulation
   type: token
   label: DownRegulation
   pattern: |
-    (?<cause> [mention=/./]) /./*? (?<trigger> [word=/(?i)block|inhibit|reduce/]) /./*? (?<theme> [mention=/./])
+    (?<cause> [mention=/./]) /./*? (?<trigger> [word=/(?i)block|inhibit|reduce/]) /./*? (?<controlled> [mention=/./])
 
 - name: Down_regulation_2
   priority: 5
