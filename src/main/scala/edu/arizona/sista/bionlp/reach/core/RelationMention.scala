@@ -20,4 +20,8 @@ class RelationMention
       val allEnds = arguments.values.flatMap(_.map(_.end)).toSeq
       Interval(allStarts.min, allEnds.max)
     }
+    override def text: String = {
+      if (label == "Complex") arguments("Participant").map(_.text).mkString("-")
+      else words.mkString(" ")
+    }
 }

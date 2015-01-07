@@ -65,17 +65,17 @@ class DarpaActions extends Actions {
     Seq(event)
   }
 
-  def mkCoref(state: State, doc: Document, sent: Int, found: Mention, lspan: Int, rspan: Int, anttype: Seq[String], n: Int = 1): Seq[Mention] = {
+  def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, anttype: Seq[String], n: Int = 1): Seq[Mention] = {
     // TODO: Change to take Interval instead of Mention
 
-    val mentions = state.mentionsFor(sent, found.tokenInterval.toSeq, anttype)
+    val mentions = state.mentionsFor(sent, anchor.toSeq, anttype)
     // This shouldn't happen, because you shouldn't call mkCoref if you don't need a coreference.
     if (mentions.nonEmpty) Nil
     else {
       var leftwd = if (lspan > 0) {
-        (math.max(0, found.tokenInterval.start - lspan) until found.tokenInterval.start).reverse flatMap (i => state.mentionsFor(sent, i, anttype))
+        (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, anttype))
       } else Nil
-      var lremainder = lspan - found.tokenInterval.start
+      var lremainder = lspan - anchor.start
       var iter = 1
       while (lremainder > 0 & sent-iter >= 0) {
         leftwd = leftwd ++ ((math.max(0, doc.sentences(sent-iter).size - lremainder) until doc.sentences(sent-iter).size).reverse flatMap (i => state.mentionsFor(sent-iter, i, anttype)))
@@ -84,9 +84,9 @@ class DarpaActions extends Actions {
       }
 
       var rightwd = if (rspan > 0) {
-        (found.tokenInterval.end + 1) to math.min(found.tokenInterval.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, anttype))
+        (anchor.end + 1) to math.min(anchor.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, anttype))
       } else Nil
-      var rremainder = rspan - (doc.sentences(sent).size - found.tokenInterval.end - 1)
+      var rremainder = rspan - (doc.sentences(sent).size - anchor.end - 1)
       iter = 1
       while (rremainder > 0 & sent + iter < doc.sentences.length) {
         rightwd = rightwd ++ (0 until math.min(rspan, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, anttype)))
@@ -95,19 +95,18 @@ class DarpaActions extends Actions {
       }
 
       val leftright = leftwd ++ rightwd
-      val adcedentMention = if(leftright.nonEmpty) Some(leftright.slice(0,n))
+      val adcedentMentions = if(leftright.nonEmpty) Some(leftright.slice(0,n))
       else None
 
-      if (adcedentMention.isDefined) {
-        for (m <- adcedentMention.get)
-        yield new RelationMention("COREF", Map("Adcedent" -> Seq(m), "Endphor" -> Seq(found)), sent, doc, "COREF")
+      if (adcedentMentions.isDefined) {
+        adcedentMentions.get
       } else {
         Nil
       }
     }
   }
 
-  def mkCoref(state: State, doc: Document, sent: Int, found: Mention, lspan: Int, rspan: Int, anttype: Seq[String], n: String): Seq[Mention] = {
+  def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, anttype: Seq[String], n: String): Seq[Mention] = {
     // our lookup for unresolved mention counts
     val numMap = Map("a" -> 1,
       "an" -> 1,
@@ -128,7 +127,7 @@ class DarpaActions extends Actions {
       numMap.getOrElse(somenum, finalAttempt(somenum))
     }
 
-    mkCoref(state, doc, sent, found, lspan, rspan, anttype, retrieveInt(n))
+    findCoref(state, doc, sent, anchor, lspan, rspan, anttype, retrieveInt(n))
   }
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
