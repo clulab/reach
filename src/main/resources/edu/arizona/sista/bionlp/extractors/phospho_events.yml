@@ -84,6 +84,20 @@
     trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
     theme: <nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/]
 
+
+- name: Phosphorylation_8
+  priority: 4
+  action: mkSimpleEvent
+  example: "Hence ASPP2 can be phosphorylated at serine 827 by MAPK1 in vitro."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
+    theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/]
+    site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
+    cause?: (/prep_/ /conj_|nn/*)? prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
+
+
 - name: Phosphorylation_token_1
   priority: 4
   action: mkSimpleEvent
