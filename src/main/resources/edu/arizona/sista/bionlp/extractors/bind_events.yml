@@ -139,3 +139,11 @@
   pattern: |
     trigger: ligated
     theme: <vmod | nsubj | prep_to
+
+- name: binding_18
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  type: token
+  pattern: |
+    (?<trigger> binding) to (?<theme> [mention=/^Protein|Gene_or_gene_product$/])
