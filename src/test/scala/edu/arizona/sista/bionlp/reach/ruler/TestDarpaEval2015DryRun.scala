@@ -190,9 +190,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules14")
     displayMentions(mentions, doc)
-
-    // TODO: missing Phospho (GUS)
-    // TODO: Add Site rule for (\d+-\d+) fragment pattern
+    
     assertTrue("phosphorylation missing site (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
     // TODO: missing regulations (MARCO + GUS)
