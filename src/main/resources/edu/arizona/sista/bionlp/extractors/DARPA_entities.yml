@@ -530,8 +530,6 @@
   pattern: |
    ([word=/(?i)^RGL1$/]) |
    ([word=/(?i)^RalGDS(-like)?$/] "1") |
-   ([word=/(?i)^B$/]) |
-   ([word=/(?i)^A$/]) |
    ([word=/(?i)^Ral$/] guanine nucleotide dissociation [word=/(?i)^stimulator(-like)?$/] "1")
 
 - name: uniprotID_RGL3_HUMAN
