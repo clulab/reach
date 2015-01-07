@@ -110,7 +110,7 @@ class DarpaActions extends Actions {
     val causes = getSimpleEntities(allCauses, proteinLabels)
 
     // unpack any RelationMentions
-    val sites = (getMentions("site", siteLabels) ++ filterRelationMentions(allCauses ++ allThemes, Seq("Site"))).distinct
+    val sites = (filterRelationMentions(getMentions("site", siteLabels) ++ allCauses ++ allThemes, Seq("Site"))).distinct
 
     val mentions = trigger match {
       case hasCauseHasThemeHasSite if causes.nonEmpty && themes.nonEmpty && sites.nonEmpty => for (cause <- causes; site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site), "Cause" -> Seq(cause)), sent, doc, ruleName)
