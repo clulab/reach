@@ -1,41 +1,10 @@
-package edu.arizona.sista.bionlp.reach.ruler
+package edu.arizona.sista.bionlp.reach
 
-import edu.arizona.sista.bionlp.reach.core.RelationMention
-
-import scala.util.control.Breaks._
-import edu.arizona.sista.matcher.{ExtractorEngine, Mention, TextBoundMention, EventMention}
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
+import edu.arizona.sista.bionlp.reach.core.RelationMention
+import edu.arizona.sista.matcher.{Mention, TextBoundMention, EventMention}
 
-object RuleShell extends App {
-  require(args.size % 2 == 0, "wrong command line args")
-
-  val prompt = ">>> "
-
-  val entityRules = Ruler.readEntityRules
-
-  val ruleArgIndex = args.indexOf("--rules")
-  val eventRules = if (ruleArgIndex == -1) Ruler.readEventRules else Ruler.readFile(args(ruleArgIndex + 1))
-
-  val rules = entityRules + "\n\n" + eventRules
-
-  val actions = new DarpaActions
-
-  val proc = new BioNLPProcessor
-  val extractor = new ExtractorEngine(rules, actions)
-
-  breakable {
-    while (true) {
-      val text = readLine(prompt)
-      if (text == null) break
-      val doc = proc.annotate(text)
-      val mentions = extractor.extractFrom(doc)
-      displayMentions(mentions, doc)
-    }
-  }
-
-  println("\nbye")
-
+package object ruler {
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
     val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
     for ((s, i) <- doc.sentences.zipWithIndex) {

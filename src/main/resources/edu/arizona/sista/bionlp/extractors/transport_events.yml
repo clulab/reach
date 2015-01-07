@@ -1,0 +1,20 @@
+- name: transport_1
+  priority: 4
+  action: mkTransport
+  example: "It has recently been shown that activation of RAS results in ASPP2 translocation from the plasma membrane to the cytosol and nucleus."
+  label: Transport
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)^transloc/] #[tag=/^N/]
+    theme: /nn+|prep_of/ [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    source: /prep_of/? prep_from [tag=/^N/]
+    destination?: <prep_in prep_to /conj_and*/ [tag=/^N/] 
+
+#- name: trasport_2
+#  priority: 4
+#  action: mkSimpleEvent
+#  example: ""
+#  label: Transport
+#  type: dependency
+#  pattern: |
+#    trigger: [

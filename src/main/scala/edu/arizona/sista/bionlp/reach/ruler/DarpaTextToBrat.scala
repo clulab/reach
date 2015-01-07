@@ -14,10 +14,10 @@ object DarpaTextToBrat {
     val proc = new BioNLPProcessor()
     val doc = proc.annotate("The ABC protein phosphorylates the CDE protein.") // TODO: read from a given file
     val actions = new DarpaActions
-    val entityRules = Ruler.readEntityRules
-    val eventRules = Ruler.readEventRules
+    val entityRules = BasicRuler.readEntityRules
+    val eventRules = BasicRuler.readEventRules
     val rules = entityRules + "\n\n" + eventRules
-    val extractor = new ExtractorEngine[DarpaActions](rules, actions)
+    val extractor = new BasicRuler(rules, actions)
     val mentions = extractor.extractFrom(doc)
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
 

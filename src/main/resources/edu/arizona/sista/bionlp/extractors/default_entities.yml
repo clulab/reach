@@ -45,6 +45,18 @@
    [word=/residue/]?
    [word=/\d+/]
 
+- name: site_fragment
+  label: Site
+  priority: 1
+  type: token
+  example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
+  action: mkTextBoundMention
+  pattern: |
+    "("
+    /^\d+-\d+$/
+    ")"
+    "fragment"
+
 - name: site_domain
   label: Site
   priority: 1
@@ -107,11 +119,11 @@
     /(?i)^(GDP|GTP|ATP|ADP|adenine|adenosine|guanine|guanosine)(-(ribose|methyl|acetyl))?$/ /(?i)group/?
       |
     /(?i)fatty/ /(?i)acid/
-    #  |
+      |
     # Radioactive forms of GDP and GTP used in experiments.
     # Capturing 32P-GDP, 32P-GTP, 33P-GDP, and 33P-GTP should be enough.
     # (32P and 33P are the only useful isotopes of phosphorus, and 32P is much more common in laboratory usage.)
-    # /3[23]P-G[DT]P/
+     /^\d\d*?P-G[DT]P/
 
 - name: acid
   label: Gene_or_gene_product
@@ -135,7 +147,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-    /(?i)^[HKN]?-?ras$/ | (([word=/(?i)^[khn]$/] "–")? [word=/(?i)^RAS$/]) |          # tokenization of hyphenated words changed
+    /(?i)^[HKN]?-?ras$/ |
     /(?i)^RASSF$/ |
     /(?i)^mek$/ |
     /(?i)^erk$/ |
