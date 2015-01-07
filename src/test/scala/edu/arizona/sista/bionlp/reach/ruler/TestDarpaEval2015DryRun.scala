@@ -29,7 +29,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules2")
     RuleShell.displayMentions(mentions, doc)
-    // TODO: both these fail (DANE)
+    // TODO: both these fail (DANE) COREF required
     assertTrue(hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
     assertTrue(hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
 
@@ -43,7 +43,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules3")
     RuleShell.displayMentions(mentions, doc)
-    // TODO: this fails (DANE)
+    // TODO: this fails (DANE) COREF required
     assertTrue(hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
   }
 
@@ -61,7 +61,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules5")
     RuleShell.displayMentions(mentions, doc)
-    // TODO: this fails (DANE)
     assertTrue(hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
     // TODO: appears as binding but it's ubiquitination (GUS + MARCO)
     assertTrue(hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
@@ -75,7 +74,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules6")
     RuleShell.displayMentions(mentions, doc)
-    // TODO: this fails (DANE)
     assertTrue(hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
 
     // TODO: missing keyword (GUS). Should "K-Ras" be "K - Ras" because of tokenization?
@@ -90,7 +88,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules7")
     RuleShell.displayMentions(mentions, doc)
-    // TODO: this fails (DANE)
+    // TODO: this fails (DANE) COREF required
     assertTrue(hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
 
     // TODO: missing keyword, missing protein - needs coref (GUS)
