@@ -20,7 +20,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/]
     theme: >nsubjpass
-    cause?: agent|prep_by
+    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* ) ) [mention=/Protein_with_site|Gene_or_gene_product/]
 
 
 - name: Phosphorylation_3
@@ -95,7 +95,7 @@
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
-    cause?: (/prep_/ /conj_|nn/*)? prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
+    cause?: (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
 
 
 - name: Phosphorylation_token_1
