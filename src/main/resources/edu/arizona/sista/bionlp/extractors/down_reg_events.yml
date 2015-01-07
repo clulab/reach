@@ -3,6 +3,17 @@
   priority: 5
   action: mkComplexEvent
   type: token
-  label: Down_regulation
+  label: DownRegulation
   pattern: |
     (?<cause> [mention=/./]) /./*? (?<trigger> [word=/(?i)block|inhibit|reduce/]) /./*? (?<theme> [mention=/./])
+
+- name: Down_regulation_2
+  priority: 5
+  action: mkRegulation
+  type: dependency
+  label: DownRegulation
+  pattern: |
+    trigger: /^regulat/
+    constraint: advmod [word=/^negative/]
+    controller: nsubj nn*
+    controlled: dobj
