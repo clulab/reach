@@ -9,16 +9,13 @@ import edu.arizona.sista.matcher.{TextBoundMention, EventMention, Mention}
  * Date: 1/5/15
  */
 object DarpaEvalUtils {
-  type MentionWithArgs = { def arguments: Map[String, Seq[Mention]] }
-
   def hasEventWithArguments(label:String, args:Seq[String], mentions:Seq[Mention]):Boolean = {
     for(m <- mentions) {
       if(!m.isInstanceOf[TextBoundMention]) {
-        val em = m.asInstanceOf[MentionWithArgs]
         if(m.label == label) { // found the label
           var count = 0
           for(arg <- args) {
-            for (a <- em.arguments.values.flatten) {
+            for (a <- m.arguments.values.flatten) {
               if(arg == a.text) {
                 count += 1
               }
@@ -82,11 +79,10 @@ object DarpaEvalUtils {
                             controlledArgs:Seq[String],
                             mentions:Seq[Mention]):Boolean = {
     for(m <- mentions) {
-      if(m.isInstanceOf[MentionWithArgs]) {
-        val em = m.asInstanceOf[MentionWithArgs]
+      if(!m.isInstanceOf[TextBoundMention]) {
         if(m.label == label) { // found the regulation label
-          val controller = em.arguments.get("Controller")
-          val controlled = em.arguments.get("Controlled")
+          val controller = m.arguments.get("Controller")
+          val controlled = m.arguments.get("Controlled")
 
           if(controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) { // some obvious sanity checks
             val controlledEvent = controlled.get.head.asInstanceOf[EventMention]

@@ -28,9 +28,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules2")
     displayMentions(mentions, doc)
-    // TODO: both these fail (DANE)
-    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
-    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
 
     // TODO: can we catch the UpRegulation by GAP here?
     //assertTrue("upregulation + black magic (MARCO/GUS)", hasUpRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
@@ -42,8 +41,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules3")
     displayMentions(mentions, doc)
-    // TODO: this fails (DANE)
-    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
   }
 
   @Test def testRules4() {
@@ -84,8 +82,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
     header("testRules7")
     displayMentions(mentions, doc)
-    // TODO: this fails (DANE)
-    assertTrue("hydrolysis (DANE) COREF required", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
+    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
 
     // TODO: missing keyword, missing protein - needs coref (GUS)
     assertTrue("ubiquitination +coref (GUS/DANE)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
@@ -240,7 +237,9 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol"), mentions))
 
     // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
-    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
+    assertTrue("binding with coref (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
+
+    // TODO: missing two regulations:  phosphorylation leads to transport and binding
   }
 
   @Test def testRules20() {

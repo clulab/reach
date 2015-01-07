@@ -5,5 +5,29 @@
   example: "We compared the rate of GTP hydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   type: dependency
   pattern: |
-    trigger: [word=/(?i)^hydrolysis/]
+    trigger: [word=/(?i)hydrolysis/]
     theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Complex/]
+    protein?: <prep_of? <dobj? (prep_for | prep_on) [mention=/Gene_or_gene_product|Protein/]
+
+- name: hydrolysis_2
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)hydrolysis/]
+    theme?: nn [mention=/Simple_chemical|Complex/]
+    protein?: <prep_to [mention=/Gene_or_gene_product|Protein/]
+
+- name: hydrolysis_2wrong
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)hydrolysis/]
+    theme?: nn [mention=/Simple_chemical|Complex/]
+    protein?: <nsubj dep ccomp dobj prep_of [mention=/Gene_or_gene_product|Protein/]
+
