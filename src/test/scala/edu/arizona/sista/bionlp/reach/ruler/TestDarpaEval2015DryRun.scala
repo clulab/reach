@@ -236,13 +236,11 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-    // TODO: missing transport (ENRIQUE)
     assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("nucleus"), mentions))
-    // TODO: missing transport (ENRIQUE)
     assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol"), mentions))
 
     // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
-    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
+    assertTrue("binding with coref (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
   }
 
   @Test def testRules20() {
