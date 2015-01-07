@@ -151,7 +151,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
 
     assertTrue(hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions))
 
-    // TODO: missing positive regulation of Binding, Controller: MEK. Please add assert for this (MARCO or GUS)
+    assertTrue("upregulation (MARCO or GUS)", hasUpRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions))
   }
 
   @Test def testRules14() {

@@ -9,12 +9,14 @@ import edu.arizona.sista.matcher.{TextBoundMention, EventMention, Mention}
  * Date: 1/5/15
  */
 object DarpaEvalUtils {
+  type MentionWithArgs = { def arguments: Map[String, Seq[Mention]] }
+
   def hasEventWithArguments(label:String, args:Seq[String], mentions:Seq[Mention]):Boolean = {
     for(m <- mentions) {
-      if(m.isInstanceOf[EventMention]) {
-        val em = m.asInstanceOf[EventMention]
-        if(em.label == label) { // found the label
-        var count = 0
+      if(!m.isInstanceOf[TextBoundMention]) {
+        val em = m.asInstanceOf[MentionWithArgs]
+        if(m.label == label) { // found the label
+          var count = 0
           for(arg <- args) {
             for (a <- em.arguments.values.flatten) {
               if(arg == a.text) {
@@ -25,7 +27,7 @@ object DarpaEvalUtils {
           if(count == args.size) {
             // found all args as well
 
-            println(s"\t==> found event mention: ${em.text}")
+            println(s"\t==> found event mention: ${m.text}")
             return true
           }
         }
@@ -79,8 +81,6 @@ object DarpaEvalUtils {
                             controlledLabel:String,
                             controlledArgs:Seq[String],
                             mentions:Seq[Mention]):Boolean = {
-    type MentionWithArgs = { def arguments: Map[String, Seq[Mention]] }
-
     for(m <- mentions) {
       if(m.isInstanceOf[MentionWithArgs]) {
         val em = m.asInstanceOf[MentionWithArgs]

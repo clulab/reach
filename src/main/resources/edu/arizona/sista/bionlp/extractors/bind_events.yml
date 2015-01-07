@@ -131,3 +131,11 @@
   pattern: |
       trigger: [lemma=bind]
       theme: (< rcmod /appos|nn|conj_|cc/*) | (nsubj|dobj /appos|nn|conj_|cc/*) [mention=/^Protein|Gene_or_gene_product$/]
+
+- name: binding_17
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  pattern: |
+    trigger: ligated
+    theme: <vmod | nsubj | prep_to

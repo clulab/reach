@@ -12,7 +12,7 @@ class DarpaActions extends Actions {
   val proteinLabels = Seq("Simple_chemical", "Complex", "Protein", "Protein_with_site", "Gene_or_gene_product", "GENE")
   val simpleProteinLabels = Seq("Protein", "Gene_or_gene_product")
   val siteLabels = Seq("Site", "Protein_with_site")
-  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Up_regulation", "Down_regulation", "Transport")
+  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Transport")
 
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     //mention("--GLOBAL--").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
@@ -156,20 +156,27 @@ class DarpaActions extends Actions {
         .distinct
     }
 
+    def getSimpleEntities(mentions:Seq[Mention], labels:Seq[String]):Seq[Mention]= {
+      mentions.filter(!_.isInstanceOf[RelationMention]) ++
+        filterRelationMentions(mentions, labels.filter(_!= "Protein_with_site"))
+    }
+
     // We want to unpack relation mentions...
     val allThemes = getMentions("theme", proteinLabels)
 
     // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
-    val themes = allThemes.filter(!_.isInstanceOf[RelationMention]) ++
-      filterRelationMentions(allThemes, proteinLabels.filter(_!= "Protein_with_site"))
+    val themes = getSimpleEntities(allThemes, proteinLabels)
 
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil
 
-    // unpack any RelationMentions
-    val sites = getMentions("site", siteLabels) ++ filterRelationMentions(allThemes, Seq("Site"))
+    val allCauses = getMentions("cause", proteinLabels)
 
-    val causes = getMentions("cause", proteinLabels)
+    // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
+    val causes = getSimpleEntities(allCauses, proteinLabels)
+
+    // unpack any RelationMentions
+    val sites = (getMentions("site", siteLabels) ++ filterRelationMentions(allCauses ++ allThemes, Seq("Site"))).distinct
 
     val mentions = trigger match {
       case hasCauseHasThemeHasSite if causes.nonEmpty && themes.nonEmpty && sites.nonEmpty => for (cause <- causes; site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site), "Cause" -> Seq(cause)), sent, doc, ruleName)
@@ -270,14 +277,21 @@ class DarpaActions extends Actions {
   }
   
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+
+    //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
+
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Protein", "Gene_or_gene_product", "Small_molecule"))
-    val src = state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component"))
 
-    val dst = mention.getOrElse("destination", Nil) flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component")))
+    val src = if((mention contains "source") && !mention("source").isEmpty) state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component")) else Seq()
+    
+    //val dst = mention.getOrElse("destination", Nil) flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component")))
+    val dst = if((mention contains "destination") && !mention("destination").isEmpty) mention("destination") flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component"))) else Seq()
     
     val args = Map("Theme" -> theme, "Source" -> src, "Destination" -> dst)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
+
+
     Seq(trigger, event)
   }
 

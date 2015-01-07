@@ -10,15 +10,23 @@ class BasicRuler(val rules: String, val actions: Actions) {
 
   def extractFrom(doc: Document): Seq[Mention] = postprocess(engine.extractFrom(doc))
 
-  def postprocess(mentions: Seq[Mention]): Seq[Mention] = mentions flatMap { mention =>
-    mention match {
-      case m: EventMention if m.label == "Phosphorylation" && m.arguments.contains("Cause") =>
-        val controller = m.arguments("Cause")
-        val phospho = new EventMention("Phosphorylation", m.trigger, m.arguments - "Cause", m.sentence, m.document, m.foundBy)
-        val args = Map("Controller" -> controller, "Controlled" -> Seq(phospho))
-        val upreg = new RelationMention("UpRegulation", args, m.sentence, m.document, m.foundBy)
-        Seq(upreg, phospho)
-      case m => Seq(m)
+  def postprocess(mentions: Seq[Mention]): Seq[Mention] = {
+    mentions flatMap { mention => mention match {
+        // the event mention should not be a regulation and it must contain a cause
+        case m: EventMention if !m.label.contains("Regulation") && m.arguments.contains("Cause") =>
+          val controller = m.arguments("Cause")
+          val someEvent = new EventMention(m.label , m.trigger, m.arguments - "Cause", m.sentence, m.document, m.foundBy)
+          val args = Map("Controller" -> controller, "Controlled" -> Seq(someEvent))
+          val upreg = new RelationMention("UpRegulation", args, m.sentence, m.document, m.foundBy)
+          Seq(upreg, someEvent)
+
+        case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
+          val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
+          val ubiq = new RelationMention("Ubiquitination", Map("Theme" -> themes), m.sentence, m.document, m.foundBy)
+          Seq(ubiq)
+
+        case m => Seq(m)
+      }
     }
   }
 }
