@@ -1,0 +1,8 @@
+- name: up_reg_1
+  label: UpRegulation
+  priority: 5
+  action: mkRegulation
+  pattern: |
+    trigger: regulate
+    controller: nsubj nn*
+    controlled: dobj

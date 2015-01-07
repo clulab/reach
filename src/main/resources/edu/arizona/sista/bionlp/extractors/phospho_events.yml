@@ -47,7 +47,7 @@
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: (/pobj|prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]) | (< /pobj|prep_|conj_|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/])
     #site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
-    cause?: <nn* | (prep_by nn*) | <dobj nsubj dep* nn*
+    cause?: <nn* | (prep_by nn*) # | <dobj nsubj dep* nn*
 
 - name: Phosphorylation_5
   priority: 4

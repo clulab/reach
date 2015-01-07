@@ -136,9 +136,16 @@ class DarpaActions extends Actions {
 
   def mkRegulation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val cause = state.mentionsFor(sent, mention("cause").head.start, "Protein").head
-    val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Phosphorylation", "Ubiquitination", "Exchange", "Degradation", "Hydrolysis")).find(_.isInstanceOf[EventMention]).get
-    val args = Map("Theme" -> Seq(theme), "Cause" -> Seq(cause))
+    val controller = for {
+      m <- mention("controller")
+      c <- state.mentionsFor(sent, m.toSeq, "Protein").distinct
+    } yield c
+    val controlled = for {
+      m <- mention("controlled")
+      c <- state.mentionsFor(sent, m.toSeq, "Phosphorylation").distinct
+      if c.isInstanceOf[EventMention]
+    } yield c
+    val args = Map("Controller" -> controller, "Controlled" -> controlled)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
   }
@@ -147,9 +154,9 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
     val themes = for {
-      k <- mention.keys
-      if k.startsWith("theme")
-      m <- mention(k)
+      name <- mention.keys
+      if name startsWith "theme"
+      m <- mention(name)
       theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
     val args = Map("Theme" -> themes.toSeq.distinct)
