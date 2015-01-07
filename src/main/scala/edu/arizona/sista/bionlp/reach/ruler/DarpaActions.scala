@@ -12,7 +12,7 @@ class DarpaActions extends Actions {
   val proteinLabels = Seq("Simple_chemical", "Complex", "Protein", "Protein_with_site", "Gene_or_gene_product", "GENE")
   val simpleProteinLabels = Seq("Protein", "Gene_or_gene_product")
   val siteLabels = Seq("Site", "Protein_with_site")
-  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Up_regulation", "Down_regulation", "Transport")
+  val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Transport")
 
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     //mention("--GLOBAL--").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
