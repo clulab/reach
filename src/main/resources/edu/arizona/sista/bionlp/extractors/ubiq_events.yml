@@ -88,7 +88,7 @@
   type: token
   label: Ubiquitination
   pattern: |
-    (?<trigger> [word=/(?i)ubiquitination/]) [tag=IN] /./*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
+    (?<trigger> [word=/(?i)ubiquit/]) ([tag=IN] /./*?)? (?<theme> [mention=/Protein|Gene_or_gene_product/])
 
 - name: Ubiquitination_DARPA_0
   priority: 4
