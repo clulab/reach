@@ -1,18 +1,26 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
 import edu.arizona.sista.bionlp.reach.brat.Brat
-import edu.arizona.sista.matcher.{ExtractorEngine, Actions, Mention}
+import edu.arizona.sista.matcher.{ExtractorEngine, Actions, Mention, EventMention}
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.bionlp.reach.core.RelationMention
 
 class BasicRuler(val rules: String, val actions: Actions) {
   val engine = new ExtractorEngine(rules, actions)
 
   def extractFrom(doc: Document): Seq[Mention] = postprocess(engine.extractFrom(doc))
 
-  // TODO this method should inspect the mentions and return a new sequence
-  // that may include new mentions or discard some
-  // NOTE now it returns the same sequence
-  def postprocess(mentions: Seq[Mention]): Seq[Mention] = mentions
+  def postprocess(mentions: Seq[Mention]): Seq[Mention] = mentions flatMap { mention =>
+    mention match {
+      case m: EventMention if m.label == "Phosphorylation" && m.arguments.contains("Cause") =>
+        val controller = m.arguments("Cause")
+        val phospho = new EventMention("Phosphorylation", m.trigger, m.arguments - "Cause", m.sentence, m.document, m.foundBy)
+        val args = Map("Controller" -> controller, "Controlled" -> Seq(phospho))
+        val upreg = new RelationMention("UpRegulation", args, m.sentence, m.document, m.foundBy)
+        Seq(upreg, phospho)
+      case m => Seq(m)
+    }
+  }
 }
 
 object BasicRuler {

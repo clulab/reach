@@ -7,7 +7,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
-    cause?: (nsubj | <vmod) /appos|nn|conj_|cc/*
+    cause?: (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
     theme: (dobj | xcomp) /./*
     #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
