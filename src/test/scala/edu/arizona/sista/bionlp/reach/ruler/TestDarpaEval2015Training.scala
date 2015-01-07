@@ -136,7 +136,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     val doc = proc.annotate("To address the effect of K-Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules.")
     val mentions = extractor.extractFrom(doc)
     header("testRules12")
-    displayMentions(mentions, doc)
+  displayMentions(mentions, doc)
 
     assertTrue(hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
     assertTrue(hasEventWithArguments("Binding", List("PI3K", "Raf family members"), mentions))
