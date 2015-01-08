@@ -11,9 +11,9 @@ object RulerShell extends App {
   val proc = new BioNLPProcessor
 
   def createBasicRuler:BasicRuler = {
-    val entityRules = BasicRuler.readEntityRules
+    val entityRules = BasicRuler.readEntityRules(shell=true)
     val ruleArgIndex = args.indexOf("--rules")
-    val eventRules = if (ruleArgIndex == -1) BasicRuler.readEventRules else BasicRuler.readFile(args(ruleArgIndex + 1))
+    val eventRules = if (ruleArgIndex == -1) BasicRuler.readEventRules(shell=true) else BasicRuler.readFile(args(ruleArgIndex + 1))
     val rules = entityRules + "\n\n" + eventRules
     val actions = new DarpaActions
     new BasicRuler(rules, actions)
