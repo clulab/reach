@@ -124,9 +124,10 @@ class DarpaActions extends Actions {
   }
 
   def meldMentions(mention: Map[String, Seq[Interval]]): Interval = {
-    val range = (for(i: Interval <- mention.values.toSet.toSeq.flatten) yield Seq(i.start, i.end)).flatten.sorted
-    new Interval(range.head,range.last)
+    val range = (for (i: Interval <- mention.values.toSet.toSeq.flatten) yield Seq(i.start, i.end)).flatten.sorted
+    new Interval(range.head, range.last)
   }
+
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // Don't change this, but feel free to make a new action based on this one.
@@ -134,46 +135,59 @@ class DarpaActions extends Actions {
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
 
-    def getMentions(argName: String, validLabels: Seq[String]): Seq[Mention] = mention.getOrElse(argName, Nil) match {
-      case Nil => Seq();
-      case someArgs => state.mentionsFor(sent, someArgs.map(_.start), validLabels).distinct;
+    def unpackTheseMentions(mentions: Seq[Mention], labels: Seq[String]): Seq[Mention] = {
+
+      val processedMentions =
+        for (m <- mentions) yield
+          m match {
+            case toUnpack if labels contains m.label => unpackMention(m)
+            case _ => Seq(m)
+          }
+      processedMentions.flatten
     }
 
-    def filterRelationMentions(mentions:Seq[Mention], argNames:Seq[String]):Seq[Mention]= {
-
-      // unpack RelationMention arguments
-      val relationMentions =
-        mentions
-        .filter(_.isInstanceOf[RelationMention])
-        .map(_.asInstanceOf[RelationMention])
-
-      // check all arguments
-      (for (arg <- argNames; rel <- relationMentions) yield rel.arguments.getOrElse(arg, Seq()))
-        .flatten
-        .distinct
+    def unpackMention(mention: Mention): Seq[Mention] = {
+      val mentions =
+        for (m <- mention.arguments.values.flatten) yield
+          m match {
+            case m: TextBoundMention => {
+              //println (s"mention label: ${m.label}")
+              Seq(m)
+            }
+            case _ => unpackMention(m)
+          }
+      mentions.flatten.toSeq
     }
 
-    def getSimpleEntities(mentions:Seq[Mention], labels:Seq[String]):Seq[Mention]= {
-      mentions.filter(!_.isInstanceOf[RelationMention]) ++
-        filterRelationMentions(mentions, labels.filter(_!= "Protein_with_site"))
+    def findAllSimpleMentions(mentions: Seq[Mention]): Seq[Mention] = {
+
+      val simpleMentions =
+        for (m <- mentions) yield
+          m match {
+            case simple if m.isInstanceOf[TextBoundMention] => Seq(m)
+            case _ => unpackMention(m)
+          }
+
+      simpleMentions.flatten.distinct
     }
+
+    def getAllMentionsForArg(argName: String): Seq[Mention] = state.mentionsFor(sent, mention.getOrElse(argName, Nil).map(_.start))
+
+    def allMentionsForMatch: Seq[Mention] = state.mentionsFor(sent, mention.values.flatten.map(_.start).toSeq)
 
     // We want to unpack relation mentions...
-    val allThemes = getMentions("theme", proteinLabels)
-
-    // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
-    val themes = getSimpleEntities(allThemes, proteinLabels)
+    val themes = unpackTheseMentions(getAllMentionsForArg("theme"), Seq("Protein_with_site"))
+      .filter(m => proteinLabels contains m.label)
 
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil
 
-    val allCauses = getMentions("cause", proteinLabels)
-
     // unpack any RelationMentions and keep only mention matching the set of valid TextBound Entity labels
-    val causes = getSimpleEntities(allCauses, proteinLabels)
+    val causes = unpackTheseMentions(getAllMentionsForArg("cause"), Seq("Protein_with_site"))
+      .filter(m => proteinLabels contains m.label)
 
     // unpack any RelationMentions
-    val sites = (filterRelationMentions(getMentions("site", siteLabels) ++ allCauses ++ allThemes, Seq("Site"))).distinct
+    val sites = findAllSimpleMentions(allMentionsForMatch).filter(m => siteLabels contains m.label)
 
     val mentions = trigger match {
       case hasCauseHasThemeHasSite if causes.nonEmpty && themes.nonEmpty && sites.nonEmpty => for (cause <- causes; site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site), "Cause" -> Seq(cause)), sent, doc, ruleName)
