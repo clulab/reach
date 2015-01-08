@@ -207,17 +207,14 @@ class DarpaActions extends Actions {
   def mkRegulation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
 
-    val controller = for {
-      m <- mention.getOrElse("controller", Nil)
-      c <- state.mentionsFor(sent, m.toSeq).distinct
-    } yield c
-
     val events = for {
-      m <- mention("controlled")
-      c <- state.mentionsFor(sent, m.toSeq, eventLabels).distinct
-      if c.isInstanceOf[EventMention]
+      controllerMention <- mention.getOrElse("controller", Nil)
+      controller <- state.mentionsFor(sent, controllerMention.toSeq).distinct
+      controlledMention <- mention("controlled")
+      controlled <- state.mentionsFor(sent, controlledMention.toSeq, eventLabels).distinct
+      if controlled.isInstanceOf[EventMention]
+      args = Map("Controller" -> Seq(controller), "Controlled" -> Seq(controlled))
     } yield {
-      val args = Map("Controller" -> controller, "Controlled" -> Seq(c))
       new EventMention(label, trigger, args, sent, doc, ruleName)
     }
 
