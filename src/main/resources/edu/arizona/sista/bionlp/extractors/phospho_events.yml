@@ -62,6 +62,7 @@
     site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
     cause: prep_by /conj|cc|nn/*
 
+
 - name: Phosphorylation_6
   priority: 4
   action: mkSimpleEvent
@@ -74,6 +75,7 @@
     cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
     site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
 
+
 - name: Phosphorylation_7
   priority: 4
   action: mkSimpleEvent
@@ -81,8 +83,9 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & !outgoing=/prep_(by|of)/]
-    theme: nn /conj_|cc|nn/*
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & !outgoing=/prep_by/]
+    theme: nn /conj|cc|nn|prep/*
+
 
 - name: Phosphorylation_8
   priority: 4
@@ -115,7 +118,7 @@
   type: token
   label: Phosphorylation
   pattern: |
-    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [tag=/IN/] /./*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
+    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
 
 
 - name: Phosphorylation_token_2
@@ -125,7 +128,7 @@
   type: token
   label: Phosphorylation
   pattern: |
-    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [!tag=/IN/]
+    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [!word=of]
 
 
 - name: Phosphorylation_token_3
@@ -136,6 +139,16 @@
   label: Phosphorylation
   pattern: |
     (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) [tag=IN] (?<cause> [mention=/Protein|Gene_or_gene_product/])?
+
+
+- name: Phosphorylation_token_4
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/])
 
 
 - name: Phosphorylation_DARPA_0
