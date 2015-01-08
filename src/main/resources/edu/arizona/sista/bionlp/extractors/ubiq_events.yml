@@ -7,7 +7,7 @@
   pattern: |
     trigger: [word=/(?i).*ubiquitinat.*/ & !word=/^de/]
     cause?: <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/* [!word=/(?i)ubiq/]
-    theme: (dobj | xcomp) (/./ [word=by])* [!word=/(?i)ubiq/]
+    theme: (<dep | dobj | xcomp) (/./ [word=by])* [!word=/(?i)ubiq/]
     #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
 
@@ -82,7 +82,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/^de/ & !outgoing=/prep_by/]
-    theme: nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/]
+    theme: (<dep | nn) /conj|cc|nn|prep/* [!word=/(?i)ubiq/]
 
 
 - name: Ubiquitination_8
