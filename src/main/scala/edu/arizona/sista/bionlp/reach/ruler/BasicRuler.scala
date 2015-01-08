@@ -8,7 +8,7 @@ import edu.arizona.sista.bionlp.reach.core.RelationMention
 class BasicRuler(val rules: String, val actions: Actions) {
   val engine = new ExtractorEngine(rules, actions, postprocess)
 
-  def extractFrom(doc: Document): Seq[Mention] = postprocess(engine.extractFrom(doc))
+  def extractFrom(doc: Document): Seq[Mention] = engine.extractFrom(doc)
 
   def postprocess(mentions: Seq[Mention]): Seq[Mention] = {
     mentions flatMap { mention => mention match {
