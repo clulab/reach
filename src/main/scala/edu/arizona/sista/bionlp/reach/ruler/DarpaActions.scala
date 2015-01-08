@@ -80,15 +80,15 @@ class DarpaActions extends Actions {
     var rightwd = if (rspan > 0) {
       (anchor.end + 1) to math.min(anchor.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, anttype))
     } else Nil
-    var rremainder = rspan - (doc.sentences(sent).size - anchor.end - 1)
+    var rremainder = rspan - (doc.sentences(sent).size - anchor.end)
     iter = 1
     while (rremainder > 0 & sent + iter < doc.sentences.length) {
-      rightwd = rightwd ++ (0 until math.min(rspan, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, anttype)))
+      rightwd = rightwd ++ (0 until math.min(rremainder, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, anttype)))
       rremainder = rremainder - doc.sentences(sent + iter).size
       iter += 1
     }
 
-    val leftright = leftwd ++ rightwd
+    val leftright = (leftwd ++ rightwd).distinct
     val adcedentMentions = if(leftright.nonEmpty) Some(leftright.slice(0,n))
     else None
 
@@ -123,6 +123,10 @@ class DarpaActions extends Actions {
     findCoref(state, doc, sent, anchor, lspan, rspan, anttype, retrieveInt(n))
   }
 
+  def meldMentions(mention: Map[String, Seq[Interval]]): Interval = {
+    val range = (for(i: Interval <- mention.values.toSet.toSeq.flatten) yield Seq(i.start, i.end)).flatten.sorted
+    new Interval(range.head,range.last)
+  }
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     // Don't change this, but feel free to make a new action based on this one.
@@ -208,18 +212,16 @@ class DarpaActions extends Actions {
       c <- state.mentionsFor(sent, m.toSeq).distinct
     } yield c
 
-    val controlled = for {
+    val events = for {
       m <- mention("controlled")
       c <- state.mentionsFor(sent, m.toSeq, eventLabels).distinct
       if c.isInstanceOf[EventMention]
-    } yield c
+    } yield {
+      val args = Map("Controller" -> controller, "Controlled" -> Seq(c))
+      new EventMention(label, trigger, args, sent, doc, ruleName)
+    }
 
-    // Do we have any matches at this point?
-    if (controller.isEmpty && controlled.isEmpty) return Seq()
-
-    val args = Map("Controller" -> controller, "Controlled" -> controlled)
-    val event = new EventMention(label, trigger, args, sent, doc, ruleName)
-    Seq(trigger, event)
+    if (events.nonEmpty) trigger +: events else Nil
   }
 
   def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -258,8 +260,9 @@ class DarpaActions extends Actions {
 
   def mkHydrolysis(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val themes = if (mention contains "theme") mention("theme") flatMap (m => state.mentionsFor(sent, m.start, Seq("Simple_chemical", "Complex"))) else Nil
-    val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels) else Nil
+    val themes = if (mention("theme").nonEmpty) mention("theme") flatMap (m => state.mentionsFor(sent, m.start, Seq("Simple_chemical", "Complex"))) else Nil
+    val proteins = if (mention("protein").nonEmpty) state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
+    else findCoref(state,doc,sent,meldMentions(mention),0,0,proteinLabels,1)
 
     if (themes.isEmpty & proteins.isEmpty) return Nil
 

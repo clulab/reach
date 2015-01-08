@@ -36,3 +36,11 @@
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   pattern: |
     (?<controller> [mention=/./])? (?<trigger> [word=/^mediat/]) (?<controlled> [mention=/./])
+
+- name: Up_regulation_5
+  priority: 5
+  action: mkRegulation
+  type: token
+  label: UpRegulation
+  pattern: |
+    (?<trigger> increased) (?<controlled> [mention=/Binding/]+) following (?<controller> [mention=/^(Protein|Gene_or_gene_product)$/])
