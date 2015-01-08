@@ -1,7 +1,7 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
 import edu.arizona.sista.bionlp.reach.brat.Brat
-import edu.arizona.sista.matcher.{ExtractorEngine, Actions, Mention, EventMention}
+import edu.arizona.sista.matcher._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.bionlp.reach.core.RelationMention
 
@@ -12,6 +12,9 @@ class BasicRuler(val rules: String, val actions: Actions) {
 
   def postprocess(mentions: Seq[Mention]): Seq[Mention] = {
     mentions flatMap { mention => mention match {
+
+        // Do we somehow have an empty Mention?
+        case m if !m.isInstanceOf[TextBoundMention] && m.arguments.values.flatten.isEmpty => Nil
 
         // the event mention should not be a regulation and it must contain a cause
         case m: EventMention if !m.label.contains("Regulation") && m.arguments.contains("Cause") =>
