@@ -138,7 +138,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     header("testRules12")
   displayMentions(mentions, doc)
 
-    assertTrue(hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
+    assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
     assertTrue(hasEventWithArguments("Binding", List("PI3K", "Raf family members"), mentions))
 
     assertTrue(hasEntity("G12V-K-Ras", mentions))
