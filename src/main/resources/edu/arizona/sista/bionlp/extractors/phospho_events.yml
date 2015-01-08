@@ -8,7 +8,7 @@
   pattern: |
     trigger: [word=/(?i).*phosphorylat.*/ & !word=/^de/]
     cause?: <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
-    theme: (dobj | xcomp) /./*
+    theme: (dobj | xcomp) (/./ [word=by])*
     #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
 
@@ -148,7 +148,7 @@
   type: token
   label: Phosphorylation
   pattern: |
-    (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/])
+    (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/]) (fragment? by (?<cause> [mention=/Protein|Gene_or_gene_product/])? )?
 
 
 - name: Phosphorylation_DARPA_0
