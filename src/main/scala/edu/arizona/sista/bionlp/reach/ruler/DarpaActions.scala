@@ -65,41 +65,48 @@ class DarpaActions extends Actions {
     Seq(event)
   }
 
-  def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, anttype: Seq[String], n: Int = 1): Seq[Mention] = {
+  def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int = 2, rspan: Int = 0, antType: Seq[String], n: Int = 1): Seq[Mention] = {
+    // println(s"attempting coref with type(s) ${antType.mkString(", ")}")
+
     var leftwd = if (lspan > 0) {
-      (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, anttype))
+      (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, antType))
     } else Nil
     var lremainder = lspan - anchor.start
     var iter = 1
     while (lremainder > 0 & sent - iter >= 0) {
-      leftwd = leftwd ++ ((math.max(0, doc.sentences(sent - iter).size - lremainder) until doc.sentences(sent - iter).size).reverse flatMap (i => state.mentionsFor(sent - iter, i, anttype)))
+      leftwd = leftwd ++ ((math.max(0, doc.sentences(sent - iter).size - lremainder) until doc.sentences(sent - iter).size).reverse flatMap (i => state.mentionsFor(sent - iter, i, antType)))
       lremainder = lremainder - doc.sentences(sent - iter).size
       iter += 1
     }
 
+    // println(s"leftward: ${(for (m <- leftwd) yield m.text).mkString(", ")}")
+
     var rightwd = if (rspan > 0) {
-      (anchor.end + 1) to math.min(anchor.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, anttype))
+      (anchor.end + 1) to math.min(anchor.end + rspan, doc.sentences(sent).size - 1) flatMap (i => state.mentionsFor(sent, i, antType))
     } else Nil
     var rremainder = rspan - (doc.sentences(sent).size - anchor.end)
     iter = 1
     while (rremainder > 0 & sent + iter < doc.sentences.length) {
-      rightwd = rightwd ++ (0 until math.min(rremainder, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, anttype)))
+      rightwd = rightwd ++ (0 until math.min(rremainder, doc.sentences(sent + iter).size) flatMap (i => state.mentionsFor(sent + iter, i, antType)))
       rremainder = rremainder - doc.sentences(sent + iter).size
       iter += 1
     }
+
+    // println(s"rightward: ${(for (m <- rightwd) yield m.text).mkString(", ")}")
 
     val leftright = (leftwd ++ rightwd).distinct
     val adcedentMentions = if (leftright.nonEmpty) Some(leftright.slice(0, n))
     else None
 
     if (adcedentMentions.isDefined) {
+      // println(s"${doc.sentences(sent)}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
       adcedentMentions.get
     } else {
       Nil
     }
   }
 
-  def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, anttype: Seq[String], n: String): Seq[Mention] = {
+  def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, antType: Seq[String], n: String): Seq[Mention] = {
     // our lookup for unresolved mention counts
     val numMap = Map("a" -> 1,
       "an" -> 1,
@@ -120,7 +127,7 @@ class DarpaActions extends Actions {
       numMap.getOrElse(somenum, finalAttempt(somenum))
     }
 
-    findCoref(state, doc, sent, anchor, lspan, rspan, anttype, retrieveInt(n))
+    findCoref(state, doc, sent, anchor, lspan, rspan, antType, retrieveInt(n))
   }
 
   def meldMentions(mention: Map[String, Seq[Interval]]): Interval = {
@@ -175,9 +182,17 @@ class DarpaActions extends Actions {
 
     def allMentionsForMatch: Seq[Mention] = state.mentionsFor(sent, mention.values.flatten.map(_.start).toSeq)
 
+    def filterMentions (argName: String, unpackable: Seq[String], validLabels: Seq[String]): Seq[Mention] = {
+      val validMentions = unpackTheseMentions(getAllMentionsForArg(argName), unpackable)
+        .filter(m => validLabels contains m.label)
+      if (validMentions.isEmpty) {
+        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=0,rspan=6,antType=validLabels,1)
+      }
+      else validMentions
+    }
+
     // We want to unpack relation mentions...
-    val themes = unpackTheseMentions(getAllMentionsForArg("theme"), Seq("Protein_with_site"))
-      .filter(m => proteinLabels contains m.label)
+    val themes = filterMentions("theme", Seq("Protein_with_site"), proteinLabels)
 
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil

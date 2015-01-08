@@ -148,6 +148,15 @@
   pattern: |
     (?<trigger> [word=/(?i)ubiquitinat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])
 
+- name: Ubiquitination_token_coref
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Ubiquitination
+  pattern: |
+    [tag=DT | word=/(?i)this|that|these/] (?<trigger> [word=/(?i)ubiquitinat/]) [tag=/^V/]
+
 
 - name: Ubiquitination_DARPA_0
   priority: 4
