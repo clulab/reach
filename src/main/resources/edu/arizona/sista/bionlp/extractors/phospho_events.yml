@@ -20,7 +20,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/]
     theme: >nsubjpass
-    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* ) ) [mention=/Protein_with_site|Gene_or_gene_product/]
+    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* ) ) [mention=/Protein|Gene_or_gene_product/]
 
 
 - name: Phosphorylation_3
