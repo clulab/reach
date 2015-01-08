@@ -24,7 +24,7 @@
   type: dependency
   label: UpRegulation
   pattern: |
-    trigger: [word=/^able/ & outgoing=neg]
+    trigger: [word=/^able/ & !outgoing=neg]
     controller: nsubj nn*
     controlled: xcomp dobj?
 
