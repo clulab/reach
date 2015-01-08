@@ -6,7 +6,7 @@ import edu.arizona.sista.processors.Document
 import edu.arizona.sista.bionlp.reach.core.RelationMention
 
 class BasicRuler(val rules: String, val actions: Actions) {
-  val engine = new ExtractorEngine(rules, actions)
+  val engine = new ExtractorEngine(rules, actions, postprocess)
 
   def extractFrom(doc: Document): Seq[Mention] = postprocess(engine.extractFrom(doc))
 
