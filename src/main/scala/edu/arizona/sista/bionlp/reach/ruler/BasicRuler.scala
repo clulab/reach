@@ -26,8 +26,10 @@ class BasicRuler(val rules: String, val actions: Actions) {
 
         case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
           val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
+          if (themes.nonEmpty) {
           val ubiq = new RelationMention("Ubiquitination", Map("Theme" -> themes), m.sentence, m.document, m.foundBy)
           Seq(ubiq)
+          } else Nil
 
         case m => Seq(m)
       }
