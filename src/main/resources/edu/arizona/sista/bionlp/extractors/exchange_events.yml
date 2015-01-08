@@ -68,3 +68,25 @@
     theme2: <xcomp <rcmod <dep <prep_as <nsubj ccomp nsubj prep_to [mention=/Simple_chemical/] # GTP
 
 
+- name: exchange_5
+  label: Exchange
+  priority: 5
+  action: mkExchange
+  example: "We found increased Ras GTP/GDP exchange by MEK."
+  type: token
+  pattern: |
+    (?<goal> [mention=/Protein|Gene_or_gene_product|Complex/])? 
+     (?<theme1> [mention=/Simple_chemical/]) /\/|\-/ 
+     (?<theme2> [mention=/Simple_chemical/]) (?<trigger> /(?i)^exchanges?$/)
+     (/^by$/)? (?<cause> [mention=/Protein|Gene_or_gene_product|Complex/])?
+
+- name: exchange_6
+  label: Exchange
+  priority: 5
+  action: mkExchange
+  example: "it enhances GDP/GTP exchange of Ras and increases the fraction of Ras in the GTP-form"
+  type: token
+  pattern: |
+    (?<theme1> [mention=/Simple_chemical/]) /\/|\-/ 
+     (?<theme2> [mention=/Simple_chemical/]) (?<trigger> /(?i)^exchanges?$/)
+     /of|on|for/ (?<goal> [mention=/Protein|Gene_or_gene_product|Complex/])

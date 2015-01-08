@@ -17,7 +17,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: nn [mention=/Simple_chemical|Complex/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Complex/]
     protein?: <prep_to [mention=/Gene_or_gene_product|Protein/]
 
 - name: hydrolysis_2wrong
@@ -28,6 +28,27 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: nn [mention=/Simple_chemical|Complex/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Complex/]
     protein?: <nsubj dep ccomp dobj prep_of [mention=/Gene_or_gene_product|Protein/]
 
+- name: hydrolysis_3
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "No increase in the rate of GTP hydrolysis was observed for mUbRas"
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)hydrolysis/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Complex/]
+    protein?: (< /prep_/)* <nsubjpass /prep_for|prep_in/ [mention=/Gene_or_gene_product|Protein/]
+
+- name: hydrolysis_4
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "RasPDZ2UL retains intrinsic GTP hydrolysis activity"
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)hydrolysis/]
+    theme?: (<nn)? nn [mention=/Simple_chemical|Complex/]
+    protein?: (<nn)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [mention=/Gene_or_gene_product|Protein/]
