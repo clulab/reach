@@ -60,7 +60,7 @@ class DarpaActions extends Actions {
     val parent = state.mentionsFor(sent, mention("parent").head.start, Seq("Site")).head.asInstanceOf[TextBoundMention]
 
     val site = new TextBoundMention(label, mention("site").head, sent, doc, ruleName)
-    val event = new RelationMention(label,  Map("Parent" -> Seq(parent), "Site" -> Seq(site)), sent, doc, ruleName)
+    val event = new RelationMention(label, Map("Parent" -> Seq(parent), "Site" -> Seq(site)), sent, doc, ruleName)
 
     Seq(event)
   }
@@ -71,9 +71,9 @@ class DarpaActions extends Actions {
     } else Nil
     var lremainder = lspan - anchor.start
     var iter = 1
-    while (lremainder > 0 & sent-iter >= 0) {
-      leftwd = leftwd ++ ((math.max(0, doc.sentences(sent-iter).size - lremainder) until doc.sentences(sent-iter).size).reverse flatMap (i => state.mentionsFor(sent-iter, i, anttype)))
-      lremainder = lremainder - doc.sentences(sent-iter).size
+    while (lremainder > 0 & sent - iter >= 0) {
+      leftwd = leftwd ++ ((math.max(0, doc.sentences(sent - iter).size - lremainder) until doc.sentences(sent - iter).size).reverse flatMap (i => state.mentionsFor(sent - iter, i, anttype)))
+      lremainder = lremainder - doc.sentences(sent - iter).size
       iter += 1
     }
 
@@ -89,7 +89,7 @@ class DarpaActions extends Actions {
     }
 
     val leftright = (leftwd ++ rightwd).distinct
-    val adcedentMentions = if(leftright.nonEmpty) Some(leftright.slice(0,n))
+    val adcedentMentions = if (leftright.nonEmpty) Some(leftright.slice(0, n))
     else None
 
     if (adcedentMentions.isDefined) {
@@ -206,7 +206,7 @@ class DarpaActions extends Actions {
 
   def mkRegulation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-
+    //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
     val events = for {
       controllerMention <- mention.getOrElse("controller", Nil)
       controller <- state.mentionsFor(sent, controllerMention.toSeq).distinct
@@ -259,7 +259,7 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val themes = if (mention("theme").nonEmpty) mention("theme") flatMap (m => state.mentionsFor(sent, m.start, Seq("Simple_chemical", "Complex"))) else Nil
     val proteins = if (mention("protein").nonEmpty) state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
-    else findCoref(state,doc,sent,meldMentions(mention),0,0,proteinLabels,1)
+    else findCoref(state, doc, sent, meldMentions(mention), 0, 0, proteinLabels, 1)
 
     if (themes.isEmpty & proteins.isEmpty) return Nil
 
@@ -274,7 +274,7 @@ class DarpaActions extends Actions {
 
     trigger +: events
   }
-  
+
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
 
     //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
@@ -282,11 +282,11 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Protein", "Gene_or_gene_product", "Small_molecule"))
 
-    val src = if((mention contains "source") && !mention("source").isEmpty) state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component")) else Seq()
-    
+    val src = if ((mention contains "source") && !mention("source").isEmpty) state.mentionsFor(sent, mention("source").head.start, Seq("Cellular_component")) else Seq()
+
     //val dst = mention.getOrElse("destination", Nil) flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component")))
-    val dst = if((mention contains "destination") && !mention("destination").isEmpty) mention("destination") flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component"))) else Seq()
-    
+    val dst = if ((mention contains "destination") && !mention("destination").isEmpty) mention("destination") flatMap (m => state.mentionsFor(sent, m.start, Seq("Cellular_component"))) else Seq()
+
     val args = Map("Theme" -> theme, "Source" -> src, "Destination" -> dst)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
 
