@@ -23,7 +23,7 @@ object DARPAoutput extends App {
   val extractor = new BasicRuler(rules, actions)
 
   val outDir = s"${System.getProperty("user.home")}/Desktop/"
-  val PapersDir = s"/Users/${System.getProperty("user.name")}/github/reach/src/main/resources/edu/arizona/sista/bionlp/extractors/papers/"
+  val PapersDir = s"${System.getProperty("user.home")}/github/reach/src/main/resources/edu/arizona/sista/bionlp/extractors/papers/"
 
   val paperNames = Seq(//"train/MEKinhibition.txt.ser",
     //"train/UbiquitinationofRas.txt.ser",
