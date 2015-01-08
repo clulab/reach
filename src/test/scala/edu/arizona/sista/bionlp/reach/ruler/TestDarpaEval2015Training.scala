@@ -172,7 +172,7 @@ object TestDarpaEval2015Training {
 
   def mkExtractor = {
     val actions = new DarpaActions
-    val rules = BasicRuler.readRules
+    val rules = BasicRuler.readRules()
     new BasicRuler(rules, actions)
   }
 }
