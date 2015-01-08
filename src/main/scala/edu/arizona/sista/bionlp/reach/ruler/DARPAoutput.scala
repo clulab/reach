@@ -52,6 +52,8 @@ object DARPAoutput extends App {
         .groupBy(m => m.repr)
 
     mentions.foreach(pair => writeEvents(pair._1, pair._2, output))
+
+    output.close()
   }
 
   def docFromSerializedFile(filename: String): Document = {
