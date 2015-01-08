@@ -253,7 +253,7 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme1 = mention("theme1") flatMap (m => state.mentionsFor(sent, m.start, "Simple_chemical"))
     val theme2 = mention("theme2") flatMap (m => state.mentionsFor(sent, m.start, "Simple_chemical"))
-    val goals = if (mention("goal").nonEmpty) mention("goal") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
+    val goals = if (mention contains "goal") mention("goal") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     else findCoref(state,doc,sent,meldMentions(mention),1,3,simpleProteinLabels,1)
     val causes = mention.getOrElse("cause", Nil) flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
     val mentions = trigger match {
@@ -276,10 +276,10 @@ class DarpaActions extends Actions {
 
   def mkHydrolysis(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val themes = if (mention("theme").nonEmpty) mention("theme") flatMap (m => state.mentionsFor(sent, m.start, Seq("Simple_chemical", "Complex"))) else Nil
-    val proteins = if (mention("protein").nonEmpty) state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
-
-    else findCoref(state, doc, sent, meldMentions(mention), 2, 2, proteinLabels, 1)
+    val themes = if (mention contains "theme") mention("theme") flatMap (m => state.mentionsFor(sent, m.start, Seq("Simple_chemical", "Complex")))
+    else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
+    val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
+    else findCoref(state,doc,sent,meldMentions(mention),1,7,proteinLabels,1)
 
     if (themes.isEmpty & proteins.isEmpty) return Nil
 
