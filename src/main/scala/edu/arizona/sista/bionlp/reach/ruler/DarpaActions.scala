@@ -202,15 +202,21 @@ class DarpaActions extends Actions {
 
   def mkRegulation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+
     val controller = for {
       m <- mention.getOrElse("controller", Nil)
       c <- state.mentionsFor(sent, m.toSeq).distinct
     } yield c
+
     val controlled = for {
       m <- mention("controlled")
       c <- state.mentionsFor(sent, m.toSeq, eventLabels).distinct
       if c.isInstanceOf[EventMention]
     } yield c
+
+    // Do we have any matches at this point?
+    if (controller.isEmpty && controlled.isEmpty) return Seq()
+
     val args = Map("Controller" -> controller, "Controlled" -> controlled)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(trigger, event)
