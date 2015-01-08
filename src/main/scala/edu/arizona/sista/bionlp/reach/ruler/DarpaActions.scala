@@ -14,8 +14,13 @@ class DarpaActions extends Actions {
   val siteLabels = Seq("Site", "Protein_with_site")
   val eventLabels = Seq("Phosphorylation", "Exchange", "Hydroxylation", "Ubiquitination", "Binding", "Degradation", "Hydrolysis", "Transcription", "Transport")
 
+  def debug(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Unit = {
+    val debugOut = for (k <- mention.keys) yield s"$k => ${mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end)).mkString(" ")}"
+
+    println(s"\nArgs for $ruleName: \n\t${debugOut.mkString("\n\t")}\n")
+  }
+
   def mkTextBoundMention(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
-    //mention("--GLOBAL--").foreach(interval => println(doc.sentences(sent).words.slice(interval.start, interval.end).mkString(" ")))
     Seq(new TextBoundMention(label, mention("--GLOBAL--").head, sent, doc, ruleName))
   }
 
@@ -130,8 +135,8 @@ class DarpaActions extends Actions {
 
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    debug(label, mention, sent, doc, ruleName, state)
     // Don't change this, but feel free to make a new action based on this one.
-    // println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
 
@@ -237,7 +242,6 @@ class DarpaActions extends Actions {
 
   def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
     val themes = for {
       name <- mention.keys
       if name startsWith "theme"
@@ -296,8 +300,6 @@ class DarpaActions extends Actions {
   }
 
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
-
-    //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Protein", "Gene_or_gene_product", "Small_molecule"))
