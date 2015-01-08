@@ -5,6 +5,10 @@ import edu.arizona.sista.bionlp.reach.core.RelationMention
 import edu.arizona.sista.matcher.{Mention, TextBoundMention, EventMention}
 
 package object ruler {
+  val EventLabels = Set(
+    "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding"
+  )
+
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
     val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
     for ((s, i) <- doc.sentences.zipWithIndex) {

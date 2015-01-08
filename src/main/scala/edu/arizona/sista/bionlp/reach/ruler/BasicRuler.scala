@@ -27,14 +27,31 @@ class BasicRuler(val rules: String, val actions: Actions) {
         case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
           val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
           if (themes.nonEmpty) {
-          val ubiq = new RelationMention("Ubiquitination", Map("Theme" -> themes), m.sentence, m.document, m.foundBy)
-          Seq(ubiq)
+            val ubiq = new RelationMention("Ubiquitination", Map("Theme" -> themes), m.sentence, m.document, m.foundBy)
+            Seq(ubiq)
           } else Nil
+
+        case m if m.label.endsWith("Regulation") => if (checkRegulationArgs(m)) Seq(m) else Nil
 
         case m => Seq(m)
       }
     }
   }
+
+  // regulations must have one controlled event
+  // regulations may have one controller
+  // controller != controlled
+  def checkRegulationArgs(m: Mention): Boolean = {
+    (m.arguments.get("Controller"), m.arguments.get("Controlled")) match {
+      case (_, None) => false
+      case (None, Some(controlled)) => controlled.size == 1 && isBioEvent(controlled.head)
+      case (Some(controller), Some(controlled)) =>
+        controlled.size == 1 && isBioEvent(controlled.head) && controller.size == 1 && controller.head != controlled.head
+    }
+  }
+
+  // is the mention a biochemical event?
+  def isBioEvent(m: Mention): Boolean = !m.isInstanceOf[TextBoundMention] && EventLabels.contains(m.label)
 }
 
 object BasicRuler {
