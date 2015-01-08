@@ -5,7 +5,7 @@
   type: token
   label: DownRegulation
   pattern: |
-    (?<cause> [mention=/./]) /./*? (?<trigger> [word=/(?i)block|inhibit|reduce/]) /./*? (?<controlled> [mention=/./])
+    (?<controller> [mention=/./]) /./*? (?<trigger> [word=/(?i)block|inhibit|reduce/]) /./*? (?<controlled> [mention=/./])
 
 - name: Down_regulation_2
   priority: 5
