@@ -71,7 +71,7 @@ class DarpaActions extends Actions {
   }
 
   def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int = 2, rspan: Int = 0, antType: Seq[String], n: Int = 1): Seq[Mention] = {
-    // println(s"attempting coref with type(s) ${antType.mkString(", ")}")
+    println(s"attempting coref with type(s) ${antType.mkString(", ")}")
 
     var leftwd = if (lspan > 0) {
       (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, antType))
@@ -104,9 +104,10 @@ class DarpaActions extends Actions {
     else None
 
     if (adcedentMentions.isDefined) {
-      // println(s"${doc.sentences(sent)}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
+      println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
       adcedentMentions.get
     } else {
+      println("None found")
       Nil
     }
   }
@@ -187,17 +188,17 @@ class DarpaActions extends Actions {
 
     def allMentionsForMatch: Seq[Mention] = state.mentionsFor(sent, mention.values.flatten.map(_.start).toSeq)
 
-    def filterMentions (argName: String, unpackable: Seq[String], validLabels: Seq[String]): Seq[Mention] = {
+    def filterMentions (argName: String, unpackable: Seq[String]): Seq[Mention] = {
       val validMentions = unpackTheseMentions(getAllMentionsForArg(argName), unpackable)
-        .filter(m => validLabels contains m.label)
+        .filter(m => ValidArgument(label, "theme") contains m.label)
       if (validMentions.isEmpty) {
-        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=0,rspan=6,antType=validLabels,1)
+        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=0,rspan=6,antType=ValidArgument(label,"theme"),1)
       }
       else validMentions
     }
 
     // We want to unpack relation mentions...
-    val themes = filterMentions("theme", Seq("Protein_with_site"), proteinLabels)
+    val themes = filterMentions("theme", Seq("Protein_with_site"))
 
     // Only propagate EventMentions containing a theme
     if (themes.isEmpty) return Nil
