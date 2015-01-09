@@ -159,6 +159,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
+    /GAP/ |
     /(?i)-ras$/ |
     /(?i)^PI3K$/ |
     /(?i)^BRAF$/ |

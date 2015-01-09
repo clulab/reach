@@ -45,7 +45,7 @@
   action: mkBindingEvent
   pattern: |
       trigger: bound
-      theme: (<amod >prep_of? >appos?) | (nsubj | conj_and? dobj)
+      theme: (<amod nn* >prep_of? >appos?) | (nsubj | conj_and? dobj)
 
 - name: binding7
   label: Binding
