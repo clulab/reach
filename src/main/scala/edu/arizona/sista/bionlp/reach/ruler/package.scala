@@ -9,6 +9,12 @@ package object ruler {
     "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding"
   )
 
+  // maps a (Label, Argument) tuple to a sequence of mention labels
+  val ValidArgument: Map[(String, String), Seq[String]] = Map(
+    ("Phosphorylation", "Theme") -> Seq("Protein", "Gene_or_gene_product"),
+    ("Phosphorylation", "Cause") -> Seq("Protein", "Gene_or_gene_product")
+  ) withDefaultValue Nil
+
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
     val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
     for ((s, i) <- doc.sentences.zipWithIndex) {
