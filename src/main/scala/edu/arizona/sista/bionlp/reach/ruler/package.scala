@@ -11,8 +11,16 @@ package object ruler {
 
   // maps a (Label, Argument) tuple to a sequence of mention labels
   val ValidArgument: Map[(String, String), Seq[String]] = Map(
-    ("Phosphorylation", "Theme") -> Seq("Protein", "Gene_or_gene_product"),
-    ("Phosphorylation", "Cause") -> Seq("Protein", "Gene_or_gene_product")
+    ("Phosphorylation", "theme") -> Seq("Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"),
+    ("Phosphorylation", "cause") -> Seq("Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"),
+    ("Ubiquitination", "theme") -> Seq("Protein", "Gene_or_gene_product", "Complex", "GENE"),
+    ("Ubiquitination", "cause") -> Seq("Protein", "Gene_or_gene_product", "Complex", "GENE"),
+    ("Phosphorylation", "theme") -> Seq("Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"),
+    ("Phosphorylation", "cause") -> Seq("Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"),
+    ("Hydroxylation", "theme") -> Seq("Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"),
+    ("Hydroxylation", "cause") -> Seq("Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"),
+    ("Transcription", "theme") -> Seq("Protein", "Gene_or_gene_product", "Complex", "GENE"),
+    ("Transcription", "cause") -> Seq("Protein", "Gene_or_gene_product", "Complex", "GENE")
   ) withDefaultValue Nil
 
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
