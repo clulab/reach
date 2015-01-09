@@ -112,9 +112,26 @@
       trigger: interactions
       theme: <dobj <rcmod >dep >conj_and?
 
+
+- name: binding15_syntax
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  pattern: | #potentially dangerous; should be revisited...
+      trigger: [lemma=bind]
+      theme: (< rcmod /appos|nn|conj_|cc$/*) | (nsubj|dobj /appos|nn|conj_|cc$/*) [mention=/^Protein|Gene_or_gene_product$/]
+
+- name: binding_16
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  pattern: |
+    trigger: ligated
+    theme: <vmod | nsubj | prep_to
+
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
-- name: binding15
+- name: binding_token_1
   label: Binding
   priority: 4
   type: token
@@ -124,26 +141,19 @@
     (?<trigger> binding) to
     (?<theme2> [mention=Protein | mention=Gene_or_gene_product])
 
-- name: binding16_syntax
-  label: Binding
-  priority: 4
-  action: mkBindingEvent
-  pattern: |
-      trigger: [lemma=bind]
-      theme: (< rcmod /appos|nn|conj_|cc/*) | (nsubj|dobj /appos|nn|conj_|cc/*) [mention=/^Protein|Gene_or_gene_product$/]
-
-- name: binding_17
-  label: Binding
-  priority: 4
-  action: mkBindingEvent
-  pattern: |
-    trigger: ligated
-    theme: <vmod | nsubj | prep_to
-
-- name: binding_18
+- name: binding_token_2
   label: Binding
   priority: 4
   action: mkBindingEvent
   type: token
   pattern: |
     (?<trigger> binding) to (?<theme> [mention=/^Protein|Gene_or_gene_product$/])
+
+
+- name: binding_token_3
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  type: token
+  pattern: |
+    (?<theme1> [mention=/^Protein|Gene_or_gene_product$/]) (?<trigger> [lemma=bind]) (?<theme2> [mention=/^Protein|Gene_or_gene_product$/])
