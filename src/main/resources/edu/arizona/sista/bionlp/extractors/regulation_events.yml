@@ -8,6 +8,14 @@
     controller: nsubj nn*
     controlled: dobj
 
+- name: Regulation_token_1
+  priority: 5
+  action: mkRegulation
+  type: token
+  label: Regulation
+  pattern: |
+    (?<controller> [mention=/./]) (?<trigger> [word=/(?i)mediat/]) (?<controlled> [mention=/./])
+
 # Regulation
 
 #   58 regulation
