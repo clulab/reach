@@ -190,9 +190,9 @@ class DarpaActions extends Actions {
 
     def filterMentions (argName: String, unpackable: Seq[String]): Seq[Mention] = {
       val validMentions = unpackTheseMentions(getAllMentionsForArg(argName), unpackable)
-        .filter(m => ValidArgument(label, "theme") contains m.label)
+        .filter(m => ValidArgument(label, argName) contains m.label)
       if (validMentions.isEmpty) {
-        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=0,rspan=6,antType=ValidArgument(label,"theme"),1)
+        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=0,rspan=6,antType=ValidArgument(label, argName),1)
       }
       else validMentions
     }
