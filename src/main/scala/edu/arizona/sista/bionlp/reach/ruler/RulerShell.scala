@@ -46,7 +46,7 @@ object RulerShell extends App {
         try {
           basicRuler = createBasicRuler
         } catch {
-          case e: Throwable => println("Error reloading RulerShell. Please check your rules and try again.")
+          case e: Throwable => println(s"Error reloading RulerShell: ${e.getMessage}")
         }
 
       case "%exit" =>
