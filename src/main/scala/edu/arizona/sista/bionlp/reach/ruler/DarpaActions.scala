@@ -99,7 +99,7 @@ class DarpaActions extends Actions {
     else None
 
     if (adcedentMentions.isDefined) {
-      // println(s"${doc.sentences(sent)}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
+      // println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
       adcedentMentions.get
     } else {
       Nil
