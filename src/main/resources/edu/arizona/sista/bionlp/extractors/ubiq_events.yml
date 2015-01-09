@@ -116,7 +116,7 @@
   type: token
   label: Ubiquitination
   pattern: |
-    (?<trigger> [word=/(?i)ubiquitination/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])
+    (?<trigger> [word=/(?i)ubiquitination/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/(^V|CC)/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])
 
 
 - name: Ubiquitination_token_2
