@@ -14,7 +14,7 @@ object Ruler {
     val actions = new DarpaActions
 
     // read default rules if needed
-    val rules = if (rulesStr.trim.isEmpty) BasicRuler.readRules else rulesStr
+    val rules = if (rulesStr.trim.isEmpty) BasicRuler.readRules() else rulesStr
 
     val doc = proc.annotate(text)
     val basicRuler = new BasicRuler(rules, actions)

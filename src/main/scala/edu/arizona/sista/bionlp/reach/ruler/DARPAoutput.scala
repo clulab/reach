@@ -11,8 +11,8 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
  */
 object DARPAoutput extends App {
 
-  val entityRules = BasicRuler.readEntityRules
-  val eventRules = BasicRuler.readEventRules
+  val entityRules = BasicRuler.readEntityRules()
+  val eventRules = BasicRuler.readEventRules()
   val rules = entityRules + "\n\n" + eventRules
 
   val ds = new DocumentSerializer
