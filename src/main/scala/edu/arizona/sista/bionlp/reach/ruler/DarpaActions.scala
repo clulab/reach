@@ -146,7 +146,7 @@ class DarpaActions extends Actions {
 
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
-    debug(label, mention, sent, doc, ruleName, state)
+    // debug(label, mention, sent, doc, ruleName, state)
     // Don't change this, but feel free to make a new action based on this one.
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
