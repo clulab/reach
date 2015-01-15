@@ -129,6 +129,15 @@
     trigger: ligated
     theme: <vmod | nsubj | prep_to
 
+# Subject Relative Clause (with optional Apposition)
+- name: binding_17
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  pattern: |
+    trigger: [word=binds & tag=/^V/]
+    theme: dobj | <rcmod <appos?
+
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
 - name: binding_token_1
@@ -156,4 +165,6 @@
   action: mkBindingEvent
   type: token
   pattern: |
-    (?<theme1> [mention=/^Protein|Gene_or_gene_product$/]) (?<trigger> [lemma=bind]) (?<theme2> [mention=/^Protein|Gene_or_gene_product$/])
+    (?<theme1> [mention=/^Protein|Gene_or_gene_product$/])
+    (?<trigger> [lemma=bind])
+    (?<theme2> [mention=/^Protein|Gene_or_gene_product$/])
