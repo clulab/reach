@@ -6,7 +6,7 @@ import edu.arizona.sista.matcher.{Mention, TextBoundMention, EventMention}
 
 package object ruler {
   val EventLabels = Set(
-    "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding"
+    "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding", "Hydroxylation"
   )
 
   // maps a (Label, Argument) tuple to a sequence of mention labels

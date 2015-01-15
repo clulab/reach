@@ -45,7 +45,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
   def checkRegulationArgs(m: Mention): Boolean = {
     (m.arguments.get("Controller"), m.arguments.get("Controlled")) match {
       case (_, None) => false
-      case (None, Some(controlled)) => controlled.size == 1 && isBioEvent(controlled.head)
+      case (None, Some(controlled)) => controlled.size == 1 && isBioEvent(controlled.head) // controlled must be a valid event...
       case (Some(controller), Some(controlled)) =>
         controlled.size == 1 && isBioEvent(controlled.head) && controller.size == 1 && controller.head != controlled.head
     }
