@@ -36,7 +36,8 @@ class DarpaActions extends Actions {
     val cause = if (mention contains "cause") state.mentionsFor(sent, mention("cause").head.start, simpleProteinLabels).headOption else None
     val args = if (cause.isDefined) Map("Theme" -> Seq(theme), "Cause" -> Seq(cause.get)) else Map("Theme" -> Seq(theme))
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
-    Seq(trigger, event)
+
+    Seq(event)
   }
 
   def mkComplexEntity(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -45,6 +46,7 @@ class DarpaActions extends Actions {
     val proteins = state.mentionsFor(sent, mention("protein").flatMap(_.toSeq), simpleProteinLabels).distinct
     val sites = state.mentionsFor(sent, mention("site").flatMap(_.toSeq), Seq("Site")).distinct
     val events = for (protein <- proteins; site <- sites) yield new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
+
     events
   }
 
@@ -55,6 +57,7 @@ class DarpaActions extends Actions {
     val sites = if (mention contains "site") state.mentionsFor(sent, mention("site").map(_.start), Seq("Site")) else trigger
 
     val events = for (protein <- proteins; site <- sites) yield new RelationMention(label, Map("Protein" -> Seq(protein), "Site" -> Seq(site)), sent, doc, ruleName)
+
     events
   }
 
@@ -210,14 +213,15 @@ class DarpaActions extends Actions {
     // unpack any RelationMentions
     val sites = findAllSimpleMentions(allMentionsForMatch).filter(m => siteLabels contains m.label)
 
-    val mentions = trigger match {
+    val events = trigger match {
       case hasCauseHasThemeHasSite if causes.nonEmpty && themes.nonEmpty && sites.nonEmpty => for (cause <- causes; site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site), "Cause" -> Seq(cause)), sent, doc, ruleName)
       case hasCauseHasThemeNoSite if causes.nonEmpty && themes.nonEmpty && sites.isEmpty => for (cause <- causes; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Cause" -> Seq(cause)), sent, doc, ruleName)
       case noCauseHasThemeHasSite if causes.isEmpty && sites.nonEmpty && themes.nonEmpty => for (site <- sites; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Site" -> Seq(site)), sent, doc, ruleName)
       case noCauseNoSiteHasTheme if causes.isEmpty && sites.isEmpty && themes.nonEmpty => for (theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme)), sent, doc, ruleName)
       case _ => Seq()
     }
-    if (mentions.nonEmpty) trigger +: mentions else Nil
+
+    events
   }
 
   def mkComplexEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -231,15 +235,17 @@ class DarpaActions extends Actions {
 
     val causes = state.mentionsFor(sent, mention("cause").map(_.start))
 
-    val mentions = trigger match {
+    val events = trigger match {
       case hasCauseHasTheme if causes.nonEmpty && themes.nonEmpty => for (cause <- causes; theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Cause" -> Seq(cause)), sent, doc, ruleName)
       case noCauseHasTheme if causes.isEmpty && themes.nonEmpty => for (theme <- themes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme)), sent, doc, ruleName)
       case _ => Seq()
     }
-    if (mentions.nonEmpty) trigger +: mentions else Nil
+
+    events
   }
 
   def mkRegulation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    //debug(label, mention, sent, doc, ruleName, state)
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     //println(s"args for $ruleName: ${mention.keys.flatMap(k => mention(k).flatMap(m => doc.sentences(sent).words.slice(m.start, m.end))).mkString(", ")}")
     val events = for {
@@ -253,7 +259,7 @@ class DarpaActions extends Actions {
       new EventMention(label, trigger, args, sent, doc, ruleName)
     }
 
-    if (events.nonEmpty) trigger +: events else Nil
+   events
   }
 
   def mkBindingEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -266,7 +272,7 @@ class DarpaActions extends Actions {
     } yield theme
     val args = Map("Theme" -> themes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
-    Seq(trigger, event)
+    Seq(event)
   }
 
   def mkExchange(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -276,13 +282,13 @@ class DarpaActions extends Actions {
     val goals = if (mention contains "goal") mention("goal") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     else findCoref(state,doc,sent,meldMentions(mention),1,3,simpleProteinLabels,1)
     val causes = mention.getOrElse("cause", Nil) flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
-    val mentions = trigger match {
+    val event = trigger match {
       case hasCausehasGoal if causes.nonEmpty & goals.nonEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2, "Goal" -> goals, "Cause" -> causes), sent, doc, ruleName)
       case noCausehasGoal if causes.isEmpty & goals.nonEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2, "Goal" -> goals), sent, doc, ruleName)
       case hasCausenoGoal if causes.nonEmpty & goals.isEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2, "Cause" -> causes), sent, doc, ruleName)
       case noCausenoGoal if causes.isEmpty & goals.isEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2), sent, doc, ruleName)
     }
-    Seq(trigger, mentions)
+    Seq(event)
   }
 
   def mkDegradation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -291,7 +297,7 @@ class DarpaActions extends Actions {
     val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     val args = Map("Theme" -> theme, "Cause" -> cause)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
-    Seq(trigger, event)
+    Seq(event)
   }
 
   def mkHydrolysis(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -312,7 +318,7 @@ class DarpaActions extends Actions {
     else if (proteins.nonEmpty) Seq(new EventMention(label, trigger, Map("Theme" -> proteins), sent, doc, ruleName))
     else Nil
 
-    trigger +: events
+    events
   }
 
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -328,8 +334,7 @@ class DarpaActions extends Actions {
     val args = Map("Theme" -> theme, "Source" -> src, "Destination" -> dst)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
 
-
-    Seq(trigger, event)
+    Seq(event)
   }
 
 }
