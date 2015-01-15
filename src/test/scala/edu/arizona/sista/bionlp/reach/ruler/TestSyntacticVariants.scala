@@ -92,6 +92,141 @@ class TestSyntacticVariants {
 
     assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("MEK"), mentions))
   }
+
+  @Test def testBindingDecl1() {
+    val doc = proc.annotate("Mechanistically, ASPP1 and ASPP2 bind RAS-GTP.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingDecl1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1, ASPP2, RAS-GTP"), mentions))
+  }
+
+  @Test def testBindingDecl2() {
+    val doc = proc.annotate("Mechanistically, ASPP1 and ASPP2 bind with RAS-GTP.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingDecl2")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1, ASPP2, RAS-GTP"), mentions))
+  }
+
+  @Test def testBindingPass1() {
+    val doc = proc.annotate("Mechanistically, ASPP1 and ASPP2 are bound by RAS-GTP.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingPass1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1, ASPP2, RAS-GTP"), mentions))
+  }
+
+  @Test def testBindingPrepNom1() {
+    val doc = proc.annotate("We detected elevated binding of p53 to K-Ras.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingPrepNom1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testBindingPrepNom2() {
+    val doc = proc.annotate("We detected elevated binding of p53 and K-Ras.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingPrepNom2")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testBindingPrepNom3() {
+    val doc = proc.annotate("We detected elevated binding of p53 with K-Ras.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingPrepNom3")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testBindingSubjNom1() {
+    val doc = proc.annotate("We detected elevated p53 binding to K-Ras.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingSubjNom1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testBindingObjNom1() {
+    val doc = proc.annotate("We detected elevated K-Ras binding by p53.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingObjNom1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testBindingSubjRel1() {
+    val doc = proc.annotate("We detected elevated phosphorylation of K-Ras, a protein that subsequently binds p53.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingSubjRel1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testBindingObjRel1() {
+    val doc = proc.annotate("We detected elevated phosphorylation of K-Ras, a protein that is subsequently bound by p53.")
+    val mentions = extractor.extractFrom(doc)
+    header("testBindingObjRel1")
+    displayMentions(mentions, doc)
+
+    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+  }
+
+  @Test def testTransport1() {
+    val doc = proc.annotate("Phosphorylation leads the plasma membrane to release p53 to the cytosol.")
+    val mentions = extractor.extractFrom(doc)
+    header("testTransport1")
+    displayMentions(mentions, doc)
+
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("p53", "plasma membrane", "cytosol"), mentions))
+  }
+
+  @Test def testTransport2() {
+    val doc = proc.annotate("Recruitment of p53 from the cytosol to the plasma membrane increases with phosphorylation.")
+    val mentions = extractor.extractFrom(doc)
+    header("testTransport2")
+    displayMentions(mentions, doc)
+
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("p53", "plasma membrane", "cytosol"), mentions))
+  }
+
+  @Test def testTransport3() {
+    val doc = proc.annotate("With increased phosphorylation, p53 is exported from the plasma membrane to the cytosol.")
+    val mentions = extractor.extractFrom(doc)
+    header("testTransport3")
+    displayMentions(mentions, doc)
+
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("p53", "plasma membrane", "cytosol"), mentions))
+  }
+
+  @Test def testTransport4() {
+    val doc = proc.annotate("ASPP2, a protein which is transported from the membrane to the nucleus, is subsequently phosphorylated.")
+    val mentions = extractor.extractFrom(doc)
+    header("testTransport4")
+    displayMentions(mentions, doc)
+
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "nucleus"), mentions))
+  }
+
+  @Test def testTransport5() {
+    val doc = proc.annotate("ASPP2, a protein which translocates Pde2 from the membrane to the nucleus, is subsequently phosphorylated.")
+    val mentions = extractor.extractFrom(doc)
+    header("testTransport4")
+    displayMentions(mentions, doc)
+
+    assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("Pde2", "membrane", "nucleus"), mentions))
+  }
 }
 
 object TestSyntacticVariants {
