@@ -3,8 +3,12 @@ package edu.arizona.sista.bionlp.reach
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.bionlp.reach.core.RelationMention
 import edu.arizona.sista.matcher.{Mention, TextBoundMention, EventMention}
+import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 package object ruler {
+
+  val bioproc = new BioNLPProcessor
+
   val EventLabels = Set(
     "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding", "Hydroxylation"
   )

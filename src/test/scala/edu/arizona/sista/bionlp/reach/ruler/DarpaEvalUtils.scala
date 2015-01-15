@@ -13,17 +13,7 @@ object DarpaEvalUtils {
     for(m <- mentions) {
       if(!m.isInstanceOf[TextBoundMention]) {
         if(m.label == label) { // found the label
-          var count = 0
-          for(arg <- args) {
-            for (a <- m.arguments.values.flatten) {
-              if(arg == a.text) {
-                count += 1
-              }
-            }
-          }
-          if(count == args.size) {
-            // found all args as well
-
+          if (args.forall{arg => m.text.toLowerCase contains arg.toLowerCase}) {
             println(s"\t==> found event mention: ${m.text}")
             return true
           }
