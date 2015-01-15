@@ -1,7 +1,8 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import java.io.File
 import jline.console.ConsoleReader
-import jline.console.history.MemoryHistory
+import jline.console.history.FileHistory
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 object RulerShell extends App {
@@ -20,9 +21,14 @@ object RulerShell extends App {
 
   var basicRuler: BasicRuler = createBasicRuler
 
+  val history = new FileHistory(new File(System.getProperty("user.home"), ".rulershellhistory"))
+  sys addShutdownHook {
+    history.flush()  // we must flush the file before exiting
+  }
+
   val reader = new ConsoleReader
   reader.setPrompt(">>> ")
-  reader.setHistory(new MemoryHistory)
+  reader.setHistory(history)
 
   val commands = Map(
     "%reload" -> "reload rules",
