@@ -6,8 +6,9 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Complex/]
+    theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
     protein?: <prep_of? <dobj? (prep_for | prep_on) [mention=/Gene_or_gene_product|Protein/]
+    cause: prep_by [mention=/Gene_or_gene_product|Protein/]
 
 - name: hydrolysis_2
   label: Hydrolysis
@@ -17,7 +18,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Complex/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
     protein?: <prep_to [mention=/Gene_or_gene_product|Protein/]
 
 - name: hydrolysis_2wrong
@@ -28,7 +29,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Complex/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
     protein?: <nsubj dep ccomp dobj prep_of [mention=/Gene_or_gene_product|Protein/]
 
 - name: hydrolysis_3
@@ -39,7 +40,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Complex/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
     protein?: (< /prep_/)* <nsubjpass /prep_for|prep_in/ [mention=/Gene_or_gene_product|Protein/]
 
 - name: hydrolysis_4
@@ -50,5 +51,28 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (<nn)? nn [mention=/Simple_chemical|Complex/]
+    theme?: (<nn)? nn [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
     protein?: (<nn)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [mention=/Gene_or_gene_product|Protein/]
+
+- name: hydrolysis_decl1
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "RasGAP hydrolyzes GTP to GDP"
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)^hydrolyz/ & tag=/^VB[^N]?/]
+    theme: dobj [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
+    cause?: (nsubj | (<xcomp? <rcmod <appos?)) [mention=/Gene_or_gene_product|Protein/]
+
+- name: hydrolysis_pass1
+  label: Hydrolysis
+  priority: 4
+  action: mkHydrolysis
+  example: "Ras-GDP is hydrolyzed by 26S proteasome without ubiquitination"
+  type: dependency
+  pattern: |
+    trigger: [word=/(?i)^hydrolyz/ & tag=VBN]
+    theme?: (nsubjpass | <rcmod) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
+    cause?: agent [mention=/Gene_or_gene_product|Protein/]
+
