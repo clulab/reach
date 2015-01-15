@@ -27,37 +27,38 @@ package object ruler {
     val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
     for ((s, i) <- doc.sentences.zipWithIndex) {
       println(s"sentence #$i")
-      println(s.words.mkString(" "))
+      println(s.getSentenceText())
       println
-      mentionsBySentence(i) foreach displayMention
+      mentionsBySentence(i).sortBy(_.label) foreach displayMention
       println("=" * 50)
     }
   }
 
   def displayMention(mention: Mention) {
-    println(s"rule: ${mention.foundBy}")
+    val boundary =  s"\t${"-" * 30}"
+    println(mention.label)
+    println(boundary)
+    println(s"\tRule => ${mention.foundBy}")
+    println(s"\tType => ${mention.getClass.toString.split("""\.""").last}")
+    println(boundary)
     mention match {
       case m: TextBoundMention =>
-        println(m.repr)
-        println(s"${m.label} (TextBoundMention)")
-        println(m.text)
-        println
+        println(s"\t${m.label} => ${m.text}")
+
       case m: EventMention =>
-        println(m.repr)
-        println(s"${m.label} (EventMention)")
-        println(s"trigger = ${m.trigger.text}")
+        println(s"\tTrigger => ${m.trigger.text}")
         m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
+          case (k, vs) => for (v <- vs) println(s"\t$k => ${v.text}")
         }
-        println
+
       case m: RelationMention =>
-        println(s"${m.label} (RelationMention)")
         m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"$k = ${v.text}")
+          case (k, vs) => for (v <- vs) println(s"\t$k => ${v.text}")
         }
-        println
+
       case _ => ()
     }
+    println(s"$boundary\n")
   }
 
   // generates a representation of the mention that can be used

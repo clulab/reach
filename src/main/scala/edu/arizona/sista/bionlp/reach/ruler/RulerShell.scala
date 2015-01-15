@@ -30,12 +30,9 @@ object RulerShell extends App {
     "%exit" -> "exit system"
   )
 
-  def displayCommands() = commands foreach {
-    case (k, v) => println(s"\t$k\t=>\t$v")
-  }
+  val commandsForDisplay = commands.map{case (k, v) => s"\t$k\t=>\t$v"}.mkString("\n")
 
-  println("Welcome to RulerShell")
-  displayCommands()
+  println(s"\nWelcome to RulerShell!\n\nCOMMANDS:\n\n$commandsForDisplay\n")
 
   var running = true
 
@@ -53,8 +50,7 @@ object RulerShell extends App {
         running = false
 
       case "%help" =>
-        println("\tCOMMANDS:")
-        displayCommands()
+        println(s"COMMANDS:\n\n$commandsForDisplay")
 
       case null =>
         println("\nPlease type %exit to quit.")
