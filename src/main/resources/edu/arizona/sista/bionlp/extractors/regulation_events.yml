@@ -16,6 +16,22 @@
   pattern: |
     (?<controller> [mention=/./]) (?<trigger> [word=/(?i)mediat/]) (?<controlled> [mention=/./])
 
+
+# TODO
+
+
+#  104 dependent
+#   41 required
+#   23 essential
+#   17 activation
+#   14 requires
+#   14 involved
+#   12 results
+#   11 activate
+#   10 response
+#   10 necessary
+#   10 caused
+
 # Regulation
 
 #   58 regulation

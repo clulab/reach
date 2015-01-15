@@ -3,9 +3,9 @@
   priority: 5
   action: mkRegulation
   pattern: |
-    trigger: regulate
+    trigger: [lemma=/promot|induc|mediat|increas|stimulat|lead|enhanc|up-regulat/ & tag=/^V/]
     controller: nsubj nn*
-    controlled: dobj
+    controlled: dobj nn*
 
 - name: Up_regulation_2
   priority: 5
