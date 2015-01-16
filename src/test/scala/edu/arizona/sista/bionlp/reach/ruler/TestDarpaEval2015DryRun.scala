@@ -32,6 +32,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
 
     try {
+      // TODO: fix hasEventWithArguments to match Complex (RelationMention) with desired argument.
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
 
@@ -51,6 +52,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
 
     try {
+      // TODO: fix hasEventWithArguments to match Complex (RelationMention) with desired argument.
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
     } catch {
       case e: AssertionError =>
