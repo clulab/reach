@@ -14,7 +14,7 @@ object DarpaEvalUtils {
       if(!m.isInstanceOf[TextBoundMention]) {
         if(m.label == label) { // found the label
           if (args.forall{arg => m.text.toLowerCase contains arg.toLowerCase}) {
-            println(s"\t==> found event mention: ${m.text}")
+            //println(s"\t==> found event mention: ${m.text}")
             return true
           }
         }
@@ -28,7 +28,7 @@ object DarpaEvalUtils {
       if (m.isInstanceOf[TextBoundMention]) {
         val tm = m.asInstanceOf[TextBoundMention]
         if (tm.text == text) {
-          println(s"\t==> found entity mention: ${tm.text}")
+          //println(s"\t==> found entity mention: ${tm.text}")
           return true
         }
       }
@@ -44,7 +44,7 @@ object DarpaEvalUtils {
           contains(rm.arguments.get("Site").get, site) &&
           rm.arguments.contains("Protein") &&
           contains(rm.arguments.get("Protein").get, text)) {
-          println(s"\t==> found entity mention with site: ${rm.text}")
+          //println(s"\t==> found entity mention with site: ${rm.text}")
           return true
         }
       }
@@ -88,7 +88,7 @@ object DarpaEvalUtils {
               }
               if(count == controlledArgs.size) {
                 // found all args for the controlled event as well
-                println(s"\t==> found ${label} with Controller:${controllerEntity} and Controlled:${controlledLabel} with arguments:${controlledArgs.mkString(",")}")
+                //println(s"\t==> found ${label} with Controller:${controllerEntity} and Controlled:${controlledLabel} with arguments:${controlledArgs.mkString(",")}")
                 return true
               }
             }
@@ -100,6 +100,6 @@ object DarpaEvalUtils {
   }
 
   def header(name:String) {
-    println(name + " ==>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    println(s"\n${":"*20}$name${":"*20}\n")
   }
 }

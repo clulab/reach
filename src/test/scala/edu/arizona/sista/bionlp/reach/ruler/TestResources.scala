@@ -16,4 +16,11 @@ object TestResources {
     proc
   }
 
+  val extractor = mkExtractor
+
+  def mkExtractor = {
+    val actions = new DarpaActions
+    val rules = BasicRuler.readRules()
+    new BasicRuler(rules, actions)
+  }
 }
