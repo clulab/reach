@@ -6,6 +6,7 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import org.junit.Assert._
 import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
+import TestResources.bioproc
 
 /**
  * Unit test for rules tailored for the DARPA evaluation; using the dryrun corpus
