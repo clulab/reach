@@ -3,7 +3,7 @@
   priority: 4
   action: mkBindingEvent
   pattern: |
-    trigger: bind
+    trigger: [lemma=bind & tag=/^V/]
     theme: nsubj | dobj | /prep_(to|with)/
 
 - name: binding2
