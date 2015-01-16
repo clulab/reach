@@ -15,10 +15,15 @@ class TestSyntacticVariants {
   @Test def testHydrolysisDecl1() {
     val doc = bioproc.annotate("RasGAP is hydrolyzing GTP to GDP in Ras reactions.")
     val mentions = extractor.extractFrom(doc)
-    header("testHydrolysisSubjectDecl1")
-    displayMentions(mentions, doc)
 
-    assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    try {
+      assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header("testHydrolysisSubjectDecl1")
+        displayMentions(mentions, doc)
+        throw e
+    }
   }
 
   @Test def testHydrolysisPass1() {
@@ -168,10 +173,15 @@ class TestSyntacticVariants {
   @Test def testBindingSubjRel1() {
     val doc = bioproc.annotate("We detected elevated phosphorylation of K-Ras, a protein that subsequently binds p53.")
     val mentions = extractor.extractFrom(doc)
-    header("testBindingSubjRel1")
-    displayMentions(mentions, doc)
 
-    assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+    try {
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53","K-Ras"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header("testBindingSubjRel1")
+        displayMentions(mentions, doc)
+        throw e
+    }
   }
 
   @Test def testBindingObjRel1() {
