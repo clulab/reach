@@ -20,7 +20,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/]
     theme: >nsubjpass
-    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
+    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
 
 
 - name: Phosphorylation_syntax_3_verb
@@ -32,7 +32,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
     theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
+    site?: (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by) /nn|conj_|cc/*
 
 
@@ -46,18 +46,32 @@
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/]
     theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
-    cause?: (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
+    cause?: (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
+
 
 - name: Phosphorylation_syntax_5_verb
   priority: 4
   action: mkSimpleEvent
-  example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
+  example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB.  Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that specifically phosphorylates ASPP2."
   type: dependency
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
-    cause: <xcomp <rcmod? /appos|nn|conj_|cc/*
-    theme: (dobj | xcomp) /appos|nn|conj_|cc/*
+    theme: dobj /nn|conj_|cc/*
+    cause: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    #site?: dobj? prep_(at|on) /nn|conj_|cc/*
+
+
+- name: Phosphorylation_syntax_6_verb
+  priority: 4
+  action: mkSimpleEvent
+  example: "We measured transcription activation in the presence of ASPP2, which is phosphorylated by Ras."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
+    theme: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    cause?: /prep_by|agent/ /appos|nn|conj_|cc/*
     #site?: dobj? prep_(at|on) /nn|conj_|cc/*
 
 
@@ -70,7 +84,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: prep_of /nn|conj_|cc/*
-    cause?: <dobj agent|prep_by nn*
+    cause?: <dobj (prep_by|agent) /nn|conj_|cc/*
     #site?: (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 
@@ -84,8 +98,8 @@
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/] # nominal predicate
     theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
-    cause: prep_by /conj|cc|nn/*
+    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    cause: /prep_by|agent/ /conj|cc|nn/*
 
 
 - name: Phosphorylation_syntax_3_noun
@@ -98,7 +112,7 @@
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
     theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
     cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
+    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
 
 
 - name: Phosphorylation_syntax_4_noun
@@ -108,7 +122,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i)phosphorylation/ & !word=/(?i)^de/ & !outgoing=prep_by]
+    trigger: [word=/(?i)phosphorylation/ & !word=/(?i)^de/ & !outgoing=/prep_(by|of)/]
     theme: nn /conj|cc|nn|prep/*
 
 

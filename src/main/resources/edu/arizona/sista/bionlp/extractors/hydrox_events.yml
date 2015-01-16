@@ -20,7 +20,7 @@
   pattern: |
     trigger: [word=/(?i)hydroxylated/ & !word=/^de/]
     theme: >nsubjpass
-    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
+    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
 
 
 - name: Hydroxylation_syntax_3_verb
@@ -32,7 +32,7 @@
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
     theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
+    site?: (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by) /nn|conj_|cc/*
 
 
@@ -46,7 +46,8 @@
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^V/]
     theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
-    cause?: (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
+    cause?: (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
+
 
 - name: Hydroxylation_syntax_5_verb
   priority: 4
@@ -55,9 +56,22 @@
   type: dependency
   label: Hydroxylation
   pattern: |
-    trigger: [word=/(?i)hydroxylat/ & !word=/^de/]
-    cause: <xcomp <rcmod? /appos|nn|conj_|cc/*
-    theme: (dobj | xcomp) /appos|nn|conj_|cc/*
+    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
+    theme: dobj /nn|conj_|cc/* [!word=/(?i)ubiq/]
+    cause: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* [!word=/(?i)ubiq/]
+    #site?: dobj? prep_(at|on) /nn|conj_|cc/*
+
+
+- name: Hydroxylation_syntax_6_verb
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Hydroxylation
+  pattern: |
+    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
+    theme: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    cause?: (prep_by|agent) /appos|nn|conj_|cc/*
     #site?: dobj? prep_(at|on) /nn|conj_|cc/*
 
 
@@ -70,7 +84,7 @@
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/]
     theme: prep_of /nn|conj_|cc/*
-    cause?: <dobj agent|prep_by nn*
+    cause?: <dobj (prep_by|agent) /nn|conj_|cc/*
     #site?: (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 
@@ -84,8 +98,8 @@
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^N/] # nominal predicate
     theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
-    cause: prep_by /conj|cc|nn/*
+    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    cause: (prep_by|agent) /conj|cc|nn/*
 
 
 - name: Hydroxylation_syntax_3_noun
@@ -95,10 +109,10 @@
   type: dependency
   label: Hydroxylation
   pattern: |
-    trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
+    trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/] # nominal predicate
     theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
     cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
+    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
 
 
 - name: Hydroxylation_syntax_4_noun
