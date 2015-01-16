@@ -14,7 +14,7 @@
   label: UpRegulation
   pattern: |
     trigger: /^regulat/
-    constraint: advmod [word=/^postive/]
+    constraint: advmod [word=/^positive/]
     controller: nsubj nn*
     controlled: dobj
 

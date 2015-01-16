@@ -4,7 +4,7 @@
   type: dependency
   label: Regulation
   pattern: |
-    trigger: [!word=/^(postive|negative)/] /^regulat/
+    trigger: [!word=/^(positive|negative)/] /^regulat/
     controller: nsubj nn*
     controlled: dobj
 
