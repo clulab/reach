@@ -78,13 +78,13 @@
 - name: Phosphorylation_syntax_1_noun
   priority: 4
   action: mkSimpleEvent
-  example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases"
+  example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases.  Ras phosphorylation of ASPP2 increased."
   type: dependency
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
     theme: prep_of /nn|conj_|cc/*
-    cause?: <dobj (prep_by|agent) /nn|conj_|cc/*
+    cause?: (<dobj (prep_by|agent))|nn /nn|conj_|cc/*
     #site?: (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 

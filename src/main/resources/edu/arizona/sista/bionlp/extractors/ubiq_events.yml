@@ -84,7 +84,7 @@
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
     theme: prep_of /nn|conj_|cc/* [!word=/(?i)ubiq/]
-    cause?: <dobj (prep_by|agent) /nn|conj_|cc/* [!word=/(?i)ubiq/]
+    cause?: (<dobj (prep_by|agent))|nn /nn|conj_|cc/* [!word=/(?i)ubiq/]
     #site?: (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 
