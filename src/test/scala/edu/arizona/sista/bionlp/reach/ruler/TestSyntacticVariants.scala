@@ -142,7 +142,7 @@ class TestSyntacticVariants {
     val mentions = extractor.extractFrom(doc)
 
     try {
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1, ASPP2, RAS-GTP"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testBindingDecl1")
@@ -156,7 +156,7 @@ class TestSyntacticVariants {
     val mentions = extractor.extractFrom(doc)
 
     try {
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1, ASPP2, RAS-GTP"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testBindingDecl2")
@@ -170,7 +170,7 @@ class TestSyntacticVariants {
     val mentions = extractor.extractFrom(doc)
 
     try {
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1, ASPP2, RAS-GTP"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testBindingPass1")
