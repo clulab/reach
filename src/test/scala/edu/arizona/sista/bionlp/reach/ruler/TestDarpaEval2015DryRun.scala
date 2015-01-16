@@ -118,9 +118,9 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
 
       // TODO: missing keyword, missing protein - needs coref (GUS)
-      assertTrue("ubiquitination +coref (GUS/DANE)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
+      assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("Ras"), mentions))
 
       // TODO: another down-regulation controller the ubiquitination, and controlled the GAP up-regulation??? Not sure about this...
       // assertTrue(hasDownRegulationByEvent("Ubiquitination", List("Ras"), "UpRegulation", List("")))
