@@ -117,7 +117,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
 
-      // TODO: missing keyword, missing protein - needs coref (GUS)
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
       assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("Ras"), mentions))
