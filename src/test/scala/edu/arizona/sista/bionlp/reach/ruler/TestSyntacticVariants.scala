@@ -16,6 +16,7 @@ class TestSyntacticVariants {
     val mentions = extractor.extractFrom(doc)
 
     try {
+      // TODO: fix hasEventWithArguments to match Complex (RelationMention) with desired argument.
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
     } catch {
       case e: AssertionError =>
@@ -128,7 +129,7 @@ class TestSyntacticVariants {
     val mentions = extractor.extractFrom(doc)
 
     try {
-      assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("CRP"), mentions))
+      assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("MEK"), mentions))
     } catch {
       case e: AssertionError =>
         header("testHydrolysisObjectRel1")
