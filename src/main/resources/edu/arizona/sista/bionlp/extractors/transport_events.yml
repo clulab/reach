@@ -71,3 +71,15 @@
     theme: /./* prep_of [mention=Gene_or_gene_product]
     source?: /./* prep_from [mention=Cellular_component]
     destination: /./* prep_to /conj|cc|dep/* [mention=Cellular_component]
+
+- name: transport_6
+  priority: 4
+  action: mkTransport
+  example: "With increased phosphorylation, p53 is exported from the plasma membrane to the cytosol"
+  label: Transport
+  type: dependency
+  pattern: |
+    trigger: /(?i)export|recruit|releas/
+    theme: /./* nsubjpass [mention=Gene_or_gene_product]
+    source?: /./* prep_from [mention=Cellular_component]
+    destination: /./* prep_to /conj|cc|dep/* [mention=Cellular_component]
