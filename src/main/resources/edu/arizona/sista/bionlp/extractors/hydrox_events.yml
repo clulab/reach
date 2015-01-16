@@ -56,7 +56,7 @@
   type: dependency
   label: Hydroxylation
   pattern: |
-    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
+    trigger: [word=/(?i)hydroxyl/ & !word=/^de/]
     theme: dobj /nn|conj_|cc/* [!word=/(?i)ubiq/]
     cause: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* [!word=/(?i)ubiq/]
     #site?: dobj? prep_(at|on) /nn|conj_|cc/*
@@ -69,8 +69,8 @@
   type: dependency
   label: Hydroxylation
   pattern: |
-    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
-    theme: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    trigger: [word=/(?i)hydroxyl/ & !word=/^de/]
+    theme:  (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
     cause?: (prep_by|agent) /appos|nn|conj_|cc/*
     #site?: dobj? prep_(at|on) /nn|conj_|cc/*
 
