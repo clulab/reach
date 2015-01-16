@@ -184,7 +184,7 @@
     /(?i)smooth/ /(?i)endoplasmic/ /(?i)reticulum/ | SER
       |
     # membrane
-    /(?i)cell/? /(?i)membrane/
+    /(?i)cell|nuclear|nucleus|plasma/? /(?i)membrane/
       |
     # the rest of the locations (single token)
     /(?i)nucleolus|nucleus|ribosome|vesicle|golgi|cytoskeleton|mitochondrion|mitochondria|vacuole|cytosol|lysosome|centrosome/
