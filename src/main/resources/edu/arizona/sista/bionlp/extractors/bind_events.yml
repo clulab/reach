@@ -135,8 +135,17 @@
   priority: 4
   action: mkBindingEvent
   pattern: |
-    trigger: [word=binds & tag=/^V/]
+    trigger: [lemma=bind & tag=/^V/]
     theme: dobj | <rcmod <appos?
+
+# passive
+- name: binding_18
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  pattern: |
+    trigger: [lemma=bind & tag=/^V/]
+    theme: agent | nsubjpass
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
