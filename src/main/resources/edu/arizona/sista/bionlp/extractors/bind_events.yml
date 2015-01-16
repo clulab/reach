@@ -158,7 +158,6 @@
   pattern: |
     (?<trigger> binding) to (?<theme> [mention=/^Protein|Gene_or_gene_product$/])
 
-
 - name: binding_token_3
   label: Binding
   priority: 4
@@ -168,3 +167,12 @@
     (?<theme1> [mention=/^Protein|Gene_or_gene_product$/])
     (?<trigger> [lemma=bind])
     (?<theme2> [mention=/^Protein|Gene_or_gene_product$/])
+
+# Prepositional Nominalization
+- name: binding_token_4
+  label: Binding
+  priority: 4
+  action: mkBindingEvent
+  type: token
+  pattern: |
+    (?<trigger> binding) of (?<theme1> [mention=/^Protein|Gene_or_gene_product$/]+) (to|with) (?<theme2> [mention=/^Protein|Gene_or_gene_product$/]+)
