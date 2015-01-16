@@ -197,8 +197,6 @@ class TestSyntacticVariants {
   @Test def testBindingPrepNom2() {
     val doc = bioproc.annotate("We detected elevated binding of p53 and K-Ras.")
     val mentions = extractor.extractFrom(doc)
-    header("testBindingPrepNom2")
-    displayMentions(mentions, doc)
 
     try {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions))
@@ -339,8 +337,6 @@ class TestSyntacticVariants {
   @Test def testTransport5() {
     val doc = bioproc.annotate("ASPP2, a protein which translocates Pde2 from the membrane to the nucleus, is subsequently phosphorylated.")
     val mentions = extractor.extractFrom(doc)
-    header("testTransport4")
-    displayMentions(mentions, doc)
 
     try {
       assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("Pde2", "membrane", "nucleus"), mentions))
