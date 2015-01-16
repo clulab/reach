@@ -67,4 +67,8 @@ object RulerShell extends App {
         displayMentions(mentions, doc)
     }
   }
+
+  // manual terminal cleanup
+  reader.getTerminal().restore()
+  reader.shutdown()
 }
