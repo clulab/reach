@@ -74,7 +74,7 @@ class DarpaActions extends Actions {
   }
 
   def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int = 2, rspan: Int = 0, antType: Seq[String], n: Int = 1): Seq[Mention] = {
-    // println(s"attempting coref with type(s) ${antType.mkString(", ")}")
+    println(s"attempting coref with type(s) ${antType.mkString(", ")}")
 
     var leftwd = if (lspan > 0) {
       (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, antType))
@@ -107,10 +107,10 @@ class DarpaActions extends Actions {
     else None
 
     if (adcedentMentions.isDefined) {
-      //println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
+      println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
       adcedentMentions.get
     } else {
-      //println("None found")
+      println("None found")
       Nil
     }
   }
@@ -146,7 +146,7 @@ class DarpaActions extends Actions {
 
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
-    //debug(label, mention, sent, doc, ruleName, state)
+    debug(label, mention, sent, doc, ruleName, state)
     // Don't change this, but feel free to make a new action based on this one.
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
@@ -303,8 +303,8 @@ class DarpaActions extends Actions {
   def mkHydrolysis(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val themes = if (mention contains "theme") mention("theme") flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
-    //else Nil
-    else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
+    else Nil
+    //else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
     val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
     else findCoref(state,doc,sent,meldMentions(mention),1,7,simpleProteinLabels,1)
     val causes = if (mention contains "cause") mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
@@ -329,6 +329,8 @@ class DarpaActions extends Actions {
   }
 
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+
+    debug(label, mention, sent, doc, ruleName, state)
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Protein", "Gene_or_gene_product", "Small_molecule"))
