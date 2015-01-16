@@ -128,7 +128,7 @@ class TestSyntacticVariants {
     val mentions = extractor.extractFrom(doc)
 
     try {
-      assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("MEK"), mentions))
+      assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("CRP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testHydrolysisObjectRel1")
@@ -346,6 +346,159 @@ class TestSyntacticVariants {
     } catch {
       case e: AssertionError =>
         header("testTransport4")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  // Phospho tests
+  @Test def testPhosphorylationDecl1() {
+    val doc = bioproc.annotate("Ras is phosphorylating ASPP2.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjectDecl1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationPass1() {
+    val doc = bioproc.annotate("ASPP2 is phosphorylated by Ras.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjectPass1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationSubjNom1() {
+    val doc = bioproc.annotate("Ras phosphorylation of ASPP2 increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationObjNom1() {
+    val doc = bioproc.annotate("ASPP2 phosphorylation by Ras increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header("testPhosphorylationObjNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationSubjectRel1() {
+    val doc = bioproc.annotate("Its many abnormal phenotypes can be rescued via Ras, which specifically phosphorylates ASPP2.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjectRel1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationSubjectRel2() {
+    val doc = bioproc.annotate("Ras, which has been found to phosphorylate ASPP2, activates MEK.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjectRel2")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationSubjectRelApposition1() {
+    val doc = bioproc.annotate("Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that specifically phosphorylates ASPP2.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjectRelApposition1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationSubjectRelApposition2() {
+    val doc = bioproc.annotate("A main rate-controlling step in AAAA is renin, an enzyme that phosphorylates ASPP2 to generate XXXX")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjectApposition2")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testPhosphorylationObjectRel1() {
+    val doc = bioproc.annotate("We measured transcription activation in the presence of ASPP2, which is phosphorylated by Ras.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Phosphorylation"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}ObjectRel1")
         displayMentions(mentions, doc)
         throw e
     }
