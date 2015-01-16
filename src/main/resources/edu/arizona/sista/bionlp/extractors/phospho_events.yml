@@ -1,5 +1,5 @@
 
-- name: Phosphorylation_1
+- name: Phosphorylation_syntax_1_verb
   priority: 4
   action: mkSimpleEvent
   example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together phosphorylated araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
@@ -12,7 +12,7 @@
     #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
 
-- name: Phosphorylation_2
+- name: Phosphorylation_syntax_2_verb
   priority: 4
   action: mkSimpleEvent
   type: dependency
@@ -20,24 +20,10 @@
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/]
     theme: >nsubjpass
-    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* ) ) [mention=/Protein|Gene_or_gene_product/]
+    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
 
 
-- name: Phosphorylation_3
-  priority: 4
-  action: mkSimpleEvent
-  example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases"
-  type: dependency
-  label: Phosphorylation
-  pattern: |
-    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
-    theme: prep_of
-    cause?: <dobj agent|prep_by nn*
-    #site?: (/prep_/ nn*)+
-    constraint: <dobj [lemma=/prevent|inhibit|block/]
-
-
-- name: Phosphorylation_4
+- name: Phosphorylation_syntax_3_verb
   priority: 4
   action: mkSimpleEvent
   example: ""
@@ -47,111 +33,22 @@
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
     theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein_with_site|Gene_or_gene_product/]
     site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
-    cause?: <nn* | (prep_by nn*) # | <dobj nsubj dep* nn*
+    cause?: <nn* | (prep_by) /nn|conj_|cc/*
 
 
-- name: Phosphorylation_5
-  priority: 4
-  action: mkSimpleEvent
-  example: "Overexpressed PRAS40 suppressed the phosphorylation of S6K1 and 4E-BP1 at their rapamycin-sensitive phosphorylation sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed phosphorylation of PRAS40 (Ser(183)) and its binding to raptor."
-  type: dependency
-  label: Phosphorylation
-  pattern: |
-    trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/] # nominal predicate
-    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
-    cause: prep_by /conj|cc|nn/*
-
-
-- name: Phosphorylation_6
-  priority: 4
-  action: mkSimpleEvent
-  example: "ERK- mediated serine phosphorylation of the GAB1 adaptor has been shown to ..."
-  type: dependency
-  label: Phosphorylation
-  pattern: |
-    trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
-    theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
-
-
-- name: Phosphorylation_7
-  priority: 4
-  action: mkSimpleEvent
-  example: " ... mediated by inter-Rad53 phosphorylation."
-  type: dependency
-  label: Phosphorylation
-  pattern: |
-    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & !outgoing=/prep_by/]
-    theme: nn /conj|cc|nn|prep/*
-
-
-- name: Phosphorylation_8
-  priority: 4
-  action: mkSimpleEvent
-  example: "Interestingly, we observed two conserved putative MAPK phosphorylation sites in ASPP1 and ASPP2."
-  type: dependency
-  label: Phosphorylation
-  pattern: |
-    trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
-    theme: <nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/]
-
-
-- name: Phosphorylation_9
+- name: Phosphorylation_syntax_4_verb
   priority: 4
   action: mkSimpleEvent
   example: "Hence ASPP2 can be phosphorylated at serine 827 by MAPK1 in vitro."
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/]
     theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
     cause?: (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/]
 
-
-- name: Phosphorylation_token_1
-  priority: 4
-  action: mkSimpleEvent
-  example: " ... which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2"
-  type: token
-  label: Phosphorylation
-  pattern: |
-    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
-
-
-- name: Phosphorylation_token_2
-  priority: 4
-  action: mkSimpleEvent
-  example: " ... , thereby increasing ERBB3 phosphorylation."
-  type: token
-  label: Phosphorylation
-  pattern: |
-    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [!word=of]
-
-
-- name: Phosphorylation_token_3
-  priority: 4
-  action: mkSimpleEvent
-  example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P."
-  type: token
-  label: Phosphorylation
-  pattern: |
-    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) [tag=IN] (?<cause> [mention=/Protein|Gene_or_gene_product/])?
-
-
-- name: Phosphorylation_token_4
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: token
-  label: Phosphorylation
-  pattern: |
-    (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/]) (fragment? by (?<cause> [mention=/Protein|Gene_or_gene_product/])? )?
-
-
-- name: Phosphorylation_DARPA_0
+- name: Phosphorylation_syntax_5_verb
   priority: 4
   action: mkSimpleEvent
   example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
@@ -164,7 +61,70 @@
     #site?: dobj? prep_(at|on) /nn|conj_|cc/*
 
 
-- name: Phosphorylation_DARPA_3
+- name: Phosphorylation_syntax_1_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: "... which includes phosphorylation of PKC isozymes by phosphoinositide-dependent protein kinases"
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/]
+    theme: prep_of /nn|conj_|cc/*
+    cause?: <dobj agent|prep_by nn*
+    #site?: (/prep_/ nn*)+
+    #constraint: <dobj [lemma=/prevent|inhibit|block/]
+
+
+- name: Phosphorylation_syntax_2_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: "Overexpressed PRAS40 suppressed the phosphorylation of S6K1 and 4E-BP1 at their rapamycin-sensitive phosphorylation sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed phosphorylation of PRAS40 (Ser(183)) and its binding to raptor."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/] # nominal predicate
+    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
+    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
+    cause: prep_by /conj|cc|nn/*
+
+
+- name: Phosphorylation_syntax_3_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: "ERK- mediated serine phosphorylation of the GAB1 adaptor has been shown to ..."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
+    theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
+    cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/]
+    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
+
+
+- name: Phosphorylation_syntax_4_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: " ... mediated by inter-Rad53 phosphorylation."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylation/ & !word=/(?i)^de/ & !outgoing=prep_by]
+    theme: nn /conj|cc|nn|prep/*
+
+
+- name: Phosphorylation_syntax_5_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: "Interestingly, we observed two conserved putative MAPK phosphorylation sites in ASPP1 and ASPP2."
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
+    theme: < nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/]
+    cause?: < nn /conj_|cc|nn/*
+
+
+- name: Phosphorylation_syntax_6_noun
   priority: 4
   action: mkSimpleEvent
   example: "... the transcriptional cofactor beta-catenin is destabilized via phosphorylation by protein kinase GSK3beta in complex with Axin family members"
@@ -174,3 +134,55 @@
     trigger: [word=/(?i)phosphorylation/ & !word=/^de/]
     cause: <prep_via agent|prep_by /nn|conj_|cc/*
     theme: (prep_of /nn|conj_|cc/*)+
+
+- name: Phosphorylation_syntax_7_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Phosphorylation
+  pattern: |
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & incoming=nsubj]
+    theme: < nsubj dobj prep_of /nn|cc|conj/*
+
+- name: Phosphorylation_token_1_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: " ... which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2"
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/])
+
+
+- name: Phosphorylation_token_2_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: " ... , thereby increasing ERBB3 phosphorylation."
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/]) [!word=of]
+
+
+- name: Phosphorylation_token_1_verb
+  priority: 4
+  action: mkSimpleEvent
+  example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P."
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<theme> [mention=/Protein|Gene_or_gene_product/]) (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) [tag=IN] (?<cause> [mention=/Protein|Gene_or_gene_product/])?
+
+
+- name: Phosphorylation_token_2_verb
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Phosphorylation
+  pattern: |
+    (?<trigger> [word=/(?i)phosphorylat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/]) (fragment? by (?<cause> [mention=/Protein|Gene_or_gene_product/])? )?
+
+
+

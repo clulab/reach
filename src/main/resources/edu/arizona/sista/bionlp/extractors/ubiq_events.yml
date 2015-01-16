@@ -1,4 +1,5 @@
-- name: Ubiquitination_1
+
+- name: Ubiquitination_syntax_1_verb
   priority: 4
   action: mkSimpleEvent
   example: ""
@@ -7,11 +8,11 @@
   pattern: |
     trigger: [word=/(?i).*ubiquitinat.*/ & !word=/^de/]
     cause?: <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/* [!word=/(?i)ubiq/]
-    theme: (<dep | dobj | xcomp) (/./ [word=by])* [!word=/(?i)ubiq/]
+    theme: (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])* [!word=/(?i)ubiq/]
     #site?: dobj? /prep_(at|on)|nn|conj_|cc/*
 
 
-- name: Ubiquitination_2
+- name: Ubiquitination_syntax_2_verb
   priority: 4
   action: mkSimpleEvent
   type: dependency
@@ -19,24 +20,10 @@
   pattern: |
     trigger: [word=/(?i)ubiquitinated/ & !word=/^de/]
     theme: >nsubjpass [!word=/(?i)ubiq/]
-    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* ) ) [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
 
 
-- name: Ubiquitination_3
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: dependency
-  label: Ubiquitination
-  pattern: |
-    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
-    theme: prep_of [!word=/(?i)ubiq/]
-    cause?: <dobj agent|prep_by nn* [!word=/(?i)ubiq/]
-    #site?: (/prep_/ nn*)+
-    constraint: <dobj [lemma=/prevent|inhibit|block/]
-
-
-- name: Ubiquitination_4
+- name: Ubiquitination_syntax_3_verb
   priority: 4
   action: mkSimpleEvent
   example: ""
@@ -46,119 +33,22 @@
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
     theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?:  (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
-    cause?: <nn* | (prep_by nn*) # | <dobj nsubj dep* nn* [!word=/(?i)ubiq/]
+    cause?: <nn* | (prep_by) /nn|conj_|cc/* [!word=/(?i)ubiq/]
 
 
-- name: Ubiquitination_5
+- name: Ubiquitination_syntax_4_verb
   priority: 4
   action: mkSimpleEvent
   example: ""
   type: dependency
   label: Ubiquitination
   pattern: |
-    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/] # nominal predicate
-    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
-    cause: prep_by /conj|cc|nn/* [!word=/(?i)ubiq/]
-
-- name: Ubiquitination_6
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: dependency
-  label: Ubiquitination
-  pattern: |
-    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
-    theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
-
-
-- name: Ubiquitination_7
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: dependency
-  label: Ubiquitination
-  pattern: |
-    trigger: [word=/(?i)ubiquitination/ & !word=/^de/ & !outgoing=/prep_by/]
-    theme: (<dep | nn) /conj|cc|nn|prep/* [!word=/(?i)ubiq/]
-
-
-- name: Ubiquitination_8
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: dependency
-  label: Ubiquitination
-  pattern: |
-    trigger: [word=/(?i)ubiquitination/ & !word=/^de/]
-    theme: <nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-
-
-- name: Ubiquitination_9
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: dependency
-  label: Ubiquitination
-  pattern: |
-    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
+    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^V/]
     theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
     cause?: (/prep_/ /conj_|nn/*)? /prep_/* prep_by /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
 
-
-- name: Ubiquitination_token_1
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: token
-  label: Ubiquitination
-  pattern: |
-    (?<trigger> [word=/(?i)ubiquitination/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/(^V|CC)/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])
-
-
-- name: Ubiquitination_token_2
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: token
-  label: Ubiquitination
-  pattern: |
-    (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]) (?<trigger> [word=/(?i)ubiquitination/ & !word=/^de/]) [!word=of]
-
-
-- name: Ubiquitination_token_3
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: token
-  label: Ubiquitination
-  pattern: |
-    (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]) (?<trigger> [word=/(?i)ubiquitinat/ & tag=/^V/]) [tag=IN] (?<cause> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])?
-
-
-- name: Ubiquitination_token_4
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: token
-  label: Ubiquitination
-  pattern: |
-    (?<trigger> [word=/(?i)ubiquitinat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])
-
-- name: Ubiquitination_token_coref
-  priority: 4
-  action: mkSimpleEvent
-  example: ""
-  type: token
-  label: Ubiquitination
-  pattern: |
-    [tag=DT | word=/(?i)this|that|these/] (?<trigger> [word=/(?i)ubiquitinat/]) [tag=/^V/]
-
-
-- name: Ubiquitination_DARPA_0
+- name: Ubiquitination_syntax_5_verb
   priority: 4
   action: mkSimpleEvent
   example: ""
@@ -171,7 +61,69 @@
     #site?: dobj? prep_(at|on) /nn|conj_|cc/*
 
 
-- name: Ubiquitination_DARPA_3
+- name: Ubiquitination_syntax_1_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/]
+    theme: prep_of /nn|conj_|cc/* [!word=/(?i)ubiq/]
+    cause?: <dobj agent|prep_by nn* [!word=/(?i)ubiq/]
+    #site?: (/prep_/ nn*)+
+    #constraint: <dobj [lemma=/prevent|inhibit|block/]
+
+
+- name: Ubiquitination_syntax_2_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/] # nominal predicate
+    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
+    cause: prep_by /conj|cc|nn/* [!word=/(?i)ubiq/]
+
+
+- name: Ubiquitination_syntax_3_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
+    theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    site?:  /pobj|prep_|conj_|nn/+ [mention=Site]
+
+
+- name: Ubiquitination_syntax_4_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i)ubiquitination/ & !word=/(?i)^de/ & !outgoing=prep_by]
+    theme: nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/]
+
+
+- name: Ubiquitination_syntax_5_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i)ubiquitination/ & !word=/^de/]
+    theme: < nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+
+
+- name: Ubiquitination_syntax_6_noun
   priority: 4
   action: mkSimpleEvent
   example: ""
@@ -181,4 +133,55 @@
     trigger: [word=/(?i)ubiquitination/ & !word=/^de/]
     cause: <prep_via agent|prep_by /nn|conj_|cc/* [!word=/(?i)ubiq/]
     theme: (prep_of /nn|conj_|cc/*)+ [!word=/(?i)ubiq/]
+
+- name: Ubiquitination_syntax_7_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: dependency
+  label: Ubiquitination
+  pattern: |
+    trigger: [word=/(?i)ubiquitination/ & !word=/^de/ & incoming=nsubj]
+    theme: < nsubj dobj prep_of /nn|cc|conj/* [!word=/(?i)ubiq/]
+
+- name: Ubiquitination_token_1_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Ubiquitination
+  pattern: |
+    (?<trigger> [word=/(?i)ubiquitination/ & !word=/^de/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])
+
+
+- name: Ubiquitination_token_2_noun
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Ubiquitination
+  pattern: |
+    (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]) (?<trigger> [word=/(?i)ubiquitination/ & !word=/^de/]) [!word=of]
+
+
+- name: Ubiquitination_token_1_verb
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Ubiquitination
+  pattern: |
+    (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]) (?<trigger> [word=/(?i)ubiquitinat/ & tag=/^V/]) [tag=IN] (?<cause> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])?
+
+
+- name: Ubiquitination_token_2_verb
+  priority: 4
+  action: mkSimpleEvent
+  example: ""
+  type: token
+  label: Ubiquitination
+  pattern: |
+    (?<trigger> [word=/(?i)ubiquitinat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]) (fragment? by (?<cause> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])? )?
+
+
     
