@@ -7,8 +7,6 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 package object ruler {
 
-  val bioproc = new BioNLPProcessor
-
   val EventLabels = Set(
     "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding", "Hydroxylation"
   )

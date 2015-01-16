@@ -5,6 +5,7 @@ import edu.arizona.sista.bionlp.reach.ruler.TestSyntacticVariants._
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import org.junit.Assert._
 import org.junit.Test
+import TestResources.bioproc
 
 /**
  * Created by dane on 1/14/15.

@@ -7,6 +7,7 @@ import org.junit.Test
 import org.junit.Assert._
 import TestDarpaEval2015Training._
 import DarpaEvalUtils._
+import TestResources.bioproc
 
 /**
  * Unit test for rules tailored for the DARPA evaluation; using the training corpus
