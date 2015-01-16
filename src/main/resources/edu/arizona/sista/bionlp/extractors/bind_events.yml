@@ -4,7 +4,7 @@
   action: mkBindingEvent
   pattern: |
     trigger: bind
-    theme: nsubj | prep_to
+    theme: nsubj | dobj | /prep_(to|with)/
 
 - name: binding2
   label: Binding
@@ -129,23 +129,13 @@
     trigger: ligated
     theme: <vmod | nsubj | prep_to
 
-# Subject Relative Clause (with optional Apposition)
 - name: binding_17
   label: Binding
   priority: 4
   action: mkBindingEvent
   pattern: |
     trigger: [lemma=bind & tag=/^V/]
-    theme: dobj | <rcmod <appos?
-
-# passive
-- name: binding_18
-  label: Binding
-  priority: 4
-  action: mkBindingEvent
-  pattern: |
-    trigger: [lemma=bind & tag=/^V/]
-    theme: agent | nsubjpass
+    theme: agent | nsubjpass | dobj | <rcmod <appos?
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
@@ -155,9 +145,9 @@
   type: token
   action: mkBindingEvent
   pattern: |
-    (?<theme1> [mention=Protein | mention=Gene_or_gene_product])
-    (?<trigger> binding) to
-    (?<theme2> [mention=Protein | mention=Gene_or_gene_product])
+    (?<theme1> [mention=/Protein|Gene_or_gene_product/]+)
+    (?<trigger> binding) (to|by|with)
+    (?<theme2> [mention=/Protein|Gene_or_gene_product/]+)
 
 - name: binding_token_2
   label: Binding
