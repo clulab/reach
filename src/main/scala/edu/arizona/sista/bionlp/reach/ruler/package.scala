@@ -50,12 +50,12 @@ package object ruler {
       case m: EventMention =>
         println(s"\tTrigger => ${m.trigger.text}")
         m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"\t$k => ${v.text}")
+          case (k, vs) => for (v <- vs) println(s"\t$k (${v.label}) => ${v.text}")
         }
 
       case m: RelationMention =>
         m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"\t$k => ${v.text}")
+          case (k, vs) => for (v <- vs) println(s"\t$k (${v.label}) => ${v.text}")
         }
 
       case _ => ()
