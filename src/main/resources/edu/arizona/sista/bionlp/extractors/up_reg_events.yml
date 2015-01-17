@@ -21,23 +21,13 @@
 - name: Up_regulation_3
   priority: 5
   action: mkRegulation
-  type: dependency
-  label: UpRegulation
-  pattern: |
-    trigger: [word=/^able/ & !outgoing=neg]
-    controller: nsubj nn*
-    controlled: xcomp dobj?
-
-- name: Up_regulation_4
-  priority: 5
-  action: mkRegulation
   type: token
   label: UpRegulation
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   pattern: |
     (?<controller> [mention=/./])? (?<trigger> [word=/^mediat/]) (?<controlled> [mention=/./])
 
-- name: Up_regulation_5
+- name: Up_regulation_4
   priority: 5
   action: mkRegulation
   type: token
