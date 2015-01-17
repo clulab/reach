@@ -9,20 +9,23 @@ import edu.arizona.sista.matcher.{TextBoundMention, EventMention, Mention}
  * Date: 1/5/15
  */
 object DarpaEvalUtils {
-  def hasEventWithArguments(label:String, args:Seq[String], mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
-      if(!m.isInstanceOf[TextBoundMention]) {
-        if(m.label == label) { // found the label
+  def hasEventWithArguments(label: String, args: Seq[String], mentions: Seq[Mention]): Boolean = {
+    for (m <- mentions) {
+      if (!m.isInstanceOf[TextBoundMention]) {
+        if (m.label == label) {
+          // found the label
 
           // This is only necessary because we decided to make complexes using relation mentions.
           // ex. GTP hydrolysis for Ras => "Ras-GTP" becomes the label of a resultant relation mention.
           // We really shouldn't be doing this sort of thing in a mention.
-          val allText = s"${m.text} ${m.arguments.values.
-            flatten.
-            map(_.text)
-            .mkString(" ")}".toLowerCase
+          val allText = s"${m.text} ${
+            m.arguments.values.
+              flatten
+              .map(_.text)
+              .mkString(" ")
+          }".toLowerCase
 
-          if (args.forall{arg => allText contains arg.toLowerCase}) {
+          if (args.forall { arg => allText contains arg.toLowerCase}) {
             //println(s"\t==> found event mention: ${m.text}")
             return true
           }
@@ -32,8 +35,8 @@ object DarpaEvalUtils {
     false
   }
 
-  def hasEntity(text:String, mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
+  def hasEntity(text: String, mentions: Seq[Mention]): Boolean = {
+    for (m <- mentions) {
       if (m.isInstanceOf[TextBoundMention]) {
         val tm = m.asInstanceOf[TextBoundMention]
         if (tm.text == text) {
@@ -45,8 +48,8 @@ object DarpaEvalUtils {
     false
   }
 
-  def hasEntityWithSite(text:String, site:String, mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
+  def hasEntityWithSite(text: String, site: String, mentions: Seq[Mention]): Boolean = {
+    for (m <- mentions) {
       if (m.isInstanceOf[RelationMention]) {
         val rm = m.asInstanceOf[RelationMention]
         if (rm.arguments.contains("Site") &&
@@ -61,43 +64,41 @@ object DarpaEvalUtils {
     false
   }
 
-  def contains(mentions:Seq[Mention], text:String):Boolean = {
-    for(m <- mentions) if(m.text == text) return true
+  def contains(mentions: Seq[Mention], text: String): Boolean = {
+    for (m <- mentions) if (m.text == text) return true
     false
   }
 
-  def hasUpRegulationByEntity(controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], mentions:Seq[Mention]):Boolean =
+  def hasUpRegulationByEntity(controllerEntity: String, controlledLabel: String, controlledArgs: Seq[String], mentions: Seq[Mention]): Boolean =
     hasRegulationByEntity("UpRegulation", controllerEntity, controlledLabel, controlledArgs, mentions)
 
-  def hasDownRegulationByEntity(controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], mentions:Seq[Mention]):Boolean =
+  def hasDownRegulationByEntity(controllerEntity: String, controlledLabel: String, controlledArgs: Seq[String], mentions: Seq[Mention]): Boolean =
     hasRegulationByEntity("DownRegulation", controllerEntity, controlledLabel, controlledArgs, mentions)
 
-  def hasRegulationByEntity(label:String,
-                            controllerEntity:String,
-                            controlledLabel:String,
-                            controlledArgs:Seq[String],
-                            mentions:Seq[Mention]):Boolean = {
-    for(m <- mentions) {
-      if(!m.isInstanceOf[TextBoundMention]) {
-        if(m.label == label) { // found the regulation label
+  def hasRegulationByEntity(label: String,
+                            controllerEntity: String,
+                            controlledLabel: String,
+                            controlledArgs: Seq[String],
+                            mentions: Seq[Mention]): Boolean = {
+    for (m <- mentions) {
+      if (!m.isInstanceOf[TextBoundMention]) {
+        if (m.label == label) {
+          // found the regulation label
           val controller = m.arguments.get("Controller")
           val controlled = m.arguments.get("Controlled")
 
-          if(controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) { // some obvious sanity checks
+          if (controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) {
+            // some obvious sanity checks
             val controlledEvent = controlled.get.head.asInstanceOf[EventMention]
-            if(controller.get.head.text == controllerEntity && // found the controller entity
-               controlledEvent.label == controlledLabel) { // found the correct label for the controlled event
-              var count = 0
-              for(arg <- controlledArgs) {
-                for (a <- controlledEvent.arguments.values.flatten) {
-                  if(arg == a.text) {
-                    count += 1
-                  }
-                }
-              }
-              if(count == controlledArgs.size) {
-                // found all args for the controlled event as well
-                //println(s"\t==> found ${label} with Controller:${controllerEntity} and Controlled:${controlledLabel} with arguments:${controlledArgs.mkString(",")}")
+            if (controller.get.head.text == controllerEntity && // found the controller entity
+              controlledEvent.label == controlledLabel) {
+              val allText = s"${m.text} ${controlledEvent.arguments.values
+                .flatten
+                .map(_.text)
+                .mkString(" ")}".toLowerCase
+
+              if (controlledArgs.forall{arg => allText contains arg.toLowerCase}) {
+                //println(s"\t==> found event mention: ${m.text}")
                 return true
               }
             }
@@ -108,7 +109,7 @@ object DarpaEvalUtils {
     false
   }
 
-  def header(name:String) {
-    println(s"\n${":"*20}$name${":"*20}\n")
+  def header(name: String) {
+    println(s"\n${":" * 20}$name${":" * 20}\n")
   }
 }

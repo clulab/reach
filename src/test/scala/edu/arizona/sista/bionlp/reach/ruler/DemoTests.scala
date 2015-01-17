@@ -52,7 +52,7 @@ class DemoTests2 extends FunSuite with BeforeAndAfter {
   }
 
   test("there should be an up-regulation of the hydroxylation of Pkh1 by S6K1") {
-    assert(hasUpRegulationByEntity("S6K1", "Hydroxylation", List("Pkh1 protein"), mentions), summarizeError(text, "UpRegulation", assignedParty))
+    assert(hasUpRegulationByEntity("S6K1", "Hydroxylation", List("Pkh1"), mentions), summarizeError(text, "UpRegulation", assignedParty))
   }
 
   //test("In the future")(pending)
