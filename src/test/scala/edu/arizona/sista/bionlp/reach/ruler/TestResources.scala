@@ -23,4 +23,7 @@ object TestResources {
     val rules = BasicRuler.readRules()
     new BasicRuler(rules, actions)
   }
+
+  def summarizeError(sentence: String, label: String, assignedParty: String): String =
+    s"Failed ${label} test for sentence:\n\tWe measured transcription activation in the presence of ASPP2, which is phosphorylated by Ras.\n\tResponsible: ${assignedParty}"
 }
