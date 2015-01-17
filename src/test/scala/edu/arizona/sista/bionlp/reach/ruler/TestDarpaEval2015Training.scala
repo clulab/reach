@@ -160,7 +160,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     val mentions = extractor.extractFrom(doc)
 
     try {
-      assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("GAB1 adaptor"), mentions))
+      assertTrue("phosphorylation (BANNER sometimes fails here, guys...)", hasEventWithArguments("Phosphorylation", List("GAB1 adaptor"), mentions))
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("GAB1-PI3K"), mentions))
 
       // TODO: there are 2 regulations here! Whoever works on this, please add asserts for these two (MARCO or GUS)

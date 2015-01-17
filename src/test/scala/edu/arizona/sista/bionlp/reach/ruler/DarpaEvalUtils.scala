@@ -13,7 +13,16 @@ object DarpaEvalUtils {
     for(m <- mentions) {
       if(!m.isInstanceOf[TextBoundMention]) {
         if(m.label == label) { // found the label
-          if (args.forall{arg => m.text.toLowerCase contains arg.toLowerCase}) {
+
+          // This is only necessary because we decided to make complexes using relation mentions.
+          // ex. GTP hydrolysis for Ras => "Ras-GTP" becomes the label of a resultant relation mention.
+          // We really shouldn't be doing this sort of thing in a mention.
+          val allText = s"${m.text} ${m.arguments.values.
+            flatten.
+            map(_.text)
+            .mkString(" ")}".toLowerCase
+
+          if (args.forall{arg => allText contains arg.toLowerCase}) {
             //println(s"\t==> found event mention: ${m.text}")
             return true
           }

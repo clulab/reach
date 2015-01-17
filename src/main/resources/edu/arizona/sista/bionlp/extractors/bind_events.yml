@@ -3,7 +3,7 @@
   priority: 4
   action: mkBindingEvent
   pattern: |
-    trigger: bind
+    trigger: [lemma=bind & tag=/^V/]
     theme: nsubj | dobj | /prep_(to|with)/
 
 - name: binding2
@@ -145,9 +145,9 @@
   type: token
   action: mkBindingEvent
   pattern: |
-    (?<theme1> [mention=/Protein|Gene_or_gene_product/]+)
+    (?<theme1> @Protein | @Gene_or_gene_product)
     (?<trigger> binding) (to|by|with)
-    (?<theme2> [mention=/Protein|Gene_or_gene_product/]+)
+    (?<theme2> @Protein | @Gene_or_gene_product)
 
 - name: binding_token_2
   label: Binding
@@ -155,7 +155,7 @@
   action: mkBindingEvent
   type: token
   pattern: |
-    (?<trigger> binding) to (?<theme> [mention=/^Protein|Gene_or_gene_product$/])
+    (?<trigger> binding) to (?<theme> @Protein | @Gene_or_gene_product)
 
 - name: binding_token_3
   label: Binding
@@ -163,9 +163,9 @@
   action: mkBindingEvent
   type: token
   pattern: |
-    (?<theme1> [mention=/^Protein|Gene_or_gene_product$/])
+    (?<theme1> @Protein | @Gene_or_gene_product)
     (?<trigger> [lemma=bind])
-    (?<theme2> [mention=/^Protein|Gene_or_gene_product$/])
+    (?<theme2> @Protein | @Gene_or_gene_product)
 
 # Prepositional Nominalization
 - name: binding_token_4
@@ -174,4 +174,4 @@
   action: mkBindingEvent
   type: token
   pattern: |
-    (?<trigger> binding) of (?<theme1> [mention=/^Protein|Gene_or_gene_product$/]+) (to|with) (?<theme2> [mention=/^Protein|Gene_or_gene_product$/]+)
+    (?<trigger> binding) of (?<theme1> @Protein | @Gene_or_gene_product) (to|with) (?<theme2> @Protein | @Gene_or_gene_product)

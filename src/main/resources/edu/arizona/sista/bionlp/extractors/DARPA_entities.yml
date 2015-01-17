@@ -352,7 +352,7 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-   ([word=/(?i)^MAPK$/] "3") |
+   ([word=/(?i)^MAPK$/] "3"?) |
    ([word=/(?i)^Insulin(-stimulated)?$/] [word=/(?i)^MAP2$/] kinase) |
    ([word=/(?i)^Atlas$/] of [word=/(?i)^Genetics$/] and [word=/(?i)^Cytogenetics$/] in [word=/(?i)^Oncology$/]) |
    ([word=/(?i)^MAP$/] kinase "3") |
