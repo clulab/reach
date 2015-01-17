@@ -194,7 +194,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
 
     try {
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("PI3K", "Raf family members"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions))
 
       assertTrue("model entity (GUS)", hasEntity("G12V-K-Ras", mentions))
     } catch {
