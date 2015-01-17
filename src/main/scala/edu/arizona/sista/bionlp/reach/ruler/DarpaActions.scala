@@ -195,7 +195,7 @@ class DarpaActions extends Actions {
       val validMentions = unpackTheseMentions(getAllMentionsForArg(argName), unpackable)
         .filter(m => ValidArgument(label, argName) contains m.label)
       if (validMentions.isEmpty) {
-        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=0,rspan=6,antType=ValidArgument(label, argName),1)
+        findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=5,rspan=6,antType=ValidArgument(label, argName),1)
       }
       else validMentions
     }
@@ -270,7 +270,9 @@ class DarpaActions extends Actions {
       m <- mention(name)
       theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
-    val args = Map("Theme" -> themes.toSeq.distinct)
+    val corefThemes = findCoref(state,doc,sent,meldMentions(mention),lspan=7,rspan=0,"Simple_chemical" +: simpleProteinLabels,5)
+    val allThemes = themes ++ corefThemes
+    val args = Map("Theme" -> allThemes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(event)
   }

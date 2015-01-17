@@ -166,7 +166,11 @@
     /(?i)^AF6$/ |
     /(?i)^RASSF[0-9]+$/ |
     /(?i)^AF6$/ |
-    /(?i)^Rabex[0-9]+$/
+    /(?i)^Rabex[0-9]+$/ |
+    /(?i)^BIRC[0-9]$/ |
+    /(?i)^survivin$/ |
+    /(?i)^API[0-9]$/ |
+    /(?i)^EPR-[0-9]$/
 
 - name: cell_parts
   label: Cellular_component
