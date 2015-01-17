@@ -74,7 +74,7 @@ class DarpaActions extends Actions {
   }
 
   def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int = 2, rspan: Int = 0, antType: Seq[String], n: Int = 1): Seq[Mention] = {
-    println(s"attempting coref with type(s) ${antType.mkString(", ")}")
+    //println(s"attempting coref with type(s) ${antType.mkString(", ")}")
 
     var leftwd = if (lspan > 0) {
       (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, antType))
@@ -107,10 +107,10 @@ class DarpaActions extends Actions {
     else None
 
     if (adcedentMentions.isDefined) {
-      println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
+      //println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
       adcedentMentions.get
     } else {
-      println("None found")
+      //println("None found")
       Nil
     }
   }
@@ -146,7 +146,7 @@ class DarpaActions extends Actions {
 
 
   def mkSimpleEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
-    debug(label, mention, sent, doc, ruleName, state)
+    //debug(label, mention, sent, doc, ruleName, state)
     // Don't change this, but feel free to make a new action based on this one.
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
@@ -330,7 +330,7 @@ class DarpaActions extends Actions {
 
   def mkTransport(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
 
-    debug(label, mention, sent, doc, ruleName, state)
+    //debug(label, mention, sent, doc, ruleName, state)
 
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme = state.mentionsFor(sent, mention("theme").head.start, Seq("Protein", "Gene_or_gene_product", "Small_molecule"))
