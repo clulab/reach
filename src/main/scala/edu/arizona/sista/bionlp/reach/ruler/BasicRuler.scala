@@ -32,6 +32,9 @@ class BasicRuler(val rules: String, val actions: Actions) {
             Seq(ubiq)
           } else Nil
 
+        // remove mentions of binding with single theme
+        case m: EventMention if m.label == "Binding" && m.arguments("Theme").size == 1 => Nil
+
         case m if m.label.endsWith("Regulation") => if (checkRegulationArgs(m)) Seq(m) else Nil
 
         case m => Seq(m)
