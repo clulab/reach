@@ -112,15 +112,6 @@
       trigger: interactions
       theme: <dobj <rcmod >dep >conj_and?
 
-
-- name: binding15_syntax
-  label: Binding
-  priority: 4
-  action: mkBindingEvent
-  pattern: | #potentially dangerous; should be revisited...
-      trigger: [lemma=bind]
-      theme: (< rcmod /appos|nn|conj_|cc$/*) | (nsubj|dobj /appos|nn|conj_|cc$/*) [mention=/^Protein|Gene_or_gene_product$/]
-
 - name: binding_16
   label: Binding
   priority: 4
