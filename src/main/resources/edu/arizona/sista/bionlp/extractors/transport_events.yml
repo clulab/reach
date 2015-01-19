@@ -10,7 +10,7 @@
     source: /prep_of/? prep_from [tag=/^N/]
     destination?: </prep_in/? /prep_/* prep_to /conj|nn|cc|dep/* [mention=Cellular_component] 
 
-- name: trasport_2
+- name: transport_2
   priority: 4
   action: mkTransport
   example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
@@ -23,7 +23,7 @@
     destination: <prep_in? prep_to /conj|nn|cc|dep/* [mention=Cellular_component]
 
 
-- name: trasport_3
+- name: transport_3
   priority: 4
   action: mkTransport
   example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
