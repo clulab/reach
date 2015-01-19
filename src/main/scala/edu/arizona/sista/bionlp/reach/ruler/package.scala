@@ -8,7 +8,7 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 package object ruler {
 
   val EventLabels = Set(
-    "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "UpRegulation", "DownRegulation", "Binding", "Hydroxylation"
+    "Phosphorylation", "Ubiquitination", "Hydrolysis", "Regulation", "Positive_regulation", "Negative_regulation", "Binding", "Hydroxylation"
   )
 
   // maps a (Label, Argument) tuple to a sequence of mention labels

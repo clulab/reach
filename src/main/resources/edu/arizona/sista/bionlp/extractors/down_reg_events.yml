@@ -6,7 +6,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^V/]
     controller?: <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
@@ -17,7 +17,7 @@
   priority: 4
   action: mkRegulation
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^V/]
     controlled: >nsubjpass
@@ -29,7 +29,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
     controlled: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/./]
@@ -42,7 +42,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^V/]
     controlled: (nsubjpass /prep_|conj_|nn/*) [mention=/./]
@@ -54,7 +54,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^V/]
     controlled: dobj /nn|conj_|cc/*
@@ -66,7 +66,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=VBN]
     controlled: (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
@@ -78,7 +78,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/]
     controlled: prep_of /nn|conj_|cc/*
@@ -90,7 +90,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/] # nominal predicate
     controlled: prep_of? /conj_|cc|nn/+ [mention=/./]
@@ -102,7 +102,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
     controlled: prep_of /conj_|cc|nn/+ [mention=/./]
@@ -114,7 +114,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/ & !outgoing=/prep_(by|of)/]
     controlled: nn /conj|cc|nn|prep/*
@@ -125,7 +125,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/]
     controlled: < nn > /prep_/ /conj_|cc|nn/* [mention=/./]
@@ -137,7 +137,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/]
     controller: <prep_via agent|prep_by /nn|conj_|cc/*
@@ -149,7 +149,7 @@
   action: mkRegulation
   example: ""
   type: dependency
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & incoming=nsubj]
     controlled: < nsubj dobj prep_of /nn|cc|conj/*
@@ -160,7 +160,7 @@
   action: mkRegulation
   example: ""
   type: token
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     (?<trigger> [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^N/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<controlled> [mention=/./])
 
@@ -170,7 +170,7 @@
   action: mkRegulation
   example: ""
   type: token
-  label: DownRegulation
+  label: Negative_regulation
   pattern: |
     (?<trigger> [word=/abolish|abrog|absenc|antagon|arrest|attenu|becom|block|blunt|control|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|induc|inhibit|interf|interfer|knockdown|lack|limit|loss|lost|low|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|protect|reduc|regul|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl|unperturb/ & tag=/^V/]) (?<controlled> [mention=/./])?
 

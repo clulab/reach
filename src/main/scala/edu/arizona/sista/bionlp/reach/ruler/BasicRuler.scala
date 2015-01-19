@@ -18,11 +18,11 @@ class BasicRuler(val rules: String, val actions: Actions) {
         case m if !m.isInstanceOf[TextBoundMention] && m.arguments.values.flatten.isEmpty => Nil
 
         // the event mention should not be a regulation and it must contain a cause
-        case m: EventMention if !m.label.contains("Regulation") && m.arguments.contains("Cause") =>
+        case m: EventMention if !m.label.endsWith("egulation") && m.arguments.contains("Cause") =>
           val controller = m.arguments("Cause")
           val someEvent = new EventMention(m.label , m.trigger, m.arguments - "Cause", m.sentence, m.document, m.foundBy)
           val args = Map("Controller" -> controller, "Controlled" -> Seq(someEvent))
-          val upreg = new RelationMention("UpRegulation", args, m.sentence, m.document, m.foundBy)
+          val upreg = new RelationMention("Positive_regulation", args, m.sentence, m.document, m.foundBy)
           Seq(upreg, someEvent)
 
         case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
@@ -35,7 +35,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
         // remove mentions of binding with single theme
         case m: EventMention if m.label == "Binding" && m.arguments("Theme").size == 1 => Nil
 
-        case m if m.label.endsWith("Regulation") => if (checkRegulationArgs(m)) Seq(m) else Nil
+        case m if m.label.endsWith("egulation") => if (checkRegulationArgs(m)) Seq(m) else Nil
 
         case m => Seq(m)
       }
