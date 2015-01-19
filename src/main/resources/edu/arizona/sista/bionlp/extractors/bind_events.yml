@@ -44,7 +44,7 @@
   priority: 4
   action: mkBindingEvent
   pattern: |
-      trigger: bound
+      trigger: [lemma=bind & tag=/^V/]
       theme: (<amod nn* >prep_of? >appos?) | (nsubj | conj_and? dobj)
 
 - name: binding7
@@ -76,7 +76,7 @@
   priority: 4
   action: mkBindingEvent
   pattern: |
-      trigger: bound
+      trigger: [lemma=bind & tag=/^V/]
       theme: <vmod <prep_with?
 
 - name: binding11
