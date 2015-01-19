@@ -59,7 +59,7 @@ object RulerShell extends App {
         println(s"COMMANDS:\n\n$commandsForDisplay")
 
       case null =>
-        println("\nPlease type %exit to quit.")
+        running = false
 
       case text =>
         val doc = proc.annotate(text)
