@@ -1,33 +1,3 @@
-- name: Negative_regulation_2
-  priority: 5
-  action: mkRegulation
-  type: dependency
-  label: Negative_regulation
-  pattern: |
-    trigger: /^regulat/
-    constraint: advmod [word=/^positive/]
-    controller: nsubj nn*
-    controlled: dobj
-
-- name: Negative_regulation_3
-  priority: 5
-  action: mkRegulation
-  type: token
-  label: Negative_regulation
-  example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
-  pattern: |
-    (?<controller> [mention=/./])? (?<trigger> [word=/^mediat/]) (?<controlled> [mention=/./])
-
-- name: Negative_regulation_4
-  priority: 5
-  action: mkRegulation
-  type: token
-  label: Negative_regulation
-  pattern: |
-    (?<trigger> increased) (?<controlled> [mention=/Binding/]+) following (?<controller> [mention=/^(Protein|Gene_or_gene_product)$/])
-
-
-
 ###Syntactic Variants###
 
 
