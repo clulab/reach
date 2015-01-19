@@ -218,7 +218,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-      assertTrue("regulation (MARCO/GUS)", hasRegulationByEntity("Regulation", "RAS", "Phosphorylation", List("ASPP2"), mentions))
+      // we don't do regulations anymore, only + and -
+      // assertTrue("regulation (MARCO/GUS)", hasRegulationByEntity("Regulation", "RAS", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -331,7 +332,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol"), mentions))
 
       // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
-      assertTrue("binding with coref (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
+      // NOTE this is a binding with one theme only, ignore it
+      // assertTrue("binding with coref (MARCO/GUS)", hasEventWithArguments("Binding", List("p53"), mentions))
 
       // TODO: missing two regulations:  phosphorylation leads to transport and binding
     } catch {
