@@ -164,7 +164,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("GAB1-PI3K"), mentions))
 
       // TODO: there are 2 regulations here! Whoever works on this, please add asserts for these two (MARCO or GUS)
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("ERK-", "Phosphorylation", List("serine", "GAB1 adaptor"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("ERK-", "Phosphorylation", List("serine", "GAB1 adaptor"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules10")
@@ -212,7 +212,7 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     try {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions))
 
-      assertTrue("upregulation (MARCO or GUS)", hasUpRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions))
+      assertTrue("upregulation (MARCO or GUS)", hasPositiveRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules13")

@@ -36,9 +36,9 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("mUbRas-GTP"), mentions))
 
-      // TODO: can we catch the UpRegulation by GAP here?
-      //assertTrue("upregulation + black magic (MARCO/GUS)", hasUpRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
-      //assertTrue("upregulation + black magic (MARCO/GUS)", hasUpRegulationByEntity("GAPs", "Hydrolysis", List("mUbRas-GTP"), mentions))
+      // TODO: can we catch the Positive_regulation by GAP here?
+      //assertTrue("upregulation + black magic (MARCO/GUS)", hasPositiveRegulationByEntity("GAPs", "Hydrolysis", List("Ras-GTP"), mentions))
+      //assertTrue("upregulation + black magic (MARCO/GUS)", hasPositiveRegulationByEntity("GAPs", "Hydrolysis", List("mUbRas-GTP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -86,7 +86,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("binding -> ubiqutination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
       // TODO: up-regulation ( MARCO + GUS)
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -103,7 +103,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -121,10 +121,10 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("GAP", "Hydrolysis", List("Ras"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("Ras"), mentions))
 
       // TODO: another down-regulation controller the ubiquitination, and controlled the GAP up-regulation??? Not sure about this...
-      // assertTrue(hasDownRegulationByEvent("Ubiquitination", List("Ras"), "UpRegulation", List("")))
+      // assertTrue(hasNegativeRegulationByEvent("Ubiquitination", List("Ras"), "Positive_regulation", List("")))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -201,8 +201,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
       // TODO: missing regulations (MARCO + GUS)
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK", "Phosphorylation", List("ASPP1"), mentions))
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK", "Phosphorylation", List("ASPP2"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK", "Phosphorylation", List("ASPP1"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -234,7 +234,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -250,7 +250,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("phosphorylation missing site (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -280,7 +280,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -296,7 +296,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-      assertTrue("upregulation (MARCO/GUS)", hasUpRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
+      assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")

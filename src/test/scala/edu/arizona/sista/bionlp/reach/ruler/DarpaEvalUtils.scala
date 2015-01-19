@@ -69,10 +69,10 @@ object DarpaEvalUtils {
     false
   }
 
-  def hasUpRegulationByEntity(controllerEntity: String, controlledLabel: String, controlledArgs: Seq[String], mentions: Seq[Mention]): Boolean =
+  def hasPositiveRegulationByEntity(controllerEntity: String, controlledLabel: String, controlledArgs: Seq[String], mentions: Seq[Mention]): Boolean =
     hasRegulationByEntity("Positive_regulation", controllerEntity, controlledLabel, controlledArgs, mentions)
 
-  def hasDownRegulationByEntity(controllerEntity: String, controlledLabel: String, controlledArgs: Seq[String], mentions: Seq[Mention]): Boolean =
+  def hasNegativeRegulationByEntity(controllerEntity: String, controlledLabel: String, controlledArgs: Seq[String], mentions: Seq[Mention]): Boolean =
     hasRegulationByEntity("Negative_regulation", controllerEntity, controlledLabel, controlledArgs, mentions)
 
   def hasRegulationByEntity(label: String,

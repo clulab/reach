@@ -357,7 +357,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectDecl1")
@@ -374,7 +374,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectPass1")
@@ -391,7 +391,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjNom1")
@@ -408,7 +408,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testPhosphorylationObjNom1")
@@ -425,7 +425,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRel1")
@@ -442,7 +442,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRel2")
@@ -459,7 +459,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRelApposition1")
@@ -492,7 +492,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"up-regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}ObjectRel1")
@@ -510,7 +510,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectDecl1")
@@ -527,7 +527,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectPass1")
@@ -544,7 +544,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjNom1")
@@ -561,7 +561,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testHydroxylationObjNom1")
@@ -578,7 +578,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRel1")
@@ -595,7 +595,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRel2")
@@ -612,7 +612,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRelApposition1")
@@ -645,7 +645,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"up-regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}ObjectRel1")
@@ -664,7 +664,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectDecl1")
@@ -681,7 +681,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectPass1")
@@ -698,7 +698,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjNom1")
@@ -715,7 +715,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header("testUbiquitinationObjNom1")
@@ -732,7 +732,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRel1")
@@ -749,7 +749,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRel2")
@@ -766,7 +766,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}SubjectRelApposition1")
@@ -799,7 +799,7 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"up-regulation ($assignedParty)", hasUpRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Ras", eventLabel, List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}ObjectRel1")

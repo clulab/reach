@@ -24,11 +24,11 @@ class DemoTests1 extends FunSuite with BeforeAndAfter {
   }
 
   test("there should be an up-regulation between IKKalpha and the phosphorylation of IkappaB") {
-    assert(hasUpRegulationByEntity("IKKalpha", "Phosphorylation", List("IkappaB"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
+    assert(hasPositiveRegulationByEntity("IKKalpha", "Phosphorylation", List("IkappaB"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
   }
 
   test("there should be an up-regulation between IKKbeta and the phosphorylation of IkappaB") {
-    assert(hasUpRegulationByEntity("IKKalpha", "Phosphorylation", List("IkappaB"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
+    assert(hasPositiveRegulationByEntity("IKKalpha", "Phosphorylation", List("IkappaB"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
   }
 
   //test("In the future")(pending)
@@ -52,7 +52,7 @@ class DemoTests2 extends FunSuite with BeforeAndAfter {
   }
 
   test("there should be an up-regulation of the hydroxylation of Pkh1 by S6K1") {
-    assert(hasUpRegulationByEntity("S6K1", "Hydroxylation", List("Pkh1"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
+    assert(hasPositiveRegulationByEntity("S6K1", "Hydroxylation", List("Pkh1"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
   }
 
   //test("In the future")(pending)
@@ -71,7 +71,7 @@ class DemoTests3 extends FunSuite with BeforeAndAfter {
   }
 
   test("there should be an up-regulation of the phosphorylation of S6K1 by Pkh1") {
-    assert(hasUpRegulationByEntity("Pkh1", "Phosphorylation", List("S6K1"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
+    assert(hasPositiveRegulationByEntity("Pkh1", "Phosphorylation", List("S6K1"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
   }
 
   test("there should be a binding between S6K1 and TopBP1") {
