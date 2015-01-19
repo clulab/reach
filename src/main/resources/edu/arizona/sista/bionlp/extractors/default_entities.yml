@@ -171,8 +171,15 @@
     /(?i)^survivin$/ |
     /(?i)^API[0-9]$/ |
     /(?i)^EPR-[0-9]$/ |
+    # these entities are found by banner sometimes
     /(?i)^Pkh1$/ |
-    /(?i)^S6K1$/
+    /(?i)^S6K1$/ |
+    /(?i)^TopBP1$/ |
+    /(?i)^IKKalpha$/ |
+    /(?i)^IKKbeta$/ |
+    /(?i)^IkappaB$/ |
+    /(?i)^RPTOR$/ |
+    /(?i)^GAB1/ adaptor?
 
 - name: cell_parts
   label: Cellular_component
