@@ -102,7 +102,10 @@ object Brat {
 
     val idTracker = IdTracker(annotations)
 
-    val mentionRepresentations = mentions.map(m => dumpStandoff(m, doc, idTracker))
+    val mentionRepresentations = mentions.flatMap(m => m match {
+      case event:EventMention => Seq(dumpStandoff(event.trigger, doc, idTracker), dumpStandoff(event, doc, idTracker))
+      case m => Seq(dumpStandoff(m, doc, idTracker))
+    })
       .distinct // just to be safe...
       .groupBy(_.head.toString) // first character
 
@@ -114,7 +117,7 @@ object Brat {
     // sort mention representations
     (mentionRepresentations.getOrElse("T", Seq.empty).sortBy(getNum) ++
      mentionRepresentations.getOrElse("R", Seq.empty).sortBy(getNum) ++
-     mentionRepresentations.getOrElse("E", Seq.empty).sortBy(getNum)  ++
+     mentionRepresentations.getOrElse("E", Seq.empty).sortBy(getNum) ++
      ruleNames)
        .mkString("\n")
   }
