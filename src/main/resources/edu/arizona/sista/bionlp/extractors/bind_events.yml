@@ -166,3 +166,15 @@
   type: token
   pattern: |
     (?<trigger> binding) of (?<theme1> [mention=/Protein|Gene_or_gene_product/]+) (to|with) (?<theme2> [mention=/Protein|Gene_or_gene_product/]+)
+
+- name: binding_coref1
+  label: Binding
+  priority: 4
+  action: mkBindingCorefEvent
+  example: "RNA interference-induced depletion of PRAS40 enhanced the amino acid-stimulated phosphorylation of both S6K1 and 4E-BP1. These two proteins bind to form the PR-73 protein complex."
+  type: dependency
+  pattern: |
+    trigger: [lemma=bind & tag=/^VB[^N]?/]
+    theme?: prep_with | prep_to [mention=/Protein|Gene_or_gene_product/]
+    endophor: nsubj [lemma=/protein|complex/] det [lemma=/these|this|the|which|that/]
+    quantifier?: nsubj [lemma=/protein|complex/] num

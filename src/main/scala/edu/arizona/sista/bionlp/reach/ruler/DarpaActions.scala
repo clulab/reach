@@ -116,6 +116,7 @@ class DarpaActions extends Actions {
   }
 
   def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int, rspan: Int, antType: Seq[String], n: String): Seq[Mention] = {
+    // println(s"attempting coref with quantifier ${n}")
     // our lookup for unresolved mention counts
     val numMap = Map("a" -> 1,
       "an" -> 1,
@@ -136,7 +137,7 @@ class DarpaActions extends Actions {
       numMap.getOrElse(somenum, finalAttempt(somenum))
     }
 
-    findCoref(state, doc, sent, anchor, lspan, rspan, antType, retrieveInt(n))
+    findCoref(state, doc, sent, anchor, lspan, rspan, antType, retrieveInt(n.toLowerCase))
   }
 
   def meldMentions(mention: Map[String, Seq[Interval]]): Interval = {
@@ -271,6 +272,31 @@ class DarpaActions extends Actions {
       theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
     val args = Map("Theme" -> themes.toSeq.distinct)
+    val event = new EventMention(label, trigger, args, sent, doc, ruleName)
+    Seq(event)
+  }
+
+  def mkBindingCorefEvent(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
+    val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
+    val themes = for {
+      name <- mention.keys
+      if name startsWith "theme"
+      m <- mention(name)
+      theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
+    } yield theme
+
+    val corefThemes = if (mention("endophor").nonEmpty & mention("quantifier").nonEmpty) {
+      val endophorSpan = mention("quantifier").head
+      val endophorText = doc.sentences(sent).words.slice(endophorSpan.start,endophorSpan.end).mkString("")
+      findCoref(state, doc, sent, meldMentions(mention), 7, 0, "Simple_chemical" +: simpleProteinLabels, endophorText)
+    } else if (mention("endophor").nonEmpty) {
+      val endophorSpan = mention("endophor").head
+      val endophorText = doc.sentences(sent).words.slice(endophorSpan.start,endophorSpan.end).mkString("")
+      println(endophorText)
+      findCoref(state, doc, sent, meldMentions(mention), 7, 0, "Simple_chemical" +: simpleProteinLabels, endophorText)
+    } else Nil
+    val allThemes = themes ++ corefThemes
+    val args = Map("Theme" -> allThemes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(event)
   }

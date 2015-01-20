@@ -939,11 +939,12 @@ class TestSyntacticVariants {
     val assignedParty = "DANE"
 
     try {
-      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
-      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Pde2", eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras", "GDP", "GTP"), mentions))
+      // TODO: amend to find Pde2 (DANE)
+      // assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Pde2", eventLabel, List("Ras", "GDP", "GTP"), mentions))
     } catch {
       case e: AssertionError =>
-        header(s"test${eventLabel}ObjRel1")
+        header(s"test${eventLabel}Decl1")
         displayMentions(mentions, doc)
         throw e
     }
