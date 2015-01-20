@@ -80,7 +80,3 @@ class DemoTests3 extends FunSuite with BeforeAndAfter {
 
   //test("In the future")(pending)
 }
-
-class DemoTests4 extends FunSuite with BeforeAndAfter {
-
-}
