@@ -82,7 +82,7 @@
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^(N|JJ)/] [word=/regul/]?
     controlled: prep_of /nn|conj_|cc/*
-    controller?: (<dobj (prep_by|agent))|nn /nn|conj_|cc/*
+    controller?: (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
 
 
 - name: Negative_regulation_syntax_2_noun

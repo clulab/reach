@@ -84,7 +84,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/]
     theme: prep_of /nn|conj_|cc/*
-    cause?: (<dobj (prep_by|agent))|nn /nn|conj_|cc/*
+    cause?: (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
     #site?: (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 

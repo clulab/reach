@@ -123,7 +123,7 @@
   pattern: |
     trigger: [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^(N|JJ)/] [word=/regul/]?
     controlled: prep_of /nn|conj_|cc/*
-    controller?: (<dobj (prep_by|agent))|nn /nn|conj_|cc/*
+    controller?: (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
 
 
 - name: Positive_regulation_syntax_2_noun
