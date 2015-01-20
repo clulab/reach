@@ -161,7 +161,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
 
     try {
       assertTrue("phosphorylation (BANNER sometimes fails here, guys...)", hasEventWithArguments("Phosphorylation", List("GAB1 adaptor"), mentions))
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("GAB1-PI3K"), mentions))
+
+      // NOTE this test is disabled because we don't do bindings with a single participant
+      // assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("GAB1-PI3K"), mentions))
 
       // TODO: there are 2 regulations here! Whoever works on this, please add asserts for these two (MARCO or GUS)
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("ERK-", "Phosphorylation", List("serine", "GAB1 adaptor"), mentions))
