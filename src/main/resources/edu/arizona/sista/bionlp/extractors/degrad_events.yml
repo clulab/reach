@@ -6,8 +6,8 @@
   label: Degradation
   pattern: |
     trigger: [word=/degradation/]
-    theme: <conj_and? prep_of [mention=/Gene_or_gene_product|Complex/]
-    cause: <dobj nsubj [mention=/Simple_chemical|Gene_or_gene_product/]
+    theme: <conj_and? prep_of [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause: <dobj nsubj [mention=/Simple_chemical|Gene_or_gene_product|Protein/]
 
 
 - name: degradation_2
@@ -18,8 +18,8 @@
   label: Degradation
   pattern: |
     trigger: [word=/degradation/]
-    theme: prep_of [mention=/Gene_or_gene_product|Complex/]
-    cause: (<prep_through | <prep_by) nsubj [mention=/Simple_chemical|Gene_or_gene_product/]
+    theme: prep_of [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause: (<prep_through | <prep_by) nsubj [mention=/Simple_chemical|Gene_or_gene_product|Protein/]
 
 
 - name: degradation_3
@@ -30,8 +30,8 @@
   label: Degradation
   pattern: |
     trigger: [word=/(?i).*degradation.*/]
-    theme: <conj_and? prep_of [mention=/Gene_or_gene_product|Complex/]
-    cause: <conj_and? prep_of prep_by [mention=/Simple_chemical|Gene_or_gene_product/]
+    theme: <conj_and? prep_of [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause: <conj_and? prep_of prep_by [mention=/Simple_chemical|Gene_or_gene_product|Protein/]
 
 
 - name: degradation_4
@@ -42,8 +42,8 @@
   label: Degradation
   pattern: |
     trigger: [word=/degradation/]
-    theme: <conj_and? nn [mention=/Gene_or_gene_product|Complex/]
-    cause: <conj_and? prep_by [mention=/Simple_chemical|Gene_or_gene_product/]
+    theme: <conj_and? nn [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause: <conj_and? prep_by [mention=/Simple_chemical|Gene_or_gene_product|Protein/]
 
 
 - name: degradation_5
@@ -54,5 +54,29 @@
   label: Degradation
   pattern: |
     trigger: [word=/(?i).*degrad.*/ & tag=/^VB/]
-    theme?: dobj [mention=/Gene_or_gene_product|Complex/]
-    cause?: (<xcomp | <ccomp)? (nsubjpass | nsubj) [mention=/Simple_chemical|Gene_or_gene_product/]
+    theme?: dobj [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause?: ((<xcomp | <ccomp)? nsubj) | (<rcmod (<appos)?) [mention=/Simple_chemical|Gene_or_gene_product|Protein/]
+
+
+- name: degradation_pass1
+  priority: 4
+  action: mkDegradation
+  example: "KRAS and RAS are both degraded by ASPP2 and p53."
+  type: dependency
+  label: Degradation
+  pattern: |
+    trigger: [word=/(?i)^degrad/ & tag=/^VBN/]
+    theme: nsubjpass | (<rcmod (<appos)?) [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause?: agent [mention=/Simple_chemical|Gene_or_gene_product|Protein/]
+
+
+- name: degradation_subjnom1
+  priority: 4
+  action: mkDegradation
+  example: "ASPP2 ubiquitination and degradation of Ras increased."
+  type: dependency
+  label: Degradation
+  pattern: |
+    trigger: [word=/(?i)^degrad/ & tag=/^N/]
+    theme: <conj_and* prep_of [mention=/Gene_or_gene_product|Protein|Complex/]
+    cause: <conj_and* nn [mention=/Simple_chemical|Gene_or_gene_product|Protein/]

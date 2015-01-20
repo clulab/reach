@@ -724,6 +724,24 @@ class TestSyntacticVariants {
     }
   }
 
+  @Test def testUbiquitinationObjNom2() {
+    val doc = bioproc.annotate("RAS ubiquitination and degradation by ASPP2 and p53 increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Ubiquitination"
+    val assignedParty = "GUS"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("RAS"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("RAS"), mentions))
+      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("p53", eventLabel, List("RAS"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header("testUbiquitinationObjNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
   @Test def testUbiquitinationSubjectRel1() {
     val doc = bioproc.annotate("Its many abnormal phenotypes can be rescued via Ras, which specifically ubiquitinates ASPP2.")
     val mentions = extractor.extractFrom(doc)
@@ -803,6 +821,129 @@ class TestSyntacticVariants {
     } catch {
       case e: AssertionError =>
         header(s"test${eventLabel}ObjectRel1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testDegradationDecl1() {
+    val doc = bioproc.annotate("ASPP2 degraded KRAS and RAS.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Degradation"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("KRAS","RAS"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("KRAS", "RAS"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}Decl1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testDegradationPass1() {
+    val doc = bioproc.annotate("KRAS and RAS are both degraded by ASPP2.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Degradation"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("KRAS","RAS"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("KRAS", "RAS"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}Pass1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testDegradationPrepNom1() {
+    val doc = bioproc.annotate("The ubiquitination and degradation of RAS by ASPP2 increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Degradation"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("RAS"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("RAS"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}PrepNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testDegradationObjNom1() {
+    val doc = bioproc.annotate("RAS ubiquitination and degradation by ASPP2 increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Degradation"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("RAS"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("RAS"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}ObjNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testDegradationSubjNom1() {
+    val doc = bioproc.annotate("ASPP2 ubiquitination and degradation of Ras increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Degradation"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("Ras"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testDegradationSubjRel1() {
+    val doc = bioproc.annotate("Its many abnormal phenotypes can be rescued via Pde2, which specifically degrades Ras.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Degradation"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Pde2", eventLabel, List("Ras"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjRel1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+  @Test def testExchangeDecl1() {
+    val doc = bioproc.annotate("Ras exchanges GDP for GTP more rapidly in the presence of Pde2.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Exchange"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("ASPP2"), mentions))
+      assertTrue(s"up-regulation ($assignedParty)", hasPositiveRegulationByEntity("Pde2", eventLabel, List("ASPP2"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}ObjRel1")
         displayMentions(mentions, doc)
         throw e
     }

@@ -74,7 +74,7 @@ class DarpaActions extends Actions {
   }
 
   def findCoref(state: State, doc: Document, sent: Int, anchor: Interval, lspan: Int = 2, rspan: Int = 0, antType: Seq[String], n: Int = 1): Seq[Mention] = {
-    //println(s"attempting coref with type(s) ${antType.mkString(", ")}")
+    // println(s"attempting coref with type(s) ${antType.mkString(", ")}")
 
     var leftwd = if (lspan > 0) {
       (math.max(0, anchor.start - lspan) until anchor.start).reverse flatMap (i => state.mentionsFor(sent, i, antType))
@@ -107,10 +107,10 @@ class DarpaActions extends Actions {
     else None
 
     if (adcedentMentions.isDefined) {
-      //println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
+      // println(s"${doc.sentences(sent).getSentenceText()}\n${(for (m <- adcedentMentions.get) yield m.text).mkString(", ")}\n\n")
       adcedentMentions.get
     } else {
-      //println("None found")
+      // println("None found")
       Nil
     }
   }
@@ -270,9 +270,7 @@ class DarpaActions extends Actions {
       m <- mention(name)
       theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
-    val corefThemes = findCoref(state,doc,sent,meldMentions(mention),lspan=7,rspan=0,"Simple_chemical" +: simpleProteinLabels,5)
-    val allThemes = themes ++ corefThemes
-    val args = Map("Theme" -> allThemes.toSeq.distinct)
+    val args = Map("Theme" -> themes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, ruleName)
     Seq(event)
   }
@@ -281,25 +279,31 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val theme1 = mention("theme1") flatMap (m => state.mentionsFor(sent, m.start, "Simple_chemical"))
     val theme2 = mention("theme2") flatMap (m => state.mentionsFor(sent, m.start, "Simple_chemical"))
-    val goals = if (mention contains "goal") mention("goal") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
-    else findCoref(state,doc,sent,meldMentions(mention),1,3,simpleProteinLabels,1)
+    val startGoals = for {
+      name <- mention.keys
+      if name startsWith "goal"
+      m <- mention(name)
+      goal <- state.mentionsFor(sent, m.start, proteinLabels)
+    } yield goal
+    val corefGoals = if (startGoals.isEmpty) findCoref(state,doc,sent,meldMentions(mention),4,3,proteinLabels,1)
+    else Nil
+    val goals = startGoals ++ corefGoals
     val causes = mention.getOrElse("cause", Nil) flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
-    val event = trigger match {
-      case hasCausehasGoal if causes.nonEmpty & goals.nonEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2, "Goal" -> goals, "Cause" -> causes), sent, doc, ruleName)
-      case noCausehasGoal if causes.isEmpty & goals.nonEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2, "Goal" -> goals), sent, doc, ruleName)
-      case hasCausenoGoal if causes.nonEmpty & goals.isEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2, "Cause" -> causes), sent, doc, ruleName)
-      case noCausenoGoal if causes.isEmpty & goals.isEmpty => new EventMention(label, trigger, Map("Theme1" -> theme1, "Theme2" -> theme2), sent, doc, ruleName)
+    val events = trigger match {
+      case hasCausehasGoal if causes.nonEmpty & goals.nonEmpty => for (t1 <- theme1; t2 <- theme2; cause <- causes; goal <- goals) yield new EventMention(label, trigger, Map("Theme1" -> Seq(t1), "Theme2" -> Seq(t2), "Goal" -> Seq(goal), "Cause" -> Seq(cause)), sent, doc, ruleName)
+      case noCausehasGoal if causes.isEmpty & goals.nonEmpty => for (t1 <- theme1; t2 <- theme2; goal <- goals) yield new EventMention(label, trigger, Map("Theme1" -> Seq(t1), "Theme2" -> Seq(t2), "Goal" -> Seq(goal)), sent, doc, ruleName)
+      case hasCausenoGoal if causes.nonEmpty & goals.isEmpty => for (t1 <- theme1; t2 <- theme2; cause <- causes) yield new EventMention(label, trigger, Map("Theme1" -> Seq(t1), "Theme2" -> Seq(t2), "Cause" -> Seq(cause)), sent, doc, ruleName)
+      case noCausenoGoal if causes.isEmpty & goals.isEmpty => for (t1 <- theme1; t2 <- theme2) yield new EventMention(label, trigger, Map("Theme1" -> Seq(t1), "Theme2" -> Seq(t2)), sent, doc, ruleName)
     }
-    Seq(event)
+    events
   }
 
   def mkDegradation(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
-    val theme = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
-    val cause = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
-    val args = Map("Theme" -> theme, "Cause" -> cause)
-    val event = new EventMention(label, trigger, args, sent, doc, ruleName)
-    Seq(event)
+    val themes = mention("theme") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
+    val causes = mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
+    val events = for (theme <- themes; cause <- causes) yield new EventMention(label, trigger, Map("Theme" -> Seq(theme), "Cause" -> Seq(cause)), sent, doc, ruleName)
+    events
   }
 
   def mkHydrolysis(label: String, mention: Map[String, Seq[Interval]], sent: Int, doc: Document, ruleName: String, state: State): Seq[Mention] = {
@@ -308,7 +312,7 @@ class DarpaActions extends Actions {
     else Nil
     //else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
     val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
-    else findCoref(state,doc,sent,meldMentions(mention),1,7,simpleProteinLabels,1)
+    else findCoref(state,doc,sent,meldMentions(mention),1,7,"Complex" +: simpleProteinLabels,1)
     val causes = if (mention contains "cause") mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     else Nil
 
