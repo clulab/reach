@@ -565,7 +565,6 @@
    ([word=/(?i)^Ras(-specific)?$/] guanine [word=/(?i)^nucleotide(-releasing)?$/] [word=/(?i)^-?releasing$/]? factor "1") |
    ([word=/(?i)^Atlas$/] of [word=/(?i)^Genetics$/] and [word=/(?i)^Cytogenetics$/] in [word=/(?i)^Oncology$/]) |
    ([word=/(?i)^Ras(-specific)?$/] nucleotide exchange factor [word=/(?i)^CDC25$/]) |
-   ([word=/(?i)^Guanine$/] [word=/(?i)^nucleotide(-releasing)?$/] [word=/(?i)^-?releasing$/]? [word=/(?i)^protein$/]?) |
    ([word=/(?i)^GNRP$/]) |
    ([word=/(?i)^Ras-GRF1$/])
 
