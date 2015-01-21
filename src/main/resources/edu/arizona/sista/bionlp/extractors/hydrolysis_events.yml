@@ -87,3 +87,4 @@
     trigger: [word=/(?i)^hydrolysis/]
     theme: prep_of [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
     cause?: nn [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+

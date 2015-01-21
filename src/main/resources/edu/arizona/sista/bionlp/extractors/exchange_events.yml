@@ -163,5 +163,5 @@
   pattern: |
     trigger: [word=/(?i)^exchang/ & tag=VBN]
     goal?: (prep_with|prep_for)* (prep_in|prep_on) [mention=/Protein|Gene_or_gene_product|Complex/]
-    theme1: <rcmod [mention=/Simple_chemical/] # GDP
+    theme1: <rcmod (<appos)? [mention=/Simple_chemical/] # GDP
     theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP
