@@ -6,8 +6,8 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
-    protein?: <prep_of? <dobj? (prep_for | prep_on) [mention=/Gene_or_gene_product|Protein/]
+    theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
+    protein?: <prep_of? <dobj? (prep_for | prep_on) [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
     cause: prep_by [mention=/Gene_or_gene_product|Protein/]
 
 - name: hydrolysis_2
@@ -18,8 +18,8 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
-    protein?: <prep_to | prep_for [mention=/Gene_or_gene_product|Protein/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
+    protein: <prep_to | prep_for [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
 
 - name: hydrolysis_2wrong
   label: Hydrolysis
@@ -29,8 +29,8 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
-    protein?: (<nsubj dep ccomp dobj prep_of) | (<prep_of <dobj (prep_for|prep_on|prep_in)) [mention=/Gene_or_gene_product|Protein/]
+    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
+    protein: (<nsubj dep ccomp dobj prep_of) | (<prep_of <dobj (prep_for|prep_on|prep_in)) [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
     cause?: <nsubj dep ccomp prep_to [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
 
 - name: hydrolysis_3
@@ -41,8 +41,8 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
-    protein?: (< /prep_/)* <nsubjpass /prep_for|prep_in/ [mention=/Gene_or_gene_product|Protein/]
+    theme: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
+    protein?: (< /prep_/)* <nsubjpass /prep_for|prep_in/ [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
 
 - name: hydrolysis_4
   label: Hydrolysis
@@ -52,8 +52,8 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (<nn)? nn [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
-    protein?: (<nn)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [mention=/Gene_or_gene_product|Protein/]
+    theme: (<nn)? nn [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
+    protein?: (<nn)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [mention=/Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
 
 - name: hydrolysis_decl1
   label: Hydrolysis
@@ -63,7 +63,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)^hydrolyz/ & tag=/^VB[^N]?/]
-    theme: dobj [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
+    theme: dobj [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
     cause?: (nsubj | (<xcomp? <rcmod <appos?)) [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
 
 - name: hydrolysis_pass1
@@ -74,7 +74,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)^hydrolyz/ & tag=VBN]
-    theme?: (nsubjpass | <rcmod) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
+    theme: ( <vmod | nsubjpass | <rcmod ) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
     cause?: agent [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
 
 - name: hydrolysis_subjnom1
@@ -85,5 +85,5 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)^hydrolysis/]
-    theme?: prep_of [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/]
+    theme: prep_of [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
     cause?: nn [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
