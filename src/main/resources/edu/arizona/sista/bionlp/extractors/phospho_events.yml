@@ -123,8 +123,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylation/ & !word=/(?i)^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/]
-    theme: nn /conj|cc|nn|prep/*
-
+    theme: nn /conj|cc|nn|prep/* [mention=/./]
 
 - name: Phosphorylation_syntax_5_noun
   priority: 4
@@ -157,7 +156,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & !outgoing=prep_of & tag=/^N/]
-    theme: < nsubj dobj prep_of /nn|cc|conj/*
+    theme: < nsubj dobj prep_of /nn|cc|conj/* [mention=/./]
 
 - name: Phosphorylation_token_1_noun
   priority: 4

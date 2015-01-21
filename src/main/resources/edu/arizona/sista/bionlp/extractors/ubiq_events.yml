@@ -123,7 +123,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/(?i)^de/ & !outgoing=prep_by & tag=/^N/]
-    theme: nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/]
+    theme: nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/ & mention=/./]
 
 
 - name: Ubiquitination_syntax_5_noun
@@ -156,7 +156,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/^de/ & !outgoing=prep_of & tag=/^N/]
-    theme: < nsubj dobj prep_of /nn|cc|conj/* [!word=/(?i)ubiq/]
+    theme: < nsubj dobj prep_of /nn|cc|conj/* [!word=/(?i)ubiq/ & mention=/./]
 
 - name: Ubiquitination_token_1_noun
   priority: 4

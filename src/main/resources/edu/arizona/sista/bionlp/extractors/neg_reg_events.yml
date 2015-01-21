@@ -117,7 +117,7 @@
   label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^(N|JJ)/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
-    controlled: nn /conj|cc|nn|prep/*
+    controlled: nn /conj|cc|nn|prep/* [mention=/./]
 
 
 - name: Negative_regulation_syntax_5_noun
@@ -152,7 +152,7 @@
   label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=prep_of & tag=/^(N|JJ)/] [word=/regul/ & tag=/^N/]?
-    controlled: < nsubj dobj prep_of /nn|cc|conj/*
+    controlled: < nsubj dobj prep_of /nn|cc|conj/* [mention=/./]
 
 
 - name: Negative_regulation_token_1_noun

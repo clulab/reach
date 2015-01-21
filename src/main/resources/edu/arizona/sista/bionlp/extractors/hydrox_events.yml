@@ -123,7 +123,7 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylation/ & !word=/(?i)^de/ & !outgoing=prep_by & tag=/^N/]
-    theme: nn /conj|cc|nn|prep/*
+    theme: nn /conj|cc|nn|prep/* [mention=/./]
 
 
 - name: Hydroxylation_syntax_5_noun
@@ -157,7 +157,7 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylation/ & !word=/^de/ & !outgoing=prep_of & tag=/^N/]
-    theme: < nsubj dobj prep_of /nn|cc|conj/*
+    theme: < nsubj dobj prep_of /nn|cc|conj/* [mention=/./]
 
 - name: Hydroxylation_token_1_noun
   priority: 4
