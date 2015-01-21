@@ -31,7 +31,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
-    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?: (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
     cause?: <nn* | (prep_by) /nn|conj_|cc/* [!word=/(?i)ubiq/]
 
@@ -44,9 +44,9 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^V/]
-    theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
-    cause?: (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/* [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    cause?: (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/* [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
 
 
 - name: Ubiquitination_syntax_5_verb
@@ -97,7 +97,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/] # nominal predicate
-    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?: /pobj|prep_|conj_|nn/+ [mention=Site]
     cause: (prep_by|agent) /conj|cc|nn/* [!word=/(?i)ubiq/]
 
@@ -110,8 +110,8 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/] # nominal predicate
-    theme: prep_of /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    cause: /conj_|cc|nn/+ [mention=/Protein_with_site|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    theme: prep_of /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    cause: /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?: /pobj|prep_|conj_|nn/+ [mention=Site]
 
 

@@ -732,11 +732,11 @@ class TestSyntacticVariants {
 
     try {
       assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("RAS"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("RAS"), mentions))
-      assertTrue(s"regulation ($assignedParty)", hasPositiveRegulationByEntity("p53", eventLabel, List("RAS"), mentions))
+      assertTrue(s"ASPP2 regulation ($assignedParty)", hasPositiveRegulationByEntity("ASPP2", eventLabel, List("RAS"), mentions))
+      assertTrue(s"p53 regulation ($assignedParty)", hasPositiveRegulationByEntity("p53", eventLabel, List("RAS"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testUbiquitinationObjNom1")
+        header("testUbiquitinationObjNom2")
         displayMentions(mentions, doc)
         throw e
     }
