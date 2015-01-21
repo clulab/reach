@@ -19,7 +19,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinated/ & !word=/^de/ & tag=/^V/]
-    theme: >nsubjpass [!word=/(?i)ubiq/]
+    theme: >nsubjpass [!word=/(?i)ubiq/ & mention=/./]
     cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
 
 
@@ -44,7 +44,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^V/]
-    theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    theme: (nsubjpass /conj_|nn/*) [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
     cause?: (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/* [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
 

@@ -19,7 +19,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/ & tag=/^V/]
-    theme: >nsubjpass
+    theme: >nsubjpass [mention=/./]
     cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
 
 
@@ -44,7 +44,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/]
-    theme: (nsubjpass /prep_|conj_|nn/*) [mention=/Protein|Gene_or_gene_product/]
+    theme: (nsubjpass /conj_|nn/*) [mention=/Protein|Gene_or_gene_product/]
     site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
     cause?: (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/* [mention=/Protein|Gene_or_gene_product/]
 
