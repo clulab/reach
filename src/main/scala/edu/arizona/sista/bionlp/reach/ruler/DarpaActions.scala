@@ -120,6 +120,7 @@ class DarpaActions extends Actions {
     // our lookup for unresolved mention counts
     val numMap = Map("a" -> 1,
       "an" -> 1,
+      "the" -> 1, // assume one for now...
       "both" -> 2,
       "these" -> 2, // assume two for now...
       "this" -> 1,
