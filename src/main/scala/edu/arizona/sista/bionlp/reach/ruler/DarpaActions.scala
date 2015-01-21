@@ -293,7 +293,7 @@ class DarpaActions extends Actions {
     } else if (mention("endophor").nonEmpty) {
       val endophorSpan = mention("endophor").head
       val endophorText = doc.sentences(sent).words.slice(endophorSpan.start,endophorSpan.end).mkString("")
-      println(endophorText)
+      // println(endophorText)
       findCoref(state, doc, sent, meldMentions(mention), 7, 0, "Simple_chemical" +: simpleProteinLabels, endophorText)
     } else Nil
     val allThemes = themes ++ corefThemes
