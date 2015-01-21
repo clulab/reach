@@ -77,7 +77,7 @@
   pattern: |
     (?<goal> [mention=/Protein|Gene_or_gene_product|Complex/])? 
      (?<theme1> [mention=/Simple_chemical/]) /\/|\-/ 
-     (?<theme2> [mention=/Simple_chemical/]) (?<trigger> /(?i)^exchanges?$/)
+     (?<theme2> [mention=/Simple_chemical/]) (?<trigger> [lemma=exchange])
      (/^by$/)? (?<cause> [mention=/Protein|Gene_or_gene_product|Complex/])?
 
 
@@ -117,3 +117,51 @@
     goal: nn [mention=/Gene_or_gene_product|Protein|Complex/] #Ras
     theme1: dep [mention=/Simple_chemical/] # GDP
     theme2: dep? prep_for [mention=/Simple_chemical/] # GTP
+
+
+- name: exchange_pass1
+  priority: 5
+  action: mkExchange
+  example: "the GDP bound to the Ras protein is exchanged for GTP."
+  type: dependency
+  label: Exchange
+  pattern: |
+    trigger: [word=/(?i)^exchang/ & tag=VBN]
+    goal?: <rcmod nn* [mention=/Gene_or_gene_product|Protein|Complex/] #Ras
+    theme1: (<rcmod <prep_to? nsubj) | nsubjpass [mention=/Simple_chemical/] # GDP
+    theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP
+
+
+- name: exchange_objnom1
+  priority: 5
+  action: mkExchange
+  example: "In Ras, GDP exchange for GTP increased."
+  type: dependency
+  label: Exchange
+  pattern: |
+    trigger: [word=/(?i)^exchange/ & tag=/^N/]
+    theme1: nn [mention=/Simple_chemical/] # GDP
+    theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP
+
+
+- name: exchange_subjrel1
+  priority: 5
+  action: mkExchange
+  example: "Its many abnormal phenotypes can be rescued via Pde2, which normally exchanges GDP with GTP."
+  type: token
+  label: Exchange
+  pattern: |
+    (?<trigger> [lemma=exchange]) (?<theme1> [mention=/Simple_chemical/]) (with|for) (?<theme2> [mention=/Simple_chemical/])
+
+
+- name: exchange_objrel1
+  priority: 5
+  action: mkExchange
+  example: "Its many abnormal phenotypes can be rescued via GDP, which is normally exchanged with GTP in Ras."
+  type: dependency
+  label: Exchange
+  pattern: |
+    trigger: [word=/(?i)^exchang/ & tag=VBN]
+    goal?: (prep_with|prep_for)* (prep_in|prep_on) [mention=/Protein|Gene_or_gene_product|Complex/]
+    theme1: <rcmod (<appos)? [mention=/Simple_chemical/] # GDP
+    theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP

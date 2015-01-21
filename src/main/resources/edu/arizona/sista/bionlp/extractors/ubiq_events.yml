@@ -197,3 +197,4 @@
   pattern: |
     (?<trigger> [word=/(?i)ubiquitinat/ & tag=/^V/]) (?<theme> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]) (fragment? by (?<cause> [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/])? )?
 
+

@@ -171,10 +171,22 @@
   label: Binding
   priority: 4
   action: mkBindingCorefEvent
-  example: "RNA interference-induced depletion of PRAS40 enhanced the amino acid-stimulated phosphorylation of both S6K1 and 4E-BP1. These two proteins bind to form the PR-73 protein complex."
+  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein binds with TopBP1."
   type: dependency
   pattern: |
     trigger: [lemma=bind & tag=/^VB[^N]?/]
-    theme?: prep_with | prep_to [mention=/Protein|Gene_or_gene_product/]
-    endophor: nsubj [lemma=/protein|complex/] det [lemma=/these|this|the|that|both/]
-    quantifier?: nsubj [lemma=/protein|complex/] num
+    theme?: (prep_with | prep_to) [mention=/Protein|Gene_or_gene_product/]
+    endophor: nsubj [lemma=/protein|complex|family/ & !mention=/./] det [lemma=/these|this|the|that|both/]
+    quantifier?: nsubj [lemma=/protein|complex|family/ & !mention=/./] num
+
+- name: binding_coref2
+  label: Binding
+  priority: 4
+  action: mkBindingCorefEvent
+  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein is bound by TopBP1."
+  type: dependency
+  pattern: |
+    trigger: [lemma=bind & tag=VBN]
+    theme?: agent [mention=/Protein|Gene_or_gene_product/]
+    endophor: nsubjpass [lemma=/protein|complex|family/] det [lemma=/these|this|the|that|both/]
+    quantifier?: nsubjpass [lemma=/protein|complex|family/] num

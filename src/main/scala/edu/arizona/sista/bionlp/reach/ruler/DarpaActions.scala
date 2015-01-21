@@ -293,7 +293,7 @@ class DarpaActions extends Actions {
     } else if (mention("endophor").nonEmpty) {
       val endophorSpan = mention("endophor").head
       val endophorText = doc.sentences(sent).words.slice(endophorSpan.start,endophorSpan.end).mkString("")
-      println(endophorText)
+      // println(endophorText)
       findCoref(state, doc, sent, meldMentions(mention), 7, 0, "Simple_chemical" +: simpleProteinLabels, endophorText)
     } else Nil
     val allThemes = themes ++ corefThemes
@@ -337,8 +337,9 @@ class DarpaActions extends Actions {
     val trigger = new TextBoundMention(label, mention("trigger").head, sent, doc, ruleName)
     val themes = if (mention contains "theme") mention("theme") flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
     else Nil
-    //else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
+    // else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
     val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
+    // else if (themes.isEmpty) Nil
     else findCoref(state,doc,sent,meldMentions(mention),1,7,"Complex" +: simpleProteinLabels,1)
     val causes = if (mention contains "cause") mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     else Nil

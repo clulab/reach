@@ -949,5 +949,90 @@ class TestSyntacticVariants {
         throw e
     }
   }
+
+
+  @Test def testExchangePass1() {
+    val doc = bioproc.annotate("the GDP bound to the Ras protein is not exchanged for GTP.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Exchange"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras", "GDP", "GTP"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}Pass1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+ @Test def testExchangePrepNom1() {
+    val doc = bioproc.annotate("In RAS, the exchange of GDP for GTP increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Exchange"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras", "GDP", "GTP"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}PrepNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testExchangeObjNom1() {
+    val doc = bioproc.annotate("In Ras, GDP exchange for GTP increased.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Exchange"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras", "GDP", "GTP"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}ObjNom1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testExchangeSubjRel1() {
+    val doc = bioproc.annotate("Its many abnormal phenotypes can be rescued via Pde2, which normally exchanges GDP with GTP.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Exchange"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("GDP", "GTP"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}SubjRel1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
+
+
+  @Test def testExchangeObjRel1() {
+    val doc = bioproc.annotate("Its many abnormal phenotypes can be rescued via GDP, which is normally exchanged with GTP in Ras.")
+    val mentions = extractor.extractFrom(doc)
+    val eventLabel = "Exchange"
+    val assignedParty = "DANE"
+
+    try {
+      assertTrue(s"${eventLabel.toLowerCase} ($assignedParty)", hasEventWithArguments(eventLabel, List("Ras", "GDP", "GTP"), mentions))
+    } catch {
+      case e: AssertionError =>
+        header(s"test${eventLabel}ObjRel1")
+        displayMentions(mentions, doc)
+        throw e
+    }
+  }
 }
 
