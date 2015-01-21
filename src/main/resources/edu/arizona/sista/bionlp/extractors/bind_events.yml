@@ -176,5 +176,5 @@
   pattern: |
     trigger: [lemma=bind & tag=/^VB[^N]?/]
     theme?: prep_with | prep_to [mention=/Protein|Gene_or_gene_product/]
-    endophor: nsubj [lemma=/protein|complex/] det [lemma=/these|this|the|which|that/]
+    endophor: nsubj [lemma=/protein|complex/] det [lemma=/these|this|the|that|both/]
     quantifier?: nsubj [lemma=/protein|complex/] num
