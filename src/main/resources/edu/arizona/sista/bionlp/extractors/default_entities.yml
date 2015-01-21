@@ -99,7 +99,7 @@
   action: mkProteinWithSiteSyntax
   pattern: |
     trigger: [mention=Site]
-    protein: /pobj|prep_|conj_|nn/+ [mention=/^Protein$|^Gene_or_gene_product$/]
+    protein: /pobj|prep_|conj_[^n]|nn/+ [mention=/^Protein$|^Gene_or_gene_product$/]  # can't use a conj_nor.   There must be other bad conjunctions.
 
 - name: protein_with_site_syntax_1
   label: Protein_with_site
@@ -108,7 +108,7 @@
   action: mkProteinWithSiteSyntax
   pattern: |
     trigger: [mention=/^Protein$|^Gene_or_gene_product$/]
-    site: /pobj|prep_|conj_|nn/+ [mention=Site]
+    site: /pobj|prep_|conj_[^n]|nn/+ [mention=Site] # can't use a conj_nor.   There must be other bad conjunctions.
 
 - name: simple_chem
   label: Simple_chemical
