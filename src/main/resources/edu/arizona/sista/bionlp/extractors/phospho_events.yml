@@ -156,7 +156,7 @@
   type: dependency
   label: Phosphorylation
   pattern: |
-    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & incoming=nsubj]
+    trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & !outgoing=prep_of & tag=/^N/]
     theme: < nsubj dobj prep_of /nn|cc|conj/*
 
 - name: Phosphorylation_token_1_noun
