@@ -29,6 +29,18 @@
 #    trigger: [word=/(?i)(over)?express/ & tag=/^V/]
 #    theme: > /nsubjpass/+ [mention=Gene_or_gene_product|mention=Protein]
 
+#- name: transcription_0
+#  priority: 4
+#  action: mkSimpleEvent
+#  example: "Indeed, expression of the Raf-RBD dramatically decreased Elk-1 dependent transcription by >80% whereas PI3KC2beta-RBD expressing cells were not inhibited further supporting the model that the PI3KC2beta-RBD does not interact with Ras-GTP."
+#  label: Transcription
+#  type: dependency
+#  pattern: |
+#    trigger: [word=/(?i)transcription/ & tag=/^N/] 
+#    theme: <dobj nsubj prep_of? [mention=Gene_or_gene_product]
+#    cause?: nn+ [mention=Gene_or_gene_product] 
+
+
 - name: transcription_1
   priority: 4
   action: mkSimpleEvent
@@ -36,8 +48,8 @@
   label: Transcription
   type: dependency
   pattern: |
-    trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
-    theme: nn+
+    trigger: [word=/(?i)transcription/ & !outgoing=amod] 
+    theme: prep_of? nn+
 
 - name: transcription_2
   priority: 4
