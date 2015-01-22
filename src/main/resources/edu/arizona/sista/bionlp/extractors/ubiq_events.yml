@@ -19,7 +19,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinated/ & !word=/^de/ & tag=/^V/]
-    theme: >nsubjpass [!word=/(?i)ubiq/ & mention=/./]
+    theme: (>nsubjpass|<vmod) /conj_|nn|cc/* [!word=/(?i)ubiq/ & mention=/./]
     cause?: agent|prep_by /conj_|nn|cc/* [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
 
 

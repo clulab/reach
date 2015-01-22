@@ -20,7 +20,7 @@
   label: Negative_regulation
   pattern: |
     trigger: [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled: >nsubjpass [mention=/./]
+    controlled: (>nsubjpass|<vmod) /conj_|nn|cc/*  [mention=/./]
     controller?: agent|prep_by /conj_|nn|cc/* [mention=/./]
 
 
