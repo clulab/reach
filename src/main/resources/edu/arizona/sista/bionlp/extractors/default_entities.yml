@@ -179,7 +179,8 @@
     /(?i)^IKKbeta$/ |
     /(?i)^IkappaB$/ |
     /(?i)^RPTOR$/ |
-    /(?i)^GAB1/ adaptor?
+    /(?i)^GAB1/ adaptor? |
+    /(?i)^Ras12V$/
 
 - name: cell_parts
   label: Cellular_component
