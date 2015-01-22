@@ -428,7 +428,8 @@
    ([word=/(?i)^Phosphoinositide$/] phospholipase [word=/(?i)^C(-epsilon)?-1$/]) |
    ([word=/(?i)^PLCE1$/]) |
    ([word=/(?i)^Phospholipase$/] [word=/(?i)^C(-epsilon)?-1$/]) |
-   ([word=/(?i)^1(-phosphatidylinositol)?$/] "4" "," [word=/(?i)^5(-bisphosphate)?$/] phosphodiesterase "epsilon-1")
+   ([word=/(?i)phosphatidylinositol/] "4"?) |
+   ([word=/(?i)bisphosphate/]? phosphodiesterase "epsilon-1")
 
 - name: uniprotID_RAF1_HUMAN
   label: Gene_or_gene_product
@@ -618,3 +619,17 @@
    ([word=/(?i)^Wikipedia$/]) |
    ([word=/(?i)^SOS-2$/]) |
    ([word=/(?i)^Son$/] of sevenless homolog "2")
+
+
+- name: uniprotID_GNDS_HUMAN
+  label: Gene_or_gene_product
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   ([word=/(?i)^RalGDS$/]) |
+   ([word=/(?i)^Ral$/] guanine nucleotide exchange factor) |
+   ([word=/(?i)^RalGEF$/]) |
+   ([word=/(?i)^Ral$/] guanine nucleotide dissociation stimulator) |
+   ([word=/(?i)^RALGDS$/])
+
