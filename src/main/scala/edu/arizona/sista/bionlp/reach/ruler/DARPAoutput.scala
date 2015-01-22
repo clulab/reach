@@ -27,9 +27,10 @@ object DARPAoutput extends App {
 
   val paperNames = Seq(//"train/MEKinhibition.txt.ser",
     //"train/UbiquitinationofRas.txt.ser",
-    "dryrun/Nat_Struct_Mol_Biol_2013_Jan_25_20(1)_46-52.txt.ser",
-    "dryrun/PLoS_One_2013_Dec_2_8(12)_e82022.txt.ser"
-
+    //"dryrun/Nat_Struct_Mol_Biol_2013_Jan_25_20(1)_46-52.txt.ser",
+    //"dryrun/PLoS_One_2013_Dec_2_8(12)_e82022.txt.ser"
+    "test/PMC3441633.txt.ser",
+    "test/PMC3847091.txt.ser"
   )
 
   def mkOutputName(paper: String): String = s"$outDir${ """^.*?/|.txt.ser""".r.replaceAllIn(paper, "")}.csv"
