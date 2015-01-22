@@ -158,7 +158,7 @@
   label: Positive_regulation
   pattern: |
     trigger: [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^(N|JJ)/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
-    controlled: nn /conj|cc|nn|prep/* [mention=/./]
+    controlled: <nn? nn /conj|cc|nn|prep/* [mention=/./]
 
 
 - name: Positive_regulation_syntax_5_noun
