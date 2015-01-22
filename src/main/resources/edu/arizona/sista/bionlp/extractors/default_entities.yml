@@ -73,16 +73,7 @@
   pattern: |
     (?<parent> [mention=Site]) [word=/,|and/ | tag=CD]+ (?<site> [tag=CD])
 
-
 - name: protein_with_site_token_1
-  label: Protein_with_site
-  priority: 3
-  type: token
-  action: mkComplexEntity
-  pattern: |
-    (?<protein> [mention=/^Protein$|Gene_or_gene_product/]) /./? (?<site> [mention=Site])
-
-- name: protein_with_site_token_2
   label: Protein_with_site
   priority: 3
   type: token
@@ -99,7 +90,7 @@
   action: mkProteinWithSiteSyntax
   pattern: |
     trigger: [mention=Site]
-    protein: /pobj|prep_|conj_[^n]|nn/+ [mention=/^Protein$|^Gene_or_gene_product$/]  # can't use a conj_nor.   There must be other bad conjunctions.
+    protein: /pobj|prep_|conj|nn/+ [mention=/^Protein$|^Gene_or_gene_product$/]  # can't use a conj_nor.   There must be other bad conjunctions.
 
 - name: protein_with_site_syntax_1
   label: Protein_with_site
