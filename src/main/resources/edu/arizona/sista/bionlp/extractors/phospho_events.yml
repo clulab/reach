@@ -123,7 +123,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylation/ & !word=/(?i)^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/]
-    theme: <nn? nn /conj|cc|nn|prep/* [mention=/./]
+    theme: <nn? nn /conj|cc|nn|prep/* [mention=/./ & !mention=/Site/]
 
 - name: Phosphorylation_syntax_5_noun
   priority: 4

@@ -123,7 +123,7 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylation/ & !word=/(?i)^de/ & !outgoing=prep_by & tag=/^N/]
-    theme: <nn? nn /conj|cc|nn|prep/* [mention=/./]
+    theme: <nn? nn /conj|cc|nn|prep/* [mention=/./ & !mention=/Site/]
 
 
 - name: Hydroxylation_syntax_5_noun

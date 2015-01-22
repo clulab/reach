@@ -123,7 +123,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/(?i)^de/ & !outgoing=prep_by & tag=/^N/]
-    theme: <nn? nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/ & mention=/./]
+    theme: <nn? nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/ & mention=/./ & !mention=/Site/]
 
 
 - name: Ubiquitination_syntax_5_noun
