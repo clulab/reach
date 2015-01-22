@@ -20,7 +20,7 @@
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/ & tag=/^V/]
     theme: >nsubjpass [mention=/./]
-    cause?: ( (agent|prep_by) | ( (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn|cc/* ) ) [mention=/Protein|Gene_or_gene_product/]
+    cause?: agent|prep_by /conj_|nn|cc/* [mention=/Protein|Gene_or_gene_product/]
 
 
 - name: Phosphorylation_syntax_3_verb
