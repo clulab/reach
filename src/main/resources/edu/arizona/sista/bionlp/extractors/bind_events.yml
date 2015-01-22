@@ -61,7 +61,7 @@
   action: mkBindingEvent
   pattern: |
       trigger: interacts
-      theme: nsubj | prep_with /./*
+      theme: nsubj | prep_with
 
 - name: binding9
   label: Binding
@@ -69,7 +69,7 @@
   action: mkBindingEvent
   pattern: |
       trigger: interaction
-      theme: nn | prep_of | <dobj >prep_with >/./*
+      theme: nn | prep_of | <dobj >prep_with
 
 - name: binding10
   label: Binding
