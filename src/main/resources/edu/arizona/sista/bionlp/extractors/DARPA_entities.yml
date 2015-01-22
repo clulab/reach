@@ -469,7 +469,7 @@
    ([word=/(?i)^Atlas$/] of [word=/(?i)^Genetics$/] and [word=/(?i)^Cytogenetics$/] in [word=/(?i)^Oncology$/]) |
    ([word=/(?i)^GTPase$/] [word=/(?i)^KRas$/] ","  [word=/(?i)^N(-terminally)?$/] processed) |
    ("2A") |
-   ("2B") |
+   (histone? "2B") |
    ([word=/(?i)^c-K(-ras)?$/]) |
    ([word=/(?i)^KRAS$/]) |
    ([word=/(?i)^GTPase$/] [word=/(?i)^KRas$/]) |
