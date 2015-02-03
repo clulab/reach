@@ -32,10 +32,19 @@
   type: token
   action: mkTextBoundMention
   pattern: |
-   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]
-   [word=/mutant/]?
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
+   [word=mutant]?
 
-- name: site_3letterALT
+- name: site_3letterALT1
+  label: Site
+  priority: 1
+  type: token
+  action: mkTextBoundMention
+  pattern: |
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)(-[0-9]+)?/]
+   [word=mutant]?
+
+- name: site_3letterALT2
   label: Site
   priority: 1
   type: token
