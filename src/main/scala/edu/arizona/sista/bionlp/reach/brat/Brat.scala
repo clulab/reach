@@ -158,7 +158,7 @@ object Brat {
     val idTracker = IdTracker()
     val tags = (doc.sentences.zipWithIndex flatMap {
       case (s, i) => s.tags.get.zipWithIndex map {
-        case (tag, j) => (i, j) -> new TextBoundMention(tag, Interval(j), i, doc, "syntax")
+        case (tag, j) => (i, j) -> new TextBoundMention(tag, Interval(j), i, doc, true, "syntax")
       }
     }).toMap
 

@@ -13,6 +13,7 @@ class RelationMention
   val arguments: Map[String, Seq[Mention]],
   val sentence: Int,
   val document: Document,
+  val keep: Boolean,
   val foundBy: String) extends Mention {
     require(arguments.values.flatten.nonEmpty, "RelationMentions need arguments")
     // token interval that contains trigger and all matched arguments
