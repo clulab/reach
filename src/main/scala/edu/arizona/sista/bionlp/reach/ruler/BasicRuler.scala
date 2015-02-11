@@ -17,6 +17,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
       // Do we somehow have an empty Mention?
       case m if !m.isInstanceOf[TextBoundMention] && m.arguments.values.flatten.isEmpty => Nil
 
+/*
       // the event mention should not be a regulation and it must contain a cause
       case m: EventMention if !m.label.endsWith("egulation") && m.arguments.contains("Cause") =>
         val controller = m.arguments("Cause")
@@ -24,6 +25,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
         val args = Map("Controller" -> controller, "Controlled" -> Seq(someEvent))
         val upreg = new RelationMention("Positive_regulation", args, m.sentence, m.document, m.keep, m.foundBy)
         Seq(upreg, someEvent)
+*/
 
       case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
         val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
