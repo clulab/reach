@@ -4,6 +4,9 @@ import org.scalatest._
 import TestResources._
 import DarpaEvalUtils._
 
+/**
+ * Unit tests to make sure we do not over predict
+ */
 class TestFalsePositive extends FlatSpec with Matchers {
   val sentence1 = "(B) RAS activation enhances the binding of wild-type ASPP2 but not ASPP2 (S827A) to p53."
   val sentence2 = "Mechanistically ASPP1 and ASPP2 bind RAS-GTP and potentiates RAS signalling to enhance p53 mediated apoptosis [2]."
