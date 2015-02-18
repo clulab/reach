@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import java.io.{PrintWriter, File}
 import edu.arizona.sista.bionlp.reach.brat._
-import edu.arizona.sista.matcher.EventMention
+import edu.arizona.sista.matcher.{EventMention, TextBoundMention}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 /**
@@ -17,10 +17,10 @@ object BioNLPoutput extends App {
 
   val actions = new DarpaActions
 
-  val proc = new BioNLPProcessor()
+  val proc = new BioNLPProcessor(withNER=false)
   val extractor = new BasicRuler(rules, actions)
 
-  val outDir = s"${System.getProperty("user.home")}/Desktop/devents/"
+  val outDir = s"${System.getProperty("user.home")}/Desktop/devents2/"
   val dataDir = s"${System.getProperty("user.home")}/Documents/corpora/bionlp2013GE_dev/"
 
   val files = new File(dataDir).listFiles.filter(_.getName.endsWith(".txt"))
@@ -37,9 +37,15 @@ object BioNLPoutput extends App {
     // annotate text using gold named entities
     val doc = proc.annotate(text)
     val annotations = Brat.readStandOff(entities)
+    val neLabels = Brat.alignLabels(doc, annotations)
 
-    // find mentions using rules
-    val mentions = extractor.extractFrom(doc) filter (_.isInstanceOf[EventMention]) map (_.asInstanceOf[EventMention])
+    // relabel sentences
+    neLabels.zipWithIndex foreach {
+      case (labels, i) => doc.sentences(i).entities = Some(labels.toArray)
+    }
+
+    val mentions = extractor.extractFrom(doc) filter (_.isInstanceOf[EventMention]) filter (_.label != "Hydrolysis")
+    //val mentions = extractor.extractFrom(doc) filter (_.isInstanceOf[TextBoundMention]) filter (_.label != "Hydrolysis")
 
     // open new .a2 file based on .txt filename
     val output = new PrintWriter(new File(s"$outDir/$pmid.a2"))
@@ -50,4 +56,6 @@ object BioNLPoutput extends App {
     // close new .a2 file
     output.close()
   }
+
+
 }

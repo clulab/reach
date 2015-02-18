@@ -6,10 +6,10 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)exchang/] #cause, location missing
-    goal?: <prep_for <dobj prep_to [mention=/Gene_or_gene_product|Protein|Complex/]
-    cause?: <prep_for <dobj nsubj [mention=/Gene_or_gene_product|Protein|Complex/]
-    theme1: prep_of [mention=/Simple_chemical/] # GDP
-    theme2: (prep_for | prep_with) [mention=/Simple_chemical/] # GTP
+    goal?: <prep_for <dobj prep_to
+    cause?: <prep_for <dobj nsubj
+    theme1: prep_of # GDP
+    theme2: (prep_for | prep_with) # GTP
 
 
 - name: exchange_1wrong
@@ -20,10 +20,10 @@
   type: dependency
   pattern: |
     trigger: [word=/^exchange/]
-    goal?: <prep_for <dobj prep_to [mention=/Gene_or_gene_product|Protein|Complex/]
-    cause?: <prep_for <dobj nsubj [mention=/Gene_or_gene_product|Protein|Complex/]
-    theme1: prep_of [mention=/Simple_chemical/] # GDP
-    theme2: prep_of (prep_for | prep_with) [mention=/Simple_chemical/] # GTP
+    goal?: <prep_for <dobj prep_to
+    cause?: <prep_for <dobj nsubj
+    theme1: prep_of # GDP
+    theme2: prep_of (prep_for | prep_with) # GTP
 
 
 - name: exchange_2
@@ -34,10 +34,10 @@
   type: dependency
   pattern: |
     trigger: [word=/exchange/ & tag=/^NN/]
-    goal?: <dobj <prepc_by dobj [mention=/Gene_or_gene_product|Protein|Complex/]
-    cause?: <dobj <prepc_by nsubj [mention=/Gene_or_gene_product|Complex/]
-    theme1: prep_of [mention=/Simple_chemical/] # GDP
-    theme2: (prep_for | prep_with) [mention=/Simple_chemical/] # GTP
+    goal?: <dobj <prepc_by dobj
+    cause?: <dobj <prepc_by nsubj
+    theme1: prep_of # GDP
+    theme2: (prep_for | prep_with) # GTP
 
 
 - name: exchange_3wrong
@@ -48,10 +48,10 @@
   type: dependency
   pattern: |
     trigger: [word=/exchange/ & tag=/^NN/]
-    goal?: (<dep nn) | prep_of [mention=/Gene_or_gene_product|Protein|Complex/]
-    cause?: <dep <dobj nsubj [mention=/Gene_or_gene_product|Complex/]
-    theme1: nn [mention=/Simple_chemical/] # GDP
-    theme2: <dep [mention=/Simple_chemical/] # GTP
+    goal?: (<dep nn) | prep_of
+    cause?: <dep <dobj nsubj
+    theme1: nn # GDP
+    theme2: <dep # GTP
 
 
 - name: exchange_4wrong
@@ -62,10 +62,10 @@
   type: dependency
   pattern: |
     trigger: [word=/convert/ & tag=/^VB/]
-    goal?: <xcomp <rcmod <dep <prep_as <nsubj ccomp nsubj [mention=/Gene_or_gene_product|Protein|Complex/] #Ras
-    cause?: <xcomp <rcmod <dep <prep_as nn [mention=/Gene_or_gene_product|Complex/]
+    goal?: <xcomp <rcmod <dep <prep_as <nsubj ccomp nsubj #Ras
+    cause?: <xcomp <rcmod <dep <prep_as nn
     theme1: dobj # GDP
-    theme2: <xcomp <rcmod <dep <prep_as <nsubj ccomp nsubj prep_to [mention=/Simple_chemical/] # GTP
+    theme2: <xcomp <rcmod <dep <prep_as <nsubj ccomp nsubj prep_to # GTP
 
 
 - name: exchange_5
@@ -101,9 +101,9 @@
   type: dependency
   pattern: |
     trigger: [word=/^exchang/ & tag=/^VB[^N]?/]
-    goal: nsubj [mention=/Gene_or_gene_product|Protein|Complex/] #Ras
-    theme1: dobj [mention=/Simple_chemical/] # GDP
-    theme2: dobj? prep_for [mention=/Simple_chemical/] # GTP
+    goal: nsubj #Ras
+    theme1: dobj # GDP
+    theme2: dobj? prep_for # GTP
 
 
 - name: exchange_decl1wrong
@@ -114,9 +114,9 @@
   type: dependency
   pattern: |
     trigger: [word=/^exchang/ & tag=/^N/]
-    goal: nn [mention=/Gene_or_gene_product|Protein|Complex/] #Ras
-    theme1: dep [mention=/Simple_chemical/] # GDP
-    theme2: dep? prep_for [mention=/Simple_chemical/] # GTP
+    goal: nn #Ras
+    theme1: dep # GDP
+    theme2: dep? prep_for # GTP
 
 
 - name: exchange_pass1
@@ -127,9 +127,9 @@
   label: Exchange
   pattern: |
     trigger: [word=/(?i)^exchang/ & tag=VBN]
-    goal?: <rcmod nn* [mention=/Gene_or_gene_product|Protein|Complex/] #Ras
-    theme1: (<rcmod <prep_to? nsubj) | nsubjpass [mention=/Simple_chemical/] # GDP
-    theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP
+    goal?: <rcmod nn* #Ras
+    theme1: (<rcmod <prep_to? nsubj) | nsubjpass # GDP
+    theme2: prep_for|prep_with # GTP
 
 
 - name: exchange_objnom1
@@ -140,8 +140,8 @@
   label: Exchange
   pattern: |
     trigger: [word=/(?i)^exchange/ & tag=/^N/]
-    theme1: nn [mention=/Simple_chemical/] # GDP
-    theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP
+    theme1: nn # GDP
+    theme2: prep_for|prep_with # GTP
 
 
 - name: exchange_subjrel1
@@ -162,6 +162,6 @@
   label: Exchange
   pattern: |
     trigger: [word=/(?i)^exchang/ & tag=VBN]
-    goal?: (prep_with|prep_for)* (prep_in|prep_on) [mention=/Protein|Gene_or_gene_product|Complex/]
-    theme1: <rcmod (<appos)? [mention=/Simple_chemical/] # GDP
-    theme2: prep_for|prep_with [mention=/Simple_chemical/] # GTP
+    goal?: (prep_with|prep_for)* (prep_in|prep_on)
+    theme1: <rcmod (<appos)? # GDP
+    theme2: prep_for|prep_with # GTP

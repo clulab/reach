@@ -6,9 +6,9 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme: (<nn? nn) | (prep_of nn?) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
-    protein?: <prep_of? <dobj? (prep_for | prep_on) [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
-    cause: prep_by [mention=/Gene_or_gene_product|Protein/]
+    theme: (<nn? nn) | (prep_of nn?) [!(word=/^GAPs?$/)]
+    protein?: <prep_of? <dobj? (prep_for | prep_on) [!(word=/^GAPs?$/)]
+    cause: prep_by
 
 - name: hydrolysis_2
   label: Hydrolysis
@@ -18,8 +18,8 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
-    protein: <prep_to | prep_for [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
+    theme?: (nn | <dep) [!(word=/^GAPs?$/)]
+    protein: <prep_to | prep_for [!(word=/^GAPs?$/)]
 
 - name: hydrolysis_2wrong
   label: Hydrolysis
@@ -29,9 +29,9 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)hydrolysis/]
-    theme?: (nn | <dep) [mention=/Simple_chemical|Gene_or_gene_product|Protein|Complex/ & !(word=/^GAPs?$/)]
-    protein: (<nsubj dep ccomp dobj prep_of) | (<prep_of <dobj (prep_for|prep_on|prep_in)) [mention=/Gene_or_gene_product|Protein/ & !(word=/^GAPs?$/)]
-    cause?: <nsubj dep ccomp prep_to [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    theme?: (nn | <dep) [!(word=/^GAPs?$/)]
+    protein: (<nsubj dep ccomp dobj prep_of) | (<prep_of <dobj (prep_for|prep_on|prep_in)) [!(word=/^GAPs?$/)]
+    cause?: <nsubj dep ccomp prep_to
 
 - name: hydrolysis_3
   label: Hydrolysis

@@ -117,8 +117,7 @@ object Brat {
     // sort mention representations
     (mentionRepresentations.getOrElse("T", Seq.empty).sortBy(getNum) ++
      mentionRepresentations.getOrElse("R", Seq.empty).sortBy(getNum) ++
-     mentionRepresentations.getOrElse("E", Seq.empty).sortBy(getNum) ++
-     ruleNames)
+     mentionRepresentations.getOrElse("E", Seq.empty).sortBy(getNum)) // ++ ruleNames)
        .mkString("\n")
   }
 

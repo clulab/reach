@@ -97,8 +97,8 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/] # nominal predicate
-    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    theme: prep_of? /conj_|cc|nn/+ [!word=/(?i)ubiq/]
+    site?: /pobj|prep_|conj_|nn/+
     cause: (prep_by|agent) /conj|cc|nn/* [!word=/(?i)ubiq/]
 
 
@@ -110,9 +110,9 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitinat/ & !word=/^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/] # nominal predicate
-    theme: prep_of /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    cause: /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
-    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    theme: prep_of /conj_|cc|nn/+ [!word=/(?i)ubiq/]
+    cause: /conj_|cc|nn/+ [!word=/(?i)ubiq/]
+    site?: /pobj|prep_|conj_|nn/+
 
 
 - name: Ubiquitination_syntax_4_noun
@@ -123,7 +123,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/(?i)^de/ & !outgoing=prep_by & tag=/^N/]
-    theme: <nn? nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/ & mention=/./ & !mention=/Site/]
+    theme: <nn? nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/ & !mention=/Site/]
 
 
 - name: Ubiquitination_syntax_5_noun
@@ -134,7 +134,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/^de/ & tag=/^N/]
-    theme: < nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/ & !word=/(?i)ubiq/]
+    theme: < nn > /prep_/ /conj_|cc|nn/* [!word=/(?i)ubiq/]
 
 
 - name: Ubiquitination_syntax_6_noun
@@ -156,7 +156,7 @@
   label: Ubiquitination
   pattern: |
     trigger: [word=/(?i)ubiquitination/ & !word=/^de/ & !outgoing=prep_of & tag=/^N/]
-    theme: < nsubj dobj prep_of /nn|cc|conj/* [!word=/(?i)ubiq/ & mention=/./]
+    theme: < nsubj dobj prep_of /nn|cc|conj/* [!word=/(?i)ubiq/]
 
 - name: Ubiquitination_token_1_noun
   priority: 4

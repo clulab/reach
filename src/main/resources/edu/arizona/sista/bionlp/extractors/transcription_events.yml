@@ -59,7 +59,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
-    theme: <dep [mention=Gene_or_gene_product]
+    theme: <dep
 
 - name: transcription_3
   priority: 4
