@@ -8,8 +8,6 @@ import TestResources.{bioproc, extractor}
 
 /**
  * Unit test for rules tailored for the DARPA evaluation; using the training corpus
- * User: mihais
- * Date: 12/29/14
  */
 class TestDarpaEval2015Training extends AssertionsForJUnit {
 

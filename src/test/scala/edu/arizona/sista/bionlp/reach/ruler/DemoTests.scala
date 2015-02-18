@@ -6,10 +6,8 @@ import TestResources.{bioproc, extractor, summarizeError}
 import DarpaEvalUtils._
 
 /**
- * Created by gus on 1/16/15.
+ * Unit tests related to the UI demo
  */
-
-
 class DemoTests1 extends FunSuite with BeforeAndAfter {
 
 

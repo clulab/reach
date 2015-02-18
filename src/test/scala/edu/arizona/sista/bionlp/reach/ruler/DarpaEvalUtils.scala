@@ -5,8 +5,6 @@ import edu.arizona.sista.matcher.{TextBoundMention, EventMention, Mention}
 
 /**
  * Utility methods for the tests in this directory
- * User: mihais
- * Date: 1/5/15
  */
 object DarpaEvalUtils {
   def hasEventWithArguments(label: String, args: Seq[String], mentions: Seq[Mention]): Boolean = {

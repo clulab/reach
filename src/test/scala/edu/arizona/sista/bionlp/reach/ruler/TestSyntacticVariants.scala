@@ -6,7 +6,6 @@ import org.junit.Test
 import TestResources.{bioproc, extractor}
 
 /**
- * Created by dane on 1/14/15.
  * Testing for common syntactic variations on rules, e.g. passive voice, relative clauses, etc.
  */
 class TestSyntacticVariants {
