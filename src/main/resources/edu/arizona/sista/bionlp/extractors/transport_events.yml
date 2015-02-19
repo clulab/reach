@@ -6,9 +6,9 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)^transloc/ | word=/(?i)^transport/] #[tag=/^N/]
-    theme: /nn+|prep_of|nsubj/ [mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    theme: /nn+|prep_of|nsubj/
     source: /prep_of/? prep_from [tag=/^N/]
-    destination?: </prep_in/? /prep_/* prep_to /conj|nn|cc|dep/* [mention=Cellular_component] 
+    destination?: </prep_in/? /prep_/* prep_to /conj|nn|cc|dep/*
 
 - name: transport_2
   priority: 4
@@ -18,9 +18,9 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)^transloc/ | word=/(?i)^transport/]
-    theme: </./+ /nn|prep_of|nsubjpass|appos/ [tag=/^N/] #[mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    theme: </./+ /nn|prep_of|nsubjpass|appos/ [tag=/^N/]
     source?: /prep_of/? prep_from [tag=/^N/]
-    destination: <prep_in? prep_to /conj|nn|cc|dep/* [mention=Cellular_component]
+    destination: <prep_in? prep_to /conj|nn|cc|dep/*
 
 
 - name: transport_3
@@ -31,9 +31,9 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)^transloc/ | word=/(?i)^transport/]
-    theme: </./+ /nn|prep_of|nsubjpass/ [tag=/^N/] #[mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    theme: </./+ /nn|prep_of|nsubjpass/ [tag=/^N/]
     source: /prep_of/? prep_from [tag=/^N/]
-    destination?: <prep_in? /./* prep_to /conj|nn|cc|dep/* [mention=Cellular_component]
+    destination?: <prep_in? /./* prep_to /conj|nn|cc|dep/*
 
 - name: transport_4
   priority: 4
@@ -43,9 +43,9 @@
   type: dependency
   pattern: |
     trigger: /(?i)release/
-    theme: dobj [mention=Gene_or_gene_product]
-    source?: /prep_of/? /nsubj|prep_from/ [mention=Cellular_component]
-    destination: <prep_in? prep_to /conj|nn|cc|dep/* [mention=Cellular_component]
+    theme: dobj
+    source?: /prep_of/? /nsubj|prep_from/
+    destination: <prep_in? prep_to /conj|nn|cc|dep/*
 
 - name: transport_5
   priority: 4
@@ -55,9 +55,9 @@
   type: dependency
   pattern: |
     trigger: /(?i)recruitment/
-    theme: /./* prep_of [mention=Gene_or_gene_product]
-    source?: /./* prep_from [mention=Cellular_component]
-    destination: /./* prep_to /conj|cc|dep/* [mention=Cellular_component]
+    theme: /./* prep_of
+    source?: /./* prep_from
+    destination: /./* prep_to /conj|cc|dep/*
 
 - name: transport_6
   priority: 4
@@ -67,6 +67,6 @@
   type: dependency
   pattern: |
     trigger: /(?i)export|recruit|releas/
-    theme: /./* nsubjpass [mention=Gene_or_gene_product]
-    source?: /./* prep_from [mention=Cellular_component]
-    destination: /./* prep_to /conj|cc|dep/* [mention=Cellular_component]
+    theme: /./* nsubjpass
+    source?: /./* prep_from
+    destination: /./* prep_to /conj|cc|dep/*

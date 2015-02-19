@@ -1,7 +1,7 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
-import edu.arizona.sista.bionlp.reach.core.RelationMention
-import edu.arizona.sista.matcher.{TextBoundMention, EventMention, Mention}
+import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
+import edu.arizona.sista.odin._
 
 /**
  * Utility methods for the tests in this directory

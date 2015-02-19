@@ -19,8 +19,8 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylated/ & !word=/^de/ & tag=/^V/]
-    theme: (>nsubjpass|<vmod) /conj_|nn|cc/* [mention=/./ & !mention=/Site/]
-    cause?: agent|prep_by /conj_|nn|cc/* [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
+    theme: (>nsubjpass|<vmod) /conj_|nn|cc/*
+    cause?: agent|prep_by /conj_|nn|cc/*
 
 
 - name: Phosphorylation_syntax_3_verb
@@ -31,9 +31,9 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
-    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
+    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [!mention=/Site/]
     site?: (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
-    cause?: <nn* | (prep_by) /nn|conj_|cc/* [mention=/Site/]
+    cause?: <nn* | (prep_by) /nn|conj_|cc/*
 
 
 - name: Phosphorylation_syntax_4_verb
@@ -44,9 +44,9 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/]
-    theme: (nsubjpass /conj_|nn/*) [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
-    site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
-    cause?: (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/* [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
+    theme: (nsubjpass /conj_|nn/*) [!mention=/Site/]
+    site?: /prep_/ /prep_|conj_|nn/*
+    cause?: (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/* [!mention=/Site/]
 
 
 - name: Phosphorylation_syntax_5_verb
@@ -97,8 +97,8 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/] # nominal predicate
-    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
-    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    theme: prep_of? /conj_|cc|nn/+ [!mention=/Site/]
+    site?: /pobj|prep_|conj_|nn/+
     cause: /prep_by|agent/ /conj|cc|nn/* [!mention=/Site/]
 
 
@@ -110,9 +110,9 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^N/ & !outgoing=prep_by] # nominal predicate
-    theme: prep_of /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
-    cause: /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
-    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    theme: prep_of /conj_|cc|nn/+ [!mention=/Site/]
+    cause: /conj_|cc|nn/+ [!mention=/Site/]
+    site?: /pobj|prep_|conj_|nn/+
 
 
 - name: Phosphorylation_syntax_4_noun
@@ -123,7 +123,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylation/ & !word=/(?i)^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/]
-    theme: <nn? nn /conj|cc|nn|prep/* [mention=/./ & !mention=/Site/]
+    theme: <nn? nn /conj|cc|nn|prep/* [!mention=/Site/]
 
 - name: Phosphorylation_syntax_5_noun
   priority: 4
@@ -133,7 +133,7 @@
   label: Phosphorylation
   pattern: |
     trigger: [word=/(?i)phosphorylation/ & !word=/^de/ & tag=/^N/]
-    theme: < nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/]
+    theme: < nn > /prep_/ /conj_|cc|nn/* [!mention=/Site/]
     cause?: < nn /conj_|cc|nn/*
 
 
@@ -165,7 +165,7 @@
   type: token
   label: Phosphorylation
   pattern: |
-    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/ & tag=/^N/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [mention=/Protein|Gene_or_gene_product/ & !mention=/Site/])
+    (?<trigger> [word=/(?i)phosphorylation/ & !word=/^de/ & tag=/^N/]) /of|on/ [word=/./ & !tag=/^V/]*? (?<theme> [!mention=/Site/])
 
 
 - name: Phosphorylation_token_2_noun

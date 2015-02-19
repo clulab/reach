@@ -166,27 +166,3 @@
   type: token
   pattern: |
     (?<trigger> binding) of (?<theme1> [mention=/Protein|Gene_or_gene_product/]+) (to|with) (?<theme2> [mention=/Protein|Gene_or_gene_product/]+)
-
-- name: binding_coref1
-  label: Binding
-  priority: 4
-  action: mkBindingCorefEvent
-  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein binds with TopBP1."
-  type: dependency
-  pattern: |
-    trigger: [lemma=bind & tag=/^VB[^N]?/]
-    theme?: (prep_with | prep_to) [mention=/Protein|Gene_or_gene_product/]
-    endophor: nsubj [lemma=/protein|complex|family/ & !mention=/./] det [lemma=/these|this|the|that|both/]
-    quantifier?: nsubj [lemma=/protein|complex|family/ & !mention=/./] num
-
-- name: binding_coref2
-  label: Binding
-  priority: 4
-  action: mkBindingCorefEvent
-  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein is bound by TopBP1."
-  type: dependency
-  pattern: |
-    trigger: [lemma=bind & tag=VBN]
-    theme?: agent [mention=/Protein|Gene_or_gene_product/]
-    endophor: nsubjpass [lemma=/protein|complex|family/] det [lemma=/these|this|the|that|both/]
-    quantifier?: nsubjpass [lemma=/protein|complex|family/] num

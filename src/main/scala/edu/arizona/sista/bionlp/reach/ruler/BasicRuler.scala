@@ -2,9 +2,9 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import java.io.File
 import edu.arizona.sista.bionlp.reach.brat.Brat
-import edu.arizona.sista.matcher._
+import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.bionlp.reach.core.RelationMention
+import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
 
 class BasicRuler(val rules: String, val actions: Actions) {
   val engine = new ExtractorEngine(rules, actions, postprocess)
@@ -17,6 +17,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
       // Do we somehow have an empty Mention?
       case m if !m.isInstanceOf[TextBoundMention] && m.arguments.values.flatten.isEmpty => Nil
 
+/*
       // the event mention should not be a regulation and it must contain a cause
       case m: EventMention if !m.label.endsWith("egulation") && m.arguments.contains("Cause") =>
         val controller = m.arguments("Cause")
@@ -24,6 +25,7 @@ class BasicRuler(val rules: String, val actions: Actions) {
         val args = Map("Controller" -> controller, "Controlled" -> Seq(someEvent))
         val upreg = new RelationMention("Positive_regulation", args, m.sentence, m.document, m.keep, m.foundBy)
         Seq(upreg, someEvent)
+*/
 
       case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
         val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
@@ -72,7 +74,8 @@ object BasicRuler {
   def readEntityRules(shell: Boolean = false): String = {
     val dir = if (shell) filesDir else resourcesDir
     val read = if (shell) readFile _ else readResource _
-    val files = Seq(s"$dir/default_entities.yml", s"$dir/DARPA_entities.yml")
+    //val files = Seq(s"$dir/default_entities.yml", s"$dir/DARPA_entities.yml")
+    val files = Seq(s"$dir/given_entities.yml")
     files map read mkString "\n\n"
   }
 

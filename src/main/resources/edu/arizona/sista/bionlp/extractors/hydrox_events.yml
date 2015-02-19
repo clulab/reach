@@ -31,8 +31,8 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
-    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) [mention=/Protein|Gene_or_gene_product/]
-    site?: (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+ [mention=Site])
+    theme: ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
+    site?: (/pobj|prep_|conj_|nn/+ [mention=Site]) | (< /pobj|prep_|conj_|nn/+)
     cause?: <nn* | (prep_by) /nn|conj_|cc/*
 
 
@@ -44,9 +44,9 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^V/]
-    theme: (nsubjpass /conj_|nn/*) [mention=/Protein|Gene_or_gene_product/]
-    site?: /prep_/ /prep_|conj_|nn/* [mention=Site]
-    cause?: (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/* [mention=/Protein|Gene_or_gene_product/]
+    theme: (nsubjpass /conj_|nn/*)
+    site?: /prep_/ /prep_|conj_|nn/*
+    cause?: (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/*
 
 
 - name: Hydroxylation_syntax_5_verb
@@ -97,8 +97,8 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^N/] # nominal predicate
-    theme: prep_of? /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/]
-    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    theme: prep_of? /conj_|cc|nn/+
+    site?: /pobj|prep_|conj_|nn/+
     cause: (prep_by|agent) /conj|cc|nn/*
 
 
@@ -110,9 +110,9 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylat/ & !word=/^de/ & tag=/^N/ & !outgoing=/prep_(by|of)/] # nominal predicate
-    theme: prep_of /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/]
-    cause: /conj_|cc|nn/+ [mention=/Protein|Gene_or_gene_product/]
-    site?: /pobj|prep_|conj_|nn/+ [mention=Site]
+    theme: prep_of /conj_|cc|nn/+
+    cause: /conj_|cc|nn/+
+    site?: /pobj|prep_|conj_|nn/+
 
 
 - name: Hydroxylation_syntax_4_noun
@@ -123,7 +123,7 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylation/ & !word=/(?i)^de/ & !outgoing=prep_by & tag=/^N/]
-    theme: <nn? nn /conj|cc|nn|prep/* [mention=/./ & !mention=/Site/]
+    theme: <nn? nn /conj|cc|nn|prep/*
 
 
 - name: Hydroxylation_syntax_5_noun
@@ -134,7 +134,7 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylation/ & !word=/^de/ & tag=/^N/]
-    theme: < nn > /prep_/ /conj_|cc|nn/* [mention=/Protein|Gene_or_gene_product/]
+    theme: < nn > /prep_/ /conj_|cc|nn/*
     cause?: < nn /conj_|cc|nn/*
 
 
@@ -157,7 +157,7 @@
   label: Hydroxylation
   pattern: |
     trigger: [word=/(?i)hydroxylation/ & !word=/^de/ & !outgoing=prep_of & tag=/^N/]
-    theme: < nsubj dobj prep_of /nn|cc|conj/* [mention=/./]
+    theme: < nsubj dobj prep_of /nn|cc|conj/*
 
 - name: Hydroxylation_token_1_noun
   priority: 4
