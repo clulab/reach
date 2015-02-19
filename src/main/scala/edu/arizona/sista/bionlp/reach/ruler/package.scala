@@ -1,9 +1,8 @@
 package edu.arizona.sista.bionlp.reach
 
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.bionlp.reach.core.RelationMention
-import edu.arizona.sista.matcher.{Mention, TextBoundMention, EventMention}
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
+import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
+import edu.arizona.sista.odin._
 
 package object ruler {
 

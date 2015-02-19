@@ -2,9 +2,9 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import java.io.File
 import edu.arizona.sista.bionlp.reach.brat.Brat
-import edu.arizona.sista.matcher._
+import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.bionlp.reach.core.RelationMention
+import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
 
 class BasicRuler(val rules: String, val actions: Actions) {
   val engine = new ExtractorEngine(rules, actions, postprocess)

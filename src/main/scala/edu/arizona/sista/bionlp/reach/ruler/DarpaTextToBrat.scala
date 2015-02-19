@@ -1,7 +1,6 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
 import edu.arizona.sista.bionlp.reach.brat.Brat
-import edu.arizona.sista.matcher.ExtractorEngine
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 /**

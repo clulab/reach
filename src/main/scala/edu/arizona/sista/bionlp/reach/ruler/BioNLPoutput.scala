@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import java.io.{PrintWriter, File}
 import edu.arizona.sista.bionlp.reach.brat._
-import edu.arizona.sista.matcher.{EventMention, TextBoundMention}
+import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 /**

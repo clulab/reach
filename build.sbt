@@ -2,7 +2,7 @@ name := "reach"
 
 version := "1.0"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.11.5"
 
 resolvers ++= Seq(
   "BioPAX Releases" at "http://biopax.sourceforge.net/m2repo/releases",
