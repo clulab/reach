@@ -12,35 +12,33 @@ class BasicRuler(val rules: String, val actions: Actions) {
   def extractFrom(doc: Document): Seq[Mention] = engine.extractFrom(doc)
 
   def postprocess(mentions: Seq[Mention]): Seq[Mention] = {
-    mentions flatMap { mention => mention match {
+    mentions flatMap { mention =>
+      mention match {
+        // Do we somehow have an empty Mention?
+        case m if !m.isInstanceOf[TextBoundMention] && m.arguments.values.flatten.isEmpty => Nil
 
-      // Do we somehow have an empty Mention?
-      case m if !m.isInstanceOf[TextBoundMention] && m.arguments.values.flatten.isEmpty => Nil
+        // the event mention should not be a regulation and it must contain a cause
+        case m: EventMention if !m.label.endsWith("egulation") && m.arguments.contains("Cause") =>
+          val controller = m.arguments("Cause")
+          val someEvent = new EventMention(m.label, m.trigger, m.arguments - "Cause", m.sentence, m.document, m.keep, m.foundBy)
+          val args = Map("Controller" -> controller, "Controlled" -> Seq(someEvent))
+          val upreg = new RelationMention("Positive_regulation", args, m.sentence, m.document, m.keep, m.foundBy)
+          Seq(upreg, someEvent)
 
-/*
-      // the event mention should not be a regulation and it must contain a cause
-      case m: EventMention if !m.label.endsWith("egulation") && m.arguments.contains("Cause") =>
-        val controller = m.arguments("Cause")
-        val someEvent = new EventMention(m.label, m.trigger, m.arguments - "Cause", m.sentence, m.document, m.keep, m.foundBy)
-        val args = Map("Controller" -> controller, "Controlled" -> Seq(someEvent))
-        val upreg = new RelationMention("Positive_regulation", args, m.sentence, m.document, m.keep, m.foundBy)
-        Seq(upreg, someEvent)
-*/
+        case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
+          val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
+          if (themes.nonEmpty) {
+            val ubiq = new RelationMention("Ubiquitination", Map("Theme" -> themes), m.sentence, m.document, m.keep, m.foundBy)
+            Seq(ubiq)
+          } else Nil
 
-      case m: EventMention if m.label == "Binding" && m.arguments("Theme").map(_.text).contains("Ubiquitin") =>
-        val themes = m.arguments("Theme") filter (_.text != "Ubiquitin")
-        if (themes.nonEmpty) {
-          val ubiq = new RelationMention("Ubiquitination", Map("Theme" -> themes), m.sentence, m.document, m.keep, m.foundBy)
-          Seq(ubiq)
-        } else Nil
+        // remove mentions of binding with single theme
+        case m: EventMention if m.label == "Binding" && m.arguments("Theme").size == 1 => Nil
 
-      // remove mentions of binding with single theme
-      case m: EventMention if m.label == "Binding" && m.arguments("Theme").size == 1 => Nil
+        case m if m.label.endsWith("egulation") => if (checkRegulationArgs(m)) Seq(m) else Nil
 
-      case m if m.label.endsWith("egulation") => if (checkRegulationArgs(m)) Seq(m) else Nil
-
-      case m => Seq(m)
-    }
+        case m => Seq(m)
+      }
     }
   }
 
@@ -74,8 +72,7 @@ object BasicRuler {
   def readEntityRules(shell: Boolean = false): String = {
     val dir = if (shell) filesDir else resourcesDir
     val read = if (shell) readFile _ else readResource _
-    //val files = Seq(s"$dir/default_entities.yml", s"$dir/DARPA_entities.yml")
-    val files = Seq(s"$dir/given_entities.yml")
+    val files = Seq(s"$dir/default_entities.yml", s"$dir/DARPA_entities.yml")
     files map read mkString "\n\n"
   }
 

@@ -303,7 +303,7 @@
    ([word=/(?i)^GTPase(-activating)?$/] [word=/(?i)^-?activating$/]? [word=/(?i)^protein$/]? and [word=/(?i)^VPS9$/] [word=/(?i)^domain(-containing)?$/] [word=/(?i)^-?containing$/]? [word=/(?i)^protein$/]? "1") |
    ([word=/(?i)^GAPex-5$/]) |
    ([word=/(?i)^GAPVD1$/])
- 
+
 - name: uniprotID_GRP1_HUMAN
   label: Gene_or_gene_product
   priority: 1
@@ -632,4 +632,3 @@
    ([word=/(?i)^RalGEF$/]) |
    ([word=/(?i)^Ral$/] guanine nucleotide dissociation stimulator) |
    ([word=/(?i)^RALGDS$/])
-

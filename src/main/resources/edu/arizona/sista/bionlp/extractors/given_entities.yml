@@ -1,8 +1,0 @@
-- name: given_entities
-  label: Protein
-  priority: 1
-  type: token
-  action: mkTextBoundMention
-  pattern: |
-   [entity="B-Protein"] [entity="I-Protein"]*
-

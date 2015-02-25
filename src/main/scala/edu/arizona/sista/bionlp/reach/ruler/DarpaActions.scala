@@ -196,11 +196,10 @@ class DarpaActions extends Actions {
     def filterMentions (argName: String, unpackable: Seq[String]): Seq[Mention] = {
       val validMentions = unpackTheseMentions(getAllMentionsForArg(argName), unpackable)
         .filter(m => ValidArgument(label, argName) contains m.label)
-      /*if (validMentions.isEmpty) {
+      if (validMentions.isEmpty) {
         findCoref(state,doc,sent,anchor=meldMentions(mention),lspan=5,rspan=6,antType=ValidArgument(label, argName),1)
       }
-      else validMentions*/
-      validMentions
+      else validMentions
     }
 
     // We want to unpack relation mentions...
@@ -287,7 +286,7 @@ class DarpaActions extends Actions {
       theme <- state.mentionsFor(sent, m.start, "Simple_chemical" +: simpleProteinLabels)
     } yield theme
 
-    val corefThemes = /*if (mention("endophor").nonEmpty & mention("quantifier").nonEmpty) {
+    val corefThemes = if (mention("endophor").nonEmpty & mention("quantifier").nonEmpty) {
       val endophorSpan = mention("quantifier").head
       val endophorText = doc.sentences(sent).words.slice(endophorSpan.start,endophorSpan.end).mkString("")
       findCoref(state, doc, sent, meldMentions(mention), 7, 0, "Simple_chemical" +: simpleProteinLabels, endophorText)
@@ -296,7 +295,7 @@ class DarpaActions extends Actions {
       val endophorText = doc.sentences(sent).words.slice(endophorSpan.start,endophorSpan.end).mkString("")
       // println(endophorText)
       findCoref(state, doc, sent, meldMentions(mention), 7, 0, "Simple_chemical" +: simpleProteinLabels, endophorText)
-    } else*/ Nil
+    } else Nil
     val allThemes = themes ++ corefThemes
     val args = Map("Theme" -> allThemes.toSeq.distinct)
     val event = new EventMention(label, trigger, args, sent, doc, keep, ruleName)
@@ -313,8 +312,8 @@ class DarpaActions extends Actions {
       m <- mention(name)
       goal <- state.mentionsFor(sent, m.start, proteinLabels)
     } yield goal
-    val corefGoals = /*if (startGoals.isEmpty) findCoref(state,doc,sent,meldMentions(mention),4,3,proteinLabels,1)
-    else*/ Nil
+    val corefGoals = if (startGoals.isEmpty) findCoref(state,doc,sent,meldMentions(mention),4,3,proteinLabels,1)
+    else Nil
     val goals = startGoals ++ corefGoals
     val causes = mention.getOrElse("cause", Nil) flatMap (m => state.mentionsFor(sent, m.start, proteinLabels))
     val events = trigger match {
@@ -341,8 +340,7 @@ class DarpaActions extends Actions {
     // else findCoref(state,doc,sent,meldMentions(mention),10,2,Seq("Simple_chemical"),1)
     val proteins = if (mention contains "protein") state.mentionsFor(sent, mention("protein").map(_.start), proteinLabels)
     // else if (themes.isEmpty) Nil
-    // else findCoref(state,doc,sent,meldMentions(mention),1,7,"Complex" +: simpleProteinLabels,1)
-    else Nil
+    else findCoref(state,doc,sent,meldMentions(mention),1,7,"Complex" +: simpleProteinLabels,1)
     val causes = if (mention contains "cause") mention("cause") flatMap (m => state.mentionsFor(sent, m.start, simpleProteinLabels))
     else Nil
 

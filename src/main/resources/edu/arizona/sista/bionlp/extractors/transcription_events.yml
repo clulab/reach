@@ -36,9 +36,9 @@
 #  label: Transcription
 #  type: dependency
 #  pattern: |
-#    trigger: [word=/(?i)transcription/ & tag=/^N/] 
+#    trigger: [word=/(?i)transcription/ & tag=/^N/]
 #    theme: <dobj nsubj prep_of? [mention=Gene_or_gene_product]
-#    cause?: nn+ [mention=Gene_or_gene_product] 
+#    cause?: nn+ [mention=Gene_or_gene_product]
 
 
 - name: transcription_1
@@ -48,7 +48,7 @@
   label: Transcription
   type: dependency
   pattern: |
-    trigger: [word=/(?i)transcription/ & !outgoing=amod] 
+    trigger: [word=/(?i)transcription/ & !outgoing=amod]
     theme: prep_of? nn+
 
 - name: transcription_2
@@ -59,7 +59,7 @@
   type: dependency
   pattern: |
     trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
-    theme: <dep
+    theme: <dep [mention=Gene_or_gene_product]
 
 - name: transcription_3
   priority: 4
@@ -70,4 +70,3 @@
   pattern: |
     trigger: [word=/(?i)transcription/ & !word=/transcription factor/]
     theme: prep_of [word=/(?i)genes?/]
-
