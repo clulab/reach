@@ -2,9 +2,9 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 
 import java.io.{PrintWriter, File, BufferedReader, FileReader}
-import edu.arizona.sista.matcher.{Mention, ExtractorEngine, EventMention}
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
+import edu.arizona.sista.odin._
 
 /** This class applies DARPA rules to all the files specified a command
  *  line arguments.
