@@ -10,15 +10,15 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.1" % "test",
-  "junit" % "junit" % "4.10" % "test",
+  "org.scalatest" %% "scalatest" % "3.0.0-SNAP4" % "test",
+  "junit" % "junit" % "4.12" % "test",
   "com.novocode" % "junit-interface" % "0.11" % "test",
-  "edu.arizona.sista" %% "processors" % "4.0-SNAPSHOT",
-  "edu.arizona.sista" %% "processors" % "4.0-SNAPSHOT" classifier "models",
+  "edu.arizona.sista" %% "processors" % "5.2-SNAPSHOT",
+  "edu.arizona.sista" %% "processors" % "5.2-SNAPSHOT" classifier "models",
   "org.apache.lucene" % "lucene-core" % "4.2.1",
   "org.apache.lucene" % "lucene-analyzers-common" % "4.2.1",
   "org.apache.lucene" % "lucene-queryparser" % "4.2.1",
   "org.apache.lucene" % "lucene-highlighter" % "4.2.1",
-  "org.biopax.paxtools" % "paxtools-core" % "4.2.1",
-  "jline" % "jline" % "2.11"
+  "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
+  "jline" % "jline" % "2.12"
 )
