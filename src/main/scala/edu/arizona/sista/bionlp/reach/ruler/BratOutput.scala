@@ -32,7 +32,7 @@ object BratOtput extends App {
 
   val paperNames = args // Take the arguments from the command line
 
-  //def mkOutputName(paper: String): String = s"$outDir${ """^.*?/|.txt.ser""".r.replaceAllIn(paper, "")}.ann"
+  def mkOutputName(paper: String): String = s"$outDir${ """^.*?/|.txt.ser""".r.replaceAllIn(paper, "")}.ann"
 
   def processPapers(papers: Seq[String]) = papers.foreach { paper => processPaper(paper)}
 
@@ -52,8 +52,8 @@ object BratOtput extends App {
 
     //Here do something with Brat
 
-   val standoff = Brat.dumpStandoff(mentions.values.toSeq, doc)
-   output.write(standoff)
+  // val standoff = Brat.dumpStandoff(mentions.values.toSeq, doc)
+//   output.write(standoff)
 
    // mentions.foreach(pair => writeEvents(pair._1, pair._2, output))
 
