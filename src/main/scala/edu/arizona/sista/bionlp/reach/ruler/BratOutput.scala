@@ -52,8 +52,8 @@ object BratOtput extends App {
 
     //Here do something with Brat
 
-  // val standoff = Brat.dumpStandoff(mentions.values.toSeq, doc)
-//   output.write(standoff)
+    val standoff = Brat.dumpStandoff(mentions.values.flatMap(x => x).toSeq, doc)
+   output.write(standoff)
 
    // mentions.foreach(pair => writeEvents(pair._1, pair._2, output))
 
