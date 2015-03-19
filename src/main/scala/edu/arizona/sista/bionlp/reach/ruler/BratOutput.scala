@@ -14,7 +14,7 @@ import edu.arizona.sista.bionlp.reach.brat._
  *
  *  Created by Enrique on 3/17/15.
  */
-object BratOtput extends App {
+object BratOutput extends App {
 
   val entityRules = BasicRuler.readEntityRules()
   val eventRules = BasicRuler.readEventRules()
@@ -46,7 +46,7 @@ object BratOtput extends App {
     println(s"Writing output to $outName")
 
     val doc = docFromSerializedFile(s"$paper")
-    val mentions: Map[String, Seq[EventMention]] =
+    val mentions: Map[String, Seq[Mention]] =
       retrieveMentions(doc)
         .groupBy(m => m.repr)
 
@@ -66,8 +66,8 @@ object BratOtput extends App {
     doc
   }
 
-  def retrieveMentions(doc: Document): Seq[EventMention] = {
-    extractor.extractFrom(doc).filter(_.isInstanceOf[EventMention]).map(_.asInstanceOf[EventMention])
+  def retrieveMentions(doc: Document): Seq[Mention] = {
+    extractor.extractFrom(doc)//.filter(_.isInstanceOf[EventMention]).map(_.asInstanceOf[EventMention])
   }
 
   def cleanText(m: Mention): String = {
