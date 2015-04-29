@@ -4,7 +4,6 @@ import java.io.{File, InputStream}
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.{Document, Sentence}
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
 import edu.arizona.sista.odin._
 
 object Brat {

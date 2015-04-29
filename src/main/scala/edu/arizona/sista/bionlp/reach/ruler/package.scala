@@ -1,7 +1,6 @@
 package edu.arizona.sista.bionlp.reach
 
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
 import edu.arizona.sista.odin._
 
 package object ruler {

@@ -1,6 +1,5 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.RelationMention
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.Interval
