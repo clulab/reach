@@ -4,6 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.11.5"
 
+scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
+
 resolvers ++= Seq(
   "BioPAX Releases" at "http://biopax.sourceforge.net/m2repo/releases",
   "BioPAX Snapshots" at "http://biopax.sourceforge.net/m2repo/snapshots"
