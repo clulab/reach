@@ -17,6 +17,8 @@ libraryDependencies ++= Seq(
   "com.novocode" % "junit-interface" % "0.11" % "test",
   "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT",
   "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT" classifier "models",
+  "com.typesafe" % "config" % "1.2.1",
+  "commons-io" % "commons-io" % "2.4",
   "org.apache.lucene" % "lucene-core" % "4.2.1",
   "org.apache.lucene" % "lucene-analyzers-common" % "4.2.1",
   "org.apache.lucene" % "lucene-queryparser" % "4.2.1",
