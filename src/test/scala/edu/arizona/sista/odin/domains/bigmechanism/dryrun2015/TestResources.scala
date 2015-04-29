@@ -1,4 +1,4 @@
-package edu.arizona.sista.bionlp.reach.ruler
+package edu.arizona.sista.odin.domains.bigmechanism.dryrun2015
 
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
@@ -20,8 +20,8 @@ object TestResources {
 
   def mkExtractor = {
     val actions = new DarpaActions
-    val rules = BasicRuler.readRules()
-    new BasicRuler(rules, actions)
+    val rules = Ruler.readRules()
+    new Ruler(rules, actions)
   }
 
   def summarizeError(sentence: String, label: String, assignedParty: String): String =
