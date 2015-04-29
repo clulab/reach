@@ -76,7 +76,7 @@ object Brat {
   def alignTokenLabel(sentence: Sentence, token: Interval, annotations: Seq[TextBound]): String = {
     var label = "O"
     for (a <- annotations; span <- a.spans) {
-      if (token intersects span) {
+      if (token overlaps span) {
         if (token.start <= span.start) {
           label = s"B-${a.label}"
         } else {
@@ -188,7 +188,7 @@ class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
 
   def getId(mention: TextBoundMention, doc: Document): String = {
     val span = charInterval(mention, doc)
-    val ids = textBoundLUT.keys filter (id => textBoundLUT(id) intersects span)
+    val ids = textBoundLUT.keys filter (id => textBoundLUT(id) overlaps span)
     if (ids.size == 1) ids.head
     else if (ids.size > 1) ids.head // arbitrarily returning the first one
     else {
