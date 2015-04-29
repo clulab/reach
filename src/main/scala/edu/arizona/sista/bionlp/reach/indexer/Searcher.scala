@@ -20,7 +20,7 @@ trait Searcher {
   def shell() {
     while(true) {
       print("> ")
-      val query = Console.readLine()
+      val query = io.StdIn.readLine()
       val docs = searchByQuery(query)
       println(s"Found ${docs.size} documents.")
 
