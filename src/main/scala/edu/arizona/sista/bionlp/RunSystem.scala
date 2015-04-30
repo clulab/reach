@@ -12,7 +12,11 @@ import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.mentionToStrings
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
 
 object RunSystem extends App {
-  val config = ConfigFactory.load()
+  // use specified config file or the default one if one is not provided
+  val config =
+    if (args.isEmpty) ConfigFactory.load()
+    else ConfigFactory.parseFile(new File(args(0))).resolve()
+
   val nxmlDir = new File(config.getString("nxmlDir"))
   val friesDir = new File(config.getString("friesDir"))
   val encoding = config.getString("encoding")
