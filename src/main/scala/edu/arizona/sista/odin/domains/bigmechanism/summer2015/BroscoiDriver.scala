@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level driver to output grounded text mentions in Broscoi format.
   *   Written by Tom Hicks. 4/13/2015.
-  *   Last Modified: Use char offsets, only text mentions, single output file.
+  *   Last Modified: Update for move of resources to reach.
   */
 object BroscoiDriver extends App {
   private val idCntr = new IncrementingCounter() // counter sequence class
@@ -28,7 +28,7 @@ object BroscoiDriver extends App {
   val processor = new BioNLPProcessor()
   val extractor = new Ruler(rules, actions)
 
-  val PapersDir = s"${System.getProperty("user.dir")}/src/test/resources/papers/"
+  val PapersDir = s"${System.getProperty("user.dir")}/src/test/resources/inputs/papers/"
   val paperNames = Seq(
 //    "MEKinhibition.txt.ser",
 //    "UbiquitinationofRas.txt.ser",

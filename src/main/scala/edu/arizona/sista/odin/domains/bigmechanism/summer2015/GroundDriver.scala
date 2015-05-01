@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level test driver for Grounding development.
   *   Written by Tom Hicks. 4/7/2015.
-  *   Last Modified: Change output file extension.
+  *   Last Modified: Update for move of resources to reach.
   */
 object GroundDriver extends App {
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
@@ -26,7 +26,7 @@ object GroundDriver extends App {
   val processor = new BioNLPProcessor()
   val extractor = new Ruler(rules, actions)
 
-  val PapersDir = s"${System.getProperty("user.dir")}/src/test/resources/papers/"
+  val PapersDir = s"${System.getProperty("user.dir")}/src/test/resources/inputs/papers/"
   val paperNames = Seq(
     "MEKinhibition.txt.ser",
     "UbiquitinationofRas.txt.ser",

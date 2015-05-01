@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collections of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Refactor helper methods to utils class.
+  *   Last Modified: Update for move of KBs to subdirectory.
   */
 
 /**
@@ -109,7 +109,7 @@ class AzProteinKBAccessor extends AzNameSpeciesIdKBAccessor {
   def resourceID = "MIR:00100164"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/uniprot-proteins.tsv.gz")
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-proteins.tsv.gz")
 }
 
 
@@ -120,7 +120,7 @@ class AzProteinFamilyKBAccessor extends AzNameSpeciesIdKBAccessor {
   def resourceID = "MIR:00000011"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/ProteinFamilies.tsv.gz")
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/ProteinFamilies.tsv.gz")
 }
 
 
@@ -131,7 +131,7 @@ class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
   def resourceID = "MIR:00000051"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/hmdb.tsv.gz")
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/hmdb.tsv.gz")
 }
 
 
@@ -142,7 +142,7 @@ class AzSubcellularLocationKBAccessor extends AzNameIdKBAccessor {
   def resourceID = "MIR:00000022"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/GO-subcellular-locations.tsv")
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/GO-subcellular-locations.tsv")
 }
 
 /** KB accessor to resolve subcellular location names in mentions using Uniprot DB. */
@@ -152,7 +152,7 @@ class AzSubcellularLocationKBAccessor2 extends AzNameIdKBAccessor {
   def resourceID = "MIR:00000005"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/uniprot-subcellular-locations.tsv")
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-subcellular-locations.tsv")
 }
 
 
@@ -163,7 +163,7 @@ class AzTissueTypeKBAccessor extends AzNameIdKBAccessor {
   def resourceID = "MIR:00000005"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/tissue-type.tsv")
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/tissue-type.tsv")
 }
 
 

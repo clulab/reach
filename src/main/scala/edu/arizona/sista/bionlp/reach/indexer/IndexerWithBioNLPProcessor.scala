@@ -100,7 +100,7 @@ class IndexerWithBioNLPProcessor (
 	}
 
 	def annotate(text:String): Document = {
-		val doc = processor.mkDocument(text)
+		val doc = processor.mkDocument(text, true)
 		processor.tagPartsOfSpeech(doc)
 		processor.lemmatize(doc)
 		processor.recognizeNamedEntities(doc)
