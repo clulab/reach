@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collections of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Update for move of KBs to subdirectory.
+  *   Last Modified: Update to use speciated KB accessors.
   */
 
 /**
@@ -25,7 +25,7 @@ abstract class AzNameIdKBAccessor extends ExternalKBAccessor {
 
   override def resolve (mention:Mention): Map[String,String] = {
     val key = getLookupKey(mention)         // make a key from the mention
-    theKB.getOrElseUpdate(key, Map.empty)   // lookup the key
+    theKB.getOrElse(key, Map.empty)         // return properties map or signal lookup failure
   }
 
   protected def readAndFillKB (kbResourcePath:String) = {
@@ -53,9 +53,9 @@ abstract class AzNameIdKBAccessor extends ExternalKBAccessor {
 /**
   * Abstract class which reads three-column, tab-separated-value (TSV) text files
   * where 1st column is the name string, 2nd column is the species, and 3rd column is the ID string.
-  * Some of our knowledge bases follow this pattern and can simply extend this class.
+  * Several of our knowledge bases follow this pattern and can simply extend this class.
   */
-abstract class AzNameSpeciesIdKBAccessor extends ExternalKBAccessor {
+abstract class AzNameSpeciesIdKBAccessor extends SpeciatedKBAccessor {
   protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
 
   override def getLookupKey (mention:Mention): String = {
@@ -64,7 +64,21 @@ abstract class AzNameSpeciesIdKBAccessor extends ExternalKBAccessor {
 
   override def resolve (mention:Mention): Map[String,String] = {
     val key = getLookupKey(mention)         // make a key from the mention
-    theKB.getOrElseUpdate(key, Map.empty)   // lookup the key
+    theKB.getOrElse(key, Map.empty)         // return properties map or signal lookup failure
+  }
+
+  override def resolveBySpecies (mention:Mention, species:Set[String]): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val entry = theKB.get(key)              // look for existing entry
+    if (entry.isDefined) {                  // if an entry is found
+      val propsMap = entry.get              // get the properties map
+      if (species.contains(propsMap.getOrElse("species",""))) // if present and a desired species
+        return propsMap                     // return the properties map
+      else
+        return Map.empty                    // else signal lookup failure
+    }
+    else                                    // else entry not found
+      return Map.empty                      // so signal lookup failure
   }
 
   protected def readAndFillKB (kbResourcePath:String) = {
@@ -168,7 +182,7 @@ class AzTissueTypeKBAccessor extends AzNameIdKBAccessor {
 
 
 /** KB accessor implementation which always resolves each mention with a local, fake ID. */
-class AzFailsafeKBAccessor extends ExternalKBAccessor {
+class AzFailsafeKBAccessor extends SpeciatedKBAccessor {
   def baseURI = "http://edu.arizona.sista.odin/uazid/"
   def namespace = "uazid"
   def resourceID = "MIR:00000000"           // mock MIRIAM registration number
@@ -177,8 +191,13 @@ class AzFailsafeKBAccessor extends ExternalKBAccessor {
   private val seenIt = scala.collection.mutable.Map[String, Map[String,String]]()
 
   override def resolve (mention:Mention): Map[String,String] = {
-    val key = getLookupKey(mention)
-    seenIt.getOrElseUpdate(key, newResolution(key))
+    val key = getLookupKey(mention)         // make a key from the mention
+    seenIt.getOrElseUpdate(key, newResolution(key))  // return existing entry or new one
+  }
+
+  // this override may not be strictly necessary since trait default is to use resolve anyway
+  override def resolveBySpecies (mention:Mention, species:Set[String]): Map[String,String] = {
+    return resolve(mention)                 // ignore species argument: irrelevant here
   }
 
   private def newResolution (key:String): Map[String,String] = {
