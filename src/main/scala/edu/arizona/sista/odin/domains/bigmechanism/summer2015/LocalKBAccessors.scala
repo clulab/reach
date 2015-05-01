@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collections of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Update to use speciated KB accessors.
+  *   Last Modified: All classes must use same resolution method: speciated KB accessors.
   */
 
 /**
@@ -16,7 +16,7 @@ import edu.arizona.sista.odin.extern.inward._
   * where the first column is the name string and the second is the ID string.
   * Several of our knowledge bases follow this pattern and can simply extend this class.
   */
-abstract class AzNameIdKBAccessor extends ExternalKBAccessor {
+abstract class AzNameIdKBAccessor extends SpeciatedKBAccessor {
   protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
 
   override def getLookupKey (mention:Mention): String = {
@@ -27,6 +27,8 @@ abstract class AzNameIdKBAccessor extends ExternalKBAccessor {
     val key = getLookupKey(mention)         // make a key from the mention
     theKB.getOrElse(key, Map.empty)         // return properties map or signal lookup failure
   }
+
+  // override of resolveBySpecies not necessary since trait default is to use resolve anyway
 
   protected def readAndFillKB (kbResourcePath:String) = {
     val source: Source = LocalKBUtils.sourceFromResource(kbResourcePath)
@@ -195,10 +197,11 @@ class AzFailsafeKBAccessor extends SpeciatedKBAccessor {
     seenIt.getOrElseUpdate(key, newResolution(key))  // return existing entry or new one
   }
 
-  // this override may not be strictly necessary since trait default is to use resolve anyway
-  override def resolveBySpecies (mention:Mention, species:Set[String]): Map[String,String] = {
-    return resolve(mention)                 // ignore species argument: irrelevant here
-  }
+  // override of resolveBySpecies not necessary since trait default is to use resolve anyway
+
+  // override def resolveBySpecies (mention:Mention, species:Set[String]): Map[String,String] = {
+  //   return resolve(mention)                 // ignore species argument: irrelevant here
+  // }
 
   private def newResolution (key:String): Map[String,String] = {
     return Map(

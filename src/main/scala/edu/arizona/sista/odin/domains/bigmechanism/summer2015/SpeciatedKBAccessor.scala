@@ -6,7 +6,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * Trait for accessing species-specific information from external knowledge bases.
   *   Written by Tom Hicks. 5/1/2015.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Correct default action for resolve by species.
   */
 trait SpeciatedKBAccessor extends ExternalKBAccessor {
 
@@ -25,7 +25,7 @@ trait SpeciatedKBAccessor extends ExternalKBAccessor {
     * NB: Default method ignores species argument and resolves to any species.
     */
   def resolveBySpecies (mention:Mention, species:Set[String]): Map[String,String] = {
-    return super.resolve(mention)           // ignore species argument: any species accepted
+    return resolve(mention)                 // ignore species argument: any species accepted
   }
 
 }
