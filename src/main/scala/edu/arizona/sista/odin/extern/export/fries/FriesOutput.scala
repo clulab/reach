@@ -17,7 +17,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Begin JSON output.
+  *   Last Modified: Tweak JSON write method.
   */
 class FriesOutput {
   type MuteMap = scala.collection.mutable.HashMap[String, Any]
@@ -58,7 +58,8 @@ class FriesOutput {
   //
   def writeJsonToFile (fos:FileOutputStream) = {
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(fos)))
-    out.println(Serialization.write(fries))
+    Serialization.writePretty(fries, out)
+    out.println()                           // add final newline which serialization omits
     out.flush()
     out.close()
   }
