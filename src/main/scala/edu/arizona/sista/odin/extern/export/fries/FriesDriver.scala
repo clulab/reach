@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level test driver for Fries output development.
   *   Author: by Tom Hicks. 4/30/2015.
-  *   Last Modified: Initial port to reach.
+  *   Last Modified: Change output file extension.
   */
 object FriesDriver extends App {
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
@@ -58,7 +58,7 @@ object FriesDriver extends App {
   }
 
   def processPaper (paper: String, asStrings:Boolean=false) = {
-    val ext = if (asStrings) ".txt" else ".rdf"
+    val ext = if (asStrings) ".txt" else ".json"
     val outName = mkOutputName(paper, ext)
     val outFile = new FileOutputStream(new File(outName))
     val inFile = s"$PapersDir/$paper"
