@@ -59,7 +59,7 @@ object RunSystem extends App {
   } {
     val name = s"${entry.name}_${entry.chunkId}"
     println(s"working on $name ...")
-    val doc = proc.annotate(entry.text)
+    val doc = proc.annotate(entry.text, keepText = true)
     doc.id = Some(name)
     val mentions = engine.extractFrom(doc)
     val lines = mentions.flatMap(mentionToStrings)
