@@ -17,10 +17,11 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Tweak JSON write method.
+  *   Last Modified: Modify output structure to list of index cards.
   */
 class FriesOutput {
   type MuteMap = scala.collection.mutable.HashMap[String, Any]
+  type MuteList = scala.collection.mutable.MutableList[MuteMap]  // has O(c) append
 
   // Constants:
   val MapsToPhysicalEntity = Set("Gene_or_gene_product", "Protein",
@@ -35,12 +36,7 @@ class FriesOutput {
   protected val mentionMgr = new MentionManager()
 
   // the map containing value for FRIES output
-  protected var fries:MuteMap = new MuteMap
-  fries("reading_started") = Now
-  fries("reading_ended") = Now
-  fries("submitter") = "UAZ"
-  fries("reader_type") = "machine"
-  fries("extracted_information") = new MuteMap
+  protected val fries:MuteMap = new MuteMap
 
   //
   // Public API:
@@ -48,7 +44,14 @@ class FriesOutput {
 
   /** Output a JSON object representing the FRIES output for the given mentions. */
   def toJSON (mentions:Seq[Mention], doc:Document, fos:FileOutputStream) = {
-    fries("pmc_id") = doc.id.getOrElse("DOC-ID")
+    val cards = new MuteList
+    // TODO: filter mentions
+    mentions.foreach { m =>
+      val card = beginNewCard(doc)
+      // TODO: process current mention, add data to card
+      cards += card
+    }
+    fries("cards") = cards
     writeJsonToFile(fos)
   }
 
@@ -56,6 +59,20 @@ class FriesOutput {
   //
   // Private Methods
   //
+
+  /** Return a new index card (map) initialized with the repeated document information. */
+  def beginNewCard (doc:Document): MuteMap = {
+    val card:MuteMap = new MuteMap
+    card("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
+    card("reading_started") = Now
+    card("reading_ended") = Now
+    card("submitter") = "UAZ"
+    card("reader_type") = "machine"
+    card("extracted_information") = new MuteMap
+    return card
+  }
+
+  /** Convert the entire output data structure to JSON and write it to the given file. */
   def writeJsonToFile (fos:FileOutputStream) = {
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(fos)))
     Serialization.writePretty(fries, out)
