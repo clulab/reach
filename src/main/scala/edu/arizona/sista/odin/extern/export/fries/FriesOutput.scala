@@ -17,7 +17,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Add preliminary event filter.
+  *   Last Modified: Add neg info field.
   */
 class FriesOutput {
   type MuteMap = scala.collection.mutable.HashMap[String, Any]
@@ -69,7 +69,9 @@ class FriesOutput {
     card("reading_ended") = Now
     card("submitter") = "UAZ"
     card("reader_type") = "machine"
-    card("extracted_information") = new MuteMap
+    val extracted = new MuteMap
+    extracted("negative_information") = false
+    card("extracted_information") = extracted
     return card
   }
 
