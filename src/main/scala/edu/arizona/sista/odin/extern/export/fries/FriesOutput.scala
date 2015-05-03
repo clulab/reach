@@ -17,7 +17,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Modify output structure to list of index cards.
+  *   Last Modified: Add preliminary event filter.
   */
 class FriesOutput {
   type MuteMap = scala.collection.mutable.HashMap[String, Any]
@@ -44,9 +44,10 @@ class FriesOutput {
 
   /** Output a JSON object representing the FRIES output for the given mentions. */
   def toJSON (mentions:Seq[Mention], doc:Document, fos:FileOutputStream) = {
+    val eventMentions = mentions.filter(_.isInstanceOf[EventMention])
+    // TODO: filter regulation mentions
     val cards = new MuteList
-    // TODO: filter mentions
-    mentions.foreach { m =>
+    eventMentions.foreach { m =>
       val card = beginNewCard(doc)
       // TODO: process current mention, add data to card
       cards += card
