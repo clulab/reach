@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp
 import java.io.File
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
-import org.apache.commons.io.FileUtils
+import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.odin._
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.Ruler.readRules
@@ -52,18 +52,22 @@ object RunSystem extends App {
     config.getBoolean("nxml2fries.removeCitations"),
     encoding)
 
-  for {
-    file <- nxmlDir.listFiles
-    if file.getName.endsWith(".nxml")
-    entry <- nxml2fries.extractEntries(file).par  // process sections in parallel
-  } {
-    val name = s"${entry.name}_${entry.chunkId}"
-    println(s"working on $name ...")
-    val doc = proc.annotate(entry.text)
-    doc.id = Some(name)
-    val mentions = engine.extractFrom(doc)
-    val lines = mentions.flatMap(mentionToStrings)
-    val outFile = new File(friesDir, s"${name}.txt")
+  // process papers in parallel
+  for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
+    val paperId = FilenameUtils.removeExtension(file.getName)
+
+    // process individual sections and collect all mentions
+    val paperMentions = nxml2fries.extractEntries(file) flatMap { entry =>
+      val name = s"${entry.name}_${entry.chunkId}"
+      println(s"working on $name ...")
+      val doc = proc.annotate(entry.text, keepText = true)
+      doc.id = Some(name)
+      engine.extractFrom(doc)
+    }
+
+    // dump all paper mentions to file
+    val lines = paperMentions.flatMap(mentionToStrings)
+    val outFile = new File(friesDir, s"$paperId.txt")
     FileUtils.writeLines(outFile, lines.asJavaCollection)
   }
 }
