@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level test driver for Fries output development.
   *   Author: by Tom Hicks. 4/30/2015.
-  *   Last Modified: Change output file extension.
+  *   Last Modified: Fake doc ID in document.
   */
 object FriesDriver extends App {
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
@@ -67,6 +67,7 @@ object FriesDriver extends App {
       case ser if ser.endsWith("ser") => docFromSerializedFile(inFile)
       case _ => processor.annotate(getText(inFile))
     }
+    doc.id = Some(paper)                    // fake document ID for now
 
     val mentions = extractor.extractFrom(doc)
     val sortedMentions = mentions.sortBy(m => (m.sentence, m.start)) // sort by sentence, start idx
