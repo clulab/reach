@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Use better type alias names. Redefine root events.
+  *   Last Modified: Memoize only root children. Begin content for Binding.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -53,13 +53,15 @@ class FriesOutput {
   /** Output a JSON object representing the FRIES output for the given mentions. */
   def toJSON (allMentions:Seq[Mention], outFile:File) = {
     val mentions = allMentions.filter(_.isInstanceOf[EventMention])
-    val rootMentions = memoizeRootMentions(mentions)
-    // showMemoization(rootMentions)
+    val rootChildren = memoizeRootChildren(mentions)
+    // showMemoization(rootChildren)
     val cards = new CardList
     mentions.foreach { mention =>
-      val card = beginNewCard(mention)
-      // TODO: process current mention, add data to card
-      cards += card
+      if (!rootChildren.contains(mention)) {
+        val card = beginNewCard(mention)
+        doMention(mention, card)
+        cards += card
+      }
     }
     fries("cards") = cards
     writeJsonToFile(fries, outFile)
@@ -73,7 +75,7 @@ class FriesOutput {
   /** Return a new index card (map) initialized with the (repeated) document information. */
   private def beginNewCard (mention:Mention): PropMap = {
     val doc:Document = mention.document
-    val card:PropMap = new PropMap
+    val card = new PropMap
     card("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
     card("reading_started") = Now
     card("reading_ended") = Now
@@ -86,27 +88,82 @@ class FriesOutput {
   }
 
 
+  /** Process the given mention, adding its information to the given card. */
+  private def doMention (mention:Mention, card:PropMap) = {
+    mention.label match {                   // dispatch on mention type
+      case "Acetylation" =>
+      case "Binding" => doBinding(mention, card)
+      case "Degradation" =>
+      case "Exchange" =>
+      case "Expression" =>
+      case "Farnesylation" =>
+      case "Glycosylation" =>
+      case "Hydrolysis" =>
+      case "Hydroxylation" =>
+      case "Methylation" =>
+      case "Negative_regulation" =>
+      case "Phosphorylation" =>
+      case "Positive_regulation" =>
+      case "Ribosylation" =>
+      case "Sumoylation" =>
+      case "Translation" =>
+      case "Transcription" =>
+      case "Transport" =>
+      case "Ubiquitination" =>
+      case _ => ()
+    }
+  }
+
+  private def doBinding (mention:Mention, card:PropMap) = {
+    val themes = mentionMgr.themeArgs(mention).get
+    if (!themes.isEmpty) {
+      val extracted:PropMap = card.apply("extracted_information").asInstanceOf[PropMap]
+      extracted("interaction_type") = "binds"
+      extracted("participant_a") = makeParticipantA(themes.head, card)
+      extracted("participant_b") = makeParticipantList(themes.tail, card)
+      extracted("participant_a_site") = null // TODO: extract site if present
+      extracted("participant_b_site") = null // TODO: extract site if present
+    }
+  }
+
+  // TODO: process general text bound mention
+  private def makeParticipantA (mention:Mention, card:PropMap): PropMap = {
+    val part = new PropMap
+    part("entity_type") = "protein"
+    part("entity_text") = mention.text
+    val ns = mention.xref.map(_.namespace).getOrElse("")
+    val id = mention.xref.map(_.id).getOrElse("")
+    part("identifier") = s"${ns}:${id}"
+    return part
+  }
+
+  private def makeParticipantList (mentions:Seq[Mention], card:PropMap): Seq[PropMap] = {
+    return null                             // TODO: IMPLEMENT
+  }
+
+
   /** Remember all mentions reachable from the forest of root event mentions. */
-  private def memoizeRootMentions (mentions:Seq[Mention]): Memoized = {
+  private def memoizeRootChildren (mentions:Seq[Mention]): Memoized = {
     val memoized = new Memoized
-    mentions.foreach { mention => memoizeRootMentions(mention, memoized) }
+    mentions.filter(m => RootEvents.contains(m.label)).foreach{ mention =>
+      for (mArg <- mention.arguments.values.flatten)
+        memoizeRootChildren(mArg, memoized)
+    }
     return memoized
   }
 
-  /** Remember all mentions reachable from the given root mention. */
-  private def memoizeRootMentions (mention:Mention, memoized:Memoized): Memoized = {
-    if (RootEvents.contains(mention.label)) {
-      memoized += mention
-      for (mArg <- mention.arguments.values.flatten)
-        memoizeRootMentions(mArg, memoized)
-    }
+  /** Remember all descendant mentions reachable from the given mention. */
+  private def memoizeRootChildren (child:Mention, memoized:Memoized): Memoized = {
+    memoized += child                              // memoize this child
+    for (mArg <- child.arguments.values.flatten)   // do all descendants
+      memoizeRootChildren(mArg, memoized)
     return memoized
   }
 
 
   /** Print a textual representation of the memoized root mentions. REMOVE LATER? */
-  private def showMemoization (rootMentions:Memoized) = {
-    val sortedMentions = rootMentions.toSeq.sortBy(m => (m.sentence, m.start))
+  private def showMemoization (rootChildren:Memoized) = {
+    val sortedMentions = rootChildren.toSeq.sortBy(m => (m.sentence, m.start))
     sortedMentions.foreach { sm => mentionMgr.mentionToStrings(sm).foreach{println} }
   }
 
