@@ -4,8 +4,9 @@ import java.io._
 import java.util.Date
 import edu.arizona.sista.utils.DateUtils
 
-import scala.collection.mutable.MutableList
 import scala.collection.mutable.Map
+import scala.collection.mutable.MutableList
+import scala.collection.mutable.Set
 
 import org.json4s._
 import org.json4s.native.Serialization
@@ -17,19 +18,24 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Add neg info field.
+  *   Last Modified: Redo file handling. Memoize root mentions.
   */
 class FriesOutput {
-  type MuteMap = scala.collection.mutable.HashMap[String, Any]
+  type Memoized = scala.collection.mutable.HashSet[Mention]
+  type MuteMap  = scala.collection.mutable.HashMap[String, Any]
   type MuteList = scala.collection.mutable.MutableList[MuteMap]  // has O(c) append
 
   // Constants:
   val MapsToPhysicalEntity = Set("Gene_or_gene_product", "Protein",
                                  "Protein_with_site", "Simple_chemical")
   val Now = DateUtils.formatUTC(new Date())
+  val RootEvents = Set(
+    "Acetylation", "Binding", "Farnesylation", "Glycosylation",
+    "Hydrolysis", "Hydroxylation", "Methylation", "Negative_regulation",
+    "Phosphorylation", "Positive_regulation", "Ribosylation", "Sumoylation",
+    "Transport", "Ubiquitination")
 
-  // used for json output serialization
-//  implicit val formats = native.Serialization.formats(NoTypeHints)
+  // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
 
   // create mention manager and cache
@@ -38,22 +44,29 @@ class FriesOutput {
   // the map containing value for FRIES output
   protected val fries:MuteMap = new MuteMap
 
+
   //
   // Public API:
   //
 
   /** Output a JSON object representing the FRIES output for the given mentions. */
-  def toJSON (mentions:Seq[Mention], doc:Document, fos:FileOutputStream) = {
-    val eventMentions = mentions.filter(_.isInstanceOf[EventMention])
-    // TODO: filter regulation mentions
+  def toJSON (allMentions:Seq[Mention], doc:Document, outFile:File) = {
+    val mentions = allMentions.filter(_.isInstanceOf[EventMention])
+    val rootMentions = memoizeRootMentions(mentions)
+    // showMemoization(rootMentions)           // REMOVE LATER
     val cards = new MuteList
-    eventMentions.foreach { m =>
+    mentions.foreach { m =>
       val card = beginNewCard(doc)
       // TODO: process current mention, add data to card
       cards += card
     }
     fries("cards") = cards
-    writeJsonToFile(fos)
+    writeJsonToFile(fries, outFile)
+  }
+
+  private def showMemoization (rootMentions:Memoized) = {  // REMOVE LATER?
+    val sortedMentions = rootMentions.toSeq.sortBy(m => (m.sentence, m.start))
+    sortedMentions.foreach { sm => mentionMgr.mentionToStrings(sm).foreach{println} }
   }
 
 
@@ -62,7 +75,7 @@ class FriesOutput {
   //
 
   /** Return a new index card (map) initialized with the repeated document information. */
-  def beginNewCard (doc:Document): MuteMap = {
+  private def beginNewCard (doc:Document): MuteMap = {
     val card:MuteMap = new MuteMap
     card("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
     card("reading_started") = Now
@@ -75,9 +88,28 @@ class FriesOutput {
     return card
   }
 
+
+  /** Remember all mentions reachable from the forest of root event mentions. */
+  private def memoizeRootMentions (mentions:Seq[Mention]): Memoized = {
+    val memoized = new Memoized
+    mentions.foreach { mention => memoizeRootMentions(mention, memoized) }
+    return memoized
+  }
+
+  /** Remember all mentions reachable from the given root mention. */
+  private def memoizeRootMentions (mention:Mention, memoized:Memoized): Memoized = {
+    if (RootEvents.contains(mention.label)) {
+      memoized += mention
+      for (mArg <- mention.arguments.values.flatten)
+        memoizeRootMentions(mArg, memoized)
+    }
+    return memoized
+  }
+
+
   /** Convert the entire output data structure to JSON and write it to the given file. */
-  def writeJsonToFile (fos:FileOutputStream) = {
-    val out:PrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(fos)))
+  private def writeJsonToFile (fries:MuteMap, outFile:File) = {
+    val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     Serialization.writePretty(fries, out)
     out.println()                           // add final newline which serialization omits
     out.flush()
@@ -95,5 +127,4 @@ object EntityType extends Enumeration {
 // Hydrolysis
 // Phosphorylation
 // Positive_regulation
-// Protein_with_site
 // Transport
