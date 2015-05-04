@@ -5,7 +5,12 @@ import scala.sys.process._
 import scala.collection.JavaConverters._
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 
-class Nxml2Fries(val executable: String, val removeCitations: Boolean, val encoding: String) {
+class Nxml2Fries(
+    val executable: String,
+    val removeCitations: Boolean,
+    val ignoreSections: Set[String],
+    val encoding: String
+) {
   import Nxml2Fries._
 
   def extractEntries(input: File): Seq[Entry] = {
@@ -20,9 +25,10 @@ class Nxml2Fries(val executable: String, val removeCitations: Boolean, val encod
       // get document name
       val name = FilenameUtils.removeExtension(input.getName)
       val tsvFile = new File(FilenameUtils.removeExtension(input.getCanonicalPath) + ".tsv")
-      for (line <- FileUtils.readLines(tsvFile, encoding).asScala) yield {
+      FileUtils.readLines(tsvFile, encoding).asScala.flatMap { line =>
         val fields = line.split('\t')
-        Entry(name, fields(0), fields(1), fields(2), fields(3).toInt == 1, fields(4))
+        val entry = Entry(name, fields(0), fields(1), fields(2), fields(3).toInt == 1, fields(4))
+        if (ignoreSections contains entry.sectionName) None else Some(entry)
       }
     } else sys.error("something went wrong when running nxml2fries")
   }

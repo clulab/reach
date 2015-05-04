@@ -50,6 +50,7 @@ object RunSystem extends App {
   val nxml2fries = new Nxml2Fries(
     config.getString("nxml2fries.executable"),
     config.getBoolean("nxml2fries.removeCitations"),
+    config.getStringList("nxml2fries.ignoreSections").asScala.toSet,
     encoding)
 
   // process papers in parallel
