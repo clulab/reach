@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level test driver for Fries output development.
   *   Author: by Tom Hicks. 4/30/2015.
-  *   Last Modified: Redo file handling. Rewrite flow more like bionlp.
+  *   Last Modified: Update for change of main signature to omit document object.
   */
 object FriesDriver extends App {
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
@@ -75,13 +75,13 @@ object FriesDriver extends App {
     val mentions = engine.extractFrom(doc)
     val sortedMentions = mentions.sortBy(m => (m.sentence, m.start)) // sort by sentence, start idx
     if (asStrings)
-      outputEventMentions(sortedMentions, doc, outFile)
+      outputEventMentions(sortedMentions, outFile)
     else
-      outputFries(sortedMentions, doc, outFile)
+      outputFries(sortedMentions, outFile)
   }
 
   /** Output string representations for the given sequence of mentions. */
-  def outputAllMentions (mentions:Seq[Mention], doc:Document, outFile:File) = {
+  def outputAllMentions (mentions:Seq[Mention], outFile:File) = {
     val out = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     val menMgr = new MentionManager()
     mentions.foreach { m =>
@@ -92,13 +92,13 @@ object FriesDriver extends App {
   }
 
   /** Output a FRIES representation for the given sequence of mentions. */
-  def outputFries (mentions:Seq[Mention], doc:Document, outFile:File) = {
+  def outputFries (mentions:Seq[Mention], outFile:File) = {
     val frier = new FriesOutput()
-    frier.toJSON(mentions, doc, outFile)
+    frier.toJSON(mentions, outFile)
   }
 
   /** Output string representations for event mentions in the given sequence. */
-  def outputEventMentions (mentions:Seq[Mention], doc:Document, outFile:File) = {
+  def outputEventMentions (mentions:Seq[Mention], outFile:File) = {
     val menMgr = new MentionManager()
     menMgr.outputSelectedMentions("Event", mentions, outFile)
   }

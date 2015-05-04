@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Redo file handling. Memoize root mentions.
+  *   Last Modified: Change main signature to omit document object.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -50,13 +50,13 @@ class FriesOutput {
   //
 
   /** Output a JSON object representing the FRIES output for the given mentions. */
-  def toJSON (allMentions:Seq[Mention], doc:Document, outFile:File) = {
+  def toJSON (allMentions:Seq[Mention], outFile:File) = {
     val mentions = allMentions.filter(_.isInstanceOf[EventMention])
     val rootMentions = memoizeRootMentions(mentions)
-    // showMemoization(rootMentions)           // REMOVE LATER
+    // showMemoization(rootMentions)
     val cards = new MuteList
-    mentions.foreach { m =>
-      val card = beginNewCard(doc)
+    mentions.foreach { mention =>
+      val card = beginNewCard(mention)
       // TODO: process current mention, add data to card
       cards += card
     }
@@ -64,18 +64,14 @@ class FriesOutput {
     writeJsonToFile(fries, outFile)
   }
 
-  private def showMemoization (rootMentions:Memoized) = {  // REMOVE LATER?
-    val sortedMentions = rootMentions.toSeq.sortBy(m => (m.sentence, m.start))
-    sortedMentions.foreach { sm => mentionMgr.mentionToStrings(sm).foreach{println} }
-  }
-
 
   //
   // Private Methods
   //
 
-  /** Return a new index card (map) initialized with the repeated document information. */
-  private def beginNewCard (doc:Document): MuteMap = {
+  /** Return a new index card (map) initialized with the (repeated) document information. */
+  private def beginNewCard (mention:Mention): MuteMap = {
+    val doc:Document = mention.document
     val card:MuteMap = new MuteMap
     card("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
     card("reading_started") = Now
@@ -104,6 +100,13 @@ class FriesOutput {
         memoizeRootMentions(mArg, memoized)
     }
     return memoized
+  }
+
+
+  /** Print a textual representation of the memoized root mentions. REMOVE LATER? */
+  private def showMemoization (rootMentions:Memoized) = {
+    val sortedMentions = rootMentions.toSeq.sortBy(m => (m.sentence, m.start))
+    sortedMentions.foreach { sm => mentionMgr.mentionToStrings(sm).foreach{println} }
   }
 
 
