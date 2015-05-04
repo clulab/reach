@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Memoize only root children. Begin content for Binding.
+  *   Last Modified: Add JSON for binding arguments, evidence field, and function doc strings.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -31,8 +31,7 @@ class FriesOutput {
                       "Methylation", "Negative_regulation", "Phosphorylation",
                       "Positive_regulation", "Ribosylation", "Sumoylation",
                       "Transport", "Ubiquitination")
-  val MapsToPhysicalEntity = Set("Gene_or_gene_product", "Protein",
-                                 "Protein_with_site", "Simple_chemical")
+  val AssumedProteins = Set("Gene_or_gene_product", "Protein", "Protein_with_site")
   val Now = DateUtils.formatUTC(new Date())
   val RootEvents = Set("Negative_regulation", "Positive_regulation")
 
@@ -84,11 +83,12 @@ class FriesOutput {
     val extracted = new PropMap
     extracted("negative_information") = false
     card("extracted_information") = extracted
+    card("evidence") = mention.text
     return card
   }
 
 
-  /** Process the given mention, adding its information to the given card. */
+  /** Dispatch on and process the given mention, adding its information to the given card. */
   private def doMention (mention:Mention, card:PropMap) = {
     mention.label match {                   // dispatch on mention type
       case "Acetylation" =>
@@ -114,22 +114,39 @@ class FriesOutput {
     }
   }
 
+  /** Add properties to the given card for the given binding mention. */
   private def doBinding (mention:Mention, card:PropMap) = {
     val themes = mentionMgr.themeArgs(mention).get
     if (!themes.isEmpty) {
       val extracted:PropMap = card.apply("extracted_information").asInstanceOf[PropMap]
       extracted("interaction_type") = "binds"
-      extracted("participant_a") = makeParticipantA(themes.head, card)
-      extracted("participant_b") = makeParticipantList(themes.tail, card)
+      extracted("participant_a") = themes.head match {
+        case mention:TextBoundMention => doTextBoundMention(mention)
+        case mention:RelationMention => doProteinWithSite(mention)
+        case _ => None
+      }
+      extracted("participant_b") = themes.tail.size match {
+        case 0 => null
+        case 1 => doTextBoundMention(themes.tail.head)
+        case _ => makeParticipantList(themes.tail, card)
+      }
       extracted("participant_a_site") = null // TODO: extract site if present
       extracted("participant_b_site") = null // TODO: extract site if present
     }
   }
 
-  // TODO: process general text bound mention
-  private def makeParticipantA (mention:Mention, card:PropMap): PropMap = {
+  /** Return a properties map for the given relation mention. */
+  private def doProteinWithSite (mention:Mention): PropMap = {
+    return new PropMap                      // TODO: IMPLEMENT
+  }
+
+  /** Return a properties map for the given single text bound mention. */
+  private def doTextBoundMention (mention:Mention, context:String="protein"): PropMap = {
     val part = new PropMap
-    part("entity_type") = "protein"
+    part("entity_type") =
+      if (AssumedProteins.contains(mention.label)) context
+      else if (mention.label == "Simple_chemical") "chemical"
+      else "BAD_TEXT_MENTION_LABEL"
     part("entity_text") = mention.text
     val ns = mention.xref.map(_.namespace).getOrElse("")
     val id = mention.xref.map(_.id).getOrElse("")
@@ -137,10 +154,10 @@ class FriesOutput {
     return part
   }
 
+  /** Return the given list of mentions as a list of properties maps. */
   private def makeParticipantList (mentions:Seq[Mention], card:PropMap): Seq[PropMap] = {
-    return null                             // TODO: IMPLEMENT
+    return mentions.map(m => doTextBoundMention(m))
   }
-
 
   /** Remember all mentions reachable from the forest of root event mentions. */
   private def memoizeRootChildren (mentions:Seq[Mention]): Memoized = {
@@ -159,7 +176,6 @@ class FriesOutput {
       memoizeRootChildren(mArg, memoized)
     return memoized
   }
-
 
   /** Print a textual representation of the memoized root mentions. REMOVE LATER? */
   private def showMemoization (rootChildren:Memoized) = {
