@@ -13,7 +13,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Initial port to reach.
+  *   Last Modified: Redo file handling. Show xRefs in textual output.
   */
 class MentionManager {
   // Constants:
@@ -67,8 +67,8 @@ class MentionManager {
     */
   def outputSelectedMentions (mentionType:String,
                               mentions:Seq[Mention],
-                              fos:FileOutputStream): Unit = {
-    val out:PrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(fos)))
+                              outFile:File): Unit = {
+    val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     mentions.filter(_.matches(mentionType)).foreach { mention =>
       mentionToStrings(mention).foreach { str => out.println(str) }
     }
@@ -120,6 +120,8 @@ class MentionManager {
       case mention: TextBoundMention =>
         mStrings += s"${indent}TextBoundMention: [S${mention.sentence}]: ${mention.label}"
         mStrings += s"${indent}text: ${mention.text}"
+        if (mention.isGrounded)
+          mStrings += s"${indent}xref: ${mention.xref.get}"
         if (level == 0) mStrings += ("=" * 80)
       case mention: EventMention =>
         mStrings += s"${indent}EventMention: [S${mention.sentence}]: ${mention.label}"
