@@ -56,6 +56,7 @@ object RunSystem extends App {
   val nxml2fries = new Nxml2Fries(
     config.getString("nxml2fries.executable"),
     config.getBoolean("nxml2fries.removeCitations"),
+    config.getStringList("nxml2fries.ignoreSections").asScala.toSet,
     encoding)
 
   // process papers in parallel
@@ -77,8 +78,8 @@ object RunSystem extends App {
       frier.toJSON(paperMentions, outFile)
     }
     else {                                  // assume text output
-      val outFile = new File(friesDir, s"$paperId.txt")
       val lines = paperMentions.flatMap(mentionToStrings)
+      val outFile = new File(friesDir, s"$paperId.txt")
       FileUtils.writeLines(outFile, lines.asJavaCollection)
     }
   }
