@@ -58,12 +58,13 @@ object RuleGenerator {
       }
       // Create a disjunct of the token based patterns for the N entities
       val entityRule = linesAsTokenConstraints
+        .distinct
         .sortBy(_.size)
         .reverse
         .mkString(" |\n    ")
 
       s"""
-       |- name: entity-rule-${f.getName}-$i
+       |- name: entity-rule-${f.getName}-${i+1}
        |  label: [BioChemicalEntity]
        |  priority: 1
        |  type: token
@@ -79,16 +80,22 @@ object RuleGenerator {
    * @param kbFile a kb File object
    */
   def kbToRuleFile(kbFile: File): Unit = {
+    println(s"processing ${kbFile.getName}...")
     val rules = mkRulesFromKBFile(kbFile)
     val fname =  s"${FilenameUtils.removeExtension(kbFile.getName)}.yml"
     val outFile = new File(s"src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/$fname")
     val bw = new BufferedWriter(new FileWriter(outFile))
+    //TODO: write timestamped header here
     bw.write(rules.mkString("\n"))
     bw.close()
+    println(s"$fname written to biogrammar!")
   }
 }
 
 object RuleWriter extends App {
-  val kbFile: File = new File(getClass.getResource("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/tissue-type.tsv").getPath)
-  RuleGenerator.kbToRuleFile(kbFile)
+  val kbFiles = new File("src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb")
+    .listFiles().filter(f => f.getName.endsWith("tsv") || f.getName.endsWith("gz")).par
+  kbFiles.foreach(RuleGenerator.kbToRuleFile)
+  //val kbFile: File = new File(getClass.getResource("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/tissue-type.tsv").getPath)
+  //RuleGenerator.kbToRuleFile(kbFile)
 }
