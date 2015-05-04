@@ -18,22 +18,23 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Change main signature to omit document object.
+  *   Last Modified: Use better type alias names. Redefine root events.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
-  type MuteMap  = scala.collection.mutable.HashMap[String, Any]
-  type MuteList = scala.collection.mutable.MutableList[MuteMap]  // has O(c) append
+  type PropMap  = scala.collection.mutable.HashMap[String, Any]
+  type CardList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // Constants:
+  val AllEvents = Set("Acetylation", "Binding", "Farnesylation",
+                      "Glycosylation", "Hydrolysis", "Hydroxylation",
+                      "Methylation", "Negative_regulation", "Phosphorylation",
+                      "Positive_regulation", "Ribosylation", "Sumoylation",
+                      "Transport", "Ubiquitination")
   val MapsToPhysicalEntity = Set("Gene_or_gene_product", "Protein",
                                  "Protein_with_site", "Simple_chemical")
   val Now = DateUtils.formatUTC(new Date())
-  val RootEvents = Set(
-    "Acetylation", "Binding", "Farnesylation", "Glycosylation",
-    "Hydrolysis", "Hydroxylation", "Methylation", "Negative_regulation",
-    "Phosphorylation", "Positive_regulation", "Ribosylation", "Sumoylation",
-    "Transport", "Ubiquitination")
+  val RootEvents = Set("Negative_regulation", "Positive_regulation")
 
   // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -41,8 +42,8 @@ class FriesOutput {
   // create mention manager and cache
   protected val mentionMgr = new MentionManager()
 
-  // the map containing value for FRIES output
-  protected val fries:MuteMap = new MuteMap
+  // the map containing values for FRIES output
+  protected val fries:PropMap = new PropMap
 
 
   //
@@ -54,7 +55,7 @@ class FriesOutput {
     val mentions = allMentions.filter(_.isInstanceOf[EventMention])
     val rootMentions = memoizeRootMentions(mentions)
     // showMemoization(rootMentions)
-    val cards = new MuteList
+    val cards = new CardList
     mentions.foreach { mention =>
       val card = beginNewCard(mention)
       // TODO: process current mention, add data to card
@@ -70,15 +71,15 @@ class FriesOutput {
   //
 
   /** Return a new index card (map) initialized with the (repeated) document information. */
-  private def beginNewCard (mention:Mention): MuteMap = {
+  private def beginNewCard (mention:Mention): PropMap = {
     val doc:Document = mention.document
-    val card:MuteMap = new MuteMap
+    val card:PropMap = new PropMap
     card("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
     card("reading_started") = Now
     card("reading_ended") = Now
     card("submitter") = "UAZ"
     card("reader_type") = "machine"
-    val extracted = new MuteMap
+    val extracted = new PropMap
     extracted("negative_information") = false
     card("extracted_information") = extracted
     return card
@@ -111,7 +112,7 @@ class FriesOutput {
 
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
-  private def writeJsonToFile (fries:MuteMap, outFile:File) = {
+  private def writeJsonToFile (fries:PropMap, outFile:File) = {
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     Serialization.writePretty(fries, out)
     out.println()                           // add final newline which serialization omits
@@ -121,6 +122,7 @@ class FriesOutput {
 }
 
 
+/** Enumeration of values that can appear in the EntityType field. */
 object EntityType extends Enumeration {
   type EntityType = Value
   val Protein, Chemical, Gene = Value
