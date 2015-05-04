@@ -11,7 +11,7 @@ import org.apache.commons.io.{ FileUtils, FilenameUtils }
  */
 
 // see http://stackoverflow.com/questions/17436549/uncompress-and-read-gzip-file-in-scala
-case class BufferedReaderIterator(reader: BufferedReader)
+case class BRI(reader: BufferedReader)
   extends Iterator[String] {
  override def hasNext() = reader.ready
  override def next() = reader.readLine()
@@ -19,12 +19,21 @@ case class BufferedReaderIterator(reader: BufferedReader)
 
 object FileReader {
 
+ /**
+  * Tests whether a File is a .gz file based on the extension
+  * @param f a File object
+  * @return true or false
+  */
  def isGZFile(f: File) = FilenameUtils.getExtension(f.toString) == "gz"
 
-
+ /**
+  * Turn a .gz File object into an Iterator
+  * @param gzf
+  * @return a line-by-line iterator
+  */
  def readGZFile(gzf: File):Iterator[String] = {
   val stream =
-   new BufferedReaderIterator(
+   new BRI(
     new BufferedReader(
      new InputStreamReader(
       new GZIPInputStream(
