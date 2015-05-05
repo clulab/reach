@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Add JSON for binding arguments, evidence field, and function doc strings.
+  *   Last Modified: Push binding participants to B, cause in A.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -92,7 +92,7 @@ class FriesOutput {
   private def doMention (mention:Mention, card:PropMap) = {
     mention.label match {                   // dispatch on mention type
       case "Acetylation" =>
-      case "Binding" => doBinding(mention, card)
+      case "Binding" => doBinding(mention, card, true)
       case "Degradation" =>
       case "Exchange" =>
       case "Expression" =>
@@ -115,23 +115,30 @@ class FriesOutput {
   }
 
   /** Add properties to the given card for the given binding mention. */
-  private def doBinding (mention:Mention, card:PropMap) = {
-    val themes = mentionMgr.themeArgs(mention).get
-    if (!themes.isEmpty) {
-      val extracted:PropMap = card.apply("extracted_information").asInstanceOf[PropMap]
+  private def doBinding (mention:Mention, card:PropMap, root:Boolean=false) = {
+    val themeArgs = mentionMgr.themeArgs(mention)
+    if (themeArgs.isDefined) {
+      val themes = themeArgs.get
+      val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
       extracted("interaction_type") = "binds"
-      extracted("participant_a") = themes.head match {
-        case mention:TextBoundMention => doTextBoundMention(mention)
-        case mention:RelationMention => doProteinWithSite(mention)
-        case _ => None
-      }
-      extracted("participant_b") = themes.tail.size match {
+      extracted("participant_b") = themes.size match {
         case 0 => null
-        case 1 => doTextBoundMention(themes.tail.head)
-        case _ => makeParticipantList(themes.tail, card)
+        case 1 => doTextBoundMention(themes.head)
+        case _ => makeParticipantList(themes)
       }
-      extracted("participant_a_site") = null // TODO: extract site if present
       extracted("participant_b_site") = null // TODO: extract site if present
+
+      val causes = mentionMgr.causeArgs(mention)
+      if (causes.isDefined) {                // check for cause
+        extracted("participant_a") = causes.get.head match {
+          case mention:TextBoundMention => doTextBoundMention(mention)
+          case mention:RelationMention => doProteinWithSite(mention)
+          case _ => None
+        }
+        extracted("participant_a_site") = null // TODO: extract site if present
+      }
+      else
+        extracted("participant_a") = null
     }
   }
 
@@ -155,7 +162,7 @@ class FriesOutput {
   }
 
   /** Return the given list of mentions as a list of properties maps. */
-  private def makeParticipantList (mentions:Seq[Mention], card:PropMap): Seq[PropMap] = {
+  private def makeParticipantList (mentions:Seq[Mention]): Seq[PropMap] = {
     return mentions.map(m => doTextBoundMention(m))
   }
 
