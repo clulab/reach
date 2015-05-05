@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Redo binding using options.
+  *   Last Modified: Add phosphorylation.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -102,7 +102,7 @@ class FriesOutput {
       case "Hydroxylation" =>
       case "Methylation" =>
       case "Negative_regulation" =>
-      case "Phosphorylation" =>
+      case "Phosphorylation" => doPhosphorylation(mention, card, true)
       case "Positive_regulation" =>
       case "Ribosylation" =>
       case "Sumoylation" =>
@@ -128,7 +128,7 @@ class FriesOutput {
       }
       extracted("participant_b_site") = null // TODO: extract site if present
 
-      val cause:Option[PropMap] = doCause(mention)
+      val cause:Option[PropMap] = getCause(mention)
       extracted("participant_a") = cause.orNull
       if (cause.isDefined)
         extracted("participant_a_site") = null // TODO: extract site if present
@@ -137,22 +137,38 @@ class FriesOutput {
     }
   }
 
-  /** Seek and process optional cause argument on the given mention. */
-  private def doCause (mention:Mention): Option[PropMap] = {
-    val causes = mentionMgr.causeArgs(mention)
-    if (causes.isDefined) {                 // if cause present
-      return causes.get.head match {
-        case mention:TextBoundMention => Option(doTextBoundMention(mention))
-        case mention:RelationMention => Option(doProteinWithSite(mention))
-        case _ => None
-      }
-    }
-    else None
-  }
 
   /** Return a properties map for the given relation mention. */
   private def doProteinWithSite (mention:Mention): PropMap = {
     return new PropMap                      // TODO: IMPLEMENT
+  }
+
+
+  /** Add properties to the given card for the given binding mention. */
+  private def doPhosphorylation (mention:Mention, card:PropMap, root:Boolean=false) = {
+    val themeArgs = mentionMgr.themeArgs(mention)
+    if (themeArgs.isDefined) {
+      val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
+      extracted("interaction_type") = "adds_modification"
+      val themes = themeArgs.get.map(doTextBoundMention(_))
+      extracted("participant_b") = themes.size match {
+        case 0 => null
+        case 1 => themes.head
+        case _ => themes
+      }
+
+      val cause = getCause(mention)
+      extracted("participant_a") = cause.orNull
+
+      val aMod = new PropMap
+      aMod("modification_type") = "phosphorylation"
+      val site = getSite(mention)
+      if (site.isDefined)
+        aMod("position") = site.get
+      val modList = new CardList
+      modList += aMod
+      extracted("modifications") = modList
+    }
   }
 
   /** Return a properties map for the given single text bound mention. */
@@ -169,6 +185,25 @@ class FriesOutput {
     return part
   }
 
+
+  /** Process optional cause argument on the given mention, returning a properties map. */
+  private def getCause (mention:Mention): Option[PropMap] = {
+    val causes = mentionMgr.causeArgs(mention)
+    if (causes.isDefined) {                 // if cause present
+      return causes.get.head match {
+        case cause:TextBoundMention => Option(doTextBoundMention(cause))
+        case cause:RelationMention => Option(doProteinWithSite(cause))
+        case _ => None
+      }
+    }
+    else None
+  }
+
+  /** Process optional site argument on the given mention, returning a site string option. */
+  private def getSite (mention:Mention): Option[String] = {
+    val sites = mentionMgr.siteArgs(mention)
+    return if (sites.isDefined) Some(sites.get.head.text) else None
+  }
 
   /** Remember all mentions reachable from the forest of root event mentions. */
   private def memoizeRootChildren (mentions:Seq[Mention]): Memoized = {
