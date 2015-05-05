@@ -13,7 +13,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Redo file handling. Show xRefs in textual output.
+  *   Last Modified: Add cause arguments extractor.
   */
 class MentionManager {
   // Constants:
@@ -51,6 +51,7 @@ class MentionManager {
   def namedArgument (mention:Mention, argName:String): Option[Seq[Mention]] = {
     mention.arguments.get(argName)
   }
+  def causeArgs       (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "cause")
   def controlledArgs  (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "controlled")
   def controllerArgs  (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "controller")
   def destinationArgs (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "destination")
