@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Cleanups.
+  *   Last Modified: Add transport/translocation.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -104,7 +104,7 @@ class FriesOutput {
       case "Sumoylation" => null
       case "Translation" => null
       case "Transcription" => null
-      case "Transport" => null
+      case "Transport" => doTranslocation(mention, true)
       case "Ubiquitination" => null
       case _ => null
     }
@@ -191,10 +191,29 @@ class FriesOutput {
       else if (mention.label == "Simple_chemical") "chemical"
       else "BAD_TEXT_MENTION_LABEL"
     part("entity_text") = mention.text
-    val ns = mention.xref.map(_.namespace).getOrElse("")
-    val id = mention.xref.map(_.id).getOrElse("")
-    part("identifier") = s"${ns}:${id}"
+    part("identifier") = mention.xref.map(_.printString).orNull
     return part
+  }
+
+
+  /** Return properties map for the given transport mention. */
+  private def doTranslocation (mention:Mention, root:Boolean=false): PropMap = {
+    val card = if (root) beginNewCard(mention) else new PropMap
+    val themeArgs = mentionMgr.themeArgs(mention)
+    if (themeArgs.isDefined) {
+      val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
+      extracted("interaction_type") = "translocates"
+      val themes = themeArgs.get.map(doTextBoundMention(_))
+      extracted("participant_b") = themes.size match {
+        case 0 => null
+        case 1 => themes.head
+        case _ => themes
+      }
+      extracted("participant_a") = null     // empty unless controller present
+      extracted("from_location") = getSourceLocation(mention).orNull
+      extracted("to_location") = getDestinationLocation(mention).orNull
+    }
+    return card
   }
 
 
@@ -204,6 +223,10 @@ class FriesOutput {
     return causeArgs.map(osm => doTextBoundMention(osm.head))
   }
 
+  /** Process optional destination argument on the given mention, returning a location string option. */
+  private def getDestinationLocation (mention:Mention): Option[String] = {
+    return getId(mentionMgr.destinationArgs(mention))
+  }
 
   /** Return a list of property maps of features extracted from the given mention.
     *  NB: currently only returning a list of 1 feature map.
@@ -226,10 +249,28 @@ class FriesOutput {
     return featureList
   }
 
+  /** Process the given mention argument, returning a ns:id string option for the first arg. */
+  private def getId (args:Option[Seq[Mention]]): Option[String] = {
+    if (args.isDefined)
+      return args.get.head.xref.map(_.id)
+    else return None
+  }
+
+  /** Process the given mention argument, returning a ns:id string option for the first arg. */
+  private def getNsId (args:Option[Seq[Mention]]): Option[String] = {
+    if (args.isDefined)
+      return args.get.head.xref.map(_.printString)
+    else return None
+  }
 
   /** Process optional site argument on the given mention, returning a site string option. */
   private def getSite (mention:Mention): Option[String] = {
     return getText(mentionMgr.siteArgs(mention))
+  }
+
+  /** Process optional source argument on the given mention, returning a location string option. */
+  private def getSourceLocation (mention:Mention): Option[String] = {
+    return getId(mentionMgr.sourceArgs(mention))
   }
 
   /** Process the given mention argument, returning a text string option for the first arg. */
