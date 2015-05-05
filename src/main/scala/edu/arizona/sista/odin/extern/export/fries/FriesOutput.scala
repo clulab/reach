@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Fix: restore null partA site.
+  *   Last Modified: Redo binding using options.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -118,30 +118,36 @@ class FriesOutput {
   private def doBinding (mention:Mention, card:PropMap, root:Boolean=false) = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
-      val themes = themeArgs.get
       val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
       extracted("interaction_type") = "binds"
+      val themes = themeArgs.get.map(doTextBoundMention(_))
       extracted("participant_b") = themes.size match {
         case 0 => null
-        case 1 => doTextBoundMention(themes.head)
-        case _ => makeParticipantList(themes)
+        case 1 => themes.head
+        case _ => themes
       }
       extracted("participant_b_site") = null // TODO: extract site if present
 
-      val causes = mentionMgr.causeArgs(mention)
-      if (causes.isDefined) {                // check for cause
-        extracted("participant_a") = causes.get.head match {
-          case mention:TextBoundMention => doTextBoundMention(mention)
-          case mention:RelationMention => doProteinWithSite(mention)
-          case _ => None
-        }
+      val cause:Option[PropMap] = doCause(mention)
+      extracted("participant_a") = cause.orNull
+      if (cause.isDefined)
         extracted("participant_a_site") = null // TODO: extract site if present
-      }
-      else {
-        extracted("participant_a") = null
+      else
         extracted("participant_a_site") = null
+    }
+  }
+
+  /** Seek and process optional cause argument on the given mention. */
+  private def doCause (mention:Mention): Option[PropMap] = {
+    val causes = mentionMgr.causeArgs(mention)
+    if (causes.isDefined) {                 // if cause present
+      return causes.get.head match {
+        case mention:TextBoundMention => Option(doTextBoundMention(mention))
+        case mention:RelationMention => Option(doProteinWithSite(mention))
+        case _ => None
       }
     }
+    else None
   }
 
   /** Return a properties map for the given relation mention. */
@@ -163,10 +169,6 @@ class FriesOutput {
     return part
   }
 
-  /** Return the given list of mentions as a list of properties maps. */
-  private def makeParticipantList (mentions:Seq[Mention]): Seq[PropMap] = {
-    return mentions.map(m => doTextBoundMention(m))
-  }
 
   /** Remember all mentions reachable from the forest of root event mentions. */
   private def memoizeRootChildren (mentions:Seq[Mention]): Memoized = {
