@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Add phosphorylation.
+  *   Last Modified: Add positive regulation.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -57,8 +57,7 @@ class FriesOutput {
     val cards = new CardList
     mentions.foreach { mention =>
       if (!rootChildren.contains(mention)) {
-        val card = beginNewCard(mention)
-        doMention(mention, card)
+        val card = doMention(mention)
         cards += card
       }
     }
@@ -87,35 +86,35 @@ class FriesOutput {
     return card
   }
 
-
-  /** Dispatch on and process the given mention, adding its information to the given card. */
-  private def doMention (mention:Mention, card:PropMap) = {
+  /** Dispatch on and process the given mention, returning its information in a properties map. */
+  private def doMention (mention:Mention): PropMap = {
     mention.label match {                   // dispatch on mention type
-      case "Acetylation" =>
-      case "Binding" => doBinding(mention, card, true)
-      case "Degradation" =>
-      case "Exchange" =>
-      case "Expression" =>
-      case "Farnesylation" =>
-      case "Glycosylation" =>
-      case "Hydrolysis" =>
-      case "Hydroxylation" =>
-      case "Methylation" =>
-      case "Negative_regulation" =>
-      case "Phosphorylation" => doPhosphorylation(mention, card, true)
-      case "Positive_regulation" =>
-      case "Ribosylation" =>
-      case "Sumoylation" =>
-      case "Translation" =>
-      case "Transcription" =>
-      case "Transport" =>
-      case "Ubiquitination" =>
-      case _ => ()
+      case "Acetylation" => null
+      case "Binding" => doBinding(mention, true)
+      case "Degradation" => null
+      case "Exchange" => null
+      case "Expression" => null
+      case "Farnesylation" => null
+      case "Glycosylation" => null
+      case "Hydrolysis" => null
+      case "Hydroxylation" => null
+      case "Methylation" => null
+      case "Negative_regulation" => null
+      case "Phosphorylation" => doPhosphorylation(mention, true)
+      case "Positive_regulation" => doPositiveRegulation(mention, true)
+      case "Ribosylation" => null
+      case "Sumoylation" => null
+      case "Translation" => null
+      case "Transcription" => null
+      case "Transport" => null
+      case "Ubiquitination" => null
+      case _ => null
     }
   }
 
-  /** Add properties to the given card for the given binding mention. */
-  private def doBinding (mention:Mention, card:PropMap, root:Boolean=false) = {
+  /** Return properties map for the given binding mention. */
+  private def doBinding (mention:Mention, root:Boolean=false): PropMap = {
+    val card = if (root) beginNewCard(mention) else new PropMap
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
@@ -135,6 +134,7 @@ class FriesOutput {
       else
         extracted("participant_a_site") = null
     }
+    return card
   }
 
 
@@ -144,8 +144,9 @@ class FriesOutput {
   }
 
 
-  /** Add properties to the given card for the given binding mention. */
-  private def doPhosphorylation (mention:Mention, card:PropMap, root:Boolean=false) = {
+  /** Return properties map for the given phosphorylation mention. */
+  private def doPhosphorylation (mention:Mention, root:Boolean=false): PropMap = {
+    val card = if (root) beginNewCard(mention) else new PropMap
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
@@ -162,14 +163,33 @@ class FriesOutput {
 
       val aMod = new PropMap
       aMod("modification_type") = "phosphorylation"
-      val site = getSite(mention)
-      if (site.isDefined)
-        aMod("position") = site.get
+      aMod("position") = getSite(mention).orNull
       val modList = new CardList
       modList += aMod
       extracted("modifications") = modList
     }
+    return card
   }
+
+  /** Return properties map for the given positive regulation mention. */
+  private def doPositiveRegulation (mention:Mention, root:Boolean=false): PropMap = {
+    val card = if (root) beginNewCard(mention) else new PropMap
+    val controllerArgs = mentionMgr.controllerArgs(mention)
+    val controlledArgs = mentionMgr.controlledArgs(mention)
+    if (controllerArgs.isDefined && controlledArgs.isDefined) {
+      val extracted:PropMap = card("extracted_information").asInstanceOf[PropMap]
+      extracted("interaction_type") = "increases_activity"
+      val controllerProps = doTextBoundMention(controllerArgs.get.head)
+      val controlled = controlledArgs.get.head
+      val themeArgs = mentionMgr.themeArgs(controlled)
+      val controlledProps = themeArgs.map(osm => doTextBoundMention(osm.head)).orElse(null)
+      controllerProps("features") = getFeatures(controlled)
+      extracted("participant_a") = controllerProps
+      extracted("participant_b") = controlledProps
+    }
+    return card
+  }
+
 
   /** Return a properties map for the given single text bound mention. */
   private def doTextBoundMention (mention:Mention, context:String="protein"): PropMap = {
@@ -199,13 +219,43 @@ class FriesOutput {
     else None
   }
 
+
+  /** Return a list of property maps of features extracted from the given mention.
+    *  NB: currently only returning a list of 1 feature map.
+    */
+  private def getFeatures (mention:Mention): CardList = {
+    val featureList = new CardList
+    val props = new PropMap
+    mention.label match {
+      case "Binding" => {
+        props("feature_type") = "binding"
+        props("bound_to") = getText(mentionMgr.themeArgs(mention))
+      }
+      // case "Mutation" => "mutant",          // TODO: handle mutation features?
+      case _ => {
+        props("feature_type") = "modification"
+        props("modification_type") = mention.label.toLowerCase
+      }
+    }
+    featureList += props
+    return featureList
+  }
+
+
   /** Process optional site argument on the given mention, returning a site string option. */
   private def getSite (mention:Mention): Option[String] = {
-    val sites = mentionMgr.siteArgs(mention)
-    return if (sites.isDefined) Some(sites.get.head.text) else None
+    return getText(mentionMgr.siteArgs(mention))
+    // val sites = mentionMgr.siteArgs(mention)
+    // return if (sites.isDefined) Some(sites.get.head.text) else None
+  }
+
+  /** Process the given mention argument, returning a text string option for the first arg. */
+  private def getText (args:Option[Seq[Mention]]): Option[String] = {
+    return if (args.isDefined) Some(args.get.head.text) else None
   }
 
   /** Remember all mentions reachable from the forest of root event mentions. */
+
   private def memoizeRootChildren (mentions:Seq[Mention]): Memoized = {
     val memoized = new Memoized
     mentions.filter(m => RootEvents.contains(m.label)).foreach{ mention =>
