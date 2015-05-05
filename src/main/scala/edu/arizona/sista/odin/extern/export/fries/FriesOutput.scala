@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Push binding participants to B, cause in A.
+  *   Last Modified: Fix: restore null partA site.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -137,8 +137,10 @@ class FriesOutput {
         }
         extracted("participant_a_site") = null // TODO: extract site if present
       }
-      else
+      else {
         extracted("participant_a") = null
+        extracted("participant_a_site") = null
+      }
     }
   }
 
