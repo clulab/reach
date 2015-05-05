@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output FRIES models.
   *   Written by Tom Hicks. 4/30/2015.
-  *   Last Modified: Add positive regulation.
+  *   Last Modified: Cleanups.
   */
 class FriesOutput {
   type Memoized = scala.collection.mutable.HashSet[Mention]
@@ -41,9 +41,6 @@ class FriesOutput {
   // create mention manager and cache
   protected val mentionMgr = new MentionManager()
 
-  // the map containing values for FRIES output
-  protected val fries:PropMap = new PropMap
-
 
   //
   // Public API:
@@ -51,6 +48,7 @@ class FriesOutput {
 
   /** Output a JSON object representing the FRIES output for the given mentions. */
   def toJSON (allMentions:Seq[Mention], outFile:File) = {
+    val fries:PropMap = new PropMap
     val mentions = allMentions.filter(_.isInstanceOf[EventMention])
     val rootChildren = memoizeRootChildren(mentions)
     // showMemoization(rootChildren)
@@ -125,22 +123,16 @@ class FriesOutput {
         case 1 => themes.head
         case _ => themes
       }
-      extracted("participant_b_site") = null // TODO: extract site if present
+      extracted("participant_b_site") = null // TODO: extract site when sites unbound
 
       val cause:Option[PropMap] = getCause(mention)
       extracted("participant_a") = cause.orNull
       if (cause.isDefined)
-        extracted("participant_a_site") = null // TODO: extract site if present
+        extracted("participant_a_site") = null // TODO: extract site when sites unbound
       else
         extracted("participant_a_site") = null
     }
     return card
-  }
-
-
-  /** Return a properties map for the given relation mention. */
-  private def doProteinWithSite (mention:Mention): PropMap = {
-    return new PropMap                      // TODO: IMPLEMENT
   }
 
 
@@ -208,15 +200,8 @@ class FriesOutput {
 
   /** Process optional cause argument on the given mention, returning a properties map. */
   private def getCause (mention:Mention): Option[PropMap] = {
-    val causes = mentionMgr.causeArgs(mention)
-    if (causes.isDefined) {                 // if cause present
-      return causes.get.head match {
-        case cause:TextBoundMention => Option(doTextBoundMention(cause))
-        case cause:RelationMention => Option(doProteinWithSite(cause))
-        case _ => None
-      }
-    }
-    else None
+    val causeArgs = mentionMgr.causeArgs(mention)
+    return causeArgs.map(osm => doTextBoundMention(osm.head))
   }
 
 
@@ -245,8 +230,6 @@ class FriesOutput {
   /** Process optional site argument on the given mention, returning a site string option. */
   private def getSite (mention:Mention): Option[String] = {
     return getText(mentionMgr.siteArgs(mention))
-    // val sites = mentionMgr.siteArgs(mention)
-    // return if (sites.isDefined) Some(sites.get.head.text) else None
   }
 
   /** Process the given mention argument, returning a text string option for the first arg. */
