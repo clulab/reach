@@ -1,6 +1,8 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
+import edu.arizona.sista.bionlp.reach.postprocessing.PostProcessor
+
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
@@ -41,9 +43,10 @@ object RunSystem extends App {
   println("initializing odin ...")
   val rules = readRules()
   val actions = new DarpaActions
+  val postprocessor = new PostProcessor
   val grounder = new LocalGrounder
   val coref = new Coref
-  val flow = grounder andThen coref
+  val flow = postprocessor andThen grounder andThen coref
   val engine = ExtractorEngine(rules, actions, flow.apply)
 
   println("initializing nxml2fries ...")
