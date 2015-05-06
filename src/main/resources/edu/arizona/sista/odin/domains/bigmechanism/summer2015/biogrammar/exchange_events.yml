@@ -4,7 +4,7 @@
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
 - name: exchange_1
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "RasGEFs bind to Ras and lower the transition energy for the nucleotide exchange of the bound GDP for the more abundant cytosolic GTP"
   pattern: |
@@ -16,7 +16,7 @@
 
 
 - name: exchange_1wrong
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "RasGEFs bind to Ras and lower the transition energy for the nucleotide exchange of the bound GDP for the more abundant cytosolic GTP"
   pattern: |
@@ -28,7 +28,7 @@
 
 
 - name: exchange_2
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "inactive cytosolic Sos ... activates membrane-tethered Ras by catalyzing the exchange of Ras-bound guanosine diphosphate (GDP) with guanosine triphosphate (GTP)"
   pattern: |
@@ -40,7 +40,7 @@
 
 
 - name: exchange_3wrong
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "Sos catalyzes Ras GTP/GDP exchange"
   pattern: |
@@ -52,7 +52,7 @@
 
 
 - name: exchange_4wrong
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "Sos functions as a guanine nucleotide – exchange protein (GEF), which helps convert inactive GDP-bound Ras to the active GTP-bound form."
   pattern: |
@@ -64,7 +64,7 @@
 
 
 - name: exchange_5
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "We found increased Ras GTP/GDP exchange by MEK."
   type: token
@@ -77,7 +77,7 @@
 
 
 - name: exchange_6
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "it enhances GDP/GTP exchange of Ras and increases the fraction of Ras in the GTP-form"
   type: token
@@ -89,7 +89,7 @@
 
 
 - name: exchange_decl1
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "Ras exchanges GDP for GTP more rapidly in the presence of Pde2."
   pattern: |
@@ -100,7 +100,7 @@
 
 
 - name: exchange_decl1wrong
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   priority: 5
   example: "Ras exchanges GDP for GTP more rapidly in the presence of Pde2."
   pattern: |
@@ -113,7 +113,7 @@
 - name: exchange_pass1
   priority: 5
   example: "the GDP bound to the Ras protein is exchanged for GTP."
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   pattern: |
     trigger = [word=/(?i)^exchang/ & tag=VBN]
     goal:BioChemicalEntity? = <rcmod nn* #Ras
@@ -124,7 +124,7 @@
 - name: exchange_objnom1
   priority: 5
   example: "In Ras, GDP exchange for GTP increased."
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   pattern: |
     trigger = [word=/(?i)^exchange/ & tag=/^N/]
     theme1:Simple_chemical = nn # GDP
@@ -135,7 +135,7 @@
   priority: 5
   example: "Its many abnormal phenotypes can be rescued via Pde2, which normally exchanges GDP with GTP."
   type: token
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   pattern: |
     (?<trigger> [lemma=exchange]) @theme1:Simple_chemical (with|for) @theme2:Simple_chemical
 
@@ -143,7 +143,7 @@
 - name: exchange_objrel1
   priority: 5
   example: "Its many abnormal phenotypes can be rescued via GDP, which is normally exchanged with GTP in Ras."
-  label: [Exchange, Event]
+  label: [Exchange, SimpleEvent, Event]
   pattern: |
     trigger = [word=/(?i)^exchang/ & tag=VBN]
     goal:BioChemicalEntity? = (prep_with|prep_for)* (prep_in|prep_on) [mention=/Protein|Gene_or_gene_product|Complex/]

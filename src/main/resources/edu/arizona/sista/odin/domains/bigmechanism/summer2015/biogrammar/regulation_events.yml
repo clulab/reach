@@ -6,7 +6,7 @@
 #- name: Regulation_1
 #  priority: 5
 #  type: dependency
-#  label: [Regulation, Event]
+#  label: [Regulation, ComplexEvent, Event]
 #  pattern: |
 #    trigger = [!word=/^(positive|negative)/] /^regulat/ # TODO: add negative lookarounds
 #    controller:BioChemicalEntity = nsubj nn*
@@ -15,7 +15,7 @@
 #- name: Regulation_token_1
 #  priority: 5
 #  type: token
-#  label: [Regulation, Event]
+#  label: [Regulation, ComplexEvent, Event]
 #  pattern: |
 #    @controller:BioChemicalEntity (?<trigger> [word=/(?i)mediat/]) @controlled:Event
 
