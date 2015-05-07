@@ -12,8 +12,8 @@ class Test extends FlatSpec with Matchers {
   val docId = "testdoc"
   val chunkId = "1"
 
-  "ReachSystem" should "extract mentions from Nxml2FriesEntry" in {
-    val entry = Nxml2FriesEntry(docId, chunkId, "introduction", "introduction", false, text)
+  "ReachSystem" should "extract mentions from FriesEntry" in {
+    val entry = FriesEntry(docId, chunkId, "introduction", "introduction", false, text)
     val result = Try(reach.extractFrom(entry))
     result.isSuccess should be (true)
   }

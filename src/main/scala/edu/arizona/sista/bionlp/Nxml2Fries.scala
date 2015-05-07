@@ -11,7 +11,7 @@ class Nxml2Fries(
     val ignoreSections: Set[String],
     val encoding: String
 ) {
-  def extractEntries(input: File): Seq[Nxml2FriesEntry] = {
+  def extractEntries(input: File): Seq[FriesEntry] = {
     val command =
       if (removeCitations) Seq(executable, "--no-citations", input.getCanonicalPath)
       else Seq(executable, input.getCanonicalPath)
@@ -25,14 +25,14 @@ class Nxml2Fries(
       val tsvFile = new File(FilenameUtils.removeExtension(input.getCanonicalPath) + ".tsv")
       FileUtils.readLines(tsvFile, encoding).asScala.flatMap { line =>
         val fields = line.split('\t')
-        val entry = Nxml2FriesEntry(name, fields(0), fields(1), fields(2), fields(3).toInt == 1, fields(4))
+        val entry = FriesEntry(name, fields(0), fields(1), fields(2), fields(3).toInt == 1, fields(4))
         if (ignoreSections contains entry.sectionName) None else Some(entry)
       }
     } else sys.error("something went wrong when running nxml2fries")
   }
 }
 
-case class Nxml2FriesEntry(
+case class FriesEntry(
   name: String,
   chunkId: String,
   sectionId: String,

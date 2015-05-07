@@ -24,7 +24,7 @@ class ReachSystem {
   val processor = new BioNLPProcessor
   processor.annotate("something")
 
-  def extractFrom(entry: Nxml2FriesEntry): Seq[Mention] =
+  def extractFrom(entry: FriesEntry): Seq[Mention] =
     extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(text: String, docId: String, chunkId: String): Seq[Mention] = {
