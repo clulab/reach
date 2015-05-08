@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Initial port from index card version.
+  *   Last Modified: Restructure frame passing.
   */
 class ReachOutput {
   type Memoized  = scala.collection.mutable.HashSet[Mention]
@@ -55,8 +55,8 @@ class ReachOutput {
     val frames = new FrameList
     mentions.foreach { mention =>
       if (!rootChildren.contains(mention)) {
-        val frame = doMention(mention)
-        frames += frame
+        val frame = beginNewFrame(mention)
+        frames += doMention(mention, frame)
       }
     }
     model("frames") = frames
@@ -85,10 +85,10 @@ class ReachOutput {
   }
 
   /** Dispatch on and process the given mention, returning its information in a properties map. */
-  private def doMention (mention:Mention): PropMap = {
+  private def doMention (mention:Mention, frame:PropMap): PropMap = {
     mention.label match {                   // dispatch on mention type
       case "Acetylation" => null
-      case "Binding" => doBinding(mention, true)
+      case "Binding" => doBinding(mention, frame)
       case "Degradation" => null
       case "Exchange" => null
       case "Expression" => null
@@ -98,21 +98,20 @@ class ReachOutput {
       case "Hydroxylation" => null
       case "Methylation" => null
       case "Negative_regulation" => null
-      case "Phosphorylation" => doPhosphorylation(mention, true)
-      case "Positive_regulation" => doPositiveRegulation(mention, true)
+      case "Phosphorylation" => doPhosphorylation(mention, frame)
+      case "Positive_regulation" => doPositiveRegulation(mention, frame)
       case "Ribosylation" => null
       case "Sumoylation" => null
       case "Translation" => null
       case "Transcription" => null
-      case "Transport" => doTranslocation(mention, true)
+      case "Transport" => doTranslocation(mention, frame)
       case "Ubiquitination" => null
       case _ => null
     }
   }
 
   /** Return properties map for the given binding mention. */
-  private def doBinding (mention:Mention, root:Boolean=false): PropMap = {
-    val frame = if (root) beginNewFrame(mention) else new PropMap
+  private def doBinding (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
@@ -137,8 +136,7 @@ class ReachOutput {
 
 
   /** Return properties map for the given phosphorylation mention. */
-  private def doPhosphorylation (mention:Mention, root:Boolean=false): PropMap = {
-    val frame = if (root) beginNewFrame(mention) else new PropMap
+  private def doPhosphorylation (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
@@ -164,8 +162,7 @@ class ReachOutput {
   }
 
   /** Return properties map for the given positive regulation mention. */
-  private def doPositiveRegulation (mention:Mention, root:Boolean=false): PropMap = {
-    val frame = if (root) beginNewFrame(mention) else new PropMap
+  private def doPositiveRegulation (mention:Mention, frame:PropMap): PropMap = {
     val controllerArgs = mentionMgr.controllerArgs(mention)
     val controlledArgs = mentionMgr.controlledArgs(mention)
     if (controllerArgs.isDefined && controlledArgs.isDefined) {
@@ -197,8 +194,7 @@ class ReachOutput {
 
 
   /** Return properties map for the given transport mention. */
-  private def doTranslocation (mention:Mention, root:Boolean=false): PropMap = {
-    val frame = if (root) beginNewFrame(mention) else new PropMap
+  private def doTranslocation (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
