@@ -2,6 +2,7 @@ package edu.arizona.sista.bionlp
 
 import java.io.File
 
+import edu.arizona.sista.bionlp.reach.postprocessing.PostProcessor
 import edu.arizona.sista.odin._
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.Ruler.readRules
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.DarpaActions
@@ -15,12 +16,14 @@ class ReachSystem {
   val rules = readRules()
   // initialize actions object
   val actions = new DarpaActions
+  // initialize postprocessor
+  val postprocessor = new PostProcessor
   // initialize grounder
   val grounder = new LocalGrounder
   // initialize coref
   val coref = new Coref
   // define flow
-  val flow = grounder andThen coref
+  val flow = postprocessor andThen grounder andThen coref
   // start engine
   val engine = ExtractorEngine(rules, actions, flow.apply)
   // initialize processor
