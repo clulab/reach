@@ -88,5 +88,5 @@ object ReachSystem {
   def keepLongest(mentions: Seq[Mention]): Seq[Mention] = mentions
 
   def removeSites(mentions: Seq[Mention]): Seq[Mention] =
-    mentions filterNot (_ matches "site")
+    mentions filterNot (_ matches "Site")
 }
