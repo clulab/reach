@@ -1,17 +1,10 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
-import edu.arizona.sista.bionlp.reach.postprocessing.PostProcessor
-
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import edu.arizona.sista.odin._
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.Ruler.readRules
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.DarpaActions
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.mentionToStrings
-import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -36,18 +29,8 @@ object RunSystem extends App {
     sys.error(s"${friesDir.getCanonicalPath} is not a directory")
   }
 
-  println("initializing processors ...")
-  val proc = new BioNLPProcessor
-  proc.annotate("something")
-
-  println("initializing odin ...")
-  val rules = readRules()
-  val actions = new DarpaActions
-  val postprocessor = new PostProcessor
-  val grounder = new LocalGrounder
-  val coref = new Coref
-  val flow = postprocessor andThen grounder andThen coref
-  val engine = ExtractorEngine(rules, actions, flow.apply)
+  println("initializing reach ...")
+  val reach = new ReachSystem
 
   println("initializing nxml2fries ...")
   val nxml2fries = new Nxml2Fries(
@@ -61,17 +44,15 @@ object RunSystem extends App {
     val paperId = FilenameUtils.removeExtension(file.getName)
 
     // process individual sections and collect all mentions
-    val paperMentions = nxml2fries.extractEntries(file) flatMap { entry =>
-      val name = s"${entry.name}_${entry.chunkId}"
-      println(s"working on $name ...")
-      val doc = proc.annotate(entry.text, keepText = true)
-      doc.id = Some(name)
-      engine.extractFrom(doc)
-    }
+    val paperMentions = for {
+      entry <- nxml2fries.extractEntries(file)
+      mention <- reach.extractFrom(entry)
+    } yield mention
 
     // dump all paper mentions to file
     val lines = paperMentions.flatMap(mentionToStrings)
     val outFile = new File(friesDir, s"$paperId.txt")
+    println(s"writing ${outFile.getName} ...")
     FileUtils.writeLines(outFile, lines.asJavaCollection)
   }
 }
