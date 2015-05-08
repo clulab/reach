@@ -18,7 +18,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Restructure frame passing.
+  *   Last Modified: Remove extracted sub-frames.
   */
 class ReachOutput {
   type Memoized  = scala.collection.mutable.HashSet[Mention]
@@ -46,7 +46,7 @@ class ReachOutput {
   // Public API:
   //
 
-  /** Output a JSON object representing the FRIES output for the given mentions. */
+  /** Output a JSON object representing the REACH output for the given mentions. */
   def toJSON (allMentions:Seq[Mention], outFile:File) = {
     val model:PropMap = new PropMap
     val mentions = allMentions.filter(_.isInstanceOf[EventMention])
@@ -77,9 +77,7 @@ class ReachOutput {
     frame("reading_ended") = Now
     frame("submitter") = "UAZ"
     frame("reader_type") = "machine"
-    val extracted = new PropMap
-    extracted("negative_information") = false
-    frame("extracted_information") = extracted
+    frame("negative_information") = false
     frame("evidence") = mention.text
     return frame
   }
@@ -114,22 +112,21 @@ class ReachOutput {
   private def doBinding (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
-      val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
-      extracted("interaction_type") = "binds"
+      frame("interaction_type") = "binds"
       val themes = themeArgs.get.map(doTextBoundMention(_))
-      extracted("participant_b") = themes.size match {
+      frame("participant_b") = themes.size match {
         case 0 => null
         case 1 => themes.head
         case _ => themes
       }
-      extracted("participant_b_site") = null // TODO: extract site when sites unbound
+      frame("participant_b_site") = null // TODO: extract site when sites unbound
 
       val cause:Option[PropMap] = getCause(mention)
-      extracted("participant_a") = cause.orNull
+      frame("participant_a") = cause.orNull
       if (cause.isDefined)
-        extracted("participant_a_site") = null // TODO: extract site when sites unbound
+        frame("participant_a_site") = null // TODO: extract site when sites unbound
       else
-        extracted("participant_a_site") = null
+        frame("participant_a_site") = null
     }
     return frame
   }
@@ -139,24 +136,23 @@ class ReachOutput {
   private def doPhosphorylation (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
-      val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
-      extracted("interaction_type") = "adds_modification"
+      frame("interaction_type") = "adds_modification"
       val themes = themeArgs.get.map(doTextBoundMention(_))
-      extracted("participant_b") = themes.size match {
+      frame("participant_b") = themes.size match {
         case 0 => null
         case 1 => themes.head
         case _ => themes
       }
 
       val cause = getCause(mention)
-      extracted("participant_a") = cause.orNull
+      frame("participant_a") = cause.orNull
 
       val aMod = new PropMap
       aMod("modification_type") = "phosphorylation"
       aMod("position") = getSite(mention).orNull
       val modList = new FrameList
       modList += aMod
-      extracted("modifications") = modList
+      frame("modifications") = modList
     }
     return frame
   }
@@ -166,15 +162,14 @@ class ReachOutput {
     val controllerArgs = mentionMgr.controllerArgs(mention)
     val controlledArgs = mentionMgr.controlledArgs(mention)
     if (controllerArgs.isDefined && controlledArgs.isDefined) {
-      val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
-      extracted("interaction_type") = "increases_activity"
+      frame("interaction_type") = "increases_activity"
       val controllerProps = doTextBoundMention(controllerArgs.get.head)
       val controlled = controlledArgs.get.head
       val themeArgs = mentionMgr.themeArgs(controlled)
       val controlledProps = themeArgs.map(osm => doTextBoundMention(osm.head)).orElse(null)
       controllerProps("features") = getFeatures(controlled)
-      extracted("participant_a") = controllerProps
-      extracted("participant_b") = controlledProps
+      frame("participant_a") = controllerProps
+      frame("participant_b") = controlledProps
     }
     return frame
   }
@@ -197,17 +192,16 @@ class ReachOutput {
   private def doTranslocation (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
-      val extracted:PropMap = frame("extracted_information").asInstanceOf[PropMap]
-      extracted("interaction_type") = "translocates"
+      frame("interaction_type") = "translocates"
       val themes = themeArgs.get.map(doTextBoundMention(_))
-      extracted("participant_b") = themes.size match {
+      frame("participant_b") = themes.size match {
         case 0 => null
         case 1 => themes.head
         case _ => themes
       }
-      extracted("participant_a") = null     // empty unless controller present
-      extracted("from_location") = getSourceLocation(mention).orNull
-      extracted("to_location") = getDestinationLocation(mention).orNull
+      frame("participant_a") = null     // empty unless controller present
+      frame("from_location") = getSourceLocation(mention).orNull
+      frame("to_location") = getDestinationLocation(mention).orNull
     }
     return frame
   }
