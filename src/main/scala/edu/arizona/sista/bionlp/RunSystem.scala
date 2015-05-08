@@ -2,7 +2,7 @@ package edu.arizona.sista.bionlp
 
 import java.io.File
 import scala.collection.JavaConverters._
-import com.typesafe.config.ConfigFactory
+import com.typesafe.config._
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.mentionToStrings
 
@@ -15,6 +15,11 @@ object RunSystem extends App {
   val nxmlDir = new File(config.getString("nxmlDir"))
   val friesDir = new File(config.getString("friesDir"))
   val encoding = config.getString("encoding")
+
+  var outputType:String = "text"            // output type optionally specified: 'text' is default
+  scala.util.control.Exception.ignoring(classOf[ConfigException.Missing]) {
+    outputType = config.getString("outputType")  // ignore error: default is already set
+  }
 
   // if nxmlDir does not exist there is nothing to do
   if (!nxmlDir.exists) {
@@ -49,10 +54,14 @@ object RunSystem extends App {
       mention <- reach.extractFrom(entry)
     } yield mention
 
-    // dump all paper mentions to file
-    val lines = paperMentions.flatMap(mentionToStrings)
-    val outFile = new File(friesDir, s"$paperId.txt")
-    println(s"writing ${outFile.getName} ...")
-    FileUtils.writeLines(outFile, lines.asJavaCollection)
+    if (outputType != "text") {             // if reach will handle output
+      reach.outputMentions(paperMentions, outputType, paperId, friesDir)
+    }
+    else {                                  // else dump all paper mentions to file
+      val lines = paperMentions.flatMap(mentionToStrings)
+      val outFile = new File(friesDir, s"$paperId.txt")
+      println(s"writing ${outFile.getName} ...")
+      FileUtils.writeLines(outFile, lines.asJavaCollection)
+    }
   }
 }

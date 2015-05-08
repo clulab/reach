@@ -1,11 +1,14 @@
 package edu.arizona.sista.bionlp
 
+import java.io.File
+
 import edu.arizona.sista.odin._
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.Ruler.readRules
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.DarpaActions
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
+import edu.arizona.sista.odin.extern.export.reach._
 
 class ReachSystem {
   // read rule files
@@ -38,5 +41,12 @@ class ReachSystem {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
     engine.extractFrom(doc)
+  }
+
+  def outputMentions(mentions:Seq[Mention], outputType:String, paperId:String, outputDir:File) = {
+    val outFile = new File(outputDir, s"${paperId}.json")
+    val outputter = new ReachOutput()
+    println(s"writing ${outFile.getName} ...")
+    outputter.toJSON(mentions, outFile)
   }
 }
