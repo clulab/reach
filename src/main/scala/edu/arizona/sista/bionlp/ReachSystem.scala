@@ -45,7 +45,7 @@ class ReachSystem {
 }
 
 object ReachSystem {
-  val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/dryrun2015"
+  val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar"
 
   def readRules(): String =
     readEntityRules() + "\n\n" + readEventRules()
