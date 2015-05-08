@@ -62,8 +62,8 @@ class Ruler(val rules: String, val actions: Actions) {
 }
 
 object Ruler {
-  val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/dryrun2015"
-  val filesDir = new File(".", "src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/dryrun2015").getCanonicalPath()
+  val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar"
+  val filesDir = new File(".", "src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar").getCanonicalPath()
 
   def readRules(shell: Boolean = false): String = readEntityRules(shell) + "\n\n" + readEventRules(shell)
 
