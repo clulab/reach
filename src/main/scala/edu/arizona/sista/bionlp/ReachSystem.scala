@@ -9,18 +9,18 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 class ReachSystem {
   import ReachSystem._
 
-  // read rule files
-  val rules = readRules()
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
   val grounder = new LocalGrounder
+  // start entity extraction engine
+  val entityEngine = ExtractorEngine(readEntityRules(), actions, grounder.apply)
+  // start grouping engine
+  val groupingEngine = ExtractorEngine(readGroupingRules(), actions)
   // initialize coref
   val coref = new Coref
-  // define flow
-  val flow = grounder andThen coref
-  // start engine
-  val engine = ExtractorEngine(rules, actions, flow.apply)
+  // start event extraction engine
+  val eventEngine = ExtractorEngine(readEventRules(), actions, coref.apply)
   // initialize processor
   val processor = new BioNLPProcessor
   processor.annotate("something")
@@ -38,17 +38,17 @@ class ReachSystem {
   def extractFrom(doc: Document): Seq[Mention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    engine.extractFrom(doc)
+    val entities = entityEngine.extractFrom(doc)
+    val entitiesWithGroups = groupingEngine.extractFrom(doc, State(keepLongest(entities)))
+    eventEngine.extractFrom(doc, State(removeSites(entitiesWithGroups)))
   }
-
-
 }
 
 object ReachSystem {
   val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar"
 
   def readRules(): String =
-    readEntityRules() + "\n\n" + readEventRules()
+    readEntityRules() + "\n\n" + readGroupingRules() + "\n\n" + readEventRules()
 
   def readEntityRules(): String = {
     val files = Seq(
@@ -56,6 +56,9 @@ object ReachSystem {
       s"$resourcesDir/model_entities.yml")
     files map readResource mkString "\n\n"
   }
+
+  def readGroupingRules(): String =
+    readResource(s"$resourcesDir/grouping_rules.yml")
 
   def readEventRules(): String = {
     val files = Seq(
@@ -80,4 +83,10 @@ object ReachSystem {
     source.close()
     data
   }
+
+  // placeholder
+  def keepLongest(mentions: Seq[Mention]): Seq[Mention] = mentions
+
+  def removeSites(mentions: Seq[Mention]): Seq[Mention] =
+    mentions filterNot (_ matches "site")
 }
