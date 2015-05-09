@@ -54,23 +54,29 @@ class DarpaActions extends Actions {
     * unique number (ex. theme1, theme2).
     * mkBinding simply unifies named arguments of this type (ex. theme1 & theme2 -> theme)
     */
-  def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = {
-
-    mentions flatMap { m =>
-      m match {
-        case m: EventMention => {
-          val args = m.arguments
-          val themes = for {
-            name <- args.keys
-            if name startsWith "theme"
-            theme <- args(name)
-          } yield theme
-          Seq(new EventMention(m.labels, m.trigger, Map("theme" -> themes.toSeq), m.sentence, m.document, m.keep, m.foundBy))
+  def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case m: EventMention =>
+      val arguments = m.arguments
+      val themes = for {
+        name <- arguments.keys.toSeq
+        if name startsWith "theme"
+        theme <- arguments(name)
+      } yield theme
+      // remove bindings with less than two themes
+      if (themes.size < 2) Nil
+      // if binding has two themes we are done
+      else if (themes.size == 2) {
+        val args = Map("theme" -> themes)
+        Seq(new EventMention(
+          m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy))
+      } else {
+        // binarize bindings
+        // return bindings with pairs of themes
+        for (pair <- themes.combinations(2)) yield {
+          val args = Map("theme" -> pair)
+          new EventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
         }
-        case r: RelationMention => Nil
-        case _ => Nil
       }
-    }
   }
 
 }
