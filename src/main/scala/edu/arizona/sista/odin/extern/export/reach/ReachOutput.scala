@@ -6,7 +6,6 @@ import edu.arizona.sista.utils.DateUtils
 
 import scala.collection.mutable.Map
 import scala.collection.mutable.MutableList
-import scala.collection.mutable.Set
 
 import org.json4s._
 import org.json4s.native.Serialization
@@ -18,7 +17,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Begin redo for REACH format: binding, transloc, and simple events.
+  *   Last Modified: Add event IDs, pos/neg regulation. Cleanups.
   */
 class ReachOutput {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -28,7 +27,6 @@ class ReachOutput {
   // Constants:
   val AssumedProteins = Set("Gene_or_gene_product", "Protein", "Protein_with_site")
   val Now = DateUtils.formatUTC(new Date())
-  val RootEvents = Set("Negative_regulation", "Positive_regulation")
 
   // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -47,14 +45,12 @@ class ReachOutput {
   /** Output a JSON object representing the REACH output for the given mentions. */
   def toJSON (allMentions:Seq[Mention], outFile:File) = {
     val model:PropMap = new PropMap
-    val mentions = allMentions.filter(m => m.isInstanceOf[EventMention] ||
-                                           m.isInstanceOf[RelationMention])
+    val mentions = allMentions.filter(processableMention)
     val mIds = assignMentionIds(mentions, new IDed)
-    // showIds(mIds)
     val frames = new FrameList
     mentions.foreach { mention =>
-      val frame = beginNewFrame(mention)
-      frames += doMention(mention, frame)
+      val frame = beginNewFrame(mention, mIds)
+      frames += doMention(mention, mIds, frame)
     }
     model("frames") = frames
     writeJsonToFile(model, outFile)
@@ -69,16 +65,17 @@ class ReachOutput {
   private def assignMentionIds (mentions:Seq[Mention], mIds:IDed): IDed = {
     mentions.foreach{ mention =>
       mIds.getOrElseUpdate(mention, idCntr.genNextId())
-      assignMentionIds(mention.arguments.values.toSeq.flatten, mIds)
+      assignMentionIds(mention.arguments.values.toSeq.flatten.filter(processableMention), mIds)
     }
     return mIds
   }
 
   /** Return a new index frame (map) initialized with the (repeated) document information. */
-  private def beginNewFrame (mention:Mention): PropMap = {
+  private def beginNewFrame (mention:Mention, mIds:IDed): PropMap = {
     val doc:Document = mention.document
     val frame = new PropMap
     frame("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
+    frame("event_id") = mIds.get(mention)
     frame("reading_started") = Now
     frame("reading_ended") = Now
     frame("submitter") = "UAZ"
@@ -90,30 +87,14 @@ class ReachOutput {
   }
 
   /** Dispatch on and process the given mention, returning its information in a properties map. */
-  private def doMention (mention:Mention, frame:PropMap): PropMap = {
-    mention.label match {                   // dispatch on mention type
+  private def doMention (mention:Mention, mIds:IDed, frame:PropMap): PropMap = {
+    mention.label match {
       case "Binding" => doBinding(mention, frame)
       case "Transport" => doTranslocation(mention, frame)
-//      case "Negative_regulation" => doRegulation(mention, frame, false)
-//      case "Positive_regulation" => doRegulation(mention, frame, true)
+      case "Negative_regulation" => doRegulation(mention, frame, mIds, false)
+      case "Positive_regulation" => doRegulation(mention, frame, mIds)
       case _ => doSimpleType(mention, frame)
-
-      // case "Acetylation" => null
-      // case "Farnesylation" => null
-      // case "Glycosylation" => null
-      // case "Hydrolysis" => null
-      // case "Hydroxylation" => null
-      // case "Methylation" => null
-      // case "Phosphorylation" => null
-      // case "Ribosylation" => null
-      // case "Sumoylation" => null
-      // case "Ubiquitination" => null
-
-      // case "Degradation" => null
-      // case "Exchange" => null
-      // case "Expression" => null
-      // case "Translation" => null
-      // case "Transcription" => null
+      // TODO: handle Degradation, Exchange, Expression, Translation, Transcription
     }
   }
 
@@ -126,6 +107,19 @@ class ReachOutput {
       frame("participants") = if (themes.size == 0) null else themes
       // TODO: binding sites
       // val sites = themeArgs.get.map(getSite(_))
+    }
+    return frame
+  }
+
+  /** Return properties map for the given positive regulation mention. */
+  private def doRegulation (mention:Mention, frame:PropMap, mIds:IDed, positive:Boolean=true): PropMap =
+  {
+    val controllerArgs = mentionMgr.controllerArgs(mention)
+    val controlledArgs = mentionMgr.controlledArgs(mention)
+    if (controllerArgs.isDefined && controlledArgs.isDefined) {
+      frame("type") = if (positive) "positive_regulation" else "negative_regulation"
+      frame("controller") = doTextBoundMention(controllerArgs.get.head)
+      frame("controlled") = mIds.get(controlledArgs.get.head)
     }
     return frame
   }
@@ -148,25 +142,6 @@ class ReachOutput {
     return frame
   }
 
-
-  /** Return properties map for the given positive regulation mention. */
-  private def doPositiveRegulation (mention:Mention, frame:PropMap): PropMap = {
-    val controllerArgs = mentionMgr.controllerArgs(mention)
-    val controlledArgs = mentionMgr.controlledArgs(mention)
-    if (controllerArgs.isDefined && controlledArgs.isDefined) {
-      frame("interaction_type") = "increases_activity"
-      val controllerProps = doTextBoundMention(controllerArgs.get.head)
-      val controlled = controlledArgs.get.head
-      val themeArgs = mentionMgr.themeArgs(controlled)
-      val controlledProps = themeArgs.map(osm => doTextBoundMention(osm.head)).orElse(null)
-      controllerProps("features") = getFeatures(controlled)
-      frame("participant_a") = controllerProps
-      frame("participant_b") = controlledProps
-    }
-    return frame
-  }
-
-
   /** Return a properties map for the given single text bound mention. */
   private def doTextBoundMention (mention:Mention, context:String="protein"): PropMap = {
     val part = new PropMap
@@ -179,7 +154,6 @@ class ReachOutput {
     part("namespace") = mention.xref.map(_.namespace).orNull
     return part
   }
-
 
   /** Return properties map for the given transport mention. */
   private def doTranslocation (mention:Mention, frame:PropMap): PropMap = {
@@ -201,43 +175,10 @@ class ReachOutput {
     return frame
   }
 
-
-  /** Process optional cause argument on the given mention, returning a properties map. */
-  private def getCause (mention:Mention): Option[PropMap] = {
-    val causeArgs = mentionMgr.causeArgs(mention)
-    return causeArgs.map(osm => doTextBoundMention(osm.head))
-  }
-
   /** Process optional destination argument on the given mention, returning a properties map. */
   private def getDestination (mention:Mention): Option[PropMap] = {
     val destArgs = mentionMgr.destinationArgs(mention)
     return destArgs.map(osm => doTextBoundMention(osm.head))
-  }
-
-  /** Process optional destination argument on the given mention, returning a location string option. */
-  private def getDestinationLocation (mention:Mention): Option[String] = {
-    return getId(mentionMgr.destinationArgs(mention))
-  }
-
-  /** Return a list of property maps of features extracted from the given mention.
-    *  NB: currently only returning a list of 1 feature map.
-    */
-  private def getFeatures (mention:Mention): FrameList = {
-    val featureList = new FrameList
-    val props = new PropMap
-    mention.label match {
-      case "Binding" => {
-        props("feature_type") = "binding"
-        props("bound_to") = getText(mentionMgr.themeArgs(mention))
-      }
-      // case "Mutation" => "mutant",          // TODO: handle mutation features?
-      case _ => {
-        props("feature_type") = "modification"
-        props("modification_type") = mention.label.toLowerCase
-      }
-    }
-    featureList += props
-    return featureList
   }
 
   /** Process the given mention argument, returning a ns:id string option for the first arg. */
@@ -265,22 +206,15 @@ class ReachOutput {
     return sourceArgs.map(osm => doTextBoundMention(osm.head))
   }
 
-  /** Process optional source argument on the given mention, returning a location string option. */
-  private def getSourceLocation (mention:Mention): Option[String] = {
-    return getId(mentionMgr.sourceArgs(mention))
-  }
-
   /** Process the given mention argument, returning a text string option for the first arg. */
   private def getText (args:Option[Seq[Mention]]): Option[String] = {
     return if (args.isDefined) Some(args.get.head.text) else None
   }
 
-  /** Print a textual representation of the memoized root mentions. REMOVE LATER? */
-  private def showIds (mIds:IDed) = {
-    // val sortedMentions = rootChildren.toSeq.sortBy(m => (m.sentence, m.start))
-    // sortedMentions.foreach { sm => mentionMgr.mentionToStrings(sm).foreach{println} }
+  /** Return true if the given mention is one that should be processed. */
+  def processableMention (mention:Mention): Boolean = {
+    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
   }
-
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
   private def writeJsonToFile (model:PropMap, outFile:File) = {
