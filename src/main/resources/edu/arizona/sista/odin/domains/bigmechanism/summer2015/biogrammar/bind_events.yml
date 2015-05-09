@@ -6,6 +6,7 @@
 
 - name: binding1
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
     trigger = [lemma=bind & tag=/^V/]
@@ -13,6 +14,7 @@
 
 - name: binding2
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
     trigger = binding
@@ -20,6 +22,7 @@
 
 - name: binding3
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
     trigger = binding
@@ -27,6 +30,7 @@
 
 - name: binding4
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = binding
@@ -34,6 +38,7 @@
 
 - name: binding5
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = binding
@@ -42,6 +47,7 @@
 
 - name: binding6
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
@@ -49,6 +55,7 @@
 
 - name: binding7
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = binding
@@ -56,6 +63,7 @@
 
 - name: binding8
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = interacts
@@ -63,6 +71,7 @@
 
 - name: binding9
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = interaction
@@ -70,6 +79,7 @@
 
 - name: binding10
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
@@ -77,6 +87,7 @@
 
 - name: binding11
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = /cooperation|affinity|association|interaction/
@@ -84,6 +95,7 @@
 
 - name: binding12
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = formation (?= of /complex|rings/) #dummy: prep_of [word=/complex|rings/]
@@ -91,6 +103,7 @@
 
 - name: binding13
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = interact
@@ -98,6 +111,7 @@
 
 - name: binding14
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
       trigger = interactions
@@ -105,6 +119,7 @@
 
 - name: binding_16
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
     trigger = ligated
@@ -112,6 +127,7 @@
 
 - name: binding_17
   label: [Binding, SimpleEvent, Event]
+  action: mkBinding
   priority: 4
   pattern: |
     trigger = [lemma=bind & tag=/^V/]

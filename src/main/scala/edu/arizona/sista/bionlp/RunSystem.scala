@@ -15,6 +15,7 @@ object RunSystem extends App {
   val nxmlDir = new File(config.getString("nxmlDir"))
   val friesDir = new File(config.getString("friesDir"))
   val encoding = config.getString("encoding")
+  val outputType = config.getString("outputType")
 
   // if nxmlDir does not exist there is nothing to do
   if (!nxmlDir.exists) {
@@ -49,10 +50,14 @@ object RunSystem extends App {
       mention <- reach.extractFrom(entry)
     } yield mention
 
-    // dump all paper mentions to file
-    val lines = paperMentions.flatMap(mentionToStrings)
-    val outFile = new File(friesDir, s"$paperId.txt")
-    println(s"writing ${outFile.getName} ...")
-    FileUtils.writeLines(outFile, lines.asJavaCollection)
+    if (outputType != "text") {             // if reach will handle output
+      reach.outputMentions(paperMentions, outputType, paperId, friesDir)
+    }
+    else {                                  // else dump all paper mentions to file
+      val lines = paperMentions.flatMap(mentionToStrings)
+      val outFile = new File(friesDir, s"$paperId.txt")
+      println(s"writing ${outFile.getName} ...")
+      FileUtils.writeLines(outFile, lines.asJavaCollection)
+    }
   }
 }
