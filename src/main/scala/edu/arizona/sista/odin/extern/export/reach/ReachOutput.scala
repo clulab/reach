@@ -18,7 +18,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Split doc id into doc id and passage id.
+  *   Last Modified: Remove unused method involving print string.
   */
 class ReachOutput {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -188,13 +188,6 @@ class ReachOutput {
   private def getId (args:Option[Seq[Mention]]): Option[String] = {
     if (args.isDefined)
       return args.get.head.toBioMention.xref.map(_.id)
-    else return None
-  }
-
-  /** Process the given mention argument, returning a ns:id string option for the first arg. */
-  private def getNsId (args:Option[Seq[Mention]]): Option[String] = {
-    if (args.isDefined)
-      return args.get.head.toBioMention.xref.map(_.printString)
     else return None
   }
 
