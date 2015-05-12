@@ -1,0 +1,1979 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Nucleic Acids Res</journal-id>
+      <journal-id journal-id-type="publisher-id">Nucleic Acids Research</journal-id>
+      <journal-title>Nucleic Acids Research</journal-title>
+      <issn pub-type="ppub">0305-1048</issn>
+      <issn pub-type="epub">1362-4962</issn>
+      <publisher>
+        <publisher-name>Oxford University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">16397295</article-id>
+      <article-id pub-id-type="pmc">1325201</article-id>
+      <article-id pub-id-type="doi">10.1093/nar/gkj409</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>XRCC1 is phosphorylated by DNA-dependent protein kinase in response to DNA damage</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>L&#xE9;vy</surname>
+            <given-names>Nicolas</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Martz</surname>
+            <given-names>Adeline</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bresson</surname>
+            <given-names>Anne</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Spenlehauer</surname>
+            <given-names>Catherine</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>de Murcia</surname>
+            <given-names>Gilbert</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>M&#xE9;nissier-de Murcia</surname>
+            <given-names>Josiane</given-names>
+          </name>
+          <xref ref-type="corresp" rid="cor1">*</xref>
+        </contrib>
+        <aff>
+          <institution>D&#xE9;partement Int&#xE9;grit&#xE9; du g&#xE9;nome de l'UMR 7175, CNRS, Ecole Sup&#xE9;rieure de Biotechnologie de Strasbourg</institution>
+          <addr-line>Boulevard S. Brant, BP 10413, F-67412 Illkirch Cedex, France</addr-line>
+        </aff>
+      </contrib-group>
+      <author-notes>
+        <corresp id="cor1"><sup>*</sup>To whom correspondence should be addressed. Tel: +33 0 39024 4704; Fax: +33 0 39024 4686; Email: <email>demurcia@esbs.u-strasbg.fr</email></corresp>
+      </author-notes>
+      <!--For NAR: both ppub and collection dates generated for PMC processing 1/27/05 beck-->
+      <pub-date pub-type="collection">
+        <year>2006</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <year>2006</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>5</day>
+        <month>1</month>
+        <year>2006</year>
+      </pub-date>
+      <volume>34</volume>
+      <issue>1</issue>
+      <fpage>32</fpage>
+      <lpage>41</lpage>
+      <history>
+        <date date-type="received">
+          <day>26</day>
+          <month>11</month>
+          <year>2005</year>
+        </date>
+        <date date-type="accepted">
+          <day>06</day>
+          <month>12</month>
+          <year>2005</year>
+        </date>
+      </history>
+      <copyright-statement>&#xA9; The Author 2006. Published by Oxford University Press. All rights reserved</copyright-statement>
+      <copyright-year>2006</copyright-year>
+      <license license-type="openaccess">
+        <p>The online version of this article has been published under an open access model. Users are entitled to use, reproduce, disseminate, or display the open access version of this article for non-commercial purposes provided that: the original authorship is properly and fully attributed; the Journal and Oxford University Press are attributed as the original place of publication with the correct citation details given; if an article is subsequently reproduced or disseminated not in its entirety but only in part or as a derivative work this must be clearly indicated. For commercial re-use, please contact <email>journals.permissions@oxfordjournals.org</email></p>
+      </license>
+      <abstract>
+        <p>The two BRCT domains (BRCT1 and BRCT2) of XRCC1 mediate a network of protein&#x2013;protein interactions with several key factors of the DNA single-strand breaks (SSBs) and base damage repair pathways. BRCT1 is required for the immediate poly(ADP&#x2013;ribose)-dependent recruitment of XRCC1 to DNA breaks and is essential for survival after DNA damage. To better understand the biological role of XRCC1 in the processing of DNA ends, a search for the BRCT1 domain-associated proteins was performed by mass spectrometry of GST-BRCT1 pulled-down proteins from HeLa cell extracts. Here, we report that the double-strand break (DSB) repair heterotrimeric complex DNA-PK interacts with the BRCT1 domain of XRCC1 and phosphorylates this domain at serine 371 after ionizing irradiation. This caused XRCC1 dimer dissociation. The XRCC1 R399Q variant allele did not affect this phosphorylation. We also show that XRCC1 strongly stimulates the phosphorylation of p53-Ser15 by DNA-PK. The pseudo phosphorylated S371D mutant was a much weaker stimulator of DNA-PK activity whereas the non-phosphorylable mutant S371L endowed with a DNA-PK stimulating capacity failed to fully rescue the DSB repair defect of XRCC1-deficient EM9 rodent cells. The functional association between XRCC1 and DNA-PK in response to IR provides the first evidence for their involvement in a common DSB repair pathway.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>INTRODUCTION</title>
+      <p>DNA damage must be repaired to avoid genomic instability and loss of information content that can lead to cancer (<xref ref-type="bibr" rid="b1">1</xref>,<xref ref-type="bibr" rid="b2">2</xref>). Responding to single- and double-strand breaks requires coordinated events including detection and signaling of the DNA breaks and the sequential recruitment of repair enzymes. XRCC1 (X-ray cross complementing factor 1) is a molecular scaffold protein that coordinates the assembly of repair complexes at damaged sites (<xref ref-type="bibr" rid="b3">3</xref>&#x2013;<xref ref-type="bibr" rid="b5">5</xref>). XRCC1 interacts with enzymatic components including the 7,8-dihydro 8-oxo-guanine glycosylase (OGG1) (<xref ref-type="bibr" rid="b6">6</xref>), APE1-endonuclease (<xref ref-type="bibr" rid="b7">7</xref>), the polynucleotide kinase (PNK) which processes DNA termini (<xref ref-type="bibr" rid="b8">8</xref>) and DNA polymerase &#x3B2; (pol &#x3B2;) (<xref ref-type="bibr" rid="b9">9</xref>). XRCC1 localizes to sites of replication foci and interacts directly with PCNA that links XRCC1 to the progression of DNA replication (<xref ref-type="bibr" rid="b10">10</xref>). Interestingly, it was shown that XRCC1 is phosphorylated by the CK2 kinase and that the phosphorylation sites reside within the linker region between the two BRCTs. CK2 phosphorylation of XRCC1 stimulates binding to either PNK (<xref ref-type="bibr" rid="b11">11</xref>) or aprataxin (<xref ref-type="bibr" rid="b12">12</xref>&#x2013;<xref ref-type="bibr" rid="b14">14</xref>), in two preformed complexes (<xref ref-type="bibr" rid="b12">12</xref>).</p>
+      <p>XRCC1 encompasses two BRCT motifs with independent and important roles (<xref ref-type="bibr" rid="b15">15</xref>,<xref ref-type="bibr" rid="b16">16</xref>). The BRCT1 domain is the most evolutionarily conserved and is required for survival after methylation damage but its precise function is not fully understood at present. It interacts with PARP-1 and PARP-2 and limits their poly(ADP&#x2013;ribosyl)ating activities (<xref ref-type="bibr" rid="b17">17</xref>,<xref ref-type="bibr" rid="b18">18</xref>). The BRCT1 contains a binding site for poly(ADP&#x2013;ribose) (PAR) (<xref ref-type="bibr" rid="b19">19</xref>). As a consequence, in response to the activation of PARP-1 by single-strand breaks (SSBs), XRCC1 is recruited within seconds to the sites of chromosomal DNA strand breakage by its BRCT1 domain (<xref ref-type="bibr" rid="b3">3</xref>&#x2013;<xref ref-type="bibr" rid="b5">5</xref>). The BRCT2 domain of XRCC1 binds to and stabilizes DNA ligase III (Lig III) (<xref ref-type="bibr" rid="b20">20</xref>,<xref ref-type="bibr" rid="b21">21</xref>).</p>
+      <p>Based on studies with chinese hamster ovary cells lacking functional XRCC1 expressing different XRCC1 mutants, Caldecott and co-workers proposed that SSBs repair occurred via two different XRCC1-dependent pathways [reviewed in (<xref ref-type="bibr" rid="b16">16</xref>) and references therein]. The most rapid pathway, by which SSBs induced by alkylating agents are rejoined in &lt;3 h, appears to operate throughout the cell cycle. It requires the functional interaction between the BRCT2 domain and Lig III. However, disruption of the BRCT2 does not greatly sensitize cells to alkylating agents and it has been suggested that cells possess a second XRCC1-dependent pathway that operates specifically in S/G2. The BRCT2 domain and Lig III are dispensable in this later pathway but the BRCT1 domain is a critical determinant. Therefore, we thought to identify novel BRCT1 binding proteins that could be involved in this pathway.</p>
+      <p>DNA-PK belongs to the phosphatidylinositol 3-kinase-related kinase (PI3-KK) superfamily, all of them displaying double-strand breaks (DSBs)-stimulated kinase activity. DNA-PK is a nuclear serine/threonine kinase composed of a Ku70/80 heterodimer, which displays high affinity for DNA termini regardless of sequence context. Subsequently, the Ku70/80 heterodimer recruits the catalytic subunit (DNA-PKcs) resulting in kinase activity. Once bound to the DSB, the DNA-PK holoenzyme facilitates the recruitment of the heterodimer XRCC4/DNA ligase IV (<xref ref-type="bibr" rid="b22">22</xref>,<xref ref-type="bibr" rid="b23">23</xref>), which helps to complete the non-homologous end joining (NHEJ) pathway. Defect in any of these proteins leads to severe radiosensitivity, DSBs repair deficiency and immunodeficiency. Additional factors are required for NHEJ: PNK that participates in the phosphorylation of 5&#x2032; ends (<xref ref-type="bibr" rid="b24">24</xref>) and the complex Mre11, Rad 50, Nbs1 (MRN) which plays a key role in aligning DNA ends in a synaptic complex (<xref ref-type="bibr" rid="b25">25</xref>).</p>
+      <p>In the present work, we report a novel interaction between XRCC1 and DNA-PK mediated by the BRCT1 domain whose phosphorylation at serine 371 is stimulated in response to ionizing radiation (IR) and regulates the dimer/monomer transition of XRCC1. Reciprocally, XRCC1 stimulates the kinase activity of DNA-PK on serine 15 of p53 <italic>in vitro</italic>. Finally, the non-phosphorylable XRCC1 mutant S371L expressed in XRCC1-deficient rodent cells (EM9) failed to fully rescue the DSB repair defect spontaneously present or induced by a low dose of IR. These results provide insight into an unexpected interplay between XRCC1 and the heterotrimeric complex DNA-PK that contributes to the resolution of DSB perhaps when a replication fork encounters a SSB.</p>
+    </sec>
+    <sec sec-type="materials|methods">
+      <title>MATERIALS AND METHODS</title>
+      <sec>
+        <title>Construction of the expression vectors</title>
+        <p>pCDEX vector encompassing the cDNA encoding human XRCC1 was kindly given by K. Caldecott (Sussex, UK). Truncated forms of XRCC1 were subcloned in-frame with GST in the eukaryotic pBC vector (<xref ref-type="bibr" rid="b26">26</xref>). Construction of the Flag-tagged XRCC1 encoding plasmid was described elsewhere (<xref ref-type="bibr" rid="b18">18</xref>). The S371L and S371D mutations of XRCC1 were generated by PCR by changing the AGC codon encoding a serine by a CTG or a GAT codon encoding a leucine or an aspartic acid, respectively. The mutated cDNA was cloned in the pCDEX vector. Wild-type and mutant sequences of human XRCC1 were cloned into the EcoRI site of pEGFP-C3 vector (Clontech). P53 oligonucleotides sense: 5&#x2032;-AATTAGAACCTCCACTTTCTCAAGAAGCTTTCGCTGATCTTTGGAAGAAAC-3&#x2032; antisense: 5&#x2032;-TCGAGTTTCTTCCAAAGATCAGCGAAAGCTTCTTGAGAAAGTGGAGGTTCT-3&#x2032; corresponding to amino acids 11&#x2013;25 were annealed and cloned in the EcoRI and XhoI sites of the prokaryotic vector pGEX (Amersham Biosciences). XRCC1 (282&#x2013;428) including BRCT1 domain, XRCC1 (282&#x2013;428) S371L, XRCC1 (282&#x2013;428) S371D and XRCC1 (527&#x2013;633) including BRCT2 domain cDNAs were amplified by PCR and cloned in pGEX vector. GST fusion proteins were produced in <italic>Escherichia coli</italic> (BL21) and soluble proteins were purified using glutathione&#x2013;Sepharose beads as indicated by the manufacturer.</p>
+      </sec>
+      <sec>
+        <title>Antibodies, western-blot analysis</title>
+        <p>Proteins were monitored using the following antibodies: rabbit polyclonal anti-PARP-1 and anti-XRCC1 (Alexis), goat polyclonal anti XRCC1 (D18), rabbit polyclonal anti-DNA-PKcs, anti-ATM (H248), monoclonal anti-Myc and anti-KU70 (C19) (Santa-Cruz, Biotechnology), monoclonal anti DNA-PKcs (Ab4) and anti-KU80 (NeoMarkers), anti-GST (IGBMC, Illkirch), anti-FLAG M2 (Sigma). Western blotting was carried out by standard procedures and proteins were visualized by ECL<sup>+</sup> (Amersham).</p>
+      </sec>
+      <sec>
+        <title>Mass spectrometry</title>
+        <p>Gel slices containing protein bands of interest stained with SYPRO-ruby were excised and processed as described previously (<xref ref-type="bibr" rid="b27">27</xref>). After digestion, the resulting peptide extracts were directly analyzed by nanoLC-MS/MS. Mass data acquisitions were piloted by MassLynx software (Micromass) using automatic switching between MS and MS/MS modes.</p>
+      </sec>
+      <sec>
+        <title>Immunoprecipitation, pull-down and kinase assays</title>
+        <p>All steps were performed at 4&#xB0;C. Cells were washed two times with ice cold phosphate-buffered saline (PBS). For GST pull-down assay, cells were lysed in 1 ml LBS buffer (50 mM Tris&#x2013;HCl, pH 8, 150 mM NaCl, 0.1% NP-40, 10 mM NaF, 1 mM Na<sub>3</sub>VO<sub>4</sub>, 0.5 mM phenylmethylsulfonyl fluoride (PMSF) with protease inhibitors (Complete Mini, Roche Molecular Biomedicals, Mannheim, Germany). After 20 min, cells were scraped and centrifuged 20 min at 17 000 <italic>g</italic> to remove cellular debris. GST-pull-down assays were performed as described in (<xref ref-type="bibr" rid="b17">17</xref>). For immunoprecipitation assays, nuclear extracts (100 &#xB5;g) were precleared with protein-A or -G sepharose (Amersham Biosciences) for 30 min before addition of antibodies and incubated on a rotating platform for 2 h. Protein A- or G- sepharose beads were then added for 1 h incubation to capture immunocomplexes. After washing, bead-containing pellets were either resuspended in Laemmli buffer or used in a kinase assay. To this purpose, sepharose beads were washed twice with 200 &#xB5;l of kinase buffer (70 mM Tris&#x2013;HCl, pH 7.5, 10 mM MgCl<sub>2</sub>, 5 mM DTT, 10 mM NaF, 1 mM Na<sub>3</sub>VO<sub>4</sub>). Beads were incubated with 20 &#xB5;l of kinase buffer containing either 0.3 &#xB5;Ci of [<sup>32</sup>P]-&#x3B3;ATP (Amersham Biosciences) or 1 mM cold ATP, for 30 min at 30&#xB0;C. Beads were washed twice in LBS prior resuspension in Laemmli buffer. Proteins were separated on SDS&#x2013;PAGE, transferred onto nitrocellulose membrane and subjected when necessary to sequential autoradiography using a phosphoimager (BioRad) and western blotting analysis.</p>
+        <p>The specific DNA-PK inhibitor (NU7441) (<xref ref-type="bibr" rid="b28">28</xref>) and ATM inhibitor KU-55933 (<xref ref-type="bibr" rid="b29">29</xref>) were provided by R. Griffin and KuDOS Pharmaceuticals, Cambridge, UK. Following pull-down, beads were incubated 1h at 4&#xB0;C in the presence of kinase inhibitor (10 &#xB5;M Wortmanin, 1 &#xB5;M and 0.1 &#xB5;M KU-0057788, 10 &#xB5;M caffeine or 0.1 &#xB5;M KU-55933) in kinase buffer. Then beads were incubated with 0.3 &#xB5;Ci of <sup>32</sup>P &#x3B3;ATP for 30 min at 30&#xB0;C. Beads were washed 3 times in LBS in presence of the inhibitors prior resuspension in Laemmli buffer.</p>
+      </sec>
+      <sec>
+        <title>Far western blotting</title>
+        <p>Purified proteins: DNA-PKcs (1&#xB5;g) and the heterodimer Ku70/Ku80 (2&#xB5;g) provided by B. Salles, DNA Ligase III (provided by A. Tomkinson), DNA polymerase &#x3B2;. provided by Z. Hostomski), GST and BSA (2&#xB5;g each) were dot-blotted onto nitrocellulose filters and subsequently blocked for 30 min in binding buffer (Tris HCl 50 mM pH 7.5, NaCl 120 mM, NP40 0.1%, PMSF and 0.5 mM BSA 20 mg/ml). Filters were then incubated for 1 h at RT in binding buffer containing 5 &#xB5;g/ml of recombinant XRCC1. Filters were rinsed three times in binding buffer and bound XRCC1 was revealed by western-blot with a goat polyclonal anti-XRCC1 antibody (1/100 in dilution).</p>
+      </sec>
+      <sec>
+        <title>Metabolic labeling experiments</title>
+        <p>HeLa cells (10<sup>6</sup>) were plated in 6 cm Petri dishes in normal medium. After 16 h of serum starvation, cells were washed with phosphate-free DMEM and then incubated 2 h in the same medium. Cells were either mock-treated or irradiated with 10 Gy at a dose-rate of 0.5 Gy/min with an X-ray irradiator (Cegelec, France) operating at 100 kV, 9 mA. The cells were immediately incubated in 1 ml of phosphate-free DMEM containing 600 &#xB5;Ci of <sup>32</sup>P orthophosphate (Amersham 10 mCi/ml) for 3 h. Cells were then washed in phosphate-free medium and processed as described for XRCC1 immunoprecipitation.</p>
+      </sec>
+      <sec>
+        <title>Stimulation of DNA-PK activity</title>
+        <p>An aliquot of 1 &#xB5;g of GST-p53 (residues 11&#x2013;25) substrate was mixed with different amounts of human XRCC1 (0.25&#x2013;2 &#xB5;g), in kinase buffer containing, 400 ng/ml of DNase I-activated calf thymus DNA, 1 mM ATP and 20 U of DNA-PK (Promega) and incubated at 30&#xB0;C for 10 min. Experiments were performed using human full-length recombinant XRCC1 or the XRCC1 BRCT1 (282&#x2013;428), XRCC1 (282&#x2013;428) S371L, XRCC1 (282&#x2013;428) S371D and XRCC1 BRCT2 (527&#x2013;633) in fusion with GST. Kinase reactions were terminated by addition of Laemmli buffer. Proteins were separated by SDS&#x2013;PAGE on 10% acrylamide gels. Phosphorylation of the p53-Serine15 was monitored using an anti phospho-p53 (ser15) monoclonal antibody (Cell Signaling, Beverly).</p>
+      </sec>
+      <sec>
+        <title>Immunofluorescence</title>
+        <p>Cells (10<sup>4</sup>) grown on glass coverslips were treated or not with 1 Gy of X-rays and processed for immunofluorescence after the indicated time of recovery. Cells were washed twice in cold PBS, fixed for 10 min at room temperature with PBS, 3% paraformaldehyde, 2% sucrose followed by washing with PBS and 0.1% Triton X-100. Cells were then permeabilized for 5 min at 4&#xB0;C with 0.5% Triton X-100, 20 mM HEPES pH 7.4, 50 mM NaCl, 3 mM MgCl2, 300 mM sucrose and washed twice with PBS, 0.1% Triton X-100. Cells were then incubated 10 min at 37&#xB0;C with polyclonal anti-&#x3B3;H2AX (Alexis Biochemicals, Lausen) at 1:1000 in PBS, 2% BSA. After two washes with PBS, 0.1% Triton X-100, cells were incubated for 10 min at 37&#xB0;C with an Alexia Fluor 568 goat anti-rabbit IgG (1:1500, Molecular Probes) in PBS, 2% BSA. Cells were counterstained with 4&#x2032;,6-diamidino-2-phenylindol (DAPI) and mounted in MOWIOL. Immunofluorescence was evaluated using a DMRA2 (Leica) microscope, equipped with a ORCA-ER chilled CCD camera (Hammamatsu) and the capture software Openlab (Improvision).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>RESULTS</title>
+      <sec>
+        <title>Identification by mass spectroscopy of DNA-PKcs associated with the BRCT1 domain of XRCC1</title>
+        <p>The evolutionarily conserved BRCT1 domain of XRCC1 derives from an ancestral motif found in rad4/cut5 in <italic>Schizosaccharomyces pombe</italic> (<xref ref-type="bibr" rid="b30">30</xref>). This domain is essential for cell survival after MNU treatment (<xref ref-type="bibr" rid="b31">31</xref>) and was previously shown to interact with PARP-1 and PARP-2, two enzymes involved in genome maintenance (<xref ref-type="bibr" rid="b17">17</xref>,<xref ref-type="bibr" rid="b18">18</xref>). To identify potential members of the multicomponent DNA repair complex, the BRCT1 domain (amino acids 282&#x2013;428) was overproduced in bacteria in fusion with GST (GST XRCC1 282&#x2013;428), purified on glutathione beads and incubated with nuclear extracts of HeLa cells. Pulled-down interacting proteins were separated by 10% SDS&#x2013;PAGE. Multiple bands in the region of 30&#x2013;300 kDa were observed, isolated from the gel and analyzed by proteolytic peptide sequencing. Among these, PARP-1 was identified as expected (<xref ref-type="bibr" rid="b17">17</xref>). Interestingly, the catalytic subunit of DNA-PK was identified by the presence of six different peptide fragments covering most of this molecule as seen in<xref ref-type="fig" rid="fig1">Figure 1A</xref>.</p>
+        <p>To confirm whether XRCC1 and DNA-PK coexist in a common complex, we carried out co-immunoprecipitation experiments in HeLa nuclear extracts. As shown in <xref ref-type="fig" rid="fig1">Figure 1B</xref>, XRCC1 was co-immunoprecipitated with anti-DNA-PKcs, anti-Ku80 and anti-Ku70 antibodies but not with unrelated control anti-Myc or anti-MMP 9 antibodies (reverse immunoprecipitations are shown in <xref ref-type="fig" rid="fig3">Figure 3E</xref>). We next tested for a direct physical association between XRCC1 and DNA-PKcs and/or the heterodimer Ku70/Ku80 by Far-western analysis (<xref ref-type="fig" rid="fig1">Figure 1C</xref>). Highly purified DNA-PKcs, Ku70/Ku80 heterodimer and the two documented XRCC1 binding partners LigIII and DNA pol&#x3B2; were dot-blotted onto nitrocellulose along with the control proteins GST and BSA. The nitrocellulose filter was incubated with purified XRCC1 and immunostained with an anti-XRCC1 antibody. As expected, purified LigIII and DNA pol&#x3B2; retained binding to XRCC1 but not the negative controls GST and BSA. Interestingly, both DNA-PKcs and the heterodimer Ku70/Ku80 were immunostained with the anti-XRCC1 antibody thus confirming a direct association between XRCC1 and these proteins.</p>
+      </sec>
+      <sec>
+        <title>The BRCT1 domain of XRCC1 interacts with and is phosphorylated <italic>in vitro</italic> by DNA-PK</title>
+        <p>Five overlapping XRCC1 fragments spanning the entire XRCC1 protein (<xref ref-type="fig" rid="fig2">Figure 2A</xref>) fused to the GST protein were transiently expressed in HeLa cells, purified on glutathione&#x2013;Sepharose beads and analyzed by western blotting with an anti-GST antibody to assess the expression level of the recombinant proteins (<xref ref-type="fig" rid="fig2">Figure 2B</xref>). They were subsequently analyzed by western blotting with anti-DNA-PKcs, anti-Ku80 and anti-Ku70 antibodies. We found that the three subunits of DNA-PK co-purified only with BRCT1 containing XRCC1-fusion proteins (<xref ref-type="fig" rid="fig2">Figure 2C</xref>) confirming that XRCC1 and DNA-PK are present in a complex. XRCC1 (314&#x2013;428) encompassing the BRCT1 domain was identified as the minimal region interacting with DNA-PK. In contrast, no co-purification of ATM was observed (<xref ref-type="fig" rid="fig2">Figure 2C</xref>).</p>
+        <p>Then, we questioned whether the BRCT1 domain could be phosphorylated by DNA-PK <italic>in vitro</italic>. The same truncated fragments of XRCC1 in fusion with GST were used to perform a kinase assay using [&#x3B3;-<sup>32</sup>P]ATP. The proteins were separated on SDS&#x2013;PAGE and labeled proteins were autoradiographied. Interestingly, only the truncated mutants containing the BRCT1 domain (amino acid 314&#x2013;428) fused to the GST were found highly phosphorylated indicating that they are substrate for the co-purifying DNA-PK (<xref ref-type="fig" rid="fig2">Figure 2D</xref>). In this experiment, the C-terminal peptide of XRCC1 (427&#x2013;633) bearing the CK2 phosphorylation sites was not found phosphorylated.</p>
+      </sec>
+      <sec>
+        <title>Human XRCC1 is phosphorylated <italic>in vivo</italic> following irradiation</title>
+        <p>To determine whether XRCC1 is phosphorylated <italic>in vivo</italic>, exponentially growing HeLa cells were exposed or mock-exposed to 10 Gy of IR and the phosphorylation of XRCC1 was monitored, after immunoprecipitation, by <sup>32</sup>P orthophosphate incorporation. In non-irradiated cells, immunoprecipitated XRCC1 was found phosphorylated most likely reflecting the constitutive phosphorylation by CK2 (<xref ref-type="bibr" rid="b11">11</xref>,<xref ref-type="bibr" rid="b12">12</xref>,<xref ref-type="bibr" rid="b15">15</xref>). Interestingly, a significant stimulation of <sup>32</sup>P orthophosphate incorporation into XRCC1 was observed after IR (<xref ref-type="fig" rid="fig3">Figure 3A</xref>). Addition of wortmannin, a PI3 kinase-like kinase inhibitor (<xref ref-type="bibr" rid="b32">32</xref>), decreased the phosphorylation of XRCC1 to the level observed in non irradiated cells, indicating that as expected, a kinase belonging to the PI3-KK family phosphorylates XRCC1 in response to IR.
+</p>
+        <p>To confirm that XRCC1 BRCT1 domain is phosphorylated <italic>in vivo</italic> after DNA damage, HeLa cells expressing GST-XRCC1(170&#x2013;428), which contains the NLS and the BRCT1 motif but not the CK2 phosphorylation sites, were either mock-irradiated or treated with 10 Gy IR. The phosphorylation of GST-XRCC1(170&#x2013;428) was monitored by <italic>in vivo</italic> <sup>32</sup>P orthophosphate incorporation (<xref ref-type="fig" rid="fig3">Figure 3B</xref>, top). Protein expressions were assessed on the same blot by Western blotting with an anti-GST antibody (<xref ref-type="fig" rid="fig3">Figure 3B</xref>, bottom). A robust stimulation of <sup>32</sup>P orthophosphate incorporation was detected after irradiation, indicating that GST-XRCC1 (170&#x2013;428) is phosphorylated <italic>in vivo</italic> after IR.</p>
+        <p>To examine whether an other kinase can be associated with and phosphorylates the BRCT1 domain, GST-XRCC1(170&#x2013;428) was expressed in either DNA-PKcs<sup>+/+</sup> or DNA-PKcs<sup>&#x2212;/&#x2212;</sup> mouse embryonic fibroblasts (MEFs) (<xref ref-type="bibr" rid="b33">33</xref>), purified by GST pull-down and used as substrates for the co-purified kinase. As shown in <xref ref-type="fig" rid="fig3">Figure 3C</xref>, GST-XRCC1(170&#x2013;428) was highly phosphorylated when expressed in DNA-PKcs<sup>+/+</sup> MEFs but was phosphorylated to background level when expressed in DNA-PKcs<sup>&#x2212;/&#x2212;</sup> MEFs, demonstrating that indeed DNA-PKcs catalyzes the phosphorylation of XRCC1 BRCT1 and that no other kinase co-purified with this BRCT1 containing truncated protein.</p>
+        <p>To further identify the kinase responsible for XRCC1 phosphorylation, kinase assays were performed in the presence of specific PI3-KK inhibitors following pull down of GST-XRCC1(170&#x2013;428) in COS-1 cells. As shown in <xref ref-type="fig" rid="fig3">Figure 3D</xref>, the use of 10 &#xB5;M of the PI3-KK inhibitor wortmannin or 0.1 to 1 &#xB5;M of the specific DNA-PK inhibitor NU7741 abolished the phosphorylation of GST-XRCC1 (170&#x2013;428). On the opposite, the use of 10 &#xB5;M of caffeine or 0.1 &#xB5;M of the specific ATM inhibitor KU-55933 barely affected the reaction, thus confirming DNA-PK as the major kinase involved in the phosphorylation of XRCC1 at its BRCT1 domain.</p>
+      </sec>
+      <sec>
+        <title>DNA-PK phosphorylates the BRCT1 domain at Ser 371</title>
+        <p>DNA-PK phosphorylates serines or threonines in a (Ser/Thr)-Gln motif. Analysis of the human XRCC1 sequence reveals the presence of four (Ser/Thr)-Gln motifs, but only one within the BRCT1 domain. Serine 371 lies in the C-terminal end of the XRCC1 BRCT1. To ascertain that the predicted Ser 371 was the phosphorylation site, we generated the point mutant XRCC1 S371L and expressed either the wt or the mutant form of XRCC1 in COS-1 cells. Immunoprecipitated XRCC1 and XRCC1 S371L were used as substrate in a kinase assay. <xref ref-type="fig" rid="fig3">Figure 3E</xref> reveals that wt XRCC1 is phosphorylated by the co-immunoprecipitated DNA-PK and the addition of 1 &#xB5;M wortmannin in the reaction mixture almost abolished XRCC1 phosphorylation. In clear contrast, XRCC1 S371L was phosphorylated to background level as compared with wt XRCC1. Addition of wortmannin was ineffective on the residual phosphorylation of the mutated protein, thus suggesting that the residual phosphorylation of XRCC1 S371L is most likely DNA-PK-independent as previously observed in <xref ref-type="fig" rid="fig3">Figure 3C</xref>. To rule out the possibility that XRCC1 S371L was not phosphorylated because this mutation affects the interaction of XRCC1 with DNA-PK, the membrane used for the detection of XRCC1 was assayed for the presence of DNA-PK heterotrimer. As shown in <xref ref-type="fig" rid="fig3">Figure 3E</xref>, the same amount of the DNA-PK heterotrimer co-immunoprecipitated with either wt or S371L XRCC1, indicating that the phosphorylation status of Ser371 does not impact on the binding of XRCC1 to DNA-PK.</p>
+      </sec>
+      <sec>
+        <title>Phosphorylation of serine 371 causes XRCC1 dimer dissociation</title>
+        <p>It was recently shown that XRCC1 can form dimers at high concentration (<xref ref-type="bibr" rid="b34">34</xref>,<xref ref-type="bibr" rid="b35">35</xref>). As BRCT domains are protein&#x2013;protein interaction modules, we reasoned that XRCC1 BRCT1 or BRCT2 domain might be directly involved in XRCC1 dimerization. To explore this possibility, we examined the ability of Flag-XRCC1 to interact with GST-XRCC1 truncated proteins expressed in HeLa cells. Cell extracts expressing Flag-XRCC1 were mixed with cell extracts expressing GST-fused truncated versions of XRCC1. GST-fused proteins were subsequently trapped on glutathione&#x2013;Sepharose beads, and co-purifying Flag-tagged XRCC1 was assessed by western blot analysis with an anti-Flag antibody. As shown in <xref ref-type="fig" rid="fig4">Figure 4A</xref>, co-purification of Flag-XRCC1 was efficient only with GST-XRCC1 polypeptides containing the BRCT1 domain, but not with the GST fusion containing the BRCT2 domain (427&#x2013;633). As the former can be phosphorylated by DNA-PK, we wondered whether the dimerization of XRCC1 depends on the phosphorylated status of XRCC1 Ser 371. Pulled-down GST-XRCC1 (170&#x2013;428) protein was phosphorylated <italic>in vitro</italic> by the co-associated DNA-PK in the presence of ATP, or dephosphorylated with &#x3BB; phosphatase (&#x3BB;PPase). Then, these bead-associated proteins were mixed to cell extracts containing Flag-XRCC1 and after centrifugation the co-association of Flag-XRCC1 was assessed by western blotting. <xref ref-type="fig" rid="fig4">Figure 4B</xref> shows that the phosphorylated form of XRCC1 retains small amount of Flag-XRCC1. In clear contrast, Flag-XRCC1 largely co-purified with dephosphorylated XRCC1. Similar experiments were conducted with the non-phosphorylable GST-XRCC1(170&#x2013;428) S371L mutant and the GST-XRCC1(170&#x2013;428) S371D mutant that mimics a constitutively phosphorylated form of XRCC1. Flag-XRCC1 associated preferentially with the non-phosphorylable form of XRCC1 (<xref ref-type="fig" rid="fig4">Figure 4C</xref>). These results indicate that hypo-phosphorylation favors XRCC1 dimerization or higher-order multimerization. Conversely, phosphorylation at Ser 371 causes XRCC1 dimer dissociation into monomer.</p>
+        <p>PARP-1 and PARP-2, which are known to form homo and heterodimers, are partners of XRCC1 BRCT1. Therefore, we questioned whether XRCC1 dimerization was mediated by PARP-1 or PARP-2 dimer. To determine this, GST-XRCC1 (282&#x2013;428) was expressed in <italic>E.coli</italic>, purified to homogeneity and dot-blotted onto nitrocellulose along with the control proteins GST, BSA and Pol&#x3B2;. The nitrocellulose filter was incubated with purified XRCC1 and immunostained with antibodies raised against the C-terminal part of XRCC1 which do not recognize the BRCT1 domain. As shown in <xref ref-type="fig" rid="fig4">Figure 4D</xref>, the BRCT1 domain retained binding to full-length XRCC1 as well as Pol&#x3B2;, indicating a direct association mediated by the BRCT1 domain between the two polypeptides. No interaction was observed with the negative controls GST and BSA.</p>
+      </sec>
+      <sec>
+        <title>XRCC1 stimulates DNA-PK catalytic activity <italic>in vitro</italic></title>
+        <p>It has been shown that XRCC1 interacts with and stimulates PNK, DNA Ligase III and APE1 activities (<xref ref-type="bibr" rid="b6">6</xref>,<xref ref-type="bibr" rid="b8">8</xref>,<xref ref-type="bibr" rid="b20">20</xref>). In contrast, XRCC1 negatively regulates PARP-1 and PARP-2 enzymatic activities (<xref ref-type="bibr" rid="b17">17</xref>,<xref ref-type="bibr" rid="b18">18</xref>). We therefore examined whether XRCC1 might affect the enzymatic activity of DNA-PK. An <italic>in vitro</italic> DNA-PK assay was set up with purified DNA-PK, a recombinant peptide encompassing the serine 15 of p53 fused to GST as substrate and increasing amounts of recombinant XRCC1. We examined the Ser-15 phosphorylation status of p53 by immunoblotting using an anti-p53 phospho-Ser-15 specific antibody. In the absence of DNA-PK no phosphorylation of p53 peptide on Ser15 was observed (<xref ref-type="fig" rid="fig5">Figure 5A</xref>). Addition of increasing amounts of recombinant human XRCC1 to the reaction strongly stimulated DNA-PK-dependent p53-Ser 15 phosphorylation. Heat-inactivated XRCC1 was not able to stimulate DNA-PK activity (data not shown). Since XRCC1 BRCT1 was found as the interacting domain with DNA-PK, the possibility that this domain alone stimulates DNA-PK activity was investigated. Bacterially purified GST-XRCC1 BRCT1 (282&#x2013;428), the mutated versions S371L and S371D as well as the GST-XRCC1 BRCT2 (527&#x2013;633) were used in the <italic>in vitro</italic> kinase assay. The addition to the reaction mixture of GST-XRCC1 BRCT1 and the mutant S371L strongly stimulated DNA-PK activity <italic>in vitro</italic> (<xref ref-type="fig" rid="fig5">Figure 5B</xref>), whereas the addition of GST-XRCC1 (282&#x2013;428) S371D only slightly stimulated the reaction. The addition of GST-XRCC1 (427&#x2013;633) comprising the BRCT2 domain had no stimulatory effect at all. These results indicate that the BRCT1 domain is endowed with the capacity to stimulate DNA-PK activity, depending on the Ser 371 status (<xref ref-type="fig" rid="fig5">Figure 5B</xref>). Taken together, these data indicate that XRCC1 strongly stimulates DNA-PK activity and that this stimulatory effect is weakened in the mutant S371D that mimics a phosphorylated status of the BRCT1 domain.</p>
+      </sec>
+      <sec>
+        <title>XRCC1 phosphorylation at Serine 371 is important for DSB rejoining</title>
+        <p>To directly investigate the biological significance of XRCC1 phosphorylation at Serine 371 in relation of rejoining DSBs, we took advantage of &#x3B3;-H2AX foci analysis as a sensitive monitor of DSBs formation and repair (<xref ref-type="bibr" rid="b36">36</xref>,<xref ref-type="bibr" rid="b37">37</xref>). In the absence of DNA damage, we found that the &#x2018;spontaneous&#x2019; level of &#x3B3;-H2AX foci was higher in <italic>XRCC1</italic>-deficient EM9 cells than in wt AA8 (<xref ref-type="fig" rid="fig6">Figure 6A</xref>) (<italic>t</italic>-test, <italic>P</italic> &lt; 0.001) in agreement with (<xref ref-type="bibr" rid="b38">38</xref>).</p>
+        <p>We further investigated the biological significance of XRCC1 phosphorylation at S371 in relation to DSBs occurrence and repair <italic>in vivo</italic> in EM9 cells corrected for either wt or S371L-mutant XRCC1 (<xref ref-type="fig" rid="fig6">Figure 6B</xref> and C). Interestingly, in the absence of DNA damage, the expression of either XRCC1 or XRCC1 S371L in EM9 cells decreased substantially the average number of &#x3B3;-H2AX foci per nucleus. However, the number of foci in cells restored with the non-phosphorylable XRCC1 was significantly higher compared with that restored with wt XRCC1 (<italic>t</italic>-test <italic>P</italic> &lt; 0.001). Following 1 Gy IR, &#x3B3;-H2AX foci increased substantially in all cell lines. Interestingly, the defect was substantially corrected in EM9 cells expressing wt XRCC1. In contrast, the S371L XRCC1 mutant that disrupts the DNA-PK phosphorylation site failed to rescue completely the DSB repair defect of EM9 cells (<xref ref-type="fig" rid="fig6">Figure 6B</xref> and C). Together, these results provide compelling evidence that phosphorylation of XRCC1 at Serine 371 is important for rejoining of DSBs in response to DNA damage caused by IR.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>DISCUSSION</title>
+      <p>Using a combination of IP, reverse IP and GST pull-down analysis, in this work we provide evidence of a physical and functional association of XRCC1 with the heterotrimeric complex DNA-PK. <italic>In vivo</italic> metabolic labeling showed that XRCC1 is constitutively phosphorylated and that it is further hyper-phosphorylated following IR. Both the use of specific PI3-KK inhibitors and DNA-PKcs<sup>&#x2212;/&#x2212;</sup> MEFs confirmed that DNA-PK is the major kinase involved in the phosphorylation of the BRCT1 domain at Ser 371. It has been suggested that an altered DNA repair activity of XRCC1 R399Q polymorphism may contribute to susceptibility to carcinogenesis. However, EM9 cells expressing wt or XRCC1 R399Q failed to reveal any difference in the sensitivity to MMS and in SSB repair (<xref ref-type="bibr" rid="b31">31</xref>). Therefore, because the mutation of R399 could have an impact on the structure around S371 and consequently on the BRCT1 phosphorylation, the R399Q mutant was tested for its ability to be phosphorylated by DNA-PK <italic>in vitro</italic>. We found that XRCC1 R399Q is associated with and can be phosphorylated on S371 by DNA-PK similarly to wt XRCC1 (data not shown), thus ruling out a disturbing effect of this polymorphism on BRCT1 phosphorylation.</p>
+      <p>It has been previously reported that XRCC1 is multiply phosphorylated by CK2 (<xref ref-type="bibr" rid="b11">11</xref>,<xref ref-type="bibr" rid="b12">12</xref>,<xref ref-type="bibr" rid="b15">15</xref>). The CK2 phosphorylation sites were mapped on a cluster of serine/threonine located in the linker between the two BRCT domains (<xref ref-type="bibr" rid="b11">11</xref>,<xref ref-type="bibr" rid="b12">12</xref>). XRCC1 phosphorylation by CK2 promotes interaction with PNK (<xref ref-type="bibr" rid="b11">11</xref>). PNK was previously shown to stimulate both DNA kinase and DNA phosphatase activities at DNA breaks (<xref ref-type="bibr" rid="b8">8</xref>), therefore stimulating DNA repair. CK2 phosphorylation of XRCC1 also regulates binding of Aprataxin, the protein mutated in ataxia-oculomotor apraxia 1 (AOA1) (<xref ref-type="bibr" rid="b39">39</xref>,<xref ref-type="bibr" rid="b40">40</xref>), to the same region of XRCC1 competitively (<xref ref-type="bibr" rid="b12">12</xref>). Thus, XRCC1 binds to PNK or Aprataxin in a mutually exclusive manner. In this work, no protein kinase activity was found associated with the C-terminus of XRCC1 (XRCC1 428&#x2013;633) encompassing the CK2 phosphorylation sites suggesting that CK2 does not co-purify with this domain under the conditions we have used.</p>
+      <p>Independent and important roles have been ascribed to each XRCC1 BRCT domain (<xref ref-type="bibr" rid="b15">15</xref>,<xref ref-type="bibr" rid="b16">16</xref>). The BRCT1 domain is the most evolutionarily conserved and is required for survival after methylation damage but its precise function is not fully understood at present. It mediates the interaction with PARP-1 (<xref ref-type="bibr" rid="b17">17</xref>) and PARP-2 (<xref ref-type="bibr" rid="b18">18</xref>) and contains a binding site for poly(ADP&#x2013;ribose) (<xref ref-type="bibr" rid="b19">19</xref>). In response to DNA damage-induced SSBs, XRCC1 is recruited within seconds to the sites of chromosomal DNA strand breakage by its BRCT1 domain (<xref ref-type="bibr" rid="b3">3</xref>&#x2013;<xref ref-type="bibr" rid="b5">5</xref>). We found that Ser 371 phosphorylation is not involved in this process since XRCC1 S371L can still be recruited to DNA damage sites (data not shown). In contrast to two recent reports showing that XRCC1 dimerizes via its BRCT2 domain (<xref ref-type="bibr" rid="b34">34</xref>,<xref ref-type="bibr" rid="b35">35</xref>), we showed here by GST-pull down assay and Far-western blotting that the BRCT1 (but not the BRCT2) domain is the interface for homodimerization or formation of higher order multimer complex. We also show that BRCT1 phosphorylation on Ser 371 controls XRCC1 dimer-monomer transition that reflects a major structural change of XRCC1 after BRCT1 phosphorylation. The DSBs repair delay observed with the ectopic expression of the non-phosphorylable mutant S371L emphasizes the importance of the phosphorylation of XRCC1 and hence its conversion to a monomeric form, in the resolution of IR-induced DSBs. Interestingly, in the crystal structure of tandem BRCT repeats like 53BP1 or BRCA1 (<xref ref-type="bibr" rid="b41">41</xref>,<xref ref-type="bibr" rid="b42">42</xref>), the position equivalent to Ser 371 in XRCC1 corresponds to a residue localized in helix 2 that contributes to the inter-BRCT repeat interface, thus inviting to the speculation that phosphorylation of this position might strongly perturb BRCT-BRCT interaction thus preventing dimerization.</p>
+      <p>The interaction between DNA-PK and XRCC1 not only triggers the phosphorylation of the BRCT1 domain but also enhances the phosphorylation of p53-Ser 15. Interestingly, the pseudo phosphorylated mutant S371D did not form dimers of XRCC1 and was impaired in this stimulatory function. Phosphorylation of p53-Ser15 is known to play a role in the functional interactions with early complexes of Rad51-dependent recombination and in DNA damage signaling (<xref ref-type="bibr" rid="b43">43</xref>,<xref ref-type="bibr" rid="b44">44</xref>). It is thus tempting to speculate that after a SSB-induced replication fork stalling XRCC1 as an early responder may channel repair into the NHEJ. Recent reports suggest a contribution of PARP-1, XRCC1 (<xref ref-type="bibr" rid="b45">45</xref>) and DNA ligase III (<xref ref-type="bibr" rid="b46">46</xref>) in backup pathways of double-strand end-joining. Whether specific factors involved in DSBs repair interact with phosphorylated XRCC1 awaits further investigation.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>The authors are grateful to G. Taccioli for the gift of DNA-PKcs<sup>&#x2212;/&#x2212;</sup> cell lines, B. Salles (CNRS, Toulouse, France) A. Tomkinson (University of Baltimore, Maryland) and Z. Hostomski (Pfizer) for the gift of purified proteins and F. Delalande (CNRS, Strasbourg, France) for mass spectrometry analysis. The authors wish to thank Roger Griffin (University of Newcastle, UK) and Graeme Smith (KuDOS Pharmaceuticals, UK) for kindly providing kinase inhibitors. The authors also thank F. Dantzer, V. Schreiber and I. Callebaut for comments on the manuscript. This work was supported by funds from Centre National de la Recherche Scientifique, Association pour la Recherche contre le Cancer, Electricit&#xE9; de France, Ligue contre le Cancer, Commissariat &#xE0; l'Energie Atomique and Agence Nationale pour la Recherche. The Open Access publication charges for this article were waived by Oxford University Press.</p>
+      <p><italic>Conflict of interest statement</italic>. None declared.</p>
+    </ack>
+    <ref-list>
+      <title>REFERENCES</title>
+      <ref id="b1">
+        <label>1</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van Gent</surname>
+              <given-names>D.C.</given-names>
+            </name>
+            <name>
+              <surname>Hoeijmakers</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Kanaar</surname>
+              <given-names>R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Chromosomal stability and the DNA double-stranded break connection</article-title>
+          <source>Nature Rev. Genet.</source>
+          <year>2001</year>
+          <volume>2</volume>
+          <fpage>196</fpage>
+          <lpage>206</lpage>
+          <pub-id pub-id-type="pmid">11256071</pub-id>
+        </citation>
+      </ref>
+      <ref id="b2">
+        <label>2</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoeijmakers</surname>
+              <given-names>J.H.</given-names>
+            </name>
+          </person-group>
+          <article-title>Genome maintenance mechanisms for preventing cancer</article-title>
+          <source>Nature</source>
+          <year>2001</year>
+          <volume>411</volume>
+          <fpage>366</fpage>
+          <lpage>374</lpage>
+          <pub-id pub-id-type="pmid">11357144</pub-id>
+        </citation>
+      </ref>
+      <ref id="b3">
+        <label>3</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Okano</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Lan</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+            <name>
+              <surname>Mori</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Yasui</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Spatial and temporal cellular responses to single-strand breaks in human cells</article-title>
+          <source>Mol. Cell. Biol.</source>
+          <year>2003</year>
+          <volume>23</volume>
+          <fpage>3974</fpage>
+          <lpage>3981</lpage>
+          <pub-id pub-id-type="pmid">12748298</pub-id>
+        </citation>
+      </ref>
+      <ref id="b4">
+        <label>4</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ame</surname>
+              <given-names>J.C.</given-names>
+            </name>
+            <name>
+              <surname>Spenlehauer</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>de Murcia</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>The PARP superfamily</article-title>
+          <source>Bioessays</source>
+          <year>2004</year>
+          <volume>26</volume>
+          <fpage>882</fpage>
+          <lpage>893</lpage>
+          <pub-id pub-id-type="pmid">15273990</pub-id>
+        </citation>
+      </ref>
+      <ref id="b5">
+        <label>5</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>El-Khamisy</surname>
+              <given-names>S.F.</given-names>
+            </name>
+            <name>
+              <surname>Masutani</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>A requirement for PARP-1 for the assembly or stability of XRCC1 nuclear foci at sites of oxidative DNA damage</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2003</year>
+          <volume>31</volume>
+          <fpage>5526</fpage>
+          <lpage>5533</lpage>
+          <pub-id pub-id-type="pmid">14500814</pub-id>
+        </citation>
+      </ref>
+      <ref id="b6">
+        <label>6</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Vidal</surname>
+              <given-names>A.E.</given-names>
+            </name>
+            <name>
+              <surname>Boiteux</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Hickson</surname>
+              <given-names>I.D.</given-names>
+            </name>
+            <name>
+              <surname>Radicella</surname>
+              <given-names>J.P.</given-names>
+            </name>
+          </person-group>
+          <article-title>XRCC1 coordinates the initial and late stages of DNA abasic site repair through protein&#x2013;protein interactions</article-title>
+          <source>EMBO J.</source>
+          <year>2001</year>
+          <volume>20</volume>
+          <fpage>6530</fpage>
+          <lpage>6539</lpage>
+          <pub-id pub-id-type="pmid">11707423</pub-id>
+        </citation>
+      </ref>
+      <ref id="b7">
+        <label>7</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mol</surname>
+              <given-names>C.D.</given-names>
+            </name>
+            <name>
+              <surname>Izumi</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Mitra</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Tainer</surname>
+              <given-names>J.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>DNA-bound structures and mutants reveal abasic DNA binding by APE1 and DNA repair coordination [corrected]</article-title>
+          <source>Nature</source>
+          <year>2000</year>
+          <volume>403</volume>
+          <fpage>451</fpage>
+          <lpage>456</lpage>
+          <pub-id pub-id-type="pmid">10667800</pub-id>
+        </citation>
+      </ref>
+      <ref id="b8">
+        <label>8</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Whitehouse</surname>
+              <given-names>C.J.</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>R.M.</given-names>
+            </name>
+            <name>
+              <surname>Thistlethwaite</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Karimi-Busheri</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Lasko</surname>
+              <given-names>D.D.</given-names>
+            </name>
+            <name>
+              <surname>Weinfeld</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>XRCC1 stimulates human polynucleotide kinase activity at damaged DNA termini and accelerates DNA single-strand break repair</article-title>
+          <source>Cell</source>
+          <year>2001</year>
+          <volume>104</volume>
+          <fpage>107</fpage>
+          <lpage>117</lpage>
+          <pub-id pub-id-type="pmid">11163244</pub-id>
+        </citation>
+      </ref>
+      <ref id="b9">
+        <label>9</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kubota</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Nash</surname>
+              <given-names>R.A.</given-names>
+            </name>
+            <name>
+              <surname>Klungland</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Schar</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Barnes</surname>
+              <given-names>D.E.</given-names>
+            </name>
+            <name>
+              <surname>Lindahl</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Reconstitution of DNA base excision-repair with purified human proteins: interaction between DNA polymerase beta and the XRCC1 protein</article-title>
+          <source>EMBO J.</source>
+          <year>1996</year>
+          <volume>15</volume>
+          <fpage>6662</fpage>
+          <lpage>6670</lpage>
+          <pub-id pub-id-type="pmid">8978692</pub-id>
+        </citation>
+      </ref>
+      <ref id="b10">
+        <label>10</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fan</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Otterlei</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>H.K.</given-names>
+            </name>
+            <name>
+              <surname>Tomkinson</surname>
+              <given-names>A.E.</given-names>
+            </name>
+            <name>
+              <surname>Wilson</surname>
+              <given-names>D.M.</given-names>
+              <suffix>III</suffix>
+            </name>
+          </person-group>
+          <article-title>XRCC1 co-localizes and physically interacts with PCNA</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2004</year>
+          <volume>32</volume>
+          <fpage>2193</fpage>
+          <lpage>2201</lpage>
+          <pub-id pub-id-type="pmid">15107487</pub-id>
+        </citation>
+      </ref>
+      <ref id="b11">
+        <label>11</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Loizou</surname>
+              <given-names>J.I.</given-names>
+            </name>
+            <name>
+              <surname>El-Khamisy</surname>
+              <given-names>S.F.</given-names>
+            </name>
+            <name>
+              <surname>Zlatanou</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Moore</surname>
+              <given-names>D.J.</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>D.W.</given-names>
+            </name>
+            <name>
+              <surname>Qin</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Sarno</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Meggio</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Pinna</surname>
+              <given-names>L.A.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>The protein kinase CK2 facilitates repair of chromosomal DNA single-strand breaks</article-title>
+          <source>Cell</source>
+          <year>2004</year>
+          <volume>117</volume>
+          <fpage>17</fpage>
+          <lpage>28</lpage>
+          <pub-id pub-id-type="pmid">15066279</pub-id>
+        </citation>
+      </ref>
+      <ref id="b12">
+        <label>12</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Luo</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>D.W.</given-names>
+            </name>
+            <name>
+              <surname>Yang</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Rodriguez</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>B.P.</given-names>
+            </name>
+            <name>
+              <surname>Leng</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Mu</surname>
+              <given-names>J.J.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Songyang</surname>
+              <given-names>Z.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A new XRCC1-containing complex and its role in cellular survival of methyl methanesulfonate treatment</article-title>
+          <source>Mol. Cell. Biol.</source>
+          <year>2004</year>
+          <volume>24</volume>
+          <fpage>8356</fpage>
+          <lpage>8365</lpage>
+          <pub-id pub-id-type="pmid">15367657</pub-id>
+        </citation>
+      </ref>
+      <ref id="b13">
+        <label>13</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gueven</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Becherel</surname>
+              <given-names>O.J.</given-names>
+            </name>
+            <name>
+              <surname>Kijas</surname>
+              <given-names>A.W.</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Howe</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Rudolph</surname>
+              <given-names>J.H.</given-names>
+            </name>
+            <name>
+              <surname>Gatti</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Date</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Onodera</surname>
+              <given-names>O.</given-names>
+            </name>
+            <name>
+              <surname>Taucher-Scholz</surname>
+              <given-names>G.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Aprataxin, a novel protein that protects against genotoxic stress</article-title>
+          <source>Hum. Mol. Genet.</source>
+          <year>2004</year>
+          <volume>13</volume>
+          <fpage>1081</fpage>
+          <lpage>1093</lpage>
+          <pub-id pub-id-type="pmid">15044383</pub-id>
+        </citation>
+      </ref>
+      <ref id="b14">
+        <label>14</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Clements</surname>
+              <given-names>P.M.</given-names>
+            </name>
+            <name>
+              <surname>Breslin</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Deeks</surname>
+              <given-names>E.D.</given-names>
+            </name>
+            <name>
+              <surname>Byrd</surname>
+              <given-names>P.J.</given-names>
+            </name>
+            <name>
+              <surname>Ju</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Bieganowski</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Brenner</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Moreira</surname>
+              <given-names>M.C.</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>A.M.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>The ataxia-oculomotor apraxia 1 gene product has a role distinct from ATM and interacts with the DNA strand break repair proteins XRCC1 and XRCC4</article-title>
+          <source>DNA Repair (Amst.)</source>
+          <year>2004</year>
+          <volume>3</volume>
+          <fpage>1493</fpage>
+          <lpage>1502</lpage>
+          <pub-id pub-id-type="pmid">15380105</pub-id>
+        </citation>
+      </ref>
+      <ref id="b15">
+        <label>15</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kubota</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Horiuchi</surname>
+              <given-names>S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Independent roles of XRCC1's two BRCT motifs in recovery from methylation damage</article-title>
+          <source>DNA Repair (Amst.)</source>
+          <year>2003</year>
+          <volume>2</volume>
+          <fpage>407</fpage>
+          <lpage>415</lpage>
+          <pub-id pub-id-type="pmid">12606121</pub-id>
+        </citation>
+      </ref>
+      <ref id="b16">
+        <label>16</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>XRCC1 and DNA strand break repair</article-title>
+          <source>DNA Repair (Amst.)</source>
+          <year>2003</year>
+          <volume>2</volume>
+          <fpage>955</fpage>
+          <lpage>969</lpage>
+          <pub-id pub-id-type="pmid">12967653</pub-id>
+        </citation>
+      </ref>
+      <ref id="b17">
+        <label>17</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Masson</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Niedergang</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Schreiber</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Muller</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Menissier-de Murcia</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>de Murcia</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>XRCC1 is specifically associated with poly(ADP-ribose) polymerase and negatively regulates its activity following DNA damage</article-title>
+          <source>Mol. Cell. Biol.</source>
+          <year>1998</year>
+          <volume>18</volume>
+          <fpage>3563</fpage>
+          <lpage>3571</lpage>
+          <pub-id pub-id-type="pmid">9584196</pub-id>
+        </citation>
+      </ref>
+      <ref id="b18">
+        <label>18</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schreiber</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>Am&#xE9;</surname>
+              <given-names>J.C.</given-names>
+            </name>
+            <name>
+              <surname>Doll&#xE9;</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Schultz</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Rinaldi</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Fraulob</surname>
+              <given-names>V.</given-names>
+            </name>
+            <name>
+              <surname>M&#xE9;nissier-de Murcia</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>de Murcia</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Poly(ADP-ribose) polymerase-2 (PARP-2) is required for efficient base excision DNA repair in association with PARP-1 and XRCC1</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2002</year>
+          <volume>277</volume>
+          <fpage>23028</fpage>
+          <lpage>23036</lpage>
+          <pub-id pub-id-type="pmid">11948190</pub-id>
+        </citation>
+      </ref>
+      <ref id="b19">
+        <label>19</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pleschke</surname>
+              <given-names>J.M.</given-names>
+            </name>
+            <name>
+              <surname>Kleczkowska</surname>
+              <given-names>H.E.</given-names>
+            </name>
+            <name>
+              <surname>Strohm</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Althaus</surname>
+              <given-names>F.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Poly(ADP-ribose) binds to specific domains in DNA damage checkpoint proteins</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>40974</fpage>
+          <lpage>40980</lpage>
+          <pub-id pub-id-type="pmid">11016934</pub-id>
+        </citation>
+      </ref>
+      <ref id="b20">
+        <label>20</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+            <name>
+              <surname>McKeown</surname>
+              <given-names>C.K.</given-names>
+            </name>
+            <name>
+              <surname>Tucker</surname>
+              <given-names>J.D.</given-names>
+            </name>
+            <name>
+              <surname>Ljungquist</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Thompson</surname>
+              <given-names>L.H.</given-names>
+            </name>
+          </person-group>
+          <article-title>An interaction between the mammalian DNA repair protein XRCC1 and DNA ligase III</article-title>
+          <source>Mol. Cell. Biol.</source>
+          <year>1994</year>
+          <volume>14</volume>
+          <fpage>68</fpage>
+          <lpage>76</lpage>
+          <pub-id pub-id-type="pmid">8264637</pub-id>
+        </citation>
+      </ref>
+      <ref id="b21">
+        <label>21</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cappelli</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Cevasco</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Abbondandolo</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Frosina</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of XRCC1 and DNA ligase III gene products in DNA base excision repair</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>1997</year>
+          <volume>272</volume>
+          <fpage>23970</fpage>
+          <lpage>23975</lpage>
+          <pub-id pub-id-type="pmid">9295348</pub-id>
+        </citation>
+      </ref>
+      <ref id="b22">
+        <label>22</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chen</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Trujillo</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Sung</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Tomkinson</surname>
+              <given-names>A.E.</given-names>
+            </name>
+          </person-group>
+          <article-title>Interactions of the DNA ligase IV-XRCC4 complex with DNA ends and the DNA-dependent protein kinase</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>26196</fpage>
+          <lpage>26205</lpage>
+          <pub-id pub-id-type="pmid">10854421</pub-id>
+        </citation>
+      </ref>
+      <ref id="b23">
+        <label>23</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nick McElhinny</surname>
+              <given-names>S.A.</given-names>
+            </name>
+            <name>
+              <surname>Snowden</surname>
+              <given-names>C.M.</given-names>
+            </name>
+            <name>
+              <surname>McCarville</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Ramsden</surname>
+              <given-names>D.A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Ku recruits the XRCC4-ligase IV complex to DNA ends</article-title>
+          <source>Mol. Cell. Biol.</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>2996</fpage>
+          <lpage>3003</lpage>
+          <pub-id pub-id-type="pmid">10757784</pub-id>
+        </citation>
+      </ref>
+      <ref id="b24">
+        <label>24</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chappell</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Hanakahi</surname>
+              <given-names>L.A.</given-names>
+            </name>
+            <name>
+              <surname>Karimi-Busheri</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Weinfeld</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>West</surname>
+              <given-names>S.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of human polynucleotide kinase in double-strand break repair by non-homologous end joining</article-title>
+          <source>EMBO J.</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>2827</fpage>
+          <lpage>2832</lpage>
+          <pub-id pub-id-type="pmid">12032095</pub-id>
+        </citation>
+      </ref>
+      <ref id="b25">
+        <label>25</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Dynan</surname>
+              <given-names>W.S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Reconstitution of the mammalian DNA double-strand break end-joining reaction reveals a requirement for an Mre11/Rad50/NBS1-containing fraction</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>2002</year>
+          <volume>30</volume>
+          <fpage>667</fpage>
+          <lpage>674</lpage>
+          <pub-id pub-id-type="pmid">11809878</pub-id>
+        </citation>
+      </ref>
+      <ref id="b26">
+        <label>26</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chatton</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Bahr</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Acker</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Kedinger</surname>
+              <given-names>C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Eukaryotic GST fusion vector for the study of protein&#x2013;protein associations <italic>in vivo</italic>: application to interaction of ATFa with Jun and Fos</article-title>
+          <source>Biotechniques</source>
+          <year>1995</year>
+          <volume>18</volume>
+          <fpage>142</fpage>
+          <lpage>145</lpage>
+          <pub-id pub-id-type="pmid">7702840</pub-id>
+        </citation>
+      </ref>
+      <ref id="b27">
+        <label>27</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Delalande</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Carapito</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Brizard</surname>
+              <given-names>J.P.</given-names>
+            </name>
+            <name>
+              <surname>Brugidou</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Van Dorsselaer</surname>
+              <given-names>A.</given-names>
+            </name>
+          </person-group>
+          <article-title>Multigenic families and proteomics: extended protein characterization as a tool for paralog gene identification</article-title>
+          <source>Proteomics</source>
+          <year>2005</year>
+          <volume>5</volume>
+          <fpage>450</fpage>
+          <lpage>460</lpage>
+          <pub-id pub-id-type="pmid">15627959</pub-id>
+        </citation>
+      </ref>
+      <ref id="b28">
+        <label>28</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Leahy</surname>
+              <given-names>J.J.</given-names>
+            </name>
+            <name>
+              <surname>Golding</surname>
+              <given-names>B.T.</given-names>
+            </name>
+            <name>
+              <surname>Griffin</surname>
+              <given-names>R.J.</given-names>
+            </name>
+            <name>
+              <surname>Hardcastle</surname>
+              <given-names>I.R.</given-names>
+            </name>
+            <name>
+              <surname>Richardson</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Rigoreau</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>G.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a highly potent and selective DNA-dependent protein kinase (DNA-PK) inhibitor (NU7441) by screening of chromenone libraries</article-title>
+          <source>Bioorg. Med. Chem. Lett.</source>
+          <year>2004</year>
+          <volume>14</volume>
+          <fpage>6083</fpage>
+          <lpage>6087</lpage>
+          <pub-id pub-id-type="pmid">15546735</pub-id>
+        </citation>
+      </ref>
+      <ref id="b29">
+        <label>29</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hickson</surname>
+              <given-names>I.</given-names>
+            </name>
+            <name>
+              <surname>Zhao</surname>
+              <given-names>Y.</given-names>
+            </name>
+            <name>
+              <surname>Richardson</surname>
+              <given-names>C.J.</given-names>
+            </name>
+            <name>
+              <surname>Green</surname>
+              <given-names>S.J.</given-names>
+            </name>
+            <name>
+              <surname>Martin</surname>
+              <given-names>N.M.</given-names>
+            </name>
+            <name>
+              <surname>Orr</surname>
+              <given-names>A.I.</given-names>
+            </name>
+            <name>
+              <surname>Reaper</surname>
+              <given-names>P.M.</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>S.P.</given-names>
+            </name>
+            <name>
+              <surname>Curtin</surname>
+              <given-names>N.J.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>G.C.</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification and characterization of a novel and specific inhibitor of the ataxia-telangiectasia mutated kinase ATM</article-title>
+          <source>Cancer Res.</source>
+          <year>2004</year>
+          <volume>64</volume>
+          <fpage>9152</fpage>
+          <lpage>9159</lpage>
+          <pub-id pub-id-type="pmid">15604286</pub-id>
+        </citation>
+      </ref>
+      <ref id="b30">
+        <label>30</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lehmann</surname>
+              <given-names>A.R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Duplicated region of sequence similarity to the human XRCC1 DNA repair gene in the <italic>Schizosaccharomyces pombe</italic> rad4/cut5 gene</article-title>
+          <source>Nucleic Acids Res.</source>
+          <year>1993</year>
+          <volume>21</volume>
+          <fpage>5274</fpage>
+          <pub-id pub-id-type="pmid">8255785</pub-id>
+        </citation>
+      </ref>
+      <ref id="b31">
+        <label>31</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Taylor</surname>
+              <given-names>R.M.</given-names>
+            </name>
+            <name>
+              <surname>Thistlethwaite</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+          </person-group>
+          <article-title>Central role for the XRCC1 BRCT I domain in mammalian DNA single-strand break repair</article-title>
+          <year>2002</year>
+          <volume>22</volume>
+          <fpage>2556</fpage>
+          <lpage>2563</lpage>
+        </citation>
+      </ref>
+      <ref id="b32">
+        <label>32</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sarkaria</surname>
+              <given-names>J.N.</given-names>
+            </name>
+            <name>
+              <surname>Tibbetts</surname>
+              <given-names>R.S.</given-names>
+            </name>
+            <name>
+              <surname>Busby</surname>
+              <given-names>E.C.</given-names>
+            </name>
+            <name>
+              <surname>Kennedy</surname>
+              <given-names>A.P.</given-names>
+            </name>
+            <name>
+              <surname>Hill</surname>
+              <given-names>D.E.</given-names>
+            </name>
+            <name>
+              <surname>Abraham</surname>
+              <given-names>R.T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inhibition of phosphoinositide 3-kinase related kinases by the radiosensitizing agent wortmannin</article-title>
+          <source>Cancer Res.</source>
+          <year>1998</year>
+          <volume>58</volume>
+          <fpage>4375</fpage>
+          <lpage>4382</lpage>
+          <pub-id pub-id-type="pmid">9766667</pub-id>
+        </citation>
+      </ref>
+      <ref id="b33">
+        <label>33</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Taccioli</surname>
+              <given-names>G.E.</given-names>
+            </name>
+            <name>
+              <surname>Amatucci</surname>
+              <given-names>A.G.</given-names>
+            </name>
+            <name>
+              <surname>Beamish</surname>
+              <given-names>H.J.</given-names>
+            </name>
+            <name>
+              <surname>Gell</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Xiang</surname>
+              <given-names>X.H.</given-names>
+            </name>
+            <name>
+              <surname>Torres Arzayus</surname>
+              <given-names>M.I.</given-names>
+            </name>
+            <name>
+              <surname>Priestley</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>S.P.</given-names>
+            </name>
+            <name>
+              <surname>Marshak Rothstein</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Jeggo</surname>
+              <given-names>P.A.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Targeted disruption of the catalytic subunit of the DNA-PK gene in mice confers severe combined immunodeficiency and radiosensitivity</article-title>
+          <source>Immunity</source>
+          <year>1998</year>
+          <volume>9</volume>
+          <fpage>355</fpage>
+          <lpage>366</lpage>
+          <pub-id pub-id-type="pmid">9768755</pub-id>
+        </citation>
+      </ref>
+      <ref id="b34">
+        <label>34</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mani</surname>
+              <given-names>R.S.</given-names>
+            </name>
+            <name>
+              <surname>Karimi-Busheri</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Fanta</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Caldecott</surname>
+              <given-names>K.W.</given-names>
+            </name>
+            <name>
+              <surname>Cass</surname>
+              <given-names>C.E.</given-names>
+            </name>
+            <name>
+              <surname>Weinfeld</surname>
+              <given-names>M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Biophysical characterization of human XRCC1 and its binding to damaged and undamaged DNA</article-title>
+          <source>Biochemistry</source>
+          <year>2004</year>
+          <volume>43</volume>
+          <fpage>16505</fpage>
+          <lpage>16514</lpage>
+          <pub-id pub-id-type="pmid">15610045</pub-id>
+        </citation>
+      </ref>
+      <ref id="b35">
+        <label>35</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beernink</surname>
+              <given-names>P.T.</given-names>
+            </name>
+            <name>
+              <surname>Hwang</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Ramirez</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Murphy</surname>
+              <given-names>M.B.</given-names>
+            </name>
+            <name>
+              <surname>Doyle</surname>
+              <given-names>S.A.</given-names>
+            </name>
+            <name>
+              <surname>Thelen</surname>
+              <given-names>M.P.</given-names>
+            </name>
+          </person-group>
+          <article-title>Specificity of protein interactions mediated by BRCT domains of the XRCC1 DNA repair protein</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2005</year>
+          <volume>280</volume>
+          <fpage>30206</fpage>
+          <lpage>30213</lpage>
+          <pub-id pub-id-type="pmid">15987676</pub-id>
+        </citation>
+      </ref>
+      <ref id="b36">
+        <label>36</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rogakou</surname>
+              <given-names>E.P.</given-names>
+            </name>
+            <name>
+              <surname>Pilch</surname>
+              <given-names>D.R.</given-names>
+            </name>
+            <name>
+              <surname>Orr</surname>
+              <given-names>A.H.</given-names>
+            </name>
+            <name>
+              <surname>Ivanova</surname>
+              <given-names>V.S.</given-names>
+            </name>
+            <name>
+              <surname>Bonner</surname>
+              <given-names>W.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>DNA double-stranded breaks induce histone H2AX phosphorylation on serine 139</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>1998</year>
+          <volume>273</volume>
+          <fpage>5858</fpage>
+          <lpage>5868</lpage>
+          <pub-id pub-id-type="pmid">9488723</pub-id>
+        </citation>
+      </ref>
+      <ref id="b37">
+        <label>37</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Riballo</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kuhne</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Rief</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Doherty</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Smith</surname>
+              <given-names>G.C.</given-names>
+            </name>
+            <name>
+              <surname>Recio</surname>
+              <given-names>M.J.</given-names>
+            </name>
+            <name>
+              <surname>Reis</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Dahm</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Fricke</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Krempler</surname>
+              <given-names>A.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A pathway of double-strand break rejoining dependent upon ATM, Artemis, and proteins locating to gamma-H2AX foci</article-title>
+          <source>Mol. Cell</source>
+          <year>2004</year>
+          <volume>16</volume>
+          <fpage>715</fpage>
+          <lpage>724</lpage>
+          <pub-id pub-id-type="pmid">15574327</pub-id>
+        </citation>
+      </ref>
+      <ref id="b38">
+        <label>38</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bryant</surname>
+              <given-names>H.E.</given-names>
+            </name>
+            <name>
+              <surname>Schultz</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Thomas</surname>
+              <given-names>H.D.</given-names>
+            </name>
+            <name>
+              <surname>Parker</surname>
+              <given-names>K.M.</given-names>
+            </name>
+            <name>
+              <surname>Flower</surname>
+              <given-names>D.</given-names>
+            </name>
+            <name>
+              <surname>Lopez</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Kyle</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Meuth</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Curtin</surname>
+              <given-names>N.J.</given-names>
+            </name>
+            <name>
+              <surname>Helleday</surname>
+              <given-names>T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Specific killing of BRCA2-deficient tumours with inhibitors of poly(ADP&#x2013;ribose) polymerase</article-title>
+          <source>Nature</source>
+          <year>2005</year>
+          <volume>434</volume>
+          <fpage>913</fpage>
+          <lpage>917</lpage>
+          <pub-id pub-id-type="pmid">15829966</pub-id>
+        </citation>
+      </ref>
+      <ref id="b39">
+        <label>39</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moreira</surname>
+              <given-names>M.C.</given-names>
+            </name>
+            <name>
+              <surname>Barbot</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Tachi</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Kozuka</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Uchida</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Gibson</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Mendonca</surname>
+              <given-names>P.</given-names>
+            </name>
+            <name>
+              <surname>Costa</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Barros</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Yanagisawa</surname>
+              <given-names>T.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The gene mutated in ataxia-ocular apraxia 1 encodes the new HIT/Zn-finger protein aprataxin</article-title>
+          <source>Nature Genet.</source>
+          <year>2001</year>
+          <volume>29</volume>
+          <fpage>189</fpage>
+          <lpage>193</lpage>
+          <pub-id pub-id-type="pmid">11586300</pub-id>
+        </citation>
+      </ref>
+      <ref id="b40">
+        <label>40</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nemeth</surname>
+              <given-names>A.H.</given-names>
+            </name>
+            <name>
+              <surname>Bochukova</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Dunne</surname>
+              <given-names>E.</given-names>
+            </name>
+            <name>
+              <surname>Huson</surname>
+              <given-names>S.M.</given-names>
+            </name>
+            <name>
+              <surname>Elston</surname>
+              <given-names>J.</given-names>
+            </name>
+            <name>
+              <surname>Hannan</surname>
+              <given-names>M.A.</given-names>
+            </name>
+            <name>
+              <surname>Jackson</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Chapman</surname>
+              <given-names>C.J.</given-names>
+            </name>
+            <name>
+              <surname>Taylor</surname>
+              <given-names>A.M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Autosomal recessive cerebellar ataxia with oculomotor apraxia (ataxia-telangiectasia-like syndrome) is linked to chromosome 9q34</article-title>
+          <source>Am. J. Hum. Genet.</source>
+          <year>2000</year>
+          <volume>67</volume>
+          <fpage>1320</fpage>
+          <lpage>1326</lpage>
+          <pub-id pub-id-type="pmid">11022012</pub-id>
+        </citation>
+      </ref>
+      <ref id="b41">
+        <label>41</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Derbyshire</surname>
+              <given-names>D.J.</given-names>
+            </name>
+            <name>
+              <surname>Basu</surname>
+              <given-names>B.P.</given-names>
+            </name>
+            <name>
+              <surname>Serpell</surname>
+              <given-names>L.C.</given-names>
+            </name>
+            <name>
+              <surname>Joo</surname>
+              <given-names>W.S.</given-names>
+            </name>
+            <name>
+              <surname>Date</surname>
+              <given-names>T.</given-names>
+            </name>
+            <name>
+              <surname>Iwabuchi</surname>
+              <given-names>K.</given-names>
+            </name>
+            <name>
+              <surname>Doherty</surname>
+              <given-names>A.J.</given-names>
+            </name>
+          </person-group>
+          <article-title>Crystal structure of human 53BP1 BRCT domains bound to p53 tumour suppressor</article-title>
+          <source>Embo J.</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>3863</fpage>
+          <lpage>3872</lpage>
+          <pub-id pub-id-type="pmid">12110597</pub-id>
+        </citation>
+      </ref>
+      <ref id="b42">
+        <label>42</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Joo</surname>
+              <given-names>W.S.</given-names>
+            </name>
+            <name>
+              <surname>Jeffrey</surname>
+              <given-names>P.D.</given-names>
+            </name>
+            <name>
+              <surname>Cantor</surname>
+              <given-names>S.B.</given-names>
+            </name>
+            <name>
+              <surname>Finnin</surname>
+              <given-names>M.S.</given-names>
+            </name>
+            <name>
+              <surname>Livingston</surname>
+              <given-names>D.M.</given-names>
+            </name>
+            <name>
+              <surname>Pavletich</surname>
+              <given-names>N.P.</given-names>
+            </name>
+          </person-group>
+          <article-title>Structure of the 53BP1 BRCT region bound to p53 and its comparison to the Brca1 BRCT structure</article-title>
+          <source>Genes Dev.</source>
+          <year>2002</year>
+          <volume>16</volume>
+          <fpage>583</fpage>
+          <lpage>593</lpage>
+          <pub-id pub-id-type="pmid">11877378</pub-id>
+        </citation>
+      </ref>
+      <ref id="b43">
+        <label>43</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Linke</surname>
+              <given-names>S.P.</given-names>
+            </name>
+            <name>
+              <surname>Sengupta</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Khabie</surname>
+              <given-names>N.</given-names>
+            </name>
+            <name>
+              <surname>Jeffries</surname>
+              <given-names>B.A.</given-names>
+            </name>
+            <name>
+              <surname>Buchhop</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Miska</surname>
+              <given-names>S.</given-names>
+            </name>
+            <name>
+              <surname>Henning</surname>
+              <given-names>W.</given-names>
+            </name>
+            <name>
+              <surname>Pedeux</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>X.W.</given-names>
+            </name>
+            <name>
+              <surname>Hofseth</surname>
+              <given-names>L.J.</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>p53 interacts with hRAD51 and hRAD54, and directly modulates homologous recombination</article-title>
+          <source>Cancer Res.</source>
+          <year>2003</year>
+          <volume>63</volume>
+          <fpage>2596</fpage>
+          <lpage>2605</lpage>
+          <pub-id pub-id-type="pmid">12750285</pub-id>
+        </citation>
+      </ref>
+      <ref id="b44">
+        <label>44</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Restle</surname>
+              <given-names>A.</given-names>
+            </name>
+            <name>
+              <surname>Janz</surname>
+              <given-names>C.</given-names>
+            </name>
+            <name>
+              <surname>Wiesmuller</surname>
+              <given-names>L.</given-names>
+            </name>
+          </person-group>
+          <article-title>Differences in the association of p53 phosphorylated on serine 15 and key enzymes of homologous recombination</article-title>
+          <source>Oncogene</source>
+          <year>2005</year>
+          <volume>24</volume>
+          <fpage>4380</fpage>
+          <lpage>4387</lpage>
+          <pub-id pub-id-type="pmid">15806145</pub-id>
+        </citation>
+      </ref>
+      <ref id="b45">
+        <label>45</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Audebert</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Salles</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Calsou</surname>
+              <given-names>P.</given-names>
+            </name>
+          </person-group>
+          <article-title>Involvement of poly(ADP-ribose) polymerase-1 and XRCC1/DNA ligase III in an alternative route for DNA double-strand breaks rejoining</article-title>
+          <source>J. Biol. Chem.</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>55117</fpage>
+          <lpage>55126</lpage>
+          <pub-id pub-id-type="pmid">15498778</pub-id>
+        </citation>
+      </ref>
+      <ref id="b46">
+        <label>46</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wang</surname>
+              <given-names>H.</given-names>
+            </name>
+            <name>
+              <surname>Rosidi</surname>
+              <given-names>B.</given-names>
+            </name>
+            <name>
+              <surname>Perrault</surname>
+              <given-names>R.</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>M.</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>L.</given-names>
+            </name>
+            <name>
+              <surname>Windhofer</surname>
+              <given-names>F.</given-names>
+            </name>
+            <name>
+              <surname>Iliakis</surname>
+              <given-names>G.</given-names>
+            </name>
+          </person-group>
+          <article-title>DNA ligase III as a candidate component of backup pathways of nonhomologous end joining</article-title>
+          <source>Cancer Res.</source>
+          <year>2005</year>
+          <volume>65</volume>
+          <fpage>4020</fpage>
+          <lpage>4030</lpage>
+          <pub-id pub-id-type="pmid">15899791</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <sec sec-type="display-objects">
+      <title>Figures and Tables</title>
+      <fig id="fig1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <p>(<bold>A</bold>) Identification of XRCC1 BRCT1-associating DNA-PK by mass spectrometry. GST-XRCC1-BRCT1 was immobilized on sepharose&#x2013;glutathion and mixed with HeLa whole cell extracts. Proteins bound to XRCC1 BRCT1 were resolved by SDS&#x2013;PAGE and stained with SYPRO-Red. Protein bands were analyzed by mass spectrometry. Six different peptides of DNA-PK were found localized along the sequence. (<bold>B</bold>) Mass spectrometric protein identification was confirmed by immunoblotting. HeLa cells were lysed and cell lysates were immunoprecipitated with monoclonal anti DNA-PKcs or anti-myc antibodies and blotted with a polyclonal anti-XRCC1 antibody. Input represents 5% of total proteins used in immunoprecipitation. (<bold>C</bold>) Far-western experiment. The indicated proteins were dot-blotted onto nitrocellulose and incubated with XRCC1. Bound XRCC1 was revealed with anti-XRCC1 antibody.</p>
+        </caption>
+        <graphic xlink:href="gkj409f1"/>
+      </fig>
+      <fig id="fig2" position="float">
+        <label>Figure 2</label>
+        <caption>
+          <p>(<bold>A</bold>) Schematic representation of XRCC1 domain structure and the GST-fused XRCC1 domains. The two BRCT domains are shadowed; NLS: nuclear localization signal. (<bold>B</bold>) Mapping of the phosphorylated domains of XRCC1. HeLa cells were transfected with either the empty vector or GST-tagged XRCC1 truncated mutant-expression plasmids. (<bold>C</bold>) Co-purification of the three subunits of DNA-PK with XRCC1 BRCT1-containing proteins. GST-pull-down assays were performed with HeLa cells expressing GST-tagged XRCC1 truncated mutants. Co-purified DNA-PK was separated in 6% SDS&#x2013;PAGE for DNA-PKcs or 10% SDS&#x2013;PAGE for Ku70 and Ku80 and monitored by western blotting with anti human DNA-PKcs, Ku80 and Ku70 antibodies, respectively. Inputs show the presence of the three subunits of DNA-PK and of ATM in the cellular crude extracts used in these experiments. (<bold>D</bold>) Kinase assays were performed on GST-pull-down-associated proteins. <sup>32</sup>P-labelled reaction products were separated on SDS&#x2013;PAGE, transferred onto nitrocellulose membrane and evaluated by autoradiography.</p>
+        </caption>
+        <graphic xlink:href="gkj409f2"/>
+      </fig>
+      <fig id="fig3" position="float">
+        <label>Figure 3</label>
+        <caption>
+          <p>XRCC1 is phosphorylated by DNA-PK in response to IR. <bold>(A)</bold> <italic>In vivo</italic> phosphorylation of XRCC1 induced by irradiation. HeLa cells were leftun-irradiated (&#x2212;) or exposed to 10 Gy ionizing radiation (+) and <italic>in vivo</italic> metabolically labeled with <sup>32</sup>P orthophosphate. When indicated cells were preincubated with 5 &#xB5;M wortmannin for 30 min before IR. 3h after IR, cells were lysed and cell lysates were immunoprecipitated with an anti-XRCC1 antibody. Proteins were analyzed on SDS&#x2013;PAGE and transferred onto nitrocellulose membrane. The membrane was exposed to autoradiography and then immunoblotted with an anti-XRCC1 antibody. (<bold>B</bold>) <italic>In vivo</italic> phosphorylation of XRCC1 (170&#x2013;428) induced by irradiation. HeLa cells were transfected with GST-XRCC1(170&#x2013;428)-expressing plasmid and treated with 10 Gy IR and <italic>in vivo</italic> metabolically labeled with <sup>32</sup>P orthophosphate as in (A). Cells were collected 3 h after and after GST-pull down assays, proteins were separated in 10% SDS&#x2013;PAGE and autoradiographied. The expression level of GST-XRCC1(170&#x2013;428) protein was assessed by anti-GST immunoblotting. (<bold>C</bold>) Phosphorylation of XRCC1 in DNA-PKcs <sup>+/+</sup> and DNA-PK cs<sup>&#x2212;/&#x2212;</sup> MEFs. MEFs were transfected with GST-XRCC1 (170&#x2013;428) expressing plasmid. Kinase assays were performed after GST-pull down experiments. (<bold>D</bold>) <italic>In vitro</italic> phosphorylation of XRCC1 (170&#x2013;428) in the presence of specific kinase inhibitors. GST tagged XRCC1 (170&#x2013;428) was expressed in COS-1 cells. After GST pull-down, beads were incubated in the presence of 10 &#xB5;M Wortmannin, 1 &#xB5;M or 0.1 &#xB5;M NU7741 (DNA-PK inhibitor), or 10 &#xB5;M caffeine, 0.1 &#xB5;M of KU-55933 (ATM inhibitors). Following this, kinase assays were performed with [&#x3B3;-<sup>32</sup>P]ATP and proteins were separated in 10% SDS&#x2013;PAGE, transferred onto nitrocellulose and phosphorylation of XRCC1 was assessed by autoradiography. (<bold>E</bold>) Phosphorylation of XRCC1 but not XRCC1 S371L <italic>in vitro</italic>. COS-1 cells were transfected with pCDEX expressing wt full length XRCC1 or with pCDEX S371L expressing XRCC1 S371L. Cellular extracts were immunoprecipitated with an anti-XRCC1 antibody and kinase activities were performed in the absence (&#x2212;) or in the presence (+) of 1 &#xB5;M of wortmannin on beads-associated proteins. Levels of XRCC1, DNA-PKcs, Ku80 and Ku70 were determined by western blotting.</p>
+        </caption>
+        <graphic xlink:href="gkj409f3"/>
+      </fig>
+      <fig id="fig4" position="float">
+        <label>Figure 4</label>
+        <caption>
+          <p>BRCT1 is an interface for dimerization and Ser 371 phosphorylation induces dimer dissociation. (<bold>A</bold>) Mapping of the interface domain for dimer formation. Extracts from HeLa cells expressing Flag-XRCC1 were mixed with extracts from HeLa cells expressing GST or GST-XRCC1-truncated mutants. Co-purification of Flag-XRCC1 was analyzed after GST-pull-down and immunoblotting with anti-Flag (top). Blot was subsequently probed with anti-GST antibody (bottom). (<bold>B</bold>) Pulled-down GST-XRCC1 (170&#x2013;428) from HeLa cells was treated with &#x3BB; phosphatase or supplemented with ATP. Proteins were then mixed with extracts from HeLa cells expressing Flag-XRCC1. Interacting proteins were analyzed as in (A). (<bold>C</bold>) Pulled-down GST-XRCC1 (170&#x2013;428) S371L and GST-XRCC1 (170&#x2013;428) S371D from HeLa cells were mixed with extracts from HeLa cells expressing Flag-XRCC1. Interacting proteins were analyzed as in (A). (<bold>D</bold>) BRCT1 dimerization was confirmed by Far-western blot. Purified GST-BRCT1 expressed in bacteria was dot-blotted onto nitrocellulose along with GST, BSA and pol&#x3B2;. The filter was incubated with purified full-length XRCC1 and bound XRCC1 was revealed with an anti-XRCC1 antibody raised against a C-terminal peptide.</p>
+        </caption>
+        <graphic xlink:href="gkj409f4"/>
+      </fig>
+      <fig id="fig5" position="float">
+        <label>Figure 5</label>
+        <caption>
+          <p>XRCC1 stimulates DNA-PK enzymatic activity. (<bold>A</bold>) Stimulation of DNA-PK activity by XRCC1. DNA-PK was incubated with GST-p53 (amino acids 11&#x2013;25) in presence of ATP and DNAse I-activated DNA. Increased amounts of XRCC1 were added to the reaction (0.5, 1 and 2 &#xB5;g). Proteins were separated by gel electrophoresis and phosphorylation of GST-p53 (<xref ref-type="bibr" rid="b11">11</xref>&#x2013;<xref ref-type="bibr" rid="b25">25</xref>) was probed with anti-p53 P-Ser15 monoclonal antibody. (<bold>B</bold>) Stimulation of DNA-PK activity by GST-XRCC1 (282&#x2013;428) comprising the BRCT1 domain, GST-XRCC1 (282&#x2013;428) S371L, GST-XRCC1 (282&#x2013;428) S371D and GST-XRCC1 (537&#x2013;633) comprising the BRCT2 domain. Same reactions as in A, excepted that increased amounts (1 and 2 &#xB5;g) of the different truncated mutants are added instead of full length. Phosphorylation of GST-p53 (<xref ref-type="bibr" rid="b11">11</xref>&#x2013;<xref ref-type="bibr" rid="b25">25</xref>) on Ser 15 was probed as in (A). The same amount of GST-p53 was added in each reaction as confirmed by an anti-GST antibody.</p>
+        </caption>
+        <graphic xlink:href="gkj409f5"/>
+      </fig>
+      <fig id="fig6" position="float">
+        <label>Figure 6</label>
+        <caption>
+          <p>The absence of XRCC1 contributes to the persistence of DSBs either spontaneously or following X-ray irradiation. (<bold>A</bold>) Spontaneous &#x3B3;-H2AX foci analysis in wild-type AA8 cells or in EM9 cells (<bold>B</bold> and <bold>C</bold>) &#x3B3;-H2AX foci analysis in EM9 cells expressing XRCC1 or XRCC1 S371L, after exposure to 1Gy X-ray. Error bars represent the SEM from three experiments. (* <italic>P</italic> &lt; 0.05, *** <italic>P</italic> &lt; 0.001).</p>
+        </caption>
+        <graphic xlink:href="gkj409f6"/>
+      </fig>
+    </sec>
+  </back>
+</article>
+</pmc-articleset>

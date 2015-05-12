@@ -1,0 +1,1599 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS Med</journal-id>
+      <journal-id journal-id-type="publisher-id">pmed</journal-id>
+      <journal-title>PLoS Medicine</journal-title>
+      <issn pub-type="ppub">1549-1277</issn>
+      <issn pub-type="epub">1549-1676</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">16187797</article-id>
+      <article-id pub-id-type="pmc">1240052</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pmed.0020313</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline">
+          <subject>Cancer Biology</subject>
+          <subject>Cell Biology</subject>
+          <subject>Oncology</subject>
+        </subj-group>
+        <subj-group subj-group-type="System Taxonomy">
+          <subject>Cancer: Lung</subject>
+          <subject>Oncology</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Oncogenic Transformation by Inhibitor-Sensitive and -Resistant EGFR Mutants</article-title>
+        <alt-title alt-title-type="running-head">Oncogenic Transformation by Mutant EGFR</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Greulich</surname>
+            <given-names>Heidi</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="corresp" rid="n1">*</xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Chen</surname>
+            <given-names>Tzu-Hsiu</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Feng</surname>
+            <given-names>Whei</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>J&#xE4;nne</surname>
+            <given-names>Pasi A</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Alvarez</surname>
+            <given-names>James V</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Zappaterra</surname>
+            <given-names>Mauro</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Bulmer</surname>
+            <given-names>Sara E</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Frank</surname>
+            <given-names>David A</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Hahn</surname>
+            <given-names>William C</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Sellers</surname>
+            <given-names>William R</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="corresp" rid="n1">*</xref>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <name>
+            <surname>Meyerson</surname>
+            <given-names>Matthew</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+          <xref ref-type="corresp" rid="n1">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1"><bold>1</bold>Department of Medical Oncology, Dana-Farber Cancer Institute, Boston, Massachusetts, United States of America,</aff>
+      <aff id="aff2"><bold>2</bold>Department of Medicine, Brigham and Women's Hospital and Harvard Medical School, Boston, Massachusetts, United States of America,</aff>
+      <aff id="aff3"><bold>3</bold>The Broad Institute of Harvard and MIT, Cambridge, Massachusetts, United States of America,</aff>
+      <aff id="aff4"><bold>4</bold>Department of Pathology, Harvard Medical School, Boston, Massachusetts, United States of America</aff>
+      <contrib-group>
+        <contrib contrib-type="editor" xlink:type="simple">
+          <name>
+            <surname>Rosen</surname>
+            <given-names>Neal</given-names>
+          </name>
+          <role>Academic Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">
+        <institution>Memorial-Sloan Kettering Cancer Center</institution>
+        <country>United States of America</country>
+      </aff>
+      <author-notes>
+        <corresp id="n1">*To whom correspondence should be addressed. E-mail: <email>heidig@broad.mit.edu</email> (HG); E-mail: <email>William_Sellers@dfci.harvard.edu</email> (WRS); E-mail: <email>Matthew_Meyerson@dfci.harvard.edu</email> (MM)</corresp>
+        <fn id="n2" fn-type="conflict">
+          <p><bold>Competing Interests:</bold> The authors have declared that no competing interests exist.</p>
+        </fn>
+        <fn id="n3" fn-type="con">
+          <p><bold>Author Contributions:</bold> HG, THC, WF, JVA, MZ, SEB, DAF, WCH, WRS, and MM designed and executed the study. HG, PJ, WCH, WRS, and MM contributed to writing the paper.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="ppub">
+        <month>11</month>
+        <year>2005</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>4</day>
+        <month>10</month>
+        <year>2005</year>
+      </pub-date>
+      <volume>2</volume>
+      <issue>11</issue>
+      <elocation-id>e313</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>10</day>
+          <month>5</month>
+          <year>2005</year>
+        </date>
+        <date date-type="accepted">
+          <day>30</day>
+          <month>7</month>
+          <year>2005</year>
+        </date>
+      </history>
+      <copyright-statement>Copyright: &#xA9; 2005 Greulich et al. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</copyright-statement>
+      <copyright-year>2005</copyright-year>
+      <related-article related-article-type="companion" vol="2" page="e374" id="N0x939dbe8.0x92f2e50" ext-link-type="pmc">
+        <article-title>EGFR Mutations and Lung Cancer</article-title>
+      </related-article>
+      <related-article related-article-type="companion" vol="2" page="e377" id="N0x939dbe8.0x92f2e7c" xlink:href="16288556" ext-link-type="pubmed">
+        <article-title>Inhibition of EGFR Signaling: All Mutations are not Created Equal</article-title>
+      </related-article>
+      <abstract>
+        <sec id="st1">
+          <title>Background</title>
+          <p>Somatic mutations in the kinase domain of the epidermal growth factor receptor tyrosine kinase gene <italic>EGFR</italic> are common in lung adenocarcinoma. The presence of mutations correlates with tumor sensitivity to the EGFR inhibitors erlotinib and gefitinib, but the transforming potential of specific mutations and their relationship to drug sensitivity have not been described.</p>
+        </sec>
+        <sec id="st2">
+          <title>Methods and Findings</title>
+          <p>Here, we demonstrate that <italic>EGFR</italic> active site mutants are oncogenic. Mutant <italic>EGFR</italic> can transform both fibroblasts and lung epithelial cells in the absence of exogenous epidermal growth factor, as evidenced by anchorage-independent growth, focus formation, and tumor formation in immunocompromised mice. Transformation is associated with constitutive autophosphorylation of EGFR, Shc phosphorylation, and STAT pathway activation. Whereas transformation by most <italic>EGFR</italic> mutants confers on cells sensitivity to erlotinib and gefitinib, transformation by an exon 20 insertion makes cells resistant to these inhibitors but more sensitive to the irreversible inhibitor CL-387,785.</p>
+        </sec>
+        <sec id="st3">
+          <title>Conclusion</title>
+          <p>Oncogenic transformation of cells by different <italic>EGFR</italic> mutants causes differential sensitivity to gefitinib and erlotinib. Treatment of lung cancers harboring <italic>EGFR</italic> exon 20 insertions may therefore require the development of alternative kinase inhibition strategies.</p>
+        </sec>
+      </abstract>
+      <abstract abstract-type="toc">
+        <p>Different EGFR mutations are associated with lung cancer. All of the classes can transform fibroblasts and lung epithelial cells, most are sensitive to erlotinib and gefininib, but exon 20 mutations are only sensitive to an irreversible EGFR inhibitor.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>The human epidermal growth factor receptor gene product (EGFR), a member of the ErbB family of receptor tyrosine kinases, is an integral component of signaling in epithelial cell proliferation. Stimulation of the receptor with EGF or other cognate ligands induces receptor dimerization and autophosphorylation, providing docking sites for SH2-containing adaptor proteins that mediate the activation of intracellular signaling pathways [<xref ref-type="bibr" rid="pmed-0020313-b01">1</xref>&#x2013;<xref ref-type="bibr" rid="pmed-0020313-b03">3</xref>].</p>
+      <p>Consistent with a role in proliferative signaling, the oncogenic potential of <italic>EGFR</italic> variants with deletions in the extracellular domain, including the <italic>v-erbB</italic> oncogene of avian erythroblastosis virus and the vIII mutant found in human cancers, transforms vertebrate cells in the absence of exogenous EGF [<xref ref-type="bibr" rid="pmed-0020313-b04">4</xref>&#x2013;<xref ref-type="bibr" rid="pmed-0020313-b07">7</xref>]. In contrast, overexpression of the wild-type <italic>EGFR</italic> gene can transform NIH-3T3 cells only upon EGF addition [<xref ref-type="bibr" rid="pmed-0020313-b08">8</xref>]. Kinase activity is required for ligand-independent transformation by both types of EGFR extracellular domain deletion mutant [<xref ref-type="bibr" rid="pmed-0020313-b09">9</xref>,<xref ref-type="bibr" rid="pmed-0020313-b10">10</xref>].</p>
+      <p>A series of novel <italic>EGFR</italic> kinase domain mutations observed in human lung adenocarcinomas has recently been described [<xref ref-type="bibr" rid="pmed-0020313-b11">11</xref>&#x2013;<xref ref-type="bibr" rid="pmed-0020313-b16">16</xref>]. These mutations arise in four exons: substitutions for G719 in the nucleotide-binding loop of exon 18, in-frame deletions within exon 19, in-frame insertions within exon 20, and substitutions for L858 or L861 in the activation loop in exon 21. Tumors from patients with clinical responses to the EGFR inhibitors gefitinib or erlotinib have been shown to contain <italic>EGFR</italic> deletion mutations or substitution mutations [<xref ref-type="bibr" rid="pmed-0020313-b11">11</xref>,<xref ref-type="bibr" rid="pmed-0020313-b12">12</xref>,<xref ref-type="bibr" rid="pmed-0020313-b13">13</xref>,<xref ref-type="bibr" rid="pmed-0020313-b15">15</xref>], but no exon 20 insertion mutations have been reported in this group of clinical responders. Although exon 20 mutations were not widely reported at first, recently five large-scale studies that sequenced <italic>EGFR</italic> exons 18 through 21 reported a total of 18 exon 20 insertions out of 350 <italic>EGFR</italic> mutations identified in 1,108 non-small-cell lung cancers [<xref ref-type="bibr" rid="pmed-0020313-b14">14</xref>&#x2013;<xref ref-type="bibr" rid="pmed-0020313-b18">18</xref>]. Patients who responded to gefitinib and subsequently relapsed were found to have T790M secondary mutations, also in exon 20 [<xref ref-type="bibr" rid="pmed-0020313-b19">19</xref>,<xref ref-type="bibr" rid="pmed-0020313-b20">20</xref>].</p>
+      <p>Although gefitinib treatment and small interfering RNA experiments suggest that cells expressing mutant <italic>EGFR</italic> are dependent on EGFR function for survival [<xref ref-type="bibr" rid="pmed-0020313-b11">11</xref>,<xref ref-type="bibr" rid="pmed-0020313-b21">21</xref>,<xref ref-type="bibr" rid="pmed-0020313-b22">22</xref>], the direct transforming potential of the mutations observed in lung adenocarcinoma has not been described. Here, we assess the ability of these <italic>EGFR</italic> kinase domain mutations to constitutively activate EGFR signaling and contribute to tumorigenesis in model cell culture systems.</p>
+    </sec>
+    <sec sec-type="methods" id="s2">
+      <title>Methods</title>
+      <sec id="s2a">
+        <title>Cell Culture</title>
+        <p>NIH-3T3 cells obtained fromATCC (Manassas, Virginia, United States) were maintained in DMEM (Cellgro/Mediatech, Herndon, Virginia, United States) supplemented with 10% calf serum (Gibco/Invitrogen, Carlsbad, California, United States) and penicillin/streptomycin (Gibco/Invitrogen). NCI-H3255 cells were maintained in ACL-4 media as previously described [<xref ref-type="bibr" rid="pmed-0020313-b11">11</xref>]. Unless otherwise noted, cells were placed in media containing 0.5% calf serum 24 h prior to EGF (Biosource, Camarillo, California, United States) stimulation. hTBE cells expressing SV40 small T and large T antigens and the human telomerase catalytic subunit hTERT were maintained in serum-free, defined medium as described [<xref ref-type="bibr" rid="pmed-0020313-b23">23</xref>]. Neutralizing antibodies were added 3 h prior to EGF stimulation at the following concentrations: 12 &#x3BC;g/ml anti-EGF (R&amp;D Systems, Minneapolis, Minnesota, United States; #MAB636), 12 &#x3BC;g/ml anti-TGF&#x3B1; (R&amp;D Systems; #AF-239-NA), and 12 &#x3BC;g/ml anti-EGFR (Upstate, Waltham, Massachusetts, United States; #05&#x2013;101). Gefitinib and erlotinib were purchased from WuXi Pharmatech (Shanghai, China) and diluted in DMSO to the indicated concentrations. CL-387,785 was purchased from Calbiochem (San Diego, California, United States) and diluted in DMSO to the indicated concentrations.</p>
+      </sec>
+      <sec id="s2b">
+        <title>Expression Constructs</title>
+        <p><italic>EGFR</italic> was amplified from a cDNA template with the PCR primers 5&#x2032;-GATGATATCATGCGACCCTCCGGGAC-3&#x2032; and 5&#x2032;-ATCGATATCTCATGCTCCAATAAATTC-3&#x2032;, digested with EcoRV, and inserted into the SnaB1 site of pBabe-Puro. Point mutations, insertions, and deletions were made using the Quick-Change Mutagenesis XL kit (Stratagene, La Jolla, California, United States) with the following oligonucleotide primers: 5&#x2032;-AAGATCACAGATTTTGGGAGGGCCAAACTGCTGGGTG-3&#x2032; and 5&#x2032;-CACCCAGCAGTTTGGCCCTCCCAAAATCTGTGATCTT-3&#x2032; for L858R; 5&#x2032;-AAGATCAAAGTGCTGAGCTCCGGTGCGTTCG-3&#x2032; and 5&#x2032;-CGAACGCACCGGAGCTCAGCACTTTGATCTT-3&#x2032; for G719S; 5&#x2032;-GGTGCACCGCGCCCTGGCAGCCA-3&#x2032; and 5&#x2032;-TGGCTGCCAGGGCGCGGTGCACC-3&#x2032; for D837A; 5&#x2032;-GTCGCTATCAAGGAACCAACATCTCCGAAA-3&#x2032; and 5&#x2032;-TTTCGGAGATGTTGGTTCCTTGATAGCGAC-3&#x2032; for L747_E749del, A750P; 5&#x2032;-GGCCAGCGTGGACAACCCCGGCAACCCCCACGT-3&#x2032; and 5&#x2032;-ACGTGGGGGTTGCCGGGGTTGTCCACGCTGGCC-3&#x2032; for D770_N771insNPG. All constructs were fully sequenced.</p>
+      </sec>
+      <sec id="s2c">
+        <title>Transfection and Infection</title>
+        <p>Replication incompetent retroviruses were produced from pBabe-Puro-based vectors either by cotransfection of 293T cells with pCL-Ampho (Imgenex, San Diego, California, United States) or by transfection into the Phoenix 293T packaging cell line (Orbigen, San Diego, California, United States) using Lipofectamine 2000 (Invitrogen). Cells were infected with these retroviruses in the presence of polybrene. Two days after infection, puromycin (2 &#x3BC;g/ml for NIH-3T3s or 0.5 &#x3BC;g/ml for hTBE cells; Sigma, St. Louis, Missouri, United States) was added and pooled stable cell lines were selected, from which clonal cell lines were derived.</p>
+      </sec>
+      <sec id="s2d">
+        <title>Soft Agar Anchorage-Independent Growth Assay</title>
+        <p>EGFR-expressing NIH-3T3 cells were suspended in a top layer of DMEM containing 10% calf serum and 0.4% Select agar (Gibco/Invitrogen) and plated on a bottom layer of DMEM containing 10% calf serum and 0.5% Select agar. EGF, gefitinib, or erlotinib was added as described to the top agar. NIH-3T3 colonies were counted in triplicate wells from ten fields photographed with a 10&#xD7; objective. Growth of hTBE cells in soft agar was determined by plating 1 &#xD7; 10<sup>5</sup> cells in triplicate in 0.4% Noble agar. Colonies of hTBE cells were counted microscopically 6&#x2013;8 wk after plating with the MultiImage imaging counter (Alpha Innotech, San Leandro, California, United States).</p>
+      </sec>
+      <sec id="s2e">
+        <title>Focus Formation Assay</title>
+        <p>NIH-3T3 cells infected with EGFR retrovirus diluted 1:1, 1:10, or 1:100 were split 2 d after infection into 10-cm plates with and without puromycin selection. Cells for the focus assay were maintained without passage as a monolayer in the absence of puromycin for 3 wk, after which foci were stained with crystal violet (Accustain; Sigma) and scored. Numbers of foci were multiplied by the viral dilution factor and normalized to the relative number of infectious units in each viral stock, as determined by a WST assay (Roche, Basel, Switzerland) on cells after 3 d of puromycin selection.</p>
+      </sec>
+      <sec id="s2f">
+        <title>Nude Mouse Injection</title>
+        <p>In this assay, 2 &#xD7; 10<sup>6</sup> cells were injected subcutaneously into immunocompromised mice, three injections per animal, as described [<xref ref-type="bibr" rid="pmed-0020313-b24">24</xref>]. Tumors were counted and tumor diameter was measured after 5 wk. Standard error of the mean is indicated.</p>
+      </sec>
+      <sec id="s2g">
+        <title>Immunoblotting</title>
+        <p>Cells were lysed in a buffer containing 50 mM Tris-HCl (pH 7.4), 150 mM NaCl, 2.5 mM EDTA, 1% Triton X-100, and 0.25% IPEGAL. Protease inhibitors (Roche) and phosphatase inhibitors (Calbiochem) were added prior to use. Samples were normalized for total protein content unless otherwise indicated. Lysates were boiled in sample buffer, separated by SDS-PAGE on 8% or 10% polyacrylamide gels, transferred to nitrocellulose, and probed as described. Antibodies used for immunoblotting were: anti-EGFR (#2232, Cell Signaling Technologies), anti-phospho-EGFR Y1173 (#05&#x2013;483, Upstate), anti-phospho-EGFR Y1068 (#2234, Cell Signaling Technologies), anti-phospho-EGFR Y845 (Cell Signaling Technologies, Beverly, Massachusetts, United States; #2231), anti-phospho-EGFR Y1045 (Cell Signaling Technologies; #2237), anti-actin (Santa Cruz Biotechnology, Santa Cruz, California, United States; #sc-1615), anti-Shc (Upstate; #06&#x2013;203), anti-phospho-Shc Y317 (Upstate; #05&#x2013;668), anti-Stat3 (Cell Signaling Technologies; #9132), and anti-phospho-Stat3 Y705 (Cell Signaling Technologies; #9131), anti-phospho-Akt S473 (Cell Signaling Technologies; #9271), and anti-Akt (Cell Signaling Technologies; #9272).</p>
+      </sec>
+      <sec id="s2h">
+        <title>Immunoprecipitation</title>
+        <p>Cells were lysed as described above. Anti-EGFR conjugated beads (Santa Cruz Biotechnology; #sc-120AC) were used for immunoprecipitation. Beads (25 &#x3BC;l) were incubated with fresh lysate in 300 &#x3BC;l of lysis buffer for 1 h, washed twice with lysis buffer, eluted in 1% SDS at room temperature for 20 min, and boiled in sample buffer.</p>
+      </sec>
+      <sec id="s2i">
+        <title>Luciferase Assay</title>
+        <p>The STAT3 (signal transducer and activator of transcription 3) reporter m67 pTATA TK-luc [<xref ref-type="bibr" rid="pmed-0020313-b25">25</xref>] was kindly provided by J. Bromberg, and the Renilla luciferase reporter phRL tk-luc was purchased from Promega (Madison, Wisconsin, United States). NIH-3T3 cells, infected with EGFR or control retroviruses, were plated on 24-well plates and transfected with 2 &#x3BC;g of m67-luc and 0.2 &#x3BC;g phRL tk-luc with Lipofectamine 2000 (Invitrogen). After 48 h, cells were lysed and luminescence was measured using the dual-luciferase reagents from Promega, according to the manufacturer's instructions, using a Luminoskan Ascent luminometer (ThermoLab Systems, Helsinki, Finland). STAT3-dependent luciferase production was normalized to chemiluminescence values from the control Renilla luciferase.</p>
+      </sec>
+    </sec>
+    <sec id="s3">
+      <title>Results</title>
+      <sec id="s3a">
+        <title>Expression of Mutant <italic>EGFR</italic> Induces Oncogenic Transformation</title>
+        <p>To assess the oncogenic potential of <italic>EGFR</italic> kinase domain mutants, tumor-derived mutations were introduced into the wild-type human <italic>EGFR</italic> cDNA by site-directed mutagenesis. The resulting wild-type and mutant <italic>EGFR</italic> cDNAs were then cloned into the pBabe-Puro retroviral vector and transferred into NIH-3T3 cells by retroviral infection. We initially examined two representative substitution mutations: G719S, observed in exon 18, and L858R, observed in exon 21 (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>). The L858R and G719S mutants were able to transform NIH-3T3 cells to anchorage independence in the absence of exogenous EGF, as assayed by colony formation in soft agar (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>A, top photographs). In contrast, as previously described [<xref ref-type="bibr" rid="pmed-0020313-b08">8</xref>], wild-type <italic>EGFR</italic> transformed only upon EGF addition (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>A, bottom photographs). The kinase-dead D837A mutant [<xref ref-type="bibr" rid="pmed-0020313-b09">9</xref>], included as a negative control, failed to induce colony formation in the presence or absence of EGF. EGFR expression levels were approximately equal for each pooled stably-transfected cell population (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>B). Clonal cell lines derived from the pooled stably-transfected cells expressing the mutant EGFR exhibited profound morphological alterations characterized by a fusiform, refractile phenotype (unpublished data). Levels of L858R EGFR expression necessary to achieve transformation in this model cell culture system were no higher than expression levels observed in the human lung adenocarcinoma cell line H3255 bearing the L858R mutation (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>C).</p>
+        <p>Transformation of NIH-3T3 cells by L858R or G719S EGFR was further assessed in two independent assays. Expression of the EGFR point mutants in NIH-3T3 cells caused loss of contact inhibition, resulting in focus formation on an unselected monolayer, whereas the wild-type and D837A kinase-inactive controls did not (<xref ref-type="table" rid="pmed-0020313-t001">Table 1</xref>). In addition, injection of clonal, transformed NIH-3T3 fibroblasts expressing L858R and G719S <italic>EGFR</italic> into immunocompromised mice led to the formation of tumors (<xref ref-type="table" rid="pmed-0020313-t002">Table 2</xref>). No tumor formation was observed upon injection of cells infected with vector, wild-type, and kinase-dead controls.</p>
+        <p>Representative exon 19 deletion and exon 20 insertion mutations of <italic>EGFR</italic> were then assessed for transforming activity. Mutants L747_E749del, A750P [<xref ref-type="bibr" rid="pmed-0020313-b11">11</xref>] and D770_N771insNPG (K. Naoki and M. M., unpublished data) were introduced into NIH-3T3 cells by retrovirus-mediated gene transfer as described above. Cells expressing the <italic>EGFR</italic> deletion and insertion mutants formed colonies in soft agar with a higher efficiency than that of cells expressing the missense mutants, comparable to the colony formation efficiency of cells expressing polyoma middle T antigen (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>D). Expression of the deletion mutant was comparable to that of L858R EGFR, whereas expression of the insertion mutant was lower, as reflected in the <italic>EGFR</italic> expression levels of the clonal cell lines (<xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>A and unpublished data). Cells expressing the L747_E749del A750P and D770_N771insNPG <italic>EGFR</italic> mutants also exhibited a greater degree of loss of contact inhibition than was observed in cells expressing the L858R or G719S EGFR mutants in a primary focus formation assay (unpublished data).</p>
+        <p>To determine the ability of mutant <italic>EGFR</italic> to transform a more physiologically relevant cell type, retroviruses expressing the L858R and G719S mutant forms of <italic>EGFR</italic> were introduced into hTBE cells expressing the SV40 early region T antigens and the human telomerase catalytic subunit hTERT [<xref ref-type="bibr" rid="pmed-0020313-b23">23</xref>]. We previously showed that such cells are fully transformed by the additional expression of oncogenic alleles of H- or K-RAS [<xref ref-type="bibr" rid="pmed-0020313-b23">23</xref>]. Similarly, the expression of L858R and G719S mutant <italic>EGFR</italic> genes conferred enhanced anchorage-independent growth upon such hTBE cells, with colony numbers approximately 15-fold above the background level of microscopic colonies observed in hTBE cells expressing wild-type <italic>EGFR</italic> or a control vector (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>E). The representative deletion and insertion mutants, L747_E749del A750P and D770_N771insNPG, formed colonies in soft agar with even greater efficiency, with the caveat that the deletion mutant is expressed at higher levels than the other mutants in this assay (<xref ref-type="fig" rid="pmed-0020313-g001">Figure 1</xref>F). Similar to hTBE cells expressing H-RAS V12, expression of these EGFR mutants did not increase the rate of cell proliferation in defined medium (unpublished data).</p>
+        <p>Multiple tumor-derived mutants of <italic>EGFR</italic> therefore contribute to oncogenic transformation as shown by three different assays: anchorage-independent cell growth, focus formation, and in vivo tumor formation.</p>
+      </sec>
+      <sec id="s3b">
+        <title>Mutant EGFR Proteins Are Constitutively Active</title>
+        <p>To determine whether transformation by mutant <italic>EGFR</italic> is associated with constitutive receptor activation in the absence of exogenous EGF, tyrosine autophosphorylation in the C-terminal tail of EGFR was examined by immunoblotting of cell lysates. Constitutive tyrosine phosphorylation of the mutant EGFR molecules was observed at several C-terminal sites, including Y845, Y1068, and Y1173 (<xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>A). High-level phosphorylation of the insertion mutant at Y1045, the docking site for the Cbl E3 ubiquitin ligase [<xref ref-type="bibr" rid="pmed-0020313-b26">26</xref>], is correlated with decreased abundance of this protein (<xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>A), but whether the differential protein levels are a result of Cbl activity has not been confirmed.</p>
+        <p>The constitutive increase in EGFR activity appears to be ligand-independent, as a combination of neutralizing antibodies against EGF, TGF&#x3B1;, and EGFR failed to inhibit elevated basal levels of L858R autophosphorylation (<xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>B). However, tyrosine phosphorylation on the EGFR mutants could be further increased by EGF stimulation (<xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>B), suggesting that the mutant EGFRs exhibit both ligand-independent and ligand-dependent activation, similar to that observed upon EGF stimulation of the L858R mutant H3255 lung adenocarcinoma cell line [<xref ref-type="bibr" rid="pmed-0020313-b21">21</xref>]. Ligand-independent activation of EGFR with lung cancer-derived kinase domain mutations has not been observed by other groups working with transient transfection systems [<xref ref-type="bibr" rid="pmed-0020313-b22">22</xref>,<xref ref-type="bibr" rid="pmed-0020313-b27">27</xref>]. We too have failed to detect constitutive elevation of mutant receptor autophosphorylation when transiently expressed in NIH-3T3 and HeLa cells (unpublished data). The reason for this phenotypic difference remains unclear.</p>
+      </sec>
+      <sec id="s3c">
+        <title>Expression of Mutant EGFR Results in Activation of Shc, STAT3, and Akt</title>
+        <p>We next asked whether constitutive activation of mutant EGFR is associated with alterations in downstream signaling pathways. Because Y1173, a docking site for the adaptor protein Shc [<xref ref-type="bibr" rid="pmed-0020313-b28">28</xref>], is constitutively phosphorylated on mutant EGFR (<xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>A), we analyzed Shc-EGFR complex formation in cells expressing wild-type and mutant EGFR. Coimmunoprecipitation studies revealed a low level of constitutive Shc binding to the L858R EGFR, further augmented by EGF stimulation (<xref ref-type="fig" rid="pmed-0020313-g003">Figure 3</xref>A), whereas Shc complexed with the wild-type EGFR only upon EGF stimulation. Immunoblotting of whole cell lysates with an antibody specific for tyrosine-phosphorylated Shc revealed constitutive phosphorylation on Shc in cells expressing the L858R EGFR, consistent with the known phosphorylation of EGFR-bound Shc [<xref ref-type="bibr" rid="pmed-0020313-b29">29</xref>]; in contrast, in cells expressing wild-type EGFR, Shc was phosphorylated only in response to EGF stimulation (<xref ref-type="fig" rid="pmed-0020313-g003">Figure 3</xref>B). Similar to the situation with receptor autophosphorylation, constitutive phosphorylation of Shc in mutant EGFR-expressing cells has not been observed in transient expression systems [<xref ref-type="bibr" rid="pmed-0020313-b27">27</xref>].</p>
+        <p>Consistent with previous reports on L858R mutant EGFR [<xref ref-type="bibr" rid="pmed-0020313-b22">22</xref>], STAT signaling pathways are constitutively activated in the transformed NIH-3T3 cells. Immunoblotting with antibodies specific for phosphorylated Y705, the tyrosine responsible for STAT3 dimerization [<xref ref-type="bibr" rid="pmed-0020313-b30">30</xref>], revealed constitutive phosphorylation in cells expressing the lung cancer-derived mutant EGFR but not wild-type EGFR (<xref ref-type="fig" rid="pmed-0020313-g003">Figure 3</xref>C). Increased STAT3-dependent gene expression in cells expressing the mutant EGFRs was confirmed in a reporter assay (<xref ref-type="fig" rid="pmed-0020313-g003">Figure 3</xref>D) using a STAT-dependent luciferase construct [<xref ref-type="bibr" rid="pmed-0020313-b25">25</xref>].</p>
+        <p>Constitutive phosphorylation of mutant EGFR on Y1068 (see <xref ref-type="fig" rid="pmed-0020313-g002">Figure 2</xref>A), the binding site for the phosphatidylinositol 3-kinase interacting protein Gab1 [<xref ref-type="bibr" rid="pmed-0020313-b31">31</xref>], indicated that signaling pathways downstream of phosphatidylinositol 3-kinase might be constitutively activated as well. One such pathway is controlled by the serine/threonine kinase Akt, which is involved in promotion of cell survival. Western blotting with anti-phospho-Akt confirmed that Akt is constitutively activated in cells expressing the mutant EGFR (<xref ref-type="fig" rid="pmed-0020313-g003">Figure 3</xref>E). We therefore conclude that at least a subset of physiological EGFR signaling pathways is activated by stable expression of mutant <italic>EGFR</italic>.</p>
+      </sec>
+      <sec id="s3d">
+        <title>Transformation by the Exon 20 Insertion Mutant Is Not Sensitive to Gefitinib or Erlotinib</title>
+        <p>Given the association between the presence of activating <italic>EGFR</italic> mutations and clinical responses to gefitinib or erlotinib in lung adenocarcinoma patients [<xref ref-type="bibr" rid="pmed-0020313-b11">11</xref>,<xref ref-type="bibr" rid="pmed-0020313-b12">12</xref>,<xref ref-type="bibr" rid="pmed-0020313-b13">13</xref>,<xref ref-type="bibr" rid="pmed-0020313-b15">15</xref>], we assessed the ability of these EGFR inhibitors to inhibit anchorage-independent growth of clonal NIH-3T3 cell lines expressing wild-type or mutant <italic>EGFR</italic>. Consistent with the increased sensitivity to gefitinib and erlotinib of patient tumors harboring the missense mutations or exon 19 deletions, anchorage-independent growth of cells expressing L858R, G719S, or L747_E749del A750P was inhibited by 100 nM erlotinib (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>A and <xref ref-type="fig" rid="pmed-0020313-g004">4</xref>B) or gefitinib (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>B and unpublished data), although the G719S mutant may be somewhat more resistant to gefitinib (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>A and unpublished data), consistent with other in vitro studies [<xref ref-type="bibr" rid="pmed-0020313-b32">32</xref>]. In contrast, 1 &#x3BC;M erlotinib (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>A) or gefitinib (unpublished data) did not inhibit anchorage-independent growth of EGF-treated cells overexpressing the wild-type <italic>EGFR</italic>.</p>
+        <p>Transformation by the D770_N771insNPG <italic>EGFR</italic> mutant was remarkably insensitive to gefitinib and erlotinib, as inhibition of colony growth in soft agar required exposure to 100-fold higher concentrations (&gt;1 &#x3BC;M) of these agents than was required to inhibit colony formation by cells expressing the <italic>EGFR</italic> missense mutants or deletion mutant (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>A). In fact, no significant inhibition of anchorage-independent growth of cells expressing D770_N771insNPG <italic>EGFR</italic> was observed at 3 &#x3BC;M gefitinib or erlotinib (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>B). The concentrations of gefitinib or erlotinib necessary to reverse insertion mutant transformation are therefore higher than the achievable serum concentrations of gefitinib (0.5&#x2013;1.0 &#x3BC;M) and possibly higher than the achievable serum concentrations of erlotinib (2.8&#x2013;4.0 &#x3BC;M) [<xref ref-type="bibr" rid="pmed-0020313-b33">33</xref>,<xref ref-type="bibr" rid="pmed-0020313-b34">34</xref>].</p>
+        <p>Consistent with this result, all three lung adenocarcinoma patients with known exon 20 insertion mutants of <italic>EGFR</italic> have failed to show a clinical response to treatment and have instead achieved only stable disease with erlotinib alone (<italic>n</italic> = 1; L. Sequist and T. Lynch, personal communication), or in combination with chemotherapy (<italic>n</italic> = 2; D. Eberhard and K. Hillan, personal communication). These results suggest that cancers harboring distinct activating kinase domain mutations of <italic>EGFR</italic> may exhibit a differential sensitivity to specific EGFR inhibitors.</p>
+        <p>Interestingly, the irreversible EGFR inhibitor CL-387,785 [<xref ref-type="bibr" rid="pmed-0020313-b35">35</xref>] is more effective than gefitinib or erlotinib for inhibition of colony formation by cells expressing the exon 20 insertion mutant (<xref ref-type="fig" rid="pmed-0020313-g004">Figure 4</xref>C). Calculated IC50 values for gefitinib, erlotinib, and CL-387,785 against D770_N771insNPG were 2.6 &#x3BC;M, 2.5 &#x3BC;M, and 0.2 &#x3BC;M, respectively. CL-387,785 had an even greater effect on colony formation by cells expressing L858R <italic>EGFR,</italic> completely inhibiting transformation at 0.003 &#x3BC;M (unpublished data). These effects are also observed upon assessment of receptor autophosphorylation (<xref ref-type="fig" rid="pmed-0020313-g005">Figure 5</xref>). Although the inhibitory concentrations do not exactly correlate with the results of the colony formation assay, probably due to the difference in duration of the assays, the trends are the same. Insertion mutant autophosphorylation is less sensitive to inhibition by gefitinib than that of L858R, but CL-387,785 is more effective than gefitinib at inhibiting insertion mutant (and L858R) autophosphorylation.</p>
+      </sec>
+    </sec>
+    <sec id="s4">
+      <title>Discussion</title>
+      <p>Treatment with the EGFR inhibitors gefitinib and erlotinib has led to dramatic responses in many lung cancer patients, predominantly for those cancers in which <italic>EGFR</italic> mutations can be detected. However, there has been a subset of lung cancer patients with these mutations who do not respond to the EGFR inhibitors in current clinical use.</p>
+      <p>By demonstrating that lung-cancer derived kinase domain mutants of <italic>EGFR</italic> are constitutively activated and that they can transform cultured mammalian cells, we have provided an in vitro system with which to study EGFR-dependent oncogenesis in a genetically homogeneous background. Although the anchorage-independent growth assay measures only one of many phenotypes of transformation and does not, for example, recapitulate tumor microenvironment or account for the influence of the immune system on tumor formation, this system will be useful for dissecting inhibitor response and downstream signaling pathways, particularly for those mutants not found in existing cancer-derived cell lines.</p>
+      <p>Using the NIH-3T3 transformation system, we have found that transformation by an exon 20 insertion mutant is resistant to inhibition by gefitinib and erlotinib. Strikingly, transformation by this <italic>EGFR</italic> exon 20 insertion mutant is more sensitive to treatment with an irreversible inhibitor, CL-387,785. This compound was previously found to be active against EGFR containing the exon 20 point mutation T790M, associated with resistance to gefitinib and erlotinib [<xref ref-type="bibr" rid="pmed-0020313-b19">19</xref>].</p>
+      <p>These results indicate a need for the use of novel EGFR inhibitors in primary treatment of lung cancers harboring the exon 20 insertion mutations. Furthermore, the distinct inhibitor sensitivity of various <italic>EGFR</italic> mutants argues that therapies may need to be targeted against specific mutant forms of a protein, whereas generalized inhibition of a particular oncogenic target may not be sufficient.</p>
+      <boxed-text id="pmed-0020313-box1" position="float">
+        <sec id="sb1">
+          <title>Patient Summary</title>
+          <sec id="sb1a">
+            <title>Background</title>
+            <p>While lung cancer is still one of the deadliest cancers, a new class of drugs called epidermal growth factor receptor (EGFR) inhibitors have shown promising results in some patients. As the name suggests, these drugs inhibit a protein called EGFR, which is altered in a subset of lung cancers.</p>
+          </sec>
+          <sec id="sb1b">
+            <title>What Did the Researchers Do and Find?</title>
+            <p>The aim of this study was to understand in more detail what role the different EGFR alterations played in the tumor and which ones made the tumor responsive to EGFR inhibitor treatment. First, the researchers introduced different altered EGFR versions into human cells and studied their behavior. The EGFR protein, which can stimulate cell growth, is normally tightly regulated and active only when a cell receives a signal from its neighbors. However, the alterations made the EGFR protein always active, regardless of a stimulating signal, and caused them to &#x201C;grow out of control.&#x201D; They then treated the cells expressing the various alterations with different EGFR inhibitor drugs and showed that the specific alteration determined whether cell growth could be stopped by a specific drug.</p>
+          </sec>
+          <sec id="sb1c">
+            <title>What Do the Results Mean for Patients?</title>
+            <p>EGFR inhibitors are still considered to be experimental treatment. Researchers are making progress in understanding how genetic alterations in EGFR cause abnormal growth in some lung cancers and also which specific alterations cause the tumor to be responsive to a particular drug. The goal is to match the tumor and the drug to maximize anti-tumor response and avoid giving a drug that doesn't work with a particular tumor.</p>
+          </sec>
+          <sec id="sb1d">
+            <title>Where Can I Get More Information?</title>
+            <p>The following Web sites contain information on lung cancer, the role of EGFR mutations, and the EGFR class of drugs.</p>
+            <p>Lung Cancer Online (follow links for experimental treatments and EGFR inhibitors):</p>
+            <p>
+              <ext-link xlink:href="http://www.lungcanceronline.org/index.htm" ext-link-type="uri">http://www.lungcanceronline.org/index.htm</ext-link>
+            </p>
+            <p>US National Cancer Institute information page on lung cancer:</p>
+            <p>
+              <ext-link xlink:href="http://www.nci.nih.gov/cancertopics/types/lung" ext-link-type="uri">http://www.nci.nih.gov/cancertopics/types/lung</ext-link>
+            </p>
+            <p>Ongoing clinical trials of EGFR inhibitors:</p>
+            <p>
+              <ext-link xlink:href="http://www.clinicaltrials.gov" ext-link-type="uri">http://www.clinicaltrials.gov</ext-link>
+            </p>
+          </sec>
+        </sec>
+      </boxed-text>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We thank Tom Roberts, Ben Neel, Guillermo Paez, Jeff Lee, Forest White, Yi Zhang, Orit Rosen, Sue-Ann Woo, Kwok Wong, Hongbin Ji, Suzanne Gaudet, Paul Jasper, Birgit Schoeberl, Jane Jiang, and David Hill for helpful discussions. MZ is supported by the National Institutes of Health-sponsored MD-PhD program. WCH is supported by the Doris Duke Charitable Foundation and the National Cancer Institute. WRS and MM are supported by the Novartis Research Foundation, the Claudia Adams Barr Foundation, and the Charles A. Dana Human Cancer Genetics Program of the Dana-Farber Cancer Institute, the Poduska Family Foundation, the Damon-Runyon Cancer Research Foundation, Joan's Legacy, the American Cancer Society, the Flight Attendant Medical Research Institute, and the National Cancer Institute. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pmed-0020313-b01">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Olayioye</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Neve</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Lane</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>Hynes</surname>
+              <given-names>NE</given-names>
+            </name>
+          </person-group>
+          <article-title>The ErbB signaling network: Receptor heterodimerization in development and cancer</article-title>
+          <source>EMBO J</source>
+          <year>2000</year>
+          <volume>19</volume>
+          <fpage>3159</fpage>
+          <lpage>3167</lpage>
+          <pub-id pub-id-type="pmid">10880430</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b02">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yarden</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>The EGFR family and its ligands in human cancer. Signalling mechanisms and therapeutic opportunities</article-title>
+          <source>Eur J Cancer</source>
+          <year>2001</year>
+          <volume>37</volume>
+          <issue>Suppl 4</issue>
+          <fpage>S3</fpage>
+          <lpage>8</lpage>
+          <pub-id pub-id-type="pmid">11597398</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b03">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jorissen</surname>
+              <given-names>RN</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Pouliot</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Garrett</surname>
+              <given-names>TP</given-names>
+            </name>
+            <name>
+              <surname>Ward</surname>
+              <given-names>CW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal growth factor receptor: Mechanisms of activation and signalling</article-title>
+          <source>Exp Cell Res</source>
+          <year>2003</year>
+          <volume>284</volume>
+          <fpage>31</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="pmid">12648464</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b04">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gamett</surname>
+              <given-names>DC</given-names>
+            </name>
+            <name>
+              <surname>Tracy</surname>
+              <given-names>SE</given-names>
+            </name>
+            <name>
+              <surname>Robinson</surname>
+              <given-names>HL</given-names>
+            </name>
+          </person-group>
+          <article-title>Differences in sequences encoding the carboxyl-terminal domain of the epidermal growth factor receptor correlate with differences in the disease potential of viral <italic>erbB</italic> genes</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>1986</year>
+          <volume>83</volume>
+          <fpage>6053</fpage>
+          <lpage>6057</lpage>
+          <pub-id pub-id-type="pmid">3016739</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b05">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boerner</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Danielsen</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Maihle</surname>
+              <given-names>NJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Ligand-independent oncogenic signaling by the epidermal growth factor receptor: v-ErbB as a paradigm</article-title>
+          <source>Exp Cell Res</source>
+          <year>2003</year>
+          <volume>284</volume>
+          <fpage>111</fpage>
+          <lpage>121</lpage>
+          <pub-id pub-id-type="pmid">12648470</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b06">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Garcia de Palazzo</surname>
+              <given-names>IE</given-names>
+            </name>
+            <name>
+              <surname>Adams</surname>
+              <given-names>GP</given-names>
+            </name>
+            <name>
+              <surname>Sundareshan</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Testa</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Expression of mutated epidermal growth factor receptor by non-small cell lung carcinomas</article-title>
+          <source>Cancer Res</source>
+          <year>1993</year>
+          <volume>53</volume>
+          <fpage>3217</fpage>
+          <lpage>3220</lpage>
+          <pub-id pub-id-type="pmid">8391918</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b07">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Moscatello</surname>
+              <given-names>DK</given-names>
+            </name>
+            <name>
+              <surname>Holgado-Madruga</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Godwin</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Ramirez</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Gunn</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Frequent expression of a mutant epidermal growth factor receptor in multiple human tumors</article-title>
+          <source>Cancer Res</source>
+          <year>1995</year>
+          <volume>55</volume>
+          <fpage>5536</fpage>
+          <lpage>5539</lpage>
+          <pub-id pub-id-type="pmid">7585629</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b08">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Velu</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Beguinot</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Vass</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Willingham</surname>
+              <given-names>MC</given-names>
+            </name>
+            <name>
+              <surname>Merlino</surname>
+              <given-names>GT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Epidermal-growth-factor-dependent transformation by a human EGF receptor proto-oncogene</article-title>
+          <source>Science</source>
+          <year>1987</year>
+          <volume>238</volume>
+          <fpage>1408</fpage>
+          <lpage>1410</lpage>
+          <pub-id pub-id-type="pmid">3500513</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b09">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Danielsen</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Maihle</surname>
+              <given-names>NJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Ligand-independent oncogenic transformation by the EGF receptor requires kinase domain catalytic activity</article-title>
+          <source>Exp Cell Res</source>
+          <year>2002</year>
+          <volume>275</volume>
+          <fpage>9</fpage>
+          <lpage>16</lpage>
+          <pub-id pub-id-type="pmid">11925101</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b10">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Nagane</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Klingbeil</surname>
+              <given-names>CK</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nishikawa</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The enhanced tumorigenic activity of a mutant epidermal growth factor receptor common in human cancers is mediated by threshold levels of constitutive tyrosine phosphorylation and unattenuated signaling</article-title>
+          <source>J Biol Chem</source>
+          <year>1997</year>
+          <volume>272</volume>
+          <fpage>2927</fpage>
+          <lpage>2935</lpage>
+          <pub-id pub-id-type="pmid">9006938</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b11">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Paez</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Janne</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Tracy</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Greulich</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGFR mutations in lung cancer: Correlation with clinical response to gefitinib therapy</article-title>
+          <source>Science</source>
+          <year>2004</year>
+          <volume>304</volume>
+          <fpage>1497</fpage>
+          <lpage>1500</lpage>
+          <pub-id pub-id-type="pmid">15118125</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b12">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lynch</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Bell</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Sordella</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Gurubhagavatula</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Okimoto</surname>
+              <given-names>RA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Activating mutations in the epidermal growth factor receptor underlying responsiveness of non-small-cell lung cancer to gefitinib</article-title>
+          <source>N Engl J Med</source>
+          <year>2004</year>
+          <volume>350</volume>
+          <fpage>2129</fpage>
+          <lpage>2139</lpage>
+          <pub-id pub-id-type="pmid">15118073</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b13">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pao</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Zakowski</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Doherty</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Politi</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGF receptor gene mutations are common in lung cancers from &#x201C;never smokers&#x201D; and are associated with sensitivity of tumors to gefitinib and erlotinib</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2004</year>
+          <volume>101</volume>
+          <fpage>13306</fpage>
+          <lpage>13311</lpage>
+          <pub-id pub-id-type="pmid">15329413</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b14">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kosaka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Yatabe</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Endoh</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kuwano</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mutations of the epidermal growth factor receptor gene in lung cancer: Biological and clinical implications</article-title>
+          <source>Cancer Res</source>
+          <year>2004</year>
+          <volume>64</volume>
+          <fpage>8919</fpage>
+          <lpage>8923</lpage>
+          <pub-id pub-id-type="pmid">15604253</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b15">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mitsudomi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kosaka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Endoh</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Horio</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Hida</surname>
+              <given-names>T</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mutations of the epidermal growth factor receptor gene predict prolonged survival after gefitinib treatment in patients with non-small-cell lung cancer with postoperative recurrence</article-title>
+          <source>J Clin Oncol</source>
+          <year>2005</year>
+          <volume>23</volume>
+          <fpage>2513</fpage>
+          <lpage>2520</lpage>
+          <pub-id pub-id-type="pmid">15738541</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b16">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shigematsu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Lin</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Takahashi</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Nomura</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Clinical and biological features associated with epidermal growth factor receptor gene mutations in lung cancers</article-title>
+          <source>J Natl Cancer Inst</source>
+          <year>2005</year>
+          <volume>97</volume>
+          <fpage>339</fpage>
+          <lpage>346</lpage>
+          <pub-id pub-id-type="pmid">15741570</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b17">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chou</surname>
+              <given-names>TY</given-names>
+            </name>
+            <name>
+              <surname>Chiu</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>LH</given-names>
+            </name>
+            <name>
+              <surname>Hsiao</surname>
+              <given-names>CY</given-names>
+            </name>
+            <name>
+              <surname>Tzen</surname>
+              <given-names>CY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mutation in the tyrosine kinase domain of epidermal growth factor receptor is a predictive and prognostic factor for gefitinib treatment in patients with non-small cell lung cancer</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2005</year>
+          <volume>11</volume>
+          <fpage>3750</fpage>
+          <lpage>3757</lpage>
+          <pub-id pub-id-type="pmid">15897572</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b18">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huang</surname>
+              <given-names>SF</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>HP</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>LH</given-names>
+            </name>
+            <name>
+              <surname>Ku</surname>
+              <given-names>YC</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>YN</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>High frequency of epidermal growth factor receptor mutations with complex patterns in non-small cell lung cancers related to gefitinib responsiveness in Taiwan</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2004</year>
+          <volume>10</volume>
+          <fpage>8195</fpage>
+          <lpage>8203</lpage>
+          <pub-id pub-id-type="pmid">15623594</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b19">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Boggon</surname>
+              <given-names>TJ</given-names>
+            </name>
+            <name>
+              <surname>Dayaram</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Janne</surname>
+              <given-names>PA</given-names>
+            </name>
+            <name>
+              <surname>Kocher</surname>
+              <given-names>O</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>EGFR mutation and resistance of non-small-cell lung cancer to gefitinib</article-title>
+          <source>N Engl J Med</source>
+          <year>2005</year>
+          <volume>352</volume>
+          <fpage>786</fpage>
+          <lpage>792</lpage>
+          <pub-id pub-id-type="pmid">15728811</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b20">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pao</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Miller</surname>
+              <given-names>VA</given-names>
+            </name>
+            <name>
+              <surname>Politi</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Riely</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <name>
+              <surname>Somwar</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Acquired resistance of lung adenocarcinomas to gefitinib or erlotinib is associated with a second mutation in the EGFR kinase domain</article-title>
+          <source>PLoS Med</source>
+          <year>2005</year>
+          <volume>2</volume>
+          <fpage>e73</fpage>
+          <pub-id pub-id-type="pmid">15737014</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b21">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tracy</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Mukohara</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hansen</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Meyerson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>BE</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Gefitinib induces apoptosis in the EGFRL858R non-small-cell lung cancer cell line H3255</article-title>
+          <source>Cancer Res</source>
+          <year>2004</year>
+          <volume>64</volume>
+          <fpage>7241</fpage>
+          <lpage>7244</lpage>
+          <pub-id pub-id-type="pmid">15492241</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b22">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sordella</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Bell</surname>
+              <given-names>DW</given-names>
+            </name>
+            <name>
+              <surname>Haber</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Settleman</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Gefitinib-sensitizing EGFR mutations in lung cancer activate anti-apoptotic pathways</article-title>
+          <source>Science</source>
+          <year>2004</year>
+          <volume>305</volume>
+          <fpage>1163</fpage>
+          <lpage>1167</lpage>
+          <pub-id pub-id-type="pmid">15284455</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b23">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lundberg</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Randell</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Stewart</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Elenbaas</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Hartwell</surname>
+              <given-names>KA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Immortalization and transformation of primary human airway epithelial cells by gene transfer</article-title>
+          <source>Oncogene</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>4577</fpage>
+          <lpage>4586</lpage>
+          <pub-id pub-id-type="pmid">12085236</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b24">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hahn</surname>
+              <given-names>WC</given-names>
+            </name>
+            <name>
+              <surname>Counter</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Lundberg</surname>
+              <given-names>AS</given-names>
+            </name>
+            <name>
+              <surname>Beijersbergen</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Brooks</surname>
+              <given-names>MW</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Creation of human tumour cells with defined genetic elements</article-title>
+          <source>Nature</source>
+          <year>1999</year>
+          <volume>400</volume>
+          <fpage>464</fpage>
+          <lpage>468</lpage>
+          <pub-id pub-id-type="pmid">10440377</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b25">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Besser</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Bromberg</surname>
+              <given-names>JF</given-names>
+            </name>
+            <name>
+              <surname>Darnell</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Hanafusa</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>A single amino acid substitution in the v-Eyk intracellular domain results in activation of Stat3 and enhances cellular transformation</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1999</year>
+          <volume>19</volume>
+          <fpage>1401</fpage>
+          <lpage>1409</lpage>
+          <pub-id pub-id-type="pmid">9891073</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b26">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Levkowitz</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Waterman</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Ettenberg</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Katz</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tsygankov</surname>
+              <given-names>AY</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Ubiquitin ligase activity and tyrosine phosphorylation underlie suppression of growth factor signaling by c-Cbl/Sli-1</article-title>
+          <source>Mol Cell</source>
+          <year>1999</year>
+          <volume>4</volume>
+          <fpage>1029</fpage>
+          <lpage>1040</lpage>
+          <pub-id pub-id-type="pmid">10635327</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b27">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Amann</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kalyankrishna</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Massion</surname>
+              <given-names>PP</given-names>
+            </name>
+            <name>
+              <surname>Ohm</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Girard</surname>
+              <given-names>L</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Aberrant epidermal growth factor receptor signaling and enhanced sensitivity to EGFR inhibitors in lung cancer</article-title>
+          <source>Cancer Res</source>
+          <year>2005</year>
+          <volume>65</volume>
+          <fpage>226</fpage>
+          <lpage>235</lpage>
+          <pub-id pub-id-type="pmid">15665299</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b28">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Okabayashi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Kido</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Okutani</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Sugimoto</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sakaguchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Tyrosines 1148 and 1173 of activated human epidermal growth factor receptors are binding sites of Shc in intact cells</article-title>
+          <source>J Biol Chem</source>
+          <year>1994</year>
+          <volume>269</volume>
+          <fpage>18674</fpage>
+          <lpage>18678</lpage>
+          <pub-id pub-id-type="pmid">8034616</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b29">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pelicci</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Lanfrancone</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Grignani</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>McGlade</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Cavallo</surname>
+              <given-names>F</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A novel transforming protein (SHC) with an SH2 domain is implicated in mitogenic signal transduction</article-title>
+          <source>Cell</source>
+          <year>1992</year>
+          <volume>70</volume>
+          <fpage>93</fpage>
+          <lpage>104</lpage>
+          <pub-id pub-id-type="pmid">1623525</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b30">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhong</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Wen</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Darnell</surname>
+              <given-names>JE</given-names>
+            </name>
+          </person-group>
+          <article-title>Stat3: A STAT family member activated by tyrosine phosphorylation in response to epidermal growth factor and interleukin-6</article-title>
+          <source>Science</source>
+          <year>1994</year>
+          <volume>264</volume>
+          <fpage>95</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="pmid">8140422</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b31">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodrigues</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Falasca</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ong</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel positive feedback loop mediated by the docking protein Gab1 and phosphatidylinositol 3-kinase in epidermal growth factor receptor signaling</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>1448</fpage>
+          <lpage>1459</lpage>
+          <pub-id pub-id-type="pmid">10648629</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b32">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jiang</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Greulich</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Sellers</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Meyerson</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Griffin</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>EGF-independent transformation of Ba/F3 cells with cancer-derived EGFR mutants induces gefitinib-sensitive cell cycle progression</article-title>
+          <source>Cancer Res</source>
+          <year>2005</year>
+          <!--In Press-->
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b33">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cohen</surname>
+              <given-names>MH</given-names>
+            </name>
+            <name>
+              <surname>Williams</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Sridhara</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>McGuinn</surname>
+              <given-names>WD</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>United States Food and Drug Administration Drug approval summary: Gefitinib (ZD1839; Iressa) tablets</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2004</year>
+          <volume>10</volume>
+          <fpage>1212</fpage>
+          <lpage>1218</lpage>
+          <pub-id pub-id-type="pmid">14977817</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b34">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hidalgo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Siu</surname>
+              <given-names>LL</given-names>
+            </name>
+            <name>
+              <surname>Nemunaitis</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Rizzo</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hammond</surname>
+              <given-names>LA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Phase I and pharmacologic study of OSI-774, an epidermal growth factor receptor tyrosine kinase inhibitor, in patients with advanced solid malignancies</article-title>
+          <source>J Clin Oncol</source>
+          <year>2001</year>
+          <volume>19</volume>
+          <fpage>3267</fpage>
+          <lpage>3279</lpage>
+          <pub-id pub-id-type="pmid">11432895</pub-id>
+        </citation>
+      </ref>
+      <ref id="pmed-0020313-b35">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Discafani</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Carroll</surname>
+              <given-names>ML</given-names>
+            </name>
+            <name>
+              <surname>Floyd</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Hollander</surname>
+              <given-names>IJ</given-names>
+            </name>
+            <name>
+              <surname>Husain</surname>
+              <given-names>Z</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Irreversible inhibition of epidermal growth factor receptor tyrosine kinase with in vivo activity by N-[4-[(3-bromophenyl)amino]-6-quinazolinyl]-2-butynamide (CL-387,785)</article-title>
+          <source>Biochem Pharmacol</source>
+          <year>1999</year>
+          <volume>57</volume>
+          <fpage>917</fpage>
+          <lpage>925</lpage>
+          <pub-id pub-id-type="pmid">10086326</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <glossary>
+      <title>Abbreviations</title>
+      <def-list>
+        <def-item>
+          <term>EGFR</term>
+          <def>
+            <p>epidermal growth factor receptor</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>hTBE</term>
+          <def>
+            <p>human tracheobronchial epithelial</p>
+          </def>
+        </def-item>
+        <def-item>
+          <term>STAT</term>
+          <def>
+            <p>signal transducer and activator of transcription</p>
+          </def>
+        </def-item>
+      </def-list>
+    </glossary>
+    <sec sec-type="display-objects">
+      <title>Figures and Tables</title>
+      <fig id="pmed-0020313-g001" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <title>Mammalian Cells Expressing the Lung Cancer-Derived Mutant EGFR Grow in an Anchorage-Independent Manner</title>
+          <p>(A) NIH-3T3 cells infected with retroviruses encoding the indicated wild-type or mutant <italic>EGFR</italic> were selected in the presence of 2.5 &#x3BC;g /ml puromycin for 4 d. In the top photomicrographs, 1 &#xD7; 10<sup>5</sup> cells were suspended in soft agar for a colony formation assay and photographed after 3 wk incubation at 37 &#xB0;C. Expression of lung cancer-derived missense <italic>EGFR</italic> mutants, but not wild-type or kinase-inactive D837A <italic>EGFR,</italic> induces colony formation in soft agar. In the bottom photomicrographs, samples were identical, but 20 ng/ml EGF was added to the top agar. Representative photomicrographs are shown.</p>
+          <p>(B) Anti-EGFR immunoblot analysis of pooled stable NIH-3T3 cells infected as described in (A). All <italic>EGFR</italic> constructs are expressed at similar levels. pBp, pBabe-Puro vector; wt, wild-type EGFR.</p>
+          <p>(C) Lysates from 4 &#xD7; 10<sup>4</sup> cells from the human lung adenocarcinoma cell line H3255, harboring the L858R mutation in <italic>EGFR,</italic> or the wild-type or L858R <italic>EGFR</italic>-overexpressing NIH-3T3 cells, were immunoblotted for total <italic>EGFR</italic> levels. Although total protein levels per cell are lower for the H3255 than the NIH-3T3 cells, EGFR expression levels are slightly higher in the H3255s.</p>
+          <p>(D) NIH-3T3 cells infected with retroviruses encoding the mutant <italic>EGFR</italic> were selected in the presence of 2 &#x3BC;g/ml puromycin for 9 d. Selected cells (1 &#xD7; 10<sup>5</sup>) were suspended in soft agar for a colony formation assay and photographed after 3 wk incubation at 37 &#xB0;C. Expression of the deletion and insertion <italic>EGFR</italic> mutants induced formation of colonies in soft agar with higher efficiency than expression of L858R. Representative photos are shown. Polyoma mT, NIH-3T3 cells infected with positive control pBabe-Puro retrovirus encoding the polyoma middle T antigen.</p>
+          <p>(E) hTBE cells expressing the SV40 early region and hTERT were infected with control virus pBabe-Puro (pBp) or with viruses encoding the indicated <italic>EGFR</italic> alleles. Cells were plated in 0.4% Noble agar, and colonies were counted with an automated imager at 6 wk. Mean &#xB1; standard deviation is shown for three independent determinations. Control cells (pBp) formed many microscopic colonies, but colonies formed by cells expressing <italic>EGFR</italic> mutants were more numerous and larger. del, L747_E749del A750P mutated EGFR; ins, D770_N771insNPG mutated EGFR; pBp, pBabe-Puro vector; RasV12, V12 H-Ras; wt, wild-type EGFR.</p>
+          <p>(F) Anti-EGFR immunoblot analysis of hTBE cells infected as described in (E). All <italic>EGFR</italic> constructs were expressed at similar levels. pBp, pBabe-Puro vector; wt, wild-type EGFR.</p>
+        </caption>
+        <graphic xlink:href="pmed.0020313.g001"/>
+      </fig>
+      <fig id="pmed-0020313-g002" position="float">
+        <label>Figure 2</label>
+        <caption>
+          <title>Ligand-Independent Activation of the Mutant EGFR</title>
+          <p>(A) Cells expressing the wild-type or mutant <italic>EGFR</italic> were lysed and immunoblotted with antibodies to total EGFR or antibodies that recognize specific phosphorylation sites in the EGFR C-terminal tail as labeled. All four mutant EGFR proteins, representative of the four classes of <italic>EGFR</italic> mutations observed in lung adenocarcinoma tumor DNA, exhibited constitutive phosphorylation on the indicated C-terminal autophosphorylation sites. Note that the nomenclature for the anti-phospho-EGFR antibodies reflects elimination of the 24-amino acid signal peptide. Due to difficulties in isolating clonal cell lines with the same levels of mutant EGFR expression, G719S is expressed at higher levels and D770_N771ins NPG at lower levels than the other mutant EGFR. del, L747_E749del A750P; ins, D770_N771insNPG; pBp, pBabe-Puro vector control; wt, wild-type EGFR.</p>
+          <p>(B) Cells expressing the wild-type or L858R <italic>EGFR</italic> were placed in media containing 0.5% CS for 24 h. A combination of three neutralizing antibodies (anti-EGF, anti-TGF&#x3B1;, and anti-EGFR) was added 3 h prior to EGF stimulation and lysis. Upper row of blots show the anti-phospho-EGFR Y1068 immunoblots. The lower row shows anti-EGFR immunoblots. No inhibition of L858R EGFR autophosphorylation was observed upon treatment with a combination of three neutralizing antibodies (&#x201C;neutr Ab&#x201D;) sufficient to prevent EGF stimulation of autophosphorylation of the wild-type EGFR.</p>
+        </caption>
+        <graphic xlink:href="pmed.0020313.g002"/>
+      </fig>
+      <fig id="pmed-0020313-g003" position="float">
+        <label>Figure 3</label>
+        <caption>
+          <title>Shc and STAT3 Signaling Pathways Are Constitutively Activated in Cells Expressing the Mutant EGFR</title>
+          <p>(A) Cells expressing the wild-type or L858R mutant <italic>EGFR</italic> were placed in 0.5% calf serum for 24 h and left unstimulated or stimulated with 20 ng/ml EGF (&#x201C;+EGF&#x201D;) for 8 min. EGFR was immunoprecipitated from 200 &#x3BC;g of cell lysate, and eluted immune complexes were separated by SDS-PAGE and immunoblotted with anti-Shc. Shc constitutively coimmunoprecipitates with the L858R EGFR but not the wild-type EGFR. IP, immunoprecipitation; NL, no-lysate control immunoprecipitation.</p>
+          <p>(B) Anti-phospho-Shc immunoblots (upper row of blots) and anti-Shc immunoblots (lower row) of whole cell lysates from the experiment in (A). All three Shc isoforms are constitutively phosphorylated in cells expressing the L858R <italic>EGFR</italic>.</p>
+          <p>(C) Immunoblots of whole cell lysates with anti-phospho-STAT3 Y705 (upper row), total STAT3 (middle row), or actin as a loading control (lower row). STAT3 is constitutively phosphorylated in cells expressing any of the four mutant EGFR proteins, representative of the four classes of <italic>EGFR</italic> mutations observed in lung adenocarcinoma tumor DNA. del, L747_E749del A750P; ins, D770_N771insNPG; pBp, pBabe-Puro vector control; wt, wild-type EGFR.</p>
+          <p>(D) M67 STAT3 luciferase reporter assay. NIH-3T3 cells expressing the indicated EGFR were transfected with a STAT-dependent reporter (m67-firefly luciferase) [<xref ref-type="bibr" rid="pmed-0020313-b25">25</xref>] and a control reporter expressing Renilla luciferase. STAT-dependent luciferase production was measured after 48 h and normalized to Renilla luciferase. The normalized luciferase values were divided by the values for cells expressing the wild-type EGFR to produce relative luciferase units. NIH-3T3 expressing mutant forms of EGFR exhibited elevated levels of STAT-dependent transcriptional activity relative to wild-type. ins, D770_N771insNPG EGFR; wt, wild-type EGFR.</p>
+          <p>(E) Immunoblots of whole cell lysates with anti-phospho-Akt S473 (upper row), total Akt (middle row), or actin as a loading control (lower row). Akt is constitutively phosphorylated in cells expressing mutant EGFR. del, L747_E749del A750P; ins, D770_N771insNPG; wt, wild-type EGFR.</p>
+        </caption>
+        <graphic xlink:href="pmed.0020313.g003"/>
+      </fig>
+      <fig id="pmed-0020313-g004" position="float">
+        <label>Figure 4</label>
+        <caption>
+          <title>Sensitivity of Cell Transformation Induced by Expression of Mutant <italic>EGFR</italic> Characterized by Missense Mutation or Exon 19 Deletion, but not Exon 20 Insertion, to Gefitinib and Erlotinib</title>
+          <p>(A) Anchorage-independent growth of clonal NIH-3T3 cells transformed with mutant <italic>EGFR</italic> or EGF-stimulated wild-type <italic>EGFR</italic> treated with the indicated concentrations of erlotinib immediately prior to suspension in soft agar. Transformation induced by expression of L858R, G719S, and L747_E749del A750P <italic>EGFR,</italic> but not EGF-stimulated wild-type <italic>EGFR</italic> or D770_N771insNPG <italic>EGFR,</italic> was inhibited by 0.1 &#x3BC;M erlotinib. Representative photographs are shown.</p>
+          <p>(B) Number of colonies formed in soft agar by clonal NIH-3T3 cells expressing L858R <italic>EGFR</italic> and D770_N771insNPG <italic>EGFR</italic> treated with the indicated concentrations of gefitinib or erlotinib immediately prior to suspension in soft agar. Transformation by cells expressing the L858R <italic>EGFR</italic> was inhibited by 0.1 &#x3BC;M gefitinib or erlotinib, whereas transformation by cells expressing the insertion mutant was resistant to low concentrations of these inhibitors. Colonies were quantitated by counting ten fields each of triplicate wells photographed with a 10&#xD7; objective; mean &#xB1; standard deviation is shown. Ins, D770_N771insNPG <italic>EGFR</italic>.</p>
+          <p>(C) Transformation induced by expression of D770_N771insNPG <italic>EGFR</italic> is inhibited 10-fold more efficiently by the irreversible EGFR inhibitor CL-387,785 [<xref ref-type="bibr" rid="pmed-0020313-b35">35</xref>]. Clonal NIH-3T3 cells expressing the insertion mutant were treated with the indicated concentrations of gefitinib, erlotinib, or CL-387,785 immediately prior to suspension in soft agar. This assay was not done in triplicate, but the results are representative of two independent experiments. The number of colonies was normalized to maximum colony formation for each treatment, and sigmoidal dose response curves were fitted to the data using Prism Graphpad software to determine IC50s.</p>
+        </caption>
+        <graphic xlink:href="pmed.0020313.g004"/>
+      </fig>
+      <fig id="pmed-0020313-g005" position="float">
+        <label>Figure 5</label>
+        <caption>
+          <title>Sensitivity of Mutant EGFR Autophosphorylation to EGFR Inhibitors Reflects Inhibition of Anchorage-Independent Growth</title>
+          <p>Cells expressing wild-type, L858R, or D770_N771insNPG <italic>EGFR</italic> were treated for 2 h with the indicated concentrations of gefitinib or CL-387,785. Cells expressing the wild-type EGFR were then stimulated for 10 min with 7 ng/ml EGF, and all plates were lysed. Whole-cell lysates were immunoblotted for phospho-EGFR Y1068 (upper row of blots), total EGFR (middle row), and actin as a loading control (lower row). Although compound concentrations necessary for inhibition of autophosphorylation do not exactly correspond to inhibition of anchorage-independent growth, the relative sensitivity of autophosphorylation of the wild-type and mutant EGFR to gefitinib or CL-387,785 mirrors the relative sensitivity of colony formation to these inhibitors.</p>
+        </caption>
+        <graphic xlink:href="pmed.0020313.g005"/>
+      </fig>
+      <table-wrap id="pmed-0020313-t001" position="float">
+        <label>Table 1</label>
+        <caption>
+          <title>NIH-3T3 Cells Expressing the Lung Cancer-Derived Mutant EGFR Display Loss of Contact Inhibition</title>
+        </caption>
+        <graphic xlink:href="pmed.0020313.t001"/>
+      </table-wrap>
+      <table-wrap id="pmed-0020313-t002" position="float">
+        <label>Table 2</label>
+        <caption>
+          <title>Clonal NIH-3T3 Cell Lines Expressing the Lung Cancer-Derived Mutant EGFR Form Tumors in Immunocompromised Mice</title>
+        </caption>
+        <graphic xlink:href="pmed.0020313.t002"/>
+      </table-wrap>
+    </sec>
+    <fn-group>
+      <fn id="n4" fn-type="other">
+        <p>Citation: Greulich H, Chen TH, Feng W, J&#xE4;nne PA, Alvarez JV, et al. (2005) Oncogenic transformation by inhibitor-sensitive and -resistant EGFR mutants. PLoS Med 2(11): e313.</p>
+      </fn>
+    </fn-group>
+  </back>
+</article>
+</pmc-articleset>

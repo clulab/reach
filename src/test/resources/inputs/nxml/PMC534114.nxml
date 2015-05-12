@@ -1,0 +1,1051 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">BMC Biol</journal-id>
+      <journal-title>BMC Biology</journal-title>
+      <issn pub-type="epub">1741-7007</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">15550174</article-id>
+      <article-id pub-id-type="pmc">534114</article-id>
+      <article-id pub-id-type="publisher-id">1741-7007-2-24</article-id>
+      <article-id pub-id-type="doi">10.1186/1741-7007-2-24</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>The docking protein Gab1 is the primary mediator of EGF-stimulated activation of the PI-3K/Akt cell survival pathway</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib id="A1" equal-contrib="yes" contrib-type="author">
+          <name>
+            <surname>Mattoon</surname>
+            <given-names>Dawn R</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <xref ref-type="aff" rid="I2">2</xref>
+          <email>dawn.mattoon@yale.edu</email>
+        </contrib>
+        <contrib id="A2" equal-contrib="yes" contrib-type="author">
+          <name>
+            <surname>Lamothe</surname>
+            <given-names>Betty</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <xref ref-type="aff" rid="I3">3</xref>
+          <email>blamothe@mdanderson.org</email>
+        </contrib>
+        <contrib id="A3" contrib-type="author">
+          <name>
+            <surname>Lax</surname>
+            <given-names>Irit</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>irit.lax@yale.edu</email>
+        </contrib>
+        <contrib id="A4" corresp="yes" contrib-type="author">
+          <name>
+            <surname>Schlessinger</surname>
+            <given-names>Joseph</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>joseph.schlessinger@yale.edu</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Department of Pharmacology, Yale University School of Medicine, PO Box 208066, New Haven, CT 06520-8066, USA</aff>
+      <aff id="I2"><label>2</label>Current address: Protometrix, Inc./Invitrogen, 688 East Main Street, Branford, CT 06405, USA</aff>
+      <aff id="I3"><label>3</label>Current address: Department of Bioimmunotherapy, M.D. Anderson Cancer Center, 1515 Holcombe Blvd. Box 0143. Houston, TX 77030, USA</aff>
+      <pub-date pub-type="collection">
+        <year>2004</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>18</day>
+        <month>11</month>
+        <year>2004</year>
+      </pub-date>
+      <volume>2</volume>
+      <fpage>24</fpage>
+      <lpage>24</lpage>
+      <ext-link ext-link-type="uri" xlink:href="http://www.biomedcentral.com/1741-7007/2/24"/>
+      <history>
+        <date date-type="received">
+          <day>8</day>
+          <month>7</month>
+          <year>2004</year>
+        </date>
+        <date date-type="accepted">
+          <day>18</day>
+          <month>11</month>
+          <year>2004</year>
+        </date>
+      </history>
+      <copyright-statement>Copyright &#xA9; 2004 Mattoon et al; licensee BioMed Central Ltd.</copyright-statement>
+      <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0">
+        <p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/2.0"/>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</p>
+      </license>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>Gab1 is a docking protein that recruits phosphatidylinositol-3 kinase (PI-3 kinase) and other effector proteins in response to the activation of many receptor tyrosine kinases (RTKs). As the autophosphorylation sites on EGF-receptor (EGFR) do not include canonical PI-3 kinase binding sites, it is thought that EGF stimulation of PI-3 kinase and its downstream effector Akt is mediated by an indirect mechanism.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>We used fibroblasts isolated from Gab1-/- mouse embryos to explore the mechanism of EGF stimulation of the PI-3 kinase/Akt anti-apoptotic cell signaling pathway. We demonstrate that Gab1 is essential for EGF stimulation of PI-3 kinase and Akt in these cells and that these responses are mediated by complex formation between p85, the regulatory subunit of PI-3 kinase, and three canonical tyrosine phosphorylation sites on Gab1. Furthermore, complex formation between Gab1 and the protein tyrosine phosphatase Shp2 negatively regulates Gab1 mediated PI-3 kinase and Akt activation following EGF-receptor stimulation. We also demonstrate that tyrosine phosphorylation of ErbB3 may lead to recruitment and activation of PI-3 kinase and Akt in Gab1-/- MEFs.</p>
+        </sec>
+        <sec>
+          <title>Conclusions</title>
+          <p>The primary mechanism of EGF-induced stimulation of the PI-3 kinase/Akt anti-apoptotic pathway occurs via the docking protein Gab1. However, in cells expressing ErbB3, EGF and neuroregulin can stimulate PI-3 kinase and Akt activation in a Gab1-dependent or Gab1-independent manner.</p>
+        </sec>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Background</title>
+      <p>Ligand stimulation of the epidermal growth factor receptor (EGFR) and the three other members of the EGFR family of receptor tyrosine kinases (ErbB2, ErbB3 and ErbB4) results in tyrosine autophosphorylation, recruitment of signaling proteins, and activation of distinct complement of signaling pathways that regulate a great variety of cellular responses [<xref ref-type="bibr" rid="B1">1</xref>,<xref ref-type="bibr" rid="B2">2</xref>].</p>
+      <p>One of the signaling pathways that is activated by the EGFR is the phosphatidylinositol-3 kinase (PI-3 kinase)/Akt anti-apoptic signaling pathway [<xref ref-type="bibr" rid="B3">3</xref>]. The PI-3 kinase holoenzyme consists of a regulatory subunit (p85) and a catalytic p110 subunit. The regulatory subunit contains two SH2 domains that bind specifically to pYXXM motifs in a variety of cellular proteins, including receptor tyrosine kinases such as the PDGF (platelet-derived growth factor) receptor, and c-kit and docking proteins such as IRS (insulin receptor substrate) 1, IRS2 and Gab1. Although the cytoplasmic domain of the EGFR does not contain any canonical p85 binding motifs, EGF stimulation leads to PI-3 kinase activation by an indirect mechanism. It has been proposed that the PI-3 kinase is activated in response to EGF stimulation as a consequence of formation of EGFR/ErbB3 heterodimers [<xref ref-type="bibr" rid="B4">4</xref>]. Unlike EGFR, the cytoplasmic region of ErbB3 contains at least six pYXXM motifs [<xref ref-type="bibr" rid="B5">5</xref>,<xref ref-type="bibr" rid="B6">6</xref>]. Indeed, EGF stimulation of cells co-expressing the EGFR and ErbB3 results in recruitment and activation of PI-3 kinase by tyrosine phosphorylated ErbB3 [<xref ref-type="bibr" rid="B4">4</xref>].</p>
+      <p>EGF stimulation of PI-3 kinase may also be mediated by the docking protein Gab1 (Grb2-associated binder-1). EGF stimulation leads to tyrosine phosphorylation of Gab1 enabling recruitment and activation of PI-3 kinase by the three canonical pYXXM motifs on Gab1 [<xref ref-type="bibr" rid="B7">7</xref>]. Gab1 was originally identified as a Grb2 binding protein, and was shown to be tyrosine phosphorylated in response to treatment with a variety of growth factors [<xref ref-type="bibr" rid="B7">7</xref>-<xref ref-type="bibr" rid="B9">9</xref>]. Gab1 contains a number of tyrosine residues that could serve as potential binding sites for the SH2 domain containing proteins Grb2, PI-3 kinase, and the protein tyrosine phosphatase Shp2 [<xref ref-type="bibr" rid="B10">10</xref>]. While there have been reports that Gab1 binds directly to the EGFR via an 83-amino acid stretch termed the Met-binding-domain or MBD [<xref ref-type="bibr" rid="B9">9</xref>], the majority of Gab1 is believed to be indirectly associated with the EGFR via the adaptor protein Grb2, which binds to a proline rich region on Gab1 via its C-terminal SH3 domain [<xref ref-type="bibr" rid="B10">10</xref>-<xref ref-type="bibr" rid="B13">13</xref>].</p>
+      <p>Cells over-expressing a mutant Gab1 protein containing tyrosine to phenylalanine mutations at the three p85 binding sites have been shown to be defective in EGF-induced JNK activation, and treatment of cells over-expressing wild type Gab1 with PI-3 kinase inhibitors interferes with MAPK signaling in response to EGF treatment, thus revealing a link between Gab1 and PI-3 kinase in EGF-induced mitogenic signaling [<xref ref-type="bibr" rid="B9">9</xref>,<xref ref-type="bibr" rid="B14">14</xref>]. Furthermore, the PI-3 kinase product phosphatidylinositol (3,4,5) triphosphate (PIP3) has been shown to bind to the pleckstrin homology (PH) domain of Gab1 resulting in membrane-association of Gab1, suggesting a positive feedback loop in which PI-3 kinase acts as both an upstream regulator and a downstream effector of Gab1 signaling via the EGFR [<xref ref-type="bibr" rid="B9">9</xref>]. Gab1 thus acts as a docking protein facilitating the recruitment of a multi-protein signaling complex including the EGFR, p85 and Shp2 in response to EGF treatment.</p>
+      <p>Although the role of the Shp2 protein in the control of EGFR/Gab1 interactions is not well understood, several studies have suggested that Gab1-associated Shp2 may influence EGF-induced PI-3 kinase signaling. Previous work has shown that Gab1 is not a global substrate of Shp2, as complex formation between Gab1 and Shp2 does not reduce the total EGF-induced tyrosine phosphorylation levels of Gab1 [<xref ref-type="bibr" rid="B15">15</xref>]. However there have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the PI-3 kinase pathway [<xref ref-type="bibr" rid="B16">16</xref>-<xref ref-type="bibr" rid="B18">18</xref>]. It has been shown that cells devoid of Shp2 show an increase in PI-3 kinase activity, as well as elevated and sustained levels of Akt activation in response to EGF treatment [<xref ref-type="bibr" rid="B18">18</xref>]. It was reported that treatment of cells with PI-3 kinase inhibitors or with the phosphatidylinositol (3,4,5) triphosphate (PIP3) phosphatase PTEN interferes with the association between Gab1 and Shp2 in response to EGF treatment, suggesting PI-3 kinase may be required for Shp2 recruitment of Gab1 following EGF stimulation [<xref ref-type="bibr" rid="B14">14</xref>]. However, the mechanism for this postulated recruitment is unknown.</p>
+      <p>In the experiments presented here we utilized fibroblasts isolated from Gab1-/- mouse embryos in order to examine the role of Gab1 in EGF-mediated activation of the PI-3 kinase/Akt cell survival pathway. We also address the question of whether ErbB3 recruitment of PI-3 kinase is dependent on or independent of Gab1. Our results demonstrate a clear requirement for Gab1 in recruitment and activation of PI-3 kinase in response to EGF stimulation. Additionally, we show that while Shp2 does not mediate global dephosphorylation of Gab1, it does appear to negatively regulate the EGF-induced activation of PI-3 kinase through an undefined mechanism. Finally we demonstrate that ErbB3 is capable of recruiting PI-3 kinase in the absence of Gab1, but Gab1 functions as the major mediator of PI-3 kinase activation in response to EGF stimulation.</p>
+    </sec>
+    <sec>
+      <title>Results and Discussion</title>
+      <p>Previous studies have suggested that ErbB3 and Gab1 can function as links between EGFR and PI-3 kinase. In this report we use MEFs derived from Gab1 -/- embryos [<xref ref-type="bibr" rid="B19">19</xref>] to explore the contribution of Gab1 and ErbB3 to EGF stimulation of PI-3 kinase and Akt in these cells.</p>
+      <sec>
+        <title>Gab1 is essential for EGF stimulation of PI-3 kinase and Akt</title>
+        <p>MEFs derived from Gab1-/- or wild type (WT) embryos were stimulated with EGF and assayed for Gab1 tyrosine phosphorylation, for activation of PI-3 kinase and for Akt stimulation. As shown in Figure <xref ref-type="fig" rid="F1">1A</xref>, the endogenous Gab1 present in WT MEFs is tyrosine phosphorylated in response to EGF treatment. As shown in Figure <xref ref-type="fig" rid="F1">1B</xref>, Gab1 -/- MEFs displayed very low levels of EGF-induced PI-3 kinase activity relative to cells expressing Gab1. We did observe an approximate 2-fold increase in this low-level basal PI-3 kinase activity in Gab1 -/- MEFs, which represents a Gab1-independent signaling pathway. Gab1 -/- and WT MEFs were additionally stimulated with EGF and the activation of Akt was analyzed by immunoblotting with antibodies which recognize specifically the activated form of Akt. As shown in Figure <xref ref-type="fig" rid="F1">1C</xref> (top and middle panels), Gab1 -/- cells display no activation of Akt in response to EGF, while WT MEFs show EGF-stimulated Akt activation within two minutes of EGF treatment.</p>
+        <p>The cDNA encoding the wild type murine Gab1 sequence was cloned into a retroviral vector, and the virus was used to infect Gab1 -/- MEFs. Stable cell lines were selected for co-transduction of a puromycin resistance gene and pools of selected cells were used for further analysis. As shown in Figure <xref ref-type="fig" rid="F1">1A</xref>, the ectopic Gab1 protein was expressed at slightly lower levels in the Gab1 -/- MEFs relative to endogenous Gab1 expression seen in the wild type MEFs. Quantitation by densitometry reveals Gab1 expression in wild type MEFs to be 1.4-fold higher than ectopic Gab1 expression in Gab1 -/- MEFs. Treatment with EGF induced tyrosine phosphorylation of the exogenous Gab1 protein expressed in the Gab1 -/- MEFs at levels similar to endogenous Gab1 in wild type MEFs. As shown in Figure <xref ref-type="fig" rid="F1">1B</xref>, expression of exogenous Gab1 in the Gab1 -/- MEFs results in Gab1-associated PI-3 kinase activity that is augmented following EGF treatment. The low level of EGF-induced PI-3 kinase activity observed in the Gab1 -/- cells may be due to signaling via an alternate, Gab1-independent mechanism. These cells were additionally treated with EGF over a period of time and the activation of Akt was assayed by immunoblotting with antibodies specific for the Ser473 phosphorylated form of Akt. The experiment presented in Fig <xref ref-type="fig" rid="F1">1C</xref> shows that ectopic expression of Gab1 in the Gab1 deficient cells rescues EGF-induced Akt activation to levels similar to those observed in EGF-treated wild type MEFs. Taken together, these results demonstrate that Gab1 is required for EGF-stimulation of PI-3 kinase and Akt.</p>
+      </sec>
+      <sec>
+        <title>The canonical p85 binding sites on Gab1 are essential for PI-3 kinase and Akt activation in response to EGF stimulation</title>
+        <p>The cDNA encoding a mutant Gab1 protein, containing tyrosine to phenylalanine point mutations at the three binding sites for the p85 regulatory subunit of PI-3 kinase (Y446F/Y472F/Y589F) (Gab1<sup>F446/472/589</sup>), was cloned into a retroviral vector and used to generate pools of stable MEF cell lines as described above. We first assayed the cells for Gab1 expression, and for the ability of the mutant Gab1<sup>F446/472/589 </sup>protein to become tyrosine phosphorylated in response to EGF treatment. As shown in Figure <xref ref-type="fig" rid="F2">2A</xref>, both wild type Gab1 and Gab1<sup>F446/472/589 </sup>undergo tyrosine phosphorylation in response to EGF treatment (upper left panel). Quantitation of multiple experiments by densitometry reproducibly demonstrates that Gab1<sup>F446/472/589 </sup>is tyrosine phosphorylated following EGF treatment to similar levels when normalized for Gab1 expression levels. We next subjected lysates from unstimulated or EGF stimulated cells to immunoprecipitation with anti-Gab1 antibodies followed by immunoblotting with anti-p85 antibodies. As has been demonstrated previously [<xref ref-type="bibr" rid="B20">20</xref>], wild type Gab1 readily coimmunoprecipitated p85 following EGF treatment, while the Gab1<sup>F446/472/589 </sup>mutant protein failed to show an association with p85, confirming that the Gab1<sup>F446/472/589 </sup>protein is deficient in p85 binding. Similar levels of Gab1 expression in these cells were confirmed by reprobing the Gab1 phosphotyrosine blot with anti-Gab1 antibodies (Figure <xref ref-type="fig" rid="F2">2A</xref>, bottom left panel). Additionally, total cell lysates of all Gab1 expressing cell lines described in this study were subjected to anti-Gab1 immunoblotting, providing independent evidence for similar levels of Gab1 expression across all cell lines (Figure <xref ref-type="fig" rid="F2">2A</xref>, right panel).</p>
+        <p>Because the substrates of Shp2 are for the most part unknown, we were additionally interested in examining the state of EGFR tyrosine phosphorylation following treatment with EGF in order to determine if the failure of Gab1 to bind p85, and potentially recruit Shp2, would influence levels of EGFR autophosphorylation. However, stimulation with EGF for varying time intervals revealed no significant differences in the levels of autophosphorylation of EGFR in cells expressing wild type Gab1 versus the Gab1<sup>F446/472/589 </sup>mutant (Figure <xref ref-type="fig" rid="F2">2B</xref>). A linear representation of the EGF-induced EGFR tyrosine phosphorylation following normalization for EGFR expression levels is shown in Figure <xref ref-type="fig" rid="F2">2B</xref> (bottom). These results are consistent with our finding that p85 binding to Gab1 does not influence the recruitment of Shp2 to the Gab1 signaling complex, and are inconsistent with the conclusion that Gab1 mediates a PI-3 kinase-dependent recruitment of Shp2 [<xref ref-type="bibr" rid="B14">14</xref>].</p>
+        <p>We next explored the role of Gab1 in EGF-induced activation of the PI-3 kinase/Akt cell survival pathway utilizing the Gab1<sup>F446/472/589</sup>expressing cells. We first assayed the Gab1-associated PI-3 kinase activity directly through a PI-3 kinase assay. As shown in Figure <xref ref-type="fig" rid="F2">2C</xref>, immunoprecipitation of wild type Gab1 following EGF treatment brings down associated PI-3 kinase activity. However immunoprecipitation of Gab1<sup>F446/472/589 </sup>is not associated with significant levels of PI-3 kinase in the presence or absence of EGF stimulation. In order to assay the effects of EGF stimulation on signaling downstream of PI-3 kinase, Gab1 -/- MEFs expressing no Gab1, wild type Gab1 or Gab1<sup>F446/472/589 </sup>were treated with EGF over varying times and cell lysates were immunoblotted for serine-phosphorylated Akt. Mutation of the p85 binding sites on Gab1 essentially eliminated all EGF-induced Akt activation relative to cells expressing wild type Gab1 (Figure <xref ref-type="fig" rid="F2">2D</xref>). The binding of p85 is absolutely required for Gab1-mediated activation of PI-3 kinase and Akt following EGF treatment [<xref ref-type="bibr" rid="B9">9</xref>].</p>
+        <p>Previous work has indicated that treatment of cells with PI-3 kinase inhibitors reduces levels of EGF-induced complex formation between Gab1 and the protein tyrosine phosphatase Shp2 [<xref ref-type="bibr" rid="B14">14</xref>]. This finding suggests a role for Gab1 in the PI-3 kinase-dependent recruitment of Shp2 following EGF stimulation. We have examined the possibility that mutation of the p85 binding sites on Gab1, which prevents PI-3 kinase activation, altered EGF-induced recruitment of Shp2 as compared to the recruitment of Shp2 by wild type Gab1. For this purpose, lysates from unstimulated or EGF-stimulated cells were subjected to immunoprecipitation with anti-Gab1 antibodies following immunoblotting with anti-Shp2 antibodies. The experiment presented in Fig <xref ref-type="fig" rid="F2">2A</xref> shows that mutation of the p85 binding sites on Gab1 did not affect recruitment of Shp2 by Gab1 following EGF stimulation (Figure <xref ref-type="fig" rid="F2">2A</xref>, fourth panel from the top). As has been previously observed [<xref ref-type="bibr" rid="B20">20</xref>], we noted a low level of basal association between Shp2 and both Gab1 and Gab1<sup>F446/472/589</sup>, which may be due to incomplete growth factor starvation prior to EGF stimulation in these experiments.</p>
+      </sec>
+      <sec>
+        <title>Expression of Gab1 mutant protein deficient in Shp2 binding rescues EGF-induced PI-3 kinase/Akt activation in Gab1 -/- MEFs</title>
+        <p>To assess the role of the protein tyrosine phosphatase Shp2 in Gab1-mediated signaling induced by EGF, two Gab1 mutants were generated and expressed in pools of Gab1 -/- MEFs. The first contained tyrosine to phenylalanine point mutations at the two binding sites for the Shp2 protein tyrosine phosphatase (Y627F/Y659F) (designated Gab1<sup>F627/659</sup>) and the second contained mutations at the Shp2 binding sites as well as at the three PI-3 kinase binding sites described above (designated Gab1<sup>F446/472/589/627/659</sup>). We first assayed the ability of the mutant Gab1 proteins to become tyrosine phosphorylated in response to EGF. As shown in Figure <xref ref-type="fig" rid="F3">3A</xref> (top panel) both wild type Gab1 protein and the Gab1<sup>F627/659 </sup>protein readily undergo tyrosine phosphorylation when stimulated with EGF. Quantitation following densitometry indicates that Gab1<sup>F627/659 </sup>is reproducibly tyrosine phosphorylated to levels approximately 1.5-fold higher than Gab1. This result suggests that Gab1 may be a substrate of Shp2, and that blocking Shp2 binding thereby increases EGF-induced Gab1 tyrosine phosphorylation. The Gab1<sup>F446/472/589/627/659 </sup>mutant reproducibly displayed lower levels of tyrosine phosphorylation following treatment with EGF suggesting that these five tyrosines are the main phosphorylation sites on Gab1.</p>
+        <p>Immunoprecipitation of cell lysates with anti-Gab1 antibodies followed by immunoblotting with anti-Shp2 antibodies demonstrates that wild type Gab1 forms a complex with Shp2 following EGF treatment, while the Gab1<sup>F627/659 </sup>mutant proteins fail to show an association with Shp2 thus confirming that phosphorylation of Tyr627 and 659 is required for Shp2 binding (Fig <xref ref-type="fig" rid="F3">3A</xref>). The basal interaction we observed between Gab1 and Shp2 in the absence of EGF stimulation (Figure <xref ref-type="fig" rid="F2">2A</xref>) is absent in the Gab1<sup>F627/659 </sup>mutant, even following prolonged exposures of the western blot.</p>
+        <p>We did not detect a change in the tyrosine phosphorylation of EGFR in cells expressing Gab1 proteins that are deficient in recruitment of Shp2. The experiment presented in Fig <xref ref-type="fig" rid="F3">3B</xref> shows cells stimulated with EGF over varying periods of time and cell extracts assayed for levels of EGFR tyrosine autophosphorylation. As has been previously reported [<xref ref-type="bibr" rid="B15">15</xref>,<xref ref-type="bibr" rid="B18">18</xref>,<xref ref-type="bibr" rid="B20">20</xref>], recruitment of Shp2 by Gab1 does not alter the magnitude or kinetics of tyrosine autophosphorylation of EGFR (Figure <xref ref-type="fig" rid="F3">3B</xref>, left panels). Levels of EGFR autophosphorylation are represented linearly following quantitation by densitometry and normalization for protein expression levels (Figure <xref ref-type="fig" rid="F3">3B</xref>, bottom).</p>
+        <p>Previous work with Shp2 -/- cells demonstrated an elevated and sustained activation of PI-3 kinase and Akt in response to EGF treatment, and it was proposed that Shp2 may act to dephosphorylate Gab1 at one or both of the p85 binding sites [<xref ref-type="bibr" rid="B18">18</xref>]. We utilized the Gab1 proteins deficient in Shp2 binding to assay more directly the role of the Shp2-Gab1 complex in mediating activation of PI-3 kinase and Akt in response to EGF stimulation. As shown in Figure <xref ref-type="fig" rid="F3">3C</xref>, immunoprecipitation of Gab1<sup>F627/659 </sup>brings down 1.6-fold higher basal levels of PI-3 kinase activity relative to wild type Gab1 as assayed by PIP3 production. Importantly, Gab1 mutants defective for Shp2 binding show approximately 2-fold higher Gab1-associated PI-3 kinase activity in response to EGF treatment. Consistent with these findings, previous studies have demonstrated that cells transiently over-expressing Gab1<sup>F627/659 </sup>bound more p85 [<xref ref-type="bibr" rid="B18">18</xref>]. In both Gab1 and Gab1<sup>F627/659</sup>expressing cells the Gab1-associated PI-3 kinase activity is augmented by EGF treatment. As expected, the additional mutation of the p85 binding sites eliminates Gab1-associated PI-3 kinase activity. In order to assay the effects of EGF stimulation on signaling downstream of PI-3 kinase, cells were treated with EGF for varying periods of time and cell lysates were assayed for Akt activation by immunoblotting with P-Ser473 Akt antibodies. Interestingly, cells expressing the Gab1<sup>F627/659 </sup>protein reproducibly showed activation of Akt with significantly sustained kinetics relative to cells expressing wild type Gab1 (Figure <xref ref-type="fig" rid="F3">3D</xref>, left panels). As expected, the additional mutation of the p85 binding sites (Gab1<sup>F446/472/589/627/659</sup>) limited Akt activation to levels similar to those observed in the Gab1 -/- cells, confirming the requirement for PI-3 kinase association with Gab1 to induce EGF-mediated activation of the Akt pathway. Taken together, these results suggest a role for Shp2 in negatively regulating the EGF induced activation of the PI-3 kinase pathway via Gab1, possibly by dephosphorylating Gab1 at p85 binding sites.</p>
+      </sec>
+      <sec>
+        <title>Expression of ErbB3 in Gab1 -/- MEFs enhances activation of the PI-3 kinase signaling pathway</title>
+        <p>As described above, PI-3 kinase is recruited to the EGFR via the adaptor protein Gab1. The results presented here demonstrate that Gab1 is required for EGF-induced activation of the PI-3 kinase pathway via the EGFR, presumably because this receptor does not contain binding sites for the p85 regulatory subunit of PI-3 kinase. The catalytically inactive ErbB3 receptor, however, contains at least six binding sites for p85 [<xref ref-type="bibr" rid="B5">5</xref>], and thus may bypass the requirement for Gab1 in response to EGF by heterodimerizing with the catalytically active EGFR. In order to test this hypothesis, retroviral vectors were used to introduce either the Gab1 or ErbB3 genes into Gab1 -/- MEFs that endogenously express the EGFR but not ErbB3, and pools of stable cell lines were selected for further analysis. We first assayed the ability of the endogenous EGFR to be tyrosine autophosphorylated in response to EGF, as well as the ability of the exogenous ErbB3 receptor to be tyrosine phosphorylated in response to stimulation with either EGF or neuregulin (NRG). The experiment presented in Fig <xref ref-type="fig" rid="F4">4A</xref> shows that all cell lines exhibit EGFR autophosphorylation in response to EGF treatment (Figure <xref ref-type="fig" rid="F4">4A</xref>, upper left panel), while only cells expressing the ectopically introduced ErbB3 protein show ErbB3 tyrosine phosphorylation in response to EGF stimulation. Interestingly, ErbB3 reproducibly shows constitutive low-level tyrosine phosphorylation that is augmented only 1.3-fold in response to EGF treatment. Cells expressing ErbB3 show tyrosine phosphorylation in response to treatment with NRG (Figure <xref ref-type="fig" rid="F4">4A</xref>, upper and middle right panels). Expression of EGFR and ErbB3 in the appropriate cell lines was confirmed by immunoblotting with antibodies specific for EGFR and ErbB3, respectively (Figure <xref ref-type="fig" rid="F4">4A</xref>, lower panels). The apparent decrease in EGFR expression in cells co-expressing EGFR and ErbB3 following EGF treatment was not observed in repetitions of this experiment, and is likely due to a stripping anomaly. Additionally, we demonstrated that Gab1 -/- MEFs that express wild type Gab1 display Gab1 tyrosine phosphorylation in response to EGF treatment, while Gab1 -/- control cells or those expressing ErbB3 do not show Gab1 phosphorylation (Figure <xref ref-type="fig" rid="F4">4B</xref>, upper panel).</p>
+        <p>In order to test the ability of ErbB3 to rescue the EGF-induced activation of the PI-3 kinase/Akt signaling pathway in Gab1 -/- MEFs, we first assayed these cells for EGF-induced PI-3 kinase activity. Cells were either left unstimulated or were stimulated with EGF and cell lysates were immunoprecipitated with anti-phosphotyrosine antibody. Phosphotyrosine-associated PI-3 kinase activity was then assayed by analysis of PIP3 production. As shown in Figure <xref ref-type="fig" rid="F4">4C</xref>, both cells expressing wild type Gab1 and ErbB3 show PI-3 kinase activity, while Gab1 -/- cells do not. Interestingly, EGF induces PI-3 kinase activity to a greater degree in cells expressing Gab1 relative to cells expressing ErbB3. In order to assay the effects of EGF stimulation on signaling downstream of PI-3 kinase, cells were treated with EGF over varying periods of time and assayed for the presence of Ser473-phosphorylated Akt. Treatment of cells expressing either wild type Gab1 or ErbB3 with EGF induced rapid activation of Akt, although cells expressing wild type Gab1 reproducibly displaed higher levels of phosphorylated Akt with significantly sustained kinetics relative to Gab1 -/- cells expressing ErbB3 (Figure <xref ref-type="fig" rid="F4">4D</xref>, left panels). Equal loading and expression levels of Akt were confirmed by immunoblotting (Figure <xref ref-type="fig" rid="F4">4D</xref>, right panels). Cells expressing ErbB3 displayed activation of Akt in response to treatment with NRG at levels similar to or greater than that seen in Gab1-expressing cells following EGF treatment, with activation reproducibly observed at longer time points (Figure <xref ref-type="fig" rid="F4">4E</xref>, left panels). Again, equal loading and expression levels of Akt were confirmed by immunoblotting (Figure <xref ref-type="fig" rid="F4">4E</xref>, right panels). The phosphorylation of AKT in cells expressing Gab1, which shows modest enhancement following treatment with NRG, may be attributed to alternate signaling pathways including those mediated by ErbB2 and ErbB4. Involvement of these receptors was not explored in this study. Taken together, these results demonstrate that ErbB3 can partially compensate for Gab1 deficiency in EGF-induced activation of the PI-3 kinase/Akt signaling pathway, although Gab1-mediated activation appears to be more robust, and likely represents the primary mechanism by which EGF stimulates PI-3 kinase and Akt. While ErbB3 is relatively ineffective at mediating EGF-stimulation of PI-3 kinase activation, it is an efficient mediator of PI-3 kinase stimulation in response to NRG stimulation. Thus, EGF and NRG can stimulate PI-3 kinase activation in normal and transfected cells by means of Gab1 and ErbB3, respectively.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Conclusions</title>
+      <p>The results presented here demonstrate an absolute requirement for Gab1 in EGF-induced activation of the PI-3 kinase/Akt signaling pathway. Using this approach we demonstrated a strict requirement for association between Gab1 and p85 in EGF-induced PI-3 kinase activation, suggesting that Gab1 indeed provides an essential link between the EGFR and PI-3 kinase. Additionally, p85 binding does not play a significant role in Shp2 recruitment to the EGFR-Gab1 signaling complex, in contrast to previous studies [<xref ref-type="bibr" rid="B14">14</xref>]. We further demonstrated that the Gab1-Shp2 complex is responsible for the negative regulation of the strength and duration of PI-3 kinase/Akt signaling in response to EGF previously observed in Shp2 -/- cells. ErbB3 expression can bypass the requirement for Gab1 in EGFR signaling and can partially rescue EGF-induced activation of the PI-3 kinase/Akt cell survival pathway. This alternate pathway to PI-3 kinase activation may provide cells with a means of controlling either the strength or duration of PI-3 kinase signaling through differential expression of Gab1 and ErbB3, since the ErbB3-mediated response appears to be weaker. Thus Gab1 plays an essential role in bringing together a multi-protein signaling complex in response to EGF that modulates a critical aspect of cellular survival.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Expression constructs</title>
+        <p>Expression vectors for wild type Gab1 and for Gab1&#x394;p85 (Y446F/Y472F/Y589F) were previously described [<xref ref-type="bibr" rid="B21">21</xref>]. The cDNAs of Gab1 (pcDNA3-Gab1-WT), Gab1<sup>F446/472/589 </sup>(pcDNA3-Gab1-3YF), and ErbB3 (pcDNA3-ErbB3) were subcloned into the mammalian retroviral vector pBabe containing a gene for puromycin resistance. The Gab1<sup>F627/659 </sup>and Gab1<sup>F446/472/589/627/659 </sup>mutants were generated by site-directed mutagenesis (Strategene) carried out on pBabe-Gab1-WT (to generate Gab1<sup>F627/659</sup>) or pBabe-Gab1<sup>F446/472/589 </sup>(to generate Gab1<sup>F446/472/589/627/659</sup>) according to the manufacturers' specifications.</p>
+      </sec>
+      <sec>
+        <title>Cell lines and culture</title>
+        <p>Gab1-deficient (Gab1 -/-) mouse embryonic fibroblasts (MEFs) were obtained from Walter Birchmeier [<xref ref-type="bibr" rid="B22">22</xref>]. Wild type or Gab1-/- MEFs were maintained in DMEM supplemented with 10% fetal bovine serum (Gibco), 2 mM L-glutamine (Gibco), and 100 &#x3BC;g each of penicillin and streptomycin. The retroviral vectors described above (pBabe, pBabe-Gab1, pBabe-Gab1-Gab1<sup>F446/472/589</sup>, pBabe-Gab1-Gab1<sup>F627/659</sup>, pBabe-Gab1-Gab1<sup>F446/472/589/627/659</sup>, and pBabe-ErbB3) were used to transfect the amphitropic retroviral packaging cell line GPG (obtained from Joan Brugge) and high-titer viral stocks were used to infect Gab1 -/- MEFs. Cells were selected in medium supplemented with puromycin and pools of selected cells were used for further experiments. Prior to stimulation with EGF, cells were starved in serum-free medium.</p>
+      </sec>
+      <sec>
+        <title>Immunoprecipitation and immunoblotting</title>
+        <p>Cells were grown on 15-cm plates as described above to approximately 80% confluence and then starved overnight in DMEM without serum. Cells were left unstimulated or were stimulated with recombinant human EGF (Invitrogen) as indicated. Stimulations were halted by the addition of ice-cold PBS. Cells were washed in PBS and lysed in buffer containing 1% Triton X-100 as previously described [<xref ref-type="bibr" rid="B23">23</xref>]. For Gab1 immunoprecipitations, a mixture of polyclonal antibodies directed against both the N- and C-termini of Gab1 and cross-linked to Protein A Sepharose (Zymed) was incubated with cell extracts for 2&#x2013;4 hours at 4&#xB0;C. For p85 immunoprecipitations, a mixture of polyclonal antibodies directed against the N-terminal SH2 domain of p85 and the full-length p85 protein (Upstate) was incubated with cell extracts for 2&#x2013;4 hours at 4&#xB0;C. For EGFR immunoprecipitations, a polyclonal antibody directed against the C-terminus of the EGFR was incubated with cell extracts overnight at 4&#xB0;C. For ErbB3 immunoprecipitations, a mixture of polyclonal antibodies directed against both the N- and C-termini of ErbB3 was incubated with cell extracts overnight at 4&#xB0;C. Protein A Sepharose was added to immunoprecipitates (except anti-Gab1) and incubated for 1 hour at 4&#xB0;C. Immunoprecipitates were then washed in buffer containing 0.1% Triton X-100, separated by SDS/PAGE, and transferred to nitrocellulose membranes (Bio-Rad). For Akt immunoblotting, total cell extracts were separated directly by SDS/PAGE and transferred to nitrocellulose membranes. Membranes were blocked for 1 hour or overnight in 5% BSA/TBS and immunoblotted as indicated. The anti-phosphotyrosine blotting was carried out with antibody 4G10 (Upstate). Anti-Gab1, anti-EGFR and anti-ErbB3 blotting was performed with the indicated polyclonal antibodies (Upstate). Anti-Shp2 blotting was carried out with polyclonal antibody (Santa Cruz). Anti-phosphoSer473-Akt and anti-Akt blotting were performed with the respective polyclonal antibodies (Cell Signaling Technology). Proteins were visualized by incubation with Enhanced Chemiluminescence (Amersham Pharmacia) according to the manufacturer's specifications.</p>
+      </sec>
+      <sec>
+        <title>PI-3 kinase assay</title>
+        <p>The PI-3 kinase assay was performed essentially as previously described [<xref ref-type="bibr" rid="B22">22</xref>-<xref ref-type="bibr" rid="B24">24</xref>]. Briefly, cells were serum-starved for 24 hours and stimulated with EGF as indicated, and cell extracts were prepared as described above. The lysates were immunoprecipitated using anti-Gab1 polyclonal antibodies or the monoclonal anti-phosphotyrosine antibody PY20 (Santa Cruz) for 2 hours at 4&#xB0;C. Protein A Sepharose was incubated with immunoprecipitates for 1 hour at 4&#xB0;C. The immunoprecipitates were washed three times with Buffer 1 (1X PBS, 1% NP-40), twice with Buffer 2 (0.5 M LiCl, 0.1 M Tris pH 7.5), twice with TNE (10 mM Tris pH 7.5, 100 mM NaCl, 1 mM EDTA pH 8.0), and twice with Buffer 4 (20 mM Hepes pH 7.5, 50 mM NaCl, 5 mM EDTA pH 8.0, 0.03% NP-40, 30 mM Tatrasodium Pyrophosphate (Sigma)). L-&#x3B1;-Phosphatidylinositol (Sigma) was added (10 &#x3BC;l of a sonicated solution at 10 mg/ml in 20 mM HEPES pH 7.5) and the reaction was initiated by the addition of 50 &#x3BC;l of the kinase buffer (20 mM Tris pH 7.5, 75 mM NaCl, 10 mM MgCl<sub>2 </sub>10 &#x3BC;M ATP, 100 mM adenosine, 10 &#x3BC;Ci [&#x3B3;-<sup>32</sup>P] ATP) per sample. Samples were incubated at 30&#xB0;C for 15 minutes, and the reaction was stopped by addition of 100 &#x3BC;l 1N HCl. Samples were extracted by addition of 200 &#x3BC;l CHCl<sub>3</sub>/CH<sub>3</sub>OH (1:1). The samples were vortexed and centrifuged, and the lower organic phases containing phospholipids were dried at 27&#xB0;C for two hours. Samples were resuspended in 10 &#x3BC;l of PI-4-P standard (0.5 ml CHCl<sub>3</sub>, 0.5 ml CH<sub>3</sub>OH, 2.5 &#x3BC;l HCl, 1 mg L-&#x3B1;-Phosphatidylinositol 4-monophosphate (Sigma)) and subjected to thin layer chromatography (TLC plates &#x2013; VWR) in CHCl<sub>3</sub>/CH<sub>3</sub>OH/NH<sub>4</sub>OH/H<sub>2</sub>O (45:35:7:3). The TLC plates were exposed in a PhosphorImager cassette for four days.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Authors' contributions</title>
+      <p>BL carried on the initial biochemical experiments before leaving the laboratory. DM continued this study and carried out the biochemical studies, the PI-3 kinase assays, and drafted the manuscript. IL participated in the PI-3 kinase assays. JS initiated and supervised the project. All authors read and approved the final manuscript.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <sec>
+        <title>Acknowledgements</title>
+        <p>This work was supported in part by a James Hudson Brown-Alexander B. Coxe Postdoctoral Fellowship (to D.M.). Joseph Schlessinger is supported by NIH grant R01-AR051448 and by funds from the Ludwig Institute for Cancer Research. MEFs from Gab1-/- were kindly provided by Walter Birchmeier.</p>
+      </sec>
+    </ack>
+    <ref-list>
+      <ref id="B1">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Ligand-induced, receptor-mediated dimerization and activation of EGF receptor</article-title>
+          <source>Cell</source>
+          <year>2002</year>
+          <volume>110</volume>
+          <fpage>669</fpage>
+          <lpage>672</lpage>
+          <pub-id pub-id-type="pmid">12297041</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0092-8674(02)00966-2</pub-id>
+        </citation>
+      </ref>
+      <ref id="B2">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jorissen</surname>
+              <given-names>RN</given-names>
+            </name>
+            <name>
+              <surname>Walker</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Pouliot</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Garrett</surname>
+              <given-names>TP</given-names>
+            </name>
+            <name>
+              <surname>Ward</surname>
+              <given-names>CW</given-names>
+            </name>
+            <name>
+              <surname>Burgess</surname>
+              <given-names>AW</given-names>
+            </name>
+          </person-group>
+          <article-title>Epidermal growth factor receptor: mechanisms of activation and signaling</article-title>
+          <source>Exp Cell Res</source>
+          <year>2003</year>
+          <volume>284</volume>
+          <fpage>31</fpage>
+          <lpage>53</lpage>
+          <pub-id pub-id-type="pmid">12648464</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0014-4827(02)00098-8</pub-id>
+        </citation>
+      </ref>
+      <ref id="B3">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bjorge</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>TO</given-names>
+            </name>
+            <name>
+              <surname>Antczak</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kung</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Fujita</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Activated type I phosphatidylinositol kinase is associated with the epidermal growth factor (EGF) receptor following EGF stimulation</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>1990</year>
+          <volume>87</volume>
+          <fpage>3816</fpage>
+          <lpage>3820</lpage>
+          <pub-id pub-id-type="pmid">2160078</pub-id>
+        </citation>
+      </ref>
+      <ref id="B4">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Soltoff</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Carraway</surname>
+              <given-names>KL</given-names>
+              <suffix>3rd</suffix>
+            </name>
+            <name>
+              <surname>Prigent</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Gullick</surname>
+              <given-names>WG</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>LC</given-names>
+            </name>
+          </person-group>
+          <article-title>ErbB3 is involved in activation of phosphatidylinositol 3-kinase by epidermal growth factor</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1994</year>
+          <volume>14</volume>
+          <fpage>3550</fpage>
+          <lpage>3558</lpage>
+          <pub-id pub-id-type="pmid">7515147</pub-id>
+        </citation>
+      </ref>
+      <ref id="B5">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hellyer</surname>
+              <given-names>NJ</given-names>
+            </name>
+            <name>
+              <surname>Kim</surname>
+              <given-names>HH</given-names>
+            </name>
+            <name>
+              <surname>Greaves</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Sierke</surname>
+              <given-names>SL</given-names>
+            </name>
+            <name>
+              <surname>Koland</surname>
+              <given-names>JG</given-names>
+            </name>
+          </person-group>
+          <article-title>Cloning of the rat ErbB3 cDNA and characterization of the recombinant protein</article-title>
+          <source>Gene</source>
+          <year>1995</year>
+          <volume>165</volume>
+          <fpage>279</fpage>
+          <lpage>284</lpage>
+          <pub-id pub-id-type="pmid">8522190</pub-id>
+          <pub-id pub-id-type="doi">10.1016/0378-1119(95)00436-A</pub-id>
+        </citation>
+      </ref>
+      <ref id="B6">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Prigent</surname>
+              <given-names>SA</given-names>
+            </name>
+            <name>
+              <surname>Gullick</surname>
+              <given-names>WJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of c-erbB-3 binding sites for phosphatidylinositol 3'-kinase and SHC using an EGF receptor/c-erbB-3 chimera</article-title>
+          <source>EMBO J</source>
+          <year>1994</year>
+          <volume>13</volume>
+          <fpage>2831</fpage>
+          <lpage>2841</lpage>
+          <pub-id pub-id-type="pmid">8026468</pub-id>
+        </citation>
+      </ref>
+      <ref id="B7">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holgado-Madruga</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Emlet</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Moscatello</surname>
+              <given-names>DK</given-names>
+            </name>
+            <name>
+              <surname>Godwin</surname>
+              <given-names>AK</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>AJ</given-names>
+            </name>
+          </person-group>
+          <article-title>A Grb2-associated docking protein in EGF- and insulin-receptor signalling</article-title>
+          <source>Nature</source>
+          <year>1996</year>
+          <volume>379</volume>
+          <fpage>560</fpage>
+          <lpage>564</lpage>
+          <pub-id pub-id-type="pmid">8596638</pub-id>
+          <pub-id pub-id-type="doi">10.1038/379560a0</pub-id>
+        </citation>
+      </ref>
+      <ref id="B8">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Holgado-Madruga</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Moscatello</surname>
+              <given-names>DK</given-names>
+            </name>
+            <name>
+              <surname>Emlet</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Dieterich</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>AJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Grb2-associated binder-1 mediates phosphatidylinositol 3-kinase activation and the promotion of cell survival by nerve growth factor</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>1997</year>
+          <volume>94</volume>
+          <fpage>12419</fpage>
+          <lpage>12424</lpage>
+          <pub-id pub-id-type="pmid">9356464</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.94.23.12419</pub-id>
+        </citation>
+      </ref>
+      <ref id="B9">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodrigues</surname>
+              <given-names>GA</given-names>
+            </name>
+            <name>
+              <surname>Falasca</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Ong</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>A novel positive feedback loop mediated by the docking protein Gab1 and phosphatidylinositol 3-kinase in epidermal growth factor receptor signaling</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>1448</fpage>
+          <lpage>1459</lpage>
+          <pub-id pub-id-type="pmid">10648629</pub-id>
+          <pub-id pub-id-type="doi">10.1128/MCB.20.4.1448-1459.2000</pub-id>
+        </citation>
+      </ref>
+      <ref id="B10">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Liu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Rohrschneider</surname>
+              <given-names>LR</given-names>
+            </name>
+          </person-group>
+          <article-title>The gift of Gab</article-title>
+          <source>FEBS Letters</source>
+          <year>2002</year>
+          <volume>515</volume>
+          <fpage>1</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">11943184</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0014-5793(02)02425-0</pub-id>
+        </citation>
+      </ref>
+      <ref id="B11">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lock</surname>
+              <given-names>LS</given-names>
+            </name>
+            <name>
+              <surname>Royal</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Naujokas</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of an atypical Grb2 carboxyl-terminal SH3 domain binding site in Gab docking proteins reveals Grb2-dependent and -independent recruitment of Gab1 to receptor tyrosine kinases</article-title>
+          <source>J Biol Chem</source>
+          <year>2000</year>
+          <volume>275</volume>
+          <fpage>31536</fpage>
+          <lpage>31545</lpage>
+          <pub-id pub-id-type="pmid">10913131</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M003597200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B12">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Saxton</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Ong</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Lu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Sakai</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Cross</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Pawson</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Gene dosage-dependent functions for phosphotyrosine-Grb2 signaling during mammalian tissue morphogenesis</article-title>
+          <source>Curr Biol</source>
+          <year>2001</year>
+          <volume>11</volume>
+          <fpage>662</fpage>
+          <lpage>670</lpage>
+          <pub-id pub-id-type="pmid">11369229</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0960-9822(01)00198-1</pub-id>
+        </citation>
+      </ref>
+      <ref id="B13">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Maroun</surname>
+              <given-names>CR</given-names>
+            </name>
+            <name>
+              <surname>Holgado-Madruga</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Royal</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Naujokas</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Fournier</surname>
+              <given-names>TM</given-names>
+            </name>
+            <name>
+              <surname>Wong</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>The Gab1 PH domain is required for localization of Gab1 at sites of cell-cell contact and epithelial morphogenesis downstream from the met receptor tyrosine kinase</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1999</year>
+          <volume>19</volume>
+          <fpage>1784</fpage>
+          <lpage>1799</lpage>
+          <pub-id pub-id-type="pmid">10022866</pub-id>
+        </citation>
+      </ref>
+      <ref id="B14">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yart</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Laffargue</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Mayeux</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Chretien</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Peres</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Tonks</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Roche</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Payrastre</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Chap</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Raynal</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>A critical role for phosphoinositide 3-kinase upstream of Gab1 and Shp2 in the activation of ras and mitogen-activated protein kinases by epidermal growth factor</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>8856</fpage>
+          <lpage>8864</lpage>
+          <pub-id pub-id-type="pmid">11134009</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M006966200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B15">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shi</surname>
+              <given-names>ZQ</given-names>
+            </name>
+            <name>
+              <surname>Yu</surname>
+              <given-names>DH</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Marshall</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Feng</surname>
+              <given-names>GS</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular mechanism for the Shp-2 tyrosine phosphatase function in promoting growth factor stimulation of Erk activity</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2000</year>
+          <volume>20</volume>
+          <fpage>1526</fpage>
+          <lpage>1536</lpage>
+          <pub-id pub-id-type="pmid">10669730</pub-id>
+          <pub-id pub-id-type="doi">10.1128/MCB.20.5.1526-1536.2000</pub-id>
+        </citation>
+      </ref>
+      <ref id="B16">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cunnick</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Mei</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Doupnik</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Phosphotyrosines 627 and 659 of Gab1 constitute a bisphosphoryl tyrosine-based activation motif (BTAM) conferring binding and activation of Shp2</article-title>
+          <source>J Biol Chem</source>
+          <year>2001</year>
+          <volume>276</volume>
+          <fpage>24380</fpage>
+          <lpage>24387</lpage>
+          <pub-id pub-id-type="pmid">11323411</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M010275200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B17">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yu</surname>
+              <given-names>CF</given-names>
+            </name>
+            <name>
+              <surname>Liu</surname>
+              <given-names>ZX</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>LG</given-names>
+            </name>
+          </person-group>
+          <article-title>ERK negatively regulates the epidermal growth factor-mediated interaction of Gab1 and the phosphatidylinositol 3-kinase</article-title>
+          <source>J Biol Chem</source>
+          <year>2002</year>
+          <volume>277</volume>
+          <fpage>19382</fpage>
+          <lpage>19388</lpage>
+          <pub-id pub-id-type="pmid">11896055</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M200732200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B18">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhang</surname>
+              <given-names>SQ</given-names>
+            </name>
+            <name>
+              <surname>Tsiaras</surname>
+              <given-names>WG</given-names>
+            </name>
+            <name>
+              <surname>Araki</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Wen</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Minichiello</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Klein</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Neel</surname>
+              <given-names>BG</given-names>
+            </name>
+          </person-group>
+          <article-title>Receptor-specific regulation of phosphatidylinositol 3'-kinase activation by the protein tyrosine phosphatase Shp2</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2002</year>
+          <volume>22</volume>
+          <fpage>4062</fpage>
+          <lpage>4072</lpage>
+          <pub-id pub-id-type="pmid">12024020</pub-id>
+          <pub-id pub-id-type="doi">10.1128/MCB.22.12.4062-4072.2002</pub-id>
+        </citation>
+      </ref>
+      <ref id="B19">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sachs</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Brohmann</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Zechner</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Muller</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Hulsken</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Walther</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Schaeper</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Essential role of Gab1 for signaling by the c-Met receptor in vivo</article-title>
+          <source>J Cell Biol</source>
+          <year>2000</year>
+          <volume>150</volume>
+          <fpage>1375</fpage>
+          <lpage>1384</lpage>
+          <pub-id pub-id-type="pmid">10995442</pub-id>
+          <pub-id pub-id-type="doi">10.1083/jcb.150.6.1375</pub-id>
+        </citation>
+      </ref>
+      <ref id="B20">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamasaki</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nishida</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yoshida</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Itoh</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hibi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hirano</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Gab1 is required for EGF receptor signaling and the transformation by activated ErbB2</article-title>
+          <source>Oncogene</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>1546</fpage>
+          <lpage>1556</lpage>
+          <pub-id pub-id-type="pmid">12629518</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1206284</pub-id>
+        </citation>
+      </ref>
+      <ref id="B21">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ong</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Hadari</surname>
+              <given-names>YR</given-names>
+            </name>
+            <name>
+              <surname>Gotoh</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Guy</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Lax</surname>
+              <given-names>I</given-names>
+            </name>
+          </person-group>
+          <article-title>Stimulation of phosphatidylinositol 3-kinase by fibroblast growth factor receptors is mediated by coordinated recruitment of multiple docking proteins</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>2001</year>
+          <volume>98</volume>
+          <fpage>6074</fpage>
+          <lpage>6079</lpage>
+          <pub-id pub-id-type="pmid">11353842</pub-id>
+          <pub-id pub-id-type="doi">10.1073/pnas.111114298</pub-id>
+        </citation>
+      </ref>
+      <ref id="B22">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lamothe</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Yamada</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Schaeper</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Lax</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>The docking protein Gab1 is an essential component of an indirect mechanism for FGF stimulation of the PI 3-kinase/Akt anti-apoptotic pathway</article-title>
+          <source>Mol Cell Biol</source>
+          <year>2004</year>
+          <volume>24</volume>
+          <fpage>5657</fpage>
+          <lpage>5666</lpage>
+          <pub-id pub-id-type="pmid">15199124</pub-id>
+          <pub-id pub-id-type="doi">10.1128/MCB.24.13.5657-5666.2004</pub-id>
+        </citation>
+      </ref>
+      <ref id="B23">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Batzer</surname>
+              <given-names>AG</given-names>
+            </name>
+            <name>
+              <surname>Rotin</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Urena</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Skolnik</surname>
+              <given-names>EY</given-names>
+            </name>
+            <name>
+              <surname>Schlessinger</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Hierarchy of binding sites for Grb2 and Shc on the epidermal growth factor receptor</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1994</year>
+          <volume>14</volume>
+          <fpage>5192</fpage>
+          <lpage>5201</lpage>
+          <pub-id pub-id-type="pmid">7518560</pub-id>
+        </citation>
+      </ref>
+      <ref id="B24">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Whitman</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Kaplan</surname>
+              <given-names>DR</given-names>
+            </name>
+            <name>
+              <surname>Schaffhausen</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Cantley</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Roberts</surname>
+              <given-names>TM</given-names>
+            </name>
+          </person-group>
+          <article-title>Association of phosphatidylinositol kinase activity with polyoma middle-T competent for transformation</article-title>
+          <source>Nature</source>
+          <year>1985</year>
+          <volume>315</volume>
+          <fpage>239</fpage>
+          <lpage>242</lpage>
+          <pub-id pub-id-type="pmid">2987699</pub-id>
+          <pub-id pub-id-type="doi">10.1038/315239a0</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <sec sec-type="display-objects">
+      <title>Figures and Tables</title>
+      <fig position="float" id="F1">
+        <label>Figure 1</label>
+        <caption>
+          <p>Expression of wild type Gab1 rescues EGF-induced PI-3 kinase and Akt activation in Gab1 deficient MEFs. <bold>A. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and analyzed for Gab1 tyrosine phosphorylation and Gab1 expression. Both WT MEFs and cells expressing exogenous Gab1 show Gab1 tyrosine phosphorylation in response to EGF treatment. <bold>B. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 100 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and phosphotyrosine immunoprecipitates were analyzed for PI-3 kinase activity. Gab1 -/- cells fail to show phosphotyrosine-associated PI-3 kinase activity, while cells expressing exogenous Gab1 display phosphotyrosine-associated PI-3 kinase activity that is augmented by EGF treatment. <bold>C. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 1 ng/ml EGF for varying periods of time at 37&#xB0;C. Cell extracts were prepared and analyzed for activation of Akt by using antibodies that specifically recognize the serine473 phosphorylated form of Akt. Membranes were subsequently stripped and immunoblotted for Akt to confirm equal loading. Ectopic expression of Gab1 in Gab1 -/- MEFs rescues the EGF-induced activation of Akt.</p>
+        </caption>
+        <graphic xlink:href="1741-7007-2-24-1"/>
+      </fig>
+      <fig position="float" id="F2">
+        <label>Figure 2</label>
+        <caption>
+          <p>Expression of a Gab1 mutant protein deficient in p85 binding fails to rescue EGF-induced PI-3 kinase/Akt activation in Gab1 deficient MEFs. <bold>A. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and analyzed for Gab1 tyrosine phosphorylation, Gab1 co-immunoprecipitation with p85, p85 expression, Gab1 co-immunoprecipitation with Shp2, and Gab1 expression. Both Gab1 and Gab1<sup>F446/472/589 </sup>are tyrosine phosphorylated in response to EGF treatment, and both form a stable complex with Shp2. However, Gab1<sup>F446/472/589 </sup>fails to associate with the p85 subunit of PI-3 kinase. Additionally total cell lysates from the indicated cell lines were immunoblotted with anti-Gab1 antibodies, providing independent evidence that Gab1 is expressed at approximately equal levels in all cell lines. <bold>B. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for varying periods of time at 37&#xB0;C. Cell extracts were prepared and analyzed for EGFR tyrosine phosphorylation. All of the cell lines examined show similar kinetics of EGF-induced EGFR activation. Immunoblots were quantitated by densitometry, normalized for EGFR expression and represented linearly. Diamonds = Gab1 -/-, squares = Gab1, triangles = Gab1<sup>F446/472/589</sup>. <bold>C. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 100 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and Gab1 immunoprecipitates were analyzed for PI-3 kinase activity. Ectopic expression of wild type Gab1 restored EGF-induced PI-3 kinase activity, while expression of Gab1<sup>F446/472/589 </sup>fails to rescue PI-3 kinase activity in response to EGF treatment. <bold>D. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 1 ng/ml EGF for varying periods of time at 37&#xB0;C. Cell extracts were prepared and analyzed for activation of Akt by using antibodies that specifically recognize the serine473-phosphorylated form of Akt. Membranes were subsequently stripped and immunoblotted for Akt to confirm equal loading. Ectopic expression of Gab1 in Gab1 -/- MEFs rescues activation of Akt in response to EGF treatment, while expression of Gab1<sup>F446/472/589 </sup>fails to rescue the EGF-induced Akt activation.</p>
+        </caption>
+        <graphic xlink:href="1741-7007-2-24-2"/>
+      </fig>
+      <fig position="float" id="F3">
+        <label>Figure 3</label>
+        <caption>
+          <p>Expression of a Gab1 mutant protein deficient in Shp2 binding enhances EGF-induced activation of the PI-3 kinase/Akt signaling pathway. <bold>A. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and analyzed for Gab1 tyrosine phosphorylation, Gab1-Shp2 co-immunoprecipitation and Gab1 expression. Gab1<sup>F627/659 </sup>becomes tyrosine phosphorylated in response to EGF treatment to levels approximately 1.5-fold higher than Gab1 as determined by densitometry, while Gab1<sup>F446/472/589/627/659 </sup>does not show EGF-induced tyrosine phosphorylation in this assay. Wild type Gab1 forms a stable complex with Shp2 in response to EGF treatment, while Gab1<sup>F627/659 </sup>and Gab1<sup>F446/472/589/627/659 </sup>do not. <bold>B. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for varying periods of time at 37&#xB0;C. Cell extracts were prepared and analyzed for EGFR tyrosine phosphorylation and EGFR expression. All of the cell lines examined show similar kinetics of EGF-induced EGFR activation. Immunoblots were quantitated by densitometry, normalized for EGFR expression, and represented linearly. Diamonds = Gab1 -/-, squares = Gab1, triangles = Gab1<sup>F627/659</sup>, circles = Gab1<sup>F446/472/589/627/659</sup>. <bold>C. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 100 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and Gab1 immunoprecipitates were analyzed for PI-3 kinase activity. Cells expressing exogenous Gab1<sup>F627/659 </sup>display enhanced PI-3 kinase activity relative to cells expressing wild type Gab1. Expression of exogenous Gab1<sup>F446/472/589/627/659 </sup>fails to rescue EGF-induced PI-3 kinase activity in Gab1 deficient MEFs. <bold>D. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 1 ng/ml EGF for varying periods of time at 37&#xB0;C. Cell extracts were prepared and analyzed for activation of Akt by using antibodies that specifically recognize the serine473-phosphorylated form of Akt. Membranes were subsequently stripped and immunoblotted for Akt to confirm equal loading. Cells expressing exogenous Gab1<sup>F627/659 </sup>display enhanced activation of Akt with sustained kinetics relative to cells expressing wild type Gab1. Expression of exogenous Gab1<sup>F446/472/589/627/659 </sup>fails to rescue EGF-induced Akt activation in Gab1 deficient MEFs.</p>
+        </caption>
+        <graphic xlink:href="1741-7007-2-24-3"/>
+      </fig>
+      <fig position="float" id="F4">
+        <label>Figure 4</label>
+        <caption>
+          <p>Expression of ErbB3 in Gab1-deficient MEFs partially rescues EGF-induced activation of the PI-3 kinase/Akt signaling pathway. <bold>A. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were analyzed for EGFR tyrosine phosphorylation and EGFR expression, and for ErbB3 tyrosine phosphorylation and ErbB3 expression. Cells were additionally stimulated with 10 ng/ml NRG and cell extracts analyzed for ErbB3 tyrosine phosphorylation. The endogenous EGFR is tyrosine phosphorylated in response to EGF in all cell lines. ErbB3 exhibits weak constitutive tyrosine phosphorylation that is enhanced by NRG treatment, but is not significantly enhanced by treatment with EGF. Selected bands were quantitated by densitometry to determine relative increase in growth factor-induced tyrosine phosphorylation. <bold>B. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 10 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were analyzed for Gab1 tyrosine phosphorylation and Gab1 expression. Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF treatment, while Gab1 -/- cells and Gab1-deficient cells expressing ErbB3 do not. <bold>C. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 100 ng/ml EGF for five minutes at 37&#xB0;C. Cell extracts were prepared and phosphotyrosine immunoprecipitates were analyzed for PI-3 kinase activity. Expression of wild type Gab1 in Gab1-deficient MEFs rescues the EGF-induced PI-3 kinase activity. Gab1 deficient MEFs exogenously expressing ErbB3 exhibit PI-3 kinase activity that is largely EGF-independent. <bold>D. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 1 ng/ml EGF for varying periods of time at 37&#xB0;. Cell extracts were analyzed for activation of Akt by using antibodies that specifically recognize the phosphorylated form of Akt. Membranes were subsequently stripped and immunoblotted for Akt to confirm equal loading. Ectopic expression of ErbB3 in Gab1 deficient cells results in a partial rescue of EGF-induced Akt activation relative to cells expressing wild type Gab1. <bold>E. </bold>The indicated cell lines were serum-starved for 24 hours and stimulated with 1 ng/ml NRG for varying periods of time at 37&#xB0;C. Cell extracts were analyzed for activation of Akt by using antibodies that specifically recognize the phosphorylated form of Akt. Membranes were subsequently stripped and immunoblotted for Akt to confirm equal loading. Treatment of Gab1-deficient cells exogenously expressing ErbB3 with NRG results in a robust and sustained activation of Akt, while cells expressing exogenous Gab1 do not exhibit Akt activation in response to NRG treatment.</p>
+        </caption>
+        <graphic xlink:href="1741-7007-2-24-4"/>
+      </fig>
+    </sec>
+  </back>
+</article>
+</pmc-articleset>
