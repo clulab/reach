@@ -36,7 +36,7 @@ class DarpaActions extends Actions {
       val candidates = state.mentionsFor(m.sentence, m.tokenInterval.toSeq)
       // do any candidates intersect the mention?
       val overlap = candidates.exists(_.tokenInterval.overlaps(m.tokenInterval))
-      if (overlap) None else Some(m)
+      if (overlap) None else Some(m.toBioMention)
     }
   }
 
