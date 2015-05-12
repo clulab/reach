@@ -4,7 +4,8 @@ import java.io.File
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.mentionToStrings
+import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -55,4 +56,53 @@ object RunSystem extends App {
     println(s"writing ${outFile.getName} ...")
     FileUtils.writeLines(outFile, lines.asJavaCollection)
   }
+
+  /** Generates a representation of the given mention as a list of strings. */
+  def mentionToStrings(mention: Mention): List[String] = {
+    return mentionToStrings(mention, 0)
+  }
+
+  /** Return a list of strings representing the given mention at the given indentation level. */
+  private def mentionToStrings(mention: Mention, level: Integer): List[String] = {
+    import scala.collection.mutable.MutableList
+    val mStrings: MutableList[String] = MutableList[String]()
+    val indent = ("  " * level)
+    mention match {
+      case mention: BioTextBoundMention =>
+        mStrings += s"${indent}TextBoundMention: [S${mention.sentence}]: ${mention.label}"
+        mStrings += s"${indent}text: ${mention.text}"
+        if (mention.isGrounded)
+          mStrings += s"${indent}xref: ${mention.xref.get}"
+        if (level == 0) mStrings += ("=" * 80)
+      case mention: BioEventMention =>
+        mStrings += s"${indent}EventMention: [S${mention.sentence}]: ${mention.label}"
+        mStrings += s"${indent}text: ${mention.text}"
+        mStrings += s"${indent}trigger:"
+        mStrings ++= mentionToStrings(mention.trigger, level+1)
+        mention.arguments foreach {
+          case (k,vs) => {
+            mStrings += s"${indent}${k} (${vs.length}):"
+            for (v <- vs) {
+              mStrings ++= mentionToStrings(v, level+1)
+            }
+          }
+        }
+        if (level == 0) mStrings += ("=" * 80)
+      case mention: BioRelationMention =>
+        mStrings += s"${indent}RelationMention: [S${mention.sentence}]: ${mention.label}"
+        mStrings += s"${indent}text: ${mention.text}"
+        mention.arguments foreach {
+          case (k,vs) => {
+            mStrings += s"${indent}${k} (${vs.length}):"
+            for (v <- vs) {
+              mStrings ++= mentionToStrings(v, level+1)
+            }
+          }
+        }
+        if (level == 0) mStrings += ("=" * 80)
+      case _ => ()
+    }
+    return mStrings.toList
+  }
+
 }

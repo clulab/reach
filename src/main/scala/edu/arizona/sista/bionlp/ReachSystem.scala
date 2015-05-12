@@ -2,6 +2,7 @@ package edu.arizona.sista.bionlp
 
 import java.io.File
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
@@ -14,41 +15,57 @@ class ReachSystem {
   // initialize grounder
   val grounder = new LocalGrounder
   // start entity extraction engine
+  // this engine extracts all physical entities of interest and grounds them
   val entityEngine = ExtractorEngine(readEntityRules(), actions, grounder.apply)
-  // start grouping engine
-  val groupingEngine = ExtractorEngine(readGroupingRules(), actions)
+  // start modification engine
+  // this engine extracts modification features and attaches them to the corresponding entity
+  val modificationEngine = ExtractorEngine(readModificationRules(), actions)
   // initialize coref
   val coref = new Coref
   // start event extraction engine
+  // this engine extracts simple and recursive events and applies correference
   val eventEngine = ExtractorEngine(readEventRules(), actions, coref.apply)
   // initialize processor
   val processor = new BioNLPProcessor
   processor.annotate("something")
 
-  def extractFrom(entry: FriesEntry): Seq[Mention] =
+  def extractFrom(entry: FriesEntry): Seq[BioMention] =
     extractFrom(entry.text, entry.name, entry.chunkId)
 
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[Mention] = {
+  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
     val name = s"${docId}_${chunkId}"
     val doc = processor.annotate(text, keepText = true)
     doc.id = Some(name)
     extractFrom(doc)
   }
 
-  def extractFrom(doc: Document): Seq[Mention] = {
+  def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    val entities = entityEngine.extractFrom(doc)
-    val entitiesWithGroups = groupingEngine.extractFrom(doc, State(keepLongest(entities)))
-    eventEngine.extractFrom(doc, State(removeSites(entitiesWithGroups)))
+    val entities = extractEntitiesFrom(doc)
+    extractEventsFrom(doc, entities)
   }
+
+  def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
+    // extract entities and ground them
+    val entities = entityEngine.extractByType[BioMention](doc)
+    // attach modification features to entities
+    val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
+    // clean modified entities
+    // for example, remove sites that are part of a modification feature
+    filterModifiedEntities(modifiedEntities)
+  }
+
+  def extractEventsFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] =
+    eventEngine.extractByType[BioMention](doc, State(ms))
+
 }
 
 object ReachSystem {
   val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar"
 
   def readRules(): String =
-    readEntityRules() + "\n\n" + readGroupingRules() + "\n\n" + readEventRules()
+    readEntityRules() + "\n\n" + readModificationRules() + "\n\n" + readEventRules()
 
   def readEntityRules(): String = {
     val files = Seq(
@@ -57,7 +74,7 @@ object ReachSystem {
     files map readResource mkString "\n\n"
   }
 
-  def readGroupingRules(): String =
+  def readModificationRules(): String =
     readResource(s"$resourcesDir/grouping_rules.yml")
 
   def readEventRules(): String = {
@@ -85,8 +102,5 @@ object ReachSystem {
   }
 
   // placeholder
-  def keepLongest(mentions: Seq[Mention]): Seq[Mention] = mentions
-
-  def removeSites(mentions: Seq[Mention]): Seq[Mention] =
-    mentions filterNot (_ matches "Site")
+  def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] = ms
 }

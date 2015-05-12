@@ -3,6 +3,7 @@ package edu.arizona.sista.bionlp
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 
 class DarpaActions extends Actions {
 
@@ -11,15 +12,15 @@ class DarpaActions extends Actions {
       if (m.arguments.keySet contains "cause") {
         val cause = m.arguments("cause")
         val evArgs = m.arguments - "cause"
-        val ev = new EventMention(
+        val ev = new BioEventMention(
           m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy)
         val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
-        val reg = new RelationMention(
+        val reg = new BioRelationMention(
           Seq("Positive_regulation", "ComplexEvent", "Event"),
           regArgs, m.sentence, m.document, m.keep, m.foundBy)
         Seq(reg, ev)
-      } else Seq(m)
-    case m => Seq(m)
+      } else Seq(m.toBioMention)
+    case m => Seq(m.toBioMention)
   }
 
   // FIXME this is an ugly hack that has to go
@@ -43,10 +44,11 @@ class DarpaActions extends Actions {
     * A Ubiquitination event cannot involve arguments (theme/cause) with the text Ubiquitin.
     */
   def mkUbiquitination(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    mentions.filter { m =>
+    val filteredMentions = mentions.filter { m =>
       // Don't allow Ubiquitin
       !m.arguments.values.flatten.exists(_.text.toLowerCase.startsWith("ubiq")) 
     }
+    filteredMentions.map(_.toBioMention)
   }
 
   /** This action handles the creation of Binding EventMentions for rules using token patterns.
@@ -68,14 +70,14 @@ class DarpaActions extends Actions {
       // if binding has two themes we are done
       else if (themes.size == 2) {
         val args = Map("theme" -> themes)
-        Seq(new EventMention(
+        Seq(new BioEventMention(
           m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy))
       } else {
         // binarize bindings
         // return bindings with pairs of themes
         for (pair <- themes.combinations(2)) yield {
           val args = Map("theme" -> pair)
-          new EventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+          new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
         }
       }
   }

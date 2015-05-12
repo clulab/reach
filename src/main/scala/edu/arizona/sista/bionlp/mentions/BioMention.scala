@@ -11,7 +11,7 @@ class BioTextBoundMention(
   document: Document,
   keep: Boolean,
   foundBy: String
-) extends TextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy, None)
+) extends TextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy)
     with Modifications with Grounding
 
 class BioEventMention(
@@ -22,7 +22,7 @@ class BioEventMention(
   document: Document,
   keep: Boolean,
   foundBy: String
-) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy, None)
+) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
     with Modifications with Grounding
 
 class BioRelationMention(
@@ -32,5 +32,5 @@ class BioRelationMention(
   document: Document,
   keep: Boolean,
   foundBy: String
-) extends RelationMention(labels, arguments, sentence, document, keep, foundBy, None)
+) extends RelationMention(labels, arguments, sentence, document, keep, foundBy)
     with Modifications with Grounding

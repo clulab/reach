@@ -10,5 +10,9 @@ trait Modifications {
 
 // different modification types
 trait Modification
-case class PTM(name: String) extends Modification
-case class GM(name: String) extends Modification
+
+case class PTM(
+  label: String,
+  evidence: Option[Mention] = None,
+  site: Option[Mention] = None
+) extends Modification
