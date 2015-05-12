@@ -13,11 +13,12 @@ import org.json4s.native.Serialization.write
 
 import edu.arizona.sista.processors._
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Split doc id into doc id and passage id.
+  *   Last Modified: Remove unused method involving print string.
   */
 class ReachOutput {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -152,8 +153,8 @@ class ReachOutput {
                   else if (mention.label == "Cellular_component") "cellular_component"
                   else s"BAD_TEXT_MENTION_LABEL: ${mention.label}"
     part("text") = mention.text
-    part("id") = mention.xref.map(_.id).orNull
-    part("namespace") = mention.xref.map(_.namespace).orNull
+    part("id") = mention.toBioMention.xref.map(_.id).orNull
+    part("namespace") = mention.toBioMention.xref.map(_.namespace).orNull
     return part
   }
 
@@ -186,14 +187,7 @@ class ReachOutput {
   /** Process the given mention argument, returning a ns:id string option for the first arg. */
   private def getId (args:Option[Seq[Mention]]): Option[String] = {
     if (args.isDefined)
-      return args.get.head.xref.map(_.id)
-    else return None
-  }
-
-  /** Process the given mention argument, returning a ns:id string option for the first arg. */
-  private def getNsId (args:Option[Seq[Mention]]): Option[String] = {
-    if (args.isDefined)
-      return args.get.head.xref.map(_.printString)
+      return args.get.head.toBioMention.xref.map(_.id)
     else return None
   }
 

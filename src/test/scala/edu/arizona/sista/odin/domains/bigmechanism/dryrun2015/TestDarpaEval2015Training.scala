@@ -3,7 +3,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.dryrun2015
 import org.junit.Assert._
 import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
-import TestResources.{bioproc, extractor}
+import TestResources.reach
 import DarpaEvalUtils._
 
 /**
@@ -12,8 +12,9 @@ import DarpaEvalUtils._
 class TestDarpaEval2015Training extends AssertionsForJUnit {
 
   @Test def testRules1() {
-    val doc = bioproc.annotate("As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B).")
-    val mentions = extractor.extractFrom(doc)
+    val text = "As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B)."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions))
@@ -27,8 +28,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules2() {
-    val doc = bioproc.annotate("Copyright notice and Disclaimer Abstract GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K.")
-    val mentions = extractor.extractFrom(doc)
+    val text = "GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("Raf", "PI3K", "Ras"), mentions))
@@ -41,8 +43,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules3() {
-    val doc = bioproc.annotate("We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation.")
-    val mentions = extractor.extractFrom(doc)
+    val text = "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
@@ -57,8 +60,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules4() {
-    val doc = bioproc.annotate("We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation.")
-    val mentions = extractor.extractFrom(doc)
+    val text = "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("model entity (GUS)", hasEntity("ERK", mentions))
@@ -76,8 +80,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules5() {
-    val doc = bioproc.annotate("To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wildtype ERBB3 with either wild-type EGFR or EGFR T669A.")
-    val mentions = extractor.extractFrom(doc)
+    val text = "To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wildtype ERBB3 with either wild-type EGFR or EGFR T669A."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("model entity (GUS)", hasEntity("ERBB receptors", mentions))
@@ -93,8 +98,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules6() {
-    val doc = bioproc.annotate("We observed analogous results in CHO-KI cells expressing wild-type ERBB3 in combination with wild-type or T677A mutant HER2 (Figure 6B)")
-    val mentions = extractor.extractFrom(doc)
+    val text = "We observed analogous results in CHO-KI cells expressing wild-type ERBB3 in combination with wild-type or T677A mutant HER2 (Figure 6B)"
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("entity with site (GUS)", hasEntityWithSite("HER2", "T677A mutant", mentions))
@@ -121,8 +127,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }**/
 
   @Test def testRules8() {
-    val doc = bioproc.annotate("Figure 3 Raf and PI3K bind more to ubiquitinated Ras than to non- ubiquitinated Ras To examine whether the binding of ubiquitinated K-Ras to Raf and PI3K inhibits or can actually enhance their kinase activity, both total G12V-K-Ras and the ubiquitinated subfraction of G12V-K-Ras were purified from cell lysates and subjected to an in vitro kinase (I.V.K.) assay (Fig. 4A).")
-    val mentions = extractor.extractFrom(doc)
+    val text = "Raf and PI3K bind more to ubiquitinated Ras than to non- ubiquitinated Ras To examine whether the binding of ubiquitinated K-Ras to Raf and PI3K inhibits or can actually enhance their kinase activity, both total G12V-K-Ras and the ubiquitinated subfraction of G12V-K-Ras were purified from cell lysates and subjected to an in vitro kinase (I.V.K.) assay (Fig. 4A)."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("Raf", "PI3K", "K-Ras"), mentions))
@@ -174,8 +181,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }**/
 
   @Test def testRules11() {
-    val doc = bioproc.annotate("In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition")
-    val mentions = extractor.extractFrom(doc)
+    val text = "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition"
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("EGFR"), mentions))
@@ -189,8 +197,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules12() {
-    val doc = bioproc.annotate("To address the effect of K-Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules.")
-    val mentions = extractor.extractFrom(doc)
+    val text = "To address the effect of K-Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
@@ -206,8 +215,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules13() {
-    val doc = bioproc.annotate("We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A).")
-    val mentions = extractor.extractFrom(doc)
+    val text = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions))
@@ -222,8 +232,9 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
   }
 
   @Test def testRules14() {
-    val doc = bioproc.annotate("We propose that once ubiquitination occurs on Ras at Lys147, it enhances GDP/GTP exchange of Ras and increases the fraction of Ras in the GTP-form (Fig. 6B).")
-    val mentions = extractor.extractFrom(doc)
+    val text = "We propose that once ubiquitination occurs on Ras at Lys147, it enhances GDP/GTP exchange of Ras and increases the fraction of Ras in the GTP-form (Fig. 6B)."
+    val doc = reach.mkDoc(text, "testdoc")
+    val mentions = reach.extractFrom(doc)
 
     try {
       assertTrue("exchange (ENRIQUE)", hasEventWithArguments("Exchange", List("GTP", "GDP", "Ras"), mentions))

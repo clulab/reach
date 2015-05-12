@@ -9,6 +9,7 @@ import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.processors._
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
@@ -118,13 +119,13 @@ class MentionManager {
     val mStrings:MutableList[String] = MutableList[String]()
     val indent = ("  " * level)
     mention match {
-      case mention: TextBoundMention =>
+      case mention: BioTextBoundMention =>
         mStrings += s"${indent}TextBoundMention: [S${mention.sentence}]: ${mention.label}"
         mStrings += s"${indent}text: ${mention.text}"
         if (mention.isGrounded)
           mStrings += s"${indent}xref: ${mention.xref.get}"
         if (level == 0) mStrings += ("=" * 80)
-      case mention: EventMention =>
+      case mention: BioEventMention =>
         mStrings += s"${indent}EventMention: [S${mention.sentence}]: ${mention.label}"
         mStrings += s"${indent}text: ${mention.text}"
         mStrings += s"${indent}trigger:"
@@ -138,7 +139,7 @@ class MentionManager {
           }
         }
         if (level == 0) mStrings += ("=" * 80)
-      case mention: RelationMention =>
+      case mention: BioRelationMention =>
         mStrings += s"${indent}RelationMention: [S${mention.sentence}]: ${mention.label}"
         mStrings += s"${indent}text: ${mention.text}"
         mention.arguments foreach {

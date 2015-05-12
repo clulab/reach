@@ -5,6 +5,7 @@ import java.io._
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.{DarpaActions,Ruler}
 
 import org.slf4j.LoggerFactory
@@ -68,19 +69,19 @@ object BroscoiDriver extends App {
       case _ => processor.annotate(getText(inFile))
     }
 
-    val mentions = extractor.extractFrom(doc)
+    val mentions = extractor.extractFrom(doc) map (_.toBioMention)
     val sortedMentions = mentions.sortBy(m => (m.sentence, m.start)) // sort by sentence, start idx
     outputTextBoundMentions(sortedMentions, doc, outFile)
   }
 
   /** Ground, then output the given sequence of mentions. */
-  def outputTextBoundMentions (mentions:Seq[Mention], doc:Document, fos:FileOutputStream): Unit = {
+  def outputTextBoundMentions (mentions:Seq[BioMention], doc:Document, fos:FileOutputStream): Unit = {
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(fos)))
     val ground = new LocalGrounder()
     val tbMentions = mentions.filter(_.isInstanceOf[TextBoundMention])
     val state = State.apply(tbMentions)
     val groundedMentions = ground.apply(tbMentions, state)
-    groundedMentions.foreach { m =>
+    groundedMentions.foreach { case m: BioMention =>
       val ns = if (m.xref.isDefined) m.xref.get.namespace else ""
       val id = if (m.xref.isDefined) m.xref.get.id else ""
       out.println(s"T${idCntr.next()}\t${m.label}\t${m.startOffset}\t${m.endOffset}\t${ns}\t${id}\t${m.text}")

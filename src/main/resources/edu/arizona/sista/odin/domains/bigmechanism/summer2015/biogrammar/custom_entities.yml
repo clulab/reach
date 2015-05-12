@@ -77,34 +77,6 @@
 #   pattern: |
 #     (?<parent> [mention=Site]) [word=/,|and/ | tag=CD]+ (?<site> [tag=CD])
 
-- name: protein_with_site_token_1
-  label: [Protein_with_site, BioChemicalEntity]
-  priority: 3
-  type: token
-  pattern: |
-    @site:Site [tag=IN]  @protein:BioChemicalEntity
-      | #TODO: can no longer handle sequences of proteins
-    @site:Site [tag=IN] (?<protein> [mention=/^(Protein|Gene_or_gene_product)$/] ([tag=/(,|CC)/]+ [mention=/^(Protein|Gene_or_gene_product)$/])*)
-      |
-    @protein:BioChemicalEntity [tag=IN] @site:Site
-      |
-    @protein:BioChemicalEntity [tag=IN] (?<site> [mention=Site] ([tag=/(,|CC)/]+ [mention=Site])*)
-
-
-- name: site_with_protein_syntax_1
-  label: [Protein_with_site, BioChemicalEntity]
-  priority: 3
-  pattern: |
-     site:Site
-     protein:BioChemicalEntity = /pobj|prep_|conj|nn/+ # can't use a conj_nor.   There must be other bad conjunctions.
-
-- name: protein_with_site_syntax_1
-  label: [Protein_with_site, BioChemicalEntity]
-  priority: 3
-  pattern: |
-    protein:BioChemicalEntity
-    site:Site = /pobj|prep_|conj_[^n]|nn/+ # can't use a conj_nor.   There must be other bad conjunctions.
-
 - name: ner_entities
   label: [Gene_or_gene_product, MacroMolecule, BioChemicalEntity] #TODO: verify what types of entities are being detected (check on chems)
   action: mkNERMentions

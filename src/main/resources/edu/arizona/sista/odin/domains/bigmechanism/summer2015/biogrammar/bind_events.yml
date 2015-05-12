@@ -9,7 +9,15 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=bind & tag=/^V/]
+    trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
+        theme:BioChemicalEntity+ = <rcmod conj_and* | nsubj conj_and* | <prepc_by* nsubj | dobj conj_and* | /prep_(to|with)/
+
+- name: binding1forms
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = /forms?/ (a)? /complex(es)?|dimers?|heteromultimers?/
     theme:BioChemicalEntity+ = nsubj | dobj | /prep_(to|with)/
 
 - name: binding2
@@ -25,8 +33,16 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = binding
-    theme:BioChemicalEntity+ = /prep_(of|to)/+ >/./*
+    trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
+    theme:BioChemicalEntity+ = /conj_(and|or)/* /prep_(of|to)/+ >/./*
+
+- name: binding3wrong
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
+    theme:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_(of|to)/+ >/./*
 
 - name: binding4
   label: [Binding, SimpleEvent, Event]
@@ -42,7 +58,7 @@
   priority: 4
   pattern: |
       trigger = binding
-      theme:BioChemicalEntity+ = <nn >/./*
+      theme:BioChemicalEntity+ = <nn (nn* >/./* | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
 
 - name: binding6
@@ -58,7 +74,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = binding
+      trigger = [word=/binding|ligation/]
       theme:BioChemicalEntity+ = (nn | prep_to) conj_and?
 
 - name: binding8
@@ -107,7 +123,7 @@
   priority: 4
   pattern: |
       trigger = interact
-      theme:BioChemicalEntity+ = (prep_with | >conj_and <ccomp >nsubjpass) >/./*
+            theme:BioChemicalEntity+ = (nsubj <conj_and* | prep_with | >conj_and <ccomp >nsubjpass) >/./*
 
 - name: binding14
   label: [Binding, SimpleEvent, Event]
@@ -130,8 +146,48 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=bind & tag=/^V/]
-    theme:BioChemicalEntity+ = agent | nsubjpass | dobj | <rcmod <appos?
+    trigger = [lemma=/bind|recognize/ & tag=/^V/]
+    theme:BioChemicalEntity+ = agent nn* | nsubjpass nn* | dobj | <rcmod <appos?
+
+- name: binding_18
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = binding
+    theme:BioChemicalEntity+ = <conj_and* prep dep+ (/prep_(to|with)/)?
+
+- name: binding_19
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = /binding|interacting/ partner
+    theme:BioChemicalEntity+ = <appos | prep_of
+
+- name: binding_20
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = /(?i)binding|interaction/
+    theme:BioChemicalEntity+ = rcmod* prep_between
+
+- name: binding_21
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = oligomerization
+    theme:BioChemicalEntity+ = <prep_through nsubj
+
+- name: binding_22
+  label: [Binding, SimpleEvent, Event]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [lemma=target & tag=/^N/]
+    theme:BioChemicalEntity+ = <nn* nn* | prep_of | nsubj
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
