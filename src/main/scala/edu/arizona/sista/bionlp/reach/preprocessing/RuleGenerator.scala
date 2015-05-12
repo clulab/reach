@@ -1,9 +1,10 @@
-package edu.arizona.sista.bionlp.reach.rulelearning
+package edu.arizona.sista.bionlp.reach.preprocessing
 
-import java.io.{FileWriter, BufferedWriter, File}
+import java.io.{BufferedWriter, File, FileWriter}
 import java.util.Calendar
+
+import edu.arizona.sista.bionlp.reach.rulelearning.PathFinder
 import edu.arizona.sista.bionlp.reach.utils.FileReader
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.struct.Interval
 import org.slf4j.LoggerFactory
 
@@ -13,33 +14,7 @@ import org.slf4j.LoggerFactory
  */
 object RuleGenerator {
 
-  //TODO: move these two Maps to the package object
-  // Retrieve relevant rule labels associated with a kb file basename
-  val KBLUT: Map[String, String] =
-    Map("hmdb" -> "[BioChemicalEntity]",
-        "ProteinFamilies" -> "[Family, BioChemicalEntity]",
-        "tissue-type" -> "[BioChemicalEntity]",
-        "uniprot-proteins" -> "[Protein, BioChemicalEntity]")
-      .withDefaultValue("[BioChemicalEntity]")
-
-  val speciesOfInterest = Seq("Human", "Homo sapiens")
-  val SpeciesLUT: Map[String, Seq[String]] =
-    Map("uniprot-proteins" -> speciesOfInterest,
-        "ProteinFamilies" -> speciesOfInterest).withDefaultValue(Nil)
-
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
-
-  val proc = new BioNLPProcessor(withNER = false)
-
-  /**
-   * Removes extension from filename (Apache Commons seemed to have trouble with .tsv)
-   * @param f a File object
-   * @return a String representation of the File name without its extension
-   */
-  def removeExtension(f: File): String = {
-    val fname = f.getName
-    fname.toCharArray.takeWhile(_ != '.').mkString("")
-  }
 
   /**
    * Creates a lemma-based token pattern from a string
@@ -63,27 +38,6 @@ object RuleGenerator {
   }
 
   /**
-   * Only consider lines that match the set of valid species labels (defined in SpeciesLUT).
-   * @param f a KB File
-   * @return the valid lines pertaining to the specified species
-   */
-  def filterLines(f: File): Seq[String] = {
-    val lines = FileReader.readFile(f).toSeq
-    val basename = removeExtension(f)
-    val validSpecies = SpeciesLUT(basename)
-
-    validSpecies match {
-      case Nil => lines
-      case theseSpecies => {
-        val filteredLines =
-          lines.filter{ case line => theseSpecies.contains(line.split("\t")(1).trim) }
-        logger.debug(s"${lines.length - filteredLines.length} entries ignored for $basename")
-        filteredLines
-       }
-    }
-  }
-
-  /**
    * Creates a set of token pattern rules for all entries in a kb (.tsv) file.
    * @param f is a Java File object
    * @param chunkSize The number of lines to join into a single rule
@@ -91,7 +45,7 @@ object RuleGenerator {
    */
   def mkRulesFromKBFile(f: File, chunkSize: Int = 100):Seq[String] = {
     // Filename without extension
-    val basename = removeExtension(f)
+    val basename = FileReader.removeExtension(f)
     val filteredLines:Seq[String] = filterLines(f)
     // Get labels
     val labels = KBLUT(basename)
@@ -139,7 +93,7 @@ object RuleGenerator {
     logger.debug(s"processing ${kbFile.getName}...")
     val rules = mkRulesFromKBFile(kbFile)
     // File name without extension
-    val basename = removeExtension(kbFile)
+    val basename = FileReader.removeExtension(kbFile)
     val ruleFile =  s"$basename.yml"
     val outFile = new File(s"src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/$ruleFile")
     val bw = new BufferedWriter(new FileWriter(outFile))
