@@ -52,4 +52,14 @@ object FileReader {
   case _ => FileUtils.lineIterator(f).asScala
 
  }
+
+ /**
+  * Removes extension from filename (Apache Commons seemed to have trouble with .tsv)
+  * @param f a File object
+  * @return a String representation of the File name without its extension
+  */
+ def removeExtension(f: File): String = {
+  val fname = f.getName
+  fname.toCharArray.takeWhile(_ != '.').mkString("")
+ }
 }

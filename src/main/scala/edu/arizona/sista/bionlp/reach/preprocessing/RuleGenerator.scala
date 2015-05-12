@@ -2,16 +2,12 @@ package edu.arizona.sista.bionlp.reach.preprocessing
 
 import java.io.{BufferedWriter, File, FileWriter}
 import java.util.Calendar
-
 import edu.arizona.sista.bionlp.reach.rulelearning.PathFinder
 import edu.arizona.sista.bionlp.reach.utils.FileReader
 import edu.arizona.sista.struct.Interval
 import org.slf4j.LoggerFactory
 
 
-/**
- * Created by gus
- */
 object RuleGenerator {
 
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
@@ -48,7 +44,7 @@ object RuleGenerator {
     val basename = FileReader.removeExtension(f)
     val filteredLines:Seq[String] = filterLines(f)
     // Get labels
-    val labels = KBLUT(basename)
+    val labels = mkLabelRepresentation(basename)
 
     // Create our chunks from the specified kb file
     val lemmaPatterns:Seq[String] =
