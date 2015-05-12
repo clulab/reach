@@ -67,6 +67,8 @@ object NERInputGenerator {
     //bw.write(s"$speciesRepresentation\n")
 
     val lines = syns.lines
+      // distinct on Arrays doesn't work...
+      .map(_.toSeq)
       .distinct
       .filter(_.nonEmpty)
       .sortWith(_.head(0) < _.head(0))
