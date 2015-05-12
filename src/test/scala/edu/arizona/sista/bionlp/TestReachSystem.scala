@@ -2,13 +2,14 @@ package edu.arizona.sista.bionlp
 
 import scala.util.{ Try, Success, Failure }
 import org.scalatest._
+import edu.arizona.sista.bionlp.mentions._
 
 class Test extends FlatSpec with Matchers {
   // instantiate ReachSytem for tests
   val reach = new ReachSystem
 
   // test data
-  val text = "The Ras protein."
+  val text = "The Ras protein phosphorylates AKT."
   val docId = "testdoc"
   val chunkId = "1"
 
@@ -42,4 +43,19 @@ class Test extends FlatSpec with Matchers {
     val result = Try(reach.extractFrom(doc))
     result.isSuccess should be (false)
   }
+
+  it should "extract grounded entities only" in {
+    val doc = reach.processor.annotate(text, keepText = true)
+    doc.id = Some(docId)
+    val mentions = reach.extractEntitiesFrom(doc)
+    mentions.forall(_.isGrounded) should be (true)
+  }
+
+  it should "extract an empty list without entities" in {
+    val doc = reach.processor.annotate(text, keepText = true)
+    doc.id = Some(docId)
+    val mentions = reach.extractEventsFrom(doc, Nil)
+    mentions.isEmpty should be (true)
+  }
+
 }
