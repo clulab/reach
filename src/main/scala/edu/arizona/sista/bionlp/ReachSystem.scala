@@ -6,15 +6,12 @@ import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import edu.arizona.sista.odin.extern.export.reach._
 
 class ReachSystem {
   import ReachSystem._
 
   // initialize actions object
   val actions = new DarpaActions
-  // initialize postprocessor
-  val postprocessor = new PostProcessor
   // initialize grounder
   val grounder = new LocalGrounder
   // start entity extraction engine
@@ -110,4 +107,5 @@ object ReachSystem {
 
   // placeholder
   def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] = ms
+
 }

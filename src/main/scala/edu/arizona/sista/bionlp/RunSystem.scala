@@ -6,6 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.odin.extern.export.reach._
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -52,7 +53,7 @@ object RunSystem extends App {
     } yield mention
 
     if (outputType != "text") {             // if reach will handle output
-      reach.outputMentions(paperMentions, outputType, paperId, friesDir)
+      outputMentions(paperMentions, outputType, paperId, friesDir)
     }
     else {                                  // else dump all paper mentions to file
       val lines = paperMentions.flatMap(mentionToStrings)
@@ -60,6 +61,13 @@ object RunSystem extends App {
       println(s"writing ${outFile.getName} ...")
       FileUtils.writeLines(outFile, lines.asJavaCollection)
     }
+  }
+
+  def outputMentions(mentions:Seq[BioMention], outputType:String, paperId:String, outputDir:File) = {
+    val outFile = new File(outputDir, s"${paperId}.json")
+    val outputter = new ReachOutput()
+    println(s"writing ${outFile.getName} ...")
+    outputter.toJSON(mentions, outFile)
   }
 
   /** Generates a representation of the given mention as a list of strings. */
