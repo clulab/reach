@@ -4,6 +4,7 @@ import java.io.File
 
 import edu.arizona.sista.bionlp.reach.postprocessing.PostProcessor
 import edu.arizona.sista.odin._
+// TODO: Why are we using dryrun2015, guys?
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.Ruler.readRules
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.DarpaActions
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
