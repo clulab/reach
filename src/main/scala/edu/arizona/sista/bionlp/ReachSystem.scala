@@ -29,14 +29,18 @@ class ReachSystem {
   val processor = new BioNLPProcessor
   processor.annotate("something")
 
+  def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
+    val doc = processor.annotate(text, keepText = true)
+    val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
+    doc.id = Some(id)
+    doc
+  }
+
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
     extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
-    val name = s"${docId}_${chunkId}"
-    val doc = processor.annotate(text, keepText = true)
-    doc.id = Some(name)
-    extractFrom(doc)
+    extractFrom(mkDoc(text, docId, chunkId))
   }
 
   def extractFrom(doc: Document): Seq[BioMention] = {

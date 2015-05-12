@@ -8,8 +8,11 @@ trait Modifications {
   val modifications = new mutable.HashSet[Modification]
 }
 
-// different modification types
-trait Modification
+trait Modification {
+  // modifications should at least have a label that explains
+  // what kind of modification they are
+  def label: String
+}
 
 case class PTM(
   label: String,
