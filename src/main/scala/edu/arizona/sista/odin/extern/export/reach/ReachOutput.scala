@@ -17,7 +17,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Add event IDs, pos/neg regulation. Cleanups.
+  *   Last Modified: Split doc id into doc id and passage id.
   */
 class ReachOutput {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -74,7 +74,9 @@ class ReachOutput {
   private def beginNewFrame (mention:Mention, mIds:IDed): PropMap = {
     val doc:Document = mention.document
     val frame = new PropMap
-    frame("pmc_id") = doc.id.getOrElse("DOC-ID-MISSING")
+    val docSecId = doc.id.getOrElse("DOC-ID_MISSING").split("_").map(_.trim)
+    frame("doc_id") = docSecId(0)
+    frame("passage_id") = docSecId(1)
     frame("event_id") = mIds.get(mention)
     frame("reading_started") = Now
     frame("reading_ended") = Now
