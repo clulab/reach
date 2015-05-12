@@ -1,0 +1,2202 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Cell Biol</journal-id>
+      <journal-title>The Journal of Cell Biology</journal-title>
+      <issn pub-type="ppub">0021-9525</issn>
+      <issn pub-type="epub">1540-8140</issn>
+      <publisher>
+        <publisher-name>The Rockefeller University Press</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">9628900</article-id>
+      <article-id pub-id-type="pmc">2132783</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Articles</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Tyrosine Phosphorylation and Src Family Kinases Control Keratinocyte Cell&#x2013;Cell Adhesion </article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Calautti</surname>
+            <given-names>Enzo</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cabodi</surname>
+            <given-names>Sara</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">*</xref>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">&#x2021;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Stein</surname>
+            <given-names>Paul L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">&#xA7;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hatzfeld</surname>
+            <given-names>Mechthild</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">&#x2016;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kedersha</surname>
+            <given-names>Nancy</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">&#xB6;</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Paolo Dotto</surname>
+            <given-names>G.</given-names>
+          </name>
+          <xref ref-type="aff" rid="N0x1c400a0N0x1f7e540">*</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="N0x1c400a0N0x1f7e540"><label>*</label>Cutaneous Biology Research Center, Harvard Medical School and Massachusetts General Hospital, Charlestown,  Massachusetts 02129; <label>&#x2021;</label>Department of Biology, Genetics and Medical Chemistry, University of Torino, Torino, Italy 10126;  <label>&#xA7;</label>Wistar Institute, Philadelphia, Pennsylvania 19104; <label>&#x2016;</label>Molecular Biology Group, Medical Faculty of the University of Halle,  Halle, Germany 06097; and <label>&#xB6;</label>Division of Rheumatology and Immunology, Brigham and Woman's Hospital, Boston,  Massachusetts 02115</aff>
+      <pub-date pub-type="ppub">
+        <day>15</day>
+        <month>6</month>
+        <year>1998</year>
+      </pub-date>
+      <volume>141</volume>
+      <issue>6</issue>
+      <fpage>1449</fpage>
+      <lpage>1465</lpage>
+      <history>
+        <date date-type="received">
+          <day>29</day>
+          <month>10</month>
+          <year>1997</year>
+        </date>
+        <date date-type="rev-recd">
+          <day>21</day>
+          <month>4</month>
+          <year>1998</year>
+        </date>
+      </history>
+      <copyright-year>1998</copyright-year>
+      <abstract>
+        <p>In their progression from the basal to upper  differentiated layers of the epidermis, keratinocytes undergo significant structural changes, including establishment of close intercellular contacts. An important  but so far unexplored question is how these early structural events are related to the biochemical pathways  that trigger differentiation. We show here that &#x3B2;-catenin, &#x3B3;-catenin/plakoglobin, and p120-Cas are all significantly tyrosine phosphorylated in primary mouse keratinocytes induced to differentiate by calcium, with a  time course similar to that of cell junction formation.  Together with these changes, there is an increased association of &#x3B1;-catenin and p120-Cas with E-cadherin,  which is prevented by tyrosine kinase inhibition. Treatment of E-cadherin complexes with tyrosine-specific  phosphatase reveals that the strength of &#x3B1;-catenin association is directly dependent on tyrosine phosphorylation. In parallel with the biochemical effects, tyrosine  kinase inhibition suppresses formation of cell adhesive  structures, and causes a significant reduction in adhesive strength of differentiating keratinocytes. The Fyn  tyrosine kinase colocalizes with E-cadherin at the cell  membrane in calcium-treated keratinocytes. Consistent  with an involvement of this kinase, <italic>fyn</italic>-deficient keratinocytes have strongly decreased tyrosine phosphorylation levels of &#x3B2;- and &#x3B3;-catenins and p120-Cas, and structural and functional abnormalities in cell adhesion  similar to those caused by tyrosine kinase inhibitors.  Whereas skin of <italic>fyn</italic>&#x2212;/&#x2212; mice appears normal, skin of  mice with a disruption in both the <italic>fyn</italic> and <italic>src</italic> genes  shows intrinsically reduced tyrosine phosphorylation of  &#x3B2;-catenin, strongly decreased p120-Cas levels, and important structural changes consistent with impaired keratinocyte cell adhesion. Thus, unlike what has been  proposed for oncogene-transformed or mitogenically  stimulated cells, in differentiating keratinocytes tyrosine phosphorylation plays a positive role in control  of cell adhesion, and this regulatory function appears to  be important both in vitro and in vivo.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <p>A<sc>s</sc> keratinocytes progress from the basal proliferating  layer of the epidermis to the immediately adjacent  differentiating layer (spinous layer) they lose contact with the extracellular matrix and undergo significant  structural changes, such as establishment of close intercellular contacts, desmosome formation and rearrangements  of the actin/cytokeratin network. An important but so far  unexplored question is how these early structural events  are related to the biochemical pathways which trigger differentiation.</p>
+    <p>Cell&#x2013;cell contacts among neighboring keratinocytes are  mediated mainly by adherens junctions and desmosomes.  Adherens junctions contain &#x201C;classical&#x201D; cadherins, whereas  desmosomes are composed of specialized cadherins, such  as desmoglein(s) and desmocollin(s). Each type of junction is linked via several cytoplasmic proteins to different  elements of the cytoskeleton. Adherens junctions are associated with the actin cytoskeleton and have been shown to  be important for the establishment of cell adhesion and  polarization, while desmosomes interact with keratin filaments and impart mechanical strength to the epithelium  (<xref ref-type="bibr" rid="B9">Cowin and Burke, 1996</xref>).</p>
+    <p>Adherens junctions in epithelial cells depend on the homophilic, calcium-dependent binding of the extracellular  domain of transmembrane cadherins (<xref ref-type="bibr" rid="B56">Takeichi, 1988</xref>, <xref ref-type="bibr" rid="B57">1991</xref>).  The cytoplasmic domain of E-cadherin forms a complex  with &#x3B2;-, &#x3B3;-, and &#x3B1;-catenins, and this association is essential  for the establishment of proper cell adhesion (<xref ref-type="bibr" rid="B37">Nagafuchi  and Takeichi, 1988</xref>; <xref ref-type="bibr" rid="B40">Ozawa et al., 1989</xref>; <xref ref-type="bibr" rid="B38">Nagafuchi et al.,  1991</xref>). &#x3B2;- and &#x3B3;-catenins share a similar structure (65%  identity) (<xref ref-type="bibr" rid="B16">Fouquet et al., 1992</xref>), including a 42&#x2013;amino acid  motif repeated 12 or 13 times, originally described in the  <italic>Drosophila</italic> segment polarity gene product <italic>Armadillo</italic>  (<xref ref-type="bibr" rid="B46">Riggleman et al., 1989</xref>). &#x3B2;- and &#x3B3;-catenins bind directly to  E-cadherin in a mutually exclusive fashion (<xref ref-type="bibr" rid="B31">Mathur et al.,  1994</xref>; <xref ref-type="bibr" rid="B51">Stappert and Kemler, 1994</xref>). They also form a complex with &#x3B1;-catenin, a cytoplasmic protein similar to vinculin, which in turn is connected, either directly or indirectly,  to the actin network (<xref ref-type="bibr" rid="B27">Knudsen et al., 1995</xref>; <xref ref-type="bibr" rid="B47">Rimm et al.,  1995</xref>). Besides adherens junctions, &#x3B3;-catenin/plakoglobin  is also found in desmosomes, in association with desmosomal cadherins and is thought to modulate their function  (<xref ref-type="bibr" rid="B10">Cowin et al., 1986</xref>; <xref ref-type="bibr" rid="B59">Troyanovsky et al., 1993</xref>). Another  catenin, p120-Cas, originally described as a putative substrate of the activated Src tyrosine kinase (<xref ref-type="bibr" rid="B24">Kanner et al.,  1990</xref>, <xref ref-type="bibr" rid="B25">1991</xref>; <xref ref-type="bibr" rid="B42">Reynolds et al., 1992</xref>), has been shown to complex directly with E-cadherin (<xref ref-type="bibr" rid="B43">Reynolds et al., 1994</xref>, <xref ref-type="bibr" rid="B44">1996</xref>;  <xref ref-type="bibr" rid="B50">Shibamoto et al., 1995</xref>). In normal cells only a small proportion of p120-Cas is associated with cadherins (<xref ref-type="bibr" rid="B50">Shibamoto et al., 1995</xref>), but in specific circumstances, such as  upon <italic>ras</italic> transformation, this catenin displays increased affinity for E-cadherin (<xref ref-type="bibr" rid="B26">Kinch et al., 1995</xref>). Interestingly,  p120-Cas lacks the ability to bind &#x3B1;-catenin (<xref ref-type="bibr" rid="B11">Daniel and  Reynolds, 1995</xref>), suggesting that p120-Cas/cadherin complexes are disconnected from the actin cytoskeleton and  thus may account, at least partially, for the poor adhesive  phenotype of <italic>Ras</italic>-transformed cells.</p>
+    <p>Elevation of Ca<sup>2+</sup> concentrations in epithelial cell cultures induces the rapid translocation of cadherins to cell&#x2013; cell borders and consequent adherens junction and desmosome formation (<xref ref-type="bibr" rid="B39">O'Keefe et al., 1987</xref>; <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>).  These changes are accompanied by a reorganization of the  cytoskeleton, polarization and, in keratinocyte cultures,  stratification. Establishment of adherens junctions has  been shown to play a primary role in these processes. In  particular, inhibition of adherens junction formation by  anti&#x2013;E-cadherin antibodies (<xref ref-type="bibr" rid="B22">Hodivala and Watt, 1994</xref>;  <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>) or by expression of dominant negative  cadherin mutants (<xref ref-type="bibr" rid="B2">Amagai et al., 1995</xref>), suppresses all later  steps, such as desmosome formation, polarization, and  stratification. Whereas calcium can trigger initial formation of cadherin-mediated cell adhesion, a second, temperature-dependent step is required for the strengthening of  these interactions (<xref ref-type="bibr" rid="B3">Angres et al., 1996</xref>). In addition, for  stratification to occur, cell contacts need to remain fluid,  as movement of cells within a tri-dimensional structure requires continual disruption and reorganization of intercellular junctions, without loss of adhesive strength (<xref ref-type="bibr" rid="B30">Lewis  et al., 1994</xref>; <xref ref-type="bibr" rid="B58">Tao et al., 1996</xref>). The mechanisms that control  the strength of cell adhesion and modulate its dynamic  state are still poorly understood.</p>
+    <p>Increased tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenin  (plakoglobin) and p120-Cas has been previously correlated with the decrease of cell adhesion which occurs upon  neoplastic transformation (<xref ref-type="bibr" rid="B32">Matsuyoshi et al., 1992</xref>; <xref ref-type="bibr" rid="B4">Behrens et al., 1993</xref>; <xref ref-type="bibr" rid="B18">Hamaguchi et al., 1993</xref>; <xref ref-type="bibr" rid="B26">Kinch et al., 1995</xref>;  <xref ref-type="bibr" rid="B41">Papkoff, 1997</xref>) or mitogenic growth factor stimulation  (<xref ref-type="bibr" rid="B25">Kanner et al., 1991</xref>; <xref ref-type="bibr" rid="B23">Hoschuetzky et al., 1994</xref>; <xref ref-type="bibr" rid="B43">Reynolds et al.,  1994</xref>; <xref ref-type="bibr" rid="B49">Shibamoto et al., 1994</xref>; for review see <xref ref-type="bibr" rid="B34">Miller and Moon,  1996</xref>). However, in no cases was catenin tyrosine phosphorylation shown to be causally linked to decreased cell adhesion. In fact, additional evidence indicates that loosening of  cell contacts in <italic>src</italic>-transformed cells cannot be explained by  tyrosine phosphorylation of &#x3B2;-catenin, but is likely resulting from tyrosine phosphorylation of other junctional proteins such as ZO-1, ezrin/radixin/moesin, or some other unidentified proteins (<xref ref-type="bibr" rid="B55">Takeda et al., 1995</xref>). The small Rho/ Rac GTPases have also been implicated in control of cell  adhesion. Interestingly, these molecules appear to play a  negative suppressive function in MDCK cells (<xref ref-type="bibr" rid="B45">Ridley et  al., 1995</xref>), but a positive one in keratinocytes (<xref ref-type="bibr" rid="B6">Braga et al.,  1997</xref>), suggesting that control of cell adhesion may differ  significantly among epithelial cells of different types.</p>
+    <p>Unlike what may occur in oncogene-transformed or mitogenically stimulated cells, we report here that in differentiating keratinocytes, tyrosine phosphorylation plays a  positive role in the strengthening of cell adhesion. At least  two distinct tyrosine kinase activities are induced in the keratinocyte differentiation process (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>). One  of these activities is specifically increased by calcium and a  number of other divalent cations from the outside of the  cell, suggesting that an extracellular cation-sensor mechanism is involved. Induction of this kinase activity occurs  within minutes of calcium exposure (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>),  and correlates with the rapid tyrosine phosphorylation of a  ras-GAP associated p62 protein (<xref ref-type="bibr" rid="B14">Filvaroff et al., 1992</xref>, <xref ref-type="bibr" rid="B15">1994</xref>),  which may be similar, but probably not identical (<xref ref-type="bibr" rid="B33">Medema  et al., 1995</xref>), to the p62-Dok adaptor protein (<xref ref-type="bibr" rid="B8">Carpino et al.,  1997</xref>; <xref ref-type="bibr" rid="B61">Yamanashi and Baltimore, 1997</xref>). The second tyrosine  kinase activity, identified as Fyn, increases only at relatively late times of exposure of keratinocytes to calcium  (within 1&#x2013;6 h) (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>). In close parallel with  Fyn kinase activation, calcium treatment triggers tyrosine  phosphorylation of cortactin, a protein which colocalizes  with subcortical actin at sites of cell movement. A significant role of Fyn in keratinocyte differentiation is indicated  by the fact that this process is altered in keratinocytes with  a disruption of the <italic>fyn</italic> gene (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>).</p>
+    <p>Immunoblotting of keratinocyte cell extracts with anti-phosphotyrosine antibodies indicates that p62 and cortactin are only two of a wider group of proteins which are tyrosine phosphorylated in calcium-induced keratinocyte  differentiation (<xref ref-type="bibr" rid="B13">Filvaroff et al., 1990</xref>; <xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>;  our unpublished observations). We show here that &#x3B2;-,  &#x3B3;-catenin (plakoglobin), and p120-Cas become all strongly  tyrosine phosphorylated at early times of calcium-induced  keratinocyte differentiation, and that these modifications  are linked to an increased association of &#x3B1;-catenin and  p120-Cas with E-cadherin. Both biochemical and genetic  evidence indicates that tyrosine phosphorylation plays a  fundamental role in the changes in cell adhesion associated  with keratinocyte differentiation, and that the activity of  Fyn and related kinases is involved, both in vitro and in vivo.</p>
+    <sec id="MaterialsMethods" sec-type="materials|methods">
+      <title>Materials and Methods</title>
+      <sec>
+        <title>Cells and Animals</title>
+        <p>Primary keratinocytes were isolated from newborn Sencar mice or mice  with a disruption of the <italic>fyn</italic> (<xref ref-type="bibr" rid="B52">Stein et al., 1992</xref>), <italic>src</italic> (<xref ref-type="bibr" rid="B48">Soriano et al., 1991</xref>),  and <italic>yes</italic> (<xref ref-type="bibr" rid="B53">Stein et al., 1994</xref>) genes, and genetically matched wild-type controls. The <italic>yes</italic> mutation results in the production of a small amount of a  catalytically inactive fragment of the Yes kinase (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>).  Cells were cultivated in MEM with 4% Chelex-treated fetal calf serum,  EGF (10 ng/ml; Collaborative Research, Inc., Cambridge, MA), and 0.05  mM CaCl<sub>2</sub> (low calcium medium), as described (<xref ref-type="bibr" rid="B21">Hennings et al., 1980</xref>; <xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>). For all experiments, cells were used one week after  plating. Culture medium was changed for the last time 24 h before the experiment. Keratinocyte differentiation was induced by addition of CaCl<sub>2</sub>  (to 2 mM). Genistein and Tyrphostin 23 were purchased from BIOMOL  (Plymouth Meeting, PA), and then stored in 100-mM aliquots in DMSO  at &#x2212;20&#xB0;C. PP1 was a gift of Dr. S. Fuji (Tokyo University, Tokyo, Japan)  and was stored in DMSO (10 mg/ml) at &#x2212;20&#xB0;C.</p>
+        <p>C57B/129 mice carrying single <italic>fyn</italic>, <italic>src</italic>, or <italic>yes</italic> knockout mutations  (<xref ref-type="bibr" rid="B48">Soriano et al., 1991</xref>; <xref ref-type="bibr" rid="B52">Stein et al., 1992</xref>, <xref ref-type="bibr" rid="B53">1994</xref>) were bred to obtain double  heterozygotes for the <italic>fyn</italic>/<italic>src</italic> or <italic>fyn</italic>/<italic>yes</italic> mutations. Double heterozygotes  were then bred, and among the offspring, the mice carrying a <italic>fyn</italic>&#x2212;/&#x2212;  <italic>src</italic>+/&#x2212; or <italic>yes</italic>&#x2212;/&#x2212;<italic>fyn</italic>+/&#x2212; genotype were intercrossed to obtain <italic>src</italic>&#x2212;/&#x2212;  <italic>fyn</italic>&#x2212;/&#x2212; or <italic>fyn</italic>&#x2212;/&#x2212;<italic>yes</italic>&#x2212;/&#x2212; double knockout mice, respectively.</p>
+      </sec>
+      <sec>
+        <title>Recombinant Adenovirus Infection of Mouse Primary Keratinocytes</title>
+        <p>Recombinant adenoviruses expressing either a constitutively active c-Src  mutant (Tyrosine 527 to phenylalanine substitution) (Ad-src), or a green  fluorescent protein (Ad-GFP) were used at a multiplicity of infection of  100. Detailed description of the generation of Ad-Src will be presented  elsewhere. In all cases, infection of primary mouse keratinocytes was performed for 1 h in serum- and EGF-free low calcium medium. Keratinocytes were further incubated for 24 h in low calcium medium, and then  either kept in this medium or switched to high calcium medium (2 mM  CaCl<sub>2</sub>) for the indicated times.</p>
+      </sec>
+      <sec>
+        <title>Antibodies</title>
+        <p>Monoclonal antibodies against E-cadherin, &#x3B1;-catenin, &#x3B2;-catenin, and  pp120-Cas were purchased from Transduction Laboratories (Lexington,  KY). Anti&#x2013;&#x3B3;-catenin/plakoglobin mAbs (ascites fluid) were a gift of Dr. P.  Cowin (New York University, New York, NY). Anti&#x2013;desmoglein 3 antibodies were a gift of Dr. J. Stanley (University of Pennsylvania, Philadelphia, PA). Anti&#x2013;plakophilin 1 rabbit antisera were raised against either  the head or the <italic>Arm</italic> repeats domain of plakophilin, expressed in <italic>Escherichia coli</italic> as His-tag fusion proteins. Anti-Fyn and anti-Src polyclonal antibodies were purchased from <named-content content-type="company" xlink:href="sbct">Santa Cruz Biotechnology</named-content> (Santa Cruz, CA).  HRP-conjugated anti-phosphotyrosine antibodies (RC20H) were purchased from Transduction Laboratories. Anti-phosphotyrosine mAbs  4G10 were purchased from Upstate Biotechnology Inc. (Lake Placid,  NY). Either affinity-purified anti-E1A mAbs (Oncogene Science Inc.,  Cambridge MA) or affinity-purified rabbit IgG were used as unrelated  negative controls.</p>
+      </sec>
+      <sec>
+        <title>Immunoprecipitations</title>
+        <p>Mouse primary keratinocytes were washed twice in PBS containing 1 mM  Na<sub>3</sub>VO<sub>4 </sub>and lysed for 20 min on ice, either in NP-40 lysis buffer for high  stringency immunoprecipitations (0.5% NP-40, 50 mM TRIS-HCl, pH 8.0,  120 mM NaCl) or in CSK lysis buffer for low stringency immunoprecipitations (0.2% Triton X-100, 10 mM Pipes, pH 6.8, 100 mM NaCl, 300 mM  sucrose, 3 mM MgCl<sub>2</sub>, 1 mM EGTA), supplemented with 1 mM PMSF,  1 mM Na<sub>3</sub>VO<sub>4</sub>, 10 mM NaF, 10 &#x3BC;g/ml aprotinin (<named-content content-type="company" xlink:href="sigma">Sigma Chemical Co.</named-content>, St.  Louis, MO), 10 &#x3BC;g/ml leupeptin (<named-content content-type="company" xlink:href="sigma">Sigma Chemical Co.</named-content>). Cell lysates were  spun for 5 min at 4&#xB0;C. Samples were normalized for equal amounts of proteins by a Bradford assay (Bio-Rad Laboratories, Hercules, CA). Same  amounts (0.5&#x2013;1 mg) were incubated either for 2 h or overnight at 4&#xB0;C with  antibodies (2&#x2013;4 &#x3BC;g of affinity-purified mAbs or 5 &#x3BC;l of crude ascites fluid).  Protein G&#x2013;agarose beads (60 &#x3BC;l of a 50% suspension; <named-content content-type="company" xlink:href="boehringer">Boehringer Mannheim Corp.</named-content>, Indianapolis, IN) were added and samples were incubated for  45 min at 4&#xB0;C. Immune complexes were washed five times for high stringency immunoprecipitations and three times for low stringency immunoprecipitations. After the last wash, immune complexes were eluted in boiling Laemmli sample buffer for 3 min, and separated by 7.5% acrylamide/ 0.173% bis-acrylamide SDS-PAGE.</p>
+        <p>Immunoprecipitations from skin samples were performed as follows:  whole skins from newborn mice were snap-frozen in liquid nitrogen and  pulverized with a tissue grinder. The pulverized tissues were solubilized  with a Polytron homogenizer in NP-40 lysis buffer supplemented with protease and phosphatase inhibitors. Tissue debris was removed by centrifugation for 5 min at 3,000 <italic>g</italic>. The supernatants were further spun for 45 min  at 25,000 <italic>g</italic> and incubated sequentially with protein G&#x2013;agarose and protein  A&#x2013;Sepharose beads for 45 min as a preclearing step. Tissue extracts were  normalized for total protein content and for E-cadherin protein by preliminary SDS-PAGE and immunoblotting with anti&#x2013;E-cadherin antibodies.  Normalized extracts (2&#x2013;5 mg of protein) were immunoprecipitated with  relevant antibodies and immune complexes were processed as described  above for high stringency immunoprecipitations.</p>
+      </sec>
+      <sec>
+        <title>Protein&#x2013;Tyrosine&#x2013;Phosphatase Treatment of Cadherin&#x2013;Catenin Complexes</title>
+        <p>Keratinocytes were lysed in NP-40 lysis buffer supplemented with inhibitors of proteases and phosphatases as described above. E-cadherin and associated proteins were immunoprecipitated with E-cadherin&#x2013;specific antibodies. The immune complexes were washed twice in NP-40 lysis buffer  without phosphatase inhibitors, and twice in phosphatase buffer (20 mM  Tris-HCl, pH 7.2, 150 mM NaCl). The immune complexes were than resuspended in 50 &#x3BC;l of phosphatase buffer supplemented with 1 mM DTT  and 1 mg/ml BSA, and incubated for 30 min at 37&#xB0;C with 25 mU of <italic>Yersinia enterocolitica</italic> protein tyrosine phosphatase (<named-content content-type="company" xlink:href="boehringer">Boehringer Mannheim  Corp.</named-content>), either in the presence or the absence of tyrosine phosphatase inhibitors (2 mM Na<sub>3</sub>VO<sub>4</sub>, 2 mM ZnCl<sub>2</sub>)<sub>. </sub>The reaction was stopped by the  addition of 1 ml NP-40 lysis buffer supplemented with 2 mM Na<sub>3</sub>VO<sub>4</sub>, 2 mM  ZnCl<sub>2. </sub>After one wash in this buffer, the complexes were washed three  times with 4 M LiCl, 1 mM Na<sub>3</sub>VO<sub>4</sub>, and then twice in PBS plus 1 mM  Na<sub>3</sub>VO<sub>4</sub>. Samples were analyzed by SDS-PAGE and immunoblotting.</p>
+      </sec>
+      <sec>
+        <title>Immunoblotting</title>
+        <p>Immunoblotting of protein gels onto PVDF membranes was performed as  previously described (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>). All blots were blocked for 1 h  at room temperature in 5% milk in PBS 0.2% Tween 20, except for anti-phosphotyrosine immunoblots, which were blocked for 1 h in 1% BSA,  10 mM TRIS, pH 7.5, 100 mM NaCl, 0.1% Tween 20. RC20-horseradish&#x2013; conjugated anti-phosphotyrosine antibodies were used for immunoblotting at a 1:2,500 dilution. HRP-conjugated anti&#x2013;mouse or anti&#x2013;rabbit immunoglobulins (<named-content content-type="company" xlink:href="amersham">Amersham Corp.</named-content>, Arlington Heights, IL) were used as  secondary antibodies for all other immunoblots at a 1:2,000&#x2013;1:5,000 dilution, and blots were developed with the ECL system (<named-content content-type="company" xlink:href="amersham">Amersham Corp.</named-content>).</p>
+      </sec>
+      <sec>
+        <title>Immunofluorescent Staining of Primary Keratinocytes</title>
+        <p>Mouse primary keratinocytes were plated on collagen-coated glass coverslips, and cells in low calcium medium or at different times after calcium  treatment were fixed for 10 min at room temperature with 2% paraformaldehyde in PBS. Cells were permeabilized with 0.5% Triton X-100 in PBS,  blocked in 5% goat serum in PBS. The coverslips were stained with primary antibodies for 1 h at room temperature, followed by isotype-specific  FITC- or Texas red&#x2013;conjugated secondary antibodies (Southern Biotechnology Associates Inc., Birmingham, AL) For the analysis of the detergent-insoluble subcellular localization, keratinocytes were pre-extracted  for 5 min on ice in 0.2% Triton X-100&#x2013;CSK buffer supplemented with inhibitors of proteases and phosphatases before fixation in 2% paraformaldehyde in PBS. Conventional fluorescent microscopy was performed with  a <named-content content-type="company" xlink:href="Nikon">Nikon</named-content> FXA microscope (Melville, NY). Confocal microscopy was performed using a TCS 4D scanner (Leica, Heerbrugg, Switzerland) connected to an inverted LEITZ DM IRB microscope (Oberkonen, Germany). Images were processed using a TCS-NT software package.</p>
+      </sec>
+      <sec>
+        <title>Dispase Treatment of Mouse Primary Keratinocytes</title>
+        <p>Duplicate 60-mm dishes of confluent keratinocyte cultures in either low or  high calcium medium were washed twice in PBS and incubated in 2 ml dispase solution in PBS (from <italic>Bacillus polymyxa</italic>; &gt;2.4 units/ml; <named-content content-type="company" xlink:href="boehringer">Boehringer  Mannheim Corp.</named-content>) at 34&#xB0;C. Cells were analyzed with an inverted transmission microscope at 5-min intervals, for &gt;35 min. Quantification of this assay was performed as follows: after 35 min of dispase treatment, cells from  each sample, including single cells released into suspension and detached  sheets of cells, were collected by scraping, and then washed twice in PBS.  After centrifugation, samples were resuspended in 500 &#x3BC;l of PBS and subjected to mechanical disruption by pipetting 15 times with a 1 ml Pipetman. The remaining aggregates were left to sediment at 1 <italic>g</italic> for 1 min, and  the number of single cells into suspension was determined by counting 10 &#x3BC;l  of supernatant with an hemocytometer. The whole samples were then centrifuged, and incubated for 7 min at 37&#xB0;C in 0.25% trypsin, and 2.5 mM  EDTA, to release all cells into suspension. Cells were counted as before  and used for assay normalization.</p>
+      </sec>
+      <sec>
+        <title>Electron Microscopy</title>
+        <p>Keratinocytes grown on collagen-coated plastic coverslips were fixed in  1% glutaraldehyde; skin samples were fixed in 1.25% formaldehyde, 2.5%  glutaraldehyde, 0.03% picric acid in 50 mM cacodylic acid buffer, pH 7.4.  All specimens were postfixed in 1% osmium tetroxide/1.5% potassium  ferrocyanide, dehydrated, infiltrated, and then embedded in Epon/ Araldite. Thin sections were cut, stained with uranyl acetate and lead citrate, and then examined with a transmission electron microscope (1200  EX; JEOL USA Inc., Peabody, MA).</p>
+      </sec>
+    </sec>
+    <sec id="Results">
+      <title>Results</title>
+      <sec>
+        <title>Exposure of Keratinocytes to High Extracellular  Calcium Induces Tyrosine Phosphorylation of &#x3B2;- and &#x3B3;-Catenin, and Increased Association of &#x3B1;-Catenin with  E-Cadherin Complexes, with a Time Course That  Parallels Cell Junction Formation</title>
+        <p>As mentioned in the introduction, very little is known about  control of cell adhesion in differentiating epithelia. We  tested whether there is a specific interconnection between  induction of tyrosine phosphorylation and the changes in  cell adhesion that occur during calcium-induced keratinocyte  differentiation. In an initial set of studies, we examined the  cellular localization pattern of total tyrosine phosphorylated  proteins in growing versus differentiating keratinocytes. In  parallel with our previous biochemical data, immunofluorescence analysis with anti-phosphotyrosine antibodies revealed a substantial increase of tyrosine phosphorylation  signal in the differentiating cells, as early as 2 h after calcium exposure. More significantly, calcium treatment resulted in a striking localization of the tyrosine phosphorylation signal at sites of cell&#x2013;cell contact (not shown). To  test whether &#x3B2;-catenin, an essential adherens junction  component, shows an increased localization at tyrosine  phosphorylation sites, we focused on the detergent-insoluble submembranous cytoskeleton. Keratinocytes under  growing versus differentiating conditions were pre-extracted  with a 0.2% Triton X-100 buffer before fixation in 2%  paraformaldehyde. Cells were then double stained with  anti-phosphotyrosine and anti&#x2013;&#x3B2;-catenin antibodies, and  analyzed by confocal microscopy. As shown in Fig. <xref ref-type="fig" rid="F1">1</xref> (<italic>top  panels</italic>), calcium treatment (9 h) resulted in a significant increase of tyrosine-phosphorylated proteins as well as  &#x3B2;-catenin associated with the detergent-resistant, membrane&#x2013;cytoskeleton compartment. The pattern of staining  of anti-phosphotyrosine and anti&#x2013;&#x3B2;-catenin antibodies was  almost totally overlapping in the calcium-treated cells. </p>
+        <p>To determine whether tyrosine phosphorylation levels  of specific adherens junction components are directly increased with differentiation, extracts from keratinocytes  under basal growing conditions and at various times after  calcium exposure were immunoprecipitated with anti&#x2013; E-cadherin antibodies, followed by immunoblotting with  anti-phosphotyrosine antibodies. As shown in Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>A</italic> (<italic>left  panel</italic>), two tyrosine phosphorylated bands of &#x223C;85 and 92 kD  were detected in the anti&#x2013;E-cadherin immunoprecipitates  of keratinocytes under basal low calcium conditions. Tyrosine phosphorylation of these bands was strongly increased by 9 h of calcium treatment and persisted at elevated levels for 24 h. These bands comigrate and are likely  to correspond to &#x3B2;- and &#x3B3;-catenin, as judged by reprobing  of the same immunoblot with antibodies specific against  these proteins (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>A</italic>, <italic>right panels</italic>). Immunoprecipitation  of keratinocyte cell extracts with antibodies against &#x3B2;- and  &#x3B3;-catenins followed by anti-phosphotyrosine immunoblotting, confirmed that tyrosine phosphorylation of &#x3B2;- and  &#x3B3;-catenins is directly increased in the differentiating keratinocytes (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>B</italic>). </p>
+        <p>No direct tyrosine phosphorylation of E-cadherin itself  nor of &#x3B1;-catenin could be detected in the anti&#x2013;E-cadherin  immunoprecipitates. However, even if not directly tyrosine  phosphorylated, the amount of &#x3B1;-catenin found in association with E-cadherin was significantly increased by 9 h of  calcium treatment, whereas the amounts of &#x3B2;- and &#x3B3;-catenins  associated with E-cadherin remained constant (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>A</italic>,  <italic>right panels</italic>). Immunoblotting of total keratinocyte cell extracts indicated that the total amounts of &#x3B1;-catenin, as well  as &#x3B2;- and &#x3B3;-catenins and E-cadherin, remained constant up  to 48 h of calcium treatment (data not shown).</p>
+        <p>Besides adherens junctions, &#x3B3;-catenin/plakoglobin is  also found in desmosomes, and is thought to modulate  their function (<xref ref-type="bibr" rid="B10">Cowin et al., 1986</xref>; <xref ref-type="bibr" rid="B59">Troyanovsky et al.,  1993</xref>). &#x3B3;-Catenin associated with desmosomal cadherins  may also be increasingly tyrosine phosphorylated in response to calcium. To test this possibility, keratinocyte cell  extracts were immunoprecipitated with anti&#x2013;desmoglein 3  antibodies, followed by immunoblotting with anti-phosphotyrosine antibodies. A single specific band of &#x223C;85 kD  was detected, which became strongly tyrosine phosphorylated by 9 h of calcium treatment (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>C</italic>). This band is  likely to correspond to &#x3B3;-catenin, as judged by reprobing  of the same immunoblot with antibodies against this protein. As in E-cadherin complexes, the amount of desmoglein-associated &#x3B3;-catenin did not appear to vary significantly over time (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>C</italic>). Tyrosine phosphorylation of  plakophilin 1, another key desmosomal protein that shares  structural homology with &#x3B2;- and &#x3B3;-catenins (<xref ref-type="bibr" rid="B20">Heid et al.,  1994</xref>), was analyzed by direct immunoprecipitation with  anti&#x2013;plakophilin 1 antibodies followed by anti-phosphotyrosine immunoblotting. Plakophilin 1 was found to be weakly  tyrosine phosphorylated in keratinocytes under low calcium  conditions, and tyrosine phosphorylation of this protein (at  least that recoverable from the detergent-soluble fraction)  did not increase with differentiation (data not shown).</p>
+        <p>Previous reports showed that elevation of Ca<sup>2+</sup> concentrations in epithelial cell cultures induces the rapid translocation of cadherins to cell&#x2013;cell borders and consequent cell  junction formation (<xref ref-type="bibr" rid="B39">O'Keefe et al., 1987</xref>; <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>).  The precise time course of these events is likely to vary as  a function of cells and culture conditions. It was important  to determine whether the timing of adherens junction and  desmosome formation in our primary mouse keratinocyte  cultures parallels that of increased tyrosine phosphorylation. Accordingly, cells were analyzed at various times after calcium treatment by immunofluorescence with antibodies against either E-cadherin or plakophilin. Extraction  with 0.2% Triton X-100 buffer before fixation ensured detection of these proteins only when assembled into insoluble cell membrane structures. As shown in Fig. <xref ref-type="fig" rid="F3">3</xref>, by 2 h of  calcium treatment E-cadherin and plakophilin showed only  an incomplete recruitment into membrane&#x2013;cytoskeleton  structures, whereas by 9 h a very strong signal for these proteins was detected at sites of close intercellular junctions. </p>
+        <p>Thus, in mouse primary keratinocytes induced to differentiate by calcium, there is an increased tyrosine phosphorylation of proteins at sites of cell&#x2013;cell adhesion, and this is  associated with a specific increase in tyrosine phosphorylation levels of &#x3B2;- and &#x3B3;-catenins. In contrast, &#x3B1;-catenin is  not directly tyrosine phosphorylated, but its association  with E-cadherin increases, with a time course that parallels  that of &#x3B2;- and &#x3B3;-catenin tyrosine phosphorylation, as well  as that of cell junction formation.</p>
+      </sec>
+      <sec>
+        <title>p120-cas Becomes Heavily Tyrosine Phosphorylated in Keratinocytes in Response to Calcium, and Displays  Increased Association with E-Cadherin</title>
+        <p>p120-Cas, another catenin originally described as a substrate of activated Src (<xref ref-type="bibr" rid="B24">Kanner et al., 1990</xref>, <xref ref-type="bibr" rid="B25">1991</xref>; <xref ref-type="bibr" rid="B42">Reynolds  et al., 1992</xref>), can also form a direct complex with E-cadherin  at adherens junctions (<xref ref-type="bibr" rid="B43">Reynolds et al., 1994</xref>; <xref ref-type="bibr" rid="B50">Shibamoto et  al., 1995</xref>). However, in normal cells, only a small fraction  of p120-Cas is associated with cadherins, and this fraction  varies with various cell types (<xref ref-type="bibr" rid="B26">Kinch et al., 1995</xref>; <xref ref-type="bibr" rid="B50">Shibamoto et al., 1995</xref>). To determine whether in differentiating  keratinocytes p120-Cas shows an increased localization at  tyrosine phosphorylation sites in the submembranous cytoskeleton, we performed the same type of immunofluorescence analysis described above for &#x3B2;-catenin: cells either  kept in low calcium medium or switched to high calcium for  9 h were pre-extracted with 0.2% Triton X-100 buffer before  fixation, and were double stained with antibodies against  phosphotyrosine and p120-Cas. Cells were then analyzed by  confocal microscopy. Like &#x3B2;-catenin, in calcium-treated  keratinocytes p120-Cas was also recruited into the detergent-insoluble cortical cytoskeleton, and it colocalized with  phosphotyrosine at cell&#x2013;cell borders (Fig. <xref ref-type="fig" rid="F1">1</xref>, <italic>bottom panels</italic>).</p>
+        <p>To assess whether tyrosine phosphorylation of p120-Cas  is intrinsically increased with differentiation, extracts from  keratinocytes under low versus high calcium conditions  were immunoprecipitated with an mAb that recognizes all  known isoforms of the p120-Cas proteins (<xref ref-type="bibr" rid="B35">Mo and Reynolds, 1996</xref>), and the immunocomplexes were analyzed by  anti-phosphotyrosine immunoblotting. As shown in Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>D</italic>,  there was a progressive increase of tyrosine phosphorylation of all four p120-Cas isoforms, which was detectable already by 10 min of calcium exposure, and then became  very pronounced by 9 h. Tyrosine phosphorylation of  p120-Cas remained elevated at least until 24 h. Reprobing  of the same blot with anti-p120 antibodies showed that expression of the two larger isoforms of p120-Cas was only  slightly increased by 24 h of calcium treatment, whereas levels of the smaller forms did not vary significantly over time.</p>
+        <p>As reported for other cells (<xref ref-type="bibr" rid="B26">Kinch et al., 1995</xref>), increased tyrosine phosphorylation of p120-Cas may correlate with a higher affinity of these proteins for cadherin&#x2013; catenin complexes. No p120-Cas/E-cadherin association  could be detected in E-cadherin immunoprecipitates performed under standard stringency conditions (not shown).  However, p120/E-cadherin complexes may have been disrupted by the detergent concentrations used for those experiments. We reexamined this question by performing  anti&#x2013;E-cadherin immunoprecipitations under milder stringency conditions (lysis in 0.2% Triton X-100 buffer). Immunoprecipitates from keratinocytes in low calcium medium versus cells treated with calcium for 9 h, were  separated by SDS-PAGE, blotted, and then sequentially  probed with antibodies against phosphotyrosine, p120-Cas, &#x3B2;- and &#x3B3;-catenins, and E-cadherin (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>E</italic>). Under  these conditions, association of all p120-Cas isoforms with  E-cadherin was easily detected, and this association was  strongly increased in the calcium-treated cells, whereas  that of &#x3B2;- and &#x3B3;-catenins remained mostly unaffected. At  least four major tyrosine-phosphorylated bands were detectable in the E-cadherin immunoprecipitate from keratinocytes under low calcium conditions, and tyrosine phosphorylation of these bands was strongly increased upon  calcium treatment (Fig. <xref ref-type="fig" rid="F2">2</xref> <italic>E</italic>). These bands comigrate and  are likely to correspond to the p120-Cas and &#x3B2;- and  &#x3B3;-catenins discussed above. In addition, a fifth tyrosine  phosphorylated protein of heavier molecular weight was  detectable in the anti-phosphotyrosine immunoblot, which  appeared only in the calcium-treated sample and whose  identity remains to be assessed.</p>
+        <p>Thus, calcium treatment of mouse primary keratinocytes  induces strong tyrosine phosphorylation of p120-Cas proteins, and this increased phosphorylation correlates with  an increased association of all four p120-Cas isoforms with  E-cadherin.</p>
+      </sec>
+      <sec>
+        <title>Tyrosine Phosphorylation Is Required for the Increased Association of &#x3B1;-Catenin and p120-Cas with  E-Cadherin in Differentiating Keratinocytes</title>
+        <p>The results of the previous sections showed that exposure  of keratinocytes to high extracellular calcium concentrations has two important consequences: it induces tyrosine  phosphorylation of &#x3B2;- and &#x3B3;-catenins and p120-Cas proteins, and at the same time, triggers an increased association of &#x3B1;-catenin and p120-Cas with E-cadherin. An important question is whether the two events are connected.</p>
+        <p>The isoflavone Genistein inhibits specific tyrosine phosphorylation events associated with calcium-induced keratinocyte differentiation (<xref ref-type="bibr" rid="B13">Filvaroff et al., 1990</xref>). Tyrphostins  represent a class of structurally unrelated tyrosine kinase  inhibitors which block EGF-dependent mitogenicity and  revert the transformed phenotype of <italic>v-src</italic>&#x2013;transformed  cells (<xref ref-type="bibr" rid="B29">Levitzki, 1992</xref>). We initially tested whether treatment of keratinocytes with either Genistein or Tyrphostin  23 could block induction of tyrosine phosphorylation of &#x3B2;-  and &#x3B3;-catenins and p120-Cas in response to calcium, and  whether, in turn, association of &#x3B1;-catenin and p120-Cas  with E-cadherin was affected. Primary keratinocytes were  pretreated for 2 h with Genistein or Tyrphostin 23, or  DMSO solvent alone, and then cells were incubated for  additional 9 h under either low or high calcium conditions.  Cell lysates in 0.5% NP-40 lysis buffer were immunoprecipitated with anti&#x2013;E-cadherin antibodies and immunoblotted, sequentially, with antibodies against phosphotyrosine, &#x3B1;-, &#x3B2;-, and &#x3B3;-catenins, and E-cadherin. As shown in  Fig. <xref ref-type="fig" rid="F4">4</xref> <italic>A</italic>, Genistein treatment had only limited effects on  basal tyrosine phosphorylation levels of E-cadherin&#x2013;associated &#x3B2;- and &#x3B3;-catenins, while it blocked almost completely tyrosine phosphorylation of these molecules in  response to calcium. Tyrphostin treatment had more pronounced inhibitory effects on tyrosine phosphorylation of  &#x3B2;- and &#x3B3;-catenins, both under basal conditions and after  calcium exposure. In parallel with these effects, both tyrosine kinase inhibitors blocked the increased association  of &#x3B1;-catenin with E-cadherin, which normally occurs in  calcium-treated cells (see Fig. <xref ref-type="fig" rid="F4">4</xref> <italic>A</italic>, <italic>top right panel</italic>). This effect was specific for the calcium-induced association, as  neither inhibitor affected the basal level of &#x3B1;-catenin associated with E-cadherin in cells under low calcium conditions. </p>
+        <p>To test whether tyrosine phosphorylation is also required  for the increased association of p120-Cas with E-cadherin,  keratinocytes in low versus high calcium conditions &#xB1; tyrosine kinase inhibitors, were lysed under mild detergent  conditions (0.2% Triton X-100). Extracts were immunoprecipitated with anti&#x2013;E-cadherin antibodies and immunoblotted, sequentially, with antibodies against phosphotyrosine, p120-Cas, &#x3B2;- and &#x3B3;-catenins, and E-cadherin. As  shown in Fig. <xref ref-type="fig" rid="F4">4</xref> <italic>B</italic>, both inhibitors reduced the basal tyrosine phosphorylation levels of p120-Cas, and blocked  any further increase in response to calcium. Genistein  treatment had little or no effect on the amount of p120-Cas associated with E-cadherin in cells under basal conditions, while it totally prevented the increased association  induced by calcium (Fig. <xref ref-type="fig" rid="F4">4</xref> <italic>B</italic>, <italic>top right panel</italic>). Tyrphostin  treatment caused a reduction of p120-Cas associated with  E-cadherin already in keratinocytes in low calcium medium, and prevented any further increase in cells exposed  to calcium.</p>
+        <p>We have previously shown that tyrosine kinase inhibitors disrupt several aspects of keratinocyte differentiation  (<xref ref-type="bibr" rid="B13">Filvaroff et al., 1990</xref>), and it is still possible that their suppressive effects on &#x3B1;-catenin and p120-Cas association  with E-cadherin complexes are not directly resulting from  inhibition of tyrosine phosphorylation. To test whether tyrosine phosphorylation of E-cadherin complexes can directly affect &#x3B1;-catenin association, keratinocyte extracts  were immunoprecipitated with anti&#x2013;E-cadherin antibodies, and the immunoprecipitates were treated with a tyrosine-specific phosphatase &#xB1; tyrosine phosphatase inhibitors. Preliminary experiments, which included untreated  controls, showed that dephosphorylation of &#x3B2;- and &#x3B3;-catenins  by the Yersinia tyrosine phosphatase was totally blocked  by the inhibitors at the chosen concentrations (not shown).  Immunocomplexes were washed under higher stringency  conditions than in the previous experiments using LiCl,  which has been shown to affect charge-based interactions  of stable protein&#x2013;protein complexes (<xref ref-type="bibr" rid="B12">El-Baradi et al., 1984</xref>).  Samples were then analyzed by SDS-PAGE and sequential  immunoblotting with antibodies against phosphotyrosine,  &#x3B1;-catenin, &#x3B2;- and &#x3B3;-catenins, and E-cadherin. Tyrosine  phosphorylation of &#x3B2;- and &#x3B3;-catenins was totally abrogated by phosphatase treatment in the absence of the inhibitor, whereas it remained unaffected in its presence  (Fig. <xref ref-type="fig" rid="F5">5</xref>). &#x3B1;-Catenin was readily detected in the complexes  treated with phosphatase plus inhibitor, and higher levels  of this catenin were found in the complexes derived from  calcium-treated versus untreated keratinocytes. By contrast, under the same washing conditions, no &#x3B1;-catenin was  left in the complexes treated with phosphatase without inhibitor (Fig. <xref ref-type="fig" rid="F5">5</xref> <italic>A</italic>). Levels of &#x3B2;- and &#x3B3;-catenins were also  slightly reduced in these samples, suggesting that tyrosine  phosphorylation may also stabilize association of these  proteins with E-cadherin, even if to a lesser extent than  &#x3B1;-catenin (Fig. <xref ref-type="fig" rid="F5">5</xref> <italic>A</italic>). To eliminate this variable, a second  independent experiment was performed, where the E-cadherin immunoprecipitated samples were normalized for  amounts of &#x3B2;- and &#x3B3;-catenin levels before immunoblot  analysis. Even under these conditions, the amount of &#x3B1;-catenin associated with the E-cadherin complexes was found  to be markedly reduced after tyrosine phosphatase treatment (Fig. <xref ref-type="fig" rid="F5">5</xref> <italic>B</italic>). </p>
+        <p>Thus, the increased association of &#x3B1;-catenin and p120-Cas with E-cadherin, which occurs in calcium-treated keratinocytes, is blocked by tyrosine kinase inhibition and  the strength of &#x3B1;-catenin association is directly dependent  on tyrosine phosphorylation of E-cadherin&#x2013;associated proteins.</p>
+      </sec>
+      <sec>
+        <title>Inhibition of Tyrosine Phosphorylation Interferes with the Normal Cell Adhesive Function of  Differentiating Keratinocytes</title>
+        <p>To assess whether the biochemical alterations induced by  tyrosine kinase inhibition were associated with altered cell  junction formation, keratinocytes were examined by transmission electron microscopy at 9 h after calcium treatment, at a time when tyrosine phosphorylation of &#x3B2;- and  &#x3B3;-catenins and p120-Cas is highly induced, and close cell&#x2013; cell contacts are formed. Efficient cell&#x2013;cell junction and  formation was observed in control cells, with cell borders  being brought into close juxtaposition (Fig. <xref ref-type="fig" rid="F6">6</xref> <italic>A</italic>, <italic>left</italic>; and  data not shown). By contrast, in Genistein-treated cells,  only very few and incompletely formed cell junctions were  detected. Cell borders remained quite distant from each  other and were connected by protrusions of neighboring  cells in the form of pseudopod-like structures which met  without forming any kind of organized adhesive structure  (Fig. <xref ref-type="fig" rid="F6">6</xref> <italic>A</italic>, <italic>center</italic>). As previously reported (<xref ref-type="bibr" rid="B13">Filvaroff et al.,  1990</xref>), calcium-induced reorganization of the actin/keratin  cytoskeleton was also prevented. Tyrphostin treatment  also resulted in suppression of cell junctions, but in this  case no pseudopod formation of neighboring cells was detected (Fig. <xref ref-type="fig" rid="F6">6</xref> <italic>A</italic>, <italic>right</italic>). Widespread suppression of membrane detergent-insoluble structures containing E-cadherin  and plakophilin was confirmed by immunofluorescence  analysis of control and tyrosine kinase inhibitor-treated  cells with the corresponding antibodies (Fig. <xref ref-type="fig" rid="F3">3</xref>). Interestingly, incomplete cell adhesion and membrane protrusions  similar to those of control keratinocytes at 2 h of calcium  treatment were observed. </p>
+        <p>The biochemical and structural alterations of cell junction formation that result from tyrosine kinase inhibition  may be associated with some significant functional defects.  To explore this possibility, we developed a new functional  assay for cohesiveness of cell adhesion. Dispase is a protease that degrades preferentially molecules such as type  IV collagen and fibronectin, which function as important  attachment sites for keratinocytes to the underlying substratum (<xref ref-type="bibr" rid="B54">Stenn et al., 1989</xref>). Dispase treatment is routinely  used for skin grafting assays, to detach confluent cultures  of well-differentiated keratinocytes as intact sheets of  cells. We reasoned that a lack of cohesive strength may be  revealed under these conditions, when keratinocytes lose  attachment to their support and are connected to each  other only through direct intercellular contacts. Treatment  of primary keratinocyte cultures in low calcium medium  with dispase caused detachment of cells as single cell suspension, consistent with the fact that keratinocytes under  these conditions are only very loosely connected with each  other. Conversely, keratinocyte cultures switched to high  calcium medium for either 9 or 24 h were much more resistant to dispase treatment and eventually (after 25&#x2013;30 min)  detached from the dish as confluent sheet of cells (Fig. <xref ref-type="fig" rid="F7">7</xref>  <italic>A</italic>). Genistein-treated cultures switched to high calcium  conditions behaved differently from the controls. Already  by 5 min of dispase treatment when control cells were still  unaffected, the Genistein-treated keratinocytes started to  detach, not as a sheet of cells, but in a localized fashion,  generating the appearance of &#x201C;holes&#x201D; in the confluent  monolayers (Fig. <xref ref-type="fig" rid="F7">7</xref> <italic>A</italic>). Curiously, one or two cells were selectively left at the center of these holes, the nature of  which remains to be assessed. A similar pattern of cell detachment was also observed with Tyrphostin-treated keratinocytes (data not shown). </p>
+        <p>Quantification was achieved by counting the number of  single cells released by mechanical disruption after a 35-min dispase treatment, normalized for the total number of  cells recovered after subsequent treatment of the same  samples with trypsin (Fig. <xref ref-type="fig" rid="F8">8</xref>). This assay confirmed at the  functional level our immunofluorescence findings (Fig. <xref ref-type="fig" rid="F3">3</xref>)  that, in primary mouse keratinocytes cultured under our  conditions, cell&#x2013;cell adhesion is only marginally increased  by 2 h of calcium treatment, whereas it is firmly established by 9 h and beyond (Fig. <xref ref-type="fig" rid="F8">8</xref> <italic>A</italic>). Genistein and Typhostin treatment caused a &gt;50% reduction in strength of  cell adhesion (Fig. <xref ref-type="fig" rid="F8">8</xref> <italic>B</italic>). PP1 is a recently developed inhibitor of tyrosine kinases of the Src family (<xref ref-type="bibr" rid="B19">Hanke et al.,  1996</xref>). Concomitant treatment of keratinocytes with calcium and PP1 caused a drastic inhibition of &#x3B2;- and &#x3B3;-catenin tyrosine phosphorylation (not shown) and, at the same  time, a reduction in strength of cell adhesion comparable  to that induced by the other tyrosine kinase inhibitors  (Fig. <xref ref-type="fig" rid="F8">8</xref> <italic>B</italic>), together with the same pattern of cell detachment (not shown). </p>
+        <p>Thus, block of tyrosine phosphorylation has important  structural and functional consequences on calcium-induced  cell adhesion. Formation of normal cell junctions is prevented, and cohesive strength of confluent keratinocyte  cultures, as revealed by a novel dispase-based assay, is significantly reduced.</p>
+      </sec>
+      <sec>
+        <title>Expression of an Activated Src Oncoprotein Suppresses Keratinocyte Cell&#x2013;Cell Adhesion through Mechanisms Other Than Disruption of &#x3B1;-Catenin/E-Cadherin Complexes</title>
+        <p>Previous work with mitogenically stimulated or oncogene-transformed cells established a correlation between increased tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins and  p120-Cas and decreased rather than increased strength of  cell adhesion (<xref ref-type="bibr" rid="B32">Matsuyoshi et al., 1992</xref>; <xref ref-type="bibr" rid="B4">Behrens et al., 1993</xref>;  <xref ref-type="bibr" rid="B18">Hamaguchi et al., 1993</xref>). However, more recent evidence  has suggested that tyrosine phosphorylation of &#x3B2;-catenin  in <italic>src</italic>-transformed cells cannot be directly responsible for  loosening of cell adhesion, and tyrosine phosphorylation  of some other proteins must be involved (<xref ref-type="bibr" rid="B55">Takeda et al.,  1995</xref>). It was of interest to determine whether this conclusion applies also to keratinocytes. Accordingly, primary  mouse keratinocytes were infected with a recombinant adenovirus expressing an activated Src kinase, or a green fluorescent protein vector control. At 24 h after infection,  part of the cultures were switched to high calcium medium, and incubation was continued for additional 24 h.  The dispase assay described above was used to evaluate  the strength of cell adhesion of control versus <italic>src</italic>-transformed keratinocytes, at 24 h after calcium treatment. As  reported for other cells, expression of the Src kinase resulted in a marked disruption of cell adhesion (Fig. <xref ref-type="fig" rid="F8">8</xref> <italic>C</italic>).  Parallel cultures were analyzed for E-cadherin complex  formation by immunoprecipitation with anti&#x2013;E-cadherin  antibodies and sequential immunoblotting with antibodies  against phosphotyrosine, &#x3B1;-, &#x3B2;-, and &#x3B3;-catenins and E-cadherin. &#x3B2;- and &#x3B3;-catenins were very highly tyrosine phosphorylated in the Src-expressing keratinocytes, whereas  their relative amounts remained unchanged (Fig. <xref ref-type="fig" rid="F9">9</xref>). Importantly, similar levels of &#x3B1;-catenin were found in the  E-cadherin complexes from Src expressing versus control  keratinocytes, and calcium treatment caused a similar increase of &#x3B1;-catenin association in the two types of cells  (Fig. <xref ref-type="fig" rid="F9">9</xref>). At least two other prominent tyrosine phosphorylated bands were evident in the <italic>src</italic>-transformed keratinocytes, which were not detected in the control (more  bands were evident after prolonged exposure of the autoradiograph). One of these bands comigrates and is likely  to correspond to E-cadherin. The other, with a size of &#x223C;60  kD, was found in Src-expressing keratinocytes after calcium treatment (Fig. <xref ref-type="fig" rid="F9">9</xref>). Reprobing of the same immunoblot with anti-Src antibodies revealed that this latter protein comigrates and is likely to correspond to constitutively  active Src itself, which increasingly associates with E-cadherin complexes in a calcium-dependent manner. </p>
+        <p>Thus, suppression of cell adhesion in <italic>src</italic>-transformed  keratinocytes is not because of disruption of E-cadherin/ &#x3B1;-catenin complexes, but correlates with tyrosine phosphorylation of additional proteins not phosphorylated in  response to calcium, including E-cadherin itself.</p>
+      </sec>
+      <sec>
+        <title>The Fyn Tyrosine Kinase Is Involved in Catenin  Phosphorylation and Modulation of Adhesive Function  in Differentiating Keratinocytes in Culture</title>
+        <p>An important question raised by the above results is which  kinase(s) are responsible for tyrosine phosphorylation of  specific catenins in calcium-induced keratinocyte differentiation. In our previous work, we demonstrated that at  least two distinct tyrosine kinases are activated in calcium-induced keratinocyte differentiation, one of which corresponds to Fyn, a specific Src family member (<xref ref-type="bibr" rid="B7">Calautti et al.,  1995</xref>). An intriguing possibility was that Fyn may be at  least partially responsible for tyrosine phosphorylation of  &#x3B2;- and &#x3B3;-catenins and p120-Cas in differentiating keratinocytes. Consistent with this possibility, immunofluorescence analysis of detergent-extracted keratinocytes showed  that the after calcium treatment the Fyn kinase colocalizes  with E-cadherin at sites of cell adhesion (Fig. <xref ref-type="fig" rid="F10">10</xref>). </p>
+        <p>The tyrosine phosphorylation state of E-cadherin&#x2013;associated molecules was analyzed in primary keratinocytes  derived from mice with a disruption of the <italic>fyn</italic> gene versus  genetically matched wild-type controls. Cells were either  kept in low calcium medium or exposed to high calcium  concentrations for various amounts of time. Cell extracts  were immunoprecipitated with antibodies against E-cadherin or p120-Cas, followed by immunoblotting with anti-phosphotyrosine antibodies (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>A</italic>, <italic>top panels</italic>). The  same immunoprecipitates were then blotted with antibodies  against &#x3B2;- and &#x3B3;-catenins and p120-Cas, to verify amounts  of the respective proteins (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>A</italic>, <italic>bottom panels</italic>). Tyrosine phosphorylation of all three catenins was found to  be reduced in <italic>fyn</italic>-deficient keratinocytes already under  basal conditions. In response to calcium, tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenin increased in <italic>fyn</italic>-deficient  cells, but to a much lesser extent than in the wild-type controls. Tyrosine phosphorylation of p120-Cas was also  strongly reduced in the <italic>fyn</italic>-deficient cells, with phosphorylation of the high molecular weight isoforms remaining  close to undetectable even in cells under high calcium conditions. The decreased levels of catenin tyrosine phosphorylation appear to be specific for cells lacking the Fyn kinase, as they were not observed in cells with a disruption  of the related <italic>yes</italic> or <italic>src</italic> kinase genes (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>A</italic>; data not  shown). </p>
+        <p>This reduction of tyrosine phosphorylation in <italic>fyn</italic>-deficient keratinocytes may have structural and/or functional  consequences similar to those caused by tyrosine kinase  inhibition. In fact, relative to wild-type controls, electron  microscopy of <italic>fyn</italic>-deficient keratinocytes treated with calcium showed a drastic reduction in cell junction formation  (Fig. <xref ref-type="fig" rid="F6">6</xref> <italic>B</italic>). Cell&#x2013;cell borders remained widely separated  and were connected by pseudopod-like protrusions remarkably similar to those observed with Genistein-treated  cells. A functional impairment in cell adhesion was also revealed by the dispase assay with wild type and <italic>fyn</italic> knockout cultures tested at 9 h of calcium treatment (Fig. <xref ref-type="fig" rid="F7">7</xref> <italic>B</italic>).  Under these conditions, the <italic>fyn</italic>-deficient keratinocytes  detached in an uneven fashion, similar to that was observed with tyrosine kinase inhibitor&#x2013;treated cells.</p>
+        <p>Thus, in cultured keratinocytes, basal and calcium-induced  tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenin and p120-Cas  is partially dependent on the Fyn kinase. Lack of this kinase has important structural and functional consequences  that share substantial similarities with those induced by tyrosine kinase inhibitors.</p>
+      </sec>
+      <sec>
+        <title>Fyn and Src Kinases Are Important Determinants of &#x3B2;-Catenin Tyrosine Phosphorylation and Cell Adhesion in Keratinocytes In Vivo</title>
+        <p>Unlike the significant alterations found in <italic>fyn</italic>-deficient  keratinocytes in culture, the epidermis of <italic>fyn</italic> knockout  mice shows a partial reduction of differentiation marker  expression (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>) but looks otherwise normal. One possible explanation for this discrepancy between the in vitro and in vivo situations could be the capability of other Src family members to compensate for Fyn  function in the intact epidermis. We investigated this possibility as it relates to E-cadherin function, by analyzing  the skin of mice with a concomitant disruption of the <italic>fyn</italic>/ <italic>yes</italic> and <italic>fyn</italic>/<italic>src</italic> genes in comparison with that of wild-type  and single knockout littermates. More than 90% of mice  with double <italic>fyn</italic>/<italic>src,</italic> and &#x223C;70% of mice with <italic>fyn</italic>/<italic>yes</italic> homozygous mutations die soon after birth (<xref ref-type="bibr" rid="B53">Stein et al.,  1994</xref>), thus limiting our analysis to newborn animals.</p>
+        <p>Direct biochemical analysis of keratinocytes in the skin  is complicated by the presence of other cell types. However, we took advantage of the fact that E-cadherin is preferentially expressed in keratinocytes, to directly immunoprecipitate this protein from total skin extracts and evaluate  the in vivo tyrosine phosphorylation pattern of E-cadherin  associated proteins by anti-phosphotyrosine immunoblotting. In an initial set of experiments, we compared E-cadherin complexes derived from wild-type newborn skin versus cultured keratinocytes at 9 h of calcium treatment.  Immunoprecipitates were normalized for the same amounts  of E-cadherin protein and immunoblotted sequentially  with antibodies against phosphotyrosine and &#x3B2;- and &#x3B3;-catenin. Interestingly, the skin-derived E-cadherin complexes  contained a single prominent tyrosine phosphorylated  band as opposed to the two bands present in the complexes from cultured keratinocytes (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>B</italic>, <italic>left panel</italic>).  This different tyrosine phosphorylation pattern reflected  the fact that similar amounts of &#x3B2;-catenin were found to be  associated with E-cadherin both in vitro and in vivo. By  contrast, the association of &#x3B3;-catenin/plakoglobin with E-cadherin is markedly reduced in vivo, possibly because of a  preferential association of this catenin with desmosomal  cadherins in the skin (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>B</italic>, <italic>right panel</italic>).</p>
+        <p>When the skin of single and double knockout mutant  mice was analyzed, similar amounts of E-cadherin&#x2013;associated &#x3B2;-catenin were found in all cases (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>C</italic>, <italic>bottom  panel</italic>). Tyrosine phosphorylation levels of this catenin  were essentially the same in wild-type mice and mice with  single <italic>fyn</italic>, <italic>yes</italic>, or <italic>src</italic> mutations. By contrast, a very drastic  reduction of &#x3B2;-catenin tyrosine phosphorylation was observed in mice with a concomitant disruption of the <italic>fyn</italic>  and <italic>src</italic> genes, and, to a lesser extent, in <italic>fyn</italic>/<italic>yes</italic> mutants  (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>C</italic>, <italic>top panel</italic>).</p>
+        <p>As discussed above, association of p120-Cas with E-cadherin cannot be detected by coimmunoprecipitation under  standard stringency conditions. For a direct analysis of this  catenin, total skin extracts were immunoprecipitated with  anti&#x2013;p120-Cas antibodies. Immunoblotting with anti-phosphotyrosine antibodies revealed that levels of tyrosine  phosphorylated p120-Cas were essentially normal in the  skin of single <italic>yes</italic> knockout mice and were slightly reduced  in the skins of mice with a single <italic>fyn</italic> or <italic>src</italic> mutations. By  contrast, tyrosine phosphorylation of all forms of p120-Cas  was strikingly reduced in the skin of double <italic>fyn</italic>/<italic>src</italic> mutants. A significant but lesser reduction was also observed  in the skin of <italic>fyn</italic>/<italic>yes</italic> knockouts (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>D</italic>, <italic>top panel</italic>). Surprisingly, however, in contrast to the intrinsically decreased tyrosine phosphorylation of &#x3B2;-catenin in the presence of constant protein, p120-Cas protein levels, and not  only their tyrosine phosphorylation state, were drastically  reduced in the double knockouts. This was revealed by immunoblotting with anti&#x2013;p120-Cas antibodies of the p120-Cas immunoprecipitates (Fig. <xref ref-type="fig" rid="F11">11</xref> <italic>D</italic>, <italic>bottom panel</italic>), as well  as by immunoblotting of total skin extracts (data not shown).</p>
+        <p>We tested whether the striking biochemical alterations  found in the skins of double <italic>fyn</italic>/<italic>src</italic>-deficient mice were associated with defects in keratinocyte cell adhesion detectable at the histological and/or ultra structural level. Newborn mouse epidermis is composed of multiple stratified  layers. In contrast to normal skin, a separation of overlying layers was observed occasionally in histological sections of double <italic>fyn</italic>/<italic>src</italic> mutant skins (data not shown).  Much more widespread and significant alterations were  revealed by electron microscopy (Fig. <xref ref-type="fig" rid="F12">12</xref>), with cells at the  border between spinosum and granular layers appearing  as the most affected. Similar numbers of well-formed desmosomes were present in the epidermis of wild-type and  <italic>fyn</italic>/<italic>src</italic> mutant epidermis. However, the tracts of cell membranes between desmosomal junctions, corresponding to  sites of adherens junction formation, were usually closely  juxtaposed in wild-type skin (Fig. <xref ref-type="fig" rid="F12">12</xref> <italic>A</italic>). By contrast, the  interdesmosomal spaces were often widely separated in  the double knockouts (Fig. <xref ref-type="fig" rid="F12">12</xref> <italic>B</italic>), generating the appearance of a series of arches or fenestrations between neighboring cells (Fig. <xref ref-type="fig" rid="F12">12</xref> <italic>C</italic>). </p>
+        <p>In parallel with their lesser biochemical alterations,  skins of double <italic>fyn</italic>/<italic>yes</italic> mutant mice showed none of the  ultra structural abnormalities in keratinocyte cell adhesion  found in the <italic>fyn</italic>/<italic>src</italic> knockouts. However, subtler alterations may also exist in the epidermis of these mice as indicated by their reduced number of layers (data not shown).</p>
+        <p>Thus, unlike the significant alterations found in culture,  keratinocyte cell adhesion in the epidermis of <italic>fyn</italic> deficient  mice appears essentially normal. This is likely due to a  functional compensation of Fyn with related kinases. In  fact, in the skin of mice with a double <italic>fyn</italic>/<italic>src</italic> knockout  mutation, tyrosine phosphorylation of &#x3B2;-catenin is intrinsically reduced, p120-Cas is strongly downmodulated, and  interdesmosomal spaces are largely increased.</p>
+      </sec>
+    </sec>
+    <sec id="Discussion">
+      <title>Discussion</title>
+      <p>We have previously demonstrated that induction of tyrosine phosphorylation is required for keratinocyte differentiation to occur, and that at least two distinct tyrosine kinases are involved, one of which was identified as Fyn.  However, only two proteins of ill-defined function were  found to be tyrosine phosphorylated in this process, <italic>ras</italic>-GAP&#x2013;associated p62 and cortactin, and the specific physiological function(s) of tyrosine kinase activation in keratinocyte differentiation remained to be established. Also,  the significance of tyrosine phosphorylation for keratinocyte differentiation control in vivo was not assessed. We  show here that induction of tyrosine phosphorylation is involved in at least one key aspect of keratinocyte differentiation, i.e., control of cell adhesion, both in cultured cells  and in the intact skin.</p>
+      <p>E-cadherin&#x2013;mediated adherens junctions provide a primary determinant of increased cell&#x2013;cell adhesion in keratinocytes (<xref ref-type="bibr" rid="B22">Hodivala and Watt, 1994</xref>; <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>;  <xref ref-type="bibr" rid="B2">Amagai et al., 1995</xref>). We have found here that three E-cadherin&#x2013;associated proteins, &#x3B2;- and &#x3B3;-catenins and p120-Cas,  are directly tyrosine phosphorylated at the onset of calcium-induced keratinocyte differentiation, in parallel with  establishment of close intercellular contacts and the beginning of stratification. Consistent with the coordinate control  of adherens junction and desmosome formation (<xref ref-type="bibr" rid="B22">Hodivala  and Watt, 1994</xref>; <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>), Desmoglein-associated  &#x3B3;-catenin also appears to be increasingly tyrosine phosphorylated in response to calcium. We have found that tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins does not affect  their association with E-cadherin. In contrast, &#x3B1;-catenin,  which is not itself tyrosine phosphorylated, becomes increasingly associated with E-cadherin/catenin complexes,  with a time course that parallels that of &#x3B2;- and &#x3B3;-catenin  tyrosine phosphorylation. The increased association of  &#x3B1;-catenin with E-cadherin complexes is blocked by tyrosine kinase inhibition, and the strength of &#x3B1;-catenin association depends directly on tyrosine phosphorylation of  E-cadherin complexes. &#x3B1;-Catenin provides a direct bridge  between cadherin&#x2013;catenin complexes and the actin cytoskeleton (<xref ref-type="bibr" rid="B47">Rimm et al., 1995</xref>). Thus, our findings provide  the first evidence that tyrosine phosphorylation can determine the extent of &#x3B1;-catenin association with E-cadherin  complexes, and provide an attractive explanation for the fact  that in differentiating keratinocytes increased &#x3B2;- and &#x3B3;-catenin tyrosine phosphorylation is associated with an increased  strength of cell adhesion. Control of adherens junction and  desmosome formation is intimately connected (<xref ref-type="bibr" rid="B22">Hodivala  and Watt, 1994</xref>; <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>; <xref ref-type="bibr" rid="B2">Amagai et al., 1995</xref>).  Our data indicate that desmosomes may also be controlled  by tyrosine phosphorylation, either directly (for instance,  by &#x3B3;-catenin tyrosine phosphorylation) or indirectly (through  modulation of adherens junction formation).</p>
+      <p>In mitogenically stimulated or oncogene-transformed  cells, increased tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins has been correlated with a decrease of cell adhesion  (<xref ref-type="bibr" rid="B25">Kanner et al., 1991</xref>; <xref ref-type="bibr" rid="B32">Matsuyoshi et al., 1992</xref>; <xref ref-type="bibr" rid="B4">Behrens et al.,  1993</xref>; <xref ref-type="bibr" rid="B18">Hamaguchi et al., 1993</xref>; <xref ref-type="bibr" rid="B23">Hoschuetzky et al., 1994</xref>;  <xref ref-type="bibr" rid="B49">Shibamoto et al., 1994</xref>; <xref ref-type="bibr" rid="B26">Kinch et al., 1995</xref>). However, additional evidence indicates that loosening of cell contacts in  Src-transformed cells cannot be explained by tyrosine  phosphorylation of &#x3B2;-catenin, but is likely resulting from  tyrosine phosphorylation of some other proteins (Taketa  et al., 1995). A similar conclusion is likely to apply to our  cells. In fact, in keratinocytes expressing a constitutively  active Src kinase, the highly increased tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins does not alter their stoichiometry  in E-cadherin complexes, nor the basal or calcium-induced  &#x3B1;-catenin association. Given the relatively low tyrosine  phosphorylation levels of &#x3B2;-catenin in normal calcium-treated  keratinocytes, only a tentative tyrosine phosphopeptide  map could be obtained. These results are consistent with  the possibility raised by our other findings that (<italic>a</italic>) the residues required for basal &#x3B1;-catenin association are already  tyrosine phosphorylated in keratinocytes under low calcium conditions and (<italic>b</italic>) the new residues required for calcium-induced association are not tyrosine phosphorylated  by the constitutively active Src kinase. However, the additional possibility should be considered that any positive  effects of tyrosine phosphorylation of E-cadherin&#x2013;associated proteins by Src may be counteracted by tyrosine  phosphorylation of other proteins. In fact, we have found  that <italic>src</italic>-transformed keratinocytes still respond to calcium  but phosphorylate additional proteins, including E-cadherin itself, in an aberrant manner. In addition, constitutively active Src itself was also found to associate with  E-cadherin complexes in a calcium-dependent manner.  Thus, by analogy with the results of <xref ref-type="bibr" rid="B55">Takeda et al. (1995)</xref>,  tyrosine phosphorylation of proteins other than &#x3B2;- and  &#x3B3;-catenins would seem likely to contribute to suppression  of keratinocyte cell adhesion.</p>
+      <p>Besides its role in cadherin-mediated cell adhesion, &#x3B2;-catenin can play a second independent function in signaling  pathways connected with development and cell fate determination (for review see <xref ref-type="bibr" rid="B17">Gumbiner, 1995</xref>; <xref ref-type="bibr" rid="B34">Miller and Moon,  1996</xref>). A fraction of &#x3B2;-catenin has been reported to localize to the nucleus and to influence, through association  with transcription factors such as LEF-1 or Tcf4, gene expression (<xref ref-type="bibr" rid="B5">Behrens et al., 1996</xref>; <xref ref-type="bibr" rid="B28">Korinek et al., 1997</xref>; <xref ref-type="bibr" rid="B36">Morin  et al., 1997</xref>). Mice with a disruption (<xref ref-type="bibr" rid="B60">van Genderen et al.,  1994</xref>) or inappropriate expression (<xref ref-type="bibr" rid="B62">Zhou et al., 1995</xref>) of  the LEF gene exhibit a significantly altered skin phenotype. Future studies will have to address whether even in  keratinocytes &#x3B2;-catenin is involved in complex functions  other than cell adhesion, and whether the extent of this involvement can be controlled by tyrosine phosphorylation.</p>
+      <p>The other catenin that is found to be directly tyrosine  phosphorylated in differentiating keratinocytes is p120-Cas. Four isoforms of p120-Cas have been described,  which differ for the presence or the absence of two alternatively spliced sequences (<xref ref-type="bibr" rid="B35">Mo and Reynolds, 1996</xref>). All  four isoforms are expressed in cultured keratinocytes and  become increasingly tyrosine phosphorylated in response  to calcium, with kinetics similar to those of &#x3B2;- and &#x3B3;-catenins. However, whereas the stoichiometry of &#x3B2;- or &#x3B3;-catenin  in E-cadherin complexes is unaffected by calcium treatment,  p120-Cas displays an increased association with E-cadherin. The association of p120-Cas is likely to be more unstable than that of &#x3B2;- or &#x3B3;-catenin, as it could only be detected by immunoprecipitation under mild stringency. As  with &#x3B1;-catenin association, inhibition of tyrosine phosphorylation suppressed the increased association of p120-Cas  with E-cadherin. This situation in differentiating keratinocytes may be similar to that reported for <italic>ras</italic>-transformed  breast epithelial cells, where tyrosine phosphorylation of p120  was correlated with increased association with E-cadherin  (<xref ref-type="bibr" rid="B26">Kinch et al., 1995</xref>).</p>
+      <p>p120-Cas binds to E-cadherin in close proximity to the  binding site for &#x3B2;- and &#x3B3;-catenins (<xref ref-type="bibr" rid="B11">Daniel and Reynolds,  1995</xref>; <xref ref-type="bibr" rid="B50">Shibamoto et al., 1995</xref>). However, unlike these latter  molecules, p120-Cas does not bind to &#x3B1;-catenin and thus  may function by blocking the interactions of E-cadherin  with this latter protein and, indirectly, with the cytoskeleton (<xref ref-type="bibr" rid="B11">Daniel and Reynolds, 1995</xref>). An attractive working  hypothesis is that tyrosine phosphorylation could play two  complementary functions in the changes in cell adhesion  connected with keratinocyte differentiation. Tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins, by promoting &#x3B1;-catenin  association, would enable cadherin&#x2013;catenin complexes to  become more firmly connected to the actin cytoskeleton,  thus enhancing the strength of cell adhesion. By concomitantly increasing E-cadherin/p120-Cas complex formation,  tyrosine phosphorylation of these latter molecules would  ensure fluidity of cell adhesion, thus allowing stratification. Besides the biochemical data, this hypothesis would  be consistent with the functional and structural analysis  discussed below.</p>
+      <p>Previously used assays of cell adhesion depend on dissociation of cells followed by measurement of their reassociation in suspension and/or after centrifugation (<xref ref-type="bibr" rid="B55">Takeda et al.,  1995</xref>; <xref ref-type="bibr" rid="B3">Angres et al., 1996</xref>). The dispase assay that we have  developed provides a useful alternative, in that it allows to  evaluate epithelial cells as confluent layers, without any  previous disruption of already formed cell contacts, and  taking into account the cohesive strength of both adherens  junction and desmosome formation. Using this approach,  we have found that the cohesiveness of keratinocyte cell  adhesion induced by calcium is significantly lessened by  tyrosine kinase inhibition, and this is associated with a  strongly reduced number of well-formed cell junctions.  Similar alterations were observed with confluent cultures  of <italic>fyn</italic>-deficient keratinocytes, in which calcium-induced  tyrosine phosphorylation was strongly decreased, even if  not totally suppressed (as discussed further below). In  both Genistein-treated and <italic>fyn</italic>-deficient keratinocytes, a  distinguishing feature that accompanies the scarcity of intercellular junctions and separation of cell&#x2013;cell borders, is  the formation of pseudopod-like extensions, which may  correspond to abortive attempts of cells to establish stable  junctions with each other. Interestingly, adherens junction  formation has been recently reported to depend on a second signaling pathway involving the <italic>rho</italic> and <italic>rac</italic> GTPases,  which control actin/cytoskeleton organization and cell motility (<xref ref-type="bibr" rid="B6">Braga et al., 1997</xref>). Thus, it is tempting to suggest  that efficient adherens junctions formation involves at least  two complementary, and possibly sequential, steps. Active  movement at the cell membrane, leading to bridging protrusions from neighboring cells, would occur in a <italic>rho</italic>- and  <italic>rac</italic>-dependent fashion, whereas establishment of fully assembled adherens junctions would be under tyrosine phosphorylation control.</p>
+      <p>Besides increased strength, fluidity of cell contacts is an  important element in keratinocyte differentiation, allowing these cells to stratify (<xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>; <xref ref-type="bibr" rid="B58">Tao et al., 1996</xref>).  Evidence for tyrosine phosphorylation being involved in  dynamic control of cell adhesion is provided by the strongly  reduced stratification of keratinocytes treated with tyrosine  kinase inhibitors (<xref ref-type="bibr" rid="B13">Filvaroff et al., 1990</xref>) or deficient for the  Fyn kinase after calcium exposure (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>).  Whether or not <italic>rho</italic>- and <italic>rac</italic>-dependent pathways are also  involved in the stratification process is obviously a relevant question that remains to be assessed.</p>
+      <p>A final issue raised by our results is which kinase(s) are  responsible for tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins  and p120-Cas in differentiating keratinocytes. A specific  involvement of the Fyn kinase is indicated by the fact that  tyrosine phosphorylation of these catenins is significantly  reduced in cultured keratinocytes with a disruption of the  <italic>fyn</italic> but not <italic>yes</italic> or <italic>src</italic> kinase genes. This fact is consistent  with our previous findings that the Fyn kinase is specifically activated in differentiating keratinocytes in culture,  and that a number of differentiation parameters are selectively altered in the <italic>fyn</italic>-deficient cells (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>).  However, Fyn is not the only kinase to be involved, as a  lower level of basal and calcium-induced tyrosine phosphorylation of these catenins is still observed in the <italic>fyn</italic>- deficient keratinocytes. We previously showed that a  second independent tyrosine kinase is activated in calcium- induced keratinocyte differentiation (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>),  and it is possible that Fyn and the other calcium-induced  kinase cooperate in control of catenin function by phosphorylation. In addition, other Src family members are  likely to contribute to catenin tyrosine phosphorylation in  keratinocytes. In fact, we have found that functional compensation of Src family members clearly occurs in vivo, as  tyrosine phosphorylation levels of &#x3B2;-catenin are essentially normal in the skin of newborn mice with a single <italic>fyn</italic>  knockout mutation, whereas they are significantly decreased in the skin of mice with a concomitant disruption  of <italic>fyn</italic> and <italic>src</italic> genes. Interestingly, in these same mice, protein levels of p120-Cas, and not simply its tyrosine phosphorylation, are drastically reduced. This points to a so far  unexplored control of catenin function by <italic>src</italic>-related kinases, which may be consistent with the already reported  upregulation of p120-Cas expression in <italic>src</italic>-transformed  cells (<xref ref-type="bibr" rid="B35">Mo and Reynolds, 1996</xref>).</p>
+      <p>In parallel with the biochemical findings, the skin of the  double <italic>fyn</italic>/<italic>src</italic> mutants showed striking ultra structural abnormalities, with widely disrupted interdesmosomal spaces  at sites where adherens junctions are usually found. By  contrast, density and structure of desmosomes were essentially normal. In vitro, our data are consistent with the previous demonstration that impaired adherens junction formation affects desmosome assembly as well (<xref ref-type="bibr" rid="B22">Hodivala and  Watt, 1994</xref>; <xref ref-type="bibr" rid="B30">Lewis et al., 1994</xref>; <xref ref-type="bibr" rid="B2">Amagai et al., 1995</xref>). In vivo,  the results with the <italic>fyn</italic>/<italic>src</italic> mutant skin suggest that control of adherens junctions and desmosome formation are  at least partially independent. This possibility would also  be consistent with the strikingly different composition of  E-cadherin complexes in the in vitro versus in vivo situation, where the ratio of &#x3B2;- to &#x3B3;-catenin appears to be markedly increased.</p>
+      <p>The skin of mice with a concomitant disruption of the  <italic>fyn</italic> and <italic>yes</italic> genes showed none of the alterations in cell  adhesion found in the skin of <italic>fyn</italic>/<italic>src</italic> mutants, indicating  that the Src and Yes kinases can compensate for lack of  Fyn to a different extent. In fact, in the <italic>fyn</italic>/<italic>yes</italic> knockout  skin tyrosine phosphorylation of &#x3B2;-catenin and expression  of p120-Cas were found to be decreased, but to a significantly lesser extent than in the <italic>fyn</italic>/<italic>src</italic> mutants. In addition, other more selective biochemical defects may occur  in the <italic>fyn</italic>/<italic>src</italic> knockout epidermis, which could contribute  to its striking reduction in cell adhesion.</p>
+      <p>Taken together, our results indicate that tyrosine phosphorylation, and Fyn-related kinases in particular, play an  essential function in one critical aspect of keratinocyte differentiation, i.e., control of cell adhesion. This regulatory  function is important not only in vitro but also in vivo.  More generally, our findings support the notion that in  partially redundant regulatory systems, such as that of Src  family kinases, the biochemical response of cells in tissues  is much more plastic than in culture, so that a combined in  vitro/in vivo approach is necessary to dissect the function  of any individual component.</p>
+    </sec>
+  </body>
+  <back>
+    <sec sec-type="display-objects">
+      <title>Figures and Tables</title>
+      <fig position="float" id="F1">
+        <label>Figure 1</label>
+        <caption>
+          <p>Colocalization of  phosphotyrosine with &#x3B2;-catenin and p120-Cas in the cortical cytoskeleton of differentiating keratinocytes. Mouse  primary keratinocytes in low  calcium medium or at 9 h of  calcium exposure were pre-extracted in 0.2% Triton  X-100 buffer before paraformaldehyde fixation as described in Materials and  Methods. Cells were double  stained with anti-phosphotyrosine antibodies and FITC-conjugated secondaries (<italic>green</italic>)  and antibodies against either  &#x3B2;-catenin (<italic>top panels</italic>) or  p120-Cas (<italic>bottom panels</italic>),  and Texas red&#x2013;conjugated  secondaries (<italic>red</italic>). Samples  were analyzed by confocal  microscopy and green and  red images (<italic>small panels</italic>)  were superimposed (<italic>large  panels</italic>), so that sites of staining overlap are visualized as  yellow. Bars: (<italic>large panels</italic>)  15 &#x3BC;m; (<italic>small panels</italic>) 33 &#x3BC;m.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f1"/>
+      </fig>
+      <fig position="float" id="F2">
+        <label>Figure 2</label>
+        <caption>
+          <p>Tyrosine phosphorylation and cadherin association of &#x3B1;-, &#x3B2;-, and &#x3B3;-catenins  and p120-Cas in growing versus differentiating keratinocytes. (<italic>A&#x2013;D</italic>) Keratinocytes  in low calcium medium (<italic>0</italic>),  and at various times after calcium addition were lysed in  0.5% NP-40 lysis buffer and  immunoprecipitated with antibodies against E-cadherin  (<italic>A</italic>), &#x3B2;-catenin, or &#x3B3;-catenin/ plakoglobin (<italic>B</italic>), desmoglein  3 (<italic>C</italic>), or p120-Cas (<italic>D</italic>). In all  cases, control immunoprecipitations with unrelated antibodies were included (&#x2212;).  Immune complexes were analyzed by SDS-PAGE and  anti-phosphotyrosine immunoblotting (<italic>left panels</italic>). The  same blots were subsequently  reprobed with antibodies against specific proteins as indicated (<italic>right panels</italic>). Positions of these molecules in the anti-phosphotyrosine  immunoblots are indicated. In <italic>C</italic>, the band recognized by anti-phosphotyrosine antibodies that migrates above &#x3B3;-catenin is nonspecific,  since it is also detected in the nonimmune control. (<italic>E</italic>) Association of p120-Cas with E-cadherin, as detected by immunoprecipitation  under milder stringency conditions than in the previous experiments. Keratinocytes in low calcium medium (<italic>0</italic>), and at 9 h after calcium  addition (2 mM) were lysed in a 0.2% Triton X-100 lysis buffer and immunoprecipitated with E-cadherin&#x2013;specific monoclonals or with  unrelated control monoclonals (&#x2212;). Immune complexes were analyzed by SDS-PAGE and sequential immunoblotting with antibodies  against phosphotyrosine (<italic>p-Tyr</italic>), p120-Cas (<italic>p120-Cas</italic>), a mixture of antibodies against &#x3B2;- and &#x3B3;-catenins (<italic>&#x3B2;/&#x3B3;-cat.</italic>) and E-cadherin  (<italic>E-cadh.</italic>).</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f2"/>
+      </fig>
+      <fig position="float" id="F3">
+        <label>Figure 3</label>
+        <caption>
+          <p>Time course of cell adhesion  formation in mouse primary keratinocytes after calcium treatment, and as  a function of tyrosine phosphorylation.  Mouse primary keratinocytes in low  calcium medium or at 2 and 9 h of calcium exposure were pre-extracted in  0.2% Triton X-100 buffer before  paraformaldehyde fixation as described  in Materials and Methods. Parallel experiments were performed with cells  pretreated for 2 h with 100 &#x3BC;M Genistein  (<italic>Gen</italic>) and incubated for additional 9 h  under high calcium conditions. Cells  were stained with antibodies against  E-cadherin (<italic>left panels</italic>, <italic>red</italic>) or plakophilin (<italic>right panels</italic>, <italic>green</italic>). Samples  were analyzed by confocal microscopy.  Each image results from the projection  of eight different focal plans of the  same field, and is representative of  what observed in the individual focal  plans. Bar, 15 &#x3BC;m.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f3"/>
+      </fig>
+      <fig position="float" id="F4">
+        <label>Figure 4</label>
+        <caption>
+          <p>E-cadherin association of &#x3B1;-, &#x3B2;-, and &#x3B3;-catenins and  p120-Cas in growing versus differentiating keratinocytes as affected by tyrosine kinase inhibition. Growing keratinocytes were  pretreated for 2 h with either 100 &#x3BC;M Genistein (<italic>Gen</italic>), Tyrphostin 23 (<italic>Trph</italic>), or with DMSO solvent alone (<italic>Ctr</italic>). Incubation was  then continued for additional 9 h under either low (<italic>L</italic>) or high  (<italic>H</italic>) calcium conditions. Cells were lysed in either 0.5% NP-40 lysis buffer (<italic>A</italic>) or 0.2% Triton X-100 lysis buffer (<italic>B</italic>), and immunoprecipitated with anti&#x2013;E-cadherin antibodies. Immune complexes  were separated by SDS-PAGE and immunoblotted sequentially,  as indicated, with antibodies against phosphotyrosine, &#x3B1;-catenin,  a mixture of anti&#x2013;&#x3B2;- and anti&#x2013;&#x3B3;-catenin antibodies, antibodies  against p120-Cas, and against E-cadherin. In the experiment of  <italic>A</italic>, two independent sets of control samples were included, to illustrate the reproducibility of the calcium-induced increase in  &#x3B1;-catenin association with E-cadherin under normal conditions.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f4"/>
+      </fig>
+      <fig position="float" id="F5">
+        <label>Figure 5</label>
+        <caption>
+          <p>Strength of &#x3B1;-catenin association with E-cadherin complexes as a direct  function of tyrosine phosphorylation. (<italic>A</italic>) Keratinocytes in low calcium medium (<italic>L</italic>) and at 9 h after  high calcium addition (<italic>H</italic>)  were lysed in 0.5% NP-40 lysis buffer, and immunoprecipitated with mAbs against  E-cadherin. Immunocomplexes were treated with tyrosine-specific phosphatase  (<italic>PTPase</italic>) &#xB1; phosphatase-specific inhibitors, followed  by washing under high stringency conditions, as described  in Materials and Methods.  Samples were analyzed by  SDS-PAGE and anti-phosphotyrosine immunoblotting  (<italic>top panel</italic>). The same blots were subsequently reprobed with antibodies against &#x3B1;-, &#x3B2;-, and &#x3B3;-catenins, and E-cadherin, as indicated. (<italic>B</italic>) A second independent experiment was performed,  similar to the previous one, except that E-cadherin immunoprecipitated samples from keratinocytes at 9 h of calcium treatment  were normalized for amounts of &#x3B2;- and &#x3B3;-catenin levels (by a preliminary immunoblotting experiment), before the immunoblot  analysis shown here. Densitometric quantitation of the film indicated that the relative ratio of &#x3B1;-catenin in the immunoprecipitates treated with phosphatase plus versus minus inhibitor was  6.2, while that of &#x3B2;- and &#x3B3;-catenin was 1.2 and 0.8, respectively.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f5a"/>
+        <graphic xlink:href="JCB16521.f5b"/>
+      </fig>
+      <fig position="float" id="F6">
+        <label>Figure 6</label>
+        <caption>
+          <p>Inefficient cell&#x2013;cell junction formation  in calcium-treated keratinocytes as a consequence of tyrosine kinase inhibition or lack of  the Fyn kinase. (<italic>A</italic>) Confluent keratinocyte cultures under growing conditions were either kept  as untreated controls (<italic>Control</italic>) or pretreated for  2 h with 100 &#x3BC;M Genistein (<italic>Gen</italic>) or Tyrphostin  23 (<italic>Trph</italic>). Incubation was then continued for additional 9 h under high calcium conditions. Cells  were fixed and processed for electron microscopy as described in Materials and Methods. The  protrusions from neighboring cells in the  Genistein-treated cultures were consistently observed. (<italic>B</italic>) Primary keratinocytes derived from  <italic>fyn</italic>&#x2212;/&#x2212; mice and wild-type littermates were exposed to high calcium concentrations (2 mM) for  9 h. Cells were fixed and processed for electron  microscopy. Note that in the <italic>fyn</italic>&#x2212;/&#x2212; cultures,  cell borders were far apart and connected by  protrusions of the cell membrane similar to those  found with genistein-treated keratinocytes (as  shown in <italic>A</italic>). Note the presence of well formed  cell adhesive junctions in control cells and <italic>fyn</italic>+/+  cells (<italic>A</italic> and <italic>B</italic>, <italic>white arrows</italic>) and the lack of  well-formed junctions and of cytoskeleton organization in the tyrosine kinase inhibitor treated and <italic>fyn</italic>&#x2212;/&#x2212; cells (<italic>A</italic> and <italic>B</italic>, <italic>black arrows</italic>). Adherens junctions and desmosomes can be defined as electron dense intercellular adhesive structures connected with the actin  and keratin cytoskeleton, respectively. Unlike in vivo, in most of our EM photographs of cultured keratinocytes it is hard to see electron-dense junctional structures in connection with either the actin or keratin cytoskeleton, and therefore to conclusively distinguish between adherens junctions and desmosomes. In all cases, the observed alterations (&gt;70% reduction in mature cell junction formation)  were observed throughout the dishes (in each case examining at least 10 different fields), and were confirmed in a minimal of two independent experiments. Bars: (<italic>A</italic>) 200 nm; (<italic>B</italic>) 100 nm.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f6"/>
+      </fig>
+      <fig position="float" id="F7">
+        <label>Figure 7</label>
+        <caption>
+          <p>Decreased strength of calcium-induced cell adhesion as  a consequence of tyrosine kinase inhibition or lack of the Fyn kinase. (<italic>A</italic>) Primary keratinocytes under growing conditions were  either tested as untreated controls (<italic>Ctr</italic>) or pretreated for 2 h with  Genistein. Incubation was then continued for additional 24 h under high calcium conditions. Cultures were examined as such (<italic>left  panels</italic>) or after dispase treatment for 5 min (<italic>right panels</italic>). <italic>Arrows</italic>, the focal areas of cell detachment that occurred in the tyrosine kinase inhibitor-treated cultures. No such areas were evident in control cultures even after prolonged dispase exposure  (&gt;30 min). Instead, control cells eventually detached from the  dish as a confluent sheet. Similar results were observed with keratinocyte cultures switched to high calcium conditions for only 9 h  (not shown). (<italic>B</italic>) Primary keratinocytes derived from <italic>fyn</italic>&#x2212;/&#x2212;  mice and wild-type littermates were exposed to high calcium concentrations (2 mM) for 9 h. Cultures were examined as such (<italic>left  panels</italic>) or after treatment with dispase for 5 min (<italic>right panels</italic>).  <italic>Arrows</italic>, the focal areas of cell detachment that occurred in the  <italic>fyn</italic>&#x2212;/&#x2212; cultures already at this time. There were no cells missing  in the monolayer of <italic>fyn</italic> knockout keratinocytes before dispase  treatment. As we previously reported (<xref ref-type="bibr" rid="B7">Calautti et al., 1995</xref>), the  <italic>fyn</italic> knockout keratinocytes fail to stratify and are larger than  normal, which explains the different morphological appearance  of these cultures relative to the wild-type controls even before  dispase treatment. Similar results were observed in two other independent experiments. Bar, 60 &#x3BC;m.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f7"/>
+      </fig>
+      <fig position="float" id="F8">
+        <label>Figure 8</label>
+        <caption>
+          <p>Quantitative measurements of keratinocyte cell adhesion as determined by a novel dispase-based assay. (<italic>A</italic>) Primary  keratinocytes under low calcium conditions (<italic>Low Ca</italic>) or treated  with calcium for 2 or 9 h (<italic>Ca</italic>) were incubated with dispase for 35  min as described in Materials and Methods. Data are expressed  as percentage of single cells released by mechanical disruption after dispase treatment versus total number of cells recovered after  subsequent treatment of the same samples with trypsin. (<italic>B</italic>) A  similar assay was performed with keratinocytes under low calcium conditions or incubated with calcium for 9 h (<italic>Ca</italic>) in the absence or presence of Genistein (100 &#x3BC;M) (<italic>Gen</italic>), Thyrphostin  (100 &#x3BC;M) (<italic>Trph</italic>), or PP1 (1 &#x3BC;g/ml). Cells were preincubated with  the inhibitors for 2 h before calcium treatment. (<italic>C</italic>) Keratinocytes  under low calcium conditions were infected with a control adenovirus expressing the green fluorescent protein (<italic>Ad-GFP</italic>) or a virus expressing a constitutively active form of c-src (<italic>Ad-src</italic>). 24 h  after infection, cells were switched to high calcium medium and  incubation was continued for additional 24 h (<italic>Ca</italic>). Cells were analyzed by the dispase assay as before, together with control uninfected cells kept in either low or high calcium medium for 24 h.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f8"/>
+      </fig>
+      <fig position="float" id="F9">
+        <label>Figure 9</label>
+        <caption>
+          <p>Tyrosine phosphorylation and protein composition of  E-cadherin complexes in control versus src-transformed keratinocytes. Keratinocytes under low calcium conditions were infected with either a green fluorescent protein control adenovirus  (<italic>Ad-GFP</italic>) or a virus expressing constitutively active c-src (<italic>Ad-src</italic>). 24 h after infection cells were incubated in either low (<italic>L</italic>) or  high (<italic>H</italic>) calcium medium for additional 9 h, in parallel with control uninfected cells (<italic>Uninf.</italic>). Keratinocytes were lysed in 0.5%  NP-40 lysis buffer, and immunoprecipitated with mAbs against  E-cadherin. Samples were analyzed by SDS-PAGE and anti-phosphotyrosine immunoblotting (<italic>p-Tyr</italic>, <italic>left</italic>). The same blot was  subsequently reprobed with antibodies against &#x3B1;-catenin (<italic>&#x3B1;-cat.</italic>),  &#x3B2;-catenin, and &#x3B3;-catenin (<italic>&#x3B2;/&#x3B3;-cat.</italic>), E-cadherin (<italic>EC</italic>), and Src as  indicated (<italic>right panels</italic>). The asterisk on the anti-phosphotyrosine  immunoblot indicates one of the additional tyrosine phosphorylated proteins that are present in the E-cadherin immunoprecipitates from Src-expressing cells, and which become more evident  after prolonged exposures.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f9"/>
+      </fig>
+      <fig position="float" id="F10">
+        <label>Figure 10</label>
+        <caption>
+          <p>Colocalization of  Fyn and E-cadherin at sites  of cell&#x2013;cell adhesion in calcium-treated keratinocytes.  Mouse primary keratinocytes  in low calcium medium (<italic>top  row</italic>) or at 9 h of calcium exposure (<italic>bottom row</italic>) were  pre-extracted in 0.2% Triton  X-100 buffer before paraformaldehyde fixation as described  in Materials and Methods.  Cells were double stained with  affinity-purified anti-Fyn polyclonal antibodies and FITC-conjugated secondaries (<italic>green</italic>)  and mAbs against E-cadherin  and Texas red&#x2013;conjugated  secondaries (<italic>red</italic>). Samples  were analyzed by confocal  microscopy and green and red  images were superimposed  (<italic>right panels</italic>), so that sites of  staining overlap are visualized as yellow. Images correspond to single focal plans.  Bar, 15 &#x3BC;m.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f10"/>
+      </fig>
+      <fig position="float" id="F11">
+        <label>Figure 11</label>
+        <caption>
+          <p>Tyrosine phosphorylation of &#x3B2;- and &#x3B3;-catenins and  p120-Cas in wild-type versus <italic>fyn</italic>&#x2212;/&#x2212; keratinocytes, and in the skin  of mice with single versus double knockout mutations of <italic>fyn</italic>- related genes. (<italic>A</italic>) Primary keratinocytes derived from <italic>fyn</italic>&#x2212;/&#x2212;  mice and genetically matched wild-type controls were either kept  in low calcium medium (<italic>0</italic>) or exposed to high calcium concentrations (mm) for the indicated amounts of time. Cells were lysed in  0.5% NP-40 lysis buffer, and immunoprecipitated with mAbs  against either E-cadherin (<italic>A</italic>) or p120-Cas (<italic>B</italic>). In <italic>A</italic>, a second independent experiment is also shown, with E-cadherin immunoprecipitates from keratinocytes with a disruption of the <italic>fyn</italic> versus  <italic>yes</italic> kinase gene. Immune complexes were analyzed by SDS-PAGE  and immunoblotting with anti-phosphotyrosine antibodies (<italic>top  panels</italic>) and with a mixture of antibodies against &#x3B2;- and &#x3B3;-catenins  or anti&#x2013;p120-Cas (<italic>bottom panels</italic>). (<italic>B</italic>) Pattern of tyrosine phosphorylation and of &#x3B2;- and &#x3B3;-catenin association in E-cadherin  complexes derived from newborn wild-type mouse skin (<italic>Skin</italic>)  versus cultured keratinocytes (<italic>Krcts</italic>). Total extracts of newborn  mouse skin along with extracts from cultured keratinocytes at 9 h  after calcium exposure were immunoprecipitated with anti&#x2013;E-cadherin antibodies or with unrelated control antibodies (&#x2212;). Immunoprecipitates were analyzed by SDS-PAGE and sequential immunoblotting with antibodies against phosphotyrosine (<italic>p-Tyr</italic>),  &#x3B2;- and &#x3B3;-catenins and E-cadherin, as indicated. (<italic>C</italic>) tyrosine phosphorylation of E-cadherin associated proteins (&#x3B2;-catenin) in the  skin of newborn mice with single versus double knockout mutations of <italic>fyn</italic>-related genes. Newborn mice with single knockout  mutations of the <italic>fyn</italic> (<italic>F</italic><sup>&#x2212;</sup>), <italic>src</italic> (<italic>S</italic><sup>&#x2212;</sup>), and <italic>yes</italic> (<italic>Y</italic><sup>&#x2212;</sup>) genes, and with  double <italic>fyn</italic>/<italic>src</italic> (<italic>F</italic><sup>&#x2212;</sup>/<italic>S</italic><sup>&#x2212;</sup>) and <italic>fyn</italic>/<italic>yes</italic> (<italic>F</italic><sup>&#x2212;</sup>/<italic>Y</italic><sup>&#x2212;</sup>) mutations and wild-type littermates, were killed immediately after birth. Total skin extracts were normalized for E-cadherin amounts by preliminary  SDS-PAGE and immunoblotting with E-cadherin antibodies.  Normalized extracts were immunoprecipitated with anti&#x2013;E-cadherin antibodies followed by SDS-PAGE and immunoblotting  with anti-phosphotyrosine antibodies (<italic>top panel</italic>). The same blot  was reprobed with antibodies against &#x3B2;-catenin (<italic>bottom panel</italic>).  (<italic>D</italic>) Tyrosine phosphorylation and total protein levels of p120-Cas in the skin of newborn mice with single versus double knockout mutations of <italic>fyn</italic>-related genes. Same amounts of the extracts  used above were immunoprecipitated with anti&#x2013;p120-Cas antibodies followed by SDS-PAGE and immunoblotting with anti-phosphotyrosine antibodies (<italic>top panel</italic>). The same blot was reprobed with antibodies against p120-Cas (<italic>bottom panel</italic>).</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f11a"/>
+        <graphic xlink:href="JCB16521.f11bd"/>
+      </fig>
+      <fig position="float" id="F12">
+        <label>Figure 12</label>
+        <caption>
+          <p>Altered cell&#x2013;cell adhesion in the skin of double <italic>fyn</italic>/<italic>src</italic>  knockouts as directly assessed by ultra structural analysis. Newborn mice with single versus double knockout mutations of the  <italic>fyn</italic> (<italic>F</italic><sup>&#x2212;</sup>), <italic>src</italic> (<italic>S</italic><sup>&#x2212;</sup>), and <italic>yes</italic> (<italic>Y</italic><sup>&#x2212;</sup>) genes, and wild-type littermates,  were killed immediately after birth and skin samples were processed for electron microscopy. (A) Ultrastructural analysis of  skin from a wild-type newborn animal. (<italic>B</italic> and <italic>C</italic>) Ultrastructural  analysis of the skin from a double <italic>fyn</italic>/<italic>src</italic> knockout animal at high  (<italic>B</italic>) and low (<italic>C</italic>) magnification. Similar alterations were found in  the skin of three double <italic>fyn</italic>/<italic>src</italic> knockouts, derived from two independent litters. Arrows point to the interdesmosomal areas of  cell detachment found in the <italic>fyn</italic>/<italic>src</italic> mutant skin. The skin of all  other mutant animals was found to have desmosomal structures  and interdesmosomal spaces similar to the wild-type controls.  Bars: (<italic>A</italic> and <italic>B</italic>) 300 nm; (<italic>C</italic>) 1.4 &#x3BC;m.</p>
+        </caption>
+        <graphic xlink:href="JCB16521.f12"/>
+      </fig>
+    </sec>
+    <ack>
+      <p>We thank Drs. P. Cowin and J. Stanley for their generous gift of antibodies, and Drs. J. Gonzales, Y. Ge, and M. Ericsson for their help with the  mouse colony, confocal microscopy, and electron microscopy, respectively. We also thank Drs. T.W. Wang, David Rimm, and F. Di Cunto for  critical reading of the manuscript. </p>
+      <p>This work was supported by National Institutes of Health Grants  AR39190, CA64043, and CA73796 to G.P. Dotto. This work was also supported in part by the Cutaneous Biology Research Center through the  Massachusetts General Hospital/Shiseido Co. Ltd. Agreement; and by a  research fellowship sponsored by Elizabeth Arden Company from the Dermatology Foundation to E. Calautti; and an Arthritis Foundation Investigator Award and funds from the Council for Tobacco Research, U.S.A.,  to P.L. Stein.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="B1">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aberle</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hoschuetzky</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kemler</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Single amino acid substitutions in proteins of the armadillo gene family abolish their binding to &#x3B1;-catenin</article-title>
+          <source>J Biol Chem</source>
+          <year>1996</year>
+          <volume>271</volume>
+          <fpage>1520</fpage>
+          <lpage>1526</lpage>
+          <pub-id pub-id-type="pmid">8576147</pub-id>
+        </citation>
+      </ref>
+      <ref id="B2">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Amagai</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fujimori</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Masunaga</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nishikawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Shimizu</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Hashimoto</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Delayed assembly of desmosomes in keratinocytes with disrupted classic- cadherin-mediated cell adhesion by a dominant negative mutant</article-title>
+          <source>J Invest Dermatol</source>
+          <year>1995</year>
+          <volume>104</volume>
+          <fpage>27</fpage>
+          <lpage>32</lpage>
+          <pub-id pub-id-type="pmid">7528244</pub-id>
+        </citation>
+      </ref>
+      <ref id="B3">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Angres</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Barth</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nelson</surname>
+              <given-names>WJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanism for transition from initial to stable cell&#x2013;cell adhesion: Kinetic analysis of E-cadherin&#x2013;mediated adhesion using a quantitative adhesion assay</article-title>
+          <source>J Cell Biol</source>
+          <year>1996</year>
+          <volume>134</volume>
+          <fpage>549</fpage>
+          <lpage>557</lpage>
+          <pub-id pub-id-type="pmid">8707837</pub-id>
+        </citation>
+      </ref>
+      <ref id="B4">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Behrens</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Vakaet</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Friis</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Winterhager</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Van Roy</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Mareel</surname>
+              <given-names>MM</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Loss of epithelial differentiation and gain of invasiveness correlates with tyrosine phosphorylation of the E-cadherin/&#x3B2;-catenin complex in cells transformed with a temperature-sensitive v-SRC gene</article-title>
+          <source>J  Cell Biol</source>
+          <year>1993</year>
+          <volume>120</volume>
+          <fpage>757</fpage>
+          <lpage>766</lpage>
+          <pub-id pub-id-type="pmid">8425900</pub-id>
+        </citation>
+      </ref>
+      <ref id="B5">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Behrens</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>von Kries</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Kuhl</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Bruhn</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Wedlich</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Grosschedl</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>W</given-names>
+            </name>
+          </person-group>
+          <article-title>Functional interaction of &#x3B2;-catenin with the transcription factor LEF-1</article-title>
+          <source>Nature</source>
+          <year>1996</year>
+          <volume>382</volume>
+          <fpage>638</fpage>
+          <lpage>642</lpage>
+          <pub-id pub-id-type="pmid">8757136</pub-id>
+        </citation>
+      </ref>
+      <ref id="B6">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Braga</surname>
+              <given-names>VMM</given-names>
+            </name>
+            <name>
+              <surname>Machesky</surname>
+              <given-names>LM</given-names>
+            </name>
+            <name>
+              <surname>Hall</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Hotchin</surname>
+              <given-names>NA</given-names>
+            </name>
+          </person-group>
+          <article-title>The small GTPases Rho and Rac are required for the establishment of cadherin- dependent cell&#x2013;cell contacts</article-title>
+          <source>J Cell Biol</source>
+          <year>1997</year>
+          <volume>137</volume>
+          <fpage>1421</fpage>
+          <lpage>1431</lpage>
+          <pub-id pub-id-type="pmid">9182672</pub-id>
+        </citation>
+      </ref>
+      <ref id="B7">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Calautti</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Missero</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Stein</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Ezzell</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Dotto</surname>
+              <given-names>GP</given-names>
+            </name>
+          </person-group>
+          <article-title>fyn tyrosine kinase is involved in keratinocyte differentiation control</article-title>
+          <source>Genes Dev</source>
+          <year>1995</year>
+          <volume>9</volume>
+          <fpage>2279</fpage>
+          <lpage>2291</lpage>
+          <pub-id pub-id-type="pmid">7557381</pub-id>
+        </citation>
+      </ref>
+      <ref id="B8">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Carpino</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Wisniewski</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Strife</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Marshak</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Kobayashi</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Stillman</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Clarkson</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>p62(dok): a constitutively tyrosine-phosphorylated, GAP-associated protein in chronic myelogenous leukemia progenitor cells</article-title>
+          <source>Cell</source>
+          <year>1997</year>
+          <volume>88</volume>
+          <fpage>197</fpage>
+          <lpage>204</lpage>
+          <pub-id pub-id-type="pmid">9008160</pub-id>
+        </citation>
+      </ref>
+      <ref id="B9">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cowin</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Burke</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Cytoskeleton-membrane interactions</article-title>
+          <source>Curr  Opin Cell Biol</source>
+          <year>1996</year>
+          <volume>8</volume>
+          <fpage>56</fpage>
+          <lpage>65</lpage>
+          <pub-id pub-id-type="pmid">8791403</pub-id>
+        </citation>
+      </ref>
+      <ref id="B10">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Cowin</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Kapprell</surname>
+              <given-names>HP</given-names>
+            </name>
+            <name>
+              <surname>Franke</surname>
+              <given-names>WW</given-names>
+            </name>
+            <name>
+              <surname>Tamkun</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hynes</surname>
+              <given-names>RO</given-names>
+            </name>
+          </person-group>
+          <article-title>Plakoglobin: a protein common to different kinds of intercellular adhering junctions</article-title>
+          <source>Cell</source>
+          <year>1986</year>
+          <volume>46</volume>
+          <fpage>1063</fpage>
+          <lpage>1073</lpage>
+          <pub-id pub-id-type="pmid">3530498</pub-id>
+        </citation>
+      </ref>
+      <ref id="B11">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Daniel</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+          </person-group>
+          <article-title>The tyrosine kinase substrate p120cas binds directly to E-cadherin but not to the adenomatous polyposis coli protein or &#x3B1;-catenin</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1995</year>
+          <volume>15</volume>
+          <fpage>4819</fpage>
+          <lpage>4824</lpage>
+          <pub-id pub-id-type="pmid">7651399</pub-id>
+        </citation>
+      </ref>
+      <ref id="B12">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>El-Baradi</surname>
+              <given-names>TT</given-names>
+            </name>
+            <name>
+              <surname>Raue</surname>
+              <given-names>HA</given-names>
+            </name>
+            <name>
+              <surname>De Regt</surname>
+              <given-names>CH</given-names>
+            </name>
+            <name>
+              <surname>Planta</surname>
+              <given-names>RJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Stepwise dissociation of yeast 60S ribosomal subunits by LiCl and identification of L25 as a primary 26S rRNA binding protein</article-title>
+          <source>Eur J Biochem</source>
+          <year>1984</year>
+          <volume>144</volume>
+          <fpage>393</fpage>
+          <lpage>400</lpage>
+          <pub-id pub-id-type="pmid">6092072</pub-id>
+        </citation>
+      </ref>
+      <ref id="B13">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Filvaroff</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Stern</surname>
+              <given-names>DF</given-names>
+            </name>
+            <name>
+              <surname>Dotto</surname>
+              <given-names>GP</given-names>
+            </name>
+          </person-group>
+          <article-title>Tyrosine phosphorylation is an early and specific event involved in primary keratinocyte differentiation</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1990</year>
+          <volume>10</volume>
+          <fpage>1164</fpage>
+          <lpage>1173</lpage>
+          <pub-id pub-id-type="pmid">1689456</pub-id>
+        </citation>
+      </ref>
+      <ref id="B14">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Filvaroff</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Calautti</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>McCormick</surname>
+              <given-names>F</given-names>
+            </name>
+            <name>
+              <surname>Dotto</surname>
+              <given-names>GP</given-names>
+            </name>
+          </person-group>
+          <article-title>Specific changes of Ras GTPase-activating protein (GAP) and a GAP- associated p62 protein during calcium-induced keratinocyte differentiation</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1992</year>
+          <volume>12</volume>
+          <fpage>5319</fpage>
+          <lpage>5328</lpage>
+          <pub-id pub-id-type="pmid">1448067</pub-id>
+        </citation>
+      </ref>
+      <ref id="B15">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Filvaroff</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Calautti</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Reiss</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Dotto</surname>
+              <given-names>GP</given-names>
+            </name>
+          </person-group>
+          <article-title>Functional evidence for an extracellular calcium receptor mechanism triggering tyrosine kinase activation associated with mouse keratinocyte differentiation</article-title>
+          <source>J Biol Chem</source>
+          <year>1994</year>
+          <volume>269</volume>
+          <fpage>21735</fpage>
+          <lpage>21740</lpage>
+          <pub-id pub-id-type="pmid">8063817</pub-id>
+        </citation>
+      </ref>
+      <ref id="B16">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Fouquet</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Zimbelmann</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Franke</surname>
+              <given-names>WW</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of plakoglobin in oocytes and early embryos of Xenopus laevis: maternal expression of a gene encoding a junctional plaque protein</article-title>
+          <source>Differentiation</source>
+          <year>1992</year>
+          <volume>51</volume>
+          <fpage>187</fpage>
+          <lpage>194</lpage>
+          <pub-id pub-id-type="pmid">1459359</pub-id>
+        </citation>
+      </ref>
+      <ref id="B17">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gumbiner</surname>
+              <given-names>BM</given-names>
+            </name>
+          </person-group>
+          <article-title>Signal transduction of &#x3B2;-catenin</article-title>
+          <source>Curr Opin Cell Biol</source>
+          <year>1995</year>
+          <volume>7</volume>
+          <fpage>634</fpage>
+          <lpage>640</lpage>
+          <pub-id pub-id-type="pmid">8573337</pub-id>
+        </citation>
+      </ref>
+      <ref id="B18">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hamaguchi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Matsuyoshi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Ohnishi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Gotoh</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Nagai</surname>
+              <given-names>Y</given-names>
+            </name>
+          </person-group>
+          <article-title>p60v-src causes tyrosine phosphorylation and inactivation of the N-cadherin-catenin cell adhesion system</article-title>
+          <source>EMBO (Eur Mol Biol Organ) J</source>
+          <year>1993</year>
+          <volume>12</volume>
+          <fpage>307</fpage>
+          <lpage>314</lpage>
+          <pub-id pub-id-type="pmid">8381351</pub-id>
+        </citation>
+      </ref>
+      <ref id="B19">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hanke</surname>
+              <given-names>JH</given-names>
+            </name>
+            <name>
+              <surname>Gardner</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Dow</surname>
+              <given-names>RL</given-names>
+            </name>
+            <name>
+              <surname>Changelian</surname>
+              <given-names>PS</given-names>
+            </name>
+            <name>
+              <surname>Brissette</surname>
+              <given-names>WH</given-names>
+            </name>
+            <name>
+              <surname>Weringer</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Pollok</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Connelly</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>Discovery of a novel, potent, and Src family-selective tyrosine kinase inhibitor</article-title>
+          <source>J Biol Chem</source>
+          <year>1996</year>
+          <volume>271</volume>
+          <fpage>695</fpage>
+          <lpage>701</lpage>
+          <pub-id pub-id-type="pmid">8557675</pub-id>
+        </citation>
+      </ref>
+      <ref id="B20">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Heid</surname>
+              <given-names>HW</given-names>
+            </name>
+            <name>
+              <surname>Schmidt</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Zimbelmann</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Schafer</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Winter-Simanowski</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Stumpp</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Keith</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Figge</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Schnolzer</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Franke</surname>
+              <given-names>WW</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell type-specific desmosomal plaque proteins of the plakoglobin family: plakophilin 1 (band 6 protein)</article-title>
+          <source>Differentiation</source>
+          <year>1994</year>
+          <volume>58</volume>
+          <fpage>113</fpage>
+          <lpage>131</lpage>
+          <pub-id pub-id-type="pmid">7890138</pub-id>
+        </citation>
+      </ref>
+      <ref id="B21">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hennings</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Michael</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Cheng</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Steinert</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Holbrook</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Yuspa</surname>
+              <given-names>SH</given-names>
+            </name>
+          </person-group>
+          <article-title>Calcium regulation of growth and differentiation of mouse epidermal cells in culture</article-title>
+          <source>Cell</source>
+          <year>1980</year>
+          <volume>19</volume>
+          <fpage>245</fpage>
+          <lpage>254</lpage>
+          <pub-id pub-id-type="pmid">6153576</pub-id>
+        </citation>
+      </ref>
+      <ref id="B22">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hodivala</surname>
+              <given-names>KJ</given-names>
+            </name>
+            <name>
+              <surname>Watt</surname>
+              <given-names>FM</given-names>
+            </name>
+          </person-group>
+          <article-title>Evidence that cadherins play a role in the downregulation of integrin expression that occurs during keratinocyte terminal differentiation</article-title>
+          <source>J Cell Biol</source>
+          <year>1994</year>
+          <volume>124</volume>
+          <fpage>589</fpage>
+          <lpage>600</lpage>
+          <pub-id pub-id-type="pmid">8106556</pub-id>
+        </citation>
+      </ref>
+      <ref id="B23">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoschuetzky</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Aberle</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kemler</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>&#x3B2;-Catenin mediates the interaction of the cadherin&#x2013;catenin complex with epidermal growth factor receptor</article-title>
+          <source>J Cell Biol</source>
+          <year>1994</year>
+          <volume>127</volume>
+          <fpage>1375</fpage>
+          <lpage>1380</lpage>
+          <pub-id pub-id-type="pmid">7962096</pub-id>
+        </citation>
+      </ref>
+      <ref id="B24">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kanner</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Vines</surname>
+              <given-names>RR</given-names>
+            </name>
+            <name>
+              <surname>Parsons</surname>
+              <given-names>JT</given-names>
+            </name>
+          </person-group>
+          <article-title>Monoclonal antibodies to individual tyrosine-phosphorylated protein substrates of oncogene-encoded tyrosine kinases</article-title>
+          <source>Proc Natl Acad Sci USA</source>
+          <year>1990</year>
+          <volume>87</volume>
+          <fpage>3328</fpage>
+          <lpage>3332</lpage>
+          <pub-id pub-id-type="pmid">2110361</pub-id>
+        </citation>
+      </ref>
+      <ref id="B25">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kanner</surname>
+              <given-names>SB</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Parsons</surname>
+              <given-names>JT</given-names>
+            </name>
+          </person-group>
+          <article-title>Tyrosine phosphorylation of a 120-kilodalton pp60src substrate upon epidermal growth factor and platelet-derived growth factor receptor stimulation and in polyomavirus middle-T-antigen-transformed cells</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1991</year>
+          <volume>11</volume>
+          <fpage>713</fpage>
+          <lpage>720</lpage>
+          <pub-id pub-id-type="pmid">1703631</pub-id>
+        </citation>
+      </ref>
+      <ref id="B26">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kinch</surname>
+              <given-names>MS</given-names>
+            </name>
+            <name>
+              <surname>Clark</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <name>
+              <surname>Der</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Burridge</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <article-title>Tyrosine phosphorylation regulates the adhesions of ras-transformed breast epithelia</article-title>
+          <source>J Cell Biol</source>
+          <year>1995</year>
+          <volume>130</volume>
+          <fpage>461</fpage>
+          <lpage>471</lpage>
+          <pub-id pub-id-type="pmid">7542250</pub-id>
+        </citation>
+      </ref>
+      <ref id="B27">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Knudsen</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Soler</surname>
+              <given-names>AP</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Wheelock</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Interaction of &#x3B1;-actinin with the cadherin/catenin cell&#x2013;cell adhesion complex via &#x3B1;-catenin</article-title>
+          <source>J Cell Biol</source>
+          <year>1995</year>
+          <volume>130</volume>
+          <fpage>67</fpage>
+          <lpage>77</lpage>
+          <pub-id pub-id-type="pmid">7790378</pub-id>
+        </citation>
+      </ref>
+      <ref id="B28">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Korinek</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Barker</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Morin</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>van Wichen</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>de Weger</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Kinzler</surname>
+              <given-names>KW</given-names>
+            </name>
+            <name>
+              <surname>Vogelstein</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Clevers</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Constitutive transcriptional activation by a &#x3B2;-catenin-Tcf complex in APC-/- colon carcinoma</article-title>
+          <source>Science</source>
+          <year>1997</year>
+          <volume>275</volume>
+          <fpage>1784</fpage>
+          <lpage>1787</lpage>
+          <pub-id pub-id-type="pmid">9065401</pub-id>
+        </citation>
+      </ref>
+      <ref id="B29">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Levitzki</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Tyrphostins: tyrosine kinase blockers as novel antiproliferative agents and dissectors of signal transduction</article-title>
+          <source>FASEB (Fed Am Soc  Exp Biol) J</source>
+          <year>1992</year>
+          <volume>6</volume>
+          <fpage>3275</fpage>
+          <lpage>3282</lpage>
+          <pub-id pub-id-type="pmid">1426765</pub-id>
+        </citation>
+      </ref>
+      <ref id="B30">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lewis</surname>
+              <given-names>JE</given-names>
+            </name>
+            <name>
+              <surname>Jensen</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Wheelock</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Cadherin function is required for human keratinocytes to assemble desmosomes and stratify in response to calcium</article-title>
+          <source>J Invest Dermatol</source>
+          <year>1994</year>
+          <volume>102</volume>
+          <fpage>870</fpage>
+          <lpage>877</lpage>
+          <pub-id pub-id-type="pmid">8006450</pub-id>
+        </citation>
+      </ref>
+      <ref id="B31">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mathur</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Goodwin</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Cowin</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Interactions of the cytoplasmic domain of the desmosomal cadherin Dsg1 with plakoglobin</article-title>
+          <source>J Biol Chem</source>
+          <year>1994</year>
+          <volume>269</volume>
+          <fpage>14075</fpage>
+          <lpage>14080</lpage>
+          <pub-id pub-id-type="pmid">8188687</pub-id>
+        </citation>
+      </ref>
+      <ref id="B32">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matsuyoshi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Hamaguchi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Taniguchi</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Nagafuchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Tsukita</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Cadherin-mediated cell&#x2013;cell adhesion is perturbed by v-src tyrosine phosphorylation in metastatic fibroblasts</article-title>
+          <source>J Cell Biol</source>
+          <year>1992</year>
+          <volume>118</volume>
+          <fpage>703</fpage>
+          <lpage>714</lpage>
+          <pub-id pub-id-type="pmid">1639852</pub-id>
+        </citation>
+      </ref>
+      <ref id="B33">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Medema</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>de Vries-Smits</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Bos</surname>
+              <given-names>JL</given-names>
+            </name>
+          </person-group>
+          <article-title>Calcium induces tyrosine phosphorylation of a novel p120 GAP-associated protein of 65 kDa</article-title>
+          <source>Oncogene</source>
+          <year>1995</year>
+          <volume>11</volume>
+          <fpage>757</fpage>
+          <lpage>762</lpage>
+          <pub-id pub-id-type="pmid">7544452</pub-id>
+        </citation>
+      </ref>
+      <ref id="B34">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Miller</surname>
+              <given-names>JR</given-names>
+            </name>
+            <name>
+              <surname>Moon</surname>
+              <given-names>RT</given-names>
+            </name>
+          </person-group>
+          <article-title>Signal transduction through &#x3B2;-catenin and specification of cell fate during embryogenesis</article-title>
+          <source>Genes Dev</source>
+          <year>1996</year>
+          <volume>10</volume>
+          <fpage>2527</fpage>
+          <lpage>2539</lpage>
+          <pub-id pub-id-type="pmid">8895655</pub-id>
+        </citation>
+      </ref>
+      <ref id="B35">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Mo</surname>
+              <given-names>YY</given-names>
+            </name>
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of murine p120 isoforms and heterogeneous expression of p120cas isoforms in human tumor cell lines</article-title>
+          <source>Cancer Res</source>
+          <year>1996</year>
+          <volume>56</volume>
+          <fpage>2633</fpage>
+          <lpage>2640</lpage>
+          <pub-id pub-id-type="pmid">8653709</pub-id>
+        </citation>
+      </ref>
+      <ref id="B36">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morin</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Sparks</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Korinek</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Barker</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Clevers</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Vogelstein</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Kinzler</surname>
+              <given-names>KW</given-names>
+            </name>
+          </person-group>
+          <article-title>Activation of &#x3B2;-catenin-Tcf signaling in colon cancer by mutations in &#x3B2;-catenin or APC</article-title>
+          <source>Science</source>
+          <year>1997</year>
+          <volume>275</volume>
+          <fpage>1787</fpage>
+          <lpage>1790</lpage>
+          <pub-id pub-id-type="pmid">9065402</pub-id>
+        </citation>
+      </ref>
+      <ref id="B37">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nagafuchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Cell binding function of E-cadherin is regulated by the cytoplasmic domain</article-title>
+          <source>EMBO (Eur Mol Biol Organ) J</source>
+          <year>1988</year>
+          <volume>7</volume>
+          <fpage>3679</fpage>
+          <lpage>3684</lpage>
+          <pub-id pub-id-type="pmid">3061804</pub-id>
+        </citation>
+      </ref>
+      <ref id="B38">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nagafuchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Tsukita</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>The 102 kD cadherin-associated protein: similarity to vinculin and posttranscriptional regulation of expression</article-title>
+          <source>Cell</source>
+          <year>1991</year>
+          <volume>65</volume>
+          <fpage>849</fpage>
+          <lpage>857</lpage>
+          <pub-id pub-id-type="pmid">1904011</pub-id>
+        </citation>
+      </ref>
+      <ref id="B39">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>O'Keefe</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Briggaman</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Herman</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Calcium-induced assembly of adherens junctions in keratinocytes</article-title>
+          <source>J Cell Biol</source>
+          <year>1987</year>
+          <volume>105</volume>
+          <fpage>807</fpage>
+          <lpage>817</lpage>
+          <pub-id pub-id-type="pmid">2442175</pub-id>
+        </citation>
+      </ref>
+      <ref id="B40">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ozawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Baribault</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Kemler</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>The cytoplasmic domain of the cell adhesion molecule uvomorulin associates with three independent proteins structurally related in different species</article-title>
+          <source>EMBO (Eur Mol Biol Organ) J</source>
+          <year>1989</year>
+          <volume>8</volume>
+          <fpage>1711</fpage>
+          <lpage>1717</lpage>
+          <pub-id pub-id-type="pmid">2788574</pub-id>
+        </citation>
+      </ref>
+      <ref id="B41">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Papkoff</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of complexed and free catenin pools by distinct mechanisms. Differential effects of Wnt-1 and v-Src</article-title>
+          <source>J Biol Chem</source>
+          <year>1997</year>
+          <volume>272</volume>
+          <fpage>4536</fpage>
+          <lpage>4543</lpage>
+          <pub-id pub-id-type="pmid">9020180</pub-id>
+        </citation>
+      </ref>
+      <ref id="B42">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Herbert</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Cleveland</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Berg</surname>
+              <given-names>ST</given-names>
+            </name>
+            <name>
+              <surname>Gaut</surname>
+              <given-names>JR</given-names>
+            </name>
+          </person-group>
+          <article-title>p120, a novel substrate of protein tyrosine kinase receptors and of p60v-src, is related to cadherin-binding factors &#x3B2;-catenin, plakoglobin and armadillo</article-title>
+          <source>Oncogene</source>
+          <year>1992</year>
+          <volume>7</volume>
+          <fpage>2439</fpage>
+          <lpage>2445</lpage>
+          <pub-id pub-id-type="pmid">1334250</pub-id>
+        </citation>
+      </ref>
+      <ref id="B43">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Daniel</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>McCrea</surname>
+              <given-names>PD</given-names>
+            </name>
+            <name>
+              <surname>Wheelock</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of a new catenin: the tyrosine kinase substrate p120cas associates with E-cadherin complexes</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1994</year>
+          <volume>14</volume>
+          <fpage>8333</fpage>
+          <lpage>8342</lpage>
+          <pub-id pub-id-type="pmid">7526156</pub-id>
+        </citation>
+      </ref>
+      <ref id="B44">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Reynolds</surname>
+              <given-names>AB</given-names>
+            </name>
+            <name>
+              <surname>Daniel</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Mo</surname>
+              <given-names>YY</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>The novel catenin p120cas binds classical cadherins and induces an unusual morphological phenotype in NIH3T3 fibroblasts</article-title>
+          <source>Exp Cell Res</source>
+          <year>1996</year>
+          <volume>225</volume>
+          <fpage>328</fpage>
+          <lpage>337</lpage>
+          <pub-id pub-id-type="pmid">8660921</pub-id>
+        </citation>
+      </ref>
+      <ref id="B45">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ridley</surname>
+              <given-names>AJ</given-names>
+            </name>
+            <name>
+              <surname>Comoglio</surname>
+              <given-names>PM</given-names>
+            </name>
+            <name>
+              <surname>Hall</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Regulation of scatter factor/ hepatocyte growth factor responses by Ras, Rac, and Rho in MDCK cells</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1995</year>
+          <volume>15</volume>
+          <fpage>1110</fpage>
+          <lpage>1122</lpage>
+          <pub-id pub-id-type="pmid">7823927</pub-id>
+        </citation>
+      </ref>
+      <ref id="B46">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Riggleman</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Wieschaus</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Schedl</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular analysis of the armadillo locus: uniformly distributed transcripts and a protein with novel internal repeats are associated with a Drosophila segment polarity gene</article-title>
+          <source>Genes Dev</source>
+          <year>1989</year>
+          <volume>3</volume>
+          <fpage>96</fpage>
+          <lpage>113</lpage>
+          <pub-id pub-id-type="pmid">2707602</pub-id>
+        </citation>
+      </ref>
+      <ref id="B47">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rimm</surname>
+              <given-names>DL</given-names>
+            </name>
+            <name>
+              <surname>Koslov</surname>
+              <given-names>ER</given-names>
+            </name>
+            <name>
+              <surname>Kebriaei</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Cianci</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Morrow</surname>
+              <given-names>JS</given-names>
+            </name>
+          </person-group>
+          <article-title>&#x3B1; 1(E)-catenin is an actin-binding and -bundling protein mediating the attachment of F-actin to the membrane adhesion complex</article-title>
+          <source>Proc Natl Acad Sci  USA</source>
+          <year>1995</year>
+          <volume>92</volume>
+          <fpage>8813</fpage>
+          <lpage>8817</lpage>
+          <pub-id pub-id-type="pmid">7568023</pub-id>
+        </citation>
+      </ref>
+      <ref id="B48">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Soriano</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Montogomery</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Geske</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Bradley</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeted disruption of the <italic>c-src</italic>proto-oncogene leads to osteopetrosis in mice</article-title>
+          <source>Cell</source>
+          <year>1991</year>
+          <volume>64</volume>
+          <fpage>693</fpage>
+          <lpage>702</lpage>
+          <pub-id pub-id-type="pmid">1997203</pub-id>
+        </citation>
+      </ref>
+      <ref id="B49">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shibamoto</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hayakawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Takeuchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hori</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Oku</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Miyazawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kitamura</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ito</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Tyrosine phosphorylation of &#x3B2;-catenin and plakoglobin enhanced by hepatocyte growth factor and epidermal growth factor in human carcinoma cells</article-title>
+          <source>Cell Adhes Commun</source>
+          <year>1994</year>
+          <volume>1</volume>
+          <fpage>295</fpage>
+          <lpage>305</lpage>
+          <pub-id pub-id-type="pmid">8081883</pub-id>
+        </citation>
+      </ref>
+      <ref id="B50">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shibamoto</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hayakawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Takeuchi</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hori</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Miyazawa</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Kitamura</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>KR</given-names>
+            </name>
+            <name>
+              <surname>Wheelock</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Matsuyoshi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ito</surname>
+              <given-names>F</given-names>
+            </name>
+          </person-group>
+          <article-title>Association of p120, a tyrosine kinase substrate, with E-cadherin/catenin complexes</article-title>
+          <source>J Cell Biol</source>
+          <year>1995</year>
+          <volume>128</volume>
+          <fpage>949</fpage>
+          <lpage>957</lpage>
+          <pub-id pub-id-type="pmid">7876318</pub-id>
+        </citation>
+      </ref>
+      <ref id="B51">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stappert</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kemler</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>A short core region of E-cadherin is essential for catenin binding and is highly phosphorylated</article-title>
+          <source>Cell Adhes Commun</source>
+          <year>1994</year>
+          <volume>2</volume>
+          <fpage>319</fpage>
+          <lpage>327</lpage>
+          <pub-id pub-id-type="pmid">7820535</pub-id>
+        </citation>
+      </ref>
+      <ref id="B52">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stein</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HM</given-names>
+            </name>
+            <name>
+              <surname>Rich</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Soriano</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>pp59<italic><sup>fyn</sup></italic>mutant mice display differential signaling in thymocytes and peripheral T cells</article-title>
+          <source>Cell</source>
+          <year>1992</year>
+          <volume>70</volume>
+          <fpage>741</fpage>
+          <lpage>750</lpage>
+          <pub-id pub-id-type="pmid">1387588</pub-id>
+        </citation>
+      </ref>
+      <ref id="B53">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stein</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Vogel</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Soriano</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <article-title>Combined deficiencies of Src, Fyn, and Yes tyrosine kinases in mutant mice</article-title>
+          <source>Genes Dev</source>
+          <year>1994</year>
+          <volume>8</volume>
+          <fpage>1999</fpage>
+          <lpage>2007</lpage>
+          <pub-id pub-id-type="pmid">7958873</pub-id>
+        </citation>
+      </ref>
+      <ref id="B54">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Stenn</surname>
+              <given-names>KS</given-names>
+            </name>
+            <name>
+              <surname>Link</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Moellmann</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Madri</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kuklinska</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Dispase, a neutral protease from Bacillus polymyxa, is a powerful fibronectinase and type IV collagenase</article-title>
+          <source>J Invest Dermatol</source>
+          <year>1989</year>
+          <volume>93</volume>
+          <fpage>287</fpage>
+          <lpage>290</lpage>
+          <pub-id pub-id-type="pmid">2546994</pub-id>
+        </citation>
+      </ref>
+      <ref id="B55">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takeda</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Nagafuchi</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Yonemura</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tsukita</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Behrens</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Birchmeier</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Tsukita</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>V-src kinase shifts the cadherin-based cell adhesion from the strong to the weak state and &#x3B2; catenin is not required for the shift</article-title>
+          <source>J Cell Biol</source>
+          <year>1995</year>
+          <volume>131</volume>
+          <fpage>1839</fpage>
+          <lpage>1847</lpage>
+          <pub-id pub-id-type="pmid">8557750</pub-id>
+        </citation>
+      </ref>
+      <ref id="B56">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>The cadherins: cell&#x2013;cell adhesion molecules controlling animal morphogenesis</article-title>
+          <source>Development (Camb)</source>
+          <year>1988</year>
+          <volume>102</volume>
+          <fpage>639</fpage>
+          <lpage>655</lpage>
+          <pub-id pub-id-type="pmid">3048970</pub-id>
+        </citation>
+      </ref>
+      <ref id="B57">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Takeichi</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Cadherin cell adhesion receptors as a morphogenetic regulator</article-title>
+          <source>Science</source>
+          <year>1991</year>
+          <volume>251</volume>
+          <fpage>1451</fpage>
+          <lpage>1455</lpage>
+          <pub-id pub-id-type="pmid">2006419</pub-id>
+        </citation>
+      </ref>
+      <ref id="B58">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tao</surname>
+              <given-names>YS</given-names>
+            </name>
+            <name>
+              <surname>Edwards</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Tubb</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Bryan</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>McCrea</surname>
+              <given-names>PD</given-names>
+            </name>
+          </person-group>
+          <article-title>&#x3B2;-Catenin associates with the actin-bundling protein fascin in a noncadherin complex</article-title>
+          <source>J Cell Biol</source>
+          <year>1996</year>
+          <volume>134</volume>
+          <fpage>1271</fpage>
+          <lpage>1281</lpage>
+          <pub-id pub-id-type="pmid">8794867</pub-id>
+        </citation>
+      </ref>
+      <ref id="B59">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Troyanovsky</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Eshkind</surname>
+              <given-names>LG</given-names>
+            </name>
+            <name>
+              <surname>Troyanovsky</surname>
+              <given-names>RB</given-names>
+            </name>
+            <name>
+              <surname>Leube</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Franke</surname>
+              <given-names>WW</given-names>
+            </name>
+          </person-group>
+          <article-title>Contributions of cytoplasmic domains of desmosomal cadherins to desmosome assembly and intermediate filament anchorage</article-title>
+          <source>Cell</source>
+          <year>1993</year>
+          <volume>72</volume>
+          <fpage>561</fpage>
+          <lpage>574</lpage>
+          <pub-id pub-id-type="pmid">7679953</pub-id>
+        </citation>
+      </ref>
+      <ref id="B60">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>van Genderen</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Okamura</surname>
+              <given-names>RM</given-names>
+            </name>
+            <name>
+              <surname>Farinas</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Quo</surname>
+              <given-names>RG</given-names>
+            </name>
+            <name>
+              <surname>Parslow</surname>
+              <given-names>TG</given-names>
+            </name>
+            <name>
+              <surname>Bruhn</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Grosscheld</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Development of several organs that require inductive epithelial-mesenchimal interactions is impaired in LEF-1 deficient mice</article-title>
+          <source>Genes Dev</source>
+          <year>1994</year>
+          <volume>8</volume>
+          <fpage>2691</fpage>
+          <lpage>2703</lpage>
+          <pub-id pub-id-type="pmid">7958926</pub-id>
+        </citation>
+      </ref>
+      <ref id="B61">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yamanashi</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Baltimore</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Identification of the Abl- and rasGAP-associated 62 kDa protein as a docking protein, Dok</article-title>
+          <source>Cell</source>
+          <year>1997</year>
+          <volume>88</volume>
+          <fpage>205</fpage>
+          <lpage>211</lpage>
+          <pub-id pub-id-type="pmid">9008161</pub-id>
+        </citation>
+      </ref>
+      <ref id="B62">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Zhou</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Byrne</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Jacobs</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Fuchs</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <article-title>Lymphoid enhancer factor 1 directs hair follicle patterning and epithelial cell fate</article-title>
+          <source>Genes Dev</source>
+          <year>1995</year>
+          <volume>9</volume>
+          <fpage>700</fpage>
+          <lpage>713</lpage>
+          <pub-id pub-id-type="pmid">7537238</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn>
+        <p>Address all correspondence to G.P. Dotto, Cutaneous Biology Research  Center, Building 149, 13th Street, Charlestown, MA 02129. Tel.: (617)  724-9538. Fax: (617) 724-9572. E-mail: <email>Paolo_Dotto@CBRC.MGH.Harvard.edu</email></p>
+      </fn>
+    </fn-group>
+  </back>
+</article>
+</pmc-articleset>

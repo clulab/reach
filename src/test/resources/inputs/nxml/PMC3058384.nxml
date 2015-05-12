@@ -1,0 +1,1195 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <?properties open_access?>
+  <?properties manuscript?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-journal-id">0410462</journal-id>
+      <journal-id journal-id-type="pubmed-jr-id">6011</journal-id>
+      <journal-id journal-id-type="nlm-ta">Nature</journal-id>
+      <journal-title>Nature</journal-title>
+      <issn pub-type="ppub">0028-0836</issn>
+      <issn pub-type="epub">1476-4687</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">21107320</article-id>
+      <article-id pub-id-type="pmc">3058384</article-id>
+      <article-id pub-id-type="doi">10.1038/nature09627</article-id>
+      <article-id pub-id-type="manuscript">NIHMS248195</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>COT/<italic>MAP3K8</italic> drives resistance to RAF inhibition through MAP kinase pathway reactivation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Johannessen</surname>
+            <given-names>Cory M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="author-notes" rid="FN3">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Boehm</surname>
+            <given-names>Jesse S.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="author-notes" rid="FN3">*</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>So Young</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+          <xref ref-type="author-notes" rid="FN2">14</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Thomas</surname>
+            <given-names>Sapana R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wardwell</surname>
+            <given-names>Leslie</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Johnson</surname>
+            <given-names>Laura A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Emery</surname>
+            <given-names>Caroline M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A2">2</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Stransky</surname>
+            <given-names>Nicolas</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Cogdill</surname>
+            <given-names>Alexandria P.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A12">13</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Barretina</surname>
+            <given-names>Jordi</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Caponigro</surname>
+            <given-names>Giordano</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hieronymus</surname>
+            <given-names>Haley</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="author-notes" rid="FN1">7</xref>
+          <xref ref-type="aff" rid="A9">10</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Murray</surname>
+            <given-names>Ryan R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+          <xref ref-type="aff" rid="A7">8</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Salehi-Ashtiani</surname>
+            <given-names>Kourosh</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+          <xref ref-type="aff" rid="A7">8</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hill</surname>
+            <given-names>David E.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+          <xref ref-type="aff" rid="A7">8</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Vidal</surname>
+            <given-names>Marc</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+          <xref ref-type="aff" rid="A7">8</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Zhao</surname>
+            <given-names>Jean J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+          <xref ref-type="aff" rid="A6">6</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Yang</surname>
+            <given-names>Xiaoping</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Alkan</surname>
+            <given-names>Ozan</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kim</surname>
+            <given-names>Sungjoon</given-names>
+          </name>
+          <xref ref-type="aff" rid="A11">12</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Harris</surname>
+            <given-names>Jennifer L.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A11">12</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wilson</surname>
+            <given-names>Christopher J.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Myer</surname>
+            <given-names>Vic E.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Finan</surname>
+            <given-names>Peter M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Root</surname>
+            <given-names>David E.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Roberts</surname>
+            <given-names>Thomas M.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A4">4</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Golub</surname>
+            <given-names>Todd</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+          <xref ref-type="aff" rid="A9">10</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Flaherty</surname>
+            <given-names>Keith T.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A12">13</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Dummer</surname>
+            <given-names>Reinhard</given-names>
+          </name>
+          <xref ref-type="aff" rid="A10">11</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Weber</surname>
+            <given-names>Barbara</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Sellers</surname>
+            <given-names>William R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Schlegel</surname>
+            <given-names>Robert</given-names>
+          </name>
+          <xref ref-type="aff" rid="A8">9</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wargo</surname>
+            <given-names>Jennifer A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A12">13</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hahn</surname>
+            <given-names>William C.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+          <xref ref-type="aff" rid="A5">5</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Garraway</surname>
+            <given-names>Levi A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="A1">1</xref>
+          <xref ref-type="aff" rid="A2">2</xref>
+          <xref ref-type="aff" rid="A3">3</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="A1"><label>1</label>Broad Institute of Harvard and MIT, 7 Cambridge Center, Cambridge, Massachusetts 02142, USA</aff>
+      <aff id="A2"><label>2</label>Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, 44 Binney Street, Boston, Massachusetts 02115, USA</aff>
+      <aff id="A3"><label>3</label>Center for Cancer Genome Discovery, Dana-Farber Cancer Institute, Harvard Medical School, 44 Binney Street, Boston, Massachusetts 02115, USA</aff>
+      <aff id="A4"><label>4</label>Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, Massachusetts 02115, USA</aff>
+      <aff id="A5"><label>5</label>Center for Cancer Systems Biology (CCSB), Dana-Farber Cancer Institute, Boston, MA 02115, USA</aff>
+      <aff id="A6"><label>6</label>Department of Pathology, Harvard Medical School, Boston, MA 02115, USA</aff>
+      <aff id="A7"><label>8</label>Department of Genetics, Harvard Medical School, Boston, Massachusetts 02115, USA</aff>
+      <aff id="A8"><label>9</label>Novartis Institutes for Biomedical Research, 250 Massachusetts Avenue, Cambridge, Massachusetts 02139, USA</aff>
+      <aff id="A9"><label>10</label>Department of Pediatric Oncology, Dana-Farber Cancer Institute, Harvard Medical School, 44 Binney Street, Boston, Massachusetts 02115, USA</aff>
+      <aff id="A10"><label>11</label>Department of Dermatology, University Hospital of Zurich, Zurich, CH-8091, Switzerland</aff>
+      <aff id="A11"><label>12</label>Genomics Institute of the Novartis Research Foundation, San Diego, CA 92121, USA</aff>
+      <aff id="A12"><label>13</label>Division of Surgical Oncology, Medical Oncology and Dermatology, Massachusetts General Hospital, 55 Fruit Street, Boston, MA 02114</aff>
+      <author-notes>
+        <corresp id="cor1">Correspondence and requests for materials should be addressed to L.A.G. (<email>Levi_Garraway@dfci.harvard.edu</email>)</corresp>
+        <fn id="FN1" fn-type="present-address">
+          <label>7</label>
+          <p id="P1">Current address: Human Oncology and Pathogenesis Program, Memorial Sloan-Kettering Cancer Center, New York, NY, 10065 USA</p>
+        </fn>
+        <fn id="FN2" fn-type="present-address">
+          <label>14</label>
+          <p id="P2">Current address: Duke Institute for Genome Sciences and Policy, Duke University Medical Center, Durham, North Carolina, 27710</p>
+        </fn>
+        <fn id="FN3" fn-type="equal">
+          <label>*</label>
+          <p id="P3">These authors contributed equally to this work</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="nihms-submitted">
+        <day>8</day>
+        <month>11</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>24</day>
+        <month>11</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="ppub">
+        <day>16</day>
+        <month>12</month>
+        <year>2010</year>
+      </pub-date>
+      <pub-date pub-type="pmc-release">
+        <day>16</day>
+        <month>6</month>
+        <year>2011</year>
+      </pub-date>
+      <volume>468</volume>
+      <issue>7326</issue>
+      <fpage>968</fpage>
+      <lpage>972</lpage>
+      <permissions>
+        <license>
+          <p>Users may view, print, copy, download and text and data- mine the content in such documents, for the purposes of academic research, subject always to the full Conditions of use:
+<uri xlink:type="simple" xlink:href="http://www.nature.com/authors/editorial_policies/license.html#terms">http://www.nature.com/authors/editorial_policies/license.html#terms</uri>
+</p>
+        </license>
+      </permissions>
+      <abstract>
+        <p id="P4">Oncogenic mutations in the serine/threonine kinase B-RAF are found in 50&#x2013;70% of malignant melanomas<xref ref-type="bibr" rid="R1">1</xref>. Pre-clinical studies have demonstrated that the B-RAF<sup>V600E</sup> mutation predicts a dependency on the mitogen activated protein kinase (MAPK) signaling cascade in melanoma<xref ref-type="bibr" rid="R1">1</xref>&#x2013;<xref ref-type="bibr" rid="R5">5</xref>&#x2014;an observation that has been validated by the success of RAF and MEK inhibitors in clinical trials<xref ref-type="bibr" rid="R6">6</xref>&#x2013;<xref ref-type="bibr" rid="R8">8</xref>. However, clinical responses to targeted anticancer therapeutics are frequently confounded by <italic>de novo</italic> or acquired resistance<xref ref-type="bibr" rid="R9">9</xref>&#x2013;<xref ref-type="bibr" rid="R11">11</xref>. Identification of resistance mechanisms in a manner that elucidates alternative &#x2018;druggable&#x2019; targets may inform effective long-term treatment strategies<xref ref-type="bibr" rid="R12">12</xref>. Here, we expressed ~600 kinase and kinase-related open reading frames (ORFs) in parallel to functionally interrogate resistance to a selective RAF kinase inhibitor. We identified <italic>MAP3K8</italic> (COT/TPL2) as a MAPK pathway agonist that drives resistance to RAF inhibition in B-RAF<sup>V600E</sup> cell lines. COT activates ERK primarily through MEK-dependent mechanisms that do not require RAF signaling. Moreover, COT expression is associated with <italic>de novo</italic> resistance in B-RAF<sup>V600E</sup> cultured cell lines and acquired resistance in melanoma cells and tissue obtained from relapsing patients following treatment with MEK or RAF inhibition. We further identify combinatorial MAPK pathway inhibition or targeting of COT kinase activity as possible therapeutic strategies for reducing MAPK pathway activation in this setting. Together, these results provide new insights into resistance mechanisms involving the MAPK pathway and articulate an integrative approach through which high-throughput functional screens may inform the development of novel therapeutic strategies.</p>
+      </abstract>
+      <contract-num rid="CA1">K08 CA115927-05
+||CA</contract-num>
+      <contract-num rid="OD1">DP2 OD002750-01
+||OD</contract-num>
+      <contract-sponsor id="CA1">National Cancer Institute : NCI</contract-sponsor>
+      <contract-sponsor id="OD1">Office of the Director : NIH</contract-sponsor>
+    </article-meta>
+  </front>
+  <body>
+    <p id="P5">To identify kinases capable of circumventing RAF inhibition, we assembled and stably expressed 597 sequence-validated kinase ORF clones representing ~75% of annotated kinases (Center for Cancer Systems Biology (CCSB)/Broad Institute Kinase ORF Collection) in A375, a B-RAF<sup>V600E</sup> malignant melanoma cell line that is sensitive to the RAF kinase inhibitor PLX4720<xref ref-type="bibr" rid="R13">13</xref> (<xref ref-type="fig" rid="F1">Fig. 1a, 1b</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Table 1, Supplementary Fig. 2</xref>). ORF-expressing cells treated with 1 &#xB5;M PLX4720 were screened for viability relative to untreated cells and normalized to an assay-specific positive control, MEK1<sup>S218/222D</sup> (MEK1<sup>DD</sup>)<xref ref-type="bibr" rid="R14">14</xref> (<xref ref-type="supplementary-material" rid="SD1">Supplementary Table 2 and summarized in Supplementary Fig. 1</xref>). Nine ORFs conferred resistance at levels exceeding two standard deviations from the mean (<xref ref-type="fig" rid="F1">Fig. 1b</xref> and <xref ref-type="supplementary-material" rid="SD1">Supplementary Table 2</xref>) and were selected for follow-up analysis (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 3</xref>). Three of nine candidate ORFs were receptor tyrosine kinases, underscoring the potential of this class of kinases to engage resistance pathways. Resistance effects were validated and prioritized across a multi-point PLX4720 drug concentration scale in the B-RAF<sup>V600E</sup> cell lines A375 and SKMEL28. The Ser/Thr MAP kinase kinase kinases (MAP3Ks) <italic>MAP3K8</italic> (COT/Tpl2) and <italic>RAF1</italic> (C-RAF) emerged as top candidates from both cell lines; these ORFs shifted the PLX4720 GI<sub>50</sub> by 10-600 fold without affecting viability (<xref ref-type="supplementary-material" rid="SD1">Supplementary Table 3 and Supplementary Fig. 4 and 5</xref>). Both COT and C-RAF reduced sensitivity to PLX4720 in multiple B-RAF<sup>V600E</sup> cell lines (<xref ref-type="fig" rid="F1">Fig. 1c</xref>) confirming the ability of these kinases to mediate resistance to RAF inhibition.</p>
+    <p id="P6">Next, we tested whether overexpression of these genes was sufficient to activate the MAPK pathway. At baseline, COT expression increased ERK phosphorylation in a manner comparable to MEK1<sup>DD</sup>, consistent with MAP kinase pathway activation (<xref ref-type="fig" rid="F2">Fig. 2a</xref> and <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 6</xref>). Overexpression of wild-type COT or C-RAF resulted in constitutive phosphorylation of ERK and MEK in the presence of PLX4720, whereas kinase-dead derivatives had no effect (<xref ref-type="fig" rid="F2">Fig. 2a</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 7</xref>). Based on these results, we hypothesized that COT and C-RAF drive resistance to RAF inhibition predominantly through re-activation of MAPK signaling. Notably, of the nine candidate ORFs from our initial screen, a subset (3) did not show persistent ERK/MEK phosphorylation following RAF inhibition, suggesting MAPK pathway-independent alteration of drug sensitivity (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 8</xref>).</p>
+    <p id="P7">Several groups have shown that C-RAF activation and heterodimerization with B-RAF constitute critical components of the cellular response to B-RAF inhibition<xref ref-type="bibr" rid="R15">15</xref>&#x2013;<xref ref-type="bibr" rid="R18">18</xref>. In A375 cells, endogenous C-RAF: B-RAF heterodimers were measurable and inducible following treatment with PLX4720 (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 9</xref>). However, endogenous C-RAF phosphorylation at S338&#x2014;an event required for C-RAF activation&#x2014;remained low (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 9</xref>). In contrast, ectopically expressed C-RAF was phosphorylated on S338 (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 9</xref>) and its PLX4720 resistance phenotype was associated with sustained MEK/ERK activation (<xref ref-type="fig" rid="F2">Fig. 2a</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 9</xref>). Moreover, ectopic expression of a high-activity C-RAF truncation mutant (C-RAF(W22) was more effective than wild-type C-RAF in mediating PLX4720 resistance and ERK activation (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 10</xref>), further indicating that elevated C-RAF activity may direct resistance to this agent. Consistent with this model, oncogenic alleles of <italic>NRAS</italic> and <italic>KRAS</italic> conferred PLX4720 resistance in A375 cells (<xref ref-type="fig" rid="F2">Fig. 2b</xref>) and yielded sustained C-RAF(S338) and ERK phosphorylation in the context of drug treatment (<xref ref-type="fig" rid="F2">Fig. 2c</xref>). Thus, although genetic alterations that engender C-RAF activation (e.g., oncogenic RAS mutations) tend to show mutual exclusivity with B-RAF<sup>V600E</sup> mutation, such co-occurring events<xref ref-type="bibr" rid="R19">19</xref>, <xref ref-type="bibr" rid="R20">20</xref> might be favored in the context of acquired resistance to B-RAF inhibition.</p>
+    <p id="P8">To investigate the role of COT in melanoma, we first determined its expression in human melanocytes. We found that primary immortalized melanocytes (B-RAF wild-type) expressed COT (<xref ref-type="fig" rid="F2">Fig. 2d</xref>), although ectopic B-RAF<sup>V600E</sup> expression reduced COT mRNA levels (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 11</xref>) and rendered COT protein undetectable (<xref ref-type="fig" rid="F2">Fig. 2d</xref>). Conversely, whereas ectopically expressed COT was only weakly detectable in A375 cells (<xref ref-type="fig" rid="F2">Fig. 2a, 2e</xref>), shRNA-mediated depletion of endogenous B-RAF<sup>V600E</sup> caused an increase in COT protein levels that correlated with the extent of B-RAF knockdown (<xref ref-type="fig" rid="F2">Fig. 2e</xref>). Moreover, treatment of COT-expressing A375 cells with PLX4720 led to a dose-dependent increase in COT protein (<xref ref-type="fig" rid="F2">Fig. 2a</xref>) without affecting ectopic COT mRNA levels (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 11</xref>). Thus, oncogenic B-RAF may antagonize COT expression largely through altered protein stability (<xref ref-type="fig" rid="F2">Fig. 2a, d, e</xref>, and <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 11</xref>), and B-RAF inhibition may potentiate the outgrowth of COT-expressing cells during the course of treatment. Notably, neither C-RAF nor B-RAF alone or in combination was required for ERK phosphorylation in the context of COT expression, even in the presence of PLX4720 (<xref ref-type="fig" rid="F2">Figure 2e, 2f</xref> and <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 12</xref>), suggesting that COT expression is sufficient to induce MAP kinase pathway activation in a RAF-independent manner.</p>
+    <p id="P9">We predicted that cell lines expressing elevated COT in a B-RAF<sup>V600E</sup> background should exhibit <italic>de novo</italic> resistance to PLX4720 treatment. To identify such instances, we screened a panel of cell lines for evidence of <italic>MAP3K8</italic>/COT copy number gains coincident with the B-RAF<sup>V600E</sup> mutation. Of 534 cell lines that had undergone copy number analysis and mutation profiling, 38 cell lines (7.1%) contained the B-RAF<sup>V600E</sup> mutation. Within this subgroup, two cell lines&#x2014;OUMS-23 (colon cancer) and RPMI-7951 (melanoma)&#x2014;also showed evidence of chromosomal copy gains spanning the <italic>MAP3K8</italic>/COT locus (<xref ref-type="fig" rid="F3">Fig. 3a</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 13</xref>) and robust COT protein expression (<xref ref-type="fig" rid="F3">Fig. 3b</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 14</xref>). We also screened a panel of melanoma short-term cultures for COT protein expression. Only one of these lines expressed COT: M307, a short-term culture derived from a B-RAF<sup>V600E</sup> tumor that developed resistance to allosteric MEK inhibition following initial disease stabilization<xref ref-type="bibr" rid="R14">14</xref> (<xref ref-type="fig" rid="F3">Fig. 3c</xref>). All three cell lines were refractory to PLX4720 treatment, exhibiting GI<sub>50</sub> values in the range of 8&#x2013;10 &#xB5;M (<xref ref-type="fig" rid="F3">Fig. 3d</xref>) and showing sustained ERK phosphorylation in the context of B-RAF inhibition (<xref ref-type="fig" rid="F3">Figs. 3e, 3f</xref>). OUMS-23 and RPMI-7951 are MAPK pathway inhibitor-na&#xEF;ve cell lines, implying that COT may confer <italic>de novo</italic> resistance to RAF inhibition (a phenomenon observed in ~10% of B-RAF<sup>V600E</sup> melanomas<xref ref-type="bibr" rid="R6">6</xref>).</p>
+    <p id="P10">Next, we examined COT expression in the context of resistance to the clinical RAF inhibitor PLX4032 by obtaining biopsy material from 3 patients with metastatic, B-RAF<sup>V600E</sup> melanoma. Each case consisted of frozen, lesion-matched biopsy material obtained prior to and during treatment (&#x201C;pre-treatment&#x201D; and &#x201C;on-treatment&#x201D;; <xref ref-type="fig" rid="F3">Fig. 3g</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Table 4</xref>); additionally, one sample contained two independent biopsy specimens from the same relapsing tumor site (&#x201C;post-relapse&#x201D;; <xref ref-type="fig" rid="F3">Fig. 3g</xref>). Consistent with the experimental models presented above, quantitative real-time RT-PCR (qRT/PCR) analysis revealed increased COT mRNA expression concurrent with PLX4032 treatment in 2 of 3 cases. COT mRNA levels were further increased in a relapsing specimen relative to its pre-treatment and on-treatment counterparts (<xref ref-type="fig" rid="F3">Fig. 3g</xref>, Patient #1). An additional, unmatched relapsed malignant melanoma biopsy showed elevated COT mRNA expression comparable to levels observed in RAF inhibitor-resistant, COT-amplified cell lines (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 15</xref>). This specimen also exhibited robust MAPK pathway activation and elevated expression of B-RAF, C-RAF and COT relative to matched normal skin or B-RAF<sup>V600E</sup> cell lines (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 15</xref>). Sequencing studies of this tumor revealed no additional mutations in <italic>BRAF, NRAS</italic> or <italic>KRAS</italic> (data not shown). These analyses provided clinical evidence that COT-dependent mechanisms may be operant in at least some PLX4032-resistant malignant melanomas.</p>
+    <p id="P11">To determine if COT might actively regulate MEK/ERK phosphorylation in B-RAF<sup>V600E</sup> cells that harbor naturally elevated COT expression, we introduced shRNA constructs targeting COT into RPMI-7951 cells. Depletion of COT suppressed RPMI-7951 viability (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 16</xref>) and decreased ERK phosphorylation (<xref ref-type="fig" rid="F3">Fig. 3h</xref>), implying that targeting COT kinase activity might suppress MEK/ERK phosphorylation in cancer cells with COT overexpression or amplification. Treatment of RPMI-7951 cells with a small molecule COT kinase inhibitor<xref ref-type="bibr" rid="R21">21</xref>&#x2013;<xref ref-type="bibr" rid="R23">23</xref> resulted in dose-dependent suppression of MEK and ERK phosphorylation, providing additional evidence that COT contributes to MEK/ERK activation in these cells (<xref ref-type="fig" rid="F3">Fig. 3i</xref>).</p>
+    <p id="P12">We then considered whether COT-expressing cancer cells remain sensitive to MAPK pathway inhibition at a target downstream of COT or RAF. Here, we queried the OUMS-23 and RPMI-7951 cell lines for sensitivity to the MEK1/2 inhibitor CI-1040. Interestingly, both cell lines were refractory to MEK inhibition (<xref ref-type="fig" rid="F4">Fig. 4a</xref>) and displayed sustained ERK phosphorylation even at 1 &#xB5;M CI-1040 (<xref ref-type="fig" rid="F4">Fig. 4b</xref>). Ectopic COT expression in A375 and SKMEL28 cells also conferred decreased sensitivity to the MEK inhibitors CI-1040 and AZD6244, suggesting that COT expression alone was sufficient to induce this phenotype (<xref ref-type="fig" rid="F4">Fig. 4c, 4d</xref>, <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 17</xref>). Similar to results observed with pharmacological MEK inhibitors, MEK1/2 knockdown only modestly suppressed COT&#x2013;mediated ERK phosphorylation in A375 cells (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 18</xref>). In accordance with prior observations<xref ref-type="bibr" rid="R24">24</xref>, these data raised the possibility that COT may activate ERK through MEK-independent and MEK-dependent mechanisms. To test this hypothesis directly, we performed an <italic>in vitro</italic> kinase assay using recombinant COT and ERK1. Indeed, recombinant COT induced pThr202/Tyr204 phosphorylation of ERK1 <italic>in vitro</italic> (<xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 18</xref>) suggesting that in certain contexts, COT expression may potentiate ERK activation in a MEK-independent manner.</p>
+    <p id="P13">In experimental models, the use of RAF and MEK inhibitors in combination can override resistance to single-agents<xref ref-type="bibr" rid="R14">14</xref>. We therefore reasoned that combined RAF/MEK inhibition might circumvent COT-driven resistance. In the setting of ectopic COT expression, exposure to AZD6244 or CI-1040 in combination with PLX470 (1 &#xB5;M each) reduced cell growth and pERK expression more effectively than did single-agent PLX4720, even at concentrations of 10 &#xB5;M (<xref ref-type="fig" rid="F4">Fig. 4e, 4f</xref> and <xref ref-type="supplementary-material" rid="SD1">Supplementary Fig. 19</xref>). These data underscore the importance of this pathway in B-RAF<sup>V600E</sup> tumor cells and support earlier findings<xref ref-type="bibr" rid="R14">14</xref> that dual B-RAF/MEK inhibition may help circumvent resistance to RAF inhibitors.</p>
+    <p id="P14">B-RAF mutations are found in ~8% of all cancers and at high frequencies in malignant melanoma, colon and thyroid cancers<xref ref-type="bibr" rid="R25">25</xref>. The clinical promise of selective RAF inhibitors has widespread ramifications for patient treatment, yet single agent targeted therapy is almost invariably followed by relapse due to acquired drug resistance. Our results suggest that ORF-based, systematic functional screening may offer a powerful means to identify clinically relevant resistance mechanisms that also specify novel treatment strategies. In particular, resistance to RAF inhibition can be achieved by multiple MAP3K-dependent mechanisms of MEK/ERK reactivation but might be intercepted through combined therapeutic modalities for MAPK pathway inhibition (e.g., RAF/MEK or RAF/COT combinations). Future systematic drug resistance studies may be expanded to a genome scale that encompasses many compounds, thereby enabling comprehensive identification of both therapy-specific resistance genes and drug targets of novel therapeutics.</p>
+    <sec sec-type="methods" id="S1">
+      <title>Methods summary</title>
+      <p id="P15">The arrayed, lentiviral ORF screen was performed as previously described<xref ref-type="bibr" rid="R26">26</xref>. Effects of individual ORFs on drug resistance were determined by measuring differential viability (ratio of raw viability in 1 &#xB5;M PLX4720: control) and subsequent normalization to an assay-specific positive control, MEK1<sup>DD</sup>. Secondary screens were performed with the top nine candidate ORFs in 96-well format in A375 and SKMEL28 cells. Prioritization was accomplished via generation of a GI<sub>50</sub> for each ORF across a multi-point PLX4720 concentration range in both cell lines. The effects of identified resistance ORFs on MAPK pathway activation were demonstrated using both biochemical and cell biological approaches. Cell line copy number data was obtained as previously described<xref ref-type="bibr" rid="R27">27</xref>. Detailed descriptions of all procedures are included in Materials and Methods.</p>
+    </sec>
+    <sec sec-type="materials|methods" id="S2">
+      <title>Materials and Methods</title>
+      <sec id="S3">
+        <title>Center for Cancer Systems Biology (CCSB)/Broad Institute Kinase Open Reading Frame Collection</title>
+        <p id="P16">We assembled a library of 597 kinase ORFs in pDONR-223 Entry vectors (Invitrogen). Individual clones were end-sequenced using vector-specific primers in both directions. Clones with substantial deviations from reported sequences were discarded. Entry clones and sequences are available via Addgene (<ext-link ext-link-type="uri" xlink:href="http://www.addgene.org/human_kinases">www.addgene.org/human_kinases</ext-link>). Kinase ORFs were assembled from multiple sources; 337 kinases were isolated as single clones from the ORFeome 5.1 collection (<email>horfdb.dfci.harvard.edu</email>); 183 kinases were cloned from normal human tissue RNA (Ambion) by reverse transcription and subsequent PCR amplification to add Gateway sequences (Invitrogen); 64 kinases were cloned from templates provided by the Harvard Institute of Proteomics (HIP); and 13 kinases were cloned into the Gateway system from templates obtained from collaborating laboratories. The Gateway-compatible lentiviral vector pLX-Blast-V5 was created from the pLKO.1 backbone. LR reactions were performed to introduce the 597 kinases into pLX-Blast-V5 according to manufacturers protocol (Invitrogen).</p>
+      </sec>
+      <sec id="S4">
+        <title>High throughout ORF screening</title>
+        <p id="P17">A375 melanoma cells were plated in 384-well microtiter plates (500 cells per well). The following day, cells were spin-infected with the lentivirally-packaged kinase ORF library in the presence of 8 ug/ml polybrene. 48 hours post-infection, media was replaced with standard growth media (2 replicates), media containing 1 &#xB5;M PLX4720 (2 replicates, 2 time points) or media containing 10 ug/ml blasticidin (2 replicates). After four days and 6 days, cell growth was assayed using Cell Titer-Glo (Promega) according to manufacturer instructions. The entire experiment was performed twice.</p>
+      </sec>
+      <sec id="S5">
+        <title>Identification of candidate resistance ORFs</title>
+        <p id="P18">Raw luminescence values were imported into Microsoft Excel. Infection efficiency was determined by the percentage of duplicate-averaged raw luminescence in blasticidin selected cells relative to non-selected cells. ORFs with an infection efficiency of less than 0.70 were excluded from further analysis along with any ORF having a standard deviation of &gt;15,000 raw luminescence units between duplicates. To identify ORFs whose expression affects proliferation, we compared the duplicate-averaged raw luminescence of individual ORFs against the average and standard deviation of all control-treated cells via the z-score, or standard score, below,
+<disp-formula id="FD1"><mml:math id="M1" display="block" overflow="scroll"><mml:mrow><mml:mi>z</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:mi>x</mml:mi><mml:mo>&#x2212;</mml:mo><mml:mi>&#x3BC;</mml:mi></mml:mrow><mml:mi>&#x3C3;</mml:mi></mml:mfrac></mml:mrow></mml:math></disp-formula>
+where <italic>x</italic> = average raw luminescence of a given ORF, &#x3BC; = the mean raw luminescence of all ORFs and &#x3C3; = the standard deviation of the raw luminescence of all wells. Any individual ORF with a z-score &gt;+2 or &lt;&#x2212;2 was annotated as affecting proliferation and removed from final analysis. Differential proliferation was determined by the percentage of duplicate-averaged raw luminescence values in PLX4720 (1 &#xB5;M) treated cells relative to untreated cells. Subsequently, differential proliferation was normalized to the positive control for PLX4720 resistance, MEK1<sup>S218/222D</sup> (MEK1<sup>DD</sup>), with MEK1<sup>DD</sup> differential proliferation = 1.0. MEK1<sup>DD</sup> normalized differential proliferation for each individual ORF was averaged across two duplicate experiments, with two time points for each experiment (day 4 and day 6). A z-score was then generated, as described above, for average MEK1<sup>DD</sup> normalized differential proliferation. ORFs with a z-score of &gt;2 were considered hits and were followed up in the secondary screen.</p>
+      </sec>
+      <sec id="S6">
+        <title>ORF and shRNA expression</title>
+        <p id="P19">ORFs were expressed from pLX-Blast-V5 (lentiviral) or pWZL-Blast, pBABE-Puro or pBABE-zeocin (retroviral) expression plasmids. For lentiviral transduction, 293T cells were transfected with 1 &#xB5;g of pLX-Blast-V5-ORF or pLKO.1-shRNA, 900 ng &#x394;8.9 (<italic>gag, pol</italic>) and 100 ng VSV-G using 6 &#xB5;l Fugene6 transfection reagent (Roche). Viral supernatant was harvested 72 h post-transfection. Mammalian cells were infected at a 1:10&#x2013;1:20 dilution of virus in 6-well plates in the presence of 5 &#xB5;g/ml polybrene and centrifuged at 2250 RPM for 1 h at 37&#xB0; C. Twenty-four hours after infection blasticidin (pLX-Blast-V5, 10 &#xB5;g/ml) or puro (pLKO.1, 0.75 &#xB5;g/ml) was added and cells were selected for 48 hrs. For retrovirus production, 293T were transfected with 1 &#xB5;g of retroviral plasmid-ORF, 1 &#xB5;g pCL-AMPHO and 100 ng VSV-G, as described above. Cells were infected with retrovirus containing supernatant at a 1:2 dilution in 5 &#xB5;g/ml polybrene overnight, followed by media change to growth medium. Infection was repeated once more (twice total), followed by selection, above.</p>
+      </sec>
+      <sec id="S7">
+        <title>Secondary Screen</title>
+        <p id="P20">A375 (1.5 &#xD7; 10<sup>3</sup>) and SKMEL28 cells (3 &#xD7; 10<sup>3</sup>) were seeded in 96-well plates for 18 h. ORF-expressing lentivirus was added at a 1:10 dilution in the presence of 8 &#xB5;g/ml polybrene, and centrifuged at 2250 RPM and 37&#xB0; C for 1 h. Following centrifugation, virus-containing media was changed to normal growth media and allowed to incubate for 18 h. Twenty-four hours after infection, DMSO (1:1000) or 10&#xD7; PLX4720 (in DMSO) was added to a final concentration of 100, 10, 1, 0.1, 0.01, 0.001, 0.0001 or 0.00001 &#xB5;M. Cell viability was assayed using WST-1 (Roche), per manufacturer recommendation, 4 days after the addition of PLX4720.</p>
+      </sec>
+      <sec id="S8">
+        <title>Cell lines and reagents</title>
+        <p id="P21">A375, SKMEL28, SKMEL30, COLO-679, WM451lu, SKMEL5, Malme 3M, SKMEL30, WM3627, WM1976, WM3163, WM3130, WM3629, WM3453, WM3682 and WM3702 were all grown in RPMI (Cellgro), 10% FBS and 1% penicillin/streptomycin. M307 was grown in RPMI (Cellgro), 10% FBS and 1% penicillin/streptomycin supplemented with 1 mM sodium pyruvate. 293T and OUMS-23 were grown in DMEM (Cellgro), 10% FBS and 1% penicillin/streptomycin. RPMI-7951 cells (ATCC) were grown in MEM (Cellgro), 10% FBS and 1% penicillin/streptomycin. Wild-type primary melanocytes were grown in HAM&#x2019;s F10 (Cellgro), 10% FBS and 1% penicillin/streptomycin. B-RAF<sup>V600E</sup>-expressing primary melanocytes were grown in TIVA media [Ham&#x2019;s F-10 (Cellgro), 7% FBS, 1% penicillin/streptomycin, 2mM glutamine (Cellgro), 100 uM IBMX, 50 ng/ml TPA, 1mM dbcAMP (Sigma) and 1 &#xB5;M sodium vanadate]. CI-1040 (PubChem ID: 6918454) was purchased from Shanghai Lechen International Trading Co., AZD6244 (PubChem ID: 10127622) from Selleck Chemicals, and PLX4720 (PubChem ID: 24180719) from Symansis. RAF265 (PubChem ID: 11656518) was a generous gift from Novartis Pharma AG. Unless otherwise indicated, all drug treatments were for 16 h. Activated alleles of NRAS and KRAS have been previously described<xref ref-type="bibr" rid="R28">28</xref>, <xref ref-type="bibr" rid="R29">29</xref>.</p>
+      </sec>
+      <sec id="S9">
+        <title>Pharmacologic Growth Inhibition Assays</title>
+        <p id="P22">Cultured cells were seeded into 96-well plates (3,000 cells per well) for all melanoma cell lines; 1,500 cells were seeded for A375. Twenty-four hours after seeding, serial dilutions of the relevant compound were prepared in DMSO added to cells, yielding final drug concentrations ranging from 100 &#xB5;M to 1 &#xD7; 10<sup>5</sup> &#xB5;M, with the final volume of DMSO not exceeding 1%. Cells were incubated for 96 h following addition of drug. Cell viability was measured using the WST1 viability assay (Roche). Viability was calculated as a percentage of control (untreated cells) after background subtraction. A minimum of six replicates were performed for each cell line and drug combination. Data from growth-inhibition assays were modeled using a nonlinear regression curve fit with a sigmoid dose&#x2013;response. These curves were displayed and GI<sub>50</sub> generated using GraphPad Prism 5 for Windows (GraphPad). Sigmoid-response curves that crossed the 50% inhibition point at or above 10 &#xB5;M have GI<sub>50</sub> values annotated as &gt;10 &#xB5;M. For single-dose studies, the identical protocol was followed, using a single dose of indicated drug (1 &#xB5;M unless otherwise noted).</p>
+      </sec>
+      <sec id="S10">
+        <title>Immunoblots and immunoprecipitations</title>
+        <p id="P23">Cells were washed twice with ice-cold PBS and lysed with 1% NP-40 buffer [150 mM NaCl, 50 mM Tris pH 7.5, 2 mM EDTA pH 8, 25 mM NaF and 1% NP-40] containing 2&#xD7; protease inhibitors (Roche) and 1&#xD7; Phosphatase Inhibitor Cocktails I and II (CalBioChem). Lysates were quantified (Bradford assay), normalized, reduced, denatured (95 &#xB0;C) and resolved by SDS gel electrophoresis on 10% Tris/Glycine gels (Invitrogen). Protein was transferred to PVDF membranes and probed with primary antibodies recognizing pERK1/2 (T202/Y204), pMEK1/2 (S217/221), MEK1/2, MEK1, MEK2, C-RAF (rabbit host), pC-RAF (pS338) (Cell Signaling Technology; 1:1,000), V5-HRP (Invitrogen; (1:5,000), COT (1:500), B-RAF (1:2,000), Actin (1:1,000), Actin-HRP (1:1,000; Santa Cruz)), C-RAF (mouse host; 1:1,000; BD Transduction Labs), Vinculin (Sigma; 1:20,000), AXL (1:500; R&amp;D Systems). After incubation with the appropriate secondary antibody (anti-rabbit, anti-mouse IgG, HRP-linked; 1:1,000 dilution, Cell Signaling Technology or anti-goat IgG, HRP-linked; 1:1,000 dilution; Santa Cruz), proteins were detected using chemiluminescence (Pierce). Immunoprecipitations were performed overnight at 4&#xB0; C in 1% NP-40 lysis buffer, as described above, at a concentration of 1 &#xB5;g/&#x3BC;l total protein using an antibody recognizing C-RAF (1:50; Cell Signaling Technology). Antibody: antigen complexes were bound to Protein A agarose (25 &#xB5;L, 50% slurry; Pierce) for 2 hrs. at 4&#xB0; C. Beads were centrifuged and washed three times in lysis buffer and eluted and denatured (95 &#xB0;C) in 2&#xD7; reduced sample buffer (Invitrogen). Immunoblots were performed as above. Phospho-protein quantification was performed using NIH Image J.</p>
+        <p id="P24">Lysates from tumor and matched normal skin were generated by mechanical homogenization of tissue in RIPA [50 mM Tris (pH 7.4), 150 mM NaCl, 1mM EDTA, 0.1% SDS, 1.0% NaDOC, 1.0% Triton X-100, 25 mM NaF, 1mM NA<sub>3</sub>VO<sub>4</sub>] containing protease and phosphatase inhibitors, as above. Subsequent normalization and immunoblots were performed as above.</p>
+      </sec>
+      <sec id="S11">
+        <title>Biopsied melanoma tumor material</title>
+        <p id="P25">Biopsied tumor material consisted of discarded and de-identified tissue that was obtained with informed consent and characterized under protocol 02-017 (paired samples, Massachusetts General Hospital) and 07-087 (unpaired sample, Dana-Farber Cancer Institute). For paired specimens, &#x2018;on-treatment&#x2019; samples were collected 10&#x2013;14 days after initiation of PLX4032 treatment (<xref ref-type="supplementary-material" rid="SD1">Supplementary Table 4</xref>).</p>
+      </sec>
+      <sec id="S12">
+        <title>Inhibition of COT kinase activity</title>
+        <p id="P26">Adherent RPMI-7951 cells were washed twice with 1&#xD7; PBS and incubated overnight in serum-free growth media. Subsequently, 4-(3-Chloro-4-fluorophenylamino)-6-(pyridin-3-yl-methylamino)-3-cyano-[1,7]-naphthyridine (EMD;TPL2 inhibitor I; Cat#: 616373, PubChem ID: 9549300), suspended in DMSO at the indicated concentration, was added to cells for 1 hour, after which protein extracts were made as described above.</p>
+      </sec>
+      <sec id="S13">
+        <title>Quantitative RT/PCR</title>
+        <p id="P27">mRNA was extracted from cell lines and fresh-frozen tumors using the RNeasy kit (Qiagen). Total mRNA was used for subsequent reverse transcription using the SuperScript III First-Strand Synthesis SuperMix (Invitrogen) for cell lines and unpaired tumor samples, and the SuperScript VILO cDNA synthesis kit (Invitrogen) for paired frozen tumor samples. 5 &#xB5;l of the RT reaction was used for quantitative PCR using SYBR Green PCR Master Mix and gene-specific primers, in triplicate, using an ABI 7300 Real Time PCR System. Primers used for detection are as follows; COT forward: 5&#x2019;- CAA GTG AAG AGC CAG CAGTTT -3&#x2019;; COT reverse: 5&#x2019;- GCA AGC AAATCC TCC ACA GTT C -3&#x2019;; TBP forward: 5&#x2019;- CCC GAA ACG CCG AAT ATA ATC C -3&#x2019;; TBP reverse: 5&#x2019;- GAC TGT TCT TCA CTC TTG GCT C -3&#x2019;; GAPDH forward: 5&#x2019;- CAT CAT CTC TGC CCC CTC T &#x2013;3&#x2019;; GAPDH reverse: 5&#x2019;-GGT GCT AAG CAG TTG GTG GT -3&#x2019;.</p>
+      </sec>
+      <sec id="S14">
+        <title><italic>In vitro</italic> kinase assay</title>
+        <p id="P28"><italic>In vitro</italic> kinase assays were performed as previously described<xref ref-type="bibr" rid="R14">14</xref> using 1 &#xB5;g each of COT (amino acids 30&#x2013;397, R&amp;D Systems) and inactive ERK1 (Millipore).</p>
+      </sec>
+      <sec id="S15">
+        <title>Cellular viability assays</title>
+        <p id="P29">Adherent RPMI-7951 cells were infected with virus expressing shRNAs against COT or Luciferase as described above. Following selection, cells were plated (1.5&#xD7;10<sup>5</sup> cells/well) onto a 24-well plate in quadruplicate. Viable cells were counted via trypan blue exclusion using a VI-CELL Cell Viability Analyzer, per manufacturer&#x2019;s specifications. Quadruplicate cell counts were averaged and normalized relative to that of the control shRNA.</p>
+      </sec>
+      <sec id="S16">
+        <title>The Cancer Cell line encyclopedia (CCLE)</title>
+        <p id="P30">The Cancer Cell line encyclopedia (CCLE) project is a collaboration between the Broad Institute, the Novartis Institutes for Biomedical Research (NIBR) and the Genomics Institute of the Novartis Research Foundation (GNF) to conduct a detailed genetic and pharmacologic characterization of a large panel of human cancer models, to develop integrated computational analyses that link distinct pharmacologic vulnerabilities to genomic patterns and to translate cell line integrative genomics into cancer patient stratification. All OncoMap mutation data and SNP-array derived copy number data is available online at <ext-link ext-link-type="uri" xlink:href="http://www.broadinstitute.org/ccle">www.broadinstitute.org/ccle</ext-link>.</p>
+      </sec>
+      <sec id="S17">
+        <title>Expression profiling of cancer cell lines</title>
+        <p id="P31">We carried out oligonucleotide microarray analysis using the GeneChip Human Genome U133 Plus 2.0 Affymetrix expression array (Affymetrix, Santa Clara, CA). Samples were converted to labeled, fragmented, cRNA per the Affymetrix protocol for use on the expression microarray.</p>
+      </sec>
+      <sec id="S18">
+        <title>shRNA constructs used (pLKO.1)</title>
+        <table-wrap id="T1" position="anchor">
+          <table frame="box" rules="all">
+            <thead>
+              <tr>
+                <th align="right" rowspan="1" colspan="1">shRNA</th>
+                <th align="left" rowspan="1" colspan="1">TRC Identifier</th>
+                <th align="left" rowspan="1" colspan="1">NM No.</th>
+                <th align="left" rowspan="1" colspan="1">Sequence (5'&#x2192;3')</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shLuc</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000072243</td>
+                <td align="left" rowspan="1" colspan="1">n/a</td>
+                <td align="left" rowspan="1" colspan="1">CTTCGAAATGTCCGTTCGGTT</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shBRAF(1)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000006289</td>
+                <td align="left" rowspan="1" colspan="1">NM_004333.2-1106s1c1</td>
+                <td align="left" rowspan="1" colspan="1">GCAGATGAAGATCATCGAAAT</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shBRAF(2)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000006291</td>
+                <td align="left" rowspan="1" colspan="1">NM_004333.2-2267s1c1</td>
+                <td align="left" rowspan="1" colspan="1">GCTGGTTTCCAAACAGAGGAT</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shCRAF(1)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000001066</td>
+                <td align="left" rowspan="1" colspan="1">NM_002880.x-1236s1c1</td>
+                <td align="left" rowspan="1" colspan="1">CGGAGATGTTGCAGTAAAGAT</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shCRAF(2)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000001068</td>
+                <td align="left" rowspan="1" colspan="1">NM_002880.x-1529s1c1</td>
+                <td align="left" rowspan="1" colspan="1">GAGACATGAAATCCAACAATA</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shMEK1(1)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000002332</td>
+                <td align="left" rowspan="1" colspan="1">NM_002755.x-1015s1c1</td>
+                <td align="left" rowspan="1" colspan="1">GATTACATAGTCAACGAGCCT</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shMEK1(2)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000002329</td>
+                <td align="left" rowspan="1" colspan="1">NM_002755.x-455s1c1</td>
+                <td align="left" rowspan="1" colspan="1">GCTTCTATGGTGCGTTCTACA</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shMEK2(1)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000007007</td>
+                <td align="left" rowspan="1" colspan="1">NM_030662.2-1219s1c1</td>
+                <td align="left" rowspan="1" colspan="1">TGGACTATATTGTGAACGAGC</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shMEK2(2)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000007005</td>
+                <td align="left" rowspan="1" colspan="1">NM_030662.2-847s1c1</td>
+                <td align="left" rowspan="1" colspan="1">CCAACATCCTCGTGAACTCTA</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shCOT(1)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000010013</td>
+                <td align="left" rowspan="1" colspan="1">NM_005204.x-1826s1c1</td>
+                <td align="left" rowspan="1" colspan="1">CAAGAGCCGCAGACCTACTAA</td>
+              </tr>
+              <tr>
+                <td align="right" rowspan="1" colspan="1">shCOT(2)</td>
+                <td align="left" rowspan="1" colspan="1">TRCN0000196518</td>
+                <td align="left" rowspan="1" colspan="1">NM_005204.2-2809s1c1</td>
+                <td align="left" rowspan="1" colspan="1">GATGAGAATGTGACCTTTAAG</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+    </sec>
+    <sec sec-type="supplementary-material" id="SM">
+      <title>Supplementary Material</title>
+      <supplementary-material content-type="local-data" id="SD1">
+        <label>1</label>
+        <media xlink:href="NIHMS248195-supplement-1.pdf" xlink:type="simple" id="N0x1c759f50N0x1d6d7f10" position="anchor" mimetype="application" mime-subtype="pdf"/>
+      </supplementary-material>
+    </sec>
+  </body>
+  <back>
+    <fn-group>
+      <fn id="FN4">
+        <p id="P32"><bold>Supplementary Information</bold> is linked to the online version of the paper at <ext-link ext-link-type="uri" xlink:href="http://www.nature.com/nature">www.nature.com/nature</ext-link></p>
+      </fn>
+      <fn id="FN5" fn-type="con">
+        <p id="P33"><bold>Author contributions</bold> C.M.J., J.S.B. and L.A.G. designed the experiments, with help from C.M.E. C.M.J., S.Y.K. and L.W. performed primary screen, supervised by W.C.H. L.A.J. helped perform drug sensitivity profiling. J.S.B. designed and created the CCSB/Broad Institute Kinase ORF Collection in collaboration with S.R.T., H.H., R.R.M., K.S-A, J.J.Z., M.V., T.M.R., T.G., D.E.H. and W.C.H. Additional help with ORF experiments from X.P., D.E.R. and O.A. Clinical samples were collected or experiments performed by C.M.J., A.P.C., K.T.F., R.D., J.A.W. Large scale cell genomic and expression profiling along with pharmacological screening efforts were designed and data analyzed by, N.S., J.B., G.C., S.K., J.H., C.J.W., V.E.M., P.M.F., B.W., W.R.S., R.S., L.A.G. C.M.J. and L.A.G. wrote the manuscript. All authors discussed results and edited the manuscript.</p>
+      </fn>
+      <fn id="FN6">
+        <p id="P34"><bold>Author Information</bold> Reprints and permissions information is available at <ext-link ext-link-type="uri" xlink:href="http://www.nature.com/reprints">www.nature.com/reprints</ext-link>. The authors declare competing financial interests: details accompanying the full-text HTML version of the paper at <ext-link ext-link-type="uri" xlink:href="http://www.nature.com/nature">www.nature.com/nature</ext-link>.</p>
+      </fn>
+    </fn-group>
+    <ack id="S19">
+      <title>Acknowledgments</title>
+      <p id="P35">We thank members of the Broad Institute/Novartis Cancer Cell Line Encyclopedia (CCLE) for contributing cell line genomic data, expression data and pharmacological cell line sensitivity data; Joseph Thibault and Aaron Shipway for CCLE related tissue culture; Ron Depinho, Gavin Dunn, Stephen Ethier, Heidi Greulich, Andrew Henderson, David Kaplan, Ross Levine, Chris Miller, Helen Piwnica-Worms, Hiroyuki Suzuki, Marc Vigny, Douglas Vollrath and the Harvard Institute of Proteomics for contributing templates for the kinase collection; Jinyan Du and Douglas B. Wheeler for assistance with functional testing of kinases; David A. Barbie for helpful discussions, Susan E. Moody and Hiu Wing Cheung for technical assistance, and Jennifer K. Grenier and Serena J. Silver for compiling and annotating the list of kinases. This work was supported by the NIH Director's New Innovator Award (L.A.G.), grants from the Novartis Institutes for Biomedical Research (L.A.G.), Melanoma Research Alliance (L.A.G.), Starr Cancer Consortium (L.A.G.) the US National Cancer Institute (R33 CA128625, RC2 CA148268) (W.C.H.), NIH (CA134502) (J.J.Z) the Swiss National Foundation (310040-103671) (R.D.), the Gottfried and Julia Bangerter Rhyner Stiftung (R.D.) the Ellison Foundation (M.V. and CCSB) and institute sponsored research funds from the DFCI Strategic Initiative (M.V. and CCSB).</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="R1">
+        <label>1</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hoeflich</surname>
+              <given-names>KP</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Antitumor efficacy of the novel RAF inhibitor GDC-0879 is predicted by BRAFV600E mutational status and sustained extracellular signal-regulated kinase/mitogen-activated protein kinase pathway suppression</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <fpage>3042</fpage>
+          <lpage>3051</lpage>
+          <pub-id pub-id-type="pmid">19276360</pub-id>
+        </citation>
+      </ref>
+      <ref id="R2">
+        <label>2</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>McDermott</surname>
+              <given-names>U</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Identification of genotype-correlated sensitivity to selective kinase inhibitors by using high-throughput tumor cell line profiling</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2007</year>
+          <volume>104</volume>
+          <fpage>19936</fpage>
+          <lpage>19941</lpage>
+          <pub-id pub-id-type="pmid">18077425</pub-id>
+        </citation>
+      </ref>
+      <ref id="R3">
+        <label>3</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Solit</surname>
+              <given-names>DB</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>BRAF mutation predicts sensitivity to MEK inhibition</article-title>
+          <source>Nature</source>
+          <year>2006</year>
+          <volume>439</volume>
+          <fpage>358</fpage>
+          <lpage>362</lpage>
+          <pub-id pub-id-type="pmid">16273091</pub-id>
+        </citation>
+      </ref>
+      <ref id="R4">
+        <label>4</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wan</surname>
+              <given-names>PT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mechanism of activation of the RAF-ERK signaling pathway by oncogenic mutations of B-RAF</article-title>
+          <source>Cell</source>
+          <year>2004</year>
+          <volume>116</volume>
+          <fpage>855</fpage>
+          <lpage>867</lpage>
+          <pub-id pub-id-type="pmid">15035987</pub-id>
+        </citation>
+      </ref>
+      <ref id="R5">
+        <label>5</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wellbrock</surname>
+              <given-names>C</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>V599EB-RAF is an oncogene in melanocytes</article-title>
+          <source>Cancer Res</source>
+          <year>2004</year>
+          <volume>64</volume>
+          <fpage>2338</fpage>
+          <lpage>2342</lpage>
+          <pub-id pub-id-type="pmid">15059882</pub-id>
+        </citation>
+      </ref>
+      <ref id="R6">
+        <label>6</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Flaherty</surname>
+              <given-names>KT</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibition of mutated, activated BRAF in metastatic melanoma</article-title>
+          <source>N Engl J Med</source>
+          <year>2010</year>
+          <volume>363</volume>
+          <fpage>809</fpage>
+          <lpage>819</lpage>
+          <pub-id pub-id-type="pmid">20818844</pub-id>
+        </citation>
+      </ref>
+      <ref id="R7">
+        <label>7</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Infante</surname>
+              <given-names>JR</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Safety and efficacy results from the first-in-human study of the oral MEK 1/2 inhibitor GSK1120212</article-title>
+          <source>J Clin Oncol</source>
+          <year>2010</year>
+          <volume>28</volume>
+        </citation>
+      </ref>
+      <ref id="R8">
+        <label>8</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>GK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>A phase I study of XL281, a selective oral RAF kinase inhibitor, in patients (Pts) with advanced solid tumors</article-title>
+          <source>J Clin Oncol</source>
+          <year>2009</year>
+          <volume>27</volume>
+        </citation>
+      </ref>
+      <ref id="R9">
+        <label>9</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Engelman</surname>
+              <given-names>JA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MET amplification leads to gefitinib resistance in lung cancer by activating ERBB3 signaling</article-title>
+          <source>Science</source>
+          <year>2007</year>
+          <volume>316</volume>
+          <fpage>1039</fpage>
+          <lpage>1043</lpage>
+          <pub-id pub-id-type="pmid">17463250</pub-id>
+        </citation>
+      </ref>
+      <ref id="R10">
+        <label>10</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Gorre</surname>
+              <given-names>ME</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Clinical resistance to STI-571 cancer therapy caused by BCR-ABL gene mutation or amplification</article-title>
+          <source>Science</source>
+          <year>2001</year>
+          <volume>293</volume>
+          <fpage>876</fpage>
+          <lpage>880</lpage>
+          <pub-id pub-id-type="pmid">11423618</pub-id>
+        </citation>
+      </ref>
+      <ref id="R11">
+        <label>11</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Heinrich</surname>
+              <given-names>MC</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Molecular correlates of imatinib resistance in gastrointestinal stromal tumors</article-title>
+          <source>J Clin Oncol</source>
+          <year>2006</year>
+          <volume>24</volume>
+          <fpage>4764</fpage>
+          <lpage>4774</lpage>
+          <pub-id pub-id-type="pmid">16954519</pub-id>
+        </citation>
+      </ref>
+      <ref id="R12">
+        <label>12</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Daub</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Specht</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Ullrich</surname>
+              <given-names>A</given-names>
+            </name>
+          </person-group>
+          <article-title>Strategies to overcome resistance to targeted protein kinase inhibitors</article-title>
+          <source>Nat Rev Drug Discov</source>
+          <year>2004</year>
+          <volume>3</volume>
+          <fpage>1001</fpage>
+          <lpage>1010</lpage>
+          <pub-id pub-id-type="pmid">15573099</pub-id>
+        </citation>
+      </ref>
+      <ref id="R13">
+        <label>13</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsai</surname>
+              <given-names>J</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Discovery of a selective inhibitor of oncogenic B-Raf kinase with potent antimelanoma activity</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2008</year>
+          <volume>105</volume>
+          <fpage>3041</fpage>
+          <lpage>3046</lpage>
+          <pub-id pub-id-type="pmid">18287029</pub-id>
+        </citation>
+      </ref>
+      <ref id="R14">
+        <label>14</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Emery</surname>
+              <given-names>CM</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>MEK1 mutations confer resistance to MEK and B-RAF inhibition</article-title>
+          <source>Proc Natl Acad Sci U S A</source>
+          <year>2009</year>
+          <volume>106</volume>
+          <fpage>20411</fpage>
+          <lpage>20416</lpage>
+          <pub-id pub-id-type="pmid">19915144</pub-id>
+        </citation>
+      </ref>
+      <ref id="R15">
+        <label>15</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hatzivassiliou</surname>
+              <given-names>G</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>RAF inhibitors prime wild-type RAF to activate the MAPK pathway and enhance growth</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+        </citation>
+      </ref>
+      <ref id="R16">
+        <label>16</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Heidorn</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Kinase-dead BRAF and oncogenic RAS cooperate to drive tumor progression through CRAF</article-title>
+          <source>Cell</source>
+          <year>2010</year>
+          <volume>140</volume>
+          <fpage>209</fpage>
+          <lpage>221</lpage>
+          <pub-id pub-id-type="pmid">20141835</pub-id>
+        </citation>
+      </ref>
+      <ref id="R17">
+        <label>17</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Karreth</surname>
+              <given-names>FA</given-names>
+            </name>
+            <name>
+              <surname>DeNicola</surname>
+              <given-names>GM</given-names>
+            </name>
+            <name>
+              <surname>Winter</surname>
+              <given-names>SP</given-names>
+            </name>
+            <name>
+              <surname>Tuveson</surname>
+              <given-names>DA</given-names>
+            </name>
+          </person-group>
+          <article-title>C-Raf inhibits MAPK activation and transformation by B-Raf(V600E)</article-title>
+          <source>Mol Cell</source>
+          <year>2009</year>
+          <volume>36</volume>
+          <fpage>477</fpage>
+          <lpage>486</lpage>
+          <pub-id pub-id-type="pmid">19917255</pub-id>
+        </citation>
+      </ref>
+      <ref id="R18">
+        <label>18</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Poulikakos</surname>
+              <given-names>PI</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Bollag</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Shokat</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Rosen</surname>
+              <given-names>N</given-names>
+            </name>
+          </person-group>
+          <article-title>RAF inhibitors transactivate RAF dimers and ERK signalling in cells with wild-type BRAF</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+        </citation>
+      </ref>
+      <ref id="R19">
+        <label>19</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Edlundh-Rose</surname>
+              <given-names>E</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>NRAS and BRAF mutations in melanoma tumours in relation to clinical characteristics: a study based on mutation screening by pyrosequencing</article-title>
+          <source>Melanoma Res</source>
+          <year>2006</year>
+          <volume>16</volume>
+          <fpage>471</fpage>
+          <lpage>478</lpage>
+          <pub-id pub-id-type="pmid">17119447</pub-id>
+        </citation>
+      </ref>
+      <ref id="R20">
+        <label>20</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Seth</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Concomitant mutations and splice variants in KRAS and BRAF demonstrate complex perturbation of the Ras/Raf signalling pathway in advanced colorectal cancer</article-title>
+          <source>Gut</source>
+          <year>2009</year>
+          <volume>58</volume>
+          <fpage>1234</fpage>
+          <lpage>1241</lpage>
+          <pub-id pub-id-type="pmid">19474002</pub-id>
+        </citation>
+      </ref>
+      <ref id="R21">
+        <label>21</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>George</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Discovery of thieno[2,3-c]pyridines as potent COT inhibitors</article-title>
+          <source>Bioorg Med Chem Lett</source>
+          <year>2008</year>
+          <volume>18</volume>
+          <fpage>4952</fpage>
+          <lpage>4955</lpage>
+          <pub-id pub-id-type="pmid">18755587</pub-id>
+        </citation>
+      </ref>
+      <ref id="R22">
+        <label>22</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hirata</surname>
+              <given-names>K</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Inhibition of tumor progression locus 2 protein kinase suppresses receptor activator of nuclear factor-kappaB ligand-induced osteoclastogenesis through down-regulation of the c-Fos and nuclear factor of activated T cells c1 genes</article-title>
+          <source>Biol Pharm Bull</source>
+          <volume>33</volume>
+          <fpage>133</fpage>
+          <lpage>137</lpage>
+          <pub-id pub-id-type="pmid">20045951</pub-id>
+        </citation>
+      </ref>
+      <ref id="R23">
+        <label>23</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lee</surname>
+              <given-names>KM</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>KW</given-names>
+            </name>
+            <name>
+              <surname>Bode</surname>
+              <given-names>AM</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>HJ</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>Tpl2 is a key mediator of arsenite-induced signal transduction</article-title>
+          <source>Cancer Res</source>
+          <year>2009</year>
+          <volume>69</volume>
+          <fpage>8043</fpage>
+          <lpage>8049</lpage>
+          <pub-id pub-id-type="pmid">19808956</pub-id>
+        </citation>
+      </ref>
+      <ref id="R24">
+        <label>24</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tsatsanis</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Patriotis</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Tsichlis</surname>
+              <given-names>PN</given-names>
+            </name>
+          </person-group>
+          <article-title>Tpl-2 induces IL-2 expression in T-cell lines by triggering multiple signaling pathways that activate NFAT and NF-kappaB</article-title>
+          <source>Oncogene</source>
+          <year>1998</year>
+          <volume>17</volume>
+          <fpage>2609</fpage>
+          <lpage>2618</lpage>
+          <pub-id pub-id-type="pmid">9840924</pub-id>
+        </citation>
+      </ref>
+      <ref id="R25">
+        <label>25</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davies</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Mutations of the BRAF gene in human cancer</article-title>
+          <source>Nature</source>
+          <year>2002</year>
+          <volume>417</volume>
+          <fpage>949</fpage>
+          <lpage>954</lpage>
+          <pub-id pub-id-type="pmid">12068308</pub-id>
+        </citation>
+      </ref>
+      <ref id="R26">
+        <label>26</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Barbie</surname>
+              <given-names>DA</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Systematic RNA interference reveals that oncogenic KRAS-driven cancers require TBK1</article-title>
+          <source>Nature</source>
+          <year>2009</year>
+          <volume>462</volume>
+          <fpage>108</fpage>
+          <lpage>112</lpage>
+          <pub-id pub-id-type="pmid">19847166</pub-id>
+        </citation>
+      </ref>
+      <ref id="R27">
+        <label>27</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Beroukhim</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>The landscape of somatic copy-number alteration across human cancers</article-title>
+          <source>Nature</source>
+          <year>2010</year>
+          <volume>463</volume>
+          <fpage>899</fpage>
+          <lpage>905</lpage>
+          <pub-id pub-id-type="pmid">20164920</pub-id>
+        </citation>
+      </ref>
+      <ref id="R28">
+        <label>28</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Boehm</surname>
+              <given-names>JS</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Integrative genomic approaches identify IKBKE as a breast cancer oncogene</article-title>
+          <source>Cell</source>
+          <year>2007</year>
+          <volume>129</volume>
+          <fpage>1065</fpage>
+          <lpage>1079</lpage>
+          <pub-id pub-id-type="pmid">17574021</pub-id>
+        </citation>
+      </ref>
+      <ref id="R29">
+        <label>29</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lundberg</surname>
+              <given-names>AS</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <article-title>Immortalization and transformation of primary human airway epithelial cells by gene transfer</article-title>
+          <source>Oncogene</source>
+          <year>2002</year>
+          <volume>21</volume>
+          <fpage>4577</fpage>
+          <lpage>4586</lpage>
+          <pub-id pub-id-type="pmid">12085236</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <sec id="S20" sec-type="display-objects">
+      <title>Figures</title>
+      <fig id="F1" position="float">
+        <label>Figure 1</label>
+        <caption>
+          <title>An ORF-based functional screen identifies COT and C-RAF kinases as drivers of resistance to B-RAF inhibition</title>
+          <p id="P36">
+<list list-type="alpha-lower" id="L1"><list-item><p id="P37">Overview of the CCSB/Broad Institute Kinase ORF collection. Kinase classification and number of kinases per classification are noted.</p></list-item><list-item><p id="P38">A375 expressing the CCSB/Broad Institute Kinase ORF collection were assayed for relative viability in 1 &#xB5;M PLX4720 and normalized to constitutively active MEK1 (MEK1<sup>DD</sup>). Nine ORFs (orange circles) scored 2 standard deviations (red dashed line, 58.64%) from the mean of all ORFs (green dashed line, 44.26%).</p></list-item><list-item><p id="P39">Indicated ORFs were expressed in 5 B-RAF<sup>V600E</sup> cell lines and treated with DMSO or 1 &#xB5;M PLX4720. Viability (relative to DMSO) was quantified after 4 days. Error bars represent standard deviation between replicates (n=6).</p></list-item></list></p>
+        </caption>
+        <graphic xlink:href="nihms248195f1"/>
+      </fig>
+      <fig id="F2" position="float">
+        <label>Figure 2</label>
+        <caption>
+          <title>Resistance to B-RAF inhibition via MAPK pathway activation</title>
+          <p id="P40">
+<list list-type="alpha-lower" id="L2"><list-item><p id="P41">Indicated ORFs were expressed in A375. Levels of phosphorylated MEK and ERK were assayed following 18 h. treatment with DMSO (&#x2212;) or PLX4720 (concentration noted).</p></list-item><list-item><p id="P42">Proliferation of A375 expressing indicated ORFs. Error bars represent standard deviation between replicates (n=6).</p></list-item><list-item><p id="P43">C-RAF (S338) and ERK phosphorylation in lysates from A375 expressing indicated ORFs.</p></list-item><list-item><p id="P44">COT expression in lysates from immortalized primary melanocytes expressing BRAF<sup>V600E</sup> or empty vector. COT mRNA has an internal start codon (30<sup>M</sup>) resulting in two protein products of different lengths; amino acids 1&#x2013;467 or 30&#x2013;467, noted with arrows.</p></list-item><list-item><p id="P45">COT and ERK phosphorylation in lysates from A375 expressing indicated ORFs following shRNA-mediated B-RAF depletion (shBRAF) relative to control shRNA (shLuc).</p></list-item><list-item><p id="P46">ERK phosphorylation in lysates from A375 expressing indicated ORFs following shRNA-mediated C-RAF depletion (shCRAF) or control shRNA (shLuc), following 18 h. treatment with DMSO (&#x2212;) or 1 &#xB5;M PLX4720 (+).</p></list-item></list></p>
+        </caption>
+        <graphic xlink:href="nihms248195f2"/>
+      </fig>
+      <fig id="F3" position="float">
+        <label>Figure 3</label>
+        <caption>
+          <title>COT expression predicts resistance to B-RAF inhibition in cancer cell lines</title>
+          <p id="P47">
+<list list-type="alpha-lower" id="L3"><list-item><p id="P48"><italic>MAP3K8</italic>/COT copy number; red bars: COT amplification, blue bars: non-amplified COT.</p></list-item><list-item><p id="P49">COT expression in B-RAF<sup>V600E</sup> cell lines and</p></list-item><list-item><p id="P50">short-term cultures.</p></list-item><list-item><p id="P51">PLX4720 GI<sub>50</sub> in B-RAF<sup>V600E</sup> cell lines. Colors as in (a).</p></list-item><list-item><p id="P52">MEK and ERK phosphorylation following treatment with DMSO or PLX4720 (concentration indicated).</p></list-item><list-item><p id="P53">ERK phosphorylation in M307 lysates (AZD-R; AZD6244-resistant) treated with DMSO or 1 &#xB5;M PLX4720 (PLX) or CI-1040 (CI).</p></list-item><list-item><p id="P54">COT mRNA expression (QRT/PCR) in patient/lesion-matched PLX4032-treated metastatic melanoma tissue samples. Pts. 1 and 3 had multiple biopsies from the same lesion. Error bars represent SEM (n=3). U; undetermined/undetectable.</p></list-item><list-item><p id="P55">ERK and MEK phosphorylation in RPMI-7951 following shRNA-mediated COT depletion (shCOT) versus control (shLuc) and treatment with DMSO (&#x2212;) or 1 &#xB5;M PLX4720 (+). ERK and MEK phosphorylation are quantified.</p></list-item><list-item><p id="P56">ERK and MEK phosphorylation in RPMI-7951 following 1 h. treatment with a small molecule COT kinase inhibitor. ERK and MEK phosphorylation are quantified.</p></list-item></list></p>
+        </caption>
+        <graphic xlink:href="nihms248195f3"/>
+      </fig>
+      <fig id="F4" position="float">
+        <label>Figure 4</label>
+        <caption>
+          <title>COT-expressing B-RAF<sup>V600E</sup> cell lines exhibit resistance to allosteric MEK inhibitors</title>
+          <p id="P57">
+<list list-type="alpha-lower" id="L4"><list-item><p id="P58">CI-1040 GI<sub>50</sub> in a panel of B-RAF<sup>V600E</sup> cell lines; red bars: COT expression/amplification, blue bars: undetectable/non-amplified COT.</p></list-item><list-item><p id="P59">MEK and ERK phosphorylation in lysates from indicated cell lines treated with DMSO or CI-1040 (concentration noted).</p></list-item><list-item><p id="P60">Fold change (relative to MEK1) GI<sub>50</sub> of A375 ectopically expressing the indicated ORFs for PLX4720, RAF265, CI-1040 and AZD6244.</p></list-item><list-item><p id="P61">ERK phosphorylation in A375 expressing indicated ORFs following treatment with DMSO or 1 &#xB5;M of PLX4720, RAF265, CI-1040 or AZD6244.</p></list-item><list-item><p id="P62">Viability of A375 expressing the indicated ORFs and treated with DMSO, PLX4720 (concentration indicated) and PLX4720 in combination with CI-1040 or AZD6244 (all 1 &#xB5;M). Error bars represent the standard deviation (n=6).</p></list-item><list-item><p id="P63">ERK phosphorylation in A375 expressing indicated ORFs following treatment with DMSO, PLX4720 (1 &#xB5;M) or PLX4720 in combination with CI-1040 or AZD6244 (all 1 &#xB5;M).</p></list-item></list></p>
+        </caption>
+        <graphic xlink:href="nihms248195f4"/>
+      </fig>
+    </sec>
+  </back>
+</article>
+</pmc-articleset>

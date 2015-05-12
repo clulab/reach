@@ -1,0 +1,1361 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article" xml:lang="EN">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">PLoS ONE</journal-id>
+      <journal-id journal-id-type="publisher-id">plos</journal-id>
+      <journal-id journal-id-type="pmc">plosone</journal-id>
+      <journal-title>PLoS ONE</journal-title>
+      <issn pub-type="epub">1932-6203</issn>
+      <publisher>
+        <publisher-name>Public Library of Science</publisher-name>
+        <publisher-loc>San Francisco, USA</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">19088846</article-id>
+      <article-id pub-id-type="pmc">2597732</article-id>
+      <article-id pub-id-type="publisher-id">08-PONE-RA-07135</article-id>
+      <article-id pub-id-type="doi">10.1371/journal.pone.0003961</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+        <subj-group subj-group-type="Discipline">
+          <subject>Cell Biology/Cell Signaling</subject>
+          <subject>Chemical Biology/Protein Chemistry and Proteomics</subject>
+          <subject>Genetics and Genomics/Gene Function</subject>
+          <subject>Genetics and Genomics/Genetics of Disease</subject>
+          <subject>Genetics and Genomics/Medical Genetics</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Analysis of STAT1 Activation by Six FGFR3 Mutants Associated with Skeletal Dysplasia Undermines Dominant Role of STAT1 in FGFR3 Signaling in Cartilage</article-title>
+        <alt-title alt-title-type="running-head">STAT1 Activation by FGFR3</alt-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Krejci</surname>
+            <given-names>Pavel</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="corresp" rid="cor1">
+            <sup>*</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Salazar</surname>
+            <given-names>Lisa</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kashiwada</surname>
+            <given-names>Tamara A.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Chlebova</surname>
+            <given-names>Katarina</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Salasova</surname>
+            <given-names>Alena</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Thompson</surname>
+            <given-names>Leslie Michels</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff4">
+            <sup>4</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Bryja</surname>
+            <given-names>Vitezslav</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Kozubik</surname>
+            <given-names>Alois</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1">
+            <sup>1</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff2">
+            <sup>2</sup>
+          </xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Wilcox</surname>
+            <given-names>William R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff3">
+            <sup>3</sup>
+          </xref>
+          <xref ref-type="aff" rid="aff5">
+            <sup>5</sup>
+          </xref>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">
+        <label>1</label>
+        <addr-line>Department of Animal Physiology and Immunology, Institute of Experimental Biology, Masaryk University, Brno, Czech Republic</addr-line>
+      </aff>
+      <aff id="aff2">
+        <label>2</label>
+        <addr-line>Department of Cytokinetics, Institute of Biophysics ASCR, Brno, Czech Republic</addr-line>
+      </aff>
+      <aff id="aff3">
+        <label>3</label>
+        <addr-line>Medical Genetics Institute, Cedars-Sinai Medical Center, Los Angeles, California, United States of America</addr-line>
+      </aff>
+      <aff id="aff4">
+        <label>4</label>
+        <addr-line>Department of Psychiatry and Human Behavior, University of California Irvine, Irvine, California, United States of America</addr-line>
+      </aff>
+      <aff id="aff5">
+        <label>5</label>
+        <addr-line>Department of Pediatrics, University of California Los Angeles School of Medicine, Los Angeles, California, United States of America</addr-line>
+      </aff>
+      <contrib-group>
+        <contrib contrib-type="editor">
+          <name>
+            <surname>Bereswill</surname>
+            <given-names>Stefan</given-names>
+          </name>
+          <role>Editor</role>
+          <xref ref-type="aff" rid="edit1"/>
+        </contrib>
+      </contrib-group>
+      <aff id="edit1">Charit&#xE9;-Universit&#xE4;tsmedizin Berlin, Germany</aff>
+      <author-notes>
+        <corresp id="cor1">* E-mail: <email>pavel.krejci@cshs.org</email></corresp>
+        <fn fn-type="con">
+          <p>Conceived and designed the experiments: PK LS TAK KC AS LMT VB AK WW. Performed the experiments: PK LS TAK KC AS. Analyzed the data: PK LS TAK KC AS LMT VB AK WW. Contributed reagents/materials/analysis tools: LS TAK LMT VB AK WW. Wrote the paper: PK WW.</p>
+        </fn>
+      </author-notes>
+      <pub-date pub-type="collection">
+        <year>2008</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>17</day>
+        <month>12</month>
+        <year>2008</year>
+      </pub-date>
+      <volume>3</volume>
+      <issue>12</issue>
+      <elocation-id>e3961</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>31</day>
+          <month>10</month>
+          <year>2008</year>
+        </date>
+        <date date-type="accepted">
+          <day>18</day>
+          <month>11</month>
+          <year>2008</year>
+        </date>
+      </history>
+      <copyright-statement>Krejci et al. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.</copyright-statement>
+      <copyright-year>2008</copyright-year>
+      <abstract>
+        <p>Activating mutations in FGFR3 tyrosine kinase cause several forms of human skeletal dysplasia. Although the mechanisms of FGFR3 action in cartilage are not completely understood, it is believed that the STAT1 transcription factor plays a central role in pathogenic FGFR3 signaling. Here, we analyzed STAT1 activation by the N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants associated with skeletal dysplasias. In a cell-free kinase assay, only K650M and K650E-FGFR3 caused activatory STAT1(Y701) phosphorylation. Similarly, in RCS chondrocytes, HeLa, and 293T cellular environments, only K650M and K650E-FGFR3 caused strong STAT1 activation. Other FGFR3 mutants caused weak (HeLa) or no activation (293T and RCS). This contrasted with ERK MAP kinase activation, which was strongly induced by all six mutants and correlated with the inhibition of proliferation in RCS chondrocytes. Thus the ability to activate STAT1 appears restricted to the K650M and K650E-FGFR3 mutants, which however account for only a small minority of the FGFR3-related skeletal dysplasia cases. Other pathways such as ERK should therefore be considered as central to pathological FGFR3 signaling in cartilage.</p>
+      </abstract>
+      <counts>
+        <page-count count="7"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Introduction</title>
+      <p>Activating mutations in FGFR3 receptor tyrosine kinase result in several forms of skeletal dysplasia. These range from the mild short-limbed dwarfism hypochondroplasia (HCH), to the most common genetic form of dwarfism achondroplasia (ACH), to severe achondroplasia with acanthosis nigricans and mental retardation (SADDAN), and to neonatal lethal thanatophoric dysplasia (TD) <xref ref-type="bibr" rid="pone.0003961-PassosBueno1">[1]</xref>. Despite recent progress in characterization of the mechanisms of FGFR3 signaling in cartilage, many aspects of this signaling remain unclear. At present, the FGFR3-mediated activation of STAT1 is believed to be a prominent mechanism of pathological FGFR3 signaling in cartilage [for reviews see references 2&#x2013;4].</p>
+      <p>Several lines of evidence support this paradigm. First, the expression of FGFR3 harboring the highly activating TD-associated K650M or K650E mutations leads to activatory STAT1(Y701) phosphorylation in cells. This is evidenced in 293T embryonal kidney cells, PC12 pheochromocytoma cells, HeLa cervical cancer cells, and RCS chondrocytes <xref ref-type="bibr" rid="pone.0003961-Su1">[5]</xref>&#x2013;<xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>. This activation is accompanied with induction of differentiation in PC12 cells <xref ref-type="bibr" rid="pone.0003961-Nowroozi1">[9]</xref>, or with STAT1 nuclear accumulation, increased levels of the p21<sup>Waf1</sup> inhibitor of the cell cycle, and inhibition of proliferation in 293T cells <xref ref-type="bibr" rid="pone.0003961-Su1">[5]</xref>. Second, STAT1 accumulates and shows nuclear localization in the cartilage of TD-affected human fetuses as well as in mice carrying the K644E-FGFR3 mutation (homologous to human K650E) <xref ref-type="bibr" rid="pone.0003961-LegeaiMallet1">[12]</xref>, <xref ref-type="bibr" rid="pone.0003961-Li1">[13]</xref>. Finally, two experimental studies show that the loss of STAT1 partially rescues the growth-inhibitory action of FGF signaling in chondrocytes <xref ref-type="bibr" rid="pone.0003961-Sahni1">[14]</xref>, <xref ref-type="bibr" rid="pone.0003961-Sahni2">[15]</xref>, both suggesting the role of STAT1 in the growth-inhibitory FGFR3 action in cartilage.</p>
+      <p>In contrast to the STAT1 hypothesis, several studies have demonstrated that ERK and p38 MAP kinases but not STAT1 are important for FGFR3-mediated growth inhibition of chondrocytes both <italic>in vitro</italic> and <italic>in vivo</italic> <xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>, <xref ref-type="bibr" rid="pone.0003961-Murakami1">[16]</xref>&#x2013;<xref ref-type="bibr" rid="pone.0003961-Matsushita1">[19]</xref>.</p>
+      <p>The majority of evidence supporting the role of STAT1 in FGFR3 signaling in cartilage was obtained using the K650M or K650E mutants, which account for only a small subset of FGFR3-related skeletal dysplasia cases <xref ref-type="bibr" rid="pone.0003961-PassosBueno1">[1]</xref>. In addition, FGFR3 mutations only exaggerate the normal physiological function of FGFR3, which serves as a negative regulator of cartilage growth <xref ref-type="bibr" rid="pone.0003961-Horton1">[2]</xref>, <xref ref-type="bibr" rid="pone.0003961-Colvin1">[20]</xref>. No activation of STAT1 was found by wild-type FGFR3 in several studies <xref ref-type="bibr" rid="pone.0003961-Nowroozi1">[9]</xref>&#x2013;<xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>, <xref ref-type="bibr" rid="pone.0003961-Hart2">[21]</xref>, <xref ref-type="bibr" rid="pone.0003961-Lievens2">[22]</xref>, suggesting that STAT1 might not be the major intermediate in the FGFR3 signaling in cartilage. To answer this question, we compared six FGFR3 mutants, which together account for the majority of the known skeletal dysplasia cases, for their activation of STAT1 and ERK MAP kinase, and their effects on chondrocyte growth.</p>
+    </sec>
+    <sec id="s2">
+      <title>Results and Discussion</title>
+      <sec id="s2a">
+        <title>STAT1 activation by FGFR3 mutants in a cell-free kinase assay</title>
+        <p>Although the expression of K650E-FGFR3 induces activatory STAT1(Y701) phosphorylation in cells <xref ref-type="bibr" rid="pone.0003961-Hart1">[6]</xref>, <xref ref-type="bibr" rid="pone.0003961-Lievens1">[8]</xref>, the mechanism by which FGFR3 achieves this effect was not known until recently. Previously, we showed that K650E-FGFR3 interacts with STAT1 in cells and phosphorylates STAT1(Y701) in a cell-free kinase assay, thus serving as a STAT1 tyrosine kinase <xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>. Here, we used the FGFR3 kinase assay to compare the ability of six different FGFR3 mutants associated with a range of skeletal dysplasia phenotypes to activate STAT1. Vectors carrying the wild-type FGFR3 as well as the N540K (HCH), G380R (ACH), R248C, Y373C, K650E (TD) and K650M (SADDAN and TD) mutants were expressed in CHO cells. Transfected cells were stimulated with FGF2 and FGFR3 was purified by immunoprecipitation 48 hours later. Subsequently, the FGFR3 immunocomplexes were subjected to a kinase assay with recombinant STAT1 as a substrate. In this experiment, only the K650M and K650E mutants induced activatory phosphorylation of STAT1(Y701); the other mutants as well as wild-type FGFR3 caused no detectable phosphorylation (<xref ref-type="fig" rid="pone-0003961-g001">Fig. 1</xref>).</p>
+        <fig id="pone-0003961-g001" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0003961.g001</object-id>
+          <label>Figure 1</label>
+          <caption>
+            <title>STAT1 activation by FGFR3 mutants in a cell-free kinase assay.</title>
+            <p>Full-length wild-type FGFR3 or its activating mutants N540K, G380R, R248C, Y373C, K650M and K650E were expressed in CHO cells, activated by brief FGF2 treatment and purified by immunoprecipitation as described in <xref ref-type="sec" rid="s3">Materials and Methods</xref>. Immunocomplexes were subjected to kinase assay with recombinant STAT1 as a substrate. Cells transfected with GFP vector serve as negative control for immunoprecipitation. Samples utilizing recombinant FGFR3 tyrosine kinase domain (TK) or those with omitted ATP serve as positive or negative control for kinase assay, respectively. Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation, as evidenced by western blotting with antibody recognizing STAT1 only when phosphorylated at Y701 (P-Y701-STAT1). FGFR3 and STAT1 western blottings serve as controls for kinase or substrate quantity. Note the appearance of both immature and mature (glycosylated) FGFR3 forms expressed by CHO cells.</p>
+          </caption>
+          <graphic xlink:href="pone.0003961.g001"/>
+        </fig>
+        <p>The lack of STAT1 phosphorylation by the HCH and ACH mutants N540K and G380R as well as by the TD mutants R248C and Y373C might be explained by the lower levels of their activity when compared to K650E and K650M-FGFR3, although we do not favor this hypothesis. First, even the wild-type FGFR3 showed strong activity against its known substrate FRS2 under the same experimental conditions <xref ref-type="bibr" rid="pone.0003961-Krejci3">[23]</xref>. Second, R248C and Y373C are strongly activating mutants and cause TD similar to K650M and K650E, yet they did not phosphorylate STAT1 in a kinase assay (<xref ref-type="fig" rid="pone-0003961-g001">Fig. 1</xref>).</p>
+      </sec>
+      <sec id="s2b">
+        <title>STAT1 and ERK MAP kinase activation by FGFR3 mutants in HeLa, 293T and RCS cells</title>
+        <p>As the kinase assay is a simple, cell-free system where both kinase and substrate are in excess and there are no other proteins in the reaction, it might not entirely reflect <italic>in vivo</italic> situation. It is possible that N540K, G380R, R248C and Y373C mutants still activate STAT1 in cells, despite the lack of this capacity in a kinase assay (<xref ref-type="fig" rid="pone-0003961-g001">Fig. 1</xref>). For instance, other interacting proteins that facilitate FGFR3-mediated STAT1 activation could exist in cells. In addition, the lack of STAT1 phosphorylation by strongly <italic>in vivo</italic> activating TD mutations R248C and Y373C may stem from the fact that they affect the extracellular part of FGFR3 and activate FGFR3 by facilitating its dimerization <xref ref-type="bibr" rid="pone.0003961-dAvis1">[24]</xref>. Although we activated FGFR3 in CHO cells by exogenous FGF2 addition, it is unlikely that FGFR3 was immunoprecipitated in a form identical to intact cell membrane-associated FGF2/FGFR3 complexes. In contrast, K650M and K650E mutations affect the intracellular part of FGFR3 and activate FGFR3 via conformational changes that activate the kinase domain, which are normally initiated by ligand binding and autophosphorylation <xref ref-type="bibr" rid="pone.0003961-Webster1">[25]</xref>. It is likely that this process is less sensitive to the potential artifacts introduced by the methods used, i.e. to the FGFR3 purification and kinase assay conditions.</p>
+        <p>Therefore, we hypothesized that the N540K, G380R, R248C and Y373C mutants might somehow phosphorylate STAT1(Y701) in cells similar to K650M and K650E. FGFR3 mutants were expressed in three different cellular environments (HeLa, 293T and RCS cells) and transfectants analyzed for STAT1(Y701) phosphorylation. HeLa and 293T cell lines were chosen since they were used previously to study the K650M or K650E-FGFR3-mediated STAT1 activation <xref ref-type="bibr" rid="pone.0003961-Su1">[5]</xref>, <xref ref-type="bibr" rid="pone.0003961-Hart1">[6]</xref>, <xref ref-type="bibr" rid="pone.0003961-Lievens1">[8]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>, <xref ref-type="bibr" rid="pone.0003961-Hart2">[21]</xref>; RCS chondrocytes were used since this cell line represents an established <italic>in vitro</italic> model for FGFR3 signaling in cartilage <xref ref-type="bibr" rid="pone.0003961-Sahni1">[14]</xref>, <xref ref-type="bibr" rid="pone.0003961-Raucci1">[17]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci2">[18]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci3">[23]</xref>, <xref ref-type="bibr" rid="pone.0003961-Aikawa1">[26]</xref>&#x2013;<xref ref-type="bibr" rid="pone.0003961-Dailey1">[29]</xref>.</p>
+        <p>Cells were transfected with N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants and analyzed for activatory STAT1(Y701) phosphorylation 48 hours later. <xref ref-type="fig" rid="pone-0003961-g002">Figure 2</xref> shows that only the K650M and K650E mutants activated STAT1 in 293T and RCS cells, identically to the kinase assay data (<xref ref-type="fig" rid="pone-0003961-g001">Fig. 1</xref>). This phenotype was not affected by FGF2 treatment (20 ng/ml; 15 minutes). In contrast, we found a weak STAT1(Y701) activation in HeLa cells transfected with wild-type FGFR3 as well as with the G380R, R248C and Y373C mutants (<xref ref-type="fig" rid="pone-0003961-g002">Fig. 2</xref>). Although much lower than the activation induced by K650M or K650E mutants, it appeared to be dependent on the transgenic FGFR3-activity, since we found no STAT1(Y701) activation in cells transfected by the kinase-inactive K508M-FGFR3 mutant.</p>
+        <fig id="pone-0003961-g002" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0003961.g002</object-id>
+          <label>Figure 2</label>
+          <caption>
+            <title>STAT1 and ERK1/2 activation by FGFR3 mutants in HeLa, 293T and RCS cells.</title>
+            <p>HeLa, 293T and RCS cells, transfected with vectors expressing wild-type FGFR, activating FGFR3 mutants (N540K, G380R, R248C, Y373C, K650M and K650E), and kinase-inactive mutant K508M were grown for 48 hours, treated with FGF2 for 15 minutes and analyzed for given molecules by western blotting. The left and right panels represent independent experiments. Note that only K650M and K650E-FGFR3 cause strong activatory STAT1(Y701) phosphorylation whereas the other mutants cause weak (HeLa) or no activation (293T and RCS). This contrasts with ERK1/2 activation, which is induced by all six mutants in 293T and RCS cells (samples without FGF2 treatment). The P-Y701-STAT1 signal in HeLa cells was quantified by densitometry and graphed. Also note the differences in FGFR3 maturation, where HeLa and RCS cells but not 293T cells express mostly immature forms (lower arrow) of K650M and K650E-FGFR3. STAT1, ERK1/2 and ACTIN western blottings serve as loading controls. Cells transfected by GFP vector serve as negative control for transfection.</p>
+          </caption>
+          <graphic xlink:href="pone.0003961.g002"/>
+        </fig>
+        <p>In cells transfected with FGFR3 mutants, we also monitored the recruitment of the ERK MAP kinase pathway, which is activated by FGFR3 signaling in cartilage in addition to STAT1 and regulates aberrant chondrocyte proliferation and/or differentiation in FGFR3-related skeletal dysplasias <xref ref-type="bibr" rid="pone.0003961-Murakami1">[16]</xref>, <xref ref-type="bibr" rid="pone.0003961-Matsushita1">[19]</xref>, <xref ref-type="bibr" rid="pone.0003961-Yasoda1">[30]</xref>. In 293T and RCS cells, all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (<xref ref-type="fig" rid="pone-0003961-g002">Fig. 2</xref>). The activation of ERK by FGFR3 mutants could not be determined in HeLa cells due to high levels of endogenous active ERK in this cell line (data not shown). When compared to untreated cells, the levels of ERK activation are much higher in cells treated with FGF2 in all transfectants (<xref ref-type="fig" rid="pone-0003961-g002">Fig. 2</xref>). This is likely a result of FGF2-mediated activation of endogenous FGFR2/4 or FGFR3, expressed in 293T (data not shown) or RCS cells <xref ref-type="bibr" rid="pone.0003961-Krejci2">[18]</xref>.</p>
+        <p>In summary, <xref ref-type="fig" rid="pone-0003961-g002">Figure 2</xref> shows that ERK MAP kinase is activated by virtually all tested FGFR3 mutants in cells, including the weakly activating HCH and ACH mutants N540K and G380R, respectively. In contrast, STAT1 activation was restricted only to the K650M and K650E mutants in 293T and RCS cells. Our data are in agreement with others <xref ref-type="bibr" rid="pone.0003961-Lievens1">[8]</xref>, <xref ref-type="bibr" rid="pone.0003961-Nowroozi1">[9]</xref>, <xref ref-type="bibr" rid="pone.0003961-Hart2">[21]</xref>, who found no STAT1(Y701) phosphorylation by wild-type FGFR3 compared to K650M or K650E-FGFR3. In HeLa cells however, we found slight STAT1(Y701) phosphorylation induced by wild-type FGFR3 as well as G380R, R248C and Y373C mutants, similar to Legeai-Mallet <italic>et al</italic>. <xref ref-type="bibr" rid="pone.0003961-LegeaiMallet2">[31]</xref>, Plowright <italic>et al</italic>. <xref ref-type="bibr" rid="pone.0003961-Plowright1">[32]</xref> and Ronchetti <italic>et al</italic>. <xref ref-type="bibr" rid="pone.0003961-Ronchetti1">[7]</xref>, who found STAT1 activation in cells expressing R248C or Y373C-FGFR3. As determined by densitometry, the activation of STAT1 by wild-type FGFR3 in HeLa cells was &#x223C;5.5-fold lower than in K650M (<xref ref-type="fig" rid="pone-0003961-g002">Fig. 2</xref>), similar to Harada et al. <xref ref-type="bibr" rid="pone.0003961-Harada1">[10]</xref> or Su et al. <xref ref-type="bibr" rid="pone.0003961-Su1">[5]</xref>, who found the wild-type FGFR3 activating STAT1 to the levels 4.8-fold or 20-fold lower than K650M.</p>
+        <p>Taken together, we found that wild-type FGFR3 as well as G380R, R248C and Y373C mutants may activate STAT1 depending on the cellular environment, although this activation is significantly lower when compared to K650M or K650E-FGFR3 (<xref ref-type="fig" rid="pone-0003961-g002">Fig. 2</xref>). How is this activation achieved? In the case of K650M and K650E mutants, the majority of STAT1 activation in cells is likely a result of direct phosphorylation and may result from intracellular activation <xref ref-type="bibr" rid="pone.0003961-Lievens2">[22]</xref>. For wild-type FGFR3 or G380R, R248C and Y373C mutants the direct FGFR3-mediated phosphorylation can not be ruled-out despite the lack of such activity in a kinase assay (<xref ref-type="fig" rid="pone-0003961-g001">Fig. 1</xref>). We speculate, however, that FGFR3 may facilitate STAT1 activation by its canonical pathways such as cytokine-JAK signaling <xref ref-type="bibr" rid="pone.0003961-Aaronson1">[33]</xref>. Recently, we showed that STAT1 interacts with wild-type FGFR3 in cells and this interaction appears independent of FGFR3 activity since it is observed also for the K508M kinase-inactive mutant <xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>. Thus the binding to transmembrane FGFR3 may recruit STAT1 to the membrane such that STAT1 is activated by JAK kinases.</p>
+      </sec>
+      <sec id="s2c">
+        <title>The effect of FGFR3 mutants on RCS chondrocyte proliferation in context of STAT1 and ERK MAP kinase activation</title>
+        <p>RCS chondrocytes represent the best characterized <italic>in vitro</italic> model to FGFR3-related skeletal dysplasia to date <xref ref-type="bibr" rid="pone.0003961-Raucci1">[17]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci2">[18]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci3">[23]</xref>, <xref ref-type="bibr" rid="pone.0003961-Aikawa1">[26]</xref>&#x2013;<xref ref-type="bibr" rid="pone.0003961-Dailey1">[29]</xref>. RCS chondrocytes express wild-type FGFR3 and respond to its activation, via exogenously added FGF, by a potent growth arrest similar to the chondrocyte growth inhibition observed in cartilage of patients suffering from FGFR3-related skeletal dysplasias <xref ref-type="bibr" rid="pone.0003961-Raucci1">[17]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci2">[18]</xref>, <xref ref-type="bibr" rid="pone.0003961-Aikawa1">[26]</xref>.</p>
+        <p>We used RCS chondrocytes to evaluate the effect of FGFR3 mutants on cell proliferation in the context of STAT1 and ERK activation. As expected, 48 hour-long expression of N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 led to STAT1 activation only in case of K650M and K650E mutants in contrast to ERK activation, which was observed for all six mutants (<xref ref-type="fig" rid="pone-0003961-g003">Fig. 3A</xref>). For the growth arrest assay, RCS chondrocytes were transfected in 24-well plates, grown for 72 hours and counted. <xref ref-type="fig" rid="pone-0003961-g003">Figure 3B</xref> shows that all six FGFR3 mutants caused significant growth arrest when compared to cells transfected with wild-type FGFR3, kinase-inactive K508M mutant or empty vector, suggesting each has this capacity. To control for variance created by differential transgene expression within one experiment, we repeated the experiment shown in <xref ref-type="fig" rid="pone-0003961-g003">Fig. 3B</xref> five times. Again, all six mutants inhibited the growth of RCS chondrocytes with Y373C, K650M and K650E-FGFR3 being the strongest inhibitors (<xref ref-type="fig" rid="pone-0003961-g003">Fig. 3C</xref>).</p>
+        <fig id="pone-0003961-g003" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0003961.g003</object-id>
+          <label>Figure 3</label>
+          <caption>
+            <title>The effect of FGFR3 mutants on RCS chondrocyte proliferation in context of STAT1 and ERK1/2 activation.</title>
+            <p>(A) RCS chondrocytes transfected with vectors expressing wild-type FGFR3, activating FGFR3 mutants (N540K, G380R, R248C, Y373C, K650E and K650M), and kinase-inactive mutant K508M were grown for 48 hours and analyzed for the indicated molecules by western blotting. Note differential STAT1 and ERK activation by the activating FGFR3 mutants. Cells transfected with empty plasmid (pcDNA3) serve as negative control for transfection. (B) RCS chondrocytes were transfected as described in (A), grown for 72 hours and counted. Note the inhibition of RCS growth by wild-type FGFR3 as well as the activating mutants, as compared to cells transfected either by kinase-inactive K508M-FGFR3 or an empty plasmid. The data represent an average from four individually transfected wells with indicated standard deviation. The cell count difference compared between cells transfected with wild-type FGFR3 and empty plasmid, as well as the cell count difference between cells transfected with wild-type FGFR3 and N540K, G380R, R248C, Y373C, K650M and K650E mutants, were statistically significant (Student's <italic>t</italic>-test, <italic>p</italic>&lt;0.01). (C) The experiment shown on (B) was repeated five times to eliminate the variance associated with differential transfection efficiency. The differences in percentages of growth compared between cells transfected with wild-type FGFR3 and empty plasmid, and between cells transfected with wild-type FGFR3 and N540K, G380R, R248C, Y373C, K650M and K650E mutants, were statistically significant (Student's <italic>t</italic>-test, <italic>p</italic>&lt;0.01).</p>
+          </caption>
+          <graphic xlink:href="pone.0003961.g003"/>
+        </fig>
+        <p>When compared with cells tranfected with empty vector or with the kinase-inactive K508M mutant, the wild-type FGFR3 also inhibited RCS growth (<xref ref-type="fig" rid="pone-0003961-g003">Fig. 3B, C</xref>). It is likely that ectopic expression of wild-type FGFR3 leads to its activation and subsequent RCS growth arrest, similar to that described for B9 cells <xref ref-type="bibr" rid="pone.0003961-Plowright1">[32]</xref>.</p>
+      </sec>
+      <sec id="s2d">
+        <title>STAT1 and ERK activation by FGFR3 mutants</title>
+        <p>Our study compares six different FGFR3 mutants associated with skeletal dysplasias for their activation of the STAT1 and ERK MAP kinase pathways. According to our previous study compiling the clinical data of 591 patients, the N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants used here account for 92.9% of cases <xref ref-type="bibr" rid="pone.0003961-PassosBueno1">[1]</xref>. Therefore, by clinical prevalence criteria, the mutants studied represent a majority of known FGFR3-related dysplasia cases.</p>
+        <p>Our results demonstrate that activation of STAT1 is limited mostly to the K650M and K650E-FGFR3 in the experimental settings used here (<xref ref-type="fig" rid="pone-0003961-g001">Figs 1</xref>&#x2013;<xref ref-type="fig" rid="pone-0003961-g002"/><xref ref-type="fig" rid="pone-0003961-g003">3</xref>). Although it is possible that the other tested mutants also activate STAT1, this activity is undetectable or much lower when compared to K650M and K650E-FGFR3 (<xref ref-type="fig" rid="pone-0003961-g002">Fig. 2</xref>). In fact, we show that wild-type, N540K, G380R, R248C and Y373C-FGFR3 activate STAT1 poorly despite the experimental conditions used here, i.e. kinase reaction where both FGFR3 and STAT1 are used in excess as well as <italic>in vitro</italic> cell experiments with overexpressed FGFR3. We thus conclude that, among the FGFR3 mutants associated with skeletal dysplasia, only K650M and K650E possess an unique substrate specificity towards STAT1, possibly through intracellular signaling mechanisms <xref ref-type="bibr" rid="pone.0003961-Lievens2">[22]</xref>.</p>
+        <p>Taken together, we demonstrate that only K650M and K650E-FGFR3 mutants represent the only significant activators of STAT1 among the mutants studied here (<xref ref-type="fig" rid="pone-0003961-g001">Figs 1</xref>&#x2013;<xref ref-type="fig" rid="pone-0003961-g002"/><xref ref-type="fig" rid="pone-0003961-g003">3</xref>). As K650M and K650E mutations account only for a minority of the FGFR3-related dysplasia cases (4.9%) <xref ref-type="bibr" rid="pone.0003961-PassosBueno1">[1]</xref>, activation of STAT1 does not cause the disease in majority of the cases (<xref ref-type="fig" rid="pone-0003961-g004">Fig. 4</xref>). Other pathways should therefore be considered as prominent in the pathological FGFR3 signaling in skeletal dysplasias. This may be ERK MAP kinase pathway, which is a candidate for the FGFR3-mediated chondrocyte growth arrest <xref ref-type="bibr" rid="pone.0003961-Nowroozi1">[9]</xref>, <xref ref-type="bibr" rid="pone.0003961-Raucci1">[17]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci2">[18]</xref>, is more or less uniformly induced by N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants used here (<xref ref-type="fig" rid="pone-0003961-g002">Figs 2</xref>, <xref ref-type="fig" rid="pone-0003961-g003">3</xref>), and activation of this pathway largely replicates the skeletal phenotype of FGFR3 mutations <xref ref-type="bibr" rid="pone.0003961-Murakami1">[16]</xref>, <xref ref-type="bibr" rid="pone.0003961-Matsushita1">[19]</xref>.</p>
+        <fig id="pone-0003961-g004" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0003961.g004</object-id>
+          <label>Figure 4</label>
+          <caption>
+            <title>STAT1 and ERK1/2 activation by FGFR3 mutants.</title>
+            <p>(A) The N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants used in this study all cause FGFR3-skeletal dysplasias and signal through ERK MAP kinase in contrast to STAT1, that is activated mostly by the K650M and K650E-FGFR3 mutants. (B) According to the study compiling the clinical data of 591 patients suffering from FGFR3-related skeletal dysplasia <xref ref-type="bibr" rid="pone.0003961-PassosBueno1">[1]</xref>, the STAT1-activating K650M and K650E account for as little as 4.9% of cases. It is therefore unlikely that activation of STAT1 plays a central role in FGFR3-related skeletal dysplasias as currently believed, but rather represents a signaling feature unique to small subset of patients carrying the K650M and K650E mutations.</p>
+          </caption>
+          <graphic xlink:href="pone.0003961.g004"/>
+        </fig>
+      </sec>
+      <sec id="s2e">
+        <title>STAT5 activation by FGFR3 mutants in RCS chondrocytes</title>
+        <p>In addition to STAT1, STAT5 was also found activated by FGFR3 mutants in cartilage <italic>in vivo</italic> <xref ref-type="bibr" rid="pone.0003961-LegeaiMallet1">[12]</xref>, <xref ref-type="bibr" rid="pone.0003961-Li1">[13]</xref>. We therefore tested the ability of N540K, G380R, R248C, Y373C, K650E and K650M-FGFR3 mutants to activate STAT5 in RCS chondrocytes. Cells were transfected with N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants and analyzed for activatory STAT5(Y694) phosphorylation 24 hours later. <xref ref-type="fig" rid="pone-0003961-g005">Figure 5</xref> shows that only the K650M and K650E mutants caused significant STAT5(Y694) phosphorylation in RCS chondrocytes. This phenotype was obtained with two different P-STAT5(Y694) antibodies thus ruling-out the cross-reactivity with STAT1. Identical results were obtained with HeLa and 293T cells (not shown). Our data thus suggest that signaling of FGFR3 mutants towards STAT5 is similar to STAT1, i.e. only the K650M and K650E-FGFR3 are significant activators of STAT5.</p>
+        <fig id="pone-0003961-g005" position="float">
+          <object-id pub-id-type="doi">10.1371/journal.pone.0003961.g005</object-id>
+          <label>Figure 5</label>
+          <caption>
+            <title>STAT5 activation by FGFR3 mutants.</title>
+            <p>RCS chondrocytes transfected with vectors expressing wild-type FGFR3, activating FGFR3 mutants (N540K, G380R, R248C, Y373C, K650M and K650E), and kinase-inactive mutant K508M were grown for 24 hours and analyzed for the indicated molecules by western blotting. Note the significant STAT5(Y694) phosphorylation induced by K650M and K650E-FGFR3. The membrane used for P-STAT5-Y694 detection was reprobed with antibody recognizing STAT5 regardless of its phosphorylation. Arrow indicates P-STAT5(Y694) or STAT5 signal. FGFR3 and ACTIN western blottings serve as loading controls. Cells transfected by GFP vector serve as negative control for transfection.</p>
+          </caption>
+          <graphic xlink:href="pone.0003961.g005"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec sec-type="materials|methods" id="s3">
+      <title>Materials and Methods</title>
+      <sec id="s3a">
+        <title>Cell culture, Western blotting (WB) and immunoprecipitation</title>
+        <p><underline>R</underline>at <underline>c</underline>hondro<underline>s</underline>arcoma (RCS) chondrocytes were obtained from C. Basilico; CHO, HeLa and 293T cells were obtained from the Tissue Culture Core at Cedars-Sinai Medical Center, Los Angeles, CA. All cell lines were propagated in DMEM media (Gibco, Gaithersburg, MD), containing 10% FBS (Atlanta Biological, Nordcross, GA) and antibiotics, with exception for CHO cells which were maintained in Opti-MEM media (Gibco). For WB or immunoprecipitation, cells were lysed in buffer containing 50 mM Tris-HCl pH 7.4, 150 mM NaCl, 0.5% NP-40, 1 mM EDTA, 25 mM NaF, 0.1 mM DTT, 1 &#xB5;g/ml leupeptin, 10 &#xB5;g/ml soybean trypsin inhibitor, 1 mM PMSF, 8 mM &#x3B2;-glycerolphosphate, 10 mM Na<sub>3</sub>VO<sub>4</sub> and 1 &#xB5;g/ml aprotinin. Lysates were resolved by SDS-PAGE, transferred onto a PVDF membrane and visualized by luminescence (Amersham, Piscataway, NJ). The following antibodies were used: ACTIN, FGFR1, FGFR2, FGFR3 and FGFR4 (Santa Cruz Biotechnology, Santa Cruz, CA); ERK1/2, P-ERK1/2<sup>T202/Y204</sup>, STAT1, STAT5, P-STAT1<sup>Y701</sup>, and P-STAT5<sup>Y694</sup> (Cell Signaling, Beverly, MA); P-STAT5<sup>Y694</sup> (BD Transduction Laboratories, San Diego, CA). To quantify the WB signal, the integrated optical density (I.O.D) of a given band was determined using Scion Image software (Scion Corporation, Frederick, MA).</p>
+      </sec>
+      <sec id="s3b">
+        <title>FGFR3 kinase assays</title>
+        <p>FGFR3 kinase assays were carried out as described before <xref ref-type="bibr" rid="pone.0003961-Krejci1">[11]</xref>, <xref ref-type="bibr" rid="pone.0003961-Krejci3">[23]</xref>. Briefly, kinase reactions were performed for 30 minutes at 30&#xB0;C in 50 &#xB5;l of kinase buffer (60 mM Hepes-NaOH pH 7.5, 3 mM MgCl<sub>2</sub>, 3 mM MnCl<sub>2</sub>, 3 &#xB5;M Na<sub>3</sub>VO<sub>4</sub>) supplemented with 2.5 &#xB5;g polyethylene glycol, 10 &#xB5;M ATP and 300 ng of recombinant human STAT1 (Active Motif, Carlsbad, CA) as a substrate. The recombinant FGFR3 intracellular tyrosine kinase domain (E322-T806; Cell Signaling) was used at 300 ng per reaction. For the kinase assays utilizing full-length FGFR3, vectors carrying C-terminally FLAG-tagged wild-type FGFR3 as well as N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants were transfected into CHO cells. Forty eight hours after transfection, cells were treated with 20 ng/ml of FGF2 (R&amp;D Systems, Minneapolis, MN) for 15 minutes and FGFR3 was immunoprecipitated from 800 &#xB5;g of cell lysate protein using 4 &#xB5;g anti-FLAG antibody (Sigma-Aldrich, St. Louis, MO). Cells transfected with plasmid encoding green fluorescent protein (GFP; pCCEY) serve as a negative control for the immunoprecipitation. Immunocomplexes were washed two times with kinase buffer and kinase reactions were carried-out as described above.</p>
+      </sec>
+      <sec id="s3c">
+        <title>Vectors and cell transfection</title>
+        <p>The pRK7 vectors carrying FLAG-tagged wild-type, K650E and K508M-FGFR3 constructs were described previously <xref ref-type="bibr" rid="pone.0003961-Krejci3">[23]</xref>. FLAG-tagged N540K and K650M-FGFR3 were generated in the same manner. To produce the FLAG-tagged G380R, R248C, and Y373C-FGFR3 constructs, FLAG-tagged wild-type FGFR3 was subjected to site-directed mutagenesis using the Quick Change II Site-Directed Mutagenesis Kit (Stratagene, La Jolla, CA) according to the manufacturer's protocol. The following mutagenic primers were used (forward, reverse): R248C <named-content content-type="gene">5&#x2032;-GACGTGCTGGAGTGCTCCCCGCACC-3&#x2032;</named-content>, <named-content content-type="gene">5&#x2032;-GGTGCGGGGAGCACTCCAGCACGTC-3&#x2032;</named-content>; Y373C (<named-content content-type="gene">5&#x2032;-CGAGGCGGGCAGTGTGTGTGCAGGCAT-3&#x2032;</named-content>, <named-content content-type="gene">5&#x2032;-ATGCCTGCACACACACTGCCCGCCTCG-3&#x2032;</named-content>; and G380R <named-content content-type="gene">5&#x2032;-GCATCCTCAGCTACAGGGTGGGCTTCTTC-3&#x2032;</named-content>, <named-content content-type="gene">5&#x2032;-GAAGAAGCCCACCCTGTAGCTGAGGATGC-3&#x2032;</named-content>. The vector containing no insert was pcDNA3. Before transfection, the RCS extracellular matrix was degraded by 0.3% bacterial collagenase (type II; Invitrogen, Carlsbad, CA). Cells were transfected with FuGENE6 (Roche Diagnostics, Penzberg, Germany) according to the manufacturer's protocol, the plasmid (&#xB5;g) versus FuGENE6 (&#xB5;l) ratio was 1:3. For WB experiments, 2&#xD7;10<sup>5</sup> cells grown in 6-well tissue culture plates (Costar, Cambridge, MA) was transfected with 2.8 &#xB5;g of plasmid. For RCS growth assay experiments, 1&#xD7;10<sup>4</sup> cells seeded in 24-well tissue culture plates (Costar) was transfected with 1.3 &#xB5;g of plasmid, cultivated for 72 hours and counted.</p>
+      </sec>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <p>We are grateful to C. Basilico for RCS chondrocytes, P. Jelinkova for statistical analysis of the data and to P. Mekikian for excellent technical assistance.</p>
+    </ack>
+    <ref-list>
+      <title>References</title>
+      <ref id="pone.0003961-PassosBueno1">
+        <label>1</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Passos-Bueno</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Wilcox</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Jabs</surname>
+              <given-names>EW</given-names>
+            </name>
+            <name>
+              <surname>Serti&#xE9;</surname>
+              <given-names>AL</given-names>
+            </name>
+            <name>
+              <surname>Alonso</surname>
+              <given-names>LG</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>1999</year>
+          <article-title>Clinical spectrum of fibroblast growth factor receptor mutations.</article-title>
+          <source>Hum Mutat</source>
+          <volume>14</volume>
+          <fpage>115</fpage>
+          <lpage>125</lpage>
+          <pub-id pub-id-type="pmid">10425034</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Horton1">
+        <label>2</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Horton</surname>
+              <given-names>WA</given-names>
+            </name>
+            <name>
+              <surname>Hall</surname>
+              <given-names>JG</given-names>
+            </name>
+            <name>
+              <surname>Hecht</surname>
+              <given-names>JT</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Achondroplasia.</article-title>
+          <source>Lancet</source>
+          <volume>370</volume>
+          <fpage>162</fpage>
+          <lpage>172</lpage>
+          <pub-id pub-id-type="pmid">17630040</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Ornitz1">
+        <label>3</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ornitz</surname>
+              <given-names>DM</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>FGF signaling in the developing endochondral skeleton.</article-title>
+          <source>Cytokine Growth Factor Rev</source>
+          <volume>16</volume>
+          <fpage>205</fpage>
+          <lpage>213</lpage>
+          <pub-id pub-id-type="pmid">15863035</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-LHte1">
+        <label>4</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>L'H&#xF4;te</surname>
+              <given-names>CGM</given-names>
+            </name>
+            <name>
+              <surname>Knowles</surname>
+              <given-names>MA</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>Cell responses to FGFR3 signaling: growth, differentiation and apoptosis.</article-title>
+          <source>Exp Cell Res</source>
+          <volume>304</volume>
+          <fpage>417</fpage>
+          <lpage>431</lpage>
+          <pub-id pub-id-type="pmid">15748888</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Su1">
+        <label>5</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Su</surname>
+              <given-names>W-CS</given-names>
+            </name>
+            <name>
+              <surname>Kitagawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Xue</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Xie</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Garofalo</surname>
+              <given-names>S</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>1997</year>
+          <article-title>Activation of Stat1 by mutant fibroblast growth-factor receptor in thanatophoric dysplasia type II dwarfism.</article-title>
+          <source>Nature</source>
+          <volume>386</volume>
+          <fpage>288</fpage>
+          <lpage>291</lpage>
+          <pub-id pub-id-type="pmid">9069288</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Hart1">
+        <label>6</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hart</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Donoghue</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Identification of tyrosine residues in constitutively activated fibroblast growth factor receptor 3 involved in mitogenesis, stat activation, and phosphatidylinositol 3-kinase activation.</article-title>
+          <source>Mol Biol Cell</source>
+          <volume>12</volume>
+          <fpage>931</fpage>
+          <lpage>942</lpage>
+          <pub-id pub-id-type="pmid">11294897</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Ronchetti1">
+        <label>7</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ronchetti</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Greco</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Compasso</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Colombo</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Dell'Era</surname>
+              <given-names>P</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Deregulated FGFR3 mutants in multiple myeloma cell lines with t(4;14): comparative analysis of Y373C, K650E and the novel G384D mutations.</article-title>
+          <source>Oncogene</source>
+          <volume>20</volume>
+          <fpage>3553</fpage>
+          <lpage>3562</lpage>
+          <pub-id pub-id-type="pmid">11429702</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Lievens1">
+        <label>8</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lievens</surname>
+              <given-names>PM-J</given-names>
+            </name>
+            <name>
+              <surname>Mutinelli</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Baynes</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Liboi</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>The kinase activity of fibroblast growth factor receptor 3 with activation loop mutations affects receptor trafficking and signaling.</article-title>
+          <source>J Biol Chem</source>
+          <volume>279</volume>
+          <fpage>43254</fpage>
+          <lpage>43260</lpage>
+          <pub-id pub-id-type="pmid">15292251</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Nowroozi1">
+        <label>9</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nowroozi</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Raffioni</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wang</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Apostol</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Bradshaw</surname>
+              <given-names>RA</given-names>
+            </name>
+          </person-group>
+          <year>2005</year>
+          <article-title>Sustained Erk1/2 but not STAT1 or 3 activation is required for thanatophoric dysplasia phenotypes in PC12 cells.</article-title>
+          <source>Hum Mol Genet</source>
+          <volume>14</volume>
+          <fpage>1529</fpage>
+          <lpage>1538</lpage>
+          <pub-id pub-id-type="pmid">15843401</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Harada1">
+        <label>10</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Harada</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Yamanaka</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Ueda</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Nishimura</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Morishima</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <year>2007</year>
+          <article-title>Sustained phosphorylation of mutated FGFR3 is crucial feature of genetics dwarfism and induces apoptosis in the ATDC5 chondrogenic cell line via PLC&#x3B3;-activated STAT1.</article-title>
+          <source>Bone</source>
+          <volume>41</volume>
+          <fpage>273</fpage>
+          <lpage>281</lpage>
+          <pub-id pub-id-type="pmid">17561467</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Krejci1">
+        <label>11</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krejci</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Kashiwada</surname>
+              <given-names>TA</given-names>
+            </name>
+            <name>
+              <surname>Goodridge</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Salazar</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Schibler</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2008</year>
+          <article-title>STAT1 and STAT3 do not participate in fibroblast growth factor-mediated growth arrest in chondrocytes.</article-title>
+          <source>J Cell Sci</source>
+          <volume>121</volume>
+          <fpage>272</fpage>
+          <lpage>281</lpage>
+          <pub-id pub-id-type="pmid">18198189</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-LegeaiMallet1">
+        <label>12</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Legeai-Mallet</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Benoist-Lasselin</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Munnich</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Bonaventure</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Overexpression of FGFR3, Stat1, Stat5 and p21<sup>Cip1</sup> correlates with phenotypic severity and defective chondrocyte differentiation in FGFR3-related chondrodysplasias.</article-title>
+          <source>Bone</source>
+          <volume>34</volume>
+          <fpage>26</fpage>
+          <lpage>36</lpage>
+          <pub-id pub-id-type="pmid">14751560</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Li1">
+        <label>13</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Li</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Chen</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Iwata</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Kitagawa</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Fu</surname>
+              <given-names>X</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>1999</year>
+          <article-title>A lys644glu substitution in fibroblast growth factor receptor 3 (FGFR3) causes dwarfism in mice by activation of STATs and ink4 cell cycle inhibitors.</article-title>
+          <source>Hum Mol Genet</source>
+          <volume>8</volume>
+          <fpage>35</fpage>
+          <lpage>41</lpage>
+          <pub-id pub-id-type="pmid">9887329</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Sahni1">
+        <label>14</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sahni</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ambrosetti</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Mansukhani</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Gertner</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Levy</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>1999</year>
+          <article-title>FGF signaling inhibits chondrocyte proliferation and regulates bone development through the STAT-1 pathway.</article-title>
+          <source>Genes Dev</source>
+          <volume>13</volume>
+          <fpage>1361</fpage>
+          <lpage>1366</lpage>
+          <pub-id pub-id-type="pmid">10364154</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Sahni2">
+        <label>15</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sahni</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Raz</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Coffin</surname>
+              <given-names>JD</given-names>
+            </name>
+            <name>
+              <surname>Levy</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Basilico</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Stat1 mediates the increased apoptosis and reduced chondrocyte proliferation in mice overexpressing FGF2.</article-title>
+          <source>Development</source>
+          <volume>128</volume>
+          <fpage>2119</fpage>
+          <lpage>2129</lpage>
+          <pub-id pub-id-type="pmid">11493533</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Murakami1">
+        <label>16</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Murakami</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Balmes</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>McKinney</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Givol</surname>
+              <given-names>D</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2004</year>
+          <article-title>Constitutive activation of MEK1 in chondrocytes causes Stat1-independent achondroplasia-like dwarfism and rescues the Fgfr3-deficient mouse phenotype.</article-title>
+          <source>Genes Dev</source>
+          <volume>18</volume>
+          <fpage>290</fpage>
+          <lpage>305</lpage>
+          <pub-id pub-id-type="pmid">14871928</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Raucci1">
+        <label>17</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raucci</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Laplantine</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Mansukhani</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Basilico</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <year>2004</year>
+          <article-title>Activation of the Erk1/2 and p38 mitogen-activated protein kinase pathways mediates fibroblast growth factor-induced growth arrest of chondrocytes.</article-title>
+          <source>J Biol Chem</source>
+          <volume>279</volume>
+          <fpage>1747</fpage>
+          <lpage>1756</lpage>
+          <pub-id pub-id-type="pmid">14593093</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Krejci2">
+        <label>18</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krejci</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Bryja</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Pachernik</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hampl</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Pogue</surname>
+              <given-names>R</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2004</year>
+          <article-title>FGF2 inhibits proliferation and alters the cartilage-like phenotype of RCS cells.</article-title>
+          <source>Exp Cell Res</source>
+          <volume>297</volume>
+          <fpage>152</fpage>
+          <lpage>164</lpage>
+          <pub-id pub-id-type="pmid">15194433</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Matsushita1">
+        <label>19</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Matsushita</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Wilcox</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Chan</surname>
+              <given-names>YY</given-names>
+            </name>
+            <name>
+              <surname>Kawanami</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Bukulmez</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2008</year>
+          <article-title>FGFR3 promotes synchondrosis closure and fusion of ossification centers through the MAPK pathway.</article-title>
+          <source>Hum Mol Genet. In press</source>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Colvin1">
+        <label>20</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Colvin</surname>
+              <given-names>JS</given-names>
+            </name>
+            <name>
+              <surname>Bohne</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Harding</surname>
+              <given-names>GW</given-names>
+            </name>
+            <name>
+              <surname>McEwen</surname>
+              <given-names>DG</given-names>
+            </name>
+            <name>
+              <surname>Ornitz</surname>
+              <given-names>DM</given-names>
+            </name>
+          </person-group>
+          <year>1996</year>
+          <article-title>Skeletal overgrowth and deafness in mice lacking fibroblast growth factor receptor 3.</article-title>
+          <source>Nat Genet</source>
+          <volume>12</volume>
+          <fpage>390</fpage>
+          <lpage>397</lpage>
+          <pub-id pub-id-type="pmid">8630492</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Hart2">
+        <label>21</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hart</surname>
+              <given-names>KC</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Kanemitsu</surname>
+              <given-names>MY</given-names>
+            </name>
+            <name>
+              <surname>Meyer</surname>
+              <given-names>AN</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2000</year>
+          <article-title>Transformation and Stat activation by derivatives of FGFR1, FGFR3, and FGFR4.</article-title>
+          <source>Oncogene</source>
+          <volume>19</volume>
+          <fpage>3309</fpage>
+          <lpage>3320</lpage>
+          <pub-id pub-id-type="pmid">10918587</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Lievens2">
+        <label>22</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lievens</surname>
+              <given-names>PM-J</given-names>
+            </name>
+            <name>
+              <surname>Liboi</surname>
+              <given-names>E</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>The thanatophoric dysplasia type II mutation hampers complete maturation of fibroblast growth factor receptor 3 (FGFR3), which activates signal transducer and activator of transcription 1 (STAT1) from the endoplasmic reticulum.</article-title>
+          <source>J Biol Chem</source>
+          <volume>278</volume>
+          <fpage>17344</fpage>
+          <lpage>17349</lpage>
+          <pub-id pub-id-type="pmid">12624096</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Krejci3">
+        <label>23</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krejci</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Masri</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Salazar</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Farrington-Rock</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Prats</surname>
+              <given-names>H</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2007</year>
+          <article-title>Bisindolylmaleimide I suppresses fibroblast growth factor-mediated activation of Erk MAP kinase in chondrocytes by preventing Shp2 association with the Frs2 and Gab1 adaptor proteins.</article-title>
+          <source>J Biol Chem</source>
+          <volume>282</volume>
+          <fpage>2929</fpage>
+          <lpage>2936</lpage>
+          <pub-id pub-id-type="pmid">17145761</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-dAvis1">
+        <label>24</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>d'Avis</surname>
+              <given-names>PY</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Meyer</surname>
+              <given-names>AN</given-names>
+            </name>
+            <name>
+              <surname>Bardwell</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Webster</surname>
+              <given-names>MK</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>1998</year>
+          <article-title>Constitutive activation of fibroblast growth factor receptor 3 by mutations responsible for the lethal skeletal dysplasia thanatophoric dysplasia type I.</article-title>
+          <source>Cell Growth Diff</source>
+          <volume>9</volume>
+          <fpage>71</fpage>
+          <lpage>78</lpage>
+          <pub-id pub-id-type="pmid">9438390</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Webster1">
+        <label>25</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Webster</surname>
+              <given-names>MK</given-names>
+            </name>
+            <name>
+              <surname>d'Avis</surname>
+              <given-names>PY</given-names>
+            </name>
+            <name>
+              <surname>Robertson</surname>
+              <given-names>SC</given-names>
+            </name>
+            <name>
+              <surname>Donoghue</surname>
+              <given-names>DJ</given-names>
+            </name>
+          </person-group>
+          <year>1996</year>
+          <article-title>Profound ligand-independent kinase activation of fibroblast growth factor receptor 3 by the activation loop mutation responsible for a lethal skeletal dysplasia, thanatophoric dysplasia type II.</article-title>
+          <source>Mol Cell Biol</source>
+          <volume>16</volume>
+          <fpage>4081</fpage>
+          <lpage>4087</lpage>
+          <pub-id pub-id-type="pmid">8754806</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Aikawa1">
+        <label>26</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aikawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Segre</surname>
+              <given-names>GV</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>K</given-names>
+            </name>
+          </person-group>
+          <year>2001</year>
+          <article-title>Fibroblast growth factor inhibits chondrocytic growth through induction of p21 and subsequent inactivation of cyclin E-Cdk2.</article-title>
+          <source>J Biol Chem</source>
+          <volume>276</volume>
+          <fpage>29347</fpage>
+          <lpage>29352</lpage>
+          <pub-id pub-id-type="pmid">11384971</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-RozenblattRosen1">
+        <label>27</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rozenblatt-Rosen</surname>
+              <given-names>O</given-names>
+            </name>
+            <name>
+              <surname>Mosonego-Ornan</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Sadot</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Madar-Shapiro</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Sheinin</surname>
+              <given-names>Y</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2002</year>
+          <article-title>Induction of chondrocyte growth arrest by FGF: transcriptional and cytoskeletal alterations.</article-title>
+          <source>J Cell Sci</source>
+          <volume>115</volume>
+          <fpage>553</fpage>
+          <lpage>562</lpage>
+          <pub-id pub-id-type="pmid">11861762</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Krejci4">
+        <label>28</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krejci</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Masri</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Fontaine</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Mekikian</surname>
+              <given-names>PB</given-names>
+            </name>
+            <name>
+              <surname>Weis</surname>
+              <given-names>M</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2005</year>
+          <article-title>Interaction of fibroblast growth factor and C-natriuretic peptide signaling in regulation of chondrocyte proliferation and extracellular matrix homeostasis.</article-title>
+          <source>J Cell Sci</source>
+          <volume>118</volume>
+          <fpage>5089</fpage>
+          <lpage>5100</lpage>
+          <pub-id pub-id-type="pmid">16234329</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Dailey1">
+        <label>29</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dailey</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Laplantine</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Priore</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Basilico</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <year>2003</year>
+          <article-title>A network of transcriptional and signaling events is activated by FGF to induce chondrocyte growth arrest and differentiation.</article-title>
+          <source>J Cell Biol</source>
+          <volume>161</volume>
+          <fpage>1053</fpage>
+          <lpage>1066</lpage>
+          <pub-id pub-id-type="pmid">12821644</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Yasoda1">
+        <label>30</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Yasoda</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Komatsu</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Chusho</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Miyazawa</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Ozasa</surname>
+              <given-names>A</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2004</year>
+          <article-title>Overexpression of CNP in chondrocytes rescues achondroplasia through a MAPK-dependent pathway.</article-title>
+          <source>Nat Med</source>
+          <volume>10</volume>
+          <fpage>80</fpage>
+          <lpage>86</lpage>
+          <pub-id pub-id-type="pmid">14702637</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-LegeaiMallet2">
+        <label>31</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Legeai-Mallet</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Benoist-Lasselin</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Delezoide</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Munnich</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Bonaventure</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <year>1998</year>
+          <article-title>Fibroblast growth factor receptor 3 mutations promote apoptosis but do not alter chondrocyte proliferation in thanatophoric dysplasia.</article-title>
+          <source>J Biol Chem</source>
+          <volume>273</volume>
+          <fpage>13007</fpage>
+          <lpage>13014</lpage>
+          <pub-id pub-id-type="pmid">9582336</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Plowright1">
+        <label>32</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Plowright</surname>
+              <given-names>EE</given-names>
+            </name>
+            <name>
+              <surname>Li</surname>
+              <given-names>Z</given-names>
+            </name>
+            <name>
+              <surname>Bergsagel</surname>
+              <given-names>PL</given-names>
+            </name>
+            <name>
+              <surname>Chesi</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Barber</surname>
+              <given-names>DL</given-names>
+            </name>
+            <etal/>
+          </person-group>
+          <year>2000</year>
+          <article-title>Ectopic expression of fibroblast growth factor receptor 3 promotes myeloma cell proliferation and prevents apoptosis.</article-title>
+          <source>Blood</source>
+          <volume>95</volume>
+          <fpage>992</fpage>
+          <lpage>998</lpage>
+          <pub-id pub-id-type="pmid">10648414</pub-id>
+        </citation>
+      </ref>
+      <ref id="pone.0003961-Aaronson1">
+        <label>33</label>
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Aaronson</surname>
+              <given-names>DS</given-names>
+            </name>
+            <name>
+              <surname>Horvath</surname>
+              <given-names>CM</given-names>
+            </name>
+          </person-group>
+          <year>2002</year>
+          <article-title>A road map for those who don't know JAK-STAT.</article-title>
+          <source>Science</source>
+          <volume>296</volume>
+          <fpage>1653</fpage>
+          <lpage>1655</lpage>
+          <pub-id pub-id-type="pmid">12040185</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+    <fn-group>
+      <fn fn-type="conflict">
+        <p><bold>Competing Interests: </bold>The authors have declared that no competing interests exist.</p>
+      </fn>
+      <fn fn-type="financial-disclosure">
+        <p><bold>Funding: </bold>This work was supported by National Institutes of Health (5P01-HD22657), Ministry of Education, Youth and Sports of the Czech Republic (MSM0021622430), Academy of Sciences of the Czech Republic (AVOZ50040507, AVOZ50040702), EMBO Installation grant (VB), and a Winnick Family Research Scholars award (WRW). The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.</p>
+      </fn>
+    </fn-group>
+  </back>
+</article>
+</pmc-articleset>

@@ -1,0 +1,1782 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">J Transl Med</journal-id>
+      <journal-title>Journal of Translational Medicine</journal-title>
+      <issn pub-type="epub">1479-5876</issn>
+      <publisher>
+        <publisher-name>BioMed Central</publisher-name>
+        <publisher-loc>London</publisher-loc>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">16255777</article-id>
+      <article-id pub-id-type="pmc">1289294</article-id>
+      <article-id pub-id-type="publisher-id">1479-5876-3-39</article-id>
+      <article-id pub-id-type="doi">10.1186/1479-5876-3-39</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Synergistic inhibition of human melanoma proliferation by combination treatment with B-Raf inhibitor BAY43-9006 and mTOR inhibitor Rapamycin</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib id="A1" contrib-type="author">
+          <name>
+            <surname>Molhoek</surname>
+            <given-names>Kerrington R</given-names>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>klr5w@virginia.edu</email>
+        </contrib>
+        <contrib id="A2" contrib-type="author">
+          <name>
+            <surname>Brautigan</surname>
+            <given-names>David L</given-names>
+          </name>
+          <xref ref-type="aff" rid="I2">2</xref>
+          <email>db8g@virginia.edu</email>
+        </contrib>
+        <contrib id="A3" corresp="yes" contrib-type="author">
+          <name>
+            <surname>Slingluff</surname>
+            <given-names>Craig L</given-names>
+            <suffix>Jr</suffix>
+          </name>
+          <xref ref-type="aff" rid="I1">1</xref>
+          <email>cls8h@virginia.edu</email>
+        </contrib>
+      </contrib-group>
+      <aff id="I1"><label>1</label>Department of Surgery, Division of Surgical Oncology, University of Virginia School of Medicine, Charlottesville, VA, USA</aff>
+      <aff id="I2"><label>2</label>Center for Cell Signaling, University of Virginia Health System, Charlottesville, VA, USA</aff>
+      <pub-date pub-type="collection">
+        <year>2005</year>
+      </pub-date>
+      <pub-date pub-type="epub">
+        <day>28</day>
+        <month>10</month>
+        <year>2005</year>
+      </pub-date>
+      <volume>3</volume>
+      <fpage>39</fpage>
+      <lpage>39</lpage>
+      <ext-link ext-link-type="uri" xlink:href="http://www.translational-medicine.com/content/3/1/39"/>
+      <history>
+        <date date-type="received">
+          <day>12</day>
+          <month>8</month>
+          <year>2005</year>
+        </date>
+        <date date-type="accepted">
+          <day>28</day>
+          <month>10</month>
+          <year>2005</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>Copyright &#xA9; 2005 Molhoek et al; licensee BioMed Central Ltd.</copyright-statement>
+        <copyright-year>2005</copyright-year>
+        <copyright-holder>Molhoek et al; licensee BioMed Central Ltd.</copyright-holder>
+        <license license-type="open-access" xlink:href="http://creativecommons.org/licenses/by/2.0">
+          <p>This is an Open Access article distributed under the terms of the Creative Commons Attribution License (<ext-link ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by/2.0"/>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.</p>
+          <!--<rdf xmlns="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:dcterms="http://purl.org/dc/terms"><Work xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" rdf:about=""><license rdf:resource="http://creativecommons.org/licenses/by/2.0"/><dc:type rdf:resource="http://purl.org/dc/dcmitype/Text"/><dc:author>
+               Molhoek
+               R
+               Kerrington
+               
+               klr5w@virginia.edu
+            </dc:author><dc:title>
+            Synergistic inhibition of human melanoma proliferation by combination treatment with B-Raf inhibitor BAY43-9006 and mTOR inhibitor Rapamycin
+         </dc:title><dc:date>2005</dc:date><dcterms:bibliographicCitation>Journal of Translational Medicine 3(1): 39-. (2005)</dcterms:bibliographicCitation><dc:identifier type="sici">1479-5876(2005)3:1&#x0003c;39&#x0003e;</dc:identifier><dcterms:isPartOf>urn:ISSN:1479-5876</dcterms:isPartOf><License rdf:about="http://creativecommons.org/licenses/by/2.0"><permits rdf:resource="http://web.resource.org/cc/Reproduction" xmlns=""/><permits rdf:resource="http://web.resource.org/cc/Distribution" xmlns=""/><requires rdf:resource="http://web.resource.org/cc/Notice" xmlns=""/><requires rdf:resource="http://web.resource.org/cc/Attribution" xmlns=""/><permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" xmlns=""/></License></Work></rdf>-->
+        </license>
+      </permissions>
+      <abstract>
+        <sec>
+          <title>Background</title>
+          <p>Targeted inhibition of protein kinases is now acknowledged as an effective approach for cancer therapy. However, targeted therapies probably have limited success because cancer cells have alternate pathways for survival and proliferation thereby avoiding inhibition. We tested the hypothesis that combination of targeted agents would be more effective than single agents in arresting melanoma cell proliferation.</p>
+        </sec>
+        <sec sec-type="methods">
+          <title>Methods</title>
+          <p>We evaluated whether BAY43-9006, an inhibitor of the B-Raf kinase, and rapamycin, an inhibitor of the mTOR kinase, would inhibit serum-stimulated proliferation of human melanoma cell lines, either alone or in combination. Proliferation was measured by quantitating melanoma cell numbers with a luciferase for ATP. Phosphorylation of proteins downstream of targeted kinase(s) was assayed by immunoblots. Statistical significance was determined with the Student-T test. Isobologram analysis was performed to distinguish additive versus synergistic effects of combinations of drugs.</p>
+        </sec>
+        <sec>
+          <title>Results</title>
+          <p>Serum-stimulated proliferation of multiple human melanoma cell lines was inhibited by BAY43-9006 and by rapamycin. Melanoma cells containing the B-Raf mutation V599E were more sensitive than cells with wild-type B-raf to 10 nM doses of both BAY43-9006 and rapamycin. Regardless of B-Raf mutational status, the combination of low dose rapamycin and BAY43-9006 synergistically inhibited melanoma cell proliferation. As expected, rapamycin inhibited the phosphorylation of mTOR substrates, p70S6K and 4EBP1, and BAY43-9006 inhibited phosphorylation of ERK, which is dependent on B-Raf activity. We also observed unexpected rapamycin inhibition of the phosphorylation of ERK, as well as BAY43-9006 inhibition of the phosphorylation of mTOR substrates, p70S6K and 4EBP1.</p>
+        </sec>
+        <sec>
+          <title>Conclusion</title>
+          <p>There was synergistic inhibition of melanoma cell proliferation by the combination of rapamycin and BAY 43-9006, and unexpected inhibition of two signaling pathways by agents thought to target only one of those pathways. These results indicate that combinations of inhibitors of mTOR and of the B-raf signaling pathways may be more effective as a treatment for melanoma than use of either agent alone.</p>
+        </sec>
+      </abstract>
+      <kwd-group>
+        <kwd>B-Raf</kwd>
+        <kwd>mTOR</kwd>
+        <kwd>melanoma</kwd>
+        <kwd>BAY43-9006</kwd>
+        <kwd>rapamycin</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>Background</title>
+      <p>In human cancers, mutant oncogenes are frequently associated with disease progression [<xref ref-type="bibr" rid="B1">1</xref>]. Thus, there is a need for development of effective therapies that can slow progression of solid tumors by blocking the action of those oncogenes. Cancer therapy has undergone a paradigm shift based on the therapeutic effectiveness of imatinib mesylate (Gleevec). This drug was designed as a specific inhibitor of the BCR-ABL oncogene protein tyrosine kinase, known to be responsible for chronic myeloid leukemia (CML) cells [<xref ref-type="bibr" rid="B2">2</xref>]. The therapeutic effectiveness of Gleevec and relative absence of detrimental side-effects has made it a model for the development of an array of new therapeutic agents targeted to inhibit signal transduction enzymes, especially protein kinases.</p>
+      <p>The recent discovery that 60&#x2013;70% of human melanomas have activating mutations in B-Raf (with 80% of these mutations caused by a single substitution V599E) make this protein kinase an especially promising target for inhibition [<xref ref-type="bibr" rid="B3">3</xref>,<xref ref-type="bibr" rid="B4">4</xref>]. Indeed, lead compounds have been produced and tested, and currently are working their way through clinical trials. One example is BAY43-9006 (aka: sorafenib, <italic>N</italic>-(3-trifluoromethyl-4-chlorophenyl)-<italic>N</italic>'-(4-(2-methylcarbamoyl pyridin-4-yl)oxyphenyl)urea), an investigational compound, currently in phase II and III clinical trials, designed to inhibit both B-Raf and C-Raf kinases [<xref ref-type="bibr" rid="B5">5</xref>,<xref ref-type="bibr" rid="B6">6</xref>]. B-Raf is a component of a cell signaling pathway which includes the upstream activator of Raf, called Ras, and the direct substrate of Raf, called MEK1/2 and the MEK substrate ERK1/2 [<xref ref-type="bibr" rid="B7">7</xref>]. B-Raf phosphorylates MEK1 and MEK2 on Ser217 and Ser221, which activates it to dual phosphorylate ERKs, at Thr202/Tyr204 for human ERK1 and Thr185/Tyr187 for human ERK2 [<xref ref-type="bibr" rid="B8">8</xref>,<xref ref-type="bibr" rid="B9">9</xref>]. Mutations in RAF which cause constitutive activation of Raf kinase are thought to promote events leading to carcinogenesis. Pre-clinical and early phase I studies have suggested that BAY 43-9006 may be of therapeutic value not only in human tumors containing ras gene mutations, but also in tumors over-expressing growth factor receptors that activate the Ras/ERK pathway [<xref ref-type="bibr" rid="B10">10</xref>]. However, these studies have not addressed the effects of BAY 43-9006 in combination with any other kinase inhibitors.</p>
+      <p>Another molecular pathway commonly mutated (30&#x2013;60%) in melanomas involves loss of the PTEN tumor suppressor gene, which can lead to constitutive activation of the mTOR kinase signaling pathway [<xref ref-type="bibr" rid="B11">11</xref>-<xref ref-type="bibr" rid="B13">13</xref>]. Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy post organ transplant [<xref ref-type="bibr" rid="B14">14</xref>,<xref ref-type="bibr" rid="B15">15</xref>]. More recent clinical application of rapamycin has been with coated stents to suppress the neo-intima formation during restenosis in response to balloon angioplasty [<xref ref-type="bibr" rid="B16">16</xref>]. The action of rapamycin is understood to involve binding to the receptor protein FKBP12; this drug-protein complex binds to the mTOR protein kinase and interferes with phosphorylation of two well-recognized downstream targets, p70S6K (p70 ribosomal S6 kinase) and 4EBP1 (aka: 4E binding protein 1, eukaryotic translation initiation factor 4E binding protein, and PHAS-1) [<xref ref-type="bibr" rid="B17">17</xref>]. An appreciation of the potent inhibition of cell growth and protein synthesis, as well as cell cycle arrest, imposed by rapamycin led to testing of its derivatives, in particular CCI-779, as cytostatic agents, especially for various cancers refractory to other forms of cancer chemotherapy [<xref ref-type="bibr" rid="B18">18</xref>-<xref ref-type="bibr" rid="B20">20</xref>]. Pharmacokinetic analysis revealed that CCI-779 was progressively converted into rapamycin, its main metabolite, beginning as early as 15 minutes after infusion of the drug [<xref ref-type="bibr" rid="B20">20</xref>], therefore, we used rapamycin in our studies.</p>
+      <p>Our interest is in combining targeted agents for these pathways in an effort to determine if such treatments will be effective in the treatment of melanoma. We hypothesized that the combination of multiple targeted therapeutic agents would result in enhanced inhibition of melanoma cell proliferation compared to either drug alone, because of synergy between effects on two pathways. Here we show that serum-stimulated melanoma cell proliferation is inhibited by either rapamycin or BAY43-9006, with B-Raf V599E mutants showing an increased sensitivity to each drug at 10 nM compared to melanoma cells with wild-type B-Raf. Each of these drugs inhibited the serum-stimulated phosphorylation of known Raf and mTOR substrates. What was unexpected was that each of the drugs inhibited phosphorylation in both the Raf and mTOR pathways, suggesting there was interdependence or cross-talk between these pathways in melanoma cells. Furthermore, the combination of rapamycin with BAY43-9006 was synergistic compared to either drug alone at inhibiting proliferation of wild-type B-Raf and V599E mutant B-Raf melanoma cell lines.</p>
+    </sec>
+    <sec sec-type="methods">
+      <title>Methods</title>
+      <sec>
+        <title>Cell Culture</title>
+        <p>Melanoma cell lines used in this study were derived from tumors from patients at the University of Virginia (VMM5A, VMM18, and VMM39), as described previously [<xref ref-type="bibr" rid="B21">21</xref>,<xref ref-type="bibr" rid="B22">22</xref>]. All of the cell lines were cultured in RPMI 1640 medium supplemented with 5% fetal bovine serum, 2 mM L-glutamine, penicillin (100 units/ml), and streptomycin (100 &#x3BC;g/ml) at 37&#xB0;C in 5% CO<sub>2</sub>, unless otherwise indicated. As a control, cells were incubated in Dulbecco's Phosphate buffered saline (PBS). VMM39 is a representative cell line from human melanomas known to contain a wild-type B-Raf gene and VMM18 and VMM5A both contain the V599E B-Raf activating mutation [<xref ref-type="bibr" rid="B23">23</xref>]. Other human melanoma cell lines listed in Table <xref ref-type="table" rid="T1">1</xref> include VMM12, a malignant melanoma cell line derived from tumors from a patient at the University of Virginia which is known to contain the V599E B-Raf activating mutation [<xref ref-type="bibr" rid="B23">23</xref>]. DM122 is a melanoma cell line derived from tumors from a patient at Duke University, and is known to contain a wild-type B-Raf gene (data not shown). DM6 and DM331 are melanoma cell lines derived from tumors obtained from patients at Duke University, however, their B-Raf status remains to be determined.</p>
+        <table-wrap position="float" id="T1">
+          <label>Table 1</label>
+          <caption>
+            <p>Melanoma cell proliferation is stimulated by serum.</p>
+          </caption>
+          <table frame="hsides" rules="groups">
+            <thead>
+              <tr>
+                <td align="center">
+                  <bold>Cell Line</bold>
+                </td>
+                <td align="right">
+                  <graphic xlink:href="1479-5876-3-39-i1.gif"/>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="center">VMM18</td>
+                <td align="right">2.0</td>
+              </tr>
+              <tr>
+                <td align="center">DM6</td>
+                <td align="right">2.3</td>
+              </tr>
+              <tr>
+                <td align="center">VMM39</td>
+                <td align="right">2.1</td>
+              </tr>
+              <tr>
+                <td align="center">VMM5A</td>
+                <td align="right">2.0</td>
+              </tr>
+              <tr>
+                <td align="center">VMM12</td>
+                <td align="right">2.4</td>
+              </tr>
+              <tr>
+                <td align="center">DM331</td>
+                <td align="right">1.7</td>
+              </tr>
+              <tr>
+                <td align="center">DM122</td>
+                <td align="right">2.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </sec>
+      <sec>
+        <title>Reagents and Inhibitors</title>
+        <p>The MEK1/2 inhibitor U0126 (Catalog # 662005) and BAY43-9006 (Catalog # 553011) were purchased from Calbiochem, and stock solutions were made in DMSO. Rapamycin (R-5000) was purchased from LC Laboratories and a stock solution was made in DMSO.</p>
+      </sec>
+      <sec>
+        <title>Cell Proliferation Assays</title>
+        <p>Melanoma cells (25,000 cells per well) were plated in 96-well plates in RPMI plus either 5% FBS or 0.5% FBS, and cell numbers were assayed at time 0 and after 4, 8, 16, 24, 48, and 72 hours using Cell Titer 96 Aqueous (Promega Catalog# G3580; Madison, WI), according to the instructions provided by the manufacturer. Serum-dependent rates of growth were calculated using the slope of the lines from the growth curves, as shown in Figure <xref ref-type="fig" rid="F1">1A</xref> for VMM18. For experiments to examine the effects of the signal transduction inhibitors on serum-dependent melanoma cell proliferation, melanoma cells (1,000 cells per well) were plated in triplicate in a 96-well plates with 5% fetal bovine serum and allowed to adhere overnight. After 12&#x2013;16 h, the cells were washed and treated with inhibitors as indicated for one hour. Cells were then washed and grown in RPMI medium with 5% FBS for 48 hours. Cell numbers were assayed with Cell Titer-Glo (Promega Catalog # G7571) according to the instructions provided by the manufacturer. The triplicate values were all within 5% and the mean values were calculated and plotted with error bars representing the standard deviation of triplicate samples from 3 independent experiments.</p>
+        <fig position="float" id="F1">
+          <label>Figure 1</label>
+          <caption>
+            <p><bold>A</bold>, Growth curves of VMM18 melanoma cells in 5% and 0.5% serum-containing media. VMM18 melanoma cells were cultured in media containing either 5% or 0.5% serum and were assayed in triplicate at times 0, 4, 8, 16, 24, 48, and 72 hours using Cell Titer 96 Aqueous (Promega; Madison, WI) according to the directions supplied by the manufacturer. The absorbance at 490 nm (OD 490) measures the quantity of formazan product from the MTS-based assay and is directly proportional to the number of live cells present. The R<sup>2 </sup>values for the linear regression lines determined using Microsoft Excel are listed above each line. The solid dark line with the squares represents the data collected from VMM18 melanoma cells grown in media with 5% serum. The thin line with the circles represents the data from VMM18 melanoma cells grown in media containing 0.5% serum. <bold>B</bold>, Western blot analysis of 4EBP1 from melanoma cell lines grown in 5.0% FBS and 0.5% FBS. Phosphorylation of 4EBP1 was assayed by its reduced migration in SDS-PAGE and the proteins were detected by immunoblotting. VMM5A, VMM18, and VMM39 cells were grown in media as indicated. <bold>C</bold>, Western blot analysis of ERK from melanoma cell lines grown in 5.0% FBS and 0.5% FBS. The dual phosphorylation of ERK was analyzed by phosophosite-specific immunoblotting in VMM5A, VMM18, and VMM39 melanoma cells cultured as described (upper panel). The total amount of ERK protein was determined by immunoblotting with a separate antibody (lower panel). The relative phosphorylation of ERK was quantitated by densitometry analysis using Image Quant 5.2 software and the values are given below the top panel.</p>
+          </caption>
+          <graphic xlink:href="1479-5876-3-39-1"/>
+        </fig>
+      </sec>
+    </sec>
+    <sec>
+      <title>Western Blot Analysis</title>
+      <p>For analysis of proteins in Figure <xref ref-type="fig" rid="F1">1B</xref> and <xref ref-type="fig" rid="F1">1C</xref>, VMM5A, VMM18, and VMM39 melanoma cells were plated in Petri dishes and incubated for 24 hours in either RPMI medium plus 5% FBS or 0.5% FBS. After 24 hours, the cells were harvested and lysed as described for analysis of proteins in Figures <xref ref-type="fig" rid="F4">4</xref> and <xref ref-type="fig" rid="F5">5</xref>. For analysis of the proteins in Figures <xref ref-type="fig" rid="F4">4</xref> and <xref ref-type="fig" rid="F5">5</xref>, VMM18 melanoma cells were plated in petri dishes, treated with drugs or not for one hour, washed, and incubated overnight in RPMI medium plus 5% FBS. The next day, cells were rinsed with room temperature PBS, frozen by placing the dish on a mixture of acetone and dry ice. Cells were lysed in one ml of ice-cold 5% trichloroacetic acid for 10 minutes, scraped from the dish using a Costar cell lifter and the slurry was transferred to a 1.5-ml microcentrifuge tube and centrifuged for 10 minutes at 10,000 &#xD7; <italic>g</italic>. The supernatant was discarded, and the pellet was washed twice with cold acetone to extract away the trichloroacetic acid and the proteins resuspended in resolubilization buffer (20 mM Tris, 23 mM glycine, 1 mM EDTA, and 10 mM &#x3B2;-glycerophosphate). Protein yields were determined by BCA analysis. Proteins were resuspended in SDS-containing sample buffer, heated for 10 min at 100&#xB0;C, and 10 ng/lane was resolved by SDS-PAGE and transferred to Immobilon-P (Millipore). Membranes were blocked in 1% BSA in 50 mM Tris-Cl (pH 7.5), 0.9% NaCl, 0.05% Tween 20, and 0.01% antifoam A. Membranes were probed with antibodies listed below. Proteins were detected with Pierce SuperSignal West Pico Chemiluminescent substrate (#34080) as recommended by the manufacturer and used to expose to Kodak BioMax film. Films exposed within the linear response range were scanned and used for densitometry analysis by Image Quant 5.2.</p>
+      <fig position="float" id="F4">
+        <label>Figure 4</label>
+        <caption>
+          <p>Phosphorylation of mTOR targets in VMM18 melanoma cells treated with rapamycin, BAY43-9006, or U0126. The phosphorylation of p70S6K and 4EBP1 was assayed by migration in SDS-PAGE and the proteins detected by immunoblotting. Control VMM18 cells grown in PBS without serum were analyzed in lane 1 and VMM18 melanoma cells in lanes 2&#x2013;6 were grown 24 hours in media that contained 5% serum. Cells not treated with drugs (lanes 1 and 2) were compared to cells pre-treated for one hour with rapamycin (lane 3), BAY43-9006 (lane 4), a combination of rapamycin and BAY43-9006 (lane 5), or U0126 (lane 6). GAPDH was immunoblotted as a loading control (bottom panel).</p>
+        </caption>
+        <graphic xlink:href="1479-5876-3-39-4"/>
+      </fig>
+      <fig position="float" id="F5">
+        <label>Figure 5</label>
+        <caption>
+          <p>Phosphorylation of ERK in VMM18 melanoma cells treated with rapamycin, BAY43-9006, or U0126. The phosphorylation of ERK was analyzed by phosophosite-specific immunoblotting in VMM18 melanoma cells cultured and treated as described in Figure 4. The total amount of ERK protein was determined by immunoblotting with a separate antibody. The relative phosphorylation of ERK was quantitated by densitometry analysis using Image Quant 5.2 software and the values are given below the top panel.</p>
+        </caption>
+        <graphic xlink:href="1479-5876-3-39-5"/>
+      </fig>
+      <sec>
+        <title>Antibodies</title>
+        <p>Anti-p70S6 Kinase, clone SB20 Antibody (Catalog # 05-781, used at 1:8000) was purchased from Upstate. 4E-BP1 Antibody (Catalog #9452, used at 1:500) was purchased from Cell Signaling. GAPDH Antibody (Catalog # MAB374, used at 1:500) was purchased from Chemicon International. Anti-phospho MAP Kinase (ERK1/2), clone 12D4 antibody (Catalog # 05-481, used at 1:500) was purchased from Upstate. Anti-MAP Kinase 2/ERK2 antibody (Catalog #06-333, used at 1:500) was also purchased from Upstate. Phospho-MEK1/2 (Ser217/221) Antibody (Catalog#2354S, used at 1:1000) was purchased from Cell Signaling. Anti-Mouse IgG, peroxidase-linked species-specific whole antibody from sheep, secondary antibody (Catalog #NA931, used at 1:5000) was purchased from Amersham Biosciences. Anti-rabbit IgG, peroxidase-linked species-specific whole secondary antibody from donkey (Catalog # NA934, used at 1:5000) was also purchased from Amersham Biosciences.</p>
+      </sec>
+      <sec>
+        <title>Isobologram Analysis</title>
+        <p>To assess whether a combination dose of rapamycin and BAY43-9006 is synergistic or simply additive, a focused isobologram method was used as described previously [<xref ref-type="bibr" rid="B24">24</xref>]. An IC70 was selected, and these doses of each drug alone were plotted as the ordinate and abscissa in a Cartesian log-log plot. The straight line connecting these IC70 values is the locus of points (dose pairs) that produce a simply additive combination. In an isobologram, the IC70 dose pairs for two drugs together which fall on the line indicate an additive effect. Points above this line indicate antagonism, and points below the line indicate synergism.</p>
+      </sec>
+      <sec>
+        <title>Human Subjects</title>
+        <p>All of the research involving human subjects was approved by the University of Virginia's IRB (Human Investigation Committee) in accordance with assurances filed with and approved by the Department of Health and Human Services. Informed consent was obtained from all of the study participants.</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <sec>
+        <title>Proliferation of melanoma cells expressing wild-type and V599E mutant B-Raf</title>
+        <p>We examined the serum-dependent proliferation of various human melanoma cell lines. Figure <xref ref-type="fig" rid="F1">1 A</xref> is a growth curve for the VMM18 cell line, which is representative of the growth curves generated for each of the cell lines from a collection of human melanomas (Table <xref ref-type="table" rid="T1">1</xref>). Cell proliferation was determined by the number of cells at 0, 4, 8, 16, 24, 48, and 72 hours, quantitated using the Cell Titer 96 Aqueous (Promega Corporation, Madison, WI) assay which measures reduction of MTS (a novel tetrazolium compound). These human melanoma cell lines proliferated even in limiting serum (0.5%). However, all showed higher rates of proliferation ~ 2-fold in the presence of 5% serum.</p>
+        <p>We could detect activation of the mTOR and ERK signaling pathways in proliferating melanoma cells. Shown in Figure <xref ref-type="fig" rid="F1">1 B</xref> is a Western blot detecting the phosphorylation of the mTOR substrate, 4EBP1, from 3 different melanoma cell lines grown in the presence of either 5% or 0.5% serum. The phosphorylation of 4EBP1 has previously been demonstrated to retard migration in SDS-PAGE [<xref ref-type="bibr" rid="B25">25</xref>], seen as the upper band in the doublet in the even numbered lanes (Figure <xref ref-type="fig" rid="F1">1B</xref>). Shown in Figure <xref ref-type="fig" rid="F1">1 C</xref> is a Western blot detecting both the dual phosphorylated (activated) form of ERK, as well as total ERK protein in three different melanoma cell lines grown in 5% or 0.5% serum. The quantitation of the relative phosphorylation of ERK relative to total ERK is shown between the blots, demonstrating about a two-fold increase in phosphorylation. The phosphorylation of ERK paralleled the relative increase in proliferation for each of these cell lines.</p>
+      </sec>
+      <sec>
+        <title>BAY43-9006 and rapamycin inhibit proliferation of melanoma cells</title>
+        <p>We examined the serum-dependent proliferation of multiple human melanoma cell lines and the effects of inhibition of B-Raf by BAY43-9006 and of mTOR by rapamycin. Melanoma cell lines were tested for proliferation after treatment with a single dose of BAY43-9006 or rapamycin using Cell Titer-Glo (Promega Corporation, Madison, WI), a luminescence-based ATP cell viability assay. Cells were exposed to different doses of either drug for one hour. Then, the media was changed and the cells were cultured for two days in the presence of serum. We found that micromolar concentrations were cytotoxic, because cell numbers decreased after two days, whereas nanomolar concentrations were growth inhibitory. Melanoma cells showed dose-dependent inhibition with 0.01 nM to 100 nM of BAY43-9006 (Figure <xref ref-type="fig" rid="F2">2A</xref>), or rapamycin (Figure <xref ref-type="fig" rid="F2">2B</xref>). Proliferation of the cells was inhibited in either 5% or 0.5% serum.</p>
+        <fig position="float" id="F2">
+          <label>Figure 2</label>
+          <caption>
+            <p>Inhibition of various melanoma cell lines by BAY43-9006 and rapamycin. <bold>A</bold>, The serum-stimulated proliferation of VMM18, VMM5A, and VMM39 melanoma cells was assayed in triplicate by Cell Titer Glo (Promega; Madison, WI). Inhibition was determined as the difference between the number of cells in the control without any added drug compared to the number of cells following treatment with an inhibitor. Cells were treated for one hour with doses of BAY43-9006 ranging from 0.01 nM to 100 nM and were assayed for serum-stimulated proliferation after 48 hours. The mean value for triplicate samples from three independent experiments is plotted relative to the control (treated with vehicle, DMSO). Error bars are present at each point on the graph. The Student T test was performed and the bracket and asterisk represents a statistically significant difference between VMM39 (wt) and VMM5A (V599E) and VMM18 (V599E) cells at the 10 nM concentration with a p value &lt; 0.002. <bold>B</bold>, The serum-stimulated proliferation of VMM18, VMM5A, and VMM39 melanoma cells were assayed as described above except melanoma cells were treated with rapamycin instead of BAY43-9006 with doses ranging from 0.01 nM to 100 nM. The mean value for triplicate samples from three independent experiments is plotted. Error bars are present at each point on the graph. The Student T test was performed and the bracket and asterisk represents a statistically significant difference between VMM39 (wt) and VMM5A (V599E) and VMM18 (V599E) cells at the 10 nM concentration with a p value &lt; 0.002.</p>
+          </caption>
+          <graphic xlink:href="1479-5876-3-39-2"/>
+        </fig>
+        <p>Among the melanoma cell lines, there was a significant difference in the amount of inhibition at 10 nM BAY43-9006 or rapamycin. We observed that melanoma cell lines that contain the V599E mutation in B-Raf (VMM5A and VMM18) were more sensitive to BAY43-9006 and to rapamycin, compared to cell lines with wild-type B-Raf (VMM39). This difference in growth inhibition was observed in two additional cell lines, one wild-type (DM122) and one V599E (VMM12). Therefore, nanomolar concentrations of either BAY43-9006 or rapamycin inhibit the proliferation of melanoma cells, whether or not they have mutated B-Raf.</p>
+      </sec>
+      <sec>
+        <title>Combining Rapamycin with BAY43-9006 synergistically inhibits serum-dependent proliferation of melanoma cells</title>
+        <p>Melanoma cell proliferation was inhibited by either BAY43-9006 or rapamycin over the 0.01 &#x2013; 100 nM concentration range. A combination of the two drugs was markedly more effective than either drug alone at inhibiting serum-stimulated melanoma cell proliferation. For example, 0.01 nM of each drug together was more effective at inhibiting melanoma cell proliferation than 1 nM of either drug alone. To assess synergism versus additivity quantitatively, we used a focused isobologram method (Figure <xref ref-type="fig" rid="F3">3</xref>). Treatment of three melanoma cell lines (VMM39, VMM5A, and VMM18) with rapamycin alone induced a 70% growth inhibition (IC70) from approximately 10 nM (VMM39) to 2 nM (VMM5A and VMM18). These were plotted on the ordinate. The IC70 concentration for BAY43-9006 alone was in the range of approximately 5 to 10 nM, in different cell lines, and these were plotted on the abscissa. Compared to the single agents, the IC70 for the dose pairs (rapamycin and BAY43-9006 together) falls below the line, for each of these melanoma cell lines, indicating that the combination is synergistic (Figure <xref ref-type="fig" rid="F3">3</xref>). Furthermore, VMM18, which contains the V599E substitution, was more sensitive to the combination treatment than melanoma cell lines with wild-type B-Raf, consistent with the enhanced sensitivity at the 10 nM dose of each agent (Figure <xref ref-type="fig" rid="F2">2</xref> above). However, all melanoma cell lines tested displayed synergistic inhibition of proliferation, indicating that these drugs were more effective in combination than alone.</p>
+        <fig position="float" id="F3">
+          <label>Figure 3</label>
+          <caption>
+            <p>Isobologram analyses of inhibition of melanoma cell proliferation. <bold>A</bold>, VMM39 melanoma cells, <bold>B</bold>, VMM5A melanoma cells, and <bold>C</bold>, VMM18 melanoma cells. The straight line connecting the IC70 points (additivity line) is the locus of all dose pairs that should give the same effect. A dose pair (data point) below the line is synergistic, a dose pair on the line is additive, and a dose pair above the line is antagonistic. Note: all graphs are on a log-scale.</p>
+          </caption>
+          <graphic xlink:href="1479-5876-3-39-3"/>
+        </fig>
+      </sec>
+      <sec>
+        <title>Rapamycin and BAY43-9006 inhibit phosphorylation of proteins in the mTOR signaling pathway in melanoma cells</title>
+        <p>Melanoma cells were treated with rapamycin and BAY 43-9006, either singly or in combination, for one hour, and protein phosphorylation was examined by Western blot analysis 24 hours later. Rapamycin is an inhibitor of mTOR kinase and reduces phosphorylation of its substrates, p70S6K and 4EBP1 [<xref ref-type="bibr" rid="B17">17</xref>]. BAY 43-9006 is a chemical inhibitor of B-Raf kinase and reduces phosphorylation of MEK and ERK [<xref ref-type="bibr" rid="B26">26</xref>,<xref ref-type="bibr" rid="B27">27</xref>]. VMM18 melanoma cells grown in the presence of 5% serum had enhanced phosphorylation of p70S6K and 4EBP1 (Figure <xref ref-type="fig" rid="F4">4</xref>, lane 2) relative to cells grown in the absence of serum (Figure <xref ref-type="fig" rid="F4">4</xref>, PBS, lane 1). The phosphorylation of p70S6K and 4EBP1 retards migration in SDS-PAGE. Antibodies to these proteins were used to show all the protein and therefore enable evaluation of the fraction phosphorylated under different conditions. Treatment of VMM18 melanoma cells with a 10 nM dose of rapamycin inhibited the serum-stimulated phosphorylation of p70S6K and 4EBP1 (Figure <xref ref-type="fig" rid="F4">4</xref>, lane 3). Parallel treatment of VMM18 melanoma cells with a 10 nM dose of BAY43-9006 unexpectedly inhibited serum-stimulated phosphorylation of p70S6K and 4EBP1 (Figure <xref ref-type="fig" rid="F4">4</xref>, lane 4). There is not a well-documented requirement of Raf-MEK-ERK activity for the phosphorylation of mTOR substrates p70S6K and 4EBP1. Combination treatment with a 10 nM dose of rapamycin plus a 10 nM dose of BAY43-9006 blocked phosphorylation of p70S6K and 4EBP1 as effectively as either drug alone (Figure <xref ref-type="fig" rid="F4">4</xref>, lane 5). Thus, even though cell proliferation was suppressed more effectively by this combination of drugs, this was not reflected in a detectable further decrease in phosphorylation of the mTOR target proteins p70S6K and 4EBP1. As an additional control, we treated VMM18 melanoma cells with U0126, a MEK inhibitor, which blocked serum-stimulated phosphorylation of both p70S6K and 4EBP1 (Figure <xref ref-type="fig" rid="F4">4</xref>, lane 6). This result showed that MEK/ERK activities contribute to phosphorylation of p70S6K and 4EBP1.</p>
+        <p>We noted that total 4EBP1 in cells treated with a combination of rapamycin plus BAY43-9006, or with U0126, was lower relative to untreated cells or cells treated with either rapamycin or BAY43-9006 alone. Equal recovery of other proteins from the cells was demonstrated by immunoblotting both for p70S6K and for GAPDH, used as a loading control. We do not understand the basis for the reduced recovery of 4EBP1, but it did not seem to depend simply on the phosphorylation state because phosphorylation was blocked with the single drug treatments, without change in the level of the 4EBP1 protein.</p>
+      </sec>
+      <sec>
+        <title>Rapamycin and BAY43-9006 inhibit phosphorylation of proteins in the B-Raf-MEK-ERK signaling pathway in melanoma cells</title>
+        <p>In VMM18 melanoma cells, the dual phosphorylation (Tyr/Thr) of ERK was 9-fold higher in cells grown in 5% serum relative to cells grown in the absence of serum (Figure <xref ref-type="fig" rid="F5">5</xref>, lanes 2 versus 1). There also was an increased level in the dual phosphorylation (Ser217/221) of MEK (not shown). Treatment of VMM18 melanoma cells with a 10 nM dose of BAY 43-9006 produced a 75% decrease in the dual phosphorylation of ERK (Figure <xref ref-type="fig" rid="F5">5</xref>, lane 4) and reduced the phosphorylation of MEK below detection levels (not shown). These results were consistent with the inhibition of B-Raf by BAY43-9006. On the other hand, when VMM18 melanoma cells were treated with a 10 nM dose of rapamycin, the dual phosphorylation of ERK was reduced by about half (Figure <xref ref-type="fig" rid="F5">5</xref>, lane 3). Our interpretation of this result is that mTOR activity is required to maintain the phosphorylation of ERK in melanoma cells. Combination treatment of a 10 nM dose of rapamycin plus a 10 nM dose of BAY 43-9006 reduced the phosphorylation of ERK to a level even below that seen in cells grown in the absence of serum (Figure <xref ref-type="fig" rid="F5">5</xref>, lane 5). This inhibition of ERK phosphorylation by combination of rapamycin and BAY43-9006 was as effective as inhibition of MEK by the U0126 compound (Figure <xref ref-type="fig" rid="F5">5</xref>, compare lanes 5 and 6).</p>
+      </sec>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>New cancer treatments involve directly targeting enzymes essential for the growth and proliferation of cancer cells. The mTOR pathway regulates cell growth, and the Raf/MEK/ERK pathway is critical for cell proliferation. Activating mutations in B-Raf have been found in 60&#x2013;70% of human melanomas, making B-Raf a potential target for small molecule inhibitors as therapy [<xref ref-type="bibr" rid="B3">3</xref>,<xref ref-type="bibr" rid="B4">4</xref>,<xref ref-type="bibr" rid="B11">11</xref>,<xref ref-type="bibr" rid="B28">28</xref>]. Indeed, new drugs such as BAY43-9006 have been developed as selective inhibitors of B-Raf and are currently in Phase II clinical trials [<xref ref-type="bibr" rid="B6">6</xref>]. Inhibition of mTOR by rapamycin has been standard treatment for immunosuppression following organ transplant [<xref ref-type="bibr" rid="B15">15</xref>], and the rapamycin derivative CCI-779 is now being clinically tested as a cancer chemotherapy [<xref ref-type="bibr" rid="B18">18</xref>-<xref ref-type="bibr" rid="B20">20</xref>]. Thus, B-Raf and mTOR are acknowledged targets for anti-proliferative therapy [<xref ref-type="bibr" rid="B29">29</xref>].</p>
+      <p>Current knowledge suggests that B-Raf and mTOR protein kinases operate in separate signaling pathways. The B-Raf kinase is activated by GTP-Ras in response to growth factors and phosphorylates MEK, which in turn activates ERK to phosphorylate downstream targets such as kinases and transcription factors that promote cell division [<xref ref-type="bibr" rid="B30">30</xref>]. The mTOR kinase responds to both nutrient and growth factor signals to activate p70S6K and 4EBP1 to increase protein translation as part of a cell growth response [<xref ref-type="bibr" rid="B31">31</xref>]. Increase in cell growth (size) is a pre-requisite for cell proliferation. Because the B-Raf and mTOR pathways are thought to operate in parallel, we hypothesized that combined inhibition of these kinases would be effective in blocking cell growth and cell proliferation. Though our results with multiple melanoma cell lines support that hypothesis, they also gave some unexpected results.</p>
+      <p>Human tumors deficient in PTEN have activated Akt, and are especially sensitive to mTOR inhibitors [<xref ref-type="bibr" rid="B13">13</xref>]. However, pharmacogenomic profiling indicates that melanomas are not, in general, PTEN deficient and therefore would be unresponsive to mTOR inhibitors. Results from a phase II trial using CCI-779 alone showed only one response among 33 observed patients [<xref ref-type="bibr" rid="B32">32</xref>]. These data suggest that CCI-779 is not sufficiently active in melanoma as a single agent. However, our data show that melanoma cell proliferation is effectively inhibited in vitro by low doses of rapamycin. Together, these findings argue against use of CCI-779 as a single agent, but support investigation of mTOR inhibitors as part of combination therapy for treatment of patients with malignant melanoma.</p>
+      <p>With regards to B-Raf, recent structural studies have shown that BAY43-9006 interacts with an inactive conformation of B-Raf [<xref ref-type="bibr" rid="B33">33</xref>]. In biochemical assays, the kinase activity of V599E B-Raf is less sensitive to inhibition by BAY43-9006 than wild-type B-Raf, suggesting that melanomas with the B-Raf V599E mutation might be resistant to the effects of this drug [<xref ref-type="bibr" rid="B33">33</xref>]. However, in the present study, proliferation of the human melanoma cells was inhibited by BAY43-9006, and at a dose of 10 nM, the cells that contained mutated B-Raf V599E were more sensitive than cells with wild-type B-Raf. In clinical studies with BAY43-9006 plus chemotherapy, objective tumor regressions were more common in patients who had wild-type B-raf [<xref ref-type="bibr" rid="B34">34</xref>]. The findings of the current report support continued investigation of BAY43-9006 for treatment of patients with melanoma, and suggest that clinical effects observed may be due to some effects that are independent of B-raf kinase activity.</p>
+      <p>We found that multiple human melanoma cell lines proliferated in culture at different relative rates in the absence of serum and that the addition of serum to the medium doubled the rate of proliferation. Thus, we could use the consistent serum response to compare cell growth and proliferation with a variety of melanoma cell lines. At concentrations in the nanomolar range, we observed dose-dependent inhibition of cell proliferation by either rapamycin or BAY43-9006. In every cell line examined, combination of BAY43-9006 and rapamycin produced synergistic inhibition of cell proliferation compared to either drug alone. This suggests that administration of a combination of an mTOR inhibitor (rapamycin or CCI-779) and BAY43-9006 could be an especially effective approach to therapy of melanoma.</p>
+      <p>Our results indicate that rapamycin and BAY43-9006 inhibit their cognate targets in melanoma cells (mTOR and B-Raf respectively), as well as downstream effectors thought to be in other pathways, providing evidence for cellular cross-talk between the different signaling pathways studied. Specifically, we found that BAY43-9006 inhibited serum-stimulated phosphorylation of p70S6K and 4EBP1, and rapamycin blocked serum-stimulated phosphorylation of ERK. Previously published results have suggested interdependence between mTOR and Raf-MEK-ERK signaling [<xref ref-type="bibr" rid="B35">35</xref>-<xref ref-type="bibr" rid="B40">40</xref>]. In vascular smooth muscle cells under hyperglycemic conditions (25 mM versus 5 mM glucose), inhibition of PI3K with LY294002 or inhibition of mTOR by rapamycin reduced the level of ERK Tyr-phosphorylation [<xref ref-type="bibr" rid="B35">35</xref>]. In cardiomyocytes, PKC-dependent activation of mTOR and p70S6K was inhibited by U0126, implicating a requirement for MEK [<xref ref-type="bibr" rid="B36">36</xref>]. Rapamycin inhibited the FGF-2 induced proliferation of two different small cell lung cancer lines (SCLC), whereas PD098059 inhibited one and not the other [<xref ref-type="bibr" rid="B37">37</xref>]. Combination of rapamycin and PD098059 was not tested. In proximal tubular epithelial cells, insulin-activated phosphorylation of 4EBP1 could be inhibited by PD098059, suggesting a requirement for MAPK [<xref ref-type="bibr" rid="B38">38</xref>]. Another report shows that following hypertonic stress, HEK 293 cells show increase in protein synthesis, and simultaneous inhibition of both mTOR and ERK was required to prevent <italic>de novo </italic>translation [<xref ref-type="bibr" rid="B39">39</xref>].</p>
+      <p>Since there appears to be cross-talk between mTOR and Raf-MEK-ERK pathways, it might be expected that combination therapy with rapamycin and BAY43-9006 might simply be additive. To our knowledge, the effects of combining inhibitors of these two pathways on proliferation of melanoma cells had not previously been examined. However, studies are in development for such combination therapies in human clinical trials, sponsored by the Clinical Trials Evaluation Program (CTEP) of the NIH. In the present study, we found that the combination of inhibitors synergistic for inhibition of melanoma cell proliferation.</p>
+      <p>Cancer cells may be dependent on particular oncogenes for cell growth, which renders them sensitive to drugs that inhibit these protein targets. Under these circumstances, single chemical inhibitors are efficacious, such as Gleevec inhibition of BCR-ABL in CML [<xref ref-type="bibr" rid="B2">2</xref>]. However, in a number of different cancers, single drug targeted therapy is only effective in about half of the patients [<xref ref-type="bibr" rid="B41">41</xref>]. These cancer cells utilize either alternate pathways or compensatory mechanisms to evade inhibition. Under these circumstances, combination therapy that inhibits different pathways may be especially effective. Our results show synergistic inhibition of cell proliferation with drugs against different pathways. Further, we exposed effects on pathways not thought to be targeted by agents currently used in the clinic. Because a combination of rapamycin and BAY43-9006 is more effective at inhibiting melanoma cell proliferation than either drug alone, further studies of this combination in animal models and clinical trials deserve to be examined.</p>
+    </sec>
+    <sec>
+      <title>Competing interests</title>
+      <p>The author(s) declare that they have no competing interests.</p>
+    </sec>
+  </body>
+  <back>
+    <ack>
+      <sec>
+        <title>Acknowledgements</title>
+        <p>We thank the members of the Slingluff laboratory and Drs. John Lawrence, Christopher Thomas and Yukiko Misawa for helpful discussions. We also thank Dr. Tom Sturgill for the use of his luminometer in our cell proliferation assays. This work was partly supported by grant CA77584 to Dr. David L. Brautigan from USPHS NCI and partly supported by funds from the Harrison Foundation to the University of Virginia Cancer Center and Dr. Craig L. Slingluff, Jr. Support was also provided by the NIH/NCI grant R01 CA57653 (to CLS) and the University of Virginia Cancer Center Support Grant (NIH/NCI P30 CA44579).</p>
+      </sec>
+    </ack>
+    <ref-list>
+      <ref id="B1">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Rodenhuis</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>ras and human tumors</article-title>
+          <source>Semin Cancer Biol</source>
+          <year>1992</year>
+          <volume>3</volume>
+          <fpage>241</fpage>
+          <lpage>247</lpage>
+          <pub-id pub-id-type="pmid">1421168</pub-id>
+        </citation>
+      </ref>
+      <ref id="B2">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Shah</surname>
+              <given-names>NP</given-names>
+            </name>
+            <name>
+              <surname>Sawyers</surname>
+              <given-names>CL</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanisms of resistance to STI571 in Philadelphia chromosome-associated leukemias</article-title>
+          <source>Oncogene</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>7389</fpage>
+          <lpage>7395</lpage>
+          <pub-id pub-id-type="pmid">14576846</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1206942</pub-id>
+        </citation>
+      </ref>
+      <ref id="B3">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Davies</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Bignell</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Cox</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Stephens</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Edkins</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Clegg</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Teague</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Woffendin</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Garnett</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Bottomley</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Davis</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Dicks</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Ewing</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Floyd</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Gray</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Hall</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hawes</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Hughes</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Kosmidou</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Menzies</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Mould</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Parker</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Stevens</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Watt</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Hooper</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Wilson</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Jayatilake</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Gusterson</surname>
+              <given-names>BA</given-names>
+            </name>
+            <name>
+              <surname>Cooper</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Shipley</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hargrave</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Pritchard-Jones</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Maitland</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Chenevix-Trench</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Riggins</surname>
+              <given-names>GJ</given-names>
+            </name>
+            <name>
+              <surname>Bigner</surname>
+              <given-names>DD</given-names>
+            </name>
+            <name>
+              <surname>Palmieri</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Cossu</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Flanagan</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Nicholson</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Ho</surname>
+              <given-names>JW</given-names>
+            </name>
+            <name>
+              <surname>Leung</surname>
+              <given-names>SY</given-names>
+            </name>
+            <name>
+              <surname>Yuen</surname>
+              <given-names>ST</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Seigler</surname>
+              <given-names>HF</given-names>
+            </name>
+            <name>
+              <surname>Darrow</surname>
+              <given-names>TL</given-names>
+            </name>
+            <name>
+              <surname>Paterson</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Marais</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Marshall</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Wooster</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Stratton</surname>
+              <given-names>MR</given-names>
+            </name>
+            <name>
+              <surname>Futreal</surname>
+              <given-names>PA</given-names>
+            </name>
+          </person-group>
+          <article-title>Mutations of the BRAF gene in human cancer</article-title>
+          <source>Nature</source>
+          <year>2002</year>
+          <volume>417</volume>
+          <fpage>949</fpage>
+          <lpage>954</lpage>
+          <pub-id pub-id-type="pmid">12068308</pub-id>
+          <pub-id pub-id-type="doi">10.1038/nature00766</pub-id>
+        </citation>
+      </ref>
+      <ref id="B4">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pollock</surname>
+              <given-names>PM</given-names>
+            </name>
+            <name>
+              <surname>Meltzer</surname>
+              <given-names>PS</given-names>
+            </name>
+          </person-group>
+          <article-title>A genome-based strategy uncovers frequent BRAF mutations in melanoma</article-title>
+          <source>Cancer Cell</source>
+          <year>2002</year>
+          <volume>2</volume>
+          <fpage>5</fpage>
+          <lpage>7</lpage>
+          <pub-id pub-id-type="pmid">12150818</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1535-6108(02)00089-2</pub-id>
+        </citation>
+      </ref>
+      <ref id="B5">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tuveson</surname>
+              <given-names>DA</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>BL</given-names>
+            </name>
+            <name>
+              <surname>Herlyn</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>BRAF as a potential therapeutic target in melanoma and other malignancies</article-title>
+          <source>Cancer Cell</source>
+          <year>2003</year>
+          <volume>4</volume>
+          <fpage>95</fpage>
+          <lpage>98</lpage>
+          <pub-id pub-id-type="pmid">12957284</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1535-6108(03)00189-2</pub-id>
+        </citation>
+      </ref>
+      <ref id="B6">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Ahmad</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Eisen</surname>
+              <given-names>T</given-names>
+            </name>
+          </person-group>
+          <article-title>Kinase inhibition with BAY 43-9006 in renal cell carcinoma</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2004</year>
+          <volume>10</volume>
+          <fpage>6388S</fpage>
+          <lpage>92S</lpage>
+          <pub-id pub-id-type="pmid">15448036</pub-id>
+          <pub-id pub-id-type="doi">10.1158/1078-0432.CCR-040028</pub-id>
+        </citation>
+      </ref>
+      <ref id="B7">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Roux</surname>
+              <given-names>PP</given-names>
+            </name>
+            <name>
+              <surname>Blenis</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>ERK and p38 MAPK-activated protein kinases: a family of protein kinases with diverse biological functions</article-title>
+          <source>Microbiol Mol Biol Rev</source>
+          <year>2004</year>
+          <volume>68</volume>
+          <fpage>320</fpage>
+          <lpage>344</lpage>
+          <pub-id pub-id-type="pmid">15187187</pub-id>
+          <pub-id pub-id-type="doi">10.1128/MMBR.68.2.320-344.2004</pub-id>
+        </citation>
+      </ref>
+      <ref id="B8">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hartkamp</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Troppmair</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Rapp</surname>
+              <given-names>UR</given-names>
+            </name>
+          </person-group>
+          <article-title>The JNK/SAPK activator mixed lineage kinase 3 (MLK3) transforms NIH 3T3 cells in a MEK-dependent fashion</article-title>
+          <source>Cancer Res</source>
+          <year>1999</year>
+          <volume>59</volume>
+          <fpage>2195</fpage>
+          <lpage>2202</lpage>
+          <pub-id pub-id-type="pmid">10232608</pub-id>
+        </citation>
+      </ref>
+      <ref id="B9">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Burack</surname>
+              <given-names>WR</given-names>
+            </name>
+            <name>
+              <surname>Sturgill</surname>
+              <given-names>TW</given-names>
+            </name>
+          </person-group>
+          <article-title>The activating dual phosphorylation of MAPK by MEK is nonprocessive</article-title>
+          <source>Biochemistry</source>
+          <year>1997</year>
+          <volume>36</volume>
+          <fpage>5929</fpage>
+          <lpage>5933</lpage>
+          <pub-id pub-id-type="pmid">9166761</pub-id>
+          <pub-id pub-id-type="doi">10.1021/bi970535d</pub-id>
+        </citation>
+      </ref>
+      <ref id="B10">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hotte</surname>
+              <given-names>SJ</given-names>
+            </name>
+            <name>
+              <surname>Hirte</surname>
+              <given-names>HW</given-names>
+            </name>
+          </person-group>
+          <article-title>BAY 43-9006: early clinical data in patients with advanced solid malignancies</article-title>
+          <source>Curr Pharm Des</source>
+          <year>2002</year>
+          <volume>8</volume>
+          <fpage>2249</fpage>
+          <lpage>2253</lpage>
+          <pub-id pub-id-type="pmid">12369852</pub-id>
+          <pub-id pub-id-type="doi">10.2174/1381612023393053</pub-id>
+        </citation>
+      </ref>
+      <ref id="B11">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Krasilnikov</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Ivanov</surname>
+              <given-names>VN</given-names>
+            </name>
+            <name>
+              <surname>Dong</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Ronai</surname>
+              <given-names>Z</given-names>
+            </name>
+          </person-group>
+          <article-title>ERK and PI3K negatively regulate STAT-transcriptional activities in human melanoma cells: implications towards sensitization to apoptosis</article-title>
+          <source>Oncogene</source>
+          <year>2003</year>
+          <volume>22</volume>
+          <fpage>4092</fpage>
+          <lpage>4101</lpage>
+          <pub-id pub-id-type="pmid">12821943</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1206598</pub-id>
+        </citation>
+      </ref>
+      <ref id="B12">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Sansal</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Sellers</surname>
+              <given-names>WR</given-names>
+            </name>
+          </person-group>
+          <article-title>The biology and clinical relevance of the PTEN tumor suppressor pathway</article-title>
+          <source>J Clin Oncol</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>2954</fpage>
+          <lpage>2963</lpage>
+          <pub-id pub-id-type="pmid">15254063</pub-id>
+          <pub-id pub-id-type="doi">10.1200/JCO.2004.02.141</pub-id>
+        </citation>
+      </ref>
+      <ref id="B13">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Xu</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Zhang</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Bertram</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Zheng</surname>
+              <given-names>XF</given-names>
+            </name>
+            <name>
+              <surname>McLeod</surname>
+              <given-names>H</given-names>
+            </name>
+          </person-group>
+          <article-title>Pharmacogenomic profiling of the PI3K/PTEN-AKT-mTOR pathway in common human tumors</article-title>
+          <source>Int J Oncol</source>
+          <year>2004</year>
+          <volume>24</volume>
+          <fpage>893</fpage>
+          <lpage>900</lpage>
+          <pub-id pub-id-type="pmid">15010827</pub-id>
+        </citation>
+      </ref>
+      <ref id="B14">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Morris</surname>
+              <given-names>RE</given-names>
+            </name>
+            <name>
+              <surname>Wu</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Shorthouse</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>A study of the contrasting effects of cyclosporine, FK 506, and rapamycin on the suppression of allograft rejection</article-title>
+          <source>Transplant Proc</source>
+          <year>1990</year>
+          <volume>22</volume>
+          <fpage>1638</fpage>
+          <lpage>1641</lpage>
+          <pub-id pub-id-type="pmid">1697111</pub-id>
+        </citation>
+      </ref>
+      <ref id="B15">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chiaramonte</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Dissegna</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Ronco</surname>
+              <given-names>C</given-names>
+            </name>
+          </person-group>
+          <article-title>Monitoring of immunosuppressive therapy in renal transplanted patients</article-title>
+          <source>Contrib Nephrol</source>
+          <year>2005</year>
+          <volume>146</volume>
+          <fpage>73</fpage>
+          <lpage>86</lpage>
+          <pub-id pub-id-type="pmid">15567922</pub-id>
+        </citation>
+      </ref>
+      <ref id="B16">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Regar</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Sianos</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Serruys</surname>
+              <given-names>PW</given-names>
+            </name>
+          </person-group>
+          <article-title>Stent development and local drug delivery</article-title>
+          <source>Br Med Bull</source>
+          <year>2001</year>
+          <volume>59</volume>
+          <fpage>227</fpage>
+          <lpage>248</lpage>
+          <pub-id pub-id-type="pmid">11756213</pub-id>
+          <pub-id pub-id-type="doi">10.1093/bmb/59.1.227</pub-id>
+        </citation>
+      </ref>
+      <ref id="B17">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Chan</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Targeting the mammalian target of rapamycin (mTOR): a new approach to treating cancer</article-title>
+          <source>Br J Cancer</source>
+          <year>2004</year>
+          <volume>91</volume>
+          <fpage>1420</fpage>
+          <lpage>1424</lpage>
+          <pub-id pub-id-type="pmid">15365568</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.bjc.6602162</pub-id>
+        </citation>
+      </ref>
+      <ref id="B18">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Atkins</surname>
+              <given-names>MB</given-names>
+            </name>
+            <name>
+              <surname>Hidalgo</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Stadler</surname>
+              <given-names>WM</given-names>
+            </name>
+            <name>
+              <surname>Logan</surname>
+              <given-names>TF</given-names>
+            </name>
+            <name>
+              <surname>Dutcher</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Hudes</surname>
+              <given-names>GR</given-names>
+            </name>
+            <name>
+              <surname>Park</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Liou</surname>
+              <given-names>SH</given-names>
+            </name>
+            <name>
+              <surname>Marshall</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Boni</surname>
+              <given-names>JP</given-names>
+            </name>
+            <name>
+              <surname>Dukart</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Sherman</surname>
+              <given-names>ML</given-names>
+            </name>
+          </person-group>
+          <article-title>Randomized phase II study of multiple dose levels of CCI-779, a novel mammalian target of rapamycin kinase inhibitor, in patients with advanced refractory renal cell carcinoma</article-title>
+          <source>J Clin Oncol</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>909</fpage>
+          <lpage>918</lpage>
+          <pub-id pub-id-type="pmid">14990647</pub-id>
+          <pub-id pub-id-type="doi">10.1200/JCO.2004.08.185</pub-id>
+        </citation>
+      </ref>
+      <ref id="B19">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Peralba</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>DeGraffenried</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Friedrichs</surname>
+              <given-names>W</given-names>
+            </name>
+            <name>
+              <surname>Fulcher</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>Grunwald</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Weiss</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Hidalgo</surname>
+              <given-names>M</given-names>
+            </name>
+          </person-group>
+          <article-title>Pharmacodynamic Evaluation of CCI-779, an Inhibitor of mTOR, in Cancer Patients</article-title>
+          <source>Clin Cancer Res</source>
+          <year>2003</year>
+          <volume>9</volume>
+          <fpage>2887</fpage>
+          <lpage>2892</lpage>
+          <pub-id pub-id-type="pmid">12912932</pub-id>
+        </citation>
+      </ref>
+      <ref id="B20">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Raymond</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Alexandre</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Faivre</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Vera</surname>
+              <given-names>K</given-names>
+            </name>
+            <name>
+              <surname>Materman</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Boni</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Leister</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Korth-Bradley</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hanauske</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Armand</surname>
+              <given-names>JP</given-names>
+            </name>
+          </person-group>
+          <article-title>Safety and pharmacokinetics of escalated doses of weekly intravenous infusion of CCI-779, a novel mTOR inhibitor, in patients with cancer</article-title>
+          <source>J Clin Oncol</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>2336</fpage>
+          <lpage>2347</lpage>
+          <pub-id pub-id-type="pmid">15136596</pub-id>
+          <pub-id pub-id-type="doi">10.1200/JCO.2004.08.116</pub-id>
+        </citation>
+      </ref>
+      <ref id="B21">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Brinckerhoff</surname>
+              <given-names>LH</given-names>
+            </name>
+            <name>
+              <surname>Kalashnikov</surname>
+              <given-names>VV</given-names>
+            </name>
+            <name>
+              <surname>Thompson</surname>
+              <given-names>LW</given-names>
+            </name>
+            <name>
+              <surname>Yamshchikov</surname>
+              <given-names>GV</given-names>
+            </name>
+            <name>
+              <surname>Pierce</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Galavotti</surname>
+              <given-names>HS</given-names>
+            </name>
+            <name>
+              <surname>Engelhard</surname>
+              <given-names>VH</given-names>
+            </name>
+            <name>
+              <surname>Slingluff</surname>
+              <given-names>CLJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Terminal modifications inhibit proteolytic degradation of an immunogenic MART-1(27-35) peptide: implications for peptide vaccines</article-title>
+          <source>Int J Cancer</source>
+          <year>1999</year>
+          <volume>83</volume>
+          <fpage>326</fpage>
+          <lpage>334</lpage>
+          <pub-id pub-id-type="pmid">10495424</pub-id>
+          <pub-id pub-id-type="doi">10.1002/(SICI)1097-0215(19991029)83:3&lt;326::AID-IJC7&gt;3.0.CO;2-X</pub-id>
+        </citation>
+      </ref>
+      <ref id="B22">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Kittlesen</surname>
+              <given-names>DJ</given-names>
+            </name>
+            <name>
+              <surname>Thompson</surname>
+              <given-names>LW</given-names>
+            </name>
+            <name>
+              <surname>Gulden</surname>
+              <given-names>PH</given-names>
+            </name>
+            <name>
+              <surname>Skipper</surname>
+              <given-names>JC</given-names>
+            </name>
+            <name>
+              <surname>Colella</surname>
+              <given-names>TA</given-names>
+            </name>
+            <name>
+              <surname>Shabanowitz</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Hunt</surname>
+              <given-names>DF</given-names>
+            </name>
+            <name>
+              <surname>Engelhard</surname>
+              <given-names>VH</given-names>
+            </name>
+            <name>
+              <surname>Slingluff</surname>
+              <given-names>CLJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Human melanoma patients recognize an HLA-A1-restricted CTL epitope from tyrosinase containing two cysteine residues: implications for tumor vaccine development</article-title>
+          <source>J Immunol</source>
+          <year>1998</year>
+          <volume>160</volume>
+          <fpage>2099</fpage>
+          <lpage>2106</lpage>
+          <pub-id pub-id-type="pmid">9498746</pub-id>
+        </citation>
+      </ref>
+      <ref id="B23">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Huntington</surname>
+              <given-names>JT</given-names>
+            </name>
+            <name>
+              <surname>Shields</surname>
+              <given-names>JM</given-names>
+            </name>
+            <name>
+              <surname>Der</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Wyatt</surname>
+              <given-names>CA</given-names>
+            </name>
+            <name>
+              <surname>Benbow</surname>
+              <given-names>U</given-names>
+            </name>
+            <name>
+              <surname>Slingluff</surname>
+              <given-names>CLJ</given-names>
+            </name>
+            <name>
+              <surname>Brinckerhoff</surname>
+              <given-names>CE</given-names>
+            </name>
+          </person-group>
+          <article-title>Overexpression of collagenase 1 (MMP-1) is mediated by the ERK pathway in invasive melanoma cells: role of BRAF mutation and fibroblast growth factor signaling</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>33168</fpage>
+          <lpage>33176</lpage>
+          <pub-id pub-id-type="pmid">15184373</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M405102200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B24">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Tallarida</surname>
+              <given-names>RJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Drug synergism: its detection and applications</article-title>
+          <source>J Pharmacol Exp Ther</source>
+          <year>2001</year>
+          <volume>298</volume>
+          <fpage>865</fpage>
+          <lpage>872</lpage>
+          <pub-id pub-id-type="pmid">11504778</pub-id>
+        </citation>
+      </ref>
+      <ref id="B25">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lehman</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Calvo</surname>
+              <given-names>V</given-names>
+            </name>
+            <name>
+              <surname>Gomez-Cambronero</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanism of ribosomal p70S6 kinase activation by granulocyte macrophage colony-stimulating factor in neutrophils: cooperation of a MEK-related, THR421/SER424 kinase and a rapamycin-sensitive, m-TOR-related THR389 kinase</article-title>
+          <source>J Biol Chem</source>
+          <year>2003</year>
+          <volume>278</volume>
+          <fpage>28130</fpage>
+          <lpage>28138</lpage>
+          <pub-id pub-id-type="pmid">12740386</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M300376200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B26">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Hilger</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Kredtke</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Scheulen</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Seeber</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Strumberg</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>Correlation of ERK-phosphorylation and toxicities in patients treated with the Raf kinase inhibitor BAY 43-9006</article-title>
+          <source>Int J Clin Pharmacol Ther</source>
+          <year>2004</year>
+          <volume>42</volume>
+          <fpage>648</fpage>
+          <lpage>649</lpage>
+          <pub-id pub-id-type="pmid">15598034</pub-id>
+        </citation>
+      </ref>
+      <ref id="B27">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Strumberg</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Richly</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Hilger</surname>
+              <given-names>RA</given-names>
+            </name>
+            <name>
+              <surname>Schleucher</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Korfee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Tewes</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Faghih</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Brendel</surname>
+              <given-names>E</given-names>
+            </name>
+            <name>
+              <surname>Voliotis</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Haase</surname>
+              <given-names>CG</given-names>
+            </name>
+            <name>
+              <surname>Schwartz</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Awada</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Voigtmann</surname>
+              <given-names>R</given-names>
+            </name>
+            <name>
+              <surname>Scheulen</surname>
+              <given-names>ME</given-names>
+            </name>
+            <name>
+              <surname>Seeber</surname>
+              <given-names>S</given-names>
+            </name>
+          </person-group>
+          <article-title>Phase I Clinical and Pharmacokinetic Study of the Novel Raf Kinase and Vascular Endothelial Growth Factor Receptor Inhibitor BAY 43-9006 in Patients With Advanced Refractory Solid Tumors</article-title>
+          <source>J Clin Oncol</source>
+          <year>2004</year>
+          <pub-id pub-id-type="pmid">15613696</pub-id>
+        </citation>
+      </ref>
+      <ref id="B28">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Erhardt</surname>
+              <given-names>P</given-names>
+            </name>
+            <name>
+              <surname>Schremser</surname>
+              <given-names>EJ</given-names>
+            </name>
+            <name>
+              <surname>Cooper</surname>
+              <given-names>GM</given-names>
+            </name>
+          </person-group>
+          <article-title>B-Raf inhibits programmed cell death downstream of cytochrome c release from mitochondria by activating the MEK/Erk pathway</article-title>
+          <source>Mol Cell Biol</source>
+          <year>1999</year>
+          <volume>19</volume>
+          <fpage>5308</fpage>
+          <lpage>5315</lpage>
+          <pub-id pub-id-type="pmid">10409722</pub-id>
+        </citation>
+      </ref>
+      <ref id="B29">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Dancey</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Sausville</surname>
+              <given-names>EA</given-names>
+            </name>
+          </person-group>
+          <article-title>Issues and progress with protein kinase inhibitors for cancer treatment</article-title>
+          <source>Nat Rev Drug Discov</source>
+          <year>2003</year>
+          <volume>2</volume>
+          <fpage>296</fpage>
+          <lpage>313</lpage>
+          <pub-id pub-id-type="pmid">12669029</pub-id>
+          <pub-id pub-id-type="doi">10.1038/nrd1066</pub-id>
+        </citation>
+      </ref>
+      <ref id="B30">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Smalley</surname>
+              <given-names>KS</given-names>
+            </name>
+          </person-group>
+          <article-title>A pivotal role for ERK in the oncogenic behaviour of malignant melanoma?</article-title>
+          <source>Int J Cancer</source>
+          <year>2003</year>
+          <volume>104</volume>
+          <fpage>527</fpage>
+          <lpage>532</lpage>
+          <pub-id pub-id-type="pmid">12594806</pub-id>
+          <pub-id pub-id-type="doi">10.1002/ijc.10978</pub-id>
+        </citation>
+      </ref>
+      <ref id="B31">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bjornsti</surname>
+              <given-names>MA</given-names>
+            </name>
+            <name>
+              <surname>Houghton</surname>
+              <given-names>PJ</given-names>
+            </name>
+          </person-group>
+          <article-title>The TOR pathway: a target for cancer therapy</article-title>
+          <source>Nat Rev Cancer</source>
+          <year>2004</year>
+          <volume>4</volume>
+          <fpage>335</fpage>
+          <lpage>348</lpage>
+          <pub-id pub-id-type="pmid">15122205</pub-id>
+          <pub-id pub-id-type="doi">10.1038/nrc1362</pub-id>
+        </citation>
+      </ref>
+      <ref id="B32">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Margolin</surname>
+              <given-names>KA</given-names>
+            </name>
+            <name>
+              <surname>Longmate</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Baratta</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Synold</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Weber</surname>
+              <given-names>J</given-names>
+            </name>
+            <name>
+              <surname>Gajewski</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Quirt</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Christensen</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Doroshow</surname>
+              <given-names>JH</given-names>
+            </name>
+          </person-group>
+          <article-title>CCI-779 in metastatic melanoma: A phase II trial of the California Cancer Consortium.</article-title>
+          <source>Journal of Clinical Oncology, 2004 ASCO Annual Meeting Proceedings (Post-Meeting Edition)</source>
+          <year>2004</year>
+          <volume>Vol 22, No 14S (July 15 Supplement)</volume>
+          <fpage>Abstract No. 7523</fpage>
+        </citation>
+      </ref>
+      <ref id="B33">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Wan</surname>
+              <given-names>PT</given-names>
+            </name>
+            <name>
+              <surname>Garnett</surname>
+              <given-names>MJ</given-names>
+            </name>
+            <name>
+              <surname>Roe</surname>
+              <given-names>SM</given-names>
+            </name>
+            <name>
+              <surname>Lee</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Niculescu-Duvaz</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Good</surname>
+              <given-names>VM</given-names>
+            </name>
+            <name>
+              <surname>Jones</surname>
+              <given-names>CM</given-names>
+            </name>
+            <name>
+              <surname>Marshall</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Springer</surname>
+              <given-names>CJ</given-names>
+            </name>
+            <name>
+              <surname>Barford</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Marais</surname>
+              <given-names>R</given-names>
+            </name>
+          </person-group>
+          <article-title>Mechanism of activation of the RAF-ERK signaling pathway by oncogenic mutations of B-RAF</article-title>
+          <source>Cell</source>
+          <year>2004</year>
+          <volume>116</volume>
+          <fpage>855</fpage>
+          <lpage>867</lpage>
+          <pub-id pub-id-type="pmid">15035987</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0092-8674(04)00215-6</pub-id>
+        </citation>
+      </ref>
+      <ref id="B34">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Flaherty KT</surname>
+              <given-names>BMSLTDLRJSBLCDWBODPJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Phase I/II trial of BAY 43-9006, carboplatin (C) and paclitaxel (P) demonstrates preliminary antitumor activity in the expansion cohort of patients with metastatic melanoma.</article-title>
+          <source>J Clin Oncol</source>
+          <year>2004</year>
+          <volume>22</volume>
+          <fpage>7507</fpage>
+        </citation>
+      </ref>
+      <ref id="B35">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Campbell</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Allen</surname>
+              <given-names>WE</given-names>
+            </name>
+            <name>
+              <surname>Sawyer</surname>
+              <given-names>C</given-names>
+            </name>
+            <name>
+              <surname>Vanhaesebroeck</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Trimble</surname>
+              <given-names>ER</given-names>
+            </name>
+          </person-group>
+          <article-title>Glucose-potentiated chemotaxis in human vascular smooth muscle is dependent on cross-talk between the PI3K and MAPK signaling pathways</article-title>
+          <source>Circ Res</source>
+          <year>2004</year>
+          <volume>95</volume>
+          <fpage>380</fpage>
+          <lpage>388</lpage>
+          <pub-id pub-id-type="pmid">15242975</pub-id>
+          <pub-id pub-id-type="doi">10.1161/01.RES.0000138019.82184.5d</pub-id>
+        </citation>
+      </ref>
+      <ref id="B36">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Iijima</surname>
+              <given-names>Y</given-names>
+            </name>
+            <name>
+              <surname>Laser</surname>
+              <given-names>M</given-names>
+            </name>
+            <name>
+              <surname>Shiraishi</surname>
+              <given-names>H</given-names>
+            </name>
+            <name>
+              <surname>Willey</surname>
+              <given-names>CD</given-names>
+            </name>
+            <name>
+              <surname>Sundaravadivel</surname>
+              <given-names>B</given-names>
+            </name>
+            <name>
+              <surname>Xu</surname>
+              <given-names>L</given-names>
+            </name>
+            <name>
+              <surname>McDermott</surname>
+              <given-names>PJ</given-names>
+            </name>
+            <name>
+              <surname>Kuppuswamy</surname>
+              <given-names>D</given-names>
+            </name>
+          </person-group>
+          <article-title>c-Raf/MEK/ERK pathway controls protein kinase C-mediated p70S6K activation in adult cardiac muscle cells</article-title>
+          <source>J Biol Chem</source>
+          <year>2002</year>
+          <volume>277</volume>
+          <fpage>23065</fpage>
+          <lpage>23075</lpage>
+          <pub-id pub-id-type="pmid">11940578</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M200328200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B37">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pardo</surname>
+              <given-names>OE</given-names>
+            </name>
+            <name>
+              <surname>Arcaro</surname>
+              <given-names>A</given-names>
+            </name>
+            <name>
+              <surname>Salerno</surname>
+              <given-names>G</given-names>
+            </name>
+            <name>
+              <surname>Tetley</surname>
+              <given-names>TD</given-names>
+            </name>
+            <name>
+              <surname>Valovka</surname>
+              <given-names>T</given-names>
+            </name>
+            <name>
+              <surname>Gout</surname>
+              <given-names>I</given-names>
+            </name>
+            <name>
+              <surname>Seckl</surname>
+              <given-names>MJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Novel cross talk between MEK and S6K2 in FGF-2 induced proliferation of SCLC cells</article-title>
+          <source>Oncogene</source>
+          <year>2001</year>
+          <volume>20</volume>
+          <fpage>7658</fpage>
+          <lpage>7667</lpage>
+          <pub-id pub-id-type="pmid">11753643</pub-id>
+          <pub-id pub-id-type="doi">10.1038/sj.onc.1204994</pub-id>
+        </citation>
+      </ref>
+      <ref id="B38">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Bhandari</surname>
+              <given-names>BK</given-names>
+            </name>
+            <name>
+              <surname>Feliers</surname>
+              <given-names>D</given-names>
+            </name>
+            <name>
+              <surname>Duraisamy</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Stewart</surname>
+              <given-names>JL</given-names>
+            </name>
+            <name>
+              <surname>Gingras</surname>
+              <given-names>AC</given-names>
+            </name>
+            <name>
+              <surname>Abboud</surname>
+              <given-names>HE</given-names>
+            </name>
+            <name>
+              <surname>Choudhury</surname>
+              <given-names>GG</given-names>
+            </name>
+            <name>
+              <surname>Sonenberg</surname>
+              <given-names>N</given-names>
+            </name>
+            <name>
+              <surname>Kasinath</surname>
+              <given-names>BS</given-names>
+            </name>
+          </person-group>
+          <article-title>Insulin regulation of protein translation repressor 4E-BP1, an eIF4E-binding protein, in renal epithelial cells</article-title>
+          <source>Kidney Int</source>
+          <year>2001</year>
+          <volume>59</volume>
+          <fpage>866</fpage>
+          <lpage>875</lpage>
+          <pub-id pub-id-type="pmid">11231341</pub-id>
+          <pub-id pub-id-type="doi">10.1046/j.1523-1755.2001.059003866.x</pub-id>
+        </citation>
+      </ref>
+      <ref id="B39">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Naegele</surname>
+              <given-names>S</given-names>
+            </name>
+            <name>
+              <surname>Morley</surname>
+              <given-names>SJ</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular cross-talk between MEK1/2 and mTOR signaling during recovery of 293 cells from hypertonic stress</article-title>
+          <source>J Biol Chem</source>
+          <year>2004</year>
+          <volume>279</volume>
+          <fpage>46023</fpage>
+          <lpage>46034</lpage>
+          <pub-id pub-id-type="pmid">15292274</pub-id>
+          <pub-id pub-id-type="doi">10.1074/jbc.M404945200</pub-id>
+        </citation>
+      </ref>
+      <ref id="B40">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lehman</surname>
+              <given-names>JA</given-names>
+            </name>
+            <name>
+              <surname>Gomez-Cambronero</surname>
+              <given-names>J</given-names>
+            </name>
+          </person-group>
+          <article-title>Molecular crosstalk between p70S6k and MAPK cell signaling pathways</article-title>
+          <source>Biochem Biophys Res Commun</source>
+          <year>2002</year>
+          <volume>293</volume>
+          <fpage>463</fpage>
+          <lpage>469</lpage>
+          <pub-id pub-id-type="pmid">12054624</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S0006-291X(02)00238-3</pub-id>
+        </citation>
+      </ref>
+      <ref id="B41">
+        <citation citation-type="journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Leyland-Jones</surname>
+              <given-names>B</given-names>
+            </name>
+          </person-group>
+          <article-title>Trastuzumab: hopes and realities</article-title>
+          <source>Lancet Oncol</source>
+          <year>2002</year>
+          <volume>3</volume>
+          <fpage>137</fpage>
+          <lpage>144</lpage>
+          <pub-id pub-id-type="pmid">11902499</pub-id>
+          <pub-id pub-id-type="doi">10.1016/S1470-2045(02)00676-9</pub-id>
+        </citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>
+</pmc-articleset>
