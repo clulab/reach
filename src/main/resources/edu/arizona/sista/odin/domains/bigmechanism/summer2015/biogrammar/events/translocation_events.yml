@@ -57,7 +57,7 @@
   example: "With increased phosphorylation, p53 is exported from the plasma membrane to the cytosol"
   label: [Translocation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i)export|recruit|releas/ !tag=/^JJ/]
+    trigger = [word=/(?i)export|recruit|releas/ & !tag=/^JJ/]
     theme:BioChemicalEntity = /./* nsubjpass
     source:Cellular_component? = /./* prep_from
     destination:Cellular_component = /./* prep_to /conj|cc|dep/*
