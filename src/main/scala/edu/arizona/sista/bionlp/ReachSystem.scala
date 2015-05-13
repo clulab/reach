@@ -22,7 +22,7 @@ class ReachSystem {
   // initialize coref
   val coref = new Coref
   // start event extraction engine
-  // this engine extracts simple and recursive events and applies correference
+  // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(readEventRules(), actions, coref.apply)
   // initialize processor
   val processor = new BioNLPProcessor
@@ -66,34 +66,36 @@ class ReachSystem {
 
 object ReachSystem {
   val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar"
+  val entitiesDir = s"$resourcesDir/entities"
+  val modificationsDir = s"$resourcesDir/modifications"
+  val eventsDir = s"$resourcesDir/events"
 
   def readRules(): String =
     readEntityRules() + "\n\n" + readModificationRules() + "\n\n" + readEventRules()
 
   def readEntityRules(): String = {
     val files = Seq(
-      s"$resourcesDir/custom_entities.yml",
-      s"$resourcesDir/model_entities.yml")
+      s"$entitiesDir/entities.yml")
     files map readResource mkString "\n\n"
   }
 
   def readModificationRules(): String =
-    readResource(s"$resourcesDir/grouping_rules.yml")
+    readResource(s"$modificationsDir/modifications.yml")
 
   def readEventRules(): String = {
     val files = Seq(
-      s"$resourcesDir/phospho_events.yml",
-      s"$resourcesDir/ubiq_events.yml",
-      s"$resourcesDir/hydrox_events.yml",
-      s"$resourcesDir/hydrolysis_events.yml",
-      s"$resourcesDir/bind_events.yml",
-      s"$resourcesDir/exchange_events.yml",
-      s"$resourcesDir/degrad_events.yml",
-      s"$resourcesDir/transcription_events.yml",
-      s"$resourcesDir/regulation_events.yml",
-      s"$resourcesDir/neg_reg_events.yml",
-      s"$resourcesDir/pos_reg_events.yml",
-      s"$resourcesDir/transport_events.yml")
+      s"$eventsDir/phospho_events.yml",
+      s"$eventsDir/ubiq_events.yml",
+      s"$eventsDir/hydrox_events.yml",
+      s"$eventsDir/hydrolysis_events.yml",
+      s"$eventsDir/bind_events.yml",
+      s"$eventsDir/exchange_events.yml",
+      s"$eventsDir/degrad_events.yml",
+      s"$eventsDir/transcription_events.yml",
+      s"$eventsDir/regulation_events.yml",
+      s"$eventsDir/neg_reg_events.yml",
+      s"$eventsDir/pos_reg_events.yml",
+      s"$eventsDir/transport_events.yml")
     files map readResource mkString "\n\n"
   }
 
