@@ -1,0 +1,138 @@
+###################
+# Site rules
+###################
+
+- name: site_long
+  label: Site
+  priority: 1
+  type: token
+  pattern: |
+    [word = /(?i)^(glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine)$/]
+    [word = /acid/]?
+    [word = /(?i)residue/]?
+    [word = /\d{3}$/]?
+
+- name: site_1letter
+  label: Site
+  priority: 1
+  type: token
+  pattern: |
+    [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]? |
+    /^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?
+
+- name: site_3letter
+  label: Site
+  priority: 1
+  type: token
+  pattern: |
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]
+   [word=/mutant/]?
+
+#- name: site_3letterALT1
+#  label: Site
+#  priority: 1
+#  type: token
+#  pattern: |
+#   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)([-0-9]+)?/]
+#   [word=mutant]?
+
+- name: site_3letterALT
+  label: Site
+  priority: 1
+  type: token
+  pattern: |
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
+   [word=/residue/]?
+   [word=/\d+/]
+
+- name: site_fragment
+  label: Site
+  priority: 1
+  type: token
+  example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
+  pattern: |
+    "("
+    /^\d+-\d+$/
+    ")"
+    "fragment"
+
+- name: site_domain
+  label: Site
+  priority: 1
+  type: token
+  pattern: |
+    /\(/? /^[A-Z0-9-]+$/ /\)/? /domain/
+
+
+###################
+# ner rules
+###################
+
+- name: ner-gene_or_gene_product-entities
+  label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule]
+  action: mkNERMentions
+  priority: 2
+  type: token
+  pattern: |
+    [entity='B-Gene_or_gene_product'] [entity='I-Gene_or_gene_product']*
+
+# TODO: verify this ontology
+- name: ner-family-entities
+  label: [Family, BioChemicalEntity, MacroMolecule]
+  action: mkNERMentions
+  priority: 2
+  type: token
+  pattern: |
+    [entity='B-Family'] [entity='I-Family']*
+
+# TODO: verify this ontology
+- name: ner-cellular_component-entities
+  label: [Cellular_component]
+  action: mkNERMentions
+  priority: 2
+  type: token
+  pattern: |
+    [entity='B-Cellular_component'] [entity='I-Cellular_component']*
+
+- name: ner-simple_chemical-entities
+  label: [Simple_chemical, BioChemicalEntity]
+  action: mkNERMentions
+  priority: 2
+  type: token
+  pattern: |
+    [entity='B-Simple_chemical'] [entity='I-Simple_chemical']*
+
+# TODO: Ideally, these should be added to the KB
+################
+# missing
+################
+
+- name: missing-gene_or_gene_product
+  label: [Missing, Gene_or_gene_product, BioChemicalEntity, MacroMolecule]
+  priority: 3
+  type: token
+  pattern: |
+    /(?i)SAPK/
+
+- name: missing-family_product
+  label: [Missing, Family, BioChemicalEntity, MacroMolecule]
+  priority: 3
+  type: token
+  pattern: |
+    /(?i)K\-RAS/ |
+    /(?i)MEK/
+
+- name: missing-simple_chemical
+  label: [Missing, Simple_chemical, BioChemicalEntity]
+  priority: 3
+  type: token
+  pattern: |
+    /(?i)G[TD]P/ # this also allows for 32P-GTP, etc.
+
+# TODO: What labels should these guys have?
+- name: missing-location
+  label: [Missing, Gene_or_gene_product, BioChemicalEntity]
+  priority: 3
+  type: token
+  pattern: |
+    @BioChemicalEntity /(?i)receptor/ # there must be other relevant terms.  This rule comes from us finding "ERBB", but missing "ERBB receptors"
