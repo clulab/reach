@@ -13,6 +13,7 @@ class TestFalsePositive extends FlatSpec with Matchers {
   val sentence3 = "Phosphorylation of ASPP2 by MAPK is required for RAS induced increased binding to p53 and increased transactivation of pro-apoptotic genes."
   val sentence4 = "We measured the rate of GAP mediated GTP hydrolysis and observed that the response of Ras ligated to UbiquitinC77 was identical to Ras ligated to UbiquitinG76C."
 
+
   sentence1 should "not contain a binding" in {
     val doc = reach.mkDoc(sentence1, "testdoc")
     val mentions = reach extractFrom doc
