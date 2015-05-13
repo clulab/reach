@@ -14,7 +14,7 @@ package object preprocessing {
   type Lines = Seq[Array[String]]
 
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
-  val proc = new BioNLPProcessor(withNER = false)
+  val preprocessor = new BioNLPProcessor(withRuleNER = false, withCRFNER = false)
 
   // Retrieve relevant rule labels associated with a kb file basename
   val KBLUT: Map[String, Seq[String]] =

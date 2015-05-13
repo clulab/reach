@@ -19,7 +19,7 @@ object RuleGenerator {
    */
   def lemmaPatternFromSynonym(synonym: String):String = {
     // This should only be a single "sentence", but just to be safe...
-    val pattern = (for (s <- proc.annotate(synonym).sentences) yield {
+    val pattern = (for (s <- preprocessor.annotate(synonym).sentences) yield {
       val pathFinder = new PathFinder(s)
       val lemmaPattern =
         pathFinder.mkTokenConstraints(
