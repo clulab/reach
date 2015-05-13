@@ -17,7 +17,7 @@ import edu.arizona.sista.odin._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Split doc id into doc id and passage id.
+  *   Last Modified: REACH export: handle protein-with-string relation mentions.
   */
 class ReachOutput {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -45,7 +45,7 @@ class ReachOutput {
   /** Output a JSON object representing the REACH output for the given mentions. */
   def toJSON (allMentions:Seq[Mention], outFile:File) = {
     val model:PropMap = new PropMap
-    val mentions = allMentions.filter(processableMention)
+    val mentions = allMentions.filter(allowableRootMentions)
     val mIds = assignMentionIds(mentions, new IDed)
     val frames = new FrameList
     mentions.foreach { mention =>
@@ -61,11 +61,22 @@ class ReachOutput {
   // Private Methods
   //
 
+  /** Return true if the given mention is one that should be processed if it is an argument. */
+  private def allowableArgumentMentions (mention:Mention): Boolean = {
+    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
+  }
+
+  /** Return true if the given mention is one that should be processed at the forest root. */
+  private def allowableRootMentions (mention:Mention): Boolean = {
+    return (mention.isInstanceOf[EventMention] ||
+             (mention.isInstanceOf[RelationMention] && (mention.label != "Protein_with_site")) )
+  }
+
   /** Assign all mentions a unique ID. */
   private def assignMentionIds (mentions:Seq[Mention], mIds:IDed): IDed = {
     mentions.foreach{ mention =>
       mIds.getOrElseUpdate(mention, idCntr.genNextId())
-      assignMentionIds(mention.arguments.values.toSeq.flatten.filter(processableMention), mIds)
+      assignMentionIds(mention.arguments.values.toSeq.flatten.filter(allowableArgumentMentions), mIds)
     }
     return mIds
   }
@@ -105,8 +116,10 @@ class ReachOutput {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       frame("type") = "complex_assembly"
-      val themes = themeArgs.get.map(doTextBoundMention(_))
-      frame("participants") = if (themes.size == 0) null else themes
+      val themes = themeArgs.get
+      frame("participants") =
+        if (themes.size == 0) null
+        else themes.map(doProteinWithSiteOrTextBoundMention)
       // TODO: binding sites
       // val sites = themeArgs.get.map(getSite(_))
     }
@@ -120,10 +133,29 @@ class ReachOutput {
     val controlledArgs = mentionMgr.controlledArgs(mention)
     if (controllerArgs.isDefined && controlledArgs.isDefined) {
       frame("type") = if (positive) "positive_regulation" else "negative_regulation"
-      frame("controller") = doTextBoundMention(controllerArgs.get.head)
+      val controller = controllerArgs.get.head
+      frame("controller") = doProteinWithSiteOrTextBoundMention(controller)
       frame("controlled") = mIds.get(controlledArgs.get.head)
     }
     return frame
+  }
+
+  /** Decide what type is the given mention and return */
+  private def doProteinWithSiteOrTextBoundMention (mention:Mention): PropMap = {
+    return if (mention.label == "Protein_with_site")
+      doProteinWithSite(mention)
+    else
+      doTextBoundMention(mention)
+  }
+
+  /** Return properties map for the given protein with site mention. */
+  private def doProteinWithSite (mention:Mention): PropMap = {
+    val proteinArgs = mentionMgr.proteinArgs(mention)
+    if (proteinArgs.isDefined) {
+      return doTextBoundMention(proteinArgs.get.head)
+    }
+    return new PropMap
+    // TODO: binding sites
   }
 
   /** Return properties map for the given phosphorylation mention. */
@@ -131,7 +163,7 @@ class ReachOutput {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       frame("type") = mention.label.toLowerCase
-      val themes = themeArgs.get.map(doTextBoundMention(_))
+      val themes = themeArgs.get.map(doProteinWithSiteOrTextBoundMention(_))
       frame("participants") = if (themes.size == 0) null else themes
 
       val site = getSite(mention)
@@ -190,13 +222,6 @@ class ReachOutput {
     else return None
   }
 
-  /** Process the given mention argument, returning a ns:id string option for the first arg. */
-  private def getNsId (args:Option[Seq[Mention]]): Option[String] = {
-    if (args.isDefined)
-      return args.get.head.xref.map(_.printString)
-    else return None
-  }
-
   /** Process optional site argument on the given mention, returning a site string option. */
   private def getSite (mention:Mention): Option[String] = {
     return getText(mentionMgr.siteArgs(mention))
@@ -211,11 +236,6 @@ class ReachOutput {
   /** Process the given mention argument, returning a text string option for the first arg. */
   private def getText (args:Option[Seq[Mention]]): Option[String] = {
     return if (args.isDefined) Some(args.get.head.text) else None
-  }
-
-  /** Return true if the given mention is one that should be processed. */
-  def processableMention (mention:Mention): Boolean = {
-    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
   }
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
