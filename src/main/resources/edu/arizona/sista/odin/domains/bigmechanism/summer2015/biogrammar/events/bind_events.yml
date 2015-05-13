@@ -122,7 +122,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = interact(s|ed)?
+      trigger = /interact(s|ed)?/
       theme:BioChemicalEntity+ = (nsubj <conj_and* | prep_with | >conj_and <ccomp >nsubjpass) >/./*
 
 - name: binding14
@@ -130,7 +130,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = interactions?
+      trigger = /interactions?/
       theme:BioChemicalEntity+ = <dobj <rcmod >dep >conj_and?
 
 - name: binding_16
