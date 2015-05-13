@@ -351,8 +351,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
 
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("nucleus"), mentions))
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("cytosol"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("nucleus"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("cytosol"), mentions))
 
       // TODO: incomplete Binding with 1 argument; ideally we should add ASPP2 through coref... (MARCO)
       // NOTE this is a binding with one theme only, ignore it
@@ -373,8 +373,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "cytosol"), mentions))
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "nucleus"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("ASPP2", "membrane", "cytosol"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("ASPP2", "membrane", "nucleus"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules20")

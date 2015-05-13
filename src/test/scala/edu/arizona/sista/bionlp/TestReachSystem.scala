@@ -4,7 +4,7 @@ import scala.util.{ Try, Success, Failure }
 import org.scalatest._
 import edu.arizona.sista.bionlp.mentions._
 
-class Test extends FlatSpec with Matchers {
+class TestReachSystem extends FlatSpec with Matchers {
   // instantiate ReachSytem for tests
   val reach = new ReachSystem
 

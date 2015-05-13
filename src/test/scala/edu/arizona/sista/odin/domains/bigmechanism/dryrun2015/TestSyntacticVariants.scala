@@ -298,76 +298,76 @@ class TestSyntacticVariants {
     }
   }
 
-  @Test def testTransport1() {
+  @Test def testTranslocation1() {
     val text = "Phosphorylation leads the plasma membrane to release p53 to the cytosol."
     val doc = reach.mkDoc(text, "testdoc")
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("p53", "plasma membrane", "cytosol"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testTransport1")
+        header("testTranslocation1")
         displayMentions(mentions, doc)
         throw e
     }
   }
 
-  @Test def testTransport2() {
+  @Test def testTranslocation2() {
     val text = "Recruitment of p53 from the cytosol to the plasma membrane increases with phosphorylation."
     val doc = reach.mkDoc(text, "testdoc")
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("p53", "plasma membrane", "cytosol"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testTransport2")
+        header("testTranslocation2")
         displayMentions(mentions, doc)
         throw e
     }
   }
 
-  @Test def testTransport3() {
+  @Test def testTranslocation3() {
     val text = "With increased phosphorylation, p53 is exported from the plasma membrane to the cytosol."
     val doc = reach.mkDoc(text, "testdoc")
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("p53", "plasma membrane", "cytosol"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testTransport3")
+        header("testTranslocation3")
         displayMentions(mentions, doc)
         throw e
     }
   }
 
-  @Test def testTransport4() {
-    val text = "ASPP2, a protein which is transported from the membrane to the nucleus, is subsequently phosphorylated."
+  @Test def testTranslocation4() {
+    val text = "ASPP2, a protein which is Translocationed from the membrane to the nucleus, is subsequently phosphorylated."
     val doc = reach.mkDoc(text, "testdoc")
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "nucleus"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("ASPP2", "membrane", "nucleus"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testTransport4")
+        header("testTranslocation4")
         displayMentions(mentions, doc)
         throw e
     }
   }
 
-  @Test def testTransport5() {
+  @Test def testTranslocation5() {
     val text = "ASPP2, a protein which translocates Pde2 from the membrane to the nucleus, is subsequently phosphorylated."
     val doc = reach.mkDoc(text, "testdoc")
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("Pde2", "membrane", "nucleus"), mentions))
+      assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("Pde2", "membrane", "nucleus"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testTransport4")
+        header("testTranslocation4")
         displayMentions(mentions, doc)
         throw e
     }
