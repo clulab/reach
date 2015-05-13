@@ -17,7 +17,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = /forms?/ (a)? /complex(es)?|dimers?|heteromultimers?/
+    trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
     theme:BioChemicalEntity+ = nsubj | dobj | /prep_(to|with)/
 
 - name: binding2
@@ -82,7 +82,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = interacts
+      trigger = interact(s|ed)?
       theme:BioChemicalEntity+ = nsubj | prep_with
 
 - name: binding9
@@ -122,15 +122,15 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = interact
-            theme:BioChemicalEntity+ = (nsubj <conj_and* | prep_with | >conj_and <ccomp >nsubjpass) >/./*
+      trigger = interact(s|ed)?
+      theme:BioChemicalEntity+ = (nsubj <conj_and* | prep_with | >conj_and <ccomp >nsubjpass) >/./*
 
 - name: binding14
   label: [Binding, SimpleEvent, Event]
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = interactions
+      trigger = interactions?
       theme:BioChemicalEntity+ = <dobj <rcmod >dep >conj_and?
 
 - name: binding_16
@@ -138,7 +138,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = ligated
+    trigger = [word=/ligate(s|d)?/ & tag=/^V/]
     theme:BioChemicalEntity+ = <vmod | nsubj | prep_to
 
 - name: binding_17
