@@ -88,7 +88,7 @@ object Ruler {
         s"$dir/regulation_events.yml",
         s"$dir/neg_reg_events.yml",
         s"$dir/pos_reg_events.yml",
-        s"$dir/transport_events.yml"
+        s"$dir/translocation_events.yml"
     )
     files map read mkString "\n\n"
   }

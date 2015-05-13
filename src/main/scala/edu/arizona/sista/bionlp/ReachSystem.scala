@@ -95,7 +95,7 @@ object ReachSystem {
       s"$eventsDir/regulation_events.yml",
       s"$eventsDir/neg_reg_events.yml",
       s"$eventsDir/pos_reg_events.yml",
-      s"$eventsDir/transport_events.yml")
+      s"$eventsDir/translocation_events.yml")
     files map readResource mkString "\n\n"
   }
 
