@@ -49,6 +49,8 @@ class DarpaActions extends Actions {
       !m.arguments.values.flatten.exists(_.text.toLowerCase.startsWith("ubiq")) 
     }
     filteredMentions.map(_.toBioMention)
+    // TODO: a temporary hack to convert theme+cause ubiqs => regs
+    splitSimpleEvents(filteredMentions, state)
   }
 
   /** This action handles the creation of Binding EventMentions for rules using token patterns.
