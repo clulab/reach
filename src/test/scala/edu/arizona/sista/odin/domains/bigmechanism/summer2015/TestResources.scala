@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.domains.bigmechanism.dryrun2015
+package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import edu.arizona.sista.bionlp.ReachSystem
 

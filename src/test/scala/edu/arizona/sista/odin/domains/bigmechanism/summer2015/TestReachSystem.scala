@@ -1,7 +1,8 @@
-package edu.arizona.sista.bionlp
+package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import scala.util.{ Try, Success, Failure }
 import org.scalatest._
+import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.mentions._
 
 class TestReachSystem extends FlatSpec with Matchers {
