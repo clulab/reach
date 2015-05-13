@@ -43,7 +43,7 @@
   example: "When looking at oxaliplatin, it can be concluded that when B-Raf is wild type (regardless of K-Ras mutation), increased levels of p73 protein correlate enhanced TAp73 transcription, in the presence of cetuximab (cetuximab or cetuximab plus oxaliplatin)."
   label: [Transcription, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="transcription" & !outgoing=amod]
+    trigger = [lemma=/transcription|expression/ & !outgoing=amod]
     theme:BioChemicalEntity = prep_of? nn+
 
 - name: transcription_2
@@ -51,7 +51,7 @@
   example: "ErbB3 gene transcription"
   label: [Transcription, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="transcription"] (?! [lemma="factor"])
+    trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
     theme:BioChemicalEntity = <dep 
 
 - name: transcription_3
@@ -59,5 +59,6 @@
   example: "Transcription of genes"
   label: [Transcription, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="transcription"] (?! [lemma="factor"])
+    trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
     theme:BioChemicalEntity = prep_of [word=/(?i)genes?/]
+
