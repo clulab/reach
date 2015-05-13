@@ -5,6 +5,7 @@ import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.mentionToStrings
+import edu.arizona.sista.odin.extern.export.reach._
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -54,7 +55,8 @@ object RunSystem extends App {
       reach.outputMentions(paperMentions, outputType, paperId, friesDir)
     }
     else {                                  // else dump all paper mentions to file
-      val lines = paperMentions.flatMap(mentionToStrings)
+      val mentionMgr = new MentionManager()
+      val lines = paperMentions.flatMap(mentionMgr.mentionToStrings)
       val outFile = new File(friesDir, s"$paperId.txt")
       println(s"writing ${outFile.getName} ...")
       FileUtils.writeLines(outFile, lines.asJavaCollection)
