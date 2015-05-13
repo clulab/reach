@@ -19,17 +19,18 @@ package object preprocessing {
   // Retrieve relevant rule labels associated with a kb file basename
   val KBLUT: Map[String, Seq[String]] =
     Map("hmdb" -> Seq("Simple_chemical", "BioChemicalEntity"),
-      "ProteinFamilies" -> Seq("Family", "BioChemicalEntity"),
-      "tissue-type" -> Seq("Cellular_component", "BioChemicalEntity"),
-      "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
-       "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
-      "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"))
+        "ProteinFamilies" -> Seq("Family", "BioChemicalEntity"),
+        "tissue-type" -> Seq("Cellular_component", "BioChemicalEntity"),
+        "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
+        "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
+        "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"))
       .withDefaultValue(Seq("BioChemicalEntity"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
+
   val SpeciesLUT: Map[String, Seq[String]] =
     Map("uniprot-proteins" -> speciesOfInterest,
-      "ProteinFamilies" -> speciesOfInterest).withDefaultValue(Nil)
+        "ProteinFamilies" -> speciesOfInterest).withDefaultValue(Nil)
 
 
   def mkLabelRepresentation(kb: String): String = "[" + KBLUT(kb).mkString(", ") + "]"

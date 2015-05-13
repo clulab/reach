@@ -108,14 +108,14 @@
 ################
 
 - name: missing-gene_or_gene_product
-  label: [Missing, Gene_or_gene_product, BioChemicalEntity, MacroMolecule]
+  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule]
   priority: 3
   type: token
   pattern: |
     /(?i)SAPK/
 
 - name: missing-family_product
-  label: [Missing, Family, BioChemicalEntity, MacroMolecule]
+  label: [Family, Missing, BioChemicalEntity, MacroMolecule]
   priority: 3
   type: token
   pattern: |
@@ -123,7 +123,7 @@
     /(?i)MEK/
 
 - name: missing-simple_chemical
-  label: [Missing, Simple_chemical, BioChemicalEntity]
+  label: [Simple_chemical, Missing, BioChemicalEntity]
   priority: 3
   type: token
   pattern: |
@@ -131,7 +131,7 @@
 
 # TODO: What labels should these guys have?
 - name: missing-location
-  label: [Missing, Gene_or_gene_product, BioChemicalEntity]
+  label: [Gene_or_gene_product, Missing, BioChemicalEntity]
   priority: 3
   type: token
   pattern: |
