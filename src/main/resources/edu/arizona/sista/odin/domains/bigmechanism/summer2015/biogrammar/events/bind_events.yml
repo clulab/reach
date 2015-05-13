@@ -82,7 +82,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = interact(s|ed)?
+      trigger = /interact(s|ed)?/
       theme:BioChemicalEntity+ = nsubj | prep_with
 
 - name: binding9
