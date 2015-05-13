@@ -5,6 +5,7 @@ import java.io._
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.{DarpaActions,Ruler}
 
 import org.slf4j.LoggerFactory
@@ -66,7 +67,7 @@ object GroundDriver extends App {
       case _ => processor.annotate(getText(inFile))
     }
 
-    val mentions = extractor.extractFrom(doc)
+    val mentions = extractor.extractFrom(doc) map (_.toBioMention)
     val sortedMentions = mentions.sortBy(m => (m.sentence, m.start)) // sort by sentence, start idx
     outputGroundedMentions(sortedMentions, doc, outFile)
   }
@@ -77,7 +78,7 @@ object GroundDriver extends App {
     val ground = new LocalGrounder()
     val state = State.apply(mentions)
     val modifiedMentions = ground.apply(mentions, state)
-    modifiedMentions.foreach { m =>
+    modifiedMentions.foreach { case m: BioMention =>
       val xref = m.xref.getOrElse("")
       out.println(s"${m.label} (${m.text}): ${xref}")
     }

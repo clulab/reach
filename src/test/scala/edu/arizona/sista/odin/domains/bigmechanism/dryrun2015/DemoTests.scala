@@ -2,7 +2,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.dryrun2015
 
 import org.scalatest.FunSuite
 import org.scalatest.BeforeAndAfter
-import TestResources.{bioproc, extractor, summarizeError}
+import TestResources.{reach, summarizeError}
 import DarpaEvalUtils._
 
 /**
@@ -12,8 +12,8 @@ class DemoTests1 extends FunSuite with BeforeAndAfter {
 
 
   val text = "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
-  val doc = bioproc.annotate(text)
-  val mentions = extractor.extractFrom(doc)
+  val doc = reach.mkDoc(text, "testdoc")
+  val mentions = reach.extractFrom(doc)
   val assignedParty = "GUS"
 
   info(text)
@@ -36,8 +36,8 @@ class DemoTests1 extends FunSuite with BeforeAndAfter {
 class DemoTests2 extends FunSuite with BeforeAndAfter {
 
   val text = "S6K1 phosphorylates the RPTOR protein and promotes the hydroxylation of the Pkh1 protein."
-  val doc = bioproc.annotate(text)
-  val mentions = extractor.extractFrom(doc)
+  val doc = reach.mkDoc(text, "testdoc")
+  val mentions = reach.extractFrom(doc)
   val assignedParty = "GUS"
 
   info(text)
@@ -59,8 +59,8 @@ class DemoTests2 extends FunSuite with BeforeAndAfter {
 class DemoTests3 extends FunSuite with BeforeAndAfter {
 
   val text = "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein binds with TopBP1."
-  val doc = bioproc.annotate(text)
-  val mentions = extractor.extractFrom(doc)
+  val doc = reach.mkDoc(text, "testdoc")
+  val mentions = reach.extractFrom(doc)
   val assignedParty = "GUS"
 
   info(text)
