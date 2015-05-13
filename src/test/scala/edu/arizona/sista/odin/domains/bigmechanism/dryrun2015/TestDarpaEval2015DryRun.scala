@@ -76,12 +76,13 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules4")
         displayMentions(mentions, doc)
         throw e
     }
   }
 
+  // TODO: I think Dane had a method to convert this binding to a ubiquitination...
   @Test def testRules5() {
     val text = "We measured the rate of GAP-mediated GTP hydrolysis and observed that the response of Ras ligated to Ubiquitin was identical"
     val doc = reach.mkDoc(text, "testdoc")
@@ -90,13 +91,13 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
       // TODO: appears as binding but it's ubiquitination (GUS + MARCO)
-      assertTrue("binding -> ubiqutination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
+      assertTrue("binding -> ubiquitination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
       // TODO: up-regulation ( MARCO + GUS)
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules5")
         displayMentions(mentions, doc)
         throw e
     }
@@ -114,7 +115,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules6")
         displayMentions(mentions, doc)
         throw e
     }
@@ -136,7 +137,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       // assertTrue(hasNegativeRegulationByEvent("Ubiquitination", List("Ras"), "Positive_regulation", List("")))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules7")
         displayMentions(mentions, doc)
         throw e
     }
@@ -154,7 +155,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("model entity (GUS)", hasEntity("ASPP2", mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules8")
         displayMentions(mentions, doc)
         throw e
     }
@@ -174,7 +175,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules9")
         displayMentions(mentions, doc)
         throw e
     }
@@ -194,7 +195,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("ASPP1", "ASPP2", "RAS-GTP"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules10")
         displayMentions(mentions, doc)
         throw e
     }
@@ -218,7 +219,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules11")
         displayMentions(mentions, doc)
         throw e
     }
@@ -236,7 +237,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       // assertTrue("regulation (MARCO/GUS)", hasRegulationByEntity("Regulation", "RAS", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules12")
         displayMentions(mentions, doc)
         throw e
     }
@@ -253,12 +254,13 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules13")
         displayMentions(mentions, doc)
         throw e
     }
   }
 
+  // TODO: This is failing because we're missing SAPK in "p38 SAPK"; we only get p38, but we used to get "p38 SAPK"
   @Test def testRules14() {
     val text = "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
     val doc = reach.mkDoc(text, "testdoc")
@@ -270,7 +272,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules14")
         displayMentions(mentions, doc)
         throw e
     }
@@ -285,7 +287,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules15")
         displayMentions(mentions, doc)
         throw e
     }
@@ -302,7 +304,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules16")
         displayMentions(mentions, doc)
         throw e
     }
@@ -319,7 +321,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules17")
         displayMentions(mentions, doc)
         throw e
     }
@@ -335,7 +337,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       //assertTrue("binding -> splitting elements of complex (MARCO/GUS)", hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules18")
         displayMentions(mentions, doc)
         throw e
     }
@@ -359,7 +361,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       // TODO: missing two regulations:  phosphorylation leads to transport and binding
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules19")
         displayMentions(mentions, doc)
         throw e
     }
@@ -375,7 +377,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
       assertTrue("transport (ENRIQUE)", hasEventWithArguments("Transport", List("ASPP2", "membrane", "nucleus"), mentions))
     } catch {
       case e: AssertionError =>
-        header("testRules2")
+        header("testRules20")
         displayMentions(mentions, doc)
         throw e
     }
