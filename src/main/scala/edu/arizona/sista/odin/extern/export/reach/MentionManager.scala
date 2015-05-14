@@ -3,11 +3,9 @@ package edu.arizona.sista.odin.extern.export.reach
 import java.io._
 
 import scala.collection.mutable.MutableList
-import scala.collection.mutable.Map
 
 import scala.util.hashing.MurmurHash3._
 
-import edu.arizona.sista.processors._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 

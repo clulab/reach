@@ -6,6 +6,7 @@ import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.{Sentence, Document}
+import edu.arizona.sista.bionlp.mentions._
 
 object ReachShell extends App {
 
@@ -89,6 +90,9 @@ object ReachShell extends App {
     mention match {
       case m: TextBoundMention =>
         println(s"\t${m.asInstanceOf[Display].displayLabel}|${m.labels} => ${m.text}")
+        val bm = m.toBioMention
+        if (bm.isGrounded)
+          println(s"\txref: ${bm.xref.get}")
       case m: EventMention =>
         println(s"\ttrigger => ${m.trigger.text}")
         m.arguments foreach {
