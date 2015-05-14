@@ -10,8 +10,8 @@
   pattern: |
     trigger = [word=/(?i).*phosphorylat.*/ & !word=/^de/ & tag=/^V/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
-    theme:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])* # don't allow Site
-    #site:Site? = dobj? /prep_(at|on)|nn|conj_|cc/*
+    theme:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])* 
+    site:Site? = dobj? /prep_(at|on)|nn|conj_|cc/*
 
 
 - name: Phosphorylation_syntax_2_verb
@@ -51,9 +51,9 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/ & !mention=ModificationTrigger]
-    theme:BioChemicalEntity = dobj /nn|conj_|cc/* # don't allow Site
-    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* # don't allow Site
-    #site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
+    theme:BioChemicalEntity = dobj /nn|conj_|cc/* 
+    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* 
+    site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
 
 
 - name: Phosphorylation_syntax_6_verb
@@ -62,9 +62,9 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=VBN & !mention=ModificationTrigger]
-    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* # don't allow Site
-    cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_|cc/* # don't allow Site
-    #site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
+    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* 
+    cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_|cc/* 
+    site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
 
 
 - name: Phosphorylation_syntax_1_noun
@@ -73,9 +73,9 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [lemma="phosphorylation"]
-    theme:BioChemicalEntity = prep_of /nn|conj_|cc/* # don't allow Site
-    cause:BioChemicalEntity? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/* # don't allow Site
-    #site:Site? = (/prep_/ nn*)+
+    theme:BioChemicalEntity = prep_of /nn|conj_|cc/* 
+    cause:BioChemicalEntity? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/* 
+    site:Site? = (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 
 
@@ -87,7 +87,7 @@
     trigger = [lemma="phosphorylation"] # nominal predicate
     theme:BioChemicalEntity = prep_of? /conj_|cc|nn/+ 
     site:Site? = /pobj|prep_|conj_|nn/+
-    cause:BioChemicalEntity = /prep_by|agent/ /conj|cc|nn/* # don't allow Site
+    cause:BioChemicalEntity = /prep_by|agent/ /conj|cc|nn/* 
 
 
 - name: Phosphorylation_syntax_3_noun
@@ -107,7 +107,7 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [lemma="phosphorylation" & !outgoing=/prep_(by|of)/]
-    theme:BioChemicalEntity = </conj/? /conj|cc|nn|prep/*
+    theme:BioChemicalEntity = </conj/? /conj|cc|nn|prep_of/*
 
 
 - name: Phosphorylation_syntax_5_noun
@@ -126,8 +126,8 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [lemma="phosphorylation"]
-    cause:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/* # don't allow Site
-    theme:BioChemicalEntity = (prep_of /nn|conj_|cc/*)+ # don't allow Site
+    cause:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/* 
+    theme:BioChemicalEntity = (prep_of /nn|conj_|cc/*)+ 
 
 
 - name: Phosphorylation_syntax_7_noun
@@ -136,7 +136,7 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [lemma="phosphorylation" & !outgoing=prep_of]
-    theme:BioChemicalEntity = < nsubj dobj prep_of /nn|cc|conj/* # don't allow Site
+    theme:BioChemicalEntity = < nsubj dobj prep_of /nn|cc|conj/* 
 
 ##################
 # surface patterns
