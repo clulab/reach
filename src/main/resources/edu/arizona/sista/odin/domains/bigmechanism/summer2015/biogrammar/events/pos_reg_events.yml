@@ -10,7 +10,7 @@
   pattern: |
     trigger = [lemma=/promot|induc|mediat|increas|stimulat|lead|enhanc|up-regulat/ & tag=/^V|RB/]
     controller:BioChemicalEntity = nsubj nn*
-    controlled:Event = dobj nn*
+    controlled:SimpleEvent = dobj nn*
 
 - name: Positive_regulation_2
   priority: 5
@@ -19,7 +19,7 @@
   pattern: |
     trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
     controller:BioChemicalEntity = nsubj nn*
-    controlled:Event = dobj
+    controlled:SimpleEvent = dobj
 
 - name: Positive_regulation_3
   priority: 5
@@ -28,7 +28,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   pattern: |
-    (@controller:BioChemicalEntity)? (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:Event
+    (@controller:BioChemicalEntity)? (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:SimpleEvent
 
 - name: Positive_regulation_4
   priority: 5
@@ -52,7 +52,7 @@
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [lemma=/regul/ & tag=/^V/]?
     controller:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
-    controlled:Event = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+    controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
 
 
 - name: Positive_regulation_syntax_2_verb
@@ -60,7 +60,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controlled:SimpleEvent = (>nsubjpass|<vmod) /conj_|nn|cc/*
     controller:BioChemicalEntity? = agent|prep_by /conj_|nn|cc/*
 
 
@@ -70,7 +70,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
+    controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
     controller:BioChemicalEntity? = <nn* | (prep_by) /nn|conj_|cc/*
 
 
@@ -80,7 +80,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = (nsubjpass /conj_|nn/*)
+    controlled:SimpleEvent = (nsubjpass /conj_|nn/*)
     controller:BioChemicalEntity? = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/*
 
 
@@ -90,7 +90,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = dobj /nn|conj_|cc/*
+    controlled:SimpleEvent = dobj /nn|conj_|cc/*
     controller:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
 
 
@@ -100,7 +100,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
-    controlled:Event = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    controlled:SimpleEvent = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
     controller:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_|cc/*
 
 
@@ -110,7 +110,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/]?
-    controlled:Event = prep_of /nn|conj_|cc/*
+    controlled:SimpleEvent = prep_of /nn|conj_|cc/*
     controller:BioChemicalEntity? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
 
 
@@ -120,7 +120,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = prep_of? /conj_|cc|nn/+
+    controlled:SimpleEvent = prep_of? /conj_|cc|nn/+
     controller:BioChemicalEntity = /prep_by|agent/ /conj|cc|nn/*
 
 
@@ -130,7 +130,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
-    controlled:Event = prep_of /conj_|cc|nn/+
+    controlled:SimpleEvent = prep_of /conj_|cc|nn/+
     controller:BioChemicalEntity = /conj_|cc|nn/+
 
 
@@ -140,7 +140,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = <nn? nn /conj|cc|nn|prep/*
+    controlled:SimpleEvent = <nn? nn /conj|cc|nn|prep/*
 
 
 - name: Positive_regulation_syntax_5_noun
@@ -149,7 +149,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = < nn > /prep_/ /conj_|cc|nn/*
+    controlled:SimpleEvent = < nn > /prep_/ /conj_|cc|nn/*
     controller:BioChemicalEntity? = < nn /conj_|cc|nn/*
 
 
@@ -160,7 +160,7 @@
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controller:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/*
-    controlled:Event = (prep_of /nn|conj_|cc/*)+
+    controlled:SimpleEvent = (prep_of /nn|conj_|cc/*)+
 
 
 - name: Positive_regulation_syntax_7_noun
@@ -169,7 +169,7 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = < nsubj dobj prep_of /nn|cc|conj/*
+    controlled:SimpleEvent = < nsubj dobj prep_of /nn|cc|conj/*
 
 
 - name: Positive_regulation_token_1_noun
@@ -180,7 +180,7 @@
   pattern: |
     (?<trigger> [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
     /of|on/ [word=/./ & !tag=/^V|RB/]*?
-    @controlled:Event
+    @controlled:SimpleEvent
 
 
 - name: Positive_regulation_token_2_verb
@@ -190,4 +190,4 @@
   label: [Positive_regulation, ComplexEvent, Event]
   pattern: |
     (?<trigger> [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
-    @controlled:Event # TODO: used to be optional...why?
+    @controlled:SimpleEvent # TODO: used to be optional...why?

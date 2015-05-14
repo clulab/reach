@@ -13,7 +13,7 @@
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controller:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
-    controlled:Event = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+    controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
 
 
 - name: Negative_regulation_syntax_2_verb
@@ -21,7 +21,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = (>nsubjpass|<vmod) /conj_|nn|cc/*  
+    controlled:SimpleEvent = (>nsubjpass|<vmod) /conj_|nn|cc/*  
     controller:BioChemicalEntity? = agent|prep_by /conj_|nn|cc/* 
 
 
@@ -31,8 +31,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) 
-
+    controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
     controller:BioChemicalEntity? = <nn* | (prep_by) /nn|conj_|cc/*
 
 
@@ -42,7 +41,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = (nsubjpass /conj_|nn/*) 
+    controlled:SimpleEvent = (nsubjpass /conj_|nn/*) 
     controller:BioChemicalEntity? = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/* 
 
 
@@ -52,7 +51,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:Event = dobj /nn|conj_|cc/*
+    controlled:SimpleEvent = dobj /nn|conj_|cc/*
     controller:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
 
 
@@ -62,7 +61,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
-    controlled:Event = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    controlled:SimpleEvent = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
     controller:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_|cc/*
 
 
@@ -72,7 +71,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/]?
-    controlled:Event = prep_of /nn|conj_|cc/*
+    controlled:SimpleEvent = prep_of /nn|conj_|cc/*
     controller:BioChemicalEntity? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
 
 
@@ -82,7 +81,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = prep_of? /conj_|cc|nn/+ 
+    controlled:SimpleEvent = prep_of? /conj_|cc|nn/+ 
     controller:BioChemicalEntity = /prep_by|agent/ /conj|cc|nn/*
 
 
@@ -92,7 +91,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
-    controlled:Event = prep_of /conj_|cc|nn/+ 
+    controlled:SimpleEvent = prep_of /conj_|cc|nn/+ 
     controller:BioChemicalEntity = /conj_|cc|nn/+ 
 
 
@@ -102,7 +101,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = <nn? nn /conj|cc|nn|prep/*
+    controlled:SimpleEvent = <nn? nn /conj|cc|nn|prep/*
 
 
 - name: Negative_regulation_syntax_5_noun
@@ -111,7 +110,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = < nn > /prep_/ /conj_|cc|nn/* 
+    controlled:SimpleEvent = < nn > /prep_/ /conj_|cc|nn/* 
     controller:BioChemicalEntity? = < nn /conj_|cc|nn/*
 
 
@@ -122,7 +121,7 @@
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controller:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/*
-    controlled:Event = (prep_of /nn|conj_|cc/*)+
+    controlled:SimpleEvent = (prep_of /nn|conj_|cc/*)+
 
 
 - name: Negative_regulation_syntax_7_noun
@@ -131,7 +130,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:Event = < nsubj dobj prep_of /nn|cc|conj/* 
+    controlled:SimpleEvent = < nsubj dobj prep_of /nn|cc|conj/* 
 
 
 - name: Negative_regulation_token_1_noun
@@ -142,7 +141,7 @@
   pattern: |
     (?<trigger> [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
     /of|on/ [word=/./ & !tag=/^V|RB/]*?
-    @controlled:Event
+    @controlled:SimpleEvent
 
 
 - name: Negative_regulation_token_2_verb
@@ -152,7 +151,7 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     (?<trigger> [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
-    (@controlled:Event) # used to be optional...why?
+    (@controlled:SimpleEvent) # used to be optional...why?
 
 
 
