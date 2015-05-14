@@ -74,7 +74,8 @@ object ReachShell extends App {
     println(mention.labels)
     println(boundary)
     println(s"\tRule => ${mention.foundBy}")
-    println(s"\tType => ${mention.getClass.toString.split("""\.""").last}")
+    val mentionType = mention.getClass.toString.split("""\.""").last
+    println(s"\tType => $mentionType")
     println(boundary)
     mention match {
       case m: TextBoundMention =>
