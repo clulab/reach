@@ -10,7 +10,7 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
-        theme:BioChemicalEntity+ = <rcmod conj_and* | nsubj conj_and* | <prepc_by* nsubj | dobj conj_and* | /prep_(to|with)/
+    theme:BioChemicalEntity+ = <rcmod conj_and* | nsubj conj_and* | <prepc_by* nsubj | dobj conj_and* | /prep_(to|with)/
 
 - name: binding1forms
   label: [Binding, SimpleEvent, Event]
@@ -216,7 +216,7 @@
   type: token
   pattern: |
     (@theme1:BioChemicalEntity)
-    (?<trigger> [lemma=bind])
+    (?<trigger> [lemma=bind]) (to|with)?
     (@theme2:BioChemicalEntity)
 
 # Prepositional Nominalization
