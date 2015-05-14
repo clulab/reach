@@ -14,7 +14,7 @@ import scala.util.Try
  * Date: 5/13/15
  */
 class TestSummer2015Training extends FlatSpec with Matchers {
-  // instantiate ReachSytem for tests
+  // instantiate ReachSystem for tests
   val reach = new ReachSystem
 
   // test data
