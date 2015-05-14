@@ -90,8 +90,6 @@ object ReachSystem {
       s"$eventsDir/hydrox_events.yml",
       s"$eventsDir/hydrolysis_events.yml",
       s"$eventsDir/bind_events.yml",
-      s"$eventsDir/exchange_events.yml",
-      s"$eventsDir/degrad_events.yml",
       s"$eventsDir/transcription_events.yml",
       s"$eventsDir/regulation_events.yml",
       s"$eventsDir/neg_reg_events.yml",
