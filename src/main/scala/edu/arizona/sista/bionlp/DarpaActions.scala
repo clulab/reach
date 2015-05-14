@@ -94,19 +94,38 @@ class DarpaActions extends Actions {
       }
   }
 
+  /**
+   * This action decomposes RelationMentions with the label Modification to the matched TB entity with the appropriate Modification
+   * @return Nil (Modifications are added in-place)
+   */
   def mkModification(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    def getModification(text: String): String = {
-      "POOP"
+    // retrieve the appropriate modification label
+    def getModification(text: String): String = text.toLowerCase match {
+      case acet if acet contains "acetylat" => "acetylated"
+      case farne if farne contains "farnesylat" => "farnesylated"
+      case glyco if glyco contains "glycosylat" =>"glycosylated"
+      case hydrox if hydrox contains "hydroxylat" =>"hydroxylated"
+      case meth if meth contains "methylat" => "methylated"
+      case phos if phos contains "phosphorylat" => "phosphorylated"
+      case ribo if ribo contains "ribosylat" => "ribosylated"
+      case sumo if sumo contains "sumosylat" =>"sumosylated"
+      case ubiq if ubiq contains "ubiquitinat" => "ubiquitinated"
+      case _ => "UNKNOWN"
     }
 
     mentions flatMap {
-      case rel: RelationMention => {
-        println("found a modification...")
-        val trigger = rel.arguments("mod").head
+      case ptm: RelationMention if ptm.label == "PTM" => {
+        //println("found a modification...")
+        val trigger = ptm.arguments("mod").head
         // If this creates a new mention, we have a bug because it won't end up in the State
-        val bioMention = rel.arguments("entity").head.toBioMention
-        //bioMention.modifications += PTM()
-        Nil
+        val bioMention = ptm.arguments("entity").head.toBioMention
+        val site = if (ptm.arguments.keySet.contains("site")) Some(ptm.arguments("site").head) else None
+        // This is the TextBoundMention for the ModifcationTrigger
+        val evidence = ptm.arguments("mod").head
+        val label = getModification(evidence.text)
+        // If we have a label, add the modification in-place
+        if (label != "UNKNOWN") bioMention.modifications += PTM(label, Some(evidence), site)
+        Nil // don't return anything; this mention is already in the State
       }
     }
   }
