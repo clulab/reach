@@ -107,7 +107,7 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [lemma="phosphorylation" & !outgoing=/prep_(by|of)/]
-    theme:BioChemicalEntity = <nn? nn /conj|cc|nn|prep/*
+    theme:BioChemicalEntity = </conj/? /conj|cc|nn|prep/*
 
 - name: Phosphorylation_syntax_5_noun
   priority: 4
