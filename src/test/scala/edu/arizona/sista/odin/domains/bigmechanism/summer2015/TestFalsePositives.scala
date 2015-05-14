@@ -49,31 +49,31 @@ class TestFalsePositive extends FlatSpec with Matchers {
   sentence5 should "not contain a binding event (this is a PTM)" in {
     val doc = reach.mkDoc(sentence5, "testdoc")
     val mentions = reach extractFrom doc
-    assert(!mentions.exists(_.label == "Binding"))
+    mentions.exists(_.label == "Binding") should be (false)
   }
 
   sentence6 should "not contain a phosphorylation event (this is a PTM)" in {
     val doc = reach.mkDoc(sentence6, "testdoc")
     val mentions = reach extractFrom doc
-    assert(!mentions.exists(_.label == "Phosphorylation"))
+    mentions.exists(_.label == "Phosphorylation") should be (false)
   }
 
   sentence7 should "not contain a hydrolysis event (this is a PTM)" in {
     val doc = reach.mkDoc(sentence7, "testdoc")
     val mentions = reach extractFrom doc
-    assert(!mentions.exists(_.label == "Hydrolysis"))
+    mentions.exists(_.label == "Hydrolysis") should be (false)
   }
 
   sentence8 should "not contain a hydroxylation event (this is a PTM)" in {
     val doc = reach.mkDoc(sentence8, "testdoc")
     val mentions = reach extractFrom doc
-    assert(!mentions.exists(_.label == "Hydroxylation"))
+    mentions.exists(_.label == "Hydroxylation") should be (false)
   }
 
   sentence9 should "not contain a ubiquitination event (this is a PTM)" in {
     val doc = reach.mkDoc(sentence8, "testdoc")
     val mentions = reach extractFrom doc
-    assert(!mentions.exists(_.label == "Ubiquitination"))
+    mentions.exists(_.label == "Ubiquitination") should be (false)
   }
 
 }

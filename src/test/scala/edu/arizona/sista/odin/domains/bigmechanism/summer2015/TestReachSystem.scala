@@ -6,7 +6,7 @@ import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.mentions._
 
 class TestReachSystem extends FlatSpec with Matchers {
-  // instantiate ReachSytem for tests
+  // instantiate ReachSystem for tests
   val reach = new ReachSystem
 
   // test data
@@ -70,7 +70,7 @@ class TestReachSystem extends FlatSpec with Matchers {
     mentions.isEmpty should be (true)
   }
 
-  // there is a phosphorilation event in the example text
+  // there is a phosphorylation event in the example text
   it should "extract a phosphorylation" in {
     val mentions = reach.extractFrom(text, docId, chunkId)
     val phospho = mentions.find(_.label == "Phosphorylation")
@@ -96,4 +96,24 @@ class TestReachSystem extends FlatSpec with Matchers {
     reg.get.arguments("controller").head.text.contains("Ras") should be (true)
   }
 
+  // This test has been ported from TestDarpaEval2015Training
+  it should "find two phosphorylations" in {
+    val text = "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition"
+    val doc = reach.mkDoc(text, docId,chunkId)
+    val phosphorylations = reach.extractFrom(doc).filter(_.label == "Phosphorylation")
+    phosphorylations.size should be (2)
+    DarpaEvalUtils.hasEventWithArguments("Phosphorylation", List("EGFR"), phosphorylations) should be (true)
+    DarpaEvalUtils.hasEventWithArguments("Phosphorylation", List("ERBB3"), phosphorylations) should be (true)
+  }
+
+  // This test has been ported from TestDarpaEval2015Training
+  it should "find three phosphorylations" in {
+    val text = "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
+    val doc = reach.mkDoc(text, docId,chunkId)
+    val phosphorylations = reach.extractFrom(doc).filter(_.label == "Phosphorylation")
+    phosphorylations.size should be (3)
+    DarpaEvalUtils.hasEventWithArguments("Phosphorylation", List("EGFR"), phosphorylations) should be (true)
+    DarpaEvalUtils.hasEventWithArguments("Phosphorylation", List("HER2"), phosphorylations) should be (true)
+    DarpaEvalUtils.hasEventWithArguments("Phosphorylation", List("ERBB3"), phosphorylations) should be (true)
+  }
 }

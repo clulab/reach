@@ -9,16 +9,26 @@ class DarpaActions extends Actions {
 
   def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m matches "SimpleEvent" =>
+      // Do we have a regulation?
       if (m.arguments.keySet contains "cause") {
-        val cause = m.arguments("cause")
+        // FIXME There could be more than one cause...
+        val cause:Seq[Mention] = m.arguments("cause")
         val evArgs = m.arguments - "cause"
         val ev = new BioEventMention(
           m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy)
-        val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
-        val reg = new BioRelationMention(
-          Seq("Positive_regulation", "ComplexEvent", "Event"),
-          regArgs, m.sentence, m.document, m.keep, m.foundBy)
-        Seq(reg, ev)
+        // make sure the regulation is valid
+        val controlledArgs:Set[Mention] = evArgs.values.flatten.toSet
+          cause match {
+          // controller of an event should not be an arg in the controlled
+          case reg if cause.forall(c => !controlledArgs.contains(c)) => {
+            val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
+            val reg = new BioRelationMention(
+              Seq("Positive_regulation", "ComplexEvent", "Event"),
+              regArgs, m.sentence, m.document, m.keep, m.foundBy)
+            Seq(reg, ev)
+          }
+          case _ => Nil
+        }
       } else Seq(m.toBioMention)
     case m => Seq(m.toBioMention)
   }
@@ -48,9 +58,9 @@ class DarpaActions extends Actions {
       // Don't allow Ubiquitin
       !m.arguments.values.flatten.exists(_.text.toLowerCase.startsWith("ubiq")) 
     }
-    filteredMentions.map(_.toBioMention)
+    val bioMentions = filteredMentions.map(_.toBioMention)
     // TODO: a temporary hack to convert theme+cause ubiqs => regs
-    splitSimpleEvents(filteredMentions, state)
+    splitSimpleEvents(bioMentions, state)
   }
 
   /** This action handles the creation of Binding EventMentions for rules using token patterns.
@@ -84,4 +94,20 @@ class DarpaActions extends Actions {
       }
   }
 
+  def mkModification(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    def getModification(text: String): String = {
+      "POOP"
+    }
+
+    mentions flatMap {
+      case rel: RelationMention => {
+        println("found a modification...")
+        val trigger = rel.arguments("mod").head
+        // If this creates a new mention, we have a bug because it won't end up in the State
+        val bioMention = rel.arguments("entity").head.toBioMention
+        //bioMention.modifications += PTM()
+        Nil
+      }
+    }
+  }
 }
