@@ -25,6 +25,10 @@ class TestSummer2015Training extends FlatSpec with Matchers {
   val sent6 = "The phosphorylated AKT binds to ASPP2."
   val sent6b = "The ubiquitinated AKT binds to ASPP2."
 
+  //
+  // General issues observed with the system
+  //
+
   "ReachSystem" should "extract only binary bindings" in {
     val mentions = parseSentence(sent1)
 
@@ -95,12 +99,30 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     var b = mentions.find(_.label == "Binding") // Marco: why does this fail??
     b.size should be (1) // Marco
 
-    var uentions = parseSentence(sent6)
+    mentions = parseSentence(sent6b)
     val u = mentions.find(_.label == "Ubiquitination")
     u.size should be(0)
     b = mentions.find(_.label == "Binding")
     b.size should be (1)
   }
+
+  //
+  // from MITRE's training data
+  //
+
+  val sent7 = "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
+
+  it should "extract 3 phosphorylations and 3 positive regulations" in {
+    // TODO: this fails because of bad syntax around Hur. Fix with a surface rule for phosphorylation? (GUS)
+    val mentions = parseSentence(sent7)
+
+    val p = mentions.find(_.label == "Phosphorylation")
+    p.size should be (3)
+    val r = mentions.find(_.label == "Positive_regulation")
+    r.size should be (3)
+  }
+
+
 
   def parseSentence(sentence:String):Seq[BioMention] = {
     val docId = "testdoc"
