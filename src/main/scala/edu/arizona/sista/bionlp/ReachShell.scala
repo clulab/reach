@@ -8,6 +8,7 @@ import edu.arizona.sista.processors.Document
 
 object ReachShell extends App {
 
+  println("Loading ReachSystem ...")
   val reach = new ReachSystem
 
   val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))
@@ -53,9 +54,9 @@ object ReachShell extends App {
 
   def printCommands(): Unit = {
     println("COMMANDS:")
-    commands.foreach {
-      case (cmd, msg) => println(s"\t$cmd\t=>\t$msg")
-    }
+    for ((cmd, msg) <- commands)
+      println(s"\t$cmd\t=> $msg")
+    println
   }
 
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
