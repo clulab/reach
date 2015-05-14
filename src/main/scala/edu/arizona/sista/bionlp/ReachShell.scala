@@ -5,7 +5,7 @@ import edu.arizona.sista.bionlp.mentions.Display
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.odin._
-import edu.arizona.sista.processors.Document
+import edu.arizona.sista.processors.{Sentence, Document}
 
 object ReachShell extends App {
 
@@ -65,9 +65,16 @@ object ReachShell extends App {
     for ((s, i) <- doc.sentences.zipWithIndex) {
       println(s"sentence #$i")
       println(s.getSentenceText())
+      printSyntacticDependencies(s)
       println
       mentionsBySentence(i).sortBy(_.label) foreach displayMention
       println("=" * 50)
+    }
+  }
+
+  def printSyntacticDependencies(s:Sentence): Unit = {
+    if(s.dependencies.isDefined) {
+      println(s.dependencies.get.toString)
     }
   }
 
