@@ -109,6 +109,7 @@
     trigger = [lemma="phosphorylation" & !outgoing=/prep_(by|of)/]
     theme:BioChemicalEntity = </conj/? /conj|cc|nn|prep/*
 
+
 - name: Phosphorylation_syntax_5_noun
   priority: 4
   example: "Interestingly, we observed two conserved putative MAPK phosphorylation sites in ASPP1 and ASPP2."
@@ -128,6 +129,7 @@
     cause:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/* # don't allow Site
     theme:BioChemicalEntity = (prep_of /nn|conj_|cc/*)+ # don't allow Site
 
+
 - name: Phosphorylation_syntax_7_noun
   priority: 4
   example: ""
@@ -135,6 +137,10 @@
   pattern: |
     trigger = [lemma="phosphorylation" & !outgoing=prep_of]
     theme:BioChemicalEntity = < nsubj dobj prep_of /nn|cc|conj/* # don't allow Site
+
+##################
+# surface patterns
+##################
 
 - name: Phosphorylation_token_1_noun
   priority: 4
@@ -144,8 +150,17 @@
   pattern: |
     (?<trigger> [lemma="phosphorylation"]) /of|on/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity
 
-
+# verbose, but nec. to handle coordination
 - name: Phosphorylation_token_2_noun
+  priority: 4
+  example: " ... which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2"
+  type: token
+  label: [Phosphorylation, SimpleEvent, Event]
+  pattern: |
+    (?<trigger> [lemma="phosphorylation"]) /of|on/ [word=/./ & !tag=/^V/]*? @BioChemicalEntity [tag="CC"] @theme:BioChemicalEntity
+
+
+- name: Phosphorylation_token_3_noun
   priority: 4
   example: " ... , thereby increasing ERBB3 phosphorylation."
   type: token
@@ -154,7 +169,7 @@
     @theme:BioChemicalEntity (?<trigger> [lemma="phosphorylation"]) [!word=of]
 
 
-- name: Phosphorylation_token_1_verb
+- name: Phosphorylation_token_4_verb
   priority: 4
   example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P."
   type: token
@@ -163,7 +178,7 @@
     @theme:BioChemicalEntity (?<trigger> [lemma="phosphorylate" & tag=/^V/]) [tag=IN] (@cause:BioChemicalEntity)?
 
 
-- name: Phosphorylation_token_2_verb
+- name: Phosphorylation_token_5_verb
   priority: 4
   example: ""
   type: token
