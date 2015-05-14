@@ -1,12 +1,10 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
+import scala.util.Try
+import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.bionlp.mentions.BioMention
 import edu.arizona.sista.bionlp.{FriesEntry, ReachSystem}
-import org.scalatest.{Matchers, FlatSpec}
-
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015._
-
-import scala.util.Try
+import edu.arizona.sista.bionlp.display._
 
 /**
  * New tests based on the new summer system

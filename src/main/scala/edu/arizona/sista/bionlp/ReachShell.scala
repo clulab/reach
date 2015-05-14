@@ -5,7 +5,7 @@ import edu.arizona.sista.bionlp.mentions.Display
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.odin._
-import edu.arizona.sista.processors.{Sentence, Document}
+import edu.arizona.sista.processors.{Document, Sentence}
 import edu.arizona.sista.bionlp.mentions._
 
 object ReachShell extends App {

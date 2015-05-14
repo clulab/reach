@@ -6,7 +6,7 @@ import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.odin.domains.bigmechanism.dryrun2015.{DarpaActions,Ruler}
+import edu.arizona.sista.bionlp.ReachSystem
 
 import org.slf4j.LoggerFactory
 
@@ -18,14 +18,8 @@ import org.slf4j.LoggerFactory
 object GroundDriver extends App {
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
 
-  val entityRules = Ruler.readEntityRules()
-  val eventRules = Ruler.readEventRules()
-  val rules = entityRules + "\n\n" + eventRules
-
+  val reach = new ReachSystem
   val ds = new DocumentSerializer
-  val actions = new DarpaActions
-  val processor = new BioNLPProcessor()
-  val extractor = new Ruler(rules, actions)
 
   val PapersDir = s"${System.getProperty("user.dir")}/src/test/resources/inputs/papers/"
   val paperNames = Seq(
@@ -64,10 +58,10 @@ object GroundDriver extends App {
 
     val doc = paper match {
       case ser if ser.endsWith("ser") => docFromSerializedFile(inFile)
-      case _ => processor.annotate(getText(inFile))
+      case _ => reach.mkDoc(getText(inFile), "grounddriver")
     }
 
-    val mentions = extractor.extractFrom(doc) map (_.toBioMention)
+    val mentions = reach.extractFrom(doc)
     val sortedMentions = mentions.sortBy(m => (m.sentence, m.start)) // sort by sentence, start idx
     outputGroundedMentions(sortedMentions, doc, outFile)
   }
