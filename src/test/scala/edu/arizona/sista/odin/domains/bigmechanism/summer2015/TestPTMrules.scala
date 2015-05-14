@@ -15,9 +15,9 @@ class TestPTMrules extends FlatSpec with Matchers {
   val ubiqJJ = "The ubiquitinated Ras binds AKT and ASPP2."
   val ubiqJJWithSite = "The ubiquitinated Ras at **SITEHERE** binds AKT and ASPP2."
   val ubiqJJIntercedingWIthSite = "The ubiquitinated Ras protein at **SITEHERE** binds AKT and ASPP2."
-  val ubiqVBN = ""
-  val ubiqVBNWithSite = ""
-  val ubiqVBNIntercedingWIthSite = ""
+  val ubiqVBN = "Ubiquitinated Ras binds AKT and ASPP2."
+  val ubiqVBNWithSite = "Ubiquitinated Ras at **SITEHERE** binds AKT and ASPP2."
+  val ubiqVBNIntercedingWIthSite = "Ubiquitinated Ras proteins at **SITEHERE** binds AKT and ASPP2."
   // Phosphorylated
   val phosJJ = ""
   val phosJJWithSite = ""
