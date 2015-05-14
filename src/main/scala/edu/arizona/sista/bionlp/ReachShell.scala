@@ -68,7 +68,14 @@ object ReachShell extends App {
       println(s.getSentenceText())
       printSyntacticDependencies(s)
       println
-      mentionsBySentence(i).sortBy(_.label) foreach displayMention
+
+      val sortedMentions = mentionsBySentence(i).sortBy(_.label)
+      println("entities:")
+      sortedMentions foreach (m => if(m.isInstanceOf[TextBoundMention]) displayMention(m))
+
+      println
+      println("events:")
+      sortedMentions foreach (m => if(! m.isInstanceOf[TextBoundMention]) displayMention(m))
       println("=" * 50)
     }
   }
