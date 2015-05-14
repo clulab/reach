@@ -18,7 +18,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Remove unused method involving print string.
+  *   Last Modified: REACH export: update for transX rename, move of xref to grounding trait.
   */
 class ReachOutput {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -26,7 +26,7 @@ class ReachOutput {
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // Constants:
-  val AssumedProteins = Set("Gene_or_gene_product", "Protein", "Protein_with_site")
+  val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
   val Now = DateUtils.formatUTC(new Date())
 
   // used by json output serialization:
@@ -46,7 +46,7 @@ class ReachOutput {
   /** Output a JSON object representing the REACH output for the given mentions. */
   def toJSON (allMentions:Seq[Mention], outFile:File) = {
     val model:PropMap = new PropMap
-    val mentions = allMentions.filter(processableMention)
+    val mentions = allMentions.filter(allowableRootMentions)
     val mIds = assignMentionIds(mentions, new IDed)
     val frames = new FrameList
     mentions.foreach { mention =>
@@ -62,11 +62,22 @@ class ReachOutput {
   // Private Methods
   //
 
+  /** Return true if the given mention is one that should be processed if it is an argument. */
+  private def allowableArgumentMentions (mention:Mention): Boolean = {
+    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
+  }
+
+  /** Return true if the given mention is one that should be processed at the forest root. */
+  private def allowableRootMentions (mention:Mention): Boolean = {
+    return (mention.isInstanceOf[EventMention] ||
+             (mention.isInstanceOf[RelationMention] && (mention.label != "Protein_with_site")) )
+  }
+
   /** Assign all mentions a unique ID. */
   private def assignMentionIds (mentions:Seq[Mention], mIds:IDed): IDed = {
     mentions.foreach{ mention =>
       mIds.getOrElseUpdate(mention, idCntr.genNextId())
-      assignMentionIds(mention.arguments.values.toSeq.flatten.filter(processableMention), mIds)
+      assignMentionIds(mention.arguments.values.toSeq.flatten.filter(allowableArgumentMentions), mIds)
     }
     return mIds
   }
@@ -93,7 +104,7 @@ class ReachOutput {
   private def doMention (mention:Mention, mIds:IDed, frame:PropMap): PropMap = {
     mention.label match {
       case "Binding" => doBinding(mention, frame)
-      case "Transport" => doTranslocation(mention, frame)
+      case "Translocation" => doTranslocation(mention, frame)
       case "Negative_regulation" => doRegulation(mention, frame, mIds, false)
       case "Positive_regulation" => doRegulation(mention, frame, mIds)
       case _ => doSimpleType(mention, frame)
@@ -106,8 +117,10 @@ class ReachOutput {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       frame("type") = "complex_assembly"
-      val themes = themeArgs.get.map(doTextBoundMention(_))
-      frame("participants") = if (themes.size == 0) null else themes
+      val themes = themeArgs.get
+      frame("participants") =
+        if (themes.size == 0) null
+        else themes.map(doProteinWithSiteOrTextBoundMention)
       // TODO: binding sites
       // val sites = themeArgs.get.map(getSite(_))
     }
@@ -121,10 +134,29 @@ class ReachOutput {
     val controlledArgs = mentionMgr.controlledArgs(mention)
     if (controllerArgs.isDefined && controlledArgs.isDefined) {
       frame("type") = if (positive) "positive_regulation" else "negative_regulation"
-      frame("controller") = doTextBoundMention(controllerArgs.get.head)
+      val controller = controllerArgs.get.head
+      frame("controller") = doProteinWithSiteOrTextBoundMention(controller)
       frame("controlled") = mIds.get(controlledArgs.get.head)
     }
     return frame
+  }
+
+  /** Decide what type is the given mention and return */
+  private def doProteinWithSiteOrTextBoundMention (mention:Mention): PropMap = {
+    return if (mention.label == "Protein_with_site")
+      doProteinWithSite(mention)
+    else
+      doTextBoundMention(mention)
+  }
+
+  /** Return properties map for the given protein with site mention. */
+  private def doProteinWithSite (mention:Mention): PropMap = {
+    val proteinArgs = mentionMgr.proteinArgs(mention)
+    if (proteinArgs.isDefined) {
+      return doTextBoundMention(proteinArgs.get.head)
+    }
+    return new PropMap
+    // TODO: binding sites
   }
 
   /** Return properties map for the given phosphorylation mention. */
@@ -132,7 +164,7 @@ class ReachOutput {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       frame("type") = mention.label.toLowerCase
-      val themes = themeArgs.get.map(doTextBoundMention(_))
+      val themes = themeArgs.get.map(doProteinWithSiteOrTextBoundMention(_))
       frame("participants") = if (themes.size == 0) null else themes
 
       val site = getSite(mention)
@@ -149,20 +181,18 @@ class ReachOutput {
   private def doTextBoundMention (mention:Mention, context:String="protein"): PropMap = {
     val part = new PropMap
     part("type") = if (AssumedProteins.contains(mention.label)) context
-                  else if (mention.label == "Simple_chemical") "simple_chemical"
-                  else if (mention.label == "Cellular_component") "cellular_component"
-                  else s"BAD_TEXT_MENTION_LABEL: ${mention.label}"
+                   else mention.label.toLowerCase
     part("text") = mention.text
     part("id") = mention.toBioMention.xref.map(_.id).orNull
     part("namespace") = mention.toBioMention.xref.map(_.namespace).orNull
     return part
   }
 
-  /** Return properties map for the given transport mention. */
+  /** Return properties map for the given translocation mention. */
   private def doTranslocation (mention:Mention, frame:PropMap): PropMap = {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
-      frame("type") = "translocation"
+      frame("type") = mention.label.toLowerCase
       val themes = themeArgs.get.map(doTextBoundMention(_))
       frame("participants") = if (themes.size == 0) null else themes
 
@@ -205,11 +235,6 @@ class ReachOutput {
   /** Process the given mention argument, returning a text string option for the first arg. */
   private def getText (args:Option[Seq[Mention]]): Option[String] = {
     return if (args.isDefined) Some(args.get.head.text) else None
-  }
-
-  /** Return true if the given mention is one that should be processed. */
-  def processableMention (mention:Mention): Boolean = {
-    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
   }
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
