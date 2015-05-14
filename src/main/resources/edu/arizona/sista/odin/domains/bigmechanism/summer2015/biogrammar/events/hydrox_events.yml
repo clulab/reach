@@ -8,7 +8,7 @@
   example: ""
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylate" & tag=/^V/]
+    trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
     theme:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
     #site:Site? = dobj? /prep_(at|on)|nn|conj_|cc/*
@@ -19,7 +19,7 @@
   example: ""
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylate" & tag=/^V/]
+    trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/* [mention=/./]
     cause:BioChemicalEntity? =  agent|prep_by /conj_|nn|cc/* [mention=/Protein|Gene_or_gene_product/]
 
@@ -29,7 +29,7 @@
   example: "" 
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylate" & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
+    trigger = [lemma="hydroxylate" & !outgoing=nsubjpass & tag=/^V/ & !mention=ModificationTrigger] # verbal predicate
     theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
     site:Site? = (/pobj|prep_|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+)
     cause:BioChemicalEntity? = <nn* | (prep_by) /nn|conj_|cc/*
@@ -40,7 +40,7 @@
   example: "" 
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylate" & tag=/^V/]
+    trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (nsubjpass /conj_|nn/*)
     site:Site? = /prep_/ /prep_|conj_|nn/*
     cause:BioChemicalEntity? = (/prep_/ /conj_|nn/*)? /prep_/* (prep_by|agent) /conj_|nn/*
@@ -51,7 +51,7 @@
   example: ""
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylate" & tag=/^V/]
+    trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = dobj /nn|conj_|cc/* [!word=/(?i)ubiq/]
     cause:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* [!word=/(?i)ubiq/]
     #site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
@@ -63,7 +63,7 @@
   example: ""
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylate" & tag=VBN]
+    trigger = [lemma="hydroxylate" & tag=VBN & !mention=ModificationTrigger]
     theme:BioChemicalEntity =  (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
     cause:BioChemicalEntity? = (prep_by|agent) /appos|nn|conj_|cc/*
     #site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
@@ -74,7 +74,7 @@
   example: ""
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    trigger = [lemma="hydroxylation"]
+    trigger = [lemma="hydroxylation" & !mention=ModificationTrigger]
     theme:BioChemicalEntity = prep_of /nn|conj_|cc/*
     cause:BioChemicalEntity? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
     #site:Site? = (/prep_/ nn*)+
@@ -163,7 +163,7 @@
   type: token
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma="hydroxylate" & tag=/^V/]) [tag=IN] (@cause:BioChemicalEntity)?
+    @theme:BioChemicalEntity (?<trigger> [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]) [tag=IN] (@cause:BioChemicalEntity)?
 
 
 - name: Hydroxylation_token_2_verb
@@ -172,5 +172,5 @@
   type: token
   label: [Hydroxylation, SimpleEvent, Event]
   pattern: |
-    (?<trigger> [lemma="hydroxylate" & tag=/^V/]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
+    (?<trigger> [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
 

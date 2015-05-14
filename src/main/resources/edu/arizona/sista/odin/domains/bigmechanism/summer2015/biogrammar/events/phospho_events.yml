@@ -8,7 +8,7 @@
   example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together phosphorylated araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i).*phosphorylat.*/ & !word=/^de/ & tag=/^V/]
+    trigger = [word=/(?i).*phosphorylat.*/ & !word=/^de/ & tag=/^V/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
     theme:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])* # don't allow Site
     #site:Site? = dobj? /prep_(at|on)|nn|conj_|cc/*
@@ -18,7 +18,7 @@
   priority: 4
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i)phosphorylated/ & !word=/^de/ & tag=/^V/]
+    trigger = [word=/(?i)phosphorylated/ & !word=/^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/*
     cause:BioChemicalEntity? = agent|prep_by /conj_|nn|cc/* 
 
@@ -28,7 +28,7 @@
   example: ""
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/] # verbal predicate
+    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & !outgoing=nsubjpass & tag=/^V/ & !mention=ModificationTrigger] # verbal predicate
     theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) 
     site:Site? = (/pobj|prep_|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) 
     cause:BioChemicalEntity? = <nn* | (prep_by) /nn|conj_|cc/*
@@ -39,7 +39,7 @@
   example: "Hence ASPP2 can be phosphorylated at serine 827 by MAPK1 in vitro."
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/]
+    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (nsubjpass /conj_|nn/*) 
     site:Site? = /prep_/ /prep_|conj_|nn/*
     cause:BioChemicalEntity? = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/* 
@@ -50,7 +50,7 @@
   example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB.  Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that specifically phosphorylates ASPP2."
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/]
+    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = dobj /nn|conj_|cc/* # don't allow Site
     cause:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* # don't allow Site
     #site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
@@ -61,7 +61,7 @@
   example: "We measured transcription activation in the presence of ASPP2, which is phosphorylated by Ras."
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=VBN]
+    trigger = [word=/(?i)phosphorylat/ & !word=/^de/ & tag=VBN & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/* # don't allow Site
     cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_|cc/* # don't allow Site
     #site:Site? = dobj? prep_(at|on) /nn|conj_|cc/*
@@ -116,7 +116,7 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     trigger = [lemma="phosphorylation"]
-    theme:BioChemicalEntity = < nn > /prep_/ /conj_|cc|nn/* 
+    theme:BioChemicalEntity = < nn > /prep_in/ /conj_|cc|nn/*
     cause:BioChemicalEntity? = < nn /conj_|cc|nn/*
 
 
@@ -148,7 +148,7 @@
   type: token
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    (?<trigger> [lemma="phosphorylation"]) /of|on/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity
+    (?<trigger> [lemma="phosphorylation"]) /of/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity
 
 # verbose, but nec. to handle coordination
 - name: Phosphorylation_token_2_noun
@@ -157,7 +157,7 @@
   type: token
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    (?<trigger> [lemma="phosphorylation"]) /of|on/ [word=/./ & !tag=/^V/]*? @BioChemicalEntity [tag="CC"] @theme:BioChemicalEntity
+    (?<trigger> [lemma="phosphorylation"]) /of/ [word=/./ & !tag=/^V/]*? @BioChemicalEntity [tag="CC"] @theme:BioChemicalEntity
 
 
 - name: Phosphorylation_token_3_noun
@@ -175,7 +175,7 @@
   type: token
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma="phosphorylate" & tag=/^V/]) [tag=IN] (@cause:BioChemicalEntity)?
+    @theme:BioChemicalEntity (?<trigger> [lemma="phosphorylate" & tag=/^V/ & !mention=ModificationTrigger]) by (@cause:BioChemicalEntity)?
 
 
 - name: Phosphorylation_token_5_verb
@@ -184,4 +184,4 @@
   type: token
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
-    (?<trigger> [lemma="phosphorylate" & tag=/^V/]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
+    (?<trigger> [lemma="phosphorylate" & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
