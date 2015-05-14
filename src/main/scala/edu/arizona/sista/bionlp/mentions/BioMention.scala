@@ -12,7 +12,7 @@ class BioTextBoundMention(
   keep: Boolean,
   foundBy: String
 ) extends TextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy)
-    with Modifications with Grounding
+    with Modifications with Grounding with Display
 
 class BioEventMention(
   labels: Seq[String],
@@ -23,7 +23,7 @@ class BioEventMention(
   keep: Boolean,
   foundBy: String
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding
+    with Modifications with Grounding with Display
 
 class BioRelationMention(
   labels: Seq[String],
@@ -33,4 +33,4 @@ class BioRelationMention(
   keep: Boolean,
   foundBy: String
 ) extends RelationMention(labels, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding
+    with Modifications with Grounding with Display

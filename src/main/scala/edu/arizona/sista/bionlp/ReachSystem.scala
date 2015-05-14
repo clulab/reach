@@ -46,7 +46,8 @@ class ReachSystem {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
-    extractEventsFrom(doc, entities)
+    val finalMentions = extractEventsFrom(doc, entities)
+    resolveDisplay(finalMentions)
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -104,7 +105,17 @@ object ReachSystem {
     data
   }
 
-  // placeholder
+  // FIXME placeholder
+  // this function should remove mentions that were converted
+  // into modifications of other mentions
   def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] = ms
+
+  // FIXME placeholder
+  // This function should set the right displayMention for each mention.
+  // By default the displayMention is set to the main label of the mention,
+  // so sometimes it may not require modification
+  def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = ms
+  // to set a mention's displayLabel just type:
+  // mention.displayLabel = "LABEL I WANT IN THE OUTPUT"
 
 }

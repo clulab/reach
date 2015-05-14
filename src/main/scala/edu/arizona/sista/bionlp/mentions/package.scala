@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp
 import edu.arizona.sista.odin._
 
 package object mentions {
-  type BioMention = Mention with Modifications with Grounding
+  type BioMention = Mention with Modifications with Grounding with Display
 
   implicit class MentionOps(mention: Mention) {
     def toBioMention: BioMention = mention match {
