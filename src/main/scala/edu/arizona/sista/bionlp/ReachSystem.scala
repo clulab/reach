@@ -6,6 +6,9 @@ import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, C
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
+import scala.collection.immutable.HashSet
+import scala.collection.mutable
+
 class ReachSystem {
   import ReachSystem._
 
@@ -110,12 +113,42 @@ object ReachSystem {
   // into modifications of other mentions
   def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] = ms
 
-  // FIXME placeholder
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,
   // so sometimes it may not require modification
-  def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = ms
-  // to set a mention's displayLabel just type:
-  // mention.displayLabel = "LABEL I WANT IN THE OUTPUT"
+  def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = {
+    // first, let's make sure displayLabel is set to the default value
+    ms.foreach(m => m.displayLabel = m.label)
+
+    // now let's try to disambiguate Gene_or_gene_product that participate in events
+    for(m <- ms) {
+      if(m.labels.contains("Event")) {
+        val parents = new HashSet[String]
+        resolveDisplayForArguments(m, parents)
+      }
+    }
+    ms
+  }
+
+  def resolveDisplayForArguments(em:BioMention, parents:Set[String]) {
+    if(em.labels.contains("Event")) { // recursively traverse the arguments of events
+      val newParents = new mutable.HashSet[String]()
+      newParents ++= parents
+      newParents += em.label
+      em.arguments.values.foreach(ms => ms.foreach( m => {
+        resolveDisplayForArguments(m.asInstanceOf[BioMention], newParents.toSet)
+      }))
+    } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
+      if(em.xref.isDefined && em.xref.get.namespace == "interpro") {
+        // found a Family incorrectly labeled as protein
+        em.displayLabel = "Family"
+      } else if(parents.contains("Transcription")) {
+        // found a Gene
+        em.displayLabel = "Gene"
+      } else {
+        em.displayLabel = "Protein"
+      }
+    }
+  }
 
 }

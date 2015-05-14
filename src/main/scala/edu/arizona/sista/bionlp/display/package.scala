@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp
 import scala.collection.mutable.MutableList
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.processors.Document
+import edu.arizona.sista.processors.{ Document, Sentence }
 
 package object display {
 
@@ -12,9 +12,16 @@ package object display {
     for ((s, i) <- doc.sentences.zipWithIndex) {
       println(s"sentence #$i")
       println(s.getSentenceText())
+      printSyntacticDependencies(s)
       println
       mentionsBySentence(i).sortBy(_.label) foreach displayMention
       println("=" * 50)
+    }
+  }
+
+  def printSyntacticDependencies(s:Sentence): Unit = {
+    if(s.dependencies.isDefined) {
+      println(s.dependencies.get.toString)
     }
   }
 
@@ -42,11 +49,11 @@ package object display {
     }
     println(s"$boundary\n")
   }
-  
+
   /** Generates a representation of the given mention as a list of strings. */
-  def mentionToStrings (mention:Mention): List[String] = {
-    return mentionToStrings(mention, 0)
-  }
+   def mentionToStrings (mention:Mention): List[String] = {
+     return mentionToStrings(mention, 0)
+   }
 
   /** Return a list of strings representing the given mention at the given indentation level. */
   private def mentionToStrings (mention:Mention, level:Integer): List[String] = {

@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
+import edu.arizona.sista.bionlp.mentions.Display
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.odin._
