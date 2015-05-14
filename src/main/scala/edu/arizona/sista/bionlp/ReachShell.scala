@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
+import edu.arizona.sista.bionlp.mentions.Display
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.odin._
@@ -80,7 +81,7 @@ object ReachShell extends App {
     println(boundary)
     mention match {
       case m: TextBoundMention =>
-        println(s"\t${m.labels} => ${m.text}")
+        println(s"\t${m.asInstanceOf[Display].displayLabel}|${m.labels} => ${m.text}")
       case m: EventMention =>
         println(s"\ttrigger => ${m.trigger.text}")
         m.arguments foreach {
