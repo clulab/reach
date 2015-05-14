@@ -25,6 +25,6 @@
   priority: 2
   type: token
   pattern: |
-    @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=IN] @site:Site)?
+    @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
 
