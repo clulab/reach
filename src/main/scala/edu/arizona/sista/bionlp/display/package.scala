@@ -36,6 +36,9 @@ package object display {
     mention match {
       case m: TextBoundMention =>
         println(s"\t${m.asInstanceOf[Display].displayLabel}|${m.labels} => ${m.text}")
+        val bm = m.toBioMention
+        if (bm.isGrounded)
+          println(s"\txref: ${bm.xref.get}")
       case m: EventMention =>
         println(s"\ttrigger => ${m.trigger.text}")
         m.arguments foreach {
