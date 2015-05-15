@@ -1,0 +1,9 @@
+
+- name: activates_syntax1
+  priority: 4
+  example: "Ubiquitinated Ras activates Raf and PI3K."
+  label: [Positive_activation, ActivationEvent, Event]
+  pattern: |
+    trigger = [word=/(?i)acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger/ & tag=/^V/]
+    controller:BioChemicalEntity = (nsubj | agent) /appos|nn|conj_|cc|prep_of/*
+    controlled:BioChemicalEntity = dobj /nn|prep_of|conj_|cc/*
