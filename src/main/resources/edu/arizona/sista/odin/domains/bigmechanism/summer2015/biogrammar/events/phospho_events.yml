@@ -185,3 +185,13 @@
   label: [Phosphorylation, SimpleEvent, Event]
   pattern: |
     (?<trigger> [lemma="phosphorylate" & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
+
+
+# I don't think our quantifiers are working right...
+- name: Phosphorylation_token_7_verb
+  priority: 4
+  example: "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
+  type: token
+  label: [Phosphorylation, SimpleEvent, Event]
+  pattern: |
+    (@cause:BioChemicalEntity)? (?<trigger> [lemma="phosphorylate" & tag=/^V/ & !mention=ModificationTrigger]) [!tag=/^V/]*? @theme:BioChemicalEntity /./+ @site:Site
