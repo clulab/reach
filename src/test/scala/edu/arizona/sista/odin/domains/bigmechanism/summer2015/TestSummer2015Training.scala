@@ -111,11 +111,6 @@ class TestSummer2015Training extends FlatSpec with Matchers {
   //
 
   val sent7 = "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
-  val sent8 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
-  val sent9 = "Nucleotide free Ras inhibits PI3KC2Beta activity."
-  val sent9b = "Nucleotide free Ras inhibits PI3KC2Beta."
-  val sent9c = "Nucleotide free Ras inhibits activation of PI3KC2Beta."
-
   it should "extract 3 phosphorylations and 3 positive regulations" in {
     // TODO: this fails because of bad syntax around Hur. Fix with a surface rule for phosphorylation? (GUS)
     val mentions = parseSentence(sent7)
@@ -126,6 +121,7 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     r.size should be (3)
   }
 
+  val sent8 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
   it should "extract \"site of protein\" patterns" in {
      // TODO: this fails because we do not capture "site of protein" (GUS)
      // Also: if the entity modification has no type, it should be propagated up in the event using the entity
@@ -140,6 +136,11 @@ class TestSummer2015Training extends FlatSpec with Matchers {
      b.size should be (1)
   }
 
+  val sent9 = "Nucleotide free Ras inhibits PI3KC2Beta activity."
+  val sent9b = "Nucleotide free Ras inhibits PI3KC2Beta."
+  val sent9c = "Nucleotide free Ras inhibits activation of PI3KC2Beta."
+  val sent9d = "Addition of Ras inhibits PI3KC2Beta."
+  val sent9e = "Increase of Ras dose inhibits PI3KC2Beta."
   it should "extract negative activation patterns" in {
      var mentions = parseSentence(sent9)
      mentions.find(_.label == "Negative_activation").size should be (1)
@@ -148,7 +149,29 @@ class TestSummer2015Training extends FlatSpec with Matchers {
      mentions.find(_.label == "Negative_activation").size should be (1)
 
      mentions = parseSentence(sent9c)
-     mentions.find(_.label == "Negative_activation").size should be (1)
+     mention.find(_.label == "Negative_activation").size should be (1)
+
+     mentions = parseSentence(sent9d)
+     mention.find(_.label == "Negative_activation").size should be (1)
+
+     mentions = parseSentence(sent9e)
+     mention.find(_.label == "Negative_activation").size should be (1)
+  }
+
+  val sent10 = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
+  val sent10b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
+  it should "extract multiple different ubiquitinations" in {
+    var mentions = parseSentence(sent10)
+    mentions.find(_.label == "Ubiquitination") should be (2) 
+
+    mentions = parseSentence(sent10b)
+    mentions.find(_.label == "Ubiquitination") should be (3) 
+  }
+
+  val sent11 = "Ubiquitinated Ras activates Raf and PI3K."
+  it should "extract multiple different positive activations" in {
+    var mentions = parseSentence(sent11)
+    mentions.find(_.label == "Positive_activation") should be (2) 
   }
 
   def parseSentence(sentence:String):Seq[BioMention] = {
