@@ -4,11 +4,13 @@ import java.io.File
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.bionlp.display._
+import RuleReader._
 
 object ReachShell extends App {
 
   println("Loading ReachSystem ...")
-  val reach = new ReachSystem
+  var reach = new ReachSystem
+  val proc = reach.processor
 
   val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))
   sys addShutdownHook {
@@ -20,8 +22,9 @@ object ReachShell extends App {
   reader.setHistory(history)
 
   val commands = Map(
-    "%help" -> "show commands",
-    "%exit" -> "exit system"
+    ":help" -> "show commands",
+    ":exit" -> "exit system",
+    ":reload" -> "reload rules"
   )
 
   println(s"\nWelcome to ReachShell!\n")
@@ -31,11 +34,17 @@ object ReachShell extends App {
 
   while (running) {
     reader.readLine match {
-      case "%help" =>
+      case ":help" =>
         printCommands()
 
-      case "%exit" | null =>
+      case ":exit" | null =>
         running = false
+
+      case ":reload" => {
+        println(s"reloading rules...")
+        val rules = reloadRules()
+        reach = new ReachSystem(Some(rules), Some(proc))
+      }
 
       case text =>
         val doc = reach.mkDoc(text, "rulershell")
