@@ -108,7 +108,7 @@ class DarpaActions extends Actions {
       case meth if meth contains "methylat" => "methylated"
       case phos if phos contains "phosphorylat" => "phosphorylated"
       case ribo if ribo contains "ribosylat" => "ribosylated"
-      case sumo if sumo contains "sumosylat" =>"sumosylated"
+      case sumo if sumo contains "sumoylat" =>"sumoylated"
       case ubiq if ubiq contains "ubiquitinat" => "ubiquitinated"
       case _ => "UNKNOWN"
     }
