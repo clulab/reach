@@ -40,7 +40,9 @@ object RuleReader {
       s"$eventsDir/regulation_events.yml",
       s"$eventsDir/neg_reg_events.yml",
       s"$eventsDir/pos_reg_events.yml",
-      s"$eventsDir/translocation_events.yml")
+      s"$eventsDir/translocation_events.yml",
+      s"$eventsDir/pos_activation_events.yml",
+      s"$eventsDir/neg_activation_events.yml")
     files map readResource mkString "\n\n"
   }
 
