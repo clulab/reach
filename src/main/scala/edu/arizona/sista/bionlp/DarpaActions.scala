@@ -155,7 +155,8 @@ class DarpaActions extends Actions {
           case es:EventSite => Some(es)
           case _ => None
         }
-        eventSites.foreach(es => m.modifications - es)
+        // Remove EventSite modifications
+        eventSites.foreach(es => m.modifications -= es)
 
         // Get additional sites
         eventSites.map{case es: EventSite => es.site}
