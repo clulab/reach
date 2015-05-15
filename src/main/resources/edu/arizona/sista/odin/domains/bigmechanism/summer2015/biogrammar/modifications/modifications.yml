@@ -29,12 +29,12 @@
   pattern: |
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
-- name: domain_of_protein
-  label: [PTM, Modification, BioChemicalEntity]
-  action: mkModification
-  priority: 2
-  type: token
-  pattern: |
-    @site:Site "of" @entity:BioChemicalEntity
+#- name: domain_of_protein
+#  label: [PTM, Modification, BioChemicalEntity]
+#  action: mkModification
+#  priority: 2
+#  type: token
+#  pattern: |
+#    @site:Site "of" @entity:BioChemicalEntity
 
 
