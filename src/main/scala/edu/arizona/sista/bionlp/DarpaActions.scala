@@ -158,7 +158,7 @@ class DarpaActions extends Actions {
       }.toSeq
 
       val allSites = additionalSites ++ simple.arguments.getOrElse("site", Nil)
-      val updatedArgs = simple.arguments.updated("site") = allSites.toSeq
+      val updatedArgs = simple.arguments + ("site" -> allSites.toSeq)
       // FIXME the interval might not be correct anymore...
       Seq(new EventMention(simple.labels,
         simple.trigger,
