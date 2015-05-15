@@ -48,7 +48,10 @@ class TestReachSystem extends FlatSpec with Matchers {
   it should "extract grounded entities only" in {
     val doc = reach.mkDoc(text, docId, chunkId)
     val mentions = reach.extractEntitiesFrom(doc)
-    mentions.forall(_.isGrounded) should be (true)
+    mentions
+      // We need ModificationTriggers in the entityEngine because we use them in our rules
+      .filter(_.label != "ModificationTrigger")
+      .forall(_.isGrounded) should be (true)
   }
 
   // the example text says that Ras is ubiquitinated
