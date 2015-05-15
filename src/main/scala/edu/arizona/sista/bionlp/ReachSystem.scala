@@ -63,15 +63,15 @@ class ReachSystem(rules: Option[Rules] = None,
     val entities = entityEngine.extractByType[BioMention](doc)
     // attach modification features to entities
     val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
-    // clean modified entities
-    // for example, remove sites that are part of a modification feature
-    // filterModifiedEntities(modifiedEntities)
     modifiedEntities
   }
 
-  def extractEventsFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] =
-    eventEngine.extractByType[BioMention](doc, State(ms))
-
+  def extractEventsFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
+    val mentions = eventEngine.extractByType[BioMention](doc, State(ms))
+    // clean modified entities
+    // for example, remove sites that are part of a modification feature
+    filterModifiedEntities(mentions)
+  }
 }
 
 object ReachSystem {
