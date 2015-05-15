@@ -112,6 +112,9 @@ class TestSummer2015Training extends FlatSpec with Matchers {
 
   val sent7 = "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
   val sent8 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
+  val sent9 = "Nucleotide free Ras inhibits PI3KC2Beta activity."
+  val sent9b = "Nucleotide free Ras inhibits PI3KC2Beta."
+  val sent9c = "Nucleotide free Ras inhibits activation of PI3KC2Beta."
 
   it should "extract 3 phosphorylations and 3 positive regulations" in {
     // TODO: this fails because of bad syntax around Hur. Fix with a surface rule for phosphorylation? (GUS)
@@ -123,7 +126,7 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     r.size should be (3)
   }
 
-  if should "extract \"site of protein\" patterns" in {
+  it should "extract \"site of protein\" patterns" in {
      // TODO: this fails because we do not capture "site of protein" (GUS)
      // Also: if the entity modification has no type, it should be propagated up in the event using the entity
      val mentions = parseSentence(sent8)
@@ -135,6 +138,17 @@ class TestSummer2015Training extends FlatSpec with Matchers {
 
      val b = mentions.find(_.label == "Binding")
      b.size should be (1)
+  }
+
+  it should "extract negative activation patterns" in {
+     var mentions = parseSentence(sent9)
+     mention.find(_.label == "Negative_activation").size should be (1)
+
+     mentions = parseSentence(sent9b)
+     mention.find(_.label == "Negative_activation").size should be (1)
+
+     mentions = parseSentence(sent9c)
+     mention.find(_.label == "Negative_activation").size should be (1)
   }
 
   def parseSentence(sentence:String):Seq[BioMention] = {

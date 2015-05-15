@@ -29,6 +29,7 @@
   pattern: |
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
+
 - name: domain_of_protein
   label: [EventSite, Modification, BioChemicalEntity]
   action: storeEventSite
