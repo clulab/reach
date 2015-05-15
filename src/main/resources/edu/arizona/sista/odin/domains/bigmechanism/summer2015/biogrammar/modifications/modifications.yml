@@ -9,11 +9,11 @@
   type: token
   pattern: |
     # a passive verb without a subject with a lemma form ending in ylate.  Trigger cannot be negative...
-    [!lemma=/^have$/ & !tag="MD"]? [!lemma=/^un|de/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/VBN/ & !outgoing=/nsub/ & !incoming=/conj/]
+    [!lemma=/^have$/ & !tag="MD"]? [!lemma=/^un|de|non/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/VBN/ & !outgoing=/nsub/ & !incoming=/conj/]
     | # a modifier of the specified pattern
-    [!lemma=/^un|de/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag="JJ"]
+    [!lemma=/^un|de|non/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag="JJ"]
     |
-    (^[!lemma=/^un|de/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/])
+    (^[!lemma=/^un|de|non/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/])
 # could be made more compact with something like lemma=/ylated?$/
 
 # Phosphorylated p53 on serine-15
