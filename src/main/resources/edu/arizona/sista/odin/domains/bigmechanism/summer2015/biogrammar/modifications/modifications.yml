@@ -14,7 +14,7 @@
     [!lemma=/^un|de/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & tag="JJ"]
     |
     (^[!lemma=/^un|de/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & tag=/^NN/])
-# could be made more compact with somethign like lemma=/ylated?$/
+# could be made more compact with something like lemma=/ylated?$/
 
 # Phosphorylated p53 on serine-15
 #########
@@ -28,5 +28,13 @@
   type: token
   pattern: |
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
+
+- name: domain_of_protein
+  label: [PTM, Modification, BioChemicalEntity]
+  action: mkModification
+  priority: 2
+  type: token
+  pattern: |
+    @site:Site "of" @entity:BioChemicalEntity
 
 

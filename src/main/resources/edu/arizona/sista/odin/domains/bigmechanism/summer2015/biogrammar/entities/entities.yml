@@ -56,12 +56,21 @@
     ")"
     "fragment"
 
+# TODO GUS: must be extended with words containing domain, such as "Ferlin B-domain", or "Transcription regulator Wos2-domain"
 - name: site_domain
   label: Site
   priority: 1
   type: token
   pattern: |
     /\(/? /^[A-Z0-9-]+$/ /\)/? /domain/
+
+# TODO GUS: must be extended with a list of known domains
+- name: site_known_domain
+  label: Site
+  priority: 1
+  type: token
+  pattern: |
+    "RBD"
 
 
 ###################
