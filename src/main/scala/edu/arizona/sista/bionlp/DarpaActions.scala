@@ -142,4 +142,32 @@ class DarpaActions extends Actions {
     }
     Nil
   }
+
+  /**
+   * Global action for events.  Propagate any Sites in the Modifications of a a SimpleEvent's theme to the event arguments
+   */
+  def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case simple: EventMention if simple.labels contains "SimpleEvent" => {
+      val additionalSites: Seq[Mention] = simple.arguments.values.flatten.flatMap { m =>
+        // get the sites from any EventSite Modifications
+        val eventSites = m.toBioMention.modifications.filter{case es:EventSite => true}
+        eventSites.foreach(es => m.toBioMention.modifications - es)
+
+        // get additional sites
+        eventSites.map{case es: EventSite => es.site}
+      }.toSeq
+
+      val allSites = additionalSites ++ simple.arguments.getOrElse("site", Nil)
+      val updatedArgs = simple.arguments.updated("site") = allSites.toSeq
+      // FIXME the interval might not be correct anymore...
+      Seq(new EventMention(simple.labels,
+        simple.trigger,
+        updatedArgs,
+        simple.sentence,
+        simple.document,
+        simple.keep,
+        simple.foundBy))
+    }
+    case m => Seq(m)
+  }
 }

@@ -15,6 +15,13 @@ trait DarpaFlow {
   def andThen(that: DarpaFlow): DarpaFlow = new ComposedDarpaFlow(this, that)
 }
 
+object DarpaFlow {
+  def apply(action: Action): DarpaFlow = new DarpaFlow {
+    def apply(mentions: Seq[Mention], state: State): Seq[Mention] =
+      action(mentions, state)
+  }
+}
+
 class ComposedDarpaFlow(step1: DarpaFlow, step2: DarpaFlow) extends DarpaFlow {
   def apply(mentions: Seq[Mention], state: State): Seq[Mention] =
     step2(step1(mentions, state), state)

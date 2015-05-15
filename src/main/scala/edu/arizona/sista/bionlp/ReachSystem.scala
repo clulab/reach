@@ -2,7 +2,7 @@ package edu.arizona.sista.bionlp
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{ LocalGrounder, Coref }
+import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{DarpaFlow, LocalGrounder, Coref}
 import RuleReader._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
@@ -30,8 +30,10 @@ class ReachSystem(rules: Option[Rules] = None,
   // initialize coref
   val coref = new Coref
   // start event extraction engine
+  // This will be our global action for the eventEngine
+  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen coref
   // this engine extracts simple and recursive events and applies coreference
-  val eventEngine = ExtractorEngine(eventRules, actions, coref.apply)
+  val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
