@@ -140,7 +140,16 @@ class TestSummer2015Training extends FlatSpec with Matchers {
      b.size should be (1)
   }
 
+  it should "extract negative activation patterns" in {
+     var mentions = parseSentence(sent9)
+     mention.find(_.label == "Negative_activation").size should be (1)
 
+     mentions = parseSentence(sent9b)
+     mention.find(_.label == "Negative_activation").size should be (1)
+
+     mentions = parseSentence(sent9c)
+     mention.find(_.label == "Negative_activation").size should be (1)
+  }
 
   def parseSentence(sentence:String):Seq[BioMention] = {
     val docId = "testdoc"
