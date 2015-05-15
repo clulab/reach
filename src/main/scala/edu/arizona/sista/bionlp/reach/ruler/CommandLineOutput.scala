@@ -2,6 +2,8 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 
 import java.io.{PrintWriter, File, BufferedReader, FileReader}
+import edu.arizona.sista.bionlp.ReachSystem
+import edu.arizona.sista.bionlp.mentions.BioEventMention
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.odin._
@@ -15,16 +17,11 @@ import edu.arizona.sista.odin._
  */
 object CommandLineOutput extends App {
 
-  val entityRules = BasicRuler.readEntityRules()
-  val eventRules = BasicRuler.readEventRules()
-  val rules = entityRules + "\n\n" + eventRules
-
   val ds = new DocumentSerializer
 
   val actions = new DarpaActions
 
-  val proc = new BioNLPProcessor()
-  val extractor = new BasicRuler(rules, actions)
+  val reach = new ReachSystem
 
   val outDir = s"${System.getProperty("user.home")}/Desktop/processed_papers/"
 
@@ -62,8 +59,11 @@ object CommandLineOutput extends App {
     doc
   }
 
-  def retrieveMentions(doc: Document): Seq[EventMention] = {
-    extractor.extractFrom(doc).filter(_.isInstanceOf[EventMention]).map(_.asInstanceOf[EventMention])
+  def retrieveMentions(doc: Document): Seq[BioEventMention] = {
+    val bioEntities = reach.extractEntitiesFrom(doc)
+    reach.extractEventsFrom(doc, bioEntities)
+      .filter(_.isInstanceOf[BioEventMention])
+      .map(_.asInstanceOf[BioEventMention])
   }
 
   def cleanText(m: Mention): String = {
