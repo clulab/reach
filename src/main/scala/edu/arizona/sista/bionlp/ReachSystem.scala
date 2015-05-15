@@ -79,7 +79,8 @@ object ReachSystem {
   // FIXME placeholder
   // this function should remove mentions that were converted
   // into modifications of other mentions
-  def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] = ms
+  def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] =
+    ms.filter(_.label != "ModificationTrigger")
 
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,

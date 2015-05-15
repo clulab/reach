@@ -143,10 +143,10 @@ class TestSummer2015Training extends FlatSpec with Matchers {
   val sent9e = "Increase of Ras dose inhibits PI3KC2Beta."
   it should "extract negative activation patterns" in {
      var mentions = parseSentence(sent9)
-     mention.find(_.label == "Negative_activation").size should be (1)
+     mentions.find(_.label == "Negative_activation").size should be (1)
 
      mentions = parseSentence(sent9b)
-     mention.find(_.label == "Negative_activation").size should be (1)
+     mentions.find(_.label == "Negative_activation").size should be (1)
 
      mentions = parseSentence(sent9c)
      mention.find(_.label == "Negative_activation").size should be (1)
