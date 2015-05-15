@@ -29,3 +29,10 @@ case class PTM(
     b.toString()
   }
 }
+
+case class EventSite(
+  label: String = "UnknownEvent",
+  site: Mention) extends Modification {
+  override def toString:String =
+    s"$label@${site.text}"
+}

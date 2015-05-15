@@ -30,8 +30,8 @@
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
 - name: domain_of_protein
-  label: [PTM, Modification, BioChemicalEntity]
-  action: mkModification
+  label: [EventSite, Modification, BioChemicalEntity]
+  action: storeEventSite
   priority: 2
   type: token
   pattern: |

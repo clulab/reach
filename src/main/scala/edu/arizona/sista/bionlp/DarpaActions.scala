@@ -129,4 +129,17 @@ class DarpaActions extends Actions {
       }
     }
   }
+
+  /**
+   * Sometimes it's easiest to find the site associated with a BioChemicalEntity before event detection
+   * @return Nil (Modifications are added in-place)
+   */
+  def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    mentions foreach { m =>
+      val bioMention = m.arguments("entity").head.toBioMention
+      val eSite = m.arguments("site").head
+      bioMention.modifications += EventSite(site = eSite)
+    }
+    Nil
+  }
 }
