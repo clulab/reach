@@ -149,26 +149,36 @@ class DarpaActions extends Actions {
    */
   def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case simple: EventMention if simple.labels contains "SimpleEvent" => {
-      val additionalSites: Seq[Mention] = simple.arguments.values.flatten.flatMap { m =>
+      val additionalSites: Seq[Mention] = simple.arguments.values.flatten.flatMap { case m:BioMention =>
         // get the sites from any EventSite Modifications
-        val eventSites = m.toBioMention.modifications.filter{case es:EventSite => true}
-        eventSites.foreach(es => m.toBioMention.modifications - es)
+        val eventSites:Seq[EventSite] = m.modifications.toSeq flatMap {
+          case es:EventSite => Some(es)
+          case _ => None
+        }
+        eventSites.foreach(es => m.modifications - es)
 
-        // get additional sites
+        // Get additional sites
         eventSites.map{case es: EventSite => es.site}
       }.toSeq
 
+      // Gather up our sites
       val allSites = additionalSites ++ simple.arguments.getOrElse("site", Nil)
-      val updatedArgs = simple.arguments + ("site" -> allSites.toSeq)
-      // FIXME the interval might not be correct anymore...
-      Seq(new EventMention(simple.labels,
-        simple.trigger,
-        updatedArgs,
-        simple.sentence,
-        simple.document,
-        simple.keep,
-        simple.foundBy))
+
+      // Do we have any sites?
+      if (allSites.isEmpty) Seq(simple)
+      else {
+        val updatedArgs = simple.arguments + ("site" -> allSites.toSeq)
+        // FIXME the interval might not be correct anymore...
+        Seq(new EventMention(simple.labels,
+          simple.trigger,
+          updatedArgs,
+          simple.sentence,
+          simple.document,
+          simple.keep,
+          simple.foundBy).toBioMention)
+      }
     }
+    // If it isn't a SimpleEvent, assume there is nothing more to do
     case m => Seq(m)
   }
 }
