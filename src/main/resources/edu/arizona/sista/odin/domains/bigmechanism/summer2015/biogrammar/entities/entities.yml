@@ -137,6 +137,7 @@
   priority: 4
   type: token
   pattern: |
+    /(?i)^K\-RAS/ |
     /(?i)MEK/
 
 - name: missing-simple_chemical
