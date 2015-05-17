@@ -33,6 +33,17 @@ class DarpaActions extends Actions {
     case m => Seq(m.toBioMention)
   }
 
+  def mkEntities(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case rel: RelationMention => {
+      for {(k, v) <- rel.arguments
+           m <- v} yield {
+        new TextBoundMention(rel.labels, m.tokenInterval, rel.sentence, rel.document, rel.keep, rel.foundBy).toBioMention
+      }
+    }
+      case other => {
+        Nil
+    }
+  }
   // FIXME it would be better to define the action explicitly in the rule
   // instead of replacing the default action
   override val default: Action = splitSimpleEvents
