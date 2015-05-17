@@ -29,11 +29,12 @@ class TestSummer2015Training extends FlatSpec with Matchers {
   // General issues observed with the system
   //
 
+  // TODO: don't report AKT + ASPP2 as a binding
   "ReachSystem" should "extract only binary bindings" in {
     val mentions = parseSentence(sent1)
 
     // this MUST produce Binding(Ras, AKT) and Binding(Ras, ASPP2)
-    // TODO: fails! Produces 4 bindings! (MARCO)
+    // TODO: fails! Produces 3 bindings, instead of 2! (MARCO)
 
     val bindings = mentions.filter(_.label == "Binding")
     bindings.size should be(2) // we must have exactly two bindings here
@@ -48,9 +49,6 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     val mentions = parseSentence(sent2)
 
     // this MUST produce Binding(Ras, AKT)
-    // TODO: fails! Produces no bindings!
-    // TODO: Entity modifying "protein" works for Phospho. It MUST work for all events! (GUS)
-
     val bindings = mentions.filter(_.label == "Binding")
     bindings.size should be(1) // we must have exactly 1 binding2 here
 
@@ -64,8 +62,6 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     var mentions = parseSentence(sent3)
 
     // this MUST produce no bindings!
-    // TODO: Fails! (GUS or MARCO)
-
     var binds = mentions.find(_.label == "Binding")
     binds.size should be(0)
 

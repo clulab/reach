@@ -80,21 +80,39 @@ class DarpaActions extends Actions {
       } yield theme
       // remove bindings with less than two themes
       if (themes.size < 2) Nil
-      // if binding has two themes we are done
-      else if (themes.size == 2) {
+      // if binding has two (distinct) themes we are done
+      else if (themes.size == 2 && !sameEntityID(themes)) {
         val args = Map("theme" -> themes)
         Seq(new BioEventMention(
           m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy))
       } else {
         // binarize bindings
         // return bindings with pairs of themes
-        for (pair <- themes.combinations(2)) yield {
+        for (pair <- themes.combinations(2)
+        //if themes are not the same entity
+             if ! sameEntityID(pair)) yield {
           val args = Map("theme" -> pair)
           new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
         }
       }
   }
 
+  /**
+   * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
+   * @param mentions A Sequence of odin-style mentions
+   * @return boolean
+   */
+  def sameEntityID(mentions:Seq[Mention]): Boolean = {
+    val groundings =
+      mentions
+      .map(_.toBioMention)
+      // only look at grounded Mentions
+      .filter(_.xref.isDefined)
+      .map(_.xref.get)
+      .toSet
+    // should be 1 if all are the same entity
+    groundings.size == 1
+  }
   /**
    * This action decomposes RelationMentions with the label Modification to the matched TB entity with the appropriate Modification
    * @return Nil (Modifications are added in-place)
