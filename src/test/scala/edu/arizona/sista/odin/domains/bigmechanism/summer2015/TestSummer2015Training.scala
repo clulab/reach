@@ -149,13 +149,13 @@ class TestSummer2015Training extends FlatSpec with Matchers {
      mentions.find(_.label == "Negative_activation").size should be (1)
 
      mentions = parseSentence(sent9c)
-     mention.find(_.label == "Negative_activation").size should be (1)
+     mentions.find(_.label == "Negative_activation").size should be (1)
 
      mentions = parseSentence(sent9d)
-     mention.find(_.label == "Negative_activation").size should be (1)
+     mentions.find(_.label == "Negative_activation").size should be (1)
 
      mentions = parseSentence(sent9e)
-     mention.find(_.label == "Negative_activation").size should be (1)
+     mentions.find(_.label == "Negative_activation").size should be (1)
   }
 
   val sent10 = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
