@@ -6,7 +6,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Use subcellular locations (cell components) KB.
+  *   Last Modified: Update to use new display label.
   */
 class LocalGrounder extends DarpaFlow {
   /** An exception in case we somehow fail to assign an ID during resolution. */
@@ -44,6 +44,6 @@ class LocalGrounder extends DarpaFlow {
       }
     }
     // we should never get here because our accessors include a failsafe ID assignment
-    throw NoFailSafe(s"LocalGrounder failed to assign an ID to ${mention.label} '${mention.text}' in S${mention.sentence}")
+    throw NoFailSafe(s"LocalGrounder failed to assign an ID to ${mention.displayLabel} '${mention.text}' in S${mention.sentence}")
   }
 }

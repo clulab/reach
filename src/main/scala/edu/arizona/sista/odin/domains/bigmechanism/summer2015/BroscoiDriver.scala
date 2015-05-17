@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level driver to output grounded text mentions in Broscoi format.
   *   Written by Tom Hicks. 4/13/2015.
-  *   Last Modified: Update for move of resources to reach.
+  *   Last Modified: Update to use new display label.
   */
 object BroscoiDriver extends App {
   private val idCntr = new IncrementingCounter() // counter sequence class
@@ -78,7 +78,7 @@ object BroscoiDriver extends App {
     groundedMentions.foreach { case m: BioMention =>
       val ns = if (m.xref.isDefined) m.xref.get.namespace else ""
       val id = if (m.xref.isDefined) m.xref.get.id else ""
-      out.println(s"T${idCntr.next()}\t${m.label}\t${m.startOffset}\t${m.endOffset}\t${ns}\t${id}\t${m.text}")
+      out.println(s"T${idCntr.next()}\t${m.displayLabel}\t${m.startOffset}\t${m.endOffset}\t${ns}\t${id}\t${m.text}")
     }
     out.flush()
     out.close()
