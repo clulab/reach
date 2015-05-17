@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 /**
   * Top-level test driver for Grounding development.
   *   Written by Tom Hicks. 4/7/2015.
-  *   Last Modified: Update for move of resources to reach.
+  *   Last Modified: Update to use new display label.
   */
 object GroundDriver extends App {
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
@@ -74,7 +74,7 @@ object GroundDriver extends App {
     val modifiedMentions = ground.apply(mentions, state)
     modifiedMentions.foreach { case m: BioMention =>
       val xref = m.xref.getOrElse("")
-      out.println(s"${m.label} (${m.text}): ${xref}")
+      out.println(s"${m.displayLabel} (${m.text}): ${xref}")
     }
     out.flush()
     out.close()
