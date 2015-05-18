@@ -165,12 +165,15 @@ class DarpaActions extends Actions {
    * @return Nil (Modifications are added in-place)
    */
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    //println(s"\tcreating EventSite!")
     mentions foreach { m =>
       val bioMention = m.arguments("entity").head.toBioMention
       // Check the complete span for any sites
       // FIXME this is due to an odin bug
-      for (eSite <- state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "site"))
-        yield bioMention.modifications += EventSite(site = eSite)
+      state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Site") foreach { eSite =>
+        println(s"\tEventSite Modification detected: site is ${eSite.text} for ${bioMention.text}")
+        bioMention.modifications += EventSite(site = eSite)
+      }
     }
     Nil
   }

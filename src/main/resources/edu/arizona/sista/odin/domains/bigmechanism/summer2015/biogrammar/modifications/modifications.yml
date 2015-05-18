@@ -38,13 +38,18 @@
   pattern: |
     @site:Site "of" @entity:BioChemicalEntity
 
+# TODO: Add rule + action that adds some Site to multiple Entities
+# ex. "phosphorylation on the JM domains of EGFR and HER2"
+# should create EGFR(Mods = EventSite(JM domains)), HER2(Mods = EventSite(JM domains))
 - name: eventsite_multisite_1
   label: [EventSite, Modification, BioChemicalEntity]
   action: storeEventSite
   priority: 2
   type: token
   pattern: |
-    @site:Site [!tag=/^V/]*? [tag="IN"] @entity:BioChemicalEntity
+    @site:Site [!tag=/^V/]*? /^(of|on)/ /./*? @entity:BioChemicalEntity
     |
-    @entity:BioChemicalEntity [tag="IN"] @site:Site+
+    @entity:BioChemicalEntity /^(of|on)/ @site:Site+
+    |
+    [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? /./+ @site:Site
 
