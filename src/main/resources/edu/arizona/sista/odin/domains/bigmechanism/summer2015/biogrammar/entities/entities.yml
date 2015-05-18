@@ -137,6 +137,7 @@
   priority: 4
   type: token
   pattern: |
+    #FIXME K-Ras is sometimes missed by the NER system
     /(?i)^K\-RAS/ |
     /(?i)MEK/
 
