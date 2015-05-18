@@ -5,6 +5,6 @@
   label: [Negative_activation, ActivationEvent, Event]
   pattern: |
     trigger = [word=/(?i)inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress/ & tag=/^V/]
-    controller:BioChemicalEntity = (nsubj | agent) /appos|nn|conj_|cc/*
+    controller:BioChemicalEntity = (nsubj | agent) /appos|nn|conj_|cc|prep_of/*
     controlled:BioChemicalEntity = (dobj [word=/(?i)activ/ & tag =/^NN/] (nn|prep_of))|dobj
 

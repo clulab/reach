@@ -80,21 +80,39 @@ class DarpaActions extends Actions {
       } yield theme
       // remove bindings with less than two themes
       if (themes.size < 2) Nil
-      // if binding has two themes we are done
-      else if (themes.size == 2) {
+      // if binding has two (distinct) themes we are done
+      else if (themes.size == 2 && !sameEntityID(themes)) {
         val args = Map("theme" -> themes)
         Seq(new BioEventMention(
           m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy))
       } else {
         // binarize bindings
         // return bindings with pairs of themes
-        for (pair <- themes.combinations(2)) yield {
+        for (pair <- themes.combinations(2)
+        //if themes are not the same entity
+             if ! sameEntityID(pair)) yield {
           val args = Map("theme" -> pair)
           new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
         }
       }
   }
 
+  /**
+   * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
+   * @param mentions A Sequence of odin-style mentions
+   * @return boolean
+   */
+  def sameEntityID(mentions:Seq[Mention]): Boolean = {
+    val groundings =
+      mentions
+      .map(_.toBioMention)
+      // only look at grounded Mentions
+      .filter(_.xref.isDefined)
+      .map(_.xref.get)
+      .toSet
+    // should be 1 if all are the same entity
+    groundings.size == 1
+  }
   /**
    * This action decomposes RelationMentions with the label Modification to the matched TB entity with the appropriate Modification
    * @return Nil (Modifications are added in-place)
@@ -142,5 +160,44 @@ class DarpaActions extends Actions {
       bioMention.modifications += EventSite(site = eSite)
     }
     Nil
+  }
+
+  /**
+   * Global action for events.  Propagate any Sites in the Modifications of a a SimpleEvent's theme to the event arguments
+   */
+  def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case simple: EventMention if simple.labels contains "SimpleEvent" => {
+      val additionalSites: Seq[Mention] = simple.arguments.values.flatten.flatMap { case m:BioMention =>
+        // get the sites from any EventSite Modifications
+        val eventSites:Seq[EventSite] = m.modifications.toSeq flatMap {
+          case es:EventSite => Some(es)
+          case _ => None
+        }
+        // Remove EventSite modifications
+        eventSites.foreach(es => m.modifications -= es)
+
+        // Get additional sites
+        eventSites.map{case es: EventSite => es.site}
+      }.toSeq
+
+      // Gather up our sites
+      val allSites = additionalSites ++ simple.arguments.getOrElse("site", Nil)
+
+      // Do we have any sites?
+      if (allSites.isEmpty) Seq(simple)
+      else {
+        val updatedArgs = simple.arguments + ("site" -> allSites.toSeq)
+        // FIXME the interval might not be correct anymore...
+        Seq(new EventMention(simple.labels,
+          simple.trigger,
+          updatedArgs,
+          simple.sentence,
+          simple.document,
+          simple.keep,
+          simple.foundBy).toBioMention)
+      }
+    }
+    // If it isn't a SimpleEvent, assume there is nothing more to do
+    case m => Seq(m)
   }
 }

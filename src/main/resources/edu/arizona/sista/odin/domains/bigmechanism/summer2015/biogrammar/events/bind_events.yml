@@ -10,7 +10,7 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
-    theme:BioChemicalEntity+ = <rcmod conj_and* | nsubj conj_and* | <prepc_by* nsubj | dobj conj_and* | /prep_(to|with)/
+    theme:BioChemicalEntity+ = <rcmod conj_and* | nsubj /nn|conj_|cc/* | <prepc_by* nsubj | dobj /nn|conj_|cc/* | /prep_(to|with)/
 
 - name: binding1forms
   label: [Binding, SimpleEvent, Event]
@@ -18,7 +18,7 @@
   priority: 4
   pattern: |
     trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
-    theme:BioChemicalEntity+ = nsubj | dobj | /prep_(to|with)/
+    theme:BioChemicalEntity+ = nsubj /nn|conj_|cc/* | dobj /nn|conj_|cc/* | /prep_(to|with)/
 
 - name: binding2
   label: [Binding, SimpleEvent, Event]
@@ -26,7 +26,7 @@
   priority: 4
   pattern: |
     trigger = binding
-    theme:BioChemicalEntity+ = <prep_by nsubj | prep_such_as
+    theme:BioChemicalEntity+ = <prep_by nsubj /nn|conj_|cc/* | prep_such_as
 
 - name: binding3
   label: [Binding, SimpleEvent, Event]
