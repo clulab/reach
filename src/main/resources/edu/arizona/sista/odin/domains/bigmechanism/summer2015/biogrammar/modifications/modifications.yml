@@ -21,7 +21,7 @@
 # Modification rules
 #########
 
-- name: modification_1
+- name: PTMmodification_1
   label: [PTM, Modification, BioChemicalEntity]
   action: mkModification
   priority: 2
@@ -30,7 +30,7 @@
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
 
-- name: domain_of_protein
+- name: eventsite_1
   label: [EventSite, Modification, BioChemicalEntity]
   action: storeEventSite
   priority: 2
@@ -38,4 +38,13 @@
   pattern: |
     @site:Site "of" @entity:BioChemicalEntity
 
+- name: eventsite_multisite_1
+  label: [EventSite, Modification, BioChemicalEntity]
+  action: storeEventSite
+  priority: 2
+  type: token
+  pattern: |
+    @site:Site [!tag=/^V/]*? [tag="IN"] @entity:BioChemicalEntity
+    |
+    @entity:BioChemicalEntity [tag="IN"] @site:Site+
 

@@ -167,8 +167,10 @@ class DarpaActions extends Actions {
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions foreach { m =>
       val bioMention = m.arguments("entity").head.toBioMention
-      val eSite = m.arguments("site").head
-      bioMention.modifications += EventSite(site = eSite)
+      // Check the complete span for any sites
+      // FIXME this is due to an odin bug
+      for (eSite <- state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "site"))
+        yield bioMention.modifications += EventSite(site = eSite)
     }
     Nil
   }
@@ -197,15 +199,19 @@ class DarpaActions extends Actions {
       // Do we have any sites?
       if (allSites.isEmpty) Seq(simple)
       else {
-        val updatedArgs = simple.arguments + ("site" -> allSites.toSeq)
-        // FIXME the interval might not be correct anymore...
-        Seq(new EventMention(simple.labels,
-          simple.trigger,
-          updatedArgs,
-          simple.sentence,
-          simple.document,
-          simple.keep,
-          simple.foundBy).toBioMention)
+        val allButSite = simple.arguments - "site"
+        // Create a separate EventMention for each Site
+        for (site <- allSites.distinct) yield {
+          val updatedArgs = allButSite + ("site" -> Seq(site))
+          // FIXME the interval might not be correct anymore...
+          new EventMention(simple.labels,
+            simple.trigger,
+            updatedArgs,
+            simple.sentence,
+            simple.document,
+            simple.keep,
+            simple.foundBy).toBioMention
+        }
       }
     }
     // If it isn't a SimpleEvent, assume there is nothing more to do
