@@ -7,7 +7,7 @@
   priority: 4
   action: mkUbiquitination 
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
@@ -19,7 +19,7 @@
   priority: 4
   #action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=VBN & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/*
@@ -30,7 +30,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitinate/ & !word=/(?i)^de/ & !outgoing=nsubjpass & tag=/^V/ & !mention=ModificationTrigger] # verbal predicate
     theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
@@ -42,7 +42,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (nsubjpass /conj_|nn/*)
@@ -54,7 +54,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = dobj /nn|conj_|cc/*
@@ -66,7 +66,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=VBN]
     theme:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
@@ -78,7 +78,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger =[lemma=/ubiquitination$/ & !word=/(?i)^de/]
     theme:BioChemicalEntity = prep_of /nn|conj_|cc/*
@@ -91,7 +91,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger =[lemma=/ubiquitination$/ & !word=/(?i)^de/] # nominal predicate
     theme:BioChemicalEntity = prep_of? /conj_|cc|nn/+
@@ -103,7 +103,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitination$/ & !word=/(?i)^de/ & !outgoing=/prep_(by|of)/] # nominal predicate
     theme:BioChemicalEntity = prep_of /conj_|cc|nn/+
@@ -115,7 +115,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitination$/ & !word=/(?i)^de/ & !outgoing=prep_by]
     theme:BioChemicalEntity = <nn? nn /conj|cc|nn|prep/* [!word=/(?i)ubiq/ & mention=/./ & !mention=/Site/]
@@ -125,7 +125,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitination$/ & !word=/(?i)^de/]
     theme:BioChemicalEntity = < nn > /prep_/ /conj_|cc|nn/*
@@ -135,7 +135,7 @@
   priority: 4
   action: mkUbiquitination
   example: ""
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitination$/ & !word=/(?i)^de/]
     cause:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/*
@@ -145,7 +145,7 @@
   priority: 4
   action: mkUbiquitination
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis."
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/ubiquitination$/ & !word=/(?i)^de/ & !outgoing=prep_of]
     theme:BioChemicalEntity = < nsubj dobj prep_of /nn|cc|conj/*
@@ -156,7 +156,7 @@
   action: mkUbiquitination
   example: ""
   type: token
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     (?<trigger> [lemma=/ubiquitination$/ & !word=/(?i)^de/]) /of|on/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity
 
@@ -166,7 +166,7 @@
   action: mkUbiquitination
   example: ""
   type: token
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     @theme:BioChemicalEntity (?<trigger> [lemma=/ubiquitination$/ & !word=/(?i)^de/]) [!word=of]
 
@@ -176,7 +176,7 @@
   action: mkUbiquitination
   example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
   type: token
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     (?<trigger> [lemma=/ubiquitination$/]) at /./*? @site:Site /./*? of @theme:BioChemicalEntity
 
@@ -187,7 +187,7 @@
   action: mkUbiquitination
   example: ""
   type: token
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     @theme:BioChemicalEntity (?<trigger> [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=/^V/]) [tag=IN] (@cause:BioChemicalEntity)?
 
@@ -197,6 +197,6 @@
   action: mkUbiquitination
   example: ""
   type: token
-  label: [Ubiquitination, SimpleEvent, Event]
+  label: [Ubiquitination, SimpleEvent, Event, PossibleController]
   pattern: |
     (?<trigger> [lemma=/ubiquitinate/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by (@cause:BioChemicalEntity)? )?
