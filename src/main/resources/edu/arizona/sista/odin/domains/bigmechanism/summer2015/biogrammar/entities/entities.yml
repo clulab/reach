@@ -72,6 +72,15 @@
   pattern: |
     "RBD"
 
+- name: multi-site
+  label: Site
+  action: mkEntities
+  priority: 2+
+  example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
+  type: token
+  pattern: |
+   # This works with open range, but is it a possible odin problem with quantifiers?
+   [lemma=/residue/ & mention="Site"] [tag="CD" & mention="Site"] [tag=/^(CC|CD)/ | word=","]* (?<site> [tag="CD" & !mention="Site"])
 
 ###################
 # ner rules
@@ -80,7 +89,7 @@
 - name: ner-gene_or_gene_product-entities
   label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule]
   action: mkNERMentions
-  priority: 2
+  priority: 3
   type: token
   pattern: |
     [entity='B-Gene_or_gene_product'] [entity='I-Gene_or_gene_product']*
@@ -89,7 +98,7 @@
 - name: ner-family-entities
   label: [Family, BioChemicalEntity, MacroMolecule]
   action: mkNERMentions
-  priority: 2
+  priority: 3
   type: token
   pattern: |
     [entity='B-Family'] [entity='I-Family']*
@@ -98,7 +107,7 @@
 - name: ner-cellular_component-entities
   label: [Cellular_component]
   action: mkNERMentions
-  priority: 2
+  priority: 3
   type: token
   pattern: |
     [entity='B-Cellular_component'] [entity='I-Cellular_component']*
@@ -106,7 +115,7 @@
 - name: ner-simple_chemical-entities
   label: [Simple_chemical, BioChemicalEntity]
   action: mkNERMentions
-  priority: 2
+  priority: 3
   type: token
   pattern: |
     [entity='B-Simple_chemical'] [entity='I-Simple_chemical']*
@@ -118,22 +127,23 @@
 
 - name: missing-gene_or_gene_product
   label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule]
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     /(?i)SAPK/
 
 - name: missing-family_product
   label: [Family, Missing, BioChemicalEntity, MacroMolecule]
-  priority: 3
+  priority: 4
   type: token
   pattern: |
-    /(?i)K\-RAS/ |
+    #FIXME K-Ras is sometimes missed by the NER system
+    /(?i)^K\-RAS/ |
     /(?i)MEK/
 
 - name: missing-simple_chemical
   label: [Simple_chemical, Missing, BioChemicalEntity]
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     /(?i)\-G[TD]P/ # this also allows for 32P-GTP, etc.
@@ -141,7 +151,7 @@
 # TODO: What labels should these guys have?
 - name: missing-location
   label: [Gene_or_gene_product, Missing, BioChemicalEntity]
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     @BioChemicalEntity /(?i)receptor/ # there must be other relevant terms.  This rule comes from us finding "ERBB", but missing "ERBB receptors"

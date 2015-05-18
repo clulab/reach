@@ -33,6 +33,17 @@ class DarpaActions extends Actions {
     case m => Seq(m.toBioMention)
   }
 
+  def mkEntities(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case rel: RelationMention => {
+      for {(k, v) <- rel.arguments
+           m <- v} yield {
+        new TextBoundMention(rel.labels, m.tokenInterval, rel.sentence, rel.document, rel.keep, rel.foundBy).toBioMention
+      }
+    }
+      case other => {
+        Nil
+    }
+  }
   // FIXME it would be better to define the action explicitly in the rule
   // instead of replacing the default action
   override val default: Action = splitSimpleEvents
@@ -160,10 +171,15 @@ class DarpaActions extends Actions {
    * @return Nil (Modifications are added in-place)
    */
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    //println(s"\tcreating EventSite!")
     mentions foreach { m =>
       val bioMention = m.arguments("entity").head.toBioMention
-      val eSite = m.arguments("site").head
-      bioMention.modifications += EventSite(site = eSite)
+      // Check the complete span for any sites
+      // FIXME this is due to an odin bug
+      state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Site") foreach { eSite =>
+        println(s"\tEventSite Modification detected: site is ${eSite.text} for ${bioMention.text}")
+        bioMention.modifications += EventSite(site = eSite)
+      }
     }
     Nil
   }
@@ -192,15 +208,19 @@ class DarpaActions extends Actions {
       // Do we have any sites?
       if (allSites.isEmpty) Seq(simple)
       else {
-        val updatedArgs = simple.arguments + ("site" -> allSites.toSeq)
-        // FIXME the interval might not be correct anymore...
-        Seq(new EventMention(simple.labels,
-          simple.trigger,
-          updatedArgs,
-          simple.sentence,
-          simple.document,
-          simple.keep,
-          simple.foundBy).toBioMention)
+        val allButSite = simple.arguments - "site"
+        // Create a separate EventMention for each Site
+        for (site <- allSites.distinct) yield {
+          val updatedArgs = allButSite + ("site" -> Seq(site))
+          // FIXME the interval might not be correct anymore...
+          new EventMention(simple.labels,
+            simple.trigger,
+            updatedArgs,
+            simple.sentence,
+            simple.document,
+            simple.keep,
+            simple.foundBy).toBioMention
+        }
       }
     }
     // If it isn't a SimpleEvent, assume there is nothing more to do

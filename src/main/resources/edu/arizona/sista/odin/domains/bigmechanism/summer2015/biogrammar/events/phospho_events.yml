@@ -188,6 +188,7 @@
     (?<trigger> [lemma=/phosphorylate/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
 
 
+# The odin bug must be fixed before this will work properly
 - name: Phosphorylation_token_7_verb
   priority: 4
   example: "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
