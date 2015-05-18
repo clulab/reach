@@ -110,7 +110,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
-      assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
+      //assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions)) // This is a PTM
+      assertFalse("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
 
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
     } catch {
