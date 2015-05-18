@@ -17,6 +17,8 @@ class TestFalsePositive extends FlatSpec with Matchers {
   // val sentence7 = "We found that Mek promotes the phosphorylation of hydrolyzed Ras."
   val sentence8 = "Ligation of ASPP2 to hydroxylated RAS-GTP promotes apoptosis."
   val sentence9 = "Optineurin regulates NF-kappaB activation by mediating interaction of CYLD with ubiquitinated RIP."
+  val sentence10 = "The deubiquitination of ASPP2 is promoted by optineurin."
+  val sentence11 = "The dephosphorylation of ASPP2 is promotted by optineurin."
 
   sentence1 should "not contain a binding" in {
     val doc = reach.mkDoc(sentence1, "testdoc")
@@ -71,9 +73,21 @@ class TestFalsePositive extends FlatSpec with Matchers {
   }
 
   sentence9 should "not contain a ubiquitination event (this is a PTM)" in {
-    val doc = reach.mkDoc(sentence8, "testdoc")
+    val doc = reach.mkDoc(sentence9, "testdoc")
     val mentions = reach extractFrom doc
     mentions.exists(_.label == "Ubiquitination") should be (false)
+  }
+
+  sentence10 should "not contain a ubiquitination event" in {
+    val doc = reach.mkDoc(sentence10, "testdoc")
+    val mentions = reach extractFrom doc
+    mentions.exists(_.label == "Ubiquitination") should be (false)
+  }
+
+  sentence11 should "not contain a phosphorylation event" in {
+    val doc = reach.mkDoc(sentence11, "testdoc")
+    val mentions = reach extractFrom doc
+    mentions.exists(_.label == "Phosphorylation") should be (false)
   }
 
 }
