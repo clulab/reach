@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory
 package object preprocessing {
 
   type Lines = Seq[Array[String]]
+  type TemplateMap = Map[String, String]
 
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
   val preprocessor = new BioNLPProcessor(withRuleNER = false, withCRFNER = false)
