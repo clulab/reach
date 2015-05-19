@@ -37,11 +37,11 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     // TODO: fails! Produces 3 bindings, instead of 2! (MARCO)
 
     val bindings = mentions.filter(_.label == "Binding")
-    bindings.size should be(2) // we must have exactly two bindings here
+    bindings should have size (2) // we must have exactly two bindings here
 
     for (b <- bindings) {
-      b.arguments.get("theme").get.size should be(2) // each binding must have exactly two themes
-      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be(true) // Ras is a theme in all these
+      b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
+      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme in all these
     }
   }
 
@@ -50,11 +50,11 @@ class TestSummer2015Training extends FlatSpec with Matchers {
 
     // this MUST produce Binding(Ras, AKT)
     val bindings = mentions.filter(_.label == "Binding")
-    bindings.size should be(1) // we must have exactly 1 binding2 here
+    bindings should have size (1) // we must have exactly 1 binding2 here
 
     for (b <- bindings) {
-      b.arguments.get("theme").get.size should be(2) // each binding must have exactly two themes
-      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be(true) // Ras is a theme
+      b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
+      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme
     }
   }
 
@@ -63,7 +63,7 @@ class TestSummer2015Training extends FlatSpec with Matchers {
 
     // this MUST produce no bindings!
     var binds = mentions.find(_.label == "Binding")
-    binds.size should be(0)
+    binds.isDefined should be (false)
 
     mentions = parseSentence(sent3b)
 
@@ -71,35 +71,35 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     // something fishy because of PwS (GUS)
 
     binds = mentions.find(_.label == "Binding")
-    binds.size should be(0)
+    binds.isDefined should be (false)
   }
 
   it should "not produce unary bindings" in {
     val mentions = parseSentence(sent4)
     val bindings = mentions.find(_.label == "Binding")
-    bindings.size should be(0)
+    bindings.isDefined should be (false)
   }
 
   it should "not produce a phosphorylation based on the preposition \"on\"" in {
     // TODO: Fails! (GUS)
     val mentions = parseSentence(sent5)
     val p = mentions.find(_.label == "Phosphorylation")
-    p.size should be(0)
+    p.isDefined should be (false)
   }
 
   it should "not find a PTMs as events" in {
     // TODO: Both fail! (DANE + MARCO)
     var mentions = parseSentence(sent6)
     val p = mentions.find(_.label == "Phosphorylation") // Dane: this is a PTM not an event!
-    p.size should be(0) // Dane
+    p.isDefined should be (false) // Dane
     var b = mentions.find(_.label == "Binding") // Marco: why does this fail??
-    b.size should be (1) // Marco
+    b.isDefined should be (true) // Marco
 
     mentions = parseSentence(sent6b)
     val u = mentions.find(_.label == "Ubiquitination")
-    u.size should be(0)
+    u.isDefined should be (false)
     b = mentions.find(_.label == "Binding")
-    b.size should be (1)
+    b.isDefined should be (true)
   }
 
   //
@@ -111,10 +111,10 @@ class TestSummer2015Training extends FlatSpec with Matchers {
     // TODO: this fails because of bad syntax around Hur. Fix with a surface rule for phosphorylation? (GUS)
     val mentions = parseSentence(sent7)
 
-    val p = mentions.find(_.label == "Phosphorylation")
-    p.size should be (3)
-    val r = mentions.find(_.label == "Positive_regulation")
-    r.size should be (3)
+    val p = mentions.filter(_.label == "Phosphorylation")
+    p should have size (3)
+    val r = mentions.filter(_.label == "Positive_regulation")
+    r should have size (3)
   }
 
   val sent8 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
@@ -123,13 +123,13 @@ class TestSummer2015Training extends FlatSpec with Matchers {
      // Also: if the entity modification has no type, it should be propagated up in the event using the entity
      val mentions = parseSentence(sent8)
 
-     val f = mentions.find(_.label == "Family")
-     f.size should be (1)
-     val p = mentions.find(_.label == "Gene_or_gene_product")
-     p.size should be (1)
+     val f = mentions.filter(_.label == "Family")
+     f should have size (1)
+     val p = mentions.filter(_.label == "Gene_or_gene_product")
+     p should have size (1)
 
-     val b = mentions.find(_.label == "Binding")
-     b.size should be (1)
+     val b = mentions.filter(_.label == "Binding")
+     b should have size (1)
   }
 
   val sent9 = "Nucleotide free Ras inhibits PI3KC2Beta activity."
@@ -139,35 +139,55 @@ class TestSummer2015Training extends FlatSpec with Matchers {
   val sent9e = "Increase of Ras dose inhibits PI3KC2Beta."
   it should "extract negative activation patterns" in {
      var mentions = parseSentence(sent9)
-     mentions.find(_.label == "Negative_activation").size should be (1)
+     mentions.filter(_.label == "Negative_activation") should have size (1)
 
      mentions = parseSentence(sent9b)
-     mentions.find(_.label == "Negative_activation").size should be (1)
+     mentions.filter(_.label == "Negative_activation") should have size (1)
 
      mentions = parseSentence(sent9c)
-     mentions.find(_.label == "Negative_activation").size should be (1)
+     mentions.filter(_.label == "Negative_activation") should have size (1)
 
      mentions = parseSentence(sent9d)
-     mentions.find(_.label == "Negative_activation").size should be (1)
+     mentions.filter(_.label == "Negative_activation") should have size (1)
 
      mentions = parseSentence(sent9e)
-     mentions.find(_.label == "Negative_activation").size should be (1)
+     mentions.filter(_.label == "Negative_activation") should have size (1)
   }
 
   val sent10 = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
   val sent10b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
   it should "extract multiple different ubiquitinations" in {
     var mentions = parseSentence(sent10)
-    mentions.find(_.label == "Ubiquitination") should be (2) 
+    mentions.filter(_.label == "Ubiquitination") should have size (2)
 
     mentions = parseSentence(sent10b)
-    mentions.find(_.label == "Ubiquitination") should be (3) 
+    mentions.filter(_.label == "Ubiquitination") should have size (3)
   }
 
   val sent11 = "Ubiquitinated Ras activates Raf and PI3K."
   it should "extract multiple different positive activations" in {
     var mentions = parseSentence(sent11)
-    mentions.find(_.label == "Positive_activation") should be (2) 
+    mentions.filter(_.label == "Positive_activation") should have size (2)
+  }
+
+  val sent12 = "Figure 3. Raf and PI3K bind to ubiquitinated Ras."
+  val sent12b = "Figure 3. Raf and PI3K bind more to ubiquitinated Ras than to non-ubiquitinated Ras."
+  it should "extract correct bindings with theme and theme2" in {
+    var mentions = parseSentence(sent12)
+    var bs = mentions.filter(_.label == "Binding")
+    bs should have size (2)
+    for (b <- bs) {
+      b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
+      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme in all these
+    }
+
+    mentions = parseSentence(sent12b)
+    bs = mentions.filter(_.label == "Binding")
+    bs should have size (2)
+    for (b <- bs) {
+      b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
+      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme in all these
+    }
   }
 
   def parseSentence(sentence:String):Seq[BioMention] = {
