@@ -91,4 +91,18 @@ object RuleReader {
     val eventRules = readRuleFilesFromDir(eventsDir)
     Rules(entityRules, modificationRules, eventRules)
   }
+
+  /** Replaces rules variables.
+    * 
+    * @param rules A string with variables to replace
+    * @param variables a map of (name -> value)
+    * @return a string with the new text
+    */
+  def replaceVars(rules: String, variables: Map[String, String]): String = {
+    var text = rules
+    for (name <- variables.keys)
+      text = s"\\{\\{\\s*($name)\\s*\\}\\}".r.replaceAllIn(text, m => variables(m.group(1)))
+    text
+  }
+
 }
