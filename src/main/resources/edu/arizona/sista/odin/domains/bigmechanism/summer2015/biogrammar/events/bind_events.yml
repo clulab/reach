@@ -74,7 +74,7 @@
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
       theme1:BioChemicalEntity+ = (<amod nn* >prep_of? >appos?) | nsubj
-      theme2:BioChemicalEntity* = conj_and? dobj
+      theme2:BioChemicalEntity+ = conj_and? dobj
 
 - name: binding7a
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -177,8 +177,8 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|recognize/ & tag=/^V/]
-    theme1:BioChemicalEntity* = agent nn*
-    theme2:BioChemicalEntity+ = <rcmod <appos? | nsubjpass nn* | dobj
+    theme1:BioChemicalEntity+ = nsubjpass nn* | <rcmod <appos?
+    theme2:BioChemicalEntity+ = agent nn* | dobj
 
 - name: binding_18
   label: [Binding, SimpleEvent, Event, PossibleController]

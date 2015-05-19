@@ -75,11 +75,9 @@ class DarpaActions extends Actions {
     splitSimpleEvents(bioMentions, state)
   }
 
-  /** This action handles the creation of Binding EventMentions for rules using token patterns.
-    * Currently Odin does not support the use of arguments of the same name in Token patterns.
-    * Because of this, we have adopted the convention of following duplicate names with a
-    * unique number (ex. theme1, theme2).
-    * mkBinding simply unifies named arguments of this type (ex. theme1 & theme2 -> theme)
+  /** This action handles the creation of Binding EventMentions. In many cases, sentences about binding
+    * will contain two sets of entities. These sets should be combined exhaustively in a pairwise fashion,
+    * but no bindings should be created for pairs of entities within each set.
     */
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention =>
@@ -102,19 +100,34 @@ class DarpaActions extends Actions {
           val mergedThemes = t1s ++ t2s
 
           // if one theme is Ubiquitin, this is a ubiquitination event
-          // if (mergedThemes.size == 2 && !sameEntityID(themes) && mergedThemes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
-          //    val args = Map("theme" -> mergedThemes.filter(!_.text.toLowerCase.startsWith("ubiq")))
-          //   Seq(new BioEventMention(
-          //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
-          // }
+          if (mergedThemes.size == 2 && !sameEntityID(mergedThemes) && mergedThemes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
+            val args = Map("theme" -> mergedThemes.filter(!_.text.toLowerCase.startsWith("ubiq")))
+            Seq(new BioEventMention(
+              "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
+          }
+          else {
+            // binarize bindings
+            // return bindings with pairs of themes
+            for (pair <- mergedThemes.combinations(2)
+                 //if themes are not the same entity
+                 if !sameEntityID(pair)) yield {
+              val theme1 = pair.head
+              val theme2 = pair.last
 
-          // binarize bindings
-          // return bindings with pairs of themes
-          for (pair <- mergedThemes.combinations(2)
-               //if themes are not the same entity
-               if !sameEntityID(pair)) yield {
-            val args = Map("theme" -> pair)
-            new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              if (theme1.text.toLowerCase.startsWith("ubiq")) {
+                val args = Map("theme" -> Seq(theme2))
+                new BioEventMention(
+                  "Ubiquitination" +: m.labels.filter(_ != "Binding"), m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+                val args = Map("theme" -> Seq(theme1))
+                new BioEventMention(
+                  "Ubiquitination" +: m.labels.filter(_ != "Binding"), m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              }
+              else {
+                val args = Map("theme" -> Seq(theme1, theme2))
+                new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              }
+            }
           }
 
         case _ =>
@@ -123,19 +136,19 @@ class DarpaActions extends Actions {
             theme2 <- theme2s
             if !sameEntityID(Seq(theme1, theme2))
           } yield {
-            // if (theme1.text.toLowerCase.startsWith("ubiq")){
-            //   val args = Map("theme" -> Seq(theme2))
-            //   new BioEventMention(
-            //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
-            // } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
-            //   val args = Map("theme" -> Seq(theme1))
-            //   new BioEventMention(
-            //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
-            // }
-            // else {
-            val args = Map("theme" -> Seq(theme1, theme2))
-            new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
-            // }
+            if (theme1.text.toLowerCase.startsWith("ubiq")){
+              val args = Map("theme" -> Seq(theme2))
+              new BioEventMention(
+                "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
+            } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+              val args = Map("theme" -> Seq(theme1))
+              new BioEventMention(
+                "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
+            }
+            else {
+              val args = Map("theme" -> Seq(theme1, theme2))
+              new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+            }
           }
       }
   }
