@@ -125,21 +125,18 @@
 # missing
 ################
 
-- name: missing-gene_or_gene_product
-  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
-  priority: 4
-  type: token
-  pattern: |
-    /(?i)SAPK/
+#- name: missing-gene_or_gene_product
+#  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
+#  priority: 4
+#  type: token
+#  pattern: |
 
-- name: missing-family_product
-  label: [Family, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
-  priority: 4
-  type: token
-  pattern: |
-    #FIXME K-Ras is sometimes missed by the NER system
-    /(?i)^K\-RAS/ |
-    /(?i)MEK/
+#- name: missing-family_product
+#  label: [Family, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
+#  priority: 4
+#  type: token
+#  pattern: |
+#
 
 - name: missing-simple_chemical
   label: [Simple_chemical, Missing, BioChemicalEntity, PossibleController]
