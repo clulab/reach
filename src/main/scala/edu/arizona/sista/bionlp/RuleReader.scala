@@ -37,7 +37,6 @@ object RuleReader {
       s"$eventsDir/hydrolysis_events.yml",
       s"$eventsDir/bind_events.yml",
       s"$eventsDir/transcription_events.yml",
-      s"$eventsDir/regulation_events.yml",
       s"$eventsDir/neg_reg_events.yml",
       s"$eventsDir/pos_reg_events.yml",
       s"$eventsDir/translocation_events.yml",

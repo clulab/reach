@@ -87,7 +87,7 @@
 ###################
 
 - name: ner-gene_or_gene_product-entities
-  label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule]
+  label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
   action: mkNERMentions
   priority: 3
   type: token
@@ -96,7 +96,7 @@
 
 # TODO: verify this ontology
 - name: ner-family-entities
-  label: [Family, BioChemicalEntity, MacroMolecule]
+  label: [Family, BioChemicalEntity, MacroMolecule, PossibleController]
   action: mkNERMentions
   priority: 3
   type: token
@@ -113,7 +113,7 @@
     [entity='B-Cellular_component'] [entity='I-Cellular_component']*
 
 - name: ner-simple_chemical-entities
-  label: [Simple_chemical, BioChemicalEntity]
+  label: [Simple_chemical, BioChemicalEntity, PossibleController]
   action: mkNERMentions
   priority: 3
   type: token
@@ -126,14 +126,14 @@
 ################
 
 - name: missing-gene_or_gene_product
-  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule]
+  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
   priority: 4
   type: token
   pattern: |
     /(?i)SAPK/
 
 - name: missing-family_product
-  label: [Family, Missing, BioChemicalEntity, MacroMolecule]
+  label: [Family, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
   priority: 4
   type: token
   pattern: |
@@ -142,7 +142,7 @@
     /(?i)MEK/
 
 - name: missing-simple_chemical
-  label: [Simple_chemical, Missing, BioChemicalEntity]
+  label: [Simple_chemical, Missing, BioChemicalEntity, PossibleController]
   priority: 4
   type: token
   pattern: |

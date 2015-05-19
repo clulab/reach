@@ -6,7 +6,7 @@
 - name: Hydroxylation_syntax_1_verb
   priority: 4 
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
@@ -17,7 +17,7 @@
 - name: Hydroxylation_syntax_2_verb
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/* [mention=/./]
@@ -27,7 +27,7 @@
 - name: Hydroxylation_syntax_3_verb
   priority: 4
   example: "" 
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylate" & !outgoing=nsubjpass & tag=/^V/ & !mention=ModificationTrigger] # verbal predicate
     theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
@@ -38,7 +38,7 @@
 - name: Hydroxylation_syntax_4_verb
   priority: 4 
   example: "" 
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (nsubjpass /conj_|nn/*)
@@ -49,7 +49,7 @@
 - name: Hydroxylation_syntax_5_verb
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = dobj /nn|conj_|cc/* [!word=/(?i)ubiq/]
@@ -61,7 +61,7 @@
   priority: 4
 
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylate" & tag=VBN & !mention=ModificationTrigger]
     theme:BioChemicalEntity =  (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
@@ -72,7 +72,7 @@
 - name: Hydroxylation_syntax_1_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation" & !mention=ModificationTrigger]
     theme:BioChemicalEntity = prep_of /nn|conj_|cc/*
@@ -84,7 +84,7 @@
 - name: Hydroxylation_syntax_2_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation"] # nominal predicate
     theme:BioChemicalEntity = prep_of? /conj_|cc|nn/+
@@ -95,7 +95,7 @@
 - name: Hydroxylation_syntax_3_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation" & !outgoing=/prep_(by|of)/] # nominal predicate
     theme:BioChemicalEntity = prep_of /conj_|cc|nn/+
@@ -106,7 +106,7 @@
 - name: Hydroxylation_syntax_4_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation" & !outgoing=prep_by]
     theme:BioChemicalEntity = <nn? nn /conj|cc|nn|prep/*
@@ -115,7 +115,7 @@
 - name: Hydroxylation_syntax_5_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation"]
     theme:BioChemicalEntity = < nn > /prep_/ /conj_|cc|nn/*
@@ -125,7 +125,7 @@
 - name: Hydroxylation_syntax_6_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation"]
     cause:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/*
@@ -134,7 +134,7 @@
 - name: Hydroxylation_syntax_7_noun
   priority: 4
   example: ""
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma="hydroxylation" & !outgoing=prep_of]
     theme:BioChemicalEntity = < nsubj dobj prep_of /nn|cc|conj/*
@@ -143,7 +143,7 @@
   priority: 4
   example: ""
   type: token
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     (?<trigger> [lemma="hydroxylation"]) /of|on/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity
 
@@ -152,7 +152,7 @@
   priority: 4
   example: ""
   type: token
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     @theme:BioChemicalEntity (?<trigger> [lemma="hydroxylation"]) [!word=of]
 
@@ -161,7 +161,7 @@
   priority: 4
   example: ""
   type: token
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     @theme:BioChemicalEntity (?<trigger> [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]) [tag=IN] (@cause:BioChemicalEntity)?
 
@@ -170,7 +170,7 @@
   priority: 4
   example: ""
   type: token
-  label: [Hydroxylation, SimpleEvent, Event]
+  label: [Hydroxylation, SimpleEvent, Event, PossibleController]
   pattern: |
     (?<trigger> [lemma="hydroxylate" & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
 
