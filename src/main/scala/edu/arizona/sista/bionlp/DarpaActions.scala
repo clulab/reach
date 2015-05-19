@@ -75,42 +75,81 @@ class DarpaActions extends Actions {
     splitSimpleEvents(bioMentions, state)
   }
 
-  /** This action handles the creation of Binding EventMentions for rules using token patterns.
-    * Currently Odin does not support the use of arguments of the same name in Token patterns.
-    * Because of this, we have adopted the convention of following duplicate names with a
-    * unique number (ex. theme1, theme2).
-    * mkBinding simply unifies named arguments of this type (ex. theme1 & theme2 -> theme)
+  /** This action handles the creation of Binding EventMentions. In many cases, sentences about binding
+    * will contain two sets of entities. These sets should be combined exhaustively in a pairwise fashion,
+    * but no bindings should be created for pairs of entities within each set.
     */
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention =>
       val arguments = m.arguments
-      val themes = for {
+      val theme1s = for {
         name <- arguments.keys.toSeq
-        if name startsWith "theme"
+        if name == "theme1"
         theme <- arguments(name)
       } yield theme
-      // remove bindings with less than two themes
-      if (themes.size < 2) Nil
-      // if one theme is Ubiquitin, this is a ubiquitination event
-      else if (themes.size == 2 && !sameEntityID(themes) && themes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
-        val args = Map("theme" -> themes.filter(!_.text.toLowerCase.startsWith("ubiq")))
-        Seq(new BioEventMention(
-          "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
-      }
-      // if binding has two (distinct) themes we are done
-      else if (themes.size == 2 && !sameEntityID(themes)) {
-        val args = Map("theme" -> themes)
-        Seq(new BioEventMention(
-          m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy))
-      } else {
-        // binarize bindings
-        // return bindings with pairs of themes
-        for (pair <- themes.combinations(2)
-        //if themes are not the same entity
-             if ! sameEntityID(pair)) yield {
-          val args = Map("theme" -> pair)
-          new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
-        }
+
+      val theme2s = for {
+        name <- arguments.keys.toSeq
+        if name == "theme2"
+        theme <- arguments(name)
+      } yield theme
+
+      (theme1s, theme2s) match {
+        case (t1s, t2s) if (t1s ++ t2s).size < 2 => Nil
+        case (t1s, t2s) if t1s.size == 0 || t2s.size == 0 =>
+          val mergedThemes = t1s ++ t2s
+
+          // if one theme is Ubiquitin, this is a ubiquitination event
+          if (mergedThemes.size == 2 && !sameEntityID(mergedThemes) && mergedThemes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
+            val args = Map("theme" -> mergedThemes.filter(!_.text.toLowerCase.startsWith("ubiq")))
+            Seq(new BioEventMention(
+              "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
+          }
+          else {
+            // binarize bindings
+            // return bindings with pairs of themes
+            for (pair <- mergedThemes.combinations(2)
+                 //if themes are not the same entity
+                 if !sameEntityID(pair)) yield {
+              val theme1 = pair.head
+              val theme2 = pair.last
+
+              if (theme1.text.toLowerCase.startsWith("ubiq")) {
+                val args = Map("theme" -> Seq(theme2))
+                new BioEventMention(
+                  "Ubiquitination" +: m.labels.filter(_ != "Binding"), m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+                val args = Map("theme" -> Seq(theme1))
+                new BioEventMention(
+                  "Ubiquitination" +: m.labels.filter(_ != "Binding"), m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              }
+              else {
+                val args = Map("theme" -> Seq(theme1, theme2))
+                new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+              }
+            }
+          }
+
+        case _ =>
+          for {
+            theme1 <- theme1s
+            theme2 <- theme2s
+            if !sameEntityID(Seq(theme1, theme2))
+          } yield {
+            if (theme1.text.toLowerCase.startsWith("ubiq")){
+              val args = Map("theme" -> Seq(theme2))
+              new BioEventMention(
+                "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
+            } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+              val args = Map("theme" -> Seq(theme1))
+              new BioEventMention(
+                "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
+            }
+            else {
+              val args = Map("theme" -> Seq(theme1, theme2))
+              new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+            }
+          }
       }
   }
 
@@ -130,25 +169,26 @@ class DarpaActions extends Actions {
     // should be 1 if all are the same entity
     groundings.size == 1
   }
+
+  // retrieve the appropriate modification label
+  def getModification(text: String): String = text.toLowerCase match {
+    case acet if acet contains "acetylat" => "acetylated"
+    case farne if farne contains "farnesylat" => "farnesylated"
+    case glyco if glyco contains "glycosylat" =>"glycosylated"
+    case hydrox if hydrox contains "hydroxylat" =>"hydroxylated"
+    case meth if meth contains "methylat" => "methylated"
+    case phos if phos contains "phosphorylat" => "phosphorylated"
+    case ribo if ribo contains "ribosylat" => "ribosylated"
+    case sumo if sumo contains "sumoylat" =>"sumoylated"
+    case ubiq if ubiq contains "ubiquitinat" => "ubiquitinated"
+    case _ => "UNKNOWN"
+  }
+
   /**
    * This action decomposes RelationMentions with the label Modification to the matched TB entity with the appropriate Modification
    * @return Nil (Modifications are added in-place)
    */
   def mkModification(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    // retrieve the appropriate modification label
-    def getModification(text: String): String = text.toLowerCase match {
-      case acet if acet contains "acetylat" => "acetylated"
-      case farne if farne contains "farnesylat" => "farnesylated"
-      case glyco if glyco contains "glycosylat" =>"glycosylated"
-      case hydrox if hydrox contains "hydroxylat" =>"hydroxylated"
-      case meth if meth contains "methylat" => "methylated"
-      case phos if phos contains "phosphorylat" => "phosphorylated"
-      case ribo if ribo contains "ribosylat" => "ribosylated"
-      case sumo if sumo contains "sumoylat" =>"sumoylated"
-      case ubiq if ubiq contains "ubiquitinat" => "ubiquitinated"
-      case _ => "UNKNOWN"
-    }
-
     mentions flatMap {
       case ptm: RelationMention if ptm.label == "PTM" => {
         //println("found a modification...")
@@ -225,5 +265,47 @@ class DarpaActions extends Actions {
     }
     // If it isn't a SimpleEvent, assume there is nothing more to do
     case m => Seq(m)
+  }
+
+
+  /** Converts a simple event to a physical entity.
+    *
+    * @param event An event mention
+    * @return a mention wrapped in an option
+    */
+  def convertEventToEntity(event: BioEventMention): Option[BioMention] = {
+    if (!event.matches("SimpleEvent"))
+      // we only handle simple events
+      None
+    else if (event matches "Binding") {
+      // get the themes of the binding
+      // and create a relationMention
+      val complex = new BioRelationMention(
+        Seq("Complex", "BioChemicalEntity"),
+        event.arguments,
+        event.sentence,
+        event.document,
+        event.keep,
+        event.foundBy)
+      // create a default displayLabel for the complex
+      complex.displayLabel = "[" + event.arguments("theme").map(_.text).mkString(":") + "]"
+      Some(complex)
+    } else {
+      // get the theme of the event
+      // assume only one theme
+      val entity = event.arguments("theme").head
+      // create new mention for the entity
+      val modifiedEntity = new BioTextBoundMention(
+        entity.labels,
+        entity.tokenInterval,
+        entity.sentence,
+        entity.document,
+        entity.keep,
+        entity.foundBy)
+      // add a modification based on the event trigger
+      val label = getModification(event.trigger.text)
+      modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger))
+      Some(modifiedEntity)
+    }
   }
 }

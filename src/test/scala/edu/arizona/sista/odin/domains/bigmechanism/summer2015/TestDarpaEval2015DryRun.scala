@@ -82,7 +82,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
     }
   }
 
-  // TODO: I think Dane had a method to convert this binding to a ubiquitination...
   @Test def testRules5() {
     val text = "We measured the rate of GAP-mediated GTP hydrolysis and observed that the response of Ras ligated to Ubiquitin was identical"
     val doc = reach.mkDoc(text, "testdoc")
@@ -90,7 +89,6 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
-      // TODO: appears as binding but it's ubiquitination (GUS + MARCO)
       assertTrue("binding -> ubiquitination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
       // TODO: up-regulation ( MARCO + GUS)

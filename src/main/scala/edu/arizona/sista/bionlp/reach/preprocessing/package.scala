@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory
 package object preprocessing {
 
   type Lines = Seq[Array[String]]
+  type TemplateMap = Map[String, String]
 
   val logger = LoggerFactory.getLogger(this.getClass.getSimpleName)
   val preprocessor = new BioNLPProcessor(withRuleNER = false, withCRFNER = false)
@@ -23,7 +24,12 @@ package object preprocessing {
         "tissue-type" -> Seq("Cellular_component", "BioChemicalEntity"),
         "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
         "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
-        "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"))
+        "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
+        //Entities from model
+        "model-family" -> Seq("Family", "BioChemicalEntity"),
+        "model-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
+        "model-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
+        "model-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"))
       .withDefaultValue(Seq("BioChemicalEntity"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")

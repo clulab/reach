@@ -72,17 +72,25 @@ class ReachSystem(rules: Option[Rules] = None,
     val mentions = eventEngine.extractByType[BioMention](doc, State(ms))
     // clean modified entities
     // for example, remove sites that are part of a modification feature
-    filterModifiedEntities(mentions)
+    val cleanMentions = pruneMentions(mentions)
+    handleNegations(cleanMentions)
   }
 }
 
 object ReachSystem {
 
-  // FIXME placeholder
   // this function should remove mentions that were converted
   // into modifications of other mentions
-  def filterModifiedEntities(ms: Seq[BioMention]): Seq[BioMention] =
-    ms.filter(_.label != "ModificationTrigger")
+  def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] =
+    // Make sure we don't have any "ModificationTrigger" Mentions
+    ms.filterNot(_ matches "ModificationTrigger")
+
+  // FIXME placeholder
+  def handleNegations(mentions: Seq[BioMention]): Seq[BioMention] = {
+    // do something very smart to handle negated events
+    // and then return the mentions
+    mentions
+  }
 
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,
