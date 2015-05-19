@@ -39,13 +39,13 @@ class TestFalsePositive extends FlatSpec with Matchers {
     assert(hasPositiveRegulationByEntity("MAPK", "Phosphorylation", Seq("ASPP2", "MAPK"), mentions))
   }
 
-  sentence4 should "have two bindings with correct arguments" in {
+  sentence4 should "have no bindings=" in {
     val doc = reach.mkDoc(sentence4, "testdoc")
     val mentions = reach extractFrom doc
     val participants1 = Set("Ras", "UbiquitinC77")
     val participants2 = Set("Ras", "UbiquitinG76C")
-    assert(mentions.exists(m => m.label == "Binding" && m.arguments("theme").map(_.text).toSet.diff(participants1).isEmpty))
-    assert(mentions.exists(m => m.label == "Binding" && m.arguments("theme").map(_.text).toSet.diff(participants2).isEmpty))
+    assert(!mentions.exists(m => m.label == "Binding" && m.arguments("theme").map(_.text).toSet.diff(participants1).isEmpty))
+    assert(!mentions.exists(m => m.label == "Binding" && m.arguments("theme").map(_.text).toSet.diff(participants2).isEmpty))
   }
 
 //  sentence5 should "not contain a binding event (this is a PTM)" in {
