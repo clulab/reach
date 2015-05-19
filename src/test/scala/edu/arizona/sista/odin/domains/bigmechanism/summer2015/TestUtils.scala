@@ -1,12 +1,44 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
+import edu.arizona.sista.bionlp.{ReachSystem, FriesEntry}
+import edu.arizona.sista.bionlp.display._
+import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import scala.util.Try
 
 /**
  * Utility methods for the tests in this directory
  */
-object DarpaEvalUtils {
+object TestUtils {
+  val testReach = new ReachSystem // All tests should use this system!
+  val docId = "testdoc"
+  val chunkId = "1"
+
+  def parseSentence(sentence:String, verbose:Boolean = false):Seq[BioMention] = {
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, sentence)
+    val result = Try(testReach.extractFrom(entry))
+    if(! result.isSuccess)
+      throw new RuntimeException("ERROR: parseSentence failed on sentence: " + sentence)
+    val mentions = printMentions(result, verbose)
+    mentions
+  }
+
+  def printMentions(result:Try[Seq[BioMention]], verbose:Boolean = false):Seq[BioMention] = {
+    val mentions = result.get
+    if(verbose) {
+      println("Mentions:")
+      for (m <- mentions) {
+        mentionToStrings(m).foreach(println(_))
+        println()
+      }
+    }
+    mentions
+  }
+
+  def summarizeError(sentence: String, label: String, assignedParty: String): String =
+    s"Failed ${label} test for sentence:\n\t$sentence\n\tResponsible: ${assignedParty}"
+
   def hasEventWithArguments(label: String, args: Seq[String], mentions: Seq[Mention]): Boolean = {
     for (m <- mentions) {
       if (!m.isInstanceOf[TextBoundMention]) {

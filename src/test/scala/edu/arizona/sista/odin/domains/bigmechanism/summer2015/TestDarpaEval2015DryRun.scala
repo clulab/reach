@@ -3,8 +3,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 import org.junit.Assert._
 import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
-import DarpaEvalUtils._
-import TestResources.reach
+import TestUtils._
 
 /**
  * Unit test for rules tailored for the DARPA evaluation; using the dryrun corpus
@@ -13,8 +12,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules1() {
     val text = "We next considered the effect of Ras monoubiquitination on GAP-mediated hydrolysis"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
@@ -69,8 +68,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules4() {
     val text = "The effects of monoubiquitination on Ras are not isoform-specific."
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
@@ -84,8 +83,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules5() {
     val text = "We measured the rate of GAP-mediated GTP hydrolysis and observed that the response of Ras ligated to Ubiquitin was identical"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
@@ -105,8 +104,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules6() {
     val text = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
@@ -124,8 +123,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules7() {
     val text = "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("Ras"), mentions))
@@ -146,8 +145,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules8() {
     val text = "It has recently been shown that oncogenic RAS can enhance the apoptotic function of p53 via ASPP1 and ASPP2"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("model entity (GUS)", hasEntity("RAS", mentions))
@@ -164,8 +163,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules9() {
     val text = "Mechanistically ASPP1 and ASPP2 bind RAS-GTP and potentiates RAS signalling to enhance p53 mediated apoptosis"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("model entity (GUS)", hasEntity("RAS-GTP", mentions))
@@ -184,8 +183,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules10() {
     val text = "Mechanistically ASPP1 and ASPP2 bind RAS-GTP and potentiates RAS signalling to enhance p53 mediated apoptosis"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("model entity (GUS)", hasEntity("RAS-GTP", mentions))
@@ -204,8 +203,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules11() {
     val text = "Interestingly, we observed two conserved putative MAPK phosphorylation sites in ASPP1 and ASPP2"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("model entity (GUS)", hasEntity("MAPK", mentions))
@@ -228,8 +227,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules12() {
     val text = "We thus tested whether RAS activation may regulate ASPP2 phosphorylation"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -246,8 +245,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules13() {
     val text = "MAPK1 was clearly able to phosphorylate the ASPP2 fragment in vitro"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -264,8 +263,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
   // TODO: This is failing because we're missing SAPK in "p38 SAPK"; we only get p38, but we used to get "p38 SAPK"
   @Test def testRules14() {
     val text = "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation missing site (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -281,8 +280,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules15() {
     val text = "Indicating that p38 SAPK is not an efficient kinase for ASPP2 phosphorylation."
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -296,8 +295,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules16() {
     val text = "The phosphorylated ASPP2 fragment by MAPK1 was digested by trypsin and fractioned on a high performance liquid chromatography."
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -313,8 +312,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules17() {
     val text = "Hence ASPP2 can be phosphorylated at serine 827 by MAPK1 in vitro."
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -330,8 +329,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules18() {
     val text = "Moreover, the RAS-ASPP interaction enhances the transcription function of p53 in cancer cells."
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       // TODO: Binding with 1 argument, which is a complex (MARCO)
@@ -346,8 +345,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules19() {
     val text = "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("phosphorylation (GUS)", hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions))
@@ -370,8 +369,8 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
   @Test def testRules20() {
     val text = "ASPP2 is transported from the membrane to the nucleus/cytosol"
-    val doc = reach.mkDoc(text, "testdoc")
-    val mentions = reach.extractFrom(doc)
+    val doc = testReach.mkDoc(text, "testdoc")
+    val mentions = testReach.extractFrom(doc)
 
     try {
       assertTrue("Translocation (ENRIQUE)", hasEventWithArguments("Translocation", List("ASPP2", "membrane", "cytosol"), mentions))
