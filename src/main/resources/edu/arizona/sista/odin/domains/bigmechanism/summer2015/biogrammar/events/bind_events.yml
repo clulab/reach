@@ -74,7 +74,8 @@
   priority: 4
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
-      theme:BioChemicalEntity+ = (<amod nn* >prep_of? >appos?) | (nsubj | conj_and? dobj)
+      theme1:BioChemicalEntity+ = (<amod nn* >prep_of? >appos?) | nsubj
+      theme2:BioChemicalEntity+ = conj_and? dobj
 
 - name: binding7
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -161,8 +162,8 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|recognize/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = agent nn*
-    theme2:BioChemicalEntity+ = nsubjpass nn* | dobj | <rcmod <appos?
+    theme1:BioChemicalEntity+ = agent nn* | <rcmod <appos?
+    theme2:BioChemicalEntity+ = nsubjpass nn* | dobj
 
 - name: binding_18
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -204,7 +205,8 @@
   priority: 4
   pattern: |
     trigger = [lemma=target & tag=/^N/]
-    theme:BioChemicalEntity+ = <nn* nn* | prep_of | nsubj
+    theme1:BioChemicalEntity+ = <nn* nn* | nsubj
+    theme2:BioChemicalEntity+ = prep_of
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
