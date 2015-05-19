@@ -82,7 +82,8 @@ object ReachSystem {
   // this function should remove mentions that were converted
   // into modifications of other mentions
   def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] =
-    ms.filter(_.label != "ModificationTrigger")
+    // Make sure we don't have any "ModificationTrigger" Mentions
+    ms.filterNot(_ matches "ModificationTrigger")
 
   // FIXME placeholder
   def handleNegations(mentions: Seq[BioMention]): Seq[BioMention] = {
