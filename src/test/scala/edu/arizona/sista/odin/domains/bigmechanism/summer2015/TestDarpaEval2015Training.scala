@@ -33,7 +33,8 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
     val mentions = reach.extractFrom(doc)
 
     try {
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("Raf", "PI3K", "Ras"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("Raf", "Ras"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions))
     } catch {
       case e: AssertionError =>
         header("testRules2")
@@ -154,7 +155,8 @@ class TestDarpaEval2015Training extends AssertionsForJUnit {
 
     try {
       assertTrue("ubiquitination (GUS)", hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions))
-      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("K-Ras", "Raf"), mentions))
+      assertTrue("binding (MARCO/GUS)", hasEventWithArguments("Binding", List("K-Ras", "PI3K"), mentions))
 
       assertTrue("model entity (GUS)", hasEntity("G12V-K-Ras", mentions))
     } catch {

@@ -5,194 +5,228 @@
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
 - name: binding1
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
-    theme:BioChemicalEntity+ = <rcmod conj_and* | nsubj /nn|conj_|cc/* | <prepc_by* nsubj | dobj /nn|conj_|cc/* | /prep_(to|with)/
+    theme1:BioChemicalEntity+ = <rcmod conj_and* | nsubj /nn|conj_|cc/* | <prepc_by* nsubj
+    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/* | /prep_(to|with)/
 
 - name: binding1forms
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
-    theme:BioChemicalEntity+ = nsubj /nn|conj_|cc/* | dobj /nn|conj_|cc/* | /prep_(to|with)/
+    theme1:BioChemicalEntity+ = nsubj /nn|conj_|cc/*
+    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/* | /prep_(to|with)/
 
 - name: binding2
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = binding
-    theme:BioChemicalEntity+ = <prep_by nsubj /nn|conj_|cc/* | prep_such_as
+    theme1:BioChemicalEntity+ = <prep_by nsubj /nn|conj_|cc/*
+    theme2:BioChemicalEntity* = prep_such_as
 
 - name: binding3
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
-    theme:BioChemicalEntity+ = /conj_(and|or)/* /prep_(of|to)/+ >/./*
+    theme1:BioChemicalEntity+ = /conj_(and|or)/* /prep_of/+ >/./*
+    theme2:BioChemicalEntity* = /conj_(and|or)/* /prep_to/+ >/./*
 
 - name: binding3wrong
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
-    theme:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_(of|to)/+ >/./*
+    theme1:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_of/+ >/./*
+    theme2:BioChemicalEntity* = /conj_(and|or)/* (<agent)? /prep_to/+ >/./*
 
+# TODO: Examples for this (DANE)
 - name: binding4
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = binding
-      theme:BioChemicalEntity+ = <nn <dobj (nsubj | /prep_(of|for)/)+ >/./*
+      theme1:BioChemicalEntity+ = <nn <dobj (nsubj | /prep_(of|for)/)+ >/./*
 
 - name: binding5
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = binding
-      theme:BioChemicalEntity+ = <nn (nn* >/./* | <dep)
+      theme1:BioChemicalEntity+ = <nn (nn* >/./* | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
 
 - name: binding6
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
-      theme:BioChemicalEntity+ = (<amod nn* >prep_of? >appos?) | (nsubj | conj_and? dobj)
+      theme1:BioChemicalEntity+ = (<amod nn* >prep_of? >appos?) | nsubj
+      theme2:BioChemicalEntity* = conj_and? dobj
 
-- name: binding7
-  label: [Binding, SimpleEvent, Event]
+- name: binding7a
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = [word=/binding|ligation/]
-      theme:BioChemicalEntity+ = (nn | prep_to) conj_and?
+      theme1:BioChemicalEntity+ = nn conj_and?
+      theme2:BioChemicalEntity* = prep_to conj_and?
+
+- name: binding7b
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+      trigger = [word=/binding|ligation/]
+      theme1:BioChemicalEntity* = nn conj_and?
+      theme2:BioChemicalEntity+ = prep_to conj_and?
+
+- name: binding7c
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+      trigger = [word=/binding|ligation/]
+      theme1:BioChemicalEntity+ = nn conj_and?
+      theme2:BioChemicalEntity+ = prep_to conj_and?
 
 - name: binding8
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = /interact(s|ed)?/
-      theme:BioChemicalEntity+ = nsubj | prep_with
+      theme1:BioChemicalEntity+ = nsubj
+      theme2:BioChemicalEntity* = prep_with
 
 - name: binding9
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = interaction
-      theme:BioChemicalEntity+ = nn | prep_of | <dobj >prep_with
+      theme1:BioChemicalEntity* = nn | prep_of
+      theme2:BioChemicalEntity* = <dobj >prep_with
 
 - name: binding10
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
-      theme:BioChemicalEntity+ = <vmod <prep_with?
+      theme1:BioChemicalEntity+ = <vmod <prep_with?
 
 - name: binding11
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = /cooperation|affinity|association|interaction/
-      theme:BioChemicalEntity+ = >prep_between >conj_and?
+      theme1:BioChemicalEntity+ = prep_between conj_and?
 
 - name: binding12
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = formation (?= of /complex|rings/) #dummy: prep_of [word=/complex|rings/]
-      theme:BioChemicalEntity+ = prep_of >/./*
+      theme1:BioChemicalEntity+ = prep_of >/./*
 
 - name: binding13
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = /interact(s|ed)?/
-      theme:BioChemicalEntity+ = (nsubj <conj_and* | prep_with | >conj_and <ccomp >nsubjpass) >/./*
+      theme1:BioChemicalEntity+ = (nsubj <conj_and* | >conj_and <ccomp >nsubjpass) >/./*
+      theme2:BioChemicalEntity* = prep_with >/./*
 
 - name: binding14
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
       trigger = /interactions?/
-      theme:BioChemicalEntity+ = <dobj <rcmod >dep >conj_and?
+      theme1:BioChemicalEntity+ = <dobj <rcmod >dep >conj_and?
 
 - name: binding_16
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = [word=/ligate(s|d)?/ & tag=/^V/]
-    theme:BioChemicalEntity+ = <vmod | nsubj | prep_to
+    theme1:BioChemicalEntity+ = <vmod | nsubj
+    theme2:BioChemicalEntity* = prep_to
 
 - name: binding_17
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = [lemma=/bind|recognize/ & tag=/^V/]
-    theme:BioChemicalEntity+ = agent nn* | nsubjpass nn* | dobj | <rcmod <appos?
+    theme1:BioChemicalEntity* = agent nn*
+    theme2:BioChemicalEntity+ = <rcmod <appos? | nsubjpass nn* | dobj
 
 - name: binding_18
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = binding
-    theme:BioChemicalEntity+ = <conj_and* prep dep+ (/prep_(to|with)/)?
+    theme1:BioChemicalEntity+ = <conj_and* prep dep+ (/prep_(to|with)/)?
+    theme2:BioChemicalEntity+ = <conj_and* prep dep+ (/prep_(to|with)/)?
 
 - name: binding_19
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = /binding|interacting/ partner
-    theme:BioChemicalEntity+ = <appos | prep_of
+    theme1:BioChemicalEntity+ = <appos
+    theme2:BioChemicalEntity+ = prep_of
 
 - name: binding_20
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = /(?i)binding|interaction/
-    theme:BioChemicalEntity+ = rcmod* prep_between
+    theme1:BioChemicalEntity+ = rcmod* prep_between
 
 - name: binding_21
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = oligomerization
-    theme:BioChemicalEntity+ = <prep_through nsubj
+    theme1:BioChemicalEntity+ = <prep_through nsubj
 
 - name: binding_22
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = [lemma=target & tag=/^N/]
-    theme:BioChemicalEntity+ = <nn* nn* | prep_of | nsubj
+    theme1:BioChemicalEntity+ = <nn* nn* | nsubj
+    theme2:BioChemicalEntity+ = prep_of
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
 - name: binding_token_1
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   type: token
@@ -202,15 +236,15 @@
     (@theme2:BioChemicalEntity)
 
 - name: binding_token_2
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   type: token
   pattern: |
-    (?<trigger> binding) to (@theme:BioChemicalEntity)
+    (?<trigger> binding) to (@theme2:BioChemicalEntity)
 
 - name: binding_token_3
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   type: token
@@ -221,7 +255,7 @@
 
 # Prepositional Nominalization
 - name: binding_token_4
-  label: [Binding, SimpleEvent, Event]
+  label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   type: token
@@ -231,7 +265,7 @@
 # TODO: figure out how to handle args without types (ex. "endophor")
 
 #- name: binding_coref1
-#  label: [Binding, SimpleEvent, Event]
+#  label: [Binding, SimpleEvent, Event, PossibleController]
 #  priority: 4
 #  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein binds with TopBP1."
 #  pattern: |
@@ -241,7 +275,7 @@
 #    quantifier?: nsubj [lemma=/protein|complex|family/ & !mention=/./] num
 
 #- name: binding_coref2
-#  label: [Binding, SimpleEvent, Event]
+#  label: [Binding, SimpleEvent, Event, PossibleController]
 #  priority: 4
 #  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein is bound by TopBP1."
 #  pattern: |

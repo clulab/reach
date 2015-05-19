@@ -84,33 +84,59 @@ class DarpaActions extends Actions {
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention =>
       val arguments = m.arguments
-      val themes = for {
+      val theme1s = for {
         name <- arguments.keys.toSeq
-        if name startsWith "theme"
+        if name == "theme1"
         theme <- arguments(name)
       } yield theme
-      // remove bindings with less than two themes
-      if (themes.size < 2) Nil
-      // if one theme is Ubiquitin, this is a ubiquitination event
-      // else if (themes.size == 2 && !sameEntityID(themes) && themes.exists(_.text.toLowerCase == "ubiquitin")) {
-      //   val args = Map("theme" -> themes.filter(_.text.toLowerCase != "ubiquitin"))
-      //   Seq(new BioEventMention(
-      //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
-      // }
-      // if binding has two (distinct) themes we are done
-      else if (themes.size == 2 && !sameEntityID(themes)) {
-        val args = Map("theme" -> themes)
-        Seq(new BioEventMention(
-          m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy))
-      } else {
-        // binarize bindings
-        // return bindings with pairs of themes
-        for (pair <- themes.combinations(2)
-        //if themes are not the same entity
-             if ! sameEntityID(pair)) yield {
-          val args = Map("theme" -> pair)
-          new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
-        }
+
+      val theme2s = for {
+        name <- arguments.keys.toSeq
+        if name == "theme2"
+        theme <- arguments(name)
+      } yield theme
+
+      (theme1s, theme2s) match {
+        case (t1s, t2s) if (t1s ++ t2s).size < 2 => Nil
+        case (t1s, t2s) if t1s.size == 0 || t2s.size == 0 =>
+          val mergedThemes = t1s ++ t2s
+
+          // if one theme is Ubiquitin, this is a ubiquitination event
+          // if (mergedThemes.size == 2 && !sameEntityID(themes) && mergedThemes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
+          //    val args = Map("theme" -> mergedThemes.filter(!_.text.toLowerCase.startsWith("ubiq")))
+          //   Seq(new BioEventMention(
+          //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
+          // }
+
+          // binarize bindings
+          // return bindings with pairs of themes
+          for (pair <- mergedThemes.combinations(2)
+               //if themes are not the same entity
+               if !sameEntityID(pair)) yield {
+            val args = Map("theme" -> pair)
+            new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+          }
+
+        case _ =>
+          for {
+            theme1 <- theme1s
+            theme2 <- theme2s
+            if !sameEntityID(Seq(theme1, theme2))
+          } yield {
+            // if (theme1.text.toLowerCase.startsWith("ubiq")){
+            //   val args = Map("theme" -> Seq(theme2))
+            //   new BioEventMention(
+            //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
+            // } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+            //   val args = Map("theme" -> Seq(theme1))
+            //   new BioEventMention(
+            //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
+            // }
+            // else {
+            val args = Map("theme" -> Seq(theme1, theme2))
+            new BioEventMention(m.labels, m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
+            // }
+          }
       }
   }
 
