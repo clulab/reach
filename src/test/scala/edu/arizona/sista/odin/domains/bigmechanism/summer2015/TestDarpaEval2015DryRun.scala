@@ -89,9 +89,7 @@ class TestDarpaEval2015DryRun extends AssertionsForJUnit {
 
     try {
       assertTrue("hydrolysis (DANE)", hasEventWithArguments("Hydrolysis", List("GTP"), mentions))
-      // assertTrue("binding -> ubiquitination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
-      // This will be coded as binding for consistency with cases in which Ubiquitin has a modification.
-      assertTrue("binding (DANE)", hasEventWithArguments("Binding", List("Ras", "Ubiquitin"), mentions))
+      assertTrue("binding -> ubiquitination (MARCO/GUS)", hasEventWithArguments("Ubiquitination", List("Ras"), mentions))
 
       // TODO: up-regulation ( MARCO + GUS)
       assertTrue("upregulation (MARCO/GUS)", hasPositiveRegulationByEntity("GAP", "Hydrolysis", List("GTP"), mentions))
