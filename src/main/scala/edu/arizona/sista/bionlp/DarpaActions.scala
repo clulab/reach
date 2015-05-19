@@ -169,25 +169,26 @@ class DarpaActions extends Actions {
     // should be 1 if all are the same entity
     groundings.size == 1
   }
+
+  // retrieve the appropriate modification label
+  def getModification(text: String): String = text.toLowerCase match {
+    case acet if acet contains "acetylat" => "acetylated"
+    case farne if farne contains "farnesylat" => "farnesylated"
+    case glyco if glyco contains "glycosylat" =>"glycosylated"
+    case hydrox if hydrox contains "hydroxylat" =>"hydroxylated"
+    case meth if meth contains "methylat" => "methylated"
+    case phos if phos contains "phosphorylat" => "phosphorylated"
+    case ribo if ribo contains "ribosylat" => "ribosylated"
+    case sumo if sumo contains "sumoylat" =>"sumoylated"
+    case ubiq if ubiq contains "ubiquitinat" => "ubiquitinated"
+    case _ => "UNKNOWN"
+  }
+
   /**
    * This action decomposes RelationMentions with the label Modification to the matched TB entity with the appropriate Modification
    * @return Nil (Modifications are added in-place)
    */
   def mkModification(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    // retrieve the appropriate modification label
-    def getModification(text: String): String = text.toLowerCase match {
-      case acet if acet contains "acetylat" => "acetylated"
-      case farne if farne contains "farnesylat" => "farnesylated"
-      case glyco if glyco contains "glycosylat" =>"glycosylated"
-      case hydrox if hydrox contains "hydroxylat" =>"hydroxylated"
-      case meth if meth contains "methylat" => "methylated"
-      case phos if phos contains "phosphorylat" => "phosphorylated"
-      case ribo if ribo contains "ribosylat" => "ribosylated"
-      case sumo if sumo contains "sumoylat" =>"sumoylated"
-      case ubiq if ubiq contains "ubiquitinat" => "ubiquitinated"
-      case _ => "UNKNOWN"
-    }
-
     mentions flatMap {
       case ptm: RelationMention if ptm.label == "PTM" => {
         //println("found a modification...")
@@ -264,5 +265,47 @@ class DarpaActions extends Actions {
     }
     // If it isn't a SimpleEvent, assume there is nothing more to do
     case m => Seq(m)
+  }
+
+
+  /** Converts a simple event to a physical entity.
+    *
+    * @param event An event mention
+    * @return a mention wrapped in an option
+    */
+  def convertEventToEntity(event: BioEventMention): Option[BioMention] = {
+    if (!event.matches("SimpleEvent"))
+      // we only handle simple events
+      None
+    else if (event matches "Binding") {
+      // get the themes of the binding
+      // and create a relationMention
+      val complex = new BioRelationMention(
+        Seq("Complex", "BioChemicalEntity"),
+        event.arguments,
+        event.sentence,
+        event.document,
+        event.keep,
+        event.foundBy)
+      // create a default displayLabel for the complex
+      complex.displayLabel = "[" + event.arguments("theme").map(_.text).mkString(":") + "]"
+      Some(complex)
+    } else {
+      // get the theme of the event
+      // assume only one theme
+      val entity = event.arguments("theme").head
+      // create new mention for the entity
+      val modifiedEntity = new BioTextBoundMention(
+        entity.labels,
+        entity.tokenInterval,
+        entity.sentence,
+        entity.document,
+        entity.keep,
+        entity.foundBy)
+      // add a modification based on the event trigger
+      val label = getModification(event.trigger.text)
+      modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger))
+      Some(modifiedEntity)
+    }
   }
 }
