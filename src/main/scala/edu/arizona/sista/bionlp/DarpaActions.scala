@@ -92,11 +92,11 @@ class DarpaActions extends Actions {
       // remove bindings with less than two themes
       if (themes.size < 2) Nil
       // if one theme is Ubiquitin, this is a ubiquitination event
-      else if (themes.size == 2 && !sameEntityID(themes) && themes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
-        val args = Map("theme" -> themes.filter(!_.text.toLowerCase.startsWith("ubiq")))
-        Seq(new BioEventMention(
-          "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
-      }
+      // else if (themes.size == 2 && !sameEntityID(themes) && themes.exists(_.text.toLowerCase == "ubiquitin")) {
+      //   val args = Map("theme" -> themes.filter(_.text.toLowerCase != "ubiquitin"))
+      //   Seq(new BioEventMention(
+      //     "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
+      // }
       // if binding has two (distinct) themes we are done
       else if (themes.size == 2 && !sameEntityID(themes)) {
         val args = Map("theme" -> themes)
