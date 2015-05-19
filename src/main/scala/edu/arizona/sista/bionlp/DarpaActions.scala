@@ -217,7 +217,7 @@ class DarpaActions extends Actions {
       // Check the complete span for any sites
       // FIXME this is due to an odin bug
       state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Site") foreach { eSite =>
-        println(s"\tEventSite Modification detected: site is ${eSite.text} for ${bioMention.text}")
+        //println(s"\tEventSite Modification detected: site is ${eSite.text} for ${bioMention.text}")
         bioMention.modifications += EventSite(site = eSite)
       }
     }
