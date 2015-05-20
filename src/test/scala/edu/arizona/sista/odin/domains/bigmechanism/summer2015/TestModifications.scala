@@ -1,13 +1,12 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import org.scalatest._
-import TestResources._
-import DarpaEvalUtils._
+import TestUtils._
 
 /**
  * Unit tests to ensure PTM rules are matching correctly
  */
-class TestPTMrules extends FlatSpec with Matchers {
+class TestModifications extends FlatSpec with Matchers {
   val docId = "testdoc"
   val chunkId = "1"
 
@@ -76,8 +75,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   val sumoVBNIntercedingWithSite = "Sumoylated Ras proteins at Ser16 binds AKT and ASPP2."
 
   ubiqJJ should "contain a ubiq PTM" in {
-    val doc = reach.mkDoc(ubiqJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(ubiqJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -85,8 +84,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
   ubiqVBN should "contain a ubiq PTM" in {
-    val doc = reach.mkDoc(ubiqVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(ubiqVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -94,8 +93,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
   ubiqJJWithSite should "contain a ubiq PTM with a site" in {
-    val doc = reach.mkDoc(ubiqJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(ubiqJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -103,8 +102,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
   ubiqJJIntercedingWithSite should "contain a ubiq PTM with a site" in {
-    val doc = reach.mkDoc(ubiqJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(ubiqJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -112,8 +111,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
   ubiqVBNWithSite should "contain a ubiq PTM with a site" in {
-    val doc = reach.mkDoc(ubiqVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(ubiqVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -121,8 +120,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
   ubiqVBNIntercedingWithSite should "contain a ubiq PTM with a site" in {
-    val doc = reach.mkDoc(ubiqVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(ubiqVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -131,8 +130,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   phosJJ should "contain a phos PTM" in {
-    val doc = reach.mkDoc(phosJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(phosJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -140,8 +139,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "phosphorylated" should be (true)
   }
   phosVBN should "contain a phos PTM" in {
-    val doc = reach.mkDoc(phosVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(phosVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -149,8 +148,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "phosphorylated" should be (true)
   }
   phosJJWithSite should "contain a phos PTM with a site" in {
-    val doc = reach.mkDoc(phosJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(phosJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -158,8 +157,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "phosphorylated" should be (true)
   }
   phosJJIntercedingWithSite should "contain a phos PTM with a site" in {
-    val doc = reach.mkDoc(phosJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(phosJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -167,8 +166,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "phosphorylated" should be (true)
   }
   phosVBNWithSite should "contain a phos PTM with a site" in {
-    val doc = reach.mkDoc(phosVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(phosVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -176,8 +175,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "phosphorylated" should be (true)
   }
   phosVBNIntercedingWithSite should "contain a phos PTM with a site" in {
-    val doc = reach.mkDoc(phosVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(phosVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -186,8 +185,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   farneJJ should "contain a farne PTM" in {
-    val doc = reach.mkDoc(farneJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(farneJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -195,8 +194,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "farnesylated" should be (true)
   }
   farneVBN should "contain a farne PTM" in {
-    val doc = reach.mkDoc(farneVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(farneVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -204,8 +203,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "farnesylated" should be (true)
   }
   farneJJWithSite should "contain a farne PTM with a site" in {
-    val doc = reach.mkDoc(farneJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(farneJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -213,8 +212,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "farnesylated" should be (true)
   }
   farneJJIntercedingWithSite should "contain a farne PTM with a site" in {
-    val doc = reach.mkDoc(farneJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(farneJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -222,8 +221,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "farnesylated" should be (true)
   }
   farneVBNWithSite should "contain a farne PTM with a site" in {
-    val doc = reach.mkDoc(farneVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(farneVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -231,8 +230,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "farnesylated" should be (true)
   }
   farneVBNIntercedingWithSite should "contain a farne PTM with a site" in {
-    val doc = reach.mkDoc(farneVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(farneVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -241,8 +240,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   riboJJ should "contain a ribo PTM" in {
-    val doc = reach.mkDoc(riboJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(riboJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -250,8 +249,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ribosylated" should be (true)
   }
   riboVBN should "contain a ribo PTM" in {
-    val doc = reach.mkDoc(riboVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(riboVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -259,8 +258,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ribosylated" should be (true)
   }
   riboJJWithSite should "contain a ribo PTM with a site" in {
-    val doc = reach.mkDoc(riboJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(riboJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -268,8 +267,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ribosylated" should be (true)
   }
   riboJJIntercedingWithSite should "contain a ribo PTM with a site" in {
-    val doc = reach.mkDoc(riboJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(riboJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -277,8 +276,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ribosylated" should be (true)
   }
   riboVBNWithSite should "contain a ribo PTM with a site" in {
-    val doc = reach.mkDoc(riboVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(riboVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -286,8 +285,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "ribosylated" should be (true)
   }
   riboVBNIntercedingWithSite should "contain a ribo PTM with a site" in {
-    val doc = reach.mkDoc(riboVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(riboVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -296,8 +295,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   hydroxJJ should "contain a hydrox PTM" in {
-    val doc = reach.mkDoc(hydroxJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(hydroxJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -305,8 +304,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "hydroxylated" should be (true)
   }
   hydroxVBN should "contain a hydrox PTM" in {
-    val doc = reach.mkDoc(hydroxVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(hydroxVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -314,8 +313,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "hydroxylated" should be (true)
   }
   hydroxJJWithSite should "contain a hydrox PTM with a site" in {
-    val doc = reach.mkDoc(hydroxJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(hydroxJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -323,8 +322,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "hydroxylated" should be (true)
   }
   hydroxJJIntercedingWithSite should "contain a hydrox PTM with a site" in {
-    val doc = reach.mkDoc(hydroxJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(hydroxJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -332,8 +331,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "hydroxylated" should be (true)
   }
   hydroxVBNWithSite should "contain a hydrox PTM with a site" in {
-    val doc = reach.mkDoc(hydroxVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(hydroxVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -341,8 +340,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "hydroxylated" should be (true)
   }
   hydroxVBNIntercedingWithSite should "contain a hydrox PTM with a site" in {
-    val doc = reach.mkDoc(hydroxVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(hydroxVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -351,8 +350,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   aceJJ should "contain a ace PTM" in {
-    val doc = reach.mkDoc(aceJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(aceJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -360,8 +359,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "acetylated" should be (true)
   }
   aceVBN should "contain a ace PTM" in {
-    val doc = reach.mkDoc(aceVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(aceVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -369,8 +368,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "acetylated" should be (true)
   }
   aceJJWithSite should "contain a ace PTM with a site" in {
-    val doc = reach.mkDoc(aceJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(aceJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -378,8 +377,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "acetylated" should be (true)
   }
   aceJJIntercedingWithSite should "contain a ace PTM with a site" in {
-    val doc = reach.mkDoc(aceJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(aceJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -387,8 +386,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "acetylated" should be (true)
   }
   aceVBNWithSite should "contain a ace PTM with a site" in {
-    val doc = reach.mkDoc(aceVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(aceVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -396,8 +395,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "acetylated" should be (true)
   }
   aceVBNIntercedingWithSite should "contain a ace PTM with a site" in {
-    val doc = reach.mkDoc(aceVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(aceVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -406,8 +405,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   glycoJJ should "contain a glyco PTM" in {
-    val doc = reach.mkDoc(glycoJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(glycoJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -415,8 +414,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "glycosylated" should be (true)
   }
   glycoVBN should "contain a glyco PTM" in {
-    val doc = reach.mkDoc(glycoVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(glycoVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -424,8 +423,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "glycosylated" should be (true)
   }
   glycoJJWithSite should "contain a glyco PTM with a site" in {
-    val doc = reach.mkDoc(glycoJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(glycoJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -433,8 +432,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "glycosylated" should be (true)
   }
   glycoJJIntercedingWithSite should "contain a glyco PTM with a site" in {
-    val doc = reach.mkDoc(glycoJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(glycoJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -442,8 +441,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "glycosylated" should be (true)
   }
   glycoVBNWithSite should "contain a glyco PTM with a site" in {
-    val doc = reach.mkDoc(glycoVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(glycoVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -451,8 +450,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "glycosylated" should be (true)
   }
   glycoVBNIntercedingWithSite should "contain a glyco PTM with a site" in {
-    val doc = reach.mkDoc(glycoVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(glycoVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -461,8 +460,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   methJJ should "contain a meth PTM" in {
-    val doc = reach.mkDoc(methJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(methJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -470,8 +469,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "methylated" should be (true)
   }
   methVBN should "contain a meth PTM" in {
-    val doc = reach.mkDoc(methVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(methVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -479,8 +478,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "methylated" should be (true)
   }
   methJJWithSite should "contain a meth PTM with a site" in {
-    val doc = reach.mkDoc(methJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(methJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -488,8 +487,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "methylated" should be (true)
   }
   methJJIntercedingWithSite should "contain a meth PTM with a site" in {
-    val doc = reach.mkDoc(methJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(methJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -497,8 +496,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "methylated" should be (true)
   }
   methVBNWithSite should "contain a meth PTM with a site" in {
-    val doc = reach.mkDoc(methVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(methVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -506,8 +505,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "methylated" should be (true)
   }
   methVBNIntercedingWithSite should "contain a meth PTM with a site" in {
-    val doc = reach.mkDoc(methVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(methVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -516,8 +515,8 @@ class TestPTMrules extends FlatSpec with Matchers {
   }
 
   sumoJJ should "contain a sumo PTM" in {
-    val doc = reach.mkDoc(sumoJJ, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(sumoJJ, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -525,8 +524,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "sumoylated" should be (true)
   }
   sumoVBN should "contain a sumo PTM" in {
-    val doc = reach.mkDoc(sumoVBN, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(sumoVBN, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -534,8 +533,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "sumoylated" should be (true)
   }
   sumoJJWithSite should "contain a sumo PTM with a site" in {
-    val doc = reach.mkDoc(sumoJJWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(sumoJJWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -543,8 +542,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "sumoylated" should be (true)
   }
   sumoJJIntercedingWithSite should "contain a sumo PTM with a site" in {
-    val doc = reach.mkDoc(sumoJJIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(sumoJJIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -552,8 +551,8 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "sumoylated" should be (true)
   }
   sumoVBNWithSite should "contain a sumo PTM with a site" in {
-    val doc = reach.mkDoc(sumoVBNWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(sumoVBNWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
@@ -561,13 +560,91 @@ class TestPTMrules extends FlatSpec with Matchers {
     ptm.label == "sumoylated" should be (true)
   }
   sumoVBNIntercedingWithSite should "contain a sumo PTM with a site" in {
-    val doc = reach.mkDoc(sumoVBNIntercedingWithSite, docId, chunkId)
-    val mentions = reach.extractEntitiesFrom(doc)
+    val doc = testReach.mkDoc(sumoVBNIntercedingWithSite, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
     val ras = mentions.find(_.text contains "Ras")
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
     ptm.label == "sumoylated" should be (true)
   }
+
+  val sent1 = "The phosphorylated AKT binds to ASPP2."
+  val sent1b = "The ubiquitinated AKT binds to ASPP2."
+  "ReachSystem" should "not find a PTMs as events" in {
+    // TODO: Both fail! (DANE + MARCO)
+    var mentions = parseSentence(sent1)
+    val p = mentions.find(_.label == "Phosphorylation") // Dane: this is a PTM not an event!
+    p.isDefined should be (false) // Dane
+    var b = mentions.find(_.label == "Binding") // Marco: why does this fail??
+    b.isDefined should be (true) // Marco
+
+    mentions = parseSentence(sent1b)
+    val u = mentions.find(_.label == "Ubiquitination")
+    u.isDefined should be (false)
+    b = mentions.find(_.label == "Binding")
+    b.isDefined should be (true)
+  }
+
+  val sent2 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
+  sent2 should "contain \"site of protein\" patterns" in {
+    // TODO: this fails because we do not capture "site of protein" (GUS)
+    // Also: if the entity modification has no type, it should be propagated up in the event using the entity
+    val mentions = parseSentence(sent2)
+
+    val f = mentions.filter(_.label == "Family")
+    f should have size (1)
+    val p = mentions.filter(_.label == "Gene_or_gene_product")
+    p should have size (1)
+
+    val b = mentions.filter(_.label == "Binding")
+    b should have size (1)
+  }
+
+  val sent3 = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
+  val sent3b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
+  it should "extract multiple different ubiquitinations" in {
+    var mentions = parseSentence(sent3)
+    mentions.filter(_.label == "Ubiquitination") should have size (2)
+
+    mentions = parseSentence(sent3b)
+    mentions.filter(_.label == "Ubiquitination") should have size (3)
+  }
+
+  val sent4 = "Phosphorylated Mek binds to GTP."
+  sent4 should "not contain a phosphorylation event (this is a PTM)" in {
+    val doc = testReach.mkDoc(sent4, "testdoc")
+    val mentions = testReach extractFrom doc
+    mentions.exists(_.label == "Phosphorylation") should be (false)
+  }
+
+  val sent5 = "Ligation of ASPP2 to hydroxylated RAS-GTP promotes apoptosis."
+  sent5 should "not contain a hydroxylation event (this is a PTM)" in {
+    val doc = testReach.mkDoc(sent5, "testdoc")
+    val mentions = testReach extractFrom doc
+    mentions.exists(_.label == "Hydroxylation") should be (false)
+  }
+
+  val sent6 = "Optineurin regulates NF-kappaB activation by mediating interaction of CYLD with ubiquitinated RIP."
+  sent6 should "not contain a ubiquitination event (this is a PTM)" in {
+    val doc = testReach.mkDoc(sent6, "testdoc")
+    val mentions = testReach extractFrom doc
+    mentions.exists(_.label == "Ubiquitination") should be (false)
+  }
+
+  val sent7 = "The ubiquitinated Ras protein phosphorylates AKT."
+  // the example text says that Ras is ubiquitinated
+  // that should be reflected as a PTM in ras.modifications
+  sent7 should "contain a Ras with a PTM" in {
+    val doc = testReach.mkDoc(sent7, docId, chunkId)
+    val mentions = testReach.extractEntitiesFrom(doc)
+    val ras = mentions.find(_.text contains "Ras")
+    ras.isDefined should be (true)
+    // there is only one PTM in the example text
+    ras.get.modifications.size == 1 should be (true)
+    val ptm = ras.get.modifications.head
+    ptm.label == "ubiquitinated" should be (true)
+  }
+
 
 }

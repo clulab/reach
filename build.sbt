@@ -13,8 +13,6 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "junit" % "junit" % "4.12" % "test",
-  "com.novocode" % "junit-interface" % "0.11" % "test",
   "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT",
   "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
