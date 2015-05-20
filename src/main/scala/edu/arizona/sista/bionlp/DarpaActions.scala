@@ -343,18 +343,16 @@ class DarpaActions extends Actions {
           //val trigger = event.asInstanceOf[BioEventMention].trigger
           val dependencies = event.sentenceObj.dependencies
 
-          val incoming = dependencies match {
+          val outgoing = dependencies match {
             case Some(deps) => deps.outgoingEdges
             case None => Array.empty
           }
 
           for{
             tok <- event.tokenInterval.toSeq
-            (ix, label) <- incoming(tok)
-
-          }{
-            println(s"$ix, $label")
-            if (label == "neg"){
+            (ix, label) <- outgoing(tok)
+            if label == "neg"
+          }
             event.modifications += Negation(new BioTextBoundMention(
               Seq("Negation_trigger"),
               Interval(ix),
@@ -362,11 +360,10 @@ class DarpaActions extends Actions {
               document = event.document,
               keep = event.keep,
               foundBy = event.foundBy
-            ))}
-          }
+            ))
 
-          event.modifications.foreach( x => println(s"Found by edges: $x"))
 
+          event.modifications.foreach { m => println(s"Found by edges: $m")}
           val negationWords = Set("doesn't", "not", "n't")
 
           // Now look for negation tokens within the words of the event
@@ -382,8 +379,6 @@ class DarpaActions extends Actions {
               keep = event.keep,
               foundBy = event.foundBy
             ))
-
-
     }
 
     mentions
