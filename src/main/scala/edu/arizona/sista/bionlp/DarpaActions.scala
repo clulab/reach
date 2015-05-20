@@ -227,7 +227,7 @@ class DarpaActions extends Actions {
   }
 
   /**
-   * Global action for events.  Propagate any Sites in the Modifications of a a SimpleEvent's theme to the event arguments
+   * Propagate any Sites in the Modifications of a a SimpleEvent's theme to the event arguments
    */
   def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case simple: EventMention if simple.labels contains "SimpleEvent" => {
