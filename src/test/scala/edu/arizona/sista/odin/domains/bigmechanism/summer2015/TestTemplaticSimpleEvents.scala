@@ -54,7 +54,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
 
   // This test has been ported from TestDarpaEval2015Training
   val sent6 = "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
-  sent6 should "contain three phosphorylations" in {
+  sent6 should "contain 3 phosphorylations" in {
     val text = sent6
     val doc = testReach.mkDoc(text, "testdoc")
     val phosphorylations = testReach.extractFrom(doc).filter(_.label == "Phosphorylation")
