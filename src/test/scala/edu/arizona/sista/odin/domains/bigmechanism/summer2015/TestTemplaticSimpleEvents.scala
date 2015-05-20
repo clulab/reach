@@ -364,5 +364,39 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
   }
 
+  val sent17 = "Its many abnormal phenotypes can be rescued via Pde2, which does not hydrolyze Ras-GDP."
+  sent17 should "contain a negated regulated hydrolysis" in {
+    val mentions = parseSentence(sent17)
+    val h = mentions.filter(_.label == "Hydrolysis")
+    h should have size 1
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Pde2", "Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
 
+  val sent18 = "Ras does not phosphorylate ASPP2."
+  sent18 should "contain a negated regulated phosphorylation" in {
+    val mentions = parseSentence(sent18)
+    val p = mentions.filter(_.label == "Phosphorylation")
+    p should have size 1
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent19 = "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not hydroxylate ASPP2."
+  sent19 should "contain a negated regulated hydroxylation" in {
+    val mentions = parseSentence(sent19)
+    val h = mentions.filter(_.label == "Hydroxylation")
+    h should have size 1
+    hasEventWithArguments("Hydroxylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent19 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
+  sent19 should "contain a negated regulated ubiquitination" in {
+    val mentions = parseSentence(sent19)
+    val u = mentions.filter(_.label == "Ubiquitination")
+    u should have size 1
+    hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
+  }
 }
