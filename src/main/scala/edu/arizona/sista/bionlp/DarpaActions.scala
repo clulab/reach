@@ -12,19 +12,22 @@ class DarpaActions extends Actions {
       // Do we have a regulation?
       if (m.arguments.keySet contains "cause") {
         // FIXME There could be more than one cause...
-        val cause:Seq[Mention] = m.arguments("cause")
+        val cause: Seq[Mention] = m.arguments("cause")
         val evArgs = m.arguments - "cause"
         val ev = new BioEventMention(
           m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy)
         // make sure the regulation is valid
         val controlledArgs:Set[Mention] = evArgs.values.flatten.toSet
-          cause match {
+        cause match {
           // controller of an event should not be an arg in the controlled
           case reg if cause.forall(c => !controlledArgs.contains(c)) => {
             val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
             val reg = new BioRelationMention(
               Seq("Positive_regulation", "ComplexEvent", "Event"),
               regArgs, m.sentence, m.document, m.keep, m.foundBy)
+            val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
+            reg.modifications = negMods
+            ev.modifications = otherMods
             Seq(reg, ev)
           }
           case _ => Nil
