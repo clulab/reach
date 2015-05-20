@@ -391,9 +391,9 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent19 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
-  sent19 should "contain a negated regulated ubiquitination" in {
-    val mentions = parseSentence(sent19)
+  val sent20 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
+  sent20 should "contain a negated regulated ubiquitination" in {
+    val mentions = parseSentence(sent20)
     val u = mentions.filter(_.label == "Ubiquitination")
     u should have size 1
     hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
