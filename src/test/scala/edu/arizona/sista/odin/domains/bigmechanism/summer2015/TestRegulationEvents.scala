@@ -84,4 +84,28 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent9)
     hasPositiveRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions) should be (true)
   }
+
+  val sent10 = "ASPP1 fails to upregulate the phosphorylation of ASPP2."
+  sent10 should "contains 1 regulation and 1 phosphorylation event" in {
+    val mentions = parseSentence(sent10)
+    // this matches over negative verbal triggers such as "fails"
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent11 = "ASPP1 fails to downregulate the phosphorylation of ASPP2."
+  sent11 should "contains 1 downregulation and 1 phosphorylation event" in {
+    val mentions = parseSentence(sent11)
+    // this matches over negative verbal triggers such as "fails"
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent12 = "ASPP1 downregulates the phosphorylation of ASPP2."
+  sent12 should "contains 1 downregulation and 1 phosphorylation event" in {
+    val mentions = parseSentence(sent12)
+    // this matches over negative verbal triggers such as "fails"
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
 }

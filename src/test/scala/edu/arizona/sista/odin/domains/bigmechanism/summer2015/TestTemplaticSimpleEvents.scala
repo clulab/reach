@@ -336,40 +336,67 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras", "Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent15 = "Its many abnormal phenotypes can be rescued via Pde2, which does not hydrolyze Ras-GDP."
-  sent15 should "contain a negated regulated hydrolysis" in {
+  val sent15 = "ASPP2 phosphorylates p53 at serine 125 and serine 126."
+  sent15 should "contains 2 phosphorylation and 2 regulation events" in {
     val mentions = parseSentence(sent15)
+
+    // TODO: this mostly passes, but we get 3 phosphorylations (one wo/ site)
+    val p = mentions.filter(_.label == "Phosphorylation")
+    p should have size (2)
+    val r = mentions.filter(_.label == "Positive_regulation")
+    r should have size (2)
+
+    hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
+  }
+
+  val sent16 = "ASPP2 phosphorylates p53 at serine 125, 126, and 127."
+  sent16 should "contains 3 phosphorylation and 3 regulation events" in {
+    val mentions = parseSentence(sent15)
+
+    // TODO: this fails. Is this the Odin token bug? Also, we get an extra phospho wo/ site
+    val p = mentions.filter(_.label == "Phosphorylation")
+    p should have size (3)
+    val r = mentions.filter(_.label == "Positive_regulation")
+    r should have size (3)
+
+    hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
+  }
+
+  val sent17 = "Its many abnormal phenotypes can be rescued via Pde2, which does not hydrolyze Ras-GDP."
+  sent17 should "contain a negated regulated hydrolysis" in {
+    val mentions = parseSentence(sent17)
     val h = mentions.filter(_.label == "Hydrolysis")
     h should have size 1
     hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
     hasPositiveRegulationByEntity("Pde2", "Hydrolysis", List("Ras-GDP"), mentions) should be (true)
   }
 
-  val sent16 = "Ras does not phosphorylate ASPP2."
-  sent16 should "contain a negated regulated phosphorylation" in {
-    val mentions = parseSentence(sent16)
+  val sent18 = "Ras does not phosphorylate ASPP2."
+  sent18 should "contain a negated regulated phosphorylation" in {
+    val mentions = parseSentence(sent18)
     val p = mentions.filter(_.label == "Phosphorylation")
     p should have size 1
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent17 = "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not hydroxylate ASPP2."
-  sent17 should "contain a negated regulated hydroxylation" in {
-    val mentions = parseSentence(sent17)
+  val sent19 = "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not hydroxylate ASPP2."
+  sent19 should "contain a negated regulated hydroxylation" in {
+    val mentions = parseSentence(sent19)
     val h = mentions.filter(_.label == "Hydroxylation")
     h should have size 1
     hasEventWithArguments("Hydroxylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent18 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
-  sent18 should "contain a negated regulated ubiquitination" in {
-    val mentions = parseSentence(sent18)
+  val sent20 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
+  sent20 should "contain a negated regulated ubiquitination" in {
+    val mentions = parseSentence(sent20)
     val u = mentions.filter(_.label == "Ubiquitination")
     u should have size 1
     hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
   }
-
 }
