@@ -6,6 +6,18 @@ scalaVersion := "2.11.5"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
+// fork jvm to separate process
+fork := true
+
+// options for forked jvm
+javaOptions += "-Xmx6G"
+
+// forward sbt's stdin to forked process
+connectInput in run := true
+
+// don't show output prefix
+outputStrategy := Some(StdoutOutput)
+
 resolvers ++= Seq(
   "BioPAX Releases" at "http://biopax.sourceforge.net/m2repo/releases",
   "BioPAX Snapshots" at "http://biopax.sourceforge.net/m2repo/snapshots"
