@@ -30,4 +30,31 @@ class TestTranslocationEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Translocation", List("ASPP2", "membrane", "cytosol"), mentions) should be (true)
     hasEventWithArguments("Translocation", List("ASPP2", "membrane", "nucleus"), mentions) should be (true)
   }
+
+  "testTranslocation1" should "find 1 translocation event" in {
+    val mentions = parseSentence("Phosphorylation leads the plasma membrane to release p53 to the cytosol.")
+    hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions) should be (true)
+  }
+
+
+  "testTranslocation2" should "find 1 translocation event" in {
+    val mentions = parseSentence("Recruitment of p53 from the cytosol to the plasma membrane increases with phosphorylation.")
+    hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions) should be (true)
+  }
+
+  "testTranslocation3" should "find 1 translocation event" in {
+    val mentions = parseSentence("With increased phosphorylation, p53 is exported from the plasma membrane to the cytosol.")
+    hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions) should be (true)
+  }
+
+  "testTranslocation4" should "find 1 translocation event" in {
+    val mentions = parseSentence("ASPP2, a protein which is Translocationed from the membrane to the nucleus, is subsequently phosphorylated.")
+    hasEventWithArguments("Translocation", List("ASPP2", "membrane", "nucleus"), mentions) should be (true)
+  }
+
+  "testTranslocation5" should "find 1 translocation event" in {
+    val mentions = parseSentence("ASPP2, a protein which translocates Pde2 from the membrane to the nucleus, is subsequently phosphorylated.")
+    hasEventWithArguments("Translocation", List("Pde2", "membrane", "nucleus"), mentions) should be (true)
+  }
+
 }

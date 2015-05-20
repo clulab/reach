@@ -190,4 +190,58 @@ class TestBindingEvents extends FlatSpec with Matchers {
     b should have size (1)
     // FIXME how should RBD be handled?  As a binding Site?
   }
+
+  "testBindingDecl1" should "find 2 binding events" in {
+    val mentions = parseSentence("Mechanistically, ASPP1 and ASPP2 bind RAS-GTP.")
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
+
+  "testBindingDecl2" should "find 2 binding events" in {
+    val mentions = parseSentence("Mechanistically, ASPP1 and ASPP2 bind with RAS-GTP.")
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
+
+  "testBindingPass1" should "find 2 binding events" in {
+    val mentions = parseSentence("Mechanistically, ASPP1 and ASPP2 are bound by RAS-GTP.")
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
+
+  "testBindingPrepNom1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated binding of p53 to K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingPrepNom2" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated binding of p53 and K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingPrepNom3" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated binding of p53 with K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingSubjNom1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated p53 binding to K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingObjNom1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated K-Ras binding by p53.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingSubjRel1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated phosphorylation of K-Ras, a protein that subsequently binds p53.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingObjRel1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated phosphorylation of K-Ras, a protein that is subsequently bound by p53.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
 }

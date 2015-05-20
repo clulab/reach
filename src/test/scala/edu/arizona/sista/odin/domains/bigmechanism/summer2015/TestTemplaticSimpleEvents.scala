@@ -129,4 +129,98 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent14b)
     mentions.filter(_.label == "Ubiquitination") should have size (3)
   }
+
+  "testHydrolysisPass1" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("Ras-GDP is hydrolyzed by 26S proteasome without ubiquitination.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
+
+  "testHydrolysisSubjNom1" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("MEK hydrolysis of Ras-GDP increased.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
+
+  "testHydrolysisObjNom1" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("Ras-GDP hydrolysis by MEK increased.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
+
+  "testHydrolysisSubjectRel1" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("Its many abnormal phenotypes can be rescued via Pde2, which specifically hydrolyzes Ras-GDP.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
+
+  "testHydrolysisSubjectRel2" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("Pde2, which has been found to hydrolyze Ras-GDP, activates MEK.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
+
+  "testHydrolysisSubjectRelApposition1" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("Its many abnormal phenotypes can be rescued via overexpressing Pde2, a phosphodiesterase that specifically hydrolyzes Ras-GDP.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
+  }
+
+  "testHydrolysisSubjectRelApposition2" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("A main rate-controlling step in RAS is renin, an enzyme that hydrolyzes Ras-GTP.")
+    hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions) should be (true)
+  }
+
+  "testHydrolysisObjectRel1" should "find 1 hydrolysis event" in {
+    val mentions = parseSentence("We measured transcription activation in the presence of MEK, which is hydrolyzed by CRP.")
+    hasEventWithArguments("Hydrolysis", List("MEK"), mentions) should be (true)
+  }
+
+  "testPhosphorylationDecl1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("Ras is phosphorylating ASPP2.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationPass1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("ASPP2 is phosphorylated by Ras.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationSubjNom1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("Ras phosphorylation of ASPP2 increased.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationObjNom1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("ASPP2 phosphorylation by Ras increased.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationSubjectRel1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("Its many abnormal phenotypes can be rescued via Ras, which specifically phosphorylates ASPP2.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationSubjectRel2" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("Ras, which has been found to phosphorylate ASPP2, activates MEK.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationSubjectRelApposition1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that specifically phosphorylates ASPP2.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationSubjectRelApposition2" should "find 1 phosphorylation event" in {
+    val mentions = parseSentence("A main rate-controlling step in AAAA is renin, an enzyme that phosphorylates ASPP2 to generate XXXX")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  "testPhosphorylationObjectRel1" should "find 1 phosphorylation event and 1 regulation event" in {
+    val mentions = parseSentence("We measured transcription activation in the presence of ASPP2, which is phosphorylated by Ras.")
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
 }
