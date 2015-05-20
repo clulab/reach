@@ -7,7 +7,7 @@
 
 
 - name: Negative_regulation_syntax_1_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -17,7 +17,7 @@
 
 
 - name: Negative_regulation_syntax_2_verb
-  priority: 4
+  priority: 5
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
@@ -26,7 +26,7 @@
 
 
 - name: Negative_regulation_syntax_3_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -36,7 +36,7 @@
 
 
 - name: Negative_regulation_syntax_4_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -46,7 +46,7 @@
 
 
 - name: Negative_regulation_syntax_5_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -56,7 +56,7 @@
 
 
 - name: Negative_regulation_syntax_6_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -66,7 +66,7 @@
 
 
 - name: Negative_regulation_syntax_1_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -76,7 +76,7 @@
 
 
 - name: Negative_regulation_syntax_2_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -86,7 +86,7 @@
 
 
 - name: Negative_regulation_syntax_3_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -96,7 +96,7 @@
 
 
 - name: Negative_regulation_syntax_4_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -105,7 +105,7 @@
 
 
 - name: Negative_regulation_syntax_5_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -115,7 +115,7 @@
 
 
 - name: Negative_regulation_syntax_6_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -125,7 +125,7 @@
 
 
 - name: Negative_regulation_syntax_7_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
@@ -134,7 +134,7 @@
 
 
 - name: Negative_regulation_token_1_noun
-  priority: 4
+  priority: 5
   example: ""
   type: token
   label: [Negative_regulation, ComplexEvent, Event]
@@ -145,7 +145,7 @@
 
 
 - name: Negative_regulation_token_2_verb
-  priority: 4
+  priority: 5
   example: ""
   type: token
   label: [Negative_regulation, ComplexEvent, Event]
