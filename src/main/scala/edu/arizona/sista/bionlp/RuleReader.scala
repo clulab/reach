@@ -126,7 +126,7 @@ object RuleReader {
   // Phosphorylation
   val phosphoMap: Map[String, String] =
     Map("eventName" -> "Phosphorylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Phosphorylation",
         "verbalTriggerLemma" -> "phosphorylate",
         "nominalTriggerLemma" -> "phosphorylation")
@@ -142,7 +142,7 @@ object RuleReader {
   // Hydroxylation
   val hydroxMap: Map[String, String] =
     Map("eventName" -> "Hydroxylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Hydroxylation",
         "verbalTriggerLemma" -> "hydroxylate",
         "nominalTriggerLemma" -> "hydroxylation")
@@ -150,7 +150,7 @@ object RuleReader {
   // Sumosylation
   val sumoMap: Map[String, String] =
     Map("eventName" -> "Sumosylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Sumosylation",
         "verbalTriggerLemma" -> "sumosylate",
         "nominalTriggerLemma" -> "sumosylation")
@@ -158,7 +158,7 @@ object RuleReader {
   // Glycosylation
   val glycoMap: Map[String, String] =
     Map("eventName" -> "Glycosylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Glycosylation",
         "verbalTriggerLemma" -> "glycosylate",
         "nominalTriggerLemma" -> "glycosylation")
@@ -166,7 +166,7 @@ object RuleReader {
   // Acetylation
   val aceMap: Map[String, String] =
     Map("eventName" -> "Acetylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Acetylation",
         "verbalTriggerLemma" -> "acetylate",
         "nominalTriggerLemma" -> "acetylation")
@@ -174,7 +174,7 @@ object RuleReader {
   // Farnesylation
   val farneMap: Map[String, String] =
     Map("eventName" -> "Farnesylation",
-      "actionFlow" -> "splitSimpleEvents",
+      "actionFlow" -> "default",
       "labels" -> "Farnesylation",
       "verbalTriggerLemma" -> "farnesylate",
       "nominalTriggerLemma" -> "farnesylation")
@@ -182,7 +182,7 @@ object RuleReader {
   // Ribosylation
   val riboMap: Map[String, String] =
     Map("eventName" -> "Ribosylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Ribosylation",
         "verbalTriggerLemma" -> "ribosylate",
         "nominalTriggerLemma" -> "ribosylation")
@@ -190,7 +190,7 @@ object RuleReader {
   // Methylation
   val methMap: Map[String, String] =
     Map("eventName" -> "Methylation",
-        "actionFlow" -> "splitSimpleEvents",
+        "actionFlow" -> "default",
         "labels" -> "Methylation",
         "verbalTriggerLemma" -> "methylate",
         "nominalTriggerLemma" -> "methylation")
