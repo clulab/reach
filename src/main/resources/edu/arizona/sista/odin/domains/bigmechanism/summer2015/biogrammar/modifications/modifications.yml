@@ -46,7 +46,8 @@
   priority: 2
   type: token
   pattern: |
-    @site:Site [!tag=/^V/]*? /^(of|on)/ /./*? @entity:BioChemicalEntity
+    # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
+    @site:Site [!tag=/^V/]*? /^(of|on|for)/ /./*? @entity:BioChemicalEntity
     |
     @entity:BioChemicalEntity /^(of|on)/ @site:Site+
     |
