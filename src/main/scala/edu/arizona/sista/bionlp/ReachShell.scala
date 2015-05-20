@@ -27,7 +27,7 @@ object ReachShell extends App {
     ":reload" -> "reload rules"
   )
 
-  println(s"\nWelcome to ReachShell!\n")
+  println(s"\nWelcome to ReachShell!")
   printCommands()
 
   var running = true
@@ -40,16 +40,15 @@ object ReachShell extends App {
       case ":exit" | null =>
         running = false
 
-      case ":reload" => {
+      case ":reload" =>
         println(s"reloading rules...")
         try {
           val rules = reloadRules()
           reach = new ReachSystem(Some(rules), Some(proc))
           println("successfully reloaded rules")
         } catch {
-          case e: Throwable => println(s"Error reloading ReachShell: ${e.getMessage}")
+          case e: Exception => println(s"Error reloading ReachShell: ${e.getMessage}")
         }
-      }
 
       case text =>
         val doc = reach.mkDoc(text, "rulershell")
@@ -66,7 +65,7 @@ object ReachShell extends App {
   // functions
 
   def printCommands(): Unit = {
-    println("COMMANDS:")
+    println("\nCOMMANDS:")
     for ((cmd, msg) <- commands)
       println(s"\t$cmd\t=> $msg")
     println

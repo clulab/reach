@@ -92,10 +92,10 @@ object RuleReader {
     val eventsDir = new File(".", eventsPath)
     val templatesDir = new File(".", templatesPath)
 
-    println(s"\tentities are here: ${entitiesDir.getAbsolutePath}")
-    println(s"\tmodifications are here: ${modificationsDir.getAbsolutePath}")
-    println(s"\tevents are here: ${eventsDir.getAbsolutePath}")
-    println(s"\ttemplates are here: ${templatesDir.getAbsolutePath}")
+    println(s"\tentities\t=> ${entitiesDir.getCanonicalPath}")
+    println(s"\tmodifications\t=> ${modificationsDir.getCanonicalPath}")
+    println(s"\tevents\t\t=> ${eventsDir.getCanonicalPath}")
+    println(s"\ttemplates\t=> ${templatesDir.getCanonicalPath}")
 
     // FIXME Could be dangerous since it will slurp up all the templates
     val simpleEventTemplate = readRuleFilesFromDir(templatesDir)
