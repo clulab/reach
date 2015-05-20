@@ -9,13 +9,11 @@ import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
  */
 class TestBindingEvents extends FlatSpec with Matchers {
 
-  // TODO: don't report AKT + ASPP2 as a binding
   val sent1 = "The ubiquitinated Ras binds AKT and ASPP2."
   sent1 should "contain only binary bindings" in {
     val mentions = parseSentence(sent1)
 
     // this MUST produce Binding(Ras, AKT) and Binding(Ras, ASPP2)
-    // TODO: fails! Produces 3 bindings, instead of 2! (MARCO)
 
     val bindings = mentions.filter(_.label == "Binding")
     bindings should have size (2) // we must have exactly two bindings here
@@ -175,7 +173,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
 
   val sent17 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
-  sent17 should "containing a binding betweent PI3KC2β and Ras" in {
+  sent17 should "contain a binding between PI3KC2β and Ras" in {
 
     val mentions = parseSentence(sent17)
 

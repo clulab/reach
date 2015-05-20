@@ -103,7 +103,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent11 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   sent11 should "contain a ubiquitination" in {
     val mentions = parseSentence(sent11)
-    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
   }
 
   val sent12 = "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
@@ -300,10 +300,11 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras", "Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
 
-  "testUbiquitinationObjNom2" should "find 1 ubiquitination event and 1 regulation event" in {
+  "testUbiquitinationObjNom2" should "find 1 ubiquitination event and 2 regulation events" in {
     val mentions = parseSentence("RAS ubiquitination and degradation by ASPP2 and p53 increased.")
-    hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
-    hasPositiveRegulationByEntity("Ras", "Ubiquitination", List("ASPP2"), mentions) should be (true)
+    hasEventWithArguments("Ubiquitination", List("RAS"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Ubiquitination", List("RAS"), mentions) should be (true)
+    hasPositiveRegulationByEntity("p53", "Ubiquitination", List("RAS"), mentions) should be (true)
   }
 
   "testUbiquitinationSubjectRel1" should "find 1 ubiquitination event and 1 regulation event" in {
