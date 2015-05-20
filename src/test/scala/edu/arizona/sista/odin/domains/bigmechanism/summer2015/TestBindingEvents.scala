@@ -139,9 +139,11 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent12 = "GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K."
   sent12 should "contain 2 binding events" in {
     val mentions = parseSentence(sent12)
+    val b = mentions.filter(_.label == "Binding")
+    b should have size (2)
     hasEventWithArguments("Binding", List("Ras", "Raf"), mentions) should be (true)
     hasEventWithArguments("Binding", List("Ras", "PI3K"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions) should be (false)
+    //hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions) should be (false)
   }
 
   val sent13 = "ERK negatively regulates the epidermal growth factor mediated interaction of Gab1 and the phosphatidylinositol 3-kinase."
