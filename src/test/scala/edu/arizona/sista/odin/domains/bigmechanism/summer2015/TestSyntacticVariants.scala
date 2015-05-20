@@ -1,7 +1,5 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import org.junit.Assert._
-import org.junit.Test
 import TestUtils._
 
 /**
@@ -10,23 +8,12 @@ import TestUtils._
 
 class TestSyntacticVariants {
 
-  /**
-   * TODO: Coref
-  @Test def testHydrolysisDecl1() {
-    val doc = bioproc.annotate("RasGAP is hydrolyzing GTP to GDP in Ras reactions.")
-    val mentions = extractor.extractFrom(doc)
+  //
+  // TODO: Mihai will port these soon to the new testing framework. Please do not touch for now.
+  //
 
-    try {
-      // TODO: fix hasEventWithArguments to match Complex (RelationMention) with desired argument.
-      assertTrue("hydrolysis with COREF (DANE)", hasEventWithArguments("Hydrolysis", List("Ras-GTP"), mentions))
-    } catch {
-      case e: AssertionError =>
-        header("testHydrolysisSubjectDecl1")
-        displayMentions(mentions, doc)
-        throw e
-    }
-  }
-*/
+  /**
+
   @Test def testHydrolysisPass1() {
     val text = "Ras-GDP is hydrolyzed by 26S proteasome without ubiquitination."
     val doc = testReach.mkDoc(text, "testdoc")
@@ -877,4 +864,6 @@ class TestSyntacticVariants {
         throw e
     }
   }
+
+  */
 }

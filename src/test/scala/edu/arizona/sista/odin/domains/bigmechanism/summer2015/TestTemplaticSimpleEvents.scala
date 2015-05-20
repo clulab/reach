@@ -66,7 +66,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
 
   // there is a phosphorylation event in the example text
   val sent7 = "The ubiquitinated Ras protein phosphorylates AKT."
-  it should "extract a phosphorylation" in {
+  sent7 should "contain a phosphorylation" in {
     val mentions = testReach.extractFrom(sent7, "testdoc", "1")
     val phospho = mentions.find(_.label == "Phosphorylation")
     phospho.isDefined should be (true)
@@ -79,6 +79,44 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     phospho.get.arguments("theme").head.text.contains("AKT") should be (true)
   }
 
+  val sent8 = "We next considered the effect of Ras monoubiquitination on GAP-mediated hydrolysis"
+  sent8 should "contain a ubiquitination" in {
+    val mentions = parseSentence(sent8)
+    hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
+  }
+
+  val sent9 = "The effects of monoubiquitination on Ras are not isoform-specific."
+  sent9 should "contain a ubiquitination" in {
+    val mentions = parseSentence(sent9)
+    hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
+  }
+
+  val sent10 = "We measured the rate of GAP-mediated GTP hydrolysis and observed that the response of Ras ligated to Ubiquitin was identical"
+  sent10 should "contain a ubiquitination NOT binding" in {
+    val mentions = parseSentence(sent10)
+    // per Ryan/Guang's comment this is Ubiq not Binding
+    // we do not do hydrolysis, so we can ignore that
+    hasEventWithArguments("Binding", List("Ras", "Ubiquitin"), mentions) should be (false)
+    hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
+  }
+
+  val sent11 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
+  sent11 should "contain a ubiquitination" in {
+    val mentions = parseSentence(sent11)
+    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
+  }
+
+  val sent12 = "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
+  sent12 should "contain a ubiquitination" in {
+    val mentions = parseSentence(sent12)
+    hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
+  }
+
+  val sent13 = "Indicating that p38 SAPK is not an efficient kinase for ASPP2 phosphorylation."
+  sent13 should "contain a phosphorylation" in {
+    val mentions = parseSentence(sent13)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
 
 
 }

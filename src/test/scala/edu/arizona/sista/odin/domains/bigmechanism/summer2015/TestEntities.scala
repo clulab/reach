@@ -56,4 +56,29 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.isEmpty should be (true)
   }
 
+  val sent2 = "It has recently been shown that oncogenic RAS can enhance the apoptotic function of p53 via ASPP1 and ASPP2"
+  sent2 should "contain 4 entities" in {
+    val mentions = parseSentence(sent2)
+    hasEntity("RAS", mentions) should be (true)
+    hasEntity("p53", mentions) should be (true)
+    hasEntity("ASPP1", mentions) should be (true)
+    hasEntity("ASPP2", mentions) should be (true)
+  }
+
+  val sent3 = "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
+  sent3 should "contain at least 4 entities" in {
+    val mentions = parseSentence(sent3)
+    hasEntity("ERK", mentions) should be (true)
+    hasEntity("EGFR", mentions) should be (true)
+    hasEntity("HER2", mentions) should be (true)
+    hasEntity("ERBB3", mentions) should be (true)
+  }
+
+  val sent4 = "To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wildtype ERBB3 with either wild-type EGFR or EGFR T669A."
+  sent4 should "contain at least 3 entities" in {
+    val mentions = parseSentence(sent4)
+    hasEntity("ERBB receptors", mentions) should be (true)
+    hasEntity("ERBB3", mentions) should be (true)
+    hasEntity("EGFR", mentions) should be (true)
+  }
 }

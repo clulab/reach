@@ -18,7 +18,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   // there is an implicit regulation in the example text
   // it is the cause of the phosphorylation
   val sent2 = "The ubiquitinated Ras protein phosphorylates AKT."
-  it should "extract a regulation" in {
+  sent2 should "contain a regulation" in {
     val mentions = testReach.extractFrom(sent2, "testdoc", "1")
     val reg = mentions.find(_.label == "Positive_regulation")
     reg.isDefined should be (true)
@@ -28,4 +28,60 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controller").head.text.contains("Ras") should be (true)
   }
 
+  val sent3 = "Interestingly, we observed two conserved putative MAPK phosphorylation sites in ASPP1 and ASPP2"
+  sent3 should "contain 2 phosphorylations and 2 regulations" in {
+    val mentions = parseSentence(sent3)
+    hasEntity("MAPK", mentions) should be (true)
+    hasEntity("ASPP1", mentions) should be (true)
+    hasEntity("ASPP2", mentions) should be (true)
+
+    hasEventWithArguments("Phosphorylation", List("ASPP1"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+
+    hasPositiveRegulationByEntity("MAPK", "Phosphorylation", List("ASPP1"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent4 = "We thus tested whether RAS activation may regulate ASPP2 phosphorylation"
+  sent4 should "contain 1 phosphorylation and no regulation" in {
+    val mentions = parseSentence(sent4)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    // we don't do unspecified regulations anymore, only + and -
+    hasPositiveRegulationByEntity("RAS", "Phosphorylation", List("ASPP2"), mentions) should be (false)
+  }
+
+  val sent5 = "MAPK1 was clearly able to phosphorylate the ASPP2 fragment in vitro"
+  sent5 should "contain 1 regulation" in {
+    val mentions = parseSentence(sent5)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent6 = "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
+  sent6 should "contain 1 regulation" in {
+    val mentions = parseSentence(sent6)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    // TODO: This is failing because we're missing SAPK in "p38 SAPK"; we only get p38, but we used to get "p38 SAPK"
+    hasPositiveRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent7 = "The phosphorylated ASPP2 fragment by MAPK1 was digested by trypsin and fractioned on a high performance liquid chromatography."
+  sent7 should "contain 1 regulation" in {
+    val mentions = parseSentence(sent7)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent8 = "Hence ASPP2 can be phosphorylated at serine 827 by MAPK1 in vitro."
+  sent8 should "contain 1 regulation" in {
+    val mentions = parseSentence(sent8)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent9 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
+  sent9 should "contain 1 regulation event" in {
+    val mentions = parseSentence(sent9)
+    hasPositiveRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions) should be (true)
+  }
 }

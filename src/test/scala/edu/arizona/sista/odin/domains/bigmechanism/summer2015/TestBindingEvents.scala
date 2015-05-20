@@ -1,7 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import org.scalatest.{Matchers, FlatSpec}
-import TestUtils._
+import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
 
 /**
  * Unit tests to ensure Binding rules are matching correctly
@@ -112,5 +112,65 @@ class TestBindingEvents extends FlatSpec with Matchers {
     assert(mentions.exists(m => m.label == "Binding" && m.arguments("theme").map(_.text).toSet.diff(participants2).isEmpty))
   }
 
+  val sent9 = "Mechanistically ASPP1 and ASPP2 bind RAS-GTP and potentiates RAS signalling to enhance p53 mediated apoptosis"
+  sent9 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent9)
+    hasEntity("RAS-GTP", mentions) should be (true)
+    hasEntity("RAS", mentions) should be (true)
+    hasEntity("p53", mentions) should be (true)
+    hasEntity("ASPP1", mentions) should be (true)
+    hasEntity("ASPP2", mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
 
+  val sent10 = "Moreover, the RAS-ASPP interaction enhances the transcription function of p53 in cancer cells."
+  sent10 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent10)
+    // TODO: this requires the splitting of the complex, so it's probably Ok to miss for now
+    hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions)
+  }
+
+  val sent11 = "As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B)."
+  sent11 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent11)
+    hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions) should be (true)
+  }
+
+  val sent12 = "GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K."
+  sent12 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent12)
+    hasEventWithArguments("Binding", List("Raf", "Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions) should be (false)
+  }
+
+  val sent13 = "ERK negatively regulates the epidermal growth factor mediated interaction of Gab1 and the phosphatidylinositol 3-kinase."
+  sent13 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent13)
+    hasEventWithArguments("Binding", List("Gab1", "phosphatidylinositol 3-kinase"), mentions) should be (true)
+  }
+
+  val sent14 = "Raf and PI3K bind more to ubiquitinated Ras than to non- ubiquitinated Ras To examine whether the binding of ubiquitinated K-Ras to Raf and PI3K inhibits or can actually enhance their kinase activity, both total G12V-K-Ras and the ubiquitinated subfraction of G12V-K-Ras were purified from cell lysates and subjected to an in vitro kinase (I.V.K.) assay (Fig. 4A)."
+  sent14 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent14)
+    hasEventWithArguments("Binding", List("Raf", "K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("PI3K", "K-Ras"), mentions) should be (true)
+  }
+
+  val sent15 = "To address the effect of K-Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
+  sent15 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent15)
+    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
+    // TODO: this requires coref!
+    hasEventWithArguments("Binding", List("K-Ras", "Raf"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("PI3K", "K-Ras"), mentions) should be (true)
+  }
+
+  val sent16 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
+  sent16 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent16)
+    hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions) should be (true)
+  }
 }
