@@ -4,7 +4,8 @@ import edu.arizona.sista.odin.Mention
 
 trait Modifications {
   this: Mention =>
-  var modifications = Set.empty[Modification]
+
+  var modifications: Set[Modification] = Set.empty
 
   def isModified: Boolean = modifications.nonEmpty
 }
