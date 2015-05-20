@@ -366,7 +366,6 @@ class DarpaActions extends Actions {
             ))
 
 
-          event.modifications.foreach { m => println(s"Found by edges: $m")}
           val negationWords = Set("doesn't", "not", "n't")
 
           // Now look for negation tokens within the words of the event
