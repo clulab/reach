@@ -42,8 +42,13 @@ object ReachShell extends App {
 
       case ":reload" => {
         println(s"reloading rules...")
-        val rules = reloadRules()
-        reach = new ReachSystem(Some(rules), Some(proc))
+        try {
+          val rules = reloadRules()
+          reach = new ReachSystem(Some(rules), Some(proc))
+          println("successfully reloaded rules")
+        } catch {
+          case e: Throwable => println(s"Error reloading ReachShell: ${e.getMessage}")
+        }
       }
 
       case text =>
