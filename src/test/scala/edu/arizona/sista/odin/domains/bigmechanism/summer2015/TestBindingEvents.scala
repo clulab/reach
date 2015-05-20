@@ -101,7 +101,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
 
   val sent8 = "We measured the rate of GAP mediated GTP hydrolysis and observed that the response of Ras ligated to UbiquitinC77 was identical to Ras ligated to UbiquitinG76C."
-  sent8 should "have two bindings with correct arguments" in {
+  sent8 should "have two ubiquitinations with correct arguments" in {
     val doc = testReach.mkDoc(sent8, "testdoc")
     val mentions = testReach extractFrom doc
     val participants1 = Set("Ras", "UbiquitinC77")
@@ -139,8 +139,8 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent12 = "GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K."
   sent12 should "contain 2 binding events" in {
     val mentions = parseSentence(sent12)
-    hasEventWithArguments("Binding", List("Raf", "Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Ras", "Raf"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Ras", "PI3K"), mentions) should be (true)
     hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions) should be (false)
   }
 

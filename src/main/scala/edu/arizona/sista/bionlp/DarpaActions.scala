@@ -102,8 +102,8 @@ class DarpaActions extends Actions {
           val mergedThemes = t1s ++ t2s
 
           // if one theme is Ubiquitin, this is a ubiquitination event
-          if (mergedThemes.size == 2 && !sameEntityID(mergedThemes) && mergedThemes.exists(_.text.toLowerCase.startsWith("ubiq"))) {
-            val args = Map("theme" -> mergedThemes.filter(!_.text.toLowerCase.startsWith("ubiq")))
+          if (mergedThemes.size == 2 && !sameEntityID(mergedThemes) && mergedThemes.exists(_.text.toLowerCase == "ubiquitin")) {
+            val args = Map("theme" -> mergedThemes.filter(_.text.toLowerCase != "ubiquitin"))
             Seq(new BioEventMention(
               "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy))
           }
@@ -116,11 +116,11 @@ class DarpaActions extends Actions {
               val theme1 = pair.head
               val theme2 = pair.last
 
-              if (theme1.text.toLowerCase.startsWith("ubiq")) {
+              if (theme1.text.toLowerCase == "ubiquitin") {
                 val args = Map("theme" -> Seq(theme2))
                 new BioEventMention(
                   "Ubiquitination" +: m.labels.filter(_ != "Binding"), m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
-              } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+              } else if (theme2.text.toLowerCase == "ubiquitin") {
                 val args = Map("theme" -> Seq(theme1))
                 new BioEventMention(
                   "Ubiquitination" +: m.labels.filter(_ != "Binding"), m.trigger, args, m.sentence, m.document, m.keep, m.foundBy)
@@ -138,11 +138,11 @@ class DarpaActions extends Actions {
             theme2 <- theme2s
             if !sameEntityID(Seq(theme1, theme2))
           } yield {
-            if (theme1.text.toLowerCase.startsWith("ubiq")){
+            if (theme1.text.toLowerCase == "ubiquitin"){
               val args = Map("theme" -> Seq(theme2))
               new BioEventMention(
                 "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
-            } else if (theme2.text.toLowerCase.startsWith("ubiq")) {
+            } else if (theme2.text.toLowerCase == "ubiquitin") {
               val args = Map("theme" -> Seq(theme1))
               new BioEventMention(
                 "Ubiquitination" +: m.labels.filter(_ != "Binding"),m.trigger,args,m.sentence,m.document,m.keep,m.foundBy)
