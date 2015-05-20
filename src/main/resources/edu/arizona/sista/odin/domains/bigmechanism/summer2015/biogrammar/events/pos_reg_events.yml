@@ -3,12 +3,17 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+#
+# all positive regulation triggers:
+# acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util
+#
+
 - name: Positive_regulation_1
   priority: 5
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
   pattern: |
-    trigger = [lemma=/promot|induc|mediat|increas|stimulat|lead|enhanc|up-regulat/ & tag=/^V|RB/]
+    trigger = [lemma=/promot|induc|mediat|increas|stimulat|lead|enhanc|up-regulat|upregulat/ & tag=/^V|RB/]
     controller:BioChemicalEntity = nsubj nn*
     controlled:SimpleEvent = dobj nn*
 
@@ -39,7 +44,6 @@
     (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:Binding following @controller:BioChemicalEntity
 
 
-#acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util
 
 
 ###Syntactic Variants###

@@ -652,5 +652,11 @@ class TestModifications extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
 
-
+  val sent8 = "The phosphorylated p53 by ASPP2 is doing something..."
+  // this is not a PTM! It is an event with a cause
+  sent8 should "contain 1 phosphorylation and 1 regulation event" in {
+    val mentions = parseSentence(sent8)
+    hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
+  }
 }

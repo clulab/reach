@@ -335,4 +335,34 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
+
+  val sent15 = "ASPP2 phosphorylates p53 at serine 125 and serine 126."
+  sent15 should "contains 2 phosphorylation and 2 regulation events" in {
+    val mentions = parseSentence(sent15)
+
+    // TODO: this mostly passes, but we get 3 phosphorylations (one wo/ site)
+    val p = mentions.filter(_.label == "Phosphorylation")
+    p should have size (2)
+    val r = mentions.filter(_.label == "Positive_regulation")
+    r should have size (2)
+
+    hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
+  }
+
+  val sent16 = "ASPP2 phosphorylates p53 at serine 125, 126, and 127."
+  sent16 should "contains 3 phosphorylation and 3 regulation events" in {
+    val mentions = parseSentence(sent15)
+
+    // TODO: this fails. Is this the Odin token bug? Also, we get an extra phospho wo/ site
+    val p = mentions.filter(_.label == "Phosphorylation")
+    p should have size (3)
+    val r = mentions.filter(_.label == "Positive_regulation")
+    r should have size (3)
+
+    hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
+  }
+
+
 }
