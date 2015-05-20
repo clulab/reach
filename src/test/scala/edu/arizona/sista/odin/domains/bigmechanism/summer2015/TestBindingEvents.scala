@@ -9,13 +9,11 @@ import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
  */
 class TestBindingEvents extends FlatSpec with Matchers {
 
-  // TODO: don't report AKT + ASPP2 as a binding
   val sent1 = "The ubiquitinated Ras binds AKT and ASPP2."
   sent1 should "contain only binary bindings" in {
     val mentions = parseSentence(sent1)
 
     // this MUST produce Binding(Ras, AKT) and Binding(Ras, ASPP2)
-    // TODO: fails! Produces 3 bindings, instead of 2! (MARCO)
 
     val bindings = mentions.filter(_.label == "Binding")
     bindings should have size (2) // we must have exactly two bindings here
@@ -103,7 +101,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
 
   val sent8 = "We measured the rate of GAP mediated GTP hydrolysis and observed that the response of Ras ligated to UbiquitinC77 was identical to Ras ligated to UbiquitinG76C."
-  sent8 should "have two bindings with correct arguments" in {
+  sent8 should "have two ubiquitinations with correct arguments" in {
     val doc = testReach.mkDoc(sent8, "testdoc")
     val mentions = testReach extractFrom doc
     val participants1 = Set("Ras", "UbiquitinC77")
@@ -141,9 +139,11 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent12 = "GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K."
   sent12 should "contain 2 binding events" in {
     val mentions = parseSentence(sent12)
-    hasEventWithArguments("Binding", List("Raf", "Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions) should be (false)
+    val b = mentions.filter(_.label == "Binding")
+    b should have size (2)
+    hasEventWithArguments("Binding", List("Ras", "Raf"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Ras", "PI3K"), mentions) should be (true)
+    //hasEventWithArguments("Binding", List("PI3K", "Raf"), mentions) should be (false)
   }
 
   val sent13 = "ERK negatively regulates the epidermal growth factor mediated interaction of Gab1 and the phosphatidylinositol 3-kinase."
@@ -175,7 +175,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
 
   val sent17 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
-  sent17 should "containing a binding betweent PI3KC2β and Ras" in {
+  sent17 should "contain a binding between PI3KC2β and Ras" in {
 
     val mentions = parseSentence(sent17)
 
@@ -190,4 +190,58 @@ class TestBindingEvents extends FlatSpec with Matchers {
     b should have size (1)
     // FIXME how should RBD be handled?  As a binding Site?
   }
+
+  "testBindingDecl1" should "find 2 binding events" in {
+    val mentions = parseSentence("Mechanistically, ASPP1 and ASPP2 bind RAS-GTP.")
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
+
+  "testBindingDecl2" should "find 2 binding events" in {
+    val mentions = parseSentence("Mechanistically, ASPP1 and ASPP2 bind with RAS-GTP.")
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
+
+  "testBindingPass1" should "find 2 binding events" in {
+    val mentions = parseSentence("Mechanistically, ASPP1 and ASPP2 are bound by RAS-GTP.")
+    hasEventWithArguments("Binding", List("ASPP1", "RAS-GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "RAS-GTP"), mentions) should be (true)
+  }
+
+  "testBindingPrepNom1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated binding of p53 to K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingPrepNom2" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated binding of p53 and K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingPrepNom3" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated binding of p53 with K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingSubjNom1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated p53 binding to K-Ras.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingObjNom1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated K-Ras binding by p53.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingSubjRel1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated phosphorylation of K-Ras, a protein that subsequently binds p53.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
+  "testBindingObjRel1" should "find 1 binding events" in {
+    val mentions = parseSentence("We detected elevated phosphorylation of K-Ras, a protein that is subsequently bound by p53.")
+    hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
+  }
+
 }

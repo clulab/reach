@@ -202,6 +202,27 @@
     (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) [!tag=/^V/]*? "at" /./+ @site:Site [word=/^(of|for)/] @theme:BioChemicalEntity
 
 
+# FIXME wait until the thread bundle bug is fixed
+- name: {{ eventName }}_token_5_noun
+  priority: 4
+  example: "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine {{ nominalTriggerLemma }} on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
+  type: token
+  label: [{{ labels }}, SimpleEvent, Event, PossibleController]
+  action: {{ actionFlow }}
+  pattern: |
+    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on [!tag=/^V/]*? @site:Site /./*? of /./*? @theme:BioChemicalEntity
+
+# FIXME the additional pattern will go away when the odin bug related to thread bundles is truly fixed
+- name: {{ eventName }}_token_6_noun
+  priority: 4
+  example: "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine {{ nominalTriggerLemma }} on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
+  type: token
+  label: [{{ labels }}, SimpleEvent, Event, PossibleController]
+  action: {{ actionFlow }}
+  pattern: |
+    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on [!tag=/^V/]*? @site:Site /./*? of /./*? and @theme:BioChemicalEntity
+
+
 - name: {{ eventName }}_token_4_verb
   priority: 4
   example: "Under the same conditions, ASPP2 (693-1128) fragment {{ verbalTriggerLemma }}d by p38 SAPK had very low levels of incorporated 32P."
@@ -231,3 +252,4 @@
   action: {{ actionFlow }}
   pattern: |
     (@cause:BioChemicalEntity)? (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) [!tag=/^V/]*? @theme:BioChemicalEntity /./+ @site:Site
+
