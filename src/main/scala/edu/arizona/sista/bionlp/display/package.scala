@@ -51,15 +51,18 @@ package object display {
         m.arguments foreach {
           case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
         }
-        println(m.modifications) /*foreach {
+        m.modifications foreach {
           case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
-          case _ => println("Poop")
-        }*/
+          case _ => ()
+        }
       case m: BioRelationMention =>
         m.arguments foreach {
           case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
         }
-        println(m.modifications)
+        m.modifications foreach {
+          case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
+          case _ => ()
+        }
       case _ => ()
     }
     println(s"$boundary\n")
