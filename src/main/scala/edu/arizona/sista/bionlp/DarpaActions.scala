@@ -316,6 +316,7 @@ class DarpaActions extends Actions {
       // get the theme of the event
       // assume only one theme
       val entity = event.arguments("theme").head
+      val site = event.arguments.get("site").map(_.head)
       // create new mention for the entity
       val modifiedEntity = new BioTextBoundMention(
         entity.labels,
@@ -326,7 +327,7 @@ class DarpaActions extends Actions {
         entity.foundBy)
       // add a modification based on the event trigger
       val label = getModification(event.trigger.text)
-      modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger))
+      modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = site)
       Some(modifiedEntity)
     }
   }
