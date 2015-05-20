@@ -1,6 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp.mentions.EventSite
+import edu.arizona.sista.bionlp.mentions._
 import org.scalatest._
 import TestUtils._
 
@@ -652,5 +652,18 @@ class TestModifications extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
 
+
+  val sent8 = "Ras does not phosphorylate Mek"
+  sent8 should "have a negated positive regulation" in {
+    val doc = testReach.mkDoc(sent8, docId, chunkId)
+    val mentions = testReach extractFrom doc
+    val phospho = mentions.find(_ matches "Phosphorylation")
+    phospho should be ('defined)
+    phospho.get.arguments.keySet should not contain ("cause")
+    phospho.get.modifications.filter(_.isInstanceOf[Negation]) should be ('empty)
+    val reg = mentions.find(_ matches "Positive_regulation")
+    reg should be ('defined)
+    reg.get.modifications.filter(_.isInstanceOf[Negation]) should have size (1)
+  }
 
 }
