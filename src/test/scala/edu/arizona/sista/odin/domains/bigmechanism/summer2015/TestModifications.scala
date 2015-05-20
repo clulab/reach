@@ -652,7 +652,6 @@ class TestModifications extends FlatSpec with Matchers {
     ptm.label == "ubiquitinated" should be (true)
   }
 
-
   val sent8 = "Ras does not phosphorylate Mek"
   sent8 should "have a negated positive regulation" in {
     val doc = testReach.mkDoc(sent8, docId, chunkId)
@@ -664,6 +663,14 @@ class TestModifications extends FlatSpec with Matchers {
     val reg = mentions.find(_ matches "Positive_regulation")
     reg should be ('defined)
     reg.get.modifications.filter(_.isInstanceOf[Negation]) should have size (1)
+  }
+
+  val sent9 = "The phosphorylated p53 by ASPP2 is doing something..."
+  // this is not a PTM! It is an event with a cause
+  sent9 should "contain 1 phosphorylation and 1 regulation event" in {
+    val mentions = parseSentence(sent9)
+    hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
   }
 
 }
