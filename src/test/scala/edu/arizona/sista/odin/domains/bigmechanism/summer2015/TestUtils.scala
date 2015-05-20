@@ -24,6 +24,18 @@ object TestUtils {
     mentions
   }
 
+  def getEntities(sentence: String, verbose:Boolean = false):Seq[BioMention] = {
+    val doc = testReach.mkDoc(sentence, docId, chunkId)
+    // Get only entities (after modficationEngine)
+    val result = Try(testReach.extractEntitiesFrom(doc))
+    if(! result.isSuccess)
+      throw new RuntimeException("ERROR: parseSentence failed on sentence: " + sentence)
+    val mentions = printMentions(result, verbose)
+    mentions
+  }
+
+  def getEventSites(m:BioMention) = m.toBioMention.modifications.filter(_.isInstanceOf[EventSite])
+
   def printMentions(result:Try[Seq[BioMention]], verbose:Boolean = false):Seq[BioMention] = {
     val mentions = result.get
     if(verbose) {

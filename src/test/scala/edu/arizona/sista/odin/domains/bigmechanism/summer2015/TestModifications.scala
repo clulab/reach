@@ -1,5 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
+import edu.arizona.sista.bionlp.mentions.EventSite
 import org.scalatest._
 import TestUtils._
 
@@ -574,62 +575,67 @@ class TestModifications extends FlatSpec with Matchers {
   "ReachSystem" should "not find a PTMs as events" in {
     // TODO: Both fail! (DANE + MARCO)
     var mentions = parseSentence(sent1)
-    val p = mentions.find(_.label == "Phosphorylation") // Dane: this is a PTM not an event!
+    val p = mentions.find(_ matches "Phosphorylation") // Dane: this is a PTM not an event!
     p.isDefined should be (false) // Dane
-    var b = mentions.find(_.label == "Binding") // Marco: why does this fail??
+    var b = mentions.find(_ matches "Binding") // Marco: why does this fail??
     b.isDefined should be (true) // Marco
 
     mentions = parseSentence(sent1b)
-    val u = mentions.find(_.label == "Ubiquitination")
+    val u = mentions.find(_ matches "Ubiquitination")
     u.isDefined should be (false)
-    b = mentions.find(_.label == "Binding")
+    b = mentions.find(_ matches "Binding")
     b.isDefined should be (true)
   }
 
   val sent2 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
-  sent2 should "contain \"site of protein\" patterns" in {
-    // TODO: this fails because we do not capture "site of protein" (GUS)
+  s"""PI3KC2β in "$sent2"""" should "have 1 \"site of protein\" EventSite modification" in {
     // Also: if the entity modification has no type, it should be propagated up in the event using the entity
     val mentions = parseSentence(sent2)
-
-    val f = mentions.filter(_.label == "Family")
-    f should have size (1)
-    val p = mentions.filter(_.label == "Gene_or_gene_product")
+    val p = mentions.filter(_ matches "Gene_or_gene_product")
     p should have size (1)
-
-    val b = mentions.filter(_.label == "Binding")
-    b should have size (1)
+    // This tests whether the modification is present
+    getEventSites(p.head) should have size (1)
   }
 
-  val sent3 = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
-  val sent3b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
-  it should "extract multiple different ubiquitinations" in {
-    var mentions = parseSentence(sent3)
-    mentions.filter(_.label == "Ubiquitination") should have size (2)
+  // Test EventSite modifications
+  val sent3a = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
+  s"""K-Ras in "$sent3a"""" should "have 2 EventSites after the modificationEngine" in {
+    val mentions =  getEntities(sent3a)
+    val p = mentions.filter(_ matches "Family")
+    p should have size (1)
+    // This tests whether the modification is present
+    getEventSites(p.head) should have size (2)
+  }
 
-    mentions = parseSentence(sent3b)
-    mentions.filter(_.label == "Ubiquitination") should have size (3)
+  // Test EventSite modifications
+  val sent3b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
+  s""""H-Ras in "$sent3b"s""" should "have 3 EventSites after the modificationEngine" in {
+    val mentions =  getEntities(sent3b)
+    val p = mentions.filter(_ matches "Family")
+    p should have size (1)
+    // This tests whether the modification is present
+    getEventSites(p.head) should have size (3)
   }
 
   val sent4 = "Phosphorylated Mek binds to GTP."
   sent4 should "not contain a phosphorylation event (this is a PTM)" in {
     val doc = testReach.mkDoc(sent4, "testdoc")
     val mentions = testReach extractFrom doc
-    mentions.exists(_.label == "Phosphorylation") should be (false)
+    mentions.exists(_ matches "Phosphorylation") should be (false)
   }
 
   val sent5 = "Ligation of ASPP2 to hydroxylated RAS-GTP promotes apoptosis."
   sent5 should "not contain a hydroxylation event (this is a PTM)" in {
     val doc = testReach.mkDoc(sent5, "testdoc")
     val mentions = testReach extractFrom doc
-    mentions.exists(_.label == "Hydroxylation") should be (false)
+    mentions.exists(_ matches "Hydroxylation") should be (false)
   }
 
   val sent6 = "Optineurin regulates NF-kappaB activation by mediating interaction of CYLD with ubiquitinated RIP."
   sent6 should "not contain a ubiquitination event (this is a PTM)" in {
     val doc = testReach.mkDoc(sent6, "testdoc")
     val mentions = testReach extractFrom doc
-    mentions.exists(_.label == "Ubiquitination") should be (false)
+    mentions.exists(_ matches "Ubiquitination") should be (false)
   }
 
   val sent7 = "The ubiquitinated Ras protein phosphorylates AKT."

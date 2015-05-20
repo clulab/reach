@@ -118,5 +118,15 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
+  val sent14a = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
+  sent14a should "contain 2 ubiquitinations" in {
+    val mentions = parseSentence(sent14a)
+    mentions.filter(_.label == "Ubiquitination") should have size (2)
+  }
 
+  val sent14b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
+  sent14b should "contain 3 ubiquitinations" in {
+    val mentions = parseSentence(sent14b)
+    mentions.filter(_.label == "Ubiquitination") should have size (3)
+  }
 }

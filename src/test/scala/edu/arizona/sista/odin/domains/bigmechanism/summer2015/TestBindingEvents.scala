@@ -173,4 +173,21 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent16)
     hasEventWithArguments("Binding", List("PI3K", "ERBB3"), mentions) should be (true)
   }
+
+  val sent17 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
+  sent17 should "containing a binding betweent PI3KC2β and Ras" in {
+
+    val mentions = parseSentence(sent17)
+
+    val f = mentions.filter(_.label == "Family")
+    f should have size (1)
+    val p = mentions.filter(_.label == "Gene_or_gene_product")
+    p should have size (1)
+    // This tests the whether the modification is present
+    p.head.toBioMention.modifications should have size (1)
+    // TODO: Dane
+    val b = mentions.filter(_.label == "Binding")
+    b should have size (1)
+    // FIXME how should RBD be handled?  As a binding Site?
+  }
 }
