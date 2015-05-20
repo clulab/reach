@@ -41,17 +41,21 @@ package object display {
     println(s"\tType => $mentionType")
     println(boundary)
     mention match {
-      case m: TextBoundMention =>
+      case m: BioTextBoundMention =>
         println(s"\t${m.asInstanceOf[Display].displayLabel}|${m.labels} => ${m.text}")
         val bm = m.toBioMention
         if (bm.isGrounded) println(s"\txref: ${bm.xref.get}")
         if (bm.isModified) println(s"\tmodifications: ${bm.modifications}")
-      case m: EventMention =>
+      case m: BioEventMention =>
         println(s"\ttrigger => ${m.trigger.text}")
         m.arguments foreach {
           case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
         }
-      case m: RelationMention =>
+        m.modifications foreach {
+          case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
+          case _ => ()
+        }
+      case m: BioRelationMention =>
         m.arguments foreach {
           case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
         }

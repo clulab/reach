@@ -69,7 +69,7 @@ class DarpaActions extends Actions {
   def mkUbiquitination(mentions: Seq[Mention], state: State): Seq[Mention] = {
     val filteredMentions = mentions.filter { m =>
       // Don't allow Ubiquitin
-      !m.arguments.values.flatten.exists(_.text.toLowerCase.startsWith("ubiq")) 
+      !m.arguments.values.flatten.exists(_.text.toLowerCase.startsWith("ubiq"))
     }
     val bioMentions = filteredMentions.map(_.toBioMention)
     // TODO: a temporary hack to convert theme+cause ubiqs => regs
@@ -309,5 +309,62 @@ class DarpaActions extends Actions {
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger))
       Some(modifiedEntity)
     }
+  }
+
+  def handleNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {
+    // do something very smart to handle negated events
+    // and then return the mentions
+
+    // Iterate over the BioEventMentions
+    mentions foreach {
+        case event:BioEventMention =>
+
+          //val trigger = event.asInstanceOf[BioEventMention].trigger
+          val dependencies = event.sentenceObj.dependencies
+
+          val incoming = dependencies match {
+            case Some(deps) => deps.outgoingEdges
+            case None => Array.empty
+          }
+
+          for{
+            tok <- event.tokenInterval.toSeq
+            (ix, label) <- incoming(tok)
+
+          }{
+            println(s"$ix, $label")
+            if (label == "neg"){
+            event.modifications += Negation(new BioTextBoundMention(
+              Seq("Negation_trigger"),
+              Interval(ix),
+              sentence = event.sentence,
+              document = event.document,
+              keep = event.keep,
+              foundBy = event.foundBy
+            ))}
+          }
+
+          event.modifications.foreach( x => println(s"Found by edges: $x"))
+
+          val negationWords = Set("doesn't", "not", "n't")
+
+          // Now look for negation tokens within the words of the event
+          for {
+            (word, ix) <- event.words zip event.tokenInterval.toSeq
+            if negationWords contains word
+          }
+            event.modifications += Negation(new BioTextBoundMention(
+              Seq("Negation_trigger"),
+              Interval(ix),
+              sentence = event.sentence,
+              document = event.document,
+              keep = event.keep,
+              foundBy = event.foundBy
+            ))
+
+
+    }
+
+    mentions
   }
 }
