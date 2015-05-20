@@ -191,6 +191,17 @@
     @theme:BioChemicalEntity (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) [!word=of]
 
 
+# relies on EventSite modifications
+- name: {{ eventName }}_token_4_noun
+  priority: 4
+  example: "Experiments revealed {{ nominalTriggerLemma }} at Lys residues 104 and 147 of K-Ras."
+  type: token
+  label: [{{ labels }}, SimpleEvent, Event, PossibleController]
+  action: {{ actionFlow }}
+  pattern: |
+    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) [!tag=/^V/]*? "at" /./+ @site:Site [word=/^(of|for)/] @theme:BioChemicalEntity
+
+
 - name: {{ eventName }}_token_4_verb
   priority: 4
   example: "Under the same conditions, ASPP2 (693-1128) fragment {{ verbalTriggerLemma }}d by p38 SAPK had very low levels of incorporated 32P."
@@ -211,7 +222,7 @@
     (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
 
 
-# The odin bug must be fixed before this will work properly
+# relies on EventSite modifications
 - name: {{ eventName }}_token_7_verb
   priority: 4
   example: "JAK3 {{ verbalTriggerLemma }}s three HuR residues (Y63, Y68, Y200)"
