@@ -1,0 +1,20 @@
+- name: DT_not_determiner
+  label: [Unresolved, BioChemicalEntity, PossibleController]
+  priority: 1
+  type: token
+  pattern: |
+    [tag=DT & !(incoming=det) & !(mention=/.*/)]
+
+- name: Nstar_not_in_Nstar
+  label: [Unresolved, BioChemicalEntity, PossibleController]
+  priority: 1
+  type: token
+  pattern: |
+    [tag=/^N/ & !(incoming=/^nn/) & !(mention=/.*/)]
+
+- name: PRP
+  label: [Unresolved, BioChemicalEntity, PossibleController]
+  priority: 1
+  type: token
+  pattern: |
+    [tag=/^PRP/ & !(mention=/.*/)]
