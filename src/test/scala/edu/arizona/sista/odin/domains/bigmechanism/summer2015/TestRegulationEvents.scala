@@ -110,9 +110,16 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent13 = "The inhibition of ASPP1 increases the the phosphorylation of ASPP2."
+  val sent13 = "The inhibition of ASPP1 increases the phosphorylation of ASPP2."
   sent13 should "contain 1 downregulation and NO upregulation events" in {
     val mentions = parseSentence(sent13)
+    hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
+  }
+
+  val sent14 = "the phosphorylation of ASPP2 is increased by the inhibition of ASSP1."
+  sent14 should "contain 1 downregulation and NO upregulation events" in {
+    val mentions = parseSentence(sent14)
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
   }
