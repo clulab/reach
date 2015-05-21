@@ -352,9 +352,8 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent16 = "ASPP2 phosphorylates p53 at serine 125, 126, and 127."
   sent16 should "contain 3 phosphorylation and 3 regulation events" in {
     val mentions = parseSentence(sent16)
-    
+
     val p = mentions.filter(_ matches "Phosphorylation")
-    p foreach displayMention
     p should have size (3)
     val r = mentions.filter(_ matches "Positive_regulation")
     r should have size (3)
