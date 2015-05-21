@@ -222,6 +222,16 @@
   pattern: |
     (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on [!tag=/^V/]*? @site:Site /./*? of /./*? and @theme:BioChemicalEntity
 
+# effects of patterns
+- name: {{ eventName }}_token_7_noun
+  priority: 4
+  example: "The effects of {{ nominalTriggerLemma }} on Ras are not isoform-specific."
+  type: token
+  label: [{{ labels }}, SimpleEvent, Event, PossibleController]
+  action: {{ actionFlow }}
+  pattern: |
+    (?<trigger> [lemma="effect"] of [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on @theme:BioChemicalEntity (at [!tag=/^V/]+ @site:Site)?
+
 
 - name: {{ eventName }}_token_4_verb
   priority: 4
