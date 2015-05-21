@@ -397,4 +397,12 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
+
+  val sent21 = "phosphorylation of HuR at Y200 influences the response of immune cells to cytokines"
+  sent21 should "contain a single phosphorylation with site" in {
+    val mentions = parseSentence(sent21)
+    val p = mentions.filter(_ matches "Phosphorylation")
+    p should have size (1)
+    hasEventWithArguments("Phosphorylation", List("HuR", "Y200"), mentions) should be (true)
+  }
 }
