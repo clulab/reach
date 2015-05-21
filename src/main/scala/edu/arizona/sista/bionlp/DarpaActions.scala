@@ -374,12 +374,12 @@ class DarpaActions extends Actions {
 
           // First, extract the triggre's range from the mention
           val interval = event.trigger.tokenInterval
-          val sentence = event.sentenceObj
 
-          val pairs = (0 to sentence.size zip sentence.lemmas) map (x => (x._1, x._2(0)))
+          //val pairs = for (lemma <- event.lemmas) yield (1, lemma)
+          val pairs = event.tokenInterval.toSeq zip event.lemmas.get
 
           val pairsL = pairs takeWhile (_._1 < interval.start)
-          val pairsR = pairs dropWhile (_._1 >= interval.end)
+          val pairsR = pairs dropWhile (_._1 <= interval.end)
 
           // Check for single-token negative verbs
           for{
@@ -402,7 +402,6 @@ class DarpaActions extends Actions {
               (left._2, right._2)
             )
           }
-
 
           val verbs = Seq(("play", "no"), ("little", "role"), ("is", "not"))
           // Introduce bigrams for two-token verbs in both sides of the trigger
