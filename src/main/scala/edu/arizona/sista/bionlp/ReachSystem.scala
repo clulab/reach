@@ -1,5 +1,6 @@
 package edu.arizona.sista.bionlp
 
+import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{DarpaFlow, LocalGrounder, Coref}
@@ -31,7 +32,7 @@ class ReachSystem(rules: Option[Rules] = None,
   val coref = new Coref
   // start event extraction engine
   // This will be our global action for the eventEngine
-  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen coref
+  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.handleNegations) andThen DarpaFlow(actions.splitSimpleEvents) andThen coref
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
   // initialize processor
@@ -73,7 +74,7 @@ class ReachSystem(rules: Option[Rules] = None,
     // clean modified entities
     // for example, remove sites that are part of a modification feature
     val cleanMentions = pruneMentions(mentions)
-    handleNegations(cleanMentions)
+    cleanMentions
   }
 }
 
@@ -84,13 +85,6 @@ object ReachSystem {
   def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] =
     // Make sure we don't have any "ModificationTrigger" Mentions
     ms.filterNot(_ matches "ModificationTrigger")
-
-  // FIXME placeholder
-  def handleNegations(mentions: Seq[BioMention]): Seq[BioMention] = {
-    // do something very smart to handle negated events
-    // and then return the mentions
-    mentions
-  }
 
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,

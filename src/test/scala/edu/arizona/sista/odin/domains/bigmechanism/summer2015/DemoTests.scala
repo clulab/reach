@@ -2,18 +2,18 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import org.scalatest.FunSuite
 import org.scalatest.BeforeAndAfter
-import TestResources.{reach, summarizeError}
-import DarpaEvalUtils._
+import TestUtils._
 
 /**
  * Unit tests related to the UI demo
+ * Keep these separate, so we can quickly check that the demo works
  */
 class DemoTests1 extends FunSuite with BeforeAndAfter {
 
 
   val text = "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB."
-  val doc = reach.mkDoc(text, "testdoc")
-  val mentions = reach.extractFrom(doc)
+  val doc = testReach.mkDoc(text, "testdoc")
+  val mentions = testReach.extractFrom(doc)
   val assignedParty = "GUS"
 
   info(text)
@@ -36,8 +36,8 @@ class DemoTests1 extends FunSuite with BeforeAndAfter {
 class DemoTests2 extends FunSuite with BeforeAndAfter {
 
   val text = "S6K1 phosphorylates the RPTOR protein and promotes the hydroxylation of the Pkh1 protein."
-  val doc = reach.mkDoc(text, "testdoc")
-  val mentions = reach.extractFrom(doc)
+  val doc = testReach.mkDoc(text, "testdoc")
+  val mentions = testReach.extractFrom(doc)
   val assignedParty = "GUS"
 
   info(text)
@@ -59,8 +59,8 @@ class DemoTests2 extends FunSuite with BeforeAndAfter {
 class DemoTests3 extends FunSuite with BeforeAndAfter {
 
   val text = "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein binds with TopBP1."
-  val doc = reach.mkDoc(text, "testdoc")
-  val mentions = reach.extractFrom(doc)
+  val doc = testReach.mkDoc(text, "testdoc")
+  val mentions = testReach.extractFrom(doc)
   val assignedParty = "GUS"
 
   info(text)

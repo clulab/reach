@@ -6,6 +6,18 @@ scalaVersion := "2.11.5"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
+// fork jvm to separate process
+fork := true
+
+// options for forked jvm
+javaOptions += "-Xmx6G"
+
+// forward sbt's stdin to forked process
+connectInput in run := true
+
+// don't show output prefix
+outputStrategy := Some(StdoutOutput)
+
 resolvers ++= Seq(
   "BioPAX Releases" at "http://biopax.sourceforge.net/m2repo/releases",
   "BioPAX Snapshots" at "http://biopax.sourceforge.net/m2repo/snapshots"
@@ -13,8 +25,6 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "junit" % "junit" % "4.12" % "test",
-  "com.novocode" % "junit-interface" % "0.11" % "test",
   "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT",
   "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",

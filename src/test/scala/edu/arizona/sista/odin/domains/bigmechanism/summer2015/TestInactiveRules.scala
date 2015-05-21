@@ -1,13 +1,9 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.odin.domains.bigmechanism.summer2015.DarpaEvalUtils._
-import org.junit.Assert._
-import org.junit.Test
-import scala.util.{ Try, Success, Failure }
 import org.scalatest._
-import edu.arizona.sista.bionlp._
 
 class TestInactiveRules extends FlatSpec with Matchers {
+  /**
   // instantiate ReachSystem for tests
   val reach = new ReachSystem
 
@@ -15,8 +11,6 @@ class TestInactiveRules extends FlatSpec with Matchers {
   val text = "The ubiquitinated Ras protein phosphorylates AKT."
   val docId = "testdoc"
   val chunkId = "1"
-
-  /**
 
   "ProteinWithSite rules" should "find an entity with site" in {
     val text = "To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wildtype ERBB3 with either wild-type EGFR or EGFR T669A."
@@ -278,5 +272,5 @@ class TestInactiveRules extends FlatSpec with Matchers {
     }
   }
 
-    */
+  */
 }

@@ -11,7 +11,7 @@
   pattern: |
     trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = <rcmod conj_and* | nsubj /nn|conj_|cc/* | <prepc_by* nsubj
-    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/* | /prep_(to|with)/
+    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/* | acomp? /prep_(to|with)/
 
 - name: binding1forms
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -118,7 +118,7 @@
   priority: 4
   pattern: |
       trigger = interaction
-      theme1:BioChemicalEntity* = nn | prep_of
+      theme1:BioChemicalEntity+ = nn | prep_of
       theme2:BioChemicalEntity* = <dobj >prep_with
 
 - name: binding10

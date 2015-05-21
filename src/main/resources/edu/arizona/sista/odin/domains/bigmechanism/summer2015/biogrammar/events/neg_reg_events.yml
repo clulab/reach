@@ -7,150 +7,150 @@
 
 
 - name: Negative_regulation_syntax_1_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controller:PossibleController? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
     controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
 
 
 - name: Negative_regulation_syntax_2_verb
-  priority: 4
+  priority: 5
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (>nsubjpass|<vmod) /conj_|nn|cc/*  
     controller:PossibleController? = agent|prep_by /conj_|nn|cc/*
 
 
 - name: Negative_regulation_syntax_3_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
     controller:PossibleController? = <nn* | (prep_by) /nn|conj_|cc/*
 
 
 - name: Negative_regulation_syntax_4_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (nsubjpass /conj_|nn/*) 
     controller:PossibleController? = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/*
 
 
 - name: Negative_regulation_syntax_5_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = dobj /nn|conj_|cc/*
     controller:PossibleController = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
 
 
 - name: Negative_regulation_syntax_6_verb
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
     controlled:SimpleEvent = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
     controller:PossibleController? = /prep_by|agent/ /appos|nn|conj_|cc/*
 
 
 - name: Negative_regulation_syntax_1_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/]?
     controlled:SimpleEvent = prep_of /nn|conj_|cc/*
     controller:PossibleController? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
 
 
 - name: Negative_regulation_syntax_2_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = prep_of? /conj_|cc|nn/+ 
     controller:PossibleController = /prep_by|agent/ /conj|cc|nn/*
 
 
 - name: Negative_regulation_syntax_3_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = prep_of /conj_|cc|nn/+ 
     controller:PossibleController = /conj_|cc|nn/+
 
 
 - name: Negative_regulation_syntax_4_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = <nn? nn /conj|cc|nn|prep/*
 
 
 - name: Negative_regulation_syntax_5_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = < nn > /prep_/ /conj_|cc|nn/* 
     controller:PossibleController? = < nn /conj_|cc|nn/*
 
 
 - name: Negative_regulation_syntax_6_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controller:PossibleController = <prep_via agent|prep_by /nn|conj_|cc/*
     controlled:SimpleEvent = (prep_of /nn|conj_|cc/*)+
 
 
 - name: Negative_regulation_syntax_7_noun
-  priority: 4
+  priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    trigger = [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
+    trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = < nsubj dobj prep_of /nn|cc|conj/* 
 
 
 - name: Negative_regulation_token_1_noun
-  priority: 4
+  priority: 5
   example: ""
   type: token
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    (?<trigger> [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
+    (?<trigger> [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
     /of|on/ [word=/./ & !tag=/^V|RB/]*?
     @controlled:SimpleEvent
 
 
 - name: Negative_regulation_token_2_verb
-  priority: 4
+  priority: 5
   example: ""
   type: token
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
-    (?<trigger> [word=/abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
+    (?<trigger> [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
     (@controlled:SimpleEvent) # used to be optional...why?
 
 

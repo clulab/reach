@@ -139,7 +139,8 @@ object Brat {
     mention match {
       case m: TextBoundMention =>
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
-        val str = sentence.words.slice(m.start, m.end).mkString(" ")
+        val str = if (doc.text.isDefined) m.text else sentence.words.slice(m.start, m.end).mkString(" ")
+
         s"${getId(m, doc, tracker)}\t${m.label} $offsets\t$str"
 
       case m: EventMention =>
