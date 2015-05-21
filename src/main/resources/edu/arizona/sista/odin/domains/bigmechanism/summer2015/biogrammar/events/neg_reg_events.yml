@@ -10,6 +10,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
@@ -19,6 +20,7 @@
 - name: Negative_regulation_syntax_2_verb
   priority: 5
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (>nsubjpass|<vmod) /conj_|nn|cc/*  
@@ -29,6 +31,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
@@ -39,6 +42,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (nsubjpass /conj_|nn/*) 
@@ -49,6 +53,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = dobj /nn|conj_|cc/*
@@ -59,6 +64,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
     controlled:SimpleEvent = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
@@ -69,6 +75,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/]?
     controlled:SimpleEvent = prep_of /nn|conj_|cc/*
@@ -79,6 +86,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = prep_of? /conj_|cc|nn/+ 
@@ -89,6 +97,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = prep_of /conj_|cc|nn/+ 
@@ -99,6 +108,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = <nn? nn /conj|cc|nn|prep/*
@@ -108,6 +118,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = < nn > /prep_/ /conj_|cc|nn/* 
@@ -118,6 +129,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controller:PossibleController = <prep_via agent|prep_by /nn|conj_|cc/*
@@ -128,6 +140,7 @@
   priority: 5
   example: ""
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = < nsubj dobj prep_of /nn|cc|conj/* 
@@ -138,6 +151,7 @@
   example: ""
   type: token
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     (?<trigger> [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
     /of|on/ [word=/./ & !tag=/^V|RB/]*?
@@ -149,6 +163,7 @@
   example: ""
   type: token
   label: [Negative_regulation, ComplexEvent, Event]
+  action: mkRegulation
   pattern: |
     (?<trigger> [word=/(?i)downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
     (@controlled:SimpleEvent) # used to be optional...why?

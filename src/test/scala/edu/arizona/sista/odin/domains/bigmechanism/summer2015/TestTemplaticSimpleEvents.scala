@@ -17,7 +17,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   }
 
   val sent2 = "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
-  it should "extract 3 phosphorylations and 3 positive regulations" in {
+  sent2 should "extract 3 phosphorylations and 3 positive regulations" in {
     val mentions = parseSentence(sent2)
 
     val p = mentions.filter(_ matches "Phosphorylation")

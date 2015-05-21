@@ -32,7 +32,7 @@ class ReachSystem(rules: Option[Rules] = None,
   val coref = new Coref
   // start event extraction engine
   // This will be our global action for the eventEngine
-  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.handleNegations) andThen DarpaFlow(actions.splitSimpleEvents) andThen coref
+  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.detectNegations) andThen DarpaFlow(actions.splitSimpleEvents) andThen coref
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
   // initialize processor
