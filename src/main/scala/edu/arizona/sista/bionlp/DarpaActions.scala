@@ -382,9 +382,11 @@ class DarpaActions extends Actions {
     mentions foreach {
         case event:BioEventMention =>
 
-          //val trigger = event.asInstanceOf[BioEventMention].trigger
           val dependencies = event.sentenceObj.dependencies
 
+          /////////////////////////////////////////////////
+          // Check the outgoing edges from the trigger looking
+          // for a neg label
           val outgoing = dependencies match {
             case Some(deps) => deps.outgoingEdges
             case None => Array.empty
@@ -403,23 +405,66 @@ class DarpaActions extends Actions {
               keep = event.keep,
               foundBy = event.foundBy
             ))
+          ///////////////////////////////////////////////////
 
+          ///////////////////////////////////////////////////
+          // Check for the prescence of some negative verbs
+          // in all the sentence except the tokens
 
-          val negationWords = Set("doesn't", "not", "n't")
+          // First, extract the triggre's range from the mention
+          val interval = event.trigger.tokenInterval
 
-          // Now look for negation tokens within the words of the event
-          for {
-            (word, ix) <- event.words zip event.tokenInterval.toSeq
-            if negationWords contains word
+          //val pairs = for (lemma <- event.lemmas) yield (1, lemma)
+          val pairs = event.tokenInterval.toSeq zip event.lemmas.get
+
+          val pairsL = pairs takeWhile (_._1 < interval.start)
+          val pairsR = pairs dropWhile (_._1 <= interval.end)
+
+          // Check for single-token negative verbs
+          for{
+            (ix, lemma) <- (pairsL ++ pairsR)
+            if Seq("fail") contains lemma
+          }{
+              event.modifications += Negation(new BioTextBoundMention(
+                Seq("Negation_trigger"),
+                Interval(ix),
+                sentence = event.sentence,
+                document = event.document,
+                keep = event.keep,
+                foundBy = event.foundBy
+              ))
+            }
+
+          def flattenTuples(left:(Int, String), right:(Int, String)) = {
+            (
+              (left._1, right._1),
+              (left._2, right._2)
+            )
           }
-            event.modifications += Negation(new BioTextBoundMention(
-              Seq("Negation_trigger"),
-              Interval(ix),
-              sentence = event.sentence,
-              document = event.document,
-              keep = event.keep,
-              foundBy = event.foundBy
-            ))
+
+          val verbs = Seq(("play", "no"), ("play", "little"), ("is", "not"))
+          // Introduce bigrams for two-token verbs in both sides of the trigger
+          for(side <- Seq(pairsL, pairsR)){
+            val bigrams = (side zip side.slice(1, side.length)) map (x =>
+              flattenTuples(x._1, x._2)
+            )
+
+            for{
+              (interval, bigram) <- bigrams
+              if verbs contains bigram
+            }
+              {
+                event.modifications += Negation(new BioTextBoundMention(
+                Seq("Negation_trigger"),
+                Interval(interval._1, interval._2 + 1),
+                sentence = event.sentence,
+                document = event.document,
+                keep = event.keep,
+                foundBy = event.foundBy
+              ))}
+
+          }
+          ///////////////////////////////////////////////////
     }
 
     mentions
