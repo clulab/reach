@@ -7,23 +7,24 @@ import TestUtils._
  * Unit tests to ensure that SimpleEvent rules coming from the templatic grammar are matching correctly
  * Date: 5/19/15
  */
+
+// TODO: This guy is failing
 class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent1 = "The phosphorylation on AKT was great."
   sent1 should "not produce a phosphorylation based on the preposition \"on\"" in {
     // TODO: Fails! (GUS)
     val mentions = parseSentence(sent1)
-    val p = mentions.find(_.label == "Phosphorylation")
+    val p = mentions.find(_ matches "Phosphorylation")
     p.isDefined should be (false)
   }
 
   val sent2 = "JAK3 phosphorylates three HuR residues (Y63, Y68, Y200)"
   it should "extract 3 phosphorylations and 3 positive regulations" in {
-    // TODO: this fails because of bad syntax around Hur. Fix with a surface rule for phosphorylation? (GUS)
     val mentions = parseSentence(sent2)
 
-    val p = mentions.filter(_.label == "Phosphorylation")
+    val p = mentions.filter(_ matches "Phosphorylation")
     p should have size (3)
-    val r = mentions.filter(_.label == "Positive_regulation")
+    val r = mentions.filter(_ matches "Positive_regulation")
     r should have size (3)
   }
 
@@ -31,14 +32,14 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent3 should "not contain a ubiquitination event" in {
     val doc = testReach.mkDoc(sent3, "testdoc")
     val mentions = testReach extractFrom doc
-    mentions.exists(_.label == "Ubiquitination") should be (false)
+    mentions.exists(_ matches "Ubiquitination") should be (false)
   }
 
   val sent4 = "The dephosphorylation of ASPP2 is promotted by optineurin."
   sent4 should "not contain a phosphorylation event" in {
     val doc = testReach.mkDoc(sent4, "testdoc")
     val mentions = testReach extractFrom doc
-    mentions.exists(_.label == "Phosphorylation") should be (false)
+    mentions.exists(_ matches "Phosphorylation") should be (false)
   }
 
   // This test has been ported from TestDarpaEval2015Training
@@ -46,7 +47,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent5 should "contain two phosphorylations" in {
     val text = sent5
     val doc = testReach.mkDoc(text, "testdoc")
-    val phosphorylations = testReach.extractFrom(doc).filter(_.label == "Phosphorylation")
+    val phosphorylations = testReach.extractFrom(doc).filter(_ matches "Phosphorylation")
     phosphorylations.size should be (2)
     TestUtils.hasEventWithArguments("Phosphorylation", List("EGFR"), phosphorylations) should be (true)
     TestUtils.hasEventWithArguments("Phosphorylation", List("ERBB3"), phosphorylations) should be (true)
@@ -57,7 +58,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent6 should "contain 3 phosphorylations" in {
     val text = sent6
     val doc = testReach.mkDoc(text, "testdoc")
-    val phosphorylations = testReach.extractFrom(doc).filter(_.label == "Phosphorylation")
+    val phosphorylations = testReach.extractFrom(doc).filter(_ matches "Phosphorylation")
     phosphorylations.size should be (3)
     TestUtils.hasEventWithArguments("Phosphorylation", List("EGFR"), phosphorylations) should be (true)
     TestUtils.hasEventWithArguments("Phosphorylation", List("HER2"), phosphorylations) should be (true)
@@ -68,7 +69,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent7 = "The ubiquitinated Ras protein phosphorylates AKT."
   sent7 should "contain a phosphorylation" in {
     val mentions = testReach.extractFrom(sent7, "testdoc", "1")
-    val phospho = mentions.find(_.label == "Phosphorylation")
+    val phospho = mentions.find(_ matches "Phosphorylation")
     phospho.isDefined should be (true)
     phospho.get.arguments.contains("theme") should be (true)
     // simple events get a single argument
@@ -121,13 +122,13 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent14a = "Experiments revealed ubiquitination at Lys residues 104 and 147 of K-Ras"
   sent14a should "contain 2 ubiquitinations" in {
     val mentions = parseSentence(sent14a)
-    mentions.filter(_.label == "Ubiquitination") should have size (2)
+    mentions.filter(_ matches "Ubiquitination") should have size (2)
   }
 
   val sent14b = "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
   sent14b should "contain 3 ubiquitinations" in {
     val mentions = parseSentence(sent14b)
-    mentions.filter(_.label == "Ubiquitination") should have size (3)
+    mentions.filter(_ matches "Ubiquitination") should have size (3)
   }
 
   "testHydrolysisPass1" should "find 1 hydrolysis event" in {
@@ -229,6 +230,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
   }
 
+  // TODO: this guy is failing
   "testHydroxylationPass1" should "find 1 hydroxylation event and 1 regulation event" in {
     val mentions = parseSentence("ASPP2 is hydroxylated by Ras.")
     hasEventWithArguments("Hydroxylation", List("ASPP2"), mentions) should be (true)
@@ -340,10 +342,9 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent15 should "contains 2 phosphorylation and 2 regulation events" in {
     val mentions = parseSentence(sent15)
 
-    // TODO: this mostly passes, but we get 3 phosphorylations (one wo/ site)
-    val p = mentions.filter(_.label == "Phosphorylation")
+    val p = mentions.filter(_ matches "Phosphorylation")
     p should have size (2)
-    val r = mentions.filter(_.label == "Positive_regulation")
+    val r = mentions.filter(_ matches "Positive_regulation")
     r should have size (2)
 
     hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
@@ -351,13 +352,13 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   }
 
   val sent16 = "ASPP2 phosphorylates p53 at serine 125, 126, and 127."
-  sent16 should "contains 3 phosphorylation and 3 regulation events" in {
+  sent16 should "contain 3 phosphorylation and 3 regulation events" in {
     val mentions = parseSentence(sent15)
 
-    // TODO: this fails. Is this the Odin token bug? Also, we get an extra phospho wo/ site
-    val p = mentions.filter(_.label == "Phosphorylation")
+    // TODO: this fails. The shell reports 3 Phosphorylation events but the test seems to believe we only have 2...
+    val p = mentions.filter(_ matches "Phosphorylation")
     p should have size (3)
-    val r = mentions.filter(_.label == "Positive_regulation")
+    val r = mentions.filter(_ matches "Positive_regulation")
     r should have size (3)
 
     hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
@@ -367,7 +368,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent17 = "Its many abnormal phenotypes can be rescued via Pde2, which does not hydrolyze Ras-GDP."
   sent17 should "contain a negated regulated hydrolysis" in {
     val mentions = parseSentence(sent17)
-    val h = mentions.filter(_.label == "Hydrolysis")
+    val h = mentions.filter(_ matches "Hydrolysis")
     h should have size 1
     hasEventWithArguments("Hydrolysis", List("Ras-GDP"), mentions) should be (true)
     hasPositiveRegulationByEntity("Pde2", "Hydrolysis", List("Ras-GDP"), mentions) should be (true)
@@ -376,7 +377,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent18 = "Ras does not phosphorylate ASPP2."
   sent18 should "contain a negated regulated phosphorylation" in {
     val mentions = parseSentence(sent18)
-    val p = mentions.filter(_.label == "Phosphorylation")
+    val p = mentions.filter(_ matches "Phosphorylation")
     p should have size 1
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
@@ -385,7 +386,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent19 = "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not hydroxylate ASPP2."
   sent19 should "contain a negated regulated hydroxylation" in {
     val mentions = parseSentence(sent19)
-    val h = mentions.filter(_.label == "Hydroxylation")
+    val h = mentions.filter(_ matches "Hydroxylation")
     h should have size 1
     hasEventWithArguments("Hydroxylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
@@ -394,7 +395,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent20 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
   sent20 should "contain a negated regulated ubiquitination" in {
     val mentions = parseSentence(sent20)
-    val u = mentions.filter(_.label == "Ubiquitination")
+    val u = mentions.filter(_ matches "Ubiquitination")
     u should have size 1
     hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
