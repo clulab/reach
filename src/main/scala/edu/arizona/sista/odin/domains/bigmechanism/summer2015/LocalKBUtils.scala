@@ -1,6 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import java.io.BufferedInputStream
+import java.io._
 import java.util.zip.GZIPInputStream
 
 import scala.io.Source
@@ -8,7 +8,7 @@ import scala.io.Source
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 4/16/2015.
-  *   Last Modified: Refactor as methods in utility object.
+  *   Last Modified: Remove redundant key transform methods.
   */
 object LocalKBUtils {
 
@@ -16,7 +16,7 @@ object LocalKBUtils {
   val KeyCharactersToRemove = " /-".toSet
 
   /** The set of words to remove from the text to create a lookup key. */
-  // val KeyStopWords = Set("family", "protein")
+  val KeyStopSuffixes = Set("_human")
 
   /** The set of words to remove from the text to create a lookup key. */
   val HumanLabels = Set("homo sapiens", "human")
@@ -27,11 +27,15 @@ object LocalKBUtils {
     if (HumanLabels.contains(species.toLowerCase)) true else false
   }
 
-  /** Canonicalize the given text string into a key for storage and lookup. */
+  /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeKBCanonKey (text:String): String = {
-    val key:String = text.toLowerCase
+    var key:String = text.toLowerCase
     // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
-    key.filterNot(KeyCharactersToRemove)
+    key = key.filterNot(KeyCharactersToRemove)
+    KeyStopSuffixes.foreach { suffix =>
+      key = key.stripSuffix(suffix)
+    }
+    return key
   }
 
 
@@ -45,4 +49,20 @@ object LocalKBUtils {
       Source.fromInputStream(inStream)
   }
 
+  /** Return a file path for the given filename in the current user working directory. */
+  def makeOutputFileInUserDir (filename:String): File = {
+    new File(System.getProperty("user.dir") + File.separator + filename)
+  }
+
+}
+
+
+/** Class to implement an incrementing counter for generating unique IDs. */
+class IncrementingCounter {
+  protected var cntr:Int = 0
+  def current(): Int = { cntr }
+  def next(): Int = {
+    cntr += 1
+    return cntr
+  }
 }

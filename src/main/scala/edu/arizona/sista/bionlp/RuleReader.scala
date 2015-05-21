@@ -38,18 +38,32 @@ object RuleReader {
       s"$eventsDir/hydrolysis_events.yml",
       s"$eventsDir/bind_events.yml",
       s"$eventsDir/transcription_events.yml",
-      s"$eventsDir/neg_reg_events.yml",
-      s"$eventsDir/pos_reg_events.yml",
-      s"$eventsDir/translocation_events.yml",
-      s"$eventsDir/pos_activation_events.yml",
-      s"$eventsDir/neg_activation_events.yml")
+      s"$eventsDir/translocation_events.yml")
 
     val ruleFiles = files map readResource mkString "\n\n"
-    // Generate rules for templatic events
+
+    // Generate rules for templatic SIMPLE events
     val simpleEventTemplate = readResource(s"$templatesDir/simple-event_template.yml")
     val templaticEventRules = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
     // println(templaticEventRules)
-    ruleFiles + templaticEventRules
+
+    // Generate rules for templatic ACTIVATION events
+    val posActivationTemplate = readResource(s"$templatesDir/pos-activation_template.yml")
+    val templaticPosActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, posActEventMap)
+    val negActivationTemplate = readResource(s"$templatesDir/neg-activation_template.yml")
+    val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(negActivationTemplate, negActEventMap)
+
+    // Generate rules for templatic REGULATION events
+    val posRegTemplate = readResource(s"$templatesDir/pos-reg_template.yml")
+    val templaticPosRegRules = generateRulesFromTemplateSingleEvent(posRegTemplate, posRegEventMap)
+    val negRegTemplate = readResource(s"$templatesDir/neg-reg_template.yml")
+    val templaticNegRegRules = generateRulesFromTemplateSingleEvent(negRegTemplate, negRegEventMap)
+
+
+    ruleFiles +
+      templaticEventRules +
+      templaticPosActivationRules + templaticNegActivationRules +
+      templaticPosRegRules + templaticNegRegRules
   }
 
   def readCorefRules(): String = {
@@ -124,12 +138,26 @@ object RuleReader {
     println(s"\ttemplates\t=> ${templatesDir.getCanonicalPath}")
     println(s"\tcoref\t=> ${corefDir.getCanonicalPath}")
 
-    // FIXME Could be dangerous since it will slurp up all the templates
-    val simpleEventTemplate = readRuleFilesFromDir(templatesDir)
+    val simpleEventTemplate = readFile(templatesDir.getAbsolutePath + "/simple-event_template.yml")
     val templaticEvents = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
+
+    val posActTemplate = readFile(templatesDir.getAbsolutePath + "/pos-activation_template.yml")
+    val templaticPosActs = generateRulesFromTemplateSingleEvent(posActTemplate, posActEventMap)
+    val negActTemplate = readFile(templatesDir.getAbsolutePath + "/neg-activation_template.yml")
+    val templaticNegActs = generateRulesFromTemplateSingleEvent(negActTemplate, negActEventMap)
+
+    val posRegTemplate = readFile(templatesDir.getAbsolutePath + "/pos-reg_template.yml")
+    val templaticPosRegs = generateRulesFromTemplateSingleEvent(posRegTemplate, posRegEventMap)
+    val negRegTemplate = readFile(templatesDir.getAbsolutePath + "/neg-reg_template.yml")
+    val templaticNegRegs = generateRulesFromTemplateSingleEvent(negRegTemplate, negRegEventMap)
+
     val entityRules = readRuleFilesFromDir(entitiesDir)
     val modificationRules = readRuleFilesFromDir(modificationsDir)
-    val eventRules = readRuleFilesFromDir(eventsDir) + templaticEvents
+
+    val eventRules = readRuleFilesFromDir(eventsDir) +
+      templaticEvents +
+      templaticPosActs
+
     val corefRules = eventRules + readRuleFilesFromDir(corefDir)
     Rules(entityRules, modificationRules, eventRules, corefRules)
   }
@@ -149,6 +177,11 @@ object RuleReader {
 
   def generateRulesFromTemplate(template: String, varMap:Map[String, TemplateMap]):String = {
     varMap.values.map(m => replaceVars(template, m)) mkString "\n\n"
+  }
+
+  /** For when we have a single map */
+  def generateRulesFromTemplateSingleEvent(template: String, varMap:TemplateMap):String = {
+    replaceVars(template, varMap)
   }
 
   // Phosphorylation
@@ -233,4 +266,27 @@ object RuleReader {
         "Hydroxylation" -> hydroxMap,
         "Ribosylation" -> riboMap,
         "Methylation" -> methMap)
+
+  val NEG_NOUNS = "inhibit|decreas|repress|supress"
+
+  val posActEventMap: Map[String, String] =
+    Map("labels" -> "Positive_activation, ComplexEvent, Event",
+        "triggers" -> "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger",
+        "auxtriggers" -> "regul|activ",
+        "negnouns" -> NEG_NOUNS)
+
+  val negActEventMap: Map[String, String] =
+    Map("labels" -> "Negative_activation, ActivationEvent, Event",
+        "triggers" -> "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress")
+
+  val posRegEventMap: Map[String, String] =
+    Map("labels" -> "Positive_regulation, ComplexEvent, Event",
+        "triggers" -> "acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util",
+        "auxtriggers" -> "regul",
+        "negnouns" -> NEG_NOUNS)
+
+  val negRegEventMap: Map[String, String] =
+    Map("labels" -> "Negative_regulation, ComplexEvent, Event",
+        "triggers" -> "downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl")
+
 }

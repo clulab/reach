@@ -6,9 +6,9 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.odin.extern.inward._
 
 /**
-  * A collections of classes which implement project internal knowledge base accessors.
+  * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Update KB accessors to use speciated resolution method.
+  *   Last Modified: Add ChEBI KB Lookup.
   */
 
 /**
@@ -140,7 +140,7 @@ class AzProteinFamilyKBAccessor extends AzNameSpeciesIdKBAccessor {
 }
 
 
-/** KB accessor to resolve small molecule (chemical) names in mentions. */
+/** KB accessor to resolve small molecule (metabolite) names in mentions. */
 class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
   def baseURI = "http://identifiers.org/hmdb/"
   def namespace = "hmdb"
@@ -150,6 +150,15 @@ class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
   readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/hmdb.tsv.gz")
 }
 
+/** KB accessor to resolve small molecule (chemical) names in mentions. */
+class AzSmallMoleculeKBAccessor2 extends AzNameIdKBAccessor {
+  def baseURI = "http://identifiers.org/chebi/"
+  def namespace = "chebi"
+  def resourceID = "MIR:00100009"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/chebi.tsv.gz")
+}
 
 /** KB accessor to resolve subcellular location names in mentions using GeneOntology DB. */
 class AzSubcellularLocationKBAccessor extends AzNameIdKBAccessor {
@@ -210,15 +219,5 @@ class AzFailsafeKBAccessor extends SpeciatedKBAccessor {
       "baseURI" -> baseURI,
       "key" -> key
     )
-  }
-}
-
-/** Class to implement an incrementing counter for generating unique IDs. */
-class IncrementingCounter {
-  protected var cntr:Int = 0
-  def current(): Int = { cntr }
-  def next(): Int = {
-    cntr += 1
-    return cntr
   }
 }

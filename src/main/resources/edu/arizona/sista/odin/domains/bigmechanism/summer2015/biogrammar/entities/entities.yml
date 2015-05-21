@@ -143,7 +143,7 @@
   priority: 4
   type: token
   pattern: |
-    /(?i)\-G[TD]P/ # this also allows for 32P-GTP, etc.
+    [word=/(?i)\-G[TD]P/ & word=/^\d/] # this also allows for 32P-GTP, etc.
 
 # TODO: What labels should these guys have?
 - name: missing-location

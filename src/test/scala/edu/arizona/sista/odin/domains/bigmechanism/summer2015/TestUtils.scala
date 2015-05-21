@@ -151,6 +151,38 @@ object TestUtils {
     false
   }
 
+  def hasPositiveActivation(controllerEntity: String, controlledEntity: String, mentions: Seq[Mention]): Boolean =
+    hasActivation("Positive_activation", controllerEntity, controlledEntity, mentions)
+
+  def hasNegativeActivation(controllerEntity: String, controlledEntity: String, mentions: Seq[Mention]): Boolean =
+    hasActivation("Negative_activation", controllerEntity, controlledEntity, mentions)
+
+  def hasActivation(label: String,
+                    controllerEntity: String,
+                    controlledEntity: String,
+                    mentions: Seq[Mention]): Boolean = {
+    for (m <- mentions) {
+      if (!m.isInstanceOf[TextBoundMention]) {
+        if (m.labels contains label) {
+          // found the label
+          val controller = m.arguments.get("controller")
+          val controlled = m.arguments.get("controlled")
+
+          if (controller.isDefined && controlled.isDefined &&
+              controlled.get.head.isInstanceOf[TextBoundMention] &&
+              controller.get.head.isInstanceOf[TextBoundMention]) {
+            // some obvious sanity checks
+            if (controller.get.head.text == controllerEntity && // found the controller entity
+                controlled.get.head.text == controlledEntity) {
+              return true
+            }
+          }
+        }
+      }
+    }
+    false
+  }
+
   def header(name: String) {
     println(s"\n${":" * 20}$name${":" * 20}\n")
   }

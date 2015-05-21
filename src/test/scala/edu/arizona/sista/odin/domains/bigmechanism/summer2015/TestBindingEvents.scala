@@ -15,7 +15,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
 
     // this MUST produce Binding(Ras, AKT) and Binding(Ras, ASPP2)
 
-    val bindings = mentions.filter(_.label == "Binding")
+    val bindings = mentions.filter(_ matches "Binding")
     bindings should have size (2) // we must have exactly two bindings here
 
     for (b <- bindings) {
@@ -29,7 +29,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent2)
 
     // this MUST produce Binding(Ras, AKT)
-    val bindings = mentions.filter(_.label == "Binding")
+    val bindings = mentions.filter(_ matches "Binding")
     bindings should have size (1) // we must have exactly 1 binding2 here
 
     for (b <- bindings) {
@@ -43,7 +43,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent3)
 
     // this MUST produce no bindings!
-    val binds = mentions.find(_.label == "Binding")
+    val binds = mentions.find(_ matches "Binding")
     binds.isDefined should be(false)
   }
 
@@ -54,14 +54,14 @@ class TestBindingEvents extends FlatSpec with Matchers {
     // this MUST produce no bindings!
     // something fishy because of PwS (GUS)
 
-    val binds = mentions.find(_.label == "Binding")
+    val binds = mentions.find(_ matches "Binding")
     binds.isDefined should be (false)
   }
 
   val sent4 = "The AKT binding was successful."
   sent4 should "not contain unary bindings" in {
     val mentions = parseSentence(sent4)
-    val bindings = mentions.find(_.label == "Binding")
+    val bindings = mentions.find(_ matches "Binding")
     bindings.isDefined should be (false)
   }
 
@@ -69,7 +69,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent5b = "Figure 3. Raf and PI3K bind more to ubiquitinated Ras than to non-ubiquitinated Ras."
   it should "extract correct bindings with theme and theme2" in {
     var mentions = parseSentence(sent5)
-    var bs = mentions.filter(_.label == "Binding")
+    var bs = mentions.filter(_ matches "Binding")
     bs should have size (2)
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
@@ -77,7 +77,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     }
 
     mentions = parseSentence(sent5b)
-    bs = mentions.filter(_.label == "Binding")
+    bs = mentions.filter(_ matches "Binding")
     bs should have size (2)
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
@@ -89,7 +89,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   sent6 should "not contain a binding" in {
     val doc = testReach.mkDoc(sent6, "testdoc")
     val mentions = testReach extractFrom doc
-    assert(!mentions.exists(_.label == "Binding"))
+    assert(!mentions.exists(_ matches "Binding"))
   }
 
   val sent7 = "Mechanistically ASPP1 and ASPP2 bind RAS-GTP and potentiates RAS signalling to enhance p53 mediated apoptosis [2]."
@@ -139,7 +139,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent12 = "GTP loaded Ras induces multiple signaling pathways by binding to its numerous effectors such as Raf and PI3K."
   sent12 should "contain 2 binding events" in {
     val mentions = parseSentence(sent12)
-    val b = mentions.filter(_.label == "Binding")
+    val b = mentions.filter(_ matches "Binding")
     b should have size (2)
     hasEventWithArguments("Binding", List("Ras", "Raf"), mentions) should be (true)
     hasEventWithArguments("Binding", List("Ras", "PI3K"), mentions) should be (true)
@@ -179,16 +179,13 @@ class TestBindingEvents extends FlatSpec with Matchers {
 
     val mentions = parseSentence(sent17)
 
-    val f = mentions.filter(_.label == "Family")
+    val f = mentions.filter(_ matches "Family")
     f should have size (1)
-    val p = mentions.filter(_.label == "Gene_or_gene_product")
+    val p = mentions.filter(_ matches "Gene_or_gene_product")
     p should have size (1)
-    // This tests the whether the modification is present
-    p.head.toBioMention.modifications should have size (1)
-    // TODO: Dane
-    val b = mentions.filter(_.label == "Binding")
+    val b = mentions.filter(_ matches "Binding")
     b should have size (1)
-    // FIXME how should RBD be handled?  As a binding Site?
+    TestUtils.hasEventWithArguments("Binding", List("PI3KC2β", "Ras", "RBD"), b) should be (true)
   }
 
   "testBindingDecl1" should "find 2 binding events" in {

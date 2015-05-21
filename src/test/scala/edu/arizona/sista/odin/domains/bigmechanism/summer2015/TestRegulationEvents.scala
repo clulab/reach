@@ -62,7 +62,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent6)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     // TODO: This is failing because we're missing SAPK in "p38 SAPK"; we only get p38, but we used to get "p38 SAPK"
-    hasPositiveRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("SAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
   val sent7 = "The phosphorylated ASPP2 fragment by MAPK1 was digested by trypsin and fractioned on a high performance liquid chromatography."
@@ -79,6 +79,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
+  // TODO: What should we match?
   val sent9 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
   sent9 should "contain 1 regulation event" in {
     val mentions = parseSentence(sent9)
@@ -107,5 +108,19 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     // this matches over negative verbal triggers such as "fails"
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+  }
+
+  val sent13 = "The inhibition of ASPP1 increases the phosphorylation of ASPP2."
+  sent13 should "contain 1 downregulation and NO upregulation events" in {
+    val mentions = parseSentence(sent13)
+    hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
+  }
+
+  val sent14 = "the phosphorylation of ASPP2 is increased by the inhibition of ASSP1."
+  sent14 should "contain 1 downregulation and NO upregulation events" in {
+    val mentions = parseSentence(sent14)
+    hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
   }
 }

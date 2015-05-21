@@ -47,12 +47,11 @@
   type: token
   pattern: |
     # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
-    @site:Site [!tag=/^V/]*? /^(of|on|for)/ /./*? @entity:BioChemicalEntity
+    @site:Site [!tag=/^V/ & !word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl/]*? /^(of|on|for)/ /./*? @entity:BioChemicalEntity
     |
     @entity:BioChemicalEntity /^(of|on)/ @site:Site+
     |
-    [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? /./+ @site:Site
-
+    [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl/]+ @site:Site
 
 # TODO: Add rule + action that adds some Site to multiple Entities
 # Need to handle cases like "site1, site2, site3 of ENTITY" => as ENTITY with EventSite(site1), EventSite(site2), EventSite(site3)

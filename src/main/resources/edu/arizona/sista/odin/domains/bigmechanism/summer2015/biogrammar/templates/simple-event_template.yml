@@ -85,7 +85,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]
-    theme:BioChemicalEntity = <prep_of? prep_by? /prep_(of|on)/ /nn|conj_|cc/*
+    theme:BioChemicalEntity = <prep_of? prep_by? prep_of /nn|conj_|cc/*
     cause:BioChemicalEntity? = (<dobj? (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/* | poss
     site:Site? = (/prep_/ nn*)+
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
@@ -221,6 +221,16 @@
   action: {{ actionFlow }}
   pattern: |
     (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on [!tag=/^V/]*? @site:Site /./*? of /./*? and @theme:BioChemicalEntity
+
+# effects of patterns
+- name: {{ eventName }}_token_7_noun
+  priority: 4
+  example: "The effects of {{ nominalTriggerLemma }} on Ras are not isoform-specific."
+  type: token
+  label: [{{ labels }}, SimpleEvent, Event, PossibleController]
+  action: {{ actionFlow }}
+  pattern: |
+    (?<trigger> [lemma="effect"] of [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on @theme:BioChemicalEntity (at [!tag=/^V/]+ @site:Site)?
 
 
 - name: {{ eventName }}_token_4_verb

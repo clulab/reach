@@ -95,9 +95,31 @@ object ReachSystem {
 
   // this function should remove mentions that were converted
   // into modifications of other mentions
-  def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] =
+  def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] = {
     // Make sure we don't have any "ModificationTrigger" Mentions
-    ms.filterNot(_ matches "ModificationTrigger")
+    val validMentions = ms.filterNot(_ matches "ModificationTrigger")
+
+      val (events, nonEvents) = validMentions.partition(_.isInstanceOf[BioEventMention])
+      // We need to remove underspecified EventMentions of near-duplicate groupings
+      // (ex. same phospho, but one is misssing a site)
+      val mentionGroupings =
+        events.map(_.asInstanceOf[BioEventMention]).groupBy(m => (m.trigger, m.label))
+
+    // remove incomplete mentions
+    val completeEventMentions =
+      for ((k, ems) <- mentionGroupings) yield {
+        val maxSize:Int = ems.map(_.arguments.size).max
+        //println(s"\t$maxSize max args for ${k._2}")
+        //println(s"${ems.size} before filtering: ")
+        //ems foreach display.displayMention
+        val filteredEMs = ems.filter(_.arguments.size == maxSize)
+        //println(s"${filteredEMs.size} after filtering: ")
+        //filteredEMs foreach display.displayMention
+        //println("#"*30)
+        filteredEMs
+      }
+    nonEvents ++ completeEventMentions.flatten.toSeq
+  }
 
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,

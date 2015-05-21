@@ -590,7 +590,7 @@ class TestModifications extends FlatSpec with Matchers {
   val sent2 = "We demonstrate that the RBD of PI3KC2β binds nucleotide-free Ras in vitro."
   s"""PI3KC2β in "$sent2"""" should "have 1 \"site of protein\" EventSite modification" in {
     // Also: if the entity modification has no type, it should be propagated up in the event using the entity
-    val mentions = parseSentence(sent2)
+    val mentions = getEntities(sent2)
     val p = mentions.filter(_ matches "Gene_or_gene_product")
     p should have size (1)
     // This tests whether the modification is present
@@ -656,6 +656,7 @@ class TestModifications extends FlatSpec with Matchers {
   sent8 should "have a negated positive regulation" in {
     val doc = testReach.mkDoc(sent8, docId, chunkId)
     val mentions = testReach extractFrom doc
+    mentions filter (_ matches "Event") should have size (2)
     val phospho = mentions.find(_ matches "Phosphorylation")
     phospho should be ('defined)
     phospho.get.arguments.keySet should not contain ("cause")
