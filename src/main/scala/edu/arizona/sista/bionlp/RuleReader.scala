@@ -52,7 +52,7 @@ object RuleReader {
     val posActivationTemplate = readResource(s"$templatesDir/pos-activation_template.yml")
     val templaticPosActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, posActEventMap)
     val negActivationTemplate = readResource(s"$templatesDir/neg-activation_template.yml")
-    val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, negActEventMap)
+    val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(negActivationTemplate, negActEventMap)
 
     ruleFiles +
       templaticEventRules +
