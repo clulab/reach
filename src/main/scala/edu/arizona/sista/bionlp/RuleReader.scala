@@ -48,6 +48,7 @@ object RuleReader {
     val simpleEventTemplate = readResource(s"$templatesDir/simple-event_template.yml")
     val templaticEventRules = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
     // println(templaticEventRules)
+
     ruleFiles + templaticEventRules
   }
 
