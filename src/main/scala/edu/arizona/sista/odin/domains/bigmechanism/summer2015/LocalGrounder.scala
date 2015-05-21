@@ -6,21 +6,24 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Reverse order of protein/family lookups per MS request.
+  *   Last Modified: Add ChEBI KB lookup and prioritize it over HMDB.
   */
 class LocalGrounder extends DarpaFlow {
+
   /** An exception in case we somehow fail to assign an ID during resolution. */
   case class NoFailSafe(message:String) extends Exception(message)
 
   /** Project local sequence for resolving entities: check local facade KBs in this order:
-    * 1. Protein Families KB
-    * 2. AZ Protein KB
-    * 3. AZ SmallMolecule BK
-    * 4. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
+    * 1. Proteins
+    * 2. Protein Families
+    * 3. Small Molecules (metabolites and chemicals)
+    * 4. Subcellular Locations
+    * 5. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val searchSequence = Seq(
     new AzProteinKBAccessor,
     new AzProteinFamilyKBAccessor,
+    new AzSmallMoleculeKBAccessor2,
     new AzSmallMoleculeKBAccessor,
     new AzSubcellularLocationKBAccessor,
 //    new AzTissueTypeKBAccessor,
@@ -46,4 +49,5 @@ class LocalGrounder extends DarpaFlow {
     // we should never get here because our accessors include a failsafe ID assignment
     throw NoFailSafe(s"LocalGrounder failed to assign an ID to ${mention.displayLabel} '${mention.text}' in S${mention.sentence}")
   }
+
 }

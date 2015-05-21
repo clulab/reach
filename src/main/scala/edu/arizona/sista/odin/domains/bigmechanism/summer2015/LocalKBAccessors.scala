@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Move incrementing counter to local KB utils.
+  *   Last Modified: Add ChEBI KB Lookup.
   */
 
 /**
@@ -140,7 +140,7 @@ class AzProteinFamilyKBAccessor extends AzNameSpeciesIdKBAccessor {
 }
 
 
-/** KB accessor to resolve small molecule (chemical) names in mentions. */
+/** KB accessor to resolve small molecule (metabolite) names in mentions. */
 class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
   def baseURI = "http://identifiers.org/hmdb/"
   def namespace = "hmdb"
@@ -150,6 +150,15 @@ class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
   readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/hmdb.tsv.gz")
 }
 
+/** KB accessor to resolve small molecule (chemical) names in mentions. */
+class AzSmallMoleculeKBAccessor2 extends AzNameIdKBAccessor {
+  def baseURI = "http://identifiers.org/chebi/"
+  def namespace = "chebi"
+  def resourceID = "MIR:00100009"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/chebi.tsv.gz")
+}
 
 /** KB accessor to resolve subcellular location names in mentions using GeneOntology DB. */
 class AzSubcellularLocationKBAccessor extends AzNameIdKBAccessor {
