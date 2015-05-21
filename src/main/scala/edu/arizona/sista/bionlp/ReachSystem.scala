@@ -29,15 +29,13 @@ class ReachSystem(rules: Option[Rules] = None,
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
   val modificationEngine = ExtractorEngine(modificationRules, actions)
-  // initialize coref
-  val coref = new Coref
   // start event extraction engine
   // This will be our global action for the eventEngine
   val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.handleNegations) andThen DarpaFlow(actions.splitSimpleEvents)
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
   // this engine extracts generic mentions that can be anaphora like "it" and tries to resolve them
-  val corefEngine = ExtractorEngine(corefRules, actions, (cleanupEvents andThen coref).apply)
+  val corefEngine = ExtractorEngine(corefRules, actions, cleanupEvents.apply)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
@@ -60,8 +58,12 @@ class ReachSystem(rules: Option[Rules] = None,
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
-    val unresolved = extractEventsFrom(doc, entities)
-    val finalMentions = extractResolvedFrom(doc, unresolved)
+    val events = extractEventsFrom(doc, entities)
+    val unresolved = extractResolvedFrom(doc, events)
+    // initialize coref
+    val coref = new Coref
+    val finalMentions = coref(unresolved,State(unresolved))
+
     resolveDisplay(finalMentions)
   }
 
@@ -84,7 +86,8 @@ class ReachSystem(rules: Option[Rules] = None,
   //
   def extractResolvedFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
     val mentions = corefEngine.extractByType[BioMention](doc, State(ms))
-    mentions
+    val cleanMentions = pruneMentions(mentions)
+    cleanMentions
   }
 }
 

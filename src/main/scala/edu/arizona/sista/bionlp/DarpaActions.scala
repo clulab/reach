@@ -381,6 +381,7 @@ class DarpaActions extends Actions {
               keep = event.keep,
               foundBy = event.foundBy
             ))
+        case _ => ()
     }
 
     mentions
