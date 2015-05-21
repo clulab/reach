@@ -1,6 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp.mentions.BioTextBoundMention
+import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 
@@ -27,7 +27,31 @@ class Coref extends DarpaFlow {
       } yield n).flatten.toSeq
     }
 
-    def getChildren (m: Mention): Seq[Mention] = {
+    val themeMap = Map(
+      "Binding" -> 2,
+      "Ubiquitination" -> 1,
+      "Phosphorylation" -> 1,
+      "Hydroxylation" -> 1,
+      "Acetylation" -> 1,
+      "Farnesylation" -> 1,
+      "Glycosylation" -> 1,
+      "Methylation" -> 1,
+      "Ribosylation" -> 1,
+      "Sumoylation" -> 1,
+      "Hydrolysis" -> 1,
+      "Degradation" -> 1,
+      "Exchange" -> 2,
+      "Transcription" -> 1,
+      "Transportation" -> 1,
+      "Translocation" -> 1
+    )
+
+    // crucial: pass lemma so plurality isn't a concern
+    def themeCardinality(eventLemma: String): Int = {
+      themeMap.getOrElse(eventLemma,1)
+    }
+
+    def getChildren (m: Mention): Seq[Mention] = m match {
       case t: TextBoundMention => Seq(t)
       case e: EventMention =>
         (for {
@@ -46,9 +70,9 @@ class Coref extends DarpaFlow {
           a <- v
         } yield {
             a match {
-              case en: TextBoundMention => Seq(en)
-              case ev: EventMention => ev +: getChildren(ev)
-              case rm: RelationMention => rm +: getChildren(rm)
+              case en: BioTextBoundMention => Seq(en)
+              case ev: BioEventMention => ev +: getChildren(ev)
+              case rm: BioRelationMention => rm +: getChildren(rm)
             }
           }).flatten.toSeq
     }
@@ -72,7 +96,7 @@ class Coref extends DarpaFlow {
           } yield argType -> argMentions.map(a => resolve(a)).flatten).filter(_._2.nonEmpty)
           args match {
             case stillUnresolved if args.size < 1 => Seq()
-            case _ => Seq(new RelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy))
+            case _ => Seq(new RelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy).toBioMention)
           }
         }
 
@@ -96,14 +120,14 @@ class Coref extends DarpaFlow {
               mention.sentence,
               mention.document,
               mention.keep,
-              "corefSplitter")
+              "corefSplitter").toBioMention
           } else {
             val args = (for {
               (argType, argMentions) <- mention.arguments
             } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
             args match {
               case stillUnresolved if args.size < 1 => Seq()
-              case _ => Seq(new EventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy))
+              case _ => Seq(new EventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy).toBioMention)
             }
           }
         }
@@ -142,7 +166,7 @@ class Coref extends DarpaFlow {
 
     // exact string matching
     val sameText = chains.keys
-      .filter(x => x.isInstanceOf[TextBoundMention] && !x.labels.contains("Unresolved"))
+      .filter(x => x.isInstanceOf[BioTextBoundMention] && !x.labels.contains("Unresolved"))
       .groupBy (m => m.text.toLowerCase)
       .filter(_._2.toSeq.length > 1)
     sameText.foreach {
@@ -160,7 +184,7 @@ class Coref extends DarpaFlow {
     val sameGrounding = chains.keys
       .filter(x => x.isInstanceOf[BioTextBoundMention])
       .filter(x => x.asInstanceOf[BioTextBoundMention].isGrounded)
-      .groupBy(m => m.asInstanceOf[BioTextBoundMention].xref.get.namespace + m.asInstanceOf[BioTextBoundMention].xref.get.id)
+      .groupBy(m => m.asInstanceOf[BioTextBoundMention].xref.get.id)
     sameGrounding.foreach {
       case (gr, ms) =>
         val newChain = ms.flatMap(m => chains(m)).toSeq.distinct.sorted

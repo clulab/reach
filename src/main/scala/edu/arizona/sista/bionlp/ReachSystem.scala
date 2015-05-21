@@ -18,6 +18,7 @@ class ReachSystem(rules: Option[Rules] = None,
   val entityRules = if (rules.isEmpty) readEntityRules() else rules.get.entities
   val modificationRules = if (rules.isEmpty) readModificationRules() else rules.get.modifications
   val eventRules = if (rules.isEmpty) readEventRules() else rules.get.events
+  val corefRules = if (rules.isEmpty) readCorefRules() else rules.get.coref
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
@@ -32,9 +33,11 @@ class ReachSystem(rules: Option[Rules] = None,
   val coref = new Coref
   // start event extraction engine
   // This will be our global action for the eventEngine
-  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.handleNegations) andThen DarpaFlow(actions.splitSimpleEvents) andThen coref
+  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.handleNegations) andThen DarpaFlow(actions.splitSimpleEvents)
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
+  // this engine extracts generic mentions that can be anaphora like "it" and tries to resolve them
+  val corefEngine = ExtractorEngine(corefRules, actions, (cleanupEvents andThen coref).apply)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
@@ -57,7 +60,8 @@ class ReachSystem(rules: Option[Rules] = None,
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
-    val finalMentions = extractEventsFrom(doc, entities)
+    val unresolved = extractEventsFrom(doc, entities)
+    val finalMentions = extractResolvedFrom(doc, unresolved)
     resolveDisplay(finalMentions)
   }
 
@@ -75,6 +79,12 @@ class ReachSystem(rules: Option[Rules] = None,
     // for example, remove sites that are part of a modification feature
     val cleanMentions = pruneMentions(mentions)
     cleanMentions
+  }
+
+  //
+  def extractResolvedFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
+    val mentions = corefEngine.extractByType[BioMention](doc, State(ms))
+    mentions
   }
 }
 
