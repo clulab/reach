@@ -380,13 +380,13 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent19 = "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not hydroxylate ASPP2."
-  sent19 should "contain a negated regulated hydroxylation" in {
+  val sent19 = "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not phosphorylate ASPP2."
+  sent19 should "contain a negated regulated phosphorylation" in {
     val mentions = parseSentence(sent19)
-    val h = mentions.filter(_ matches "Hydroxylation")
+    val h = mentions.filter(_ matches "Phosphorylation")
     h should have size 1
-    hasEventWithArguments("Hydroxylation", List("ASPP2"), mentions) should be (true)
-    hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
   val sent20 = "We measured transcription activation in the presence of ASPP2, which is not ubiquitinated by Ras."
@@ -395,6 +395,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val u = mentions.filter(_ matches "Ubiquitination")
     u should have size 1
     hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
-    hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ras", "Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
 }
