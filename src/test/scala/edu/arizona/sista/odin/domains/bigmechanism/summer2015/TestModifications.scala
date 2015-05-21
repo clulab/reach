@@ -656,6 +656,7 @@ class TestModifications extends FlatSpec with Matchers {
   sent8 should "have a negated positive regulation" in {
     val doc = testReach.mkDoc(sent8, docId, chunkId)
     val mentions = testReach extractFrom doc
+    mentions filter (_ matches "Event") should have size (2)
     val phospho = mentions.find(_ matches "Phosphorylation")
     phospho should be ('defined)
     phospho.get.arguments.keySet should not contain ("cause")
