@@ -1,6 +1,6 @@
 
 #
-# These were copied from Positive_activation, with the following changes:
+# These were copied from Positive_regulation, with the following changes:
 # - Triggers are different
 # - Both arguments must by BioChemicalEntity and are mandatory
 # - Some rules that did not contain two participants were removed
@@ -12,7 +12,7 @@
   label: [{{ labels }}]
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controller:BioChemicalEntity = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
+    controller:BioChemicalEntity = <xcomp? (nsubj | agent | <vmod) [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc/*
     controlled:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
 
 
@@ -22,7 +22,7 @@
   label: [{{ labels }}]
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controlled:BioChemicalEntity = (>nsubjpass|<vmod) [!lemma=/{{ negnouns }}/] /conj_|nn|cc/*
     controller:BioChemicalEntity = agent|prep_by /conj_|nn|cc/*
 
 
@@ -33,7 +33,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }} / & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
-    controller:BioChemicalEntity = <nn* | (prep_by) /nn|conj_|cc/*
+    controller:BioChemicalEntity = <nn* | (prep_by) [!lemma=/{{ negnouns }}/]  /nn|conj_|cc/*
 
 - name: Positive_activation_syntax_4_verb
   priority: 4
@@ -42,7 +42,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:BioChemicalEntity = (nsubjpass /conj_|nn/*)
-    controller:BioChemicalEntity = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/*
+    controller:BioChemicalEntity = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ [!lemma=/{{ negnouns }}/]  /conj_|nn/*
 
 
 - name: Positive_activation_syntax_5_verb
@@ -52,7 +52,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:BioChemicalEntity = dobj /nn|conj_|cc/*
-    controller:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    controller:BioChemicalEntity = ((< /xcomp|rcmod|appos/) [!lemma=/{{ negnouns }}/])+  /appos|nn|conj_|cc/*
 
 
 - name: Positive_activation_syntax_6_verb
@@ -62,7 +62,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/VBN|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^VBN/]?
     controlled:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
-    controller:BioChemicalEntity = /prep_by|agent/ /appos|nn|conj_|cc/*
+    controller:BioChemicalEntity = /prep_by|agent/ [!lemma=/{{ negnouns }}/]  /appos|nn|conj_|cc/*
 
 
 - name: Positive_activation_syntax_1_noun
@@ -72,7 +72,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
     controlled:BioChemicalEntity = prep_of /nn|conj_|cc/*
-    controller:BioChemicalEntity = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
+    controller:BioChemicalEntity = (<dobj (prep_by|agent)|nn|prep_of prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
 - name: Positive_activation_syntax_2_noun
@@ -82,7 +82,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
     controlled:BioChemicalEntity = prep_of? /conj_|cc|nn/+
-    controller:BioChemicalEntity = /prep_by|agent/ /conj|cc|nn/*
+    controller:BioChemicalEntity = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj|cc|nn/*
 
 - name: Positive_activation_syntax_3_noun
   priority: 4
@@ -111,6 +111,6 @@
   pattern: |
     trigger = [word=/{{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
     controlled:BioChemicalEntity = (prep_of /nn|conj_|cc/*)+
-    controller:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/*
+    controller:BioChemicalEntity = <prep_via agent|prep_by [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
