@@ -374,7 +374,7 @@ class DarpaActions extends Actions {
     }
   }
 
-  def handleNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {
+  def detectNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle negated events
     // and then return the mentions
 
@@ -424,6 +424,4 @@ class DarpaActions extends Actions {
 
     mentions
   }
-
-  def mkRegulation(ms: Seq[Mention], state: State): Seq[Mention] = default(ms, state)
 }
