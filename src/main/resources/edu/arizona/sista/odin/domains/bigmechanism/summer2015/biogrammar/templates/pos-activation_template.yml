@@ -33,3 +33,5 @@
     trigger = [word=/(?i) {{ triggers }} / & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul|activ/ & tag=/^V/]?
     controlled:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
     controller:BioChemicalEntity = <nn* | (prep_by) /nn|conj_|cc/*
+
+

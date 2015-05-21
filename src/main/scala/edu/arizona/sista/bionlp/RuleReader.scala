@@ -50,11 +50,13 @@ object RuleReader {
 
     // Generate rules for templatic ACTIVATION events
     val posActivationTemplate = readResource(s"$templatesDir/pos-activation_template.yml")
-    val templaticPosActivationRules = generateRulesFromTemplate(posActivationTemplate, posActEventMap)
+    val templaticPosActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, posActEventMap)
+    val negActivationTemplate = readResource(s"$templatesDir/neg-activation_template.yml")
+    val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, negActEventMap)
 
     ruleFiles +
       templaticEventRules +
-      templaticPosActivationRules
+      templaticPosActivationRules + templaticNegActivationRules
   }
 
   def readFile(filename: String) = {
@@ -106,8 +108,10 @@ object RuleReader {
     val simpleEventTemplate = readFile(templatesDir.getAbsolutePath + "/simple-event_template.yml")
     val templaticEvents = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
 
-    val posActTemplate = readFile(templatesDir.getAbsolutePath + "/")
-    val templaticPosActs = generateRulesFromTemplate(posActTemplate, posActEventMap)
+    val posActTemplate = readFile(templatesDir.getAbsolutePath + "/pos-activation_template.yml")
+    val templaticPosActs = generateRulesFromTemplateSingleEvent(posActTemplate, posActEventMap)
+    val negActTemplate = readFile(templatesDir.getAbsolutePath + "/neg-activation_template.yml")
+    val templaticNegActs = generateRulesFromTemplateSingleEvent(negActTemplate, negActEventMap)
 
     val entityRules = readRuleFilesFromDir(entitiesDir)
     val modificationRules = readRuleFilesFromDir(modificationsDir)
@@ -136,7 +140,7 @@ object RuleReader {
   }
 
   /** For when we have a single map */
-  def generateRulesFromTemplate(template: String, varMap:TemplateMap):String = {
+  def generateRulesFromTemplateSingleEvent(template: String, varMap:TemplateMap):String = {
     replaceVars(template, varMap)
   }
 
@@ -226,4 +230,8 @@ object RuleReader {
   val posActEventMap: Map[String, String] =
     Map("labels" -> "Positive_activation, ComplexEvent, Event, PossibleController",
         "triggers" -> "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger")
+
+  val negActEventMap: Map[String, String] =
+    Map("labels" -> "Negative_activation, ActivationEvent, Event",
+        "triggers" -> "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress")
 }
