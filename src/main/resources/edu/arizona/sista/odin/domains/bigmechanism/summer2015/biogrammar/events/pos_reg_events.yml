@@ -8,6 +8,7 @@
   priority: 5
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [lemma=/acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util/ & tag=/^V|RB/] [lemma=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = dobj nn*
@@ -17,6 +18,7 @@
   priority: 5
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
     controlled:SimpleEvent = dobj nn*
@@ -28,6 +30,7 @@
   type: token
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
+  action: mkRegulation
   pattern: |
     (@controller:PossibleController)? (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:SimpleEvent
 
@@ -36,6 +39,7 @@
   example: ""
   type: token
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:Binding following @controller:PossibleController
 
@@ -45,6 +49,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [lemma=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
@@ -54,6 +59,7 @@
 - name: Positive_regulation_syntax_2_verb
   priority: 4
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (>nsubjpass|<vmod) /conj_|nn|cc/*
@@ -64,6 +70,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
@@ -74,6 +81,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = (nsubjpass /conj_|nn/*)
@@ -84,6 +92,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
     controlled:SimpleEvent = dobj /nn|conj_|cc/*
@@ -94,6 +103,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
     controlled:SimpleEvent = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
@@ -104,6 +114,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/]?
     controlled:SimpleEvent = prep_of /nn|conj_|cc/*
@@ -114,6 +125,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = prep_of? /conj_|cc|nn/+
@@ -124,6 +136,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = prep_of /conj_|cc|nn/+
@@ -134,6 +147,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = <nn? nn /conj|cc|nn|prep/*
@@ -143,6 +157,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = < nn > /prep_/ /conj_|cc|nn/*
@@ -153,6 +168,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = (prep_of /nn|conj_|cc/*)+
@@ -163,6 +179,7 @@
   priority: 4
   example: ""
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     trigger = [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
     controlled:SimpleEvent = < nsubj dobj prep_of /nn|cc|conj/*
@@ -173,6 +190,7 @@
   example: ""
   type: token
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     (?<trigger> [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
     /of|on/ [word=/./ & !tag=/^V|RB/]*?
@@ -184,6 +202,7 @@
   example: ""
   type: token
   label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  action: mkRegulation
   pattern: |
     (?<trigger> [word=/(?i)acceler|accumul|activ|allow|augment|cataly|direct|driv|elev|elicit|enhanc|escort|facilit|gener|heigh|increas|induc|initi|modul|necess|overexpress|pivot|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|render|requir|rescu|respons|restor|retent|sequest|signal|stimul|sulfat|support|synerg|synthes|target|trigger|underli|uninduc|up-regul|upregul/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
     @controlled:SimpleEvent # TODO: used to be optional...why?

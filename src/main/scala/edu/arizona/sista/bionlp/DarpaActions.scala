@@ -236,9 +236,10 @@ class DarpaActions extends Actions {
    * @return Nil (Modifications are added in-place)
    */
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    //println(s"\tcreating EventSite!")
+    //println(s"${mentions.size} EventSite mentions found")
     mentions foreach { m =>
       val bioMention = m.arguments("entity").head.toBioMention
+      //println(s"""\t\t(matched by ${m.foundBy} for "${m.text}")""")
       // Check the complete span for any sites
       // FIXME this is due to an odin bug
       state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Site") foreach { eSite =>
@@ -373,7 +374,7 @@ class DarpaActions extends Actions {
     }
   }
 
-  def handleNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {
+  def detectNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {
     // do something very smart to handle negated events
     // and then return the mentions
 

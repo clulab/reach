@@ -223,6 +223,18 @@
     theme1:BioChemicalEntity+ = <nn* nn* | nsubj
     theme2:BioChemicalEntity+ = prep_of
 
+- name: binding_syntax_23_verb
+  example: "RBD of PI3KC2β binds nucleotide-free Ra"
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [lemma="bind" & tag=/^V/]
+    theme1:BioChemicalEntity+ = nsubj /prep_of|nn|conj_|cc/*
+    site:Site? = nsubj | (dobj prep_at) # domain-style pattern
+    theme2:BioChemicalEntity+ = dobj /prep_of|nn|conj_|cc/*
+
+
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
 - name: binding_token_1
