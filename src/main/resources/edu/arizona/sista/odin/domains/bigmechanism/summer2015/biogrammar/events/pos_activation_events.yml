@@ -1,9 +1,38 @@
 
-- name: activates_syntax1
+#
+# all positive activation triggers:
+# acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger
+#
+# These were copied from positive_regulation, with the following 2 changes:
+# - Triggers are different
+# - Both arguments must by BioChemicalEntity and are mandatory
+#
+
+- name: Positive_activation_syntax_1_verb
   priority: 4
   example: "Ubiquitinated Ras activates Raf and PI3K."
-  label: [Positive_activation, ActivationEvent, Event]
+  label: [Positive_regulation, ComplexEvent, Event, PossibleController]
   pattern: |
-    trigger = [word=/(?i)acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger/ & tag=/^V/]
-    controller:BioChemicalEntity = (nsubj | agent) /appos|nn|conj_|cc|prep_of/*
-    controlled:BioChemicalEntity = dobj /nn|prep_of|conj_|cc/*
+    trigger = [word=/(?i)acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger/ & tag=/^V|RB/] [lemma=/regul|activ/ & tag=/^V/]?
+    controller:BioChemicalEntity = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
+    controlled:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+
+
+- name: Positive_activation_syntax_2_verb
+  priority: 4
+  example: "Ras was activated by Raf"
+  label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger/ & tag=/^V|RB/] [word=/regul|activ/ & tag=/^V/]?
+    controlled:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controller:BioChemicalEntity = agent|prep_by /conj_|nn|cc/*
+
+
+- name: Positive_activation_syntax_3_verb
+  priority: 4
+  example: ""
+  label: [Positive_regulation, ComplexEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul|activ/ & tag=/^V/]?
+    controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
+    controller:BioChemicalEntity? = <nn* | (prep_by) /nn|conj_|cc/*
