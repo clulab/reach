@@ -293,6 +293,44 @@ class DarpaActions extends Actions {
   }
 
 
+  def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
+    mention <- mentions
+    biomention = mention.toBioMention
+  } yield {
+    val controllerOption = biomention.arguments.get("controller")
+    // if no controller then we are done
+    if (controllerOption.isEmpty) biomention
+    else {
+      // assuming one controller only
+      val controller = controllerOption.get.head
+      // if controller is a physical entity then we are done
+      if (controller matches "BioChemicalEntity") biomention
+      else if (controller matches "SimpleEvent") {
+        // convert controller event into modified physical entity
+        val trigger = biomention.asInstanceOf[BioEventMention].trigger
+        val newController = convertEventToEntity(controller.toBioMention.asInstanceOf[BioEventMention])
+        // if for some reason the event couldn't be converted
+        // just return the original mention
+        if (newController.isEmpty) biomention
+        else {
+          // return a new event with the converted controller
+          val newArgs = controller.arguments.updated("controller", Seq(newController.get))
+          new BioEventMention(
+            biomention.labels,
+            trigger,
+            newArgs,
+            biomention.sentence,
+            biomention.document,
+            biomention.keep,
+            biomention.foundBy)
+        }
+      }
+      // if it is not a biochemical entity or a simple event, what is it??
+      // we will just return it
+      else biomention
+    }
+  }
+
   /** Converts a simple event to a physical entity.
     *
     * @param event An event mention
