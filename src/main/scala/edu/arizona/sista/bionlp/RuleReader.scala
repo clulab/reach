@@ -44,10 +44,14 @@ object RuleReader {
       s"$eventsDir/neg_activation_events.yml")
 
     val ruleFiles = files map readResource mkString "\n\n"
-    // Generate rules for templatic events
+
+    // Generate rules for templatic SIMPLE events
     val simpleEventTemplate = readResource(s"$templatesDir/simple-event_template.yml")
     val templaticEventRules = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
     // println(templaticEventRules)
+
+    // Generate rules for templatic ACTIVATION events
+    val activationTemplate = readResource(s"$templatesDir/simple-event_template.yml")
 
     ruleFiles + templaticEventRules
   }
