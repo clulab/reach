@@ -1,0 +1,37 @@
+
+#
+# These were copied from positive_regulation, with the following 2 changes:
+# - Triggers are different
+# - Both arguments must by BioChemicalEntity and are mandatory
+#
+
+- name: Positive_activation_syntax_1_verb
+  priority: 4
+  example: "Ubiquitinated Ras activates Raf and PI3K."
+  label: [{{ labels }}]
+  pattern: |
+    trigger = [word=/(?i) {{ triggers }}/ & tag=/^V|RB/] [lemma=/regul|activ/ & tag=/^V/]?
+    controller:BioChemicalEntity = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
+    controlled:BioChemicalEntity = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+
+
+- name: Positive_activation_syntax_2_verb
+  priority: 4
+  example: "Ras was activated by Raf"
+  label: [{{ labels }}]
+  pattern: |
+    trigger = [word=/(?i) {{ triggers }}/ & tag=/^V|RB/] [word=/regul|activ/ & tag=/^V/]?
+    controlled:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controller:BioChemicalEntity = agent|prep_by /conj_|nn|cc/*
+
+
+- name: Positive_activation_syntax_3_verb
+  priority: 4
+  example: ""
+  label: [{{ labels }}]
+  pattern: |
+    trigger = [word=/(?i) {{ triggers }} / & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul|activ/ & tag=/^V/]?
+    controlled:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
+    controller:BioChemicalEntity = <nn* | (prep_by) /nn|conj_|cc/*
+
+

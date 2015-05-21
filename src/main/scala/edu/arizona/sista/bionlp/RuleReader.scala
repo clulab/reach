@@ -39,16 +39,24 @@ object RuleReader {
       s"$eventsDir/transcription_events.yml",
       s"$eventsDir/neg_reg_events.yml",
       s"$eventsDir/pos_reg_events.yml",
-      s"$eventsDir/translocation_events.yml",
-      s"$eventsDir/pos_activation_events.yml",
-      s"$eventsDir/neg_activation_events.yml")
+      s"$eventsDir/translocation_events.yml")
 
     val ruleFiles = files map readResource mkString "\n\n"
-    // Generate rules for templatic events
+
+    // Generate rules for templatic SIMPLE events
     val simpleEventTemplate = readResource(s"$templatesDir/simple-event_template.yml")
     val templaticEventRules = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
     // println(templaticEventRules)
-    ruleFiles + templaticEventRules
+
+    // Generate rules for templatic ACTIVATION events
+    val posActivationTemplate = readResource(s"$templatesDir/pos-activation_template.yml")
+    val templaticPosActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, posActEventMap)
+    val negActivationTemplate = readResource(s"$templatesDir/neg-activation_template.yml")
+    val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(negActivationTemplate, negActEventMap)
+
+    ruleFiles +
+      templaticEventRules +
+      templaticPosActivationRules + templaticNegActivationRules
   }
 
   def readFile(filename: String) = {
@@ -97,12 +105,20 @@ object RuleReader {
     println(s"\tevents\t\t=> ${eventsDir.getCanonicalPath}")
     println(s"\ttemplates\t=> ${templatesDir.getCanonicalPath}")
 
-    // FIXME Could be dangerous since it will slurp up all the templates
-    val simpleEventTemplate = readRuleFilesFromDir(templatesDir)
+    val simpleEventTemplate = readFile(templatesDir.getAbsolutePath + "/simple-event_template.yml")
     val templaticEvents = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
+
+    val posActTemplate = readFile(templatesDir.getAbsolutePath + "/pos-activation_template.yml")
+    val templaticPosActs = generateRulesFromTemplateSingleEvent(posActTemplate, posActEventMap)
+    val negActTemplate = readFile(templatesDir.getAbsolutePath + "/neg-activation_template.yml")
+    val templaticNegActs = generateRulesFromTemplateSingleEvent(negActTemplate, negActEventMap)
+
     val entityRules = readRuleFilesFromDir(entitiesDir)
     val modificationRules = readRuleFilesFromDir(modificationsDir)
-    val eventRules = readRuleFilesFromDir(eventsDir) + templaticEvents
+    val eventRules = readRuleFilesFromDir(eventsDir) +
+      templaticEvents +
+      templaticPosActs
+
     Rules(entityRules, modificationRules, eventRules)
   }
 
@@ -121,6 +137,11 @@ object RuleReader {
 
   def generateRulesFromTemplate(template: String, varMap:Map[String, TemplateMap]):String = {
     varMap.values.map(m => replaceVars(template, m)) mkString "\n\n"
+  }
+
+  /** For when we have a single map */
+  def generateRulesFromTemplateSingleEvent(template: String, varMap:TemplateMap):String = {
+    replaceVars(template, varMap)
   }
 
   // Phosphorylation
@@ -205,4 +226,12 @@ object RuleReader {
         "Hydroxylation" -> hydroxMap,
         "Ribosylation" -> riboMap,
         "Methylation" -> methMap)
+
+  val posActEventMap: Map[String, String] =
+    Map("labels" -> "Positive_activation, ComplexEvent, Event, PossibleController",
+        "triggers" -> "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger")
+
+  val negActEventMap: Map[String, String] =
+    Map("labels" -> "Negative_activation, ActivationEvent, Event",
+        "triggers" -> "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress")
 }
