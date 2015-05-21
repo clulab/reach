@@ -441,7 +441,7 @@ class DarpaActions extends Actions {
             )
           }
 
-          val verbs = Seq(("play", "no"), ("little", "role"), ("is", "not"))
+          val verbs = Seq(("play", "no"), ("play", "little"), ("is", "not"))
           // Introduce bigrams for two-token verbs in both sides of the trigger
           for(side <- Seq(pairsL, pairsR)){
             val bigrams = (side zip side.slice(1, side.length)) map (x =>
