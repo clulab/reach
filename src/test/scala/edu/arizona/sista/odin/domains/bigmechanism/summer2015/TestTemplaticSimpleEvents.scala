@@ -8,11 +8,9 @@ import TestUtils._
  * Date: 5/19/15
  */
 
-// TODO: This guy is failing
 class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent1 = "The phosphorylation on AKT was great."
   sent1 should "not produce a phosphorylation based on the preposition \"on\"" in {
-    // TODO: Fails! (GUS)
     val mentions = parseSentence(sent1)
     val p = mentions.find(_ matches "Phosphorylation")
     p.isDefined should be (false)
@@ -353,10 +351,10 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
 
   val sent16 = "ASPP2 phosphorylates p53 at serine 125, 126, and 127."
   sent16 should "contain 3 phosphorylation and 3 regulation events" in {
-    val mentions = parseSentence(sent15)
-
-    // TODO: this fails. The shell reports 3 Phosphorylation events but the test seems to believe we only have 2...
+    val mentions = parseSentence(sent16)
+    
     val p = mentions.filter(_ matches "Phosphorylation")
+    p foreach displayMention
     p should have size (3)
     val r = mentions.filter(_ matches "Positive_regulation")
     r should have size (3)
