@@ -6,7 +6,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Update to use new display label.
+  *   Last Modified: Reverse order of protein/family lookups per MS request.
   */
 class LocalGrounder extends DarpaFlow {
   /** An exception in case we somehow fail to assign an ID during resolution. */
@@ -19,8 +19,8 @@ class LocalGrounder extends DarpaFlow {
     * 4. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val searchSequence = Seq(
-    new AzProteinFamilyKBAccessor,
     new AzProteinKBAccessor,
+    new AzProteinFamilyKBAccessor,
     new AzSmallMoleculeKBAccessor,
     new AzSubcellularLocationKBAccessor,
 //    new AzTissueTypeKBAccessor,
