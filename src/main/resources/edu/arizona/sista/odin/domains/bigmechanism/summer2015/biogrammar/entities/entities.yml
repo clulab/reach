@@ -80,7 +80,7 @@
   type: token
   pattern: |
    # This works with open range, but is it a possible odin problem with quantifiers?
-   [lemma=/residue/ & mention="Site"] [tag="CD" & mention="Site"] [tag=/^(CC|CD)/ | word=","]* (?<site> [tag="CD" & !mention="Site"])
+   [mention="Site"] [tag="CD" & mention="Site"] [tag=/^(CC|CD)/ | word=","]* (?<site> [tag="CD" & !mention="Site"])
 
 ###################
 # ner rules
