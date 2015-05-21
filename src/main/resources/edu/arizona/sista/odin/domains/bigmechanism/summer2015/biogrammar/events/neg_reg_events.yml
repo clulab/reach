@@ -12,8 +12,8 @@
   label: [Negative_regulation, ComplexEvent, Event]
   pattern: |
     trigger = [word=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controller:PossibleController? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
     controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+    controller:PossibleController? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
 
 
 - name: Negative_regulation_syntax_2_verb
