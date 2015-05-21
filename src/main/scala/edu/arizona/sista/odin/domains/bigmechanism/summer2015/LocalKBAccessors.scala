@@ -6,9 +6,9 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.odin.extern.inward._
 
 /**
-  * A collections of classes which implement project internal knowledge base accessors.
+  * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Update KB accessors to use speciated resolution method.
+  *   Last Modified: Move incrementing counter to local KB utils.
   */
 
 /**
@@ -210,15 +210,5 @@ class AzFailsafeKBAccessor extends SpeciatedKBAccessor {
       "baseURI" -> baseURI,
       "key" -> key
     )
-  }
-}
-
-/** Class to implement an incrementing counter for generating unique IDs. */
-class IncrementingCounter {
-  protected var cntr:Int = 0
-  def current(): Int = { cntr }
-  def next(): Int = {
-    cntr += 1
-    return cntr
   }
 }
