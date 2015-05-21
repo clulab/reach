@@ -87,8 +87,8 @@ object BasicRuler {
       s"$dir/degrad_events.yml",
       s"$dir/transcription_events.yml",
       s"$dir/regulation_events.yml",
-      s"$dir/neg_reg_events.yml",
-      s"$dir/pos_reg_events.yml",
+      s"$dir/neg-reg_template.yml",
+      s"$dir/pos-reg_template.yml",
       s"$dir/translocation_events.yml")
     files map read mkString "\n\n"
   }
