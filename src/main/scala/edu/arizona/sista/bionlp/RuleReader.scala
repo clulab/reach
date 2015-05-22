@@ -260,7 +260,11 @@ object RuleReader {
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
         "triggers" -> POS_REG_TRIGGERS,
         "auxtriggers" -> POS_REG_AUXTRIGGERS,
-        "negnouns" -> NEG_NOUNS)
+        "negnouns" -> NEG_NOUNS,
+        "actionFlow" -> "mkRegulation",
+        "priority" -> "5",
+        "controlledType" -> "SimpleEvent",
+        "controllerType" -> "PossibleController")
 
   val negRegEventMap: Map[String, String] =
     Map("labels" -> "Negative_regulation, ComplexEvent, Event",
