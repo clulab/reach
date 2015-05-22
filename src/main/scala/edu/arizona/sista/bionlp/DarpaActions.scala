@@ -332,6 +332,19 @@ class DarpaActions extends Actions {
     }
   }
 
+  /**
+   * Only allow Activations if no overlapping Regulations exist for the interval
+   */
+  def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
+    mention <- mentions
+    biomention = mention.toBioMention
+    // TODO: Should we add a Regulation label to Pos and Neg Regs?
+    regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
+    // Don't report an Activation if an intersecting Regulation has been detected
+    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval))
+  } yield biomention
+
+
   /** Converts a simple event to a physical entity.
     *
     * @param event An event mention

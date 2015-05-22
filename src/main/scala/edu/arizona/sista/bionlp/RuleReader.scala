@@ -245,13 +245,15 @@ object RuleReader {
   val POS_REG_AUXTRIGGERS = "regul"
 
   val posActEventMap: Map[String, String] =
-    Map("labels" -> "Positive_activation, ComplexEvent, Event",
+    Map("labels" -> "Positive_activation, ActivationEvent, Event",
+        "actionFlow" -> "mkActivation",
         "triggers" -> "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger",
         "auxtriggers" -> "regul|activ",
         "negnouns" -> NEG_NOUNS)
 
   val negActEventMap: Map[String, String] =
     Map("labels" -> "Negative_activation, ActivationEvent, Event",
+        "actionFlow" -> "mkActivation",
         "triggers" -> "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress")
 
   val posRegEventMap: Map[String, String] =
