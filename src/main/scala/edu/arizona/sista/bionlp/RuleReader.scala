@@ -49,7 +49,7 @@ object RuleReader {
     // Generate rules for templatic ACTIVATION events
     val posActivationTemplate = readResource(s"$templatesDir/pos-reg_template.yml")
     val templaticPosActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, posActEventMap)
-    val negActivationTemplate = readResource(s"$templatesDir/neg-activation_template.yml")
+    val negActivationTemplate = readResource(s"$templatesDir/neg-reg_template.yml")
     val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(negActivationTemplate, negActEventMap)
 
     // Generate rules for templatic REGULATION events
@@ -116,7 +116,7 @@ object RuleReader {
 
     val posActTemplate = readFile(templatesDir.getAbsolutePath + "/pos-reg_template.yml")
     val templaticPosActs = generateRulesFromTemplateSingleEvent(posActTemplate, posActEventMap)
-    val negActTemplate = readFile(templatesDir.getAbsolutePath + "/neg-activation_template.yml")
+    val negActTemplate = readFile(templatesDir.getAbsolutePath + "/neg-reg_template.yml")
     val templaticNegActs = generateRulesFromTemplateSingleEvent(negActTemplate, negActEventMap)
 
     val posRegTemplate = readFile(templatesDir.getAbsolutePath + "/pos-reg_template.yml")
@@ -244,11 +244,6 @@ object RuleReader {
   val POS_REG_TRIGGERS = "acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util"
   val POS_REG_AUXTRIGGERS = "regul|activ"
 
-  val negActEventMap: Map[String, String] =
-    Map("labels" -> "Negative_activation, ActivationEvent, Event",
-        "actionFlow" -> "mkActivation",
-        "triggers" -> "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress")
-
   val posRegEventMap: Map[String, String] =
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
         "ruleType" -> "regulation",
@@ -266,15 +261,31 @@ object RuleReader {
         "auxtriggers" -> POS_REG_AUXTRIGGERS,
         "negnouns" -> NEG_NOUNS,
         "actionFlow" -> "mkActivation",
-        "priority" -> "6",
+        "priority" -> "6", // must be 1 + priority of regulations!
         "controlledType" -> "BioChemicalEntity",
         "controllerType" -> "BioChemicalEntity")
 
   val negRegEventMap: Map[String, String] =
     Map("labels" -> "Negative_regulation, ComplexEvent, Event",
+        "ruleType" -> "regulation",
         "triggers" -> "downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl",
         "postriggers" -> POS_REG_TRIGGERS,
         "auxtriggers" -> POS_REG_AUXTRIGGERS,
-        "negnouns" -> NEG_NOUNS)
+        "negnouns" -> NEG_NOUNS,
+        "actionFlow" -> "mkRegulation",
+        "priority" -> "5",
+        "controlledType" -> "SimpleEvent",
+        "controllerType" -> "PossibleController")
+  val negActEventMap: Map[String, String] =
+    Map("labels" -> "Negative_activation, ActivationEvent, Event",
+        "ruleType" -> "activation",
+        "triggers" -> "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress",
+        "postriggers" -> POS_REG_TRIGGERS,
+        "auxtriggers" -> POS_REG_AUXTRIGGERS,
+        "negnouns" -> NEG_NOUNS,
+        "actionFlow" -> "mkActivation",
+        "priority" -> "6", // must be 1 + priority of regulations!
+        "controlledType" -> "BioChemicalEntity",
+        "controllerType" -> "BioChemicalEntity")
 
 }
