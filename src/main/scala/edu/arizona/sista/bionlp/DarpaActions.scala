@@ -315,7 +315,7 @@ class DarpaActions extends Actions {
         if (newController.isEmpty) biomention
         else {
           // return a new event with the converted controller
-          val newArgs = controller.arguments.updated("controller", Seq(newController.get))
+          val newArgs = biomention.arguments.updated("controller", Seq(newController.get))
           new BioEventMention(
             biomention.labels,
             trigger,
