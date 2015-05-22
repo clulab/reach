@@ -116,4 +116,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasNegativeRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP1", "Phosphorylation", List("ASPP2"), mentions) should be (false)
   }
+
+  val sent15 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D)."
+  sent15 should "contain 1 negative regulation and NO positive activation or regulation events" in {
+    val mentions = parseSentence(sent15)
+    hasNegativeRegulationByEntity("MEK", "Binding", List("ERBB3", "PI3K"), mentions) should be (true)
+    mentions.filter(_.label == "Negative_activation") should have size (0)
+    mentions.filter(_.label == "Positive_activation") should have size (0)
+  }
 }
