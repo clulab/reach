@@ -3,7 +3,7 @@
 # Template for positive regulation|activation
 #
 
-- name: Positive_regulation_syntax_1_verb
+- name: Positive_{{ ruleType }}_syntax_1_verb
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -13,7 +13,7 @@
     controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
     controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc/*
 
-- name: Positive_regulation_syntax_1b_verb
+- name: Positive_{{ ruleType }}_syntax_1b_verb
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -24,7 +24,7 @@
     controller:{{ controllerType }} = <xcomp? (nsubj | agent) [!lemma=/{{ negnouns }}/] nn*
 
 
-- name: Positive_regulation_syntax_2_verb
+- name: Positive_{{ ruleType }}_syntax_2_verb
   priority: {{ priority }}
   label: [{{ labels }}]
   action: {{ actionFlow }}
@@ -34,7 +34,7 @@
     controller:{{ controllerType }} = agent|prep_by [!lemma=/{{ negnouns }}/] /conj_|nn|cc/*
 
 
-- name: Positive_regulation_syntax_3_verb
+- name: Positive_{{ ruleType }}_syntax_3_verb
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -45,7 +45,7 @@
     controller:{{ controllerType }} = <nn* | (prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
-- name: Positive_regulation_syntax_4_verb
+- name: Positive_{{ ruleType }}_syntax_4_verb
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -56,7 +56,7 @@
     controller:{{ controllerType }} = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj_|nn/*
 
 
-- name: Positive_regulation_syntax_5_verb
+- name: Positive_{{ ruleType }}_syntax_5_verb
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -67,7 +67,7 @@
     controller:{{ controllerType }} = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
 
 
-- name: Positive_regulation_syntax_6_verb
+- name: Positive_{{ ruleType }}_syntax_6_verb
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -78,7 +78,7 @@
     controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc/*
 
 
-- name: Positive_regulation_syntax_1_noun
+- name: Positive_{{ ruleType }}_syntax_1_noun
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -89,7 +89,7 @@
     controller:{{ controllerType }} = (<dobj (prep_by|agent)|nn|prep_of prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
-- name: Positive_regulation_syntax_2_noun
+- name: Positive_{{ ruleType }}_syntax_2_noun
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -100,7 +100,7 @@
     controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj|cc|nn/*
 
 
-- name: Positive_regulation_syntax_3_noun
+- name: Positive_{{ ruleType }}_syntax_3_noun
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -111,7 +111,7 @@
     controller:{{ controllerType }} = /conj_|cc|nn/+
 
 
-- name: Positive_regulation_syntax_5_noun
+- name: Positive_{{ ruleType }}_syntax_5_noun
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -122,7 +122,7 @@
     controller:{{ controllerType }} = < nn /conj_|cc|nn/*
 
 
-- name: Positive_regulation_syntax_6_noun
+- name: Positive_{{ ruleType }}_syntax_6_noun
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -133,17 +133,7 @@
     controller:{{ controllerType }} = <prep_via agent|prep_by [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
-- name: Positive_regulation_syntax_7_noun
-  priority: {{ priority }}
-  example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
-  pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & !outgoing=prep_of & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = < nsubj dobj prep_of [!lemma=/{{ negnouns }}/] /nn|cc|conj/*
-
-
-- name: Positive_regulation_token_1_verb
+- name: Positive_{{ ruleType }}_token_1_verb
   priority: {{ priority }}
   example: ""
   type: token
@@ -154,7 +144,7 @@
     (@controller:{{ controllerType }})? (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:{{ controlledType }}
 
 
-- name: Positive_regulation_token_2_verb
+- name: Positive_{{ ruleType }}_token_2_verb
   priority: {{ priority }}
   example: ""
   type: token
@@ -169,7 +159,7 @@
 #
 
 #
-#- name: Positive_regulation_syntax_4_noun
+#- name: Positive_{{ ruleType }}_syntax_4_noun
 #  priority: {{ priority }}
 #  example: ""
 #  label: [{{ labels }}]
@@ -178,7 +168,16 @@
 #    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
 #    controlled:{{ controlledType }} = <nn? nn /conj|cc|nn|prep/*
 #
-#- name: Positive_regulation_token_1_noun
+#- name: Positive_{{ ruleType }}_syntax_7_noun
+#  priority: {{ priority }}
+#  example: ""
+#  label: [{{ labels }}]
+#  action: {{ actionFlow }}
+#  pattern: |
+#    trigger = [word=/(?i){{ triggers }}/ & !outgoing=prep_of & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
+#    controlled:{{ controlledType }} = < nsubj dobj prep_of [!lemma=/{{ negnouns }}/] /nn|cc|conj/*
+#
+#- name: Positive_{{ ruleType }}_token_1_noun
 #  priority: {{ priority }}
 #  example: ""
 #  type: token
@@ -189,7 +188,7 @@
 #    /of|on/ [word=/./ & !tag=/^V|RB/]*?
 #    @controlled:{{ controlledType }}
 #
-#- name: Positive_regulation_token_3_verb
+#- name: Positive_{{ ruleType }}_token_3_verb
 #  priority: {{ priority }}
 #  example: ""
 #  type: token

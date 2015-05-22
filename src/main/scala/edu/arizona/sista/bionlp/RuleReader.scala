@@ -47,7 +47,7 @@ object RuleReader {
     // println(templaticEventRules)
 
     // Generate rules for templatic ACTIVATION events
-    val posActivationTemplate = readResource(s"$templatesDir/pos-activation_template.yml")
+    val posActivationTemplate = readResource(s"$templatesDir/pos-reg_template.yml")
     val templaticPosActivationRules = generateRulesFromTemplateSingleEvent(posActivationTemplate, posActEventMap)
     val negActivationTemplate = readResource(s"$templatesDir/neg-activation_template.yml")
     val templaticNegActivationRules = generateRulesFromTemplateSingleEvent(negActivationTemplate, negActEventMap)
@@ -114,7 +114,7 @@ object RuleReader {
     val simpleEventTemplate = readFile(templatesDir.getAbsolutePath + "/simple-event_template.yml")
     val templaticEvents = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
 
-    val posActTemplate = readFile(templatesDir.getAbsolutePath + "/pos-activation_template.yml")
+    val posActTemplate = readFile(templatesDir.getAbsolutePath + "/pos-reg_template.yml")
     val templaticPosActs = generateRulesFromTemplateSingleEvent(posActTemplate, posActEventMap)
     val negActTemplate = readFile(templatesDir.getAbsolutePath + "/neg-activation_template.yml")
     val templaticNegActs = generateRulesFromTemplateSingleEvent(negActTemplate, negActEventMap)
@@ -242,14 +242,7 @@ object RuleReader {
 
   val NEG_NOUNS = "inhibit|decreas|repress|supress"
   val POS_REG_TRIGGERS = "acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util"
-  val POS_REG_AUXTRIGGERS = "regul"
-
-  val posActEventMap: Map[String, String] =
-    Map("labels" -> "Positive_activation, ActivationEvent, Event",
-        "actionFlow" -> "mkActivation",
-        "triggers" -> "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger",
-        "auxtriggers" -> "regul|activ",
-        "negnouns" -> NEG_NOUNS)
+  val POS_REG_AUXTRIGGERS = "regul|activ"
 
   val negActEventMap: Map[String, String] =
     Map("labels" -> "Negative_activation, ActivationEvent, Event",
@@ -258,6 +251,7 @@ object RuleReader {
 
   val posRegEventMap: Map[String, String] =
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
+        "ruleType" -> "regulation",
         "triggers" -> POS_REG_TRIGGERS,
         "auxtriggers" -> POS_REG_AUXTRIGGERS,
         "negnouns" -> NEG_NOUNS,
@@ -265,6 +259,16 @@ object RuleReader {
         "priority" -> "5",
         "controlledType" -> "SimpleEvent",
         "controllerType" -> "PossibleController")
+  val posActEventMap: Map[String, String] =
+    Map("labels" -> "Positive_activation, ActivationEvent, Event",
+        "ruleType" -> "activation",
+        "triggers" -> "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger",
+        "auxtriggers" -> POS_REG_AUXTRIGGERS,
+        "negnouns" -> NEG_NOUNS,
+        "actionFlow" -> "mkActivation",
+        "priority" -> "6",
+        "controlledType" -> "BioChemicalEntity",
+        "controllerType" -> "BioChemicalEntity")
 
   val negRegEventMap: Map[String, String] =
     Map("labels" -> "Negative_regulation, ComplexEvent, Event",
