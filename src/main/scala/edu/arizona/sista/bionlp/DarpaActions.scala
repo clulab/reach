@@ -298,8 +298,6 @@ class DarpaActions extends Actions {
     mention <- mentions
     biomention = mention.toBioMention
   } yield {
-      println("BioMention is: ")
-      display.displayMention(biomention)
     val controllerOption = biomention.arguments.get("controller")
     // if no controller then we are done
     if (controllerOption.isEmpty) biomention
