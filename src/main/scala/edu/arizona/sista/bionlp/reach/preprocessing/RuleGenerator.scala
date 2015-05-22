@@ -27,7 +27,7 @@ object RuleGenerator {
       val pathFinder = new PathFinder(s)
       val lemmaPattern =
         pathFinder.mkTokenConstraints(
-          new Interval(0, s.words.length),
+          Interval(0, s.words.length),
           withWords = false,
           withLemmas = true).get
       lemmaPattern
