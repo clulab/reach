@@ -103,6 +103,7 @@ class DarpaActions extends Actions {
   /** This action handles the creation of Binding EventMentions. In many cases, sentences about binding
     * will contain two sets of entities. These sets should be combined exhaustively in a pairwise fashion,
     * but no bindings should be created for pairs of entities within each set.
+    * Theme1(A,B),Theme2(C,D) => Theme(A,C), Theme(B,C), Theme(A,D), Theme(B,D)
     */
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention =>
@@ -120,7 +121,9 @@ class DarpaActions extends Actions {
       } yield theme
 
       (theme1s, theme2s) match {
-        case (t1s, t2s) if (t1s ++ t2s).size < 2 => Nil
+        case (t1s, t2s) if (t1s ++ t2s).size < 2  && !(t1s ++ t2s).exists(x => x.labels contains "Unresolved") => Nil
+        case (t1s, t2s) if (t1s ++ t2s).size < 2  && (t1s ++ t2s).exists(x => x.labels contains "Unresolved") =>
+          Seq(new BioEventMention(m.labels,m.trigger,m.arguments,m.sentence,m.document,m.keep,m.foundBy))
         case (t1s, t2s) if t1s.size == 0 || t2s.size == 0 =>
           val mergedThemes = t1s ++ t2s
 

@@ -1,5 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
+import edu.arizona.sista.bionlp.display
 import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin._
@@ -147,9 +148,12 @@ class Coref extends DarpaFlow {
             .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq()))
         }
 
-        case mention: EventMention if !mention.labels.contains("Unresolved") => {
-          if (toSplit contains mention.trigger) {
-            val themeSets = combination(toSplit(mention.trigger), themeCardinality(mention.label))
+        // TODO: special case for complex events (need resolved controller)
+        // TODO: special case for bindings based on DarpaActions?
+
+        case mention: EventMention if !mention.labels.contains("Unresolved") & toSplit.contains(mention) =>
+
+            val themeSets = combination(toSplit(mention), themeCardinality(mention.label))
             //println("Number of sets: " + themeSets.length)
             //themeSets.foreach(s => println(s"(${for (m<-s) yield m.text + ","})"))
             for (themeSet <- themeSets) yield new BioEventMention(mention.labels,
@@ -159,7 +163,8 @@ class Coref extends DarpaFlow {
               mention.document,
               mention.keep,
               "corefSplitter")
-          } else {
+
+        case mention:EventMention if !mention.labels.contains("Unresolved") & !toSplit.contains(mention) =>
             val args = (for {
               (argType, argMentions) <- mention.arguments
             } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
@@ -167,8 +172,6 @@ class Coref extends DarpaFlow {
               case stillUnresolved if args.size < 1 => Seq()
               case _ => Seq(new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy))
             }
-          }
-        }
 
         case m => Seq(m)
       }
@@ -289,53 +292,71 @@ class Coref extends DarpaFlow {
 
     //displayMentions(orderedMentions, doc)
 
-    for((ev,i) <- orderedMentions.zipWithIndex) {
-      if(ev.isInstanceOf[BioEventMention] & ev.arguments.getOrElse("theme",Seq()).exists(thm => thm.labels.contains("Unresolved"))) {
-        println("entering cardinality detector")
-        val foundThemes = for {
-          m <- ev.arguments("theme").filter(thm => thm.labels.contains("Unresolved"))
-          priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] && !x.labels.contains("Unresolved") && x.labels.contains(m.labels(1)))
+    def cardinality(m: Mention): Int = {
+      val sent = m.document.sentences(m.sentence)
 
-          brk1 = breakable {
-            if (priors.isEmpty) break
-          }
-          sent = doc.sentences(m.sentence)
+      val mhead = findHeadStrict(m.tokenInterval, sent).getOrElse(m.tokenInterval.start)
 
-          mhead = findHeadStrict(m.tokenInterval, sent).getOrElse(m.tokenInterval.start)
+      val phrase = subgraph(m.tokenInterval, sent)
 
-          phrase = subgraph(m.tokenInterval, sent)
-          brk2 = breakable {
-            if (phrase.isEmpty || sent.tags.isEmpty) break()
-          }
-          debug1 = println(s"words: ${sent.words.slice(phrase.get.start, phrase.get.end).mkString(",")}\ntags: ${sent.tags.get.slice(phrase.get.start, phrase.get.end).mkString(",")}")
-          dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end), sent.tags.get.slice(phrase.get.start, phrase.get.end))
+      // debug1 = println(s"words: ${sent.words.slice(phrase.get.start, phrase.get.end).mkString(",")}\ntags: ${sent.tags.get.slice(phrase.get.start, phrase.get.end).mkString(",")}")
+      val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end), sent.tags.get.slice(phrase.get.start, phrase.get.end))
 
-          hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
+      val hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
 
-          num = m match {
-            case informativeDeterminer if dc != 0 => dc
-            case informativeHead if dc == 0 & hc != 0 => hc
-            case _ => 1
-          }
+      m match {
+        case informativeDeterminer if dc != 0 => dc
+        case informativeHead if dc == 0 & hc != 0 => hc
+        case _ => 1
+      }
+    }
 
-          themes = priors.takeRight(math.min(num,priors.length))
-        } yield (m,themes)
+    for((mention,i) <- orderedMentions.zipWithIndex) {
+      mention match {
+        case binding: BioEventMention if binding.labels.contains("Binding") &
+          (binding.arguments.getOrElse("theme1", Seq()).exists(thm => thm.labels.contains("Unresolved")) ||
+            binding.arguments.getOrElse("theme2", Seq()).exists(thm => thm.labels.contains("Unresolved"))) =>
+          println("entering cardinality detector: binding")
 
-        val numThemes = themeCardinality(ev.label)
+          val theme1s = binding.arguments.getOrElse("theme1",Seq())
+          val theme2s = binding.arguments.getOrElse("theme2",Seq())
+          val totalPriorsNeeded = (theme1s ++ theme2s).foldLeft(0)((sum,m) => sum + cardinality(m))
 
-        numThemes match {
-          case splitEv if foundThemes.map(_._2).flatten.length > numThemes => {
-            toSplit(ev.asInstanceOf[EventMention].trigger) = foundThemes.map(_._2)
-          }
-          case _ => {
-            for (t <- foundThemes) {
-              val sumChain = chains(t._1) ++ (for {
-                ant <- t._2
-              } yield chains(ant)).flatten
-              sumChain.foreach(link => chains(link) = sumChain)
+        case ev: BioEventMention if !ev.labels.contains("Binding") &
+          ev.arguments.getOrElse("theme", Seq()).exists(thm => thm.labels.contains("Unresolved")) =>
+          println("entering cardinality detector: non-binding")
+          val foundThemes = for {
+            m <- ev.arguments("theme").filter(thm => thm.labels.contains("Unresolved"))
+            priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
+              !x.labels.contains("Unresolved") &&
+              x.labels.contains(m.labels(1)) &&
+              !chains.keys.exists(y => y.labels.contains("ComplexEvent") &&
+                y.arguments.getOrElse("controller",Seq()).contains(x) &&
+                y.arguments.getOrElse("controlled",Seq()).contains(ev)))
+
+            brk1 = breakable {
+              if (priors.isEmpty) break()
             }
+
+            num = cardinality(m)
+
+            themes = priors.takeRight(math.min(num, priors.length))
+          } yield (m, themes)
+
+          val numThemes = themeCardinality(ev.label)
+
+          numThemes match {
+            case splitEv if foundThemes.map(_._2).flatten.length > numThemes =>
+              toSplit(ev.asInstanceOf[EventMention]) = foundThemes.map(_._2)
+            case _ =>
+              for (t <- foundThemes) {
+                val sumChain = chains(t._1) ++ (for {
+                  ant <- t._2
+                } yield chains(ant)).flatten
+                sumChain.foreach(link => chains(link) = sumChain)
+              }
           }
-        }
+        case _ => ()
       }
     }
 
