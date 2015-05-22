@@ -174,4 +174,37 @@ class NegationTests extends FlatSpec with Matchers{
       phospho should have size (1)
       getNegations(phospho.head) should have size (0)
     }
+
+    // Multiple negation tests
+    val sen11 = "RAS doesn't fail to phosphorylate MEK"
+
+    sen11 should "not contain any negation mentions" in {
+      val mentions = parseSentence(sen11)
+
+      mentions filter (_ matches "Event") should have size (2)
+
+      val pos_reg = mentions filter (_ matches ("Positive_regulation"))
+      pos_reg should have size (1)
+      getNegations(pos_reg.head) should have size (0)
+
+      val phospho = mentions filter (_ matches "Phosphorylation")
+      phospho should have size (1)
+      getNegations(phospho.head) should have size (0)
+    }
+
+    val sen12 = "RAS fails not to phosphorylate MEK"
+
+    sen12 should "not contain any negation mentions" in {
+      val mentions = parseSentence(sen12)
+
+      mentions filter (_ matches "Event") should have size (2)
+
+      val pos_reg = mentions filter (_ matches ("Positive_regulation"))
+      pos_reg should have size (1)
+      getNegations(pos_reg.head) should have size (0)
+
+      val phospho = mentions filter (_ matches "Phosphorylation")
+      phospho should have size (1)
+      getNegations(phospho.head) should have size (0)
+    }
 }
