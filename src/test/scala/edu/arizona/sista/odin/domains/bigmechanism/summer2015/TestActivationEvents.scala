@@ -46,6 +46,7 @@ class TestActivationEvents extends FlatSpec with Matchers {
   sent3 should "contain NO activation events; this a a positive regulation" in {
     val mentions = parseSentence(sent3)
     mentions.filter(_.label == "Positive_activation") should have size (0)
+    mentions.filter(_.label == "Positive_regulation") should have size (1)
   }
 
   val sent4 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
