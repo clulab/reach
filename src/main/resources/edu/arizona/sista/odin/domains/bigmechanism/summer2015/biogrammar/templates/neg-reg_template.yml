@@ -1,300 +1,207 @@
 
-###Syntactic Variants###
+#
+# Template for negative regulation|activation
+#
 
-- name: Negative_regulation_syntax_1_verb
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_1_verb
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
-    controller:PossibleController? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn|prep_of/* (/./ [word=by])*
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/*
 
 
-- name: Negative_regulation_syntax_2_verb
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_2_verb
+  priority: {{ priority }}
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:SimpleEvent = (>nsubjpass|<vmod) /conj_|nn|cc/*  
-    controller:PossibleController? = agent|prep_by /conj_|nn|cc/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*  
+    controller:{{ controllerType }} = (agent|prep_by) [!lemma=/{{ negnouns }}/] /conj_|nn|cc|prep_of/*
 
 
-- name: Negative_regulation_syntax_3_verb
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_3_verb
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & !outgoing=nsubjpass & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:SimpleEvent = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
-    controller:PossibleController? = <nn* | (prep_by) /nn|conj_|cc/*
+    trigger = [word=/(?i){{ triggers }}/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
+    controller:{{ controllerType }} = <nn* | (prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc|prep_of/*
 
 
-- name: Negative_regulation_syntax_4_verb
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_4_verb
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:SimpleEvent = (nsubjpass /conj_|nn/*) 
-    controller:PossibleController? = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ /conj_|nn/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (nsubjpass /conj_|nn/*) 
+    controller:{{ controllerType }} = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj_|nn/*
 
 
-- name: Negative_regulation_syntax_5_verb
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_5_verb
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/regul/ & tag=/^V/]?
-    controlled:SimpleEvent = dobj /nn|conj_|cc/*
-    controller:PossibleController = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = dobj /nn|conj_|cc/*
+    controller:{{ controllerType }} = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
 
 
-- name: Negative_regulation_syntax_6_verb
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_6_verb
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/VBN|RB/] [word=/regul/ & tag=/^VBN/]?
-    controlled:SimpleEvent = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
-    controller:PossibleController? = /prep_by|agent/ /appos|nn|conj_|cc/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/VBN|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^VBN/]?
+    controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/*
 
 
-- name: Negative_regulation_syntax_1_noun
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_1_noun
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/regul/]?
-    controlled:SimpleEvent = prep_of /nn|conj_|cc/*
-    controller:PossibleController? = (<dobj (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
+    controlled:{{ controlledType }} = prep_of /nn|conj_|cc/*
+    controller:{{ controllerType }} = (<dobj (prep_by|agent)|nn|prep_of prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
-- name: Negative_regulation_syntax_2_noun
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_2_noun
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:SimpleEvent = prep_of? /conj_|cc|nn/+ 
-    controller:PossibleController = /prep_by|agent/ /conj|cc|nn/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    controlled:{{ controlledType }} = prep_of? /conj_|cc|nn/+ 
+    controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj|cc|nn/*
 
 
-- name: Negative_regulation_syntax_3_noun
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_3_noun
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [word=/regul/ & tag=/^N/]?
-    controlled:SimpleEvent = prep_of /conj_|cc|nn/+ 
-    controller:PossibleController = /conj_|cc|nn/+
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    controlled:{{ controlledType }} = prep_of /conj_|cc|nn/+ 
+    controller:{{ controllerType }} = /conj_|cc|nn/+
 
-
-- name: Negative_regulation_syntax_4_noun
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_5_noun
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/regul/ & tag=/^N/]?
-    controlled:SimpleEvent = <nn? nn /conj|cc|nn|prep/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    controlled:{{ controlledType }} = < nn > /prep_/ /conj_|cc|nn/* 
+    controller:{{ controllerType }} = < nn /conj_|cc|nn/*
 
 
-- name: Negative_regulation_syntax_5_noun
-  priority: 5
+- name: Negative_{{ ruleType }}_syntax_6_noun
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:SimpleEvent = < nn > /prep_/ /conj_|cc|nn/* 
-    controller:PossibleController? = < nn /conj_|cc|nn/*
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    controller:{{ controllerType }} = <prep_via (agent|prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
+    controlled:{{ controlledType }} = (prep_of /nn|conj_|cc/*)+
 
 
-- name: Negative_regulation_syntax_6_noun
-  priority: 5
-  example: ""
-  label: [{{ labels }}]
-  action: mkRegulation
-  pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controller:PossibleController = <prep_via agent|prep_by /nn|conj_|cc/*
-    controlled:SimpleEvent = (prep_of /nn|conj_|cc/*)+
-
-
-- name: Negative_regulation_syntax_7_noun
-  priority: 5
-  example: ""
-  label: [{{ labels }}]
-  action: mkRegulation
-  pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & !outgoing=prep_of & tag=/^N/] [word=/regul/ & tag=/^N/]?
-    controlled:SimpleEvent = < nsubj dobj prep_of /nn|cc|conj/* 
-
-
-- name: Negative_regulation_token_1_noun
-  priority: 5
+- name: Negative_{{ ruleType }}_token_2_verb
+  priority: {{ priority }}
   example: ""
   type: token
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/regul/ & tag=/^N/]?)
-    /of|on/ [word=/./ & !tag=/^V|RB/]*?
-    @controlled:SimpleEvent
-
-
-- name: Negative_regulation_token_2_verb
-  priority: 5
-  example: ""
-  type: token
-  label: [{{ labels }}]
-  action: mkRegulation
-  pattern: |
-    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/regul/ & tag=/^N/]?)
-    (@controlled:SimpleEvent) # used to be optional...why?
+    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:{{ controlledType }} following @controller:{{ controllerType }} [lemma=/{{ negnouns}}/]
 
 
 #
-# These contain instances of negative nouns + positive regulation triggers
+# These contain instances of positive regulation triggers coupled with negative nouns
 #
 
-- name: Negative_regulation_syntax_1_verb_negnoun
-  priority: 4
+- name: Negative_{{ ruleType }}_syntax_1_verb_negnoun
+  priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
-  action: mkRegulation
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/(?i){{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/+
+
+
+- name: Negative_{{ ruleType }}_syntax_2_verb_negnoun
+  priority: {{ priority }}
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
-    controller:PossibleController = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/+
+    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controller:{{ controllerType }} = (agent|prep_by) [lemma=/{{ negnouns }}/] /conj_|nn|cc|appos|prep_of/+
+
+
+#
+# We no longer allow regulations wo/ controllers!
+#
+
+#
+#- name: Negative_{{ ruleType }}_syntax_4_noun
+#  priority: {{ priority }}
+#  example: ""
+#  label: [{{ labels }}]
+#  action: {{ actionFlow }}
+#  pattern: |
+#    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
+#    controlled:{{ controlledType }} = <nn? nn /conj|cc|nn|prep/*
+#
+#- name: Negative_{{ ruleType }}_syntax_7_noun
+#  priority: {{ priority }}
+#  example: ""
+#  label: [{{ labels }}]
+#  action: {{ actionFlow }}
+#  pattern: |
+#    trigger = [word=/(?i){{ triggers }}/ & !outgoing=prep_of & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
+#    controlled:{{ controlledType }} = < nsubj dobj prep_of /nn|cc|conj/*
+#
+#
+#- name: Negative_{{ ruleType }}_token_1_noun
+#  priority: {{ priority }}
+#  example: ""
+#  type: token
+#  label: [{{ labels }}]
+#  action: {{ actionFlow }}
+#  pattern: |
+#    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?)
+#    /of|on/ [word=/./ & !tag=/^V|RB/]*?
+#    @controlled:{{ controlledType }}
+#
+#- name: Negative_{{ ruleType }}_token_2_verb
+#  priority: {{ priority }}
+#  example: ""
+#  type: token
+#  label: [{{ labels }}]
+#  action: {{ actionFlow }}
+#  pattern: |
+#    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/{{ auxtriggers }}/ & tag=/^N/]?)
+#    (@controlled:{{ controlledType }}) # used to be optional...why?
+#
 
 
 
-#    7 disrupt
-#    7 decrease
-#    7 abolished
-#    5 loss
-#    5 blocks
-#    4 reversed
-#    4 preventing
-#    4 negative regulator
-#    4 diminished
-#    4 depletion
-#    4 delayed
-#    4 delay
-#    4 attenuated
-#    4 arrest
-#    3 reversible
-#    3 negatively regulate
-#    3 negative regulation
-#    3 interferes
-#    3 impairs
-#    3 disruption
-#    3 defects
-#    3 decreases
-#    3 blocking
-#    3 attenuates
-#    3 abrogated
-#    3 Negative regulation
-#    2 suppress
-#    2 starvation
-#    2 reverse
-#    2 resistant
-#    2 prevent
-#    2 negatively regulated
-#    2 low
-#    2 lost
-#    2 limitation
-#    2 interfering
-#    2 downregulation
-#    2 down-regulation
-#    2 down-regulates
-#    2 deficit
-#    2 attenuator
-#    2 attenuating
-#    2 antagonizing
-#    2 Suppression
-#    2 Disruption
-#    2 Depletion
-#    1 unperturbed
-#    1 uncouples
-#    1 suppressors
-#    1 suppressive effect
-#    1 suppressing
-#    1 slows
-#    1 shutdown
-#    1 reverses
-#    1 restricting
-#    1 removes
-#    1 relieves
-#    1 regulator
-#    1 protected
-#    1 perturbs
-#    1 overcomes
-#    1 overcame
-#    1 nullified
-#    1 neutralizes
-#    1 negatively controlled
-#    1 negative-regulatory
-#    1 negative regulatory role
-#    1 negative regulators
-#    1 negative control
-#    1 lowers
-#    1 lacking
-#    1 lack
-#    1 knockdown
-#    1 interference
-#    1 interfere
-#    1 induces
-#    1 inactivation
-#    1 inactivated
-#    1 impedes
-#    1 impeded
-#    1 impaired
-#    1 impair
-#    1 eliminating
-#    1 eliminated
-#    1 dysregulation
-#    1 drops
-#    1 drop
-#    1 downregulating
-#    1 downregulated
-#    1 downregulate
-#    1 down-regulating
-#    1 disrupting
-#    1 disengaging
-#    1 diminishes
-#    1 deregulated
-#    1 degraded
-#    1 deficient
-#    1 deficiency
-#    1 decreasing
-#    1 blunted
-#    1 blockade
-#    1 becomes
-#    1 attenuate
-#    1 arresting
-#    1 arrested
-#    1 antagonizes
-#    1 antagonized
-#    1 absence
-#    1 abrogation
-#    1 abrogates
-#    1 abrogate
-#    1 Opposing
-#    1 Lack
-#    1 Knockdown
-#    1 Inhibitory
-#    1 Inhibitors
-#    1 Defective
-#    1 Blockade

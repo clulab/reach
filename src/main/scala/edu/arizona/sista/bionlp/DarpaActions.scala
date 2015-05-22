@@ -103,22 +103,12 @@ class DarpaActions extends Actions {
   /** This action handles the creation of Binding EventMentions. In many cases, sentences about binding
     * will contain two sets of entities. These sets should be combined exhaustively in a pairwise fashion,
     * but no bindings should be created for pairs of entities within each set.
-    * Theme1(A,B),Theme2(C,D) => Theme(A,C), Theme(B,C), Theme(A,D), Theme(B,D)
+    * Theme1(A,B),Theme2(C,D) => Theme(A,C),Theme(A,D),Theme(B,C),Theme(B,D)
     */
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
-    case m: EventMention =>
-      val arguments = m.arguments
-      val theme1s = for {
-        name <- arguments.keys.toSeq
-        if name == "theme1"
-        theme <- arguments(name)
-      } yield theme
-
-      val theme2s = for {
-        name <- arguments.keys.toSeq
-        if name == "theme2"
-        theme <- arguments(name)
-      } yield theme
+    case m: EventMention if m.labels.contains("Binding") =>
+      val theme1s = m.arguments.getOrElse("theme1",Seq())
+      val theme2s = m.arguments.getOrElse("theme2",Seq())
 
       (theme1s, theme2s) match {
         case (t1s, t2s) if (t1s ++ t2s).size < 2  && !(t1s ++ t2s).exists(x => x.labels contains "Unresolved") => Nil
@@ -318,11 +308,10 @@ class DarpaActions extends Actions {
         if (newController.isEmpty) biomention
         else {
           // return a new event with the converted controller
-          val newArgs = controller.arguments.updated("controller", Seq(newController.get))
           new BioEventMention(
             biomention.labels,
             trigger,
-            newArgs,
+            biomention.arguments.updated("controller", Seq(newController.get)),
             biomention.sentence,
             biomention.document,
             biomention.keep,
@@ -334,6 +323,19 @@ class DarpaActions extends Actions {
       else biomention
     }
   }
+
+  /**
+   * Only allow Activations if no overlapping Regulations exist for the interval
+   */
+  def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
+    mention <- mentions
+    biomention = mention.toBioMention
+    // TODO: Should we add a Regulation label to Pos and Neg Regs?
+    regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
+    // Don't report an Activation if an intersecting Regulation has been detected
+    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval))
+  } yield biomention
+
 
   /** Converts a simple event to a physical entity.
     *
