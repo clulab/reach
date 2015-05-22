@@ -81,7 +81,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
 
   // TODO: What should we match?
   val sent9 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
-  sent9 should "contain 1 regulation event" in {
+  sent9 should "contain 1 downregulation event" in {
     val mentions = parseSentence(sent9)
     hasPositiveRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions) should be (true)
   }

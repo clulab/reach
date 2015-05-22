@@ -239,6 +239,8 @@ object RuleReader {
         "Methylation" -> methMap)
 
   val NEG_NOUNS = "inhibit|decreas|repress|supress"
+  val POS_REG_TRIGGERS = "acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util"
+  val POS_REG_AUXTRIGGERS = "regul"
 
   val posActEventMap: Map[String, String] =
     Map("labels" -> "Positive_activation, ComplexEvent, Event",
@@ -252,12 +254,15 @@ object RuleReader {
 
   val posRegEventMap: Map[String, String] =
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
-        "triggers" -> "acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util",
-        "auxtriggers" -> "regul",
+        "triggers" -> POS_REG_TRIGGERS,
+        "auxtriggers" -> POS_REG_AUXTRIGGERS,
         "negnouns" -> NEG_NOUNS)
 
   val negRegEventMap: Map[String, String] =
     Map("labels" -> "Negative_regulation, ComplexEvent, Event",
-        "triggers" -> "downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl")
+        "triggers" -> "downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl",
+        "postriggers" -> POS_REG_TRIGGERS,
+        "auxtriggers" -> POS_REG_AUXTRIGGERS,
+        "negnouns" -> NEG_NOUNS)
 
 }
