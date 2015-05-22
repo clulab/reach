@@ -21,7 +21,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*  
-    controller:{{ controllerType }} = agent|prep_by /conj_|nn|cc/*
+    controller:{{ controllerType }} = (agent|prep_by) /conj_|nn|cc/*
 
 
 - name: Negative_{{ ruleType }}_syntax_3_verb
@@ -134,6 +134,16 @@
     trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/(?i){{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
     controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/+
+
+
+- name: Negative_{{ ruleType }}_syntax_2_verb_negnoun
+  priority: {{ priority }}
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controller:{{ controllerType }} = (agent|prep_by) [lemma=/{{ negnouns }}/] /conj_|nn|cc|appos|prep_of/+
 
 
 #

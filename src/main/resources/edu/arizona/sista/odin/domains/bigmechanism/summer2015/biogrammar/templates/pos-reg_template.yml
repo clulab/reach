@@ -32,7 +32,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
-    controller:{{ controllerType }} = agent|prep_by [!lemma=/{{ negnouns }}/] /conj_|nn|cc/*
+    controller:{{ controllerType }} = (agent|prep_by) [!lemma=/{{ negnouns }}/] /conj_|nn|cc/*
 
 
 - name: Positive_{{ ruleType }}_syntax_3_verb
