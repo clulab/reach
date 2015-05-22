@@ -74,6 +74,8 @@ class ReachSystem(rules: Option[Rules] = None,
     // clean modified entities
     // for example, remove sites that are part of a modification feature
     val cleanMentions = pruneMentions(mentions)
+    // handle multiple Negation modifications
+    handleNegations(cleanMentions)
     cleanMentions
   }
 }
@@ -106,6 +108,31 @@ object ReachSystem {
         filteredEMs
       }
     nonEvents ++ completeEventMentions.flatten.toSeq
+  }
+
+  // Alter Negation modifications in-place
+  def handleNegations(ms: Seq[BioMention]): Unit = {
+    ms foreach { m =>
+      val (negMods, other) = m.modifications.partition(_.isInstanceOf[Negation])
+      val negationModifications = negMods.map(_.asInstanceOf[Negation])
+
+      // count the negations
+      negationModifications match {
+        // 0 or 1 Neg modifications means no change...
+        case noChange if noChange.size <= 1 => ()
+        // if we have an even number of Negations, remove them all
+        case pos if pos.size % 2 == 0 =>
+          m.modifications = other
+        // if we have an odd number, report only the first...
+        case neg if neg.size % 2 != 0 =>
+          val singleNeg =
+            negationModifications
+              .toSeq
+              .sortBy(_.evidence.tokenInterval)
+              .head
+          m.modifications = other + singleNeg
+      }
+    }
   }
 
   // This function should set the right displayMention for each mention.
