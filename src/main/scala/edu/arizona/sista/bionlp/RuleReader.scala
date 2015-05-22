@@ -70,22 +70,11 @@ object RuleReader {
     val files = Seq(
       // non-templatic grammars plus generics like "it" and "the protein"
       s"$corefDir/generic_entities.yml",
-      s"$corefDir/generic_events.yml",
-      s"$eventsDir/hydrolysis_events.yml",
-      s"$eventsDir/bind_events.yml",
-      s"$eventsDir/transcription_events.yml",
-      s"$eventsDir/neg_reg_events.yml",
-      s"$eventsDir/pos_reg_events.yml",
-      s"$eventsDir/translocation_events.yml",
-      s"$eventsDir/pos_activation_events.yml",
-      s"$eventsDir/neg_activation_events.yml")
+      s"$corefDir/generic_events.yml")
 
     val ruleFiles = files map readResource mkString "\n\n"
-    // Generate rules for templatic events
-    val simpleEventTemplate = readResource(s"$templatesDir/simple-event_template.yml")
-    val templaticEventRules = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
-    // println(templaticEventRules)
-    ruleFiles + templaticEventRules
+
+    ruleFiles + readModificationRules() + readEventRules()
   }
 
 

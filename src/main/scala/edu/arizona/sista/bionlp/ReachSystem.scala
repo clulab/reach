@@ -31,7 +31,7 @@ class ReachSystem(rules: Option[Rules] = None,
   val modificationEngine = ExtractorEngine(modificationRules, actions)
   // start event extraction engine
   // This will be our global action for the eventEngine
-  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.handleNegations) andThen DarpaFlow(actions.splitSimpleEvents)
+  val cleanupEvents = DarpaFlow(actions.siteSniffer) andThen DarpaFlow(actions.detectNegations) andThen DarpaFlow(actions.splitSimpleEvents)
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
   // this engine extracts generic mentions that can be anaphora like "it" and tries to resolve them
