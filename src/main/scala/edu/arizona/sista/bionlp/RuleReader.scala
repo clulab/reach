@@ -128,7 +128,9 @@ object RuleReader {
     val modificationRules = readRuleFilesFromDir(modificationsDir)
     val eventRules = readRuleFilesFromDir(eventsDir) +
       templaticEvents +
-      templaticPosActs
+      templaticPosActs +
+      templaticPosRegs +
+      templaticNegRegs
 
     Rules(entityRules, modificationRules, eventRules)
   }
