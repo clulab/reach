@@ -79,13 +79,6 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
-  // TODO: What should we match?
-  val sent9 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
-  sent9 should "contain 1 downregulation event" in {
-    val mentions = parseSentence(sent9)
-    hasPositiveRegulationByEntity("MEK", "Binding", List("PI3K", "ERBB3"), mentions) should be (true)
-  }
-
   val sent10 = "ASPP1 fails to upregulate the phosphorylation of ASPP2."
   sent10 should "contains 1 regulation and 1 phosphorylation event" in {
     val mentions = parseSentence(sent10)
