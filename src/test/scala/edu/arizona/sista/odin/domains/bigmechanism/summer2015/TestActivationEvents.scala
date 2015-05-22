@@ -43,7 +43,7 @@ class TestActivationEvents extends FlatSpec with Matchers {
   }
 
   val sent3 = "the phosphorylation of Ras promotes the ubiquitination of MEK"
-  sent3 should "contain NO activation events; this a a positive regulation" in {
+  sent3 should "contain NO activation events, and a single positive regulation" in {
     val mentions = parseSentence(sent3)
     mentions.filter(_.label == "Positive_activation") should have size (0)
     mentions.filter(_.label == "Positive_regulation") should have size (1)
@@ -55,4 +55,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
     hasNegativeActivation("MEK", "ERBB3", mentions) should be (true)
     hasPositiveActivation("MEK", "ERBB3", mentions) should be (false)
   }
+
+  val sent5 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
+  sent5 should "contain 1 downregulation event" in {
+    val mentions = parseSentence(sent5)
+    hasNegativeActivation("MEK", "ERBB3", mentions) should be (true)
+  }
+
+
 }
