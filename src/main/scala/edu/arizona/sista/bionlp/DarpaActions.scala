@@ -420,10 +420,10 @@ class DarpaActions extends Actions {
           ///////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////
-          // Check for the prescence of some negative verbs
+          // Check for the presence of some negative verbs
           // in all the sentence except the tokens
 
-          // First, extract the triggre's range from the mention
+          // First, extract the trigger's range from the mention
           val interval = event.trigger.tokenInterval
 
           //val pairs = for (lemma <- event.lemmas) yield (1, lemma)
@@ -433,16 +433,11 @@ class DarpaActions extends Actions {
           val pairsR = pairs dropWhile (_._1 <= interval.end)
 
           // Get the evidence for the existing negations to avoid duplicates
-          val evidence = event.modifications filter {
-                case mod:Negation => true
-                case _ => false
-              } flatMap {
+          val evidence:Set[Int] = event.modifications flatMap {
                   case mod:Negation => mod.evidence.tokenInterval.toSeq
+                  case _ => Nil
               }
-
-
-
-          println(s"Evidence: $evidence")
+          //println(s"Evidence: $evidence")
 
           // Check for single-token negative verbs
           for{
@@ -478,7 +473,7 @@ class DarpaActions extends Actions {
               if (verbs contains bigram) && !((evidence intersect (interval._1 to interval._2+1).toSet).size > 0)
             }
               {
-                println(s"Event interval: $interval")
+                //println(s"Event interval: $interval")
                 event.modifications += Negation(new BioTextBoundMention(
                 Seq("Negation_trigger"),
                 Interval(interval._1, interval._2 + 1),
@@ -490,6 +485,8 @@ class DarpaActions extends Actions {
 
           }
           ///////////////////////////////////////////////////
+      println("After negation detection: ")
+        display.displayMention(event)
     }
 
     mentions
