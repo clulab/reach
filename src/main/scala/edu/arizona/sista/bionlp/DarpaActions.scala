@@ -438,11 +438,8 @@ class DarpaActions extends Actions {
                 case _ => false
               } flatMap {
                   case mod:Negation => mod.evidence.tokenInterval.toSeq
+                  case _ => Seq[Int]()
               }
-
-
-
-          println(s"Evidence: $evidence")
 
           // Check for single-token negative verbs
           for{
@@ -478,7 +475,6 @@ class DarpaActions extends Actions {
               if (verbs contains bigram) && !((evidence intersect (interval._1 to interval._2+1).toSet).size > 0)
             }
               {
-                println(s"Event interval: $interval")
                 event.modifications += Negation(new BioTextBoundMention(
                 Seq("Negation_trigger"),
                 Interval(interval._1, interval._2 + 1),
