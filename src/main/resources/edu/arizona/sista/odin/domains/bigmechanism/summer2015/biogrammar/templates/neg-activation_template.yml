@@ -4,7 +4,7 @@
   example: " Nucleotide free Ras inhibits PI3KC2Beta activity."
   label: [Negative_activation, ActivationEvent, Event]
   pattern: |
-    trigger = [word=/(?i)/ & tag=/^V/]
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^V/]
     controller:BioChemicalEntity = (nsubj | agent) /appos|nn|conj_|cc|prep_of/*
     controlled:BioChemicalEntity = (dobj [word=/(?i)activ/ & tag =/^NN/] (nn|prep_of))|dobj
 
