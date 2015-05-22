@@ -33,8 +33,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
   }
 
   val sent2 = "Ubiquitinated Ras activates Raf and PI3K."
+  val sent2b = "Ubiquitinated Ras increases Raf and PI3K activity."
   sent2 should "contain multiple different positive activations" in {
-    val mentions = parseSentence(sent2)
+    var mentions = parseSentence(sent2)
+    mentions.filter(_.label == "Positive_activation") should have size (2)
+
+    mentions = parseSentence(sent2)
     mentions.filter(_.label == "Positive_activation") should have size (2)
   }
 
