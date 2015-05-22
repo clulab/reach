@@ -108,7 +108,7 @@ class DarpaActions extends Actions {
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.labels.contains("Binding") =>
       val theme1s = m.arguments.getOrElse("theme1",Seq())
-      val theme2s = m.arguments.getOrElse("theme1",Seq())
+      val theme2s = m.arguments.getOrElse("theme2",Seq())
 
       (theme1s, theme2s) match {
         case (t1s, t2s) if (t1s ++ t2s).size < 2 => Nil
