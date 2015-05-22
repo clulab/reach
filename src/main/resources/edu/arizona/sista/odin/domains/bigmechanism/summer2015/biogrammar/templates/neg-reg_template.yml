@@ -164,6 +164,19 @@
     (@controlled:SimpleEvent) # used to be optional...why?
 
 
+#
+# These contain instances of negative nouns + positive regulation triggers
+#
+
+- name: Negative_regulation_syntax_1_verb_negnoun
+  priority: 4
+  example: ""
+  label: [{{ labels }}]
+  action: mkRegulation
+  pattern: |
+    trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:SimpleEvent = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
+    controller:PossibleController = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/+
 
 
 
