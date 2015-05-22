@@ -295,7 +295,16 @@ class DarpaActions extends Actions {
 
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    mention <- mentions
+    mention <- mentions.sortWith { (m1, m2) =>
+      // this is an ugly hack
+      // it's purpose is finding regulations that have events as controllers
+      // before regulations that have entities as controllers
+      // so that, if two mentions overlap, we keep the one that comes
+      // from the regulation with an event controller
+      val c = m1.arguments.get("controller")
+      if (c.isDefined && c.get.head.matches("Event")) true
+      else false
+    }
     biomention = mention.toBioMention
   } yield {
     val controllerOption = biomention.arguments.get("controller")
