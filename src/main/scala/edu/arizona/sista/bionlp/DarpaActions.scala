@@ -103,21 +103,12 @@ class DarpaActions extends Actions {
   /** This action handles the creation of Binding EventMentions. In many cases, sentences about binding
     * will contain two sets of entities. These sets should be combined exhaustively in a pairwise fashion,
     * but no bindings should be created for pairs of entities within each set.
+    * Theme1(A,B),Theme2(C,D) => Theme(A,C),Theme(A,D),Theme(B,C),Theme(B,D)
     */
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
-    case m: EventMention =>
-      val arguments = m.arguments
-      val theme1s = for {
-        name <- arguments.keys.toSeq
-        if name == "theme1"
-        theme <- arguments(name)
-      } yield theme
-
-      val theme2s = for {
-        name <- arguments.keys.toSeq
-        if name == "theme2"
-        theme <- arguments(name)
-      } yield theme
+    case m: EventMention if m.labels.contains("Binding") =>
+      val theme1s = m.arguments.getOrElse("theme1",Seq())
+      val theme2s = m.arguments.getOrElse("theme2",Seq())
 
       (theme1s, theme2s) match {
         case (t1s, t2s) if (t1s ++ t2s).size < 2 => Nil
@@ -295,7 +286,16 @@ class DarpaActions extends Actions {
 
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    mention <- mentions
+    mention <- mentions.sortWith { (m1, m2) =>
+      // this is an ugly hack
+      // it's purpose is finding regulations that have events as controllers
+      // before regulations that have entities as controllers
+      // so that, if two mentions overlap, we keep the one that comes
+      // from the regulation with an event controller
+      val c = m1.arguments.get("controller")
+      if (c.isDefined && c.get.head.matches("Event")) true
+      else false
+    }
     biomention = mention.toBioMention
   } yield {
     val controllerOption = biomention.arguments.get("controller")
@@ -432,10 +432,18 @@ class DarpaActions extends Actions {
           val pairsL = pairs takeWhile (_._1 < interval.start)
           val pairsR = pairs dropWhile (_._1 <= interval.end)
 
+          // Get the evidence for the existing negations to avoid duplicates
+          val evidence = Set {
+              event.modifications filter {
+                case mod:Negation => true
+                case _ => false
+              } flatMap (_.asInstanceOf[Negation].evidence.tokenInterval.toSeq)
+          }
+
           // Check for single-token negative verbs
           for{
             (ix, lemma) <- (pairsL ++ pairsR)
-            if Seq("fail") contains lemma
+            if (Seq("fail") contains lemma) && !(evidence contains Set(ix))
           }{
               event.modifications += Negation(new BioTextBoundMention(
                 Seq("Negation_trigger"),
@@ -463,7 +471,7 @@ class DarpaActions extends Actions {
 
             for{
               (interval, bigram) <- bigrams
-              if verbs contains bigram
+              if (verbs contains bigram) && !(evidence contains (interval._1 to interval._2+1).toSet)
             }
               {
                 event.modifications += Negation(new BioTextBoundMention(

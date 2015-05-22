@@ -32,7 +32,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
-    controller:{{ controllerType }} = agent|prep_by [!lemma=/{{ negnouns }}/] /conj_|nn|cc/*
+    controller:{{ controllerType }} = (agent|prep_by) [!lemma=/{{ negnouns }}/] /conj_|nn|cc|prep_of/*
 
 
 - name: Positive_{{ ruleType }}_syntax_3_verb
@@ -131,7 +131,7 @@
   pattern: |
     trigger = [word=/{{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
     controlled:{{ controlledType }} = (prep_of /nn|conj_|cc/*)+
-    controller:{{ controllerType }} = <prep_via agent|prep_by [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
+    controller:{{ controllerType }} = <prep_via (agent|prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
 
 
 - name: Positive_{{ ruleType }}_token_1_verb
@@ -152,50 +152,30 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:Binding following @controller:{{ controllerType }}
+    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:{{ controlledType }} following @controller:{{ controllerType }} [! lemma=/{{ negnouns}}/]
 
 
 #
-# We no longer accept regulations|activations wo/ a controller!
+# These contain instances of negative regulation triggers coupled with negative nouns
 #
 
-#
-#- name: Positive_{{ ruleType }}_syntax_4_noun
-#  priority: {{ priority }}
-#  example: ""
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
-#    controlled:{{ controlledType }} = <nn? nn /conj|cc|nn|prep/*
-#
-#- name: Positive_{{ ruleType }}_syntax_7_noun
-#  priority: {{ priority }}
-#  example: ""
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    trigger = [word=/(?i){{ triggers }}/ & !outgoing=prep_of & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
-#    controlled:{{ controlledType }} = < nsubj dobj prep_of [!lemma=/{{ negnouns }}/] /nn|cc|conj/*
-#
-#- name: Positive_{{ ruleType }}_token_1_noun
-#  priority: {{ priority }}
-#  example: ""
-#  type: token
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?)
-#    /of|on/ [word=/./ & !tag=/^V|RB/]*?
-#    @controlled:{{ controlledType }}
-#
-#- name: Positive_{{ ruleType }}_token_3_verb
-#  priority: {{ priority }}
-#  example: ""
-#  type: token
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/{{ auxtriggers }}/ & tag=/^N/]?)
-#    @controlled:{{ controlledType }}
-#
+- name: Positive_{{ ruleType }}_syntax_1_verb_negnoun
+  priority: {{ priority }}
+  example: ""
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ negtriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn|prep_of/* (/./ [word=by])*
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/+
+
+
+- name: Positive_{{ ruleType }}_syntax_2_verb_negnoun
+  priority: {{ priority }}
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ negtriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
+    controller:{{ controllerType }} = (agent|prep_by) [lemma=/{{ negnouns }}/] /conj_|nn|cc|prep_of/+
+

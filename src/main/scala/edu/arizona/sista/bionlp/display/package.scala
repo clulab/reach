@@ -49,7 +49,13 @@ package object display {
       case m: BioEventMention =>
         println(s"\ttrigger => ${m.trigger.text}")
         m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
+          case (k, vs) =>
+            for (v <- vs) {
+              val vm = v.toBioMention
+              println(s"\t$k (${v.labels}) => ${v.text}")
+              if (vm.modifications.nonEmpty)
+                println(s"\t  with modifications => ${vm.modifications}")
+            }
         }
         m.modifications foreach {
           case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
@@ -57,7 +63,13 @@ package object display {
         }
       case m: BioRelationMention =>
         m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
+          case (k, vs) =>
+            for (v <- vs) {
+              val vm = v.toBioMention
+              println(s"\t$k (${v.labels}) => ${v.text}")
+              if (vm.modifications.nonEmpty)
+                println(s"\t  with modifications => ${vm.modifications}")
+            }
         }
         m.modifications foreach {
           case Negation(evidence) => println(s"\tNegated by ${evidence.text}")

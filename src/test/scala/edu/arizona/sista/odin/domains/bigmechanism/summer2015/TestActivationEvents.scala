@@ -50,17 +50,17 @@ class TestActivationEvents extends FlatSpec with Matchers {
   }
 
   val sent4 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
-  sent4 should "contain 1 negative activation and NO positive action events" in {
+  sent4 should "contain 1 negative activation and NO positive activation events" in {
     val mentions = parseSentence(sent4)
     hasNegativeActivation("MEK", "ERBB3", mentions) should be (true)
     hasPositiveActivation("MEK", "ERBB3", mentions) should be (false)
   }
 
-  val sent5 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
-  sent5 should "contain 1 downregulation event" in {
+  val sent5 = "the suppression of ASPP1 decreases ASPP2."
+  sent5 should "contain 1 positive activation and NO negative activation or regulation events" in {
     val mentions = parseSentence(sent5)
-    hasNegativeActivation("MEK", "ERBB3", mentions) should be (true)
+    hasNegativeActivation("ASPP1", "ASPP2", mentions) should be (false)
+    hasPositiveActivation("ASPP1", "ASPP2", mentions) should be (true)
+    mentions.filter(_.label.contains("regulation")) should have size (0)
   }
-
-
 }
