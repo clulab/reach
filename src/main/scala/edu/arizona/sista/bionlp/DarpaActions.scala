@@ -432,10 +432,18 @@ class DarpaActions extends Actions {
           val pairsL = pairs takeWhile (_._1 < interval.start)
           val pairsR = pairs dropWhile (_._1 <= interval.end)
 
+          // Get the evidence for the existing negations to avoid duplicates
+          val evidence = Set {
+              event.modifications filter {
+                case mod:Negation => true
+                case _ => false
+              } flatMap (_.asInstanceOf[Negation].evidence.tokenInterval.toSeq)
+          }
+
           // Check for single-token negative verbs
           for{
             (ix, lemma) <- (pairsL ++ pairsR)
-            if Seq("fail") contains lemma
+            if (Seq("fail") contains lemma) && !(evidence contains Set(ix))
           }{
               event.modifications += Negation(new BioTextBoundMention(
                 Seq("Negation_trigger"),
@@ -463,7 +471,7 @@ class DarpaActions extends Actions {
 
             for{
               (interval, bigram) <- bigrams
-              if verbs contains bigram
+              if (verbs contains bigram) && !(evidence contains (interval._1 to interval._2+1).toSet)
             }
               {
                 event.modifications += Negation(new BioTextBoundMention(

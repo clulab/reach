@@ -142,7 +142,7 @@ class DarpaActions extends Actions {
 
   def meldMentions(mention: Map[String, Seq[Interval]]): Interval = {
     val range = (for (i: Interval <- mention.values.toSet.toSeq.flatten) yield Seq(i.start, i.end)).flatten.sorted
-    new Interval(range.head, range.last)
+    Interval(range.head, range.last)
   }
 
 
