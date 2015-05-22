@@ -103,21 +103,12 @@ class DarpaActions extends Actions {
   /** This action handles the creation of Binding EventMentions. In many cases, sentences about binding
     * will contain two sets of entities. These sets should be combined exhaustively in a pairwise fashion,
     * but no bindings should be created for pairs of entities within each set.
+    * Theme1(A,B),Theme2(C,D) => Theme(A,C),Theme(A,D),Theme(B,C),Theme(B,D)
     */
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
-    case m: EventMention =>
-      val arguments = m.arguments
-      val theme1s = for {
-        name <- arguments.keys.toSeq
-        if name == "theme1"
-        theme <- arguments(name)
-      } yield theme
-
-      val theme2s = for {
-        name <- arguments.keys.toSeq
-        if name == "theme2"
-        theme <- arguments(name)
-      } yield theme
+    case m: EventMention if m.labels.contains("Binding") =>
+      val theme1s = m.arguments.getOrElse("theme1",Seq())
+      val theme2s = m.arguments.getOrElse("theme1",Seq())
 
       (theme1s, theme2s) match {
         case (t1s, t2s) if (t1s ++ t2s).size < 2 => Nil
