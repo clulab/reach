@@ -159,15 +159,6 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("PI3K", "K-Ras"), mentions) should be (true)
   }
 
-  val sent15 = "To address the effect of K-Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
-  sent15 should "contain 2 binding events" in {
-    val mentions = parseSentence(sent15)
-    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
-    // TODO: this requires coref!
-    hasEventWithArguments("Binding", List("K-Ras", "Raf"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("PI3K", "K-Ras"), mentions) should be (true)
-  }
-
   val sent16 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
   sent16 should "contain 1 binding event" in {
     val mentions = parseSentence(sent16)
