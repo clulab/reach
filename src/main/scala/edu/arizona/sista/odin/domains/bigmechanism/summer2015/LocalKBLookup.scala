@@ -1,15 +1,17 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import java.io._
-
 import scala.io.Source
-import scala.collection.mutable.Map
-import scala.collection.JavaConverters._
 
 /**
   * A collection of classes which implement project internal knowledge base lookups.
   *   Author: by Tom Hicks. 5/18/2015.
-  *   Last Modified: Revert special case protein key mods and lookups.
+  *   Last Modified: Sync local KB accessor & lookup.
+  */
+
+/**
+  * Abstract class which reads a 2 or 3-column, tab-separated-value (TSV) text file
+  * where: 1st column is the name string, 2nd column is the ID string (2-col file) or
+  *  species (3-col file), and 3rd column is the ID string (3-col file).
   */
 abstract class LocalKBLookup extends SpeciatedKBLookup {
   protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
@@ -44,27 +46,28 @@ abstract class LocalKBLookup extends SpeciatedKBLookup {
     return line.split("\t").map(_.trim)
   }
 
-  protected def correctNumberOfFields (fields:Seq[String]): Boolean = {
-    return ((fields.size == 3) || (fields.size == 2))
+  protected def validateFields (fields:Seq[String]): Boolean = {
+    return ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty) ||
+           ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty)
   }
 
   protected def readAndFillKB (kbResourcePath:String) = {
     val source: Source = LocalKBUtils.sourceFromResource(kbResourcePath)
-    source.getLines.map(convertToFields(_)).filter(correctNumberOfFields(_)).foreach { fields =>
+    source.getLines.map(convertToFields(_)).filter(validateFields(_)).foreach { fields =>
       var text = ""
       var species = ""
       var refId = ""
 
-      if ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty) { // with species
+      if (fields.size == 3) {               // with species
         text = fields(0)
         species = fields(1)
         refId = fields(2)
       }
-      else if ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty) { // w/o species
+      else if (fields.size == 2) {          // w/o species
         text = fields(0)
         refId = fields(1)
       }
-      else
+      else                                  // should never happen if validation works
         println(s"BAD INPUT: missing required fields: ${fields}")
 
       // make new key and entry for the KB:

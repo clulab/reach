@@ -12,7 +12,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Update for move of xref to grounding trait.
+  *   Last Modified: Add method to sort mentions and return seq of strings.
   */
 class MentionManager {
   // Constants:
@@ -22,6 +22,11 @@ class MentionManager {
 
   // cache for mentions, keyed by a hash key computed from the mention
   protected val roots = scala.collection.mutable.Map[Int, MentionCacheValue]()
+
+  // define an implicit ordering for mentions by sentence/startOffset/endOffset
+  protected implicit val MentionOrdering = Ordering.by { mention:Mention =>
+    (mention.sentence, mention.startOffset, mention.endOffset)
+  }
 
 
   //
@@ -74,6 +79,13 @@ class MentionManager {
     }
     out.flush()
     out.close()
+  }
+
+
+  /** Sort the given mentions and return a sequence of string representations for them. */
+  def sortMentionsToStrings (mentions:Seq[Mention]): Seq[String] ={
+    // return mentions.sorted.flatMap(mentionToStrings) // sorts via implicit ordering defined above
+    return mentions.sortBy(m => (m.sentence,m.startOffset,m.endOffset)).flatMap(mentionToStrings)
   }
 
 
