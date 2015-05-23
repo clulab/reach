@@ -132,6 +132,17 @@
     (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:{{ controlledType }} following @controller:{{ controllerType }} [lemma=/{{ negnouns}}/]
 
 
+- name: Negative_{{ ruleType }}_copula_1
+  priority: {{ priority }}
+  example: "A is an inhibitor of B"
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [lemma=/be/ & tag=/^V/] /./? /./? [lemma=/{{ negnouns }}/ & tag=/^N/]
+    controller:{{ controllerType }} = nsubj
+    controlled:{{ controlledType }} = prep_of
+
+
 #
 # These contain instances of positive regulation triggers coupled with negative nouns
 #
