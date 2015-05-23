@@ -164,7 +164,8 @@
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]
     theme:BioChemicalEntity = prep_of /nn|cc|conj/* [!outgoing="prep_by"]
-    cause:BioChemicalEntity = <prep_in <dobj nsubj /nn|cc|conj/*
+    cause:BioChemicalEntity = <prep_in <dobj? nsubj /nn|cc|conj/*
+    site:Site? = <prep_in <dobj? /prep_(at|on)|nn|conj_|cc/*
 
 ##################
 # surface patterns
