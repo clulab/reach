@@ -483,8 +483,6 @@ class DarpaActions extends Actions {
 
           }
           ///////////////////////////////////////////////////
-      println("After negation detection: ")
-        display.displayMention(event)
     }
 
     mentions
