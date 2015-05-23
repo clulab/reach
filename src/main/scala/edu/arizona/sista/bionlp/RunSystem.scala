@@ -6,6 +6,8 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.odin.extern.export.JsonOutputter
+import edu.arizona.sista.odin.extern.export.hans._
 import edu.arizona.sista.odin.extern.export.reach._
 
 object RunSystem extends App {
@@ -66,8 +68,12 @@ object RunSystem extends App {
 
   def outputMentions(mentions:Seq[Mention], outputType:String, paperId:String, outputDir:File) = {
     val outFile = new File(outputDir, s"${paperId}.json")
-    val outputter = new ReachOutput()
+    val outputter:JsonOutputter = outputType.toLowerCase match {
+      case "hans" => new HansOutput()
+      case      _ => new ReachOutput()
+    }
     println(s"writing ${outFile.getName} ...")
+    // outputter.toJSON(mentions, startTime, endTime, outFile)
     outputter.toJSON(mentions, outFile)
   }
 
