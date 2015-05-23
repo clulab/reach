@@ -57,7 +57,7 @@ object RunSystem extends App {
     }
     else {                                  // else dump all paper mentions to file
       val mentionMgr = new MentionManager()
-      val lines = paperMentions.flatMap(mentionMgr.mentionToStrings)
+      val lines = mentionMgr.sortMentionsToStrings(paperMentions)
       val outFile = new File(friesDir, s"$paperId.txt")
       println(s"writing ${outFile.getName} ...")
       FileUtils.writeLines(outFile, lines.asJavaCollection)
