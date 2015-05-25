@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Sync local KB accessor & lookup.
+  *   Last Modified: Add alternate key lookups for proteins and protein families.
   */
 
 /**
@@ -95,6 +95,22 @@ abstract class LocalKBAccessor extends SpeciatedKBAccessor {
     source.close()
   }
 
+
+  /** For each of the given key transforms, try the KB lookup in sequence. Return the optioned
+    * result from the first lookup which resolves a transformed key, or None otherwise. */
+  def tryAlternateKeys (key:String,
+                        transformFns:Seq[(String) => String]): Option[Map[String,String]] = {
+    transformFns.foreach { xFormFN =>
+      val xfKey = xFormFN.apply(key)        // create new, transformed key
+      if (xfKey != key) {                   // if new key is really different
+        val resInfo = theKB.get(xfKey)      // lookup new key in the KB
+        if (resInfo.isDefined)
+          return resInfo                    // return info for first matching key
+      }
+    }
+    return None                             // else signal lookup failure
+  }
+
 }
 
 
@@ -103,6 +119,14 @@ class AzProteinKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/uniprot/"
   def namespace = "uniprotkb"
   def resourceID = "MIR:00100164"
+
+  /** Override to perform alternate key lookups. */
+  override def resolve (mention:Mention): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val props = theKB.get(key)              // lookup key
+    return if (props.isDefined) props.get   // find it or try alternate keys
+           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+  }
 
   // MAIN: load KB to initialize class
   readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-proteins.tsv.gz")
@@ -114,6 +138,14 @@ class AzProteinFamilyKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/interpro/"
   def namespace = "interpro"
   def resourceID = "MIR:00000011"
+
+  /** Override to perform alternate key lookups. */
+  override def resolve (mention:Mention): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val props = theKB.get(key)              // lookup key
+    return if (props.isDefined) props.get   // find it or try alternate keys
+           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+  }
 
   // MAIN: load KB to initialize class
   readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/ProteinFamilies.tsv.gz")
