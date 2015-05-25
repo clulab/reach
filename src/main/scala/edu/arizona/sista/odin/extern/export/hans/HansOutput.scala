@@ -146,8 +146,9 @@ class HansOutput extends JsonOutputter {
     if(mention.isModified) {
       val ms = new FrameList
       for(m <- mention.modifications) {
-        case ptm:PTM => {
-          ms += mkPTM(ptm)
+        m match {
+          case ptm: PTM => ms += mkPTM(ptm)
+          case _ => // we do not export anything else
         }
       }
       f("modifications") = ms
