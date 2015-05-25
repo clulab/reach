@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
+import java.util.Date
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
@@ -47,15 +48,20 @@ object RunSystem extends App {
   // process papers in parallel
   for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
     val paperId = FilenameUtils.removeExtension(file.getName)
+    val startTime = now // start measuring time here
 
     // process individual sections and collect all mentions
+    val entries = nxml2fries.extractEntries(file)
     val paperMentions = for {
-      entry <- nxml2fries.extractEntries(file)
+      entry <- entries
       mention <- reach.extractFrom(entry)
     } yield mention
 
+    // done processing
+    val endTime = now
+
     if (outputType != "text") {             // if reach will handle output
-      outputMentions(paperMentions, outputType, paperId, friesDir)
+      outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
     }
     else {                                  // else dump all paper mentions to file
       val mentionMgr = new MentionManager()
@@ -66,15 +72,23 @@ object RunSystem extends App {
     }
   }
 
-  def outputMentions(mentions:Seq[Mention], outputType:String, paperId:String, outputDir:File) = {
-    val outFile = new File(outputDir, s"${paperId}.json")
+  def now = new Date()
+
+  def outputMentions(mentions:Seq[Mention],
+                     paperPassages:Seq[FriesEntry],
+                     outputType:String,
+                     paperId:String,
+                     startTime:Date,
+                     endTime:Date,
+                     outputDir:File) = {
+    val outFile = outputDir + File.separator + paperId
+
     val outputter:JsonOutputter = outputType.toLowerCase match {
       case "hans" => new HansOutput()
       case      _ => new ReachOutput()
     }
-    println(s"writing ${outFile.getName} ...")
-    // outputter.toJSON(mentions, startTime, endTime, outFile)
-    outputter.toJSON(mentions, outFile)
+
+    outputter.toJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
 
 }

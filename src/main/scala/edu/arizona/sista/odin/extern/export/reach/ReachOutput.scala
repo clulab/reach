@@ -2,14 +2,10 @@ package edu.arizona.sista.odin.extern.export.reach
 
 import java.io._
 import java.util.Date
+import edu.arizona.sista.bionlp.FriesEntry
 import edu.arizona.sista.utils.DateUtils
 
-import scala.collection.mutable.Map
-import scala.collection.mutable.MutableList
-
-import org.json4s._
 import org.json4s.native.Serialization
-import org.json4s.native.Serialization.write
 
 import edu.arizona.sista.processors._
 import edu.arizona.sista.odin._
@@ -28,7 +24,6 @@ class ReachOutput extends JsonOutputter {
 
   // Constants:
   val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
-  val Now = new Date()                      // REMOVE LATER
 
   // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -46,17 +41,23 @@ class ReachOutput extends JsonOutputter {
 
   /** Output a JSON object representing the REACH output for the given mentions. */
   // def toJSON (allMentions:Seq[Mention], startTime:Date, endTime:Date, outFile:File) = {
-  override def toJSON (allMentions:Seq[Mention], outFile:File) = {
+  override def toJSON (paperId:String,
+                       allMentions:Seq[Mention],
+                       paperPassages:Seq[FriesEntry],
+                       startTime:Date,
+                       endTime:Date,
+                       outFilePrefix:String) = {
     val model:PropMap = new PropMap
     val mentions = allMentions.filter(allowableRootMentions)
     val mIds = assignMentionIds(mentions, new IDed)
     val frames = new FrameList
     mentions.foreach { mention =>
       // val frame = beginNewFrame(mention, startTime, endTime, mIds)
-      val frame = beginNewFrame(mention, Now, Now, mIds) // REPLACE LATER
+      val frame = beginNewFrame(mention, startTime, endTime, mIds)
       frames += doMention(mention, mIds, frame)
     }
     model("frames") = frames
+    val outFile = new File(outFilePrefix + ".json")
     writeJsonToFile(model, outFile)
   }
 
