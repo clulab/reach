@@ -100,7 +100,7 @@ abstract class LocalKBLookup extends SpeciatedKBLookup {
 /** KB lookup to resolve protein names in mentions. */
 class AzProteinKBLookup extends LocalKBLookup {
   def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprotkb"
+  def namespace = "uniprot"
   def resourceID = "MIR:00100164"
 
   // MAIN: load KB to initialize class

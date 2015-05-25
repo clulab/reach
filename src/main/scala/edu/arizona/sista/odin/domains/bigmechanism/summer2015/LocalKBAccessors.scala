@@ -101,7 +101,7 @@ abstract class LocalKBAccessor extends SpeciatedKBAccessor {
 /** KB accessor to resolve protein names in mentions. */
 class AzProteinKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprotkb"
+  def namespace = "uniprot"
   def resourceID = "MIR:00100164"
 
   // MAIN: load KB to initialize class

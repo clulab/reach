@@ -3,8 +3,8 @@ package edu.arizona.sista.odin.extern.export.hans
 import java.io._
 import java.util.Date
 import edu.arizona.sista.bionlp.FriesEntry
+import edu.arizona.sista.bionlp.mentions.{Grounding, Display}
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.utils.DateUtils
 
 import org.json4s.native.Serialization
 import edu.arizona.sista.odin._
@@ -27,7 +27,6 @@ class HansOutput extends JsonOutputter {
 
   // Constants:
   val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
-  val now = DateUtils.formatUTC(new Date())
 
   // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -46,8 +45,13 @@ class HansOutput extends JsonOutputter {
                        startTime:Date,
                        endTime:Date,
                        outFilePrefix:String): Unit = {
-    sentencesToJSON(paperId, allMentions, passagesToMap(paperPassages),
+    val passageMap = passagesToMap(paperPassages)
+
+    sentencesToJSON(paperId, allMentions, passageMap,
       startTime, endTime, new File(outFilePrefix + ".sentences.json"))
+
+    entitiesToJSON(paperId, allMentions, passageMap,
+      startTime, endTime, new File(outFilePrefix + ".entities.json"))
   }
 
 
@@ -75,9 +79,7 @@ class HansOutput extends JsonOutputter {
     // keeps track of all documents created for each entry
     val passageDocs = new mutable.HashMap[String, Document]()
     for(m <- allMentions)  {
-      assert(m.document.id.isDefined)
-      val did = m.document.id.get
-      val chunkId = did.substring(did.lastIndexOf("_") + 1)
+      val chunkId = getChunkId(m)
       if(! passageDocs.contains(chunkId)) {
         passageDocs += chunkId -> m.document
       }
@@ -98,6 +100,62 @@ class HansOutput extends JsonOutputter {
     writeJsonToFile(model, outFile)
   }
 
+  /** Outputs a JSON object containing all entities extracted from this paper. */
+  private def entitiesToJSON (paperId:String,
+                              allMentions:Seq[Mention],
+                              paperPassages:Map[String, FriesEntry],
+                              startTime:Date,
+                              endTime:Date,
+                              outFile:File): Unit = {
+    val model:PropMap = new PropMap
+    addMetaInfo(model, paperId, startTime, endTime)
+
+    // this stores all frames in this output
+    val frames = new FrameList
+    model("frames") = frames
+
+    for(mention <- allMentions) {
+      mention match {
+        case em:TextBoundMention with Display with Grounding =>
+          val cid = getChunkId(em)
+          assert(paperPassages.contains(cid))
+          val passageMeta = paperPassages.get(cid).get
+          frames += mkEntityMention(paperId, passageMeta, em)
+        case _ => // nothing to do here
+      }
+    }
+
+    // write the JSON to the given file
+    writeJsonToFile(model, outFile)
+  }
+
+  private def mkEntityMention(paperId:String,
+                              passageMeta:FriesEntry,
+                              mention:TextBoundMention with Display with Grounding): PropMap = {
+    val f = startFrame(COMPONENT)
+    // TODO: add "index", i.e., the sentence-local number for this mention from this component
+    f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
+    val sentStart = getSentenceStartCharacterOffset(mention.document, mention.sentence)
+    f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset) // TODO: should these be relative to sentence start?
+    f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
+    f("text") = mention.text
+    f("type") = prettifyLabel(mention.displayLabel)
+    val xrefs = new FrameList
+    mention.xref.foreach(r => xrefs += mkXref(r))
+    f("xrefs") = xrefs
+    f
+  }
+
+  private def startFrame(component:String):PropMap = {
+    val f = new PropMap
+    f("object-type") = "frame"
+    val meta = new PropMap
+    meta("object-type") = "meta-info"
+    meta("component") = component
+    f("object-meta") = meta
+    f
+  }
+
   private def mkSentences(model:PropMap,
                           paperId:String,
                           passageMeta:FriesEntry,
@@ -113,16 +171,11 @@ class HansOutput extends JsonOutputter {
                          passageMeta:FriesEntry,
                          passageDoc:Document,
                          offset:Int): PropMap = {
-    val sent = new PropMap
-    sent("object-type") = "frame"
-    val meta = new PropMap
-    meta("object-type") = "meta-info"
-    meta("component") = "BioNLPProcessor"
-    sent("object-meta") = meta
+    val sent = startFrame("BioNLPProcessor")
     sent("frame-id") = mkSentenceId(paperId, passageMeta, offset)
     sent("passage") = mkPassageId(paperId, passageMeta)
-    sent("start-pos") = mkRelativePosition(paperId, passageMeta, passageDoc.sentences(offset).startOffsets.head)
-    sent("end-pos") = mkRelativePosition(paperId, passageMeta, passageDoc.sentences(offset).endOffsets.last)
+    sent("start-pos") = mkRelativePosition(paperId, passageMeta, getSentenceStartCharacterOffset(passageDoc, offset))
+    sent("end-pos") = mkRelativePosition(paperId, passageMeta, getSentenceEndCharacterOffset(passageDoc, offset))
     sent("text") = passageDoc.sentences(offset).getSentenceText()
     sent
   }
@@ -145,16 +198,19 @@ class HansOutput extends JsonOutputter {
     s"${mkPassageId(paperId, passageMeta)}-$offset"
   }
 
+  private def mkXref(xref:Grounding.Xref):PropMap = {
+    val m = new PropMap
+    m("object-type") = "db-reference"
+    m("namespace") = xref.namespace
+    m("id") = xref.id
+    m
+  }
+
   private def mkPassage(model:PropMap,
                         paperId:String,
                         passageMeta:FriesEntry,
                         passageDoc:Document): PropMap = {
-    val passage = new PropMap
-    passage("object-type") = "frame"
-    val meta = new PropMap
-    meta("object-type") = "meta-info"
-    meta("component") = "nxml2fries"
-    passage("object-meta") = meta
+    val passage = startFrame("nxml2fries")
     passage("frame-id") = mkPassageId(paperId, passageMeta)
     passage("frame-type") = "passage"
     passage("index") = passageMeta.chunkId
@@ -167,7 +223,7 @@ class HansOutput extends JsonOutputter {
   }
 
   /** Outputs a JSON object containing all events extracted from this paper. */
-  private def eventsToJSON (allMentions:Seq[Mention], paperId:String, startTime:Date, endTime:Date, outFile:File): Unit = {
+  private def eventsToJSON (allMentions:Seq[Mention], paperId:String, paperPassages:Map[String, FriesEntry], startTime:Date, endTime:Date, outFile:File): Unit = {
     val model:PropMap = new PropMap
 
     val mentions = allMentions.filter(allowableRootMentions)
@@ -180,11 +236,6 @@ class HansOutput extends JsonOutputter {
     }
     model("frames") = frames
     writeJsonToFile(model, outFile)
-  }
-
-  /** Outputs a JSON object containing all entities extracted from this paper. */
-  private def entitiesToJSON (allMentions:Seq[Mention], paperId:String, startTime:Date, endTime:Date, outFile:File): Unit = {
-
   }
 
   def addMetaInfo(model:PropMap, paperId:String, startTime:Date, endTime:Date): Unit = {
@@ -228,6 +279,23 @@ class HansOutput extends JsonOutputter {
     out.flush()
     out.close()
   }
+
+  private def getChunkId(m:Mention):String = {
+    assert(m.document.id.isDefined)
+    val did = m.document.id.get
+    // the chunk id is the string following the underscore in the document ids
+    val chunkId = did.substring(did.lastIndexOf("_") + 1)
+    chunkId
+  }
+
+  private def getSentenceStartCharacterOffset(doc:Document, sentOffset:Int):Int = {
+    doc.sentences(sentOffset).startOffsets.head
+  }
+  private def getSentenceEndCharacterOffset(doc:Document, sentOffset:Int):Int = {
+    doc.sentences(sentOffset).endOffsets.last
+  }
+
+  private def prettifyLabel(label:String):String = label.toLowerCase.replaceAll("_", "-")
 }
 
 object HansOutput {

@@ -139,8 +139,20 @@ object ReachSystem {
   // By default the displayMention is set to the main label of the mention,
   // so sometimes it may not require modification
   def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = {
-    // first, let's make sure displayLabel is set to the default value
-    ms.foreach(m => m.displayLabel = m.label)
+    // let's do a first attempt, using only grounding info
+    // this is useful for entities that do not participate in events
+    for(m <- ms) {
+      m match {
+        case em:TextBoundMention with Display with Grounding =>
+          if(m.isGrounded) {
+            if(m.xref.get.namespace.contains("interpro"))
+              m.displayLabel = "Family"
+            else if(m.xref.get.namespace.contains("uniprot"))
+              m.displayLabel = "Protein"
+          }
+        case _ => // nothing to do
+      }
+    }
 
     // now let's try to disambiguate Gene_or_gene_product that participate in events
     for(m <- ms) {
@@ -149,6 +161,10 @@ object ReachSystem {
         resolveDisplayForArguments(m, parents)
       }
     }
+
+    // last resort: displayLabel is set to the default value
+    ms.foreach(m => if(m.displayLabel == null) m.displayLabel = m.label)
+
     ms
   }
 
@@ -161,7 +177,7 @@ object ReachSystem {
         resolveDisplayForArguments(m.asInstanceOf[BioMention], newParents.toSet)
       }))
     } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
-      if(em.xref.isDefined && em.xref.get.namespace == "interpro") {
+      if(em.xref.isDefined && em.xref.get.namespace.contains("interpro")) {
         // found a Family incorrectly labeled as protein
         em.displayLabel = "Family"
       } else if(parents.contains("Transcription")) {
