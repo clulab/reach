@@ -3,7 +3,7 @@ package edu.arizona.sista.odin.extern.export.hans
 import java.io._
 import java.util.Date
 import edu.arizona.sista.bionlp.FriesEntry
-import edu.arizona.sista.bionlp.mentions.{Grounding, Display}
+import edu.arizona.sista.bionlp.mentions.{PTM, Modifications, Grounding, Display}
 import edu.arizona.sista.processors.Document
 
 import org.json4s.native.Serialization
@@ -116,7 +116,7 @@ class HansOutput extends JsonOutputter {
 
     for(mention <- allMentions) {
       mention match {
-        case em:TextBoundMention with Display with Grounding =>
+        case em:TextBoundMention with Display with Grounding with Modifications =>
           val cid = getChunkId(em)
           assert(paperPassages.contains(cid))
           val passageMeta = paperPassages.get(cid).get
@@ -131,7 +131,7 @@ class HansOutput extends JsonOutputter {
 
   private def mkEntityMention(paperId:String,
                               passageMeta:FriesEntry,
-                              mention:TextBoundMention with Display with Grounding): PropMap = {
+                              mention:TextBoundMention with Display with Grounding with Modifications): PropMap = {
     val f = startFrame(COMPONENT)
     // TODO: add "index", i.e., the sentence-local number for this mention from this component
     f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
@@ -143,7 +143,25 @@ class HansOutput extends JsonOutputter {
     val xrefs = new FrameList
     mention.xref.foreach(r => xrefs += mkXref(r))
     f("xrefs") = xrefs
+    if(mention.isModified) {
+      val ms = new FrameList
+      for(m <- mention.modifications) {
+        case ptm:PTM => {
+          ms += mkPTM(ptm)
+        }
+      }
+      f("modifications") = ms
+    }
     f
+  }
+
+  private def mkPTM(ptm:PTM):PropMap = {
+    val m = new PropMap
+    m("type") = ptm.label
+    if(ptm.site.isDefined) {
+      m("site") = ptm.site
+    }
+    m
   }
 
   private def startFrame(component:String):PropMap = {
