@@ -25,15 +25,13 @@ class HansOutput extends JsonOutputter {
   type PropMap = scala.collection.mutable.HashMap[String, Any]
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
-  // Constants:
-  val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
+  // incrementing ID for numbering entity mentions
+  protected val entityIdCntr = new IncrementingId()
+  // incrementing ID for numbering event mentions
+  protected val eventIdCntr = new IncrementingId()
 
-  // used by json output serialization:
+  // required for json output serialization:
   implicit val formats = org.json4s.DefaultFormats
-
-  // incrementing ID for numbering entities
-  protected val idCntr = new IncrementingId()
-
 
   //
   // Public API:
@@ -45,13 +43,18 @@ class HansOutput extends JsonOutputter {
                        startTime:Date,
                        endTime:Date,
                        outFilePrefix:String): Unit = {
+    // map of FriesEntry, using chunkId as key
     val passageMap = passagesToMap(paperPassages)
 
     sentencesToJSON(paperId, allMentions, passageMap,
       startTime, endTime, new File(outFilePrefix + ".sentences.json"))
 
-    entitiesToJSON(paperId, allMentions, passageMap,
+    // entityMap: map from entity pointers to unique ids
+    val entityMap = entitiesToJSON(paperId, allMentions, passageMap,
       startTime, endTime, new File(outFilePrefix + ".entities.json"))
+
+    eventsToJSON(paperId, allMentions, passageMap, entityMap,
+      startTime, endTime, new File(outFilePrefix + ".events.json"))
   }
 
 
@@ -100,15 +103,16 @@ class HansOutput extends JsonOutputter {
     writeJsonToFile(model, outFile)
   }
 
-  /** Outputs a JSON object containing all entities extracted from this paper. */
+  /** Outputs a JSON object containing all entity mentions extracted from this paper. */
   private def entitiesToJSON (paperId:String,
                               allMentions:Seq[Mention],
                               paperPassages:Map[String, FriesEntry],
                               startTime:Date,
                               endTime:Date,
-                              outFile:File): Unit = {
+                              outFile:File): IDed = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime)
+    val entityMap = new IDed
 
     // this stores all frames in this output
     val frames = new FrameList
@@ -120,23 +124,57 @@ class HansOutput extends JsonOutputter {
           val cid = getChunkId(em)
           assert(paperPassages.contains(cid))
           val passageMeta = paperPassages.get(cid).get
-          frames += mkEntityMention(paperId, passageMeta, em)
+          frames += mkEntityMention(paperId, passageMeta, em, entityMap)
         case _ => // nothing to do here
       }
     }
 
     // write the JSON to the given file
     writeJsonToFile(model, outFile)
+    entityMap
+  }
+
+  /** Outputs a JSON object containing all event mentions extracted from this paper. */
+  private def eventsToJSON (paperId:String,
+                            allMentions:Seq[Mention],
+                            paperPassages:Map[String, FriesEntry],
+                            entityMap:IDed,
+                            startTime:Date,
+                            endTime:Date,
+                            outFile:File) {
+    val model:PropMap = new PropMap
+    addMetaInfo(model, paperId, startTime, endTime)
+
+    // this stores all frames in this output
+    val frames = new FrameList
+    model("frames") = frames
+
+    val eventMentions = allMentions.filter(isEventMention)
+    for(mention <- eventMentions) {
+      val cid = getChunkId(mention)
+      assert(paperPassages.contains(cid))
+      val passageMeta = paperPassages.get(cid).get
+    }
+
+    // write the JSON to the given file
+    writeJsonToFile(model, outFile)
+  }
+
+  private def isEventMention(m:Mention):Boolean = {
+    m.isInstanceOf[EventMention] || m.isInstanceOf[RelationMention]
   }
 
   private def mkEntityMention(paperId:String,
                               passageMeta:FriesEntry,
-                              mention:TextBoundMention with Display with Grounding with Modifications): PropMap = {
+                              mention:TextBoundMention with Display with Grounding with Modifications,
+                              entityMap: IDed): PropMap = {
     val f = startFrame(COMPONENT)
-    // TODO: add "index", i.e., the sentence-local number for this mention from this component
+    f("frame-type") = "entity-mention"
+    val eid = mkEntityId(paperId, passageMeta, mention.sentence)
+    entityMap += mention -> eid
+    f("frame-id") = eid
     f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
-    val sentStart = getSentenceStartCharacterOffset(mention.document, mention.sentence)
-    f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset) // TODO: should these be relative to sentence start?
+    f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
     f("type") = prettifyLabel(mention.displayLabel)
@@ -151,8 +189,10 @@ class HansOutput extends JsonOutputter {
           case _ => // we do not export anything else
         }
       }
-      f("modifications") = ms
+      if(ms.nonEmpty)
+        f("modifications") = ms
     }
+    // TODO: add "index", i.e., the sentence-local number for this mention from this component
     f
   }
 
@@ -209,13 +249,14 @@ class HansOutput extends JsonOutputter {
     pos
   }
 
-  private def mkPassageId(paperId:String, passageMeta:FriesEntry):String = {
+  private def mkPassageId(paperId:String, passageMeta:FriesEntry):String =
     s"pass-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}"
-  }
-
-  private def mkSentenceId(paperId:String, passageMeta:FriesEntry, offset:Int):String = {
-    s"${mkPassageId(paperId, passageMeta)}-$offset"
-  }
+  private def mkSentenceId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
+    s"sent-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset"
+  private def mkEntityId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
+    s"ment-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset-${entityIdCntr.genNextId()}"
+  private def mkEventId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
+    s"evem-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset-${eventIdCntr.genNextId()}"
 
   private def mkXref(xref:Grounding.Xref):PropMap = {
     val m = new PropMap
@@ -241,22 +282,6 @@ class HansOutput extends JsonOutputter {
     passage
   }
 
-  /** Outputs a JSON object containing all events extracted from this paper. */
-  private def eventsToJSON (allMentions:Seq[Mention], paperId:String, paperPassages:Map[String, FriesEntry], startTime:Date, endTime:Date, outFile:File): Unit = {
-    val model:PropMap = new PropMap
-
-    val mentions = allMentions.filter(allowableRootMentions)
-    val mIds = assignMentionIds(mentions, new IDed)
-    val frames = new FrameList              // top level list of mention maps
-    mentions.foreach { mention =>
-      // REACH creates a data structure for each mention, stores it in frames list:
-      // val frame = beginNewFrame(mention, startTime, endTime, mIds)
-      // frames += doMention(mention, mIds, frame)
-    }
-    model("frames") = frames
-    writeJsonToFile(model, outFile)
-  }
-
   def addMetaInfo(model:PropMap, paperId:String, startTime:Date, endTime:Date): Unit = {
     model("object-type") = "frame-collection"
 
@@ -269,25 +294,6 @@ class HansOutput extends JsonOutputter {
     meta("processing-start") = startTime
     meta("processing-end") = endTime
     model("object-meta") = meta
-  }
-
-  /** Return true if the given mention is one that should be processed if it is an argument. */
-  private def allowableArgumentMentions (mention:Mention): Boolean = {
-    mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention]
-  }
-
-  /** Return true if the given mention is one that should be processed at the forest root. */
-  private def allowableRootMentions (mention:Mention): Boolean = {
-    mention.isInstanceOf[EventMention] || (mention.isInstanceOf[RelationMention] && (mention.label != "Protein_with_site"))
-  }
-
-  /** Assign all mentions a unique ID. */
-  private def assignMentionIds (mentions:Seq[Mention], mIds:IDed): IDed = {
-    mentions.foreach{ mention =>
-      mIds.getOrElseUpdate(mention, idCntr.genNextId())
-      assignMentionIds(mention.arguments.values.toSeq.flatten.filter(allowableArgumentMentions), mIds)
-    }
-    mIds
   }
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
@@ -321,6 +327,7 @@ object HansOutput {
   val RUN_ID = "r1"
   val COMPONENT = "REACH"
   val ORGANIZATION = "UAZ"
+  val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
 }
 
 
@@ -335,11 +342,5 @@ class IncrementingId {
   def genNextId (): String = {
     cntr = cntr + 1
     currentId()
-  }
-
-  /** Increment counter and return new identification string. */
-  def genNextIdWithFormat (formatString:String): String = {
-    cntr = cntr + 1
-    formatString.format(cntr)
   }
 }
