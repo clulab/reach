@@ -367,7 +367,7 @@ class Coref extends DarpaFlow {
                   val validPriors = priors.filter(x => !antecedents.contains(x))
                   val num = cardinality(unres)
                   validPriors match {
-                    case Nil => Nil
+                    case noneFound if noneFound.isEmpty => Nil
                     case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
                       val numToAdd = cardinality(a)
                       foundThemes match {
@@ -393,7 +393,7 @@ class Coref extends DarpaFlow {
                   val num = cardinality(unres)
 
                   validPriors match {
-                    case Nil => Nil
+                    case noneFound if noneFound.isEmpty => Nil
                     case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
                       val numToAdd = cardinality(a)
                       foundThemes match {
@@ -423,7 +423,7 @@ class Coref extends DarpaFlow {
               for {
                 theme1 <- t1Ants
                 theme2 <- t2Ants
-                !sameEntityID(Seq(theme1, theme2))
+                if !sameEntityID(Seq(theme1, theme2))
               } yield {
                 if (theme1.text.toLowerCase == "ubiquitin"){
                   val args = Map("theme" -> Seq(theme2))
