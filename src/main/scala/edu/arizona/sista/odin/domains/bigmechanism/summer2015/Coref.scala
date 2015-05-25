@@ -1,10 +1,11 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp.display
+import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import scala.collection.mutable.ListBuffer
 import util.control.Breaks._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.DependencyUtils._
 
@@ -201,7 +202,7 @@ class Coref extends DarpaFlow {
       m <- mentions
     } yield lookInside(m)).flatten
 
-    val orderedMentions = (for {m <- (mentions ++ hiddenMentions).distinct} yield getChildren(m)).flatten.distinct.sorted
+    var orderedMentions: ListBuffer[Mention] = (for {m <- (mentions ++ hiddenMentions).distinct} yield getChildren(m)).flatten.distinct.sorted.to[ListBuffer]
 
     orderedMentions.foreach(m => chains += m -> Seq(m))
 
@@ -311,25 +312,154 @@ class Coref extends DarpaFlow {
       }
     }
 
+    /**
+     * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
+     * @param mentions A Sequence of odin-style mentions
+     * @return boolean
+     */
+    def sameEntityID(mentions:Seq[Mention]): Boolean = {
+      val groundings =
+        mentions
+          .map(_.toBioMention)
+          // only look at grounded Mentions
+          .filter(_.xref.isDefined)
+          .map(_.xref.get)
+          .toSet
+      // should be 1 if all are the same entity
+      groundings.size == 1
+    }
+
+    // travel in order through the event mentions in the document, trying to match the right number of arguments to each
     for((mention,i) <- orderedMentions.zipWithIndex) {
       mention match {
+        // bindings need two themes each, but sometimes more than two are mentioned, in which case we
+        // need an exhaustive combination of all the bindings from theme1(s) to theme2(s)
         case binding: BioEventMention if binding.labels.contains("Binding") &
           (binding.arguments.getOrElse("theme1", Seq()).exists(thm => thm.labels.contains("Unresolved")) ||
             binding.arguments.getOrElse("theme2", Seq()).exists(thm => thm.labels.contains("Unresolved"))) =>
           println("entering cardinality detector: binding")
 
-          val theme1s = binding.arguments.getOrElse("theme1",Seq())
-          val theme2s = binding.arguments.getOrElse("theme2",Seq())
-          val totalPriorsNeeded = (theme1s ++ theme2s).foldLeft(0)((sum,m) => sum + cardinality(m))
+          // this gnarly thing returns BioChemicalEntities that are grounded, aren't already arguments in this event,
+          // and aren't controllers of a regulation that has this event as a controlled
+          val priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
+            !x.labels.contains("Unresolved") &&
+            x.labels.contains("BioChemicalEntity") &&
+            !binding.arguments.getOrElse("theme1",Seq()).contains(x) &&
+            !binding.arguments.getOrElse("theme2",Seq()).contains(x) &&
+            !chains.keys.exists(y => y.labels.contains("ComplexEvent") &&
+              y.arguments.getOrElse("controller",Seq()).contains(x) &&
+              y.arguments.getOrElse("controlled",Seq()).contains(binding)))
+
+          val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1",Seq())
+          val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2",Seq())
+
+          // keeps track of antecedents found so far, so they won't be reused
+          var antecedents: Seq[Mention] = Seq()
+
+          // look right to left through previous BioChemicalEntities; start with theme2(s) since we assume these appear
+          // later than theme1(s)
+          val t2Ants: Seq[Mention] = (for {
+            m <- theme2s
+          } yield {
+              val themes = m match{
+                case unres if unres.labels.contains("Unresolved") =>
+                  // exclude previously used antecedents
+                  val validPriors = priors.filter(x => !antecedents.contains(x))
+                  val num = cardinality(unres)
+                  validPriors match {
+                    case Nil => Nil
+                    case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
+                      val numToAdd = cardinality(a)
+                      foundThemes match {
+                        case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
+                        case _ => foundThemes
+                      }
+                    })._2
+                  }
+                case _ => Seq(m)
+              }
+              antecedents = antecedents ++ themes
+              themes
+            }).flatten
+
+          val t1Ants = (for {
+            m <- theme1s
+          } yield {
+              val themes = m match{
+                case unres if unres.labels.contains("Unresolved") =>
+                  // exclude previously used antecedents
+                  val validPriors = priors.filter(x => !antecedents.contains(x))
+
+                  val num = cardinality(unres)
+
+                  validPriors match {
+                    case Nil => Nil
+                    case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
+                      val numToAdd = cardinality(a)
+                      foundThemes match {
+                        case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
+                        case _ => foundThemes
+                      }
+                    }
+                    )._2
+                  }
+
+                case _ => Seq(m)
+              }
+              antecedents = antecedents ++ themes
+              themes
+            }).flatten
+
+          // Basically the same as mkBinding in DarpaActions
+          val newBindings = (t1Ants, t2Ants) match {
+            case (t1Ants, t2Ants) if t1Ants.isEmpty || t2Ants.isEmpty =>
+              val mergedThemes = t1Ants ++ t2Ants
+              for (pair <- mergedThemes.combinations(2)) yield {
+                new BioEventMention(
+                  binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,binding.document,binding.keep,binding.foundBy
+                )
+              }
+            case _ => {
+              for {
+                theme1 <- t1Ants
+                theme2 <- t2Ants
+                !sameEntityID(Seq(theme1, theme2))
+              } yield {
+                if (theme1.text.toLowerCase == "ubiquitin"){
+                  val args = Map("theme" -> Seq(theme2))
+                  new BioEventMention(
+                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
+                } else if (theme2.text.toLowerCase == "ubiquitin") {
+                  val args = Map("theme" -> Seq(theme1))
+                  new BioEventMention(
+                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
+                }
+                else {
+                  val args = Map("theme" -> Seq(theme1, theme2))
+                  new BioEventMention(
+                    binding.labels, binding.trigger, args, binding.sentence, binding.document, binding.keep, binding.foundBy)
+                }
+              }
+            }
+          }
+
+          // replace current binding with new bindings in the ordered mentions and in the chain map
+          orderedMentions = (orderedMentions - binding ++ newBindings).sorted
+          for (link <- chains(binding)) {
+            chains(link) = chains(link).filter(_ != binding) ++ newBindings
+          }
+
 
         case ev: BioEventMention if !ev.labels.contains("Binding") &
           ev.arguments.getOrElse("theme", Seq()).exists(thm => thm.labels.contains("Unresolved")) =>
           println("entering cardinality detector: non-binding")
+          var antecedents: Seq[Mention] = Seq()
           val foundThemes = for {
             m <- ev.arguments("theme").filter(thm => thm.labels.contains("Unresolved"))
             priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
               !x.labels.contains("Unresolved") &&
               x.labels.contains(m.labels(1)) &&
+              !antecedents.contains(x) &&
               !chains.keys.exists(y => y.labels.contains("ComplexEvent") &&
                 y.arguments.getOrElse("controller",Seq()).contains(x) &&
                 y.arguments.getOrElse("controlled",Seq()).contains(ev)))
@@ -341,13 +471,16 @@ class Coref extends DarpaFlow {
             num = cardinality(m)
 
             themes = priors.takeRight(math.min(num, priors.length))
-          } yield (m, themes)
+          } yield {
+              antecedents = antecedents ++ themes
+              (m, themes)
+            }
 
           val numThemes = themeCardinality(ev.label)
 
           numThemes match {
-            case splitEv if foundThemes.map(_._2).flatten.length > numThemes =>
-              toSplit(ev.asInstanceOf[EventMention]) = foundThemes.map(_._2)
+            case splitEvent if foundThemes.map(_._2).flatten.length > numThemes =>
+              toSplit(ev) = foundThemes.map(_._2)
             case _ =>
               for (t <- foundThemes) {
                 val sumChain = chains(t._1) ++ (for {
