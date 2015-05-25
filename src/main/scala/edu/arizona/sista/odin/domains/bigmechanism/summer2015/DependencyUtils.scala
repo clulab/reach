@@ -35,7 +35,7 @@ object DependencyUtils {
     val outgoing = (for (h <- heads) yield followTrail(h)).flatten.distinct
 
     // outgoing may only have a single index
-    if (outgoing.length > 1) Some(new Interval(outgoing.min, outgoing.max)) else Some(new Interval(outgoing.min, outgoing.min + 1))
+    if (outgoing.length > 1) Some(Interval(outgoing.min, outgoing.max)) else Some(Interval(outgoing.min, outgoing.min + 1))
   }
 
   /**
