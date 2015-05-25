@@ -288,7 +288,16 @@ class DarpaActions extends Actions {
 
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    mention <- mentions
+    mention <- mentions.sortWith { (m1, m2) =>
+      // this is an ugly hack
+      // it's purpose is finding regulations that have events as controllers
+      // before regulations that have entities as controllers
+      // so that, if two mentions overlap, we keep the one that comes
+      // from the regulation with an event controller
+      val c = m1.arguments.get("controller")
+      if (c.isDefined && c.get.head.matches("Event")) true
+      else false
+    }
     biomention = mention.toBioMention
   } yield {
     val controllerOption = biomention.arguments.get("controller")
@@ -413,10 +422,10 @@ class DarpaActions extends Actions {
           ///////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////
-          // Check for the prescence of some negative verbs
+          // Check for the presence of some negative verbs
           // in all the sentence except the tokens
 
-          // First, extract the triggre's range from the mention
+          // First, extract the trigger's range from the mention
           val interval = event.trigger.tokenInterval
 
           //val pairs = for (lemma <- event.lemmas) yield (1, lemma)
@@ -425,10 +434,16 @@ class DarpaActions extends Actions {
           val pairsL = pairs takeWhile (_._1 < interval.start)
           val pairsR = pairs dropWhile (_._1 <= interval.end)
 
+          // Get the evidence for the existing negations to avoid duplicates
+          val evidence:Set[Int] = event.modifications flatMap {
+                  case mod:Negation => mod.evidence.tokenInterval.toSeq
+                  case _ => Nil
+              }
+
           // Check for single-token negative verbs
           for{
             (ix, lemma) <- (pairsL ++ pairsR)
-            if Seq("fail") contains lemma
+            if (Seq("fail") contains lemma) && !(evidence contains ix)
           }{
               event.modifications += Negation(new BioTextBoundMention(
                 Seq("Negation_trigger"),
@@ -456,7 +471,7 @@ class DarpaActions extends Actions {
 
             for{
               (interval, bigram) <- bigrams
-              if verbs contains bigram
+              if (verbs contains bigram) && !((evidence intersect (interval._1 to interval._2+1).toSet).size > 0)
             }
               {
                 event.modifications += Negation(new BioTextBoundMention(

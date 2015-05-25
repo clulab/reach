@@ -8,56 +8,15 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Add ChEBI KB Lookup.
+  *   Last Modified: Add alternate key lookups for proteins and protein families.
   */
 
 /**
-  * Abstract class which reads two-column, tab-separated-value (TSV) text files
-  * where the first column is the name string and the second is the ID string.
-  * Several of our knowledge bases follow this pattern and can simply extend this class.
+  * Abstract class which reads a 2 or 3-column, tab-separated-value (TSV) text file
+  * where: 1st column is the name string, 2nd column is the ID string (2-col file) or
+  *  species (3-col file), and 3rd column is the ID string (3-col file).
   */
-abstract class AzNameIdKBAccessor extends SpeciatedKBAccessor {
-  protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
-
-  override def getLookupKey (mention:Mention): String = {
-    return LocalKBUtils.makeKBCanonKey(mention.text)   // canonicalize text for KBs
-  }
-
-  override def resolve (mention:Mention): Map[String,String] = {
-    val key = getLookupKey(mention)         // make a key from the mention
-    theKB.getOrElse(key, Map.empty)         // return properties map or signal lookup failure
-  }
-
-  // override of resolveBySpecies not necessary since trait default is to use resolve anyway
-
-  protected def readAndFillKB (kbResourcePath:String) = {
-    val source: Source = LocalKBUtils.sourceFromResource(kbResourcePath)
-    for (line <- source.getLines) {
-      val fields = line.split("\t").map(_.trim)
-      if ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty) {
-        val text = fields(0)
-        val storageKey = LocalKBUtils.makeKBCanonKey(text)
-        theKB(storageKey) = Map(            // create new entry in KB
-          "referenceID" -> fields(1),
-          "namespace" -> namespace,
-          "baseURI" -> baseURI,
-          "resourceID" -> resourceID,
-          "key" -> storageKey,
-          "text" -> text                    // also return original text
-        )
-      }
-    }
-    source.close()
-  }
-}
-
-
-/**
-  * Abstract class which reads three-column, tab-separated-value (TSV) text files
-  * where 1st column is the name string, 2nd column is the species, and 3rd column is the ID string.
-  * Several of our knowledge bases follow this pattern and can simply extend this class.
-  */
-abstract class AzNameSpeciesIdKBAccessor extends SpeciatedKBAccessor {
+abstract class LocalKBAccessor extends SpeciatedKBAccessor {
   protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
 
   override def getLookupKey (mention:Mention): String = {
@@ -83,46 +42,91 @@ abstract class AzNameSpeciesIdKBAccessor extends SpeciatedKBAccessor {
       return Map.empty                      // so signal lookup failure
   }
 
+  private def convertToFields (line:String): Seq[String] = {
+    return line.split("\t").map(_.trim)
+  }
+
+  protected def validateFields (fields:Seq[String]): Boolean = {
+    return ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty) ||
+           ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty)
+  }
+
   protected def readAndFillKB (kbResourcePath:String) = {
     val source: Source = LocalKBUtils.sourceFromResource(kbResourcePath)
-    for (line <- source.getLines) {
-      val fields = line.split("\t").map(_.trim)
-      if ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty) {
-        val text = fields(0)
-        val species = fields(1)
+    source.getLines.map(convertToFields(_)).filter(validateFields(_)).foreach { fields =>
+      var text = ""
+      var species = ""
+      var refId = ""
 
-        // make new key and entry for the KB:
-        val storageKey = LocalKBUtils.makeKBCanonKey(text) // make canonical storage key
-        val newEntry = Map(
-          "referenceID" -> fields(2),
-          "namespace" -> namespace,
-          "baseURI" -> baseURI,
-          "resourceID" -> resourceID,
-          "key" -> storageKey,
-          "species" -> species,
-          "text" -> text                    // also return original text
-          )
-
-        val entry = theKB.get(storageKey)   // look for existing entry
-        if (entry.isDefined) {              // if entry is already in this KB
-          if (!LocalKBUtils.isHumanSpecies(entry.get.getOrElse("species",""))) // if not human
-            theKB(storageKey) = newEntry    // then overwrite it with new entry
-          // else ignore it: do not overwrite human entry with any other
-        }
-        else                                // key not seen before
-          theKB(storageKey) = newEntry
+      if (fields.size == 3) {               // with species
+        text = fields(0)
+        species = fields(1)
+        refId = fields(2)
       }
+      else if (fields.size == 2) {          // w/o species
+        text = fields(0)
+        refId = fields(1)
+      }
+      else                                  // should never happen if validation works
+        println(s"BAD INPUT: missing required fields: ${fields}")
+
+      // make new key and entry for the KB:
+      val storageKey = LocalKBUtils.makeKBCanonKey(text) // make canonical storage key
+      val newEntry =
+        if (species == "")
+          Map("referenceID" -> refId, "namespace" -> namespace,
+              "baseURI" -> baseURI, "resourceID" -> resourceID,
+              "key" -> storageKey, "text" -> text) // also return original text
+        else
+          Map("referenceID" -> refId, "namespace" -> namespace,
+              "baseURI" -> baseURI, "resourceID" -> resourceID,
+              "key" -> storageKey, "species" -> species,
+              "text" -> text)               // also return original text
+
+      val entry = theKB.get(storageKey)     // look for existing entry
+      if (entry.isDefined) {                // if entry is already in this KB
+        if (!LocalKBUtils.isHumanSpecies(entry.get.getOrElse("species",""))) // if not human
+          theKB(storageKey) = newEntry      // then overwrite it with new entry
+        // else ignore it: do not overwrite human entry with any other
+      }
+      else                                  // key not seen before
+        theKB(storageKey) = newEntry
     }
     source.close()
   }
+
+
+  /** For each of the given key transforms, try the KB lookup in sequence. Return the optioned
+    * result from the first lookup which resolves a transformed key, or None otherwise. */
+  def tryAlternateKeys (key:String,
+                        transformFns:Seq[(String) => String]): Option[Map[String,String]] = {
+    transformFns.foreach { xFormFN =>
+      val xfKey = xFormFN.apply(key)        // create new, transformed key
+      if (xfKey != key) {                   // if new key is really different
+        val resInfo = theKB.get(xfKey)      // lookup new key in the KB
+        if (resInfo.isDefined)
+          return resInfo                    // return info for first matching key
+      }
+    }
+    return None                             // else signal lookup failure
+  }
+
 }
 
 
 /** KB accessor to resolve protein names in mentions. */
-class AzProteinKBAccessor extends AzNameSpeciesIdKBAccessor {
+class AzProteinKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprotkb"
+  def namespace = "uniprot"
   def resourceID = "MIR:00100164"
+
+  /** Override to perform alternate key lookups. */
+  override def resolve (mention:Mention): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val props = theKB.get(key)              // lookup key
+    return if (props.isDefined) props.get   // find it or try alternate keys
+           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+  }
 
   // MAIN: load KB to initialize class
   readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-proteins.tsv.gz")
@@ -130,10 +134,18 @@ class AzProteinKBAccessor extends AzNameSpeciesIdKBAccessor {
 
 
 /** KB accessor to resolve protein family names in mentions. */
-class AzProteinFamilyKBAccessor extends AzNameSpeciesIdKBAccessor {
+class AzProteinFamilyKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/interpro/"
   def namespace = "interpro"
   def resourceID = "MIR:00000011"
+
+  /** Override to perform alternate key lookups. */
+  override def resolve (mention:Mention): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val props = theKB.get(key)              // lookup key
+    return if (props.isDefined) props.get   // find it or try alternate keys
+           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+  }
 
   // MAIN: load KB to initialize class
   readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/ProteinFamilies.tsv.gz")
@@ -141,7 +153,7 @@ class AzProteinFamilyKBAccessor extends AzNameSpeciesIdKBAccessor {
 
 
 /** KB accessor to resolve small molecule (metabolite) names in mentions. */
-class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
+class AzSmallMoleculeKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/hmdb/"
   def namespace = "hmdb"
   def resourceID = "MIR:00000051"
@@ -151,7 +163,7 @@ class AzSmallMoleculeKBAccessor extends AzNameIdKBAccessor {
 }
 
 /** KB accessor to resolve small molecule (chemical) names in mentions. */
-class AzSmallMoleculeKBAccessor2 extends AzNameIdKBAccessor {
+class AzSmallMoleculeKBAccessor2 extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/chebi/"
   def namespace = "chebi"
   def resourceID = "MIR:00100009"
@@ -161,7 +173,7 @@ class AzSmallMoleculeKBAccessor2 extends AzNameIdKBAccessor {
 }
 
 /** KB accessor to resolve subcellular location names in mentions using GeneOntology DB. */
-class AzSubcellularLocationKBAccessor extends AzNameIdKBAccessor {
+class AzSubcellularLocationKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/go/"
   def namespace = "go"
   def resourceID = "MIR:00000022"
@@ -171,7 +183,7 @@ class AzSubcellularLocationKBAccessor extends AzNameIdKBAccessor {
 }
 
 /** KB accessor to resolve subcellular location names in mentions using Uniprot DB. */
-class AzSubcellularLocationKBAccessor2 extends AzNameIdKBAccessor {
+class AzSubcellularLocationKBAccessor2 extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/uniprot/"
   def namespace = "uniprot"
   def resourceID = "MIR:00000005"
@@ -182,7 +194,7 @@ class AzSubcellularLocationKBAccessor2 extends AzNameIdKBAccessor {
 
 
 /** KB accessor to resolve tissue type names in mentions. */
-class AzTissueTypeKBAccessor extends AzNameIdKBAccessor {
+class AzTissueTypeKBAccessor extends LocalKBAccessor {
   def baseURI = "http://identifiers.org/uniprot/"
   def namespace = "uniprot"
   def resourceID = "MIR:00000005"

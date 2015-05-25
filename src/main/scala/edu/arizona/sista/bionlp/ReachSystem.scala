@@ -80,6 +80,8 @@ class ReachSystem(rules: Option[Rules] = None,
     // clean modified entities
     // for example, remove sites that are part of a modification feature
     val cleanMentions = pruneMentions(mentions)
+    // handle multiple Negation modifications
+    handleNegations(cleanMentions)
     cleanMentions
   }
 
@@ -121,12 +123,49 @@ object ReachSystem {
     nonEvents ++ completeEventMentions.flatten.toSeq
   }
 
+  // Alter Negation modifications in-place
+  def handleNegations(ms: Seq[BioMention]): Unit = {
+    ms foreach { m =>
+      val (negMods, other) = m.modifications.partition(_.isInstanceOf[Negation])
+      val negationModifications = negMods.map(_.asInstanceOf[Negation])
+
+      // count the negations
+      negationModifications match {
+        // 0 or 1 Neg modifications means no change...
+        case noChange if noChange.size <= 1 => ()
+        // if we have an even number of Negations, remove them all
+        case pos if pos.size % 2 == 0 =>
+          m.modifications = other
+        // if we have an odd number, report only the first...
+        case neg if neg.size % 2 != 0 =>
+          val singleNeg =
+            negationModifications
+              .toSeq
+              .sortBy(_.evidence.tokenInterval)
+              .head
+          m.modifications = other + singleNeg
+      }
+    }
+  }
+
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,
   // so sometimes it may not require modification
   def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = {
-    // first, let's make sure displayLabel is set to the default value
-    ms.foreach(m => m.displayLabel = m.label)
+    // let's do a first attempt, using only grounding info
+    // this is useful for entities that do not participate in events
+    for(m <- ms) {
+      m match {
+        case em:TextBoundMention with Display with Grounding =>
+          if(m.isGrounded) {
+            if(m.xref.get.namespace.contains("interpro"))
+              m.displayLabel = "Family"
+            else if(m.xref.get.namespace.contains("uniprot"))
+              m.displayLabel = "Protein"
+          }
+        case _ => // nothing to do
+      }
+    }
 
     // now let's try to disambiguate Gene_or_gene_product that participate in events
     for(m <- ms) {
@@ -135,6 +174,10 @@ object ReachSystem {
         resolveDisplayForArguments(m, parents)
       }
     }
+
+    // last resort: displayLabel is set to the default value
+    ms.foreach(m => if(m.displayLabel == null) m.displayLabel = m.label)
+
     ms
   }
 
@@ -147,7 +190,7 @@ object ReachSystem {
         resolveDisplayForArguments(m.asInstanceOf[BioMention], newParents.toSet)
       }))
     } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
-      if(em.xref.isDefined && em.xref.get.namespace == "interpro") {
+      if(em.xref.isDefined && em.xref.get.namespace.contains("interpro")) {
         // found a Family incorrectly labeled as protein
         em.displayLabel = "Family"
       } else if(parents.contains("Transcription")) {

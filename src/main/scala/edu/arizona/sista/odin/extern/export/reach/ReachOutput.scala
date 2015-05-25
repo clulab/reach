@@ -2,32 +2,28 @@ package edu.arizona.sista.odin.extern.export.reach
 
 import java.io._
 import java.util.Date
+import edu.arizona.sista.bionlp.FriesEntry
 import edu.arizona.sista.utils.DateUtils
 
-import scala.collection.mutable.Map
-import scala.collection.mutable.MutableList
-
-import org.json4s._
 import org.json4s.native.Serialization
-import org.json4s.native.Serialization.write
 
 import edu.arizona.sista.processors._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.odin.extern.export.JsonOutputter
 
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: REACH export: update for transX rename, move of xref to grounding trait.
+  *   Last Modified: REACH export: extend JSON outputter. Prepare to take start/end time args.
   */
-class ReachOutput {
+class ReachOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
   type PropMap = scala.collection.mutable.HashMap[String, Any]
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // Constants:
   val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
-  val Now = DateUtils.formatUTC(new Date())
 
   // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -44,16 +40,24 @@ class ReachOutput {
   //
 
   /** Output a JSON object representing the REACH output for the given mentions. */
-  def toJSON (allMentions:Seq[Mention], outFile:File) = {
+  // def toJSON (allMentions:Seq[Mention], startTime:Date, endTime:Date, outFile:File) = {
+  override def toJSON (paperId:String,
+                       allMentions:Seq[Mention],
+                       paperPassages:Seq[FriesEntry],
+                       startTime:Date,
+                       endTime:Date,
+                       outFilePrefix:String) = {
     val model:PropMap = new PropMap
     val mentions = allMentions.filter(allowableRootMentions)
     val mIds = assignMentionIds(mentions, new IDed)
     val frames = new FrameList
     mentions.foreach { mention =>
-      val frame = beginNewFrame(mention, mIds)
+      // val frame = beginNewFrame(mention, startTime, endTime, mIds)
+      val frame = beginNewFrame(mention, startTime, endTime, mIds)
       frames += doMention(mention, mIds, frame)
     }
     model("frames") = frames
+    val outFile = new File(outFilePrefix + ".json")
     writeJsonToFile(model, outFile)
   }
 
@@ -83,15 +87,15 @@ class ReachOutput {
   }
 
   /** Return a new index frame (map) initialized with the (repeated) document information. */
-  private def beginNewFrame (mention:Mention, mIds:IDed): PropMap = {
+  private def beginNewFrame (mention:Mention, startTime:Date, endTime:Date, mIds:IDed): PropMap = {
     val doc:Document = mention.document
     val frame = new PropMap
     val docSecId = doc.id.getOrElse("DOC-ID_MISSING").split("_").map(_.trim)
     frame("doc_id") = docSecId(0)
     frame("passage_id") = docSecId(1)
     frame("event_id") = mIds.get(mention)
-    frame("reading_started") = Now
-    frame("reading_ended") = Now
+    frame("reading_started") = DateUtils.formatUTC(startTime)
+    frame("reading_ended") = DateUtils.formatUTC(endTime)
     frame("submitter") = "UAZ"
     frame("reader_type") = "machine"
     frame("negative_information") = false

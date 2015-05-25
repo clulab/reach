@@ -258,14 +258,15 @@ object RuleReader {
         "Ribosylation" -> riboMap,
         "Methylation" -> methMap)
 
-  val NEG_NOUNS = "inhibit|decreas|repress|supress"
+  val POS_NOUNS = "activ|promot|acceler|augment|cataly|caus|driv|elev|elicit|enhanc|express|facilit|increas|induc|induct|initi|produc|promot|rais|reactiv|recruit|releas|stimul|trigger|up-regul|upregul"
+  val NEG_NOUNS = "inhibit|decreas|repress|supress|suppress"
   val AUXTRIGGERS = "regul|activ"
 
-  val POS_REG_TRIGGERS = "acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util"
-  val NEG_REG_TRIGGERS = "downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl"
+  val POS_REG_TRIGGERS = "enabl|acceler|accept|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+  val NEG_REG_TRIGGERS = "deactiv|downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|suppress|uncoupl"
 
-  val POS_ACT_TRIGGERS = "acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger"
-  val NEG_ACT_TRIGGERS = "inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress"
+  val POS_ACT_TRIGGERS = "enabl|acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
+  val NEG_ACT_TRIGGERS = "deactiv|inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress|suppress"
 
   val posRegEventMap: Map[String, String] =
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
@@ -273,6 +274,7 @@ object RuleReader {
         "triggers" -> POS_REG_TRIGGERS,
         "negtriggers" -> NEG_REG_TRIGGERS,
         "auxtriggers" -> AUXTRIGGERS,
+        "posnouns" -> POS_NOUNS,
         "negnouns" -> NEG_NOUNS,
         "actionFlow" -> "mkRegulation",
         "priority" -> "5",
@@ -284,6 +286,7 @@ object RuleReader {
         "triggers" -> POS_ACT_TRIGGERS,
         "negtriggers" -> NEG_ACT_TRIGGERS,
         "auxtriggers" -> AUXTRIGGERS,
+        "posnouns" -> POS_NOUNS,
         "negnouns" -> NEG_NOUNS,
         "actionFlow" -> "mkActivation",
         "priority" -> "6", // must be 1 + priority of regulations!

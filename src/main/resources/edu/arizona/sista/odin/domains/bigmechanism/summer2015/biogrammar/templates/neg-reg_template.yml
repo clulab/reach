@@ -132,6 +132,17 @@
     (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:{{ controlledType }} following @controller:{{ controllerType }} [lemma=/{{ negnouns}}/]
 
 
+- name: Negative_{{ ruleType }}_copula_1
+  priority: {{ priority }}
+  example: "A is an inhibitor of B"
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [lemma=/be/ & tag=/^V/] /./? /./? [lemma=/{{ negnouns }}/ & tag=/^N/]
+    controller:{{ controllerType }} = nsubj
+    controlled:{{ controlledType }} = prep_of
+
+
 #
 # These contain instances of positive regulation triggers coupled with negative nouns
 #
@@ -155,53 +166,5 @@
     trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
     controller:{{ controllerType }} = (agent|prep_by) [lemma=/{{ negnouns }}/] /conj_|nn|cc|appos|prep_of/+
-
-
-#
-# We no longer allow regulations wo/ controllers!
-#
-
-#
-#- name: Negative_{{ ruleType }}_syntax_4_noun
-#  priority: {{ priority }}
-#  example: ""
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=/prep_(by|of)/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
-#    controlled:{{ controlledType }} = <nn? nn /conj|cc|nn|prep/*
-#
-#- name: Negative_{{ ruleType }}_syntax_7_noun
-#  priority: {{ priority }}
-#  example: ""
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    trigger = [word=/(?i){{ triggers }}/ & !outgoing=prep_of & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?
-#    controlled:{{ controlledType }} = < nsubj dobj prep_of /nn|cc|conj/*
-#
-#
-#- name: Negative_{{ ruleType }}_token_1_noun
-#  priority: {{ priority }}
-#  example: ""
-#  type: token
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^N/] [word=/{{ auxtriggers }}/ & tag=/^N/]?)
-#    /of|on/ [word=/./ & !tag=/^V|RB/]*?
-#    @controlled:{{ controlledType }}
-#
-#- name: Negative_{{ ruleType }}_token_2_verb
-#  priority: {{ priority }}
-#  example: ""
-#  type: token
-#  label: [{{ labels }}]
-#  action: {{ actionFlow }}
-#  pattern: |
-#    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [word=/{{ auxtriggers }}/ & tag=/^N/]?)
-#    (@controlled:{{ controlledType }}) # used to be optional...why?
-#
-
 
 
