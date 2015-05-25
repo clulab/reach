@@ -3,11 +3,12 @@ package edu.arizona.sista.odin.extern.export.hans
 import java.io._
 import java.util.Date
 import edu.arizona.sista.bionlp.FriesEntry
-import edu.arizona.sista.bionlp.mentions.{PTM, Modifications, Grounding, Display}
+import edu.arizona.sista.bionlp.mentions.{PTM, Grounding}
 import edu.arizona.sista.processors.Document
 
 import org.json4s.native.Serialization
 import edu.arizona.sista.odin._
+import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 
 import HansOutput._
@@ -120,11 +121,11 @@ class HansOutput extends JsonOutputter {
 
     for(mention <- allMentions) {
       mention match {
-        case em:TextBoundMention with Display with Grounding with Modifications =>
+        case em:TextBoundMention =>
           val cid = getChunkId(em)
           assert(paperPassages.contains(cid))
           val passageMeta = paperPassages.get(cid).get
-          frames += mkEntityMention(paperId, passageMeta, em, entityMap)
+          frames += mkEntityMention(paperId, passageMeta, em.toBioMention.asInstanceOf[BioTextBoundMention], entityMap)
         case _ => // nothing to do here
       }
     }
@@ -154,6 +155,7 @@ class HansOutput extends JsonOutputter {
       val cid = getChunkId(mention)
       assert(paperPassages.contains(cid))
       val passageMeta = paperPassages.get(cid).get
+      frames += mkEventMention(paperId, passageMeta, mention, entityMap)
     }
 
     // write the JSON to the given file
@@ -164,9 +166,19 @@ class HansOutput extends JsonOutputter {
     m.isInstanceOf[EventMention] || m.isInstanceOf[RelationMention]
   }
 
+  private def mkEventMention(paperId:String,
+                             passageMeta:FriesEntry,
+                             mention:Mention,
+                             entityMap: IDed): PropMap = {
+    val f = startFrame(COMPONENT)
+    f("frame-type") = "event-mention"
+
+    f
+  }
+
   private def mkEntityMention(paperId:String,
                               passageMeta:FriesEntry,
-                              mention:TextBoundMention with Display with Grounding with Modifications,
+                              mention:BioTextBoundMention,
                               entityMap: IDed): PropMap = {
     val f = startFrame(COMPONENT)
     f("frame-type") = "entity-mention"
