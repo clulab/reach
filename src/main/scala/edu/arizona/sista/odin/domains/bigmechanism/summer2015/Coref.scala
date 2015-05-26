@@ -139,7 +139,7 @@ class Coref extends DarpaFlow {
             case stillUnresolved if args.size < 1 => Seq()
             case _ =>
               val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy)
-              resolved.modifications = mention.asInstanceOf[BioRelationMention].modifications
+              resolved.modifications = resolved.modifications ++ mention.asInstanceOf[BioRelationMention].modifications
               Seq(resolved)
           }
         }
@@ -151,7 +151,8 @@ class Coref extends DarpaFlow {
           })
             .filter(!_.labels.contains("Unresolved"))
             .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
-          resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+          resolved.asInstanceOf[BioEventMention].modifications = resolved.asInstanceOf[BioEventMention].modifications ++
+            mention.asInstanceOf[BioEventMention].modifications
           Seq(resolved)
         }
 
@@ -167,10 +168,10 @@ class Coref extends DarpaFlow {
               mention.trigger,
               mention.arguments - "theme" + ("theme" -> themeSet),
               mention.sentence,
-              mention.document,
+              doc,
               mention.keep,
               "corefSplitter")
-              resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+              resolved.modifications = resolved.modifications ++ mention.asInstanceOf[BioEventMention].modifications
               resolved
             }
 
@@ -186,8 +187,8 @@ class Coref extends DarpaFlow {
                 args.size < 2 => Seq()
               case stillUnresolved if args.size < 1 => Seq()
               case _ =>
-                val resolved = new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy)
-                resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+                val resolved = new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, doc, mention.keep, mention.foundBy)
+                resolved.modifications = resolved.modifications ++ mention.asInstanceOf[BioEventMention].modifications
                 Seq(resolved)
             }
 
@@ -240,7 +241,7 @@ class Coref extends DarpaFlow {
               //  m <- v
               //} {println(s"$k: ${m.text}")}
               new BioEventMention(
-              trigMentions.flatMap(_.labels).distinct,base.trigger,mapMerger(trigMentions.map(_.arguments)),base.sentence,base.document,base.keep,"argMerger")
+              trigMentions.flatMap(_.labels).distinct,base.trigger,mapMerger(trigMentions.map(_.arguments)),base.sentence,doc,base.keep,"argMerger")
           }
         }
       mentions diff evs ++ mergedMentions
@@ -351,13 +352,12 @@ class Coref extends DarpaFlow {
     //displayMentions(orderedMentions, doc)
 
     def cardinality(m: Mention): Int = {
-      val sent = m.document.sentences(m.sentence)
+      val sent = doc.sentences(m.sentence)
 
       val mhead = findHeadStrict(m.tokenInterval, sent).getOrElse(m.tokenInterval.start)
 
       val phrase = subgraph(m.tokenInterval, sent)
 
-      // debug1 = println(s"words: ${sent.words.slice(phrase.get.start, phrase.get.end).mkString(",")}\ntags: ${sent.tags.get.slice(phrase.get.start, phrase.get.end).mkString(",")}")
       val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end), sent.tags.get.slice(phrase.get.start, phrase.get.end))
 
       val hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
@@ -491,9 +491,9 @@ class Coref extends DarpaFlow {
               val mergedThemes = t1s ++ t2s
               for (pair <- mergedThemes.combinations(2)) yield {
                 val splitBinding = new BioEventMention(
-                  binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,binding.document,binding.keep,binding.foundBy
+                  binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,doc,binding.keep,"corefCardinality"
                 )
-                splitBinding.modifications = mention.asInstanceOf[BioEventMention].modifications
+                splitBinding.modifications = splitBinding.modifications ++ mention.asInstanceOf[BioEventMention].modifications
                 splitBinding
               }
             case _ => {
@@ -505,21 +505,21 @@ class Coref extends DarpaFlow {
                 if (theme1.text.toLowerCase == "ubiquitin"){
                   val args = Map("theme" -> Seq(theme2))
                   val ubiq = new BioEventMention(
-                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
-                  ubiq.modifications = mention.asInstanceOf[BioEventMention].modifications
+                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,doc,binding.keep,"corefCardinality")
+                  ubiq.modifications = ubiq.modifications ++ mention.asInstanceOf[BioEventMention].modifications
                   ubiq
                 } else if (theme2.text.toLowerCase == "ubiquitin") {
                   val args = Map("theme" -> Seq(theme1))
                   val ubiq = new BioEventMention(
-                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
-                  ubiq.modifications = mention.asInstanceOf[BioEventMention].modifications
+                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,doc,binding.keep,"corefCardinality")
+                  ubiq.modifications = ubiq.modifications ++ mention.asInstanceOf[BioEventMention].modifications
                   ubiq
                 }
                 else {
                   val args = Map("theme" -> Seq(theme1, theme2))
                   val splitBinding = new BioEventMention(
-                    binding.labels, binding.trigger, args, binding.sentence, binding.document, binding.keep, binding.foundBy)
-                  splitBinding.modifications = mention.asInstanceOf[BioEventMention].modifications
+                    binding.labels, binding.trigger, args, binding.sentence, doc, binding.keep, "corefCardinality")
+                  splitBinding.modifications = splitBinding.modifications ++ mention.asInstanceOf[BioEventMention].modifications
                   splitBinding
                 }
               }
