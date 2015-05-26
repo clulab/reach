@@ -154,7 +154,7 @@ object ReachSystem {
                     val junk = reg.arguments("controlled").head.toBioMention
                     // Keep track of what we need to get rid of...
                     toRemove += junk
-                    // Create the "more complete" relationMentions
+                    // Create the "more complete" BioRelationMentions
                     val moreCompleteReg =
                       new BioRelationMention(
                         reg.labels,
@@ -163,16 +163,16 @@ object ReachSystem {
                         reg.document,
                         reg.keep,
                         reg.foundBy)
-                    // Get the old relation mention's modifications
+                    // Get the old BioRelationMention's modifications
                     moreCompleteReg.modifications = reg.modifications
                     moreCompleteReg
-                  // Is the reg we're replacing a BioEventMention?
+                  // Is the Regulation we're replacing a BioEventMention?
                   case eventReg: BioEventMention =>
                     val updatedArgs = eventReg.arguments updated("controlled", Seq(r))
                     val junk = eventReg.arguments("controlled").head.toBioMention
                     // Keep track of what we need to get rid of...
                     toRemove += junk
-                    // Create the "more complete" relationMentions
+                    // Create the "more complete" BioEventMentions
                     val moreCompleteReg =
                       new BioEventMention(
                         eventReg.labels,
@@ -182,13 +182,15 @@ object ReachSystem {
                         eventReg.document,
                         eventReg.keep,
                         eventReg.foundBy)
-                    // Get the old relation mention's modifications
+                    // Get the old BioEventMention's modifications
                     moreCompleteReg.modifications = reg.modifications
                     moreCompleteReg
                 }
               }
         }
       }
+
+
     // Remove any "controlled" Mentions we discarded
     val cleanMentions =
       (correctedRegulations.flatten ++ other)
