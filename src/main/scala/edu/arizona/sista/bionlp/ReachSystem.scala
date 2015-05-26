@@ -58,11 +58,11 @@ class ReachSystem(rules: Option[Rules] = None,
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
-    val events = extractEventsFrom(doc, entities)
-    val unresolved = extractResolvedFrom(doc, events)
+    val finalMentions = extractEventsFrom(doc, entities)
+    //val unresolved = extractResolvedFrom(doc, events)
     // initialize coref
-    val coref = new Coref
-    val finalMentions = coref(unresolved,State(unresolved))
+    //val coref = new Coref
+    //val finalMentions = coref(unresolved,State(unresolved))
 
     resolveDisplay(finalMentions)
   }

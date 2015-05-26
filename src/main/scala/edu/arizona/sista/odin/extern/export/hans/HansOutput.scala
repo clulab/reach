@@ -49,7 +49,7 @@ class HansOutput extends JsonOutputter {
     val passageMap = passagesToMap(paperPassages)
 
     sentencesToJSON(paperId, allMentions, passageMap,
-      startTime, endTime, new File(outFilePrefix + ".sentences.json"))
+      startTime, endTime, new File(outFilePrefix + ".uaz.sentences.json"))
 
     /*
     println("ALL MENTIONS:")
@@ -61,10 +61,10 @@ class HansOutput extends JsonOutputter {
 
     // entityMap: map from entity pointers to unique ids
     val entityMap = entitiesToJSON(paperId, allMentions, passageMap,
-      startTime, endTime, new File(outFilePrefix + ".entities.json"))
+      startTime, endTime, new File(outFilePrefix + ".uaz.entities.json"))
 
     eventsToJSON(paperId, allMentions, passageMap, entityMap,
-      startTime, endTime, new File(outFilePrefix + ".events.json"))
+      startTime, endTime, new File(outFilePrefix + ".uaz.events.json"))
   }
 
 
