@@ -23,7 +23,15 @@ class BioEventMention(
   keep: Boolean,
   foundBy: String
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display
+    with Modifications with Grounding with Display {
+
+  // FIXME
+  // sketchy code to mutate the mention's tokenInterval
+  // we need this because a mention solved by coreference
+  // may have arguments outside its sentence
+  var mutableTokenInterval: Interval = super.tokenInterval
+  override def tokenInterval: Interval = mutableTokenInterval
+}
 
 class BioRelationMention(
   labels: Seq[String],
@@ -33,4 +41,12 @@ class BioRelationMention(
   keep: Boolean,
   foundBy: String
 ) extends RelationMention(labels, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display
+    with Modifications with Grounding with Display {
+
+  // FIXME
+  // sketchy code to mutate the mention's tokenInterval
+  // we need this because a mention solved by coreference
+  // may have arguments outside its sentence
+  var mutableTokenInterval: Interval = super.tokenInterval
+  override def tokenInterval: Interval = mutableTokenInterval
+}

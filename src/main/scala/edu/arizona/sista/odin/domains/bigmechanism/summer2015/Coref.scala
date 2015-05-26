@@ -140,6 +140,7 @@ class Coref extends DarpaFlow {
             case _ =>
               val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy)
               resolved.modifications = mention.asInstanceOf[BioRelationMention].modifications
+              resolved.mutableTokenInterval = mention.tokenInterval
               Seq(resolved)
           }
         }
@@ -152,6 +153,7 @@ class Coref extends DarpaFlow {
             .filter(!_.labels.contains("Unresolved"))
             .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
           resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+          resolved.asInstanceOf[BioEventMention].mutableTokenInterval = mention.tokenInterval
           Seq(resolved)
         }
 
@@ -170,7 +172,8 @@ class Coref extends DarpaFlow {
               mention.document,
               mention.keep,
               "corefSplitter")
-              resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+              resolved.modifications = mention.asInstanceOf[BioEventMention].modifications
+              resolved.mutableTokenInterval = mention.tokenInterval
               resolved
             }
 
@@ -187,7 +190,8 @@ class Coref extends DarpaFlow {
               case stillUnresolved if args.size < 1 => Seq()
               case _ =>
                 val resolved = new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy)
-                resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+                resolved.modifications = mention.asInstanceOf[BioEventMention].modifications
+                resolved.mutableTokenInterval = mention.tokenInterval
                 Seq(resolved)
             }
 
@@ -494,6 +498,7 @@ class Coref extends DarpaFlow {
                   binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,binding.document,binding.keep,binding.foundBy
                 )
                 splitBinding.modifications = mention.asInstanceOf[BioEventMention].modifications
+                splitBinding.mutableTokenInterval = mention.tokenInterval
                 splitBinding
               }
             case _ => {
@@ -507,12 +512,14 @@ class Coref extends DarpaFlow {
                   val ubiq = new BioEventMention(
                     "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
                   ubiq.modifications = mention.asInstanceOf[BioEventMention].modifications
+                  ubiq.mutableTokenInterval = mention.tokenInterval
                   ubiq
                 } else if (theme2.text.toLowerCase == "ubiquitin") {
                   val args = Map("theme" -> Seq(theme1))
                   val ubiq = new BioEventMention(
                     "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
                   ubiq.modifications = mention.asInstanceOf[BioEventMention].modifications
+                  ubiq.mutableTokenInterval = mention.tokenInterval
                   ubiq
                 }
                 else {
@@ -520,6 +527,7 @@ class Coref extends DarpaFlow {
                   val splitBinding = new BioEventMention(
                     binding.labels, binding.trigger, args, binding.sentence, binding.document, binding.keep, binding.foundBy)
                   splitBinding.modifications = mention.asInstanceOf[BioEventMention].modifications
+                  splitBinding.mutableTokenInterval = mention.tokenInterval
                   splitBinding
                 }
               }
