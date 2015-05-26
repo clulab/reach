@@ -248,15 +248,15 @@
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
-#- name: binding_token_1
-#  label: [Binding, SimpleEvent, Event, PossibleController]
-#  action: mkBinding
-#  priority: 4
-#  type: token
-#  pattern: |
-#    (@theme1:BioChemicalEntity [!mention="Unresolved"]])
-#    (?<trigger> binding) (to|by|with)
-#    (@theme2:BioChemicalEntity)
+- name: binding_token_1
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  type: token
+  pattern: |
+    (@theme1:BioChemicalEntity)
+    (?<trigger> binding) (to|by|with)
+    (@theme2:BioChemicalEntity)
 
 - name: binding_token_2
   label: [Binding, SimpleEvent, Event, PossibleController]

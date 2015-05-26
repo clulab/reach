@@ -17,8 +17,8 @@ class Coref extends DarpaFlow {
 
     val doc: Document = mentions.headOption.getOrElse(return Seq()).document
 
-    println("BEFORE COREF")
-    displayMentions(mentions,doc)
+    //println("BEFORE COREF")
+    //displayMentions(mentions,doc)
 
     val chains = new mutable.HashMap[Mention,Seq[Mention]]
 
@@ -121,12 +121,14 @@ class Coref extends DarpaFlow {
         case mention: TextBoundMention if !mention.labels.contains("Unresolved") => Seq(mention)
 
         case mention: TextBoundMention if mention.labels.contains("Unresolved") => {
-          Seq(chains.getOrElse(mention, {
+          val resolved = chains.getOrElse(mention, {
             println("Mention not used in coreference: " + mention.label + ": " + mention.text)
             Seq(mention)
           })
             .filter(!_.labels.contains("Unresolved"))
-            .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq()))
+            .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
+          resolved.asInstanceOf[BioTextBoundMention].modifications = mention.asInstanceOf[BioTextBoundMention].modifications
+          Seq(resolved)
         }
 
         case mention: RelationMention => {
@@ -135,17 +137,22 @@ class Coref extends DarpaFlow {
           } yield argType -> argMentions.map(a => resolve(a)).flatten).filter(_._2.nonEmpty)
           args match {
             case stillUnresolved if args.size < 1 => Seq()
-            case _ => Seq(new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy))
+            case _ =>
+              val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy)
+              resolved.modifications = mention.asInstanceOf[BioRelationMention].modifications
+              Seq(resolved)
           }
         }
 
         case mention: EventMention if mention.labels.contains("Unresolved") => {
-          Seq(chains.getOrElse(mention, {
+          val resolved = chains.getOrElse(mention, {
             println("Mention not used in coreference: " + mention.label + ": " + mention.text)
             Seq(mention)
           })
             .filter(!_.labels.contains("Unresolved"))
-            .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq()))
+            .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
+          resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+          Seq(resolved)
         }
 
         // TODO: special case for complex events (need resolved controller)
@@ -155,21 +162,33 @@ class Coref extends DarpaFlow {
             val themeSets = combination(toSplit(mention), themeCardinality(mention.label))
             //println("Number of sets: " + themeSets.length)
             //themeSets.foreach(s => println(s"(${for (m<-s) yield m.text + ","})"))
-            for (themeSet <- themeSets) yield new BioEventMention(mention.labels,
+            for (themeSet <- themeSets) yield {
+              val resolved = new BioEventMention(mention.labels,
               mention.trigger,
               mention.arguments - "theme" + ("theme" -> themeSet),
               mention.sentence,
               mention.document,
               mention.keep,
               "corefSplitter")
+              resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+              resolved
+            }
 
         case mention:EventMention if !mention.labels.contains("Unresolved") & !toSplit.contains(mention) =>
             val args = (for {
               (argType, argMentions) <- mention.arguments
             } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
             args match {
+              case regMissingArg if (mention.matches("Positive_regulation") ||
+                mention.matches("Negative_regulation") ||
+                mention.matches("Positive_activation") ||
+                mention.matches("Negative_activation")) &&
+                args.size < 2 => Seq()
               case stillUnresolved if args.size < 1 => Seq()
-              case _ => Seq(new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy))
+              case _ =>
+                val resolved = new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy)
+                resolved.asInstanceOf[BioEventMention].modifications = mention.asInstanceOf[BioEventMention].modifications
+                Seq(resolved)
             }
 
         case m => Seq(m)
@@ -471,9 +490,11 @@ class Coref extends DarpaFlow {
             case (t1s, t2s) if t1Ants.isEmpty || t2Ants.isEmpty =>
               val mergedThemes = t1s ++ t2s
               for (pair <- mergedThemes.combinations(2)) yield {
-                new BioEventMention(
+                val splitBinding = new BioEventMention(
                   binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,binding.document,binding.keep,binding.foundBy
                 )
+                splitBinding.modifications = mention.asInstanceOf[BioEventMention].modifications
+                splitBinding
               }
             case _ => {
               for {
@@ -483,17 +504,23 @@ class Coref extends DarpaFlow {
               } yield {
                 if (theme1.text.toLowerCase == "ubiquitin"){
                   val args = Map("theme" -> Seq(theme2))
-                  new BioEventMention(
+                  val ubiq = new BioEventMention(
                     "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
+                  ubiq.modifications = mention.asInstanceOf[BioEventMention].modifications
+                  ubiq
                 } else if (theme2.text.toLowerCase == "ubiquitin") {
                   val args = Map("theme" -> Seq(theme1))
-                  new BioEventMention(
+                  val ubiq = new BioEventMention(
                     "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,binding.foundBy)
+                  ubiq.modifications = mention.asInstanceOf[BioEventMention].modifications
+                  ubiq
                 }
                 else {
                   val args = Map("theme" -> Seq(theme1, theme2))
-                  new BioEventMention(
+                  val splitBinding = new BioEventMention(
                     binding.labels, binding.trigger, args, binding.sentence, binding.document, binding.keep, binding.foundBy)
+                  splitBinding.modifications = mention.asInstanceOf[BioEventMention].modifications
+                  splitBinding
                 }
               }
             }

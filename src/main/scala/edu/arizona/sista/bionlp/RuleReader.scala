@@ -125,7 +125,7 @@ object RuleReader {
     println(s"\tmodifications\t=> ${modificationsDir.getCanonicalPath}")
     println(s"\tevents\t\t=> ${eventsDir.getCanonicalPath}")
     println(s"\ttemplates\t=> ${templatesDir.getCanonicalPath}")
-    println(s"\tcoref\t=> ${corefDir.getCanonicalPath}")
+    println(s"\tcoref\t\t=> ${corefDir.getCanonicalPath}")
 
     val simpleEventTemplate = readFile(templatesDir.getAbsolutePath + "/simple-event_template.yml")
     val templaticEvents = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
