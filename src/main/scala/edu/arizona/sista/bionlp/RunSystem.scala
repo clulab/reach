@@ -27,8 +27,8 @@ object RunSystem extends App {
   // lets start a new log file
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
-    FileUtils.writeStringToFile(logFile, s"${now}\nstarting extraction ...\n")
   }
+  FileUtils.writeStringToFile(logFile, s"${now}\nstarting extraction ...\n")
 
   // if nxmlDir does not exist there is nothing to do
   if (!nxmlDir.exists) {
