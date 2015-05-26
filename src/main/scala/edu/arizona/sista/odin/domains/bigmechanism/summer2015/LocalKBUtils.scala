@@ -8,7 +8,7 @@ import scala.io.Source
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 4/16/2015.
-  *   Last Modified: Remove redundant key transform methods.
+  *   Last Modified: Add method to make filename in KB directory.
   */
 object LocalKBUtils {
 
@@ -17,6 +17,9 @@ object LocalKBUtils {
 
   /** The set of words to remove from the text to create a lookup key. */
   val KeyStopSuffixes = Set("_human")
+
+  /** Path the the directory which hold the entity knowledge bases. */
+  val KBDirectory = "src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb"
 
   /** The set of words to remove from the text to create a lookup key. */
   val HumanLabels = Set("homo sapiens", "human")
@@ -47,6 +50,12 @@ object LocalKBUtils {
       Source.fromInputStream(new GZIPInputStream(new BufferedInputStream(inStream)))
     else
       Source.fromInputStream(inStream)
+  }
+
+
+  /** Return a file path for the given filename in the current user working directory. */
+  def makeOutputFileInKBDir (filename:String): File = {
+    new File(KBDirectory + File.separator + filename)
   }
 
   /** Return a file path for the given filename in the current user working directory. */

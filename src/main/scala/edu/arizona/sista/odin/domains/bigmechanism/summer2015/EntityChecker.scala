@@ -15,7 +15,7 @@ import org.biopax.paxtools.model.level3._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Reverse order of protein/family lookups per MS request.
+  *   Last Modified: Drop epoch suffix on IDs. Generate output directly into KB directory.
   */
 object EntityChecker extends App {
 
@@ -103,11 +103,11 @@ object EntityChecker extends App {
 
   /** Output the missing entity names and generated IDs to the given file. */
   private def outputMissing (missing:Seq[String], filename:String, prefix:String) = {
-    val outFile:File = LocalKBUtils.makeOutputFileInUserDir(filename)
+    val outFile:File = LocalKBUtils.makeOutputFileInKBDir(filename)
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
-    val now = Platform.currentTime.toString  // make ID unique per program run
+    // val now = Platform.currentTime.toString  // make ID unique per program run
     missing.foreach { entName =>
-      val nid = "%s%05d-%s".format(prefix, idCntr.next, now)
+      val nid = "%s%05d".format(prefix, idCntr.next)
       out.println(s"${entName}\t${nid}")
     }
     out.flush()
