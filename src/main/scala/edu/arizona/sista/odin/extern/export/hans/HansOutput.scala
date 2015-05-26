@@ -175,6 +175,8 @@ class HansOutput extends JsonOutputter {
       }
     }
 
+    // TODO: reenable this block, after fixing the missing argument bug
+    /*
     // now, print all regulation events, which control the above events
     for(mention <- eventMentions) {
       if(REGULATION_EVENTS.contains(mention.label)) {
@@ -184,6 +186,7 @@ class HansOutput extends JsonOutputter {
         frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
       }
     }
+    */
 
     // write the JSON to the given file
     writeJsonToFile(model, outFile)
