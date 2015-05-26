@@ -1,5 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
+import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
@@ -16,10 +17,10 @@ class Coref extends DarpaFlow {
 
     val doc: Document = mentions.headOption.getOrElse(return Seq()).document
 
-    //println("BEFORE COREF")
-    //displayMentions(mentions,doc)
+    println("BEFORE COREF")
+    displayMentions(mentions,doc)
 
-    var chains = new mutable.HashMap[Mention,Seq[Mention]]
+    val chains = new mutable.HashMap[Mention,Seq[Mention]]
 
     val toSplit = new mutable.HashMap[Mention,Seq[Seq[Mention]]]
 
@@ -148,7 +149,6 @@ class Coref extends DarpaFlow {
         }
 
         // TODO: special case for complex events (need resolved controller)
-        // TODO: special case for bindings based on DarpaActions?
 
         case mention: EventMention if !mention.labels.contains("Unresolved") & toSplit.contains(mention) =>
 

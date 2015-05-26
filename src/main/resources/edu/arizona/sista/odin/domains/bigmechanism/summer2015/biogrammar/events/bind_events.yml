@@ -38,7 +38,7 @@
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
     theme1:BioChemicalEntity+ = /conj_(and|or)/* /prep_of/+ >/./*
-    theme2:BioChemicalEntity+ = /conj_(and|or)/* /prep_to/+ >/./*
+    theme2:BioChemicalEntity* = /conj_(and|or)/* /prep_to/+ >/./*
 
 - name: binding3wrong
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -47,9 +47,8 @@
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
     theme1:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_of/+ >/./*
-    theme2:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_to/+ >/./*
+    theme2:BioChemicalEntity* = /conj_(and|or)/* (<agent)? /prep_to/+ >/./*
 
-# TODO: Examples for this (DANE)
 - name: binding4
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
