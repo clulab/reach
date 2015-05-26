@@ -135,12 +135,12 @@ object ReachSystem {
 
   def keepMostCompleteMentions(ms: Seq[BioMention], state: State): Seq[BioMention] = {
     // First pass at removing incomplete Mentions...should I do this at the end?
-    val pruned = pruneMentions(ms)
+    //val pruned = pruneMentions(ms)
     // We need to further examine ComplexEvents that are BioRelationMentions
     val (complexRels, other: Seq[BioMention]) =
-      pruned.partition(m => m.isInstanceOf[BioRelationMention] && (m matches "ComplexEvent"))
+      ms.partition(m => m.isInstanceOf[BioRelationMention] && (m matches "ComplexEvent"))
     // We need to keep track of what SimpleEvents to remove from the state
-    // whenever one is used to replace a "controlled" arg in a Regulation
+    // whenever another is used to replace it as a "controlled" arg in a Regulation
     var toRemove = mutable.Set[BioMention]()
     // Check each Regulation that is a RelationMention
     // to see if there are any "more complete" Mentions
@@ -171,8 +171,9 @@ object ReachSystem {
             // For each "more complete" SimpleEvent, create a new Regulation...
               for (r <- candidates) yield {
                 val updatedArgs = reg.arguments updated ("controlled", Seq (r) )
+                val junk = reg.arguments("controlled").head.toBioMention
                 // Keep track of what we need to get rid of...
-                toRemove += r
+                toRemove += junk
                 // Create the "more complete" relationMentions
                 val moreCompleteRel =
                   new BioRelationMention(
@@ -189,8 +190,10 @@ object ReachSystem {
         }
       }
 
-    (correctedRels.flatten ++ other)
+    val cleanMentions =
+      (correctedRels.flatten ++ other)
       .filter(m => !toRemove.contains(m))
+    pruneMentions(cleanMentions)
   }
 
   // Alter Negation modifications in-place
