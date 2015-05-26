@@ -23,12 +23,14 @@
 
 - name: {{ eventName }}_syntax_2_verb
   priority: 4
+  example: "Human deoxycytidine kinase is {{ verbalTriggerLemma }}d by ASPP2 on serine 128."
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/*
     cause:BioChemicalEntity? = agent|prep_by /conj_|nn|cc|prep_of/*
+    site:Site? = (agent|prep_by /conj_|nn|cc|prep_of/*)? /prep_(at|on)|conj_/+
 
 
 - name: {{ eventName }}_syntax_3_verb
@@ -138,13 +140,14 @@
 
 - name: {{ eventName }}_syntax_6_noun
   priority: 4
-  example: "... the transcriptional cofactor beta-catenin is destabilized via {{ nominalTriggerLemma }} by protein kinase GSK3beta in complex with Axin family members"
+  example: "... the transcriptional cofactor beta-catenin is destabilized via {{ nominalTriggerLemma }} of ASPP1 by protein kinase GSK3beta in complex with Axin family members"
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]
-    theme:BioChemicalEntity = (prep_of /nn|conj_|cc/*)+
-    cause:BioChemicalEntity = <prep_via agent|prep_by /nn|conj_|cc/*
+    theme:BioChemicalEntity = (<prep_via? /prep_(at|on)/? prep_of /nn|conj_|cc/*)+ /prep_(on|at)/?
+    cause:BioChemicalEntity = <prep_via? (agent|prep_by) /nn|conj_|cc/*
+    site:Site? = <prep_via? ( (prep_of /nn|conj_|cc/*) | ( (agent|prep_by) /nn|conj_|cc/*) )? /prep_(on|at)/
 
 
 - name: {{ eventName }}_syntax_7_noun
@@ -178,7 +181,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) /of/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity
+    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) /of/ [word=/./ & !tag=/^V/]*? @theme:BioChemicalEntity (/^(on|at)$/ @site:Site)?
 
 
 # verbose, but nec. to handle coordination
@@ -199,7 +202,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) [!word=of]
+    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) ([!word=of] | (/^(on|at)$/ @site:Site)?)
 
 
 # relies on EventSite modifications
@@ -251,7 +254,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) by (@cause:BioChemicalEntity)?
+    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) (by @cause:BioChemicalEntity)? (/^(on|at)$/ @site:Site)?
 
 
 - name: {{ eventName }}_token_5_verb
@@ -261,7 +264,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)?
+    (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) @theme:BioChemicalEntity (fragment? by @cause:BioChemicalEntity)? (/^(on|at)$/ @site:Site)?
 
 
 # relies on EventSite modifications
@@ -272,5 +275,5 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    (@cause:BioChemicalEntity)? (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) [!tag=/^V/]*? @theme:BioChemicalEntity /./+ @site:Site
+    (@cause:BioChemicalEntity)? (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) [!tag=/^V/ & !word=by]*? @theme:BioChemicalEntity /./+ @site:Site
 
