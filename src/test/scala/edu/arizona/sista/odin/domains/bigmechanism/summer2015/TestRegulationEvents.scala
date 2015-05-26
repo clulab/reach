@@ -1,6 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import org.scalatest.{Matchers, FlatSpec}
+import edu.arizona.sista.bionlp.mentions._
 import TestUtils._
 
 /**
@@ -148,4 +149,44 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("ASPP1", "Ubiquitination", List("ASPP2"), mentions) should be (false)
     mentions.filter(_.label.contains("activation")) should have size (0)
   }
+
+  val sent19 = "The phosphorylation of ASPP1 inhibits the ubiquitination of ASPP2"
+  sent19 should "contain a controller with a PTM" in {
+    val mentions = parseSentence(sent19)
+    val reg = mentions.find(_ matches "Negative_regulation")
+    reg should be ('defined)
+    reg.get.arguments should contain key ("controller")
+    reg.get.arguments should contain key ("controlled")
+    reg.get.arguments("controller") should have size (1)
+    reg.get.arguments("controlled") should have size (1)
+    val controller = reg.get.arguments("controller").head.toBioMention
+    val controlled = reg.get.arguments("controlled").head.toBioMention
+    controller.text should be ("ASPP1")
+    controller.modifications should have size (1)
+    controller.modifications.head.label should be ("phosphorylated")
+    controlled.labels should contain ("Ubiquitination")
+    controlled.arguments should contain key ("theme")
+    controlled.arguments should not contain key ("cause")
+    controlled.arguments("theme").head.text should be ("ASPP2")
+  }
+
+  val sent20 = "The binding of ASPP1 and ASPP2 promotes the phosphorylation of MEK"
+  sent20 should "contain a controller with a complex" in {
+    val mentions = parseSentence(sent20)
+    val reg = mentions.find(_ matches "Positive_regulation")
+    reg should be ('defined)
+    reg.get.arguments should contain key ("controller")
+    reg.get.arguments should contain key ("controlled")
+    reg.get.arguments("controller") should have size (1)
+    reg.get.arguments("controlled") should have size (1)
+    val controller = reg.get.arguments("controller").head.toBioMention
+    val controlled = reg.get.arguments("controlled").head.toBioMention
+    controller.text should be ("ASPP1 and ASPP2")
+    controller.labels should contain ("Complex")
+    controlled.labels should contain ("Phosphorylation")
+    controlled.arguments should contain key ("theme")
+    controlled.arguments should not contain key ("cause")
+    controlled.arguments("theme").head.text should be ("MEK")
+  }
+
 }
