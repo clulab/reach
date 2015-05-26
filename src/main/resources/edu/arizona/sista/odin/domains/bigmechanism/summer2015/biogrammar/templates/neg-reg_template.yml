@@ -10,8 +10,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn|prep_of/* (/./ [word=by])*
-    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/*
+    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn|prep_of/{,2} (/./ [word=by]){,2}
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_2_verb
@@ -20,8 +20,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*  
-    controller:{{ controllerType }} = (agent|prep_by) [!lemma=/{{ negnouns }}/] /conj_|nn|cc|prep_of/*
+    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/{,2}  
+    controller:{{ controllerType }} = (agent|prep_by) [!lemma=/{{ negnouns }}/] /conj_|nn|cc|prep_of/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_3_verb
@@ -31,8 +31,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) )
-    controller:{{ controllerType }} = <nn* | (prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc|prep_of/*
+    controlled:{{ controlledType }} = ( (/pobj|prep_[^b]|conj_|nn/{1,2}) | (< /pobj|prep_|conj_|nn/{1,2}) )
+    controller:{{ controllerType }} = <nn{,2} | (prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc|prep_of/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_4_verb
@@ -42,8 +42,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (nsubjpass /conj_|nn/*) 
-    controller:{{ controllerType }} = (/prep_/ /conj_|nn/*)? /prep_/* /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj_|nn/*
+    controlled:{{ controlledType }} = (nsubjpass /conj_|nn/{,2}) 
+    controller:{{ controllerType }} = (/prep_/ /conj_|nn/{,2})? /prep_/{,2} /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj_|nn/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_5_verb
@@ -53,8 +53,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = dobj /nn|conj_|cc/*
-    controller:{{ controllerType }} = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
+    controlled:{{ controlledType }} = dobj /nn|conj_|cc/{,2}
+    controller:{{ controllerType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_|cc/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_6_verb
@@ -64,8 +64,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/VBN|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^VBN/]?
-    controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/*
-    controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/*
+    controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_|cc/{,2}
+    controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_1_noun
@@ -75,8 +75,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
-    controlled:{{ controlledType }} = prep_of /nn|conj_|cc/*
-    controller:{{ controllerType }} = (<dobj (prep_by|agent)|nn|prep_of prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
+    controlled:{{ controlledType }} = prep_of /nn|conj_|cc/{,2}
+    controller:{{ controllerType }} = (<dobj (prep_by|agent)|nn|prep_of prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_2_noun
@@ -86,8 +86,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = prep_of? /conj_|cc|nn/+ 
-    controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj|cc|nn/*
+    controlled:{{ controlledType }} = prep_of? /conj_|cc|nn/{1,2} 
+    controller:{{ controllerType }} = /prep_by|agent/ [!lemma=/{{ negnouns }}/] /conj|cc|nn/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_3_noun
@@ -97,8 +97,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = prep_of /conj_|cc|nn/+ 
-    controller:{{ controllerType }} = /conj_|cc|nn/+
+    controlled:{{ controlledType }} = prep_of /conj_|cc|nn/{1,2} 
+    controller:{{ controllerType }} = /conj_|cc|nn/{1,2}
 
 - name: Negative_{{ ruleType }}_syntax_5_noun
   priority: {{ priority }}
@@ -107,8 +107,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = < nn > /prep_/ /conj_|cc|nn/* 
-    controller:{{ controllerType }} = < nn /conj_|cc|nn/*
+    controlled:{{ controlledType }} = < nn > /prep_/ /conj_|cc|nn/{,2} 
+    controller:{{ controllerType }} = < nn /conj_|cc|nn/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_6_noun
@@ -118,8 +118,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controller:{{ controllerType }} = <prep_via (agent|prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/*
-    controlled:{{ controlledType }} = (prep_of /nn|conj_|cc/*)+
+    controller:{{ controllerType }} = <prep_via (agent|prep_by) [!lemma=/{{ negnouns }}/] /nn|conj_|cc/{,2}
+    controlled:{{ controlledType }} = (prep_of /nn|conj_|cc/{,2}){1,2}
 
 
 - name: Negative_{{ ruleType }}_token_2_verb
@@ -154,8 +154,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/(?i){{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn/* (/./ [word=by])*
-    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/+
+    controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn/{,2} (/./ [word=by]){,2}
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/{1,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_2_verb_negnoun
@@ -164,7 +164,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/*
-    controller:{{ controllerType }} = (agent|prep_by) [lemma=/{{ negnouns }}/] /conj_|nn|cc|appos|prep_of/+
+    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc/{,2}
+    controller:{{ controllerType }} = (agent|prep_by) [lemma=/{{ negnouns }}/] /conj_|nn|cc|appos|prep_of/{1,2}
 
 
