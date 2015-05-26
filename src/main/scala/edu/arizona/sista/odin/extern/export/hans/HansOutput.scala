@@ -9,6 +9,7 @@ import edu.arizona.sista.processors.Document
 import org.json4s.native.Serialization
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 
 import HansOutput._
@@ -49,6 +50,14 @@ class HansOutput extends JsonOutputter {
 
     sentencesToJSON(paperId, allMentions, passageMap,
       startTime, endTime, new File(outFilePrefix + ".sentences.json"))
+
+    /*
+    println("ALL MENTIONS:")
+    for(m <- allMentions) {
+      println(m)
+      displayMention(m)
+    }
+    */
 
     // entityMap: map from entity pointers to unique ids
     val entityMap = entitiesToJSON(paperId, allMentions, passageMap,
@@ -126,7 +135,7 @@ class HansOutput extends JsonOutputter {
           assert(paperPassages.contains(cid))
           val passageMeta = paperPassages.get(cid).get
           frames += mkEntityMention(paperId, passageMeta, em.toBioMention.asInstanceOf[BioTextBoundMention], entityMap)
-        case _ => // nothing to do here
+        case _ => // these are events; we will export them later
       }
     }
 
@@ -150,13 +159,34 @@ class HansOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
+    // stores all ids for simple events
+    val eventMap = new IDed
+
+    // keeps just events
     val eventMentions = allMentions.filter(isEventMention)
+
+    // first, print all non regulation events
     for(mention <- eventMentions) {
-      val cid = getChunkId(mention)
-      assert(paperPassages.contains(cid))
-      val passageMeta = paperPassages.get(cid).get
-      frames += mkEventMention(paperId, passageMeta, mention, entityMap)
+      if(! REGULATION_EVENTS.contains(mention.label)) {
+        val cid = getChunkId(mention)
+        assert(paperPassages.contains(cid))
+        val passageMeta = paperPassages.get(cid).get
+        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
+      }
     }
+
+    // TODO: reenable this block, after fixing the missing argument bug
+    /*
+    // now, print all regulation events, which control the above events
+    for(mention <- eventMentions) {
+      if(REGULATION_EVENTS.contains(mention.label)) {
+        val cid = getChunkId(mention)
+        assert(paperPassages.contains(cid))
+        val passageMeta = paperPassages.get(cid).get
+        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
+      }
+    }
+    */
 
     // write the JSON to the given file
     writeJsonToFile(model, outFile)
@@ -168,12 +198,95 @@ class HansOutput extends JsonOutputter {
 
   private def mkEventMention(paperId:String,
                              passageMeta:FriesEntry,
-                             mention:Mention,
-                             entityMap: IDed): PropMap = {
+                             mention:BioMention,
+                             entityMap: IDed,
+                             eventMap:IDed): PropMap = {
     val f = startFrame(COMPONENT)
     f("frame-type") = "event-mention"
+    val eid = mkEventId(paperId, passageMeta, mention.sentence)
+    eventMap += mention -> eid
 
+    //println(s"ADDED EVENT: $mention -> $eid")
+    //println(s"HASH CODE: " + mention.hashCode())
+    //displayMention(mention)
+
+    f("frame-id") = eid
+    f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
+    f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
+    f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
+    f("text") = mention.text
+
+    f("subtype") = prettifyLabel(mention.label)
+    f("type") = mkEventType(mention.label)
+
+    var arguments:Option[Map[String, Seq[Mention]]] = None
+    mention match {
+      case em:BioEventMention => arguments = Some(em.arguments)
+      case rm:BioRelationMention => arguments = Some(rm.arguments)
+    }
+    if(arguments.isDefined) {
+      val args = new FrameList
+      for(key <- arguments.get.keys) {
+        arguments.get.get(key).foreach(as => for(i <- as.indices) args += mkArgument(key, as(i), i, entityMap, eventMap))
+      }
+      f("arguments") = args
+    }
+
+    if(isNegated(mention))
+      f("polarity") = "true"
+
+    // TODO: add "is-hypothesis"
+    // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
+  }
+
+  private def mkArgument(name:String,
+                         arg:Mention,
+                         argIndex:Int,
+                         entityMap: IDed,
+                         eventMap:IDed):PropMap = {
+    val m = new PropMap
+    m("object-type") = "argument"
+    m("argument-label") = prettifyLabel(name)
+    val argType = mkArgType(arg)
+    m("argument-type") = argType
+    m("index") = argIndex
+    m("text") = arg.text
+
+    argType match {
+      case "complex" =>
+        // this is a complex: print the participants
+        assert(arg.isInstanceOf[RelationMention])
+        val participants = new PropMap
+        val complexParticipants = arg.asInstanceOf[RelationMention].arguments
+        for(key <- complexParticipants.keySet) {
+          complexParticipants.get(key).foreach(_.foreach (p => {
+            assert(p.isInstanceOf[TextBoundMention])
+            assert(entityMap.contains(p))
+            participants(key) = entityMap.get(p).get
+          }))
+        }
+        m("args") = participants
+      case "entity" =>
+        // this is an entity: fetch its id from the entity map
+        assert(entityMap.contains(arg))
+        m("arg") = entityMap.get(arg).get
+      case "event" =>
+        // this is an event, which we MUST have seen before
+        /*
+        if(! eventMap.contains(arg)) {
+          println("CANNOT FIND ARG: " + arg + " with HASH CODE: " + arg.hashCode())
+          displayMention(arg)
+        }
+        */
+        assert(eventMap.contains(arg))
+        m("arg") = eventMap.get(arg).get
+      case _ =>
+        // we should never be here!
+        throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
+    }
+
+    m
   }
 
   private def mkEntityMention(paperId:String,
@@ -204,7 +317,8 @@ class HansOutput extends JsonOutputter {
       if(ms.nonEmpty)
         f("modifications") = ms
     }
-    // TODO: add "index", i.e., the sentence-local number for this mention from this component
+
+    // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
   }
 
@@ -333,13 +447,75 @@ class HansOutput extends JsonOutputter {
   }
 
   private def prettifyLabel(label:String):String = label.toLowerCase.replaceAll("_", "-")
+
+  private def mkEventType(label:String):String = {
+    if(MODIFICATION_EVENTS.contains(label))
+      return "protein-modification"
+
+    if(label == "Binding")
+      return "complex-assembly"
+
+    if(label == "Transcription")
+      return "transcription"
+
+    if(label == "Translocation")
+      return "translocation"
+
+    if(REGULATION_EVENTS.contains(label))
+      return "regulation"
+
+    if(ACTIVATION_EVENTS.contains(label))
+      return "activation"
+
+    throw new RuntimeException("ERROR: unknown event type: " + label)
+  }
+
+  private def mkArgType(arg:Mention):String = {
+    if(arg.isInstanceOf[TextBoundMention])
+      return "entity"
+
+    if(arg.isInstanceOf[EventMention])
+      return "event"
+
+    if(arg.isInstanceOf[RelationMention])
+      return "complex"
+
+    throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
+  }
+
+  private def isNegated(mention:BioMention):Boolean =
+    mention.modifications.exists(isNegation)
+
+  private def isNegation(m:Modification) = m.isInstanceOf[Negation]
 }
 
 object HansOutput {
   val RUN_ID = "r1"
   val COMPONENT = "REACH"
   val ORGANIZATION = "UAZ"
-  val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
+
+  val MODIFICATION_EVENTS = Set(
+    "Phosphorylation",
+    "Ubiquitination",
+    "Hydroxylation",
+    "Sumosylation",
+    "Glycosylation",
+    "Acetylation",
+    "Farnesylation",
+    "Ribosylation",
+    "Methylation",
+    "Hydrolysis"
+  )
+
+  val REGULATION_EVENTS = Set(
+    "Positive_regulation",
+    "Negative_regulation"
+  )
+
+  val ACTIVATION_EVENTS = Set(
+    "Negative_activation",
+    "Positive_activation"
+  )
 }
 
 
