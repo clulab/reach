@@ -112,7 +112,7 @@ class DarpaActions extends Actions {
 
       (theme1s, theme2s) match {
         case (t1s, t2s) if (t1s ++ t2s).size < 2  && !(t1s ++ t2s).exists(x => x.labels contains "Unresolved") => Nil
-        case (t1s, t2s) if (t1s ++ t2s).size < 2  && (t1s ++ t2s).exists(x => x.labels contains "Unresolved") =>
+        case (t1s, t2s) if (t1s ++ t2s).exists(x => x.labels contains "Unresolved") =>  // wait until coref resolution
           Seq(new BioEventMention(m.labels,m.trigger,m.arguments,m.sentence,m.document,m.keep,m.foundBy))
         case (t1s, t2s) if t1s.size == 0 || t2s.size == 0 =>
           val mergedThemes = t1s ++ t2s

@@ -1,7 +1,5 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp._
-import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
@@ -18,8 +16,8 @@ class Coref extends DarpaFlow {
 
     val doc: Document = mentions.headOption.getOrElse(return Seq()).document
 
-    println("BEFORE COREF")
-    displayMentions(mentions,doc)
+    //println("BEFORE COREF")
+    //displayMentions(mentions,doc)
 
     var chains = new mutable.HashMap[Mention,Seq[Mention]]
 
@@ -198,11 +196,51 @@ class Coref extends DarpaFlow {
       } yield Seq(Seq(ant), nxt.toSeq).flatten))
     }
 
+    def mapMerger[A,B](maps: Seq[Map[A,Seq[B]]]): Map[A,Seq[B]] = {
+      val concat = new mutable.HashMap[A,Seq[B]]
+      for {
+        m <- maps
+        (k,v) <- m
+      } concat.update(k,concat.getOrElse(k,Seq()) ++ v)
+      concat.toMap
+    }
+
+    def mentionMerger(mentions: Seq[Mention]): Seq[Mention] = {
+      val evs = mentions collect {case ev: EventMention => ev.asInstanceOf[EventMention]}
+      val mergedMentions = for {
+        (rxn,rxnMentions) <- evs.groupBy(_.labels)
+        (trig,trigMentions) <- rxnMentions.groupBy(_.trigger)
+      } yield {
+          trigMentions match {
+            case singleton if singleton.length == 1 => singleton.head
+            case _ =>
+              val base = trigMentions.head
+              val newMap = mapMerger[String,Mention](trigMentions.map(_.arguments))
+              //for {
+              //  (k,v) <- newMap
+              //  m <- v
+              //} {println(s"$k: ${m.text}")}
+              new BioEventMention(
+              trigMentions.flatMap(_.labels).distinct,base.trigger,mapMerger(trigMentions.map(_.arguments)),base.sentence,base.document,base.keep,"argMerger")
+          }
+        }
+      mentions diff evs ++ mergedMentions
+    }
+
     val hiddenMentions = (for {
       m <- mentions
     } yield lookInside(m)).flatten
 
-    var orderedMentions: ListBuffer[Mention] = (for {m <- (mentions ++ hiddenMentions).distinct} yield getChildren(m)).flatten.distinct.sorted.to[ListBuffer]
+    /**
+    var orderedMentions: ListBuffer[Mention] = mentionMerger((for {
+      m <- (mentions ++ hiddenMentions).distinct
+    } yield getChildren(m)).flatten.distinct).sorted.to[ListBuffer]
+    */
+
+    var orderedMentions: ListBuffer[Mention] = (for {
+      m <- (mentions ++ hiddenMentions).distinct
+    } yield getChildren(m)).flatten.distinct.sorted.to[ListBuffer]
+
 
     orderedMentions.foreach(m => chains += m -> Seq(m))
 
@@ -337,7 +375,7 @@ class Coref extends DarpaFlow {
         case binding: BioEventMention if binding.labels.contains("Binding") &
           (binding.arguments.getOrElse("theme1", Seq()).exists(thm => thm.labels.contains("Unresolved")) ||
             binding.arguments.getOrElse("theme2", Seq()).exists(thm => thm.labels.contains("Unresolved"))) =>
-          println("entering cardinality detector: binding")
+          //println("entering cardinality detector: binding")
 
           // this gnarly thing returns BioChemicalEntities that are grounded, aren't already arguments in this event,
           // and aren't controllers of a regulation that has this event as a controlled
@@ -350,14 +388,23 @@ class Coref extends DarpaFlow {
               y.arguments.getOrElse("controller",Seq()).contains(x) &&
               y.arguments.getOrElse("controlled",Seq()).contains(binding)))
 
+          //println("PRIORS")
+          //priors.foreach(x => println(x.text))
+
           val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1",Seq())
           val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2",Seq())
+
+          //println("Theme1s:")
+          //theme1s.foreach(x => println(x.text))
+          //println("Theme2s:")
+          //theme2s.foreach(x => println(x.text))
 
           // keeps track of antecedents found so far, so they won't be reused
           var antecedents: Seq[Mention] = Seq()
 
           // look right to left through previous BioChemicalEntities; start with theme2(s) since we assume these appear
           // later than theme1(s)
+          // FIXME: 'them' should prefer closely associated antecedents for plurals, e.g. "Ras and Mek", so we don't make an error on "Even more than Ras and Mek, ASPP2 is common, and so is its binding to them."
           val t2Ants: Seq[Mention] = (for {
             m <- theme2s
           } yield {
@@ -366,11 +413,14 @@ class Coref extends DarpaFlow {
                   // exclude previously used antecedents
                   val validPriors = priors.filter(x => !antecedents.contains(x))
                   val num = cardinality(unres)
+                  //println(s"Trying to find $num")
                   validPriors match {
                     case noneFound if noneFound.isEmpty => Nil
                     case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
                       val numToAdd = cardinality(a)
+                      //println(s"${a.text}: $numToAdd; (${foundThemes._1} so far))")
                       foundThemes match {
+                        //case stillRoom if foundThemes._1 + numToAdd <= num => {println("adding it..."); (foundThemes._1 + numToAdd, foundThemes._2 :+ a)}
                         case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
                         case _ => foundThemes
                       }
@@ -391,11 +441,12 @@ class Coref extends DarpaFlow {
                   val validPriors = priors.filter(x => !antecedents.contains(x))
 
                   val num = cardinality(unres)
-
+                  //println(s"Trying to find $num")
                   validPriors match {
                     case noneFound if noneFound.isEmpty => Nil
                     case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
                       val numToAdd = cardinality(a)
+                      //println(s"${a.text}: $numToAdd; (${foundThemes._1} so far))")
                       foundThemes match {
                         case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
                         case _ => foundThemes
@@ -410,10 +461,15 @@ class Coref extends DarpaFlow {
               themes
             }).flatten
 
+          //println("Theme1 antecedents:")
+          //t1Ants.foreach(x => println(x.text))
+          //println("Theme2 antecedents:")
+          //t2Ants.foreach(x => println(x.text))
+
           // Basically the same as mkBinding in DarpaActions
           val newBindings = (t1Ants, t2Ants) match {
-            case (t1Ants, t2Ants) if t1Ants.isEmpty || t2Ants.isEmpty =>
-              val mergedThemes = t1Ants ++ t2Ants
+            case (t1s, t2s) if t1Ants.isEmpty || t2Ants.isEmpty =>
+              val mergedThemes = t1s ++ t2s
               for (pair <- mergedThemes.combinations(2)) yield {
                 new BioEventMention(
                   binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,binding.document,binding.keep,binding.foundBy
@@ -452,7 +508,7 @@ class Coref extends DarpaFlow {
 
         case ev: BioEventMention if !ev.labels.contains("Binding") &
           ev.arguments.getOrElse("theme", Seq()).exists(thm => thm.labels.contains("Unresolved")) =>
-          println("entering cardinality detector: non-binding")
+          //println("entering cardinality detector: non-binding")
           var antecedents: Seq[Mention] = Seq()
           val foundThemes = for {
             m <- ev.arguments("theme").filter(thm => thm.labels.contains("Unresolved"))

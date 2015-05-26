@@ -38,7 +38,7 @@
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
     theme1:BioChemicalEntity+ = /conj_(and|or)/* /prep_of/+ >/./*
-    theme2:BioChemicalEntity* = /conj_(and|or)/* /prep_to/+ >/./*
+    theme2:BioChemicalEntity+ = /conj_(and|or)/* /prep_to/+ >/./*
 
 - name: binding3wrong
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -47,7 +47,7 @@
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
     theme1:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_of/+ >/./*
-    theme2:BioChemicalEntity* = /conj_(and|or)/* (<agent)? /prep_to/+ >/./*
+    theme2:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_to/+ >/./*
 
 # TODO: Examples for this (DANE)
 - name: binding4
@@ -64,7 +64,8 @@
   priority: 4
   pattern: |
       trigger = binding
-      theme1:BioChemicalEntity+ = <nn (nn* >/./* | <dep)
+      theme1:BioChemicalEntity* = poss
+      theme2:BioChemicalEntity+ = <nn (nn* >/./* | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
 
 - name: binding6
@@ -236,26 +237,27 @@
 
 # possessive
 - name: binding_syntax_24_noun
-  example: "Even more than Ras, ASPP2 is common, as is their binding."
+  example: "Even more than Ras, ASPP2 is common, as is their binding to Mek."
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
     trigger = binding
     theme1:BioChemicalEntity+ = poss
+    theme2:BioChemicalEntity* = (prep_to|prep_with|prep_of|prep_by) [!(lemma=member)] nn* | (prep_to|prep_with|prep_of|prep_by) [lemma=member] nn+
 
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
-- name: binding_token_1
-  label: [Binding, SimpleEvent, Event, PossibleController]
-  action: mkBinding
-  priority: 4
-  type: token
-  pattern: |
-    (@theme1:BioChemicalEntity)
-    (?<trigger> binding) (to|by|with)
-    (@theme2:BioChemicalEntity)
+#- name: binding_token_1
+#  label: [Binding, SimpleEvent, Event, PossibleController]
+#  action: mkBinding
+#  priority: 4
+#  type: token
+#  pattern: |
+#    (@theme1:BioChemicalEntity [!mention="Unresolved"]])
+#    (?<trigger> binding) (to|by|with)
+#    (@theme2:BioChemicalEntity)
 
 - name: binding_token_2
   label: [Binding, SimpleEvent, Event, PossibleController]
