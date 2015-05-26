@@ -3,6 +3,7 @@ package edu.arizona.sista.bionlp
 import java.io.File
 import java.util.Date
 import scala.collection.JavaConverters._
+import scala.collection.mutable
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
@@ -21,6 +22,13 @@ object RunSystem extends App {
   val friesDir = new File(config.getString("friesDir"))
   val encoding = config.getString("encoding")
   val outputType = config.getString("outputType")
+  val logFile = new File(config.getString("logFile"))
+
+  // lets start a new log file
+  if (logFile.exists) {
+    FileUtils.forceDelete(logFile)
+    FileUtils.writeStringToFile(logFile, s"${now}\nstarting extraction ...\n")
+  }
 
   // if nxmlDir does not exist there is nothing to do
   if (!nxmlDir.exists) {
@@ -51,11 +59,56 @@ object RunSystem extends App {
     val startTime = now // start measuring time here
 
     // process individual sections and collect all mentions
-    val entries = nxml2fries.extractEntries(file)
-    val paperMentions = for {
-      entry <- entries
-      mention <- reach.extractFrom(entry)
-    } yield mention
+    val entries = try {
+      nxml2fries.extractEntries(file)
+    } catch {
+      case e: Exception =>
+        val report = s"""
+          |==========
+          |
+          | ¡¡¡ nxml2fries error !!!
+          |
+          |paper: $paperId
+          |
+          |error:
+          |${e.toString}
+          |
+          |stack trace:
+          |${e.getStackTrace.mkString("\n")}
+          |
+          |==========
+          |""".stripMargin
+        FileUtils.writeStringToFile(logFile, report, true)
+        Nil
+    }
+
+    val paperMentions = new mutable.ArrayBuffer[BioMention]
+    for (entry <- entries) {
+      try {
+        paperMentions ++= reach.extractFrom(entry)
+      } catch {
+        case e: Exception =>
+          val report = s"""
+            |==========
+            |
+            | ¡¡¡ extraction error !!!
+            |
+            |paper: $paperId
+            |chunk: ${entry.chunkId}
+            |section: ${entry.sectionId}
+            |section name: ${entry.sectionName}
+            |
+            |error:
+            |${e.toString}
+            |
+            |stack trace:
+            |${e.getStackTrace.mkString("\n")}
+            |
+            |==========
+            |""".stripMargin
+          FileUtils.writeStringToFile(logFile, report, true)
+      }
+    }
 
     // done processing
     val endTime = now
@@ -64,11 +117,31 @@ object RunSystem extends App {
       outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
     }
     else {                                  // else dump all paper mentions to file
-      val mentionMgr = new MentionManager()
-      val lines = mentionMgr.sortMentionsToStrings(paperMentions)
-      val outFile = new File(friesDir, s"$paperId.txt")
-      println(s"writing ${outFile.getName} ...")
-      FileUtils.writeLines(outFile, lines.asJavaCollection)
+      try {
+        val mentionMgr = new MentionManager()
+        val lines = mentionMgr.sortMentionsToStrings(paperMentions)
+        val outFile = new File(friesDir, s"$paperId.txt")
+        println(s"writing ${outFile.getName} ...")
+        FileUtils.writeLines(outFile, lines.asJavaCollection)
+      } catch {
+        case e: Exception =>
+          val report = s"""
+            |==========
+            |
+            | ¡¡¡ serialization error !!!
+            |
+            |paper: $paperId
+            |
+            |error:
+            |${e.toString}
+            |
+            |stack trace:
+            |${e.getStackTrace.mkString("\n")}
+            |
+            |==========
+            """.stripMargin
+          FileUtils.writeStringToFile(logFile, report, true)
+      }
     }
   }
 
