@@ -88,22 +88,6 @@ class ReachSystem(rules: Option[Rules] = None,
 
 object ReachSystem {
 
-  // Avoid accidentally pruning SimpleEvents that are participating in Regulations
-  def containedInRegulation(m: Mention, state: State): Boolean = m match {
-    // if We're not dealing with a SimpleEvent, this check is meaningless
-    case irrelevantCheck if !(irrelevantCheck matches "SimpleEvent") => false
-    case simple =>
-      // Get the arguments (Mentions) of all Regulations
-      // that overlap with the current mention
-      val regArgs: Seq[Mention] =
-        state.mentionsFor(simple.sentence, simple.tokenInterval, "ComplexEvent")
-          .flatMap(_.arguments.values.flatten)
-      // If no regulations overlap this SimpleEvent, this check is meaningless
-      if (regArgs.isEmpty) false
-      // check if SimpleEvent exists in the arguments of any overlapping Regulations
-      else regArgs.contains(m)
-  }
-
   // this function should remove mentions that were converted
   // into modifications of other mentions
   def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] = {
@@ -121,32 +105,22 @@ object ReachSystem {
     val completeEventMentions =
       for ((k, ems) <- mentionGroupings) yield {
         val maxSize: Int = ems.map(_.arguments.size).max
-        //println(s"\t$maxSize max args for ${k._2}")
-        //println(s"${ems.size} before filtering: ")
-        //ems foreach display.displayMention
         val filteredEMs = ems.filter(m => m.arguments.size == maxSize)
-        //println(s"${filteredEMs.size} after filtering: ")
-        //filteredEMs foreach display.displayMention
-        //println("#"*30)
         filteredEMs
       }
     nonEvents ++ completeEventMentions.flatten.toSeq
   }
 
   def keepMostCompleteMentions(ms: Seq[BioMention], state: State): Seq[BioMention] = {
-    // First pass at removing incomplete Mentions...should I do this at the end?
-    //val pruned = pruneMentions(ms)
-    // We need to further examine ComplexEvents that are BioRelationMentions
-    val (complexRels, other: Seq[BioMention]) =
-      ms.partition(m => m.isInstanceOf[BioRelationMention] && (m matches "ComplexEvent"))
+    // Regulation require special attention
+    val (complexRegs, other: Seq[BioMention]) = ms.partition(_ matches "ComplexEvent")
     // We need to keep track of what SimpleEvents to remove from the state
     // whenever another is used to replace it as a "controlled" arg in a Regulation
     var toRemove = mutable.Set[BioMention]()
-    // Check each Regulation that is a RelationMention
-    // to see if there are any "more complete" Mentions
+    // Check each Regulation to see if there are any "more complete" Mentions
     // for the controlled available in the state
-    val correctedRels =
-      for {reg <- complexRels
+    val correctedRegulations =
+      for {reg <- complexRegs
            // it should only ever have ONE controlled
            controlled =
            reg.arguments("controlled")
@@ -156,11 +130,14 @@ object ReachSystem {
            // how many args does the controlled Mention have?
            argCount = controlled.arguments.size
       } yield {
+        // Are there any "more complete" SimpleEvents in the State
+        // that are candidates to replace the current "controlled" arg?
         val replacementCandidates: Seq[BioEventMention] =
           state.mentionsFor(reg.sentence, controlled.tokenInterval, controlled.label)
             // If the label is the same, these MUST be BioEventMentions (i.e SimpleEvents)
             .map(_.asInstanceOf[BioEventMention])
             .filter(m => m.arguments.size > argCount && (m.trigger == controlled.trigger))
+
         // Do we have any "more complete" Mentions to substitute for the controlled?
         replacementCandidates match {
           // Use the current reg, since there aren't any "more complete"
@@ -170,29 +147,53 @@ object ReachSystem {
           case candidates =>
             // For each "more complete" SimpleEvent, create a new Regulation...
               for (r <- candidates) yield {
-                val updatedArgs = reg.arguments updated ("controlled", Seq (r) )
-                val junk = reg.arguments("controlled").head.toBioMention
-                // Keep track of what we need to get rid of...
-                toRemove += junk
-                // Create the "more complete" relationMentions
-                val moreCompleteRel =
-                  new BioRelationMention(
-                    reg.labels,
-                    updatedArgs,
-                    reg.sentence,
-                    reg.document,
-                    reg.keep,
-                    reg.foundBy)
-                // Get the old relation mention's modifications
-                moreCompleteRel.modifications = reg.modifications
-                moreCompleteRel
+                reg match {
+                  // Is the reg we're replacing a BioRelationMention?
+                  case rel: BioRelationMention =>
+                    val updatedArgs = reg.arguments updated("controlled", Seq(r))
+                    val junk = reg.arguments("controlled").head.toBioMention
+                    // Keep track of what we need to get rid of...
+                    toRemove += junk
+                    // Create the "more complete" relationMentions
+                    val moreCompleteReg =
+                      new BioRelationMention(
+                        reg.labels,
+                        updatedArgs,
+                        reg.sentence,
+                        reg.document,
+                        reg.keep,
+                        reg.foundBy)
+                    // Get the old relation mention's modifications
+                    moreCompleteReg.modifications = reg.modifications
+                    moreCompleteReg
+                  // Is the reg we're replacing a BioEventMention?
+                  case eventReg: BioEventMention =>
+                    val updatedArgs = eventReg.arguments updated("controlled", Seq(r))
+                    val junk = eventReg.arguments("controlled").head.toBioMention
+                    // Keep track of what we need to get rid of...
+                    toRemove += junk
+                    // Create the "more complete" relationMentions
+                    val moreCompleteReg =
+                      new BioEventMention(
+                        eventReg.labels,
+                        eventReg.trigger,
+                        updatedArgs,
+                        eventReg.sentence,
+                        eventReg.document,
+                        eventReg.keep,
+                        eventReg.foundBy)
+                    // Get the old relation mention's modifications
+                    moreCompleteReg.modifications = reg.modifications
+                    moreCompleteReg
+                }
               }
         }
       }
-
+    // Remove any "controlled" Mentions we discarded
     val cleanMentions =
-      (correctedRels.flatten ++ other)
+      (correctedRegulations.flatten ++ other)
       .filter(m => !toRemove.contains(m))
+    // Run the old pruning code
     pruneMentions(cleanMentions)
   }
 
