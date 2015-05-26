@@ -149,22 +149,22 @@ object ReachSystem {
               for (r <- candidates) yield {
                 reg match {
                   // Is the reg we're replacing a BioRelationMention?
-                  case rel: BioRelationMention =>
-                    val updatedArgs = reg.arguments updated("controlled", Seq(r))
-                    val junk = reg.arguments("controlled").head.toBioMention
+                  case relReg: BioRelationMention =>
+                    val updatedArgs = relReg.arguments updated("controlled", Seq(r))
+                    val junk = relReg.arguments("controlled").head.toBioMention
                     // Keep track of what we need to get rid of...
                     toRemove += junk
                     // Create the "more complete" BioRelationMentions
                     val moreCompleteReg =
                       new BioRelationMention(
-                        reg.labels,
+                        relReg.labels,
                         updatedArgs,
-                        reg.sentence,
-                        reg.document,
-                        reg.keep,
-                        reg.foundBy)
+                        relReg.sentence,
+                        relReg.document,
+                        relReg.keep,
+                        relReg.foundBy)
                     // Get the old BioRelationMention's modifications
-                    moreCompleteReg.modifications = reg.modifications
+                    moreCompleteReg.modifications = r.modifications
                     moreCompleteReg
                   // Is the Regulation we're replacing a BioEventMention?
                   case eventReg: BioEventMention =>
@@ -183,7 +183,7 @@ object ReachSystem {
                         eventReg.keep,
                         eventReg.foundBy)
                     // Get the old BioEventMention's modifications
-                    moreCompleteReg.modifications = reg.modifications
+                    moreCompleteReg.modifications = r.modifications
                     moreCompleteReg
                 }
               }
