@@ -30,7 +30,7 @@
     trigger = [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = (>nsubjpass|<vmod) /conj_|nn|cc/{,2}
     cause:BioChemicalEntity? = agent|prep_by /conj_|nn|cc|prep_of/{,2}
-    site:Site? = (agent|prep_by /conj_|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/+
+    site:Site? = (agent|prep_by /conj_|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/{1,2}
 
 
 - name: {{ eventName }}_syntax_3_verb
@@ -40,8 +40,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & !outgoing=nsubjpass & tag=/^V/ & !mention=ModificationTrigger] # verbal predicate
-    theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) ) 
-    site:Site? = (/pobj|prep_|conj_|nn/+) | (< /pobj|prep_|conj_|nn/+) 
+    theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_|nn/{1,2}) | (< /pobj|prep_|conj_|nn/{1,2}) ) 
+    site:Site? = (/pobj|prep_|conj_|nn/{1,2}) | (< /pobj|prep_|conj_|nn/{1,2}) 
     cause:BioChemicalEntity? = <nn{,2} | (prep_by) /nn|conj_|cc|prep_of/{,2}
 
 
@@ -64,7 +64,7 @@
   pattern: |
     trigger = [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]
     theme:BioChemicalEntity = dobj /nn|conj_|cc/{,2} 
-    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/{,2} 
+    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_|cc/{,2} 
     site:Site? = dobj? prep_(at|on) /nn|conj_|cc/{,2}
 
 
@@ -75,7 +75,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ verbalTriggerLemma }}/ & !word=/^de/ & tag=VBN & !mention=ModificationTrigger]
-    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/)+ /appos|nn|conj_|cc/{,2} 
+    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_|cc/{,2} 
     cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_|cc/{,2} 
     site:Site? = dobj? prep_(at|on) /nn|conj_|cc/{,2}
 
@@ -89,7 +89,7 @@
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]
     theme:BioChemicalEntity = <prep_of? prep_by? prep_of /nn|conj_|cc/{,2}
     cause:BioChemicalEntity? = (<dobj? (prep_by|agent)|nn|prep_of prep_by) /nn|conj_|cc/{,2} | poss
-    site:Site? = (/prep_/ nn{,2})+
+    site:Site? = (/prep_/ nn{,2}){1,2}
     #constraint: <dobj [lemma=/prevent|inhibit|block/]
 
 
@@ -100,8 +100,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/] # nominal predicate
-    theme:BioChemicalEntity = prep_of? /conj_|cc|nn/+ 
-    site:Site? = /pobj|prep_|conj_|nn/+
+    theme:BioChemicalEntity = prep_of? /conj_|cc|nn/{1,2} 
+    site:Site? = /pobj|prep_|conj_|nn/{1,2}
     cause:BioChemicalEntity = /prep_by|agent/ /conj|cc|nn/{,2} 
 
 
@@ -112,9 +112,9 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/ & !outgoing=prep_by] # nominal predicate
-    theme:BioChemicalEntity = prep_of /conj_|cc|nn/+ 
-    cause:BioChemicalEntity = /conj_|cc|nn/+ 
-    site:Site? = /pobj|prep_|conj_|nn/+
+    theme:BioChemicalEntity = prep_of /conj_|cc|nn/{1,2} 
+    cause:BioChemicalEntity = /conj_|cc|nn/{1,2} 
+    site:Site? = /pobj|prep_|conj_|nn/{1,2}
 
 
 - name: {{ eventName }}_syntax_4_noun
@@ -145,7 +145,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]
-    theme:BioChemicalEntity = (<prep_via? /prep_(at|on)/? prep_of /nn|conj_|cc/{,2})+ /prep_(on|at)/?
+    theme:BioChemicalEntity = (<prep_via? /prep_(at|on)/? prep_of /nn|conj_|cc/{,2}){1,2} /prep_(on|at)/?
     cause:BioChemicalEntity = <prep_via? (agent|prep_by) /nn|conj_|cc/{,2}
     site:Site? = <prep_via? ( (prep_of /nn|conj_|cc/{,2}) | ( (agent|prep_by) /nn|conj_|cc/{,2}) )? /prep_(on|at)/
 
