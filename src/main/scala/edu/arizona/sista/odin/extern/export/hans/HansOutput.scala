@@ -175,8 +175,6 @@ class HansOutput extends JsonOutputter {
       }
     }
 
-    // TODO: reenable this block, after fixing the missing argument bug
-    /*
     // now, print all regulation events, which control the above events
     for(mention <- eventMentions) {
       if(REGULATION_EVENTS.contains(mention.label)) {
@@ -186,7 +184,6 @@ class HansOutput extends JsonOutputter {
         frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
       }
     }
-    */
 
     // write the JSON to the given file
     writeJsonToFile(model, outFile)
@@ -232,8 +229,11 @@ class HansOutput extends JsonOutputter {
       f("arguments") = args
     }
 
+    // event modifications
     if(isNegated(mention))
       f("polarity") = "true"
+    if(isHypothesized(mention))
+      f("is-hypothesis") = "true"
 
     // TODO: add "is-hypothesis"
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
@@ -485,8 +485,11 @@ class HansOutput extends JsonOutputter {
 
   private def isNegated(mention:BioMention):Boolean =
     mention.modifications.exists(isNegation)
-
   private def isNegation(m:Modification) = m.isInstanceOf[Negation]
+
+  private def isHypothesized(mention:BioMention):Boolean =
+    mention.modifications.exists(isHypothesis)
+  private def isHypothesis(m:Modification) = m.isInstanceOf[Hypothesis]
 }
 
 object HansOutput {

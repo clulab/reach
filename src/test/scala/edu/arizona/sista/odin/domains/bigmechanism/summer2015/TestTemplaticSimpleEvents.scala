@@ -105,11 +105,14 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
   }
 
+  // This fails, as it should: the monoubiquitination is ambiguous. The theme is never stated.
+  /*
   val sent12 = "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   sent12 should "contain a ubiquitination" in {
     val mentions = parseSentence(sent12)
     hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
   }
+  */
 
   val sent13 = "Indicating that p38 SAPK is not an efficient kinase for ASPP2 phosphorylation."
   sent13 should "contain a phosphorylation" in {

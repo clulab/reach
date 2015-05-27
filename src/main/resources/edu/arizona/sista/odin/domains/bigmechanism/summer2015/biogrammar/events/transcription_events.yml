@@ -9,7 +9,7 @@
 #  label: [Transcription, SimpleEvent, Event, PossibleController]
 #  pattern: |
 #    trigger = [word=/(?i)(over)?express/ & tag=/^N/]
-#      theme:BioChemicalEntity = nn+
+#      theme:BioChemicalEntity = nn{1,2}
 #
 #
 #- name: expressioni_2
@@ -18,7 +18,7 @@
 #  label: [Transcription, SimpleEvent, Event, PossibleController]
 #  pattern: |
 #    trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-#      theme:BioChemicalEntity = < /vmod|conj_|cc/+
+#      theme:BioChemicalEntity = < /vmod|conj_|cc/{1,2}
 #
 #- name: expression_3
 #  priority: 4
@@ -26,7 +26,7 @@
 #  label: [Transcription, SimpleEvent, Event, PossibleController]
 #  pattern: |
 #    trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-#    theme:BioChemicalEntity = > /nsubjpass/+
+#    theme:BioChemicalEntity = > /nsubjpass/{1,2}
 
 #- name: transcription_0
 #  priority: 4
@@ -35,7 +35,7 @@
 #  pattern: |
 #    trigger = [word=/(?i)transcription/ & tag=/^N/]
 #    theme:BioChemicalEntity = <dobj nsubj prep_of?
-#    cause:BioChemicalEntity? = nn+
+#    cause:BioChemicalEntity? = nn{1,2}
 
 
 - name: transcription_1
@@ -44,7 +44,7 @@
   label: [Transcription, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = prep_of? nn+
+    theme:BioChemicalEntity = prep_of? nn{1,2}
 
 - name: transcription_2
   priority: 4

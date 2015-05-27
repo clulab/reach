@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Add alternate key lookups for proteins and protein families.
+  *   Last Modified: Redo KB accessors for manual and generated KB files.
   */
 
 /**
@@ -16,7 +16,11 @@ import edu.arizona.sista.odin.extern.inward._
   * where: 1st column is the name string, 2nd column is the ID string (2-col file) or
   *  species (3-col file), and 3rd column is the ID string (3-col file).
   */
-abstract class LocalKBAccessor extends SpeciatedKBAccessor {
+abstract class LocalKBAccessor extends SpeciatedKBAccessor with KnowledgeBaseConstants {
+  def baseURI = "http://edu.arizona.sista.odin/uazid/"
+  def namespace = "uazid"
+  def resourceID = "MIR:00000000"           // mock MIRIAM registration number
+
   protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
 
   override def getLookupKey (mention:Mention): String = {
@@ -114,12 +118,124 @@ abstract class LocalKBAccessor extends SpeciatedKBAccessor {
 }
 
 
-/** KB accessor to resolve protein names in mentions. */
-class AzProteinKBAccessor extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprot"
-  def resourceID = "MIR:00100164"
+//
+// Subcellular Location Accessors
+//
 
+/** KB accessor to resolve subcellular location names via KBs generated from the BioPax model. */
+class GendCellLocationKBAccessor extends LocalKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(GendCellLocationFilename))
+}
+
+/** KB accessor to resolve subcellular location names via manually maintained KBs. */
+class ManualCellLocationKBAccessor extends LocalKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(ManualCellLocationFilename))
+}
+
+/** KB accessor to resolve subcellular location names via static KBs. */
+class StaticCellLocationKBAccessor extends LocalKBAccessor {
+  override def baseURI = "http://identifiers.org/go/"
+  override def namespace = "go"
+  override def resourceID = "MIR:00000022"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticCellLocationFilename))
+}
+
+/** KB accessor to resolve subcellular location names via static KBs. */
+// class StaticCellLocationKBAccessor2 extends LocalKBAccessor {
+//   def baseURI = "http://identifiers.org/uniprot/"
+//   def namespace = "uniprot"
+//   def resourceID = "MIR:00000005"
+
+//   // MAIN: load KB to initialize class
+//   readAndFillKB(LocalKBUtils.makePathInKBDir("uniprot-subcellular-locations.tsv"))
+// }
+
+
+//
+// Small Molecule (Chemical and Metabolite) Accessors
+//
+
+/** KB accessor to resolve small molecule (chemical) names via KBs generated from the BioPax model. */
+class GendChemicalKBAccessor extends LocalKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(GendChemicalFilename))
+}
+
+/** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
+class ManualChemicalKBAccessor extends LocalKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(ManualChemicalFilename))
+}
+
+/** KB accessor to resolve small molecule (metabolite) names via static KBs. */
+class StaticMetaboliteKBAccessor extends LocalKBAccessor {
+  override def baseURI = "http://identifiers.org/hmdb/"
+  override def namespace = "hmdb"
+  override def resourceID = "MIR:00000051"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticMetaboliteFilename))
+}
+
+/** KB accessor to resolve small molecule (chemical) names via static KBs. */
+class StaticChemicalKBAccessor extends LocalKBAccessor {
+  override def baseURI = "http://identifiers.org/chebi/"
+  override def namespace = "chebi"
+  override def resourceID = "MIR:00100009"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticChemicalFilename))
+}
+
+
+//
+// Protein Accessors
+//
+
+/** Base KB accessor to resolve protein names in mentions. */
+class LocalProteinKBAccessor extends LocalKBAccessor {
+  /** Overridden to perform alternate key lookups. */
+  override def resolve (mention:Mention): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val props = theKB.get(key)              // lookup key
+    return if (props.isDefined) props.get   // find it or try alternate keys
+           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+  }
+}
+
+/** KB accessor to resolve protein names via KBs generated from the BioPax model. */
+class GendProteinKBAccessor extends LocalProteinKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(GendProteinFilename))
+}
+
+/** KB accessor to resolve protein names via manually maintained KBs. */
+class ManualProteinKBAccessor extends LocalProteinKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(ManualProteinFilename))
+}
+
+/** KB accessor to resolve protein names via static KBs. */
+class StaticProteinKBAccessor extends LocalProteinKBAccessor {
+  override def baseURI = "http://identifiers.org/uniprot/"
+  override def namespace = "uniprot"
+  override def resourceID = "MIR:00100164"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticProteinFilename))
+}
+
+
+//
+// Protein Family Accessors
+//
+
+/** Base KB accessor to resolve protein family names in mentions. */
+class LocalProteinFamilyKBAccessor extends LocalKBAccessor {
   /** Override to perform alternate key lookups. */
   override def resolve (mention:Mention): Map[String,String] = {
     val key = getLookupKey(mention)         // make a key from the mention
@@ -129,80 +245,50 @@ class AzProteinKBAccessor extends LocalKBAccessor {
   }
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-proteins.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz"))
 }
 
+/** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
+class GendProteinFamilyKBAccessor extends LocalProteinFamilyKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(GendProteinFilename))
+}
 
-/** KB accessor to resolve protein family names in mentions. */
-class AzProteinFamilyKBAccessor extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/interpro/"
-  def namespace = "interpro"
-  def resourceID = "MIR:00000011"
+/** KB accessor to resolve protein names via manually maintained KBs. */
+class ManualProteinFamilyKBAccessor extends LocalProteinFamilyKBAccessor {
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(ManualProteinFamilyFilename))
+}
 
-  /** Override to perform alternate key lookups. */
-  override def resolve (mention:Mention): Map[String,String] = {
-    val key = getLookupKey(mention)         // make a key from the mention
-    val props = theKB.get(key)              // lookup key
-    return if (props.isDefined) props.get   // find it or try alternate keys
-           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
-  }
+/** KB accessor to resolve protein family names via static KBs. */
+class StaticProteinFamilyKBAccessor extends LocalProteinFamilyKBAccessor {
+  override def baseURI = "http://identifiers.org/interpro/"
+  override def namespace = "interpro"
+  override def resourceID = "MIR:00000011"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/ProteinFamilies.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticProteinFamilyFilename))
 }
 
 
-/** KB accessor to resolve small molecule (metabolite) names in mentions. */
-class AzSmallMoleculeKBAccessor extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/hmdb/"
-  def namespace = "hmdb"
-  def resourceID = "MIR:00000051"
+//
+// Tissue Type Accessor
+//
+
+/** KB accessor to resolve tissue type names via static KBs. */
+class StaticTissueTypeKBAccessor extends LocalKBAccessor {
+  override def baseURI = "http://identifiers.org/uniprot/"
+  override def namespace = "uniprot"
+  override def resourceID = "MIR:00000005"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/hmdb.tsv.gz")
-}
-
-/** KB accessor to resolve small molecule (chemical) names in mentions. */
-class AzSmallMoleculeKBAccessor2 extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/chebi/"
-  def namespace = "chebi"
-  def resourceID = "MIR:00100009"
-
-  // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/chebi.tsv.gz")
-}
-
-/** KB accessor to resolve subcellular location names in mentions using GeneOntology DB. */
-class AzSubcellularLocationKBAccessor extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/go/"
-  def namespace = "go"
-  def resourceID = "MIR:00000022"
-
-  // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/GO-subcellular-locations.tsv")
-}
-
-/** KB accessor to resolve subcellular location names in mentions using Uniprot DB. */
-class AzSubcellularLocationKBAccessor2 extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprot"
-  def resourceID = "MIR:00000005"
-
-  // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-subcellular-locations.tsv")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticTissueTypeFilename))
 }
 
 
-/** KB accessor to resolve tissue type names in mentions. */
-class AzTissueTypeKBAccessor extends LocalKBAccessor {
-  def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprot"
-  def resourceID = "MIR:00000005"
-
-  // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/tissue-type.tsv")
-}
-
+//
+// Failsafe Accessor
+//
 
 /** KB accessor implementation which always resolves each mention with a local, fake ID. */
 class AzFailsafeKBAccessor extends SpeciatedKBAccessor {

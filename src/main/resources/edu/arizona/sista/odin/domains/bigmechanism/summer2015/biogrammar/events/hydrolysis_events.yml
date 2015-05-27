@@ -40,7 +40,7 @@
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
     theme:BioChemicalEntity = (nn | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (< /prep_/)* <nsubjpass /prep_for|prep_in/ [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (< /prep_/){,2} <nsubjpass /prep_for|prep_in/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_4
   label: [Hydrolysis, SimpleEvent, Event, PossibleController]

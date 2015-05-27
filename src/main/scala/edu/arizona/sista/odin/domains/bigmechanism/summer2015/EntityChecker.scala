@@ -15,37 +15,30 @@ import org.biopax.paxtools.model.level3._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Drop epoch suffix on IDs. Generate output directly into KB directory.
+  *   Last Modified: Update for renamed lookup methods and constant filenames.
   */
-object EntityChecker extends App {
+object EntityChecker extends App with KnowledgeBaseConstants {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
-  val CellLocationFilename = "biopax-cellular_component.tsv"
-  val CellLocationPrefix = "UA-BP-CC-"
-  val ChemicalFilename = "biopax-simple_chemical.tsv"
-  val ChemicalPrefix = "UA-BP-SC-"
-  val ProteinFilename = "biopax-gene_or_gene_product.tsv"
-  val ProteinPrefix = "UA-BP-GGP-"
-
   // Search classes for resolving entities:
-  val AzProteinFamilyKBLookup = new AzProteinFamilyKBLookup
-  val AzProteinKBLookup = new AzProteinKBLookup
-  val AzSmallMoleculeKBLookup = new AzSmallMoleculeKBLookup
-  val AzSmallMoleculeKBLookup2 = new AzSmallMoleculeKBLookup2
-  val AzSubcellularLocationKBLookup = new AzSubcellularLocationKBLookup
-  // val AzTissueTypeKBLookup = new AzTissueTypeKBLookup
+  val StaticProteinFamilyKBLookup = new StaticProteinFamilyKBLookup
+  val StaticProteinKBLookup = new StaticProteinKBLookup
+  val StaticChemicalKBLookup = new StaticChemicalKBLookup
+  val StaticMetaboliteKBLookup = new StaticMetaboliteKBLookup
+  val StaticCellLocationKBLookup = new StaticCellLocationKBLookup
+  // val StaticTissueTypeKBLookup = new StaticTissueTypeKBLookup
 
   /** Search sequence for resolving proteins. */
-  protected val proteinSearcher = Seq( AzProteinKBLookup,
-                                       AzProteinFamilyKBLookup )
+  protected val proteinSearcher = Seq( StaticProteinKBLookup,
+                                       StaticProteinFamilyKBLookup )
 
   /** Search sequence for small molecules. */
-  protected val chemSearcher = Seq( AzSmallMoleculeKBLookup,
-                                    AzSmallMoleculeKBLookup2 )
+  protected val chemSearcher = Seq( StaticChemicalKBLookup,
+                                    StaticMetaboliteKBLookup )
 
   /** Search sequence for sub cellular locations terms. */
-  protected val cellLocationSearcher = Seq( AzSubcellularLocationKBLookup )
+  protected val cellLocationSearcher = Seq( StaticCellLocationKBLookup )
 
 
   /** Read the BioPAX model from the given input stream and check the entities. */
@@ -65,7 +58,7 @@ object EntityChecker extends App {
     println(s"FOUND: ${molecules.size} small molecules in input model")
     val resolved = molecules.map(resolveKey(_, chemSearcher))
     val missing = molecules.zip(resolved).filter(_._2.isEmpty).map(_._1)
-    outputMissing(missing, ChemicalFilename, ChemicalPrefix)
+    outputMissing(missing, GendChemicalFilename, GendChemicalPrefix)
   }
 
   private def checkCellLocations (model:Model) = {
@@ -75,7 +68,7 @@ object EntityChecker extends App {
     println(s"FOUND: ${cellLocs.size} cellular location terms in input model")
     val resolved = cellLocs.map(resolveKey(_, cellLocationSearcher))
     val missing = cellLocs.zip(resolved).filter(_._2.isEmpty).map(_._1)
-    outputMissing(missing, CellLocationFilename, CellLocationPrefix)
+    outputMissing(missing, GendCellLocationFilename, GendCellLocationPrefix)
   }
 
   private def checkProteins (model:Model) = {
@@ -88,7 +81,7 @@ object EntityChecker extends App {
     // try to find remaining unresolved protein names using alternate, transformed keys:
     val tried2 = missing.map(tryAlternateKeys(_, LocalKeyTransforms.proteinKeyTransforms, proteinSearcher))
     val stillMissing = missing.zip(tried2).filter(_._2.isEmpty).map(_._1).sorted.distinct
-    outputMissing(stillMissing, ProteinFilename, ProteinPrefix)
+    outputMissing(stillMissing, GendProteinFilename, GendProteinPrefix)
   }
 
 
@@ -103,7 +96,7 @@ object EntityChecker extends App {
 
   /** Output the missing entity names and generated IDs to the given file. */
   private def outputMissing (missing:Seq[String], filename:String, prefix:String) = {
-    val outFile:File = LocalKBUtils.makeOutputFileInKBDir(filename)
+    val outFile:File = LocalKBUtils.makeFileInKBDir(filename)
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     // val now = Platform.currentTime.toString  // make ID unique per program run
     missing.foreach { entName =>

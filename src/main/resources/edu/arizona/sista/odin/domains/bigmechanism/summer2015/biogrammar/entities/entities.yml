@@ -120,6 +120,14 @@
   pattern: |
     [entity='B-Simple_chemical'] [entity='I-Simple_chemical']*
 
+- name: ner-domain-entities
+  label: [Site]
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-Site'] [entity='I-Site']*
+    
 # TODO: Ideally, these should be added to the KB
 ################
 # missing

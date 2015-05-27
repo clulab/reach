@@ -8,27 +8,15 @@ import scala.io.Source
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 4/16/2015.
-  *   Last Modified: Add method to make filename in KB directory.
+  *   Last Modified: Distinguish KB file and resource paths.
   */
-object LocalKBUtils {
-
-  /** The set of characters to remove from the text to create a lookup key. */
-  val KeyCharactersToRemove = " /-".toSet
-
-  /** The set of words to remove from the text to create a lookup key. */
-  val KeyStopSuffixes = Set("_human")
-
-  /** Path the the directory which hold the entity knowledge bases. */
-  val KBDirectory = "src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb"
-
-  /** The set of words to remove from the text to create a lookup key. */
-  val HumanLabels = Set("homo sapiens", "human")
-
+object LocalKBUtils extends KnowledgeBaseConstants {
 
   /** Tell whether the given species string is label for humans or not. */
   def isHumanSpecies (species: String): Boolean = {
     if (HumanLabels.contains(species.toLowerCase)) true else false
   }
+
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeKBCanonKey (text:String): String = {
@@ -53,14 +41,24 @@ object LocalKBUtils {
   }
 
 
-  /** Return a file path for the given filename in the current user working directory. */
-  def makeOutputFileInKBDir (filename:String): File = {
-    new File(KBDirectory + File.separator + filename)
+  /** Return a file for the given filename in the knowledge bases directory. */
+  def makeFileInKBDir (filename:String): File = {
+    return new File(KBDirFilePath + File.separator + filename)
   }
 
-  /** Return a file path for the given filename in the current user working directory. */
-  def makeOutputFileInUserDir (filename:String): File = {
-    new File(System.getProperty("user.dir") + File.separator + filename)
+  /** Return a resource path string for the given filename in the knowledge bases directory. */
+  def makePathInKBDir (filename:String): String = {
+    return KBDirResourcePath + File.separator + filename
+  }
+
+  /** Return a file for the given filename in the current user working directory. */
+  def makeFileInUserDir (filename:String): File = {
+    return new File(makePathInUserDir(filename))
+  }
+
+  /** Return a path string for the given filename in the current user working directory. */
+  def makePathInUserDir (filename:String): String = {
+    return System.getProperty("user.dir") + File.separator + filename
   }
 
 }

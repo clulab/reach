@@ -8,7 +8,7 @@
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^JJ/]
-    theme:BioChemicalEntity = /nn+|prep_of|nsubj/
+    theme:BioChemicalEntity = /nn|prep_of|nsubj/+
     source:Cellular_component = /prep_of/? prep_from [tag=/^N/]
     destination:Cellular_component? = </prep_in/? /prep_/* prep_to /conj|nn|cc|dep/*
 
@@ -18,7 +18,7 @@
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^JJ/]
-    theme:BioChemicalEntity = </./+ /nn|prep_of|nsubjpass|appos/ [tag=/^N/] #[mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    theme:BioChemicalEntity = </./+ /nn|prep_of|nsubjpass|appos/ [tag=/^N/]
     source:Cellular_component? = /prep_of/? prep_from [tag=/^N/]
     destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/*
 
@@ -29,7 +29,7 @@
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^JJ/]
-    theme:BioChemicalEntity = </./+ /nn|prep_of|nsubjpass/ [tag=/^N/] #[mention=/Gene_or_gene_product|Protein|Simple_chemical/]
+    theme:BioChemicalEntity = </./+ /nn|prep_of|nsubjpass/ [tag=/^N/]
     source:Cellular_component = /prep_of/? prep_from [tag=/^N/]
     destination:Cellular_component? = <prep_in? /./* prep_to /conj|nn|cc|dep/*
 
