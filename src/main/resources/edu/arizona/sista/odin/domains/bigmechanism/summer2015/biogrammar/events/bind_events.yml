@@ -1,5 +1,5 @@
 #Binding events require arguments of type BioChemicalEntity
-#Use + quantifier for theme
+#Use {1,2} quantifier for theme
 #
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
@@ -10,8 +10,8 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = <rcmod conj_and* | nsubj /nn|conj_|cc/* | <prepc_by* nsubj
-    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/* | acomp? /prep_(to|with)/
+    theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /nn|conj_|cc/{,2} | <prep_by{,2} nsubj
+    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/{,2} | acomp? /prep_(to|with)/
 
 - name: binding1forms
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -19,8 +19,8 @@
   priority: 4
   pattern: |
     trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
-    theme1:BioChemicalEntity+ = nsubj /nn|conj_|cc/*
-    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/* | /prep_(to|with)/
+    theme1:BioChemicalEntity+ = nsubj /nn|conj_|cc/{,2}
+    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/{,2} | /prep_(to|with)/
 
 - name: binding2
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -28,7 +28,7 @@
   priority: 4
   pattern: |
     trigger = binding
-    theme1:BioChemicalEntity+ = <prep_by nsubj /nn|conj_|cc/*
+    theme1:BioChemicalEntity+ = <prep_by nsubj /nn|conj_|cc/{,2}
     theme2:BioChemicalEntity* = prep_such_as
 
 - name: binding3
@@ -37,8 +37,8 @@
   priority: 4
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
-    theme1:BioChemicalEntity+ = /conj_(and|or)/* /prep_of/+ >/./*
-    theme2:BioChemicalEntity* = /conj_(and|or)/* /prep_to/+ >/./*
+    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/{1,2} >/./{,2}
+    theme2:BioChemicalEntity* = /conj_(and|or)/{,2} /prep_to/{1,2} >/./{,2}
 
 - name: binding3wrong
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -46,8 +46,8 @@
   priority: 4
   pattern: |
     trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/]
-    theme1:BioChemicalEntity+ = /conj_(and|or)/* (<agent)? /prep_of/+ >/./*
-    theme2:BioChemicalEntity* = /conj_(and|or)/* (<agent)? /prep_to/+ >/./*
+    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} (<agent)? /prep_of/{1,2} >/./{,2}
+    theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to/{1,2} >/./{,2}
 
 - name: binding4
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -55,7 +55,7 @@
   priority: 4
   pattern: |
       trigger = binding
-      theme1:BioChemicalEntity+ = <nn <dobj (nsubj | /prep_(of|for)/)+ >/./*
+      theme1:BioChemicalEntity+ = <nn <dobj (nsubj | /prep_(of|for)/){1,2} >/./{,2}
 
 - name: binding5
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -64,7 +64,7 @@
   pattern: |
       trigger = binding
       theme1:BioChemicalEntity* = poss
-      theme2:BioChemicalEntity+ = <nn (nn* >/./* | <dep)
+      theme2:BioChemicalEntity+ = <nn (nn{,2} >/./{,2} | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
 
 - name: binding6
@@ -73,7 +73,7 @@
   priority: 4
   pattern: |
       trigger = [lemma=bind & tag=/^V/]
-      theme1:BioChemicalEntity+ = (<amod nn* >prep_of? >appos?) | nsubj
+      theme1:BioChemicalEntity+ = (<amod nn{,2} >prep_of? >appos?) | nsubj
       theme2:BioChemicalEntity+ = conj_and? dobj
 
 - name: binding7a
@@ -143,7 +143,7 @@
   priority: 4
   pattern: |
       trigger = formation (?= of /complex|rings/) #dummy: prep_of [word=/complex|rings/]
-      theme1:BioChemicalEntity+ = prep_of >/./*
+      theme1:BioChemicalEntity+ = prep_of >/./{,2}
 
 - name: binding13
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -151,8 +151,8 @@
   priority: 4
   pattern: |
       trigger = /interact(s|ed)?/
-      theme1:BioChemicalEntity+ = (nsubj <conj_and* | >conj_and <ccomp >nsubjpass) >/./*
-      theme2:BioChemicalEntity* = prep_with >/./*
+      theme1:BioChemicalEntity+ = (nsubj <conj_and{,2} | >conj_and <ccomp >nsubjpass) >/./{,2}
+      theme2:BioChemicalEntity* = prep_with >/./{,2}
 
 - name: binding14
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -177,8 +177,8 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|recognize/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = nsubjpass nn* | <rcmod <appos?
-    theme2:BioChemicalEntity+ = agent nn* | dobj
+    theme1:BioChemicalEntity+ = nsubjpass nn{,2} | <rcmod <appos?
+    theme2:BioChemicalEntity+ = agent nn{,2} | dobj
 
 - name: binding_18
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -186,8 +186,8 @@
   priority: 4
   pattern: |
     trigger = binding
-    theme1:BioChemicalEntity+ = <conj_and* prep dep+ (/prep_(to|with)/)?
-    theme2:BioChemicalEntity+ = <conj_and* prep dep+ (/prep_(to|with)/)?
+    theme1:BioChemicalEntity+ = <conj_and{,2} prep dep{1,2} (/prep_(to|with)/)?
+    theme2:BioChemicalEntity+ = <conj_and{,2} prep dep{1,2} (/prep_(to|with)/)?
 
 - name: binding_19
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -204,7 +204,7 @@
   priority: 4
   pattern: |
     trigger = /(?i)binding|interaction/
-    theme1:BioChemicalEntity+ = rcmod* prep_between
+    theme1:BioChemicalEntity+ = rcmod{,2} prep_between
 
 - name: binding_21
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -220,7 +220,7 @@
   priority: 4
   pattern: |
     trigger = [lemma=target & tag=/^N/]
-    theme1:BioChemicalEntity+ = <nn* nn* | nsubj
+    theme1:BioChemicalEntity+ = <nn{,2} nn{,2} | nsubj
     theme2:BioChemicalEntity+ = prep_of
 
 - name: binding_syntax_23_verb
@@ -230,9 +230,9 @@
   priority: 4
   pattern: |
     trigger = [lemma="bind" & tag=/^V/]
-    theme1:BioChemicalEntity+ = nsubj /prep_of|nn|conj_|cc/*
+    theme1:BioChemicalEntity+ = nsubj /prep_of|nn|conj_|cc/{,2}
     site:Site? = nsubj | (dobj prep_at) # domain-style pattern
-    theme2:BioChemicalEntity+ = dobj /prep_of|nn|conj_|cc/*
+    theme2:BioChemicalEntity+ = dobj /prep_of|nn|conj_|cc/{,2}
 
 # possessive
 - name: binding_syntax_24_noun
@@ -243,7 +243,7 @@
   pattern: |
     trigger = binding
     theme1:BioChemicalEntity+ = poss
-    theme2:BioChemicalEntity* = (prep_to|prep_with|prep_of|prep_by) [!(lemma=member)] nn* | (prep_to|prep_with|prep_of|prep_by) [lemma=member] nn+
+    theme2:BioChemicalEntity* = (prep_to|prep_with|prep_of|prep_by) [!(lemma=member)] nn{,2} | (prep_to|prep_with|prep_of|prep_by) [lemma=member] nn{1,2}
 
 
 # added to catch patterns like "increased XX binding to YY"

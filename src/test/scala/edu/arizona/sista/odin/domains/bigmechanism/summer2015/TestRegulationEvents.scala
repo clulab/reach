@@ -189,4 +189,11 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controlled.arguments("theme").head.text should be ("MEK")
   }
 
+  // a weird text from the PMC384* where we used to overmatch
+  val sent21 = "histone 2B phosphorylated by p38 SAPK had high levels of incorporated 32P, suggesting that p38 SAPK was active; while under the same conditions, ASPP2 (693-1128) fragment"
+  sent21 should "contain 1 phosphorylation and 1 positive regulation" in {
+    val mentions = parseSentence(sent21)
+    mentions.filter(_.label == "Positive_regulation") should have size (1)
+    mentions.filter(_.label == "Phosphorylation") should have size (1)
+  }
 }
