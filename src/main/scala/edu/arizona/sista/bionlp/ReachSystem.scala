@@ -124,25 +124,23 @@ object ReachSystem {
 
   // Removal of incomplete Mentions with special care to Regulations
   // calls pruneMentions after attending to Regulations
-  def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
+  def filterRegulations(regulations: Seq[Mention], other: Seq[Mention], state: State): Seq[Mention] = {
 
     // Move any Negation modification on a Regulation's controlled arg to the Regulation
     def promoteNegationModifications(parent: BioMention, child: BioMention): Unit = {
-     val (negs, other) = child.modifications.partition(_.isInstanceOf[Negation])
+      val (negs, other) = child.modifications.partition(_.isInstanceOf[Negation])
       parent.modifications ++= negs
       // remove Negation modifications from child
       child.modifications = other
     }
 
-    // Regulations require special attention
-    val (complexRegs, other: Seq[Mention]) = ms.partition(_ matches "ComplexEvent")
     // We need to keep track of what SimpleEvents to remove from the state
     // whenever another is used to replace it as a "controlled" arg in a Regulation
     var toRemove = mutable.Set[Mention]()
     // Check each Regulation to see if there are any "more complete" Mentions
     // for the controlled available in the state
     val correctedRegulations =
-      for {reg <- complexRegs
+      for {reg <- regulations
            // it should only ever have ONE controlled
            controlled =
            reg.arguments("controlled")
@@ -167,71 +165,95 @@ object ReachSystem {
           // There are some more complete candidates for the controlled arg...
           case candidates =>
             // For each "more complete" SimpleEvent, create a new Regulation...
-              for (r <- candidates) yield {
-                reg match {
-                  // Is the reg we're replacing a BioRelationMention?
-                  case relReg: BioRelationMention =>
-                    val updatedArgs = relReg.arguments updated("controlled", Seq(r))
-                    val junk = relReg.arguments("controlled").head.toBioMention
-                    // Keep track of what we need to get rid of...
-                    toRemove += junk
-                    // Create the "more complete" BioRelationMentions
-                    val moreCompleteReg =
-                      new BioRelationMention(
-                        relReg.labels,
-                        updatedArgs,
-                        relReg.sentence,
-                        relReg.document,
-                        relReg.keep,
-                        relReg.foundBy)
-                    // Move Negation modifications from controlled to Reg.
-                    promoteNegationModifications(moreCompleteReg, r)
-                    // return the new Regulation
-                    moreCompleteReg
-                  // Is the Regulation we're replacing a BioEventMention?
-                  case eventReg: BioEventMention =>
-                    val updatedArgs = eventReg.arguments updated("controlled", Seq(r))
-                    val junk = eventReg.arguments("controlled").head.toBioMention
-                    // Keep track of what we need to get rid of...
-                    toRemove += junk
-                    // Create the "more complete" BioEventMentions
-                    val moreCompleteReg =
-                      new BioEventMention(
-                        eventReg.labels,
-                        eventReg.trigger,
-                        updatedArgs,
-                        eventReg.sentence,
-                        eventReg.document,
-                        eventReg.keep,
-                        eventReg.foundBy)
-                    // Move Negation modifications from controlled to Reg.
-                    promoteNegationModifications(eventReg, r)
-                    // return the new Regulation
-                    moreCompleteReg
-                }
+            for (r <- candidates) yield {
+              reg match {
+                // Is the reg we're replacing a BioRelationMention?
+                case relReg: BioRelationMention =>
+                  val updatedArgs = relReg.arguments updated("controlled", Seq(r))
+                  val junk = relReg.arguments("controlled").head.toBioMention
+                  // Keep track of what we need to get rid of...
+                  toRemove += junk
+                  // Create the "more complete" BioRelationMentions
+                  val moreCompleteReg =
+                    new BioRelationMention(
+                      relReg.labels,
+                      updatedArgs,
+                      relReg.sentence,
+                      relReg.document,
+                      relReg.keep,
+                      relReg.foundBy)
+                  // Move Negation modifications from controlled to Reg.
+                  promoteNegationModifications(moreCompleteReg, r)
+                  // return the new Regulation
+                  moreCompleteReg
+                // Is the Regulation we're replacing a BioEventMention?
+                case eventReg: BioEventMention =>
+                  val updatedArgs = eventReg.arguments updated("controlled", Seq(r))
+                  val junk = eventReg.arguments("controlled").head.toBioMention
+                  // Keep track of what we need to get rid of...
+                  toRemove += junk
+                  // Create the "more complete" BioEventMentions
+                  val moreCompleteReg =
+                    new BioEventMention(
+                      eventReg.labels,
+                      eventReg.trigger,
+                      updatedArgs,
+                      eventReg.sentence,
+                      eventReg.document,
+                      eventReg.keep,
+                      eventReg.foundBy)
+                  // Move Negation modifications from controlled to Reg.
+                  promoteNegationModifications(eventReg, r)
+                  // return the new Regulation
+                  moreCompleteReg
               }
+            }
         }
       }
 
     // Remove any "controlled" Mentions we discarded
-    val cleanMentions =
-      (correctedRegulations.flatten ++ other)
-        .filter(m => !toRemove.contains(m))
+    val nonRegs =
+      other
+        .filterNot(m => toRemove.contains(m))
         .map(_.toBioMention)
-
-    val (regs, nonRegs) = cleanMentions.partition(_ matches "ComplexEvent")
-    // Run the old pruning code first on regulations
-    val remainingRegs = pruneMentions(regs)
+        .distinct
+    // Convert Regulations to BioMentions
+    val cleanRegulations =
+      correctedRegulations
+        .flatten
+        .map(_.toBioMention)
+        .distinct
     // We don't want to accidentally filter out any SimpleEvents
     // that are valid arguments to the filtered Regs
     val keepThese:Seq[Mention] =
-      remainingRegs.flatMap(_.arguments.values)
+      cleanRegulations.flatMap(_.arguments.values)
         .flatten
         .filter(m => m matches "SimpleEvent")
+        .map(_.toBioMention)
         .distinct
     // Return the filtered with the arguments to the Regulations
-    val remainingNonRegs = pruneMentions(nonRegs) ++ keepThese.map(_.toBioMention)
-    (remainingRegs ++ remainingNonRegs).distinct
+    val remainingNonRegs = (pruneMentions(nonRegs) ++ keepThese).distinct
+
+    /*
+    println(s"\n${cleanRegulations.size} cleanRegulations after pruning:")
+    cleanRegulations foreach display.displayMention
+    println(s"\t${remainingNonRegs.size} remainingNonRegs after pruning nonRegs:")
+    remainingNonRegs foreach display.displayMention
+    println("#" * 40 + "\n")
+    */
+    (cleanRegulations ++ remainingNonRegs).distinct
+  }
+
+  // Filter out "incomplete" events
+  def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
+    // Regulations require special attention
+    val (regulations, other: Seq[Mention]) = ms.partition(_ matches "ComplexEvent")
+    regulations match {
+      case someRegs if someRegs.nonEmpty =>
+        filterRegulations(regulations, other, state)
+      case Nil =>
+        pruneMentions(other.map(_.toBioMention))
+    }
   }
 
   // Alter Negation modifications in-place
