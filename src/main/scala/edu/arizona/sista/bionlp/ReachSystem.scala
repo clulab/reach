@@ -83,14 +83,9 @@ class ReachSystem(rules: Option[Rules] = None,
   def extractEventsFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
     val mentions = eventEngine.extractByType[BioMention](doc, State(ms))
     // clean modified entities
-    // keep only the most complete events that are worth reporting
-    // NOTE: This used to be handled by pruneMentions
-    val cleanMentions =
-      keepMostCompleteMentions(mentions, State(mentions))
-        .map(_.toBioMention)
     // remove ModificationTriggers
     // Make sure we don't have any "ModificationTrigger" Mentions
-    val validMentions = cleanMentions.filterNot(_ matches "ModificationTrigger")
+    val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
     // handle multiple Negation modifications
     handleNegations(validMentions)
     validMentions
@@ -99,8 +94,7 @@ class ReachSystem(rules: Option[Rules] = None,
   //
   def extractResolvedFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
     val mentions = corefEngine.extractByType[BioMention](doc, State(ms))
-    val cleanMentions = pruneMentions(mentions)
-    cleanMentions
+    mentions
   }
 }
 
@@ -216,14 +210,25 @@ object ReachSystem {
         }
       }
 
-
     // Remove any "controlled" Mentions we discarded
     val cleanMentions =
       (correctedRegulations.flatten ++ other)
         .filter(m => !toRemove.contains(m))
         .map(_.toBioMention)
-    // Run the old pruning code
-    pruneMentions(cleanMentions)
+
+    val (regs, nonRegs) = cleanMentions.partition(_ matches "ComplexEvent")
+    // Run the old pruning code first on regulations
+    val remainingRegs = pruneMentions(regs)
+    // We don't want to accidentally filter out any SimpleEvents
+    // that are valid arguments to the filtered Regs
+    val keepThese:Seq[Mention] =
+      remainingRegs.flatMap(_.arguments.values)
+        .flatten
+        .filter(m => m matches "SimpleEvent")
+        .distinct
+    // Return the filtered with the arguments to the Regulations
+    val remainingNonRegs = pruneMentions(nonRegs) ++ keepThese.map(_.toBioMention)
+    (remainingRegs ++ remainingNonRegs).distinct
   }
 
   // Alter Negation modifications in-place
