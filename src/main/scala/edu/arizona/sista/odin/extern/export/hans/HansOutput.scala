@@ -501,7 +501,7 @@ object HansOutput {
     "Phosphorylation",
     "Ubiquitination",
     "Hydroxylation",
-    "Sumosylation",
+    "Sumoylation",
     "Glycosylation",
     "Acetylation",
     "Farnesylation",

@@ -2,6 +2,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
+import edu.arizona.sista.bionlp.mentions._
 
 /**
  * Tests coreference-based events
@@ -41,12 +42,44 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_.label == "Binding") should have size 2
   }
 
-  val sent15 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
-  sent15 should "contain 2 binding events" in {
-    val mentions = parseSentence(sent15)
+  val sent5 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
+  sent5 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent5)
     hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
-    // TODO: this requires coref!
     hasEventWithArguments("Binding", List("Ras", "Raf"), mentions) should be (true)
     hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
   }
+
+  // Ensure that regulation is removed if no resolved controller is found.
+  val sent6 = "It phosphorylates Ras."
+  sent6 should "contain no positive regulation" in {
+    val mentions = parseSentence(sent6)
+    mentions.filter(_ matches "Positive_regulation") should have size (0)
+    hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
+  }
+
+  // Ensure that controller cannot be antecedent to controlled's arguments
+  val sent7 = "Ras phosphorylates it."
+  sent7 should "produce no events" in {
+    val mentions = parseSentence(sent7)
+    mentions.filter(_.isInstanceOf[BioEventMention]) should have size (0)
+    mentions should have size (1)
+  }
+
+  val sent8 = "ASPP2 is common, it is well known, and Ras sumoylates it."
+  sent8 should "contain one sumoylation and one regulation" in {
+    val mentions = parseSentence(sent8)
+    val reg = mentions.find(_ matches "Positive_regulation")
+    reg should be ('defined)
+    reg.get.arguments should contain key ("controller")
+    reg.get.arguments should contain key ("controlled")
+    reg.get.arguments("controller") should have size (1)
+    reg.get.arguments("controlled") should have size (1)
+    val controller = reg.get.arguments("controller").head.toBioMention
+    val controlled = reg.get.arguments("controlled").head.toBioMention
+    controller.text should be ("Ras")
+    controlled.text should be ("sumoylates it")
+  }
+
+
 }

@@ -106,7 +106,7 @@ object NERInputWriter extends App {
   val kbFiles =
     new File("src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb")
       .listFiles
-      .filter(f => f.getName.matches(".*(tsv|gz)$") & !f.getName.contains("tissue-type"))
+      .filter(f => f.getName.matches(".*(tsv|gz)$") & ! IGNORE_THESE.contains(FileReader.removeExtension(f)))
 
   val entitySyns: Seq[Syns] =
     kbFiles.map(NERInputGenerator.tokenizeKBFile)

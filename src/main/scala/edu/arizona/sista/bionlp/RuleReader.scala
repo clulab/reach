@@ -199,13 +199,13 @@ object RuleReader {
         "verbalTriggerLemma" -> "hydroxylate",
         "nominalTriggerLemma" -> "hydroxylation")
 
-  // Sumosylation
+  // Sumoylation
   val sumoMap: Map[String, String] =
-    Map("eventName" -> "Sumosylation",
+    Map("eventName" -> "Sumoylation",
         "actionFlow" -> "default",
-        "labels" -> "Sumosylation",
-        "verbalTriggerLemma" -> "sumosylate",
-        "nominalTriggerLemma" -> "sumosylation")
+        "labels" -> "Sumoylation",
+        "verbalTriggerLemma" -> "sumoylate",
+        "nominalTriggerLemma" -> "sumoylation")
 
   // Glycosylation
   val glycoMap: Map[String, String] =
@@ -250,7 +250,7 @@ object RuleReader {
   val simpleEventMap: Map[String, Map[String, String]] =
     Map("Phosphorylation" -> phosphoMap,
         "Ubiquitination" -> ubiqMap,
-        "Sumosylation" -> sumoMap,
+        "Sumoylation" -> sumoMap,
         "Glycosylation" -> glycoMap,
         "Acetylation" -> aceMap,
         "Farnesylation" -> farneMap,
