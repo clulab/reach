@@ -64,12 +64,12 @@ class ReachSystem(rules: Option[Rules] = None,
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
-    val unresolved = extractResolvedFrom(doc, events)
-    // initialize coref
-    val coref = new Coref
-    val finalMentions = coref(unresolved,State(unresolved))
-
-    resolveDisplay(finalMentions)
+    val resolved = extractResolvedFrom(doc, events)
+    val complete =
+      // Coref introduced incomplete Mentions that now need to be pruned
+      keepMostCompleteMentions(resolved, State(resolved))
+        .map(_.toBioMention)
+    resolveDisplay(complete)
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -93,8 +93,11 @@ class ReachSystem(rules: Option[Rules] = None,
 
   //
   def extractResolvedFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
-    val mentions = corefEngine.extractByType[BioMention](doc, State(ms))
-    mentions
+    val unresolved = corefEngine.extractByType[BioMention](doc, State(ms))
+    // initialize coref
+    val coref = new Coref
+    val resolved = coref(unresolved, State(unresolved))
+    resolved
   }
 }
 
