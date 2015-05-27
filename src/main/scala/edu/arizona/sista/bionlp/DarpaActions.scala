@@ -1,6 +1,5 @@
 package edu.arizona.sista.bionlp
 
-import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
