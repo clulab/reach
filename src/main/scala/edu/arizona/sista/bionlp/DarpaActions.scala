@@ -397,8 +397,30 @@ class DarpaActions extends Actions {
     val degree = 2 // Degree up to which we should follow the links in the graph
 
     // These are the words that hint a hypothesis going on
-    val hints = Set("indicate", "suggest", "argue", "hint", "imply", "propose",
-       "consider", "speculate", "suspect", "predict", "hypothesize")
+    val hints = Set(
+      "argue",
+      "argument",
+      "believe",
+      "belief",
+      "conjecture",
+      "consider",
+      "hint",
+      "hypothesis",
+      "hypotheses",
+      "hypothesize",
+      "implication",
+      "imply",
+      "indicate",
+      "predict",
+      "prediction",
+      "proposal",
+      "propose",
+      "speculate",
+      "suggest",
+      "suspect",
+      "theorize",
+      "theory",
+      "think")
 
     // Recursive function that helps us get the words outside the event
     def getSpannedIndexes(index:Int, degree:Int, dependencies:DirectedGraph[String]):Seq[Int] = {
