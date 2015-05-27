@@ -189,4 +189,41 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controlled.arguments("theme").head.text should be ("MEK")
   }
 
+  val sent21 = "Human deoxycytidine kinase is phosphorylated by ASPP2 on serine 128."
+  sent21 should "contain exactly one positive regulation and one phosphorylation with site" in {
+    val mentions = parseSentence(sent21)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+    val reg = mentions.find(_ matches "Positive_regulation")
+    reg.get.arguments should contain key ("controller")
+    reg.get.arguments should contain key ("controlled")
+    reg.get.arguments("controller") should have size (1)
+    reg.get.arguments("controlled") should have size (1)
+    val controller = reg.get.arguments("controller").head.toBioMention
+    val controlled = reg.get.arguments("controlled").head.toBioMention
+    controller.text should be ("ASPP2")
+    controlled.arguments should contain key ("theme")
+    controlled.arguments should not contain key ("cause")
+    controlled.arguments("theme").head.text should be ("deoxycytidine kinase")
+    controlled.arguments should contain key ("site")
+    controlled.arguments("site").head.text should be ("serine 128")
+  }
+
+  val sent22 = "Human deoxycytidine kinase is phosphorylated on serine 128 by ASPP2."
+  sent22 should "contain exactly one positive regulation and one phosphorylation with site" in {
+    val mentions = parseSentence(sent22)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+    val reg = mentions.find(_ matches "Positive_regulation")
+    reg.get.arguments should contain key ("controller")
+    reg.get.arguments should contain key ("controlled")
+    reg.get.arguments("controller") should have size (1)
+    reg.get.arguments("controlled") should have size (1)
+    val controller = reg.get.arguments("controller").head.toBioMention
+    val controlled = reg.get.arguments("controlled").head.toBioMention
+    controller.text should be ("ASPP2")
+    controlled.arguments should contain key ("theme")
+    controlled.arguments should not contain key ("cause")
+    controlled.arguments("theme").head.text should be ("deoxycytidine kinase")
+    controlled.arguments should contain key ("site")
+    controlled.arguments("site").head.text should be ("serine 128")
+  }
 }

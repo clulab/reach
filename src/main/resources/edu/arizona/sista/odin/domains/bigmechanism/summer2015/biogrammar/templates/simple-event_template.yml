@@ -254,7 +254,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) (by @cause:BioChemicalEntity)? (/^(on|at)$/ @site:Site)?
+    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) (by @cause:BioChemicalEntity) (/^(on|at)$/ @site:Site)?
 
 
 - name: {{ eventName }}_token_5_verb
