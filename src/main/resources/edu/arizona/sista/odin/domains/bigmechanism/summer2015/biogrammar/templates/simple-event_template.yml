@@ -213,7 +213,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) [!tag=/^V/]{,2}? "at" /./+ @site:Site [word=/^(of|for)/] @theme:BioChemicalEntity
+    (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) [!tag=/^V/]{,2}? "at" /./{1,10} @site:Site [word=/^(of|for)/] @theme:BioChemicalEntity
 
 
 # FIXME wait until the thread bundle bug is fixed
@@ -244,7 +244,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [lemma="effect"] of [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on @theme:BioChemicalEntity (at [!tag=/^V/]+ @site:Site)?
+    (?<trigger> [lemma="effect"] of [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) on @theme:BioChemicalEntity (at [!tag=/^V/]{1,2} @site:Site)?
 
 
 - name: {{ eventName }}_token_4_verb
@@ -275,5 +275,5 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    (@cause:BioChemicalEntity)? (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) [!tag=/^V/ & !word=by]{,2}? @theme:BioChemicalEntity /./+ @site:Site
+    (@cause:BioChemicalEntity)? (?<trigger> [lemma=/{{ verbalTriggerLemma }}/ & !word=/(?i)^de/ & tag=/^V/ & !mention=ModificationTrigger]) [!tag=/^V/ & !word=by]{,2}? @theme:BioChemicalEntity /./{1,10} @site:Site
 
