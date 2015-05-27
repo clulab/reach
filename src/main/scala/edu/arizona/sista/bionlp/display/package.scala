@@ -34,6 +34,7 @@ package object display {
 
   def displayMention(mention: Mention) {
     val boundary = s"\t${"-" * 30}"
+    println(s"mention text: ${mention.text}")
     println(mention.labels)
     println(boundary)
     println(s"\tRule => ${mention.foundBy}")
@@ -59,6 +60,7 @@ package object display {
         }
         m.modifications foreach {
           case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
+          case Hypothesis(evidence) => println(s"\tSuggest hypothesis by ${evidence.text}")
           case _ => ()
         }
       case m: BioRelationMention =>
