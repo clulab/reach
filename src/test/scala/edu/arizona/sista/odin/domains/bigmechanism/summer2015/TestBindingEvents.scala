@@ -23,7 +23,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
 
     for (b <- bindings) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
-      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme in all these
+      b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
     }
   }
 
@@ -37,7 +37,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
 
     for (b <- bindings) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
-      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme
+      b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme
     }
   }
 
@@ -76,7 +76,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     bs should have size (2)
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
-      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme in all these
+      b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
     }
 
     mentions = parseSentence(sent5b)
@@ -84,7 +84,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     bs should have size (2)
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
-      b.arguments.get("theme").get.find(_.text == "Ras").isDefined should be (true) // Ras is a theme in all these
+      b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
     }
   }
 
@@ -250,6 +250,11 @@ class TestBindingEvents extends FlatSpec with Matchers {
     binding.arguments("theme") foreach { theme =>
       theme.text should not be ("Nucleotide")
     }
+  }
+
+  "testBindingGerund1" should "find 1 binding event" in {
+    val mentions = parseSentence("IKKgamma appears capable of binding linear polyubiquitin.")
+    hasEventWithArguments("Binding", List("IKKgamma", "linear polyubiquitin"), mentions) should be (true)
   }
 
 }

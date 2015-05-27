@@ -1,8 +1,8 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp.mentions.BioEventMention
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
+import edu.arizona.sista.bionlp.mentions._
 
 /**
  * Tests coreference-based events
@@ -60,17 +60,25 @@ class TestCoreference extends FlatSpec with Matchers {
 
   // Ensure that controller cannot be antecedent to controlled's arguments
   val sent7 = "Ras phosphorylates it."
-  sent7 should "contain produce no events" in {
+  sent7 should "produce no events" in {
     val mentions = parseSentence(sent7)
     mentions.filter(_.isInstanceOf[BioEventMention]) should have size (0)
     mentions should have size (1)
   }
 
   val sent8 = "ASPP2 is common, it is well known, and Ras sumoylates it."
-  sent8 should "contain produce no events" in {
+  sent8 should "contain one sumoylation and one regulation" in {
     val mentions = parseSentence(sent8)
-    mentions.filter(_.isInstanceOf[BioEventMention]) should have size (0)
-    mentions should have size (1)
+    val reg = mentions.find(_ matches "Positive_regulation")
+    reg should be ('defined)
+    reg.get.arguments should contain key ("controller")
+    reg.get.arguments should contain key ("controlled")
+    reg.get.arguments("controller") should have size (1)
+    reg.get.arguments("controlled") should have size (1)
+    val controller = reg.get.arguments("controller").head.toBioMention
+    val controlled = reg.get.arguments("controlled").head.toBioMention
+    controller.text should be ("Ras")
+    controlled.text should be ("sumoylates it")
   }
 
 

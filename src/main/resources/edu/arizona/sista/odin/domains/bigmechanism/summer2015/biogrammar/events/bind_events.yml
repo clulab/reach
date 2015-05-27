@@ -245,6 +245,15 @@
     theme1:BioChemicalEntity+ = poss
     theme2:BioChemicalEntity* = (prep_to|prep_with|prep_of|prep_by) [!(lemma=member)] nn{,2} | (prep_to|prep_with|prep_of|prep_by) [lemma=member] nn{1,2}
 
+- name: binding_syntax_25_verb
+  example: "IKKgamma appears capable of binding linear polyubiquitin."
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [word=binding & tag=VBG]
+    theme1:BioChemicalEntity+ = <amod <prep_of <acomp{,2} nsubj
+    theme2:BioChemicalEntity+ = <amod
 
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
