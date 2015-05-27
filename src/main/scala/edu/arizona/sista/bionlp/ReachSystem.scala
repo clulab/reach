@@ -88,9 +88,12 @@ class ReachSystem(rules: Option[Rules] = None,
     val cleanMentions =
       keepMostCompleteMentions(mentions, State(mentions))
         .map(_.toBioMention)
+    // remove ModificationTriggers
+    // Make sure we don't have any "ModificationTrigger" Mentions
+    val validMentions = cleanMentions.filterNot(_ matches "ModificationTrigger")
     // handle multiple Negation modifications
-    handleNegations(cleanMentions)
-    cleanMentions
+    handleNegations(validMentions)
+    validMentions
   }
 
   //
@@ -107,10 +110,7 @@ object ReachSystem {
   // into modifications of other mentions
   def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] = {
 
-    // Make sure we don't have any "ModificationTrigger" Mentions
-    val validMentions = ms.filterNot(_ matches "ModificationTrigger")
-
-    val (events, nonEvents) = validMentions.partition(_.isInstanceOf[BioEventMention])
+    val (events, nonEvents) = ms.partition(_.isInstanceOf[BioEventMention])
     // We need to remove underspecified EventMentions of near-duplicate groupings
     // (ex. same phospho, but one is missing a site)
     val mentionGroupings =
