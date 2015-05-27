@@ -608,20 +608,20 @@ class DarpaActions extends Actions {
     require(trigger.document == arg.document, "mentions not in the same document")
     // it is possible for the trigger and the arg to be in different sentences
     // because of coreference
-    if (trigger.sentence != arg.sentence) true
+    if (trigger.sentence != arg.sentence) false
     else trigger.sentenceObj.dependencies match {
       // if for some reason we don't have dependencies
       // then there is nothing we can do
-      case None => true
+      case None => false
       case Some(deps) => for {
         tok1 <- trigger.tokenInterval
         tok2 <- arg.tokenInterval
         path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
         node <- path
         if state.mentionsFor(trigger.sentence, node, "Gene_or_gene_product").nonEmpty
-      } return false
+      } return true
         // if we reach this point then we are good
-        true
+        false
     }
   }
 
