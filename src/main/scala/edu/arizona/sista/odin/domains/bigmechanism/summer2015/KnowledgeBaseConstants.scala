@@ -3,7 +3,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 5/26/2015.
-  *   Last Modified: Redo file constants: add manual and static.
+  *   Last Modified: Update for rename of files to model-*.
   */
 trait KnowledgeBaseConstants {
 
@@ -41,16 +41,16 @@ trait KnowledgeBaseConstants {
 
 
   /** Filename of the manually maintained cellular location file. */
-  val ManualCellLocationFilename = "model-cellular_component.tsv"
+  val ManualCellLocationFilename = "manual-cellular_component.tsv"
 
   /** Filename of the manually maintained small molecule file. */
-  val ManualChemicalFilename = "model-simple_chemical.tsv"
+  val ManualChemicalFilename = "manual-simple_chemical.tsv"
 
   /** Filename of the manually maintained protein file. */
-  val ManualProteinFilename = "model-gene_or_gene_product.tsv"
+  val ManualProteinFilename = "manual-gene_or_gene_product.tsv"
 
   /** Filename of the manually maintained protein family file. */
-  val ManualProteinFamilyFilename = "model-family.tsv"
+  val ManualProteinFamilyFilename = "manual-family.tsv"
 
 
   /** Filename of the static cellular location file. */
