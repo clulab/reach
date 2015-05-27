@@ -582,4 +582,47 @@ class DarpaActions extends Actions {
 
     mentions
   }
+
+  def validArguments(mention: Mention, state: State): Boolean = mention match {
+    // TextBoundMentions don't have arguments
+    case _: BioTextBoundMention => true
+    // RelationMentions don't have triggers, so we can't inspect the path
+    case _: BioRelationMention => true
+    // EventMentions are the only ones we can really check
+    case m: BioEventMention =>
+      // get simple chemicals in arguments
+      val args = m.arguments.values.flatten
+      val simpleChemicals = args.filter(_ matches "Simple_chemical")
+      // if there are no simple chemicals then we are done
+      if (simpleChemicals.isEmpty) true
+      else {
+        for (chem <- simpleChemicals)
+          if (proteinBetween(m.trigger, chem, state))
+            return false
+        true
+      }
+  }
+
+  def proteinBetween(trigger: Mention, arg: Mention, state: State): Boolean = {
+    // sanity check
+    require(trigger.document == arg.document, "mentions not in the same document")
+    // it is possible for the trigger and the arg to be in different sentences
+    // because of coreference
+    if (trigger.sentence != arg.sentence) true
+    else trigger.sentenceObj.dependencies match {
+      // if for some reason we don't have dependencies
+      // then there is nothing we can do
+      case None => true
+      case Some(deps) => for {
+        tok1 <- trigger.tokenInterval
+        tok2 <- arg.tokenInterval
+        path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
+        node <- path
+        if state.mentionsFor(trigger.sentence, node, "Gene_or_gene_product").nonEmpty
+      } return false
+        // if we reach this point then we are good
+        true
+    }
+  }
+
 }

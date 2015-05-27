@@ -2,6 +2,9 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
+import edu.arizona.sista.odin.State
+import edu.arizona.sista.struct.Interval
+import edu.arizona.sista.bionlp.mentions._
 
 /**
  * Unit tests to ensure Binding rules are matching correctly
@@ -232,8 +235,26 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p53", "K-Ras"), mentions) should be (true)
   }
 
+  val sent18 = "Nucleotide free Ras binds to MEK"
+  sent18 should "not find a binding betwee Nucleotide and MEK" in {
+    val doc = testReach.mkDoc(sent18, "testdoc")
+    val state = State(Seq(
+      new BioTextBoundMention(Seq("Simple_chemical", "BioChemicalEntity", "PossibleController"), Interval(0), 0, doc, true, "<test>")
+    ))
+    val mentions = testReach.extractFrom(doc)
+    val bindings = mentions.filter(_ matches "Binding")
+    bindings should have size (1)
+    val binding = bindings.head
+    binding.arguments should contain key ("theme")
+    binding.arguments("theme") should have size (2)
+    binding.arguments("theme") foreach { theme =>
+      theme.text should not be ("Nucleotide")
+    }
+  }
+
   "testBindingGerund1" should "find 1 binding event" in {
     val mentions = parseSentence("IKKgamma appears capable of binding linear polyubiquitin.")
     hasEventWithArguments("Binding", List("IKKgamma", "linear polyubiquitin"), mentions) should be (true)
   }
+
 }

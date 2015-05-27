@@ -31,6 +31,7 @@ class ReachSystem(rules: Option[Rules] = None,
   // This will be our global action for the eventEngine
   val cleanupEvents =
     DarpaFlow(actions.siteSniffer) andThen
+    DarpaFlow((mentions: Seq[Mention], state: State) => mentions.filter(m => actions.validArguments(m, state))) andThen
     // This should happen before attempting to keep the most complete Mentions
     DarpaFlow(actions.detectNegations) andThen
     DarpaFlow(actions.detectHypotheses) andThen
