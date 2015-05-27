@@ -1,7 +1,7 @@
 package edu.arizona.sista.bionlp
 
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.struct.Interval
+import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 
@@ -391,6 +391,72 @@ class DarpaActions extends Actions {
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = site)
       Some(modifiedEntity)
     }
+  }
+
+  def detectHypotheses(mentions: Seq[Mention], state:State): Seq[Mention] ={
+
+    val degree = 2 // Degree up to which we should follow the links in the graph
+
+    // These are the words that hint a hypothesis going on
+    val hints = Set("indicate", "suggest", "argue", "hint", "imply", "propose",
+       "consider", "speculate", "suspect", "predict", "hyphotesize")
+
+    // Recursive function that helps us get the words outside the event
+    def getSpannedIndexes(index:Int, degree:Int, dependencies:DirectedGraph[String]):Seq[Int] = {
+      degree match {
+        case 0 => Seq[Int]() // Base case of the recursion
+        case _ =>
+          // Get incoming and outgoing edges
+          val edges = dependencies.getIncomingEdges(index) ++ dependencies.getOutgoingEdges(index)
+
+          // Each edge is a tuple of (endpoint index, edge label), so we map it to the first
+          // element of the tuple
+          val indexes:Seq[Int] = edges map (_._1)
+
+          // Recursively call this function to get outter degrees
+          val higherOrderIndexes:Seq[Int] = indexes flatMap (getSpannedIndexes(_, degree - 1, dependencies))
+
+          indexes ++ higherOrderIndexes
+      }
+    }
+
+    mentions foreach {
+      case event:BioEventMention =>
+
+        // Get the dependencies of the sentence
+        val dependencies = event.sentenceObj.dependencies.getOrElse(new DirectedGraph[String](Nil, Set[Int]()))
+
+        val eventInterval:Seq[Int] = event.tokenInterval.toSeq
+
+        // Get the index of the word outside the event up to "degree" degrees
+        val spannedIndexes:Seq[Int] = eventInterval flatMap (getSpannedIndexes(_, degree, dependencies))
+
+        // Remove duplicates
+        val indexes:Seq[Int] = (eventInterval ++ spannedIndexes).distinct
+
+        // Get the lemmas
+        val lemmas = indexes map (event.sentenceObj.lemmas.get(_))
+
+        // Perform assignments
+        for {
+          // Zip the lemma with its index, this is necessary to build the Modifictaion
+          (lemma, ix) <- lemmas zip indexes
+          // Only if the lemma is part of one of the hints
+          if hints contains lemma
+        }{
+          event.modifications += Hypothesis(new BioTextBoundMention(
+            Seq("Hypothesis_hint"),
+            Interval(ix),
+            sentence = event.sentence,
+            document = event.document,
+            keep = event.keep,
+            foundBy = event.foundBy
+          ))
+        }
+
+      case _ => ()
+    }
+    mentions
   }
 
   def detectNegations(mentions: Seq[Mention], state:State): Seq[Mention] = {

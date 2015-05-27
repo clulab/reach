@@ -37,3 +37,7 @@ case class EventSite(site: Mention) extends Modification {
 case class Negation(evidence: Mention) extends Modification {
   val label = "Negation"
 }
+
+case class Hypothesis(evidence: Mention) extends Modification{
+  val label = "Hypothesis"
+}
