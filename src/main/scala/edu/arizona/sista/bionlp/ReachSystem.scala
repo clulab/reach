@@ -1,6 +1,5 @@
 package edu.arizona.sista.bionlp
 
-import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{DarpaFlow, LocalGrounder, Coref}
@@ -10,7 +9,6 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
 
 class ReachSystem(rules: Option[Rules] = None,
                   proc: Option[BioNLPProcessor] = None) {
@@ -29,14 +27,13 @@ class ReachSystem(rules: Option[Rules] = None,
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
   val modificationEngine = ExtractorEngine(modificationRules, actions)
-  // initialize coref
-  val coref = new Coref
   // start event extraction engine
   // This will be our global action for the eventEngine
-  val cleanupEvents = DarpaFlow(actions.siteSniffer)andThen
-    DarpaFlow(actions.detectNegations) andThen
+  val cleanupEvents =
+    DarpaFlow(actions.siteSniffer) andThen
     DarpaFlow(actions.splitSimpleEvents) andThen
-    coref // Should pruneMentions happen in the global action?
+    DarpaFlow(keepMostCompleteMentions) andThen
+    DarpaFlow(actions.detectNegations)
 
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
@@ -79,7 +76,9 @@ class ReachSystem(rules: Option[Rules] = None,
     // clean modified entities
     // keep only the most complete events that are worth reporting
     // NOTE: This used to be handled by pruneMentions
-    val cleanMentions = keepMostCompleteMentions(mentions, State(mentions))
+    val cleanMentions =
+      keepMostCompleteMentions(mentions, State(mentions))
+        .map(_.toBioMention)
     // handle multiple Negation modifications
     handleNegations(cleanMentions)
     cleanMentions
@@ -111,12 +110,12 @@ object ReachSystem {
     nonEvents ++ completeEventMentions.flatten.toSeq
   }
 
-  def keepMostCompleteMentions(ms: Seq[BioMention], state: State): Seq[BioMention] = {
+  def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
     // Regulation require special attention
-    val (complexRegs, other: Seq[BioMention]) = ms.partition(_ matches "ComplexEvent")
+    val (complexRegs, other: Seq[Mention]) = ms.partition(_ matches "ComplexEvent")
     // We need to keep track of what SimpleEvents to remove from the state
     // whenever another is used to replace it as a "controlled" arg in a Regulation
-    var toRemove = mutable.Set[BioMention]()
+    var toRemove = mutable.Set[Mention]()
     // Check each Regulation to see if there are any "more complete" Mentions
     // for the controlled available in the state
     val correctedRegulations =
@@ -194,7 +193,8 @@ object ReachSystem {
     // Remove any "controlled" Mentions we discarded
     val cleanMentions =
       (correctedRegulations.flatten ++ other)
-      .filter(m => !toRemove.contains(m))
+        .filter(m => !toRemove.contains(m))
+        .map(_.toBioMention)
     // Run the old pruning code
     pruneMentions(cleanMentions)
   }
