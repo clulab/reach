@@ -230,8 +230,8 @@ class DarpaActions extends Actions {
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
     //println(s"${mentions.size} EventSite mentions found")
     mentions foreach { m =>
+      //println(s"\t${m.arguments("entity").size} entities found by ${m.foundBy}: ${m.text}")
       val bioMention = m.arguments("entity").head.toBioMention
-      //println(s"""\t\t(matched by ${m.foundBy} for "${m.text}")""")
       // Check the complete span for any sites
       // FIXME this is due to an odin bug
       state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Site") foreach { eSite =>
