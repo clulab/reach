@@ -106,8 +106,7 @@ class ReachSystem(rules: Option[Rules] = None,
 
 object ReachSystem {
 
-  // this function should remove mentions that were converted
-  // into modifications of other mentions
+  // a simple, imperfect way of removing incomplete Mentions
   def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] = {
 
     val (events, nonEvents) = ms.partition(_.isInstanceOf[BioEventMention])
@@ -126,6 +125,8 @@ object ReachSystem {
     nonEvents ++ completeEventMentions.flatten.toSeq
   }
 
+  // Removal of incomplete Mentions with special care to Regulations
+  // calls pruneMentions after attending to Regulations
   def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
 
     // Move any Negation modification on a Regulation's controlled arg to the Regulation
