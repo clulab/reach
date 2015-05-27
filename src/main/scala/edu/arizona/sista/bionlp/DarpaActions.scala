@@ -1,6 +1,5 @@
 package edu.arizona.sista.bionlp
 
-import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
@@ -483,6 +482,7 @@ class DarpaActions extends Actions {
 
           }
           ///////////////////////////////////////////////////
+        case _ => ()
     }
 
     mentions
