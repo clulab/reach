@@ -54,6 +54,8 @@ class TestTranslocationEvents extends FlatSpec with Matchers {
 
   "testTranslocation5" should "find 1 translocation event" in {
     val mentions = parseSentence("ASPP2, a protein which translocates Pde2 from the membrane to the nucleus, is subsequently phosphorylated.")
+    mentions.filter(_.label == "Translocation") should have size (1)
+    mentions.filter(_.label == "Phosphorylation") should have size (1)
     hasEventWithArguments("Translocation", List("Pde2", "membrane", "nucleus"), mentions) should be (true)
   }
 
