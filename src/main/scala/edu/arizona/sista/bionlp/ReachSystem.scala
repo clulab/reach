@@ -35,8 +35,7 @@ class ReachSystem(rules: Option[Rules] = None,
     // This should happen before attempting to keep the most complete Mentions
     DarpaFlow(actions.detectNegations) andThen
     DarpaFlow(actions.detectHypotheses) andThen
-    DarpaFlow(actions.splitSimpleEvents) andThen
-    DarpaFlow(keepMostCompleteMentions)
+    DarpaFlow(actions.splitSimpleEvents)
 
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
