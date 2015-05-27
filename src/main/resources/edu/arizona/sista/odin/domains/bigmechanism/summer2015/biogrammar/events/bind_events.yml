@@ -176,7 +176,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=/bind|recognize/ & tag=/^V/]
+    trigger = [lemma=/bind/ & tag=/^V/]
     theme1:BioChemicalEntity+ = nsubjpass nn{,2} | <rcmod <appos?
     theme2:BioChemicalEntity+ = agent nn{,2} | dobj
 
