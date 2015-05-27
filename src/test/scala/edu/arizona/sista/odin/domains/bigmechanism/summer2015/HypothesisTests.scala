@@ -31,7 +31,7 @@ class HypothesisTests extends FlatSpec with Matchers{
       getHyphoteses(phospho.head) should have size (1)
     }
 
-    val sen3 = "Now, we hyphotesize that RAS phosphorylates MEK"
+    val sen3 = "Now, we hypothesize that RAS phosphorylates MEK"
 
     sen3 should "contain a mention with a hyphotesis modification" in {
       val mentions = parseSentence(sen3).filter(_ matches "Event")

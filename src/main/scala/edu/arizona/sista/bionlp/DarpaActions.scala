@@ -398,7 +398,7 @@ class DarpaActions extends Actions {
 
     // These are the words that hint a hypothesis going on
     val hints = Set("indicate", "suggest", "argue", "hint", "imply", "propose",
-       "consider", "speculate", "suspect", "predict", "hyphotesize")
+       "consider", "speculate", "suspect", "predict", "hypothesize")
 
     // Recursive function that helps us get the words outside the event
     def getSpannedIndexes(index:Int, degree:Int, dependencies:DirectedGraph[String]):Seq[Int] = {
