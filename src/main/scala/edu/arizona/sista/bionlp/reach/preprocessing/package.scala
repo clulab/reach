@@ -20,12 +20,19 @@ package object preprocessing {
   // Retrieve relevant rule labels associated with a kb file basename
   val KBLUT: Map[String, Seq[String]] =
     Map("hmdb" -> Seq("Simple_chemical", "BioChemicalEntity"),
+        "chebi" -> Seq("Simple_chemical", "BioChemicalEntity"),
         "ProteinFamilies" -> Seq("Family", "BioChemicalEntity"),
         "tissue-type" -> Seq("Cellular_component", "BioChemicalEntity"),
         "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
         "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
         "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
-        //Entities from model
+        // protein domains
+        "InterPro-protein-domains" -> Seq("Site"),
+        // biopax files
+        "biopax-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
+        "biopax-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
+        "biopax-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"),
+        // Entities from model
         "model-family" -> Seq("Family", "BioChemicalEntity"),
         "model-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
         "model-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
