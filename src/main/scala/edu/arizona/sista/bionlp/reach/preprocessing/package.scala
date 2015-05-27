@@ -28,16 +28,16 @@ package object preprocessing {
         "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
         // protein domains
         "InterPro-protein-domains" -> Seq("Site"),
-        // biopax files
+        // biopax (model) files
         "biopax-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
         "biopax-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
         "biopax-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"),
-        // Entities from model
-        "model-family" -> Seq("Family", "BioChemicalEntity"),
-        "model-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
-        "model-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
-        "model-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"))
-      .withDefaultValue(Seq("BioChemicalEntity"))
+        // Manually added synonyms for entities (try to assign real IDs to these)
+        "manual-family" -> Seq("Family", "BioChemicalEntity"),
+        "manual-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
+        "manual-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
+        "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"))
+     // .withDefaultValue(Seq("BioChemicalEntity"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
 
@@ -45,7 +45,7 @@ package object preprocessing {
     Map("uniprot-proteins" -> speciesOfInterest,
         "ProteinFamilies" -> speciesOfInterest).withDefaultValue(Nil)
 
-
+  val IGNORE_THESE = Seq("chebi", "tissue-type")
   def mkLabelRepresentation(kb: String): String = "[" + KBLUT(kb).mkString(", ") + "]"
 
   /**
