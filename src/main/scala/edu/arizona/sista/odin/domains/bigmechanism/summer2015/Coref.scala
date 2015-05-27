@@ -89,8 +89,8 @@ class Coref extends DarpaFlow {
       }
 
       m match {
-        case ut: BioTextBoundMention if ut.labels.contains("Unresolved") => Seq()
-        case t: BioTextBoundMention if !t.labels.contains("Unresolved") => Seq(t)
+        case ut: BioTextBoundMention if ut.matches("Unresolved") => Seq()
+        case t: BioTextBoundMention if !t.matches("Unresolved") => Seq(t)
         case e: BioEventMention =>
           e +: (for {
             (k, v) <- e.arguments
@@ -118,24 +118,30 @@ class Coref extends DarpaFlow {
 
     def resolve(mention: Mention): Seq[Mention] = {
       mention match {
-        case mention: TextBoundMention if !mention.labels.contains("Unresolved") => Seq(mention)
+        case mention: BioTextBoundMention if !mention.matches("Unresolved") => Seq(mention)
 
-        case mention: TextBoundMention if mention.labels.contains("Unresolved") => {
+        case mention: BioTextBoundMention if mention.matches("Unresolved") => {
           val resolved = chains.getOrElse(mention, {
             println("Mention not used in coreference: " + mention.label + ": " + mention.text)
             Seq(mention)
           })
-            .filter(!_.labels.contains("Unresolved"))
+            .filter(!_.matches("Unresolved"))
             .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
-          resolved.asInstanceOf[BioTextBoundMention].modifications = mention.asInstanceOf[BioTextBoundMention].modifications
+          resolved.asInstanceOf[BioTextBoundMention].modifications ++= mention.asInstanceOf[BioTextBoundMention].modifications
           Seq(resolved)
         }
 
-        case mention: RelationMention => {
+        case mention: BioRelationMention => {
           val args = (for {
             (argType, argMentions) <- mention.arguments
           } yield argType -> argMentions.map(a => resolve(a)).flatten).filter(_._2.nonEmpty)
           args match {
+            case regMissingArg if (mention.matches("ComplexEvent") ||
+              mention.matches("Negative_regulation") ||
+              mention.matches("Positive_activation") ||
+              mention.matches("Negative_activation")) &&
+              args.size < 2 =>
+              Seq()
             case stillUnresolved if args.size < 1 => Seq()
             case _ =>
               val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy)
@@ -145,25 +151,24 @@ class Coref extends DarpaFlow {
           }
         }
 
-        case mention: EventMention if mention.labels.contains("Unresolved") => {
+        case mention: BioEventMention if mention.matches("Unresolved") => {
           val resolved = chains.getOrElse(mention, {
             println("Mention not used in coreference: " + mention.label + ": " + mention.text)
             Seq(mention)
           })
-            .filter(!_.labels.contains("Unresolved"))
+            .filter(!_.matches("Unresolved"))
             .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
           resolved.asInstanceOf[BioEventMention].modifications ++= mention.asInstanceOf[BioEventMention].modifications
           resolved.asInstanceOf[BioEventMention].mutableTokenInterval = mention.tokenInterval
           Seq(resolved)
         }
 
-        // TODO: special case for complex events (need resolved controller)
-
-        case mention: EventMention if !mention.labels.contains("Unresolved") & toSplit.contains(mention) =>
+        case mention: BioEventMention if !mention.matches("Unresolved") & toSplit.contains(mention) =>
 
             val themeSets = combination(toSplit(mention), themeCardinality(mention.label))
             //println("Number of sets: " + themeSets.length)
             //themeSets.foreach(s => println(s"(${for (m<-s) yield m.text + ","})"))
+
             for (themeSet <- themeSets) yield {
               val resolved = new BioEventMention(mention.labels,
               mention.trigger,
@@ -177,10 +182,11 @@ class Coref extends DarpaFlow {
               resolved
             }
 
-        case mention:EventMention if !mention.labels.contains("Unresolved") & !toSplit.contains(mention) =>
+        case mention: BioEventMention if !mention.matches("Unresolved") & !toSplit.contains(mention) =>
             val args = (for {
               (argType, argMentions) <- mention.arguments
             } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
+
             args match {
               case regMissingArg if (mention.matches("Positive_regulation") ||
                 mention.matches("Negative_regulation") ||
@@ -239,10 +245,6 @@ class Coref extends DarpaFlow {
             case _ =>
               val base = trigMentions.head
               val newMap = mapMerger[String,Mention](trigMentions.map(_.arguments))
-              //for {
-              //  (k,v) <- newMap
-              //  m <- v
-              //} {println(s"$k: ${m.text}")}
               new BioEventMention(
               trigMentions.flatMap(_.labels).distinct,base.trigger,mapMerger(trigMentions.map(_.arguments)),base.sentence,doc,base.keep,"argMerger")
           }
@@ -264,19 +266,17 @@ class Coref extends DarpaFlow {
       m <- (mentions ++ hiddenMentions).distinct
     } yield getChildren(m)).flatten.distinct.sorted.to[ListBuffer]
 
-
     orderedMentions.foreach(m => chains += m -> Seq(m))
 
     var results: Seq[Seq[Mention]] = Seq()
 
     // exact string matching
     val sameText = chains.keys
-      .filter(x => x.isInstanceOf[BioTextBoundMention] && !x.labels.contains("Unresolved"))
+      .filter(x => x.isInstanceOf[BioTextBoundMention] && !x.matches("Unresolved"))
       .groupBy (m => m.text.toLowerCase)
       .filter(_._2.toSeq.length > 1)
     sameText.foreach {
       case (ent, ms) =>
-        //ms.foreach(m => println("Exact string match for " + m.text))
         val newChain = ms.flatMap(m => chains(m)).toSeq.distinct.sorted
         sameText(ent).foreach(link => chains(link) = newChain)
     }
@@ -394,32 +394,24 @@ class Coref extends DarpaFlow {
       mention match {
         // bindings need two themes each, but sometimes more than two are mentioned, in which case we
         // need an exhaustive combination of all the bindings from theme1(s) to theme2(s)
-        case binding: BioEventMention if binding.labels.contains("Binding") &
-          (binding.arguments.getOrElse("theme1", Seq()).exists(thm => thm.labels.contains("Unresolved")) ||
-            binding.arguments.getOrElse("theme2", Seq()).exists(thm => thm.labels.contains("Unresolved"))) =>
+        case binding: BioEventMention if binding.matches("Binding") &
+          (binding.arguments.getOrElse("theme1", Seq()).exists(thm => thm.matches("Unresolved")) ||
+            binding.arguments.getOrElse("theme2", Seq()).exists(thm => thm.matches("Unresolved"))) =>
           //println("entering cardinality detector: binding")
 
           // this gnarly thing returns BioChemicalEntities that are grounded, aren't already arguments in this event,
           // and aren't controllers of a regulation that has this event as a controlled
           val priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
-            !x.labels.contains("Unresolved") &&
-            x.labels.contains("BioChemicalEntity") &&
+            !x.matches("Unresolved") &&
+            x.matches("BioChemicalEntity") &&
             !binding.arguments.getOrElse("theme1",Seq()).contains(x) &&
             !binding.arguments.getOrElse("theme2",Seq()).contains(x) &&
-            !chains.keys.exists(y => y.labels.contains("ComplexEvent") &&
+            !chains.keys.exists(y => y.matches("ComplexEvent") &&
               y.arguments.getOrElse("controller",Seq()).contains(x) &&
               y.arguments.getOrElse("controlled",Seq()).contains(binding)))
 
-          //println("PRIORS")
-          //priors.foreach(x => println(x.text))
-
           val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1",Seq())
           val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2",Seq())
-
-          //println("Theme1s:")
-          //theme1s.foreach(x => println(x.text))
-          //println("Theme2s:")
-          //theme2s.foreach(x => println(x.text))
 
           // keeps track of antecedents found so far, so they won't be reused
           var antecedents: Seq[Mention] = Seq()
@@ -431,18 +423,17 @@ class Coref extends DarpaFlow {
             m <- theme2s
           } yield {
               val themes = m match{
-                case unres if unres.labels.contains("Unresolved") =>
+                case unres if unres.matches("Unresolved") =>
                   // exclude previously used antecedents
                   val validPriors = priors.filter(x => !antecedents.contains(x))
                   val num = cardinality(unres)
-                  //println(s"Trying to find $num")
+
                   validPriors match {
                     case noneFound if noneFound.isEmpty => Nil
                     case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
                       val numToAdd = cardinality(a)
-                      //println(s"${a.text}: $numToAdd; (${foundThemes._1} so far))")
+
                       foundThemes match {
-                        //case stillRoom if foundThemes._1 + numToAdd <= num => {println("adding it..."); (foundThemes._1 + numToAdd, foundThemes._2 :+ a)}
                         case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
                         case _ => foundThemes
                       }
@@ -458,17 +449,15 @@ class Coref extends DarpaFlow {
             m <- theme1s
           } yield {
               val themes = m match{
-                case unres if unres.labels.contains("Unresolved") =>
+                case unres if unres.matches("Unresolved") =>
                   // exclude previously used antecedents
                   val validPriors = priors.filter(x => !antecedents.contains(x))
-
                   val num = cardinality(unres)
-                  //println(s"Trying to find $num")
+
                   validPriors match {
                     case noneFound if noneFound.isEmpty => Nil
                     case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
                       val numToAdd = cardinality(a)
-                      //println(s"${a.text}: $numToAdd; (${foundThemes._1} so far))")
                       foundThemes match {
                         case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
                         case _ => foundThemes
@@ -482,11 +471,6 @@ class Coref extends DarpaFlow {
               antecedents = antecedents ++ themes
               themes
             }).flatten
-
-          //println("Theme1 antecedents:")
-          //t1Ants.foreach(x => println(x.text))
-          //println("Theme2 antecedents:")
-          //t2Ants.foreach(x => println(x.text))
 
           // Basically the same as mkBinding in DarpaActions
           val newBindings = (t1Ants, t2Ants) match {
@@ -509,14 +493,14 @@ class Coref extends DarpaFlow {
                 if (theme1.text.toLowerCase == "ubiquitin"){
                   val args = Map("theme" -> Seq(theme2))
                   val ubiq = new BioEventMention(
-                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,"corefCardinality")
+                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,doc,binding.keep,"corefCardinality")
                   ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
                   ubiq.mutableTokenInterval = mention.tokenInterval
                   ubiq
                 } else if (theme2.text.toLowerCase == "ubiquitin") {
                   val args = Map("theme" -> Seq(theme1))
                   val ubiq = new BioEventMention(
-                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,binding.document,binding.keep,"corefCardinality")
+                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,doc,binding.keep,"corefCardinality")
                   ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
                   ubiq.mutableTokenInterval = mention.tokenInterval
                   ubiq
@@ -524,7 +508,7 @@ class Coref extends DarpaFlow {
                 else {
                   val args = Map("theme" -> Seq(theme1, theme2))
                   val splitBinding = new BioEventMention(
-                    binding.labels, binding.trigger, args, binding.sentence, binding.document, binding.keep, "corefCardinality")
+                    binding.labels, binding.trigger, args, binding.sentence, doc, binding.keep, "corefCardinality")
                   splitBinding.modifications ++= mention.asInstanceOf[BioEventMention].modifications
                   splitBinding.mutableTokenInterval = mention.tokenInterval
                   splitBinding
@@ -540,17 +524,17 @@ class Coref extends DarpaFlow {
           }
 
 
-        case ev: BioEventMention if !ev.labels.contains("Binding") &
-          ev.arguments.getOrElse("theme", Seq()).exists(thm => thm.labels.contains("Unresolved")) =>
-          //println("entering cardinality detector: non-binding")
+        case ev: BioEventMention if !ev.matches("Binding") &
+          ev.arguments.getOrElse("theme", Seq()).exists(thm => thm.matches("Unresolved")) =>
+
           var antecedents: Seq[Mention] = Seq()
           val foundThemes = for {
-            m <- ev.arguments("theme").filter(thm => thm.labels.contains("Unresolved"))
+            m <- ev.arguments("theme").filter(thm => thm.matches("Unresolved"))
             priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
-              !x.labels.contains("Unresolved") &&
-              x.labels.contains(m.labels(1)) &&
+              !x.matches("Unresolved") &&
+              x.matches(m.labels(1)) &&
               !antecedents.contains(x) &&
-              !chains.keys.exists(y => y.labels.contains("ComplexEvent") &&
+              !chains.keys.exists(y => y.matches("ComplexEvent") &&
                 y.arguments.getOrElse("controller",Seq()).contains(x) &&
                 y.arguments.getOrElse("controlled",Seq()).contains(ev)))
 
