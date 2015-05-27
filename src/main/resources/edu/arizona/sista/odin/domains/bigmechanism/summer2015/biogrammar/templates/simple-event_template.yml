@@ -116,7 +116,7 @@
     cause:BioChemicalEntity = /conj_|cc|nn/{1,2} 
     site:Site? = /pobj|prep_|conj_|nn/{1,2}
 
-
+# Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
 - name: {{ eventName }}_syntax_4_noun
   priority: 4
   example: " ... mediated by inter-Rad53 {{ nominalTriggerLemma }}.  ASPP1 and ASPP2 have two conserved putative MAPK2 {{ nominalTriggerLemma }} sites in their C-terminus."
@@ -125,6 +125,7 @@
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/ & !outgoing=/prep_(by|of)/]
     theme:BioChemicalEntity = </conj/? /conj|cc|nn|prep_of/{,2}
+    site:Site? = nn | prep_at
 
 
 - name: {{ eventName }}_syntax_5_noun
