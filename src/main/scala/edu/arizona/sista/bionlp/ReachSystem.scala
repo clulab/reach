@@ -31,9 +31,10 @@ class ReachSystem(rules: Option[Rules] = None,
   // This will be our global action for the eventEngine
   val cleanupEvents =
     DarpaFlow(actions.siteSniffer) andThen
+    // This should happen before attempting to keep the most complete Mentions
+    DarpaFlow(actions.detectNegations) andThen
     DarpaFlow(actions.splitSimpleEvents) andThen
-    DarpaFlow(keepMostCompleteMentions) andThen
-    DarpaFlow(actions.detectNegations)
+    DarpaFlow(keepMostCompleteMentions)
 
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
@@ -136,7 +137,6 @@ object ReachSystem {
             // If the label is the same, these MUST be BioEventMentions (i.e SimpleEvents)
             .map(_.asInstanceOf[BioEventMention])
             .filter(m => m.arguments.size > argCount && (m.trigger == controlled.trigger))
-
         // Do we have any "more complete" Mentions to substitute for the controlled?
         replacementCandidates match {
           // Use the current reg, since there aren't any "more complete"
@@ -162,8 +162,11 @@ object ReachSystem {
                         relReg.document,
                         relReg.keep,
                         relReg.foundBy)
-                    // Get the old BioRelationMention's modifications
+                    // Get the modifications from the new controlled
                     moreCompleteReg.modifications = r.modifications
+                    // remove the modification from the new controlled
+                    r.modifications.empty
+                    // return the new Regulation
                     moreCompleteReg
                   // Is the Regulation we're replacing a BioEventMention?
                   case eventReg: BioEventMention =>
@@ -183,6 +186,9 @@ object ReachSystem {
                         eventReg.foundBy)
                     // Get the old BioEventMention's modifications
                     moreCompleteReg.modifications = r.modifications
+                    // remove the modification from the new controlled
+                    r.modifications.empty
+                    // return the new Regulation
                     moreCompleteReg
                 }
               }
