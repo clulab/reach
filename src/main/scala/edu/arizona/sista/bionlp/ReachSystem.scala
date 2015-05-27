@@ -127,7 +127,16 @@ object ReachSystem {
   }
 
   def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
-    // Regulation require special attention
+
+    // Move any Negation modification on a Regulation's controlled arg to the Regulation
+    def promoteNegationModifications(parent: BioMention, child: BioMention): Unit = {
+     val (negs, other) = child.modifications.partition(_.isInstanceOf[Negation])
+      parent.modifications ++= negs
+      // remove Negation modifications from child
+      child.modifications = other
+    }
+
+    // Regulations require special attention
     val (complexRegs, other: Seq[Mention]) = ms.partition(_ matches "ComplexEvent")
     // We need to keep track of what SimpleEvents to remove from the state
     // whenever another is used to replace it as a "controlled" arg in a Regulation
@@ -177,10 +186,8 @@ object ReachSystem {
                         relReg.document,
                         relReg.keep,
                         relReg.foundBy)
-                    // Get the modifications from the new controlled
-                    moreCompleteReg.modifications = r.modifications
-                    // remove the modification from the new controlled
-                    r.modifications.empty
+                    // Move Negation modifications from controlled to Reg.
+                    promoteNegationModifications(moreCompleteReg, r)
                     // return the new Regulation
                     moreCompleteReg
                   // Is the Regulation we're replacing a BioEventMention?
@@ -199,10 +206,8 @@ object ReachSystem {
                         eventReg.document,
                         eventReg.keep,
                         eventReg.foundBy)
-                    // Get the old BioEventMention's modifications
-                    moreCompleteReg.modifications = r.modifications
-                    // remove the modification from the new controlled
-                    r.modifications.empty
+                    // Move Negation modifications from controlled to Reg.
+                    promoteNegationModifications(eventReg, r)
                     // return the new Regulation
                     moreCompleteReg
                 }
