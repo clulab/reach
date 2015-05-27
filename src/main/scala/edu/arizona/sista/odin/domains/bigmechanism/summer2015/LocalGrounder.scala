@@ -6,7 +6,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Add ChEBI KB lookup and prioritize it over HMDB.
+  *   Last Modified: Also use manual and generated KBs.
   */
 class LocalGrounder extends DarpaFlow {
 
@@ -21,12 +21,22 @@ class LocalGrounder extends DarpaFlow {
     * 5. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val searchSequence = Seq(
-    new AzProteinKBAccessor,
-    new AzProteinFamilyKBAccessor,
-    new AzSmallMoleculeKBAccessor2,
-    new AzSmallMoleculeKBAccessor,
-    new AzSubcellularLocationKBAccessor,
-//    new AzTissueTypeKBAccessor,
+    new StaticProteinKBAccessor,
+    new ManualProteinKBAccessor,
+    new StaticProteinFamilyKBAccessor,
+    new ManualProteinFamilyKBAccessor,
+    // NB: generated protein families are included in the generated protein KB:
+    new GendProteinKBAccessor,
+
+    new StaticChemicalKBAccessor,
+    new StaticMetaboliteKBAccessor,
+    new ManualChemicalKBAccessor,
+    new GendChemicalKBAccessor,
+
+    new StaticCellLocationKBAccessor,
+    new ManualCellLocationKBAccessor,
+    new GendCellLocationKBAccessor,
+
     new AzFailsafeKBAccessor
   )
 

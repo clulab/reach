@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * A collection of classes which implement project internal knowledge base lookups.
   *   Author: by Tom Hicks. 5/18/2015.
-  *   Last Modified: Sync local KB accessor & lookup.
+  *   Last Modified: Redo KB lookups for manual and generated KB files.
   */
 
 /**
@@ -13,7 +13,11 @@ import scala.io.Source
   * where: 1st column is the name string, 2nd column is the ID string (2-col file) or
   *  species (3-col file), and 3rd column is the ID string (3-col file).
   */
-abstract class LocalKBLookup extends SpeciatedKBLookup {
+abstract class LocalKBLookup extends SpeciatedKBLookup with KnowledgeBaseConstants {
+  def baseURI = "http://edu.arizona.sista.odin/uazid/"
+  def namespace = "uazid"
+  def resourceID = "MIR:00000000"           // mock MIRIAM registration number
+
   protected val theKB = scala.collection.mutable.Map[String, Map[String,String]]()
 
   def getLookupKey (key:String): String = {
@@ -97,65 +101,66 @@ abstract class LocalKBLookup extends SpeciatedKBLookup {
 }
 
 
-/** KB lookup to resolve protein names in mentions. */
-class AzProteinKBLookup extends LocalKBLookup {
-  def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprot"
-  def resourceID = "MIR:00100164"
+/** KB lookup to resolve subcellular location names via static KBs. */
+class StaticCellLocationKBLookup extends LocalKBLookup {
+  override def baseURI = "http://identifiers.org/go/"
+  override def namespace = "go"
+  override def resourceID = "MIR:00000022"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-proteins.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticCellLocationFilename))
 }
 
 
-/** KB lookup to resolve protein family names in mentions. */
-class AzProteinFamilyKBLookup extends LocalKBLookup {
-  def baseURI = "http://identifiers.org/interpro/"
-  def namespace = "interpro"
-  def resourceID = "MIR:00000011"
+/** KB lookup to resolve small molecule (metabolite) names via static KBs. */
+class StaticMetaboliteKBLookup extends LocalKBLookup {
+  override def baseURI = "http://identifiers.org/hmdb/"
+  override def namespace = "hmdb"
+  override def resourceID = "MIR:00000051"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/ProteinFamilies.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticMetaboliteFilename))
+}
+
+/** KB lookup to resolve small molecule (chemical) names via static KBs. */
+class StaticChemicalKBLookup extends LocalKBLookup {
+  override def baseURI = "http://identifiers.org/chebi/"
+  override def namespace = "chebi"
+  override def resourceID = "MIR:00100009"
+
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticChemicalFilename))
 }
 
 
-/** KB lookup to resolve small molecule (metabolite) names in mentions. */
-class AzSmallMoleculeKBLookup extends LocalKBLookup {
-  def baseURI = "http://identifiers.org/hmdb/"
-  def namespace = "hmdb"
-  def resourceID = "MIR:00000051"
+/** KB accessor to resolve protein names via static KBs. */
+class StaticProteinKBLookup extends LocalKBLookup {
+  override def baseURI = "http://identifiers.org/uniprot/"
+  override def namespace = "uniprot"
+  override def resourceID = "MIR:00100164"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/hmdb.tsv.gz")
-}
-
-/** KB lookup to resolve small molecule (chemical) names in mentions. */
-class AzSmallMoleculeKBLookup2 extends LocalKBLookup {
-  def baseURI = "http://identifiers.org/chebi/"
-  def namespace = "chebi"
-  def resourceID = "MIR:00100009"
-
-  // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/chebi.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticProteinFilename))
 }
 
 
-/** KB lookup to resolve subcellular location names in mentions using GeneOntology DB. */
-class AzSubcellularLocationKBLookup extends LocalKBLookup {
-  def baseURI = "http://identifiers.org/go/"
-  def namespace = "go"
-  def resourceID = "MIR:00000022"
+/** KB lookup to resolve protein family names via static KBs. */
+class StaticProteinFamilyKBLookup extends LocalKBLookup {
+  override def baseURI = "http://identifiers.org/interpro/"
+  override def namespace = "interpro"
+  override def resourceID = "MIR:00000011"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/GO-subcellular-locations.tsv")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticProteinFamilyFilename))
 }
 
-/** KB lookup to resolve tissue type names in mentions. */
-class AzTissueTypeKBLookup extends LocalKBLookup {
-  def baseURI = "http://identifiers.org/uniprot/"
-  def namespace = "uniprot"
-  def resourceID = "MIR:00000005"
+
+/** KB lookup to resolve tissue type names via static KBs. */
+class StaticTissueTypeKBLookup extends LocalKBLookup {
+  override def baseURI = "http://identifiers.org/uniprot/"
+  override def namespace = "uniprot"
+  override def resourceID = "MIR:00000005"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/tissue-type.tsv")
+  readAndFillKB(LocalKBUtils.makePathInKBDir(StaticTissueTypeFilename))
 }

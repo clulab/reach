@@ -8,7 +8,7 @@ import scala.io.Source
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 4/16/2015.
-  *   Last Modified: Extend KB constants. Add methods to make paths/filenames in KB directory.
+  *   Last Modified: Distinguish KB file and resource paths.
   */
 object LocalKBUtils extends KnowledgeBaseConstants {
 
@@ -43,12 +43,12 @@ object LocalKBUtils extends KnowledgeBaseConstants {
 
   /** Return a file for the given filename in the knowledge bases directory. */
   def makeFileInKBDir (filename:String): File = {
-    return new File(makePathInKBDir(filename))
+    return new File(KBDirFilePath + File.separator + filename)
   }
 
-  /** Return a path string for the given filename in the knowledge bases directory. */
+  /** Return a resource path string for the given filename in the knowledge bases directory. */
   def makePathInKBDir (filename:String): String = {
-    return KBDirectory + File.separator + filename
+    return KBDirResourcePath + File.separator + filename
   }
 
   /** Return a file for the given filename in the current user working directory. */
