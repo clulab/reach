@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Add alternate key lookups for proteins and protein families.
+  *   Last Modified: Use utility method to get KB filenames.
   */
 
 /**
@@ -129,7 +129,7 @@ class AzProteinKBAccessor extends LocalKBAccessor {
   }
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-proteins.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz"))
 }
 
 
@@ -148,7 +148,7 @@ class AzProteinFamilyKBAccessor extends LocalKBAccessor {
   }
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/ProteinFamilies.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz"))
 }
 
 
@@ -159,7 +159,7 @@ class AzSmallMoleculeKBAccessor extends LocalKBAccessor {
   def resourceID = "MIR:00000051"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/hmdb.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("hmdb.tsv.gz"))
 }
 
 /** KB accessor to resolve small molecule (chemical) names in mentions. */
@@ -169,7 +169,7 @@ class AzSmallMoleculeKBAccessor2 extends LocalKBAccessor {
   def resourceID = "MIR:00100009"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/chebi.tsv.gz")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("chebi.tsv.gz"))
 }
 
 /** KB accessor to resolve subcellular location names in mentions using GeneOntology DB. */
@@ -179,7 +179,7 @@ class AzSubcellularLocationKBAccessor extends LocalKBAccessor {
   def resourceID = "MIR:00000022"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/GO-subcellular-locations.tsv")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("GO-subcellular-locations.tsv"))
 }
 
 /** KB accessor to resolve subcellular location names in mentions using Uniprot DB. */
@@ -189,7 +189,7 @@ class AzSubcellularLocationKBAccessor2 extends LocalKBAccessor {
   def resourceID = "MIR:00000005"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/uniprot-subcellular-locations.tsv")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("uniprot-subcellular-locations.tsv"))
 }
 
 
@@ -200,7 +200,7 @@ class AzTissueTypeKBAccessor extends LocalKBAccessor {
   def resourceID = "MIR:00000005"
 
   // MAIN: load KB to initialize class
-  readAndFillKB("/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb/tissue-type.tsv")
+  readAndFillKB(LocalKBUtils.makePathInKBDir("tissue-type.tsv"))
 }
 
 

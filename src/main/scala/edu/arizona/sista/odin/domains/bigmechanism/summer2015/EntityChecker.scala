@@ -15,18 +15,11 @@ import org.biopax.paxtools.model.level3._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Drop epoch suffix on IDs. Generate output directly into KB directory.
+  *   Last Modified: Update for rename of make file method. Extend KB constants.
   */
-object EntityChecker extends App {
+object EntityChecker extends App with KnowledgeBaseConstants {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
-
-  val CellLocationFilename = "biopax-cellular_component.tsv"
-  val CellLocationPrefix = "UA-BP-CC-"
-  val ChemicalFilename = "biopax-simple_chemical.tsv"
-  val ChemicalPrefix = "UA-BP-SC-"
-  val ProteinFilename = "biopax-gene_or_gene_product.tsv"
-  val ProteinPrefix = "UA-BP-GGP-"
 
   // Search classes for resolving entities:
   val AzProteinFamilyKBLookup = new AzProteinFamilyKBLookup
@@ -103,7 +96,7 @@ object EntityChecker extends App {
 
   /** Output the missing entity names and generated IDs to the given file. */
   private def outputMissing (missing:Seq[String], filename:String, prefix:String) = {
-    val outFile:File = LocalKBUtils.makeOutputFileInKBDir(filename)
+    val outFile:File = LocalKBUtils.makeFileInKBDir(filename)
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     // val now = Platform.currentTime.toString  // make ID unique per program run
     missing.foreach { entName =>
