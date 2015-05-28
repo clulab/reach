@@ -4,6 +4,7 @@ import java.io.File
 import java.util.Date
 import scala.collection.JavaConverters._
 import scala.collection.mutable
+import scala.util.{ Try,Success,Failure }
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
@@ -59,10 +60,28 @@ object RunSystem extends App {
     val startTime = now // start measuring time here
     val startNS = System.nanoTime
     // process individual sections and collect all mentions
-    val entries = try {
-      nxml2fries.extractEntries(file)
-    } catch {
-      case e: Exception =>
+    val entries = nxml2fries.extractEntries(file) flatMap {
+      case Success(entry) => Some(entry)
+      case Failure(e: Nxml2FriesException) =>
+        val report = s"""
+          |==========
+          |
+          | ¡¡¡ nxml2fries error !!!
+          |
+          |paper: $paperId
+          |entry: ${e.entry}
+          |
+          |error:
+          |${e.toString}
+          |
+          |stack trace:
+          |${e.getStackTrace.mkString("\n")}
+          |
+          |==========
+          |""".stripMargin
+        FileUtils.writeStringToFile(logFile, report, true)
+        None
+      case Failure(e) =>
         val report = s"""
           |==========
           |
@@ -79,7 +98,7 @@ object RunSystem extends App {
           |==========
           |""".stripMargin
         FileUtils.writeStringToFile(logFile, report, true)
-        Nil
+        None
     }
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]

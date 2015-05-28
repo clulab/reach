@@ -48,7 +48,7 @@ object ExportBrat extends App {
 
     // process individual sections and collect all mentions
 
-    val entries = nxml2fries.extractEntries(file)
+    val entries = nxml2fries.extractEntries(file).filter(_.isSuccess).map(_.get)
     val text = entries.map(_.text).mkString("\n")
     val doc = reach.mkDoc(text, paperId)
     val mentions = reach.extractFrom(doc)

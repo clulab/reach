@@ -212,6 +212,7 @@ class HansOutput extends JsonOutputter {
     f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
+    f("found-by") = mention.foundBy
 
     f("subtype") = prettifyLabel(mention.label)
     f("type") = mkEventType(mention.label)
