@@ -25,15 +25,13 @@ object DependencyUtils {
     val heads = if (span.size < 2) Seq(span.start) else findHeadsStrict(span, sent)
 
     @annotation.tailrec
-    def followTrail(remaining: Seq[Int], results: Seq[Int]): Seq[Int] =
-      remaining match {
-        case Nil => results
-        case first +: rest if results contains first =>
-          followTrail(rest, results)
-        case first +: rest =>
-          val children = graph.getOutgoingEdges(first).map(_._1)
-          followTrail(children ++ rest, first +: results)
-      }
+    def followTrail(remaining: Seq[Int], results: Seq[Int]): Seq[Int] = remaining match {
+      case Nil => results
+      case first +: rest if results contains first => followTrail(rest, results)
+      case first +: rest =>
+        val children = graph.getOutgoingEdges(first).map(_._1)
+        followTrail(children ++ rest, first +: results)
+    }
 
     val outgoing = (for (h <- heads) yield followTrail(Seq(h), Nil)).flatten.distinct
 
