@@ -24,15 +24,18 @@ object DependencyUtils {
 
     val heads = if (span.size < 2) Seq(span.start) else findHeadsStrict(span, sent)
 
-    def followTrail (i: Int): Seq[Int] = {
-      val deps = graph.getOutgoingEdges(i)
-      deps match {
-        case empty if deps.isEmpty => Seq(i)
-        case _ => (for (child <- deps) yield followTrail(child._1)).flatten
+    @annotation.tailrec
+    def followTrail(remaining: Seq[Int], results: Seq[Int]): Seq[Int] =
+      remaining match {
+        case Nil => results
+        case Seq(head, tail@_*) if results contains head =>
+          followTrail(tail, results)
+        case Seq(head, tail@_*) =>
+          val children = graph.getOutgoingEdges(head).map(_._1)
+          followTrail(children ++ tail, head +: results)
       }
-    }
 
-    val outgoing = (for (h <- heads) yield followTrail(h)).flatten.distinct
+    val outgoing = (for (h <- heads) yield followTrail(Seq(h), Nil)).flatten.distinct
 
     // outgoing may only have a single index
     if (outgoing.length > 1) Some(Interval(outgoing.min, outgoing.max)) else Some(Interval(outgoing.min, outgoing.min + 1))
