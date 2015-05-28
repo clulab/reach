@@ -60,16 +60,34 @@ object RunSystem extends App {
     val startTime = now // start measuring time here
 
     // process individual sections and collect all mentions
-    val entries = nxml2fries.extractEntries(file).zipWithIndex flatMap {
-      case (Success(entry), i) => Some(entry)
-      case (Failure(e), i) =>
+    val entries = nxml2fries.extractEntries(file) flatMap {
+      case Success(entry) => Some(entry)
+      case Failure(e: Nxml2FriesException) =>
         val report = s"""
           |==========
           |
           | ¡¡¡ nxml2fries error !!!
           |
           |paper: $paperId
-          |entry: $i
+          |entry: ${e.entry}
+          |
+          |error:
+          |${e.toString}
+          |
+          |stack trace:
+          |${e.getStackTrace.mkString("\n")}
+          |
+          |==========
+          |""".stripMargin
+        FileUtils.writeStringToFile(logFile, report, true)
+        None
+      case Failure(e) =>
+        val report = s"""
+          |==========
+          |
+          | ¡¡¡ nxml2fries error !!!
+          |
+          |paper: $paperId
           |
           |error:
           |${e.toString}
