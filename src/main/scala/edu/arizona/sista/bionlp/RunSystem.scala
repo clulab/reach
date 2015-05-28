@@ -140,11 +140,11 @@ object RunSystem extends App {
         val outFile = new File(friesDir, s"$paperId.txt")
         println(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
-        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)", true)
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
       // Anything that is not text (including Hans-style output)
       case _ =>
         outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
-        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)", true)
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
     } catch {
         case e:
           Exception =>
