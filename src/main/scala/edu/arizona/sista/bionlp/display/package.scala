@@ -12,6 +12,7 @@ package object display {
     for ((s, i) <- doc.sentences.zipWithIndex) {
       println(s"sentence #$i")
       println(s.getSentenceText())
+      println("Tokens: " + s.words.zip(s.tags.get).mkString(", "))
       printSyntacticDependencies(s)
       println
 

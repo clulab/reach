@@ -262,10 +262,10 @@ object RuleReader {
   val NEG_NOUNS = "inhibit|decreas|repress|supress|suppress|loss"
   val AUXTRIGGERS = "regul|activ"
 
-  val POS_REG_TRIGGERS = "enabl|acceler|accept|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+  val POS_REG_TRIGGERS = "enabl|acceler|accept|accumul|action|activat|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|recruit|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
   val NEG_REG_TRIGGERS = "deactiv|downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|suppress|uncoupl"
 
-  val POS_ACT_TRIGGERS = "enabl|acceler|activ|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactiv|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
+  val POS_ACT_TRIGGERS = "enabl|acceler|activat|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
   val NEG_ACT_TRIGGERS = "deactiv|inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress|suppress"
 
   val posRegEventMap: Map[String, String] =
