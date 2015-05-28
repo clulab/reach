@@ -28,11 +28,11 @@ object DependencyUtils {
     def followTrail(remaining: Seq[Int], results: Seq[Int]): Seq[Int] =
       remaining match {
         case Nil => results
-        case Seq(head, tail@_*) if results contains head =>
-          followTrail(tail, results)
-        case Seq(head, tail@_*) =>
-          val children = graph.getOutgoingEdges(head).map(_._1)
-          followTrail(children ++ tail, head +: results)
+        case first +: rest if results contains first =>
+          followTrail(rest, results)
+        case first +: rest =>
+          val children = graph.getOutgoingEdges(first).map(_._1)
+          followTrail(children ++ rest, first +: results)
       }
 
     val outgoing = (for (h <- heads) yield followTrail(Seq(h), Nil)).flatten.distinct
