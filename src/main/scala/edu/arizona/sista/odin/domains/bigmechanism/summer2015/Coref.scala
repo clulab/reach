@@ -539,7 +539,7 @@ class Coref extends DarpaFlow {
               print("Theme1 antecedents: ")
               t1Ants.foreach(m => print(s"${m.text},"))
               println
-              println("Theme2 antecedents: ")
+              print("Theme2 antecedents: ")
               t2Ants.foreach(m => print(s"${m.text},"))
               println
             }
@@ -843,7 +843,7 @@ class Coref extends DarpaFlow {
 
             var antecedents: Seq[Mention] = Seq()
             val foundThemes = for {
-              m <- ev.arguments("theme").filter(thm => thm.matches("Unresolved"))
+              m <- ev.arguments.getOrElse("theme",Seq()).filter(thm => thm.matches("Unresolved"))
               priors = orderedMentions.slice(0, orderedMentions.indexOf(ev.arguments.flatMap(_._2).toSeq.sorted.lastOption.getOrElse(ev))) filter (x => x.isInstanceOf[BioTextBoundMention] &&
                 (x.sentence == m.sentence || m.sentence - x.sentence == 1) &&
                 !x.matches("Unresolved") &&

@@ -53,6 +53,29 @@ class DarpaActions extends Actions {
   override val default: Action = (ms: Seq[Mention], s: State) => ms.map(_.toBioMention)
 
 
+  /**
+  def mkUnresolvedTBMention(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    val defaultLoseRels = Seq("NN", "NNS", "NNP", "NNPS")
+    val defaultKeepRels = Seq("DT")
+
+    def throwAway(m: Mention, loseRelations: Seq[String] = defaultLoseRels, keepRelations: Seq[String] = defaultKeepRels): Boolean = {
+      val dep = m.document.sentences(m.sentence).dependencies
+      val edges = if (dep.isDefined) dep.get.getOutgoingEdges(m.tokenInterval.end - 1) else Array()
+      edges.exists(edge => (loseRelations.contains(edge._2) &&
+        !state.mentionsFor(m.sentence,edge._1).filter(_.isInstanceOf[TextBoundMention]).isEmpty) ||
+        state.mentionsFor(m.sentence,edge._1).exists(throwAway(_))) ||
+      edges.forall(edge => !keepRelations.contains(edge))
+    }
+
+    mentions map {
+      case tbm: TextBoundMention =>
+        if (!throwAway(tbm)) Seq(tbm) else Seq()
+      case m => Seq(m)
+    } flatten
+  }
+    */
+
+
   /** This action is meant for Regulation rules written for
     * explicitly negated triggers
     */
