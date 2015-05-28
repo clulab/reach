@@ -259,7 +259,7 @@ object RuleReader {
         "Methylation" -> methMap)
 
   val POS_NOUNS = "activ|promot|acceler|augment|cataly|caus|driv|elev|elicit|enhanc|express|facilit|increas|induc|induct|initi|produc|promot|rais|reactiv|recruit|releas|stimul|trigger|up-regul|upregul"
-  val NEG_NOUNS = "inhibit|decreas|repress|supress|suppress"
+  val NEG_NOUNS = "inhibit|decreas|repress|supress|suppress|loss"
   val AUXTRIGGERS = "regul|activ"
 
   val POS_REG_TRIGGERS = "enabl|acceler|accept|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
