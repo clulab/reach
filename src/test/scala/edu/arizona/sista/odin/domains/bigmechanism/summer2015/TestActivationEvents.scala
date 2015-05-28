@@ -79,4 +79,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
     hasPositiveActivation("ASPP1", "ASPP2", mentions) should be (false)
     mentions.filter(_.label.contains("regulation")) should have size (0)
   }
+
+  val sent8 = "The ASPP2-binding activity of CREB is, in most cases, constitutive."
+  sent8 should "contain a binding but not an activation or regulation event" in {
+    val mentions = parseSentence(sent8)
+    mentions.filter(_.label.contains("activation")) should have size (0)
+    mentions.filter(_.label.contains("regulation")) should have size (0)
+    hasEventWithArguments("Binding", List("ASPP2", "CREB"), mentions) should be (true)
+  }
 }

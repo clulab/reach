@@ -11,18 +11,25 @@ import edu.arizona.sista.odin.domains.bigmechanism.summer2015.DependencyUtils._
 import scala.collection.mutable
 
 class Coref extends DarpaFlow {
+
+  val debug: Boolean = false
+
   def apply(mentions: Seq[Mention], state: State): Seq[BioMention] = applyAll(mentions).lastOption.getOrElse(Seq())
 
   def applyAll(mentions: Seq[Mention]): Seq[Seq[BioMention]] = {
 
     val doc: Document = mentions.headOption.getOrElse(return Seq()).document
 
-    //println("BEFORE COREF")
-    //displayMentions(mentions,doc)
+    if (debug) {
+      println("BEFORE COREF")
+      displayMentions(mentions,doc)
+    }
 
     val chains = new mutable.HashMap[Mention,Seq[Mention]]
 
     val toSplit = new mutable.HashMap[Mention,Seq[Seq[Mention]]]
+
+    val alreadySplit = new mutable.HashMap[Mention,Seq[Mention]]
 
     def lookInside (m: Mention): Seq[Mention] = {
       (for {
@@ -33,6 +40,12 @@ class Coref extends DarpaFlow {
           case _ => a +: lookInside(a)
         }
       } yield n).flatten.toSeq
+    }
+
+    def unresolvedInside (m: Mention): Boolean = {
+      if (m matches "Unresolved") true
+      else if (m.arguments.isEmpty) false
+      else m.arguments.flatMap(x => x._2).exists(x => unresolvedInside(x))
     }
 
     val themeMap = Map(
@@ -121,17 +134,27 @@ class Coref extends DarpaFlow {
         case mention: BioTextBoundMention if !mention.matches("Unresolved") => Seq(mention)
 
         case mention: BioTextBoundMention if mention.matches("Unresolved") => {
+          if (debug) print(s"Resolving unresolved BioTextBoundMention ${mention.text} => ")
+
           val resolved = chains.getOrElse(mention, {
             println("Mention not used in coreference: " + mention.label + ": " + mention.text)
             Seq(mention)
           })
-            .filter(!_.matches("Unresolved"))
-            .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
+            .filter(x => !x.matches("Unresolved") &&
+            (x.sentence == mention.sentence || mention.sentence - x.sentence == 1) &&
+            doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval,doc.sentences(x.sentence)).get).drop(1) == "N"
+            )
+            .span(m => m.precedes(mention))._1.lastOption.getOrElse({if (debug) println; return Seq()})
           resolved.asInstanceOf[BioTextBoundMention].modifications ++= mention.asInstanceOf[BioTextBoundMention].modifications
+
+          if (debug) println(resolved.text)
+
           Seq(resolved)
         }
 
         case mention: BioRelationMention => {
+          if (debug) print(s"Resolving BioRelationMention ${mention.text} => ")
+
           val args = (for {
             (argType, argMentions) <- mention.arguments
           } yield argType -> argMentions.map(a => resolve(a)).flatten).filter(_._2.nonEmpty)
@@ -141,29 +164,40 @@ class Coref extends DarpaFlow {
               mention.matches("Positive_activation") ||
               mention.matches("Negative_activation")) &&
               args.size < 2 =>
+              if (debug) println
               Seq()
-            case stillUnresolved if args.size < 1 => Seq()
+
+            case stillUnresolved if args.size < 1 =>
+              if (debug) println
+              Seq()
+
             case _ =>
               val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy)
               resolved.modifications ++= mention.asInstanceOf[BioRelationMention].modifications
               resolved.mutableTokenInterval = mention.tokenInterval
+              if (debug) println(resolved.text)
               Seq(resolved)
           }
         }
 
         case mention: BioEventMention if mention.matches("Unresolved") => {
+          if (debug) print(s"Resolving unresolved BioEventMention ${mention.text} => ")
+
           val resolved = chains.getOrElse(mention, {
             println("Mention not used in coreference: " + mention.label + ": " + mention.text)
             Seq(mention)
           })
-            .filter(!_.matches("Unresolved"))
-            .span(m => m.precedes(mention))._1.lastOption.getOrElse(return Seq())
+            .filter(x => !x.matches("Unresolved") && (x.sentence == mention.sentence || mention.sentence - x.sentence == 1))
+            .span(m => m.precedes(mention))._1.lastOption.getOrElse({if (debug) println; return Seq()})
           resolved.asInstanceOf[BioEventMention].modifications ++= mention.asInstanceOf[BioEventMention].modifications
           resolved.asInstanceOf[BioEventMention].mutableTokenInterval = mention.tokenInterval
+          if (debug) println(resolved.text)
           Seq(resolved)
         }
 
         case mention: BioEventMention if !mention.matches("Unresolved") & toSplit.contains(mention) =>
+
+          if (debug) print(s"Resolving splittable BioEventMention ${mention.text} => ")
 
             val themeSets = combination(toSplit(mention), themeCardinality(mention.label))
             //println("Number of sets: " + themeSets.length)
@@ -176,28 +210,38 @@ class Coref extends DarpaFlow {
               mention.sentence,
               doc,
               mention.keep,
-              "corefSplitter")
+              "corefResolveSplitter")
               resolved.modifications ++= mention.asInstanceOf[BioEventMention].modifications
               resolved.mutableTokenInterval = mention.tokenInterval
+              if (debug) println(resolved.text)
+
               resolved
             }
 
         case mention: BioEventMention if !mention.matches("Unresolved") & !toSplit.contains(mention) =>
+
+          if (debug) print(s"Resolving non-splitting BioEventMention ${mention.text} => ")
+
             val args = (for {
               (argType, argMentions) <- mention.arguments
             } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
 
             args match {
-              case regMissingArg if (mention.matches("Positive_regulation") ||
-                mention.matches("Negative_regulation") ||
-                mention.matches("Positive_activation") ||
-                mention.matches("Negative_activation")) &&
-                args.size < 2 => Seq()
-              case stillUnresolved if args.size < 1 => Seq()
+              case regMissingArg if (mention.matches("ComplexEvent") || mention.matches("ActivationEvent")) &&
+                args.size < 2 =>
+                if (debug) println
+                Seq()
+              case bindingMissingTheme if mention.matches("Binding") && mention.arguments.getOrElse("theme",Seq()).length < 2 =>
+                if (debug) println
+                Seq()
+              case stillUnresolved if args.size < 1 =>
+                if (debug) println
+                Seq()
               case _ =>
                 val resolved = new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy)
                 resolved.modifications ++= mention.asInstanceOf[BioEventMention].modifications
                 resolved.mutableTokenInterval = mention.tokenInterval
+                if (debug) println(resolved.text)
                 Seq(resolved)
             }
 
@@ -255,12 +299,6 @@ class Coref extends DarpaFlow {
     val hiddenMentions = (for {
       m <- mentions
     } yield lookInside(m)).flatten
-
-    /**
-    var orderedMentions: ListBuffer[Mention] = mentionMerger((for {
-      m <- (mentions ++ hiddenMentions).distinct
-    } yield getChildren(m)).flatten.distinct).sorted.to[ListBuffer]
-    */
 
     var orderedMentions: ListBuffer[Mention] = (for {
       m <- (mentions ++ hiddenMentions).distinct
@@ -389,188 +427,487 @@ class Coref extends DarpaFlow {
       groundings.size == 1
     }
 
+
     // travel in order through the event mentions in the document, trying to match the right number of arguments to each
-    for((mention,i) <- orderedMentions.zipWithIndex) {
+    for(mention <- orderedMentions) {
+      createByCardinality(mention)
+    }
+
+    def createByCardinality(mention: Mention): Seq[Mention] = {
       mention match {
+
+        //case tbm: BioTextBoundMention if unresolvedInside(tbm) =>
+        //  chains.getOrElse(tbm,Seq()).filter(x => !x.matches("Unresolved")).lastOption
+
         // bindings need two themes each, but sometimes more than two are mentioned, in which case we
         // need an exhaustive combination of all the bindings from theme1(s) to theme2(s)
-        case binding: BioEventMention if binding.matches("Binding") &
-          (binding.arguments.getOrElse("theme1", Seq()).exists(thm => thm.matches("Unresolved")) ||
-            binding.arguments.getOrElse("theme2", Seq()).exists(thm => thm.matches("Unresolved"))) =>
-          //println("entering cardinality detector: binding")
+        case binding: BioEventMention if binding.matches("Binding") && unresolvedInside(binding) =>
+          if (alreadySplit contains binding) {
+            alreadySplit(binding)
+          } else {
 
-          // this gnarly thing returns BioChemicalEntities that are grounded, aren't already arguments in this event,
-          // and aren't controllers of a regulation that has this event as a controlled
-          val priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
-            !x.matches("Unresolved") &&
-            x.matches("BioChemicalEntity") &&
-            !binding.arguments.getOrElse("theme1",Seq()).contains(x) &&
-            !binding.arguments.getOrElse("theme2",Seq()).contains(x) &&
-            !chains.keys.exists(y => y.matches("ComplexEvent") &&
-              y.arguments.getOrElse("controller",Seq()).contains(x) &&
-              y.arguments.getOrElse("controlled",Seq()).contains(binding)))
+            if (debug) println(s"Checking numerosity of binding BioEventMention '${binding.text}' themes...")
 
-          val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1",Seq())
-          val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2",Seq())
+            // this gnarly thing returns BioChemicalEntities that are grounded, aren't already arguments in this event,
+            // and aren't controllers of a regulation that has this event as a controlled
+            val priors = orderedMentions.slice(0, orderedMentions.indexOf(binding.arguments.flatMap(_._2).toSeq.sorted.lastOption.getOrElse(binding))) filter (x => x.isInstanceOf[BioTextBoundMention] &&
+              (x.sentence == binding.sentence || binding.sentence - x.sentence == 1) &&
+              !x.matches("Unresolved") &&
+              x.matches("BioChemicalEntity") &&
+              doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
+              !binding.arguments.getOrElse("theme1", Seq()).contains(x) &&
+              !binding.arguments.getOrElse("theme2", Seq()).contains(x) &&
+              !chains.keys.exists(y => y.matches("ComplexEvent") &&
+                y.arguments.getOrElse("controller", Seq()).contains(x) &&
+                y.arguments.getOrElse("controlled", Seq()).contains(binding)))
 
-          // keeps track of antecedents found so far, so they won't be reused
-          var antecedents: Seq[Mention] = Seq()
+            if (debug) {
+              print("PRIORS: ")
+              for (p <- priors) print(s"${p.text}, ")
+              println
+            }
 
-          // look right to left through previous BioChemicalEntities; start with theme2(s) since we assume these appear
-          // later than theme1(s)
-          // FIXME: 'them' should prefer closely associated antecedents for plurals, e.g. "Ras and Mek", so we don't make an error on "Even more than Ras and Mek, ASPP2 is common, and so is its binding to them."
-          val t2Ants: Seq[Mention] = (for {
-            m <- theme2s
-          } yield {
-              val themes = m match{
-                case unres if unres.matches("Unresolved") =>
-                  // exclude previously used antecedents
-                  val validPriors = priors.filter(x => !antecedents.contains(x))
-                  val num = cardinality(unres)
+            val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1", Seq())
+            val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2", Seq())
 
-                  validPriors match {
-                    case noneFound if noneFound.isEmpty => Nil
-                    case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
-                      val numToAdd = cardinality(a)
+            if (theme1s.isEmpty && theme1s.isEmpty) return Seq()
 
-                      foundThemes match {
-                        case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
-                        case _ => foundThemes
-                      }
-                    })._2
-                  }
-                case _ => Seq(m)
-              }
-              antecedents = antecedents ++ themes
-              themes
-            }).flatten
+            // keeps track of antecedents found so far, so they won't be reused
+            var antecedents: Seq[Mention] = Seq()
 
-          val t1Ants = (for {
-            m <- theme1s
-          } yield {
-              val themes = m match{
-                case unres if unres.matches("Unresolved") =>
-                  // exclude previously used antecedents
-                  val validPriors = priors.filter(x => !antecedents.contains(x))
-                  val num = cardinality(unres)
+            // look right to left through previous BioChemicalEntities; start with theme2(s) since we assume these appear
+            // later than theme1(s)
+            // FIXME: 'them' should prefer closely associated antecedents for plurals, e.g. "Ras and Mek", so we don't make an error on "Even more than Ras and Mek, ASPP2 is common, and so is its binding to them."
+            val t2Ants: Seq[Mention] = (for {
+              m <- theme2s
+            } yield {
+                val themes = m match {
+                  case unres if unres.matches("Unresolved") =>
+                    // exclude previously used antecedents
+                    val validPriors = priors.filter(x => !antecedents.contains(x))
+                    val num = cardinality(unres)
 
-                  validPriors match {
-                    case noneFound if noneFound.isEmpty => Nil
-                    case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
-                      val numToAdd = cardinality(a)
-                      foundThemes match {
-                        case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
-                        case _ => foundThemes
-                      }
+                    if (debug) println(s"Theme2 ${m.text} cardinality: $num")
+
+                    validPriors match {
+                      case noneFound if noneFound.isEmpty => Nil
+                      case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
+                        val numToAdd = cardinality(a)
+
+                        foundThemes match {
+                          case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
+                          case _ => foundThemes
+                        }
+                      })._2
                     }
-                    )._2
-                  }
-
-                case _ => Seq(m)
-              }
-              antecedents = antecedents ++ themes
-              themes
-            }).flatten
-
-          // Basically the same as mkBinding in DarpaActions
-          val newBindings = (t1Ants, t2Ants) match {
-            case (t1s, t2s) if t1Ants.isEmpty || t2Ants.isEmpty =>
-              val mergedThemes = t1s ++ t2s
-              for (pair <- mergedThemes.combinations(2)) yield {
-                val splitBinding = new BioEventMention(
-                  binding.labels,binding.trigger,Map("theme" -> Seq(pair.head,pair.last)),binding.sentence,doc,binding.keep,"corefCardinality"
-                )
-                splitBinding.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                splitBinding.mutableTokenInterval = mention.tokenInterval
-                splitBinding
-              }
-            case _ => {
-              for {
-                theme1 <- t1Ants
-                theme2 <- t2Ants
-                if !sameEntityID(Seq(theme1, theme2))
-              } yield {
-                if (theme1.text.toLowerCase == "ubiquitin"){
-                  val args = Map("theme" -> Seq(theme2))
-                  val ubiq = new BioEventMention(
-                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,doc,binding.keep,"corefCardinality")
-                  ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                  ubiq.mutableTokenInterval = mention.tokenInterval
-                  ubiq
-                } else if (theme2.text.toLowerCase == "ubiquitin") {
-                  val args = Map("theme" -> Seq(theme1))
-                  val ubiq = new BioEventMention(
-                    "Ubiquitination" +: binding.labels.filter(_ != "Binding"),binding.trigger,args,binding.sentence,doc,binding.keep,"corefCardinality")
-                  ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                  ubiq.mutableTokenInterval = mention.tokenInterval
-                  ubiq
+                  case _ => Seq(m)
                 }
-                else {
-                  val args = Map("theme" -> Seq(theme1, theme2))
+                antecedents ++= themes
+                themes
+              }).flatten
+
+            val t1Ants = (for {
+              m <- theme1s
+            } yield {
+                val themes = m match {
+                  case unres if unres.matches("Unresolved") =>
+                    // exclude previously used antecedents
+                    val validPriors = priors.filter(x => !antecedents.contains(x))
+                    val num = cardinality(unres)
+
+                    if (debug) println(s"Theme2 ${m.text} cardinality: $num")
+
+                    validPriors match {
+                      case noneFound if noneFound.isEmpty => Nil
+                      case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Seq()))((a, foundThemes) => {
+                        val numToAdd = cardinality(a)
+                        foundThemes match {
+                          case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
+                          case _ => foundThemes
+                        }
+                      }
+                      )._2
+                    }
+
+                  case _ => Seq(m)
+                }
+                antecedents ++= themes
+                themes
+              }).flatten
+
+            if (debug) {
+              print("Theme1 antecedents: ")
+              t1Ants.foreach(m => print(s"${m.text},"))
+              println
+              println("Theme2 antecedents: ")
+              t2Ants.foreach(m => print(s"${m.text},"))
+              println
+            }
+
+            // Basically the same as mkBinding in DarpaActions
+            val newBindings: Seq[Mention] = (t1Ants, t2Ants) match {
+              case (t1s, t2s) if t1Ants.isEmpty && t2Ants.isEmpty => Seq()
+              case (t1s, t2s) if t1Ants.isEmpty || t2Ants.isEmpty =>
+                val mergedThemes = t1s ++ t2s
+                (for {pair <- mergedThemes.combinations(2)} yield {
                   val splitBinding = new BioEventMention(
-                    binding.labels, binding.trigger, args, binding.sentence, doc, binding.keep, "corefCardinality")
-                  splitBinding.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                  splitBinding.mutableTokenInterval = mention.tokenInterval
+                    binding.labels, binding.trigger, Map("theme" -> Seq(pair.head, pair.last)), binding.sentence, doc, binding.keep, "corefCardinality"
+                  )
+                  splitBinding.modifications ++= binding.asInstanceOf[BioEventMention].modifications
+                  splitBinding.mutableTokenInterval = binding.tokenInterval
                   splitBinding
+                }).toSeq
+              case _ => {
+                for {
+                  theme1 <- t1Ants
+                  theme2 <- t2Ants
+                  if !sameEntityID(Seq(theme1, theme2))
+                } yield {
+                  if (theme1.text.toLowerCase == "ubiquitin") {
+                    val args = Map("theme" -> Seq(theme2))
+                    val ubiq = new BioEventMention(
+                      "Ubiquitination" +: binding.labels.filter(_ != "Binding"), binding.trigger, args, binding.sentence, doc, binding.keep, "corefCardinality")
+                    ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
+                    ubiq.mutableTokenInterval = mention.tokenInterval
+                    ubiq
+                  } else if (theme2.text.toLowerCase == "ubiquitin") {
+                    val args = Map("theme" -> Seq(theme1))
+                    val ubiq = new BioEventMention(
+                      "Ubiquitination" +: binding.labels.filter(_ != "Binding"), binding.trigger, args, binding.sentence, doc, binding.keep, "corefCardinality")
+                    ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
+                    ubiq.mutableTokenInterval = mention.tokenInterval
+                    ubiq
+                  }
+                  else {
+                    val args = Map("theme" -> Seq(theme1, theme2))
+                    val splitBinding = new BioEventMention(
+                      binding.labels, binding.trigger, args, binding.sentence, doc, binding.keep, "corefCardinality")
+                    splitBinding.modifications ++= binding.asInstanceOf[BioEventMention].modifications
+                    splitBinding.mutableTokenInterval = binding.tokenInterval
+                    splitBinding
+                  }
                 }
               }
             }
+
+            if (debug) println(s"Number of new bindings: ${newBindings.toSeq.length}")
+
+            if (newBindings.isEmpty && chains.contains(binding)) {
+              orderedMentions -= binding
+              chains(binding).foreach(link => chains(link) = chains(link).filter(_ != binding))
+              chains -= binding
+            } else if (!newBindings.forall(m => chains.contains(m))) {
+              // replace current binding with new bindings in the ordered mentions and in the chain map
+              orderedMentions = (orderedMentions - binding ++ newBindings).sorted
+              val newChain = (chains(binding).filter(_ != binding) ++ newBindings).sorted
+              for (link <- chains(binding)) {
+                chains(link) = newChain
+              }
+              for (link <- newBindings) {
+                chains(link) = newChain
+              }
+              if (chains contains binding) chains -= binding
+            }
+
+            alreadySplit += (binding -> newBindings)
+
+            newBindings
           }
 
-          // replace current binding with new bindings in the ordered mentions and in the chain map
-          orderedMentions = (orderedMentions - binding ++ newBindings).sorted
-          for (link <- chains(binding)) {
-            chains(link) = chains(link).filter(_ != binding) ++ newBindings
+        case reg if reg.matches("ComplexEvent") && unresolvedInside(reg) =>
+
+          if (alreadySplit contains reg) {
+            alreadySplit(reg)
+          } else {
+
+            if (debug) println(s"Checking numerosity of ComplexEvent '${reg.text}' arguments...")
+
+            var antecedents: Seq[Mention] = Seq()
+
+            val foundControlleds = reg.arguments.getOrElse("controlled", Seq()) match {
+              case unres if unres.exists(m => m matches "Unresolved") =>
+
+                // this gnarly thing ensures that we only look at possible controllers that don't themselves control this
+                // regulation in this or the prior sentence
+                val priors = orderedMentions.slice(0, orderedMentions.indexOf(unres.sorted.head)) filter (x => !x.matches("Unresolved") &&
+                  (reg.sentence == x.sentence || (reg.sentence - x.sentence == 1)) &&
+                  doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
+                  !antecedents.contains(x) &&
+                  x.asInstanceOf[BioMention].matches("SimpleEvent") &&
+                  !reg.arguments.getOrElse("controller", Seq()).contains(x))
+
+                if (debug) println(s"Controlled priors: $priors")
+
+                if (priors.isEmpty) {
+                  Seq()
+                } else {
+                  val ants = (for {
+                    p <- priors.takeRight(math.min(cardinality(unres.head), priors.length))
+                  } yield createByCardinality(p)).flatten
+                  antecedents ++= ants
+                  ants
+                }
+              case res => (for (m <- res) yield createByCardinality(m)).flatten
+            }
+
+            val foundControllers = reg.arguments.getOrElse("controller", Seq()) match {
+              case unres if unres.exists(m => m matches "Unresolved") =>
+                // this gnarly thing ensures that we only look at possible controllers that don't themselves control this
+                // regulation in this or the prior sentence
+                val priors = orderedMentions.slice(0, orderedMentions.indexOf(unres.sorted.head)) filter (x => !x.matches("Unresolved") &&
+                  (reg.sentence == x.sentence || (reg.sentence - x.sentence == 1)) &&
+                  doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
+                  !antecedents.contains(x) &&
+                  x.asInstanceOf[BioMention].matches("PossibleController") &&
+                  !reg.arguments.getOrElse("controlled", Seq()).contains(x))
+
+                if (debug) println(s"Controller priors: $priors")
+
+                if (priors.isEmpty) {
+                  Seq()
+                } else {
+                  val ants = (for {
+                    p <- priors.takeRight(math.min(cardinality(unres.head), priors.length))
+                  } yield createByCardinality(p)).flatten
+                  antecedents ++= ants
+                  ants
+                }
+              case res => (for (m <- res) yield createByCardinality(m)).flatten
+            }
+
+            if (debug) {
+              println(s"Number of controllers: ${foundControllers.length}")
+              println(s"Number of controllers: ${foundControlleds.length}")
+            }
+
+            val newRegs = for {
+              r <- foundControllers
+              d <- foundControlleds
+            } yield {
+                val newReg = reg match {
+                  case reg: BioEventMention =>
+                    val ev = new BioEventMention(reg.labels, reg.asInstanceOf[BioEventMention].trigger,
+                      Map("controller" -> Seq(r), "controlled" -> Seq(d)), reg.sentence, doc, reg.keep, "corefCardinality")
+                    ev.modifications ++= reg.modifications
+                    ev.mutableTokenInterval = reg.tokenInterval
+                    ev
+                  case _ =>
+                    val rel = new BioRelationMention(reg.labels, Map("controller" -> Seq(r), "controlled" -> Seq(d)),
+                      reg.sentence, doc, reg.keep, "corefCardinality")
+                    rel.modifications ++= reg.asInstanceOf[BioMention].modifications
+                    rel.mutableTokenInterval = reg.tokenInterval
+                    rel
+                }
+                newReg
+              }
+
+            if (debug) println(s"Length of newRegs: ${newRegs.length}")
+
+            if (newRegs.isEmpty && chains.contains(reg)) {
+              orderedMentions -= reg
+              chains(reg).foreach(link => chains(link) = chains(link).filter(_ != reg))
+              chains -= reg
+            } else if (!newRegs.forall(m => chains.contains(m))) {
+              // replace current reg with new regs in the ordered mentions and in the chain map
+              orderedMentions = (orderedMentions - reg ++ newRegs).sorted
+              val newChain = (if (chains contains reg) {
+                val chain = (chains(reg).filter(_ != reg) ++ newRegs).sorted
+                chains -= reg
+                chain
+              } else {
+                newRegs
+              }).sorted
+              for (link <- newChain) {
+                chains(link) = newChain
+              }
+            }
+
+            alreadySplit += (reg -> newRegs)
+
+            newRegs
           }
 
+        case act if act.matches("ActivationEvent") &&
+          act.arguments.exists(kv => kv._2.exists(m => m matches "Unresolved")) =>
 
-        case ev: BioEventMention if !ev.matches("Binding") &
+          if (alreadySplit contains act) {
+            alreadySplit(act)
+          } else {
+
+            if (debug) println(s"Checking numerosity of ComplexEvent '${act.text}' arguments...")
+
+            var antecedents: Seq[Mention] = Seq()
+
+            val foundControlleds = act.arguments.getOrElse("controlled", Seq()) match {
+              case unres if unres.exists(m => m matches "Unresolved") =>
+
+                // this gnarly thing ensures that we only look at possible controllers that don't themselves control this
+                // regulation in this or the prior sentence
+                val priors = orderedMentions.slice(0, orderedMentions.indexOf(unres.sorted.head)) filter (x => !x.matches("Unresolved") &&
+                  (act.sentence == x.sentence || (act.sentence - x.sentence == 1)) &&
+                  doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
+                  !antecedents.contains(x) &&
+                  x.asInstanceOf[BioMention].matches("BioChemicalEntity") &&
+                  !act.arguments.getOrElse("controller", Seq()).contains(x))
+
+                if (debug) println(s"Controlled priors: $priors")
+
+                if (priors.isEmpty) {
+                  Seq()
+                } else {
+                  val ants = priors.takeRight(math.min(cardinality(unres.head), priors.length))
+                  antecedents ++= ants
+                  ants
+                }
+
+              case x => x
+            }
+
+            val foundControllers = act.arguments.getOrElse("controller", Seq()) match {
+              case unres if unres.exists(m => m matches "Unresolved") =>
+                // this gnarly thing ensures that we only look at possible controllers that don't themselves control this
+                // regulation in this or the prior sentence
+                val priors = orderedMentions.slice(0, orderedMentions.indexOf(unres.sorted.head)) filter (x => !x.matches("Unresolved") &&
+                  (act.sentence == x.sentence || (act.sentence - x.sentence == 1)) &&
+                  doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
+                  !antecedents.contains(x) &&
+                  x.asInstanceOf[BioMention].matches("BioChemicalEntity") &&
+                  !act.arguments.getOrElse("controlled", Seq()).contains(x))
+
+                if (debug) println(s"Controller priors: $priors")
+
+                if (priors.isEmpty) {
+                  Seq()
+                } else {
+                  val ants = priors.takeRight(math.min(cardinality(unres.head), priors.length))
+                  antecedents ++= ants
+                  ants
+                }
+              case x => x
+            }
+
+            if (debug) {
+              println(s"Number of controllers: ${foundControllers.length}")
+              println(s"Number of controlleds: ${foundControlleds.length}")
+            }
+
+            val newActs = for {
+              r <- foundControllers
+              d <- foundControlleds
+            } yield {
+                val newAct = act match {
+                  case event: BioEventMention =>
+                    val ev = new BioEventMention(event.labels, event.asInstanceOf[BioEventMention].trigger,
+                      Map("controller" -> Seq(r), "controlled" -> Seq(d)), event.sentence, doc, event.keep, "corefCardinality")
+                    ev.modifications ++= event.modifications
+                    ev.mutableTokenInterval = event.tokenInterval
+                    ev
+                  case _ =>
+                    val rel = new BioRelationMention(act.labels, Map("controller" -> Seq(r), "controlled" -> Seq(d)),
+                      act.sentence, doc, act.keep, "corefCardinality")
+                    rel.modifications ++= act.asInstanceOf[BioMention].modifications
+                    rel.mutableTokenInterval = act.tokenInterval
+                    rel
+                }
+                newAct
+              }
+
+            if (debug) println(s"Length of newRegs: ${newActs.length}")
+
+            if (newActs.isEmpty && chains.contains(act)) {
+              orderedMentions -= act
+              chains(act).foreach(link => chains(link) = chains(link).filter(_ != act))
+              chains -= act
+            } else if (!newActs.forall(m => chains.contains(m))) {
+              // replace current reg with new regs in the ordered mentions and in the chain map
+              orderedMentions = (orderedMentions - act ++ newActs).sorted
+              for (link <- chains(act)) {
+                chains(link) = chains(link).filter(_ != act) ++ newActs
+              }
+              if (chains contains act) chains -= act
+            }
+
+            alreadySplit += (act -> newActs)
+
+            newActs
+          }
+
+        case ev: BioEventMention if !ev.matches("Binding") & !ev.matches("ComplexEvent") &
           ev.arguments.getOrElse("theme", Seq()).exists(thm => thm.matches("Unresolved")) =>
 
-          var antecedents: Seq[Mention] = Seq()
-          val foundThemes = for {
-            m <- ev.arguments("theme").filter(thm => thm.matches("Unresolved"))
-            priors = orderedMentions.slice(0, i) filter (x => x.isInstanceOf[BioTextBoundMention] &&
-              !x.matches("Unresolved") &&
-              x.matches(m.labels(1)) &&
-              !antecedents.contains(x) &&
-              !chains.keys.exists(y => y.matches("ComplexEvent") &&
-                y.arguments.getOrElse("controller",Seq()).contains(x) &&
-                y.arguments.getOrElse("controlled",Seq()).contains(ev)))
+          if (alreadySplit.contains(ev)) {
+            alreadySplit(ev)
+          } else {
 
-            brk1 = breakable {
-              if (priors.isEmpty) break()
-            }
+            if (debug) println(s"Checking numerosity of non-binding BioEventMention '${ev.text}' themes...")
 
-            num = cardinality(m)
+            var antecedents: Seq[Mention] = Seq()
+            val foundThemes = for {
+              m <- ev.arguments("theme").filter(thm => thm.matches("Unresolved"))
+              priors = orderedMentions.slice(0, orderedMentions.indexOf(ev.arguments.flatMap(_._2).toSeq.sorted.lastOption.getOrElse(ev))) filter (x => x.isInstanceOf[BioTextBoundMention] &&
+                (x.sentence == m.sentence || m.sentence - x.sentence == 1) &&
+                !x.matches("Unresolved") &&
+                x.matches(m.labels(1)) &&
+                doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
+                !antecedents.contains(x) &&
+                !chains.keys.exists(y => y.matches("ComplexEvent") &&
+                  y.arguments.getOrElse("controller", Seq()).contains(x) &&
+                  y.arguments.getOrElse("controlled", Seq()).contains(ev)))
 
-            themes = priors.takeRight(math.min(num, priors.length))
-          } yield {
-              antecedents = antecedents ++ themes
-              (m, themes)
-            }
-
-          val numThemes = themeCardinality(ev.label)
-
-          numThemes match {
-            case splitEvent if foundThemes.map(_._2).flatten.length > numThemes =>
-              toSplit(ev) = foundThemes.map(_._2)
-            case _ =>
-              for (t <- foundThemes) {
-                val sumChain = chains(t._1) ++ (for {
-                  ant <- t._2
-                } yield chains(ant)).flatten
-                sumChain.foreach(link => chains(link) = sumChain)
+              brk1 = breakable {
+                if (priors.isEmpty) break()
               }
+
+              num = cardinality(m)
+
+              themes = priors.takeRight(math.min(num, priors.length))
+            } yield {
+                antecedents ++= themes
+                (m, themes)
+              }
+
+            val newEvs = for {
+              themeSets <- foundThemes.map(_._2)
+              t <- themeSets
+            } yield {
+                val newEv = new BioEventMention(
+                  ev.labels, ev.trigger, ev.arguments - "theme" + ("theme" -> Seq(t)), ev.sentence, doc, ev.keep, "corefCardinality")
+                newEv.modifications ++= ev.modifications
+                newEv.mutableTokenInterval = ev.mutableTokenInterval
+                newEv
+              }
+
+            if (newEvs.isEmpty && chains.contains(ev)) {
+              orderedMentions -= ev
+              chains(ev).foreach(link => chains(link) = chains(link).filter(_ != ev))
+              chains -= ev
+            } else if (!newEvs.forall(m => chains.contains(m))) {
+              orderedMentions = (orderedMentions - ev ++ newEvs).sorted
+              val sumChain = (if (chains contains ev) {
+                val chain = (chains(ev).filter(x => !(x == ev)) ++ newEvs).sorted
+                chains -= ev
+                chain
+              } else {
+                newEvs
+              }).sorted
+              sumChain.foreach(link => chains(link) = sumChain)
+            }
+
+            alreadySplit += (ev -> newEvs)
+
+            newEvs
           }
-        case _ => ()
+
+        case m => Seq(m)
       }
+
     }
+
 
     results = results :+ (for {
       m <- orderedMentions
     } yield resolve(m)).flatten.sorted
 
-    results.map(_.map(_.toBioMention))
+    results.map(_.map(_.toBioMention).distinct)
   }
 }
