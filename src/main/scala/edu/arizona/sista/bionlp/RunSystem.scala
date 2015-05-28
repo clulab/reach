@@ -57,7 +57,7 @@ object RunSystem extends App {
   for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startTime = now // start measuring time here
-
+    val startNS = System.nanoTime
     // process individual sections and collect all mentions
     val entries = try {
       nxml2fries.extractEntries(file)
@@ -112,39 +112,42 @@ object RunSystem extends App {
 
     // done processing
     val endTime = now
+    val endNS = System.nanoTime
 
-    if (outputType != "text") {             // if reach will handle output
-      outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
-    }
-    else {                                  // else dump all paper mentions to file
-      try {
+    try outputType match {
+      case "text" =>
         val mentionMgr = new MentionManager()
         val lines = mentionMgr.sortMentionsToStrings(paperMentions)
         val outFile = new File(friesDir, s"$paperId.txt")
         println(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
-        FileUtils.writeStringToFile(logFile, s"Finished $paperId (started at $startTime and ended at $endTime", true)
-      } catch {
-        case e: Exception =>
-          val report = s"""
-            |==========
-            |
-            | ¡¡¡ serialization error !!!
-            |
-            |paper: $paperId
-            |
-            |error:
-            |${e.toString}
-            |
-            |stack trace:
-            |${e.getStackTrace.mkString("\n")}
-            |
-            |==========
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)", true)
+      // Anything that is not text (including Hans-style output)
+      case _ =>
+        outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)", true)
+    } catch {
+        case e:
+          Exception =>
+          val report =
+            s"""
+              |==========
+              |
+              | ¡¡¡ serialization error !!!
+              |
+              |paper: $paperId
+              |
+              |error:
+              |${e.toString}
+              |
+              |stack trace:
+              |${e.getStackTrace.mkString("\n")}
+              |
+              |==========
             """.stripMargin
           FileUtils.writeStringToFile(logFile, report, true)
       }
     }
-  }
 
   def now = new Date()
 
@@ -166,3 +169,4 @@ object RunSystem extends App {
   }
 
 }
+
