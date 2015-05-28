@@ -123,6 +123,7 @@ object RunSystem extends App {
         val outFile = new File(friesDir, s"$paperId.txt")
         println(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId (started at $startTime and ended at $endTime", true)
       } catch {
         case e: Exception =>
           val report = s"""
