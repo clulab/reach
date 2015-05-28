@@ -4,6 +4,7 @@ import java.io.File
 import java.util.Date
 import scala.collection.JavaConverters._
 import scala.collection.mutable
+import scala.util.{ Try,Success,Failure }
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
@@ -59,16 +60,16 @@ object RunSystem extends App {
     val startTime = now // start measuring time here
 
     // process individual sections and collect all mentions
-    val entries = try {
-      nxml2fries.extractEntries(file)
-    } catch {
-      case e: Exception =>
+    val entries = nxml2fries.extractEntries(file).zipWithIndex flatMap {
+      case (Success(entry), i) => Some(entry)
+      case (Failure(e), i) =>
         val report = s"""
           |==========
           |
           | ¡¡¡ nxml2fries error !!!
           |
           |paper: $paperId
+          |entry: $i
           |
           |error:
           |${e.toString}
@@ -79,7 +80,7 @@ object RunSystem extends App {
           |==========
           |""".stripMargin
         FileUtils.writeStringToFile(logFile, report, true)
-        Nil
+        None
     }
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]

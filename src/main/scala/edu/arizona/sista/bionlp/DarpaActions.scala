@@ -3,6 +3,7 @@ package edu.arizona.sista.bionlp
 import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
+import scala.collection.mutable
 
 class DarpaActions extends Actions {
 
@@ -427,8 +428,21 @@ class DarpaActions extends Actions {
       degree match {
         case 0 => Seq[Int]() // Base case of the recursion
         case _ =>
+
+          val outgoing = dependencies.outgoingEdges
+          val incoming = dependencies.incomingEdges
+
           // Get incoming and outgoing edges
-          val edges = dependencies.getIncomingEdges(index) ++ dependencies.getOutgoingEdges(index)
+          val t:Seq[(Int, String)] = incoming.lift(index)  match {
+            case Some(x) => x
+            case None => Seq()
+          }
+
+          val edges = t ++ (outgoing.lift(index) match {
+            case Some(x) => x
+            case None => Seq()
+          })
+
 
           // Each edge is a tuple of (endpoint index, edge label), so we map it to the first
           // element of the tuple
@@ -500,7 +514,8 @@ class DarpaActions extends Actions {
 
           for{
             tok <- event.tokenInterval.toSeq
-            (ix, label) <- outgoing(tok)
+            out <- outgoing.lift(tok)
+            (ix, label) <- out
             if label == "neg"
           }
             event.modifications += Negation(new BioTextBoundMention(

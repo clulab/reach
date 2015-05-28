@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
+import scala.util.Try
 import scala.sys.process._
 import scala.collection.JavaConverters._
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
@@ -11,7 +12,7 @@ class Nxml2Fries(
     val ignoreSections: Set[String],
     val encoding: String
 ) {
-  def extractEntries(input: File): Seq[FriesEntry] = {
+  def extractEntries(input: File): Seq[Try[FriesEntry]] = {
     val command =
       if (removeCitations) Seq(executable, "--no-citations", input.getCanonicalPath)
       else Seq(executable, input.getCanonicalPath)
@@ -25,8 +26,9 @@ class Nxml2Fries(
       val tsvFile = new File(FilenameUtils.removeExtension(input.getCanonicalPath) + ".tsv")
       FileUtils.readLines(tsvFile, encoding).asScala.flatMap { line =>
         val fields = line.split('\t')
-        val entry = FriesEntry(name, fields(0), fields(1), fields(2), fields(3).toInt == 1, fields(4))
-        if (ignoreSections contains entry.sectionName) None else Some(entry)
+        val entry = Try(FriesEntry(name, fields(0), fields(1), fields(2), fields(3).toInt == 1, fields(4)))
+        if (entry.isSuccess && ignoreSections.contains(entry.get.sectionName)) None
+        else Some(entry)
       }
     } else sys.error("something went wrong when running nxml2fries")
   }
