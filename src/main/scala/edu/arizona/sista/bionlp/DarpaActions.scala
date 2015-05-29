@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp
 import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
 
 class DarpaActions extends Actions {
 
@@ -321,7 +321,7 @@ class DarpaActions extends Actions {
       if (c.isDefined && c.get.head.matches("Event")) true
       else false
     }
-    biomention = mention.toBioMention
+    biomention = switchLabel(mention.toBioMention)
   } yield {
     val controllerOption = biomention.arguments.get("controller")
     // if no controller then we are done
@@ -380,10 +380,28 @@ class DarpaActions extends Actions {
       }
       if(count % 2 != 0) {
         // println("Found an odd number of semantic negatives. We should flip " + em.label)
-        // TODO
+        val flippedLabels = new ListBuffer[String]
+        flippedLabels += flipLabel(em.label)
+        flippedLabels ++= em.labels.slice(1, em.labels.size)
+        return new BioEventMention(
+          flippedLabels,
+          em.trigger,
+          em.arguments,
+          em.sentence,
+          em.document,
+          em.keep,
+          em.foundBy)
       }
     }
     m
+  }
+
+  def flipLabel(l:String):String = {
+    if(l.startsWith("Positive_"))
+      "Negative_" + l.substring(9)
+    else if(l.startsWith("Negative_"))
+      "Positive_" + l.substring(9)
+    else throw new RuntimeException("ERROR: Must have a polarized label here!")
   }
 
 

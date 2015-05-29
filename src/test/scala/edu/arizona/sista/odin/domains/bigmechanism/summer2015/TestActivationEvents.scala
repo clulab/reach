@@ -54,6 +54,9 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent4)
     hasNegativeActivation("MEK", "ERBB3", mentions) should be (true)
     hasPositiveActivation("MEK", "ERBB3", mentions) should be (false)
+    mentions.filter(_.label.contains("Positive_regulation")) should have size (0)
+    mentions.filter(_.label.contains("Negative_regulation")) should have size (1)
+    hasNegativeRegulationByEntity("MEK", "Binding", List("ERBB3", "PI3K"), mentions) should be (true)
   }
 
   val sent5 = "the suppression of ASPP1 decreases ASPP2."
