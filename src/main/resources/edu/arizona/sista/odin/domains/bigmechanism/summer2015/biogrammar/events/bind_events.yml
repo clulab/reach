@@ -27,7 +27,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = binding (?! /sites?/)
+    trigger = binding (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <prep_by nsubj /nn|conj_|cc/{,2}
     theme2:BioChemicalEntity* = prep_such_as
 
@@ -36,7 +36,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/] (?! /sites?/)
+    trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/{1,2} >/./{,2}
     theme2:BioChemicalEntity* = /conj_(and|or)/{,2} /prep_to/{1,2} >/./{,2}
 
@@ -45,7 +45,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/] (?! /sites?/)
+    trigger = [word=/(?i)binding|heterodimerzation|ligation|recruitment/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} (<agent)? /prep_of/{1,2} >/./{,2}
     theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to/{1,2} >/./{,2}
 
@@ -54,7 +54,7 @@
 #  action: mkBinding
 #  priority: 4
 #  pattern: |
-#      trigger = binding (?! /sites?/)
+#      trigger = binding (?! [lemma="site"])
 #      theme1:BioChemicalEntity+ = <nn <dobj (nsubj | /prep_(of|for)/){1,2} >/./{,2}
 
 - name: binding5
@@ -62,7 +62,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = binding (?! /sites?/)
+      trigger = binding (?! [lemma="site"])
       theme1:BioChemicalEntity* = poss
       theme2:BioChemicalEntity+ = <nn (nn{,2} >/./{,2} | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
@@ -81,7 +81,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [word=/binding|ligation/] (?! /sites?/)
+      trigger = [word=/binding|ligation/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = nn conj_and?
       theme2:BioChemicalEntity* = prep_to conj_and?
 
@@ -90,7 +90,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [word=/binding|ligation/] (?! /sites?/)
+      trigger = [word=/binding|ligation/] (?! [lemma="site"])
       theme1:BioChemicalEntity* = nn conj_and?
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
@@ -99,7 +99,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [word=/binding|ligation/] (?! /sites?/)
+      trigger = [word=/binding|ligation/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = nn conj_and?
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
@@ -185,7 +185,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = binding (?! /sites?/)
+    trigger = binding (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <conj_and{,2} prep dep{1,2} (/prep_(to|with)/)?
     theme2:BioChemicalEntity+ = <conj_and{,2} prep dep{1,2} (/prep_(to|with)/)?
 
@@ -203,7 +203,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = /(?i)binding|interaction/ (?! /sites?/)
+    trigger = /(?i)binding|interaction/ (?! [lemma="site"])
     theme1:BioChemicalEntity+ = rcmod{,2} prep_between
 
 - name: binding_21
@@ -211,7 +211,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = oligomerization
+    trigger = oligomerization (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <prep_through nsubj
 
 - name: binding_22
@@ -219,7 +219,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=target & tag=/^N/]
+    trigger = [lemma=target & tag=/^N/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <nn{,2} nn{,2} | nsubj
     theme2:BioChemicalEntity+ = prep_of
 
@@ -241,7 +241,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = binding (?! /sites?/)
+    trigger = binding (?! [lemma="site"])
     theme1:BioChemicalEntity+ = poss
     theme2:BioChemicalEntity* = (prep_to|prep_with|prep_of|prep_by) [!(lemma=member)] nn{,2} | (prep_to|prep_with|prep_of|prep_by) [lemma=member] nn{1,2}
 
@@ -251,7 +251,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=binding & tag=VBG] (?! /sites?/)
+    trigger = [word=binding & tag=VBG] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <amod <prep_of <acomp{,2} nsubj
     theme2:BioChemicalEntity+ = <amod
 
