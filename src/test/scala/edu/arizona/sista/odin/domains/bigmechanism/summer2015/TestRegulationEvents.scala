@@ -250,4 +250,10 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controlled.matches("Phosphorylation") should be (true)
   }
 
+  val sent25 = "ASPP1 aids in the translocation of Kras to the membrane"
+  sent24 should "contain one positive regulation" in {
+    val mentions = parseSentence(sent25)
+    hasPositiveRegulationByEntity("ASPP1", "Translocation", List("Kras"), mentions) should be (true)
+  }
+
 }
