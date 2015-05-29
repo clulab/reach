@@ -3,6 +3,7 @@ package edu.arizona.sista.bionlp
 import edu.arizona.sista.struct.{Interval, DirectedGraph}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
+import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 class DarpaActions extends Actions {
@@ -321,7 +322,7 @@ class DarpaActions extends Actions {
       if (c.isDefined && c.get.head.matches("Event")) true
       else false
     }
-    biomention = switchLabel(mention.toBioMention)
+    biomention = removeDummy(switchLabel(mention.toBioMention))
   } yield {
     val controllerOption = biomention.arguments.get("controller")
     // if no controller then we are done
@@ -361,7 +362,7 @@ class DarpaActions extends Actions {
    */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions
-    biomention = switchLabel(mention.toBioMention)
+    biomention = removeDummy(switchLabel(mention.toBioMention))
     // TODO: Should we add a Regulation label to Pos and Neg Regs?
     regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
     // Don't report an Activation if an intersecting Regulation has been detected
@@ -369,16 +370,55 @@ class DarpaActions extends Actions {
   } yield biomention
 
 
+  /** Removes the "dummy" argument, if present */
+  def removeDummy(m:BioMention):BioMention = {
+    m match {
+      case em:BioEventMention => // we only need to do this for events
+        if(em.arguments.contains("dummy")) {
+          val filteredArguments = new mutable.HashMap[String, Seq[Mention]]()
+          for(k <- em.arguments.keySet) {
+            if(! k.startsWith("dummy")) {
+              filteredArguments += k -> em.arguments.get(k).get
+            }
+          }
+          new BioEventMention(
+            em.labels,
+            em.trigger,
+            filteredArguments.toMap,
+            em.sentence,
+            em.document,
+            em.keep,
+            em.foundBy
+          )
+        } else {
+          em
+        }
+      case _ => m
+    }
+  }
+
+
   /** Flips labels from positive to negative and viceversa, if an odd number of semantic negatives are found in the path */
   def switchLabel(m:BioMention):BioMention = {
     if(m.isInstanceOf[BioEventMention]) {
       val em = m.asInstanceOf[BioEventMention]
       val trigger = em.trigger
-      var count = 0
+      // contains all tokens that should be excluded in the search for negatives
+      val excluded = new mutable.HashSet[Int]()
       for(arg <- em.arguments.values.flatten) {
-        count += countSemanticNegatives(trigger, arg)
+        for(i <- arg.tokenInterval) {
+          excluded += i
+        }
       }
-      if(count % 2 != 0) {
+      for(i <- trigger.tokenInterval) {
+        excluded += i
+      }
+      // stores all the negative tokens found
+      val negatives = new mutable.HashSet[Int]()
+      for(arg <- em.arguments.values.flatten) {
+        countSemanticNegatives(trigger, arg, excluded.toSet, negatives)
+      }
+      if(negatives.size % 2 != 0) {
         // println("Found an odd number of semantic negatives. We should flip " + em.label)
         val flippedLabels = new ListBuffer[String]
         flippedLabels += flipLabel(em.label)
@@ -704,15 +744,15 @@ class DarpaActions extends Actions {
   /**
    * Counts the number of semantic negatives (e.g., inhibition, suppression) appear between a trigger and an argument
    */
-  def countSemanticNegatives(trigger:Mention, arg:Mention):Int = {
+  def countSemanticNegatives(trigger:Mention, arg:Mention, excluded:Set[Int], negatives:mutable.HashSet[Int]):Boolean = {
     // sanity check
     require(trigger.document == arg.document, "mentions not in the same document")
     // it is possible for the trigger and the arg to be in different sentences because of coreference
-    if (trigger.sentence != arg.sentence) 0
-    else if(trigger.sentenceObj.lemmas.isEmpty) 0
+    if (trigger.sentence != arg.sentence) false
+    else if(trigger.sentenceObj.lemmas.isEmpty) false
     else trigger.sentenceObj.dependencies match {
       // if for some reason we don't have dependencies then there is nothing we can do
-      case None => 0
+      case None => false
       case Some(deps) =>
         var shortestPath:Seq[Int] = null
         for (tok1 <- trigger.tokenInterval; tok2 <- arg.tokenInterval) {
@@ -721,17 +761,16 @@ class DarpaActions extends Actions {
             shortestPath = path
         }
         // count negatives along the shortest path
-        var count = 0
         for(i <- shortestPath) {
-          if(! trigger.tokenInterval.contains(i)) {
+          if(! excluded.contains(i)) {
             val lemma = trigger.sentenceObj.lemmas.get(i)
             if (RuleReader.SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined) {
-              count += 1
+              negatives += i
               //println("Found one semantic negative: " + lemma)
             }
           }
         }
-        count
+        true
     }
   }
 

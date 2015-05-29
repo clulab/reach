@@ -257,4 +257,9 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("IKKgamma", "linear polyubiquitin"), mentions) should be (true)
   }
 
+  val sent19 = "The dimerization of cRaf with BRaf helps something."
+  sent19 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent19)
+    hasEventWithArguments("Binding", List("cRaf", "BRaf"), mentions) should be (true)
+  }
 }
