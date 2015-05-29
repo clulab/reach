@@ -258,24 +258,31 @@ object RuleReader {
         "Ribosylation" -> riboMap,
         "Methylation" -> methMap)
 
-  val POS_NOUNS = "activ|promot|acceler|augment|cataly|caus|driv|elev|elicit|enhanc|express|facilit|increas|induc|induct|initi|produc|promot|rais|reactiv|recruit|releas|stimul|trigger|up-regul|upregul"
-  val NEG_NOUNS = "inhibit|decreas|repress|supress|suppress|loss"
-  val AUXTRIGGERS = "regul|activ"
+  //
+  // Please keep all triggers sorted alphabetically; otherwise it is hard to see what we have and what is missing
+  //
 
-  val POS_REG_TRIGGERS = "enabl|acceler|accept|accumul|action|activat|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|recruit|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
-  val NEG_REG_TRIGGERS = "deactiv|downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|suppress|uncoupl"
+  val POS_NOUNS = "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|express|facilit|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|recruit|releas|stimul|trigger|up-regul|upregul"
+  val NEG_NOUNS = "decreas|inhibit|loss|repress|suppress|supress"
+  val AUXTRIGGERS = "activ|regul"
 
-  val POS_ACT_TRIGGERS = "enabl|acceler|activat|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
-  val NEG_ACT_TRIGGERS = "deactiv|inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress|suppress"
+  val POS_REG_TRIGGERS = "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|recruit|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+  val NEG_REG_TRIGGERS = "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|suppress|supress|uncoupl"
+
+  // These are a bit stricter than the POS_REG and NEG_REG because the context is more ambiguous for activations
+  val POS_ACT_TRIGGERS = "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
+  val NEG_ACT_TRIGGERS = "attenu|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress"
+
+  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.switchLabel
+  val SEMANTIC_NEGATIVE_PATTERN = NEG_ACT_TRIGGERS.r
 
   val posRegEventMap: Map[String, String] =
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
         "ruleType" -> "regulation",
         "triggers" -> POS_REG_TRIGGERS,
-        "negtriggers" -> NEG_REG_TRIGGERS,
         "auxtriggers" -> AUXTRIGGERS,
         "posnouns" -> POS_NOUNS,
-        "negnouns" -> NEG_NOUNS,
+        "negnouns" -> NEG_NOUNS, // needed for lookahead
         "actionFlow" -> "mkRegulation",
         "priority" -> "5",
         "controlledType" -> "SimpleEvent",
@@ -284,7 +291,6 @@ object RuleReader {
     Map("labels" -> "Positive_activation, ActivationEvent, Event",
         "ruleType" -> "activation",
         "triggers" -> POS_ACT_TRIGGERS,
-        "negtriggers" -> NEG_ACT_TRIGGERS,
         "auxtriggers" -> AUXTRIGGERS,
         "posnouns" -> POS_NOUNS,
         "negnouns" -> NEG_NOUNS,
@@ -297,7 +303,6 @@ object RuleReader {
     Map("labels" -> "Negative_regulation, ComplexEvent, Event",
         "ruleType" -> "regulation",
         "triggers" -> NEG_REG_TRIGGERS,
-        "postriggers" -> POS_REG_TRIGGERS,
         "auxtriggers" -> AUXTRIGGERS,
         "negnouns" -> NEG_NOUNS,
         "actionFlow" -> "mkRegulation",
@@ -308,7 +313,6 @@ object RuleReader {
     Map("labels" -> "Negative_activation, ActivationEvent, Event",
         "ruleType" -> "activation",
         "triggers" -> NEG_ACT_TRIGGERS,
-        "postriggers" -> POS_ACT_TRIGGERS,
         "auxtriggers" -> AUXTRIGGERS,
         "negnouns" -> NEG_NOUNS,
         "actionFlow" -> "mkActivation",
