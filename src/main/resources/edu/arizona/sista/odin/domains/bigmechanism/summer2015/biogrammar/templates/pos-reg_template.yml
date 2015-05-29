@@ -11,7 +11,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn|prep_of/{,2} (/./ [word=by]){,2}
-    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [!lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/{,2}
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of/{,2}
 
 
 - name: Positive_{{ ruleType }}_syntax_1b_verb

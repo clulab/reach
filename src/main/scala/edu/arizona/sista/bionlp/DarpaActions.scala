@@ -361,12 +361,30 @@ class DarpaActions extends Actions {
    */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions
-    biomention = mention.toBioMention
+    biomention = switchLabel(mention.toBioMention)
     // TODO: Should we add a Regulation label to Pos and Neg Regs?
     regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
     // Don't report an Activation if an intersecting Regulation has been detected
     if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval))
   } yield biomention
+
+
+  /** Flips labels from positive to negative and viceversa, if an odd number of semantic negatives are found in the path */
+  def switchLabel(m:BioMention):BioMention = {
+    if(m.isInstanceOf[BioEventMention]) {
+      val em = m.asInstanceOf[BioEventMention]
+      val trigger = em.trigger
+      var count = 0
+      for(arg <- em.arguments.values.flatten) {
+        count += countSemanticNegatives(trigger, arg)
+      }
+      if(count % 2 != 0) {
+        // println("Found an odd number of semantic negatives. We should flip " + em.label)
+        // TODO
+      }
+    }
+    m
+  }
 
 
   /** Converts a simple event to a physical entity.
@@ -662,6 +680,40 @@ class DarpaActions extends Actions {
       } return true
         // if we reach this point then we are good
         false
+    }
+  }
+
+  /**
+   * Counts the number of semantic negatives (e.g., inhibition, suppression) appear between a trigger and an argument
+   */
+  def countSemanticNegatives(trigger:Mention, arg:Mention):Int = {
+    // sanity check
+    require(trigger.document == arg.document, "mentions not in the same document")
+    // it is possible for the trigger and the arg to be in different sentences because of coreference
+    if (trigger.sentence != arg.sentence) 0
+    else if(trigger.sentenceObj.lemmas.isEmpty) 0
+    else trigger.sentenceObj.dependencies match {
+      // if for some reason we don't have dependencies then there is nothing we can do
+      case None => 0
+      case Some(deps) =>
+        var shortestPath:Seq[Int] = null
+        for (tok1 <- trigger.tokenInterval; tok2 <- arg.tokenInterval) {
+          val path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
+          if(shortestPath == null || path.length < shortestPath.length)
+            shortestPath = path
+        }
+        // count negatives along the shortest path
+        var count = 0
+        for(i <- shortestPath) {
+          if(! trigger.tokenInterval.contains(i)) {
+            val lemma = trigger.sentenceObj.lemmas.get(i)
+            if (RuleReader.SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined) {
+              count += 1
+              //println("Found one semantic negative: " + lemma)
+            }
+          }
+        }
+        count
     }
   }
 

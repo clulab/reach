@@ -87,4 +87,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("regulation")) should have size (0)
     hasEventWithArguments("Binding", List("ASPP2", "CREB"), mentions) should be (true)
   }
+
+  val sent9 = "HOXB7 overexpression induced a decrease of c-FOS"
+  sent9 should "contain 1 negative activation and 0 positive ones" in {
+    val mentions = parseSentence(sent9)
+    mentions.filter(_.label.contains("Transcription")) should have size (1)
+    mentions.filter(_.label.contains("Negative_activation")) should have size (1)
+  }
 }
