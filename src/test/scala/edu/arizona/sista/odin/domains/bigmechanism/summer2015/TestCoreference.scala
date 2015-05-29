@@ -90,8 +90,9 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_.isInstanceOf[BioEventMention]) should have size (1)
   }
 
-  // Number-sensitive search works with cause controllers
+  // Number-sensitive search works with cause controllers but not triggered regulation plurals
   val sent10 = "Ras and Mek are in proximity, and they phosphorylate ASPP2."
+  val sent10a = "Ras and Mek are in proximity, and they upregulate the phosphorylation of ASPP2."
   sent10 should "contain one phosphorylation and two regulations" in {
     val mentions = parseSentence(sent10)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions)
@@ -99,9 +100,15 @@ class TestCoreference extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras","BioChemicalEntity",Seq("ASPP2"),mentions)
     hasPositiveRegulationByEntity("Mek","BioChemicalEntity",Seq("ASPP2"),mentions)
   }
+  sent10a should "contain no regulation events" in {
+    val mentions = parseSentence(sent10a)
+    hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions)
+    mentions.filter(_ matches "Positive_regulation") should have size (0)
+  }
 
-  // Number-sensitive search works with cause controlleds
+  // Number-sensitive search works with cause controlleds but not triggered regulation plurals
   val sent11 = "Ras and Mek are in proximity, and ASPP2 phosphorylates them."
+  val sent11a = "The phosphorylation of Ras and the ubiquitination of Mek are common. ASPP2 upregulates both of them."
   sent11 should "contain two phosphorylation and two regulations" in {
     val mentions = parseSentence(sent11)
     mentions.filter(_ matches "Phosphorylation") should have size (2)
@@ -110,6 +117,15 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_ matches "Positive_regulation") should have size (2)
     hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("Ras"),mentions)
     hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("Mek"),mentions)
+  }
+  sent11a should "contain no regulations" in {
+    val mentions = parseSentence(sent11a)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
+    mentions.filter(_ matches "Ubiquitination") should have size (1)
+    hasEventWithArguments("Ubiquitination", List("Mek"), mentions) should be (true)
+    mentions.filter(_ matches "ComplexEvent") should have size (0)
+    mentions.filter(_ matches "ActivationEvent") should have size (0)
   }
 
   // Number-sensitive search works with activation controllers, but plurals are forbidden.
