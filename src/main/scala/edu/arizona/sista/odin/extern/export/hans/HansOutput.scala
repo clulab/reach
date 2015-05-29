@@ -358,6 +358,7 @@ class HansOutput extends JsonOutputter {
                          passageDoc:Document,
                          offset:Int): PropMap = {
     val sent = startFrame("BioNLPProcessor")
+    sent("frame-type") = "sentence"
     sent("frame-id") = mkSentenceId(paperId, passageMeta, offset)
     sent("passage") = mkPassageId(paperId, passageMeta)
     sent("start-pos") = mkRelativePosition(paperId, passageMeta, getSentenceStartCharacterOffset(passageDoc, offset))
