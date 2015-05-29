@@ -294,6 +294,14 @@
   pattern: |
     (?<trigger> binding) of (@theme1:BioChemicalEntity) (to|with) (@theme2:BioChemicalEntity)
 
+- name: binding_token_5
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  type: token
+  pattern: |
+    [tag=DT] @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> complex)
+
 # TODO: figure out how to handle args without types (ex. "endophor")
 
 #- name: binding_coref1
