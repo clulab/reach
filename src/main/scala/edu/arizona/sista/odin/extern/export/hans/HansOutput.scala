@@ -463,6 +463,9 @@ class HansOutput extends JsonOutputter {
     if(label == "Translocation")
       return "translocation"
 
+    if(label == "Complex")
+      return "complex-assembly"
+
     if(REGULATION_EVENTS.contains(label))
       return "regulation"
 
