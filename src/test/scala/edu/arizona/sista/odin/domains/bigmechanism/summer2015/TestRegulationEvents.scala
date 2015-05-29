@@ -256,4 +256,5 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("ASPP1", "Translocation", List("Kras"), mentions) should be (true)
   }
 
+
 }
