@@ -97,4 +97,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("Transcription")) should have size (1)
     mentions.filter(_.label.contains("Negative_activation")) should have size (1)
   }
+
+  val sent10 = "The suppression of ASPP1 increases the inhibition of ASPP2."
+  sent10 should "contain 1 positive activation and 0 negative ones" in {
+    val mentions = parseSentence(sent10)
+    mentions.filter(_.label.contains("Positive_activation")) should have size (1)
+    mentions.filter(_.label.contains("Negative_activation")) should have size (0)
+  }
 }
