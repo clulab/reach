@@ -147,7 +147,7 @@
 # These contain instances of positive regulation triggers coupled with negative nouns
 #
 
-- name: Negative_{{ ruleType }}_syntax_1_verb_negnoun
+- name: Negative_{{ ruleType }}_syntax_1a_verb_negnoun
   priority: {{ priority }}
   example: ""
   label: [{{ labels }}]
@@ -156,6 +156,16 @@
     trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/(?i){{ auxtriggers }}/ & tag=/^V/]?
     controlled:{{ controlledType }} = (dobj | xcomp) /conj|dep|cc|nn/{,2} (/./ [word=by]){,2}
     controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) [lemma=/{{ negnouns }}/] /appos|nn|conj_|cc|prep_of/{1,2}
+
+- name: Negative_{{ ruleType }}_syntax_1b_verb_negnoun
+  priority: {{ priority }}
+  example: ""
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ postriggers }}/ & tag=/^V|RB/] [lemma=/(?i){{ auxtriggers }}/ & tag=/^V/]?
+    controlled:{{ controlledType }} = (dobj | xcomp) [lemma=/{{ negnouns }}/] /conj|dep|cc|nn/{1,2} (/./ [word=by]){,2}
+    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of/{,2}
 
 
 - name: Negative_{{ ruleType }}_syntax_2_verb_negnoun

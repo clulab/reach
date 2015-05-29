@@ -268,6 +268,8 @@ object RuleReader {
   val POS_ACT_TRIGGERS = "enabl|acceler|activat|allow|augment|direct|elev|elicit|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
   val NEG_ACT_TRIGGERS = "deactiv|inhibit|attenu|decreas|degrad|diminish|disrupt|impair|imped|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|supress|suppress"
 
+  val SEMANTIC_NEGATIVE_PATTERN = NEG_ACT_TRIGGERS.r
+
   val posRegEventMap: Map[String, String] =
     Map("labels" -> "Positive_regulation, ComplexEvent, Event",
         "ruleType" -> "regulation",
