@@ -234,4 +234,20 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Positive_regulation") should have size (2)
     mentions.filter(_.label == "Phosphorylation") should have size (1)
   }
+
+  val sent24 = "The binding of BS1 and BS2 promotes the phosphorylation of MEK"
+  sent24 should "contain one positive regulation" in {
+    val mentions = parseSentence(sent24)
+    val posReg = mentions.filter(_ matches "Positive_regulation")
+    posReg should have size (1)
+    posReg.head.arguments should contain key ("controller")
+    posReg.head.arguments should contain key ("controlled")
+    posReg.head.arguments("controller") should have size (1)
+    posReg.head.arguments("controlled") should have size (1)
+    val controller = posReg.head.arguments("controller").head
+    val controlled = posReg.head.arguments("controlled").head
+    controller.matches("Complex") should be (true)
+    controlled.matches("Phosphorylation") should be (true)
+  }
+
 }
