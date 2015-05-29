@@ -12,7 +12,7 @@ package object display {
     for ((s, i) <- doc.sentences.zipWithIndex) {
       println(s"sentence #$i")
       println(s.getSentenceText())
-      println("Tokens: " + s.words.zip(s.tags.get).mkString(", "))
+      println("Tokens: " + (s.words.indices, s.words, s.tags.get).zipped.mkString(", "))
       printSyntacticDependencies(s)
       println
 
@@ -43,44 +43,58 @@ package object display {
     println(s"\tType => $mentionType")
     println(boundary)
     mention match {
-      case m: BioTextBoundMention =>
-        println(s"\t${m.asInstanceOf[Display].displayLabel}|${m.labels} => ${m.text}")
-        val bm = m.toBioMention
-        if (bm.isGrounded) println(s"\txref: ${bm.xref.get}")
-        if (bm.isModified) println(s"\tmodifications: ${bm.modifications}")
-      case m: BioEventMention =>
-        println(s"\ttrigger => ${m.trigger.text}")
-        m.arguments foreach {
-          case (k, vs) =>
-            for (v <- vs) {
-              val vm = v.toBioMention
-              println(s"\t$k (${v.labels}) => ${v.text}")
-              if (vm.modifications.nonEmpty)
-                println(s"\t  with modifications => ${vm.modifications}")
-            }
-        }
-        m.modifications foreach {
-          case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
-          case Hypothesis(evidence) => println(s"\tSuggest hypothesis by ${evidence.text}")
-          case _ => ()
-        }
-      case m: BioRelationMention =>
-        m.arguments foreach {
-          case (k, vs) =>
-            for (v <- vs) {
-              val vm = v.toBioMention
-              println(s"\t$k (${v.labels}) => ${v.text}")
-              if (vm.modifications.nonEmpty)
-                println(s"\t  with modifications => ${vm.modifications}")
-            }
-        }
-        m.modifications foreach {
-          case Negation(evidence) => println(s"\tNegated by ${evidence.text}")
-          case _ => ()
-        }
+      case tb: BioTextBoundMention =>
+        println(s"\t${tb.asInstanceOf[Display].displayLabel}|${tb.labels} => ${tb.text}")
+        if (tb.isGrounded) println(s"\txref: ${tb.xref.get}")
+        displayModifications(tb)
+      case em: BioEventMention =>
+        displayModifications(em)
+        println(boundary)
+        println(s"\ttrigger => ${em.trigger.text}")
+        displayArguments(em)
+      case rel: BioRelationMention =>
+        displayModifications(rel)
+        println(boundary)
+        displayArguments(rel)
       case _ => ()
     }
     println(s"$boundary\n")
+  }
+
+
+  def displayArguments(b: BioMention): Unit = {
+    b.arguments foreach {
+      case (k, vs) =>
+        vs foreach { v =>
+          val vm = v.toBioMention
+          println(s"\t$k (${vm.labels}) => ${vm.text}")
+          displayModifications(vm)
+        }
+    }
+  }
+
+  def displayModifications(b: BioMention, level:Int = 0): Unit = {
+    val indent = "\t" * level
+    b.modifications.size match {
+      case 1 =>
+        println(s"$indent\twith 1 modification =>")
+      case x if x > 1 =>
+        println(s"$indent\twith $x modifications =>")
+      case _ => ()
+    }
+    b.modifications foreach {
+      case Negation(evidence) =>
+        println(s"""$indent\t\tNegated by \"${evidence.text}\"""")
+      case Hypothesis(evidence) =>
+        println(s"""$indent\t\tHypothesis by \"${evidence.text}\"""")
+      case PTM(mod, evidence, site) =>
+        val siteText = if (site.nonEmpty) {s" @ ${site.get}"} else ""
+        val evidenceText = if (evidence.nonEmpty) {s""" based on \"${evidence.get.text}\""""} else ""
+        println(s"""$indent\t\t$PTM = \"$mod\"$siteText$evidenceText""")
+      case EventSite(site) =>
+        println(s"""with Site \"${site.text}\"""")
+      case _ => ()
+    }
   }
 
   /** Generates a representation of the given mention as a list of strings. */

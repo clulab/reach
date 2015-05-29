@@ -24,6 +24,9 @@ object ReachShell extends App {
   val commands = Map(
     ":help" -> "show commands",
     ":exit" -> "exit system",
+    ":entityrules" -> "show entity rules",
+    ":modrules" -> "show modification rules",
+    ":eventrules" -> "show event rules",
     ":reload" -> "reload rules"
   )
 
@@ -49,6 +52,13 @@ object ReachShell extends App {
         } catch {
           case e: Exception => println(s"error reloading: ${e.getMessage}")
         }
+
+      case ":entityrules" =>
+        println(s"${reach.entityRules}\n")
+      case ":modrules" =>
+        println(s"${reach.modificationRules}\n")
+      case ":eventrules" =>
+        println(s"${reach.eventRules}\n")
 
       case text =>
         val doc = reach.mkDoc(text, "rulershell")
