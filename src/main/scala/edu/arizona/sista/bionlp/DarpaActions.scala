@@ -464,13 +464,6 @@ class DarpaActions extends Actions {
         event.document,
         event.keep,
         event.foundBy)
-      // create a default displayLabel for the complex
-      // complex.displayLabel = "[" + event.arguments("theme").map(_.text).mkString(":") + "]"
-      complex.displayLabel = "[" +
-        (event.arguments.getOrElse("theme",Seq()) ++
-        event.arguments.getOrElse("theme1",Seq()) ++
-        event.arguments.getOrElse("theme2",Seq()))
-          .map(_.text).mkString(":") + "]"
       Some(complex)
     } else {
       // get the theme of the event

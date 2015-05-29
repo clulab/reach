@@ -183,7 +183,7 @@ object ReachSystem {
                       relReg.keep,
                       relReg.foundBy)
                   // Move Negation modifications from controlled to Reg.
-                  promoteNegationModifications(moreCompleteReg, r)
+                  //promoteNegationModifications(moreCompleteReg, r)
                   // return the new Regulation
                   moreCompleteReg
                 // Is the Regulation we're replacing a BioEventMention?
@@ -203,13 +203,44 @@ object ReachSystem {
                       eventReg.keep,
                       eventReg.foundBy)
                   // Move Negation modifications from controlled to Reg.
-                  promoteNegationModifications(eventReg, r)
+                  //promoteNegationModifications(eventReg, r)
                   // return the new Regulation
                   moreCompleteReg
               }
             }
         }
       }
+
+    def filterByController(regulations: Seq[Mention]): Seq[Mention] = {
+      // collect all regulation events with a Complex controller
+      val regulationsWithComplexController = regulations.filter { m =>
+        m.arguments.contains("controller") && m.arguments("controller").head.matches("Complex")
+      }
+      // collect the rest of the regulations
+      val remainingRegulations = regulationsWithComplexController match {
+        // if there where no regulations with complex controllers
+        // then all the regulations are remaining
+        case Nil => regulations
+        // get all mentions that have no complex controller
+        // and also have no controller included in a complex
+        case events => regulations diff regulationsWithComplexController filter { m =>
+          m.arguments.contains("controller") && // maybe m doesn't even have a controller
+          !regulationsWithComplexController.exists { reg =>
+            // m's controller shouldn't be included in a complex
+            val participants = reg.arguments("controller").head.arguments("theme")
+            participants contains m.arguments("controller").head
+          }
+        }
+      }
+      regulationsWithComplexController ++ remainingRegulations
+    }
+    val correctedRegs = correctedRegulations
+      .flatten
+      .groupBy(_.arguments("controlled"))
+      .values
+      .map(filterByController)
+      .flatten
+      .toSeq
 
     // Remove any "controlled" Mentions we discarded
     val nonRegs =
@@ -219,8 +250,7 @@ object ReachSystem {
         .distinct
     // Convert Regulations to BioMentions
     val cleanRegulations =
-      correctedRegulations
-        .flatten
+      correctedRegs
         .map(_.toBioMention)
         .distinct
     // We don't want to accidentally filter out any SimpleEvents

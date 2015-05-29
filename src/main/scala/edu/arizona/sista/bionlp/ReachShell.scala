@@ -76,8 +76,9 @@ object ReachShell extends App {
 
   def printCommands(): Unit = {
     println("\nCOMMANDS:")
+    val longest = commands.keys.toSeq.sortBy(_.length).last.length 
     for ((cmd, msg) <- commands)
-      println(s"\t$cmd\t=> $msg")
+      println(s"\t$cmd${"\t"*(1 + (longest - cmd.length)/4)}=> $msg")
     println
   }
 
