@@ -437,6 +437,8 @@ class DarpaActions extends Actions {
       "indicate",
       "predict",
       "prediction",
+      "previous",
+      "previously",
       "proposal",
       "propose",
       "speculate",
