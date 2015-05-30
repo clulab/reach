@@ -18,7 +18,7 @@
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^JJ/]
-    theme:BioChemicalEntity = </./{1,2} /nn|prep_of|nsubjpass|appos/ [tag=/^N/]
+    theme:BioChemicalEntity = </./{,2} /nn|prep_of|nsubjpass|appos/ [tag=/^N/]
     source:Cellular_component? = /prep_of/? prep_from [tag=/^N/]
     destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/{,2}
 
