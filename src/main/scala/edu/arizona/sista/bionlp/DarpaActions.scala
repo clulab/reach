@@ -361,7 +361,8 @@ class DarpaActions extends Actions {
    * Only allow Activations if no overlapping Regulations exist for the interval
    */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    mention <- mentions
+    // Prefer Activations with SimpleEvents as the controller
+    mention <- preferSimpleEventControllers(mentions)
     biomention = removeDummy(switchLabel(mention.toBioMention))
     // TODO: Should we add a Regulation label to Pos and Neg Regs?
     regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
@@ -369,6 +370,16 @@ class DarpaActions extends Actions {
     if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval))
   } yield biomention
 
+
+  /** This should only be called on mentions that have a controller argument */
+  def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
+    val simp = mentions.flatMap(_.arguments("controller")).filter(_ matches "SimpleEvent")
+    simp match {
+      case useSimple if useSimple.nonEmpty =>
+        mentions.filter(_.arguments("controller").head matches "SimpleEvent")
+      case _ => mentions
+    }
+  }
 
   /** Removes the "dummy" argument, if present */
   def removeDummy(m:BioMention):BioMention = {
