@@ -408,4 +408,12 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     p should have size (1)
     hasEventWithArguments("Phosphorylation", List("HuR", "Y200"), mentions) should be (true)
   }
+
+  val sent22 = "CK2 phosphorylation of XRCC1 stimulates binding to either PNK or aprataxin"
+  sent22 should "not contain a phosphorylation with CK2 as theme" in {
+    val mentions = parseSentence(sent22)
+    hasEventWithArguments("Phosphorylation", List("XRCC1"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("CK2"), mentions) should be (false)
+    hasPositiveRegulationByEntity("CK2", "Phosphorylation", List("XRCC1"), mentions) should be (true)
+  }
 }
