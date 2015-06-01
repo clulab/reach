@@ -81,3 +81,13 @@
     theme:BioChemicalEntity = <dep
     source:Cellular_component? = prep_from
     destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/{,2}
+
+- name: translocation_9
+  priority: 4
+  example: "Moreover, nickel caused PIK translocation to the cytoskeleton"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)/ & tag=/NN/]
+    theme:BioChemicalEntity = /nn|poss/
+    source:Cellular_component? = <prep_in? prep_from
+    destination:Cellular_component = </prep_in|dobj/? prep_to

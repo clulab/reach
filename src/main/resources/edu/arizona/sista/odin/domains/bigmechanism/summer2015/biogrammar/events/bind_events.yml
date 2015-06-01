@@ -9,7 +9,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=/bind|associate|interact|immunoprecipitate/ & tag=/^V/]
+    trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /nn|conj_|cc/{,2} | <prep_by{,2} nsubj
     theme2:BioChemicalEntity* = dobj /nn|conj_|cc/{,2} | acomp? /prep_(to|with)/
 
@@ -36,7 +36,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=/(?i)binding|heterodimerization|dimerization|ligation|recruitment/] (?! [lemma="site"])
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/{1,2} >/./{,2}
     theme2:BioChemicalEntity* = /conj_(and|or)/{,2} /prep_with|prep_to/{1,2} >/./{,2}
 
@@ -45,24 +45,16 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=/(?i)binding|heterodimerization|dimerization|ligation|recruitment/] (?! [lemma="site"])
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} (<agent)? /prep_of/{1,2} >/./{,2}
     theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to|prep_with/{1,2} >/./{,2}
-
-#- name: binding4
-#  label: [Binding, SimpleEvent, Event, PossibleController]
-#  action: mkBinding
-#  priority: 4
-#  pattern: |
-#      trigger = /binding|dimerization/ (?! [lemma="site"])
-#      theme1:BioChemicalEntity+ = <nn <dobj (nsubj | /prep_(of|for|with)/){1,2} >/./{,2}
 
 - name: binding5
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = /binding|dimerization/ (?! [lemma="site"])
+      trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity* = poss
       theme2:BioChemicalEntity+ = <nn (nn{,2} >/./{,2} | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
@@ -72,7 +64,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [lemma=bind & tag=/^V/]
+      trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = (<amod nn{,2} >prep_of? >appos?) | nsubj
       theme2:BioChemicalEntity+ = conj_and? dobj
 
@@ -81,7 +73,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [word=/binding|ligation|dimerization/] (?! [lemma="site"])
+      trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = nn conj_and?
       theme2:BioChemicalEntity* = prep_to conj_and?
 
@@ -90,7 +82,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [word=/binding|ligation|dimerization/] (?! [lemma="site"])
+      trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity* = nn conj_and?
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
@@ -99,7 +91,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [word=/binding|ligation|dimerization/] (?! [lemma="site"])
+      trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = nn conj_and?
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
@@ -126,7 +118,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-      trigger = [lemma=bind & tag=/^V/]
+      trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = <vmod <prep_with?
 
 - name: binding11
@@ -169,16 +161,16 @@
   pattern: |
     trigger = [word=/ligate(s|d)?/ & tag=/^V/]
     theme1:BioChemicalEntity+ = <vmod | nsubj
-    theme2:BioChemicalEntity* = prep_to
+    theme2:BioChemicalEntity* = /prep_to|prep_with/
 
 - name: binding_17
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=/bind/ & tag=/^V/]
+    trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = nsubjpass nn{,2} | <rcmod <appos?
-    theme2:BioChemicalEntity+ = agent nn{,2} | dobj
+    theme2:BioChemicalEntity+ = /agent|prep_to|prep_with/ nn{,2} | dobj nn{,2}
 
 - name: binding_18
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -194,7 +186,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = /binding|interacting|dimerization/ partner
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] partner
     theme1:BioChemicalEntity+ = <appos
     theme2:BioChemicalEntity+ = /prep_of|prep_with/
 
@@ -203,7 +195,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = /(?i)binding|interaction|dimerization/ (?! [lemma="site"])
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = rcmod{,2} prep_between
 
 - name: binding_21
@@ -241,7 +233,7 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = binding (?! [lemma="site"])
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
     theme1:BioChemicalEntity+ = poss
     theme2:BioChemicalEntity* = (prep_to|prep_with|prep_of|prep_by) [!(lemma=member)] nn{,2} | (prep_to|prep_with|prep_of|prep_by) [lemma=member] nn{1,2}
 
