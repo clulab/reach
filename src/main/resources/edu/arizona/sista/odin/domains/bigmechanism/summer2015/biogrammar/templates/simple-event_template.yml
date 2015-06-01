@@ -203,7 +203,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) ([!word=of] | (/^(on|at)$/ @site:Site)?)
+    @theme:BioChemicalEntity (?<trigger> [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) (/^(on|at)$/ @site:Site)? (?! [lemma=of])
 
 
 # relies on EventSite modifications
