@@ -78,6 +78,15 @@
     controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_|cc/{,2}
     controller:{{ controllerType }} = /prep_by|agent/ /appos|nn|conj_|cc/{,2}
 
+- name: Positive_{{ ruleType }}_syntax_7_verb
+  priority: {{ priority }}
+  example: "ASPP1 aids in the translocation of Kras to the membrane."
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ triggers }}/] # "aids" is incorrectly tagged as a noun
+    controlled:{{ controlledType }} = prep_in
+    controller:{{ controllerType }} = nsubj
 
 - name: Positive_{{ ruleType }}_syntax_1_noun
   priority: {{ priority }}
