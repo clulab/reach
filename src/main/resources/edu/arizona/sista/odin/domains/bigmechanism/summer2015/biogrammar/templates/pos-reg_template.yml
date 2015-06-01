@@ -86,7 +86,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
-    controlled:{{ controlledType }} = /prep_of||prep_in/ /nn|conj_|cc/{,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/ /nn|conj_|cc/{,2}
     controller:{{ controllerType }} = (<dobj /prep_by|agent|nn|prep_of|prep_in/ prep_by) /nn|conj_|cc/{,2}
 
 
@@ -97,7 +97,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of||prep_in/? /conj_|cc|nn/{1,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/? /conj_|cc|nn/{1,2}
     controller:{{ controllerType }} = /prep_by|agent/ /conj|cc|nn/{,2}
 
 
@@ -108,7 +108,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of||prep_in/ /conj_|cc|nn/{1,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/ /conj_|cc|nn/{1,2}
     controller:{{ controllerType }} = /conj_|cc|nn/{1,2}
 
 
