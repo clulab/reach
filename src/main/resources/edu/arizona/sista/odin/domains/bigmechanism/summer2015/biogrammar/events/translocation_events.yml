@@ -14,11 +14,11 @@
 
 - name: translocation_2
   priority: 4
-  example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
+  example: "ASPP1 aids in the translocation of Kras to the membrane"
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
-    trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^JJ/]
-    theme:BioChemicalEntity = </./{,2} /nn|prep_of|nsubjpass|appos/ [tag=/^N/]
+    trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^(JJ|VB)/]
+    theme:BioChemicalEntity = </prep_in/? /prep_of|nsubjpass|appos/ [tag=/^N/]
     source:Cellular_component? = /prep_of/? prep_from [tag=/^N/]
     destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/{,2}
 
@@ -70,4 +70,14 @@
     trigger = [word=/(?i)release/ & !tag=/^JJ/]
     theme:BioChemicalEntity = dobj
     source:Cellular_component = <xcomp /nsubj|prep_from|aux|dobj/
+    destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/{,2}
+
+- name: translocation_8
+  priority: 4
+  example: "KRAS translocation to the cytosol/nucleus"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)/ & !tag=/^JJ/]
+    theme:BioChemicalEntity = <dep
+    source:Cellular_component? = prep_from
     destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/{,2}

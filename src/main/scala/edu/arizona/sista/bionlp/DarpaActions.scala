@@ -644,7 +644,7 @@ class DarpaActions extends Actions {
           // Check for single-token negative verbs
           for{
             (ix, lemma) <- (pairsL ++ pairsR)
-            if (Seq("fail") contains lemma) && !(evidence contains ix)
+            if (Seq("fail", "not") contains lemma) && !(evidence contains ix)
           }{
               event.modifications += Negation(new BioTextBoundMention(
                 Seq("Negation_trigger"),
