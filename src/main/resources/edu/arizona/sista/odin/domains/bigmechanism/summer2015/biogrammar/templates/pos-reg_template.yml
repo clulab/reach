@@ -108,7 +108,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of||prep_in/ /conj_|cc|nn/{1,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/ /conj_|cc|nn/{1,2}
     controller:{{ controllerType }} = /conj_|cc|nn/{1,2}
 
 
