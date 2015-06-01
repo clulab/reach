@@ -382,10 +382,17 @@ class DarpaActions extends Actions {
       case (a, b) if a.nonEmpty && b.nonEmpty =>
         val controlled = a.head.toBioMention
         val controller = b.head.toBioMention
+        val g1 = controlled.xref
+        val g2 = controller.xref
         // Cannot be same Mention (i.e. span, label, etc)
-        (controlled != controller)  &&
+        val distinctArgs = controlled != controller
         // controller and controlled should not point to the same entity.
-          (controlled.xref.get != controller.xref.get)
+        val distinctGrounding = (g1, g2) match {
+          case grounded if g1.nonEmpty && g2.nonEmpty =>
+            g1.get != g2.get
+          case _ => true
+        }
+        distinctArgs && distinctGrounding
       // If we're missing either, we'll assume they're distinct...
       case _ => true
     }
