@@ -1,6 +1,7 @@
 package edu.arizona.sista.bionlp
 
 import java.io.File
+import scala.collection.immutable.ListMap
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.bionlp.display._
@@ -21,7 +22,8 @@ object ReachShell extends App {
   reader.setPrompt(">>> ")
   reader.setHistory(history)
 
-  val commands = Map(
+  // use ListMap to preserve commands order
+  val commands = ListMap(
     ":help" -> "show commands",
     ":exit" -> "exit system",
     ":entityrules" -> "show entity rules",
@@ -55,8 +57,10 @@ object ReachShell extends App {
 
       case ":entityrules" =>
         println(s"${reach.entityRules}\n")
+
       case ":modrules" =>
         println(s"${reach.modificationRules}\n")
+
       case ":eventrules" =>
         println(s"${reach.eventRules}\n")
 
