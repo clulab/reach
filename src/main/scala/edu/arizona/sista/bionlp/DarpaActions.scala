@@ -367,9 +367,29 @@ class DarpaActions extends Actions {
     // TODO: Should we add a Regulation label to Pos and Neg Regs?
     regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
     // Don't report an Activation if an intersecting Regulation has been detected
-    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval))
+    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval)) &&
+    // controller and controlled should be distinct
+    hasDistinctArgs(biomention)
   } yield biomention
 
+
+  /** Make sure controller and controlled are not identical */
+  def hasDistinctArgs(m: Mention):Boolean = {
+    val controlled = m.arguments.getOrElse("controlled", Nil)
+    val controller = m.arguments.getOrElse("controller", Nil)
+    (controlled, controller) match {
+      // Do we have both a controlled and a controller?
+      case (a, b) if a.nonEmpty && b.nonEmpty =>
+        val controlled = a.head.toBioMention
+        val controller = b.head.toBioMention
+        // Cannot be same Mention (i.e. span, label, etc)
+        (controlled != controller)  &&
+        // controller and controlled should not point to the same entity.
+          (controlled.xref.get != controller.xref.get)
+      // If we're missing either, we'll assume they're distinct...
+      case _ => true
+    }
+  }
 
   /** This should only be called on mentions that have a controller argument */
   def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
