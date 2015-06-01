@@ -297,7 +297,7 @@ object RuleReader {
         "actionFlow" -> "mkActivation",
         "priority" -> "6", // must be 1 + priority of regulations!
         "controlledType" -> "BioChemicalEntity",
-        "controllerType" -> "BioChemicalEntity")
+        "controllerType" -> "PossibleController")
 
   val negRegEventMap: Map[String, String] =
     Map("labels" -> "Negative_regulation, ComplexEvent, Event",
@@ -318,6 +318,6 @@ object RuleReader {
         "actionFlow" -> "mkActivation",
         "priority" -> "6", // must be 1 + priority of regulations!
         "controlledType" -> "BioChemicalEntity",
-        "controllerType" -> "BioChemicalEntity")
+        "controllerType" -> "PossibleController")
 
 }
