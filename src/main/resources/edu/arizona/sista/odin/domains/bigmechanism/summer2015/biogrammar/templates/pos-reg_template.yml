@@ -78,6 +78,15 @@
     controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_|cc/{,2}
     controller:{{ controllerType }} = /prep_by|agent/ /appos|nn|conj_|cc/{,2}
 
+- name: Positive_{{ ruleType }}_syntax_7_verb
+  priority: {{ priority }}
+  example: "ASPP1 aids in the translocation of Kras to the membrane."
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ triggers }}/] # "aids" is incorrectly tagged as a noun
+    controlled:{{ controlledType }} = prep_in
+    controller:{{ controllerType }} = nsubj
 
 - name: Positive_{{ ruleType }}_syntax_1_noun
   priority: {{ priority }}
@@ -86,7 +95,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
-    controlled:{{ controlledType }} = /prep_of||prep_in/ /nn|conj_|cc/{,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/ /nn|conj_|cc/{,2}
     controller:{{ controllerType }} = (<dobj /prep_by|agent|nn|prep_of|prep_in/ prep_by) /nn|conj_|cc/{,2}
 
 
@@ -97,7 +106,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of||prep_in/? /conj_|cc|nn/{1,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/? /conj_|cc|nn/{1,2}
     controller:{{ controllerType }} = /prep_by|agent/ /conj|cc|nn/{,2}
 
 

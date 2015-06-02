@@ -361,14 +361,52 @@ class DarpaActions extends Actions {
    * Only allow Activations if no overlapping Regulations exist for the interval
    */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    mention <- mentions
+    // Prefer Activations with SimpleEvents as the controller
+    mention <- preferSimpleEventControllers(mentions)
     biomention = removeDummy(switchLabel(mention.toBioMention))
     // TODO: Should we add a Regulation label to Pos and Neg Regs?
     regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
     // Don't report an Activation if an intersecting Regulation has been detected
-    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval))
+    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval)) &&
+    // controller and controlled should be distinct
+    hasDistinctArgs(biomention)
   } yield biomention
 
+
+  /** Make sure controller and controlled are not identical */
+  def hasDistinctArgs(m: Mention):Boolean = {
+    val controlled = m.arguments.getOrElse("controlled", Nil)
+    val controller = m.arguments.getOrElse("controller", Nil)
+    (controlled, controller) match {
+      // Do we have both a controlled and a controller?
+      case (a, b) if a.nonEmpty && b.nonEmpty =>
+        val controlled = a.head.toBioMention
+        val controller = b.head.toBioMention
+        val g1 = controlled.xref
+        val g2 = controller.xref
+        // Cannot be same Mention (i.e. span, label, etc)
+        val distinctArgs = controlled != controller
+        // controller and controlled should not point to the same entity.
+        val distinctGrounding = (g1, g2) match {
+          case grounded if g1.nonEmpty && g2.nonEmpty =>
+            g1.get != g2.get
+          case _ => true
+        }
+        distinctArgs && distinctGrounding
+      // If we're missing either, we'll assume they're distinct...
+      case _ => true
+    }
+  }
+
+  /** This should only be called on mentions that have a controller argument */
+  def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
+    val simp = mentions.flatMap(_.arguments("controller")).filter(_ matches "SimpleEvent")
+    simp match {
+      case useSimple if useSimple.nonEmpty =>
+        mentions.filter(_.arguments("controller").head matches "SimpleEvent")
+      case _ => mentions
+    }
+  }
 
   /** Removes the "dummy" argument, if present */
   def removeDummy(m:BioMention):BioMention = {

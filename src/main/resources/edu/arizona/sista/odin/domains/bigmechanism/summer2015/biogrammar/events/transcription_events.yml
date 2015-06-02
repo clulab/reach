@@ -3,39 +3,42 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
-#- name: expression_1
-#  priority: 4
-#  example: "PTEN protein expression was detectable by Western blot in all cell lines."
-#  label: [Transcription, SimpleEvent, Event, PossibleController]
-#  pattern: |
-#    trigger = [word=/(?i)(over)?express/ & tag=/^N/]
-#      theme:BioChemicalEntity = nn{1,2}
-#
-#
-#- name: expressioni_2
-#  priority: 4
-#  example: "We went on to examine the levels of MCL-1 and BIM expressed in several uveal melanoma cell lines following exposure to AZD8055 and selumetinib (Figure 7A)."
-#  label: [Transcription, SimpleEvent, Event, PossibleController]
-#  pattern: |
-#    trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-#      theme:BioChemicalEntity = < /vmod|conj_|cc/{1,2}
-#
-#- name: expression_3
-#  priority: 4
-#  example: "Indeed, EGFR is overexpressed in 30%-85% patients with CRC."
-#  label: [Transcription, SimpleEvent, Event, PossibleController]
-#  pattern: |
-#    trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-#    theme:BioChemicalEntity = > /nsubjpass/{1,2}
+- name: expression_1
+  priority: 4
+  example: "PTEN protein expression was detectable by Western blot in all cell lines."
+  label: [Transcription, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)(over)?express/ & tag=/^N/]
+    theme:BioChemicalEntity = nn{1,2}
+    cause:BioChemicalEntity? = /agent|prep_by/
 
-#- name: transcription_0
-#  priority: 4
-#  example: "Indeed, expression of the Raf-RBD dramatically decreased Elk-1 dependent transcription by >80% whereas PI3KC2beta-RBD expressing cells were not inhibited further supporting the model that the PI3KC2beta-RBD does not interact with Ras-GTP."
-#  label: [Transcription, SimpleEvent, Event, PossibleController]
-#  pattern: |
-#    trigger = [word=/(?i)transcription/ & tag=/^N/]
-#    theme:BioChemicalEntity = <dobj nsubj prep_of?
-#    cause:BioChemicalEntity? = nn{1,2}
+
+- name: expression_2
+  priority: 4
+  example: "We went on to examine the levels of MCL-1 and BIM expressed in several uveal melanoma cell lines"
+  label: [Transcription, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)(over)?express/ & tag=/^V/]
+    theme:BioChemicalEntity =  </vmod/ /conj_|cc/*
+    cause:BioChemicalEntity? = /agent|prep_by/
+
+- name: expression_3
+  priority: 4
+  example: "Indeed, EGFR is overexpressed in 30%-85% patients with CRC."
+  label: [Transcription, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)(over)?express/ & tag=/^V/]
+    theme:BioChemicalEntity = nsubjpass /conj_|cc/*
+    cause:BioChemicalEntity? = /agent|prep_by/
+
+- name: transcription_0
+  priority: 4
+  example: "Indeed, expression of the Raf-RBD dramatically decreased Elk-1 dependent transcription by >80% whereas PI3KC2beta-RBD expressing cells were not inhibited further supporting the model that the PI3KC2beta-RBD does not interact with Ras-GTP."
+  label: [Transcription, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)transcription/ & tag=/^N/]
+    theme:BioChemicalEntity = <dobj nsubj prep_of? /conj_|cc/*
+    cause:BioChemicalEntity? = nn{1,2}
 
 
 - name: transcription_1
@@ -44,7 +47,7 @@
   label: [Transcription, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = prep_of? nn{1,2}
+    theme:BioChemicalEntity = prep_of? nn{1,2} /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
 
 - name: transcription_1b
@@ -53,7 +56,7 @@
   label: [Transcription, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = prep_of nn{,2}
+    theme:BioChemicalEntity = prep_of nn{,2} /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
 
 - name: transcription_2
@@ -62,15 +65,14 @@
   label: [Transcription, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = <dep
+    theme:BioChemicalEntity = <dep /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
 
 - name: transcription_3
   priority: 4
-  example: "Transcription of genes"
+  example: "Transcription of Kras"
   label: [Transcription, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = prep_of [word=/(?i)genes?/]
+    theme:BioChemicalEntity = prep_of /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
-
