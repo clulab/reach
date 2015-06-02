@@ -148,4 +148,22 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent17)
     hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
   }
+
+  val sent18 = "Reciprocally, XRCC1 stimulates the kinase activity of DNA-PK on serine 15 of p53 in vitro"
+  sent18 should "contain 1 activation" in {
+    val mentions = parseSentence(sent18)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
+
+  val sent19 = "XRCC1 stimulates DNA-PK catalytic activity in vitro"
+  sent19 should "contain 1 activation" in {
+    val mentions = parseSentence(sent19)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
+
+  val sent20 = "Taken together, these data indicate that XRCC1 strongly stimulates DNA-PK activity and that this stimulatory effect is weakened in the mutant S371D that mimics a phosphorylated status of the BRCT1 domain."
+  sent20 should "contain 1 activation" in {
+    val mentions = parseSentence(sent20)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
 }
