@@ -510,12 +510,15 @@ class DarpaActions extends Actions {
       "previously",
       "proposal",
       "propose",
+      "question",
       "speculate",
+      "speculation",
       "suggest",
       "suspect",
       "theorize",
       "theory",
-      "think")
+      "think",
+      "whether")
 
     // Recursive function that helps us get the words outside the event
     def getSpannedIndexes(index:Int, degree:Int, dependencies:DirectedGraph[String]):Seq[Int] = {

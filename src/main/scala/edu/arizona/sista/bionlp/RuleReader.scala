@@ -271,7 +271,7 @@ object RuleReader {
 
   // These are a bit stricter than the POS_REG and NEG_REG because the context is more ambiguous for activations
   val POS_ACT_TRIGGERS = "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
-  val NEG_ACT_TRIGGERS = "attenu|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress"
+  val NEG_ACT_TRIGGERS = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress"
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.switchLabel
   val SEMANTIC_NEGATIVE_PATTERN = NEG_ACT_TRIGGERS.r
