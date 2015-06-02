@@ -37,7 +37,7 @@ object RuleReader {
       // non-templatic event grammars
       s"$eventsDir/hydrolysis_events.yml",
       s"$eventsDir/bind_events.yml",
-      s"$eventsDir/transcription_events.yml",
+      //s"$eventsDir/transcription_events.yml",
       s"$eventsDir/translocation_events.yml")
 
     val ruleFiles = files map readResource mkString "\n\n"
