@@ -9,7 +9,7 @@ import TestUtils._
  * Date: 6/01/15
  */
 
- class TestTranscriptionEvents extends FlatSpec with Matchers {
+ /*class TestTranscriptionEvents extends FlatSpec with Matchers {
 
    val sent1 = "expression of NRF2 by Kras"
 
@@ -56,4 +56,4 @@ import TestUtils._
      hasEventWithArguments("Transcription", List("MCL-1"), mentions) should be (true)
    }
 
- }
+ }*/
