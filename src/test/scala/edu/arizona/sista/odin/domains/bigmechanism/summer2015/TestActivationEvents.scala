@@ -104,4 +104,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("Positive_activation")) should have size (1)
     mentions.filter(_.label.contains("Negative_activation")) should have size (0)
   }
+
+  // Controller and Controlled cannot be the same entity
+  val sent11 = "MEK activates MEK."
+  sent10 should "not contain a positive activation" in {
+    val mentions = parseSentence(sent11)
+    mentions.filter(_.label.contains("Positive_activation")) should have size (0)
+  }
 }
