@@ -262,4 +262,10 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent19)
     hasEventWithArguments("Binding", List("cRaf", "BRaf"), mentions) should be (true)
   }
+
+  val sent20 = "MEK binds with MEK."
+  sent20 should "not contain any binding events" in {
+    val mentions = parseSentence(sent20)
+    mentions.count(_ matches "Binding") should be (0)
+  }
 }

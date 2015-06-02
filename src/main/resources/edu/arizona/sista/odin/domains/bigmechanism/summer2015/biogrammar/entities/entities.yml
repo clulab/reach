@@ -12,14 +12,14 @@
     [word = /(?i)residue/]?
     [word = /\d{3}$/]?
 
-# TODO: add this when it works: (?<! [lemma=/^(table|figure)/])
 - name: site_1letter
   label: Site
   priority: 1
   type: token
   pattern: |
-    (?<= [!word=/(?i)^(table|figure)/])
-    ([word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]? |
+    (?<! [word=/(?i)^(table|figure)/])
+    ([word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]?
+      |
     /^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?)
 
 - name: site_3letter
