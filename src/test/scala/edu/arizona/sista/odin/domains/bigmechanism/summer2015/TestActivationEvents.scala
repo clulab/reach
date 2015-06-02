@@ -142,4 +142,10 @@ class TestActivationEvents extends FlatSpec with Matchers {
     // TODO: this works when the text is "Inhibition of mTOR by rapamycin" but not for the full text
     hasNegativeActivation("rapamycin", "mTOR", mentions) should be (true)
   }
+
+  val sent17 = "XRCC1 stimulates DNA-PK enzymatic activity"
+  sent17 should "contain 1 activation" in {
+    val mentions = parseSentence(sent17)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
 }
