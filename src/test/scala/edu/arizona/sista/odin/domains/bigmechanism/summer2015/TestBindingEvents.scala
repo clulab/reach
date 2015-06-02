@@ -289,4 +289,15 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent24)
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
+
+  val sent25 = "Identification by mass spectroscopy of DNA-PKcs associated with XRCC1"
+  sent25 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent25)
+    hasEventWithArguments("Binding", List("DNA-PKcs", "XRCC1"), mentions) should be (true)
+  }
+  val sent26 = "Our assumption is that DNA-PKcs is associated with  XRCC1"
+  sent26 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent26)
+    hasEventWithArguments("Binding", List("DNA-PKcs", "XRCC1"), mentions) should be (true)
+  }
 }

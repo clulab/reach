@@ -121,6 +121,15 @@
       trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = <vmod <prep_with?
 
+- name: binding10b
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+      trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
+      theme1:BioChemicalEntity = <vmod
+      theme2:BioChemicalEntity = /prep_with|prep_to/
+
 - name: binding11
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
