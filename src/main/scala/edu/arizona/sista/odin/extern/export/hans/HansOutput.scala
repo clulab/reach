@@ -232,7 +232,7 @@ class HansOutput extends JsonOutputter {
 
     // event modifications
     if(isNegated(mention))
-      f("polarity") = "true"
+      f("is-negated") = "true"
     if(isHypothesized(mention))
       f("is-hypothesis") = "true"
 

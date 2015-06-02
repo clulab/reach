@@ -268,4 +268,25 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent20)
     mentions.count(_ matches "Binding") should be (0)
   }
+
+  val sent21 = "Highly purified DNA-PKcs, Ku70/Ku80 heterodimer and the two documented XRCC1 binding partners LigIII and DNA polbeta were dot-blotted"
+  sent21 should "contain 1 binding event between Ku70 and Ku80" in {
+    val mentions = parseSentence(sent21)
+    hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
+  }
+  val sent22 = "The heterodimer Ku70-Ku80 is awesome"
+  sent22 should "contain 1 binding event between Ku70 and Ku80" in {
+    val mentions = parseSentence(sent22)
+    hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
+  }
+  val sent23 = "The complex Ku70/Ku80 is awesome"
+  sent23 should "contain 1 binding event between Ku70 and Ku80" in {
+    val mentions = parseSentence(sent23)
+    hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
+  }
+  val sent24 = "That Ku70/Ku80 complex is awesome"
+  sent24 should "contain 1 binding event between Ku70 and Ku80" in {
+    val mentions = parseSentence(sent24)
+    hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
+  }
 }

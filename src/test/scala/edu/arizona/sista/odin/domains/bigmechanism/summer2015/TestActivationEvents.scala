@@ -143,12 +143,35 @@ class TestActivationEvents extends FlatSpec with Matchers {
     hasNegativeActivation("rapamycin", "mTOR", mentions) should be (true)
   }
 
-  val sent17 = "The phosphorylation of MEK activates K-Ras."
-  sent17 should "contain 1 activation with a phosphorylation event as its controller" in {
+  val sent17 = "XRCC1 stimulates DNA-PK enzymatic activity"
+  sent17 should "contain 1 activation" in {
     val mentions = parseSentence(sent17)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
+
+  val sent18 = "Reciprocally, XRCC1 stimulates the kinase activity of DNA-PK on serine 15 of p53 in vitro"
+  sent18 should "contain 1 activation" in {
+    val mentions = parseSentence(sent18)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
+
+  val sent19 = "XRCC1 stimulates DNA-PK catalytic activity in vitro"
+  sent19 should "contain 1 activation" in {
+    val mentions = parseSentence(sent19)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
+
+  val sent20 = "Taken together, these data indicate that XRCC1 strongly stimulates DNA-PK activity and that this stimulatory effect is weakened in the mutant S371D that mimics a phosphorylated status of the BRCT1 domain."
+  sent20 should "contain 1 activation" in {
+    val mentions = parseSentence(sent20)
+    hasPositiveActivation("XRCC1", "DNA-PK", mentions) should be (true)
+  }
+
+  val sent21 = "The phosphorylation of MEK activates K-Ras."
+  sent21 should "contain 1 activation with a phosphorylation event as its controller" in {
+    val mentions = parseSentence(sent21)
     val activations = mentions.filter(_ matches "ActivationEvent")
     activations.length should be (1)
     activations.head.arguments("controller").head matches "Phosphorylation" should be (true)
   }
-
 }
