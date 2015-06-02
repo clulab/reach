@@ -81,4 +81,10 @@ class TestEntities extends FlatSpec with Matchers {
     hasEntity("ERBB3", mentions) should be (true)
     hasEntity("EGFR", mentions) should be (true)
   }
+
+  val sent5 = "See Figure S31 and Table R15"
+  sent5 should "not contain any sites" in {
+    val mentions = parseSentence(sent5)
+    mentions.count(_ matches "Site") should be (0)
+  }
 }
