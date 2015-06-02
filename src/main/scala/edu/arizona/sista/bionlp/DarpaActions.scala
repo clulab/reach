@@ -323,6 +323,9 @@ class DarpaActions extends Actions {
       else false
     }
     biomention = removeDummy(switchLabel(mention.toBioMention))
+    // If there the Mention has both a controller and controlled,
+    // they should be distinct
+    if hasDistinctControllerControlled(biomention)
   } yield {
     val controllerOption = biomention.arguments.get("controller")
     // if no controller then we are done
@@ -369,12 +372,12 @@ class DarpaActions extends Actions {
     // Don't report an Activation if an intersecting Regulation has been detected
     if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval)) &&
     // controller and controlled should be distinct
-    hasDistinctArgs(biomention)
+    hasDistinctControllerControlled(biomention)
   } yield biomention
 
 
   /** Make sure controller and controlled are not identical */
-  def hasDistinctArgs(m: Mention):Boolean = {
+  def hasDistinctControllerControlled(m: Mention):Boolean = {
     val controlled = m.arguments.getOrElse("controlled", Nil)
     val controller = m.arguments.getOrElse("controller", Nil)
     (controlled, controller) match {
@@ -396,6 +399,23 @@ class DarpaActions extends Actions {
       // If we're missing either, we'll assume they're distinct...
       case _ => true
     }
+  }
+
+  /** Make sure two mentions are not identical */
+  def areDistinct(m1: Mention, m2: Mention):Boolean = {
+    val b1 = m1.toBioMention
+    val b2 = m2.toBioMention
+    val g1 = b1.xref
+    val g2 = b2.xref
+    // Cannot be same Mention (i.e. span, label, etc)
+    val distinctArgs = b1 != m2
+    // b1 and b2 should not point to the same entity.
+    val distinctGrounding = (g1, g2) match {
+      case grounded if g1.nonEmpty && g2.nonEmpty =>
+        g1.get != g2.get
+      case _ => true
+    }
+    distinctArgs && distinctGrounding
   }
 
   /** This should only be called on mentions that have a controller argument */
