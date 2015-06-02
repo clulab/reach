@@ -142,4 +142,13 @@ class TestActivationEvents extends FlatSpec with Matchers {
     // TODO: this works when the text is "Inhibition of mTOR by rapamycin" but not for the full text
     hasNegativeActivation("rapamycin", "mTOR", mentions) should be (true)
   }
+
+  val sent17 = "The phosphorylation of MEK activates K-Ras."
+  sent17 should "contain 1 activation with a phosphorylation event as its controller" in {
+    val mentions = parseSentence(sent17)
+    val activations = mentions.filter(_ matches "ActivationEvent")
+    activations.length should be (1)
+    activations.head.arguments("controller").head matches "Phosphorylation" should be (true)
+  }
+
 }
