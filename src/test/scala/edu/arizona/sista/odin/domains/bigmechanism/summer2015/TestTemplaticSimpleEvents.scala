@@ -416,4 +416,16 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Phosphorylation", List("CK2"), mentions) should be (false)
     hasPositiveRegulationByEntity("CK2", "Phosphorylation", List("XRCC1"), mentions) should be (true)
   }
+
+  val sent23 = "Shown in Figure     is a Western blot detecting the phosphorylation of the mTOR substrate, 4EBP1."
+  sent23 should "contain a phosphorylation of 4EBP1 not mTOR (GUS)" in {
+    val mentions = parseSentence(sent23)
+    // TODO: this fails. The rules must be extended to allow for appositions
+    hasEventWithArguments("Phosphorylation", List("4EBP1"), mentions) should be (true)
+    // TODO: this fails. The rules must be extended with negative constraints, e.g., do not traverse dependencies through "substrate"
+    // the above applies to ALL events taking proteins as arguments, including activations and regulations...
+    hasEventWithArguments("Phosphorylation", List("mTOR"), mentions) should be (false)
+  }
+
+
 }

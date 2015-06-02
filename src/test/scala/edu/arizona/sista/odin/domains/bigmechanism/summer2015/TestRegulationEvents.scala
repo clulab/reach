@@ -267,4 +267,18 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent27)
     hasNegativeRegulationByEntity("rapamycin", "Phosphorylation", List("ERK"), mentions) should be (true)
   }
+
+  val sent28 = "rapamycin inhibition of the phosphorylation of ERK"
+  sent28 should "contain one regulation controlled by rapamycin" in {
+    val mentions = parseSentence(sent28)
+    hasNegativeRegulationByEntity("rapamycin", "Phosphorylation", List("ERK"), mentions) should be (true)
+  }
+
+  val sent29 = "B-Raf phosphorylates MEK1 and MEK2 on Ser217 and Ser221"
+  sent29 should "contain 4 phosphorylations and 4 regulations (GUS)" in {
+    val mentions = parseSentence(sent29)
+    // TODO: this fails because "B-Raf" is not recognized as an entity
+    mentions.filter(_.label == "Positive_regulation") should have size (4)
+    mentions.filter(_.label == "Phosphorylation") should have size (4)
+  }
 }

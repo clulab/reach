@@ -107,8 +107,32 @@ class TestActivationEvents extends FlatSpec with Matchers {
 
   // Controller and Controlled cannot be the same entity
   val sent11 = "MEK activates MEK."
-  sent10 should "not contain a positive activation" in {
+  sent11 should "not contain a positive activation" in {
     val mentions = parseSentence(sent11)
     mentions.filter(_.label.contains("Positive_activation")) should have size (0)
+  }
+
+  val sent12 = "mTOR inhibitor Rapamycin"
+  sent12 should "contain a negative activation" in {
+    val mentions = parseSentence(sent12)
+    hasNegativeActivation("Rapamycin", "mTOR", mentions) should be (true)
+  }
+
+  val sent13 = "mTOR activator Rapamycin"
+  sent13 should "contain a positive activation" in {
+    val mentions = parseSentence(sent13)
+    hasPositiveActivation("Rapamycin", "mTOR", mentions) should be (true)
+  }
+
+  val sent14 = "Rapamycin, an inhibitor of the mTOR kinase,"
+  sent14 should "contain a negative activation" in {
+    val mentions = parseSentence(sent14)
+    hasNegativeActivation("Rapamycin", "mTOR", mentions) should be (true)
+  }
+
+  val sent15 = "Rapamycin, an activator of the mTOR kinase,"
+  sent15 should "contain a positive activation" in {
+    val mentions = parseSentence(sent15)
+    hasPositiveActivation("Rapamycin", "mTOR", mentions) should be (true)
   }
 }

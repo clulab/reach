@@ -270,7 +270,7 @@ object RuleReader {
   val NEG_REG_TRIGGERS = "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|suppress|supress|uncoupl"
 
   // These are a bit stricter than the POS_REG and NEG_REG because the context is more ambiguous for activations
-  val POS_ACT_TRIGGERS = "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|support|synerg|synthes|trigger|up-regul|upregul"
+  val POS_ACT_TRIGGERS = "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|express|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
   val NEG_ACT_TRIGGERS = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress"
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.switchLabel

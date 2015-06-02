@@ -96,7 +96,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
     controlled:{{ controlledType }} = /prep_of|prep_in/ /nn|conj_|cc/{,2}
-    controller:{{ controllerType }} = (<dobj /prep_by|agent|nn|prep_of|prep_in/ prep_by) /nn|conj_|cc/{,2}
+    controller:{{ controllerType }} = /prep_of/? prep_by (<dobj|prep_by|agent|nn|prep_of|prep_in){1,2} /nn|conj_|cc/{,2} # the prep_of may appear due to bad syntax
 
 
 - name: Positive_{{ ruleType }}_syntax_2_noun
@@ -107,7 +107,7 @@
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
     controlled:{{ controlledType }} = /prep_of|prep_in/? /conj_|cc|nn/{1,2}
-    controller:{{ controllerType }} = /prep_by|agent/ /conj|cc|nn/{,2}
+    controller:{{ controllerType }} = /prep_of/? /prep_by|agent/ /conj|cc|nn/{,2} # the prep_of may appear due to bad syntax
 
 
 - name: Positive_{{ ruleType }}_syntax_3_noun
@@ -117,7 +117,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of|prep_in/ /conj_|cc|nn/{1,2}
+    controlled:{{ controlledType }} = /prep_of|prep_in/ /conj_|cc|nn/{,2}
     controller:{{ controllerType }} = /conj_|cc|nn/{1,2}
 
 
@@ -143,6 +143,17 @@
     controller:{{ controllerType }} = <prep_via (agent|prep_by) /nn|conj_|cc/{,2}
 
 
+- name: Positive_{{ ruleType }}_syntax_7_noun
+  priority: {{ priority }}
+  example: "Rapamycin, an activator of the mTOR kinase,"
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    controller:{{ controllerType }} = <dep /nn|conj_|cc/{,2}
+    controlled:{{ controlledType }} = (/prep_of|prep_in/ /nn|conj_|cc/{,2}){1,2}
+
+
 - name: Positive_{{ ruleType }}_token_1_verb
   priority: {{ priority }}
   example: ""
@@ -162,6 +173,16 @@
   action: {{ actionFlow }}
   pattern: |
     (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:{{ controlledType }} following @controller:{{ controllerType }} (?! [lemma=/{{ negnouns}}/])
+
+
+- name: Positive_{{ ruleType }}_token_1_noun
+  priority: {{ priority }}
+  example: "mTOR activator Rapamycin"
+  type: token
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    @controlled:{{ controlledType }} (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) @controller:{{ controllerType }}
 
 
 - name: Positive_{{ ruleType }}_copula_1
