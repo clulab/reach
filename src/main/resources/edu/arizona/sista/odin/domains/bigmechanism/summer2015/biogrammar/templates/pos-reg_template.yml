@@ -185,6 +185,17 @@
     @controlled:{{ controlledType }} (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) @controller:{{ controllerType }}
 
 
+# this rule is needed because PP attachment of "by" is often wrong
+- name: Positive_{{ ruleType }}_token_2_noun
+  priority: {{ priority }}
+  example: "Activation of mTOR by rapamycin has been standard treatment "
+  type: token
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) of @controlled:{{ controlledType }} by @controller:{{ controllerType }} (?! [lemma=/{{ negnouns}}/])
+
+
 - name: Positive_{{ ruleType }}_copula_1
   priority: {{ priority }}
   example: "A is an activator of B"
