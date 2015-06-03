@@ -320,6 +320,17 @@
   pattern: |
     [lemma=/when|once|if/] (?<trigger> [lemma=bound]) to [tag=/DT|JJ/]* @theme1:BioChemicalEntity [tag=/NN/]? [word=','] [tag=/DT|JJ/]* @theme2:BioChemicalEntity
 
+#Token pattern rule for [complex/heterodimer A and B] is
+- name: binding_complex_A_B
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/^(complex|heterodimer)/]) @theme1:BioChemicalEntity and @theme2:BioChemicalEntity # TODO: add a better lookahead constraint.
+    |
+    @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> [lemma=/^(complex|heterodimer)/])
+
 # TODO: figure out how to handle args without types (ex. "endophor")
 
 #- name: binding_coref1
