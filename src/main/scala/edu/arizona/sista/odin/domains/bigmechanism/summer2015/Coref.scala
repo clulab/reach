@@ -16,7 +16,7 @@ class Coref extends DarpaFlow {
 
   def apply(mentions: Seq[Mention], state: State): Seq[BioMention] = applyAll(mentions).lastOption.getOrElse(Seq())
 
-  def applyAll(mentions: Seq[Mention]): Seq[Seq[BioMention]] = {
+  def applyAll(mentions: Seq[Mention], keepAll: Boolean = false): Seq[Seq[BioMention]] = {
 
     val doc: Document = mentions.headOption.getOrElse(return Seq()).document
 
@@ -319,9 +319,11 @@ class Coref extends DarpaFlow {
         sameText(ent).foreach(link => chains(link) = newChain)
     }
 
-    results = results :+ (for {
-      m <- orderedMentions
-    } yield resolve(m)).flatten.sorted
+    if (keepAll) {
+      results = results :+ (for {
+        m <- orderedMentions
+      } yield resolve(m)).flatten.sorted
+    }
 
     // exact grounding
     val sameGrounding = chains.keys
@@ -334,9 +336,11 @@ class Coref extends DarpaFlow {
         sameGrounding(gr).foreach(link => chains(link) = newChain)
     }
 
-    results = results :+ (for {
-      m <- orderedMentions
-    } yield resolve(m)).flatten.sorted
+    if (keepAll) {
+      results = results :+ (for {
+        m <- orderedMentions
+      } yield resolve(m)).flatten.sorted
+    }
 
     // generic antecedent matching with number approximation
     val detMap = Map("a" -> 1,
@@ -544,7 +548,7 @@ class Coref extends DarpaFlow {
           // Basically the same as mkBinding in DarpaActions
           val newBindings: Seq[Mention] = (t1Ants, t2Ants) match {
             case (t1s, t2s) if t1Ants.isEmpty && t2Ants.isEmpty => Seq()
-            case (t1s, t2s) if t1Ants.isEmpty || t2Ants.isEmpty =>
+            case (t1s, t2s) if theme1s.isEmpty || theme2s.isEmpty =>
               val mergedThemes = t1s ++ t2s
               (for {pair <- mergedThemes.combinations(2)} yield {
                 val splitBinding = new BioEventMention(
@@ -589,26 +593,30 @@ class Coref extends DarpaFlow {
 
           if (debug) println(s"Number of new bindings: ${newBindings.toSeq.length}")
 
+          val distinctBindings = newBindings.filter(x => !chains.keys.exists(y => y.arguments == x.arguments &&
+            y.labels == x.labels &&
+            y.asInstanceOf[EventMention].trigger == x.asInstanceOf[EventMention].trigger))
+
           if (newBindings.isEmpty && chains.contains(binding)) {
             orderedMentions -= binding
             chains(binding).foreach(link => chains(link) = chains(link).filter(_ != binding))
             chains -= binding
-          } else if (!newBindings.forall(m => chains.contains(m))) {
+          } else if (!distinctBindings.isEmpty) {
             // replace current binding with new bindings in the ordered mentions and in the chain map
-            orderedMentions = (orderedMentions - binding ++ newBindings).sorted
-            val newChain = (chains(binding).filter(_ != binding) ++ newBindings).sorted
+            orderedMentions = (orderedMentions - binding ++ distinctBindings).sorted
+            val newChain = (chains(binding).filter(_ != binding) ++ distinctBindings).sorted
             for (link <- chains(binding)) {
               chains(link) = newChain
             }
-            for (link <- newBindings) {
+            for (link <- distinctBindings) {
               chains(link) = newChain
             }
             if (chains contains binding) chains -= binding
           }
 
-          alreadySplit += (binding -> newBindings)
+          alreadySplit += (binding -> distinctBindings)
 
-          newBindings
+          distinctBindings
 
 
         case reg if reg.matches("ComplexEvent") && unresolvedInside(reg) =>

@@ -3,7 +3,7 @@
   priority: 1
   type: token
   pattern: |
-    [tag=DT & !(incoming=/det/) & !(word=/(?i)^the$/) & !(mention=/.*/)]
+    [tag=DT & !(incoming=/det/) & !(word=/(?i)^the|all$/) & !(mention=/.*/)]
 
 #- name: Nstar_not_in_Nstar
 #  label: [Unresolved, BioChemicalEntity, PossibleController]

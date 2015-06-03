@@ -212,4 +212,14 @@ class TestCoreference extends FlatSpec with Matchers {
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
   }
+
+  val sent19 = "ASPP1 is common, and it binds Mek and Ras"
+  sent19 should "contain two bindings, (ASPP1,Mek) and (ASPP1,Ras)" in {
+    val mentions = parseSentence(sent19)
+    mentions filter (_ matches "Binding") should have size (2)
+    mentions filter (_ matches "Event") should have size (2)
+    hasEventWithArguments("Binding", List("ASPP1", "Mek"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP1", "Ras"), mentions) should be (true)
+  }
 }
+
