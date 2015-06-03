@@ -318,7 +318,7 @@
   priority: 4
   type: token
   pattern: |
-    [lemma=/when|once|if/] (?<trigger> [lemma=bound]) to [tag=/DT|JJ/]* @theme1:BioChemicalEntity [tag=/NN/]? [lemma=,] [tag=/DT|JJ/]* @theme2:BioChemicalEntity
+    [lemma=/when|once|if/] (?<trigger> [lemma=bound]) to [tag=/DT|JJ/]* @theme1:BioChemicalEntity [tag=/NN/]? [word=','] [tag=/DT|JJ/]* @theme2:BioChemicalEntity
 
 # TODO: figure out how to handle args without types (ex. "endophor")
 
