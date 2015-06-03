@@ -177,7 +177,7 @@ class TestActivationEvents extends FlatSpec with Matchers {
 
   val sent22 = "The phosphorylation of MEK deactivates K-Ras."
   sent22 should "contain 1 Negative Activation with a phosphorylation event as its controller" in {
-    val mentions = parseSentence(sent21)
+    val mentions = parseSentence(sent22)
     val negActs = mentions.filter(_ matches "Negative_activation")
     negActs.length should be (1)
     negActs.head.arguments("controller").head matches "Phosphorylation" should be (true)
