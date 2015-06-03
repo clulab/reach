@@ -320,7 +320,7 @@
   pattern: |
     [lemma=/when|once|if/] (?<trigger> [lemma=bound]) to [tag=/DT|JJ/]* @theme1:BioChemicalEntity [tag=/NN/]? [word=','] [tag=/DT|JJ/]* @theme2:BioChemicalEntity
 
-#Token pattern rule for [complex/heterodimer A and B] is
+# Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
