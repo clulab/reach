@@ -455,7 +455,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent27 should "contain 1 phospho + 1 reg (GUS)" in {
     val mentions = parseSentence(sent27)
     hasEventWithArguments("Phosphorylation", List("XRCC1"), mentions) should be (true)
-    // TODO: cause is missing; should be an easy rule fix
     hasPositiveRegulationByEntity("DNA-PK", "Phosphorylation", List("XRCC1"), mentions) should be (true)
   }
 }
