@@ -420,9 +420,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent23 = "Shown in Figure     is a Western blot detecting the phosphorylation of the mTOR substrate, 4EBP1."
   sent23 should "contain a phosphorylation of 4EBP1 not mTOR (GUS)" in {
     val mentions = parseSentence(sent23)
-    // TODO: this fails. The rules must be extended to allow for appositions
-    println(s"4EBP1 phospho is...${hasEventWithArguments("Phosphorylation", List("4EBP1"), mentions)}")
-    mentions filter(_ matches "Event") foreach displayMention
     hasEventWithArguments("Phosphorylation", List("4EBP1"), mentions) should be (true)
     // the above applies to ALL events taking proteins as arguments, including activations and regulations...
     hasEventWithArguments("Phosphorylation", List("mTOR"), mentions) should be (false)

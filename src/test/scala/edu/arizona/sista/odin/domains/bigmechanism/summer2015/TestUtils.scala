@@ -60,7 +60,7 @@ object TestUtils {
           // This is only necessary because we decided to make complexes using relation mentions.
           // ex. GTP hydrolysis for Ras => "Ras-GTP" becomes the label of a resultant relation mention.
           // We really shouldn't be doing this sort of thing in a mention.
-          val allText = s"${m.text} ${
+          val allText = s"${
             m.arguments.values.
               flatten
               .map(_.text)
