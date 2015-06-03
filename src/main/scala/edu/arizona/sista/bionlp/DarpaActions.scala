@@ -420,7 +420,9 @@ class DarpaActions extends Actions {
 
   /** This should only be called on mentions that have a controller argument */
   def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
-    val simp = mentions.flatMap(_.arguments("controller")).filter(_ matches "SimpleEvent")
+    val simp = mentions
+      .flatMap(_.arguments.getOrElse("controller", Nil))
+      .filter(_ matches "SimpleEvent")
     simp match {
       case useSimple if useSimple.nonEmpty =>
         mentions.filter(_.arguments("controller").head matches "SimpleEvent")
