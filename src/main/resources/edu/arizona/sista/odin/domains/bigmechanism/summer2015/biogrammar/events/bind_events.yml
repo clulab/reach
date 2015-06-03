@@ -303,6 +303,14 @@
   pattern: |
     [tag=DT] @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> complex)
 
+- name: binding_coexist
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+      trigger = [lemma=/coexist|present/] in [tag=/DT|JJ/]* [lemma=/complex|dimer|heterodimer/]
+      theme1:BioChemicalEntity+ = nsubj nn?
+
 # TODO: figure out how to handle args without types (ex. "endophor")
 
 #- name: binding_coref1

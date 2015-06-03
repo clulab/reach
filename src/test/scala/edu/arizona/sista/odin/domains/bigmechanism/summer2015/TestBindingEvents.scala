@@ -311,14 +311,12 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent28 = "To confirm whether XRCC1 and DNA-PK coexist in a common complex, we carried out co-immunoprecipitation experiments in HeLa nuclear extracts."
   sent28 should "contain 1 binding event" in {
     val mentions = parseSentence(sent28)
-    // TODO: needs a syntax rule with trigger = coexist|present and dummy argument "prep_in complex"
     hasEventWithArguments("Binding", List("DNA-PK", "XRCC1"), mentions) should be (true)
   }
 
   val sent29 = "We found that the three subunits of DNA-PK co-purified only with BRCT1 containing XRCC1-fusion proteins             confirming that XRCC1 and DNA-PK are present in a complex. "
   sent29 should "contain 1 binding event" in {
     val mentions = parseSentence(sent29)
-    // TODO: the above rule (from sent28) should capture this as well
     hasEventWithArguments("Binding", List("DNA-PK", "XRCC1"), mentions) should be (true)
   }
 }
