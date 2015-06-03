@@ -162,7 +162,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) of @controlled:{{ controlledType }} by @controller:{{ controllerType }} (?! [lemma=/{{ negnouns}}/])
+    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) of @controlled:{{ controlledType }} by @controller:{{ controllerType }} (?! [lemma=/{{ negnouns }}/])
 
 
 - name: Negative_{{ ruleType }}_copula_1
