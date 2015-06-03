@@ -3,22 +3,37 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 /**
   * Specialized lookup key transformation methods, for writing local KB accessors.
   *   Written by Tom Hicks. 5/21/2015.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Add protein/family suffix stripper key transforms.
   */
-object LocalKeyTransforms {
+object LocalKeyTransforms extends KnowledgeBaseConstants {
 
   /** List of transform methods to apply for alternate Protein lookups. */
-  val proteinKeyTransforms = Seq(stripMutantProtein _, unmutateProteinKey _)
+  val proteinKeyTransforms = Seq( stripProteinSuffixes _,
+                                  stripFamilySuffixes _,
+                                  stripMutantProtein _,
+                                  unmutateProteinKey _ )
 
 
-  /** Return the portion of the key string before a trailing mutation phrase, if found
-    * in the given key string, else return the key unchanged. */
+  /** Return the portion of the key string minus one of the protein family suffixes,
+    * if found in the given key string, else return the key unchanged. */
+  def stripFamilySuffixes (key:String): String = {
+    return LocalKBUtils.stripASuffix(FamilyStopSuffixes, key)
+  }
+
+  /** Return the portion of the key string before a trailing mutation phrase,
+    * if found in the given key string, else return the key unchanged. */
   def stripMutantProtein (key:String): String = {
     val keyPat = """(.*)\w\smutant""".r     // mutation phrase at end of string
     return key match {
       case keyPat(lhs) => lhs
       case _ => key
     }
+  }
+
+  /** Return the portion of the key string minus one of the protein suffixes, if found
+    * in the given key string, else return the key unchanged. */
+  def stripProteinSuffixes (key:String): String = {
+    return LocalKBUtils.stripASuffix(ProteinStopSuffixes, key)
   }
 
   /** Return the protein portion of a mutatation-protein string, if found

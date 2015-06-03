@@ -3,15 +3,21 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 5/26/2015.
-  *   Last Modified: Update for rename of files to model-*.
+  *   Last Modified: Add other sets of stop suffixes.
   */
 trait KnowledgeBaseConstants {
+
+  /** The set of words to remove from all keys to create a lookup key. */
+  val AllKeysStopSuffixes = Set("_human")
+
+  /** The set of words to remove from a key to create a protein family lookup key. */
+  val FamilyStopSuffixes = Set(" family")
 
   /** The set of characters to remove from the text to create a lookup key. */
   val KeyCharactersToRemove = " /-".toSet
 
-  /** The set of words to remove from the text to create a lookup key. */
-  val KeyStopSuffixes = Set("_human")
+  /** The set of words to remove from a key to create a protein lookup key. */
+  val ProteinStopSuffixes = Set(" protein")
 
   /** The set of words to remove from the text to create a lookup key. */
   val HumanLabels = Set("homo sapiens", "human")
