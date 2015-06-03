@@ -448,7 +448,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("DNA-PK", "Phosphorylation", List("XRCC1", "BRCT1 domain"), mentions) should be (true)
   }
 
-  val sent27 = "reveals that XRCC1 is phosphorylated by the co-immunoprecipitated DNA-PK"
+  val sent27 = "The study reveals that XRCC1 is phosphorylated by the co-immunoprecipitated DNA-PK."
   sent27 should "contain 1 phospho + 1 reg (GUS)" in {
     val mentions = parseSentence(sent27)
     hasEventWithArguments("Phosphorylation", List("XRCC1"), mentions) should be (true)
