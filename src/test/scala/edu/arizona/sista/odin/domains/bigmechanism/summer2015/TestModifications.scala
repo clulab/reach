@@ -698,7 +698,7 @@ class TestModifications extends FlatSpec with Matchers {
     val mentions = parseSentence(sent12)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (1)
-    fgfr.head.hasMutation("mutant") should be (true)
+    fgfr.head.hasMutation("K650M") should be (true)
   }
 
   val sent13 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
