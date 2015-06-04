@@ -283,9 +283,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   val sent30 = "Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation"
-  sent30 should "contain 1 phospho and 1 pos reg" in {
+  sent30 should "contain 1 phospho and 2 pos reg" in {
     val mentions = parseSentence(sent30)
-    hasPositiveRegulationByEntity("K650E-FGFR3 mutants", "Phosphorylation", List("STAT1"), mentions) should be (true)
+    // TODO: this fails because we must capture 2 mutation modifications for cause
+    mentions.filter(_.label == "Positive_regulation") should have size (2)
+    mentions.filter(_.label == "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1"), mentions) should be (true)
   }
 
 

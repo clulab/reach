@@ -198,4 +198,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
     hasPositiveActivation("Ras", "Raf", mentions) should be(true)
     hasPositiveActivation("Ras", "PI3K", mentions) should be(true)
   }
+
+  val sent25 = "Figure 2 shows that only the K650M and K650E ASPP1 mutants activated STAT1 in 293T and RCS cells."
+  sent25 should "contain 2 activations (GUS)" in {
+    val mentions = parseSentence(sent25)
+    // TODO: this fails because we do not capture the 2 mutations for the controller
+    mentions.filter(_ matches "ActivationEvent") should have size (2)
+    hasNegativeActivation("ASPP1", "STAT1", mentions) should be(true)
+  }
 }
