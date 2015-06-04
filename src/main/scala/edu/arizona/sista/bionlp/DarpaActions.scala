@@ -846,4 +846,12 @@ class DarpaActions extends Actions {
     }
   }
 
+  /** Purely for debugging rules */
+  def debug(mentions: Seq[Mention], state:State): Seq[Mention] = {
+    mentions foreach { m =>
+      println(s"${m.foundBy} found a mention: ")
+      display.displayMention(m)
+    }
+    mentions
+  }
 }
