@@ -445,7 +445,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent26 = "The BRCT1 domain of XRCC1 is phosphorylated in vitro by DNA-PK"
   sent26 should "contain 1 phospho with site + 1 reg (GUS)" in {
     val mentions = parseSentence(sent26)
-    // TODO: this fails, but it should be an easy rule fix
     hasEventWithArguments("Phosphorylation", List("XRCC1", "BRCT1 domain"), mentions) should be (true)
     hasPositiveRegulationByEntity("DNA-PK", "Phosphorylation", List("XRCC1", "BRCT1 domain"), mentions) should be (true)
   }
@@ -460,8 +459,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent28 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   sent28 should "contain 2 phospho + 2 pos reg (GUS/MARCO)" in {
     val mentions = parseSentence(sent28)
-    // TODO: this fails because we don't find the EntityWithSite due to the weird parens
-    // Maybe have a surface rule for this simple event: ENTITY (SEQ of SITES) TRIGGER (by ENTITY)?
     hasEventWithArguments("Phosphorylation", List("ERK", "T202"), mentions) should be (true)
     hasEventWithArguments("Phosphorylation", List("ERK", "Y204"), mentions) should be (true)
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("ERK", "T202"), mentions) should be (true)
@@ -471,7 +468,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent29 = "Figure 5 shows that only the K650M and K650E mutants caused significant STAT5(Y694) phosphorylation"
   sent29 should "contain 1 phospho (GUS/MARCO)" in {
     val mentions = parseSentence(sent29)
-    // TODO: this fails due to the same pattern as above
+    // TODO: mutants caused X...should be this be Reg. of some kind?
     hasEventWithArguments("Phosphorylation", List("STAT5", "Y694"), mentions) should be (true)
   }
 
