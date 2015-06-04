@@ -17,10 +17,8 @@
   priority: 1
   type: token
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/])
-    ([word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]?
-      |
-    /^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?)
+    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/]
+  # old alt. pattern /^P\d+$/
 
 - name: site_3letter
   label: Site
