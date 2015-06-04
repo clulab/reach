@@ -318,7 +318,7 @@
   priority: 4
   type: token
   pattern: |
-    [lemma=/when|once|if/] (?<trigger> [lemma=bound]) to [tag=/DT|JJ/]* @theme1:BioChemicalEntity [tag=/NN/]? [word=','] [tag=/DT|JJ/]* @theme2:BioChemicalEntity
+    [lemma=/when|once|if/] (?<trigger> [lemma=bind]) to [tag=/DT|JJ/]* @theme1:BioChemicalEntity [tag=/NN/]? [word=','] [tag=/DT|JJ/]* @theme2:BioChemicalEntity
 
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
