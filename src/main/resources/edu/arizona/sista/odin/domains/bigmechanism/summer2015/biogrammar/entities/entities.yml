@@ -94,7 +94,7 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Gene_or_gene_product'] [entity='I-Gene_or_gene_product']*
+    [entity='B-Gene_or_gene_product'] [entity='I-Gene_or_gene_product']* (?! [lemma="substrate"])
 
 # TODO: verify this ontology
 - name: ner-family-entities
@@ -103,7 +103,7 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Family'] [entity='I-Family']*
+    [entity='B-Family'] [entity='I-Family']* (?! [lemma="substrate"])
 
 # TODO: verify this ontology
 - name: ner-cellular_component-entities
@@ -120,7 +120,7 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Simple_chemical'] [entity='I-Simple_chemical']*
+    [entity='B-Simple_chemical'] [entity='I-Simple_chemical']* (?! [lemma="substrate"])
 
 - name: ner-domain-entities
   label: [Site]

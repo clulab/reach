@@ -9,7 +9,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
     controlled:{{ controlledType }} = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|amod|prep_of|prep_in/{,2} (/./ [word=by]){,2}
     controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
@@ -19,7 +19,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
     controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|amod|cc/{,2}
     controller:{{ controllerType }} = (agent|prep_by) /conj_|nn|amod|cc|prep_of|prep_in/{,2}
 
@@ -30,7 +30,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
     controlled:{{ controlledType }} = ( (/pobj|prep_[^b]|conj_|nn|amod/{1,2}) | (< /pobj|prep_|conj_|nn|amod/{1,2}) )
     controller:{{ controllerType }} = <nn|amod{,2} | (prep_by) /nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
@@ -41,7 +41,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
     controlled:{{ controlledType }} = (nsubjpass /conj_|nn|amod/{,2})
     controller:{{ controllerType }} = (/prep_/ /conj_|nn|amod/{,2})? /prep_/{,2} /prep_by|agent/ /conj_|nn|amod/{,2}
 
@@ -52,7 +52,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^V|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^V/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
     controlled:{{ controlledType }} = dobj /nn|amod|conj_|cc/{,2}
     controller:{{ controllerType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
 
@@ -63,7 +63,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/VBN|RB/] [lemma=/{{ auxtriggers }}/ & tag=/^VBN/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/VBN|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^VBN/]?
     controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
     controller:{{ controllerType }} = /prep_by|agent/ /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
@@ -74,7 +74,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/]?
     controlled:{{ controlledType }} = /prep_of|prep_in/ /nn|amod|conj_|cc/{,2}
     controller:{{ controllerType }} = /prep_of/? prep_by (<dobj|prep_by|agent|nn|amod|prep_of|prep_in){1,2} /nn|amod|conj_|cc/{,2} # the prep_of may appear due to bad syntax
 
@@ -85,7 +85,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
     controlled:{{ controlledType }} = /prep_of|prep_in/? /conj_|cc|nn|amod/{1,2}
     controller:{{ controllerType }} = /prep_of/? /prep_by|agent/ /conj|cc|nn|amod/{,2} # the prep_of may appear due to bad syntax
 
@@ -96,7 +96,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/ & !outgoing=prep_by] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
     controlled:{{ controlledType }} = /prep_of|prep_in/ /conj_|cc|nn|amod/{,2}
     controller:{{ controllerType }} = /conj_|cc|nn|amod/{1,2}
 
@@ -107,7 +107,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
     controlled:{{ controlledType }} = < /nn|amod/ > /prep_/ /conj_|cc|nn|amod/{,2}
     controller:{{ controllerType }} = < /nn|amod/ /conj_|cc|nn|amod/{,2}
 
@@ -118,7 +118,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
     controller:{{ controllerType }} = <prep_via (agent|prep_by) /nn|amod|conj_|cc/{,2}
     controlled:{{ controlledType }} = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
 
@@ -129,7 +129,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    trigger = [word=/(?i){{ triggers }}/ & tag=/^N/] [lemma=/{{ auxtriggers }}/ & tag=/^N/]?
+    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
     controller:{{ controllerType }} = <dep /nn|amod|conj_|cc/{,2}
     controlled:{{ controlledType }} = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
 
@@ -151,7 +151,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    @controlled:{{ controlledType }} (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) @controller:{{ controllerType }}
+    @controlled:{{ controlledType }} (?<trigger> [word=/(?i)^({{ triggers }})/ & tag=/^NN/]) @controller:{{ controllerType }}
 
 
 # this rule is needed because PP attachment of "by" is often wrong
@@ -162,7 +162,7 @@
   label: [{{ labels }}]
   action: {{ actionFlow }}
   pattern: |
-    (?<trigger> [word=/(?i){{ triggers }}/ & tag=/^NN/]) of @controlled:{{ controlledType }} by @controller:{{ controllerType }} (?! [lemma=/{{ negnouns}}/])
+    (?<trigger> [word=/(?i)^({{ triggers }})/ & tag=/^NN/]) of @controlled:{{ controlledType }} by @controller:{{ controllerType }} (?! [lemma=/{{ negnouns }}/])
 
 
 - name: Negative_{{ ruleType }}_copula_1
@@ -176,3 +176,12 @@
     controlled:{{ controlledType }} = /prep_of|prep_in/
 
 
+- name: Negative_{{ ruleType }}_possessive_noun
+  priority: {{ priority }}
+  example: "ASPP1 is common, as is its inhibition by ASPP2."
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [lemma=/{{ negnouns }}/ & tag=/^N/]
+    controller:{{ controllerType }} = /prep_by|agent/
+    controlled:{{ controlledType }} = /poss/
