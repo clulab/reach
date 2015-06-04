@@ -248,6 +248,22 @@ class DarpaActions extends Actions {
     }
   }
 
+  /** Pull out the named capture from these ModificationTrigger Mentions.
+    * I'm sad this is currently needed...*/
+  def mkModTrigger(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    mentions.map { m =>
+      // Assume there is only one...
+      val mod = m.arguments("mod").head
+      new BioTextBoundMention(
+        m.labels,
+        mod.tokenInterval,
+        mod.sentence,
+        mod.document,
+        m.keep,
+        m.foundBy)
+    }.distinct
+  }
+
   /**
    * Sometimes it's easiest to find the site associated with a BioChemicalEntity before event detection
    * @return Nil (Modifications are added in-place)
@@ -846,4 +862,12 @@ class DarpaActions extends Actions {
     }
   }
 
+  /** Purely for debugging rules */
+  def debug(mentions: Seq[Mention], state:State): Seq[Mention] = {
+    mentions foreach { m =>
+      println(s"${m.foundBy} found a mention: ")
+      display.displayMention(m)
+    }
+    mentions
+  }
 }

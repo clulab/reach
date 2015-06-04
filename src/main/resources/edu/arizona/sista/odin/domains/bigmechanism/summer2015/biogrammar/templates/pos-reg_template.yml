@@ -31,7 +31,7 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|cc|dep|amod/{,2}
+    controlled:{{ controlledType }} = (>/^nsubj/|<vmod) /conj_|nn|cc|dep|amod/{,2}
     controller:{{ controllerType }} = (agent|prep_by) /conj_|nn|cc|dep|amod|prep_of|prep_in/{,2}
 
 

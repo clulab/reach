@@ -93,4 +93,5 @@ class TestEntities extends FlatSpec with Matchers {
     val mentions = parseSentence(sent6)
     mentions.size should be (0)
   }
+
 }

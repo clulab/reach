@@ -179,7 +179,7 @@ class TestActivationEvents extends FlatSpec with Matchers {
   sent22 should "contain 1 Negative Activation with a phosphorylation event as its controller" in {
     val mentions = parseSentence(sent22)
     val negActs = mentions.filter(_ matches "Negative_activation")
-    negActs.length should be(1)
+    negActs.length should be (1)
     negActs.head.arguments("controller").head matches "Phosphorylation" should be(true)
     // We shouldn't pick up any Positive Activations
     mentions.count(_ matches "Positve_activation") should be(0)
@@ -188,7 +188,24 @@ class TestActivationEvents extends FlatSpec with Matchers {
   val sent23 = "ASPP1 is common, as is its inhibition by ASPP2."
   sent23 should "contain 1 activation" in {
     val mentions = parseSentence(sent23)
+    // Two entities and one event
+    mentions should have size (3)
     mentions.filter(_ matches "ActivationEvent") should have size (1)
-    hasNegativeActivation("ASPP1", "ASPP2", mentions) should be(true)
+    hasNegativeActivation("ASPP2", "ASPP1", mentions) should be(true)
+  }
+
+  val sent24 = "Ubiquitinated Ras activates Raf and PI3K more than non-ubiquitinated Ras"
+  sent24 should "contain 2 activations" in {
+    val mentions = parseSentence(sent24)
+    hasPositiveActivation("Ras", "Raf", mentions) should be(true)
+    hasPositiveActivation("Ras", "PI3K", mentions) should be(true)
+  }
+
+  val sent25 = "Figure 2 shows that only the K650M and K650E ASPP1 mutants activated STAT1 in 293T and RCS cells."
+  sent25 should "contain 2 activations (GUS)" in {
+    val mentions = parseSentence(sent25)
+    // TODO: this fails because we do not capture the 2 mutations for the controller
+    mentions.filter(_ matches "ActivationEvent") should have size (2)
+    hasNegativeActivation("ASPP1", "STAT1", mentions) should be(true)
   }
 }
