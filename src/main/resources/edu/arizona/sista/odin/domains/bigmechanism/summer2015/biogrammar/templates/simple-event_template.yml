@@ -112,9 +112,9 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/] # nominal predicate
-    theme:BioChemicalEntity = prep_of? appos? /conj_(and|or|nor)|cc|nn/{1,2}
+    theme:BioChemicalEntity = prep_of? appos? /conj_(and|or|nor)|cc|nn/{,2}
     site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
-    cause:BioChemicalEntity = /prep_by|agent/ /conj_(and|or|nor)|cc|nn/{,2} 
+    cause:BioChemicalEntity = /prep_by|agent|nn/ /conj_(and|or|nor)|cc|nn/{,2}
 
 
 - name: {{ eventName }}_syntax_3_noun
@@ -267,7 +267,7 @@
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    @theme:BioChemicalEntity "("? ([!tag=/^V/]{1,4} @site:Site)? ")"? (?<trigger>[lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/])
+    @theme:BioChemicalEntity "("? ([!tag=/^V/]{1,4} @site:Site)? ")"? (?<trigger>[lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) (?! "of" @BioChemicalEntity)
 
 
 - name: {{ eventName }}_token_4_verb
