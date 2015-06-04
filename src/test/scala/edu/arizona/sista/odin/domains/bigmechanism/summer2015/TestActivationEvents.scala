@@ -191,4 +191,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "ActivationEvent") should have size (1)
     hasNegativeActivation("ASPP1", "ASPP2", mentions) should be(true)
   }
+
+  val sent24 = "Ubiquitinated Ras activates Raf and PI3K more than non-ubiquitinated Ras"
+  sent24 should "contain 2 activations" in {
+    val mentions = parseSentence(sent24)
+    hasPositiveActivation("Ras", "Raf", mentions) should be(true)
+    hasPositiveActivation("Ras", "PI3K", mentions) should be(true)
+  }
 }

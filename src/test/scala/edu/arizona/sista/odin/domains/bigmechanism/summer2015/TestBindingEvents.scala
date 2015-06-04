@@ -319,4 +319,34 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent29)
     hasEventWithArguments("Binding", List("DNA-PK", "XRCC1"), mentions) should be (true)
   }
+
+  val sent30 = "Figure 3. Raf and PI3K bind more to ubiquitinated Ras than to non-ubiquitinated Ras"
+  sent30 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent30)
+    hasEventWithArguments("Binding", List("Raf", "Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
+  }
+
+  val sent31 = "We observed that endogenous PLC, Afadin, Calmodulin and Tubulin co-immunoprecipitated with G12V-K-Ras (GUS)"
+  sent31 should "contain 4 binding events for G12V-K-Ras" in {
+    val mentions = parseSentence(sent31)
+    // TODO: this doesn't work because we don't recognize G12V-K-Ras as entity. Please add it to the model.
+    hasEventWithArguments("Binding", List("PLC", "G12V-K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Afadin", "G12V-K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Calmodulin", "G12V-K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Tubulin", "G12V-K-Ras"), mentions) should be (true)
+  }
+
+  val sent32 = "Something increases the fraction of GTP-bound Ras"
+  sent32 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent32)
+    hasEventWithArguments("Binding", List("GTP", "Ras"), mentions) should be (true)
+  }
+
+  val sent33 = "As expected based on previous studies, wild-type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B)."
+  sent33  should "contain 2 binding events" in {
+    val mentions = parseSentence(sent33)
+    hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions) should be (true)
+  }
 }

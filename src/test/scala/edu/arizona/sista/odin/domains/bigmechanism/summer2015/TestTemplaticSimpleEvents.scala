@@ -458,7 +458,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent28 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   sent28 should "contain 2 phospho + 2 pos reg (GUS/MARCO)" in {
     val mentions = parseSentence(sent28)
-    // TODO: this fails because we don't find the phospho due to the weird parens
+    // TODO: this fails because we don't find the EntityWithSite due to the weird parens
     // Maybe have a surface rule for this simple event: ENTITY (SEQ of SITES) TRIGGER (by ENTITY)?
     hasEventWithArguments("Phosphorylation", List("ERK", "T202"), mentions) should be (true)
     hasEventWithArguments("Phosphorylation", List("ERK", "T204"), mentions) should be (true)
@@ -480,5 +480,12 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     // This should continue to work after adding the surface pattern from sent28
     hasEventWithArguments("Phosphorylation", List("STAT1", "Y701"), mentions) should be (true)
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "Y701"), mentions) should be (true)
+  }
+
+  val sent31 = "We found that endogenous K-Ras and H-Ras underwent mono-ubiquitination in HEK293T cells."
+  sent31 should "contain 2 ubiquitinations" in {
+    val mentions = parseSentence(sent31)
+    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Ubiquitination", List("H-Ras"), mentions) should be (true)
   }
 }
