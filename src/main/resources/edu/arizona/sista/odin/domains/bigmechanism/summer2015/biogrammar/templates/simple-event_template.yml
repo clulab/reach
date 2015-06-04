@@ -80,6 +80,18 @@
     site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
 
 
+- name: {{ eventName }}_syntax_verb_underwent
+  priority: 4
+  example: "We found that endogenous K-Ras and H-Ras underwent mono-ubiquitination in HEK293T cells."
+  label: [{{ labels }}, SimpleEvent, Event, PossibleController]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [word=/(?i)underwent/ & tag=/VB/ & !mention=ModificationTrigger] [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]
+    theme:BioChemicalEntity = nsubj /appos|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
+
+
 - name: {{ eventName }}_syntax_1_noun
   priority: 4
   example: "... which includes {{ nominalTriggerLemma }} of PKC isozymes by phosphoinositide-dependent protein kinases.  Ras {{ nominalTriggerLemma }} of ASPP2 increased."

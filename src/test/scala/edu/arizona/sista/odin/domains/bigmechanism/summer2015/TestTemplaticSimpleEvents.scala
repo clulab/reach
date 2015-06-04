@@ -433,8 +433,16 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   }
 
   val sent25 = "We found that XRCC1 R399Q can be phosphorylated on S371 by DNA-PK"
-  sent25 should "contain 1 phosphorylation on S371 (GUS)" in {
+  sent25 should "contain 1 phosphorylation on S371 and not R399Q, which is a mutation (GUS)" in {
     val mentions = parseSentence(sent25)
+    hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
+    // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
+    hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
+  }
+
+  val sent25b = "We found that R399Q-XRCC1 mutant can be phosphorylated on S371 by DNA-PK"
+  sent25b should "contain 1 phosphorylation on S371 and not R399Q, which is a mutation (GUS)" in {
+    val mentions = parseSentence(sent25b)
     hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
     // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
     hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
@@ -453,5 +461,39 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent27)
     hasEventWithArguments("Phosphorylation", List("XRCC1"), mentions) should be (true)
     hasPositiveRegulationByEntity("DNA-PK", "Phosphorylation", List("XRCC1"), mentions) should be (true)
+  }
+
+  val sent28 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
+  sent28 should "contain 2 phospho + 2 pos reg (GUS/MARCO)" in {
+    val mentions = parseSentence(sent28)
+    // TODO: this fails because we don't find the EntityWithSite due to the weird parens
+    // Maybe have a surface rule for this simple event: ENTITY (SEQ of SITES) TRIGGER (by ENTITY)?
+    hasEventWithArguments("Phosphorylation", List("ERK", "T202"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("ERK", "T204"), mentions) should be (true)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("ERK", "T202"), mentions) should be (true)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("ERK", "T204"), mentions) should be (true)
+  }
+
+  val sent29 = "Figure 5 shows that only the K650M and K650E mutants caused significant STAT5(Y694) phosphorylation"
+  sent29 should "contain 1 phospho (GUS/MARCO)" in {
+    val mentions = parseSentence(sent29)
+    // TODO: this fails due to the same pattern as above
+    hasEventWithArguments("Phosphorylation", List("STAT5", "Y694"), mentions) should be (true)
+  }
+
+  val sent30 = "we found slight STAT1(Y701) phosphorylation induced by wild-type FGFR3."
+  sent30 should "contain 1 phospho and 1 pos reg" in {
+    val mentions = parseSentence(sent30)
+    // TODO: this works! I guess we got lucky with the parens here...
+    // This should continue to work after adding the surface pattern from sent28
+    hasEventWithArguments("Phosphorylation", List("STAT1", "Y701"), mentions) should be (true)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "Y701"), mentions) should be (true)
+  }
+
+  val sent31 = "We found that endogenous K-Ras and H-Ras underwent mono-ubiquitination in HEK293T cells."
+  sent31 should "contain 2 ubiquitinations" in {
+    val mentions = parseSentence(sent31)
+    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
+    hasEventWithArguments("Ubiquitination", List("H-Ras"), mentions) should be (true)
   }
 }
