@@ -31,11 +31,35 @@ class TestTranslocationEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Translocation", List("ASPP2", "membrane", "nucleus"), mentions) should be (true)
   }
 
+  val sent3a = "ASPP1 is common, and its recruitment to the plasma membrane and nuclear membrane increases with its phosphorylation."
+  val sent3b = "ASPP1 is common, and its release from the plasma membrane and nuclear membrane increases with its phosphorylation."
+  val sent3c = "ASPP1 is common, and its release from the plasma membrane and nuclear membrane to the cytosol increases with its phosphorylation."
+  sent3a should "contain two translocation events" in {
+    val mentions = parseSentence(sent3a)
+    mentions filter (_ matches "Translocation") should have size (2)
+    hasEventWithArguments("Translocation", List("ASPP1", "plasma membrane"), mentions) should be (true)
+    hasEventWithArguments("Translocation", List("ASPP1", "nuclear membrane"), mentions) should be (true)
+  }
+
+  sent3b should "contain two translocation events" in {
+    val mentions = parseSentence(sent3b)
+    mentions filter (_ matches "Translocation") should have size (2)
+    hasEventWithArguments("Translocation", List("ASPP1", "plasma membrane"), mentions) should be (true)
+    hasEventWithArguments("Translocation", List("ASPP1", "nuclear membrane"), mentions) should be (true)
+  }
+
+  sent3c should "contain two translocation events" in {
+    val mentions = parseSentence(sent3c)
+    mentions filter (_ matches "Translocation") should have size (2)
+    hasEventWithArguments("Translocation", List("ASPP1", "plasma membrane", "cytosol"), mentions) should be (true)
+    hasEventWithArguments("Translocation", List("ASPP1", "nuclear membrane", "cytosol"), mentions) should be (true)
+  }
+
+
   "testTranslocation1" should "find 1 translocation event" in {
     val mentions = parseSentence("Phosphorylation leads the plasma membrane to release p53 to the cytosol.")
     hasEventWithArguments("Translocation", List("p53", "plasma membrane", "cytosol"), mentions) should be (true)
   }
-
 
   "testTranslocation2" should "find 1 translocation event" in {
     val mentions = parseSentence("Recruitment of p53 from the cytosol to the plasma membrane increases with phosphorylation.")

@@ -3,48 +3,141 @@
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
 
-- name: translocation_3_verb
+- name: translocation_1a_noun
+  priority: 4
+  example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation from the cytosol/nucleus and increased binding to p53"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
+    theme:BioChemicalEntity = poss | dobj
+    source:Cellular_component = prep_to? prep_from [tag=/^N/]
+    destination:Cellular_component? = prep_from? prep_to /conj|nn|cc|dep/{,2}
+
+
+- name: translocation_1b_noun
   priority: 4
   example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
-    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
-    theme:BioChemicalEntity = poss | dobj
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
+    theme:BioChemicalEntity = poss
+    source:Cellular_component? = prep_to? prep_from [tag=/^N/]
+    destination:Cellular_component = prep_from? prep_to /conj|nn|cc|dep/{,2}
+
+
+- name: translocation_2a_verb_apposition
+  priority: 4
+  example: "ASPP2, a protein which translocates Pde2 to the nucleus, is subsequently phosphorylated."
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
+    theme:BioChemicalEntity = dobj
     source:Cellular_component = prep_to? prep_from [tag=/^N/]
     destination:Cellular_component? = prep_from? prep_to /conj|nn|cc|dep/{,2}
     cause:BioChemicalEntity? = nsubj | <rcmod <appos
 
 
-- name: translocation_4_verb_passive
+- name: translocation_2b_verb_apposition
   priority: 4
-  example: "ASPP2, a protein which is translocated from the membrane to the nucleus by ASPP1, is subsequently phosphorylated"
+  example: "ASPP2, a protein which releases Pde2 from the membrane, is subsequently phosphorylated."
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
-    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
+    theme:BioChemicalEntity = dobj
+    source:Cellular_component? = prep_to? prep_from [tag=/^N/]
+    destination:Cellular_component = prep_from? prep_to /conj|nn|cc|dep/{,2}
+    cause:BioChemicalEntity? = nsubj | <rcmod <appos
+
+
+- name: translocation_3a_verb_passive
+  priority: 4
+  example: "ASPP2, a protein which is translocated from the membrane by ASPP1, is subsequently phosphorylated"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
     theme:BioChemicalEntity = nsubjpass | <rcmod <appos
     source:Cellular_component = prep_to? prep_from [tag=/^N/]
     destination:Cellular_component? = prep_from? prep_to /conj|nn|cc|dep/{,2}
     cause:BioChemicalEntity? = agent | /prep_(to|from)/{,2} prep_by
 
 
-- name: translocation_5_noun
+- name: translocation_3b_verb_passive
   priority: 4
-  example: "Recruitment of p53 from the cytosol to the plasma membrane increases with phosphorylation"
+  example: "ASPP2, a protein which is translocated to the nucleus by ASPP1, is subsequently phosphorylated"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
+    theme:BioChemicalEntity = nsubjpass | <rcmod <appos
+    source:Cellular_component? = prep_to? prep_from [tag=/^N/]
+    destination:Cellular_component = prep_from? prep_to /conj|nn|cc|dep/{,2}
+    cause:BioChemicalEntity? = agent | /prep_(to|from)/{,2} prep_by
+
+
+- name: translocation_4a_noun_with_cause
+  priority: 4
+  example: "Recruitment of p53 to the plasma membrane increases with phosphorylation"
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = prep_of | nn | <dep
-    source:Cellular_component? = prep_of? prep_to? prep_from
-    destination:Cellular_component = prep_of? prep_from? prep_to /conj|cc|dep/{,2}
+    source:Cellular_component? = <prep_in? prep_of? prep_to? prep_from
+    destination:Cellular_component = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
     cause:BioChemicalEntity? = poss
 
 
-- name: translocation_7
+- name: translocation_4b_noun_with_cause
+  priority: 4
+  example: "Release of p53 from the cytosol increases with phosphorylation"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
+    theme:BioChemicalEntity = prep_of | nn | <dep
+    source:Cellular_component = <prep_in? prep_of? prep_to? prep_from
+    destination:Cellular_component? = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
+    cause:BioChemicalEntity? = poss
+
+
+- name: translocation_5_verb_infinitive_with_cause
   priority: 4
   example: "Phosphorylation leads the plasma membrane to release p53 to the cytosol."
   label: [Translocation, SimpleEvent, Event, PossibleController]
   pattern: |
     trigger = [lemma=release & tag=/^V/]
     theme:BioChemicalEntity = dobj
-    source:Cellular_component = <xcomp /nsubj|aux|dobj/
-    destination:Cellular_component = <prep_in? prep_to /conj|nn|cc|dep/{,2}
+    source:Cellular_component = <xcomp /dobj/
+    destination:Cellular_component? = <prep_in? prep_to /conj|nn|cc|dep/{,2}
+
+
+- name: translocation_6_verb_active
+  priority: 4
+  example: "After the introduction of ASPP1, the plasma membrane releases p53 to the cytosol."
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [lemma=release & tag=/^V/]
+    theme:BioChemicalEntity = dobj
+    source:Cellular_component = /nsubj|aux|dobj/
+    destination:Cellular_component? = <prep_in? prep_to /conj|nn|cc|dep/{,2}
+
+
+- name: translocation_7a_noun_no_cause
+  priority: 4
+  example: "ASPP1 is common, and its recruitment to the plasma membrane increases with its phosphorylation"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=prep_of]
+    theme:BioChemicalEntity = poss
+    source:Cellular_component? = <prep_in? prep_of? prep_to? prep_from
+    destination:Cellular_component = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
+
+
+- name: translocation_7b_noun_no_cause
+  priority: 4
+  example: "ASPP1 is common, and its release from the cytosol increases with its phosphorylation"
+  label: [Translocation, SimpleEvent, Event, PossibleController]
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=prep_of]
+    theme:BioChemicalEntity = poss
+    source:Cellular_component = <prep_in? prep_of? prep_to? prep_from
+    destination:Cellular_component? = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
+
+
