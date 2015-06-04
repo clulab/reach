@@ -225,7 +225,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras", "Hydroxylation", List("ASPP2"), mentions) should be (true)
   }
 
-  // TODO: this guy is failing
   "testHydroxylationPass1" should "find 1 hydroxylation event and 1 regulation event" in {
     val mentions = parseSentence("ASPP2 is hydroxylated by Ras.")
     hasEventWithArguments("Hydroxylation", List("ASPP2"), mentions) should be (true)
@@ -430,7 +429,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent25 should "contain 1 phosphorylation on S371 and not R399Q, which is a mutation (GUS)" in {
     val mentions = parseSentence(sent25)
     hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
-    // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
     hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
   }
 
@@ -438,7 +436,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   sent25b should "contain 1 phosphorylation on S371 and not R399Q, which is a mutation (GUS)" in {
     val mentions = parseSentence(sent25b)
     hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
-    // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
     hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
   }
 
@@ -475,8 +472,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent30 = "we found slight STAT1(Y701) phosphorylation induced by wild-type FGFR3."
   sent30 should "contain 1 phospho and 1 pos reg" in {
     val mentions = parseSentence(sent30)
-    // TODO: this works! I guess we got lucky with the parens here...
-    // This should continue to work after adding the surface pattern from sent28
     hasEventWithArguments("Phosphorylation", List("STAT1", "Y701"), mentions) should be (true)
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "Y701"), mentions) should be (true)
   }
