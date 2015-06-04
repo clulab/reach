@@ -420,9 +420,7 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   val sent23 = "Shown in Figure     is a Western blot detecting the phosphorylation of the mTOR substrate, 4EBP1."
   sent23 should "contain a phosphorylation of 4EBP1 not mTOR (GUS)" in {
     val mentions = parseSentence(sent23)
-    // TODO: this fails. The rules must be extended to allow for appositions
     hasEventWithArguments("Phosphorylation", List("4EBP1"), mentions) should be (true)
-    // TODO: this fails. The rules must be extended with negative constraints, e.g., do not traverse dependencies through "substrate"
     // the above applies to ALL events taking proteins as arguments, including activations and regulations...
     hasEventWithArguments("Phosphorylation", List("mTOR"), mentions) should be (false)
   }
@@ -440,5 +438,20 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
     // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
     hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
+  }
+
+  val sent26 = "The BRCT1 domain of XRCC1 is phosphorylated in vitro by DNA-PK"
+  sent26 should "contain 1 phospho with site + 1 reg (GUS)" in {
+    val mentions = parseSentence(sent26)
+    // TODO: this fails, but it should be an easy rule fix
+    hasEventWithArguments("Phosphorylation", List("XRCC1", "BRCT1 domain"), mentions) should be (true)
+    hasPositiveRegulationByEntity("DNA-PK", "Phosphorylation", List("XRCC1", "BRCT1 domain"), mentions) should be (true)
+  }
+
+  val sent27 = "The study reveals that XRCC1 is phosphorylated by the co-immunoprecipitated DNA-PK."
+  sent27 should "contain 1 phospho + 1 reg (GUS)" in {
+    val mentions = parseSentence(sent27)
+    hasEventWithArguments("Phosphorylation", List("XRCC1"), mentions) should be (true)
+    hasPositiveRegulationByEntity("DNA-PK", "Phosphorylation", List("XRCC1"), mentions) should be (true)
   }
 }

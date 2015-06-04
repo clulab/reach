@@ -87,4 +87,10 @@ class TestEntities extends FlatSpec with Matchers {
     val mentions = parseSentence(sent5)
     mentions.count(_ matches "Site") should be (0)
   }
+
+  val sent6 = "The K-Ras substrate and mTOR substrates shouldn't be found."
+  sent6 should "not contain any entities (because of substrate constraint)" in {
+    val mentions = parseSentence(sent6)
+    mentions.size should be (0)
+  }
 }

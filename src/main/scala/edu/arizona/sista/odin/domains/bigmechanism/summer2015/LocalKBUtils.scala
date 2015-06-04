@@ -8,7 +8,7 @@ import scala.io.Source
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 4/16/2015.
-  *   Last Modified: Distinguish KB file and resource paths.
+  *   Last Modified: Refactor: separate out method to strip a suffix.
   */
 object LocalKBUtils extends KnowledgeBaseConstants {
 
@@ -23,7 +23,13 @@ object LocalKBUtils extends KnowledgeBaseConstants {
     var key:String = text.toLowerCase
     // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
     key = key.filterNot(KeyCharactersToRemove)
-    KeyStopSuffixes.foreach { suffix =>
+    return stripASuffix(AllKeysStopSuffixes, key)
+  }
+
+  /** Try to remove one of the suffixes in the given set from the given text. */
+  def stripASuffix (suffixes:Set[String], text:String): String = {
+    var key = text
+    suffixes.foreach { suffix =>
       key = key.stripSuffix(suffix)
     }
     return key

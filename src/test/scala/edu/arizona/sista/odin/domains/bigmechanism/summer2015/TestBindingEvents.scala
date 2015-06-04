@@ -254,7 +254,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
 
   "testBindingGerund1" should "find 1 binding event" in {
     val mentions = parseSentence("IKKgamma appears capable of binding linear polyubiquitin.")
-    hasEventWithArguments("Binding", List("IKKgamma", "linear polyubiquitin"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("IKKgamma", "polyubiquitin"), mentions) should be (true)
   }
 
   val sent19 = "The dimerization of cRaf with BRaf helps something."
@@ -274,10 +274,10 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent21)
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
-  val sent22 = "The heterodimer Ku70-Ku80 is awesome"
-  sent22 should "contain 1 binding event between Ku70 and Ku80" in {
+  val sent22 = "The heterodimer Ku70-DNA ligase IV is awesome"
+  sent22 should "contain 1 binding event between Ku70 and DNA ligase IV" in {
     val mentions = parseSentence(sent22)
-    hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Ku70", "DNA ligase IV"), mentions) should be (true)
   }
   val sent23 = "The complex Ku70/Ku80 is awesome"
   sent23 should "contain 1 binding event between Ku70 and Ku80" in {
@@ -299,5 +299,24 @@ class TestBindingEvents extends FlatSpec with Matchers {
   sent26 should "contain 1 binding event" in {
     val mentions = parseSentence(sent26)
     hasEventWithArguments("Binding", List("DNA-PKcs", "XRCC1"), mentions) should be (true)
+  }
+
+  val sent27 = "Once bound to the DSB, the DNA-PK holoenzyme facilitates the recruitment..."
+  sent27 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent27)
+    // TODO: this should be matched by the binding_oncebound rule, but it doesn't...
+    hasEventWithArguments("Binding", List("DNA-PK", "DSB"), mentions) should be (true)
+  }
+
+  val sent28 = "To confirm whether XRCC1 and DNA-PK coexist in a common complex, we carried out co-immunoprecipitation experiments in HeLa nuclear extracts."
+  sent28 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent28)
+    hasEventWithArguments("Binding", List("DNA-PK", "XRCC1"), mentions) should be (true)
+  }
+
+  val sent29 = "We found that the three subunits of DNA-PK co-purified only with BRCT1 containing XRCC1-fusion proteins             confirming that XRCC1 and DNA-PK are present in a complex. "
+  sent29 should "contain 1 binding event" in {
+    val mentions = parseSentence(sent29)
+    hasEventWithArguments("Binding", List("DNA-PK", "XRCC1"), mentions) should be (true)
   }
 }

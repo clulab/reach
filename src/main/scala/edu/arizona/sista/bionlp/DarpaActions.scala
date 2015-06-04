@@ -420,7 +420,9 @@ class DarpaActions extends Actions {
 
   /** This should only be called on mentions that have a controller argument */
   def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
-    val simp = mentions.flatMap(_.arguments("controller")).filter(_ matches "SimpleEvent")
+    val simp = mentions
+      .flatMap(_.arguments.getOrElse("controller", Nil))
+      .filter(_ matches "SimpleEvent")
     simp match {
       case useSimple if useSimple.nonEmpty =>
         mentions.filter(_.arguments("controller").head matches "SimpleEvent")
@@ -789,10 +791,26 @@ class DarpaActions extends Actions {
         path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
         node <- path
         if state.mentionsFor(trigger.sentence, node, "Gene_or_gene_product").nonEmpty
+        if !consecutivePreps(path, deps)
       } return true
         // if we reach this point then we are good
         false
     }
+  }
+
+  // hacky solution to the prepositional attachment problem
+  // that affects the proteinBetween method
+  def consecutivePreps(path: Seq[Int], deps: DirectedGraph[String]): Boolean = {
+    val pairs = for (i <- path.indices.tail) yield (path(i-1), path(i))
+    val edges = for ((n1, n2) <- pairs) yield {
+      deps.getEdges(n1, n2, ignoreDirection = true).map(_._3)
+    }
+    for {
+      i <- edges.indices.tail
+      if edges(i-1).exists(_.startsWith("prep"))
+      if edges(i).exists(_.startsWith("prep"))
+    } return true
+    false
   }
 
   /**
