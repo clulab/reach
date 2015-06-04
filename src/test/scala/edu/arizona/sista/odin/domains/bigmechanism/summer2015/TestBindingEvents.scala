@@ -302,7 +302,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
 
   val sent27 = "Once bound to the DSB, the DNA-PK holoenzyme facilitates the recruitment..."
-  sent27 should "contain 1 binding event" in {
+  sent27 should "contain 1 binding event (MARCO)" in {
     val mentions = parseSentence(sent27)
     // TODO: this should be matched by the binding_oncebound rule, but it doesn't...
     hasEventWithArguments("Binding", List("DNA-PK", "DSB"), mentions) should be (true)
