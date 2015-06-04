@@ -57,7 +57,7 @@
     | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
     @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/]
 
-# this should grab all sites that it finds within parens
+# this grabs all sites that it finds within parens
 - name: eventsite_withparens
   label: [EventSite, Modification, BioChemicalEntity]
   action: storeEventSite
@@ -65,7 +65,7 @@
   example: "ERK(T202/Y204)"
   type: token
   pattern: |
-    @entity:BioChemicalEntity [word="("] @site:Site /./*? [word=")"]
+    @entity:BioChemicalEntity [word="("] /./*? @site:Site [word=")"]
 
 # TODO: Add rule + action that adds some Site to multiple Entities
 # Need to handle cases like "site1, site2, site3 of ENTITY" => as ENTITY with EventSite(site1), EventSite(site2), EventSite(site3)
