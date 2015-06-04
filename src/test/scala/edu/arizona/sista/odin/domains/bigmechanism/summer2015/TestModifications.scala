@@ -681,20 +681,20 @@ class TestModifications extends FlatSpec with Matchers {
   sent10 should "have 2 mutations for FGFR3" in {
     val mentions = parseSentence(sent10)
     // TODO: please add a proper test after we have mutations
-    false should be true
+    false should be (true)
   }
 
   val sent11 = "Note that only FGFR3 K650M causes STAT1 phosphorylation"
   sent11 should "have 1 mutation for FGFR3" in {
     val mentions = parseSentence(sent11)
     // TODO: please add a proper test after we have mutations
-    false should be true
+    false  should be (true)
   }
 
   val sent12 = "Note that only the K650M-FGFR3 mutant causes STAT1 phosphorylation"
   sent12 should "have 1 mutation for FGFR3" in {
     val mentions = parseSentence(sent12)
     // TODO: please add a proper test after we have mutations
-    false should be true
+    false  should be (true)
   }
 }
