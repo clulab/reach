@@ -463,9 +463,9 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     // TODO: this fails because we don't find the EntityWithSite due to the weird parens
     // Maybe have a surface rule for this simple event: ENTITY (SEQ of SITES) TRIGGER (by ENTITY)?
     hasEventWithArguments("Phosphorylation", List("ERK", "T202"), mentions) should be (true)
-    hasEventWithArguments("Phosphorylation", List("ERK", "T204"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("ERK", "Y204"), mentions) should be (true)
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("ERK", "T202"), mentions) should be (true)
-    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("ERK", "T204"), mentions) should be (true)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("ERK", "Y204"), mentions) should be (true)
   }
 
   val sent29 = "Figure 5 shows that only the K650M and K650E mutants caused significant STAT5(Y694) phosphorylation"
