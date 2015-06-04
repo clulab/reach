@@ -174,4 +174,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     activations.length should be (1)
     activations.head.arguments("controller").head matches "Phosphorylation" should be (true)
   }
+
+  val sent22 = "ASPP1 is common, as is its inhibition by ASPP2."
+  sent22 should "contain 1 activation" in {
+    val mentions = parseSentence(sent22)
+    mentions.filter(_ matches "ActivationEvent") should have size (1)
+    hasNegativeActivation("ASPP1", "ASPP2", mentions) should be (true)
+  }
 }

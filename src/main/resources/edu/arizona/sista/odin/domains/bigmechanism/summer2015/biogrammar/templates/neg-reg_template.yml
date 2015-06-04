@@ -176,3 +176,12 @@
     controlled:{{ controlledType }} = /prep_of|prep_in/
 
 
+- name: Negative_{{ ruleType }}_possessive_noun
+  priority: {{ priority }}
+  example: "ASPP1 is common, as is its inhibition by ASPP2."
+  label: [{{ labels }}]
+  action: {{ actionFlow }}
+  pattern: |
+    trigger = [lemma=/{{ negnouns }}/ & tag=/^N/]
+    controller:{{ controllerType }} = /prep_by|agent/
+    controlled:{{ controlledType }} = /poss/
