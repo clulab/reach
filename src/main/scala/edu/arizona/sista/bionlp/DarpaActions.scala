@@ -232,9 +232,7 @@ class DarpaActions extends Actions {
    */
   def mkModification(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions flatMap {
-      case ptm: RelationMention if ptm.label == "PTM" => {
-        //println("found a modification...")
-        val trigger = ptm.arguments("mod").head
+      case ptm: RelationMention if ptm matches "PTM" => {
         // If this creates a new mention, we have a bug because it won't end up in the State
         val bioMention = ptm.arguments("entity").head.toBioMention
         val site = if (ptm.arguments.keySet.contains("site")) Some(ptm.arguments("site").head) else None
@@ -244,6 +242,12 @@ class DarpaActions extends Actions {
         // If we have a label, add the modification in-place
         if (label != "UNKNOWN") bioMention.modifications += PTM(label, Some(evidence), site)
         Nil // don't return anything; this mention is already in the State
+      }
+      case mutant: RelationMention if mutant matches "Mutant" => {
+        val mutated = mutant.arguments("mutated").head.toBioMention
+        val evidence = mutant.arguments("evidence").head
+        mutated.modifications += Mutant(evidence)
+        Nil
       }
     }
   }

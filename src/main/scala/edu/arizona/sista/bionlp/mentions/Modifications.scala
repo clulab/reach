@@ -30,6 +30,10 @@ case class PTM(
   }
 }
 
+case class Mutant(evidence: Mention) extends Modification{
+  val label = "Mutant"
+}
+
 case class EventSite(site: Mention) extends Modification {
   val label = "EventSite"
 }

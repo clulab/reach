@@ -680,22 +680,25 @@ class TestModifications extends FlatSpec with Matchers {
   val sent10 = "Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation"
   sent10 should "have 2 mutations for FGFR3" in {
     val mentions = parseSentence(sent10)
-    // TODO: please add a proper test after we have mutations
-    false should be (true)
+    val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
+    fgfr should have size (1)
+    fgfr.head.countMutations should be (2)
   }
 
   val sent11 = "Note that only FGFR3 K650M causes STAT1 phosphorylation"
   sent11 should "have 1 mutation for FGFR3" in {
     val mentions = parseSentence(sent11)
-    // TODO: please add a proper test after we have mutations
-    false  should be (true)
+    val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
+    fgfr should have size (1)
+    fgfr.head.countMutations should be (1)
   }
 
   val sent12 = "Note that only the K650M-FGFR3 mutant causes STAT1 phosphorylation"
   sent12 should "have 1 mutation for FGFR3" in {
     val mentions = parseSentence(sent12)
-    // TODO: please add a proper test after we have mutations
-    false  should be (true)
+    val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
+    fgfr should have size (1)
+    fgfr.head.hasMutation("mutant") should be (true)
   }
 
   val sent13 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
