@@ -69,3 +69,27 @@
 
 # TODO: Add rule + action that adds some Site to multiple Entities
 # Need to handle cases like "site1, site2, site3 of ENTITY" => as ENTITY with EventSite(site1), EventSite(site2), EventSite(site3)
+
+
+##########
+# Mutants
+#########
+
+- name: mutant_1
+  label: [Mutant] # This is currently not used.  It could be combined with labels on the "mutated" arg.
+  priority: 1
+  type: token
+  action: mkModification
+  pattern: |
+    @mutated:BioChemicalEntity (?<evidence>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]?)
+      |
+    @mutated:BioChemicalEntity (?<evidence>/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?)
+
+
+- name: mutant_2
+  label: [Mutant] # This is currently not used.  It could be combined with labels on the "mutated" arg.
+  priority: 1
+  type: token
+  action: mkModification
+  pattern: |
+    @mutated:BioChemicalEntity (?<evidence>[lemma="mutant"])
