@@ -433,8 +433,16 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
   }
 
   val sent25 = "We found that XRCC1 R399Q can be phosphorylated on S371 by DNA-PK"
-  sent25 should "contain 1 phosphorylation on S371 (GUS)" in {
+  sent25 should "contain 1 phosphorylation on S371 and not R399Q, which is a mutation (GUS)" in {
     val mentions = parseSentence(sent25)
+    hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
+    // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
+    hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
+  }
+
+  val sent25b = "We found that R399Q-XRCC1 mutant can be phosphorylated on S371 by DNA-PK"
+  sent25b should "contain 1 phosphorylation on S371 and not R399Q, which is a mutation (GUS)" in {
+    val mentions = parseSentence(sent25b)
     hasEventWithArguments("Phosphorylation", List("XRCC1", "S371"), mentions) should be (true)
     // TODO: this fails because we now think R399Q is a Site instead of a MutationModification
     hasEventWithArguments("Phosphorylation", List("XRCC1", "R399Q"), mentions) should be (false)
