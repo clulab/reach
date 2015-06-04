@@ -48,22 +48,22 @@ class TestTranslocationEvents extends FlatSpec with Matchers {
   }
 
   "testTranslocation4" should "find 1 translocation event" in {
-    val mentions = parseSentence("ASPP2, a protein which is Translocated from the membrane to the nucleus, is subsequently phosphorylated.")
-    mentions.filter(_.label == "Translocation") should have size (1)
-    mentions.filter(_.label == "Phosphorylation") should have size (1)
+    val mentions = parseSentence("ASPP2, a protein which is translocated from the membrane to the nucleus, is subsequently phosphorylated.")
+    mentions.count(_ matches "Translocation") should be (1)
+    mentions.count(_ matches "Phosphorylation") should be (1)
     hasEventWithArguments("Translocation", List("ASPP2", "membrane", "nucleus"), mentions) should be (true)
   }
 
   "testTranslocation5" should "find 1 translocation event" in {
     val mentions = parseSentence("ASPP2, a protein which translocates Pde2 from the membrane to the nucleus, is subsequently phosphorylated.")
-    mentions.filter(_.label == "Translocation") should have size (1)
-    mentions.filter(_.label == "Phosphorylation") should have size (1)
+    mentions.count(_ matches "Translocation") should be (1)
+    mentions.count(_ matches "Phosphorylation") should be (1)
     hasEventWithArguments("Translocation", List("Pde2", "membrane", "nucleus"), mentions) should be (true)
   }
 
   "testTranslocation6" should "find 2 translocation events" in {
     val mentions = parseSentence("KRAS translocation to the cytosol and nucleus")
-    mentions.filter(_.label == "Translocation") should have size (2)
+    mentions.filter(_ matches "Translocation") should have size (2)
     hasEventWithArguments("Translocation", List("KRAS", "cytosol"), mentions) should be (true)
     hasEventWithArguments("Translocation", List("KRAS", "nucleus"), mentions) should be (true)
   }
