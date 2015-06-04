@@ -697,4 +697,17 @@ class TestModifications extends FlatSpec with Matchers {
     // TODO: please add a proper test after we have mutations
     false  should be (true)
   }
+
+  val sent13 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
+  sent13 should "should \"not contain a ubiquitination event (this is a PTM)" in {
+    val mentions = parseSentence(sent13)
+    mentions.count(_ matches "Ubiquitination") should be (0)
+    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
+    val kras = mentions.find(_.text contains "K-Ras")
+    kras.isDefined should be (true)
+    // there is only one PTM in the example text
+    kras.get.modifications.size == 1 should be (true)
+    val ptm = kras.get.modifications.head
+    ptm.label == "ubiquitinated" should be (true)
+  }
 }

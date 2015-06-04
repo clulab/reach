@@ -99,12 +99,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
   }
 
-  val sent11 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
-  sent11 should "contain a ubiquitination" in {
-    val mentions = parseSentence(sent11)
-    hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
-  }
-
   // This fails, as it should: the monoubiquitination is ambiguous. The theme is never stated.
   /*
   val sent12 = "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
