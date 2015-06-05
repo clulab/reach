@@ -702,7 +702,7 @@ class TestModifications extends FlatSpec with Matchers {
   }
 
   val sent13 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
-  sent13 should "should \"not contain a ubiquitination event (this is a PTM)" in {
+  sent13 should "not contain a ubiquitination event (this is a PTM)" in {
     val mentions = parseSentence(sent13)
     mentions.count(_ matches "Ubiquitination") should be (0)
     hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
@@ -712,5 +712,32 @@ class TestModifications extends FlatSpec with Matchers {
     kras.get.modifications.size == 1 should be (true)
     val ptm = kras.get.modifications.head
     ptm.label == "ubiquitinated" should be (true)
+  }
+
+  //
+  // a few tests for modifications in parens
+  //
+  val sent14 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
+  sent14 should "contain two sites for ERK" in {
+    val mentions = parseSentence(sent14)
+    // TODO: add tests for ERK with sites T202 and Y204 here!
+    false should be (true)
+    mentions.filter(_ matches "Phosphorylation") should have size(2)
+  }
+
+  val sent15 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
+  sent15 should "contain two mutations for ERK" in {
+    val mentions = parseSentence(sent15)
+    // TODO: add tests for ERK with mutations K156M and H204M here!
+    false should be (true)
+    mentions.filter(_ matches "Phosphorylation") should have size(2)
+  }
+
+  val sent16 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
+  sent16 should "contain two mutations for ERK" in {
+    val mentions = parseSentence(sent16)
+    // TODO: add tests for ERK with mutations K156M and H204M here!
+    false should be (true)
+    mentions.filter(_ matches "Phosphorylation") should have size(2)
   }
 }
