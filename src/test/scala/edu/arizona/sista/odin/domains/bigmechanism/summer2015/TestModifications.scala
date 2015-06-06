@@ -843,6 +843,37 @@ class TestModifications extends FlatSpec with Matchers {
     asppTwo.head.countMutations should be (0)
   }
 
+  val mutantTest7 = "K111M, K112M, and K113M ASPP1 mutants and ASPP2"
+  mutantTest7 should "countain ASPP1 with 3 Mutant mods and ASPP2 with 0 Mutant mods" in {
+    val mentions = parseSentence(mutantTest7)
+    mentions should have size (2)
+    val asppOne = mentions filter (_.text == "ASPP1")
+    asppOne should have size (1)
+    asppOne.head.countMutations should be (3)
+    asppOne.head hasMutation "K111M" should be (true)
+    asppOne.head hasMutation "K112M" should be (true)
+    asppOne.head hasMutation "K113M" should be (true)
+
+    val asppTwo = mentions filter (_.text == "ASPP2")
+    asppTwo should have size (1)
+    asppTwo.head.countMutations should be (0)
+  }
+
+  val mutantTest8 = "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
+  mutantTest8 should "countain ASPP1 with 3 Mutant mods and ASPP2 with 0 Mutant mods" in {
+    val mentions = parseSentence(mutantTest8)
+    mentions should have size (2)
+    val asppOne = mentions filter (_.text == "ASPP1")
+    asppOne should have size (1)
+    asppOne.head.countMutations should be (3)
+    asppOne.head hasMutation "K111M" should be (true)
+    asppOne.head hasMutation "K112M" should be (true)
+    asppOne.head hasMutation "K113M" should be (true)
+
+    val asppTwo = mentions filter (_.text == "ASPP2")
+    asppTwo should have size (1)
+    asppTwo.head.countMutations should be (0)
+  }
 }
 
 
