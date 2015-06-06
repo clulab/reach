@@ -3,7 +3,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 /**
   * Specialized lookup key transformation methods, for writing local KB accessors.
   *   Written by Tom Hicks. 5/21/2015.
-  *   Last Modified: Add protein/family suffix stripper key transforms.
+  *   Last Modified: Correct bad regex in mutant stripper. Add phosphorylation/mutant stripper.
   */
 object LocalKeyTransforms extends KnowledgeBaseConstants {
 
@@ -23,9 +23,11 @@ object LocalKeyTransforms extends KnowledgeBaseConstants {
   /** Return the portion of the key string before a trailing mutation phrase,
     * if found in the given key string, else return the key unchanged. */
   def stripMutantProtein (key:String): String = {
-    val keyPat = """(.*)\w\smutant""".r     // mutation phrase at end of string
+    val phosMutePat = """phosphorylated\s+(.*)\s+\w+\s+mutant""".r  // phosphorylation/mutation phrase
+    val mutePat = """(.*)\s+\w+\s+mutant""".r  // mutation phrase at end of string
     return key match {
-      case keyPat(lhs) => lhs
+      case phosMutePat(lhs) => lhs
+      case mutePat(lhs) => lhs
       case _ => key
     }
   }
