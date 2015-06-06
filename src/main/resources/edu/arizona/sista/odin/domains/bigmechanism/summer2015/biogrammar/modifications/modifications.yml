@@ -31,7 +31,6 @@
   pattern: |
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
-
 - name: eventsite_1
   label: [EventSite, Modification, BioChemicalEntity]
   action: storeEventSite
@@ -56,6 +55,7 @@
     [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/]{,4} @site:Site
     | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
     @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/]
+
 
 # this grabs all sites that it finds within parens
 - name: eventsite_withparens
@@ -106,7 +106,7 @@
   priority: 3
   type: token
   pattern: |
-    @mutant:Mutant []? @entity:BioChemicalEntity [lemma=/^(mutant)/]?
+    @mutant:Mutant []? @Mutant? @entity:BioChemicalEntity [lemma=/^(mutant)/]?
     |
     @entity:BioChemicalEntity []? @mutant:Mutant [lemma=/^(mutant)/]?
 
