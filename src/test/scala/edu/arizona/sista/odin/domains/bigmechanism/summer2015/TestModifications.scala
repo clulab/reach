@@ -756,7 +756,7 @@ class TestModifications extends FlatSpec with Matchers {
   }
 
   val siteTest1 = "activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
-  siteTest1 should "contain two sites for " in {
+  siteTest1 should "contain 2 sites (distinct phosphorylations)" in {
     val mentions = parseSentence(siteTest1)
 
     // We have one phosphorylation per Site
@@ -769,6 +769,13 @@ class TestModifications extends FlatSpec with Matchers {
     val ss = Seq(s1.head.text, s2.head.text)
     ss should contain ("T202")
     ss should contain ("Y204")
+  }
+
+  val siteTest2 = "Ser56 RAS"
+  siteTest2 should "contain 2 entities (1 Site)" in {
+    val mentions = parseSentence(siteTest2)
+    mentions should have size (2)
+    mentions.count(_ matches "Site") should be (1)
   }
 
   val mutantTest1 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
@@ -816,7 +823,7 @@ class TestModifications extends FlatSpec with Matchers {
     val mentions = parseSentence(mutantTest4)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
-    mentions.head hasMutation "mutant R567Q" should be (true)
+    mentions.head hasMutation "R567Q" should be (true)
   }
 
   val mutantTest5 = "MEK (R678Q, G890K)"
@@ -873,6 +880,22 @@ class TestModifications extends FlatSpec with Matchers {
     val asppTwo = mentions filter (_.text == "ASPP2")
     asppTwo should have size (1)
     asppTwo.head.countMutations should be (0)
+  }
+
+  val mutantTest9 = "Ser785His mutant RAS"
+  mutantTest9 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = parseSentence(mutantTest9)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "Ser785His" should be (true)
+  }
+
+  val mutantTest10 = "Ser785His RAS"
+  mutantTest10 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = parseSentence(mutantTest10)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "Ser785His" should be (true)
   }
 }
 
