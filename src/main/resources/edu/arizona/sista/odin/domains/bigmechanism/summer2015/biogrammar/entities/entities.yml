@@ -26,7 +26,7 @@
   type: token
   pattern: |
    [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]
-   [word=/mutant/]?
+   (?! [lemma=mutant])
 
 #- name: site_3letterALT1
 #  label: Site
