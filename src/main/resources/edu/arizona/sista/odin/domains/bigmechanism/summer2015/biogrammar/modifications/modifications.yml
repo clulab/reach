@@ -81,9 +81,9 @@
   type: token
   keep: false
   pattern: |
-    [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/] [lemma=/^(mutant)/]?
+    [lemma=/^(mutant)/]? [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/] [lemma=/^(mutant)/]?
     |
-    [word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/] [lemma=/^(mutant)/]?
+    [lemma=/^(mutant)/]? [word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/] [lemma=/^(mutant)/]?
 
 
 #NOTE: mutant_2 should happen AFTER mutant_1
@@ -93,7 +93,7 @@
   type: token
   keep: false
   pattern: |
-    [lemma=/^(mutant)/]
+    [lemma=/^(mutant)/ & !mention=Mutant]
 
 
 ##########
@@ -106,9 +106,9 @@
   priority: 3
   type: token
   pattern: |
-    @mutant:Mutant "of"? @entity:BioChemicalEntity
+    @mutant:Mutant []? @entity:BioChemicalEntity [lemma=/^(mutant)/]?
     |
-    @entity:BioChemicalEntity "of"? @mutant:Mutant
+    @entity:BioChemicalEntity []? @mutant:Mutant [lemma=/^(mutant)/]?
 
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens
