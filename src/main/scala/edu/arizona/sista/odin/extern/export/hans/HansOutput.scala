@@ -312,6 +312,7 @@ class HansOutput extends JsonOutputter {
       for(m <- mention.modifications) {
         m match {
           case ptm: PTM => ms += mkPTM(ptm)
+          case m: Mutant => ms += mkMutant(m)
           case _ => // we do not export anything else
         }
       }
@@ -329,6 +330,13 @@ class HansOutput extends JsonOutputter {
     if(ptm.site.isDefined) {
       m("site") = ptm.site
     }
+    m
+  }
+
+  private def mkMutant(mutant: Mutant): PropMap = {
+    val m = new PropMap
+    m("type") = "mutant"
+    m("evidence") = mutant.evidence
     m
   }
 
