@@ -232,9 +232,13 @@ class DarpaActions extends Actions {
     mentions foreach { m =>
       //println(s"\t${m.arguments("entity").size} entities found by ${m.foundBy}: ${m.text}")
       val bioMention = m.arguments("entity").head.toBioMention
+      val mut = m.arguments("mutant").head
+      val stuff = Seq(bioMention, mut)
+      val start = stuff.map(_.start).min
+      val end = stuff.map(_.end).max
+      val between = Interval(start, end)
       // Check the complete span for any Mutants
-      // FIXME this is due to an odin bug
-      state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Mutant") foreach { mutant =>
+      state.mentionsFor(m.sentence, between, "Mutant") foreach { mutant =>
         //println(s"Mutant Modification detected: mutant is ${mutant.text} for ${bioMention.text}")
         bioMention.modifications += Mutant(evidence = mutant)
       }
@@ -292,9 +296,13 @@ class DarpaActions extends Actions {
     mentions foreach { m =>
       //println(s"\t${m.arguments("entity").size} entities found by ${m.foundBy}: ${m.text}")
       val bioMention = m.arguments("entity").head.toBioMention
-      // Check the complete span for any sites
-      // FIXME this is due to an odin bug
-      state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Site") foreach { eSite =>
+      val site = m.arguments("site").head
+      val stuff = Seq(bioMention, site)
+      val start = stuff.map(_.start).min
+      val end = stuff.map(_.end).max
+      val between = Interval(start, end)
+      // Check the complete span for any Sites
+      state.mentionsFor(m.sentence, between, "Site") foreach { eSite =>
         //println(s"\tEventSite Modification detected: site is ${eSite.text} for ${bioMention.text}")
         bioMention.modifications += EventSite(site = eSite)
       }
