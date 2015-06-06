@@ -262,12 +262,12 @@
 # too specific?
 - name: {{ eventName }}_token_8_noun
   priority: 4
-  example: "all six FGFR3 mutants induced activatory ERK(T202/Y204) {{ nominalTriggerLemma }} (Fig. 2)."
+  example: "fff {{ nominalTriggerLemma }} (Fig. 2)."
   type: token
   label: [{{ labels }}, SimpleEvent, Event, PossibleController]
   action: {{ actionFlow }}
   pattern: |
-    @theme:BioChemicalEntity "("? ([!tag=/^V/]{1,4} @site:Site)? ")"? (?<trigger>[lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) (?! "of" @BioChemicalEntity)
+    @theme:BioChemicalEntity "("? [!tag=/^V/]{,4} @site:Site? ")"? (?<trigger>[lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/]) (?! "of" @BioChemicalEntity)
 
 
 - name: {{ eventName }}_token_4_verb
