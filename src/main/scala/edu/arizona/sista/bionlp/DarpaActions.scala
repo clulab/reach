@@ -226,6 +226,21 @@ class DarpaActions extends Actions {
     case _ => "UNKNOWN"
   }
 
+
+  def storeMutants(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    //println(s"${mentions.size} MutantMod mentions found")
+    mentions foreach { m =>
+      //println(s"\t${m.arguments("entity").size} entities found by ${m.foundBy}: ${m.text}")
+      val bioMention = m.arguments("entity").head.toBioMention
+      // Check the complete span for any Mutants
+      // FIXME this is due to an odin bug
+      state.mentionsFor(m.sentence, m.tokenInterval.toSeq, "Mutant") foreach { mutant =>
+        //println(s"Mutant Modification detected: mutant is ${mutant.text} for ${bioMention.text}")
+        bioMention.modifications += Mutant(evidence = mutant)
+      }
+    }
+    Nil
+  }
   /**
    * This action decomposes RelationMentions with the label Modification to the matched TB entity with the appropriate Modification
    * @return Nil (Modifications are added in-place)

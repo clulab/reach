@@ -75,30 +75,58 @@
 # Mutants
 #########
 
-# NOTE: These two sets of patterns (mutant_1 and mutant_2) must be in separate rules...
-
 - name: mutant_1
-  label: [Mutant] # This is currently not used.  It could be combined with labels on the "mutated" arg.
+  label: [Mutant]
   priority: 1
   type: token
-  action: mkModification
+  keep: false
   pattern: |
-    @mutated:BioChemicalEntity (?<evidence>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [word=/mutant/]?)
-      |
-    @mutated:BioChemicalEntity (?<evidence>/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/ [word=/mutant/]?)
-      |
-    (?<evidence>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/]) @mutated:BioChemicalEntity
-      |
-    (?<evidence>/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/) @mutated:BioChemicalEntity
-      |
-    @mutated:BioChemicalEntity (?<evidence>[lemma="mutant"])
+    [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/] [lemma=/^(mutant)/]?
+    |
+    [word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/] [lemma=/^(mutant)/]?
 
+
+#NOTE: mutant_2 should happen AFTER mutant_1
 - name: mutant_2
-  label: [Mutant] # This is currently not used.  It could be combined with labels on the "mutated" arg.
-  priority: 1
+  label: [Mutant]
+  priority: 2
   type: token
-  action: mkModification
+  keep: false
   pattern: |
-    (?<evidence>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/]) "and" /./{,4}? @mutated:BioChemicalEntity
-      |
-    (?<evidence>/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/) "and" /./{,4}? @mutated:BioChemicalEntity
+    [lemma=/^(mutant)/]
+
+
+##########
+# Store Mutant mods
+#########
+
+- name: mutantmod_1
+  label: [MutantMod, Modification]
+  action: storeMutants
+  priority: 3
+  type: token
+  pattern: |
+    @mutant:Mutant "of"? @entity:BioChemicalEntity
+    |
+    @entity:BioChemicalEntity "of"? @mutant:Mutant
+
+# this grabs all Mutants that it finds within parens
+- name: mutantmod_withparens
+  label: [MutantMod, Modification]
+  action: storeMutants
+  priority: 3
+  example: "ERK(T202M/Y204E)"
+  type: token
+  pattern: |
+    @entity:BioChemicalEntity [word="("] /./*? @mutant:Mutant [word=")"]
+
+
+#- name: mutant_2
+#  label: [Mutant] # This is currently not used.  It could be combined with labels on the "mutated" arg.
+#  priority: 1
+#  type: token
+#  action: mkModification
+#  pattern: |
+#    (?<evidence>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/]) "and" /./{,4}? @mutated:BioChemicalEntity
+#      |
+#    (?<evidence>/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]?$/) "and" /./{,4}? @mutated:BioChemicalEntity

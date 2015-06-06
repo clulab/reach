@@ -720,17 +720,26 @@ class TestModifications extends FlatSpec with Matchers {
   val sent14 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   sent14 should "contain two sites for ERK" in {
     val mentions = parseSentence(sent14)
-    // TODO: add tests for ERK with sites T202 and Y204 here!
-    false should be (true)
-    mentions.filter(_ matches "Phosphorylation") should have size(2)
+
+    // We have one phosphorylation per Site
+    val phosphos = mentions.filter(_ matches "Phosphorylation")
+    phosphos should have size (2)
+    val s1 = phosphos.head.arguments.getOrElse("site", Nil)
+    val s2 = phosphos.last.arguments.getOrElse("site", Nil)
+    s1 should have size (1)
+    s2 should have size (1)
+    val ss = s1 ++ s2
+    ss should contain ("T202")
+    ss should contain ("Y204")
   }
 
   val sent15 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
   sent15 should "contain two mutations for ERK" in {
     val mentions = parseSentence(sent15)
-    // TODO: add tests for ERK with mutations K156M and H204M here!
-    false should be (true)
-    mentions.filter(_ matches "Phosphorylation") should have size(2)
+    // We have one phosphorylation per Site
+    val phosphos = mentions.filter(_ matches "Phosphorylation")
+    phosphos should have size (2)
+    //TODO: test to see if both Mutant mods are present
   }
 
   val sent16 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."

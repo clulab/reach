@@ -92,7 +92,7 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Gene_or_gene_product'] [entity='I-Gene_or_gene_product']* (?! [lemma="substrate"])
+    [entity='B-Gene_or_gene_product' & !word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/] [entity='I-Gene_or_gene_product']* (?! [lemma="substrate"])
 
 # TODO: verify this ontology
 - name: ner-family-entities
