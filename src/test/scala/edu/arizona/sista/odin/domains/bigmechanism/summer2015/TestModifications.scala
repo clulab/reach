@@ -718,7 +718,7 @@ class TestModifications extends FlatSpec with Matchers {
   // a few tests for modifications in parens
   //
   val sent14 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
-  sent14 should "contain two sites for ERK" in {
+  sent14 should "contain 2 phosphorylations (one for each ERK mutation) and 2 Positive Regulations" in {
     val mentions = parseSentence(sent14)
 
     // We have one phosphorylation per Site
@@ -728,25 +728,106 @@ class TestModifications extends FlatSpec with Matchers {
     val s2 = phosphos.last.arguments.getOrElse("site", Nil)
     s1 should have size (1)
     s2 should have size (1)
-    val ss = s1 ++ s2
+    val ss = Seq(s1.head.text, s2.head.text)
+    ss should contain ("T202")
+    ss should contain ("Y204")
+
+    // There should be 2 Positive Regulations (one for each phospho)
+    mentions.count(_ matches "Positive_regulation") should be (2)
+  }
+
+  val sent15 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
+  sent15 should "contain 2 Positive Regulations NOT Activations (1 for each ERK mutation)" in {
+    val mentions = parseSentence(sent15)
+
+    // We have 1 Reg per ERK mutant
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (2)
+  }
+
+  val sent16 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
+  sent16 should "contain 2 Positive Regulations NOT Activations (1 for each ERK mutation)" in {
+    val mentions = parseSentence(sent16)
+
+    // We have 1 Reg per ERK mutant
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (2)
+
+  }
+
+  val siteTest1 = "activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
+  siteTest1 should "contain two sites for " in {
+    val mentions = parseSentence(siteTest1)
+
+    // We have one phosphorylation per Site
+    val phosphos = mentions.filter(_ matches "Phosphorylation")
+    phosphos should have size (2)
+    val s1 = phosphos.head.arguments.getOrElse("site", Nil)
+    val s2 = phosphos.last.arguments.getOrElse("site", Nil)
+    s1 should have size (1)
+    s2 should have size (1)
+    val ss = Seq(s1.head.text, s2.head.text)
     ss should contain ("T202")
     ss should contain ("Y204")
   }
 
-  val sent15 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
-  sent15 should "contain two mutations for ERK" in {
-    val mentions = parseSentence(sent15)
-    // We have one phosphorylation per Site
-    val phosphos = mentions.filter(_ matches "Phosphorylation")
-    phosphos should have size (2)
-    //TODO: test to see if both Mutant mods are present
+  val mutantTest1 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
+  mutantTest1 should "contain 2 mutations for ERK and 1 for FGFR3" in {
+    val mentions = parseSentence(mutantTest1)
+
+    val fgfr = mentions filter(_.text == "FGFR3")
+    fgfr should have size (1)
+    fgfr.head.countMutations should be (1)
+    fgfr.head hasMutation "mutants" should be (true)
+
+    val erk = mentions filter(_.text == "ERK")
+    erk should have size (1)
+    erk.head.countMutations should be (2)
+    erk.head hasMutation "K156M" should be (true)
+    erk.head hasMutation "H204M" should be (true)
   }
 
-  val sent16 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
-  sent16 should "contain two mutations for ERK" in {
-    val mentions = parseSentence(sent16)
-    // TODO: add tests for ERK with mutations K156M and H204M here!
-    false should be (true)
-    mentions.filter(_ matches "Phosphorylation") should have size(2)
+  val mutantTest2 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
+  mutantTest2 should "contain 2 mutations for ERK and 1 for FGFR3" in {
+    val mentions = parseSentence(mutantTest2)
+
+    val fgfr = mentions filter(_.text == "FGFR3")
+    fgfr should have size (1)
+    fgfr.head.countMutations should be (1)
+    fgfr.head hasMutation "mutants" should be (true)
+
+    val erk = mentions filter(_.text == "ERK")
+    erk should have size (1)
+    erk.head.countMutations should be (2)
+    erk.head hasMutation "K156M" should be (true)
+    erk.head hasMutation "H204M" should be (true)
+  }
+
+  val mutantTest3 = "MEK R567Q"
+  mutantTest3 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = parseSentence(mutantTest3)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "R567Q" should be (true)
+  }
+
+  val mutantTest4 = "MEK mutant R567Q"
+  mutantTest4 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = parseSentence(mutantTest4)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "mutant R567Q" should be (true)
+  }
+
+  val mutantTest5 = "MEK (R678Q, G890K)"
+  mutantTest5 should "contain 1 entity with 2 Mutant modification" in {
+    val mentions = parseSentence(mutantTest5)
+    mentions should have size (1)
+    mentions.head.countMutations should be (2)
+    mentions.head hasMutation "R678Q" should be (true)
+    mentions.head hasMutation "G890K" should be (true)
   }
 }
+
+
+
