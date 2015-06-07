@@ -114,7 +114,7 @@
     trigger = [lemma=/{{ nominalTriggerLemma }}/ & !word=/(?i)^de/] # nominal predicate
     theme:BioChemicalEntity = prep_of? appos? /conj_(and|or|nor)|cc|nn/{,2}
     site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
-    cause:BioChemicalEntity = /prep_by|agent|nn/ /conj_(and|or|nor)|cc|nn/{,2}
+    cause:BioChemicalEntity = /prep_by|agent/ /conj_(and|or|nor)|cc|nn/{,2}
 
 
 - name: {{ eventName }}_syntax_3_noun
