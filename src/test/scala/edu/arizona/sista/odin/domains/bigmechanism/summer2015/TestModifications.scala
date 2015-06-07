@@ -681,8 +681,12 @@ class TestModifications extends FlatSpec with Matchers {
   sent10 should "have 2 mutations for FGFR3" in {
     val mentions = parseSentence(sent10)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
-    fgfr should have size (1)
-    fgfr.head.countMutations should be (2)
+    fgfr should have size (2)
+    fgfr(0).countMutations should be (1)
+    fgfr(1).countMutations should be (1)
+    val mutations = fgfr.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("K650M")
+    mutations should contain ("K650E")
   }
 
   val sent11 = "Note that only FGFR3 K650M causes STAT1 phosphorylation"
@@ -788,10 +792,12 @@ class TestModifications extends FlatSpec with Matchers {
     fgfr.head hasMutation "mutants" should be (true)
 
     val erk = mentions filter(_.text == "ERK")
-    erk should have size (1)
-    erk.head.countMutations should be (2)
-    erk.head hasMutation "K156M" should be (true)
-    erk.head hasMutation "H204M" should be (true)
+    erk should have size (2)
+    erk(0).countMutations should be (1)
+    erk(1).countMutations should be (1)
+    val mutations = erk.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("K156M")
+    mutations should contain ("H204M")
   }
 
   val mutantTest2 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
@@ -804,10 +810,12 @@ class TestModifications extends FlatSpec with Matchers {
     fgfr.head hasMutation "mutants" should be (true)
 
     val erk = mentions filter(_.text == "ERK")
-    erk should have size (1)
-    erk.head.countMutations should be (2)
-    erk.head hasMutation "K156M" should be (true)
-    erk.head hasMutation "H204M" should be (true)
+    erk should have size (2)
+    erk(0).countMutations should be (1)
+    erk(1).countMutations should be (1)
+    val mutations = erk.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("K156M")
+    mutations should contain ("H204M")
   }
 
   val mutantTest3 = "MEK R567Q"
@@ -829,21 +837,25 @@ class TestModifications extends FlatSpec with Matchers {
   val mutantTest5 = "MEK (R678Q, G890K)"
   mutantTest5 should "contain 1 entity with 2 Mutant modification" in {
     val mentions = parseSentence(mutantTest5)
-    mentions should have size (1)
-    mentions.head.countMutations should be (2)
-    mentions.head hasMutation "R678Q" should be (true)
-    mentions.head hasMutation "G890K" should be (true)
+    mentions should have size (2)
+    mentions(0).countMutations should be (1)
+    mentions(1).countMutations should be (1)
+    val mutations = mentions.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("R678Q")
+    mutations should contain ("G890K")
   }
 
   val mutantTest6 = "K111M and K112M ASPP1 mutants and ASPP2"
-  mutantTest6 should "countain ASPP1 with 2 Mutant mods and ASPP2 with 0 Mutant mods" in {
+  mutantTest6 should "countain 2 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
     val mentions = parseSentence(mutantTest6)
-    mentions should have size (2)
+    mentions should have size (3)
     val asppOne = mentions filter (_.text == "ASPP1")
-    asppOne should have size (1)
-    asppOne.head.countMutations should be (2)
-    asppOne.head hasMutation "K111M" should be (true)
-    asppOne.head hasMutation "K112M" should be (true)
+    asppOne should have size (2)
+    asppOne(0).countMutations should be (1)
+    asppOne(1).countMutations should be (1)
+    val mutations = asppOne.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("K111M")
+    mutations should contain ("K112M")
 
     val asppTwo = mentions filter (_.text == "ASPP2")
     asppTwo should have size (1)
@@ -851,15 +863,18 @@ class TestModifications extends FlatSpec with Matchers {
   }
 
   val mutantTest7 = "K111M, K112M, and K113M ASPP1 mutants and ASPP2"
-  mutantTest7 should "countain ASPP1 with 3 Mutant mods and ASPP2 with 0 Mutant mods" in {
+  mutantTest7 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
     val mentions = parseSentence(mutantTest7)
-    mentions should have size (2)
+    mentions should have size (4)
     val asppOne = mentions filter (_.text == "ASPP1")
-    asppOne should have size (1)
-    asppOne.head.countMutations should be (3)
-    asppOne.head hasMutation "K111M" should be (true)
-    asppOne.head hasMutation "K112M" should be (true)
-    asppOne.head hasMutation "K113M" should be (true)
+    asppOne should have size (3)
+    asppOne(0).countMutations should be (1)
+    asppOne(1).countMutations should be (1)
+    asppOne(2).countMutations should be (1)
+    val mutations = asppOne.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("K111M")
+    mutations should contain ("K112M")
+    mutations should contain ("K113M")
 
     val asppTwo = mentions filter (_.text == "ASPP2")
     asppTwo should have size (1)
@@ -867,15 +882,18 @@ class TestModifications extends FlatSpec with Matchers {
   }
 
   val mutantTest8 = "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
-  mutantTest8 should "countain ASPP1 with 3 Mutant mods and ASPP2 with 0 Mutant mods" in {
+  mutantTest8 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
     val mentions = parseSentence(mutantTest8)
-    mentions should have size (2)
+    mentions should have size (4)
     val asppOne = mentions filter (_.text == "ASPP1")
-    asppOne should have size (1)
-    asppOne.head.countMutations should be (3)
-    asppOne.head hasMutation "K111M" should be (true)
-    asppOne.head hasMutation "K112M" should be (true)
-    asppOne.head hasMutation "K113M" should be (true)
+    asppOne should have size (3)
+    asppOne(0).countMutations should be (1)
+    asppOne(1).countMutations should be (1)
+    asppOne(2).countMutations should be (1)
+    val mutations = asppOne.flatMap(_.modifications.filter(_.isInstanceOf[Mutant]).map(_.asInstanceOf[Mutant].evidence.text))
+    mutations should contain ("K111M")
+    mutations should contain ("K112M")
+    mutations should contain ("K113M")
 
     val asppTwo = mentions filter (_.text == "ASPP2")
     asppTwo should have size (1)

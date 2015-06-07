@@ -206,6 +206,6 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent25)
     // TODO: this fails because we do not capture the 2 mutations for the controller
     mentions.filter(_ matches "ActivationEvent") should have size (2)
-    hasNegativeActivation("ASPP1", "STAT1", mentions) should be(true)
+    hasPositiveActivation("ASPP1", "STAT1", mentions) should be(true)
   }
 }

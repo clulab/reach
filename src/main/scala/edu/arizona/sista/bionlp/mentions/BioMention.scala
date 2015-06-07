@@ -12,7 +12,14 @@ class BioTextBoundMention(
   keep: Boolean,
   foundBy: String
 ) extends TextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display
+    with Modifications with Grounding with Display {
+
+  override def hashCode: Int = {
+    val mutations = modifications.filter(_.isInstanceOf[Mutant])
+    super.hashCode() * 42 + mutations.hashCode()
+  }
+
+}
 
 class BioEventMention(
   labels: Seq[String],
@@ -31,6 +38,12 @@ class BioEventMention(
   // may have arguments outside its sentence
   var mutableTokenInterval: Interval = super.tokenInterval
   override def tokenInterval: Interval = mutableTokenInterval
+
+  override def hashCode: Int = {
+    val mutations = modifications.filter(_.isInstanceOf[Mutant])
+    super.hashCode() * 42 + mutations.hashCode()
+  }
+
 }
 
 class BioRelationMention(
@@ -49,4 +62,10 @@ class BioRelationMention(
   // may have arguments outside its sentence
   var mutableTokenInterval: Interval = super.tokenInterval
   override def tokenInterval: Interval = mutableTokenInterval
+
+  override def hashCode: Int = {
+    val mutations = modifications.filter(_.isInstanceOf[Mutant])
+    super.hashCode() * 42 + mutations.hashCode()
+  }
+
 }

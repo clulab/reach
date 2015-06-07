@@ -29,8 +29,10 @@ object RuleReader {
     files map readResource mkString "\n\n"
   }
 
-  def readModificationRules(): String =
-    readResource(s"$modificationsDir/modifications.yml")
+  def readModificationRules(): String = {
+    val files = Seq(s"$modificationsDir/modifications.yml", s"$modificationsDir/mutants.yml")
+    files map readResource mkString "\n\n"
+  }
 
   def readEventRules(): String = {
     val files = Seq(
@@ -69,12 +71,13 @@ object RuleReader {
   def readCorefRules(): String = {
     val files = Seq(
       // non-templatic grammars plus generics like "it" and "the protein"
+      s"$modificationsDir/modifications.yml",
       s"$corefDir/generic_entities.yml",
       s"$corefDir/generic_events.yml")
 
     val ruleFiles = files map readResource mkString "\n\n"
 
-    ruleFiles + readModificationRules() + readEventRules()
+    ruleFiles + readEventRules()
   }
 
 

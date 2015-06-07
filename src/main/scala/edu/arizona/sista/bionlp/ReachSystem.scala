@@ -77,11 +77,26 @@ class ReachSystem(rules: Option[Rules] = None,
     val entities = entityEngine.extractByType[BioMention](doc)
     // attach modification features to entities
     val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
-    modifiedEntities
+    modifiedEntities flatMap {
+      case m: BioTextBoundMention =>
+        val mutations = m.modifications.filter(_.isInstanceOf[Mutant])
+
+        if (mutations.isEmpty || mutations.size == 1) Seq(m)
+        else {
+          val modifications = m.modifications diff mutations
+          mutations map { mut =>
+            val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
+            tbm.modifications = modifications + mut
+            tbm
+          }
+        }
+
+      case m => Seq(m)
+    }
   }
 
-  def extractEventsFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
-    val mentions = eventEngine.extractByType[BioMention](doc, State(ms))
+  def extractEventsFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
+    val mentions = eventEngine.extractByType[BioMention](doc, State(entities))
     // clean modified entities
     // remove ModificationTriggers
     // Make sure we don't have any "ModificationTrigger" Mentions
