@@ -277,7 +277,6 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent29 = "B-Raf phosphorylates MEK1 and MEK2 on Ser217 and Ser221"
   sent29 should "contain 4 phosphorylations and 4 regulations (GUS)" in {
     val mentions = parseSentence(sent29)
-    // TODO: this fails because "B-Raf" is not recognized as an entity
     mentions.filter(_.label == "Positive_regulation") should have size (4)
     mentions.filter(_.label == "Phosphorylation") should have size (4)
   }
@@ -285,11 +284,17 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent30 = "Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation"
   sent30 should "contain 1 phospho and 2 pos reg" in {
     val mentions = parseSentence(sent30)
-    // TODO: this fails because we must capture 2 mutation modifications for cause
     mentions.filter(_.label == "Positive_regulation") should have size (2)
     mentions.filter(_.label == "Phosphorylation") should have size (1)
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1"), mentions) should be (true)
   }
 
-
+  val sent31 = "Note that only K650M, K660M, and K650E-FGFR3 mutants cause STAT1 phosphorylation on Y123 and T546"
+  sent31 should "contain 2 phospho and 6 pos reg" in {
+    val mentions = parseSentence(sent31)
+    mentions.filter(_.label == "Positive_regulation") should have size (6)
+    mentions.filter(_.label == "Phosphorylation") should have size (2)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "Y123"), mentions) should be (true)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "T546"), mentions) should be (true)
+  }
 }

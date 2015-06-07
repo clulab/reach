@@ -482,4 +482,12 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (true)
     hasEventWithArguments("Ubiquitination", List("H-Ras"), mentions) should be (true)
   }
+
+  val sent32 = "The K650M, K660M, and K650E-FGFR3 mutants are phosphorylated on Y123 and T546"
+  sent32 should "contain 6 phosphos" in {
+    val mentions = parseSentence(sent32)
+    mentions.filter(_.label == "Phosphorylation") should have size (6)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "Y123"), mentions) should be (true)
+    hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "T546"), mentions) should be (true)
+  }
 }
