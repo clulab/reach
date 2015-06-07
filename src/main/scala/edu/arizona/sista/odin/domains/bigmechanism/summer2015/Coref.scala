@@ -145,7 +145,7 @@ class Coref extends DarpaFlow {
             doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval,doc.sentences(x.sentence)).get).drop(1) == "N"
             )
             .span(m => m.precedes(mention))._1.lastOption.getOrElse({if (debug) println; return Seq()})
-          resolved.asInstanceOf[BioTextBoundMention].modifications ++= mention.asInstanceOf[BioTextBoundMention].modifications
+          // resolved.asInstanceOf[BioTextBoundMention].modifications ++= mention.asInstanceOf[BioTextBoundMention].modifications
 
           if (debug) println(resolved.text)
 
@@ -471,7 +471,7 @@ class Coref extends DarpaFlow {
           val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1", Seq())
           val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2", Seq())
 
-          if (theme1s.isEmpty && theme1s.isEmpty) return Seq()
+          if (theme1s.isEmpty && theme2s.isEmpty) return Seq()
 
           // keeps track of antecedents found so far, so they won't be reused
           var antecedents: Seq[Mention] = Seq()
