@@ -281,7 +281,7 @@ class HansOutput extends JsonOutputter {
         }
         */
         if (!eventMap.contains(arg)) {
-          val msg = "${arg} with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
+          val msg = s"${arg} with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
           throw new Exception(msg)
         }
         m("arg") = eventMap.get(arg).get
