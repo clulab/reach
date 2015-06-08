@@ -342,7 +342,7 @@ class HansOutput extends JsonOutputter {
     val m = new PropMap
     m("object-type") = "modification"
     m("type") = "mutation"
-    m("evidence") = mutant.evidence
+    m("evidence") = mutant.evidence.text
     m
   }
 
