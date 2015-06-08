@@ -326,6 +326,7 @@ class HansOutput extends JsonOutputter {
 
   private def mkPTM(ptm:PTM):PropMap = {
     val m = new PropMap
+    m("object-type") = "modification"
     m("type") = ptm.label
     if(ptm.site.isDefined) {
       m("site") = ptm.site
@@ -335,6 +336,7 @@ class HansOutput extends JsonOutputter {
 
   private def mkMutant(mutant: Mutant): PropMap = {
     val m = new PropMap
+    m("object-type") = "modification"
     m("type") = "mutation"
     m("evidence") = mutant.evidence
     m
