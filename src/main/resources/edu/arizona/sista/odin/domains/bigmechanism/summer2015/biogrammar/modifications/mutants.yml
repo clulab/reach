@@ -45,7 +45,7 @@
   type: token
   keep: false
   pattern: |
-    (?<! [mention=Mutant]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?= [mention=BioChemicalEntity])
+    (?<! [mention=Mutant]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?= ("of" [tag=DT]?)? [mention=BioChemicalEntity])
 
 ##########
 # Store Mutant mods
@@ -59,7 +59,7 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]? @mutant:Mutant [lemma=/^(mutant|mutation)/]?
     |
-    @mutant:Mutant [lemma=/^(mutant|mutation)/]? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]?
+    @mutant:Mutant [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]?
 
 - name: mutantmod_2
   label: [MutantMod, Modification]
@@ -67,7 +67,7 @@
   priority: 3
   type: token
   pattern: |
-    (?<! [mention=BioChemicalEntity]) @mutant:Mutant [!tag=/^(V|CC)/]{,5} [tag="CC"] @Mutant [lemma=/^(mutant|mutation)/]? @entity:BioChemicalEntity
+    (?<! [mention=BioChemicalEntity]) @mutant:Mutant [!tag=/^(V|CC)/]{,5} [tag="CC"] @Mutant [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity
 
 - name: mutantmod_3
   label: [MutantMod, Modification]
@@ -77,15 +77,6 @@
   type: token
   pattern: |
     @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]? @Mutant [!tag=/^(V|CC)/]{,5} [tag="CC"] @mutant:Mutant (?! [mention=BioChemicalEntity])
-
-- name: mutantmod_4
-  label: [MutantMod, Modification]
-  example: "K111M mutant of RAS"
-  action: storeMutants
-  priority: 3
-  type: token
-  pattern: |
-    @mutant:Mutant [lemma=/^(mutant|mutation)/]? of @entity:BioChemicalEntity
 
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens
