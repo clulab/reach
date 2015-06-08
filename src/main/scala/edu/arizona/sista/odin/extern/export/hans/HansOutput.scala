@@ -167,7 +167,7 @@ class HansOutput extends JsonOutputter {
 
     // first, print all non regulation events
     for(mention <- eventMentions) {
-      if(mention matches "SimpleEvent") {
+      if(! REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -222,6 +222,7 @@ class HansOutput extends JsonOutputter {
       case em:BioEventMention => arguments = Some(em.arguments)
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
+
     if(arguments.isDefined) {
       val args = new FrameList
       for(key <- arguments.get.keys) {

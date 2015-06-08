@@ -409,14 +409,29 @@ class DarpaActions extends Actions {
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // Prefer Activations with SimpleEvents as the controller
     mention <- preferSimpleEventControllers(mentions)
-    biomention = removeDummy(switchLabel(mention.toBioMention))
+    activation = removeDummy(switchLabel(mention.toBioMention))
     // TODO: Should we add a Regulation label to Pos and Neg Regs?
-    regs = state.mentionsFor(biomention.sentence, biomention.tokenInterval.toSeq, "ComplexEvent")
+    regs = state.mentionsFor(activation.sentence, activation.tokenInterval.toSeq, "ComplexEvent")
     // Don't report an Activation if an intersecting Regulation has been detected
-    if !regs.exists(_.tokenInterval.overlaps(biomention.tokenInterval)) &&
+    if !regs.exists(_.tokenInterval.overlaps(activation.tokenInterval)) &&
     // controller and controlled should be distinct
-    hasDistinctControllerControlled(biomention)
-  } yield biomention
+    hasDistinctControllerControlled(activation)
+  } yield activation.arguments.get("controller") match {
+    case None => activation
+    case Some(Seq(controller)) if !controller.matches("Event") => activation
+    case Some(Seq(controller)) =>
+      val trigger = activation.asInstanceOf[BioEventMention].trigger
+      val newController = convertEventToEntity(controller.toBioMention.asInstanceOf[BioEventMention])
+      if (newController.isEmpty) activation
+      else new BioEventMention(
+        activation.labels,
+        trigger,
+        activation.arguments.updated("controller", Seq(newController.get)),
+        activation.sentence,
+        activation.document,
+        activation.keep,
+        activation.foundBy)
+  }
 
 
   /** Make sure controller and controlled are not identical */
