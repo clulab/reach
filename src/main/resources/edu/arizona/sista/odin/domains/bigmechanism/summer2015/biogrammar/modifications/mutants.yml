@@ -78,6 +78,15 @@
   pattern: |
     @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]? @Mutant [!tag=/^(V|CC)/]{,5} [tag="CC"] @mutant:Mutant (?! [mention=BioChemicalEntity])
 
+- name: mutantmod_4
+  label: [MutantMod, Modification]
+  example: "K111M mutant of RAS"
+  action: storeMutants
+  priority: 3
+  type: token
+  pattern: |
+    @mutant:Mutant [lemma=/^(mutant|mutation)/]? of @entity:BioChemicalEntity
+
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens
   label: [MutantMod, Modification]
