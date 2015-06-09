@@ -11,7 +11,7 @@ import scala.collection.mutable
 
 class Coref extends DarpaFlow {
 
-  val debug: Boolean = true
+  val debug: Boolean = false
 
   def apply(mentions: Seq[Mention], state: State): Seq[BioMention] = applyAll(mentions).lastOption.getOrElse(Seq())
 
