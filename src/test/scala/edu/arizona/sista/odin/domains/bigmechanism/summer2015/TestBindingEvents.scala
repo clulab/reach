@@ -349,4 +349,19 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions) should be (true)
     hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions) should be (true)
   }
+
+  val sent34 = "Recruitment of p53 to the p21 or PUMA promoter was normalized to input."
+  sent34 should "contain 2 binding events" in {
+    val mentions = parseSentence(sent34)
+    mentions.filter(_ matches "Binding") should have size (2)
+    hasEventWithArguments("Binding", List("p53", "p21"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("p53", "PUMA"), mentions) should be (true)
+  }
+
+  val sent35 = "LMTK2 signals via protein phosphatase-1C (PP1C) to increase inhibitory phosphorylation of GSK3β on serine-9 that reduces KLC2 phosphorylation and promotes binding of the known KLC2 cargo Smad2."
+  sent35 should "not contain bindings" in {
+    val mentions = parseSentence(sent35)
+    mentions.filter(_ matches "Binding") should be ('empty)
+  }
+
 }
