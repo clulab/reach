@@ -25,7 +25,7 @@
   priority: 1
   type: token
   pattern: |
-   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+$/]
+   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\-?\d+$/]
    (?! [lemma=mutant])
 
 #- name: site_3letterALT1
