@@ -266,15 +266,15 @@ object RuleReader {
   // Please keep all triggers sorted alphabetically; otherwise it is hard to see what we have and what is missing
   //
 
-  val POS_NOUNS = "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|express|facilit|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|recruit|re-express|releas|stimul|trigger|up-regul|upregul"
+  val POS_NOUNS = "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|express|facilit|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
   val NEG_NOUNS = "decreas|inhibit|loss|repress|suppress|supress"
   val AUXTRIGGERS = "activ|regul"
 
-  val POS_REG_TRIGGERS = "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|recruit|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+  val POS_REG_TRIGGERS = "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|express|facilit|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
   val NEG_REG_TRIGGERS = "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|suppress|supress|uncoupl"
 
   // These are a bit stricter than the POS_REG and NEG_REG because the context is more ambiguous for activations
-  val POS_ACT_TRIGGERS = "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|express|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|recruit|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
+  val POS_ACT_TRIGGERS = "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|express|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
   val NEG_ACT_TRIGGERS = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress"
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.switchLabel
