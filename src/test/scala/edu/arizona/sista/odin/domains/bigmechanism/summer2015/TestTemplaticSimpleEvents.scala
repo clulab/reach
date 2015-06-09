@@ -498,4 +498,11 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "Acetylation") should have size (1)
     hasEventWithArguments("Acetylation", List("p53"), mentions) should be (true)
   }
+
+  val sent34 = "p35 regulation of GSK3betaser9 phosphorylation"
+  sent34 should "not contain a phospho of p35 (GUS)" in {
+    val mentions = parseSentence(sent34)
+    // TODO: this fails because the *_token_8_noun rule over matches. Please fix
+    hasEventWithArguments("Phosphorylation", List("p35"), mentions) should be (false)
+  }
 }
