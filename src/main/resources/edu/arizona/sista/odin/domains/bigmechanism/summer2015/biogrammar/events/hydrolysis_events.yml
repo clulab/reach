@@ -20,7 +20,7 @@
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity? = (nn | <dep) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (nn | <dep) [!word=/^GAPs?$/]
     protein:BioChemicalEntity = <prep_to | prep_for [!word=/^GAPs?$/]
 
 - name: hydrolysis_2wrong
@@ -29,7 +29,7 @@
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity? = (nn | <dep) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (nn | <dep) [!word=/^GAPs?$/]
     protein:BioChemicalEntity = (<nsubj dep ccomp dobj prep_of) | (<prep_of <dobj (prep_for|prep_on|prep_in)) [!word=/^GAPs?$/]
     cause:MacroMolecule? = <nsubj dep ccomp prep_to
 
