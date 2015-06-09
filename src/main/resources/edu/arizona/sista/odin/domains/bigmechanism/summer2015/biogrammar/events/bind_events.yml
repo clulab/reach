@@ -324,7 +324,7 @@
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
   label: [Binding, SimpleEvent, Event, PossibleController]
-  action: mkBindingWithout
+  action: mkBinding
   priority: 4
   type: token
   pattern: |
