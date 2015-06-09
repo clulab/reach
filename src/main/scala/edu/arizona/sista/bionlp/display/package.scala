@@ -17,12 +17,15 @@ package object display {
       println
 
       val sortedMentions = mentionsBySentence(i).sortBy(_.label)
+      val (events, entities) = sortedMentions.partition(_ matches "Event")
+      val (tbs, rels) = entities.partition(_.isInstanceOf[TextBoundMention])
+      val sortedEntities = tbs ++ rels.sortBy(_.label)
       println("entities:")
-      sortedMentions foreach (m => if(m.isInstanceOf[TextBoundMention]) displayMention(m))
+      sortedEntities foreach displayMention
 
       println
       println("events:")
-      sortedMentions foreach (m => if(! m.isInstanceOf[TextBoundMention]) displayMention(m))
+      events foreach displayMention
       println("=" * 50)
     }
   }
