@@ -177,7 +177,7 @@
   priority: 4
   pattern: |
     trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = nsubjpass nn{,2} | <rcmod <appos?
+    theme1:BioChemicalEntity+ = nsubjpass | <rcmod <appos?
     theme2:BioChemicalEntity+ = /agent|prep_to|prep_with/ nn{,2} | dobj nn{,2}
 
 - name: binding_18
