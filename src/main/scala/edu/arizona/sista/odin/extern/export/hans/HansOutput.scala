@@ -214,8 +214,10 @@ class HansOutput extends JsonOutputter {
     f("text") = mention.text
     f("found-by") = mention.foundBy
 
-    f("subtype") = prettifyLabel(mention.label)
-    f("type") = mkEventType(mention.label)
+    val evType = mkEventType(mention.label)
+    f("type") = evType
+    if(evType != "complex-assembly")
+      f("subtype") = prettifyLabel(mention.label)
 
     var arguments:Option[Map[String, Seq[Mention]]] = None
     mention match {
