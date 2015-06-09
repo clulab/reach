@@ -7,12 +7,11 @@ import edu.arizona.sista.processors.Document
 import scala.collection.mutable.ListBuffer
 import util.control.Breaks._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.DependencyUtils._
-
 import scala.collection.mutable
 
 class Coref extends DarpaFlow {
 
-  val debug: Boolean = false
+  val debug: Boolean = true
 
   def apply(mentions: Seq[Mention], state: State): Seq[BioMention] = applyAll(mentions).lastOption.getOrElse(Seq())
 
@@ -549,7 +548,7 @@ class Coref extends DarpaFlow {
           val newBindings: Seq[Mention] = (t1Ants, t2Ants) match {
             case (t1s, t2s) if t1Ants.isEmpty && t2Ants.isEmpty => Seq()
             case (t1s, t2s) if theme1s.isEmpty || theme2s.isEmpty =>
-              val mergedThemes = t1s ++ t2s
+              val mergedThemes = (t1s ++ t2s)
               (for {pair <- mergedThemes.combinations(2)} yield {
                 val splitBinding = new BioEventMention(
                   binding.labels, binding.trigger, Map("theme" -> Seq(pair.head, pair.last)), binding.sentence, doc, binding.keep, "corefCardinality"
@@ -688,6 +687,7 @@ class Coref extends DarpaFlow {
           val newRegs = for {
             r <- foundControllers
             d <- foundControlleds
+            if r != d
           } yield {
               val newReg = reg match {
                 case reg: BioEventMention =>
@@ -798,6 +798,7 @@ class Coref extends DarpaFlow {
           val newActs = for {
             r <- foundControllers
             d <- foundControlleds
+            if !sameEntityID(Seq(r,d))
           } yield {
               val newAct = act match {
                 case event: BioEventMention =>
@@ -844,7 +845,7 @@ class Coref extends DarpaFlow {
           var antecedents: Seq[Mention] = Seq()
           val foundThemes = for {
             m <- ev.arguments.getOrElse("theme",Seq()).filter(thm => thm.matches("Unresolved"))
-            priors = orderedMentions.slice(0, orderedMentions.indexOf(ev.arguments.flatMap(_._2).toSeq.sorted.lastOption.getOrElse(ev))) filter (x => x.isInstanceOf[BioTextBoundMention] &&
+            priors = (orderedMentions.slice(0, orderedMentions.indexOf(ev.arguments.flatMap(_._2).toSeq.sorted.lastOption.getOrElse(ev))) filter (x => x.isInstanceOf[BioTextBoundMention] &&
               (x.sentence == m.sentence || m.sentence - x.sentence == 1) &&
               !x.matches("Unresolved") &&
               x.matches(m.labels(1)) &&
@@ -852,7 +853,7 @@ class Coref extends DarpaFlow {
               !antecedents.contains(x) &&
               !chains.keys.exists(y => y.matches("ComplexEvent") &&
                 y.arguments.getOrElse("controller", Seq()).contains(x) &&
-                y.arguments.getOrElse("controlled", Seq()).contains(ev)))
+                y.arguments.getOrElse("controlled", Seq()).contains(ev)))).distinct
 
             brk1 = breakable {
               if (priors.isEmpty) break()
@@ -861,12 +862,13 @@ class Coref extends DarpaFlow {
             num = cardinality(m)
 
             themes = priors.takeRight(math.min(num, priors.length))
+            if themes.combinations(2).forall(pair => !sameEntityID(pair))
           } yield {
               antecedents ++= themes
               (m, themes)
             }
 
-          val newEvs = for {
+          val newEvs: Seq[BioEventMention] = (for {
             themeSets <- foundThemes.map(_._2)
             t <- themeSets
           } yield {
@@ -875,7 +877,7 @@ class Coref extends DarpaFlow {
               newEv.modifications ++= ev.modifications
               newEv.mutableTokenInterval = ev.mutableTokenInterval
               newEv
-            }
+            }).distinct
 
           if (newEvs.isEmpty && chains.contains(ev)) {
             orderedMentions -= ev
@@ -911,3 +913,4 @@ class Coref extends DarpaFlow {
     results.map(_.map(_.toBioMention).distinct)
   }
 }
+
