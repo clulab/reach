@@ -63,7 +63,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent6)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     // TODO: This is failing because we're missing SAPK in "p38 SAPK"; we only get p38, but we used to get "p38 SAPK"
-    hasPositiveRegulationByEntity("SAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
   val sent7 = "The phosphorylated ASPP2 fragment by MAPK1 was digested by trypsin and fractioned on a high performance liquid chromatography."
@@ -229,9 +229,9 @@ class TestRegulationEvents extends FlatSpec with Matchers {
 
   // a weird text from the PMC384* where we used to overmatch
   val sent23 = "histone 2B phosphorylated by p38 SAPK had high levels of incorporated 32P, suggesting that p38 SAPK was active; while under the same conditions, ASPP2 (693-1128) fragment"
-  sent23 should "contain 1 phosphorylation and 2 positive regulation" in {
+  sent23 should "contain 1 phosphorylation and 1 positive regulation" in {
     val mentions = parseSentence(sent23)
-    mentions.filter(_.label == "Positive_regulation") should have size (2)
+    mentions.filter(_.label == "Positive_regulation") should have size (1)
     mentions.filter(_.label == "Phosphorylation") should have size (1)
   }
 
