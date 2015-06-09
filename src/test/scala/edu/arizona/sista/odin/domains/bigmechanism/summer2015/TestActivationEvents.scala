@@ -1,6 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import org.scalatest.{Matchers, FlatSpec}
+import edu.arizona.sista.bionlp.mentions._
 
 import TestUtils._
 
@@ -170,9 +171,10 @@ class TestActivationEvents extends FlatSpec with Matchers {
   val sent21 = "The phosphorylation of MEK activates K-Ras."
   sent21 should "contain 1 activation with a phosphorylation event as its controller" in {
     val mentions = parseSentence(sent21)
-    val activations = mentions.filter(_ matches "ActivationEvent")
-    activations.length should be(1)
-    activations.head.arguments("controller").head matches "Phosphorylation" should be(true)
+    val activations = mentions.filter(_ matches "Positive_activation")
+    activations should have size (1)
+    val mods = activations.head.arguments("controller").head.toBioMention.modifications.map(_.label)
+    mods should contain ("phosphorylated")
   }
 
   val sent22 = "The phosphorylation of MEK deactivates K-Ras."
@@ -180,7 +182,8 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = parseSentence(sent22)
     val negActs = mentions.filter(_ matches "Negative_activation")
     negActs.length should be (1)
-    negActs.head.arguments("controller").head matches "Phosphorylation" should be(true)
+    val mods = negActs.head.arguments("controller").head.toBioMention.modifications.map(_.label)
+    mods should contain ("phosphorylated")
     // We shouldn't pick up any Positive Activations
     mentions.count(_ matches "Positve_activation") should be(0)
   }
