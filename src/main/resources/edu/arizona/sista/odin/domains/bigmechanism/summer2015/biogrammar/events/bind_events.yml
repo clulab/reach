@@ -324,7 +324,7 @@
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
   label: [Binding, SimpleEvent, Event, PossibleController]
-  action: mkBinding
+  action: mkBindingWithout
   priority: 4
   type: token
   pattern: |
@@ -332,25 +332,3 @@
     |
     @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> [lemma=/^(complex|heterodimer)/])
 
-
-# TODO: figure out how to handle args without types (ex. "endophor")
-
-#- name: binding_coref1
-#  label: [Binding, SimpleEvent, Event, PossibleController]
-#  priority: 4
-#  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein binds with TopBP1."
-#  pattern: |
-#    trigger = [lemma=bind & tag=/^VB[^N]?/]
-#    theme:BioChemicalEntity? = (prep_with | prep_to)
-#    endophor: nsubj [lemma=/protein|complex|family/ & !mention=/./] det [lemma=/these|this|the|that|both/]
-#    quantifier?: nsubj [lemma=/protein|complex|family/ & !mention=/./] num
-
-#- name: binding_coref2
-#  label: [Binding, SimpleEvent, Event, PossibleController]
-#  priority: 4
-#  example: "Pkh1 phosphorylates the S6K1 protein. This phosphorylated protein is bound by TopBP1."
-#  pattern: |
-#    trigger = [lemma=bind & tag=VBN]
-#    theme:BioChemicalEntity? = agent
-#    endophor: nsubjpass [lemma=/protein|complex|family/] det [lemma=/these|this|the|that|both/]
-#    quantifier?: nsubjpass [lemma=/protein|complex|family/] num

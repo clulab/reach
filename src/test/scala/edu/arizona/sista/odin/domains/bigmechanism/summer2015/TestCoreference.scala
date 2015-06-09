@@ -221,5 +221,11 @@ class TestCoreference extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("ASPP1", "Mek"), mentions) should be (true)
     hasEventWithArguments("Binding", List("ASPP1", "Ras"), mentions) should be (true)
   }
+
+  val sent20 = "We also monitored how siRNA-induced loss of LMTK2 influenced phosphorylation of PP1Cthr320. Four different LMTK2 siRNAs all markedly reduced LMTK2 levels and this led to a corresponding decrease in PP1Cthr320 phosphorylation."
+  sent20 should "not contain an activation of and by the same entity" in {
+    val mentions = parseSentence(sent20)
+    hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
+  }
 }
 
