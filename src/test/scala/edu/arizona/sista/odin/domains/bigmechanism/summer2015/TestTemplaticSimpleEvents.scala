@@ -490,4 +490,12 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Phosphorylation", List("FGFR3", "Y123"), mentions) should be (true)
     hasEventWithArguments("Phosphorylation", List("FGFR3", "T546"), mentions) should be (true)
   }
+
+  val sent33 = "blot analysis of in vitro p53-acetylation"
+  sent33 should "contain 1 entity and 1 acetylation" in {
+    val mentions = parseSentence(sent33)
+    mentions.filter(_ matches "Gene_or_gene_product") should have size (1) // blot should not be an entity
+    mentions.filter(_ matches "Acetylation") should have size (1)
+    hasEventWithArguments("Acetylation", List("p53"), mentions) should be (true)
+  }
 }

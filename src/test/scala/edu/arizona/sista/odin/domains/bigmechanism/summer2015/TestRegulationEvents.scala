@@ -297,4 +297,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "Y123"), mentions) should be (true)
     hasPositiveRegulationByEntity("FGFR3", "Phosphorylation", List("STAT1", "T546"), mentions) should be (true)
   }
+
+  val sent32 = "p53-phosphorylation of ERK"
+  sent32 should "contain 1 phospho and 1 pos reg" in {
+    val mentions = parseSentence(sent32)
+    mentions.filter(_.label == "Positive_regulation") should have size (1)
+    mentions.filter(_.label == "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("p53", "Phosphorylation", List("ERK"), mentions) should be (true)
+  }
 }
