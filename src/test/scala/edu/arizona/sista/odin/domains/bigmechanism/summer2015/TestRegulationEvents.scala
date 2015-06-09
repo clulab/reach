@@ -305,4 +305,13 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Phosphorylation") should have size (1)
     hasPositiveRegulationByEntity("p53", "Phosphorylation", List("ERK"), mentions) should be (true)
   }
+
+  val sent33 = "Phosphorylation of PIMT by the RAF/ERK2 complex potentiates Med1 dependent transcriptional activity."
+  sent33 should "contain 1 binding, 1 phospho, and 1 pos reg controlled by the complex (GUS)" in {
+    val mentions = parseSentence(sent33)
+    // TODO: this fails because we pick 2 controllers (RAF and ERK2) instead of the complex
+    mentions.filter(_.label == "Positive_regulation") should have size (1)
+    mentions.filter(_.label == "Phosphorylation") should have size (1)
+    mentions.filter(_.label == "Binding") should have size (1)
+  }
 }

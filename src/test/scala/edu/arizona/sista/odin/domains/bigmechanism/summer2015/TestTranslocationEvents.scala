@@ -9,7 +9,7 @@ import TestUtils._
  * Date: 5/19/15
  */
 class TestTranslocationEvents extends FlatSpec with Matchers {
-  val sent1 = "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
+  val sent1 = "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol or nucleus and increased binding to p53"
   sent1 should "contain 2 translocation events" in {
     val mentions = parseSentence(sent1)
 
@@ -23,7 +23,7 @@ class TestTranslocationEvents extends FlatSpec with Matchers {
     // TODO: missing the binding between ASPP2 and p53 (HARD; ok to miss)
   }
 
-  val sent2 = "ASPP2 is transported from the membrane to the nucleus/cytosol"
+  val sent2 = "ASPP2 is transported from the membrane to the nucleus and cytosol"
   sent2 should "contain 2 translocation events for ASPP2" in {
     val mentions = parseSentence(sent2)
 
