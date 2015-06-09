@@ -4,14 +4,22 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
-- name: binding1
+- name: binding1a
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [lemma=/bind|associate|interact|immunoprecipitate|ligate/ & tag=/^V/]
+    trigger = [lemma=/bind|associate|immunoprecipitate|ligate/ & tag=/^V/ & !outgoing=/prep_(to|with)|dobj|acomp/]
     theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /nn|conj_|cc/{,2} | <prep_by{,2} nsubj
-    theme2:BioChemicalEntity* = dobj /nn|conj_|cc/{,2} | acomp? /prep_(to|with)/
+
+- name: binding1b
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [lemma=/bind|associate|immunoprecipitate|ligate/ & tag=/^V/]
+    theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /nn|conj_|cc/{,2} | <prep_by{,2} nsubj
+    theme2:BioChemicalEntity+ = dobj /nn|conj_|cc/{,2} | acomp? /prep_(to|with)/
 
 - name: binding1forms
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -36,18 +44,18 @@
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/{1,2} >/./{,2}
-    theme2:BioChemicalEntity* = /conj_(and|or)/{,2} /prep_with|prep_to/{1,2} >/./{,2}
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment/] (?! [lemma="site"])
+    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_(with|to)/? /prep_of/{1,2} /conj_(and|or)/{,2}
+    theme2:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/? /prep_(with|to)/{1,2} /conj_(and|or)/{,2} nn?
 
 - name: binding3wrong
   label: [Binding, SimpleEvent, Event, PossibleController]
   action: mkBinding
   priority: 4
   pattern: |
-    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} (<agent)? /prep_of/{1,2} >/./{,2}
-    theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to|prep_with/{1,2} >/./{,2}
+    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment/] (?! [lemma="site"])
+    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} (<agent)? /prep_of/{1,2}
+    theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to|prep_with/{1,2}
 
 - name: binding5
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -56,7 +64,7 @@
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity* = poss
-      theme2:BioChemicalEntity+ = <nn (nn{,2} >/./{,2} | <dep)
+      theme2:BioChemicalEntity+ = <nn (nn{,2} | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
 
 - name: binding6
@@ -94,15 +102,6 @@
       trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
       theme1:BioChemicalEntity+ = nn conj_and?
       theme2:BioChemicalEntity+ = prep_to conj_and?
-
-- name: binding8
-  label: [Binding, SimpleEvent, Event, PossibleController]
-  action: mkBinding
-  priority: 4
-  pattern: |
-      trigger = /interact(s|ed)?/
-      theme1:BioChemicalEntity+ = nsubj
-      theme2:BioChemicalEntity* = prep_with
 
 - name: binding9
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -153,7 +152,7 @@
   pattern: |
       trigger = /interact(s|ed)?/
       theme1:BioChemicalEntity+ = (nsubj <conj_and{,2} | >conj_and <ccomp >nsubjpass) >/./{,2}
-      theme2:BioChemicalEntity* = prep_with >/./{,2}
+      theme2:BioChemicalEntity+ = prep_with >/./{,2}
 
 - name: binding14
   label: [Binding, SimpleEvent, Event, PossibleController]
@@ -331,4 +330,13 @@
     (?<trigger> [lemma=/^(complex|heterodimer)/]) @theme1:BioChemicalEntity and @theme2:BioChemicalEntity # TODO: add a better lookahead constraint.
     |
     @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> [lemma=/^(complex|heterodimer)/])
+
+- name: binding_activity
+  label: [Binding, SimpleEvent, Event, PossibleController]
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = binding activity
+    theme1:BioChemicalEntity+ = nn+
+    theme2:BioChemicalEntity+ = prep_of+
 
