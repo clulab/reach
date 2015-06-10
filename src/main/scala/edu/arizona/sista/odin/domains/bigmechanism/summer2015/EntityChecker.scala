@@ -15,7 +15,7 @@ import org.biopax.paxtools.model.level3._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Update for renamed lookup methods and constant filenames.
+  *   Last Modified: Add/use phrase reduction heuristic.
   */
 object EntityChecker extends App with KnowledgeBaseConstants {
 
@@ -76,11 +76,19 @@ object EntityChecker extends App with KnowledgeBaseConstants {
     var proteins = instances.toSeq.map(_.getDisplayName()) ++ findComplexProteinNames(model)
     proteins = proteins.sorted.distinct     // sort and remove duplicate names
     println(s"FOUND: ${proteins.size} distinct proteins in input model")
-    val tried = proteins.map(resolveKey(_, proteinSearcher))         // try to resolve protein names
+
+    // try to resolve protein names with canonical name lookup:
+    val tried = proteins.map(resolveKey(_, proteinSearcher))
     val missing = proteins.zip(tried).filter(_._2.isEmpty).map(_._1) // find unresolved names
+
     // try to find remaining unresolved protein names using alternate, transformed keys:
     val tried2 = missing.map(tryAlternateKeys(_, LocalKeyTransforms.proteinKeyTransforms, proteinSearcher))
-    val stillMissing = missing.zip(tried2).filter(_._2.isEmpty).map(_._1).sorted.distinct
+    val missing2 = missing.zip(tried2).filter(_._2.isEmpty).map(_._1) // find unresolved names
+
+    // try to find remaining unresolved protein names using left-to-right phrase reduction
+    val tried3 = missing2.map(tryAdjectivalPhraseReduction(_, proteinSearcher))
+    val stillMissing = missing2.zip(tried3).filter(_._2.isEmpty).map(_._1).sorted.distinct
+
     outputMissing(stillMissing, GendProteinFilename, GendProteinPrefix)
   }
 
@@ -135,6 +143,26 @@ object EntityChecker extends App with KnowledgeBaseConstants {
       }
     }
     return None
+  }
+
+  /** If mention text is a multi-word phrase, repeatedly shorten the phrase from
+    * the left (by whitespace-separated words) and lookup the remainder until
+    * reaching the NP head.
+    */
+  def tryAdjectivalPhraseReduction (key:String,
+                                    searchSequence:Seq[LocalKBLookup]): Option[String] = {
+    var wordList = key.split("\\s+").toList
+    while (wordList.size > 1) {             // single words already looked up
+      val text = wordList.mkString("")      // turn back into contiguous text
+      val storageKey = LocalKBUtils.makeKBCanonKey(text) // make canonical storage key
+      searchSequence.foreach { kb =>        // search each KB for the new key
+        val resInfo = kb.resolve(storageKey)
+        if (resInfo.isDefined)
+          return resInfo                    // return info for first matching key/KB
+      }
+      wordList = wordList.tail              // else shorten word list from left
+    }
+    return None                             // else signal lookup failure
   }
 
 

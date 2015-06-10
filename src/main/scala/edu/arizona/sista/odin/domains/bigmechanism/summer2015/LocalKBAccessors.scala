@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Redo KB accessors for manual and generated KB files.
+  *   Last Modified: Add/use phrase reduction heuristic.
   */
 
 /**
@@ -115,6 +115,24 @@ abstract class LocalKBAccessor extends SpeciatedKBAccessor with KnowledgeBaseCon
     return None                             // else signal lookup failure
   }
 
+
+  /** If mention text is a multi-word phrase, repeatedly shorten the phrase from
+    * the left (by whitespace-separated words) and lookup the remainder until
+    * reaching the NP head.
+    */
+  def tryAdjectivalPhraseReduction (key:String): Option[Map[String,String]] = {
+    var wordList = key.split("\\s+").toList
+    while (wordList.size > 1) {             // single words already looked up
+      val text = wordList.mkString("")      // turn back into contiguous text
+      val storageKey = LocalKBUtils.makeKBCanonKey(text) // make canonical storage key
+      val resInfo = theKB.get(storageKey)   // look for existing entry
+      if (resInfo.isDefined)                // if entry is already in this KB
+        return resInfo                      // return info for first matching key
+      wordList = wordList.tail              // else shorten word list from left
+    }
+    return None                             // else signal lookup failure
+  }
+
 }
 
 
@@ -198,12 +216,17 @@ class StaticChemicalKBAccessor extends LocalKBAccessor {
 
 /** Base KB accessor to resolve protein names in mentions. */
 class LocalProteinKBAccessor extends LocalKBAccessor {
-  /** Overridden to perform alternate key lookups. */
+  /** Override to perform alternate key lookups and other heuristics. */
   override def resolve (mention:Mention): Map[String,String] = {
     val key = getLookupKey(mention)         // make a key from the mention
-    val props = theKB.get(key)              // lookup key
-    return if (props.isDefined) props.get   // find it or try alternate keys
-           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+    var props = theKB.get(key)              // lookup key
+    if (props.isDefined) return props.get   // return if found
+    else {                                  // if not found on direct lookup
+      props = tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms)
+      if (props.isDefined) return props.get // return if found on alternate key lookup
+      else
+        return tryAdjectivalPhraseReduction(mention.text).getOrElse(Map.empty)
+    }
   }
 }
 
@@ -236,12 +259,17 @@ class StaticProteinKBAccessor extends LocalProteinKBAccessor {
 
 /** Base KB accessor to resolve protein family names in mentions. */
 class LocalProteinFamilyKBAccessor extends LocalKBAccessor {
-  /** Override to perform alternate key lookups. */
+  /** Override to perform alternate key lookups and other heuristics. */
   override def resolve (mention:Mention): Map[String,String] = {
     val key = getLookupKey(mention)         // make a key from the mention
-    val props = theKB.get(key)              // lookup key
-    return if (props.isDefined) props.get   // find it or try alternate keys
-           else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
+    var props = theKB.get(key)              // lookup key
+    if (props.isDefined) return props.get   // return if found
+    else {                                  // if not found on direct lookup
+      props = tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms)
+      if (props.isDefined) return props.get // return if found on alternate key lookup
+      else
+        return tryAdjectivalPhraseReduction(mention.text).getOrElse(Map.empty)
+    }
   }
 
   // MAIN: load KB to initialize class
