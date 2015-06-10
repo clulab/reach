@@ -15,7 +15,7 @@ import org.biopax.paxtools.model.level3._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Add/use phrase reduction heuristic.
+  *   Last Modified: Correct phrase reduction to test all sublists.
   */
 object EntityChecker extends App with KnowledgeBaseConstants {
 
@@ -152,7 +152,7 @@ object EntityChecker extends App with KnowledgeBaseConstants {
   def tryAdjectivalPhraseReduction (key:String,
                                     searchSequence:Seq[LocalKBLookup]): Option[String] = {
     var wordList = key.split("\\s+").toList
-    while (wordList.size > 1) {             // single words already looked up
+    while (!wordList.isEmpty) {             // test all sublists
       val text = wordList.mkString("")      // turn back into contiguous text
       val storageKey = LocalKBUtils.makeKBCanonKey(text) // make canonical storage key
       searchSequence.foreach { kb =>        // search each KB for the new key

@@ -8,7 +8,7 @@ import edu.arizona.sista.odin.extern.inward._
 /**
   * A collection of classes which implement project internal knowledge base accessors.
   *   Written by Tom Hicks. 4/10/2015.
-  *   Last Modified: Add/use phrase reduction heuristic.
+  *   Last Modified: Correct phrase reduction to test all sublists.
   */
 
 /**
@@ -122,7 +122,7 @@ abstract class LocalKBAccessor extends SpeciatedKBAccessor with KnowledgeBaseCon
     */
   def tryAdjectivalPhraseReduction (key:String): Option[Map[String,String]] = {
     var wordList = key.split("\\s+").toList
-    while (wordList.size > 1) {             // single words already looked up
+    while (!wordList.isEmpty) {             // test all sublists
       val text = wordList.mkString("")      // turn back into contiguous text
       val storageKey = LocalKBUtils.makeKBCanonKey(text) // make canonical storage key
       val resInfo = theKB.get(storageKey)   // look for existing entry
