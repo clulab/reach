@@ -22,7 +22,7 @@ class TestGrounding extends FlatSpec with Matchers {
   //We love NF-kappaB p65, p65, and NF-kappaB.
   val grounding2 = "We love NF-kappaB p65, p65, and NF-kappaB."
   grounding2 should "contain 3 entities, 2 of which have the same grounding ID: Xref(uniprot,P21579)" in {
-    val mentions = parseSentence(grounding1)
+    val mentions = parseSentence(grounding2)
     mentions should have size (3)
     val e1 = mentions.find(_.text == "p65").get
     val e2 = mentions.find(_.text == "NF-kappaB p65").get
