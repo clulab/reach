@@ -35,7 +35,7 @@ class Nxml2Fries(
         if (entry.isSuccess && ignoreSections.contains(entry.get.sectionName)) None
         else Some(entry)
       }
-    } else throw new Exception(s"something went wrong when running nxml2fries. Exit code $status")
+    } else Seq(Failure(new Exception(s"something went wrong when running nxml2fries. Exit code $status")))
   }
 }
 
