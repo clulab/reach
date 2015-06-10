@@ -1,7 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
+import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.bionlp.mentions._
-import org.scalatest._
 import TestUtils._
 
 /**
