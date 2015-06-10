@@ -364,4 +364,17 @@ class TestBindingEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "Binding") should be ('empty)
   }
 
+  // original example not met because last entity is not detected
+  // val sent36 = "Lower: purified wild-type and mutant p32, but not recombinant TFAM-His and GST proteins, bind to poly(A) oligonucleoside."
+  val sent36 = "Lower: purified wild-type and mutant p32, but not recombinant ASPP2 and GST proteins, bind to Mek."
+  sent36 should "not contain binding between p32 and ASPP2 or GST" in {
+    val mentions = parseSentence(sent36)
+    mentions filter (_ matches "Binding") should have size (3)
+    hasEventWithArguments("Binding", List("p32", "Mek"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP2", "Mek"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("GST", "Mek"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("p32", "ASPP2"), mentions) should be (false)
+    hasEventWithArguments("Binding", List("p32", "GST"), mentions) should be (false)
+  }
+
 }
