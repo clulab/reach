@@ -242,8 +242,8 @@ object ReachSystem {
           m.arguments.contains("controller") && // maybe m doesn't even have a controller
           !regulationsWithComplexController.exists { reg =>
             // m's controller shouldn't be included in a complex
-            val participants = reg.arguments("controller").head.arguments("theme")
-            participants contains m.arguments("controller").head
+            val participants = reg.arguments("controller").head.arguments.get("theme")
+            participants.isDefined && participants.get.contains(m.arguments("controller").head)
           }
         }
       }
