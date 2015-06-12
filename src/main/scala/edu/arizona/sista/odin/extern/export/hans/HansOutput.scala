@@ -336,7 +336,7 @@ class HansOutput extends JsonOutputter {
     m("object-type") = "modification"
     m("type") = ptm.label
     if(ptm.site.isDefined) {
-      m("site") = ptm.site
+      m("site") = ptm.site.get.text
     }
     m
   }
