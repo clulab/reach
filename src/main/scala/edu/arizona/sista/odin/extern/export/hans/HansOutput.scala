@@ -236,9 +236,9 @@ class HansOutput extends JsonOutputter {
 
     // event modifications
     if(isNegated(mention))
-      f("is-negated") = "true"
+      f("is-negated") = true
     if(isHypothesized(mention))
-      f("is-hypothesis") = "true"
+      f("is-hypothesis") = true
 
     // TODO: add "is-hypothesis"
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
