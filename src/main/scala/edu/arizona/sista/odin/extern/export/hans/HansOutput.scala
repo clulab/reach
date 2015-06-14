@@ -265,11 +265,12 @@ class HansOutput extends JsonOutputter {
         val participants = new PropMap
         val complexParticipants = arg.asInstanceOf[RelationMention].arguments
         for(key <- complexParticipants.keySet) {
-          complexParticipants.get(key).foreach(_.foreach (p => {
+          val ms: Seq[Mention] = complexParticipants.get(key).get
+          for ((p, i) <- ms.zipWithIndex) {
             assert(p.isInstanceOf[TextBoundMention])
             assert(entityMap.contains(p))
-            participants(key) = entityMap.get(p).get
-          }))
+            participants(s"$key${i + 1}") = entityMap.get(p).get
+          }
         }
         m("args") = participants
       case "entity" =>
