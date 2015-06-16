@@ -12,7 +12,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Add method to sort mentions and return seq of strings.
+  *   Last Modified: Display modifications and use display label.
   */
 class MentionManager {
   // Constants:
@@ -32,6 +32,19 @@ class MentionManager {
   //
   // Public API:
   //
+
+  private def isEventSite(mention:BioMention):Boolean =
+    mention.modifications.exists(mod => mod.isInstanceOf[EventSite])
+
+  private def isHypothesized(mention:BioMention):Boolean =
+    mention.modifications.exists(mod => mod.isInstanceOf[Hypothesis])
+
+  private def isMutated(mention:BioMention):Boolean =
+    mention.modifications.exists(mod => mod.isInstanceOf[Mutant])
+
+  private def isNegated(mention:BioMention):Boolean =
+    mention.modifications.exists(mod => mod.isInstanceOf[Negation])
+
 
   def mergedEvents (): Seq[Mention] = {
     roots.values.toSeq.sortBy(_.seqNum).map(_.mention)
@@ -81,6 +94,11 @@ class MentionManager {
     out.close()
   }
 
+  /** Return the preferred label string for display. */
+  def preferredLabel (mention:Mention): String = {
+    return if (mention.isInstanceOf[Display]) mention.asInstanceOf[Display].displayLabel
+           else mention.label
+  }
 
   /** Sort the given mentions and return a sequence of string representations for them. */
   def sortMentionsToStrings (mentions:Seq[Mention]): Seq[String] ={
@@ -128,15 +146,16 @@ class MentionManager {
   private def mentionToStrings (mention:Mention, level:Integer): List[String] = {
     val mStrings:MutableList[String] = MutableList[String]()
     val indent = ("  " * level)
+    val label = preferredLabel(mention)
     mention match {
       case mention: TextBoundMention =>
-        mStrings += s"${indent}TextBoundMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${mention.label}"
+        mStrings += s"${indent}TextBoundMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
         mStrings += s"${indent}text: ${mention.text}"
         if (mention.toBioMention.isGrounded)
           mStrings += s"${indent}xref: ${mention.toBioMention.xref.get}"
-        if (level == 0) mStrings += ("=" * 80)
+
       case mention: EventMention =>
-        mStrings += s"${indent}EventMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${mention.label}"
+        mStrings += s"${indent}EventMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
         mStrings += s"${indent}text: ${mention.text}"
         mStrings += s"${indent}trigger:"
         mStrings ++= mentionToStrings(mention.trigger, level+1)
@@ -148,9 +167,9 @@ class MentionManager {
             }
           }
         }
-        if (level == 0) mStrings += ("=" * 80)
+
       case mention: RelationMention =>
-        mStrings += s"${indent}RelationMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${mention.label}"
+        mStrings += s"${indent}RelationMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
         mStrings += s"${indent}text: ${mention.text}"
         mention.arguments foreach {
           case (k,vs) => {
@@ -160,8 +179,43 @@ class MentionManager {
             }
           }
         }
-        if (level == 0) mStrings += ("=" * 80)
       case _ => ()
+    }
+
+    // postprocessing common to all participants of match above:
+    if (mention.isInstanceOf[BioEventMention])
+      mStrings ++= modificationsToStrings(mention.toBioMention, level)
+    if (level == 0) mStrings += ("=" * 80)
+
+    // all done at this level: return accumulated list of output strings
+    return mStrings.toList
+  }
+
+
+  /** Return a list of strings representing the modifications to the given mention at
+    * the given indentation level. */
+  private def modificationsToStrings (biomention:BioMention, level:Integer): List[String] = {
+    val mStrings:MutableList[String] = MutableList[String]()
+    val headIndent = ("  " * level)
+    val indent = ("  " * (level+1))
+    if (biomention.isModified) {
+      mStrings += s"${headIndent}modifications (${biomention.modifications.size}):"
+      biomention.modifications.foreach {
+        case EventSite(site) =>
+          mStrings += s"${indent}event-site: ${site.text}"
+        case Hypothesis(evidence) =>
+          mStrings += s"${indent}hypothesis: ${evidence.text}"
+        case Mutant(evidence) =>
+          mStrings += s"${indent}mutant: ${evidence.text}"
+        case Negation(evidence) =>
+          mStrings += s"${indent}negation: ${evidence.text}"
+        case PTM(modLabel, evidence, site) =>
+          val evText = if (evidence.isDefined) evidence.get.text else ""
+          mStrings += s"${indent}PTM: ${evText}"
+          if (site.isDefined)
+            mStrings ++= mentionToStrings(site.get, level+1)
+        case _ => ()
+      }
     }
     return mStrings.toList
   }
