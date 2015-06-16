@@ -15,7 +15,7 @@ import edu.arizona.sista.odin.extern.export.JsonOutputter
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: REACH export: extend JSON outputter. Prepare to take start/end time args.
+  *   Last Modified: Begin updating REACH outputter.
   */
 class ReachOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -23,7 +23,7 @@ class ReachOutput extends JsonOutputter {
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // Constants:
-  val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein", "Protein_with_site")
+  val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein")
 
   // used by json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -52,7 +52,6 @@ class ReachOutput extends JsonOutputter {
     val mIds = assignMentionIds(mentions, new IDed)
     val frames = new FrameList
     mentions.foreach { mention =>
-      // val frame = beginNewFrame(mention, startTime, endTime, mIds)
       val frame = beginNewFrame(mention, startTime, endTime, mIds)
       frames += doMention(mention, mIds, frame)
     }
@@ -73,8 +72,7 @@ class ReachOutput extends JsonOutputter {
 
   /** Return true if the given mention is one that should be processed at the forest root. */
   private def allowableRootMentions (mention:Mention): Boolean = {
-    return (mention.isInstanceOf[EventMention] ||
-             (mention.isInstanceOf[RelationMention] && (mention.label != "Protein_with_site")) )
+    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
   }
 
   /** Assign all mentions a unique ID. */
@@ -98,9 +96,12 @@ class ReachOutput extends JsonOutputter {
     frame("reading_ended") = DateUtils.formatUTC(endTime)
     frame("submitter") = "UAZ"
     frame("reader_type") = "machine"
-    frame("negative_information") = false
-    frame("evidence") = mention.text
+    frame("text") = mention.text
+    frame("found_by") = mention.foundBy
     frame("offsets") = List(mention.startOffset, mention.endOffset)
+    if (mentionMgr.isNegated(mention.toBioMention)) frame("negated") = "true"
+    if (mentionMgr.isHypothesized(mention.toBioMention)) frame("hypothesized") = "true"
+    // TODO: ?? sentence, start-pos, end-pos, verbose-text from HansOutput ??
     return frame
   }
 
@@ -108,10 +109,12 @@ class ReachOutput extends JsonOutputter {
   private def doMention (mention:Mention, mIds:IDed, frame:PropMap): PropMap = {
     mention.label match {
       case "Binding" => doBinding(mention, frame)
-      case "Translocation" => doTranslocation(mention, frame)
+      case "Negative_activation" => doRegulation(mention, frame, mIds, false)
       case "Negative_regulation" => doRegulation(mention, frame, mIds, false)
+      case "Positive_activation" => doRegulation(mention, frame, mIds)
       case "Positive_regulation" => doRegulation(mention, frame, mIds)
-      case _ => doSimpleType(mention, frame)
+      case "Translocation" => doTranslocation(mention, frame)
+      case _ => doSimpleType(mention, frame)  // handle all like phosphorylation...
       // TODO: handle Degradation, Exchange, Expression, Translation, Transcription
     }
   }
@@ -124,7 +127,7 @@ class ReachOutput extends JsonOutputter {
       val themes = themeArgs.get
       frame("participants") =
         if (themes.size == 0) null
-        else themes.map(doProteinWithSiteOrTextBoundMention)
+        else themes.map(doTextBoundMention(_))
       // TODO: binding sites
       // val sites = themeArgs.get.map(getSite(_))
     }
@@ -137,30 +140,13 @@ class ReachOutput extends JsonOutputter {
     val controllerArgs = mentionMgr.controllerArgs(mention)
     val controlledArgs = mentionMgr.controlledArgs(mention)
     if (controllerArgs.isDefined && controlledArgs.isDefined) {
-      frame("type") = if (positive) "positive_regulation" else "negative_regulation"
+      frame("type") = mention.label.toLowerCase
       val controller = controllerArgs.get.head
-      frame("controller") = doProteinWithSiteOrTextBoundMention(controller)
+      // TODO: controllers can now be relation mentions:
+      frame("controller") = doTextBoundMention(controller) // CHANGE LATER
       frame("controlled") = mIds.get(controlledArgs.get.head)
     }
     return frame
-  }
-
-  /** Decide what type is the given mention and return */
-  private def doProteinWithSiteOrTextBoundMention (mention:Mention): PropMap = {
-    return if (mention.label == "Protein_with_site")
-      doProteinWithSite(mention)
-    else
-      doTextBoundMention(mention)
-  }
-
-  /** Return properties map for the given protein with site mention. */
-  private def doProteinWithSite (mention:Mention): PropMap = {
-    val proteinArgs = mentionMgr.proteinArgs(mention)
-    if (proteinArgs.isDefined) {
-      return doTextBoundMention(proteinArgs.get.head)
-    }
-    return new PropMap
-    // TODO: binding sites
   }
 
   /** Return properties map for the given phosphorylation mention. */
@@ -168,7 +154,7 @@ class ReachOutput extends JsonOutputter {
     val themeArgs = mentionMgr.themeArgs(mention)
     if (themeArgs.isDefined) {
       frame("type") = mention.label.toLowerCase
-      val themes = themeArgs.get.map(doProteinWithSiteOrTextBoundMention(_))
+      val themes = themeArgs.get.map(doTextBoundMention(_))
       frame("participants") = if (themes.size == 0) null else themes
 
       val site = getSite(mention)
@@ -250,6 +236,7 @@ class ReachOutput extends JsonOutputter {
     out.close()
   }
 }
+
 
 
 /** Implements an incrementing identification string for numbering entities. */

@@ -12,7 +12,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Display modifications and use display label.
+  *   Last Modified: Fix: visibility on mention modification test functions.
   */
 class MentionManager {
   // Constants:
@@ -33,16 +33,16 @@ class MentionManager {
   // Public API:
   //
 
-  private def isEventSite(mention:BioMention):Boolean =
+  def isEventSite(mention:BioMention):Boolean =
     mention.modifications.exists(mod => mod.isInstanceOf[EventSite])
 
-  private def isHypothesized(mention:BioMention):Boolean =
+  def isHypothesized(mention:BioMention):Boolean =
     mention.modifications.exists(mod => mod.isInstanceOf[Hypothesis])
 
-  private def isMutated(mention:BioMention):Boolean =
+  def isMutated(mention:BioMention):Boolean =
     mention.modifications.exists(mod => mod.isInstanceOf[Mutant])
 
-  private def isNegated(mention:BioMention):Boolean =
+  def isNegated(mention:BioMention):Boolean =
     mention.modifications.exists(mod => mod.isInstanceOf[Negation])
 
 
