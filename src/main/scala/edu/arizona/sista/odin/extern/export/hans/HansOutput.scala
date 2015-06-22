@@ -212,7 +212,7 @@ class HansOutput extends JsonOutputter {
     f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
-    f("verbose-text") = mention.sentenceObj.getSentenceText
+    f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 
     val evType = mkEventType(mention.label)

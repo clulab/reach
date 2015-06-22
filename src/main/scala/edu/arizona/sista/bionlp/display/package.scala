@@ -102,6 +102,13 @@ package object display {
     }
   }
 
+  def cleanVerbose(s:String):String = {
+    val spaceBefore = """\s+([ .,;!?%)\]}>])""".r
+    val firstStep = spaceBefore replaceAllIn (s, m => m group 1)
+    val spaceAfter = """([(\[{])\s+""".r
+    spaceAfter replaceAllIn (firstStep, m => m group 1)
+  }
+
   /** Generates a representation of the given mention as a list of strings. */
    def mentionToStrings (mention:Mention): List[String] = {
      return mentionToStrings(mention, 0)
