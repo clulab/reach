@@ -110,7 +110,7 @@
   pattern: |
       trigger = interaction
       theme1:BioChemicalEntity+ = nn | prep_of
-      theme2:BioChemicalEntity* = <dobj >prep_with
+      theme2:BioChemicalEntity* = <prep_through? >prep_with
 
 - name: binding10
   label: [Binding, SimpleEvent, Event, PossibleController]
