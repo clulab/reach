@@ -85,8 +85,8 @@
   action: {{ actionFlow }}
   pattern: |
     trigger = [word=/(?i)^({{ triggers }})/] # "aids" is incorrectly tagged as a noun
-    controlled:{{ controlledType }} = prep_in
-    controller:{{ controllerType }} = nsubj
+    controlled:{{ controlledType }} = prep_in | prep_to
+    controller:{{ controllerType }} = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
 
 - name: Positive_{{ ruleType }}_syntax_1_noun
   priority: {{ priority }}
