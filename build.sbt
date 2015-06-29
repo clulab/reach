@@ -25,8 +25,8 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT",
-  "edu.arizona.sista" %% "processors" % "5.3-SNAPSHOT" classifier "models",
+  "edu.arizona.sista" %% "processors" % "5.4-SNAPSHOT",
+  "edu.arizona.sista" %% "processors" % "5.4-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
