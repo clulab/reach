@@ -2,7 +2,7 @@ name := "reach"
 
 version := "1.0"
 
-scalaVersion := "2.11.5"
+scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
@@ -30,5 +30,5 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
-  "jline" % "jline" % "2.12"
+  "jline" % "jline" % "2.12.1"
 )
