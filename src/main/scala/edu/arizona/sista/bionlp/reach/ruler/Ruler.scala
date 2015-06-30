@@ -1,24 +1,18 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.reach.brat.Brat
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 
 object Ruler {
-  val proc = new BioNLPProcessor
+  val reach = new ReachSystem
 
   def doItAll(text: String): RulerResults = doItAll(text, "")
 
   def doItAll(text: String, rulesStr: String): RulerResults = {
-    val actions = new DarpaActions
-
-    // read default rules if needed
-    val rules = if (rulesStr.trim.isEmpty) BasicRuler.readRules() else rulesStr
-
-    val doc = proc.annotate(text)
-    val basicRuler = new BasicRuler(rules, actions)
-    val mentions = basicRuler.extractFrom(doc)
-
+    val doc = reach.mkDoc(text, "visualizer")
+    val mentions = reach.extractFrom(doc)
+    val rules = reach.allRules
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
 
@@ -41,7 +35,7 @@ object Ruler {
 
   def synTrees(doc: Document): Array[String] = {
     val allTrees = doc.sentences map { s =>
-      s.syntacticTree.getOrElse("()").toString()
+      s.syntacticTree.map(_.toString).getOrElse("()")
     }
     allTrees.toArray
   }

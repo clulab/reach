@@ -45,6 +45,10 @@ class ReachSystem(rules: Option[Rules] = None,
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
 
+  /** returns string with all rules used by the system */
+  def allRules: String =
+    Seq(entityRules, modificationRules, eventRules, corefRules).mkString("\n\n")
+
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
