@@ -7,17 +7,27 @@ import edu.arizona.sista.processors.Document
 object Ruler {
   val reach = new ReachSystem
 
-  def doItAll(text: String): RulerResults = doItAll(text, "")
+  def runOpen(text: String): RulerResults = runOpen(text, "")
 
-  def doItAll(text: String, rulesStr: String): RulerResults = {
+  def runOpen(text: String, rulesStr: String): RulerResults = {
+    val doc = reach.mkDoc(text, "visualizer")
+    val mentions = reach.extractFrom(doc)
+    val rules = reach.allRules              // TODO: IMPLEMENT RULE SUBMISSION LATER
+    val eventAnnotations = Brat.dumpStandoff(mentions, doc)
+    val syntaxAnnotations = Brat.syntaxStandoff(doc)
+    new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc), synTrees(doc))
+  }
+
+
+  def runReach(text: String): RulerResults = {
     val doc = reach.mkDoc(text, "visualizer")
     val mentions = reach.extractFrom(doc)
     val rules = reach.allRules
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
-
     new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc), synTrees(doc))
   }
+
 
   def tokens(doc: Document): Array[Token] = {
     val allTokens = doc.sentences flatMap { s =>
@@ -33,6 +43,7 @@ object Ruler {
     allTokens.toArray
   }
 
+
   def synTrees(doc: Document): Array[String] = {
     val allTrees = doc.sentences map { s =>
       s.syntacticTree.map(_.toString).getOrElse("()")
@@ -40,6 +51,7 @@ object Ruler {
     allTrees.toArray
   }
 }
+
 
 class RulerResults(val text: String,
                    val rules: String,
