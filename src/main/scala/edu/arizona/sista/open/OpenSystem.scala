@@ -4,6 +4,7 @@ import edu.arizona.sista.odin._
 import RuleReader._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
+
 import scala.util.Try
 
 class OpenSystem(p: Option[CoreNLPProcessor] = None) {
@@ -25,20 +26,17 @@ class OpenSystem(p: Option[CoreNLPProcessor] = None) {
   def allRules: String =
     Seq(demoRules).mkString("\n\n")
 
-  def extractFrom(rules: String, doc: Document): Seq[Mention] = {
+  def extractFrom(rules: String, doc: Document): Try[Seq[Mention]] = {
 
-    // In case the engine fails...
-    var mentions: Seq[Mention] = Nil
 
     if (rules != demoRules && rules.nonEmpty)
       demoRules = rules
 
     Try {
-    // There might be a syntax problem here
-    engine = ExtractorEngine(demoRules)
-    mentions = engine.extractFrom(doc)
+      // There might be a syntax problem here
+      engine = ExtractorEngine(demoRules)
+      engine.extractFrom(doc)
     }
-    mentions
   }
 
 }
