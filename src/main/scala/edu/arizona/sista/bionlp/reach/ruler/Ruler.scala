@@ -2,22 +2,28 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.reach.brat.Brat
+import edu.arizona.sista.open.OpenSystem
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
+import edu.arizona.sista.open.{RuleReader => OpenRuleReader}
 
 object Ruler {
   val reach = new ReachSystem
+  val odProc = new CoreNLPProcessor(withDiscourse = false)
+  val od = new OpenSystem(Some(odProc))
 
   def runOpen(text: String): RulerResults = runOpen(text, "")
 
   def runOpen(text: String, rulesStr: String): RulerResults = {
-    val doc = reach.mkDoc(text, "visualizer")
-    val mentions = reach.extractFrom(doc)
-    val rules = reach.allRules              // TODO: IMPLEMENT RULE SUBMISSION LATER
+    val doc = od.mkDoc(text)
+    // pass in web rules
+    od.demoRules = rulesStr
+    val mentions = od.extractFrom(rulesStr, doc)
+    val rules = od.allRules              // TODO: IMPLEMENT RULE SUBMISSION LATER
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
     new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc), synTrees(doc))
   }
-
 
   def runReach(text: String): RulerResults = {
     val doc = reach.mkDoc(text, "visualizer")
@@ -28,6 +34,9 @@ object Ruler {
     new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc), synTrees(doc))
   }
 
+  // hook for reseting rules
+  def resetRules():Unit =
+    od.demoRules = OpenRuleReader.readBuiltInRules()
 
   def tokens(doc: Document): Array[Token] = {
     val allTokens = doc.sentences flatMap { s =>
