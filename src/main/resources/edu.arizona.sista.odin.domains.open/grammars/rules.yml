@@ -1,0 +1,20 @@
+- name: "ner-person"
+  label: [Person, Entity]
+  priority: 1
+  type: token
+  pattern: |
+   [entity="PERSON"]+
+
+- name: "ner-location"
+  label: [Location, Entity]
+  priority: 1
+  type: token
+  pattern: |
+    [entity="LOCATION"]+
+
+- name: "ner-org"
+  label: [Organization, Entity]
+  priority: 1
+  type: token
+  pattern: |
+    [entity="ORGANIZATION"]+
