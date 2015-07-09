@@ -89,13 +89,15 @@ object Ruler {
     allTrees.toArray
   }
 
+  /** removes commented lines */
+  def clean(input: String): String = input.replaceAll("""(?m)^\s*#.*$""", "").trim()
 
   /** Create a Map from rule name -> rule. **/
   private def mkRuleMap(rules: String): Map[String, String] = {
     val namePattern = """^- name: (.+)""".r  // to find the rule name
 
     val ruleMap: Map[String, String] =
-      rules
+      clean(rules)
         .split("(?=- name:)")
         .map(_.trim)
         .filter(_.nonEmpty)                 // remove empty chunks from the split
