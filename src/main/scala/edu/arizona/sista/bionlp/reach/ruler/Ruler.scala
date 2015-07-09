@@ -20,24 +20,21 @@ object Ruler {
   // For parsing the error (name) and (error)
   val ruleErrorPattern = """Error parsing rule '(.+)': (.+)""".r
 
-  def runOpen(text: String): RulerResults = runOpen(text, "")
-
-  def runOpen(text: String, rulesStr: String): RulerResults = {
+  /** Run the Open Domain system with the given text and rules. */
+  def runOpen(text: String, rules: String): RulerResults = {
     val doc = od.mkDoc(text)
-
-    val rules = rulesStr // TODO: IMPLEMENT RULE SUBMISSION LATER
     val ruleMap = mkRuleMap(rules)
 
-    val result = od.extractFrom(rulesStr, doc)
+    val result = od.extractFrom(rules, doc)
     result match {
-
-      // The engine succeeded
+      // either the engine succeeded
       case Success(mentions) =>
         val eventAnnotations = Brat.dumpStandoff(mentions, doc)
         val syntaxAnnotations = Brat.syntaxStandoff(doc)
-        new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc), synTrees(doc), ruleMap)
-      // There must have been a problem compiling the rules
+        new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc),
+                         synTrees(doc), ruleMap)
 
+      // OR there must have been a problem compiling the rules
       case Failure(e) =>
         val (ruleName, syntaxError) = {
           val m = ruleErrorPattern.findFirstMatchIn(e.getMessage).get
@@ -45,22 +42,25 @@ object Ruler {
           (m.group(1).replaceAll( """["']""", ""), m.group(2))
         }
         // No standoff in this case...
-        new RulerResults(text, rules, "", "", tokens(doc), synTrees(doc), ruleMap, Option(Array(ruleName, syntaxError)))
-
+        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
+                         Array(ruleName, syntaxError))
     }
   }
 
+
+  /** Run the bio nlp system with the given text and REACH rules. */
   def runReach(text: String): RulerResults = {
     val doc = reach.mkDoc(text, "visualizer")
     val mentions = reach.extractFrom(doc)
     val rules = reach.allRules
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
-    val ruleMap = mkRuleMap(rules)
-    new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc), synTrees(doc), ruleMap)
+    new RulerResults(text, rules, eventAnnotations, syntaxAnnotations,
+                     tokens(doc), synTrees(doc), mkRuleMap(rules))
   }
 
-  def tokens(doc: Document): Array[Token] = {
+
+  private def tokens(doc: Document): Array[Token] = {
     val allTokens = doc.sentences flatMap { s =>
       0 until s.size map { i =>
         new Token(s.words(i),
@@ -74,38 +74,34 @@ object Ruler {
     allTokens.toArray
   }
 
-
-  def synTrees(doc: Document): Array[String] = {
+  private def synTrees(doc: Document): Array[String] = {
     val allTrees = doc.sentences map { s =>
       s.syntacticTree.map(_.toString).getOrElse("()")
     }
     allTrees.toArray
   }
 
-  /** Create a Map from rule name -> rule **/
-  def mkRuleMap(rules: String): Map[String, String] = {
-    // to find the rule name
-    val namePattern = """^- name: (.+)""".r
+
+  /** Create a Map from rule name -> rule. **/
+  private def mkRuleMap(rules: String): Map[String, String] = {
+    val namePattern = """^- name: (.+)""".r  // to find the rule name
 
     val ruleMap: Map[String, String] =
       rules
         .split("(?=- name:)")
         .map(_.trim)
-        // remove empty chunks from the split
-        .filter(_.nonEmpty)
-        // find the rule name
-        .groupBy { rule =>
-        // remove any surrounding quotes from rule name
-        val ruleName =
+        .filter(_.nonEmpty)                 // remove empty chunks from the split
+        .groupBy { rule =>                  // find the rule name
+          // remove any surrounding quotes from rule name
           namePattern.findFirstMatchIn(rule)
-            .get.group(1)
-            .replaceAll( """["']""", "")
-        ruleName
-      }.mapValues(_.head)
+          .get.group(1)
+          .replaceAll( """["']""", "")
+        }.mapValues(_.head)
 
     ruleMap
   }
 }
+
 
 class RulerResults(val text: String,
                    val rules: String,
@@ -114,8 +110,9 @@ class RulerResults(val text: String,
                    val syntaxTokens: Array[Token],
                    val syntaxTrees: Array[String],
                    val ruleMap: Map[String, String],
-                   // Always size of 2 (name, message) whenever present
-                   val error: Option[Array[String]] = None)
+                   // Error is always size of 2 (name, message) whenever present
+                   val error: Array[String] = null)
+
 
 class Token(val word: String,
             val lemma: String,
@@ -123,4 +120,3 @@ class Token(val word: String,
             val entity: String,
             val start: Int,
             val end: Int)
-
