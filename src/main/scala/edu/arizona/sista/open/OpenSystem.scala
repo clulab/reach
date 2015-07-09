@@ -1,7 +1,6 @@
 package edu.arizona.sista.open
 
 import edu.arizona.sista.odin._
-import RuleReader._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
 
@@ -14,7 +13,7 @@ class OpenSystem(p: Option[CoreNLPProcessor] = None) {
     if (p.nonEmpty) p.get
     else new CoreNLPProcessor(withDiscourse = false)
 
-  var demoRules: String = readBuiltInRules()
+  var demoRules: String = ""
   val actions = new OpenActions
   var engine = ExtractorEngine(allRules, actions)
 
