@@ -5,7 +5,7 @@ import edu.arizona.sista.bionlp.reach.brat.Brat
 import edu.arizona.sista.open.OpenSystem
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
-import scala.util.{Success, Failure}
+import scala.util.{Try, Success, Failure}
 
 object Ruler {
 
@@ -23,19 +23,27 @@ object Ruler {
   /** Run the Open Domain system with the given text and rules. */
   def runOpen(text: String, rules: String): RulerResults = {
     val doc = od.mkDoc(text)
-    val ruleMap = mkRuleMap(rules)
 
+    // Were any rules submitted?
+    if (rules.trim.isEmpty)
+      return new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty, Array("", "rulesStr is empty"))
+
+    // For displaying rules (ruleName -> rule)
+    val ruleMap = Try(mkRuleMap(rules)) getOrElse Map.empty
     val result = od.extractFrom(rules, doc)
+
     result match {
       // either the engine succeeded
       case Success(mentions) =>
         val eventAnnotations = Brat.dumpStandoff(mentions, doc)
         val syntaxAnnotations = Brat.syntaxStandoff(doc)
         new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc),
-                         synTrees(doc), ruleMap)
+          synTrees(doc), ruleMap)
 
       // OR there must have been a problem compiling the rules
-      case Failure(e) =>
+      case Failure(e) if e.getMessage.startsWith("Error parsing rule '") =>
+        // In the case of a rule compilation error, we will return an Array of size 2
+        // Where the first element is the rule name and the second is the error message
         val (ruleName, syntaxError) = {
           val m = ruleErrorPattern.findFirstMatchIn(e.getMessage).get
           // strip any quotes from the rule name
@@ -43,7 +51,7 @@ object Ruler {
         }
         // No standoff in this case...
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
-                         Array(ruleName, syntaxError))
+          Array(ruleName, syntaxError))
     }
   }
 

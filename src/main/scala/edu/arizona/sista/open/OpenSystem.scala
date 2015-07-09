@@ -14,26 +14,22 @@ class OpenSystem(p: Option[CoreNLPProcessor] = None) {
     else new CoreNLPProcessor(withDiscourse = false)
 
   // For the demo, Ruler will provide us with our rules
-  var demoRules: String = ""
+  var cachedRules: String = ""
   val actions = new OpenActions
-  var engine = ExtractorEngine(allRules, actions)
+  var engine: ExtractorEngine = null
 
   def mkDoc(text: String): Document = {
     proc.annotate(text)
   }
 
-  /** returns string with all rules used by the system */
-  def allRules: String =
-    Seq(demoRules).mkString("\n\n")
-
   def extractFrom(rules: String, doc: Document): Try[Seq[Mention]] = {
 
-    if (rules != demoRules && rules.nonEmpty)
-      demoRules = rules
-
     Try {
-      // We might encounter a rule syntax problem on compilation
-      engine = ExtractorEngine(demoRules)
+      if (rules != cachedRules && rules.nonEmpty) {
+        cachedRules = rules
+        // We might encounter a rule syntax problem on compilation
+        engine = ExtractorEngine(cachedRules, actions)
+      }
       engine.extractFrom(doc)
     }
   }
