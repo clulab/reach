@@ -23,6 +23,18 @@ object RuleReader {
   def readRules(): String =
     readEntityRules() + "\n\n" + readModificationRules() + "\n\n" + readEventRules()
 
+  def mkRules(): Rules = {
+    val entityRules = readEntityRules()
+    val modRules = readEntityRules()
+    val eventRules = readEventRules()
+    val corefRules = readCorefRules()
+
+    Rules(entities = entityRules,
+          modifications = modRules,
+          events = eventRules,
+          coref = corefRules)
+  }
+
   def readEntityRules(): String = {
     val files = Seq(
       s"$entitiesDir/entities.yml")

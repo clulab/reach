@@ -8,7 +8,12 @@ import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
 import scala.util.{Success, Failure}
 
 object Ruler {
-  val reach = new ReachSystem
+
+  // read rules for ReachSystem from resource
+  val reachRules = RuleReader.mkRules()
+  // pass in reachRules
+  val reach = new ReachSystem(Some(reachRules))
+  // setup open domain system
   val odProc = new CoreNLPProcessor(withDiscourse = false)
   val od = new OpenSystem(Some(odProc))
 
