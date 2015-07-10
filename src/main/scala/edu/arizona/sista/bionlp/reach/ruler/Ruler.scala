@@ -40,7 +40,7 @@ object Ruler {
         new RulerResults(text, rules, eventAnnotations, syntaxAnnotations, tokens(doc),
           synTrees(doc), ruleMap)
 
-      // OR there must have been a problem compiling the rules
+      // there may have been a problem compiling the rules
       case Failure(e) if e.getMessage.startsWith("Error parsing rule '") =>
         // In the case of a rule compilation error, we will return an Array of size 2
         // Where the first element is the rule name and the second is the error message
@@ -52,6 +52,10 @@ object Ruler {
         // No standoff in this case...
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
           Array(ruleName, syntaxError))
+      // Temporary catch-all for other errors
+      case Failure(other) =>
+        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
+          Array("", other.getMessage))
     }
   }
 
