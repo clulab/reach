@@ -90,23 +90,29 @@ object Ruler {
   }
 
   /** removes commented lines */
-  def clean(input: String): String = input.replaceAll("""(?m)^\s*#.*$""", "").trim()
+  private def clean(input: String): String = input.replaceAll("""(?m)^\s*#.*$""", "").trim()
 
   /** Create a Map from rule name -> rule. **/
   private def mkRuleMap(rules: String): Map[String, String] = {
-    val namePattern = """^- name: (.+)""".r  // to find the rule name
+
+    // to find the rule name (even if it is quoted)
+    val namePattern = """^- name:\s+("[^\\"]*(?:\\.[^\\"]*)*"|[^\s#]+)""".r
 
     val ruleMap: Map[String, String] =
       clean(rules)
         .split("(?=- name:)")
         .map(_.trim)
         .filter(_.nonEmpty)                 // remove empty chunks from the split
-        .groupBy { rule =>                  // find the rule name
-          // remove any surrounding quotes from rule name
-          namePattern.findFirstMatchIn(rule)
-          .get.group(1)
-          .replaceAll( """["']""", "")
-        }.mapValues(_.head)
+        .flatMap { rule =>                  // find the rule name
+          namePattern.findFirstMatchIn(rule).map { m =>
+            val name = m.group(1)
+            val key =
+              // if the string is quoted, remove the quotes
+              if (name.startsWith("\"") && name.endsWith("\"")) name.drop(1).dropRight(1)
+              else name // it isn't quoted, just return it
+            (key, rule)
+          }
+        }.toMap
 
     ruleMap
   }
