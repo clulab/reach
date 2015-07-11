@@ -890,10 +890,13 @@ class DarpaActions extends Actions {
           if(shortestPath == null || path.length < shortestPath.length)
             shortestPath = path
         }
+        shortestPath = addAdjectivalModifiers(shortestPath)
         // count negatives along the shortest path
+        //println("SHORTEST PATH: " + shortestPath)
         for(i <- shortestPath) {
           if(! excluded.contains(i)) {
             val lemma = trigger.sentenceObj.lemmas.get(i)
+            //println("\tSHORTEST PATH LEMMA: " + lemma)
             if (RuleReader.SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined) {
               negatives += i
               //println("Found one semantic negative: " + lemma)
@@ -902,6 +905,19 @@ class DarpaActions extends Actions {
         }
         true
     }
+  }
+
+  /**
+   * Adds adjectival modifiers to all elements in the given path
+   * This is necessary so we can properly inspect the semantic negatives,
+   *   which are often not in the path, but modify tokens in it,
+   *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
+   * @param tokens
+   * @return
+   */
+  def addAdjectivalModifiers(tokens:Seq[Int]):Seq[Int] = {
+    // TODO: mihai, add amods
+    tokens
   }
 
   /** Purely for debugging rules */
