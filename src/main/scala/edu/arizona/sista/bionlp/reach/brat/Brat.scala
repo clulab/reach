@@ -26,9 +26,15 @@ object Brat {
     chunks.head match {
       // text bound annotation
       case id if id.startsWith("T") =>
-        val Array(label, offsets) = chunks(1).split(" ", 2)
-        val spans = offsets.split(";") map (_.split(" ").map(_.toInt)) map (t => Interval(t(0), t(1)))
-        Some(TextBound(id, label, spans, chunks(2)))
+        try {
+          val Array(label, offsets) = chunks(1).split(" ", 2)
+          val spans = offsets.split(";") map (_.split(" ").map(_.toInt)) map (t => Interval(t(0), t(1)))
+          Some(TextBound(id, label, spans, chunks(2)))
+        } catch {
+          case e: Exception =>
+            println(line.trim)
+            None
+        }
 
       // relation
       case id if id.startsWith("R") =>
@@ -71,6 +77,14 @@ object Brat {
       case _ => None
     })
     document.sentences map (alignSentenceLabels(_, textBound))
+  }
+
+  def updateDocumentLabels(document: Document, annotations: Seq[Annotation]) = {
+    val neLabels = Brat.alignLabels(document, annotations)
+    // relabel sentences
+    neLabels.zipWithIndex foreach {
+      case (labels, i) => document.sentences(i).entities = Some(labels.toArray)
+    }
   }
 
   def alignTokenLabel(sentence: Sentence, token: Interval, annotations: Seq[TextBound]): String = {
@@ -138,18 +152,47 @@ object Brat {
 
     mention match {
       case m: TextBoundMention =>
+        val printlabel = m.label match {
+          case "Gene_or_gene_product" => "Protein"
+          case "Transcription" => "Gene_expression"
+          case lbl => lbl
+        }
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = if (doc.text.isDefined) m.text else sentence.words.slice(m.start, m.end).mkString(" ")
 
-        s"${getId(m, doc, tracker)}\t${m.label} $offsets\t$str"
+        s"${getId(m, doc, tracker)}\t$printlabel $offsets\t$str"
+
+      case m: EventMention if m matches "Transcription" =>
+        val trigger = getId(m.trigger, doc, tracker)
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name.capitalize}:${getId(v, doc, tracker)}") }.mkString(" ")
+        s"${getId(m, doc, tracker)}\tGene_expression:$trigger $arguments"
+
+      case m: EventMention if m.matches("Binding") =>
+        val trigger = getId(m.trigger, doc, tracker)
+        val arguments = m.arguments.flatMap { case (name, vals) =>
+          vals.zipWithIndex map { case (v,i) =>
+            s"${name.capitalize + {i match {
+              case write if i+1 > 1 => s"${i+1}"
+              case _ => ""}}}:${getId(v, doc, tracker)}"
+          }
+        }.mkString(" ")
+        s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
+
+      case m: EventMention if m.matches("ComplexEvent") =>
+        val trigger = getId(m.trigger, doc, tracker)
+        val arguments = m.arguments.flatMap { case (name, vals) => vals map (v => s"${name match {
+          case cause if name == "controller" => "Cause"
+          case theme if name == "controlled" => "Theme"
+        }}:${getId(v, doc, tracker)}") }.mkString(" ")
+        s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
 
       case m: EventMention =>
         val trigger = getId(m.trigger, doc, tracker)
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v, doc, tracker)}") }.mkString(" ")
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name.capitalize}:${getId(v, doc, tracker)}") }.mkString(" ")
         s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
 
       case m: RelationMention =>
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"$name:${getId(v, doc, tracker)}") }.mkString(" ")
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name.capitalize}:${getId(v, doc, tracker)}") }.mkString(" ")
         s"${getId(m, doc, tracker)}\t${m.label} $arguments"
     }
   }
@@ -193,7 +236,8 @@ class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
     if (ids.size == 1) ids.head
     else if (ids.size > 1) ids.head // arbitrarily returning the first one
     else {
-      val id = s"T${textBoundLUT.size + 1}"
+      val currMax = textBoundLUT.keys.map(_.drop(1).toInt).max
+      val id = s"T${currMax + 1}"
       val kv = (id -> span)
       textBoundLUT += kv
       id
@@ -224,10 +268,8 @@ object IdTracker {
 
   def apply(annotations: Seq[Annotation]): IdTracker = {
     val lut = annotations flatMap {
-      _ match {
-        case a: TextBound => Some(a.id -> a.totalSpan)
-        case _ => None
-      }
+      case a: TextBound => Some(a.id -> a.totalSpan)
+      case _ => None
     }
     new IdTracker(HashMap(lut: _*))
   }
