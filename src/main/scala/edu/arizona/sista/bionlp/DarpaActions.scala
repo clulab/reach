@@ -6,6 +6,8 @@ import edu.arizona.sista.bionlp.mentions._
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
+import DarpaActions._
+
 class DarpaActions extends Actions {
 
   def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
@@ -890,7 +892,7 @@ class DarpaActions extends Actions {
           if(shortestPath == null || path.length < shortestPath.length)
             shortestPath = path
         }
-        shortestPath = addAdjectivalModifiers(shortestPath)
+        shortestPath = addAdjectivalModifiers(shortestPath, deps)
         // count negatives along the shortest path
         //println("SHORTEST PATH: " + shortestPath)
         for(i <- shortestPath) {
@@ -915,9 +917,23 @@ class DarpaActions extends Actions {
    * @param tokens
    * @return
    */
-  def addAdjectivalModifiers(tokens:Seq[Int]):Seq[Int] = {
-    // TODO: mihai, add amods
-    tokens
+  def addAdjectivalModifiers(tokens:Seq[Int], deps:DirectedGraph[String]):Seq[Int] = {
+    val tokensWithModifiers = new ListBuffer[Int]
+    for(token <- tokens) {
+      tokensWithModifiers += token
+      tokensWithModifiers ++= getModifiers(token, deps)
+    }
+    tokensWithModifiers.toSeq
+  }
+  def getModifiers(token:Int, deps:DirectedGraph[String]):Seq[Int] = {
+    val mods = new ListBuffer[Int]
+    for(dep <- deps.getOutgoingEdges(token)) {
+      if(MODIFIER_LABELS.findFirstIn(dep._2).isDefined) {
+        // println(s"\tFOUND MOD ${dep._1} for token $token")
+        mods += dep._1
+      }
+    }
+    mods.toSeq
   }
 
   /** Purely for debugging rules */
@@ -928,4 +944,8 @@ class DarpaActions extends Actions {
     }
     mentions
   }
+}
+
+object DarpaActions {
+  val MODIFIER_LABELS = "amod".r
 }

@@ -322,18 +322,18 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Positive_regulation") should have size (2)
   }
 
-  val sent35 = "p53 can be acetylated by p300 and CBP at multiple lysine residues ( K164 , 370 , 372 , 373 , 381 , 382 and 386 ) and by PCAF at K320 ."
+  val sent35 = "p53 can be acetylated by p300 and CBP at multiple lysine residues ( K164 , 370 , 372 , 373 , 381 , 382 and 386 ) ."
   sent35 should  "contain 15 positive regulations due to the multiple controllers and multiple sites" in {
     val mentions = parseSentence(sent35)
-    // TODO: hard. We should get 7 pos regs by p300, 7 by CBP, and 1 by PCAF
+    // TODO: needs coref for sites ("residues"). We should get 7 pos regs by p300 and 7 by CBP
     // This is a great example for handling enumerations
-    mentions.filter(_.label == "Positive_regulation") should have size (15)
+    mentions.filter(_.label == "Positive_regulation") should have size (14)
   }
 
   val sent36 = "Taken together , these data suggest that decreased PTPN13 expression enhances EphrinB1 and Erk1 and phosphorylation in epithelial cells ."
   sent36 should "contain 2 negative regulations (not positive)" in {
     val mentions = parseSentence(sent36)
-    // TODO: we incorrectly label the regs as positive because we miss "decreased"
+    // this tests that we capture amods for elements in the paths; necessary to correctly model semantic negatives
     mentions.filter(_.label == "Negative_regulation") should have size (2)
   }
 
@@ -348,7 +348,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent38 = "These data are consistent with EphrinB1 being a PTPN13 phosphatase substrate and suggest that decreased PTPN13 expression in BL breast cancer cell lines increases phosphorylation of EphrinB1 ."
   sent38 should "contain 1 negative regulation (not positive)" in {
     val mentions = parseSentence(sent38)
-    // TODO: we incorrectly label the regs as positive because we miss "decreased"
+    // this tests that we capture amods for elements in the paths; necessary to correctly model semantic negatives
     mentions.filter(_.label == "Negative_regulation") should have size (1)
   }
 
