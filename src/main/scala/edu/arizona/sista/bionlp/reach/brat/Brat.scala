@@ -152,39 +152,11 @@ object Brat {
 
     mention match {
       case m: TextBoundMention =>
-        val printlabel = m.label match {
-          case "Gene_or_gene_product" => "Protein"
-          case "Transcription" => "Gene_expression"
-          case lbl => lbl
-        }
+
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = if (doc.text.isDefined) m.text else sentence.words.slice(m.start, m.end).mkString(" ")
 
-        s"${getId(m, doc, tracker)}\t$printlabel $offsets\t$str"
-
-      case m: EventMention if m matches "Transcription" =>
-        val trigger = getId(m.trigger, doc, tracker)
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name.capitalize}:${getId(v, doc, tracker)}") }.mkString(" ")
-        s"${getId(m, doc, tracker)}\tGene_expression:$trigger $arguments"
-
-      case m: EventMention if m.matches("Binding") =>
-        val trigger = getId(m.trigger, doc, tracker)
-        val arguments = m.arguments.flatMap { case (name, vals) =>
-          vals.zipWithIndex map { case (v,i) =>
-            s"${name.capitalize + {i match {
-              case write if i+1 > 1 => s"${i+1}"
-              case _ => ""}}}:${getId(v, doc, tracker)}"
-          }
-        }.mkString(" ")
-        s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
-
-      case m: EventMention if m.matches("ComplexEvent") =>
-        val trigger = getId(m.trigger, doc, tracker)
-        val arguments = m.arguments.flatMap { case (name, vals) => vals map (v => s"${name match {
-          case cause if name == "controller" => "Cause"
-          case theme if name == "controlled" => "Theme"
-        }}:${getId(v, doc, tracker)}") }.mkString(" ")
-        s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
+        s"${getId(m, doc, tracker)}\t${m.label} $offsets\t$str"
 
       case m: EventMention =>
         val trigger = getId(m.trigger, doc, tracker)
