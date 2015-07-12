@@ -1,3 +1,5 @@
+# NE rules
+
 - name: "ner-person"
   label: [Person, Entity]
   priority: 1
@@ -18,3 +20,44 @@
   type: token
   pattern: |
     [entity="ORGANIZATION"]+
+
+- name: "ner-date"
+  label: [Date]
+  priority: 1
+  type: token
+  pattern: |
+    [entity="DATE"]+
+
+- name: "subj"
+  label: [Subject, Entity]
+  priority: 1
+  type: token
+  unit: "tag"
+  pattern: |
+    /^N/* [incoming="nsubj"] /^N/*
+
+- name: "proper-noun"
+  label: [ProperNoun, Entity]
+  priority: 1
+  type: token
+  lemma: "tag"
+  pattern: |
+    "NNP"+
+
+# Relations
+- name: "is-a"
+  label: [Equiv]
+  priority: 3
+  type: dependency
+  pattern: |
+    entity: Entity
+    isa: Entity = <nsubj [outgoing="cop"]
+
+- name: "born"
+  label: [Born]
+  priority: 3
+  type: dependency
+  pattern: |
+    trigger = "born"
+    entity: Entity = /^nsubj/
+    birthdate: Date = prep_on
