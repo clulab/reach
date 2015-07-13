@@ -58,5 +58,5 @@
   type: dependency
   pattern: |
     trigger = "born"
-    entity: Entity = /^nsubj/
+    entity: Person = /^nsubj/
     birthdate: Date = prep_on
