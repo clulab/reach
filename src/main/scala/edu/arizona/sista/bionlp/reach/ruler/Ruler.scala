@@ -32,6 +32,9 @@ object Ruler {
     val ruleMap = Try(mkRuleMap(rules)) getOrElse Map.empty
     val result = od.extractFrom(rules, doc)
 
+    // Reset cachedRules on failure
+    if (result.isFailure) od.cachedRules = ""
+
     result match {
       // either the engine succeeded
       case Success(mentions) =>
