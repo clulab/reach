@@ -58,7 +58,7 @@ object Ruler {
       // Temporary catch-all for other errors
       case Failure(other) =>
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
-          Array("", other.getMessage))
+          Array(null, other.getMessage))
     }
   }
 
