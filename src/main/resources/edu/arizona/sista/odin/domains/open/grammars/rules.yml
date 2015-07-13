@@ -6,9 +6,11 @@
   type: token
   pattern: |
    [entity="PERSON"]+
+   |
+   [tag=/^N/]* [tag=/^N/ & outgoing="cop"] [tag=/^N/]*
 
 - name: "ner-location"
-  label: [Location, Entity]
+  label: [Location, PossibleLocation, Entity]
   priority: 1
   type: token
   pattern: |
@@ -36,12 +38,36 @@
   pattern: |
     /^N/* [incoming="nsubj"] /^N/*
 
-- name: "proper-noun"
-  label: [ProperNoun, Entity]
-  priority: 1
+# Try to find other NEs that are likely Locations
+- name: "possible-location"
+  label: [PossibleLocation, ProperNoun]
+  priority: 2
   type: token
   pattern: |
-   [tag="NNP"]+
+   [tag=/^NNP/ & !mention=Location]* [tag=/^NNP/ & incoming=/prep_(in|at)/ & !mention=Location] [tag=/^NNP/ & !mention=Location]*
+
+- name: "proper-noun"
+  label: [ProperNoun, Entity]
+  priority: 2
+  type: token
+  pattern: |
+   [tag="NNP" & !incoming=/prep_(in|at)/ & !mention=/./]+
+
+# Simple coref
+- name: "unresolved"
+  label: [Unresolved]
+  priority: 2
+  type: token
+  pattern: |
+   [tag=/^W/ & incoming=/^(nsubj|dobj)/]
+
+- name: "coref"
+  label: [Resolved]
+  priority: 3
+  type: dependency
+  pattern: |
+    wh: Unresolved
+    antecedent: Entity = </^(nsubj|dobj)/ <rcmod
 
 # Relations
 - name: "is-a"
@@ -51,12 +77,26 @@
   pattern: |
     entity: Entity
     isa: Entity = <nsubj [outgoing="cop"]
+    location: PossibleLocation? = /prep_(in|at)/
 
-- name: "born"
+- name: "born-1"
   label: [Born]
   priority: 3
   type: dependency
   pattern: |
     trigger = "born"
-    entity: Person = /^nsubj/
+    entity: Person = /^nsubj/ | <vmod
     birthdate: Date = prep_on
+    location: PossibleLocation? = /prep_(in|at)/+
+
+- name: "born-2"
+  label: [Born]
+  priority: 3
+  type: dependency
+  pattern: |
+    trigger = [word="born" & !mention=Born]
+    entity: Person = /^nsubj/ | <vmod
+    birthdate: Date? = prep_on
+    location: PossibleLocation = /prep_(in|at)/+
+
+
