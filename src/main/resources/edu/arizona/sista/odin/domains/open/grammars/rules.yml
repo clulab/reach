@@ -40,9 +40,8 @@
   label: [ProperNoun, Entity]
   priority: 1
   type: token
-  lemma: "tag"
   pattern: |
-    "NNP"+
+   [tag="NNP"]+
 
 # Relations
 - name: "is-a"
