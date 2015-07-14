@@ -18,16 +18,13 @@ object Ruler {
   val odProc = new CoreNLPProcessor(withDiscourse = false)
   val od = new OpenSystem(Some(odProc))
 
-  // For parsing the error (name) and (error)
-  val ruleErrorPattern = """Error parsing rule '(.+)': (.+)""".r
-
   /** Run the Open Domain system with the given text and rules. */
   def runOpen(text: String, rules: String): RulerResults = {
     val doc = od.mkDoc(text)
 
     // Were any rules submitted?
     if (rules.trim.isEmpty)
-      return new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty, Array("", "rulesStr is empty"))
+      return new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty, Array(null, "rulesStr is empty"))
 
     // For displaying rules (ruleName -> rule)
     val ruleMap = Try(mkRuleMap(rules)) getOrElse Map.empty
