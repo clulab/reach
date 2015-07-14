@@ -53,6 +53,10 @@ object Ruler {
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
           Array(null, other))
 
+      // Catch-all for anything else
+      case Failure(e) =>
+        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
+          Array(null, e.getMessage))
     }
   }
 
