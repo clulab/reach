@@ -52,6 +52,7 @@ object Ruler {
       case Failure(OdinCompileException(other, None)) =>
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
           Array(null, other))
+
     }
   }
 
