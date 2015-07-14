@@ -2,6 +2,7 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.reach.brat.Brat
+import edu.arizona.sista.odin.impl.OdinCompileException
 import edu.arizona.sista.open.OpenSystem
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
@@ -44,21 +45,16 @@ object Ruler {
           synTrees(doc), ruleMap)
 
       // there may have been a problem compiling the rules
-      case Failure(e) if e.getMessage.startsWith("Error parsing rule '") =>
-        // In the case of a rule compilation error, we will return an Array of size 2
-        // Where the first element is the rule name and the second is the error message
-        val (ruleName, syntaxError) = {
-          val m = ruleErrorPattern.findFirstMatchIn(e.getMessage).get
-          // strip any quotes from the rule name
-          (m.group(1).replaceAll( """["']""", ""), m.group(2))
-        }
+      case Failure(OdinCompileException(e, Some(name))) =>
+
         // No standoff in this case...
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
-          Array(ruleName, syntaxError))
-      // Temporary catch-all for other errors
-      case Failure(other) =>
+          Array(name, e))
+        
+      // An error without a name
+      case Failure(OdinCompileException(other, None)) =>
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
-          Array("", other.getMessage))
+          Array(null, other))
     }
   }
 

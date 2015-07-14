@@ -1,0 +1,8 @@
+We utilized an unbiased mass spectrometry-based approach to identify ubiquitination sites of Ras.
+His-tagged ubiquitin and Flag-tagged K-Ras4B (K-Ras hereafter) were expressed in HEK293T cells at levels similar to endogenous K-Ras (Fig. 1B) and subjected to sequential affinity chromatography.
+His-ubiquitinated proteins were purified by Co2+ metal affinity chromatography in 8M urea denaturing conditions.
+His-ubiquitinated K-Ras was subsequently purified with anti-Flag resin.
+Following purification, mono- and di- ubiquitinated K-Ras appeared to be the major ubiquitination forms, which is consistent with the endogenous K-Ras ubiquitination pattern (Fig. 1, A and B).
+H-Ras ubiquitination sites were also determined by the same approach.
+Tandem mass spectrometric analysis of tryptic fragments from the bands migrating at the positions expected for mono- and di-ubiquitinated Ras revealed ubiquitination at Lys residues 104//104 and 147 of K-Ras, and Lys residues 117//117, 147 and 170 for H-Ras (fig. S1C).
+The tryptic peptide with ubiquitination at Lys147//147 (K147) was the most frequently observed peptide for both K-Ras and H-Ras, while Lys117//117 appeared as a secondary major ubiquitination site in H-Ras.

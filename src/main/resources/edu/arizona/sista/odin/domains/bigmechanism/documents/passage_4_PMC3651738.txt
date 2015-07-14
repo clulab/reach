@@ -1,0 +1,15 @@
+We next examined the mechanisms accounting for the increase in HER3 by MAPK pathway inhibitors in BRAF mutant thyroid cell lines.
+Upregulation of HER3 has been found to mediate resistance to PI3K/AKT (26) or HER2 (27) inhibitors in HER2-amplified breast cancer cell lines, which is caused in part through a FoxO3A-dependent induction of HER3 gene transcription.
+As shown in Fig. 5A, PLX4032 treatment increased HER3 and HER2 mRNAs in all six BRAF-mutant thyroid cancer cell lines tested.
+Similar results were found following treatment with the MEK inhibitor AZD6244 (not shown).
+The effects of the MEK inhibitor on total HER2, HER3 protein and on pHER3 were dose dependent, and inversely associated with the degree of inhibition of pERK (Fig. 5B).
+RAF or MEK inhibitors induced luciferase activity of a HER3 promoter construct spanning ~ 1 kb upstream of the transcriptional start site in 8505C cells.
+Serial deletions identified a minimal HER3 promoter retaining transcriptional response to vemurafenib and AZD6244, which was located between −401 and −42 bp (Fig. 5C).
+This region does not contain any predicted FoxO binding sites.
+Moreover, PLX4032 led to an increase in phosphorylation of FoxO1/3A between 4–10h after addition of compound (not shown), which is known to promote its dissociation from DNA, and likely discards involvement of these factors as transcriptional regulators of HER3 in response to MAPK pathway inhibition.
+The minimal HER3 promoter region regulated by MAPK inhibitors overlaps with sequences previously described to be immunoprecipitated using antibodies against the ZFN217 transcription factor and CtBP1/CtBP2 corepressors (28–30).
+CtBPs have also been described to negatively regulate transcriptional activity of the HER3 promoter in breast carcinoma cell lines (30).
+Silencing of CtBP1, and to a lesser extent CtBP2, increased basal HER3 in 8505C cells, and markedly potentiated the effects of PLX4032 (Fig. 5D and 5E).
+Knockdown of these factors modestly increased basal and PLX4032-induced HER2 levels, which likely contributes to the remarkable increase in pHER3 we observed (Fig. 5D and 5E).
+Finally, CtBP1 and CtBP2 chromatin immunoprecipitation assays showed decreased binding to the HER3 promoter after treatment with PLX4032 (Fig. 5F).
+These findings were confirmed in a second cell line (Supplementary Fig. S5A).
