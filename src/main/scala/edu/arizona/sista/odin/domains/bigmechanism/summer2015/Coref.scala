@@ -413,7 +413,7 @@ class Coref extends DarpaFlow {
       }
     }
 
-    /**
+    /*
      * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
      * @param mentions A Sequence of odin-style mentions
      * @return boolean
