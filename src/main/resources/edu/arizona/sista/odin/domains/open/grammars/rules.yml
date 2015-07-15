@@ -36,7 +36,7 @@
   type: token
   unit: "tag"
   pattern: |
-    /^N/* [incoming="nsubj"] /^N/*
+    /^N/* [incoming=/^nsubj/] /^N/*
 
 # Try to find other NEs that are likely Locations
 - name: "possible-location"
@@ -44,7 +44,7 @@
   priority: 2
   type: token
   pattern: |
-   [tag=/^NNP/ & !mention=Location]* [tag=/^NNP/ & incoming=/prep_(in|at)/ & !mention=Location] [tag=/^NNP/ & !mention=Location]*
+   [tag=/^NNP/ & !mention=/./]* [tag=/^NNP/ & incoming=/prep_(in|at)/ & !mention=/./] [tag=/^NNP/ & !mention=/./]*
 
 - name: "proper-noun"
   label: [ProperNoun, Entity]
@@ -79,24 +79,17 @@
     isa: Entity = <nsubj [outgoing="cop"]
     location: PossibleLocation? = /prep_(in|at)/
 
+# optional location and date
 - name: "born-1"
   label: [Born]
   priority: 3
+  example: "The baby is going to be born in June."
   type: dependency
   pattern: |
     trigger = "born"
-    entity: Person = /^nsubj/ | <vmod
-    birthdate: Date = prep_on
+    entity: Entity = (<xcomp? /^nsubj/) | <vmod
+    birthdate: Date? = /prep_(on|in|at)/+
     location: PossibleLocation? = /prep_(in|at)/+
 
-- name: "born-2"
-  label: [Born]
-  priority: 3
-  type: dependency
-  pattern: |
-    trigger = [word="born" & !mention=Born]
-    entity: Person = /^nsubj/ | <vmod
-    birthdate: Date? = prep_on
-    location: PossibleLocation = /prep_(in|at)/+
 
 
