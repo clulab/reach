@@ -1,7 +1,7 @@
 # NE rules
 
 - name: "ner-person"
-  label: [Person, Entity]
+  label: [Person, PossiblePerson, Entity]
   priority: 1
   type: token
   pattern: |
@@ -30,6 +30,14 @@
   pattern: |
     [entity="DATE"]+
 
+- name: "pronominal-entity"
+  label: [Entity]
+  priority: 1
+  type: token
+  unit: tag
+  pattern: |
+    /^PRP/
+
 - name: "subj"
   label: [Subject, Entity]
   priority: 1
@@ -37,6 +45,14 @@
   unit: "tag"
   pattern: |
     /^N/* [incoming=/^nsubj/] /^N/*
+
+- name: "obj"
+  label: [Object, Entity]
+  priority: 1
+  type: token
+  unit: "tag"
+  pattern: |
+    /^N/* [incoming=/obj/] /^N/*
 
 # Try to find other NEs that are likely Locations
 - name: "possible-location"
@@ -79,6 +95,8 @@
     isa: Entity = <nsubj [outgoing="cop"]
     location: PossibleLocation? = /prep_(in|at)/
 
+# Events
+
 # optional location and date
 - name: "born-1"
   label: [Born]
@@ -92,4 +110,32 @@
     location: PossibleLocation? = /prep_(in|at)/+
 
 
+# optional location and date
+- name: "marry-syntax-1"
+  label: [Marry]
+  priority: 3
+  example: "He married Jane last June in Hawaii."
+  type: dependency
+  pattern: |
+    trigger = [lemma="marry"]
+    spouse: Entity+ = <xcomp? /^nsubj/ | dobj
+    date: Date? = /prep_(on|in|at)/+
+    location: PossibleLocation? = /prep_(in|at)/+
 
+- name: "marry-tok-1"
+  label: [Marry]
+  priority: 4
+  example: "He married Jane last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @spouse:Entity (?<trigger> [lemma="marry" & !mention=Marry]) "DT"? @spouse:Entity
+
+- name: "marry-tok-2"
+  label: [Marry]
+  priority: 4
+  example: "the couple last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @spouse:Entity (?<trigger> [lemma="marry" & !mention=Marry]) (?! []{,3} @Entity)
