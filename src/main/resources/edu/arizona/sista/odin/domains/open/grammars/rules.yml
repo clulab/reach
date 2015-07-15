@@ -134,8 +134,38 @@
 - name: "marry-tok-2"
   label: [Marry]
   priority: 4
-  example: "the couple last June in Hawaii."
+  example: "the couple married last June in Hawaii."
   unit: tag
   type: token
   pattern: |
     "DT"? @spouse:Entity (?<trigger> [lemma="marry" & !mention=Marry]) (?! []{,3} @Entity)
+
+# optional location and date
+- name: "divorce-syntax-1"
+  label: [Divorce]
+  priority: 3
+  example: "He divorced Jane last June in Hawaii."
+  type: dependency
+  pattern: |
+    trigger = [lemma="divorce"]
+    ex: Entity+ = <xcomp? /^nsubj/ | dobj
+    date: Date? = /prep_(on|in|at)/+
+    location: PossibleLocation? = /prep_(in|at)/+
+
+- name: "divorce-tok-1"
+  label: [Divorce]
+  priority: 4
+  example: "He divorced Jane last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @ex:Entity (?<trigger> [lemma="divorce" & !mention=Divorce]) "DT"? @ex:Entity
+
+- name: "divorce-tok-2"
+  label: [Divorce]
+  priority: 4
+  example: "the couple divorced last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @ex:Entity (?<trigger> ([lemma="file"] "for")? [lemma="divorce" & !mention=Divorce]) (?! []{,3} @Entity)
