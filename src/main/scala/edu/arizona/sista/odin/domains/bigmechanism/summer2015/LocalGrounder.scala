@@ -37,6 +37,8 @@ class LocalGrounder extends DarpaFlow {
     new ManualCellLocationKBAccessor,
     new GendCellLocationKBAccessor,
 
+    new SpeciesKBAccessor,
+
     new AzFailsafeKBAccessor
   )
 

@@ -77,4 +77,7 @@ trait KnowledgeBaseConstants {
   /** Filename of the static tissue type file. */
   val StaticTissueTypeFilename = "tissue-type.tsv"
 
+  /** Filename of the species file */
+  val SpeciesFilename = "Species.tsv"
+
 }

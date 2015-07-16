@@ -285,6 +285,17 @@ class StaticTissueTypeKBAccessor extends LocalKBAccessor {
   readAndFillKB(LocalKBUtils.makePathInKBDir(StaticTissueTypeFilename))
 }
 
+/** KB lookup to resolve species id via KBs. */
+class SpeciesKBAccessor extends LocalKBAccessor {
+  override def baseURI = "http://http://www.ncbi.nlm.nih.gov/Taxonomy/"
+  override def namespace = "ncbitax"
+  override def resourceID = "MIR:00000007"
+
+  // MAIN: load KB to resolve species via static KBs.
+  readAndFillKB(LocalKBUtils.makePathInKBDir(SpeciesFilename))
+}
+
+
 
 //
 // Failsafe Accessor

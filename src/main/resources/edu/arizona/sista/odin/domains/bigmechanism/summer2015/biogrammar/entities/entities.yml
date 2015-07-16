@@ -86,6 +86,14 @@
 # ner rules
 ###################
 
+- name: ner-species
+  label: [Species]
+  action: mkNERMentions
+  priotity: 3
+  type: token
+  pattern: |
+    [entity='B-Species'] [entity='I-Species']*
+
 - name: ner-gene_or_gene_product-entities
   label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
   action: mkNERMentions

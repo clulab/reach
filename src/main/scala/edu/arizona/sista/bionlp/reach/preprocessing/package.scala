@@ -36,8 +36,9 @@ package object preprocessing {
         "manual-family" -> Seq("Family", "BioChemicalEntity"),
         "manual-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
         "manual-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
-        "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"))
-     // .withDefaultValue(Seq("BioChemicalEntity"))
+        "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"),
+     // .withDefaultValue(Seq("BioChemicalEntity")),
+        "Species" -> Seq("Species"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
 
