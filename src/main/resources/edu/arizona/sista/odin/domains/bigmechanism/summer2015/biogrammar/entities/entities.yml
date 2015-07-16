@@ -94,6 +94,14 @@
   pattern: |
     [entity='B-Species'] [entity='I-Species']*
 
+- name: ner-cell-lines
+  label: [CellLine]
+  action: mkNERMentions
+  priotity: 3
+  type: token
+  pattern: |
+    [entity='B-Cell_lines'] [entity='I-Cell_lines']*
+
 - name: ner-gene_or_gene_product-entities
   label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
   action: mkNERMentions
