@@ -2,7 +2,7 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.reach.brat.Brat
-import edu.arizona.sista.odin.impl.OdinCompileException
+import edu.arizona.sista.odin.impl.{OdinNamedCompileException, OdinCompileException}
 import edu.arizona.sista.open.OpenSystem
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
@@ -42,14 +42,13 @@ object Ruler {
           synTrees(doc), ruleMap)
 
       // there may have been a problem compiling the rules
-      case Failure(OdinCompileException(e, Some(name))) =>
-
+      case Failure(OdinNamedCompileException(e, name)) =>
         // No standoff in this case...
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
           Array(name, e))
         
       // An error without a name
-      case Failure(OdinCompileException(other, None)) =>
+      case Failure(OdinCompileException(other)) =>
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
           Array(null, other))
 
