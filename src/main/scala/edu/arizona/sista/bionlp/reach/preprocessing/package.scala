@@ -39,7 +39,8 @@ package object preprocessing {
         "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"),
      // .withDefaultValue(Seq("BioChemicalEntity")),
         "Species" -> Seq("Species"),
-        "Cell_Lines" -> Seq("Cell_lines"))
+        "Cell_Lines" -> Seq("Cell_lines"),
+        "Organ" -> Seq("Organ"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
 

@@ -303,6 +303,14 @@ class CellLinesKBAccessor extends LocalKBAccessor {
   readAndFillKB(LocalKBUtils.makePathInKBDir(CellLinesFilename))
 }
 
+/** KB lookup to resolve cell lines via KBs. */
+class OrganKBAccessor extends LocalKBAccessor {
+  override def resourceID = "MIR:00000009"
+
+  // MAIN: load KB to resolve species via static KBs.
+  readAndFillKB(LocalKBUtils.makePathInKBDir(OrganFilename))
+}
+
 
 
 
