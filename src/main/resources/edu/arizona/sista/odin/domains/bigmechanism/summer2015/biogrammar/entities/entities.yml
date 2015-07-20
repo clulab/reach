@@ -123,7 +123,7 @@
   priotity: 4
   type: token
   pattern: |
-    @Organ [lemma=/^(cell)/]
+    @Organ [lemma=/^(cells?|tissue)/]
 
 - name: ner-gene_or_gene_product-entities
   label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
