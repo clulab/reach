@@ -22,7 +22,8 @@ package object preprocessing {
     Map("hmdb" -> Seq("Simple_chemical", "BioChemicalEntity"),
         "chebi" -> Seq("Simple_chemical", "BioChemicalEntity"),
         "ProteinFamilies" -> Seq("Family", "BioChemicalEntity"),
-        "tissue-type" -> Seq("Cellular_component", "BioChemicalEntity"),
+        //"tissue-type" -> Seq("Cellular_component", "BioChemicalEntity", "TissueType"),
+        "tissue-type" -> Seq("TissueType"),
         "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
         "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
         "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
@@ -48,7 +49,8 @@ package object preprocessing {
     Map("uniprot-proteins" -> speciesOfInterest,
         "ProteinFamilies" -> speciesOfInterest).withDefaultValue(Nil)
 
-  val IGNORE_THESE = Seq("chebi", "tissue-type")
+  //val IGNORE_THESE = Seq("chebi", "tissue-type")
+  val IGNORE_THESE = Seq("chebi")
   def mkLabelRepresentation(kb: String): String = "[" + KBLUT(kb).mkString(", ") + "]"
 
   /**

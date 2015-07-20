@@ -110,12 +110,20 @@
   pattern: |
     [entity='B-Organ'] [entity='I-Organ']*
 
+- name: ner-tissue-type
+  label: [TissueType]
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-TissueType'] [entity='I-TissueType']*
+
 - name: ner-cell-type
   label: [CellType]
   priotity: 4
   type: token
   pattern: |
-    @Organ [lemma=/^(cell|tissue)/]
+    @Organ [lemma=/^(cell)/]
 
 - name: ner-gene_or_gene_product-entities
   label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
