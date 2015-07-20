@@ -81,7 +81,7 @@ trait KnowledgeBaseConstants {
   val SpeciesFilename = "Species.tsv"
 
   /** Filename of the cell lines file */
-  val CellLinesFilename = "Cell_lines.tsv"
+  val CellLinesFilename = "Cell_Lines.tsv"
 
   /** Filename of the organs file */
   val OrganFilename = "Organ.tsv"
