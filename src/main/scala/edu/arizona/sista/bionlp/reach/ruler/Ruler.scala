@@ -64,6 +64,8 @@ object Ruler {
   def runReach(text: String): RulerResults = {
     val doc = reach.mkDoc(text, "visualizer")
     val mentions = reach.extractFrom(doc)
+      // Remove ModificationTriggers from output
+      .filterNot(_ matches "ModificationTrigger")
     val rules = reach.allRules
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
