@@ -34,6 +34,7 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_.label == "Binding") should have size 1
   }
 
+  // TODO: this test should account for the binding we DON'T want
   val sent4 = "Even more than Ras and Mek, ASPP2 is common, and so is their binding to it."
   sent4 should "produce two bindings: (Ras, ASPP2), (Mek, ASPP2)" in {
     val mentions = parseSentence(sent4)
