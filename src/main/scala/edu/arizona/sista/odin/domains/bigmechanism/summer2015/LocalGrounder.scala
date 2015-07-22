@@ -21,10 +21,19 @@ class LocalGrounder extends DarpaFlow {
     * 5. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val searchSequence = Seq(
+
     new StaticProteinKBAccessor,
     new ManualProteinKBAccessor,
     new StaticProteinFamilyKBAccessor,
     new ManualProteinFamilyKBAccessor,
+
+    // Context-relevant accessors
+    new CellTypeAccessor,
+    new SpeciesKBAccessor,
+    new CellLinesKBAccessor,
+    new OrganKBAccessor,
+    new StaticTissueTypeKBLookup,
+
     // NB: generated protein families are included in the generated protein KB:
     new GendProteinKBAccessor,
 
@@ -36,11 +45,6 @@ class LocalGrounder extends DarpaFlow {
     new StaticCellLocationKBAccessor,
     new ManualCellLocationKBAccessor,
     new GendCellLocationKBAccessor,
-
-    new SpeciesKBAccessor,
-    new CellLinesKBAccessor,
-    new OrganKBAccessor,
-    new StaticTissueTypeKBLookup,
 
     new AzFailsafeKBAccessor
   )

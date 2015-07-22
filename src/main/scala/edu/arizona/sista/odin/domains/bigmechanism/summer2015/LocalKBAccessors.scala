@@ -302,14 +302,45 @@ class CellLinesKBAccessor extends LocalKBAccessor {
   readAndFillKB(LocalKBUtils.makePathInKBDir(CellLinesFilename))
 }
 
-/** KB lookup to resolve cell lines via KBs. */
+/** KB lookup to resolve organs via KBs. */
 class OrganKBAccessor extends LocalKBAccessor {
 
   // MAIN: load KB to resolve species via static KBs.
   readAndFillKB(LocalKBUtils.makePathInKBDir(OrganFilename))
 }
 
+/** KB lookup to resolve cell types via KBs. */
+class CellTypeAccessor extends LocalKBAccessor {
 
+  readAndFillKB(LocalKBUtils.makePathInKBDir(OrganFilename))
+
+  /** Returns the same key as if this came from the Organs KB */
+  override def getLookupKey (mention:Mention): String = {
+    val text = mention.text
+
+    // Drop the last term of the text which would be cell(s) or tissue
+    val tokens = text.split(" ")
+    val key = (tokens take (tokens.size - 1)).mkString(" ")
+
+    return LocalKBUtils.makeKBCanonKey(key)   // canonicalize text for KBs
+  }
+
+  /** substitute the id prefix */
+  override def resolve (mention:Mention): Map[String,String] = {
+    val key = getLookupKey(mention)         // make a key from the mention
+    val res = theKB.getOrElse(key, Map.empty) // return properties map or signal lookup failure
+
+    // Override the key
+    if (res != Map.empty){
+      val id = res("referenceID")
+      val n = res + ("referenceID" -> id.replaceFirst("UA-ORG", "UAI-CT"))
+      n
+    }
+    else{
+       res
+    }
+  }
+}
 
 
 //
