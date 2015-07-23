@@ -309,8 +309,15 @@ class OrganKBAccessor extends LocalKBAccessor {
   readAndFillKB(LocalKBUtils.makePathInKBDir(OrganFilename))
 }
 
+/** KB lookup to resolve cell and tissue types via KBs. */
+class CellTypeKBAccessor extends LocalKBAccessor {
+
+  // MAIN: load KB to resolve species via static KBs.
+  readAndFillKB(LocalKBUtils.makePathInKBDir(CellTypesFilename))
+}
+
 /** KB lookup to resolve cell types via KBs. */
-class CellTypeAccessor extends LocalKBAccessor {
+class InferredCellTypeKBAccessor extends LocalKBAccessor {
 
   readAndFillKB(LocalKBUtils.makePathInKBDir(OrganFilename))
 

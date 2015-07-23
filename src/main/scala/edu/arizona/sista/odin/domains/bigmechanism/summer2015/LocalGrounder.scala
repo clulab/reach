@@ -28,7 +28,8 @@ class LocalGrounder extends DarpaFlow {
     new ManualProteinFamilyKBAccessor,
 
     // Context-relevant accessors
-    new CellTypeAccessor,
+    new CellTypeKBAccessor,
+    new InferredCellTypeKBAccessor, // These mentions come from a rule
     new SpeciesKBAccessor,
     new CellLinesKBAccessor,
     new OrganKBAccessor,

@@ -23,7 +23,7 @@ package object preprocessing {
         "chebi" -> Seq("Simple_chemical", "BioChemicalEntity"),
         "ProteinFamilies" -> Seq("Family", "BioChemicalEntity"),
         //"tissue-type" -> Seq("Cellular_component", "BioChemicalEntity", "TissueType"),
-        "tissue-type" -> Seq("TissueType"),
+        "tissue-type" -> Seq("CellType"),
         "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
         "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
         "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
@@ -40,8 +40,9 @@ package object preprocessing {
         "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"),
      // .withDefaultValue(Seq("BioChemicalEntity")),
         "Species" -> Seq("Species"),
-        "Cell_Lines" -> Seq("Cell_lines"),
-        "Organ" -> Seq("Organ"))
+        "Cell_Lines" -> Seq("CellLine"),
+        "Organ" -> Seq("Organ"),
+        "Cell_Type" -> Seq("CellType"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
 
