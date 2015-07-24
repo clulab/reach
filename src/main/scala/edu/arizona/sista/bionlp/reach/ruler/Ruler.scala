@@ -1,12 +1,14 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
+import scala.collection.JavaConverters._
+import scala.util.{Try, Success, Failure}
+
 import edu.arizona.sista.bionlp._
 import edu.arizona.sista.bionlp.reach.brat.Brat
 import edu.arizona.sista.odin.impl.{OdinNamedCompileException, OdinCompileException}
 import edu.arizona.sista.open.OpenSystem
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
-import scala.util.{Try, Success, Failure}
 
 object Ruler {
 
@@ -24,10 +26,10 @@ object Ruler {
 
     // Were any rules submitted?
     if (rules.trim.isEmpty)
-      return new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty, Array(null, "rulesStr is empty"))
+      return new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), null, Array(null, "rulesStr is empty"))
 
     // For displaying rules (ruleName -> rule)
-    val ruleMap = Try(mkRuleMap(rules)) getOrElse Map.empty
+    val ruleMap = Try(mkRuleMap(rules)).getOrElse(null).asJava
     val result = od.extractFrom(rules, doc)
 
     // Reset cachedRules on failure
@@ -46,15 +48,15 @@ object Ruler {
         // No standoff in this case...
         new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
           Array(name, e))
-        
+
       // An error without a name
       case Failure(OdinCompileException(other)) =>
-        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
+        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
           Array(null, other))
 
       // Catch-all for anything else
       case Failure(e) =>
-        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), Map.empty,
+        new RulerResults(text, rules, null, null, tokens(doc), synTrees(doc), ruleMap,
           Array(null, e.getMessage))
     }
   }
@@ -69,8 +71,9 @@ object Ruler {
     val rules = reach.allRules
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
+    val ruleMap = Try(mkRuleMap(rules)).getOrElse(null).asJava
     new RulerResults(text, rules, eventAnnotations, syntaxAnnotations,
-                     tokens(doc), synTrees(doc), mkRuleMap(rules))
+                     tokens(doc), synTrees(doc), ruleMap)
   }
 
 
@@ -131,7 +134,7 @@ class RulerResults(val text: String,
                    val syntaxAnnotations: String,
                    val syntaxTokens: Array[Token],
                    val syntaxTrees: Array[String],
-                   val ruleMap: Map[String, String],
+                   val ruleMap: java.util.Map[String, String],
                    // Error is always size of 2 (name, message) whenever present
                    val error: Array[String] = null)
 
