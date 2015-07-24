@@ -9,7 +9,7 @@ import edu.arizona.sista.bionlp.reach.preprocessing.TemplateMap
  */
 object RuleReader {
 
-  case class Rules(entities: String, modifications: String, events: String, coref: String)
+  case class Rules(entities: String, modifications: String, events: String, coref: String, context: String)
 
   val resourcesDir = "/edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar"
   val templatesDir = s"$resourcesDir/templates"
@@ -17,11 +17,12 @@ object RuleReader {
   val modificationsDir = s"$resourcesDir/modifications"
   val eventsDir = s"$resourcesDir/events"
   val corefDir = s"$resourcesDir/coref"
+  val contextDir = s"$resourcesDir/context"
   // For shell
   val resourcesPath = s"src/main/resources$resourcesDir"
 
   def readRules(): String =
-    readEntityRules() + "\n\n" + readModificationRules() + "\n\n" + readEventRules()
+    readEntityRules() + "\n\n" + readModificationRules() + "\n\n" + readEventRules() + "\n\n" + readContextRules()
 
   def readEntityRules(): String = {
     val files = Seq(
@@ -80,6 +81,14 @@ object RuleReader {
     ruleFiles + readEventRules()
   }
 
+  def readContextRules(): String = {
+    val files = Seq(
+      s"$contextDir/context_relations.yml"
+    )
+
+    files map readResource mkString "\n\n"
+  }
+
 
   def readFile(filename: String) = {
     val source = io.Source.fromFile(filename)
@@ -117,18 +126,21 @@ object RuleReader {
     val eventsPath = s"$resourcesPath/events"
     val templatesPath = s"$resourcesPath/templates"
     val corefPath = s"$resourcesPath/coref"
+    val contextPath = s"$resourcesPath/context"
 
     val entitiesDir = new File(".", entitiesPath)
     val modificationsDir = new File(".", modificationsPath)
     val eventsDir = new File(".", eventsPath)
     val templatesDir = new File(".", templatesPath)
     val corefDir = new File(".", corefPath)
+    val contextDir = new File(".", contextPath)
 
     println(s"\tentities\t=> ${entitiesDir.getCanonicalPath}")
     println(s"\tmodifications\t=> ${modificationsDir.getCanonicalPath}")
     println(s"\tevents\t\t=> ${eventsDir.getCanonicalPath}")
     println(s"\ttemplates\t=> ${templatesDir.getCanonicalPath}")
     println(s"\tcoref\t\t=> ${corefDir.getCanonicalPath}")
+    println(s"\tcontext\t\t=> ${contextDir.getCanonicalPath}")
 
     val simpleEventTemplate = readFile(templatesDir.getAbsolutePath + "/simple-event_template.yml")
     val templaticEvents = generateRulesFromTemplate(simpleEventTemplate, simpleEventMap)
@@ -154,11 +166,13 @@ object RuleReader {
       templaticNegRegs
 
     val corefRules = eventRules + readRuleFilesFromDir(corefDir)
-    Rules(entityRules, modificationRules, eventRules, corefRules)
+
+    val contextRules = readRuleFilesFromDir(contextDir)
+    Rules(entityRules, modificationRules, eventRules, corefRules, contextRules)
   }
 
   /** Replaces rules variables.
-    * 
+    *
     * @param rules A string with variables to replace
     * @param variables a map of (name -> value)
     * @return a string with the new text
