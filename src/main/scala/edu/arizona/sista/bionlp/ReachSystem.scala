@@ -70,19 +70,20 @@ class ReachSystem(rules: Option[Rules] = None,
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
-    val events = extractEventsFrom(doc, entities)//
-    val resolved = extractResolvedFrom(doc, events)
+    val ctxEntities = extractContextFrom(doc, entities)
+    val newEntities = ctxEntities.map(_.toBioMention)
+    val events = extractEventsFrom(doc, newEntities)//
+    val resolved = extractResolvedFrom(doc, newEntities)
     val complete =
       // Coref introduced incomplete Mentions that now need to be pruned
       keepMostCompleteMentions(resolved, State(resolved))
         .map(_.toBioMention)
 
-     println(extractContextFrom(doc, entities))
     resolveDisplay(complete)
   }
 
-  def extractContextFrom(doc:Document, entities:Seq[BioMention]): Seq[BioMention] = {
-    val relations = contextEngine.extractByType[BioMention](doc, State(entities))
+  def extractContextFrom(doc:Document, entities: Seq[BioMention]): Seq[Mention] = {
+    val relations = contextEngine.extractFrom(doc, State(entities))
     relations
   }
 

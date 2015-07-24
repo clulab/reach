@@ -1,0 +1,148 @@
+###############
+# Context rules
+###############
+
+## Possesive rules #########################################
+- name: context_possesive_a_1
+  example: "lung of a human"
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Organ
+    master:Species = prep_of
+
+- name: context_possesive_a_2
+  example: "macrophages of the blood"
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Organ = prep_of
+
+- name: context_possesive_a_3
+  example: "macrophages of the blood"
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Organ = prep_of
+
+- name: context_possesive_a_4
+  example: "sperm of a patient"
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Species = prep_of
+
+- name: context_possesive_a_5
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Species = prep_of
+
+- name: context_possesive_a_6
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Organ = prep_of
+
+- name: context_possesive_b_6
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Organ
+    master:Species = poss
+
+- name: context_possesive_b_7
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Organ = poss
+
+- name: context_possesive_b_8
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Organ = poss
+#######################################################
+
+## Location rules #####################################
+- name: context_location_1
+  example: "lung at a human"
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:Organ
+    master:Species = /prep_in|prep_on|prep_at/
+
+- name: context_location_2
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Organ = /prep_in|prep_on|prep_at/
+
+- name: context_location_3
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Organ = /prep_in|prep_on|prep_at/
+
+- name: context_location_4
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Species = /prep_in|prep_on|prep_at/
+
+- name: context_location_5
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Species = /prep_in|prep_on|prep_at/
+#######################################################
+
+## Direction rules #####################################
+- name: context_direction_1
+  example: "lung at a human"
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:Organ
+    master:Species = /prep_to|prep_from/
+
+- name: context_direction_2
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Organ = /prep_to|prep_from/
+
+- name: context_direction_3
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Organ = /prep_to|prep_from/
+
+- name: context_direction_4
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:CellType
+    master:Species = /prep_to|prep_from/
+
+- name: context_direction_5
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:CellLine
+    master:Species = /prep_to|prep_from/
+#######################################################
