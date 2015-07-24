@@ -20,7 +20,7 @@
   type: token
   unit: "tag"
   pattern: |
-   "IN"+ @VerbPhrase
+   "IN"+ @VerbPhrase+
 
 - name: "prep-phrase-recurs"
   label: [PrepPhrase, XP]
