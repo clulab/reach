@@ -106,11 +106,11 @@
     master:CellType = poss
 
 - name: context_possesive_b_11
-   label: [ContextPossesive, Event]
-   priority: 4
-   pattern: |
-     dependent:Gene_or_gene_product
-     master:Organ = poss
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Organ = poss
 #######################################################
 
 ## Location rules #####################################
