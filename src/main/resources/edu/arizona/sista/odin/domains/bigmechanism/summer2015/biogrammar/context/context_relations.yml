@@ -105,7 +105,7 @@
     dependent:Gene_or_gene_product
     master:CellType = poss
 
- - name: context_possesive_b_11
+- name: context_possesive_b_11
    label: [ContextPossesive, Event]
    priority: 4
    pattern: |
