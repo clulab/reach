@@ -11,6 +11,20 @@
     dependent:Organ
     master:Species = prep_of
 
+- name: context_possesive_a_8
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Species = prep_of
+
+- name: context_possesive_a_9
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:CellType = prep_of
+
 - name: context_possesive_a_2
   example: "macrophages of the blood"
   label: [ContextPossesive, Event]
@@ -25,6 +39,13 @@
   priority: 4
   pattern: |
     dependent:CellLine
+    master:Organ = prep_of
+
+- name: context_possesive_a_7
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
     master:Organ = prep_of
 
 - name: context_possesive_a_4
@@ -69,6 +90,27 @@
   pattern: |
     dependent:CellLine
     master:Organ = poss
+
+- name: context_possesive_b_9
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Species = poss
+
+- name: context_possesive_b_10
+  label: [ContextPossesive, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:CellType = poss
+
+ - name: context_possesive_b_11
+   label: [ContextPossesive, Event]
+   priority: 4
+   pattern: |
+     dependent:Gene_or_gene_product
+     master:Organ = poss
 #######################################################
 
 ## Location rules #####################################
@@ -107,6 +149,27 @@
   pattern: |
     dependent:CellLine
     master:Species = /prep_in|prep_on|prep_at/
+
+- name: context_location_6
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Species = /prep_in|prep_on|prep_at/
+
+- name: context_location_7
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:CellType = /prep_in|prep_on|prep_at/
+
+- name: context_location_8
+  label: [ContextLocation, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Organ = /prep_in|prep_on|prep_at/
 #######################################################
 
 ## Direction rules #####################################
@@ -145,4 +208,25 @@
   pattern: |
     dependent:CellLine
     master:Species = /prep_to|prep_from/
+
+- name: context_direction_6
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Species = /prep_to|prep_from/
+
+- name: context_direction_7
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:CellType = /prep_to|prep_from/
+
+- name: context_direction_8
+  label: [ContextDirection, Event]
+  priority: 4
+  pattern: |
+    dependent:Gene_or_gene_product
+    master:Organ = /prep_to|prep_from/
 #######################################################
