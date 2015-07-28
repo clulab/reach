@@ -27,8 +27,6 @@ class PandasOutput() {
       }
     }).distinct
 
-    println(s"CONTEXT - ${paperPassages.size} fries entries.\t ${docs.size} documents.")
-
     var entities = new mutable.ListBuffer[String]()
     var relations = new mutable.ListBuffer[String]()
     val lines = new mutable.ListBuffer[String]()
