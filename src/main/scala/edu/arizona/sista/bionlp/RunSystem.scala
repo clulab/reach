@@ -122,9 +122,12 @@ object RunSystem extends App {
     }
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]
+    val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
     for (entry <- entries) {
       try {
-        paperMentions ++= reach.extractFrom(entry)
+        val mentions:Seq[BioMention] = reach.extractFrom(entry)
+        mentions foreach { m => mentionsEntriesMap += (m -> entry) }
+        paperMentions ++= mentions
       } catch {
         case e: Exception =>
           val report = s"""
@@ -166,7 +169,7 @@ object RunSystem extends App {
         // Write down the context output
         val outputter:PandasOutput = new PandasOutput()
 
-        val (entities, relations, lines) = outputter.toCSV(paperId, paperMentions, entries)
+        val (entities, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
         // Write the text files
         val outMentions = new File(contextDir, s"$paperId.entities")
         val outRelations = new File(contextDir, s"$paperId.relations")

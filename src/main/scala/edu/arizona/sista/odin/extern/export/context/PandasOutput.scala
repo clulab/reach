@@ -14,27 +14,32 @@ import edu.arizona.sista.bionlp.FriesEntry
 
 class PandasOutput() {
   def toCSV(paperID:String,
-            allMentions:Seq[Mention],
-            paperPassages:Seq[FriesEntry]):(Seq[String],
+            allMentions:Seq[BioMention],
+            paperPassages:Map[BioMention, FriesEntry]):(Seq[String],
                Seq[String], Seq[String]) = {
 
-
     // Get fetch documents
-    val docs = (allMentions map (_.document) sortBy { x:Document =>
-      x.id match {
+    val docs = (allMentions map (m => (m.document, paperPassages(m))) sortBy { t:(Document, FriesEntry) =>
+      t._1.id match {
         // Take the last element of the Id and make it a number
         case Some(id) => id.split("_").last.toInt
         case None => -1
       }
     }).distinct
 
+    println(s"CONTEXT - ${paperPassages.size} fries entries.\t ${docs.size} documents.")
+
     var entities = new mutable.ListBuffer[String]()
     var relations = new mutable.ListBuffer[String]()
     val lines = new mutable.ListBuffer[String]()
 
+    entities += "Paper ID\tLine Num\tGrounded ID\tText\tType"
+    relations += "Paper ID\tLine Num\tMaster ID\tDependent ID\tText\tType"
+    lines += "Paper ID\tIs title?\tSection ID\tPassage ID\tLine Num\tText"
+
     var absoluteIx = 0 // The absolute index of the sentences
 
-    for (doc <- docs){
+    for (((doc, entry), passageIx) <- docs.zipWithIndex){
       // Extract the ordered sentences of the passage
       val sentences:Seq[Sentence] = doc.sentences
 
@@ -46,7 +51,8 @@ class PandasOutput() {
         val sentence = s._1
 
         // Store the sentence's text
-        lines += s"$paperID\t$absoluteIx\t${sentence.getSentenceText}"
+        // paperID - is title - section ID - passageID - line Num - Text
+        lines += s"$paperID\t${entry.isTitle}\t${entry.sectionId}\t$passageIx\t$absoluteIx\t${sentence.getSentenceText}"
 
         // Get the mentions in the current sentence
         val m = mentions filter (_.sentence == ix)
