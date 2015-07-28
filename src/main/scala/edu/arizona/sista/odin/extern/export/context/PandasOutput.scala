@@ -89,40 +89,46 @@ class PandasOutput() {
             case ev:BioRelationMention =>
               var sb = new mutable.StringBuilder()
 
-              // paperID - sentence ix - master ID - dependent ID - text - type
-              sb ++= s"$paperID\t$absoluteIx\t"
+              val interesting = Seq("ContextPossesive", "ContextLocation", "ContextDirection")
 
-              // Resolve the master participant
-              ev.arguments("master").head.asInstanceOf[BioTextBoundMention].xref match {
-                case Some(xref) =>
-                  sb ++= xref.printString
-                  sb ++= "\t"
-                case None => sb ++= "N/A"
-              }
+              if(interesting.exists(ev.labels.contains(_))){
 
-              // Resolve the dependent participant
-              ev.arguments("dependent").head.asInstanceOf[BioTextBoundMention].xref match {
-                case Some(xref) =>
-                  sb ++= xref.printString
-                case None => sb ++= "N/A"
-              }
+                // paperID - sentence ix - master ID - dependent ID - text - type
+                sb ++= s"$paperID\t$absoluteIx\t"
 
-              sb ++= s"\t${ev.text}\t"
+                // Resolve the master participant
+                ev.arguments("master").head.asInstanceOf[BioTextBoundMention].xref match {
+                  case Some(xref) =>
+                    sb ++= xref.printString
+                    sb ++= "\t"
+                  case None => sb ++= "N/A"
+                }
 
-              // Get the type of context
-              if(ev.labels contains "ContextPossesive"){
-                sb ++= "ContextPossesive"
-                relations += sb.toString
-              }
-              else if(ev.labels contains "ContextLocation"){
-                sb ++= "ContextLocation"
-                relations += sb.toString
-              }
-              else if(ev.labels contains "ContextDirection"){
-                sb ++= "ContextDirection"
-                relations += sb.toString
+                // Resolve the dependent participant
+                ev.arguments("dependent").head.asInstanceOf[BioTextBoundMention].xref match {
+                  case Some(xref) =>
+                    sb ++= xref.printString
+                  case None => sb ++= "N/A"
+                }
+
+                sb ++= s"\t${ev.text}\t"
+
+                // Get the type of context
+                if(ev.labels contains "ContextPossesive"){
+                  sb ++= "ContextPossesive"
+                  relations += sb.toString
+                }
+                else if(ev.labels contains "ContextLocation"){
+                  sb ++= "ContextLocation"
+                  relations += sb.toString
+                }
+                else if(ev.labels contains "ContextDirection"){
+                  sb ++= "ContextDirection"
+                  relations += sb.toString
+                }
               }
             case _ => Unit
+
           }
         }
         absoluteIx += 1
