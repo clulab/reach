@@ -12,6 +12,7 @@ import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 import edu.arizona.sista.odin.extern.export.hans._
 import edu.arizona.sista.odin.extern.export.reach._
+import edu.arizona.sista.odin.extern.export.context._
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -22,6 +23,7 @@ object RunSystem extends App {
   val nxmlDir = new File(config.getString("nxmlDir"))
   val txtDir = new File(config.getString("txtDir"))
   val friesDir = new File(config.getString("friesDir"))
+  val contextDir = new File(config.getString("contextDir"))
   val encoding = config.getString("encoding")
   val outputType = config.getString("outputType")
   val logFile = new File(config.getString("logFile"))
@@ -43,6 +45,14 @@ object RunSystem extends App {
     FileUtils.forceMkdir(friesDir)
   } else if (!friesDir.isDirectory) {
     sys.error(s"${friesDir.getCanonicalPath} is not a directory")
+  }
+
+  // if contextDir does not exist create it
+  if (!contextDir.exists) {
+    println(s"creating ${contextDir.getCanonicalPath}")
+    FileUtils.forceMkdir(contextDir)
+  } else if (!contextDir.isDirectory) {
+    sys.error(s"${contextDir.getCanonicalPath} is not a directory")
   }
 
   // if txtDir does not exist create it
@@ -151,6 +161,22 @@ object RunSystem extends App {
         println(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
         FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+      case "context" =>
+        println("Using context output ...")
+        // Write down the context output
+        val outputter:PandasOutput = new PandasOutput()
+
+        val (entities, relations, lines) = outputter.toCSV(paperId, paperMentions, entries)
+        // Write the text files
+        val outMentions = new File(contextDir, s"$paperId.entities")
+        val outRelations = new File(contextDir, s"$paperId.relations")
+        val outLines = new File(contextDir, s"$paperId.lines")
+        FileUtils.writeLines(outMentions, entities.asJavaCollection)
+        FileUtils.writeLines(outRelations, relations.asJavaCollection)
+        FileUtils.writeLines(outLines, lines.asJavaCollection)
+
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+
       // Anything that is not text (including Hans-style output)
       case _ =>
         outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
@@ -198,4 +224,3 @@ object RunSystem extends App {
   }
 
 }
-
