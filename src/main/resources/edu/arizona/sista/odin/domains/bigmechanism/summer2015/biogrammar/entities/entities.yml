@@ -118,12 +118,12 @@
   pattern: |
     [entity='B-CellType'] [entity='I-CellType']*
 
-- name: ner-infered-cell-type
-  label: [CellType]
-  priotity: 4
-  type: token
-  pattern: |
-    @Organ [lemma=/^(cells?|tissue|fluids?)/]
+# - name: ner-infered-cell-type
+#   label: [CellType]
+#   priotity: 4
+#   type: token
+#   pattern: |
+#     @Organ [lemma=/^(cells?|tissue|fluids?)/]
 
 - name: ner-gene_or_gene_product-entities
   label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
