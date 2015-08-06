@@ -20,7 +20,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output HANS format models.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Refactor to access JSON: delay file writing.
+  *   Last Modified: Update for json outputter trait refactoring.
   */
 class HansOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -35,16 +35,50 @@ class HansOutput extends JsonOutputter {
   // required for json output serialization:
   implicit val formats = org.json4s.DefaultFormats
 
+
   //
   // Public API:
   //
 
+  /**
+    * Returns the given mentions in the Hans JSON format, as one big string. The normally
+    * separate representations for sentences, entities, and events are combined and
+    * returned as a single JSON string with corresponding top-level fields.
+    */
   override def toJSON (paperId:String,
                        allMentions:Seq[Mention],
                        paperPassages:Seq[FriesEntry],
                        startTime:Date,
                        endTime:Date,
-                       outFilePrefix:String): Unit = {
+                       outFilePrefix:String): String = {
+
+    val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
+
+    val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
+    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
+                                                   startTime, endTime)
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap, startTime, endTime)
+
+    val uniModel:PropMap = new PropMap      // combine models into one
+    uniModel("sentences") = sentModel
+    uniModel("entities") = entityModel
+    uniModel("events") = eventModel
+
+    return writeJsonToString(uniModel)
+  }
+
+
+  /**
+    * Writes the given mentions to output files in Hans JSON format.
+    * Separate output files are written for sentences, entities, and events.
+    * Each output file is prefixed with the given prefix string.
+    */
+  override def writeJSON (paperId:String,
+                          allMentions:Seq[Mention],
+                          paperPassages:Seq[FriesEntry],
+                          startTime:Date,
+                          endTime:Date,
+                          outFilePrefix:String): Unit = {
     // println("ALL MENTIONS:")
     // for(m <- allMentions) {
     //   println(m)
@@ -441,6 +475,14 @@ class HansOutput extends JsonOutputter {
     out.println()                           // add final newline which serialization omits
     out.flush()
     out.close()
+  }
+
+  /** Convert the entire output data structure to JSON and return it as a string. */
+  private def writeJsonToString (model:PropMap): String = {
+    val out:StringWriter = new StringWriter()
+    Serialization.writePretty(model, out)
+    out.flush()                             // closing a string writer has no effect
+    return out.toString()
   }
 
   private def getChunkId(m:Mention):String = {

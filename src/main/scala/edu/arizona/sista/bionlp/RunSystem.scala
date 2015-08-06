@@ -194,7 +194,7 @@ object RunSystem extends App {
       case      _ => new ReachOutput()
     }
 
-    outputter.toJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
+    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
 
 }
