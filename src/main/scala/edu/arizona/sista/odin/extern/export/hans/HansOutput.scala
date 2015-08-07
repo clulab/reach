@@ -20,7 +20,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output HANS format models.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Initial creation of infrastructure.
+  *   Last Modified: Update for json outputter trait refactoring.
   */
 class HansOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -35,36 +35,69 @@ class HansOutput extends JsonOutputter {
   // required for json output serialization:
   implicit val formats = org.json4s.DefaultFormats
 
+
   //
   // Public API:
   //
 
+  /**
+    * Returns the given mentions in the Hans JSON format, as one big string. The normally
+    * separate representations for sentences, entities, and events are combined and
+    * returned as a single JSON string with corresponding top-level fields.
+    */
   override def toJSON (paperId:String,
                        allMentions:Seq[Mention],
                        paperPassages:Seq[FriesEntry],
                        startTime:Date,
                        endTime:Date,
-                       outFilePrefix:String): Unit = {
+                       outFilePrefix:String): String = {
+
+    val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
+
+    val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
+    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
+                                                   startTime, endTime)
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap, startTime, endTime)
+
+    val uniModel:PropMap = new PropMap      // combine models into one
+    uniModel("sentences") = sentModel
+    uniModel("entities") = entityModel
+    uniModel("events") = eventModel
+
+    return writeJsonToString(uniModel)
+  }
+
+
+  /**
+    * Writes the given mentions to output files in Hans JSON format.
+    * Separate output files are written for sentences, entities, and events.
+    * Each output file is prefixed with the given prefix string.
+    */
+  override def writeJSON (paperId:String,
+                          allMentions:Seq[Mention],
+                          paperPassages:Seq[FriesEntry],
+                          startTime:Date,
+                          endTime:Date,
+                          outFilePrefix:String): Unit = {
+    // println("ALL MENTIONS:")
+    // for(m <- allMentions) {
+    //   println(m)
+    //   displayMention(m)
+    // }
+
     // map of FriesEntry, using chunkId as key
     val passageMap = passagesToMap(paperPassages)
 
-    sentencesToJSON(paperId, allMentions, passageMap,
-      startTime, endTime, new File(outFilePrefix + ".uaz.sentences.json"))
-
-    /*
-    println("ALL MENTIONS:")
-    for(m <- allMentions) {
-      println(m)
-      displayMention(m)
-    }
-    */
+    val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
+    writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
-    val entityMap = entitiesToJSON(paperId, allMentions, passageMap,
-      startTime, endTime, new File(outFilePrefix + ".uaz.entities.json"))
+    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
+                                                   startTime, endTime)
+    writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
-    eventsToJSON(paperId, allMentions, passageMap, entityMap,
-      startTime, endTime, new File(outFilePrefix + ".uaz.events.json"))
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap, startTime, endTime)
+    writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
   }
 
 
@@ -79,13 +112,12 @@ class HansOutput extends JsonOutputter {
     map.toMap
   }
 
-  /** Outputs a JSON object containing all sections and sentences in this paper. */
-  private def sentencesToJSON (paperId:String,
-                               allMentions:Seq[Mention],
-                               paperPassages:Map[String, FriesEntry],
-                               startTime:Date,
-                               endTime:Date,
-                               outFile:File) {
+  /** Returns a data-structure representing all sections and sentences in this paper. */
+  private def sentencesToModel (paperId:String,
+                                allMentions:Seq[Mention],
+                                paperPassages:Map[String, FriesEntry],
+                                startTime:Date,
+                                endTime:Date): PropMap = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime)
 
@@ -108,18 +140,17 @@ class HansOutput extends JsonOutputter {
       frames += mkPassage(model, paperId, paperPassages.get(chunkId).get, passageDocs.get(chunkId).get)
       frames ++= mkSentences(model, paperId, paperPassages.get(chunkId).get, passageDocs.get(chunkId).get)
     }
-
-    // write the JSON to the given file
-    writeJsonToFile(model, outFile)
+    return model
   }
 
-  /** Outputs a JSON object containing all entity mentions extracted from this paper. */
-  private def entitiesToJSON (paperId:String,
-                              allMentions:Seq[Mention],
-                              paperPassages:Map[String, FriesEntry],
-                              startTime:Date,
-                              endTime:Date,
-                              outFile:File): IDed = {
+
+  /** Returns a 2-tuple of a model object representing all entity mentions extracted
+      from this paper, and a map from entity pointers to unique IDs. */
+  private def entitiesToModel (paperId:String,
+                               allMentions:Seq[Mention],
+                               paperPassages:Map[String, FriesEntry],
+                               startTime:Date,
+                               endTime:Date): Tuple2[PropMap, IDed] = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime)
     val entityMap = new IDed
@@ -138,20 +169,17 @@ class HansOutput extends JsonOutputter {
         case _ => // these are events; we will export them later
       }
     }
-
-    // write the JSON to the given file
-    writeJsonToFile(model, outFile)
-    entityMap
+    return (model, entityMap)
   }
 
-  /** Outputs a JSON object containing all event mentions extracted from this paper. */
-  private def eventsToJSON (paperId:String,
-                            allMentions:Seq[Mention],
-                            paperPassages:Map[String, FriesEntry],
-                            entityMap:IDed,
-                            startTime:Date,
-                            endTime:Date,
-                            outFile:File) {
+
+  /** Returns a model object representing all event mentions extracted from this paper. */
+  private def eventsToModel (paperId:String,
+                             allMentions:Seq[Mention],
+                             paperPassages:Map[String, FriesEntry],
+                             entityMap:IDed,
+                             startTime:Date,
+                             endTime:Date): PropMap = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime)
 
@@ -184,9 +212,7 @@ class HansOutput extends JsonOutputter {
         frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
       }
     }
-
-    // write the JSON to the given file
-    writeJsonToFile(model, outFile)
+    return model
   }
 
   private def isEventMention(m:Mention):Boolean = {
@@ -449,6 +475,14 @@ class HansOutput extends JsonOutputter {
     out.println()                           // add final newline which serialization omits
     out.flush()
     out.close()
+  }
+
+  /** Convert the entire output data structure to JSON and return it as a string. */
+  private def writeJsonToString (model:PropMap): String = {
+    val out:StringWriter = new StringWriter()
+    Serialization.writePretty(model, out)
+    out.flush()                             // closing a string writer has no effect
+    return out.toString()
   }
 
   private def getChunkId(m:Mention):String = {

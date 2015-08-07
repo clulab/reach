@@ -20,6 +20,7 @@ object RunSystem extends App {
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
   val nxmlDir = new File(config.getString("nxmlDir"))
+  val txtDir = new File(config.getString("txtDir"))
   val friesDir = new File(config.getString("friesDir"))
   val encoding = config.getString("encoding")
   val outputType = config.getString("outputType")
@@ -44,12 +45,21 @@ object RunSystem extends App {
     sys.error(s"${friesDir.getCanonicalPath} is not a directory")
   }
 
+  // if txtDir does not exist create it
+  if (!txtDir.exists) {
+    println(s"creating ${txtDir.getCanonicalPath}")
+    FileUtils.forceMkdir(txtDir)
+  } else if (!txtDir.isDirectory) {
+    sys.error(s"${txtDir.getCanonicalPath} is not a directory")
+  }
+
   println("initializing reach ...")
   val reach = new ReachSystem
 
   println("initializing nxml2fries ...")
   val nxml2fries = new Nxml2Fries(
     config.getString("nxml2fries.executable"),
+    txtDir,
     config.getBoolean("nxml2fries.removeCitations"),
     config.getStringList("nxml2fries.ignoreSections").asScala.toSet,
     encoding)
@@ -184,7 +194,7 @@ object RunSystem extends App {
       case      _ => new ReachOutput()
     }
 
-    outputter.toJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
+    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
 
 }

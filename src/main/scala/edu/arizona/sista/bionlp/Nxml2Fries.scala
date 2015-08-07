@@ -8,13 +8,14 @@ import org.apache.commons.io.{ FileUtils, FilenameUtils }
 
 class Nxml2Fries(
     val executable: String,
+    val outDir: File,
     val removeCitations: Boolean,
     val ignoreSections: Set[String],
     val encoding: String
 ) {
   def extractEntries(input: File): Seq[Try[FriesEntry]] = {
     val command =
-      if (removeCitations) Seq(executable, "--no-citations", input.getCanonicalPath)
+      if (removeCitations) Seq(executable, "--no-citations", "--outDir", outDir.getCanonicalPath, input.getCanonicalPath)
       else Seq(executable, input.getCanonicalPath)
 
     // execute command
@@ -23,7 +24,7 @@ class Nxml2Fries(
     if (status == 0) {
       // get document name
       val name = FilenameUtils.removeExtension(input.getName)
-      val tsvFile = new File(FilenameUtils.removeExtension(input.getCanonicalPath) + ".tsv")
+      val tsvFile = new File(outDir, name + ".tsv")
       FileUtils.readLines(tsvFile, encoding).asScala.flatMap { line =>
         val fields = line.split('\t')
         val entry = Try {
