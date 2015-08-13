@@ -16,7 +16,7 @@ class PandasOutput() {
   def toCSV(paperID:String,
             allMentions:Seq[BioMention],
             paperPassages:Map[BioMention, FriesEntry]):(Seq[String],
-               Seq[String], Seq[String]) = {
+               Seq[String], Seq[String], Seq[String]) = {
 
     // Get fetch documents
     val docs = (allMentions map (m => (m.document, paperPassages(m))) sortBy { t:(Document, FriesEntry) =>
@@ -30,10 +30,12 @@ class PandasOutput() {
     var entities = new mutable.ListBuffer[String]()
     var relations = new mutable.ListBuffer[String]()
     val lines = new mutable.ListBuffer[String]()
+    val events = new mutable.ListBuffer[String]()
 
     entities += "Paper ID\tLine Num\tGrounded ID\tText\tType"
     relations += "Paper ID\tLine Num\tMaster ID\tDependent ID\tText\tType"
     lines += "Paper ID\tIs title?\tSection ID\tPassage ID\tLine Num\tText"
+    events += "Paper ID\tLine Num\tType\tTrigger"
 
     var absoluteIx = 0 // The absolute index of the sentences
 
@@ -44,9 +46,7 @@ class PandasOutput() {
       // keep the mentions relevant only to this passage
       val mentions = allMentions filter (_.document == doc)
 
-      for (s <- sentences.zipWithIndex){
-        val ix = s._2
-        val sentence = s._1
+      for ((sentence, ix) <- sentences.zipWithIndex){
 
         // Store the sentence's text
         // paperID - is title - section ID - passageID - line Num - Text
@@ -90,18 +90,18 @@ class PandasOutput() {
                 entities += sb.toString
               }
             // Generate the lines for context relations
-            case ev:BioRelationMention =>
+            case rel:BioRelationMention =>
               var sb = new mutable.StringBuilder()
 
               val interesting = Seq("ContextPossesive", "ContextLocation", "ContextDirection")
 
-              if(interesting.exists(ev.labels.contains(_))){
+              if(interesting.exists(rel.labels.contains(_))){
 
                 // paperID - sentence ix - master ID - dependent ID - text - type
                 sb ++= s"$paperID\t$absoluteIx\t"
 
                 // Resolve the master participant
-                ev.arguments("master").head.asInstanceOf[BioTextBoundMention].xref match {
+                rel.arguments("master").head.asInstanceOf[BioTextBoundMention].xref match {
                   case Some(xref) =>
                     sb ++= xref.printString
                     sb ++= "\t"
@@ -109,28 +109,58 @@ class PandasOutput() {
                 }
 
                 // Resolve the dependent participant
-                ev.arguments("dependent").head.asInstanceOf[BioTextBoundMention].xref match {
+                rel.arguments("dependent").head.asInstanceOf[BioTextBoundMention].xref match {
                   case Some(xref) =>
                     sb ++= xref.printString
                   case None => sb ++= "N/A"
                 }
 
-                sb ++= s"\t${ev.text}\t"
+                sb ++= s"\t${rel.text}\t"
 
                 // Get the type of context
-                if(ev.labels contains "ContextPossesive"){
+                if(rel.labels contains "ContextPossesive"){
                   sb ++= "ContextPossesive"
                   relations += sb.toString
                 }
-                else if(ev.labels contains "ContextLocation"){
+                else if(rel.labels contains "ContextLocation"){
                   sb ++= "ContextLocation"
                   relations += sb.toString
                 }
-                else if(ev.labels contains "ContextDirection"){
+                else if(rel.labels contains "ContextDirection"){
                   sb ++= "ContextDirection"
                   relations += sb.toString
                 }
               }
+
+            case ev:BioEventMention =>
+                var sb = new mutable.StringBuilder()
+
+                // paperID - sentence ix - labels - trigger txt - argument IDs (this last field may be comma-separated)
+                sb ++= s"$paperID\t$absoluteIx\t"
+
+                 // These are the labels to be removed
+                val removeList = Seq("SimpleEvent", "Event", "PossibleController", "ActivationEvent")
+
+                // Add labels
+                val labels = ev.labels filter (!removeList.contains(_))
+                sb ++= s"${labels.mkString(",")}\t"
+
+                // Add trigger text
+                sb ++= s"${ev.trigger.text}\t"
+
+                // Add arguments of the event
+                val args = ev.arguments flatMap {
+                  case (k, v) => v map {
+                    case tb:BioTextBoundMention => tb.xref match {
+                      case Some(xref) => s"$k,${xref.printString}"
+                      case None => s"$k,N/A"
+                    }
+                  }
+                }
+
+                sb ++= args.mkString("|")
+                events += sb.toString
+
             case _ => Unit
 
           }
@@ -139,6 +169,6 @@ class PandasOutput() {
       }
     }
 
-    (entities.toList.distinct, relations.toList.distinct, lines.toList)
+    (entities.toList.distinct, events.toList.distinct, relations.toList.distinct, lines.toList)
   }
 }

@@ -169,12 +169,14 @@ object RunSystem extends App {
         // Write down the context output
         val outputter:PandasOutput = new PandasOutput()
 
-        val (entities, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
+        val (entities, events, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
         // Write the text files
         val outMentions = new File(contextDir, s"$paperId.entities")
+        val outEvents = new File(contextDir, s"$paperId.events")
         val outRelations = new File(contextDir, s"$paperId.relations")
         val outLines = new File(contextDir, s"$paperId.lines")
         FileUtils.writeLines(outMentions, entities.asJavaCollection)
+        FileUtils.writeLines(outEvents, events.asJavaCollection)
         FileUtils.writeLines(outRelations, relations.asJavaCollection)
         FileUtils.writeLines(outLines, lines.asJavaCollection)
 
