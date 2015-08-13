@@ -29,11 +29,13 @@ object RuleReader {
     val modRules = readEntityRules()
     val eventRules = readEventRules()
     val corefRules = readCorefRules()
+    val contextRules = readContextRules()
 
     Rules(entities = entityRules,
           modifications = modRules,
           events = eventRules,
-          coref = corefRules)
+          coref = corefRules,
+          context = contextRules)
   }
 
   def readEntityRules(): String = {
