@@ -1,0 +1,2 @@
+IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly phosphorylate IkappaB.
+S6K1 phosphorylates the RPTOR protein and promotes the hydroxylation of the Pkh1 protein.

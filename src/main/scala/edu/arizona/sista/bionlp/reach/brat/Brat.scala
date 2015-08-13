@@ -1,6 +1,8 @@
 package edu.arizona.sista.bionlp.reach.brat
 
 import java.io.{File, InputStream}
+import edu.arizona.sista.bionlp.reach.rulelearning.OdinUtils
+
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.{Document, Sentence}
@@ -113,7 +115,7 @@ object Brat {
 
   def dumpStandoff(mentions: Seq[Mention], doc: Document, annotations: Seq[Annotation]): String = {
 
-    val idTracker = IdTracker(annotations)
+    val idTracker = IdTracker(doc, annotations)
 
     val mentionRepresentations = mentions.flatMap(m => m match {
       case event:EventMention => Seq(dumpStandoff(event.trigger, doc, idTracker), dumpStandoff(event, doc, idTracker))
@@ -197,24 +199,13 @@ object Brat {
 }
 
 
-class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
+class IdTracker(val textBoundLUT: HashMap[TextBoundMention, String]) {
   val eventLUT = new HashMap[EventMention, String]
   val relationLUT = new HashMap[RelationMention, String]
   val uniqueLUT = new HashMap[Mention, String]
 
-  def getId(mention: TextBoundMention, doc: Document): String = {
-    val span = charInterval(mention, doc)
-    val ids = textBoundLUT.keys filter (id => textBoundLUT(id) overlaps span)
-    if (ids.size == 1) ids.head
-    else if (ids.size > 1) ids.head // arbitrarily returning the first one
-    else {
-      val currMax = textBoundLUT.keys.map(_.drop(1).toInt).max
-      val id = s"T${currMax + 1}"
-      val kv = (id -> span)
-      textBoundLUT += kv
-      id
-    }
-  }
+  def getId(mention: TextBoundMention, doc: Document): String =
+    textBoundLUT.getOrElseUpdate(mention, s"T${textBoundLUT.size + 1}")
 
   def getId(mention: EventMention, doc: Document): String =
     eventLUT.getOrElseUpdate(mention, s"E${eventLUT.size + 1}")
@@ -236,13 +227,22 @@ class IdTracker(val textBoundLUT: HashMap[String, Interval]) {
 }
 
 object IdTracker {
-  def apply(): IdTracker = apply(Nil)
 
-  def apply(annotations: Seq[Annotation]): IdTracker = {
-    val lut = annotations flatMap {
-      case a: TextBound => Some(a.id -> a.totalSpan)
-      case _ => None
+  // Start with nothing
+  def apply() = new IdTracker(HashMap.empty)
+
+  // For BioNLP tasks:
+  //Start with any Entities (TextBoundMentions) that are compatible with our tokenization
+  def apply(doc: Document, annotations: Seq[Annotation]): IdTracker = {
+    val tbs =
+      OdinUtils.getMentionsfromAnnotations(doc, annotations)
+        .filter(_.isInstanceOf[TextBoundMention])
+        .sortBy(m => (m.sentence, m.tokenInterval.start))
+
+    val tbLUT: HashMap[TextBoundMention, String] = HashMap.empty
+    tbs.zipWithIndex.foreach{
+        case (t:TextBoundMention, i: Int) => tbLUT += (t -> s"T$i")
     }
-    new IdTracker(HashMap(lut: _*))
+    new IdTracker(tbLUT)
   }
 }

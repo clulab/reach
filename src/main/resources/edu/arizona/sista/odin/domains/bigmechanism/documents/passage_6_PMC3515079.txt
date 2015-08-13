@@ -1,0 +1,7 @@
+We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the juxtamembrane domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation.
+To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wild-type ERBB3 with either wild-type EGFR or EGFRT669A.
+In cells transfected with wild-type EGFR, MEK inhibition led to feedback activation of phospho-ERBB3 and phosho-EGFR, recapitulating the results we had observed in our panel of cancer cell lines (Figure 6A).
+In contrast, the EGFRT669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition.
+As a control, we treated CHO-KI cells expressing EGFRT669A with HRG ligand to induce maximal ERBB3 phosphorylation (Figure 6A), indicating that the lack of induction of phospho-ERBB3 in EGFRT669A expressing cells following MEK inhibition was not simply due to the saturation of the system with phospho-ERBB3.
+We observed analogous results in CHO-KI cells expressing wild-type ERBB3 in combination with wild-type or T677A mutant HER2 (Figure 6B).
+Together these results support the hypothesis that inhibition of ERK-mediated phosphorylation of a conserved juxtamembrane domain threonine residue leads to feedback activation of EGFR, HER2, and ERBB3 (Figure 7).

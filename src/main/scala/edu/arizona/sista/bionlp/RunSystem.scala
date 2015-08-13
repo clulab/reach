@@ -10,7 +10,7 @@ import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
-import edu.arizona.sista.odin.extern.export.hans._
+import edu.arizona.sista.odin.extern.export.fries._
 import edu.arizona.sista.odin.extern.export.reach._
 import edu.arizona.sista.odin.extern.export.context._
 
@@ -219,11 +219,11 @@ object RunSystem extends App {
     val outFile = outputDir + File.separator + paperId
 
     val outputter:JsonOutputter = outputType.toLowerCase match {
-      case "hans" => new HansOutput()
+      case "fries" => new FriesOutput()
       case      _ => new ReachOutput()
     }
 
-    outputter.toJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
+    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
 
 }

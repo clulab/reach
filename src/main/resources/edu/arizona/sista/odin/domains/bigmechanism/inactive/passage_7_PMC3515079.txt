@@ -1,0 +1,7 @@
+To determine if this feedback model explains the activation of phosphatidylinositol 3-kinase signaling in EGFR-mutant cancers, we used shRNA to knockdown endogenous EGFR (which carries an exon 19 deletion) in the HCC827 NSCLC cell line and replaced with either EGFR (exon 19del) wild-type at T669//669, or EGFR (exon 19del) carrying a T669A mutation.
+Of note, this is the same EGFR-mutant cell line in which we observed that EGFRT669//669 is phosphorylated in MEK-dependent manner (Figure 5, Supplemental Figure 8A).
+When endogenous EGFR was replaced with EGFR (exon19del) wild-type at T669//669, MEK inhibition led to significant feedback activation of ERBB3/phosphatidylinositol 3-kinase/AKT signaling (Figure 6C).
+However, replacement with the EGFR (exon19 del) T669A mutant led to increased tyrosine phosphorylation of both EGFR and ERBB3, and activation of phosphatidylinositol 3-kinase/AKT signaling, mimicking the effect of MEK inhibition (Figure 6C).
+As expected, addition of AZD6244 failed to further augment ERBB3 and AKT phosphorylation in cells expressing the 669A mutant.
+These results demonstrate that EGFRT669//669 phosphorylation is necessary for MEK/ERK to suppress EGFR-mediated activation of ERBB3.
+This supports the hypothesis that a dominant ERK feedback on ERBB3/phosphatidylinositol 3-kinase/AKT is mediated though phosphorylation of T669//669 on EGFR (or T677//677 HER2).

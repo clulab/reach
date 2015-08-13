@@ -1,0 +1,171 @@
+# NE rules
+
+- name: "ner-person"
+  label: [Person, PossiblePerson, Entity]
+  priority: 1
+  type: token
+  pattern: |
+   [entity="PERSON"]+
+   |
+   [tag=/^N/]* [tag=/^N/ & outgoing="cop"] [tag=/^N/]*
+
+- name: "ner-location"
+  label: [Location, PossibleLocation, Entity]
+  priority: 1
+  type: token
+  pattern: |
+    [entity="LOCATION"]+
+
+- name: "ner-org"
+  label: [Organization, Entity]
+  priority: 1
+  type: token
+  pattern: |
+    [entity="ORGANIZATION"]+
+
+- name: "ner-date"
+  label: [Date]
+  priority: 1
+  type: token
+  pattern: |
+    [entity="DATE"]+
+
+- name: "pronominal-entity"
+  label: [Pronoun, Entity]
+  priority: 1
+  type: token
+  unit: tag
+  pattern: |
+    /^PRP/
+
+- name: "subj"
+  label: [Subject, Entity]
+  priority: 1
+  type: token
+  unit: "tag"
+  pattern: |
+    /^N/* [incoming=/^nsubj/] /^N/*
+
+- name: "obj"
+  label: [Object, Entity]
+  priority: 1
+  type: token
+  unit: "tag"
+  pattern: |
+    /^N/* [incoming=/obj/] /^N/*
+
+# Try to find other NEs that are likely Locations
+- name: "possible-location"
+  label: [PossibleLocation, ProperNoun]
+  priority: 2
+  type: token
+  pattern: |
+   [tag=/^NNP/ & !mention=/./]* [tag=/^NNP/ & incoming=/prep_(in|at)/ & !mention=/./] [tag=/^NNP/ & !mention=/./]*
+
+- name: "proper-noun"
+  label: [ProperNoun, Entity]
+  priority: 2
+  type: token
+  pattern: |
+   [tag="NNP" & !incoming=/prep_(in|at)/ & !mention=/./]+
+
+# Simple coref
+- name: "unresolved"
+  label: [Unresolved]
+  priority: 2
+  type: token
+  pattern: |
+   [tag=/^W/ & incoming=/^(nsubj|dobj)/]
+
+- name: "coref"
+  label: [Resolved]
+  priority: 3
+  type: dependency
+  pattern: |
+    wh: Unresolved
+    antecedent: Entity = </^(nsubj|dobj)/ <rcmod
+
+# Relations
+- name: "is-a"
+  label: [Equiv]
+  priority: 3
+  type: dependency
+  pattern: |
+    entity: Entity
+    isa: Entity = <nsubj [outgoing="cop"]
+    location: PossibleLocation? = /prep_(in|at)/
+
+# Events
+
+# optional location and date
+- name: "born-1"
+  label: [Born]
+  priority: 3
+  example: "The baby is going to be born in June."
+  type: dependency
+  pattern: |
+    trigger = "born"
+    entity: Entity = (<xcomp? /^nsubj/) | <vmod
+    birthdate: Date? = /prep_(on|in|at)/+
+    location: PossibleLocation? = /prep_(in|at)/+
+
+
+# optional location and date
+- name: "marry-syntax-1"
+  label: [Marry]
+  priority: 3
+  example: "He married Jane last June in Hawaii."
+  type: dependency
+  pattern: |
+    trigger = [lemma="marry"]
+    spouse: Entity+ = <xcomp? /^nsubj/ | dobj
+    date: Date? = /prep_(on|in|at)/+
+    location: PossibleLocation? = /prep_(in|at)/+
+
+- name: "marry-tok-1"
+  label: [Marry]
+  priority: 4
+  example: "He married Jane last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @spouse:Entity (?<trigger> [lemma="marry" & !mention=Marry]) "DT"? @spouse:Entity
+
+- name: "marry-tok-2"
+  label: [Marry]
+  priority: 4
+  example: "the couple married last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @spouse:Entity (?<trigger> [lemma="marry" & !mention=Marry]) (?! []{,3} @Entity)
+
+# optional location and date
+- name: "divorce-syntax-1"
+  label: [Divorce]
+  priority: 3
+  example: "He divorced Jane last June in Hawaii."
+  type: dependency
+  pattern: |
+    trigger = [lemma="divorce"]
+    ex: Entity+ = <xcomp? /^nsubj/ | dobj
+    date: Date? = /prep_(on|in|at)/+
+    location: PossibleLocation? = /prep_(in|at)/+
+
+- name: "divorce-tok-1"
+  label: [Divorce]
+  priority: 4
+  example: "He divorced Jane last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @ex:Entity (?<trigger> [lemma="divorce" & !mention=Divorce]) "DT"? @ex:Entity
+
+- name: "divorce-tok-2"
+  label: [Divorce]
+  priority: 4
+  example: "the couple divorced last June in Hawaii."
+  unit: tag
+  type: token
+  pattern: |
+    "DT"? @ex:Entity (?<trigger> ([lemma="file"] "for")? [lemma="divorce" & !mention=Divorce]) (?! []{,3} @Entity)

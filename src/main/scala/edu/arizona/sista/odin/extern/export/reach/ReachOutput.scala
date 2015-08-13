@@ -15,7 +15,7 @@ import edu.arizona.sista.odin.extern.export.JsonOutputter
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Begin updating REACH outputter.
+  *   Last Modified: Update for json outputter rename to Fries.
   */
 class ReachOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -39,14 +39,38 @@ class ReachOutput extends JsonOutputter {
   // Public API:
   //
 
-  /** Output a JSON object representing the REACH output for the given mentions. */
-  // def toJSON (allMentions:Seq[Mention], startTime:Date, endTime:Date, outFile:File) = {
+  /**
+    * Returns the given mentions in the REACH JSON format, as one big string.
+    */
   override def toJSON (paperId:String,
                        allMentions:Seq[Mention],
                        paperPassages:Seq[FriesEntry],
                        startTime:Date,
                        endTime:Date,
-                       outFilePrefix:String) = {
+                       outFilePrefix:String): String = {
+    val model:PropMap = new PropMap
+    val mentions = allMentions.filter(allowableRootMentions)
+    val mIds = assignMentionIds(mentions, new IDed)
+    val frames = new FrameList
+    mentions.foreach { mention =>
+      val frame = beginNewFrame(mention, startTime, endTime, mIds)
+      frames += doMention(mention, mIds, frame)
+    }
+    model("frames") = frames
+    return writeJsonToString(model)
+  }
+
+
+  /**
+    * Writes the given mentions to an output file in REACH JSON format.
+    * The output file is prefixed with the given prefix string.
+    */
+  override def writeJSON (paperId:String,
+                          allMentions:Seq[Mention],
+                          paperPassages:Seq[FriesEntry],
+                          startTime:Date,
+                          endTime:Date,
+                          outFilePrefix:String) = {
     val model:PropMap = new PropMap
     val mentions = allMentions.filter(allowableRootMentions)
     val mIds = assignMentionIds(mentions, new IDed)
@@ -101,7 +125,7 @@ class ReachOutput extends JsonOutputter {
     frame("offsets") = List(mention.startOffset, mention.endOffset)
     if (mentionMgr.isNegated(mention.toBioMention)) frame("negated") = "true"
     if (mentionMgr.isHypothesized(mention.toBioMention)) frame("hypothesized") = "true"
-    // TODO: ?? sentence, start-pos, end-pos, verbose-text from HansOutput ??
+    // TODO: ?? sentence, start-pos, end-pos, verbose-text from FriesOutput ??
     return frame
   }
 
@@ -235,6 +259,15 @@ class ReachOutput extends JsonOutputter {
     out.flush()
     out.close()
   }
+
+  /** Convert the entire output data structure to JSON and return it as a string. */
+  private def writeJsonToString (model:PropMap): String = {
+    val out:StringWriter = new StringWriter()
+    Serialization.writePretty(model, out)
+    out.flush()                             // closing a string writer has no effect
+    return out.toString()
+  }
+
 }
 
 
