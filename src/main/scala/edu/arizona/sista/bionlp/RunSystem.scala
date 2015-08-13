@@ -10,7 +10,7 @@ import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
-import edu.arizona.sista.odin.extern.export.hans._
+import edu.arizona.sista.odin.extern.export.fries._
 import edu.arizona.sista.odin.extern.export.reach._
 
 object RunSystem extends App {
@@ -151,7 +151,7 @@ object RunSystem extends App {
         println(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
         FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
-      // Anything that is not text (including Hans-style output)
+      // Anything that is not text (including Fries-style output)
       case _ =>
         outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
         FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
@@ -190,7 +190,7 @@ object RunSystem extends App {
     val outFile = outputDir + File.separator + paperId
 
     val outputter:JsonOutputter = outputType.toLowerCase match {
-      case "hans" => new HansOutput()
+      case "fries" => new FriesOutput()
       case      _ => new ReachOutput()
     }
 

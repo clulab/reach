@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.extern.export.hans
+package edu.arizona.sista.odin.extern.export.fries
 
 import java.io._
 import java.util.Date
@@ -12,17 +12,17 @@ import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 
-import HansOutput._
+import FriesOutput._
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 /**
-  * Defines classes and methods used to build and output HANS format models.
+  * Defines classes and methods used to build and output JSON format models.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update for json outputter trait refactoring.
+  *   Last Modified: Rename class and package.
   */
-class HansOutput extends JsonOutputter {
+class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
   type PropMap = scala.collection.mutable.HashMap[String, Any]
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
@@ -41,7 +41,7 @@ class HansOutput extends JsonOutputter {
   //
 
   /**
-    * Returns the given mentions in the Hans JSON format, as one big string. The normally
+    * Returns the given mentions in the Fries JSON format, as one big string. The normally
     * separate representations for sentences, entities, and events are combined and
     * returned as a single JSON string with corresponding top-level fields.
     */
@@ -69,7 +69,7 @@ class HansOutput extends JsonOutputter {
 
 
   /**
-    * Writes the given mentions to output files in Hans JSON format.
+    * Writes the given mentions to output files in Fries JSON format.
     * Separate output files are written for sentences, entities, and events.
     * Each output file is prefixed with the given prefix string.
     */
@@ -549,7 +549,7 @@ class HansOutput extends JsonOutputter {
   private def isHypothesis(m:Modification) = m.isInstanceOf[Hypothesis]
 }
 
-object HansOutput {
+object FriesOutput {
   val RUN_ID = "r1"
   val COMPONENT = "REACH"
   val ORGANIZATION = "UAZ"

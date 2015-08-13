@@ -30,7 +30,7 @@ trait JsonOutputter {
     * Outputs the given mentions to the given output file in some JSON-based format.
     * The processing start and stop date/times are given.
     * The output file is given as a prefix, in case outputters choose to generate
-    * multiple output files (see HansOutput)
+    * multiple output files (e.g., see FriesOutput)
     * Default method to be overridden by each JSON output formatter.
     */
   def writeJSON (paperId:String,

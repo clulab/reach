@@ -15,7 +15,7 @@ import edu.arizona.sista.odin.extern.export.JsonOutputter
 /**
   * Defines classes and methods used to build and output REACH models.
   *   Written by Tom Hicks. 5/7/2015.
-  *   Last Modified: Update for json outputter trait refactoring.
+  *   Last Modified: Update for json outputter rename to Fries.
   */
 class ReachOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -125,7 +125,7 @@ class ReachOutput extends JsonOutputter {
     frame("offsets") = List(mention.startOffset, mention.endOffset)
     if (mentionMgr.isNegated(mention.toBioMention)) frame("negated") = "true"
     if (mentionMgr.isHypothesized(mention.toBioMention)) frame("hypothesized") = "true"
-    // TODO: ?? sentence, start-pos, end-pos, verbose-text from HansOutput ??
+    // TODO: ?? sentence, start-pos, end-pos, verbose-text from FriesOutput ??
     return frame
   }
 
