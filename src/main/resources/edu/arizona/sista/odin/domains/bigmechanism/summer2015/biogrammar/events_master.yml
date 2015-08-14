@@ -1,3 +1,6 @@
+# taxonomy
+import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/taxonomy.yml
+
 vars:
   posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
   negnouns: "decreas|inhibit|loss|repress|suppress|supress"
