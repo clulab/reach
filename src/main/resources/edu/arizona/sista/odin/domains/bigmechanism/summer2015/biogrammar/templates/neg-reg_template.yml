@@ -10,7 +10,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|amod|prep_of|prep_in/{,2} (/./ [word=by]){,2}
+    controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|amod|prep_of|prep_in/{,2} (>> [word=by]){,2}
     controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
 
@@ -171,7 +171,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/be/ & tag=/^V/] /./? /./? [lemma=/${ negnouns }/ & tag=/^N/]
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ negnouns }/ & tag=/^N/]
     controller:${ controllerType } = nsubj
     controlled:${ controlledType } = /prep_of|prep_in/
 
