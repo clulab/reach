@@ -3,7 +3,7 @@ package edu.arizona.sista.bionlp
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.{DarpaFlow, LocalGrounder, Coref}
-import RuleReader._
+import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import scala.collection.immutable.HashSet
@@ -13,10 +13,9 @@ class ReachSystem(rules: Option[Rules] = None,
                   proc: Option[BioNLPProcessor] = None) {
   import ReachSystem._
 
-  val entityRules = if (rules.isEmpty) readEntityRules() else rules.get.entities
-  val modificationRules = if (rules.isEmpty) readModificationRules() else rules.get.modifications
-  val eventRules = if (rules.isEmpty) readEventRules() else rules.get.events
-  val corefRules = if (rules.isEmpty) readCorefRules() else rules.get.coref
+  val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
+  val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
+  val eventRules = if (rules.isEmpty) readResource(RuleReader.eventsMasterFile) else rules.get.events
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
@@ -39,15 +38,13 @@ class ReachSystem(rules: Option[Rules] = None,
 
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
-  // this engine extracts generic mentions that can be anaphora like "it" and tries to resolve them
-  val corefEngine = ExtractorEngine(corefRules, actions, cleanupEvents.apply)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
 
   /** returns string with all rules used by the system */
   def allRules: String =
-    Seq(entityRules, modificationRules, eventRules, corefRules).mkString("\n\n")
+    Seq(entityRules, modificationRules, eventRules).mkString("\n\n")
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
@@ -68,10 +65,9 @@ class ReachSystem(rules: Option[Rules] = None,
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
-    val resolved = extractResolvedFrom(doc, events)
     val complete =
       // Coref introduced incomplete Mentions that now need to be pruned
-      keepMostCompleteMentions(resolved, State(resolved))
+      keepMostCompleteMentions(events, State(events))
         .map(_.toBioMention)
     resolveDisplay(complete)
   }
@@ -108,15 +104,6 @@ class ReachSystem(rules: Option[Rules] = None,
     // handle multiple Negation modifications
     handleNegations(validMentions)
     validMentions
-  }
-
-  //
-  def extractResolvedFrom(doc: Document, ms: Seq[BioMention]): Seq[BioMention] = {
-    val unresolved = corefEngine.extractByType[BioMention](doc, State(ms))
-    // initialize coref
-    val coref = new Coref
-    val resolved = coref(unresolved, State(unresolved))
-    resolved
   }
 }
 
