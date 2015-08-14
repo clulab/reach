@@ -5,7 +5,7 @@
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
 - name: hydrolysis_1
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "We compared the rate of GTP hydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   pattern: |
@@ -15,7 +15,7 @@
     cause:MacroMolecule = prep_by
 
 - name: hydrolysis_2
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
@@ -24,7 +24,7 @@
     protein:BioChemicalEntity = <prep_to | prep_for [!word=/^GAPs?$/]
 
 - name: hydrolysis_2wrong
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
@@ -34,7 +34,7 @@
     cause:MacroMolecule? = <nsubj dep ccomp prep_to
 
 - name: hydrolysis_3
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "No increase in the rate of GTP hydrolysis was observed for mUbRas"
   pattern: |
@@ -43,7 +43,7 @@
     protein:BioChemicalEntity? = (< /prep_/){,2} <nsubjpass /prep_for|prep_in/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_4
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "RasPDZ2UL retains intrinsic GTP hydrolysis activity"
   pattern: |
@@ -52,7 +52,7 @@
     protein:BioChemicalEntity? = (<nn)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [!word=/^GAPs?$/]
 
 - name: hydrolysis_token_1
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "We measured the rate of GAP-mediated GTP hydrolysis"
   type: token
@@ -61,7 +61,7 @@
     (?<trigger> hydrolysis)
 
 - name: hydrolysis_token_2
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "Renin is an enzyme that hydrolyzes Ras-GTP."
   type: token
@@ -70,7 +70,7 @@
     @theme:BioChemicalEntity #TODO: add & !word=/^GAPs?$/]
 
 - name: hydrolysis_decl1
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "RasGAP hydrolyzes GTP to GDP"
   pattern: |
@@ -79,7 +79,7 @@
     cause:MacroMolecule? = (nsubj | (<xcomp? <rcmod <appos?))
 
 - name: hydrolysis_pass1
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "Ras-GDP is hydrolyzed by 26S proteasome without ubiquitination"
   pattern: |
@@ -88,7 +88,7 @@
     cause:MacroMolecule? = agent
 
 - name: hydrolysis_subjnom1
-  label: [Hydrolysis, SimpleEvent, Event, PossibleController]
+  label: Hydrolysis
   priority: 4
   example: "MEK hydrolysis of Ras-GDP increased."
   pattern: |

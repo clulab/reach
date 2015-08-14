@@ -5,7 +5,7 @@
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
 - name: binding1a
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -13,7 +13,7 @@
     theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /nn|conj_|cc/{,2} | <prep_by{,2} nsubj
 
 - name: binding1b
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -22,7 +22,7 @@
     theme2:BioChemicalEntity+ = dobj /nn|conj_|cc/{,2} | acomp? /prep_(to|with)/
 
 - name: binding1forms
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -31,7 +31,7 @@
     theme2:BioChemicalEntity* = dobj /nn|conj_|cc/{,2} | /prep_(to|with)/
 
 - name: binding2
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -40,7 +40,7 @@
     theme2:BioChemicalEntity* = prep_such_as
 
 - name: binding3
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -49,7 +49,7 @@
     theme2:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/? /prep_(with|to)/{1,2} /conj_(and|or)/{,2} nn?
 
 - name: binding3wrong
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -58,7 +58,7 @@
     theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to|prep_with/{1,2}
 
 - name: binding5
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -68,7 +68,7 @@
       #dummy: <nn >nn [word=/protein|domain|site/]
 
 - name: binding6
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -77,7 +77,7 @@
       theme2:BioChemicalEntity+ = conj_and? dobj
 
 - name: binding7a
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -86,7 +86,7 @@
       theme2:BioChemicalEntity* = prep_to conj_and?
 
 - name: binding7b
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -95,7 +95,7 @@
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
 - name: binding7c
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -104,7 +104,7 @@
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
 - name: binding9
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -113,7 +113,7 @@
       theme2:BioChemicalEntity* = <prep_through? >prep_with
 
 - name: binding10
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -121,7 +121,7 @@
       theme1:BioChemicalEntity+ = <vmod <prep_with?
 
 - name: binding10b
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -130,7 +130,7 @@
       theme2:BioChemicalEntity = /prep_with|prep_to/
 
 - name: binding11
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -138,7 +138,7 @@
       theme1:BioChemicalEntity+ = prep_between conj_and?
 
 - name: binding12
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -146,7 +146,7 @@
       theme1:BioChemicalEntity+ = prep_of
 
 - name: binding13
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -155,7 +155,7 @@
       theme2:BioChemicalEntity+ = prep_with
 
 - name: binding14
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -163,7 +163,7 @@
       theme1:BioChemicalEntity+ = <dobj <rcmod >dep >conj_and?
 
 - name: binding_16
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -172,7 +172,7 @@
     theme2:BioChemicalEntity* = /prep_to|prep_with/
 
 - name: binding_17
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -181,7 +181,7 @@
     theme2:BioChemicalEntity+ = /agent|prep_to|prep_with/ nn{,2} | dobj nn{,2}
 
 - name: binding_18
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -190,7 +190,7 @@
     theme2:BioChemicalEntity+ = <conj_and{,2} prep dep{1,2} (/prep_(to|with)/)?
 
 - name: binding_19
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -199,7 +199,7 @@
     theme2:BioChemicalEntity+ = /prep_of|prep_with/
 
 - name: binding_20
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -207,7 +207,7 @@
     theme1:BioChemicalEntity+ = rcmod{,2} prep_between
 
 - name: binding_21
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -215,7 +215,7 @@
     theme1:BioChemicalEntity+ = <prep_through nsubj
 
 - name: binding_22
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -225,7 +225,7 @@
 
 - name: binding_syntax_23_verb
   example: "RBD of PI3KC2β binds nucleotide-free Ra"
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -237,7 +237,7 @@
 # possessive
 - name: binding_syntax_24_noun
   example: "Even more than Ras, ASPP2 is common, as is their binding to Mek."
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -247,7 +247,7 @@
 
 - name: binding_syntax_25_verb
   example: "IKKgamma appears capable of binding linear polyubiquitin."
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |
@@ -258,7 +258,7 @@
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
 - name: binding_token_1
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -268,7 +268,7 @@
     (@theme2:BioChemicalEntity)
 
 - name: binding_token_2
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -276,7 +276,7 @@
     (?<trigger> binding) to (@theme2:BioChemicalEntity)
 
 - name: binding_token_3
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -287,7 +287,7 @@
 
 # Prepositional Nominalization
 - name: binding_token_4
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -295,7 +295,7 @@
     (?<trigger> binding) of (@theme1:BioChemicalEntity) (to|with) (@theme2:BioChemicalEntity)
 
 - name: binding_token_5
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -303,7 +303,7 @@
     [tag=DT] @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> complex)
 
 - name: binding_coexist
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   example: "To confirm whether XRCC1 and DNA-PK coexist in a common complex..."
@@ -312,7 +312,7 @@
       theme1:BioChemicalEntity+ = nsubj nn?
 
 - name: binding_oncebound
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -322,7 +322,7 @@
 
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   type: token
@@ -332,7 +332,7 @@
     @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> [lemma=/^(complex|heterodimer)/])
 
 - name: binding_activity
-  label: [Binding, SimpleEvent, Event, PossibleController]
+  label: Binding
   action: mkBinding
   priority: 4
   pattern: |

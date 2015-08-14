@@ -6,7 +6,7 @@
 - name: translocation_1a_noun
   priority: 4
   example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation from the cytosol/nucleus and increased binding to p53"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = poss | dobj
@@ -17,7 +17,7 @@
 - name: translocation_1b_noun
   priority: 4
   example: "We show here that ASPP2 is phosphorylated by the RAS/Raf/MAPK pathway and that this phosphorylation leads to its increased translocation to the cytosol/nucleus and increased binding to p53"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = poss
@@ -28,7 +28,7 @@
 - name: translocation_2a_verb_apposition
   priority: 4
   example: "ASPP2, a protein which translocates Pde2 to the nucleus, is subsequently phosphorylated."
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
     theme:BioChemicalEntity = dobj
@@ -40,7 +40,7 @@
 - name: translocation_2b_verb_apposition
   priority: 4
   example: "ASPP2, a protein which releases Pde2 from the membrane, is subsequently phosphorylated."
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^VB[^N]/]
     theme:BioChemicalEntity = dobj
@@ -52,7 +52,7 @@
 - name: translocation_3a_verb_passive
   priority: 4
   example: "ASPP2, a protein which is translocated from the membrane by ASPP1, is subsequently phosphorylated"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
     theme:BioChemicalEntity = nsubjpass | <rcmod <appos
@@ -64,7 +64,7 @@
 - name: translocation_3b_verb_passive
   priority: 4
   example: "ASPP2, a protein which is translocated to the nucleus by ASPP1, is subsequently phosphorylated"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
     theme:BioChemicalEntity = nsubjpass | <rcmod <appos
@@ -76,7 +76,7 @@
 - name: translocation_4a_noun_with_cause
   priority: 4
   example: "Recruitment of p53 to the plasma membrane increases with phosphorylation"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = prep_of | nn | <dep
@@ -88,7 +88,7 @@
 - name: translocation_4b_noun_with_cause
   priority: 4
   example: "Release of p53 from the cytosol increases with phosphorylation"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/]
     theme:BioChemicalEntity = prep_of | nn | <dep
@@ -100,7 +100,7 @@
 - name: translocation_5_verb_infinitive_with_cause
   priority: 4
   example: "Phosphorylation leads the plasma membrane to release p53 to the cytosol."
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [lemma=release & tag=/^V/]
     theme:BioChemicalEntity = dobj
@@ -111,7 +111,7 @@
 - name: translocation_6_verb_active
   priority: 4
   example: "After the introduction of ASPP1, the plasma membrane releases p53 to the cytosol."
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [lemma=release & tag=/^V/]
     theme:BioChemicalEntity = dobj
@@ -122,7 +122,7 @@
 - name: translocation_7a_noun_no_cause
   priority: 4
   example: "ASPP1 is common, and its recruitment to the plasma membrane increases with its phosphorylation"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=prep_of]
     theme:BioChemicalEntity = poss
@@ -133,7 +133,7 @@
 - name: translocation_7b_noun_no_cause
   priority: 4
   example: "ASPP1 is common, and its release from the cytosol increases with its phosphorylation"
-  label: [Translocation, SimpleEvent, Event, PossibleController]
+  label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^N/ & !outgoing=prep_of]
     theme:BioChemicalEntity = poss

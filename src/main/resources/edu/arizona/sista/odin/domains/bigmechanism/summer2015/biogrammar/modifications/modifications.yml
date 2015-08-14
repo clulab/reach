@@ -4,7 +4,7 @@
 
 # NOTE: This used to start with (?<! [lemma=/^have$/ & !tag="MD"]) but I don't think ODIN supports multiple lookarounds
 - name: modification_trigger_1
-  label: [ModificationTrigger]
+  label: ModificationTrigger
   priority: 1
   type: token
   action: mkModTrigger
@@ -12,7 +12,7 @@
     (?<mod>[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/]) @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity)
 
 - name: modification_trigger_2
-  label: [ModificationTrigger]
+  label: ModificationTrigger
   priority: 1
   type: token
   pattern: |
@@ -24,7 +24,7 @@
 
 # Phosphorylated p53 on serine-15
 - name: PTMmodification_1
-  label: [PTM, Modification, BioChemicalEntity]
+  label: PTM
   action: mkModification
   priority: 2
   type: token
@@ -32,7 +32,7 @@
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
 - name: eventsite_1
-  label: [EventSite, Modification, BioChemicalEntity]
+  label: EventSite
   action: storeEventSite
   priority: 2
   type: token
@@ -42,7 +42,7 @@
 # ex. "phosphorylation on the JM domains of EGFR and HER2"
 # should create EGFR(Mods = EventSite(JM domains)), HER2(Mods = EventSite(JM domains))
 - name: eventsite_multisite_1
-  label: [EventSite, Modification, BioChemicalEntity]
+  label: EventSite
   action: storeEventSite
   priority: 2
   type: token
@@ -62,7 +62,7 @@
 
 # this grabs all sites that it finds within parens
 - name: eventsite_withparens
-  label: [EventSite, Modification, BioChemicalEntity]
+  label: EventSite
   action: storeEventSite
   priority: 2
   example: "ERK(T202/Y204)"

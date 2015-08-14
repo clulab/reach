@@ -147,7 +147,7 @@
 #
 
 - name: missing-simple_chemical
-  label: [Simple_chemical, Missing, BioChemicalEntity, PossibleController]
+  label: [Simple_chemical, BioChemicalEntity, PossibleController]
   priority: 4
   type: token
   pattern: |
@@ -155,7 +155,7 @@
 
 # TODO: What labels should these guys have?
 - name: missing-location
-  label: [Gene_or_gene_product, Missing, BioChemicalEntity]
+  label: [Gene_or_gene_product, BioChemicalEntity]
   priority: 4
   type: token
   pattern: |
