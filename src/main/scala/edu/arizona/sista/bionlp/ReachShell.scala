@@ -48,7 +48,7 @@ object ReachShell extends App {
       case ":reload" =>
         println("reloading rules ...")
         try {
-          val rules = reloadRules()
+          val rules = mkRules()
           reach = new ReachSystem(Some(rules), Some(proc))
           println("successfully reloaded rules")
         } catch {
