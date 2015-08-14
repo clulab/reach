@@ -8,6 +8,9 @@ import scala.collection.mutable.ListBuffer
 
 class DarpaActions extends Actions {
 
+  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.switchLabel
+  val SEMANTIC_NEGATIVE_PATTERN =  "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+
   def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m matches "SimpleEvent" =>
       // Do we have a regulation?
@@ -894,7 +897,7 @@ class DarpaActions extends Actions {
         for(i <- shortestPath) {
           if(! excluded.contains(i)) {
             val lemma = trigger.sentenceObj.lemmas.get(i)
-            if (RuleReader.SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined) {
+            if (SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined) {
               negatives += i
               //println("Found one semantic negative: " + lemma)
             }
