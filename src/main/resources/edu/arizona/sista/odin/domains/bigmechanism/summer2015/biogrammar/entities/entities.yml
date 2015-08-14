@@ -87,7 +87,7 @@
 ###################
 
 - name: ner-gene_or_gene_product-entities
-  label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
+  label: Gene_or_gene_product
   action: mkNERMentions
   priority: 3
   type: token
@@ -96,7 +96,7 @@
 
 # TODO: verify this ontology
 - name: ner-family-entities
-  label: [Family, BioChemicalEntity, MacroMolecule, PossibleController]
+  label: Family
   action: mkNERMentions
   priority: 3
   type: token
@@ -105,7 +105,7 @@
 
 # TODO: verify this ontology
 - name: ner-cellular_component-entities
-  label: [Cellular_component]
+  label: Cellular_component
   action: mkNERMentions
   priority: 3
   type: token
@@ -113,7 +113,7 @@
     [entity='B-Cellular_component'] [entity='I-Cellular_component']*
 
 - name: ner-simple_chemical-entities
-  label: [Simple_chemical, BioChemicalEntity, PossibleController]
+  label: Simple_chemical
   action: mkNERMentions
   priority: 3
   type: token
@@ -121,7 +121,7 @@
     [entity='B-Simple_chemical'] [entity='I-Simple_chemical']* (?! [lemma="substrate"])
 
 - name: ner-domain-entities
-  label: [Site]
+  label: Site
   action: mkNERMentions
   priority: 3
   type: token
@@ -147,7 +147,7 @@
 #
 
 - name: missing-simple_chemical
-  label: [Simple_chemical, BioChemicalEntity, PossibleController]
+  label: Simple_chemical
   priority: 4
   type: token
   pattern: |
@@ -155,7 +155,7 @@
 
 # TODO: What labels should these guys have?
 - name: missing-location
-  label: [Gene_or_gene_product, BioChemicalEntity]
+  label: Gene_or_gene_product
   priority: 4
   type: token
   pattern: |
