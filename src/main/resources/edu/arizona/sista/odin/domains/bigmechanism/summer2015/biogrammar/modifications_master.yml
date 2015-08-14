@@ -1,0 +1,3 @@
+rules:
+  - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/modifications/modifications.yml
+  - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/modifications/mutants.yml

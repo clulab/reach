@@ -1,0 +1,2 @@
+rules:
+  - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/entities/entities.yml
