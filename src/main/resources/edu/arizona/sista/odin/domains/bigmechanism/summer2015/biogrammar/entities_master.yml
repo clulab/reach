@@ -1,5 +1,45 @@
 # taxonomy
-import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/taxonomy.yml
+#import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/taxonomy.yml
+taxonomy:
+  - Cellular_component
+  - Site
+  - ModificationTrigger
+  - Modification:
+      - PTM
+      - Mutant
+      - EventSite
+      - Negation
+  - PossibleController:
+      - Event:
+          - SimpleEvent:
+              - Phosphorylation
+              - Ubiquitination
+              - Hydroxylation
+              - Sumoylation
+              - Glycosylation
+              - Acetylation
+              - Farnesylation
+              - Ribosylation
+              - Methylation
+              - Hydrolysis
+              - Translocation
+              - Binding
+          - ComplexEvent:
+              - Regulation:
+                  - Positive_regulation
+                  - Negative_regulation
+              - ActivationEvent:
+                  - Positive_activation
+                  - Negative_activation
+      - Entity:
+          - BioChemicalEntity:
+              - Family
+              - Simple_chemical
+              - MacroMolecule:
+                  - Protein
+                  - Gene_or_gene_product
+                  - Complex
+                  - GENE
 
 rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/entities/entities.yml

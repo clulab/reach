@@ -1,6 +1,5 @@
 # taxonomy
 #import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/taxonomy.yml
-
 taxonomy:
   - Cellular_component
   - Site
@@ -33,15 +32,15 @@ taxonomy:
                   - Positive_activation
                   - Negative_activation
       - Entity:
-          - Family:
-              - BioChemicalEntity:
-                  - Simple_chemical
-                  - MacroMolecule:
-                      - Protein
-                      - Gene_or_gene_product
-                      - Complex
-                      - GENE
-                      
+          - BioChemicalEntity:
+              - Family
+              - Simple_chemical
+              - MacroMolecule:
+                  - Protein
+                  - Gene_or_gene_product
+                  - Complex
+                  - GENE
+
 vars:
   posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
   negnouns: "decreas|inhibit|loss|repress|suppress|supress"

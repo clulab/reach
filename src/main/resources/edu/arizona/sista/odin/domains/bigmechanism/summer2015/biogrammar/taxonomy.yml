@@ -30,11 +30,11 @@ taxonomy:
                   - Positive_activation
                   - Negative_activation
       - Entity:
-          - Family:
-              - BioChemicalEntity:
-                  - Simple_chemical
-                  - MacroMolecule:
-                      - Protein
-                      - Gene_or_gene_product
-                      - Complex
-                      - GENE
+          - BioChemicalEntity:
+              - Family
+              - Simple_chemical
+              - MacroMolecule:
+                  - Protein
+                  - Gene_or_gene_product
+                  - Complex
+                  - GENE
