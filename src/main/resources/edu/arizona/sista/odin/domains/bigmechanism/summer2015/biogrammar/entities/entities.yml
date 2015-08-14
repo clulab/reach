@@ -128,24 +128,7 @@
   pattern: |
     [entity='B-Site'] [entity='I-Site']*
 
-# TODO: Ideally, these should be added to the KB
-################
-# missing
-################
-
-#- name: missing-gene_or_gene_product
-#  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
-#  priority: 4
-#  type: token
-#  pattern: |
-
-#- name: missing-family_product
-#  label: [Family, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
-#  priority: 4
-#  type: token
-#  pattern: |
-#
-
+# TODO: Ideally, this should somehow be added to the KB
 - name: missing-simple_chemical
   label: Simple_chemical
   priority: 4
