@@ -283,10 +283,10 @@ object ReachSystem {
   // Filter out "incomplete" events
   def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
     // Regulations require special attention
-    val (regulations, other: Seq[Mention]) = ms.partition(_ matches "ComplexEvent")
+    val (regulations, other) = ms.partition(_ matches "Regulation")
     regulations match {
       case someRegs if someRegs.nonEmpty =>
-        filterRegulations(regulations, other, state)
+        filterRegulations(someRegs, other, state)
       case Nil =>
         pruneMentions(other.map(_.toBioMention))
     }
