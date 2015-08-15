@@ -1,8 +1,5 @@
 #Binding events require arguments of type BioChemicalEntity
 #Use {1,2} quantifier for theme
-#
-#BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
-#MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
 - name: binding1a
   label: Binding
