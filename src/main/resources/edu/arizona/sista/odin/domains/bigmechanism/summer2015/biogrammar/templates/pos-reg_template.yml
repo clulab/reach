@@ -154,6 +154,37 @@
     controlled:${ controlledType } = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
 
 
+- name: Positive_${ ruleType }_copula_1
+  priority: ${ priority }
+  example: "A is an activator of B"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ posnouns }/ & tag=/^N/]
+    controller:${ controllerType } = nsubj
+    controlled:${ controlledType } = /prep_of|prep_in/
+
+
+- name: Positive_${ ruleType }_possessive_noun
+  priority: ${ priority }
+  example: "ASPP1 is common, as is its activation by ASPP2."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ posnouns }/ & tag=/^N/]
+    controller:${ controllerType } = /prep_by|agent/
+    controlled:${ controlledType } = /poss/
+
+
+- name: Positive_${ ruleType }_syntax_relation
+  priority: ${ priority }
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    controlled:${ controlledType }
+    controller:${ controllerType } = prep_by
+
+
 - name: Positive_${ ruleType }_token_1_verb
   priority: ${ priority }
   example: ""
@@ -194,25 +225,3 @@
   action: ${ actionFlow }
   pattern: |
     (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
-
-
-- name: Positive_${ ruleType }_copula_1
-  priority: ${ priority }
-  example: "A is an activator of B"
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ posnouns }/ & tag=/^N/]
-    controller:${ controllerType } = nsubj
-    controlled:${ controlledType } = /prep_of|prep_in/
-
-
-- name: Positive_${ ruleType }_possessive_noun
-  priority: ${ priority }
-  example: "ASPP1 is common, as is its activation by ASPP2."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ posnouns }/ & tag=/^N/]
-    controller:${ controllerType } = /prep_by|agent/
-    controlled:${ controlledType } = /poss/
