@@ -381,7 +381,8 @@ class DarpaActions extends Actions {
       val controller = controllerOption.get.head
       // if controller is a physical entity then we are done
       if (controller matches "BioChemicalEntity") biomention
-      else if (controller matches "SimpleEvent") {
+      // Because of "the phophosphorlyation of X by the A/B complex", biomention could be a RelationMention
+      else if ((controller matches "SimpleEvent") && (biomention.isInstanceOf[BioEventMention])) {
         // convert controller event into modified physical entity
         val trigger = biomention.asInstanceOf[BioEventMention].trigger
         val newController = convertEventToEntity(controller.toBioMention.asInstanceOf[BioEventMention])
