@@ -40,9 +40,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & !word=/(?i)^de/ & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2}) ) 
-    site:Site? = (/pobj|prep_|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2}) 
     cause:BioChemicalEntity? = <nn{,2} | (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
+    theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2}) )
+    site:Site? = (/pobj|prep_|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2})
 
 
 - name: ${ eventName }_syntax_4_verb
