@@ -28,8 +28,13 @@ class NxmlReader(removeReferences:Boolean = true) {
                       sec_counter += 1
                       s"sec-$sec_counter"
                   }
-                  // TODO: Look for the normalized ids
-                  (lid, lid)
+                  // Look for the normalized ids
+                  val nid = el.attribute("sec-type") match {
+                    case Some(id) => s"{id.head}"
+                    case None => lid
+                  }
+
+                  (lid, nid)
                 case "fig" =>
                   fig_counter += 1
                   val lid = s"fig-$fig_counter"
@@ -45,7 +50,7 @@ class NxmlReader(removeReferences:Boolean = true) {
             case "title" => Seq(NxmlEntry(0, section, norm_section, true, el.text))
             // Ommit the references if specified, but keeping the blank characters
             // TODO: Handle this appropriately. this should be a single fries entry
-            //case "xref" => if (this.removeReferences) " " * el.text.length else el.text
+            case "xref" => if (this.removeReferences) " " * el.text.length else el.text
             // Any other tag type will be ignored
             case _ => Nil
           }
