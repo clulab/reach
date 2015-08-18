@@ -22,7 +22,7 @@ case class NxmlEntry(num:Int, section:String, normalizedSection:String,
 
     }
 
-case class NxmlDoc(name:Option[String], entries:Seq[NxmlEntry]) {
+case class NxmlDoc(name:String, entries:Seq[NxmlEntry]) {
 
   override def toString(): String = this.toString(true)
 
