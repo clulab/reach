@@ -2,22 +2,26 @@ package edu.arizona.sista.bionlp.nxml
 
 import scala.xml._
 import scala.xml.factory.XMLLoader
-import javax.xml.parsers.SAXParser
+import javax.xml.parsers.{SAXParser,SAXParserFactory}
 import scala.collection.mutable.ListBuffer
 import java.io.File
 import edu.arizona.sista.bionlp.FriesEntry
 
-// This singleton is necessary to avoid needing the NXML DTD
+// This singleton is necessary to avoid loading NXML's DTD
 object MyXML extends XMLLoader[Elem] {
   override def parser: SAXParser = {
-    val f = javax.xml.parsers.SAXParserFactory.newInstance()
+    val f = SAXParserFactory.newInstance()
     f.setNamespaceAware(false)
     f.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false)
     f.newSAXParser()
   }
 }
+//////////////////////////////////////////////////////////
 
 class NxmlReader(ignoreSections:Seq[String] = Nil) {
+
+  // This is a regex to remove the artifacts left from citation removal
+  val citationArticact = """[\(\[][ ,;(and)]+[\)\]]""".r
 
   /** Parsed an Nxml document and gives back an NxmlDoc instance */
   def readNxml(doc:Elem, docName:String):Seq[FriesEntry] = {
@@ -64,7 +68,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
                     // Look for the normalized ids
                     val nid = el.attribute("sec-type") match {
                       case Some(id) => s"${id.head}"
-                      case None => lid
+                      case None => "N/A"
                     }
 
                     (lid, nid)
@@ -127,14 +131,21 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
     // Do postprocessing to remove any empty entries and set correcly the chunk id
     val postProcessed = preProcessed filter (e => !e.text.trim.isEmpty)
 
+    // Do some more postprocessing before returning
     postProcessed.zipWithIndex map {
+      // Assign the chunkId correctly
       case (e, ix) =>
         FriesEntry(e.name, s"$ix", e.sectionId, e.sectionName, e.isTitle, e.text)
     } filter {
+      // Remove the entries in the ignoreSections list
       entry => !(this.ignoreSections contains entry.sectionId)
+    } map {
+      // Remove artifacts of citation removal
+      e => FriesEntry(e.name, e.chunkId, e.sectionId,
+         e.sectionName, e.isTitle,
+        citationArticact.replaceAllIn(e.text, ""))
     }
   }
-
 
   /** Reads an nxml doc from a string */
   def readNxml(str:String, docName:String):Seq[FriesEntry] = this.readNxml(MyXML.loadString(str), docName)

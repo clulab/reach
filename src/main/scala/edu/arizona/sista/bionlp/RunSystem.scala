@@ -55,7 +55,7 @@ object RunSystem extends App {
   }
 
   println("initializing reach ...")
-  // val reach = new ReachSystem
+  val reach = new ReachSystem
 
   println("initializing NxmlReader ...")
   val nxmlReader = new NxmlReader(
@@ -67,39 +67,56 @@ object RunSystem extends App {
     val startTime = now // start measuring time here
     val startNS = System.nanoTime
 
-    // TODO: Wrap this method call with a try catch
-    // process individual sections and collect all mentions
-    val entries = nxmlReader.readNxml(file)
-
-    entries foreach (println(_))
+    // Process individual sections and collect all mentions
+    val entries = Try(nxmlReader.readNxml(file)) match {
+      case Success(v) => v
+      case Failure(e) =>
+        val report = s"""
+          |==========
+          |
+          | ¡¡¡ NxmlReader error !!!
+          |
+          |paper: $paperId
+          |
+          |error:
+          |${e.toString}
+          |
+          |stack trace:
+          |${e.getStackTrace.mkString("\n")}
+          |
+          |==========
+          |""".stripMargin
+        FileUtils.writeStringToFile(logFile, report, true)
+        Nil
+    }
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]
-    // for (entry <- entries) {
-    //   try {
-    //     paperMentions ++= reach.extractFrom(entry)
-    //   } catch {
-    //     case e: Exception =>
-    //       val report = s"""
-    //         |==========
-    //         |
-    //         | ¡¡¡ extraction error !!!
-    //         |
-    //         |paper: $paperId
-    //         |chunk: ${entry.chunkId}
-    //         |section: ${entry.sectionId}
-    //         |section name: ${entry.sectionName}
-    //         |
-    //         |error:
-    //         |${e.toString}
-    //         |
-    //         |stack trace:
-    //         |${e.getStackTrace.mkString("\n")}
-    //         |
-    //         |==========
-    //         |""".stripMargin
-    //       FileUtils.writeStringToFile(logFile, report, true)
-    //   }
-    // }
+    for (entry <- entries) {
+      try {
+        paperMentions ++= reach.extractFrom(entry)
+      } catch {
+        case e: Exception =>
+          val report = s"""
+            |==========
+            |
+            | ¡¡¡ extraction error !!!
+            |
+            |paper: $paperId
+            |chunk: ${entry.chunkId}
+            |section: ${entry.sectionId}
+            |section name: ${entry.sectionName}
+            |
+            |error:
+            |${e.toString}
+            |
+            |stack trace:
+            |${e.getStackTrace.mkString("\n")}
+            |
+            |==========
+            |""".stripMargin
+          FileUtils.writeStringToFile(logFile, report, true)
+      }
+    }
 
     // done processing
     val endTime = now
