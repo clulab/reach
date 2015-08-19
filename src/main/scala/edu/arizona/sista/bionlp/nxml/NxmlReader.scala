@@ -17,7 +17,7 @@ object MyXML extends XMLLoader[Elem] {
   }
 }
 
-class NxmlReader(removeCitations:Boolean = true, ignoreSections:Seq[String] = Nil) {
+class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
   /** Parsed an Nxml document and gives back an NxmlDoc instance */
   def readNxml(doc:Elem, docName:String):Seq[FriesEntry] = {
@@ -28,7 +28,7 @@ class NxmlReader(removeCitations:Boolean = true, ignoreSections:Seq[String] = Ni
     def parseSubTree(node:Node, name:String, sectionName:String, sectionId:String):Seq[FriesEntry] = {
       node match {
         case txt:Text => Nil
-          Seq(FriesEntry(name, "0", "text", sectionName, false, txt.text))
+          Seq(FriesEntry(name, "0", sectionId, sectionName, false, txt.text))
         case el:Elem =>
          // Figure out how to handle the element node
           el.label match {
@@ -45,30 +45,38 @@ class NxmlReader(removeCitations:Boolean = true, ignoreSections:Seq[String] = Ni
 
               Seq(FriesEntry(name, "0", sectionId, sectionName, false, sb.toString))
             case "sec" | "fig" | "supplementary-material" =>
-              // Figure out how to handle the ids of the nodes
-              val (sec_id, norm_id) = el.label match {
-                case "sec" =>
-                  val lid = el.attribute("id")  match {
-                    case Some(id) => s"${id.head}"
-                    case None =>
-                      sec_counter += 1
-                      s"sec-$sec_counter"
-                  }
-                  // Look for the normalized ids
-                  val nid = el.attribute("sec-type") match {
-                    case Some(id) => s"${id.head}"
-                    case None => lid
-                  }
 
-                  (lid, nid)
-                case "fig" =>
-                  fig_counter += 1
-                  val lid = s"fig-$fig_counter"
-                  (lid, lid)
-                case "supplementary-material" =>
-                  supm_counter += 1
-                  val lid = s"supm-$supm_counter"
-                  (lid, lid)
+              // If the id and name of the section are provided, use them
+              val (sec_id, norm_id) = if (sectionId != "" && sectionName != ""){
+                (sectionName, sectionId)
+              }
+              // Otherwise, figure them out
+              else{
+                // Figure out how to handle the ids of the nodes
+                el.label match {
+                  case "sec" =>
+                    val lid = el.attribute("id")  match {
+                      case Some(id) => s"${id.head}"
+                      case None =>
+                        sec_counter += 1
+                        s"sec-$sec_counter"
+                    }
+                    // Look for the normalized ids
+                    val nid = el.attribute("sec-type") match {
+                      case Some(id) => s"${id.head}"
+                      case None => lid
+                    }
+
+                    (lid, nid)
+                  case "fig" =>
+                    fig_counter += 1
+                    val lid = s"fig-$fig_counter"
+                    (lid, lid)
+                  case "supplementary-material" =>
+                    supm_counter += 1
+                    val lid = s"supm-$supm_counter"
+                    (lid, lid)
+                }
               }
               // Recursively return the sequence of NxmlEntries for the descendants
               el.child flatMap (parseSubTree(_, name, sec_id, norm_id))
@@ -76,7 +84,7 @@ class NxmlReader(removeCitations:Boolean = true, ignoreSections:Seq[String] = Ni
             case "title" | "label" => Seq(FriesEntry(name, "0", sectionId, sectionName, true, el.text))
             // Ommit the references if specified, but keeping the blank characters
             case "xref" =>
-              val text = if (this.removeCitations) " " * el.text.length else el.text
+              val text = " " * el.text.length
               Seq(FriesEntry(name, "0", "xref", "xref", false, text))
             // The following tags will be ignored
             case "table" | "table-wrap" | "td" =>  Nil
@@ -102,7 +110,7 @@ class NxmlReader(removeCitations:Boolean = true, ignoreSections:Seq[String] = Ni
       Nil
     }
 
-    entries ++= parseSubTree(body.head, docName, "body", "body")
+    entries ++= parseSubTree(body.head, docName, "", "")
 
     // Get the abstract
     val abs = front \\ "abstract"
@@ -122,6 +130,8 @@ class NxmlReader(removeCitations:Boolean = true, ignoreSections:Seq[String] = Ni
     postProcessed.zipWithIndex map {
       case (e, ix) =>
         FriesEntry(e.name, s"$ix", e.sectionId, e.sectionName, e.isTitle, e.text)
+    } filter {
+      entry => !(this.ignoreSections contains entry.sectionId)
     }
   }
 
