@@ -121,9 +121,11 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
     val absEntries = new ListBuffer[FriesEntry]
 
     if(abs.size > 0){
-      val nodes:Seq[FriesEntry] = parseSubTree(abs.head, docName, "abstract", "abstract")
-      // Override the generated section names to abstract
-      absEntries ++= nodes map (node => FriesEntry(docName, "0", "abstract", "abstract", node.isTitle, node.text))
+      for(a <- abs){
+        val nodes:Seq[FriesEntry] = parseSubTree(a, docName, "abstract", "abstract")
+        // Override the generated section names to abstract
+        absEntries ++= nodes map (node => FriesEntry(docName, "0", "abstract", "abstract", node.isTitle, node.text))
+      }
     }
 
     val preProcessed = titleEntry ::: absEntries.toList ::: entries.toList

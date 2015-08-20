@@ -146,13 +146,13 @@ class NxmlReaderTests extends FlatSpec with Matchers {
 
   it should behave like nxmlDocument(nxml2, tsv2)
 
-  it should "have one abstract entry, with its respective title" in {
+  it should "have three abstract entries, and only one title" in {
     val entries = reader.readNxml(nxml2, "PMC1702562")
     val absEntries = entries filter (_.sectionId == "abstract")
 
     val size = absEntries.filter(!_.isTitle).size
     info(s"The number of abstract entries is $size")
-    size should equal (1)
+    size should equal (3)
 
     val titleSize = absEntries.filter(_.isTitle).size
     info(s"The number of abstract entry titles is $titleSize")
