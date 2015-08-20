@@ -11,15 +11,46 @@ class NxmlReaderTests extends FlatSpec with Matchers {
   def nxmlDocument(xml:String, tsv:Seq[FriesEntry]) ={
 
     it must "have a single article-title entry" in {
-      pending
+      val entries = reader.readNxml(xml, "a document name")
+
+      val size = entries.filter(_.sectionId == "article-title").size
+
+      size should equal (1)
     }
 
+    // Reconsider this test, as it is meaningless since NxmlReader doesn't extract
+    // references from the xml document
     it must "not have any reference" in {
-      pending
+      val entries = reader.readNxml(xml, "a document name")
+
+      val size = entries.filter(_.sectionId == "references").size
+
+      size should equal (0)
     }
 
     it should "have the same number of entries as the tsv" in {
-      pending
+      val numTsvEntries = tsv.size
+      val entries = reader.readNxml(xml, "a document name") filter (_.sectionId != "abstract")
+
+      entries.size should equal (numTsvEntries)
+    }
+
+    it must "not contain any citation-removal artifact" in {
+      val entries = reader.readNxml(xml, "a document name")
+      val detector = reader.citationArtifact
+
+
+      val found = (entries map {
+        e:FriesEntry =>
+          val matches = detector.findAllIn(e.text).toSeq
+          for(m <- matches){
+            info(s"Found ${m} in ${e.text}")
+          }
+          matches.size != 0
+      }).foldLeft(false)(_ || _)
+
+      found should be (false)
+
     }
   }
 
@@ -36,6 +67,8 @@ class NxmlReaderTests extends FlatSpec with Matchers {
       if(tokens(3) == "1") true else false,
       tokens(4)
     )
+  } filter {
+    e => !(e.sectionId == "references" && e.sectionId == "abstract" )
   }
 
   def reader = new NxmlReader
@@ -68,36 +101,90 @@ class NxmlReaderTests extends FlatSpec with Matchers {
 
   it should behave like nxmlDocument(nxml1, tsv1)
 
-  it should "have four abstract entries" in {
-    pending
-  }
+  it should "have four abstract entries, with their respective titles" in {
+    val entries = reader.readNxml(nxml1, "PMC113262")
+    val absEntries = entries filter (_.sectionId == "abstract")
 
-  it should "have a normalized section in the abstract" in {
-    pending
+    val size = absEntries.filter(!_.isTitle).size
+    info(s"The number of abstract entries is $size")
+    size should equal (4)
+
+    val titleSize = absEntries.filter(_.isTitle).size
+    info(s"The number of abstract entry titles is $titleSize")
+    titleSize should equal (4)
   }
 
   it should "have six different sections" in {
-    pending
+    val entries = reader.readNxml(nxml1, "PMC113262")
+      .filter(_.sectionId != "abstract")
+      .filter(_.sectionId != "article-title")
+
+    val sections = entries.map( e => e.sectionName ).toSet
+
+    for(section <- sections){
+      info(s"Found section $section")
+    }
+
+    sections.size should equal (6)
   }
 
   it should "have five different sections when filtering" in {
-    pending
+    val entries = filteredReader.readNxml(nxml1, "PMC113262")
+      .filter(_.sectionId != "abstract")
+      .filter(_.sectionId != "article-title")
+
+    val sections = entries.map( e => e.sectionName ).toSet
+
+    for(section <- sections){
+      info(s"Found section $section")
+    }
+
+    sections.size should equal (5)
   }
 
   behavior of "PMC1702562"
 
   it should behave like nxmlDocument(nxml2, tsv2)
 
-  it should "have one abstract entry" in {
-    pending
+  it should "have one abstract entry, with its respective title" in {
+    val entries = reader.readNxml(nxml2, "PMC1702562")
+    val absEntries = entries filter (_.sectionId == "abstract")
+
+    val size = absEntries.filter(!_.isTitle).size
+    info(s"The number of abstract entries is $size")
+    size should equal (1)
+
+    val titleSize = absEntries.filter(_.isTitle).size
+    info(s"The number of abstract entry titles is $titleSize")
+    titleSize should equal(1)
   }
 
   it should "have five different sections" in {
-    pending
+    val entries = reader.readNxml(nxml2, "PMC1702562")
+      .filter(_.sectionId != "abstract")
+      .filter(_.sectionId != "article-title")
+
+    val sections = entries.map( e => e.sectionName ).toSet
+
+    for(section <- sections){
+      info(s"Found section $section")
+    }
+
+    sections.size should equal (5)
   }
 
   it should "have three different sections when filtering" in {
-    pending
+    val entries = filteredReader.readNxml(nxml2, "PMC1702562")
+      .filter(_.sectionId != "abstract")
+      .filter(_.sectionId != "article-title")
+
+    val sections = entries.map( e => e.sectionName ).toSet
+
+    for(section <- sections){
+      info(s"Found section $section")
+    }
+
+    sections.size should equal (3)
   }
   ////////
 }
