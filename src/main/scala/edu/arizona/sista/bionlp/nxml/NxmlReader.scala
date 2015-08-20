@@ -21,7 +21,7 @@ object MyXML extends XMLLoader[Elem] {
 class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
   // This is a regex to remove the artifacts left from citation removal
-  val citationArticact = """[\(\[][ ,;(and)]+[\)\]]""".r
+  val citationArtifact = """[\(\[][ ,;(and)]+[\)\]]""".r
 
   /** Parsed an Nxml document and gives back an NxmlDoc instance */
   def readNxml(doc:Elem, docName:String):Seq[FriesEntry] = {
@@ -143,7 +143,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       // Remove artifacts of citation removal
       e => FriesEntry(e.name, e.chunkId, e.sectionId,
          e.sectionName, e.isTitle,
-        citationArticact.replaceAllIn(e.text, ""))
+        citationArtifact.replaceAllIn(e.text, ""))
     }
   }
 
