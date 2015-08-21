@@ -241,8 +241,6 @@ class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
     val entries = filteredReader.readNxml(nxml2, "PMC1702562")
       .filter(_.sectionId.startsWith("fig-"))
 
-    info(s"${entries.size}")
-
     val numCaptions = entries.filter(!_.isTitle).map(_.sectionId).toSet.size
     val numLabels = entries.filter(_.isTitle).map(_.sectionId).toSet.size
 
