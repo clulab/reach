@@ -4,11 +4,70 @@ import io.Source
 import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.bionlp.FriesEntry
 
+trait Fixtures {
+  // Set up the fixtures
+  def tsv1 = Source.fromURL(getClass.getResource("/tsv/PMC2958468.tsv")).getLines
+  .toList.map {
+    line =>
+    val tokens = line.split("\t")
+    FriesEntry(
+      "PMC2958468",
+      tokens(0),
+      tokens(2),
+      tokens(1),
+      if(tokens(3) == "1") true else false,
+      tokens(4)
+    )
+  }.filter {
+    e => !(e.sectionId == "references" || e.sectionId == "abstract" )
+  }.filter {
+    e => e.sectionId == "article-title" || e.sectionName.startsWith("s")
+  }.takeWhile {
+    // We only care about the lines that correspond to the <body/> tag.
+    // All other will be handled differently (better) by NxmlReader than nxml2fries.py
+    // This number is hard-coded and was determined by Enrique.
+    e => e.chunkId != "87"
+  }.filter {
+    e => !e.sectionId.startsWith("supm-")
+  }
 
-class NxmlReaderTests extends FlatSpec with Matchers {
+  def reader = new NxmlReader
+
+  def filteredReader = new NxmlReader(Seq("materials|methods", "supplementary-material"))
+
+  def nxml1 = Source.fromURL(getClass.getResource("/tsv/PMC2958468.nxml")).mkString
+
+  def tsv2 = Source.fromURL(getClass.getResource("/tsv/PMC1702562.tsv")).getLines
+  .toList.map {
+    line =>
+    val tokens = line.split("\t")
+    FriesEntry(
+      "PMC1702562",
+      tokens(0),
+      tokens(2),
+      tokens(1),
+      if(tokens(3) == "1") true else false,
+      tokens(4)
+    )
+  }.filter {
+    e => e.sectionId == "article-title" || e.sectionName.startsWith("s")
+  }.takeWhile {
+    // We only care about the lines that correspond to the <body/> tag.
+    // All other will be handled differently (better) by NxmlReader than nxml2fries.py
+    // This number is hard-coded and was determined by Enrique.
+    e => e.chunkId != "133"
+  }.filter {
+    e => !e.sectionId.startsWith("supm-")
+  }
+
+  def nxml2 = Source.fromURL(getClass.getResource("/tsv/PMC1702562.nxml")).mkString
+  /////////
+}
+
+class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
 
   // Behavior shared among all NXML documents
-  def nxmlDocument(xml:String, tsv:Seq[FriesEntry]) ={
+  def nxmlDocument(xml:String, lastChunk:String, tsv:Seq[FriesEntry]) ={
 
     it must "have a single article-title entry" in {
       val entries = reader.readNxml(xml, "a document name")
@@ -30,7 +89,18 @@ class NxmlReaderTests extends FlatSpec with Matchers {
 
     it should "have the same number of entries as the tsv" in {
       val numTsvEntries = tsv.size
-      val entries = reader.readNxml(xml, "a document name") filter (_.sectionId != "abstract")
+      val entries = reader.readNxml(xml, "a document name") filter {
+        _.sectionId != "abstract"
+      } takeWhile {
+        _.chunkId != lastChunk
+      } filter {
+        !_.sectionId.startsWith("fig-")
+      } filter {
+        !_.sectionId.startsWith("supm-")
+      }
+
+      info(s"Number of relevant entries from the NxmlReader: ${entries.size}")
+      info(s"Number of relevant entries in the tsv: $numTsvEntries")
 
       entries.size should equal (numTsvEntries)
     }
@@ -54,70 +124,30 @@ class NxmlReaderTests extends FlatSpec with Matchers {
     }
   }
 
-  // Set up the fixtures
-  def tsv1 = Source.fromURL(getClass.getResource("/tsv/PMC113262.tsv")).getLines
-  .toList.map {
-    line =>
-    val tokens = line.split("\t")
-    FriesEntry(
-      "PMC113262",
-      tokens(0),
-      tokens(2),
-      tokens(1),
-      if(tokens(3) == "1") true else false,
-      tokens(4)
-    )
-  } filter {
-    e => !(e.sectionId == "references" && e.sectionId == "abstract" )
-  }
-
-  def reader = new NxmlReader
-
-  def filteredReader = new NxmlReader(Seq("materials|methods", "supplementary-material"))
-
-  def nxml1 = Source.fromURL(getClass.getResource("/tsv/PMC113262.nxml")).mkString
-
-  def tsv2 = Source.fromURL(getClass.getResource("/tsv/PMC1702562.tsv")).getLines
-  .toList.map {
-    line =>
-    val tokens = line.split("\t")
-    FriesEntry(
-      "PMC1702562",
-      tokens(0),
-      tokens(2),
-      tokens(1),
-      if(tokens(3) == "1") true else false,
-      tokens(4)
-    )
-  } filter {
-    e => !(e.sectionId == "references" && e.sectionId == "abstract" )
-  }
-
-  def nxml2 = Source.fromURL(getClass.getResource("/tsv/PMC1702562.nxml")).mkString
-  /////////
-
   // Tests
-  behavior of "PMC113262"
+  behavior of "PMC2958468"
 
-  it should behave like nxmlDocument(nxml1, tsv1)
+  it should behave like nxmlDocument(nxml1, "87", tsv1)
 
-  it should "have four abstract entries, with their respective titles" in {
-    val entries = reader.readNxml(nxml1, "PMC113262")
+  it should "have two abstract entries with no titles in them" in {
+    val entries = reader.readNxml(nxml1, "PMC2958468")
     val absEntries = entries filter (_.sectionId == "abstract")
 
     val size = absEntries.filter(!_.isTitle).size
     info(s"The number of abstract entries is $size")
-    size should equal (4)
+    size should equal (2)
 
     val titleSize = absEntries.filter(_.isTitle).size
     info(s"The number of abstract entry titles is $titleSize")
-    titleSize should equal (4)
+    titleSize should equal (0)
   }
 
-  it should "have six different sections" in {
-    val entries = reader.readNxml(nxml1, "PMC113262")
+  it should "have four different sections" in {
+    val entries = reader.readNxml(nxml1, "PMC2958468")
       .filter(_.sectionId != "abstract")
       .filter(_.sectionId != "article-title")
+      .filter(!_.sectionId.startsWith("fig-"))
+      .filter(!_.sectionId.startsWith("supm-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -125,13 +155,15 @@ class NxmlReaderTests extends FlatSpec with Matchers {
       info(s"Found section $section")
     }
 
-    sections.size should equal (6)
+    sections.size should equal (4)
   }
 
-  it should "have five different sections when filtering" in {
-    val entries = filteredReader.readNxml(nxml1, "PMC113262")
+  it should "have three different sections when filtering" in {
+    val entries = filteredReader.readNxml(nxml1, "PMC2958468")
       .filter(_.sectionId != "abstract")
       .filter(_.sectionId != "article-title")
+      .filter(!_.sectionId.startsWith("fig-"))
+      .filter(!_.sectionId.startsWith("supm-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -139,12 +171,26 @@ class NxmlReaderTests extends FlatSpec with Matchers {
       info(s"Found section $section")
     }
 
-    sections.size should equal (5)
+    sections.size should equal (3)
+  }
+
+  it should "have eight different figures with their corresponding label" in {
+    val entries = filteredReader.readNxml(nxml1, "PMC2958468")
+      .filter(_.sectionId.startsWith("fig-"))
+
+    val numCaptions = entries.filter(!_.isTitle).size
+    val numLabels = entries.filter(_.isTitle).size
+
+    info(s"The number of figure captions is $numCaptions")
+    numCaptions should equal (8)
+
+    info(s"The number of figure labels is $numLabels")
+    numLabels should equal (8)
   }
 
   behavior of "PMC1702562"
 
-  it should behave like nxmlDocument(nxml2, tsv2)
+  it should behave like nxmlDocument(nxml2, "104", tsv2)
 
   it should "have three abstract entries, and only one title" in {
     val entries = reader.readNxml(nxml2, "PMC1702562")
@@ -159,10 +205,12 @@ class NxmlReaderTests extends FlatSpec with Matchers {
     titleSize should equal(1)
   }
 
-  it should "have five different sections" in {
+  it should "have six different sections" in {
     val entries = reader.readNxml(nxml2, "PMC1702562")
       .filter(_.sectionId != "abstract")
       .filter(_.sectionId != "article-title")
+      .filter(!_.sectionId.startsWith("fig-"))
+      .filter(!_.sectionId.startsWith("supm-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -170,13 +218,15 @@ class NxmlReaderTests extends FlatSpec with Matchers {
       info(s"Found section $section")
     }
 
-    sections.size should equal (5)
+    sections.size should equal (6)
   }
 
-  it should "have three different sections when filtering" in {
+  it should "have four different sections when filtering" in {
     val entries = filteredReader.readNxml(nxml2, "PMC1702562")
       .filter(_.sectionId != "abstract")
       .filter(_.sectionId != "article-title")
+      .filter(!_.sectionId.startsWith("fig-"))
+      .filter(!_.sectionId.startsWith("supm-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -184,7 +234,23 @@ class NxmlReaderTests extends FlatSpec with Matchers {
       info(s"Found section $section")
     }
 
-    sections.size should equal (3)
+    sections.size should equal (4)
+  }
+
+  it should "have seven different figures with their corresponding label" in {
+    val entries = filteredReader.readNxml(nxml2, "PMC1702562")
+      .filter(_.sectionId.startsWith("fig-"))
+
+    info(s"${entries.size}")
+
+    val numCaptions = entries.filter(!_.isTitle).map(_.sectionId).toSet.size
+    val numLabels = entries.filter(_.isTitle).map(_.sectionId).toSet.size
+
+    info(s"The number of figure captions is $numCaptions")
+    numCaptions should equal (7)
+
+    info(s"The number of figure labels is $numLabels")
+    numLabels should equal (7)
   }
   ////////
 }
