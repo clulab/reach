@@ -26,7 +26,7 @@ class ReachSystem(rules: Option[Rules] = None,
   val entityEngine = ExtractorEngine(entityRules, actions2, grounder.apply)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
-  val modificationEngine = ExtractorEngine(modificationRules, actions)
+  val modificationEngine = ExtractorEngine(modificationRules, actions2)
   // start event extraction engine
   // This will be our global action for the eventEngine
   val cleanupEvents =

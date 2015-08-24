@@ -23,7 +23,6 @@ class DarpaActions2 extends Actions {
     * by subsequent rules.
     * WARNING This method only handles RelationMentions. Other types of Mentions are deleted.
     */
-  // FIXME rename to unpackRelation()
   def unpackRelations(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case rel: RelationMention => for {
       (k, v) <- rel.arguments
@@ -48,15 +47,12 @@ class DarpaActions2 extends Actions {
     }
   }
 
-  // FIXME change modification_trigger_1 to return a textboundmention
-  // instead of implementing mkModTrigger()
-
   /** This action gets RelationMentions that represents a PTM,
     * and attaches the modification to the target entity in place.
     * This action modifies mentions in-place. This action always returns
     * Nil, it assumes that the arguments are already in the state.
     */
-  def storeModification(mentions: Seq[Mention], state: State): Seq[Mention] = {
+  def storePTM(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions foreach {
       case ptm: RelationMention if ptm matches "PTM" =>
         // convert first relation("entity") into BioMention
@@ -83,7 +79,6 @@ class DarpaActions2 extends Actions {
     * This action always returns Nil and assumes that the arguments are already
     * in the state.
     */
-  // FIXME modify rules: eventsite_multisite_1, eventsite_withparens to capture all sites
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions foreach {
       case es: RelationMention if es matches "EventSite" =>

@@ -6,7 +6,7 @@
   label: Mutant
   priority: 1
   type: token
-  action: mkEntities
+  action: unpackRelations
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
@@ -15,7 +15,7 @@
   label: Mutant
   priority: 1
   type: token
-  action: mkEntities
+  action: unpackRelations
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/]) [lemma=/^(mutant|mutation)/]?
@@ -24,7 +24,7 @@
   label: Mutant
   priority: 1
   type: token
-  action: mkEntities
+  action: unpackRelations
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]) [lemma=/^(mutant|mutation)/]?
@@ -33,6 +33,7 @@
 - name: mutant_4
   label: Mutant
   priority: 2
+  action: mkBioMention
   type: token
   keep: false
   pattern: |
@@ -42,6 +43,7 @@
 - name: mutant_5
   label: Mutant
   priority: 2
+  action: mkBioMention
   type: token
   keep: false
   pattern: |
@@ -58,7 +60,7 @@
   type: token
   pattern: |
     [lemma=/^(mutant|mutation)/]? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]? @mutant:Mutant [lemma=/^(mutant|mutation)/]?
-    |
+      |
     @mutant:Mutant [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]?
 
 - name: mutantmod_2
@@ -67,7 +69,9 @@
   priority: 3
   type: token
   pattern: |
-    (?<! [mention=BioChemicalEntity]) @mutant:Mutant [!tag=/^(V|CC)/]{,5} [tag="CC"] @Mutant [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity
+    (?<! [mention=BioChemicalEntity])
+    @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag="CC"] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
+    [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity
 
 - name: mutantmod_3
   label: Mutant
@@ -76,7 +80,9 @@
   priority: 3
   type: token
   pattern: |
-    @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]? @Mutant [!tag=/^(V|CC)/]{,5} [tag="CC"] @mutant:Mutant (?! [mention=BioChemicalEntity])
+    @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]?
+    @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag="CC"] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
+    (?![mention=BioChemicalEntity])
 
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens
@@ -86,7 +92,17 @@
   example: "ERK(T202M/Y204E)"
   type: token
   pattern: |
-    @entity:BioChemicalEntity [word="("] []*? @mutant:Mutant [word=")"]
+    @entity:BioChemicalEntity "(" @mutant:Mutant+ ")"
+
+# this grabs all Mutants that it finds within parens
+- name: mutantmod_withparens2
+  label: Mutant
+  action: storeMutants
+  priority: 3
+  example: "ERK(T202M/Y204E)"
+  type: token
+  pattern: |
+    @entity:BioChemicalEntity "(" @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag=CC] @mutant:Mutant)? | [tag=CC] @mutant:Mutant) ")"
 
 
 #- name: mutant_2
