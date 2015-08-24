@@ -18,11 +18,12 @@ class ReachSystem(rules: Option[Rules] = None,
   val eventRules = if (rules.isEmpty) readResource(RuleReader.eventsMasterFile) else rules.get.events
   // initialize actions object
   val actions = new DarpaActions
+  val actions2 = new DarpaActions2
   // initialize grounder
   val grounder = new LocalGrounder
   // start entity extraction engine
   // this engine extracts all physical entities of interest and grounds them
-  val entityEngine = ExtractorEngine(entityRules, actions, grounder.apply)
+  val entityEngine = ExtractorEngine(entityRules, actions2, grounder.apply)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
   val modificationEngine = ExtractorEngine(modificationRules, actions)
