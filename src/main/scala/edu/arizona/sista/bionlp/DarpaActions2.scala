@@ -94,6 +94,11 @@ class DarpaActions2 extends Actions {
     Nil
   }
 
+  /** Gets RelationMentions that represent a Mutant,
+    * and attaches the mutation to the corresponding event in-place.
+    * This action always returns Nil and assumes that the arguments are already
+    * in the state.
+    */
   def storeMutants(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions foreach {
       case m: RelationMention if m matches "Mutant" =>
@@ -106,20 +111,255 @@ class DarpaActions2 extends Actions {
     Nil
   }
 
-  // helper functions
+  /** Gets a sequence of mentions that are candidates for becoming Ubiquitination
+    * events and filters out the ones that have ubiquitin as a theme, since
+    * a ubiquitin can't be ubiquitinated. Events that have ubiquitin as a cause
+    * are also filtered out.
+    */
+  def mkUbiquitination(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    val filteredMentions = mentions.filterNot { ev =>
+      // Only keep mentions that don't have ubiquitin as a theme or cause.
+      ev.arguments("theme").exists(_.text.toLowerCase.contains("ubiq")) ||
+      ev.arguments("cause").exists(_.text.toLowerCase.contains("ubiq"))
+    }
+    // return biomentions
+    filteredMentions.map(_.toBioMention)
+  }
 
-  // retrieve the appropriate modification label
+  def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
+    // iterate over mentions giving preference to mentions that have an event controller
+    mention <- sortMentionsByController(mentions)
+    // switch label if needed based on negations
+    regulation = switchLabel(mention.toBioMention)
+    // If there the Mention has both a controller and controlled, they should be distinct
+    if hasDistinctControllerControlled(regulation)
+  } yield {
+    val controllerOption = regulation.arguments.get("controller")
+    // if no controller then we are done
+    if (controllerOption.isEmpty) regulation
+    else {
+      // assuming one controller only
+      val controller = controllerOption.get.head
+      // if controller is a physical entity then we are done
+      if (controller matches "Entity") regulation
+      else if (controller matches "SimpleEvent") {
+        // convert controller event into modified physical entity
+        val trigger = regulation.asInstanceOf[BioEventMention].trigger
+        val newController = convertEventToEntity(controller.toBioMention.asInstanceOf[BioEventMention])
+        // if for some reason the event couldn't be converted
+        // just return the original mention
+        if (newController.isEmpty) regulation
+        else {
+          // return a new event with the converted controller
+          new BioEventMention(
+            regulation.labels,
+            trigger,
+            regulation.arguments.updated("controller", Seq(newController.get)),
+            regulation.sentence,
+            regulation.document,
+            regulation.keep,
+            regulation.foundBy)
+        }
+      }
+      // if it didn't match any case, return regulation unmodified
+      else regulation
+    }
+  }
+
+  def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
+    // Prefer Activations with SimpleEvents as the controller
+    mention <- preferSimpleEventControllers(mentions)
+    // switch label if needed based on negations
+    activation = switchLabel(mention.toBioMention)
+    // retrieve regulations that overlap this mention
+    regs = state.mentionsFor(activation.sentence, activation.tokenInterval, "Regulation")
+    // Don't report an Activation if an intersecting Regulation has been detected
+    // or if it's controller and controlled are not distinct
+    if regs.isEmpty && hasDistinctControllerControlled(activation)
+  } yield activation.arguments.get("controller") match {
+    // if activation has no controller, return activation unmodified
+    case None => activation
+    // if activation has entity controller, return activation unmodified
+    case Some(Seq(controller)) if controller.matches("Entity") => activation
+    // activation has event controller
+    case Some(Seq(controller)) =>
+      val trigger = activation.asInstanceOf[BioEventMention].trigger
+      val bioEventController = controller.toBioMention.asInstanceOf[BioEventMention]
+      val entityController = convertEventToEntity(bioEventController)
+      // if controller can't be converted to entity, return activation unmodified
+      if (entityController.isEmpty) activation
+      // return new activation with the event controller replaced by the entity controller
+      else new BioEventMention(
+        activation.labels,
+        trigger,
+        activation.arguments.updated("controller", Seq(entityController.get)),
+        activation.sentence,
+        activation.document,
+        activation.keep,
+        activation.foundBy)
+  }
+
+
+  // HELPER FUNCTIONS
+
+
+  /** retrieves the appropriate modification label */
   def getModificationLabel(text: String): String = text.toLowerCase match {
     case string if string contains "acetylat" => "acetylated"
     case string if string contains "farnesylat" => "farnesylated"
-    case string if string contains "glycosylat" =>"glycosylated"
-    case string if string contains "hydroxylat" =>"hydroxylated"
+    case string if string contains "glycosylat" => "glycosylated"
+    case string if string contains "hydroxylat" => "hydroxylated"
     case string if string contains "methylat" => "methylated"
     case string if string contains "phosphorylat" => "phosphorylated"
     case string if string contains "ribosylat" => "ribosylated"
-    case string if string contains "sumoylat" =>"sumoylated"
+    case string if string contains "sumoylat" => "sumoylated"
     case string if string contains "ubiquitinat" => "ubiquitinated"
     case _ => "UNKNOWN"
+  }
+
+  /** Gets a sequence of mentions and returns only the ones that have
+    * SimpleEvent controllers. If none is found, returns all mentions.
+    */
+  def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
+    // get events that have a SimpleEvent as a controller
+    // assuming that events can only have one controller
+    val eventsWithSimpleController = mentions.filter { m =>
+      m.arguments.contains("controller") && m.arguments("controller").head.matches("SimpleEvent")
+    }
+    if (eventsWithSimpleController.nonEmpty) eventsWithSimpleController else mentions
+  }
+
+  /** Gets a mention. If it is an EventMention with a polarized label
+    * and it is negated an odd number of times, returns a new mention
+    * with the label flipped. Or else it returns the mention unmodified */
+  def switchLabel(mention: Mention): Mention = mention match {
+    case m: BioEventMention =>
+      val trigger = m.trigger
+      val arguments = m.arguments.values.flatten
+      // get token indices to exclude in the negation search
+      val excluded = trigger.tokenInterval.toSet ++ arguments.flatMap(_.tokenInterval)
+      // count total number of negatives between trigger and each argument
+      val numNegatives = arguments.map(arg => countSemanticNegatives(trigger, arg, excluded)).sum
+      if (numNegatives % 2 != 0) { // odd number of negatives
+        val newLabels = flipLabel(m.labels.head) +: m.labels.tail
+        // return new mention with flipped label
+        new BioEventMention(newLabels, m.trigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
+      } else {
+        m // return mention unmodified
+      }
+    case m => m
+  }
+
+  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+
+  /** Gets a trigger, an argument and a set of tokens to be ignored.
+    * Returns the number of semantic negatives found in the shortest possible path
+    * between the trigger and the argument.
+    */
+  def countSemanticNegatives(trigger: Mention, arg: Mention, excluded: Set[Int]): Int = {
+    // it is possible for the trigger and the arg to be in different sentences because of coreference
+    if (trigger.sentence != arg.sentence) return 0
+    val deps = trigger.sentenceObj.dependencies.get
+    // find the shortest path between any token in the trigger and any token in the argument
+    var shortestPath: Seq[Int] = null
+    for (tok1 <- trigger.tokenInterval; tok2 <- arg.tokenInterval) {
+      val path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
+      if (shortestPath == null || path.length < shortestPath.length) {
+        shortestPath = path
+      }
+    }
+    // get all tokens considered negatives
+    val negatives = for {
+      tok <- shortestPath
+      if !excluded.contains(tok)
+      lemma = trigger.sentenceObj.lemmas.get(tok)
+      if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
+    } yield tok
+    // return number of negatives
+    negatives.size
+  }
+
+  /** gets a polarized label and returns it flipped */
+  def flipLabel(label: String): String =
+    if (label startsWith "Positive_")
+      "Negative_" + label.substring(9)
+    else if (label startsWith "Negative_")
+      "Positive_" + label.substring(9)
+    else sys.error("ERROR: Must have a polarized label here!")
+
+  /** Gets a mention and checks that the controller and controlled are different.
+    * Returns true if either the controller or the controlled is missing,
+    * or if they are both present and are distinct.
+    */
+  def hasDistinctControllerControlled(m: Mention): Boolean = {
+    val controlled = m.arguments.getOrElse("controlled", Nil)
+    val controller = m.arguments.getOrElse("controller", Nil)
+    // if no controller or no controlled then we are good
+    if (controlled.isEmpty || controller.isEmpty) true
+    else {
+      // we are only concerned with the first controlled and controller
+      val c1 = controlled.head.toBioMention
+      val c2 = controller.head.toBioMention
+      if (c1 == c2) false // they are the same mention
+      else (c1.xref, c2.xref) match {
+        // if they are grounded the grounding should be different
+        case (Some(g1), Some(g2)) => g1 != g2
+        case _ => true // seems like they are different
+      }
+    }
+  }
+
+  /** Gets a BioEventMention. If it is not a SimpleEvent it returns None.
+    * If it is a SimpleEvent it will return an entity that represents
+    * the product of the event: a complex for a binding and an entity
+    * with a PTM for any other kind of SimpleEvent.
+    */
+  def convertEventToEntity(event: BioEventMention): Option[BioMention] = {
+    if (!event.matches("SimpleEvent")) {
+      // we only handle simple events
+      None
+    } else if (event matches "Binding") {
+      // create a relationMention that represents the Complex produced by this binding
+      val complex = new BioRelationMention(
+        // we need to specify all labels, taxonomy is not available here
+        Seq("Complex", "MacroMolecule", "BioChemicalEntity", "Entity", "PossibleController"),
+        event.arguments,
+        event.sentence,
+        event.document,
+        event.keep,
+        event.foundBy)
+      Some(complex)
+    } else {
+      // get the theme of the event (assume only one theme)
+      val entity = event.arguments("theme").head
+      // get an optional site (assumen only one site)
+      val siteOption = event.arguments.get("site").map(_.head)
+      // create new mention for the entity
+      val modifiedEntity = new BioTextBoundMention(
+        entity.labels,
+        entity.tokenInterval,
+        entity.sentence,
+        entity.document,
+        entity.keep,
+        entity.foundBy)
+      // attach a modification based on the event trigger
+      val label = getModificationLabel(event.trigger.text)
+      modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = siteOption)
+      Some(modifiedEntity)
+    }
+  }
+
+  /** sorts a sequence of Mentions so that mentions with event controllers appear first */
+  def sortMentionsByController(mentions: Seq[Mention]): Seq[Mention] = mentions sortWith { (m1, m2) =>
+    // get the controller of the first mention
+    val ctrl1 = m1.arguments.get("controller")
+    val ctrl2 = m2.arguments.get("controller")
+    (ctrl1, ctrl2) match {
+      case (Some(Seq(c1)), Some(Seq(c2))) if c1.matches("Event") && !c2.matches("Event") => true
+      case (Some(Seq(c1)), None) => true
+      case _ => false
+    }
   }
 
 }

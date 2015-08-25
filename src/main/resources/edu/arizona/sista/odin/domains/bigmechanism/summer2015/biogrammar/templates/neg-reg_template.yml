@@ -141,7 +141,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy> [lemma=/${ negnouns}/])
+    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?=[lemma=/${ negnouns }/])
 
 
 - name: Negative_${ ruleType }_token_1_noun
