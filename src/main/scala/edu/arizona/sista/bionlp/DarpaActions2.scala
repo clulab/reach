@@ -147,7 +147,6 @@ class DarpaActions2 extends Actions {
       if (controller matches "Entity") regulation
       else if (controller matches "SimpleEvent") {
         // convert controller event into modified physical entity
-        println(regulation.foundBy)
         val trigger = regulation.asInstanceOf[BioEventMention].trigger
         val newController = convertEventToEntity(controller.toBioMention.asInstanceOf[BioEventMention])
         // if for some reason the event couldn't be converted
