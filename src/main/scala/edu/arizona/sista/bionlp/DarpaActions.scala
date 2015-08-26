@@ -6,6 +6,8 @@ import edu.arizona.sista.bionlp.mentions._
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
+import DarpaActions._
+
 class DarpaActions extends Actions {
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.switchLabel
@@ -894,6 +896,7 @@ class DarpaActions extends Actions {
           if(shortestPath == null || path.length < shortestPath.length)
             shortestPath = path
         }
+        shortestPath = addAdjectivalModifiers(shortestPath, deps)
         // count negatives along the shortest path
         for(i <- shortestPath) {
           if(! excluded.contains(i)) {
@@ -908,6 +911,33 @@ class DarpaActions extends Actions {
     }
   }
 
+  /**
+   * Adds adjectival modifiers to all elements in the given path
+   * This is necessary so we can properly inspect the semantic negatives,
+   *   which are often not in the path, but modify tokens in it,
+   *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
+   * @param tokens
+   * @return
+   */
+  def addAdjectivalModifiers(tokens:Seq[Int], deps:DirectedGraph[String]):Seq[Int] = {
+    val tokensWithModifiers = new ListBuffer[Int]
+    for(token <- tokens) {
+      tokensWithModifiers += token
+      tokensWithModifiers ++= getModifiers(token, deps)
+    }
+    tokensWithModifiers.toSeq
+  }
+  def getModifiers(token:Int, deps:DirectedGraph[String]):Seq[Int] = {
+    val mods = new ListBuffer[Int]
+    for(dep <- deps.getOutgoingEdges(token)) {
+      if(MODIFIER_LABELS.findFirstIn(dep._2).isDefined) {
+        // println(s"\tFOUND MOD ${dep._1} for token $token")
+        mods += dep._1
+      }
+    }
+    mods.toSeq
+  }
+
   /** Purely for debugging rules */
   def debug(mentions: Seq[Mention], state:State): Seq[Mention] = {
     mentions foreach { m =>
@@ -916,4 +946,8 @@ class DarpaActions extends Actions {
     }
     mentions
   }
+}
+
+object DarpaActions {
+  val MODIFIER_LABELS = "amod".r
 }
