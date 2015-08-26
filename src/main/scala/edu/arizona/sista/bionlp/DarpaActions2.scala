@@ -2,9 +2,11 @@ package edu.arizona.sista.bionlp
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.struct.Interval
+import edu.arizona.sista.struct.{ Interval, DirectedGraph }
 
 class DarpaActions2 extends Actions {
+
+  import DarpaActions2._
 
   /** Converts mentions to biomentions.
     * They are returned as mentions but they are biomentions with grounding, modifications, etc
@@ -199,6 +201,64 @@ class DarpaActions2 extends Actions {
         activation.foundBy)
   }
 
+  def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case m: BioEventMention if m.matches("Binding") =>
+      val theme1s = m.arguments.getOrElse("theme1", Nil).map(_.toBioMention)
+      val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
+      (theme1s, theme2s) match {
+        // this shouldn't happen
+        case (Nil, Nil) => Nil
+        // if binding has only one theme, delete it
+        case (Seq(_), Nil) => Nil
+        case (Nil, Seq(_)) => Nil
+        case (t1s, Nil) => mkBindingsFromPairs(t1s.combinations(2).toList, m)
+        case (Nil, t2s) => mkBindingsFromPairs(t2s.combinations(2).toList, m)
+        case (t1s, t2s) =>
+          val pairs = for {
+            t1 <- t1s
+            t2 <- t2s
+          } yield List(t1, t2)
+          mkBindingsFromPairs(pairs, m)
+      }
+  }
+
+  def mkBindingsFromPairs(pairs: Seq[Seq[BioMention]], original: BioEventMention): Seq[Mention] = for {
+    Seq(theme1, theme2) <- pairs
+    if !sameEntityID(theme1, theme2)
+  } yield {
+    if (theme1.text.toLowerCase == "ubiquitin") {
+      val arguments = Map("theme" -> Seq(theme2))
+      new BioEventMention(
+        Seq("Ubiquitination", "SimpleEvent", "Event", "PossibleController"),
+        original.trigger,
+        arguments,
+        original.sentence,
+        original.document,
+        original.keep,
+        original.foundBy)
+    } else if (theme2.text.toLowerCase == "ubiquitin") {
+      val arguments = Map("theme" -> Seq(theme2))
+      new BioEventMention(
+        Seq("Ubiquitination", "SimpleEvent", "Event", "PossibleController"),
+        original.trigger,
+        arguments,
+        original.sentence,
+        original.document,
+        original.keep,
+        original.foundBy)
+    } else {
+      val arguments = Map("theme" -> Seq(theme1, theme2))
+      new BioEventMention(
+        original.labels,
+        original.trigger,
+        arguments,
+        original.sentence,
+        original.document,
+        original.keep,
+        original.foundBy)
+    }
+  }
+
 
   // HELPER FUNCTIONS
 
@@ -250,9 +310,6 @@ class DarpaActions2 extends Actions {
     case m => m
   }
 
-  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
-
   /** Gets a trigger, an argument and a set of tokens to be ignored.
     * Returns the number of semantic negatives found in the shortest possible path
     * between the trigger and the argument.
@@ -269,9 +326,10 @@ class DarpaActions2 extends Actions {
         shortestPath = path
       }
     }
+    val shortestPathWithMods = addAdjectivalModifiers(shortestPath, deps)
     // get all tokens considered negatives
     val negatives = for {
-      tok <- shortestPath
+      tok <- shortestPathWithMods
       if !excluded.contains(tok)
       lemma = trigger.sentenceObj.lemmas.get(tok)
       if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
@@ -279,6 +337,24 @@ class DarpaActions2 extends Actions {
     // return number of negatives
     negatives.size
   }
+
+  /**
+   * Adds adjectival modifiers to all elements in the given path
+   * This is necessary so we can properly inspect the semantic negatives,
+   *   which are often not in the path, but modify tokens in it,
+   *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
+   * @param tokens
+   * @return
+   */
+  def addAdjectivalModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
+    t <- tokens
+    token <- t +: getModifiers(t, deps)
+  } yield token
+
+  def getModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
+    (tok, dep) <- deps.getOutgoingEdges(token)
+    if MODIFIER_LABELS.findFirstIn(dep).isDefined
+  } yield tok
 
   /** gets a polarized label and returns it flipped */
   def flipLabel(label: String): String =
@@ -361,5 +437,21 @@ class DarpaActions2 extends Actions {
       case _ => false
     }
   }
+
+  /** Returns true if both mentions are grounded to the same entity */
+  def sameEntityID(m1: BioMention, m2: BioMention): Boolean = {
+    require(m1.xref.isDefined, "mention must be grounded")
+    require(m2.xref.isDefined, "mention must be grounded")
+    m1.xref == m2.xref
+  }
+
+}
+
+object DarpaActions2 {
+
+  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+
+  val MODIFIER_LABELS = "amod".r
 
 }
