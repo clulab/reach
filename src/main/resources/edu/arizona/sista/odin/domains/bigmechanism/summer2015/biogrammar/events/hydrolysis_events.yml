@@ -7,6 +7,7 @@
 - name: hydrolysis_1
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "We compared the rate of GTP hydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
@@ -17,6 +18,7 @@
 - name: hydrolysis_2
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
@@ -26,6 +28,7 @@
 - name: hydrolysis_2wrong
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
@@ -36,6 +39,7 @@
 - name: hydrolysis_3
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "No increase in the rate of GTP hydrolysis was observed for mUbRas"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
@@ -45,6 +49,7 @@
 - name: hydrolysis_4
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "RasPDZ2UL retains intrinsic GTP hydrolysis activity"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
@@ -54,6 +59,7 @@
 - name: hydrolysis_token_1
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "We measured the rate of GAP-mediated GTP hydrolysis"
   type: token
   pattern: |
@@ -63,6 +69,7 @@
 - name: hydrolysis_token_2
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "Renin is an enzyme that hydrolyzes Ras-GTP."
   type: token
   pattern: |
@@ -72,6 +79,7 @@
 - name: hydrolysis_decl1
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "RasGAP hydrolyzes GTP to GDP"
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=/^VB[^N]?/]
@@ -81,6 +89,7 @@
 - name: hydrolysis_pass1
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "Ras-GDP is hydrolyzed by 26S proteasome without ubiquitination"
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=VBN]
@@ -90,6 +99,7 @@
 - name: hydrolysis_subjnom1
   label: Hydrolysis
   priority: 4
+  action: mkBioMention
   example: "MEK hydrolysis of Ras-GDP increased."
   pattern: |
     trigger = [word=/(?i)^hydrolysis/]

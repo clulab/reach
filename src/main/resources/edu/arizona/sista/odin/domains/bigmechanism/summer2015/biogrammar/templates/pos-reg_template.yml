@@ -176,13 +176,14 @@
     controlled:${ controlledType } = /poss/
 
 
-- name: Positive_${ ruleType }_syntax_relation
-  priority: ${ priority }
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    controlled:${ controlledType }
-    controller:${ controllerType } = prep_by
+# FIXME do we really need a positive regulation without a trigger?
+#- name: Positive_${ ruleType }_syntax_relation
+#  priority: ${ priority }
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    controlled:${ controlledType }
+#    controller:${ controllerType } = prep_by
 
 
 - name: Positive_${ ruleType }_token_1_verb

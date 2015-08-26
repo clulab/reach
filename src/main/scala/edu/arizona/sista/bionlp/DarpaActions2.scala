@@ -120,9 +120,10 @@ class DarpaActions2 extends Actions {
     */
   def mkUbiquitination(mentions: Seq[Mention], state: State): Seq[Mention] = {
     val filteredMentions = mentions.filterNot { ev =>
-      // Only keep mentions that don't have ubiquitin as a theme or cause.
+      // Only keep mentions that don't have ubiquitin as a theme
       ev.arguments("theme").exists(_.text.toLowerCase.contains("ubiq")) ||
-      ev.arguments("cause").exists(_.text.toLowerCase.contains("ubiq"))
+      // mention shouldn't have ubiquitin as a cause either, if there is a cause
+      ev.arguments.get("cause").map(_.exists(_.text.toLowerCase.contains("ubiq"))).getOrElse(false)
     }
     // return biomentions
     filteredMentions.map(_.toBioMention)
@@ -132,7 +133,7 @@ class DarpaActions2 extends Actions {
     // iterate over mentions giving preference to mentions that have an event controller
     mention <- sortMentionsByController(mentions)
     // switch label if needed based on negations
-    regulation = switchLabel(mention.toBioMention)
+    regulation = removeDummy(switchLabel(mention.toBioMention))
     // If there the Mention has both a controller and controlled, they should be distinct
     if hasDistinctControllerControlled(regulation)
   } yield {
@@ -146,6 +147,7 @@ class DarpaActions2 extends Actions {
       if (controller matches "Entity") regulation
       else if (controller matches "SimpleEvent") {
         // convert controller event into modified physical entity
+        println(regulation.foundBy)
         val trigger = regulation.asInstanceOf[BioEventMention].trigger
         val newController = convertEventToEntity(controller.toBioMention.asInstanceOf[BioEventMention])
         // if for some reason the event couldn't be converted
@@ -172,7 +174,7 @@ class DarpaActions2 extends Actions {
     // Prefer Activations with SimpleEvents as the controller
     mention <- preferSimpleEventControllers(mentions)
     // switch label if needed based on negations
-    activation = switchLabel(mention.toBioMention)
+    activation = removeDummy(switchLabel(mention.toBioMention))
     // retrieve regulations that overlap this mention
     regs = state.mentionsFor(activation.sentence, activation.tokenInterval, "Regulation")
     // Don't report an Activation if an intersecting Regulation has been detected
@@ -202,27 +204,26 @@ class DarpaActions2 extends Actions {
   }
 
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
-    case m: BioEventMention if m.matches("Binding") =>
+    case m: EventMention if m.matches("Binding") =>
+      // themes in a subject position
       val theme1s = m.arguments.getOrElse("theme1", Nil).map(_.toBioMention)
+      // themes in an object position
       val theme2s = m.arguments.getOrElse("theme2", Nil).map(_.toBioMention)
       (theme1s, theme2s) match {
-        // this shouldn't happen
-        case (Nil, Nil) => Nil
-        // if binding has only one theme, delete it
-        case (Seq(_), Nil) => Nil
-        case (Nil, Seq(_)) => Nil
-        case (t1s, Nil) => mkBindingsFromPairs(t1s.combinations(2).toList, m)
-        case (Nil, t2s) => mkBindingsFromPairs(t2s.combinations(2).toList, m)
+        case (t1s, Nil) if t1s.length > 1 => mkBindingsFromPairs(t1s.combinations(2).toList, m)
+        case (Nil, t2s) if t2s.length > 1 => mkBindingsFromPairs(t2s.combinations(2).toList, m)
         case (t1s, t2s) =>
           val pairs = for {
             t1 <- t1s
             t2 <- t2s
           } yield List(t1, t2)
           mkBindingsFromPairs(pairs, m)
+        // bindings with 0 or 1 themes should be deleted
+        case _ => Nil
       }
   }
 
-  def mkBindingsFromPairs(pairs: Seq[Seq[BioMention]], original: BioEventMention): Seq[Mention] = for {
+  def mkBindingsFromPairs(pairs: Seq[Seq[BioMention]], original: EventMention): Seq[Mention] = for {
     Seq(theme1, theme2) <- pairs
     if !sameEntityID(theme1, theme2)
   } yield {
@@ -237,7 +238,7 @@ class DarpaActions2 extends Actions {
         original.keep,
         original.foundBy)
     } else if (theme2.text.toLowerCase == "ubiquitin") {
-      val arguments = Map("theme" -> Seq(theme2))
+      val arguments = Map("theme" -> Seq(theme1))
       new BioEventMention(
         Seq("Ubiquitination", "SimpleEvent", "Event", "PossibleController"),
         original.trigger,
@@ -292,7 +293,7 @@ class DarpaActions2 extends Actions {
   /** Gets a mention. If it is an EventMention with a polarized label
     * and it is negated an odd number of times, returns a new mention
     * with the label flipped. Or else it returns the mention unmodified */
-  def switchLabel(mention: Mention): Mention = mention match {
+  def switchLabel(mention: BioMention): BioMention = mention match {
     case m: BioEventMention =>
       val trigger = m.trigger
       val arguments = m.arguments.values.flatten
@@ -443,6 +444,21 @@ class DarpaActions2 extends Actions {
     require(m1.xref.isDefined, "mention must be grounded")
     require(m2.xref.isDefined, "mention must be grounded")
     m1.xref == m2.xref
+  }
+
+  def removeDummy(m: BioMention): BioMention = m match {
+    case em: BioEventMention => // we only need to do this for events
+      if (em.arguments contains "dummy") {
+        new BioEventMention(
+          em.labels,
+          em.trigger,
+          em.arguments - "dummy",
+          em.sentence,
+          em.document,
+          em.keep,
+          em.foundBy)
+      } else em
+    case m => m
   }
 
 }

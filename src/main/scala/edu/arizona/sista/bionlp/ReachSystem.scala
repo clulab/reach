@@ -38,7 +38,7 @@ class ReachSystem(rules: Option[Rules] = None,
     DarpaFlow(actions.splitSimpleEvents)
 
   // this engine extracts simple and recursive events and applies coreference
-  val eventEngine = ExtractorEngine(eventRules, actions, cleanupEvents.apply)
+  val eventEngine = ExtractorEngine(eventRules, actions2, cleanupEvents.apply)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
