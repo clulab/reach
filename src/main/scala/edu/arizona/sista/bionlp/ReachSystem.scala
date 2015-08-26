@@ -33,7 +33,7 @@ class ReachSystem(rules: Option[Rules] = None,
     DarpaFlow(actions.siteSniffer) andThen
     DarpaFlow((mentions: Seq[Mention], state: State) => mentions.filter(m => actions.validArguments(m, state))) andThen
     // This should happen before attempting to keep the most complete Mentions
-    DarpaFlow(actions.detectNegations) andThen
+    DarpaFlow(NegationHandler.detectNegations) andThen
     DarpaFlow(actions.detectHypotheses) andThen
     DarpaFlow(actions.splitSimpleEvents)
 
@@ -103,7 +103,7 @@ class ReachSystem(rules: Option[Rules] = None,
     // Make sure we don't have any "ModificationTrigger" Mentions
     val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
     // handle multiple Negation modifications
-    handleNegations(validMentions)
+    NegationHandler.handleNegations(validMentions)
     validMentions
   }
 }
@@ -290,31 +290,6 @@ object ReachSystem {
         filterRegulations(someRegs, other, state)
       case Nil =>
         pruneMentions(other.map(_.toBioMention))
-    }
-  }
-
-  // Alter Negation modifications in-place
-  def handleNegations(ms: Seq[BioMention]): Unit = {
-    ms foreach { m =>
-      val (negMods, other) = m.modifications.partition(_.isInstanceOf[Negation])
-      val negationModifications = negMods.map(_.asInstanceOf[Negation])
-
-      // count the negations
-      negationModifications match {
-        // 0 or 1 Neg modifications means no change...
-        case noChange if noChange.size <= 1 => ()
-        // if we have an even number of Negations, remove them all
-        case pos if pos.size % 2 == 0 =>
-          m.modifications = other
-        // if we have an odd number, report only the first...
-        case neg if neg.size % 2 != 0 =>
-          val singleNeg =
-            negationModifications
-              .toSeq
-              .sortBy(_.evidence.tokenInterval)
-              .head
-          m.modifications = other + singleNeg
-      }
     }
   }
 
