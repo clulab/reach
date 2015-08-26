@@ -9,8 +9,11 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
-class ReachSystem(rules: Option[Rules] = None,
-                  proc: Option[BioNLPProcessor] = None) {
+class ReachSystem(
+    rules: Option[Rules] = None,
+    proc: Option[BioNLPProcessor] = None
+) {
+
   import ReachSystem._
 
   val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
