@@ -34,7 +34,7 @@ class ReachSystem(rules: Option[Rules] = None,
     DarpaFlow((mentions: Seq[Mention], state: State) => mentions.filter(m => actions.validArguments(m, state))) andThen
     // This should happen before attempting to keep the most complete Mentions
     DarpaFlow(NegationHandler.detectNegations) andThen
-    DarpaFlow(actions.detectHypotheses) andThen
+    DarpaFlow(HypothesisHandler.detectHypotheses) andThen
     DarpaFlow(actions.splitSimpleEvents)
 
   // this engine extracts simple and recursive events and applies coreference
