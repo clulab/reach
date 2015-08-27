@@ -407,7 +407,7 @@ class FriesOutput extends JsonOutputter {
     sent("passage") = mkPassageId(paperId, passageMeta)
     sent("start-pos") = mkRelativePosition(paperId, passageMeta, getSentenceStartCharacterOffset(passageDoc, offset))
     sent("end-pos") = mkRelativePosition(paperId, passageMeta, getSentenceEndCharacterOffset(passageDoc, offset))
-    sent("text") = passageDoc.sentences(offset).getSentenceText()
+    sent("text") = passageDoc.sentences(offset).getSentenceText
     sent
   }
 

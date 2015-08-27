@@ -67,7 +67,7 @@ object CommandLineOutput extends App {
   }
 
   def cleanText(m: Mention): String = {
-    """(\s+|\n|\t|[;])""".r.replaceAllIn(m.document.sentences(m.sentence).getSentenceText(), " ")
+    """(\s+|\n|\t|[;])""".r.replaceAllIn(m.document.sentences(m.sentence).getSentenceText, " ")
   }
 
   def writeEvents(representation: String, mentions: Seq[EventMention], output: PrintWriter) {
