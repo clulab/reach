@@ -49,6 +49,9 @@ trait JsonOutputter {
 object JsonOutputter {
   type PropMap = scala.collection.mutable.HashMap[String, Any]
 
+  // required for json output serialization:
+  implicit val formats = org.json4s.DefaultFormats
+
   val RUN_ID = "r1"
   val COMPONENT = "REACH"
   val ORGANIZATION = "UAZ"

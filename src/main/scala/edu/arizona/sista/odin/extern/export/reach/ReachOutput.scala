@@ -5,12 +5,11 @@ import java.util.Date
 import edu.arizona.sista.bionlp.FriesEntry
 import edu.arizona.sista.utils.DateUtils
 
-import org.json4s.native.Serialization
-
 import edu.arizona.sista.processors._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.odin.extern.export.JsonOutputter
+import edu.arizona.sista.odin.extern.export.{IncrementingId, JsonOutputter}
+import edu.arizona.sista.odin.extern.export.JsonOutputter._
 
 /**
   * Defines classes and methods used to build and output REACH models.
@@ -19,14 +18,10 @@ import edu.arizona.sista.odin.extern.export.JsonOutputter
   */
 class ReachOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
-  type PropMap = scala.collection.mutable.HashMap[String, Any]
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // Constants:
   val AssumedProteins = Set("Family", "Gene_or_gene_product", "Protein")
-
-  // used by json output serialization:
-  implicit val formats = org.json4s.DefaultFormats
 
   // incrementing ID for numbering entities
   protected val idCntr = new IncrementingId()
@@ -251,43 +246,5 @@ class ReachOutput extends JsonOutputter {
     return if (args.isDefined) Some(args.get.head.text) else None
   }
 
-  /** Convert the entire output data structure to JSON and write it to the given file. */
-  private def writeJsonToFile (model:PropMap, outFile:File) = {
-    val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
-    Serialization.writePretty(model, out)
-    out.println()                           // add final newline which serialization omits
-    out.flush()
-    out.close()
-  }
-
-  /** Convert the entire output data structure to JSON and return it as a string. */
-  private def writeJsonToString (model:PropMap): String = {
-    val out:StringWriter = new StringWriter()
-    Serialization.writePretty(model, out)
-    out.flush()                             // closing a string writer has no effect
-    return out.toString()
-  }
-
 }
 
-
-
-/** Implements an incrementing identification string for numbering entities. */
-class IncrementingId {
-  protected var cntr = 0
-
-  /** Return the current identification string. */
-  def currentId (): String = { s"${cntr}" }
-
-  /** Increment counter and return new identification string. */
-  def genNextId (): String = {
-    cntr = cntr + 1
-    return currentId()
-  }
-
-  /** Increment counter and return new identification string. */
-  def genNextIdWithFormat (formatString:String): String = {
-    cntr = cntr + 1
-    return formatString.format(cntr)
-  }
-}

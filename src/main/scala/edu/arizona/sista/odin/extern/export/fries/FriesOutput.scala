@@ -4,7 +4,7 @@ import java.io._
 import java.util.Date
 import edu.arizona.sista.bionlp.FriesEntry
 import edu.arizona.sista.bionlp.mentions.{PTM, Grounding}
-import edu.arizona.sista.odin.extern.export.reach.IncrementingId
+import edu.arizona.sista.odin.extern.export.IncrementingId
 import edu.arizona.sista.processors.Document
 
 import org.json4s.native.Serialization
@@ -31,10 +31,6 @@ class FriesOutput extends JsonOutputter {
   protected val entityIdCntr = new IncrementingId()
   // incrementing ID for numbering event mentions
   protected val eventIdCntr = new IncrementingId()
-
-  // required for json output serialization:
-  implicit val formats = org.json4s.DefaultFormats
-
 
   //
   // Public API:

@@ -12,18 +12,13 @@ import org.json4s.native.Serialization
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
-import edu.arizona.sista.odin.extern.export.indexcards.IndexCardOutput._
+import JsonOutputter._
 
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by Mihai Surdeanu. 8/27/2015.
  */
 class IndexCardOutput extends JsonOutputter {
-  type PropMap = scala.collection.mutable.HashMap[String, Any]
-
-  // required for json output serialization:
-  implicit val formats = org.json4s.DefaultFormats
-
   /**
    * Writes the given mentions to output files in Fries JSON format.
    * Separate output files are written for sentences, entities, and events.
@@ -89,8 +84,9 @@ class IndexCardOutput extends JsonOutputter {
     // first, print all regulation events
     for(mention <- eventMentions) {
       if (REGULATION_EVENTS.contains(mention.label)) {
-        val card = mkRegulationIndexCard(mention.toBioMention, simpleEventsInRegs)
-        addMeta(card, paperId, startTime, endTime)
+        val bioMention = mention.toBioMention
+        val card = mkRegulationIndexCard(bioMention, simpleEventsInRegs)
+        addMeta(card, bioMention, paperId, startTime, endTime)
         cards += card
       }
     }
@@ -98,8 +94,9 @@ class IndexCardOutput extends JsonOutputter {
     // now, print everything else that wasn't printed already
     for(mention <- eventMentions) {
       if (! REGULATION_EVENTS.contains(mention.label) && ! simpleEventsInRegs.contains(mention)) {
+        val bioMention = mention.toBioMention
         val card = mkIndexCard(mention.toBioMention)
-        addMeta(card, paperId, startTime, endTime)
+        addMeta(card, bioMention, paperId, startTime, endTime)
         cards += card
       }
     }
@@ -108,20 +105,29 @@ class IndexCardOutput extends JsonOutputter {
   }
 
   def mkIndexCard(mention:BioMention):PropMap = {
-    val f = new PropMap
-    f("evidence") = mention.text
+    val eventType = mkEventType(mention.label)
+    val f = eventType match {
+      case "protein-modification" => mkModificationIndexCard(mention)
+      case _ => throw new RuntimeException("Not yet done!") // TODO
+    }
+    f
+  }
 
-    if()
+  def mkModificationIndexCard(mention:BioMention):PropMap = {
+    val f = new PropMap
+    // TODO
+    f
   }
 
   def mkRegulationIndexCard(mention:BioMention,
                             simpleEventsInRegs:mutable.HashSet[Mention]):PropMap = {
     val f = new PropMap
-    f("evidence") = mention.text
+    // TODO
     f
   }
 
   def addMeta(f:PropMap,
+              mention:BioMention,
               paperId:String,
               startTime:Date,
               endTime:Date): Unit = {
@@ -131,6 +137,7 @@ class IndexCardOutput extends JsonOutputter {
     f("reader_type") = "machine"
     f("reading_started") = startTime
     f("reading_complete") = endTime
+    f("evidence") = mention.text
   }
 
   def startFrame(paperId:String, component:String):PropMap = {
@@ -166,13 +173,3 @@ class IndexCardOutput extends JsonOutputter {
   }
 }
 
-object IndexCardOutput {
-  val RUN_ID = "r1"
-  val COMPONENT = "REACH"
-  val ORGANIZATION = "UAZ"
-
-  val REGULATION_EVENTS = Set(
-    "Positive_regulation",
-    "Negative_regulation"
-  )
-}

@@ -5,7 +5,7 @@ package edu.arizona.sista.odin.extern.export
  * User: mihais
  * Date: 8/28/15
  */
-class IncrementId(start:Int = 0) {
+class IncrementingId(start:Int = 0) {
   protected var cntr = start
 
   /** Return the current identification string. */
@@ -16,4 +16,11 @@ class IncrementId(start:Int = 0) {
     cntr = cntr + 1
     currentId()
   }
+
+  /** Increment counter and return new identification string. */
+  def genNextIdWithFormat (formatString:String): String = {
+    cntr = cntr + 1
+    formatString.format(cntr)
+  }
+
 }
