@@ -110,7 +110,8 @@ class IndexCardOutput extends JsonOutputter {
   def mkIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
     f("evidence") = mention.text
-    f
+
+    if()
   }
 
   def mkRegulationIndexCard(mention:BioMention,

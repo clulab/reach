@@ -4,6 +4,7 @@ import java.io._
 import java.util.Date
 import edu.arizona.sista.bionlp.FriesEntry
 import edu.arizona.sista.bionlp.mentions.{PTM, Grounding}
+import edu.arizona.sista.odin.extern.export.reach.IncrementingId
 import edu.arizona.sista.processors.Document
 
 import org.json4s.native.Serialization
@@ -12,7 +13,7 @@ import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.bionlp.display._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 
-import FriesOutput._
+import JsonOutputter._
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
@@ -24,7 +25,6 @@ import scala.collection.mutable.ListBuffer
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
-  type PropMap = scala.collection.mutable.HashMap[String, Any]
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // incrementing ID for numbering entity mentions
@@ -64,7 +64,7 @@ class FriesOutput extends JsonOutputter {
     uniModel("entities") = entityModel
     uniModel("events") = eventModel
 
-    return writeJsonToString(uniModel)
+    writeJsonToString(uniModel)
   }
 
 
@@ -140,7 +140,7 @@ class FriesOutput extends JsonOutputter {
       frames += mkPassage(model, paperId, paperPassages.get(chunkId).get, passageDocs.get(chunkId).get)
       frames ++= mkSentences(model, paperId, paperPassages.get(chunkId).get, passageDocs.get(chunkId).get)
     }
-    return model
+    model
   }
 
 
@@ -150,7 +150,7 @@ class FriesOutput extends JsonOutputter {
                                allMentions:Seq[Mention],
                                paperPassages:Map[String, FriesEntry],
                                startTime:Date,
-                               endTime:Date): Tuple2[PropMap, IDed] = {
+                               endTime:Date): (PropMap, IDed) = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime)
     val entityMap = new IDed
@@ -169,7 +169,7 @@ class FriesOutput extends JsonOutputter {
         case _ => // these are events; we will export them later
       }
     }
-    return (model, entityMap)
+    (model, entityMap)
   }
 
 
@@ -212,11 +212,7 @@ class FriesOutput extends JsonOutputter {
         frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
       }
     }
-    return model
-  }
-
-  private def isEventMention(m:Mention):Boolean = {
-    m.isInstanceOf[EventMention] || m.isInstanceOf[RelationMention]
+    model
   }
 
   private def mkEventMention(paperId:String,
@@ -312,7 +308,7 @@ class FriesOutput extends JsonOutputter {
         }
         */
         if (!eventMap.contains(arg)) {
-          val msg = s"${arg} with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
+          val msg = s"$arg with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
           throw new Exception(msg)
         }
         m("arg") = eventMap.get(arg).get
@@ -477,14 +473,6 @@ class FriesOutput extends JsonOutputter {
     out.close()
   }
 
-  /** Convert the entire output data structure to JSON and return it as a string. */
-  private def writeJsonToString (model:PropMap): String = {
-    val out:StringWriter = new StringWriter()
-    Serialization.writePretty(model, out)
-    out.flush()                             // closing a string writer has no effect
-    return out.toString()
-  }
-
   private def getChunkId(m:Mention):String = {
     assert(m.document.id.isDefined)
     val did = m.document.id.get
@@ -493,102 +481,5 @@ class FriesOutput extends JsonOutputter {
     chunkId
   }
 
-  private def getSentenceStartCharacterOffset(doc:Document, sentOffset:Int):Int = {
-    doc.sentences(sentOffset).startOffsets.head
-  }
-  private def getSentenceEndCharacterOffset(doc:Document, sentOffset:Int):Int = {
-    doc.sentences(sentOffset).endOffsets.last
-  }
-
-  private def prettifyLabel(label:String):String = label.toLowerCase.replaceAll("_", "-")
-
-  private def mkEventType(label:String):String = {
-    if(MODIFICATION_EVENTS.contains(label))
-      return "protein-modification"
-
-    if(label == "Binding")
-      return "complex-assembly"
-
-    if(label == "Transcription")
-      return "transcription"
-
-    if(label == "Translocation")
-      return "translocation"
-
-    if(label == "Complex")
-      return "complex-assembly"
-
-    if(REGULATION_EVENTS.contains(label))
-      return "regulation"
-
-    if(ACTIVATION_EVENTS.contains(label))
-      return "activation"
-
-    throw new RuntimeException("ERROR: unknown event type: " + label)
-  }
-
-  private def mkArgType(arg:Mention):String = {
-    if(arg.isInstanceOf[TextBoundMention])
-      return "entity"
-
-    if(arg.isInstanceOf[EventMention])
-      return "event"
-
-    if(arg.isInstanceOf[RelationMention])
-      return "complex"
-
-    throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
-  }
-
-  private def isNegated(mention:BioMention):Boolean =
-    mention.modifications.exists(isNegation)
-  private def isNegation(m:Modification) = m.isInstanceOf[Negation]
-
-  private def isHypothesized(mention:BioMention):Boolean =
-    mention.modifications.exists(isHypothesis)
-  private def isHypothesis(m:Modification) = m.isInstanceOf[Hypothesis]
 }
 
-object FriesOutput {
-  val RUN_ID = "r1"
-  val COMPONENT = "REACH"
-  val ORGANIZATION = "UAZ"
-
-  val MODIFICATION_EVENTS = Set(
-    "Phosphorylation",
-    "Ubiquitination",
-    "Hydroxylation",
-    "Sumoylation",
-    "Glycosylation",
-    "Acetylation",
-    "Farnesylation",
-    "Ribosylation",
-    "Methylation",
-    "Hydrolysis"
-  )
-
-  val REGULATION_EVENTS = Set(
-    "Positive_regulation",
-    "Negative_regulation"
-  )
-
-  val ACTIVATION_EVENTS = Set(
-    "Negative_activation",
-    "Positive_activation"
-  )
-}
-
-
-/** Implements an incrementing identification string for numbering entities. */
-class IncrementingId {
-  protected var cntr = 0
-
-  /** Return the current identification string. */
-  def currentId (): String = { s"$cntr" }
-
-  /** Increment counter and return new identification string. */
-  def genNextId (): String = {
-    cntr = cntr + 1
-    currentId()
-  }
-}
