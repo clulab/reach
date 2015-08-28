@@ -18,7 +18,7 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 /**
-  * Defines classes and methods used to build and output JSON format models.
+  * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
   *   Last Modified: Rename class and package.
   */
