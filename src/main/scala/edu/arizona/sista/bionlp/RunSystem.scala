@@ -9,9 +9,8 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.odin.extern.export.JsonOutputter
+import edu.arizona.sista.odin.extern.export._
 import edu.arizona.sista.odin.extern.export.fries._
-import edu.arizona.sista.odin.extern.export.reach._
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -189,12 +188,11 @@ object RunSystem extends App {
                      outputDir:File) = {
     val outFile = outputDir + File.separator + paperId
 
-    val outputter:JsonOutputter = outputType.toLowerCase match {
-      case "fries" => new FriesOutput()
-      case      _ => new ReachOutput()
+    // currently, we only handle the Fries JSON output type. -TRH 8/28/15.
+    if (outputType.toLowerCase == "fries") {
+      val outputter:JsonOutputter = new FriesOutput()
+      outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
     }
-
-    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
 
 }

@@ -7,7 +7,6 @@ import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.bionlp.mentions._
 import edu.arizona.sista.bionlp.reach.brat._
-import edu.arizona.sista.odin.extern.export.reach._
 
 object ExportBrat extends App {
   // use specified config file or the default one if one is not provided
