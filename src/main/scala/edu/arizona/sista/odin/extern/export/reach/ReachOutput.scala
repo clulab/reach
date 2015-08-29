@@ -52,7 +52,7 @@ class ReachOutput extends JsonOutputter {
       frames += doMention(mention, mIds, frame)
     }
     model("frames") = frames
-    return writeJsonToString(model)
+    writeJsonToString(model)
   }
 
 
@@ -86,12 +86,12 @@ class ReachOutput extends JsonOutputter {
 
   /** Return true if the given mention is one that should be processed if it is an argument. */
   private def allowableArgumentMentions (mention:Mention): Boolean = {
-    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
+    mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention]
   }
 
   /** Return true if the given mention is one that should be processed at the forest root. */
   private def allowableRootMentions (mention:Mention): Boolean = {
-    return (mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention])
+    mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention]
   }
 
   /** Assign all mentions a unique ID. */
@@ -100,7 +100,7 @@ class ReachOutput extends JsonOutputter {
       mIds.getOrElseUpdate(mention, idCntr.genNextId())
       assignMentionIds(mention.arguments.values.toSeq.flatten.filter(allowableArgumentMentions), mIds)
     }
-    return mIds
+    mIds
   }
 
   /** Return a new index frame (map) initialized with the (repeated) document information. */
@@ -121,15 +121,15 @@ class ReachOutput extends JsonOutputter {
     if (mentionMgr.isNegated(mention.toBioMention)) frame("negated") = "true"
     if (mentionMgr.isHypothesized(mention.toBioMention)) frame("hypothesized") = "true"
     // TODO: ?? sentence, start-pos, end-pos, verbose-text from FriesOutput ??
-    return frame
+    frame
   }
 
   /** Dispatch on and process the given mention, returning its information in a properties map. */
   private def doMention (mention:Mention, mIds:IDed, frame:PropMap): PropMap = {
     mention.label match {
       case "Binding" => doBinding(mention, frame)
-      case "Negative_activation" => doRegulation(mention, frame, mIds, false)
-      case "Negative_regulation" => doRegulation(mention, frame, mIds, false)
+      case "Negative_activation" => doRegulation(mention, frame, mIds, positive = false)
+      case "Negative_regulation" => doRegulation(mention, frame, mIds, positive = false)
       case "Positive_activation" => doRegulation(mention, frame, mIds)
       case "Positive_regulation" => doRegulation(mention, frame, mIds)
       case "Translocation" => doTranslocation(mention, frame)
@@ -145,12 +145,12 @@ class ReachOutput extends JsonOutputter {
       frame("type") = "complex_assembly"
       val themes = themeArgs.get
       frame("participants") =
-        if (themes.size == 0) null
+        if (themes.isEmpty) null
         else themes.map(doTextBoundMention(_))
       // TODO: binding sites
       // val sites = themeArgs.get.map(getSite(_))
     }
-    return frame
+    frame
   }
 
   /** Return properties map for the given positive regulation mention. */
@@ -165,7 +165,7 @@ class ReachOutput extends JsonOutputter {
       frame("controller") = doTextBoundMention(controller) // CHANGE LATER
       frame("controlled") = mIds.get(controlledArgs.get.head)
     }
-    return frame
+    frame
   }
 
   /** Return properties map for the given phosphorylation mention. */
@@ -174,7 +174,7 @@ class ReachOutput extends JsonOutputter {
     if (themeArgs.isDefined) {
       frame("type") = mention.label.toLowerCase
       val themes = themeArgs.get.map(doTextBoundMention(_))
-      frame("participants") = if (themes.size == 0) null else themes
+      frame("participants") = if (themes.isEmpty) null else themes
 
       val site = getSite(mention)
       if (site.isDefined) {
@@ -183,7 +183,7 @@ class ReachOutput extends JsonOutputter {
         frame("subfields") = subFlds
       }
     }
-    return frame
+    frame
   }
 
   /** Return a properties map for the given single text bound mention. */
@@ -194,7 +194,7 @@ class ReachOutput extends JsonOutputter {
     part("text") = mention.text
     part("id") = mention.toBioMention.xref.map(_.id).orNull
     part("namespace") = mention.toBioMention.xref.map(_.namespace).orNull
-    return part
+    part
   }
 
   /** Return properties map for the given translocation mention. */
@@ -203,7 +203,7 @@ class ReachOutput extends JsonOutputter {
     if (themeArgs.isDefined) {
       frame("type") = mention.label.toLowerCase
       val themes = themeArgs.get.map(doTextBoundMention(_))
-      frame("participants") = if (themes.size == 0) null else themes
+      frame("participants") = if (themes.isEmpty) null else themes
 
       val from = getSource(mention)
       val to = getDestination(mention)
@@ -214,36 +214,37 @@ class ReachOutput extends JsonOutputter {
         frame("subfields") = subFlds
       }
     }
-    return frame
+    frame
   }
 
   /** Process optional destination argument on the given mention, returning a properties map. */
   private def getDestination (mention:Mention): Option[PropMap] = {
     val destArgs = mentionMgr.destinationArgs(mention)
-    return destArgs.map(osm => doTextBoundMention(osm.head))
+    destArgs.map(osm => doTextBoundMention(osm.head))
   }
 
   /** Process the given mention argument, returning a ns:id string option for the first arg. */
+  /*
   private def getId (args:Option[Seq[Mention]]): Option[String] = {
-    if (args.isDefined)
-      return args.get.head.toBioMention.xref.map(_.id)
-    else return None
+    if (args.isDefined) args.get.head.toBioMention.xref.map(_.id)
+    else None
   }
+  */
 
   /** Process optional site argument on the given mention, returning a site string option. */
   private def getSite (mention:Mention): Option[String] = {
-    return getText(mentionMgr.siteArgs(mention))
+    getText(mentionMgr.siteArgs(mention))
   }
 
   /** Process optional source argument on the given mention, returning a properties map. */
   private def getSource (mention:Mention): Option[PropMap] = {
     val sourceArgs = mentionMgr.sourceArgs(mention)
-    return sourceArgs.map(osm => doTextBoundMention(osm.head))
+    sourceArgs.map(osm => doTextBoundMention(osm.head))
   }
 
   /** Process the given mention argument, returning a text string option for the first arg. */
   private def getText (args:Option[Seq[Mention]]): Option[String] = {
-    return if (args.isDefined) Some(args.get.head.text) else None
+    if (args.isDefined) Some(args.get.head.text) else None
   }
 
 }

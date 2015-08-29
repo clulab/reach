@@ -258,7 +258,6 @@ class FriesOutput extends JsonOutputter {
     if(isHypothesized(mention))
       f("is-hypothesis") = true
 
-    // TODO: add "is-hypothesis"
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
   }
