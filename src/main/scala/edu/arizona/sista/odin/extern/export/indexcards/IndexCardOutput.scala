@@ -108,19 +108,46 @@ class IndexCardOutput extends JsonOutputter {
     val eventType = mkEventType(mention.label)
     val f = eventType match {
       case "protein-modification" => mkModificationIndexCard(mention)
-      case _ => throw new RuntimeException("Not yet done!") // TODO
+      case "complex-assembly" => mkBindingIndexCard(mention)
+      case "translocation" => mkTranslocationIndexCard(mention)
+      case "activation" => mkActivationIndexCard(mention)
+      case "regulation" => throw new RuntimeException("ERROR: regulation events must be saved before!")
+      case _ => throw new RuntimeException(s"ERROR: event type $eventType not supported!")
     }
     f
   }
 
+  /** Creates a card for a simple, modification event */
   def mkModificationIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
     // TODO
     f
   }
 
+  /** Creates a card for a regulation event */
   def mkRegulationIndexCard(mention:BioMention,
                             simpleEventsInRegs:mutable.HashSet[Mention]):PropMap = {
+    val f = new PropMap
+    // TODO
+    f
+  }
+
+  /** Creates a card for an activation event */
+  def mkActivationIndexCard(mention:BioMention):PropMap = {
+    val f = new PropMap
+    // TODO
+    f
+  }
+
+  /** Creates a card for a complex-assembly event */
+  def mkBindingIndexCard(mention:BioMention):PropMap = {
+    val f = new PropMap
+    // TODO
+    f
+  }
+
+  /** Creates a card for a translocation event */
+  def mkTranslocationIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
     // TODO
     f
