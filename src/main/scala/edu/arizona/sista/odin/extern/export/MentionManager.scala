@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.extern.export.reach
+package edu.arizona.sista.odin.extern.export
 
 import java.io._
 
@@ -12,7 +12,7 @@ import edu.arizona.sista.bionlp.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Fix: visibility on mention modification test functions.
+  *   Last Modified: Change package to parent export.
   */
 class MentionManager {
   // Constants:
