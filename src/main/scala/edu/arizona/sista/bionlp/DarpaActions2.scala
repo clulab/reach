@@ -259,6 +259,91 @@ class DarpaActions2 extends Actions {
     }
   }
 
+  /**
+   * Promote any Sites in the Modifications of a SimpleEvent argument to an event argument "site"
+   */
+  def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case m: BioEventMention if m matches "SimpleEvent" =>
+      val additionalSites: Seq[Mention] = m.arguments.values.flatten.toSeq.flatMap { case m: BioMention =>
+        // get EventSite Modifications
+        val eventSites: Seq[EventSite] = m.modifications.toSeq flatMap {
+          case es:EventSite => Some(es)
+          case _ => None
+        }
+        // Remove EventSite modifications
+        eventSites.foreach(m.modifications -= _)
+        // get sites from EventSites
+        eventSites.map(_.site)
+      }
+
+      // Gather up our sites
+      val allSites = additionalSites ++ m.arguments.getOrElse("site", Nil)
+
+      // Do we have any sites?
+      if (allSites.isEmpty) Seq(m)
+      else {
+        val allButSite = m.arguments - "site"
+        // Create a separate EventMention for each Site
+        // FIXME this splitting seems arbitrary
+        // why do each SimpleEvent has a single site?
+        // if it is the theme's site, then why are we extracting sites for all args?
+        for (site <- allSites.distinct) yield {
+          val updatedArgs = allButSite + ("site" -> Seq(site))
+          new BioEventMention(
+            m.labels,
+            m.trigger,
+            updatedArgs,
+            m.sentence,
+            m.document,
+            m.keep,
+            m.foundBy)
+        }
+      }
+
+    // If it isn't a SimpleEvent, assume there is nothing more to do
+    case m => Seq(m)
+  }
+
+  def keepIfValidArgs(mentions: Seq[Mention], state: State): Seq[Mention] =
+    mentions.filter(validArguments(_, state))
+
+  def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    case m: EventMention if m matches "SimpleEvent" =>
+      // Do we have a regulation?
+      if (m.arguments.keySet contains "cause") {
+        // FIXME There could be more than one cause...
+        val cause: Seq[Mention] = m.arguments("cause")
+        val evArgs = m.arguments - "cause"
+        val ev = new BioEventMention(
+          m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy)
+        // make sure the regulation is valid
+        val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
+        // controller of an event should not be an arg in the controlled
+        if (cause.forall(c => !controlledArgs.contains(c))) {
+          val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
+          val reg = new BioRelationMention(
+            Seq("Positive_regulation", "ComplexEvent", "Event"),
+            regArgs, m.sentence, m.document, m.keep, m.foundBy)
+          // negations should be propagated to the newly created Positive_regulation
+          val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
+          reg.modifications = negMods
+          ev.modifications = otherMods
+          Seq(reg, ev)
+        } else  Nil
+      } else Seq(m.toBioMention)
+    case m => Seq(m.toBioMention)
+  }
+
+  /** global action for EventEngine */
+  def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    val r1 = siteSniffer(mentions, state)
+    val r2 = keepIfValidArgs(r1, state)
+    val r3 = NegationHandler.detectNegations(r2, state)
+    val r4 = HypothesisHandler.detectHypotheses(r3, state)
+    val r5 = splitSimpleEvents(r4, state)
+    r5
+  }
+
 
   // HELPER FUNCTIONS
 
@@ -458,6 +543,64 @@ class DarpaActions2 extends Actions {
           em.foundBy)
       } else em
     case m => m
+  }
+
+  def validArguments(mention: Mention, state: State): Boolean = mention match {
+    // TextBoundMentions don't have arguments
+    case _: BioTextBoundMention => true
+    // RelationMentions don't have triggers, so we can't inspect the path
+    case _: BioRelationMention => true
+    // EventMentions are the only ones we can really check
+    case m: BioEventMention =>
+      // get simple chemicals in arguments
+      val args = m.arguments.values.flatten
+      val simpleChemicals = args.filter(_ matches "Simple_chemical")
+      // if there are no simple chemicals then we are done
+      if (simpleChemicals.isEmpty) true
+      else {
+        for (chem <- simpleChemicals) {
+          if (proteinBetween(m.trigger, chem, state)) {
+            return false
+          }
+        }
+        true
+      }
+  }
+
+  def proteinBetween(trigger: Mention, arg: Mention, state: State): Boolean = {
+    // it is possible for the trigger and the arg to be in different sentences
+    // because of coreference
+    if (trigger.sentence != arg.sentence) false
+    else trigger.sentenceObj.dependencies match {
+      // if for some reason we don't have dependencies
+      // then there is nothing we can do
+      case None => false
+      case Some(deps) => for {
+        tok1 <- trigger.tokenInterval
+        tok2 <- arg.tokenInterval
+        path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
+        node <- path
+        if state.mentionsFor(trigger.sentence, node, "Gene_or_gene_product").nonEmpty
+        if !consecutivePreps(path, deps)
+      } return true
+        // if we reach this point then we are good
+        false
+    }
+  }
+
+  // hacky solution to the prepositional attachment problem
+  // that affects the proteinBetween method
+  def consecutivePreps(path: Seq[Int], deps: DirectedGraph[String]): Boolean = {
+    val pairs = for (i <- path.indices.tail) yield (path(i-1), path(i))
+    val edges = for ((n1, n2) <- pairs) yield {
+      deps.getEdges(n1, n2, ignoreDirection = true).map(_._3)
+    }
+    for {
+      i <- edges.indices.tail
+      if edges(i-1).exists(_.startsWith("prep"))
+      if edges(i).exists(_.startsWith("prep"))
+    } return true
+    false
   }
 
 }

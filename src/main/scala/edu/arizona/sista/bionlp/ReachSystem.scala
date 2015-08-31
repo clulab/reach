@@ -31,17 +31,8 @@ class ReachSystem(
   // this engine extracts modification features and attaches them to the corresponding entity
   val modificationEngine = ExtractorEngine(modificationRules, actions2)
   // start event extraction engine
-  // This will be our global action for the eventEngine
-  val cleanupEvents =
-    DarpaFlow(actions.siteSniffer) andThen
-    DarpaFlow((mentions: Seq[Mention], state: State) => mentions.filter(m => actions.validArguments(m, state))) andThen
-    // This should happen before attempting to keep the most complete Mentions
-    DarpaFlow(NegationHandler.detectNegations) andThen
-    DarpaFlow(HypothesisHandler.detectHypotheses) andThen
-    DarpaFlow(actions.splitSimpleEvents)
-
   // this engine extracts simple and recursive events and applies coreference
-  val eventEngine = ExtractorEngine(eventRules, actions2, cleanupEvents.apply)
+  val eventEngine = ExtractorEngine(eventRules, actions2, actions2.cleanupEvents)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
@@ -69,10 +60,8 @@ class ReachSystem(
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
-    val complete =
-      // Coref introduced incomplete Mentions that now need to be pruned
-      keepMostCompleteMentions(events, State(events))
-        .map(_.toBioMention)
+    // Coref introduced incomplete Mentions that now need to be pruned
+    val complete = keepMostCompleteMentions(events, State(events)).map(_.toBioMention)
     resolveDisplay(complete)
   }
 
