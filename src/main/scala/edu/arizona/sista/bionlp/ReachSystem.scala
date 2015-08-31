@@ -21,18 +21,17 @@ class ReachSystem(
   val eventRules = if (rules.isEmpty) readResource(RuleReader.eventsMasterFile) else rules.get.events
   // initialize actions object
   val actions = new DarpaActions
-  val actions2 = new DarpaActions2
   // initialize grounder
   val grounder = new LocalGrounder
   // start entity extraction engine
   // this engine extracts all physical entities of interest and grounds them
-  val entityEngine = ExtractorEngine(entityRules, actions2, grounder.apply)
+  val entityEngine = ExtractorEngine(entityRules, actions, grounder.apply)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
-  val modificationEngine = ExtractorEngine(modificationRules, actions2)
+  val modificationEngine = ExtractorEngine(modificationRules, actions)
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
-  val eventEngine = ExtractorEngine(eventRules, actions2, actions2.cleanupEvents)
+  val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
