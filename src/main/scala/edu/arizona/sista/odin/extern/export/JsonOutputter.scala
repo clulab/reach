@@ -48,6 +48,8 @@ trait JsonOutputter {
 /** Contain formatting utilities used by all formatters */
 object JsonOutputter {
   type PropMap = scala.collection.mutable.HashMap[String, Any]
+  type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
+  type StringList = scala.collection.mutable.MutableList[String]  // has O(c) append
 
   // required for json output serialization:
   implicit val formats = org.json4s.DefaultFormats
@@ -140,6 +142,14 @@ object JsonOutputter {
     mention.modifications.exists(isHypothesis)
 
   def isHypothesis(m:Modification) = m.isInstanceOf[Hypothesis]
+
+  def hasFeatures(m:BioMention):Boolean = {
+    m.modifications.foreach(f => {
+      if(f.isInstanceOf[Mutant] || f.isInstanceOf[PTM])
+        return true
+    })
+    false
+  }
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
   def writeJsonToFile (model:PropMap, outFile:File) = {

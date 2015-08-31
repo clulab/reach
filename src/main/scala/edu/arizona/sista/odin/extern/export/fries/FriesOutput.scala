@@ -25,7 +25,6 @@ import scala.collection.mutable.ListBuffer
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
-  type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
 
   // incrementing ID for numbering entity mentions
   protected val entityIdCntr = new IncrementingId()

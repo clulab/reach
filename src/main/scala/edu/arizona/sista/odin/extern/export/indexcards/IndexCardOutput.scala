@@ -5,7 +5,7 @@ import java.util.Date
 
 import edu.arizona.sista.bionlp.FriesEntry
 import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.odin.{RelationMention, EventMention, Mention}
+import edu.arizona.sista.odin.{RelationMention, Mention}
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 import org.json4s.native.Serialization
 
@@ -117,10 +117,90 @@ class IndexCardOutput extends JsonOutputter {
     f
   }
 
+  def mkArgument(arg:BioMention):Any = {
+    val argType = mkArgType(arg)
+    argType match {
+      case "entity" => mkSingleArgument(arg)
+      case "complex" => mkComplexArgument(arg.asInstanceOf[RelationMention])
+      case _ => throw new RuntimeException(s"ERROR: argument type $argType not supported!")
+    }
+  }
+
+  def mkSingleArgument(arg:BioMention):PropMap = {
+    val f = new PropMap
+    f("entity_text") = arg.text
+    f("entity_type") = arg.displayLabel.toLowerCase
+    if(arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
+    if(hasFeatures(arg)) f("features") = mkFeatures(arg)
+    // TODO: we do not compare against the model; assume everything is new
+    f("in_model") = false
+    f
+  }
+
+  def mkFeatures(arg:BioMention):FrameList = {
+    val fl = new FrameList
+    arg.modifications.foreach {
+      case ptm: PTM => fl += mkPTMFeature(ptm)
+      case mut: Mutant => fl += mkMutantFeature(mut)
+      case _ => // there may be other features that are not relevant for the index card output
+    }
+    fl
+  }
+
+  def mkPTMFeature(ptm:PTM):PropMap = {
+    val f = new PropMap
+    f("feature_type") = "modification"
+    f("modification_type") = ptm.label.toLowerCase
+    if(ptm.site.isDefined)
+      f("position") = ptm.site.get.text
+    f
+  }
+
+  def mkMutantFeature(m:Mutant):PropMap = {
+    val f = new PropMap
+    f("feature_type") = "mutation"
+    if(m.evidence.text.length > 0)
+      f("position") = m.evidence.text
+    f
+  }
+
+  def mkComplexArgument(complex:RelationMention):FrameList = {
+    val fl = new FrameList
+    val participants = complex.arguments.get("theme")
+    if(participants.isEmpty) throw new RuntimeException("ERROR: cannot have a complex with 0 participants!")
+    participants.get.foreach(p => {
+      fl += mkSingleArgument(p.toBioMention)
+    })
+    fl
+  }
+
+  def mkIdentifier(xref:Grounding.Xref):String = {
+    xref.namespace + ":" + xref.id
+  }
+
+  def mkEventModification(mention:BioMention):PropMap = {
+    val f = new PropMap
+    f("modification_type") = mention.displayLabel.toLowerCase
+    if(mention.arguments.contains("site"))
+      f("position") = mention.arguments.get("site").get.head
+    f
+  }
+
   /** Creates a card for a simple, modification event */
   def mkModificationIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
-    // TODO
+    val ex = new PropMap
+    f("extracted_information") = ex
+    // a modification event will have exactly one theme
+    ex("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
+    ex("interaction_type") = "adds_modification"
+    val mods = new FrameList
+    mods += mkEventModification(mention)
+    ex("modifications") = mods
+    if(isNegated(mention)) ex("negative_information") = true
+    else ex("negative_information") = false
+    if(isHypothesized(mention)) ex("hypothesis_information") = true
+    else ex("hypothesis_information") = false
     f
   }
 
@@ -164,7 +244,11 @@ class IndexCardOutput extends JsonOutputter {
     f("reader_type") = "machine"
     f("reading_started") = startTime
     f("reading_complete") = endTime
-    f("evidence") = mention.text
+    val ev = new StringList
+    ev += mention.text
+    f("evidence") = ev
+    // TODO: we do not compare against the model; assume everything is new
+    f("model_relation") = "extension"
   }
 
   def startFrame(paperId:String, component:String):PropMap = {
@@ -182,10 +266,6 @@ class IndexCardOutput extends JsonOutputter {
     f
   }
 
-  private def isEventMention(m:Mention):Boolean = {
-    m.isInstanceOf[EventMention] || m.isInstanceOf[RelationMention]
-  }
-
   /**
    * Returns the given mentions in the index-card JSON format, as one big string.
    * All index cards are concatenated into a single JSON string.
@@ -196,6 +276,7 @@ class IndexCardOutput extends JsonOutputter {
                        startTime:Date,
                        endTime:Date,
                        outFilePrefix:String): String = {
+    // TODO
     throw new RuntimeException("Not yet supported!")
   }
 }
