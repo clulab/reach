@@ -106,7 +106,8 @@ class IndexCardOutput extends JsonOutputter {
 
   def mkIndexCard(mention:BioMention):PropMap = {
     val eventType = mkEventType(mention.label)
-    val f = eventType match {
+    val f = new PropMap
+    val ex = eventType match {
       case "protein-modification" => mkModificationIndexCard(mention)
       case "complex-assembly" => mkBindingIndexCard(mention)
       case "translocation" => mkTranslocationIndexCard(mention)
@@ -114,6 +115,7 @@ class IndexCardOutput extends JsonOutputter {
       case "regulation" => throw new RuntimeException("ERROR: regulation events must be saved before!")
       case _ => throw new RuntimeException(s"ERROR: event type $eventType not supported!")
     }
+    f("extracted_information") = ex
     f
   }
 
@@ -187,28 +189,52 @@ class IndexCardOutput extends JsonOutputter {
   }
 
   /** Creates a card for a simple, modification event */
-  def mkModificationIndexCard(mention:BioMention):PropMap = {
+  def mkModificationIndexCard(mention:BioMention,
+                              positiveModification:Boolean = true,
+                              makeHedging:Boolean = true):PropMap = {
     val f = new PropMap
-    val ex = new PropMap
-    f("extracted_information") = ex
     // a modification event will have exactly one theme
-    ex("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
-    ex("interaction_type") = "adds_modification"
+    f("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
+    if(positiveModification)
+      f("interaction_type") = "adds_modification"
+    else
+      f("interaction_type") = "removes_modification"
     val mods = new FrameList
     mods += mkEventModification(mention)
-    ex("modifications") = mods
-    if(isNegated(mention)) ex("negative_information") = true
-    else ex("negative_information") = false
-    if(isHypothesized(mention)) ex("hypothesis_information") = true
-    else ex("hypothesis_information") = false
+    f("modifications") = mods
+    if (makeHedging) {
+      mkHedging(f, mention)
+    }
     f
+  }
+
+  def mkHedging(f:PropMap, mention:BioMention) {
+    if(isNegated(mention)) f("negative_information") = true
+    else f("negative_information") = false
+    if(isHypothesized(mention)) f("hypothesis_information") = true
+    else f("hypothesis_information") = false
   }
 
   /** Creates a card for a regulation event */
   def mkRegulationIndexCard(mention:BioMention,
                             simpleEventsInRegs:mutable.HashSet[Mention]):PropMap = {
-    val f = new PropMap
+    if(! mention.arguments.contains("controlled"))
+      throw new RuntimeException("ERROR: a regulation event must have a controlled argument!")
+    val controlled = mention.arguments.get("controlled").get.head.toBioMention
+
+    // populate participant_b and the interaction type from the controlled event
+    val posMod = mention.label match {
+      case "Positive_regulation" => true
+      case "Negative_regulation" => false
+      case _ => throw new RuntimeException(s"ERROR: unknown regulation event ${mention.label}!")
+    }
+    val f = mkModificationIndexCard(controlled, positiveModification = posMod, makeHedging = false)
+
+    // add participant_a from the controller
     // TODO
+
+    mkHedging(f, mention)
+
     f
   }
 
