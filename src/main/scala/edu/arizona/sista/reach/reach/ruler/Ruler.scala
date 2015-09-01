@@ -6,7 +6,7 @@ import scala.util.{Try, Success, Failure}
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.reach.brat.Brat
 import edu.arizona.sista.odin.impl.{OdinNamedCompileException, OdinCompileException}
-import edu.arizona.sista.open.OpenSystem
+import edu.arizona.sista.reach.demos.open.OpenSystem
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
 
