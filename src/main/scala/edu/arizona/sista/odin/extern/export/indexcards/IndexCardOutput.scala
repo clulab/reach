@@ -33,7 +33,7 @@ class IndexCardOutput extends JsonOutputter {
     // we create a separate directory for each paper, and store each index card as a separate file
     val dir = new File(outFilePrefix)
     if(! dir.exists()) {
-      if (!dir.mkdirs()) {
+      if (! dir.mkdirs()) {
         throw new RuntimeException(s"ERROR: failed to create output directory $outFilePrefix!")
       }
     } else {
