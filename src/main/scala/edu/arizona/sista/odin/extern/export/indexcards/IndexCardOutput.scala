@@ -381,8 +381,12 @@ class IndexCardOutput extends JsonOutputter {
                        startTime:Date,
                        endTime:Date,
                        outFilePrefix:String): String = {
-    // TODO
-    throw new RuntimeException("Not yet supported!")
+    // index cards are generated here
+    val cards = mkCards(paperId, allMentions, startTime, endTime)
+
+    val uniModel:PropMap = new PropMap
+    uniModel("cards") = cards
+    writeJsonToString(uniModel)
   }
 }
 
