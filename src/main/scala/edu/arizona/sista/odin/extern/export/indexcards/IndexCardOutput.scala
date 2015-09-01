@@ -194,7 +194,7 @@ class IndexCardOutput extends JsonOutputter {
     val f = new PropMap
     f("modification_type") = mention.displayLabel.toLowerCase
     if(mention.arguments.contains("site"))
-      f("position") = mention.arguments.get("site").get.head
+      f("position") = mention.arguments.get("site").get.head.text
     f
   }
 
@@ -267,7 +267,35 @@ class IndexCardOutput extends JsonOutputter {
   /** Creates a card for a complex-assembly event */
   def mkBindingIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
-    // TODO
+    f("interaction_type") = "binds"
+
+    val participants = mention.arguments.get("theme").get
+    // a Binding events must have at least 2 arguments
+    val participantA = participants.head.toBioMention
+    f("participant_a") = mkArgument(participantA)
+    val participantB = participants.tail
+    if(participantB.size == 1) {
+      f("participant_b") = mkArgument(participantB.head.toBioMention)
+    } else if(participantB.size > 1) {
+      // store them all as a single complex. This is ugly, but there is no other way with the current format
+      val fl = new FrameList
+      participantB.foreach(p => {
+        fl += mkSingleArgument(p.toBioMention)
+      })
+      f("participant_b") = fl
+    } else {
+      throw new RuntimeException("ERROR: A complex assembly event must have at least 2 participants!")
+    }
+
+    // add binding sites if present
+    if(mention.arguments.contains("site")) {
+      val fl = new StringList
+      for(site <- mention.arguments.get("site").get) {
+        fl += site.text
+      }
+      f("binding_site") = fl
+    }
+
     f
   }
 
