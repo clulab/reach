@@ -257,8 +257,14 @@ class FriesOutput extends JsonOutputter {
     if(isHypothesized(mention))
       f("is-hypothesis") = true
 
+    mkContext(f, mention)
+
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
+  }
+
+  def mkContext(f:PropMap, mention:BioMention): Unit = {
+    // TODO: add context here
   }
 
   private def mkArgument(name:String,
