@@ -5,8 +5,8 @@ import java.io._
 import edu.arizona.sista.processors.{DocumentSerializer, Document}
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.odin._
-import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.bionlp.ReachSystem
+import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.ReachSystem
 
 import org.slf4j.LoggerFactory
 

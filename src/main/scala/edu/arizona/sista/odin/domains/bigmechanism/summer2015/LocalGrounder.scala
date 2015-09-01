@@ -1,7 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.reach.mentions._
 
 /**
   * Class which implements project internal methods to ground entities.

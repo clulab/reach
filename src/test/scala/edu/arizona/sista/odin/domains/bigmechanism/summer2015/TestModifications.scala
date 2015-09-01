@@ -1,6 +1,6 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.reach.mentions._
 import org.scalatest._
 import TestUtils._
 

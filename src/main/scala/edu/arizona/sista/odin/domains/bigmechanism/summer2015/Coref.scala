@@ -1,7 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
-import edu.arizona.sista.bionlp.display._
-import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.reach.display._
+import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import scala.collection.mutable.ListBuffer

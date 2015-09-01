@@ -4,7 +4,7 @@ import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.odin.domains.bigmechanism.summer2015.TestUtils._
 import edu.arizona.sista.odin.State
 import edu.arizona.sista.struct.Interval
-import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.reach.mentions._
 
 /**
  * Unit tests to ensure Binding rules are matching correctly

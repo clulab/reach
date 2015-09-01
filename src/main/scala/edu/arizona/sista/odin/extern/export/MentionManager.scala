@@ -7,7 +7,7 @@ import scala.collection.mutable.MutableList
 import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.bionlp.mentions._
+import edu.arizona.sista.reach.mentions._
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.

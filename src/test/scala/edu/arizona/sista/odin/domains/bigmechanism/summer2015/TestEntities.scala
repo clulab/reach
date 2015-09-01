@@ -2,7 +2,7 @@ package edu.arizona.sista.odin.domains.bigmechanism.summer2015
 
 import scala.util.Try
 import org.scalatest._
-import edu.arizona.sista.bionlp._
+import edu.arizona.sista.reach._
 import TestUtils._
 
 class TestEntities extends FlatSpec with Matchers {

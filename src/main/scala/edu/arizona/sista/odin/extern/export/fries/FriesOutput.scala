@@ -2,15 +2,15 @@ package edu.arizona.sista.odin.extern.export.fries
 
 import java.io._
 import java.util.Date
-import edu.arizona.sista.bionlp.FriesEntry
-import edu.arizona.sista.bionlp.mentions.{PTM, Grounding}
+import edu.arizona.sista.reach.FriesEntry
+import edu.arizona.sista.reach.mentions.{PTM, Grounding}
 import edu.arizona.sista.odin.extern.export.IncrementingId
 import edu.arizona.sista.processors.Document
 
 import org.json4s.native.Serialization
 import edu.arizona.sista.odin._
-import edu.arizona.sista.bionlp.mentions._
-import edu.arizona.sista.bionlp.display._
+import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.display._
 import edu.arizona.sista.odin.extern.export.JsonOutputter
 
 import JsonOutputter._
