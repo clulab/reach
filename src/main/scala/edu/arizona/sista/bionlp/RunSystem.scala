@@ -2,6 +2,8 @@ package edu.arizona.sista.bionlp
 
 import java.io.File
 import java.util.Date
+import edu.arizona.sista.odin.extern.export.indexcards.IndexCardOutput
+
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.util.{ Try,Success,Failure }
@@ -187,12 +189,14 @@ object RunSystem extends App {
                      endTime:Date,
                      outputDir:File) = {
     val outFile = outputDir + File.separator + paperId
+    // println(s"Outputting to $outFile using $outputType")
 
-    // currently, we only handle the Fries JSON output type. -TRH 8/28/15.
-    if (outputType.toLowerCase == "fries") {
-      val outputter:JsonOutputter = new FriesOutput()
-      outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
+    val outputter:JsonOutputter = outputType.toLowerCase match {
+      case "fries" => new FriesOutput()
+      case "indexcards" => new IndexCardOutput()
+      case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase()} not yet supported!")
     }
+    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
 
 }
