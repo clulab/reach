@@ -254,7 +254,13 @@ class IndexCardOutput extends JsonOutputter {
   /** Creates a card for an activation event */
   def mkActivationIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
-    // TODO
+    // a modification event will have exactly one controller and one controlled
+    f("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
+    f("participant_b") = mkArgument(mention.arguments.get("controlled").get.head.toBioMention)
+    if(mention.label == "Positive_activation")
+      f("interaction_type") = "increases_activity"
+    else
+      f("interaction_type") = "decreases_activity"
     f
   }
 
