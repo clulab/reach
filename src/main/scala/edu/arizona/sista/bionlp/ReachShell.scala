@@ -26,9 +26,9 @@ object ReachShell extends App {
   val commands = ListMap(
     ":help" -> "show commands",
     ":exit" -> "exit system",
-    ":entityrules" -> "show entity rules",
-    ":modrules" -> "show modification rules",
-    ":eventrules" -> "show event rules",
+    //":entityrules" -> "show entity rules",
+    //":modrules" -> "show modification rules",
+    //":eventrules" -> "show event rules",
     ":reload" -> "reload rules"
   )
 
@@ -48,21 +48,21 @@ object ReachShell extends App {
       case ":reload" =>
         println("reloading rules ...")
         try {
-          val rules = reloadRules()
+          val rules = mkRules()
           reach = new ReachSystem(Some(rules), Some(proc))
           println("successfully reloaded rules")
         } catch {
           case e: Exception => println(s"error reloading: ${e.getMessage}")
         }
 
-      case ":entityrules" =>
-        println(s"${reach.entityRules}\n")
+      //case ":entityrules" =>
+      //  TODO: add rule attribute to extractors
 
-      case ":modrules" =>
-        println(s"${reach.modificationRules}\n")
+      //case ":modrules" =>
+      //  TODO: add rule attribute to extractors
 
-      case ":eventrules" =>
-        println(s"${reach.eventRules}\n")
+      //case ":eventrules" =>
+      //  TODO: add rule attribute to extractors
 
       case text =>
         val doc = reach.mkDoc(text, "rulershell")

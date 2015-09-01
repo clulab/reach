@@ -4,16 +4,18 @@
 
 # NOTE: This used to start with (?<! [lemma=/^have$/ & !tag="MD"]) but I don't think ODIN supports multiple lookarounds
 - name: modification_trigger_1
-  label: [ModificationTrigger]
+  label: ModificationTrigger
   priority: 1
   type: token
-  action: mkModTrigger
+  action: mkBioMention
   pattern: |
-    (?<mod>[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/]) @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity)
+    # note the use of nested lookaheads, muahaha!
+    [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
 
 - name: modification_trigger_2
-  label: [ModificationTrigger]
+  label: ModificationTrigger
   priority: 1
+  action: mkBioMention
   type: token
   pattern: |
     (^[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
@@ -24,15 +26,15 @@
 
 # Phosphorylated p53 on serine-15
 - name: PTMmodification_1
-  label: [PTM, Modification, BioChemicalEntity]
-  action: mkModification
+  label: PTM
+  action: storePTM
   priority: 2
   type: token
   pattern: |
     @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
 - name: eventsite_1
-  label: [EventSite, Modification, BioChemicalEntity]
+  label: EventSite
   action: storeEventSite
   priority: 2
   type: token
@@ -42,33 +44,33 @@
 # ex. "phosphorylation on the JM domains of EGFR and HER2"
 # should create EGFR(Mods = EventSite(JM domains)), HER2(Mods = EventSite(JM domains))
 - name: eventsite_multisite_1
-  label: [EventSite, Modification, BioChemicalEntity]
+  label: EventSite
   action: storeEventSite
   priority: 2
   type: token
   pattern: |
-    @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/] [tag="IN"] @Site [!tag=/^V/]{,3}? [tag="CC"] @site:Site
-    |
+    @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
+      |
     # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
-    @site:Site [!tag=/^V/ & !word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/]*? /^(of|on|for)/ /./*? @entity:BioChemicalEntity
-    |
+    @site:Site (("," @site:Site)* (","? [tag=CC] @site:Site)? | [tag=CC] @site:Site) /^(of|on|for)/ []*? @entity:BioChemicalEntity
+      |
     @entity:BioChemicalEntity /^(of|on)/ @site:Site+
-    |
+      |
     [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/]{,4} @site:Site
-    | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
+      | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
     @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/]
 
 
 
 # this grabs all sites that it finds within parens
 - name: eventsite_withparens
-  label: [EventSite, Modification, BioChemicalEntity]
+  label: EventSite
   action: storeEventSite
   priority: 2
   example: "ERK(T202/Y204)"
   type: token
   pattern: |
-    @entity:BioChemicalEntity [word="("] /./*? @site:Site [word=")"]
+    @entity:BioChemicalEntity [lemma=residue]? [word="("] @site:Site (("," @site:Site)+ (","? [tag=CC] @site:Site)? | [tag=CC] @site:Site) [word=")"]
 
 # TODO: Add rule + action that adds some Site to multiple Entities
 # Need to handle cases like "site1, site2, site3 of ENTITY" => as ENTITY with EventSite(site1), EventSite(site2), EventSite(site3)

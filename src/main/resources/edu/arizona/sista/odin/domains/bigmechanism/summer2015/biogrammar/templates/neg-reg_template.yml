@@ -3,185 +3,185 @@
 # Template for negative regulation|activation
 #
 
-- name: Negative_{{ ruleType }}_syntax_1_verb
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_1_verb
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
-    controlled:{{ controlledType }} = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|amod|prep_of|prep_in/{,2} (/./ [word=by]){,2}
-    controller:{{ controllerType }} = <xcomp? (nsubj | agent | <vmod) /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|amod|prep_of|prep_in/{,2} (>> [word=by]){,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_2_verb
-  priority: {{ priority }}
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+- name: Negative_${ ruleType }_syntax_2_verb
+  priority: ${ priority }
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (>nsubjpass|<vmod) /conj_|nn|amod|cc/{,2}
-    controller:{{ controllerType }} = (agent|prep_by) /conj_|nn|amod|cc|prep_of|prep_in/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (>nsubjpass|<vmod) /conj_|nn|amod|cc/{,2}
+    controller:${ controllerType } = (agent|prep_by) /conj_|nn|amod|cc|prep_of|prep_in/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_3_verb
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_3_verb
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
-    controlled:{{ controlledType }} = ( (/pobj|prep_[^b]|conj_|nn|amod/{1,2}) | (< /pobj|prep_|conj_|nn|amod/{1,2}) )
-    controller:{{ controllerType }} = <nn|amod{,2} | (prep_by) /nn|amod|conj_|cc|prep_of|prep_in/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = ( (/pobj|prep_[^b]|conj_|nn|amod/{1,2}) | (< /pobj|prep_|conj_|nn|amod/{1,2}) )
+    controller:${ controllerType } = <nn|amod{,2} | (prep_by) /nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_4_verb
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_4_verb
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
-    controlled:{{ controlledType }} = (nsubjpass /conj_|nn|amod/{,2})
-    controller:{{ controllerType }} = (/prep_/ /conj_|nn|amod/{,2})? /prep_/{,2} /prep_by|agent/ /conj_|nn|amod/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (nsubjpass /conj_|nn|amod/{,2})
+    controller:${ controllerType } = (/prep_/ /conj_|nn|amod/{,2})? /prep_/{,2} /prep_by|agent/ /conj_|nn|amod/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_5_verb
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_5_verb
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^V|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^V/]?
-    controlled:{{ controlledType }} = dobj /nn|amod|conj_|cc/{,2}
-    controller:{{ controllerType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = dobj /nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_6_verb
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_6_verb
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/VBN|RB/] [lemma=/^({{ auxtriggers }})/ & tag=/^VBN/]?
-    controlled:{{ controlledType }} = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
-    controller:{{ controllerType }} = /prep_by|agent/ /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
+    controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc|prep_of|prep_in/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_1_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_1_noun
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/]?
-    controlled:{{ controlledType }} = /prep_of|prep_in/ /nn|amod|conj_|cc/{,2}
-    controller:{{ controllerType }} = /prep_of/? prep_by (<dobj|prep_by|agent|nn|amod|prep_of|prep_in){1,2} /nn|amod|conj_|cc/{,2} # the prep_of may appear due to bad syntax
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
+    controlled:${ controlledType } = /prep_of|prep_in/ /nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = /prep_of/? prep_by (<dobj|prep_by|agent|nn|amod|prep_of|prep_in){1,2} /nn|amod|conj_|cc/{,2} # the prep_of may appear due to bad syntax
 
 
-- name: Negative_{{ ruleType }}_syntax_2_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_2_noun
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of|prep_in/? /conj_|cc|nn|amod/{1,2}
-    controller:{{ controllerType }} = /prep_of/? /prep_by|agent/ /conj|cc|nn|amod/{,2} # the prep_of may appear due to bad syntax
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /prep_of|prep_in/? /conj_|cc|nn|amod/{1,2}
+    controller:${ controllerType } = /prep_of/? /prep_by|agent/ /conj|cc|nn|amod/{,2} # the prep_of may appear due to bad syntax
 
 
-- name: Negative_{{ ruleType }}_syntax_3_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_3_noun
+  priority: ${ priority }
   example: "rapamycin inhibition of the phosphorylation of ERK"
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
-    controlled:{{ controlledType }} = /prep_of|prep_in/ /conj_|cc|nn|amod/{,2}
-    controller:{{ controllerType }} = /cc|nn|amod/{1,2} | conj_or prep_by nn?
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /prep_of|prep_in/ /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = /cc|nn|amod/{1,2} | conj_or prep_by nn?
 
 
-- name: Negative_{{ ruleType }}_syntax_5_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_5_noun
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
-    controlled:{{ controlledType }} = < /nn|amod/ > /prep_/ /conj_|cc|nn|amod/{,2}
-    controller:{{ controllerType }} = < /nn|amod/ /conj_|cc|nn|amod/{,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = < /nn|amod/ > /prep_/ /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = < /nn|amod/ /conj_|cc|nn|amod/{,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_6_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_6_noun
+  priority: ${ priority }
   example: ""
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
-    controller:{{ controllerType }} = <prep_via (agent|prep_by) /nn|amod|conj_|cc/{,2}
-    controlled:{{ controlledType }} = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = <prep_via (agent|prep_by) /nn|amod|conj_|cc/{,2}
+    controlled:${ controlledType } = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
 
 
-- name: Negative_{{ ruleType }}_syntax_7_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_syntax_7_noun
+  priority: ${ priority }
   example: "Rapamycin, an inhibitor of the mTOR kinase,"
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^({{ triggers }})/ & tag=/^N/] [lemma=/^({{ auxtriggers }})/ & tag=/^N/]?
-    controller:{{ controllerType }} = <dep /nn|amod|conj_|cc/{,2}
-    controlled:{{ controlledType }} = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = <dep /nn|amod|conj_|cc/{,2}
+    controlled:${ controlledType } = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
 
 
-- name: Negative_{{ ruleType }}_token_2_verb
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_token_2_verb
+  priority: ${ priority }
   example: ""
   type: token
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:{{ controlledType }} following @controller:{{ controllerType }} (?<dummy> [lemma=/{{ negnouns}}/])
+    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy>[lemma=/${ negnouns }/])
 
 
-- name: Negative_{{ ruleType }}_token_1_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_token_1_noun
+  priority: ${ priority }
   example: "mTOR inhibitor Rapamycin"
   type: token
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    @controlled:{{ controlledType }} (?<trigger> [word=/(?i)^({{ triggers }})/ & tag=/^NN/]) @controller:{{ controllerType }}
+    @controlled:${ controlledType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) @controller:${ controllerType }
 
 
 # this rule is needed because PP attachment of "by" is often wrong
-- name: Negative_{{ ruleType }}_token_2_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_token_2_noun
+  priority: ${ priority }
   example: "Inhibition of mTOR by rapamycin has been standard treatment "
   type: token
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    (?<trigger> [word=/(?i)^({{ triggers }})/ & tag=/^NN/]) of @controlled:{{ controlledType }} by @controller:{{ controllerType }} (?! [lemma=/{{ negnouns }}/])
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns }/])
 
 
-- name: Negative_{{ ruleType }}_copula_1
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_copula_1
+  priority: ${ priority }
   example: "A is an inhibitor of B"
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/be/ & tag=/^V/] /./? /./? [lemma=/{{ negnouns }}/ & tag=/^N/]
-    controller:{{ controllerType }} = nsubj
-    controlled:{{ controlledType }} = /prep_of|prep_in/
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ negnouns }/ & tag=/^N/]
+    controller:${ controllerType } = nsubj
+    controlled:${ controlledType } = /prep_of|prep_in/
 
 
-- name: Negative_{{ ruleType }}_possessive_noun
-  priority: {{ priority }}
+- name: Negative_${ ruleType }_possessive_noun
+  priority: ${ priority }
   example: "ASPP1 is common, as is its inhibition by ASPP2."
-  label: [{{ labels }}]
-  action: {{ actionFlow }}
+  label: ${ label }
+  action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/{{ negnouns }}/ & tag=/^N/]
-    controller:{{ controllerType }} = /prep_by|agent/
-    controlled:{{ controlledType }} = /poss/
+    trigger = [lemma=/${ negnouns }/ & tag=/^N/]
+    controller:${ controllerType } = /prep_by|agent/
+    controlled:${ controlledType } = /poss/

@@ -1,0 +1,5 @@
+taxonomy: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/taxonomy.yml
+
+rules:
+  - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/modifications/modifications.yml
+  - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/modifications/mutants.yml

@@ -6,6 +6,7 @@
   label: Site
   priority: 1
   type: token
+  action: mkBioMention
   pattern: |
     [word = /(?i)^(glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine)$/]
     [word = /acid/]?
@@ -16,6 +17,7 @@
   label: Site
   priority: 1
   type: token
+  action: mkBioMention
   pattern: |
     (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/]
   # old alt. pattern /^P\d+$/
@@ -24,6 +26,7 @@
   label: Site
   priority: 1
   type: token
+  action: mkBioMention
   pattern: |
    [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\-?\d+$/]
    (?! [lemma=mutant])
@@ -32,6 +35,7 @@
 #  label: Site
 #  priority: 1
 #  type: token
+#  action: mkBioMention
 #  pattern: |
 #   [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)([-0-9]+)?/]
 #   [word=mutant]?
@@ -40,6 +44,7 @@
   label: Site
   priority: 1
   type: token
+  action: mkBioMention
   pattern: |
    [word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]
    [word=/residue/]?
@@ -49,6 +54,7 @@
   label: Site
   priority: 1
   type: token
+  action: mkBioMention
   example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
   pattern: |
     "("
@@ -60,6 +66,7 @@
 - name: site_domain
   label: Site
   priority: 1
+  action: mkBioMention
   type: token
   pattern: |
     /\(/? /^[A-Z0-9-]+$/ /\)/? /domain/
@@ -68,13 +75,14 @@
 - name: site_known_domain
   label: Site
   priority: 1
+  action: mkBioMention
   type: token
   pattern: |
     "RBD"
 
 - name: multi-site
   label: Site
-  action: mkEntities
+  action: unpackRelations
   priority: 2+
   example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
   type: token
@@ -87,7 +95,7 @@
 ###################
 
 - name: ner-gene_or_gene_product-entities
-  label: [Gene_or_gene_product, BioChemicalEntity, MacroMolecule, PossibleController]
+  label: Gene_or_gene_product
   action: mkNERMentions
   priority: 3
   type: token
@@ -96,7 +104,7 @@
 
 # TODO: verify this ontology
 - name: ner-family-entities
-  label: [Family, BioChemicalEntity, MacroMolecule, PossibleController]
+  label: Family
   action: mkNERMentions
   priority: 3
   type: token
@@ -105,7 +113,7 @@
 
 # TODO: verify this ontology
 - name: ner-cellular_component-entities
-  label: [Cellular_component]
+  label: Cellular_component
   action: mkNERMentions
   priority: 3
   type: token
@@ -113,7 +121,7 @@
     [entity='B-Cellular_component'] [entity='I-Cellular_component']*
 
 - name: ner-simple_chemical-entities
-  label: [Simple_chemical, BioChemicalEntity, PossibleController]
+  label: Simple_chemical
   action: mkNERMentions
   priority: 3
   type: token
@@ -121,33 +129,17 @@
     [entity='B-Simple_chemical'] [entity='I-Simple_chemical']* (?! [lemma="substrate"])
 
 - name: ner-domain-entities
-  label: [Site]
+  label: Site
   action: mkNERMentions
   priority: 3
   type: token
   pattern: |
     [entity='B-Site'] [entity='I-Site']*
 
-# TODO: Ideally, these should be added to the KB
-################
-# missing
-################
-
-#- name: missing-gene_or_gene_product
-#  label: [Gene_or_gene_product, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
-#  priority: 4
-#  type: token
-#  pattern: |
-
-#- name: missing-family_product
-#  label: [Family, Missing, BioChemicalEntity, MacroMolecule, PossibleController]
-#  priority: 4
-#  type: token
-#  pattern: |
-#
-
+# TODO: Ideally, this should somehow be added to the KB
 - name: missing-simple_chemical
-  label: [Simple_chemical, Missing, BioChemicalEntity, PossibleController]
+  label: Simple_chemical
+  action: mkBioMention
   priority: 4
   type: token
   pattern: |
@@ -155,7 +147,8 @@
 
 # TODO: What labels should these guys have?
 - name: missing-location
-  label: [Gene_or_gene_product, Missing, BioChemicalEntity]
+  label: Gene_or_gene_product
+  action: mkBioMention
   priority: 4
   type: token
   pattern: |

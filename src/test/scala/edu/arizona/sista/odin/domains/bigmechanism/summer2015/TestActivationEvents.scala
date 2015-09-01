@@ -188,14 +188,15 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.count(_ matches "Positve_activation") should be(0)
   }
 
-  val sent23 = "ASPP1 is common, as is its inhibition by ASPP2."
+  // Relies on COREF
+  /*val sent23 = "ASPP1 is common, as is its inhibition by ASPP2."
   sent23 should "contain 1 activation" in {
     val mentions = parseSentence(sent23)
     // Two entities and one event
     mentions should have size (3)
     mentions.filter(_ matches "ActivationEvent") should have size (1)
     hasNegativeActivation("ASPP2", "ASPP1", mentions) should be(true)
-  }
+  }*/
 
   val sent24 = "Ubiquitinated Ras activates Raf and PI3K more than non-ubiquitinated Ras"
   sent24 should "contain 2 activations" in {
