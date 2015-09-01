@@ -90,6 +90,14 @@ class IndexCardOutput extends JsonOutputter {
         cards += card
       }
     }
+    /*
+    println(s"controlled size: ${simpleEventsInRegs.size}")
+    for(e <- eventMentions) {
+      if(simpleEventsInRegs.contains(e)) {
+        println(s"Found ${e.label}")
+      }
+    }
+    */
 
     // now, print everything else that wasn't printed already
     for(mention <- eventMentions) {
@@ -115,6 +123,8 @@ class IndexCardOutput extends JsonOutputter {
       case "regulation" => throw new RuntimeException("ERROR: regulation events must be saved before!")
       case _ => throw new RuntimeException(s"ERROR: event type $eventType not supported!")
     }
+    mkHedging(ex, mention)
+    mkContext(ex, mention)
     f("extracted_information") = ex
     f
   }
@@ -190,21 +200,17 @@ class IndexCardOutput extends JsonOutputter {
 
   /** Creates a card for a simple, modification event */
   def mkModificationIndexCard(mention:BioMention,
-                              positiveModification:Boolean = true,
-                              makeHedging:Boolean = true):PropMap = {
+                              positiveModification:Boolean = true):PropMap = {
     val f = new PropMap
     // a modification event will have exactly one theme
     f("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
     if(positiveModification)
       f("interaction_type") = "adds_modification"
     else
-      f("interaction_type") = "removes_modification"
+      f("interaction_type") = "inhibits_modification"
     val mods = new FrameList
     mods += mkEventModification(mention)
     f("modifications") = mods
-    if (makeHedging) {
-      mkHedging(f, mention)
-    }
     f
   }
 
@@ -215,12 +221,19 @@ class IndexCardOutput extends JsonOutputter {
     else f("hypothesis_information") = false
   }
 
+  def mkContext(f:PropMap, mention:BioMention): Unit = {
+    // TODO: add context information here!
+  }
+
   /** Creates a card for a regulation event */
   def mkRegulationIndexCard(mention:BioMention,
                             simpleEventsInRegs:mutable.HashSet[Mention]):PropMap = {
     if(! mention.arguments.contains("controlled"))
       throw new RuntimeException("ERROR: a regulation event must have a controlled argument!")
-    val controlled = mention.arguments.get("controlled").get.head.toBioMention
+    val controlledMention = mention.arguments.get("controlled").get.head
+    // do not output this event again, when we output single modifications
+    simpleEventsInRegs += controlledMention
+    val controlled = controlledMention.toBioMention
 
     // populate participant_b and the interaction type from the controlled event
     val posMod = mention.label match {
@@ -228,12 +241,12 @@ class IndexCardOutput extends JsonOutputter {
       case "Negative_regulation" => false
       case _ => throw new RuntimeException(s"ERROR: unknown regulation event ${mention.label}!")
     }
-    val f = mkModificationIndexCard(controlled, positiveModification = posMod, makeHedging = false)
+    val f = mkModificationIndexCard(controlled, positiveModification = posMod)
 
     // add participant_a from the controller
-    // TODO
-
-    mkHedging(f, mention)
+    if(! mention.arguments.contains("controller"))
+      throw new RuntimeException("ERROR: a regulation event must have a controller argument!")
+    f("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
 
     f
   }
