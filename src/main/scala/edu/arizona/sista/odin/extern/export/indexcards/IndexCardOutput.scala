@@ -36,6 +36,10 @@ class IndexCardOutput extends JsonOutputter {
       if (!dir.mkdirs()) {
         throw new RuntimeException(s"ERROR: failed to create output directory $outFilePrefix!")
       }
+    } else {
+      // delete all files in this directory
+      val files = dir.listFiles()
+      for(file <- files) file.delete()
     }
 
     // index cards are generated here
@@ -44,7 +48,7 @@ class IndexCardOutput extends JsonOutputter {
     // save one index card per file
     var count = 1
     for(card <- cards) {
-      val outFile = new File(outFilePrefix + File.separator + mkIndexCardFileName(paperId, count))
+      val outFile = new File(outFilePrefix + File.separator + mkIndexCardFileName(paperId, count) + ".json")
       writeJsonToFile(card, outFile)
       count += 1
     }
@@ -277,7 +281,8 @@ class IndexCardOutput extends JsonOutputter {
     if(participantB.size == 1) {
       f("participant_b") = mkArgument(participantB.head.toBioMention)
     } else if(participantB.size > 1) {
-      // store them all as a single complex. This is ugly, but there is no other way with the current format
+      // store them all as a single complex.
+      // INDEX CARD LIMITATION: This is ugly, but there is no other way with the current format
       val fl = new FrameList
       participantB.foreach(p => {
         fl += mkSingleArgument(p.toBioMention)
@@ -302,8 +307,20 @@ class IndexCardOutput extends JsonOutputter {
   /** Creates a card for a translocation event */
   def mkTranslocationIndexCard(mention:BioMention):PropMap = {
     val f = new PropMap
-    // TODO
+    f("interaction_type") = "translocates"
+    f("participant_b") = mention.arguments.get("theme").get.head
+    if(mention.arguments.contains("source")) {
+      addLocation(f, "from", mention.arguments.get("source").get.head.toBioMention)
+    }
+    if(mention.arguments.contains("destination")) {
+      addLocation(f, "to", mention.arguments.get("destination").get.head.toBioMention)
+    }
     f
+  }
+
+  def addLocation(f:PropMap, prefix:String, loc:BioMention): Unit = {
+    f(prefix + "_location_id") = mkIdentifier(loc.xref.get)
+    f(prefix + "_location_text") = loc.text
   }
 
   def addMeta(f:PropMap,
