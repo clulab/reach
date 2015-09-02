@@ -13,6 +13,7 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin.extern.export._
 import edu.arizona.sista.odin.extern.export.fries._
+import edu.arizona.sista.bionlp.nxml._
 
 object RunSystem extends App {
   // use specified config file or the default one if one is not provided
@@ -57,46 +58,24 @@ object RunSystem extends App {
   println("initializing reach ...")
   val reach = new ReachSystem
 
-  println("initializing nxml2fries ...")
-  val nxml2fries = new Nxml2Fries(
-    config.getString("nxml2fries.executable"),
-    txtDir,
-    config.getBoolean("nxml2fries.removeCitations"),
-    config.getStringList("nxml2fries.ignoreSections").asScala.toSet,
-    encoding)
+  println("initializing NxmlReader ...")
+  val nxmlReader = new NxmlReader(
+    config.getStringList("nxml2fries.ignoreSections").asScala)
 
   // process papers in parallel
   for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startTime = now // start measuring time here
     val startNS = System.nanoTime
-    // process individual sections and collect all mentions
-    val entries = nxml2fries.extractEntries(file) flatMap {
-      case Success(entry) => Some(entry)
-      case Failure(e: Nxml2FriesException) =>
-        val report = s"""
-          |==========
-          |
-          | ¡¡¡ nxml2fries error !!!
-          |
-          |paper: $paperId
-          |entry: ${e.entry}
-          |
-          |error:
-          |${e.toString}
-          |
-          |stack trace:
-          |${e.getStackTrace.mkString("\n")}
-          |
-          |==========
-          |""".stripMargin
-        FileUtils.writeStringToFile(logFile, report, true)
-        None
+
+    // Process individual sections and collect all mentions
+    val entries = Try(nxmlReader.readNxml(file)) match {
+      case Success(v) => v
       case Failure(e) =>
         val report = s"""
           |==========
           |
-          | ¡¡¡ nxml2fries error !!!
+          | ¡¡¡ NxmlReader error !!!
           |
           |paper: $paperId
           |
@@ -109,7 +88,7 @@ object RunSystem extends App {
           |==========
           |""".stripMargin
         FileUtils.writeStringToFile(logFile, report, true)
-        None
+        Nil
     }
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]
@@ -200,4 +179,3 @@ object RunSystem extends App {
   }
 
 }
-
