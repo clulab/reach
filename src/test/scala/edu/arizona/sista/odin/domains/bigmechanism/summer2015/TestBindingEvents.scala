@@ -179,7 +179,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     p should have size (1)
     val b = mentions.filter(_ matches "Binding")
     b should have size (1)
-    TestUtils.hasEventWithArguments("Binding", List("PI3KC2β", "Ras", "RBD"), b) should be (true)
+    TestUtils.hasEventWithArguments("Binding", List("PI3KC2beta", "Ras", "RBD"), b) should be (true)
   }
 
   "testBindingDecl1" should "find 2 binding events" in {
