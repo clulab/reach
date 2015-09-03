@@ -41,9 +41,9 @@ object LocalKBUtils extends KnowledgeBaseConstants {
   def sourceFromResource (resourcePath:String): Source = {
     val inStream = this.getClass.getResourceAsStream(resourcePath)
     if (resourcePath.endsWith(".gz"))
-      Source.fromInputStream(new GZIPInputStream(new BufferedInputStream(inStream)))
+      Source.fromInputStream(new GZIPInputStream(new BufferedInputStream(inStream)), "utf8")
     else
-      Source.fromInputStream(inStream)
+      Source.fromInputStream(inStream, "utf8")
   }
 
 
