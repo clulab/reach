@@ -352,4 +352,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label == "Negative_regulation") should have size (1)
   }
 
+  val sent39 = "inhibition of ERK phosphorylation by combination of rapamycin"
+  sent39 should "contain 1 negative regulation and 1 phosphorylation" in {
+    val mentions = parseSentence(sent39)
+    mentions.filter(_ matches "Negative_regulation") should have size (1)
+    mentions.filter(_ matches "Positive_regulation") should have size (0)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+  }
+
 }
