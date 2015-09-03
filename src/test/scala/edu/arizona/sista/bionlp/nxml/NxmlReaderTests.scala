@@ -2,7 +2,7 @@ package edu.arizona.sista.bionlp.nxml
 
 import io.Source
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.bionlp.FriesEntry
+import edu.arizona.sista.reach.FriesEntry
 
 trait Fixtures {
   // Set up the fixtures
