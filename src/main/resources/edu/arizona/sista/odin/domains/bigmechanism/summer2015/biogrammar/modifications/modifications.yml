@@ -52,7 +52,7 @@
     @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
       |
     # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
-    @site:Site (("," @site:Site)* (","? [tag=CC] @site:Site)? | [tag=CC] @site:Site) /^(of|on|for)/ []*? @entity:BioChemicalEntity
+    @site:Site ([word="," | tag=CC]* @site:Site)+ /^(of|on|for)/ []*? @entity:BioChemicalEntity
       |
     @entity:BioChemicalEntity /^(of|on)/ @site:Site+
       |
@@ -62,17 +62,15 @@
 
 
 
-# this grabs all sites that it finds within parens
-- name: eventsite_withparens
+# this grabs all sites that it finds within (optional) parens
+- name: eventsite_with_optional_parens
   label: EventSite
   action: storeEventSite
   priority: 2
   example: "ERK(T202/Y204)"
   type: token
   pattern: |
-    @entity:BioChemicalEntity [lemma=residue]? [word="("] @site:Site (("," @site:Site)+ (","? [tag=CC] @site:Site)? | [tag=CC] @site:Site) [word=")"]
-
-# TODO: Add rule + action that adds some Site to multiple Entities
-# Need to handle cases like "site1, site2, site3 of ENTITY" => as ENTITY with EventSite(site1), EventSite(site2), EventSite(site3)
-
+    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity [lemma=residue]? [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
+    |
+    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity /^(at|on)/ []{,2} @site:Site [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
 

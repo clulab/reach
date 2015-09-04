@@ -87,8 +87,9 @@
   example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
   type: token
   pattern: |
-   # This works with open range, but is it a possible odin problem with quantifiers?
-   [mention="Site"] [tag="CD" & mention="Site"] [tag=/^(CC|CD)/ | word=","]* (?<site> [tag="CD" & !mention="Site"])
+    (@Site | [lemma=residue]) [word="("]?
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+/)))+
+    [word=")"]?
 
 ###################
 # ner rules

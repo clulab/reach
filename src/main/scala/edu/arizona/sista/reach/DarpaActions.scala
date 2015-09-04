@@ -77,20 +77,23 @@ class DarpaActions extends Actions {
   }
 
   /** Gets RelationMentions that represent an EventSite,
-    * and attaches the site to the corresponding event in-place.
+    * and attaches the site to the corresponding entities in-place.
+    * Later, if these entities are matched as participants in an event,
+    * these sites will be "promoted" to that event and removed from the entity
+    * (see siteSniffer for details)
     * This action always returns Nil and assumes that the arguments are already
     * in the state.
     */
   def storeEventSite(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions foreach {
       case es: RelationMention if es matches "EventSite" =>
-        // convert first relation("entity") into BioMention
-        val bioMention = es.arguments("entity").head.toBioMention
+        // convert each relation("entity") into BioMention
+        val bioMentions = es.arguments("entity").map(_.toBioMention)
         // retrieves all the captured sites
         val sites = es.arguments("site")
-        sites foreach { s =>
-          bioMention.modifications += EventSite(site = s)
-        }
+        // add all sites to each entity
+        for {b <- bioMentions
+             s <- sites} {b.modifications += EventSite(site = s)}
       case _ => ()
     }
     Nil
