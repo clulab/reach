@@ -323,11 +323,11 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   val sent35 = "p53 can be acetylated by p300 and CBP at multiple lysine residues ( K164 , 370 , 372 , 373 , 381 , 382 and 386 ) ."
-  sent35 should  "contain 15 positive regulations due to the multiple controllers and multiple sites" in {
+  sent35 should  "contain 16 positive regulations due to the multiple controllers and multiple sites" in {
     val mentions = parseSentence(sent35)
     // TODO: needs coref for sites ("residues"). We should get 7 pos regs by p300 and 7 by CBP
     // This is a great example for handling enumerations
-    mentions.filter(_.label == "Positive_regulation") should have size (14)
+    mentions.filter(_.label == "Positive_regulation") should have size (16)
   }
 
   val sent36 = "Taken together , these data suggest that decreased PTPN13 expression enhances EphrinB1 and Erk1 and phosphorylation in epithelial cells ."
