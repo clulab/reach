@@ -121,16 +121,10 @@ object JsonOutputter {
   }
 
   def mkArgType(arg:Mention):String = {
-    if(arg.isInstanceOf[TextBoundMention])
-      return "entity"
-
-    if(arg.isInstanceOf[EventMention])
-      return "event"
-
-    if(arg.isInstanceOf[RelationMention])
-      return "complex"
-
-    throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
+    if (arg matches "Complex") "complex"
+    else if (arg matches "Entity") "entity"
+    else if (arg matches "Event") "event"
+    else throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
   }
 
   def isNegated(mention:BioMention):Boolean =
