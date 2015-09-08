@@ -14,7 +14,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Phosphorylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Phosphorylation"
       verbalTriggerLemma: "phosphorylate"
       nominalTriggerLemma: "phosphorylation"
@@ -32,7 +32,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Hydroxylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Hydroxylation"
       verbalTriggerLemma: "hydroxylate"
       nominalTriggerLemma: "hydroxylation"
@@ -41,7 +41,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Sumoylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Sumoylation"
       verbalTriggerLemma: "sumoylate"
       nominalTriggerLemma: "sumoylation"
@@ -50,7 +50,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Glycosylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Glycosylation"
       verbalTriggerLemma: "glycosylate"
       nominalTriggerLemma: "glycosylation"
@@ -59,7 +59,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Acetylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Acetylation"
       verbalTriggerLemma: "acetylate"
       nominalTriggerLemma: "acetylation"
@@ -68,7 +68,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Farnesylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Farnesylation"
       verbalTriggerLemma: "farnesylate"
       nominalTriggerLemma: "farnesylation"
@@ -77,7 +77,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Ribosylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Ribosylation"
       verbalTriggerLemma: "ribosylate"
       nominalTriggerLemma: "ribosylation"
@@ -86,7 +86,7 @@ rules:
   - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/templates/simple-event_template.yml
     vars:
       eventName: "Methylation"
-      actionFlow: "default"
+      actionFlow: "mkBioMention"
       label: "Methylation"
       verbalTriggerLemma: "methylate"
       nominalTriggerLemma: "methylation"

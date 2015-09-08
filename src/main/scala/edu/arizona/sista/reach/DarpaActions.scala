@@ -14,9 +14,6 @@ class DarpaActions extends Actions {
   def mkBioMention(mentions: Seq[Mention], state: State): Seq[Mention] =
     mentions.map(_.toBioMention)
 
-  // FIXME delete this
-  override val default: Action = mkBioMention
-
   /** Unpacks RelationMentions into its arguments. A new BioTextBoundMention
     * will be created for each argument with the labels of the original RelationMention.
     * This is relying on Odin's behavior of assigning the same label of the RelationMention

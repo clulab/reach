@@ -61,6 +61,7 @@
   priority: 4
   example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly ${ verbalTriggerLemma } IkappaB.  Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that specifically ${ verbalTriggerLemma }s ASPP2."
   label: ${ label }
+  action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & !word=/(?i)^de/ & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_(and|or|nor)|cc/{,2}
