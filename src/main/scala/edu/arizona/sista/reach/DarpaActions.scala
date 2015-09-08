@@ -327,7 +327,7 @@ class DarpaActions extends Actions {
         if (cause.forall(c => !controlledArgs.contains(c))) {
           val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
           val reg = new BioRelationMention(
-            Seq("Positive_regulation", "ComplexEvent", "Event"),
+            Seq("Positive_regulation", "Regulation", "ComplexEvent", "Event", "PossibleController"),
             regArgs, m.sentence, m.document, m.keep, m.foundBy)
           // negations should be propagated to the newly created Positive_regulation
           val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
