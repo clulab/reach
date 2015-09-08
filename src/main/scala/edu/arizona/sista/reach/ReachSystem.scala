@@ -82,6 +82,7 @@ class ReachSystem(
           mutations map { mut =>
             val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
             tbm.modifications += mut
+            tbm.xref = m.xref // mentions should stay grounded
             tbm
           }
         }
