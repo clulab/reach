@@ -92,8 +92,10 @@ class DarpaActions extends Actions {
         // retrieves all the captured sites
         val sites = es.arguments("site")
         // add all sites to each entity
-        for {b <- bioMentions
-             s <- sites} {b.modifications += EventSite(site = s)}
+        for {
+          b <- bioMentions
+          s <- sites
+        } b.modifications += EventSite(site = s)
       case _ => ()
     }
     Nil
@@ -110,7 +112,7 @@ class DarpaActions extends Actions {
         val bioMention = m.arguments("entity").head.toBioMention
         val mutants = m.arguments("mutant")
         mutants foreach { mutant =>
-            bioMention.modifications += Mutant(evidence = mutant)
+          bioMention.modifications += Mutant(evidence = mutant)
         }
     }
     Nil
