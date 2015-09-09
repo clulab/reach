@@ -73,20 +73,20 @@ object RunSystem extends App {
       case Success(v) => v
       case Failure(e) =>
         val report = s"""
-          |==========
-          |
-          | ¡¡¡ NxmlReader error !!!
-          |
-          |paper: $paperId
-          |
-          |error:
-          |${e.toString}
-          |
-          |stack trace:
-          |${e.getStackTrace.mkString("\n")}
-          |
-          |==========
-          |""".stripMargin
+                        |==========
+                        |
+                        | ¡¡¡ NxmlReader error !!!
+                        |
+                        |paper: $paperId
+            |
+            |error:
+            |${e.toString}
+            |
+            |stack trace:
+            |${e.getStackTrace.mkString("\n")}
+            |
+            |==========
+            |""".stripMargin
         FileUtils.writeStringToFile(logFile, report, true)
         Nil
     }
@@ -98,23 +98,23 @@ object RunSystem extends App {
       } catch {
         case e: Exception =>
           val report = s"""
-            |==========
-            |
-            | ¡¡¡ extraction error !!!
-            |
-            |paper: $paperId
-            |chunk: ${entry.chunkId}
-            |section: ${entry.sectionId}
-            |section name: ${entry.sectionName}
-            |
-            |error:
-            |${e.toString}
-            |
-            |stack trace:
-            |${e.getStackTrace.mkString("\n")}
-            |
-            |==========
-            |""".stripMargin
+                          |==========
+                          |
+                          | ¡¡¡ extraction error !!!
+                          |
+                          |paper: $paperId
+              |chunk: ${entry.chunkId}
+              |section: ${entry.sectionId}
+              |section name: ${entry.sectionName}
+              |
+              |error:
+              |${e.toString}
+              |
+              |stack trace:
+              |${e.getStackTrace.mkString("\n")}
+              |
+              |==========
+              |""".stripMargin
           FileUtils.writeStringToFile(logFile, report, true)
       }
     }
@@ -136,15 +136,15 @@ object RunSystem extends App {
         outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, friesDir)
         FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
     } catch {
-        case e:
-          Exception =>
-          val report =
-            s"""
-              |==========
-              |
-              | ¡¡¡ serialization error !!!
-              |
-              |paper: $paperId
+      case e:
+        Exception =>
+        val report =
+          s"""
+             |==========
+             |
+             | ¡¡¡ serialization error !!!
+             |
+             |paper: $paperId
               |
               |error:
               |${e.toString}
@@ -154,9 +154,9 @@ object RunSystem extends App {
               |
               |==========
             """.stripMargin
-          FileUtils.writeStringToFile(logFile, report, true)
-      }
+        FileUtils.writeStringToFile(logFile, report, true)
     }
+  }
 
   def now = new Date()
 
