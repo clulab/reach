@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.utils
 
 import edu.arizona.sista.processors.Sentence
 import edu.arizona.sista.struct.{DirectedGraph, Interval}

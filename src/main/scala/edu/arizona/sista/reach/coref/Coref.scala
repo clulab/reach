@@ -1,13 +1,15 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.coref
 
+import edu.arizona.sista.odin._
+import edu.arizona.sista.odin.domains.bigmechanism.reach.DarpaFlow
+import edu.arizona.sista.odin.domains.bigmechanism.reach.DependencyUtils._
+import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.odin._
-import edu.arizona.sista.processors.Document
-import scala.collection.mutable.ListBuffer
-import util.control.Breaks._
-import edu.arizona.sista.odin.domains.bigmechanism.reach.DependencyUtils._
+
 import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
+import scala.util.control.Breaks._
 
 class Coref extends DarpaFlow {
 
