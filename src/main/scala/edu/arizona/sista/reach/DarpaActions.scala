@@ -340,7 +340,7 @@ class DarpaActions extends Actions {
   // This method filters them out so that we don't encounter them during serialization.
   def filterEventsWithExtraRecursion(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     m <- mentions
-    if !m.arguments.values.flatten.toSeq.contains((m:Mention) => m matches "Regulation")
+    if !m.arguments.values.flatten.toSeq.exists((arg:Mention) => arg matches "Regulation")
   } yield m
 
   /** global action for EventEngine */
