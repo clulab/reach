@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.fragmenter
+package edu.arizona.sista.reach.fragmenter
 
 import java.net.URL
 import java.io.{File, FileInputStream, InputStream}

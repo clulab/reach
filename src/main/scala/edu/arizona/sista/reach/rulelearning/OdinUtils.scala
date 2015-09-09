@@ -1,7 +1,7 @@
-package edu.arizona.sista.reach.reach.rulelearning
+package edu.arizona.sista.reach.rulelearning
 
 import scala.collection.mutable
-import edu.arizona.sista.reach.reach.brat.{Brat, Event, TextBound, Annotation}
+import edu.arizona.sista.reach.brat.{Brat, Event, TextBound, Annotation}
 import edu.arizona.sista.odin.{EventMention, TextBoundMention, Mention}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.Interval

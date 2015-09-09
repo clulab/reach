@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.fragmenter
+package edu.arizona.sista.reach.fragmenter
 
 import org.biopax.paxtools.model.level3._
 

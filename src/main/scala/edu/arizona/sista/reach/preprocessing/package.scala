@@ -1,8 +1,8 @@
-package edu.arizona.sista.reach.reach
+package edu.arizona.sista.reach
 
 import java.io.File
 
-import edu.arizona.sista.reach.reach.utils.FileReader
+import edu.arizona.sista.reach.utils.FileReader
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import org.slf4j.LoggerFactory
 

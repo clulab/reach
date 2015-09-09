@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach
+package edu.arizona.sista.reach
 
 import java.io.{File, FileWriter}
 import scala.language.reflectiveCalls

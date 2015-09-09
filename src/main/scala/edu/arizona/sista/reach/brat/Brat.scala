@@ -1,7 +1,7 @@
-package edu.arizona.sista.reach.reach.brat
+package edu.arizona.sista.reach.brat
 
 import java.io.{File, InputStream}
-import edu.arizona.sista.reach.reach.rulelearning.OdinUtils
+import edu.arizona.sista.reach.rulelearning.OdinUtils
 
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval

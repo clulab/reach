@@ -6,7 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.reach.brat._
+import edu.arizona.sista.reach.brat._
 
 object ExportBrat extends App {
   // use specified config file or the default one if one is not provided

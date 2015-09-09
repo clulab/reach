@@ -1,9 +1,9 @@
-package edu.arizona.sista.reach.reach.preprocessing
+package edu.arizona.sista.reach.preprocessing
 
 import java.io.{BufferedWriter, File, FileWriter}
 import java.util.Calendar
-import edu.arizona.sista.reach.reach.rulelearning.PathFinder
-import edu.arizona.sista.reach.reach.utils.FileReader
+import edu.arizona.sista.reach.rulelearning.PathFinder
+import edu.arizona.sista.reach.utils.FileReader
 import edu.arizona.sista.struct.Interval
 import org.slf4j.LoggerFactory
 

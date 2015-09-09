@@ -1,8 +1,8 @@
-package edu.arizona.sista.reach.reach.preprocessing
+package edu.arizona.sista.reach.preprocessing
 
 import java.io.{FileWriter, BufferedWriter, File}
 import java.util.Calendar
-import edu.arizona.sista.reach.reach.utils.FileReader
+import edu.arizona.sista.reach.utils.FileReader
 import org.slf4j.LoggerFactory
 
 

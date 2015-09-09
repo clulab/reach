@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.brat
+package edu.arizona.sista.reach.brat
 
 import edu.arizona.sista.struct.Interval
 

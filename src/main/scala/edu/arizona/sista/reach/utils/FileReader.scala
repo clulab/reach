@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.utils
+package edu.arizona.sista.reach.utils
 
 import java.io._
 import java.util.zip.GZIPInputStream

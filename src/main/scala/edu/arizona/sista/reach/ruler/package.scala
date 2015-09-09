@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach
+package edu.arizona.sista.reach
 
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.odin._

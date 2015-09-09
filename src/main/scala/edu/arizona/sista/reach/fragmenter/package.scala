@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach
+package edu.arizona.sista.reach
 
 import scala.reflect.ClassTag
 import scala.collection.JavaConverters._

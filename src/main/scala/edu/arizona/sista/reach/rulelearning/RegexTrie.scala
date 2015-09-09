@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.rulelearning
+package edu.arizona.sista.reach.rulelearning
 
 import scala.math.max
 import scala.collection.mutable

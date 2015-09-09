@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.ruler
+package edu.arizona.sista.reach.ruler
 
 
 import java.io.{PrintWriter, File, BufferedReader, FileReader}

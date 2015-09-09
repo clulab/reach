@@ -1,9 +1,5 @@
 package edu.arizona.sista.reach
 
-import java.io.File
-import edu.arizona.sista.reach.reach.preprocessing.TemplateMap
-
-
 /**
  * Utilities to read rule files
  */

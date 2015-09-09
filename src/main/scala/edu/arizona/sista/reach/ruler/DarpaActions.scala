@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.ruler
+package edu.arizona.sista.reach.ruler
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document

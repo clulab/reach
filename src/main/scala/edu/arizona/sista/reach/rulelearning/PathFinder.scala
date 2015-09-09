@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.reach.rulelearning
+package edu.arizona.sista.reach.rulelearning
 
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.Sentence
