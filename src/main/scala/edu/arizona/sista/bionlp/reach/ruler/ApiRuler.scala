@@ -2,7 +2,6 @@ package edu.arizona.sista.bionlp.reach.ruler
 
 import java.util.{ Date, List => JList, Map => JMap }
 import scala.collection.JavaConverters._
-import org.apache.commons.io.FileUtils
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach._
 import edu.arizona.sista.bionlp.nxml.NxmlReader
