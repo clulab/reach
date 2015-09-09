@@ -1,4 +1,4 @@
-taxonomy: /edu/arizona/sista/odin/domains/bigmechanism/reach/biogrammar/taxonomy.yml
+taxonomy: /edu/arizona/sista/reach/biogrammar/taxonomy.yml
 
 rules:
-  - import: /edu/arizona/sista/odin/domains/bigmechanism/reach/biogrammar/entities/entities.yml
+  - import: /edu/arizona/sista/reach/biogrammar/entities/entities.yml

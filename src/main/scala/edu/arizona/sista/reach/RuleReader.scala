@@ -7,7 +7,7 @@ object RuleReader {
 
   case class Rules(entities: String, modifications: String, events: String)
 
-  val resourcesPath = "/edu/arizona/sista/odin/domains/bigmechanism/reach/biogrammar"
+  val resourcesPath = "/edu/arizona/sista/reach/biogrammar"
   val entitiesMasterFile = s"$resourcesPath/entities_master.yml"
   val modificationsMasterFile = s"$resourcesPath/modifications_master.yml"
   val eventsMasterFile = s"$resourcesPath/events_master.yml"
