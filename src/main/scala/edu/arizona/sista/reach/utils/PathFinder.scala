@@ -1,7 +1,7 @@
-package edu.arizona.sista.reach.rulelearning
+package edu.arizona.sista.reach.utils
 
-import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.Sentence
+import edu.arizona.sista.struct.Interval
 
 class PathFinder(sentence: Sentence) {
 
