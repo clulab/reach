@@ -1,4 +1,0 @@
-taxonomy: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/taxonomy.yml
-
-rules:
-  - import: /edu/arizona/sista/odin/domains/bigmechanism/summer2015/biogrammar/entities/entities.yml
