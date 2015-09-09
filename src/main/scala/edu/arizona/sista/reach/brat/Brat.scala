@@ -1,7 +1,8 @@
 package edu.arizona.sista.reach.brat
 
 import java.io.{File, InputStream}
-import edu.arizona.sista.reach.rulelearning.OdinUtils
+
+import edu.arizona.sista.reach.utils.BratUtils
 
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
@@ -235,7 +236,7 @@ object IdTracker {
   //Start with any Entities (TextBoundMentions) that are compatible with our tokenization
   def apply(doc: Document, annotations: Seq[Annotation]): IdTracker = {
     val tbs =
-      OdinUtils.getMentionsfromAnnotations(doc, annotations)
+      BratUtils.getMentionsfromAnnotations(doc, annotations)
         .filter(_.isInstanceOf[TextBoundMention])
         .sortBy(m => (m.sentence, m.tokenInterval.start))
 

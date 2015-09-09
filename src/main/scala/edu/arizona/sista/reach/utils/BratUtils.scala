@@ -1,17 +1,17 @@
-package edu.arizona.sista.reach.rulelearning
+package edu.arizona.sista.reach.utils
 
-import scala.collection.mutable
-import edu.arizona.sista.reach.brat.{Brat, Event, TextBound, Annotation}
-import edu.arizona.sista.odin.{EventMention, TextBoundMention, Mention}
+import edu.arizona.sista.odin.{EventMention, Mention, TextBoundMention}
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.brat.{Annotation, Brat, Event, TextBound}
 import edu.arizona.sista.struct.Interval
 import org.slf4j.LoggerFactory
 
+import scala.collection.mutable
+
 /**
- * Utility functions for use with Odin
- * Created by gus on 3/27/15.
+ * Utility functions for converting Brat Annotations to Odin Mentions
  */
-object OdinUtils {
+object BratUtils {
 
   type TokenInterval = Interval
   type CharInterval = Interval

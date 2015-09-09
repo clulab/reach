@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory
 /**
  * Generate odin-style entity rules (token-based) from KB files
  * Use at your own peril!
- * This needs to make use of RegexTrie to have any hope of executing in a timely fashion
  */
 object RuleGenerator {
 
