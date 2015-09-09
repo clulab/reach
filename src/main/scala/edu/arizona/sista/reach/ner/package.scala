@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory
 /**
  * Created by gus
  */
-package object preprocessing {
+package object ner {
 
   type Lines = Seq[Array[String]]
   type TemplateMap = Map[String, String]

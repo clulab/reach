@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.preprocessing
+package edu.arizona.sista.reach.ner
 
 import java.io.{BufferedWriter, File, FileWriter}
 import java.util.Calendar
@@ -95,7 +95,7 @@ object RuleGenerator {
     // File name without extension
     val basename = FileReader.removeExtension(kbFile)
     val ruleFile =  s"$basename.yml"
-    val outFile = new File(s"src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/reach/biogrammar/$ruleFile")
+    val outFile = new File(s"src/main/resources/edu/arizona/sista/reach/biogrammar/$ruleFile")
     val bw = new BufferedWriter(new FileWriter(outFile))
 
     val timeStamp = Calendar.getInstance().getTime.toString
@@ -125,7 +125,7 @@ object RuleGenerator {
 object RuleWriter extends App {
   // Get the relevant files
   val kbFiles =
-    new File("src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/reach/kb")
+    new File("src/main/resources/edu/arizona/sista/reach/kb")
       .listFiles
       .filter(f => f.getName.matches(".*(tsv|gz)$"))
   kbFiles.foreach(RuleGenerator.kbToRuleFile)

@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.preprocessing
+package edu.arizona.sista.reach.ner
 
 import java.io.{FileWriter, BufferedWriter, File}
 import java.util.Calendar
@@ -92,7 +92,7 @@ object NERInputWriter extends App {
 
   def onError() {
     Console.println(s"\n${Console.RED}ERROR:\tnot a valid filename.${Console.RESET}")
-    Console.println(s"""USAGE:\n\t${Console.BOLD} sbt "run-main edu.arizona.sista.bionlp.reach.preprocessing.NERInputWriter path/to/output/folder"${Console.RESET}""")
+    Console.println(s"""USAGE:\n\t${Console.BOLD} sbt "run-main edu.arizona.sista.reach.ner.NERInputWriter path/to/output/folder"${Console.RESET}""")
     sys.exit(0)
   }
 
@@ -104,7 +104,7 @@ object NERInputWriter extends App {
   val outPath = args.last.replaceFirst("^~",System.getProperty("user.home"))
   // Get relevant files
   val kbFiles =
-    new File("src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/reach/kb")
+    new File("src/main/resources/edu/arizona/sista/reach/kb")
       .listFiles
       .filter(f => f.getName.matches(".*(tsv|gz)$") & ! IGNORE_THESE.contains(FileReader.removeExtension(f)))
 
