@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.extern.inward
+package edu.arizona.sista.reach.extern.inward
 
 import edu.arizona.sista.odin._
 

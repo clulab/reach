@@ -2,7 +2,7 @@ package edu.arizona.sista.reach
 
 import java.io.File
 import java.util.Date
-import edu.arizona.sista.odin.extern.export.indexcards.IndexCardOutput
+import edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput
 
 import scala.collection.JavaConverters._
 import scala.collection.mutable
@@ -11,8 +11,8 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.odin.extern.export._
-import edu.arizona.sista.odin.extern.export.fries._
+import edu.arizona.sista.reach.extern.export._
+import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.bionlp.nxml._
 
 object RunSystem extends App {

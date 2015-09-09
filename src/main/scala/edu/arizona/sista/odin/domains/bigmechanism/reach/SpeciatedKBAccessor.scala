@@ -1,7 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.reach
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.odin.extern.inward._
+import edu.arizona.sista.reach.extern.inward._
 
 /**
   * Trait for accessing species-specific information from external knowledge bases.

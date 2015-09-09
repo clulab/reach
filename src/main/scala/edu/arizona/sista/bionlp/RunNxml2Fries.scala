@@ -9,7 +9,7 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.odin.extern.export.JsonOutputter
+import edu.arizona.sista.reach.extern.export.JsonOutputter
 
 import edu.arizona.sista.bionlp.nxml._
 

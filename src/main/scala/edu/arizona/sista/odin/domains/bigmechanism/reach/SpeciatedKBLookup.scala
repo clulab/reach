@@ -1,7 +1,7 @@
 package edu.arizona.sista.odin.domains.bigmechanism.reach
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.odin.extern.inward.ExternalKBAccessor
+import edu.arizona.sista.reach.extern.inward.ExternalKBAccessor
 
 /**
   * Trait for simple string lookup in external knowledge bases.

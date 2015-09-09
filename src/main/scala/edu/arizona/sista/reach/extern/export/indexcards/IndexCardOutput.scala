@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.extern.export.indexcards
+package edu.arizona.sista.reach.extern.export.indexcards
 
 import java.io.{FileWriter, BufferedWriter, PrintWriter, File}
 import java.util.Date
@@ -6,7 +6,7 @@ import java.util.Date
 import edu.arizona.sista.reach.FriesEntry
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin.{RelationMention, Mention}
-import edu.arizona.sista.odin.extern.export.JsonOutputter
+import edu.arizona.sista.reach.extern.export.JsonOutputter
 import org.json4s.native.Serialization
 
 import scala.collection.mutable
