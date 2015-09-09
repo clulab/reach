@@ -1,14 +1,14 @@
-package edu.arizona.sista.reach.ruler
+package edu.arizona.sista.reach.demos
 
-import scala.collection.JavaConverters._
-import scala.util.{Try, Success, Failure}
-
-import edu.arizona.sista.reach._
-import edu.arizona.sista.reach.brat.Brat
-import edu.arizona.sista.odin.impl.{OdinNamedCompileException, OdinCompileException}
-import edu.arizona.sista.reach.demos.open.OpenSystem
+import edu.arizona.sista.odin.impl.{OdinCompileException, OdinNamedCompileException}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.corenlp.CoreNLPProcessor
+import edu.arizona.sista.reach._
+import edu.arizona.sista.reach.brat.Brat
+import edu.arizona.sista.reach.demos.open.OpenSystem
+
+import scala.collection.JavaConverters._
+import scala.util.{Failure, Success, Try}
 
 object Ruler {
 
