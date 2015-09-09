@@ -1,11 +1,13 @@
-package edu.arizona.sista.bionlp.reach.ruler
+package edu.arizona.sista.reach.apis
 
-import java.util.{ Date, List => JList, Map => JMap }
-import scala.collection.JavaConverters._
+import java.util.{Date, List => JList, Map => JMap}
+
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach._
-import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
 import edu.arizona.sista.reach.extern.export.fries.FriesOutput
+import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
+
+import scala.collection.JavaConverters._
 
 class ApiRuler {
 

@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.demos.open
+package edu.arizona.sista.reach.apis.open
 
 import edu.arizona.sista.odin.Actions
 
