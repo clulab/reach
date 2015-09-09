@@ -1,9 +1,8 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
-
-import scala.io.Source
+package edu.arizona.sista.reach.grounding
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.extern.inward._
+
+import scala.io.Source
 
 /**
   * A collection of classes which implement project internal knowledge base accessors.

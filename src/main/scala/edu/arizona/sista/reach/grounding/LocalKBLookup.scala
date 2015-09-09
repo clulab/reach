@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.grounding
 
 import scala.io.Source
 

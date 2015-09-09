@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.grounding
 
 /**
   * Trait for defining constants used by grounding and entity checking code.

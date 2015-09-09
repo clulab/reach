@@ -1,6 +1,7 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.grounding
 
 import edu.arizona.sista.odin._
+import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
 
 /**

@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.grounding
 
 import java.io._
 import java.util.zip.GZIPInputStream

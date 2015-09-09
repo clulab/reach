@@ -1,16 +1,12 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach.grounding
 
 import java.io._
 
-import scala.io.Source
-import scala.collection.mutable.Map
-import scala.collection.JavaConverters._
-import scala.compat.Platform
-
 import org.biopax.paxtools.io._
-import org.biopax.paxtools.controller._
 import org.biopax.paxtools.model._
 import org.biopax.paxtools.model.level3._
+
+import scala.collection.JavaConverters._
 
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
