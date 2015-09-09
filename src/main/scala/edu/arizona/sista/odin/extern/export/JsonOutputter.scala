@@ -123,6 +123,7 @@ object JsonOutputter {
   def mkArgType(arg:Mention):String = {
     if (arg matches "Complex") "complex"
     else if (arg matches "Entity") "entity"
+    else if (arg matches "Site") "entity"
     else if (arg matches "Event") "event"
     else throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
   }
