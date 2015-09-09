@@ -1,5 +1,6 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.TestUtils
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 

@@ -1,4 +1,4 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach
 
 import org.scalatest._
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor

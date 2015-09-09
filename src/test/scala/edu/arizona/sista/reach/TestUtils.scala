@@ -1,6 +1,5 @@
-package edu.arizona.sista.odin.domains.bigmechanism.reach
+package edu.arizona.sista.reach
 
-import edu.arizona.sista.reach.{ReachSystem, FriesEntry}
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin._
