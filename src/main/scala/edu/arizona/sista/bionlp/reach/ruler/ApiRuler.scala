@@ -1,36 +1,28 @@
 package edu.arizona.sista.bionlp.reach.ruler
 
-import java.io.File
 import java.util.{ Date, List => JList, Map => JMap }
 import scala.collection.JavaConverters._
-import scala.util.{ Success, Failure }
 import org.apache.commons.io.FileUtils
 import com.typesafe.config.ConfigFactory
-import edu.arizona.sista.bionlp._
+import edu.arizona.sista.reach._
+import edu.arizona.sista.bionlp.nxml.NxmlReader
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.odin.extern.export.hans.HansOutput
+import edu.arizona.sista.odin.extern.export.fries.FriesOutput
 
 class ApiRuler {
 
   // read configuration
   val config = ConfigFactory.load()
-  val executable = config.getString("nxml2fries.executable")
-  val txtDir = new File(config.getString("txtDir"))
-  val removeCitations = config.getBoolean("nxml2fries.removeCitations")
-  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toSet
+  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toList
   val encoding = config.getString("encoding")
 
-  // make nxml2fries instance
-  val nxml2fries = new Nxml2Fries(executable, txtDir, removeCitations, ignoreSections, encoding)
+  val reader = new NxmlReader(ignoreSections)
 
   // start reach system
   val reach = new ReachSystem
 
-  // temporary directory for nxml files
-  val tempDir = FileUtils.getTempDirectory()
-
   // converts results to json
-  val outputter = new HansOutput
+  val outputter = new FriesOutput
 
   val prefix = "webapi"
   val suffix = "reach"
@@ -38,12 +30,7 @@ class ApiRuler {
   // extracts raw text from given nxml and returns a list of results
   // (nxml is splitted into sections and each section is handled independently)
   def annotateNxml(nxml: String): JList[JMap[String, Any]] = {
-    val tempFile = File.createTempFile(prefix, suffix, tempDir)
-    FileUtils.writeStringToFile(tempFile, nxml, encoding)
-    val maps = nxml2fries.extractEntries(tempFile) map {
-      case Success(entry) => annotateEntry(entry)
-      case Failure(e) => Map("resultJson" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
-    }
+    val maps = reader.readNxml(nxml, prefix) map annotateEntry
     maps.asJava
   }
 
