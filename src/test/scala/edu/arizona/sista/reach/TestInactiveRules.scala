@@ -1,6 +1,7 @@
 package edu.arizona.sista.reach
 
 import org.scalatest._
+import TestUtils._
 
 class TestInactiveRules extends FlatSpec with Matchers {
   /**

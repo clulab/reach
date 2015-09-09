@@ -2,7 +2,6 @@ package edu.arizona.sista.reach
 
 import scala.util.Try
 import org.scalatest._
-import edu.arizona.sista.reach._
 import TestUtils._
 
 class TestEntities extends FlatSpec with Matchers {

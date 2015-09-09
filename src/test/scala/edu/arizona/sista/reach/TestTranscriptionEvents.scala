@@ -1,8 +1,6 @@
 package edu.arizona.sista.reach
 
-import edu.arizona.sista.reach.TestUtils
 import org.scalatest.{Matchers, FlatSpec}
-import TestUtils._
 
 /**
  * Unit tests to ensure Transcription rules are matching correctly

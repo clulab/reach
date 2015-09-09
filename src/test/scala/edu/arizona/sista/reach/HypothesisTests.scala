@@ -2,7 +2,6 @@ package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.reach.mentions._
-
 import TestUtils._
 
 class HypothesisTests extends FlatSpec with Matchers{

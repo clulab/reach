@@ -1,10 +1,10 @@
 package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.reach.TestUtils._
 import edu.arizona.sista.odin.State
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.reach.mentions._
+import TestUtils._
 
 /**
  * Unit tests to ensure Binding rules are matching correctly

@@ -1,8 +1,7 @@
 package edu.arizona.sista.reach
 
-import edu.arizona.sista.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.reach.mentions._
+import TestUtils._
 
 /**
  * Tests coreference-based events

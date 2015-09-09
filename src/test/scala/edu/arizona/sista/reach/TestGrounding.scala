@@ -1,8 +1,6 @@
 package edu.arizona.sista.reach
 
-import edu.arizona.sista.odin.Mention
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.reach.mentions._
 import TestUtils._
 
 /**
