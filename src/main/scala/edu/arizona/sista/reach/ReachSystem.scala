@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.LocalGrounder
 import edu.arizona.sista.reach.mentions._

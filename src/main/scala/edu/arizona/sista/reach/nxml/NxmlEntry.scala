@@ -6,7 +6,7 @@
  * Written by: Enrique Noriega <enoriega@email.arizona.edu> on 08/17/15
  **/
 
-package edu.arizona.sista.bionlp.nxml
+package edu.arizona.sista.reach.nxml
 
 import scala.collection.mutable.ListBuffer
 

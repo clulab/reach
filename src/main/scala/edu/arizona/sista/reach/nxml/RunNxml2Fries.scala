@@ -1,17 +1,13 @@
-package edu.arizona.sista.bionlp
+package edu.arizona.sista.reach.nxml
 
 import java.io.File
 import java.util.Date
-import scala.collection.JavaConverters._
-import scala.collection.mutable
-import scala.util.{ Try,Success,Failure }
-import com.typesafe.config.ConfigFactory
-import org.apache.commons.io.{ FileUtils, FilenameUtils }
-import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.extern.export.JsonOutputter
 
-import edu.arizona.sista.bionlp.nxml._
+import com.typesafe.config.ConfigFactory
+import org.apache.commons.io.{FileUtils, FilenameUtils}
+
+import scala.collection.JavaConverters._
+import scala.util.{Failure, Success, Try}
 
 object RunNxml2Fries extends App{
 

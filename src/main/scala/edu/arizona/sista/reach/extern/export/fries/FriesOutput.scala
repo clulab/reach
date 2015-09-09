@@ -2,7 +2,7 @@ package edu.arizona.sista.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-import edu.arizona.sista.reach.FriesEntry
+import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.mentions.{PTM, Grounding}
 import edu.arizona.sista.reach.extern.export.IncrementingId
 import edu.arizona.sista.processors.Document

@@ -2,8 +2,7 @@ package edu.arizona.sista.reach.extern.export
 
 import java.io._
 import java.util.Date
-
-import edu.arizona.sista.reach.FriesEntry
+import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin.{TextBoundMention, RelationMention, EventMention, Mention}
 import edu.arizona.sista.processors.Document

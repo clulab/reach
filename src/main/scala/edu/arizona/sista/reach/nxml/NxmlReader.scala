@@ -1,11 +1,10 @@
-package edu.arizona.sista.bionlp.nxml
+package edu.arizona.sista.reach.nxml
 
 import scala.xml._
 import scala.xml.factory.XMLLoader
 import javax.xml.parsers.{SAXParser,SAXParserFactory}
 import scala.collection.mutable.ListBuffer
 import java.io.File
-import edu.arizona.sista.reach.FriesEntry
 
 // This singleton is necessary to avoid loading NXML's DTD
 object MyXML extends XMLLoader[Elem] {

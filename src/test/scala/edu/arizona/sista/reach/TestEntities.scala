@@ -1,5 +1,7 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.nxml.FriesEntry
+
 import scala.util.Try
 import org.scalatest._
 import TestUtils._

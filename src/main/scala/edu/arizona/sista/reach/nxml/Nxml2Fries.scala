@@ -1,10 +1,12 @@
-package edu.arizona.sista.reach
+package edu.arizona.sista.reach.nxml
 
 import java.io.File
-import scala.util.{ Try, Success, Failure }
-import scala.sys.process._
+
+import org.apache.commons.io.{FileUtils, FilenameUtils}
+
 import scala.collection.JavaConverters._
-import org.apache.commons.io.{ FileUtils, FilenameUtils }
+import scala.sys.process._
+import scala.util.{Failure, Try}
 
 class Nxml2Fries(
     val executable: String,

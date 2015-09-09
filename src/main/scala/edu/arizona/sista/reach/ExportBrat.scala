@@ -1,6 +1,8 @@
 package edu.arizona.sista.reach
 
 import java.io.{PrintWriter,File}
+import edu.arizona.sista.reach.nxml.Nxml2Fries
+
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }

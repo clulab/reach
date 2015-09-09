@@ -4,7 +4,7 @@ import java.util.{ Date, List => JList, Map => JMap }
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach._
-import edu.arizona.sista.bionlp.nxml.NxmlReader
+import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
 import edu.arizona.sista.reach.extern.export.fries.FriesOutput
 
 class ApiRuler {
