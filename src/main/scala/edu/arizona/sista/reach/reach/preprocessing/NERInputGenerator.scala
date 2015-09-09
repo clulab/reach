@@ -104,7 +104,7 @@ object NERInputWriter extends App {
   val outPath = args.last.replaceFirst("^~",System.getProperty("user.home"))
   // Get relevant files
   val kbFiles =
-    new File("src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/summer2015/kb")
+    new File("src/main/resources/edu/arizona/sista/odin/domains/bigmechanism/reach/kb")
       .listFiles
       .filter(f => f.getName.matches(".*(tsv|gz)$") & ! IGNORE_THESE.contains(FileReader.removeExtension(f)))
 
