@@ -1,8 +1,8 @@
 package edu.arizona.sista.reach
 
 import edu.arizona.sista.odin._
+import edu.arizona.sista.reach.grounding.LocalGrounder
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.odin.domains.bigmechanism.reach.{DarpaFlow, LocalGrounder, Coref}
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor

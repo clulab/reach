@@ -1,8 +1,9 @@
 package edu.arizona.sista.reach.coref
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.odin.domains.bigmechanism.reach.DarpaFlow
-import edu.arizona.sista.odin.domains.bigmechanism.reach.DependencyUtils._
+import edu.arizona.sista.reach.DarpaFlow
+import edu.arizona.sista.reach.utils.DependencyUtils
+import DependencyUtils._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
