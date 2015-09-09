@@ -336,9 +336,17 @@ class DarpaActions extends Actions {
     case m => Seq(m.toBioMention)
   }
 
+  // Reach currently doesn't support recursive events whose participants are also recursive events.
+  // This method filters them out so that we don't encounter them during serialization.
+  def filterEventsWithExtraRecursion(mentions: Seq[Mention], state: State): Seq[Mention] = for {
+    m <- mentions
+    if !m.arguments.values.flatten.toSeq.contains((m:Mention) => m matches "Regulation")
+  } yield m
+
   /** global action for EventEngine */
   def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    val r1 = siteSniffer(mentions, state)
+    val r0 = filterEventsWithExtraRecursion(mentions, state)
+    val r1 = siteSniffer(r0, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
     val r4 = HypothesisHandler.detectHypotheses(r3, state)
