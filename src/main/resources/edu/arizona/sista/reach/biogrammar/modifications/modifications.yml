@@ -1,0 +1,76 @@
+#########
+# Modification triggers
+#########
+
+# NOTE: This used to start with (?<! [lemma=/^have$/ & !tag="MD"]) but I don't think ODIN supports multiple lookarounds
+- name: modification_trigger_1
+  label: ModificationTrigger
+  priority: 1
+  type: token
+  action: mkBioMention
+  pattern: |
+    # note the use of nested lookaheads, muahaha!
+    [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
+
+- name: modification_trigger_2
+  label: ModificationTrigger
+  priority: 1
+  action: mkBioMention
+  type: token
+  pattern: |
+    (^[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
+
+#########
+# Modification rules
+#########
+
+# Phosphorylated p53 on serine-15
+- name: PTMmodification_1
+  label: PTM
+  action: storePTM
+  priority: 2
+  type: token
+  pattern: |
+    @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
+
+- name: eventsite_1
+  label: EventSite
+  action: storeEventSite
+  priority: 2
+  type: token
+  pattern: |
+    @site:Site "of" @entity:BioChemicalEntity
+
+# ex. "phosphorylation on the JM domains of EGFR and HER2"
+# should create EGFR(Mods = EventSite(JM domains)), HER2(Mods = EventSite(JM domains))
+- name: eventsite_multisite_1
+  label: EventSite
+  action: storeEventSite
+  priority: 2
+  type: token
+  pattern: |
+    @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
+      |
+    # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
+    @site:Site ([word="," | tag=CC]* @site:Site)+ /^(of|on|for)/ []*? @entity:BioChemicalEntity
+      |
+    @entity:BioChemicalEntity /^(of|on)/ @site:Site+
+      |
+    [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/]{,4} @site:Site
+      | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
+    @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/]
+
+
+
+# this grabs all sites that it finds within (optional) parens
+- name: eventsite_with_optional_parens
+  label: EventSite
+  action: storeEventSite
+  priority: 2
+  example: "ERK(T202/Y204)"
+  type: token
+  pattern: |
+    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity [lemma=residue]? [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
+    |
+    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity /^(at|on)/ []{,2} @site:Site [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
+

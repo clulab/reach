@@ -1,0 +1,4 @@
+taxonomy: /edu/arizona/sista/reach/biogrammar/taxonomy.yml
+
+rules:
+  - import: /edu/arizona/sista/reach/biogrammar/entities/entities.yml

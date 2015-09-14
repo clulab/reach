@@ -1,0 +1,228 @@
+
+#
+# Template for positive regulation|activation
+#
+
+- name: Positive_${ ruleType }_syntax_1_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|prep_of|prep_in|amod/{,2} (>> [word=by]){,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_1b_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
+    controlled:${ controlledType } = dobj /nn|amod/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent) nn{,2}
+
+
+- name: Positive_${ ruleType }_syntax_2_verb
+  priority: ${ priority }
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (>/^nsubj/|<vmod) /conj_|nn|cc|dep|amod/{,2}
+    controller:${ controllerType } = (agent|prep_by) /conj_|nn|cc|dep|amod|prep_of|prep_in/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_3_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = ( (/pobj|prep_[^b]|conj_|nn|amod/{,2}) | (< /pobj|prep_|conj_|nn|amod/{1,2}) )
+    controller:${ controllerType } = <nn{,2} | (prep_by) /nn|conj_|cc|amod/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_4_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (nsubjpass /conj_|nn|amod/{,2})
+    controller:${ controllerType } = (/prep_/ /conj_|nn|amod/{,2})? /prep_/{,2} /prep_by|agent/ /conj_|nn|amod/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_5_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = dobj /nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_6_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
+    controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc/{,2}
+
+- name: Positive_${ ruleType }_syntax_7_verb
+  priority: ${ priority }
+  example: "ASPP1 aids in the translocation of Kras to the membrane."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
+    controlled:${ controlledType } = prep_in | prep_to
+    controller:${ controllerType } = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
+
+- name: Positive_${ ruleType }_syntax_1_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
+    controlled:${ controlledType } = /prep_of|prep_in/ /nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = /prep_of/? prep_by (<dobj|prep_by|agent|nn|amod|prep_of|prep_in){1,2} /nn|amod|conj_|cc/{,2} # the prep_of may appear due to bad syntax
+
+
+- name: Positive_${ ruleType }_syntax_2_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /prep_of|prep_in/? /conj_|cc|nn|amod/{1,2}
+    controller:${ controllerType } = /prep_of/? /prep_by|agent/ /conj|cc|nn|amod/{,2} # the prep_of may appear due to bad syntax
+
+
+- name: Positive_${ ruleType }_syntax_3_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /prep_of|prep_in/ /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = /cc|nn|amod/{1,2} | conj_or prep_by nn?
+
+
+- name: Positive_${ ruleType }_syntax_5_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = < /nn|amod/ > /prep_/ /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = < /nn|amod/ /conj_|cc|nn|amod/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_6_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
+    controller:${ controllerType } = <prep_via (agent|prep_by) /nn|amod|conj_|cc/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_7_noun
+  priority: ${ priority }
+  example: "Rapamycin, an activator of the mTOR kinase,"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = <dep /nn|amod|conj_|cc/{,2}
+    controlled:${ controlledType } = (/prep_of|prep_in/ /nn|amod|conj_|cc/{,2}){1,2}
+
+
+- name: Positive_${ ruleType }_copula_1
+  priority: ${ priority }
+  example: "A is an activator of B"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ posnouns }/ & tag=/^N/]
+    controller:${ controllerType } = nsubj
+    controlled:${ controlledType } = /prep_of|prep_in/
+
+
+- name: Positive_${ ruleType }_possessive_noun
+  priority: ${ priority }
+  example: "ASPP1 is common, as is its activation by ASPP2."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ posnouns }/ & tag=/^N/]
+    controller:${ controllerType } = /prep_by|agent/
+    controlled:${ controlledType } = /poss/
+
+
+# FIXME do we really need a positive regulation without a trigger?
+#- name: Positive_${ ruleType }_syntax_relation
+#  priority: ${ priority }
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    controlled:${ controlledType }
+#    controller:${ controllerType } = prep_by
+
+
+- name: Positive_${ ruleType }_token_1_verb
+  priority: ${ priority }
+  example: ""
+  type: token
+  label: ${ label }
+  example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
+  action: ${ actionFlow }
+  pattern: |
+    (@controller:${ controllerType })? (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:${ controlledType }
+
+
+- name: Positive_${ ruleType }_token_2_verb
+  priority: ${ priority }
+  example: ""
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+
+
+- name: Positive_${ ruleType }_token_1_noun
+  priority: ${ priority }
+  example: "mTOR activator Rapamycin"
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:${ controlledType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) @controller:${ controllerType }
+
+
+# this rule is needed because PP attachment of "by" is often wrong
+- name: Positive_${ ruleType }_token_2_noun
+  priority: ${ priority }
+  example: "Activation of mTOR by rapamycin has been standard treatment "
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
