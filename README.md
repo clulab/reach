@@ -3,15 +3,23 @@ reach
 
 # What is it?
 
-Authors:
-  * ??
-  
 # Licensing
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
-+ **1.0** - ???
++ **1.0** - 
 + [more...](CHANGES.md)
+
+# Authors  
+
+`reach` was created by the following members of the [`clulab` at the University of Arizona](http://clulab.cs.arizona.edu/):
+
++ Marco Valenzuela  
++ Gus Hahn-Powell  
++ Dane Bell  
++ Tom Hicks  
++ Enrique Noriega  
++ [Mihai Surdeanu](Mihai Surdeanu)  
 
 # Citations
 
@@ -56,6 +64,23 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 # How to use it
 
 ## Common scenarios
+
+### Running the system on a directory of `nxml` papers
+
+In order to run the system on a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing `nxml` files should be specified using the `nxmlDir` variable.
+
+`sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"`
+
+#### Using the default `.conf` file
+
+`sbt "runMain edu.arizona.sista.reach.ReachCLI"`
+
+will run the system using the `.conf` file under `src/main/resources/application.conf`.
+### Running the interactive `reach` shell for rule debugging:
+
+`sbt "runMain runMain edu.arizona.sista.reach.ReachShell"`
+
+enter `:help` to get a list of available commands.
 
 # Modifying the code
 ## The Odin event extraction framework
