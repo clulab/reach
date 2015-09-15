@@ -1,6 +1,10 @@
 - Cellular_component
 - Site
 - ModificationTrigger
+- Species
+- CellLine
+- Organ
+- CellType
 - Modification:
     - PTM
     - Mutant

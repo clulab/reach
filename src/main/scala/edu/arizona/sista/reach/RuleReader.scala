@@ -5,12 +5,13 @@ package edu.arizona.sista.reach
  */
 object RuleReader {
 
-case class Rules(entities: String, modifications: String, events: String)
+case class Rules(entities: String, modifications: String, events: String, context: String)
 
   val resourcesPath = "/edu/arizona/sista/reach/biogrammar"
   val entitiesMasterFile = s"$resourcesPath/entities_master.yml"
   val modificationsMasterFile = s"$resourcesPath/modifications_master.yml"
   val eventsMasterFile = s"$resourcesPath/events_master.yml"
+  val contextRelationsFile = s"$resourcesPath/context/context_relations.yml"
 
   def readResource(filename: String): String = {
     val source = io.Source.fromURL(getClass.getResource(filename))
@@ -30,8 +31,9 @@ case class Rules(entities: String, modifications: String, events: String)
     val entities = readResource(entitiesMasterFile)
     val modifications = readResource(modificationsMasterFile)
     val events = readResource(eventsMasterFile)
+    val context = readResource(contextRelationsFile)
 
-    Rules(entities, modifications, events)
+    Rules(entities, modifications, events, context)
   }
 
   // NOTE: rule reloading will NOT work because
@@ -43,7 +45,8 @@ case class Rules(entities: String, modifications: String, events: String)
     val entities = readFile(s"$resourcesPrefix/$entitiesMasterFile")
     val modifications = readFile(s"$resourcesPrefix/$modificationsMasterFile")
     val events = readFile(s"$resourcesPrefix/$eventsMasterFile")
+    val context = readFile(s"$resourcesPrefix/$contextRelationsFile")
 
-    Rules(entities, modifications, events)
+    Rules(entities, modifications, events, context)
   }
 }

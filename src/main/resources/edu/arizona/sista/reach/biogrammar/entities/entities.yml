@@ -97,7 +97,7 @@
 ###################
 
 - name: ner-species
-  label: [Species]
+  label: Species
   action: mkNERMentions
   priotity: 3
   type: token
@@ -105,7 +105,7 @@
     [entity='B-Species'] [entity='I-Species']*
 
 - name: ner-cell-lines
-  label: [CellLine]
+  label: CellLine
   action: mkNERMentions
   priotity: 3
   type: token
@@ -113,7 +113,7 @@
     [entity='B-Cell_lines'] [entity='I-Cell_lines']*
 
 - name: ner-organ
-  label: [Organ]
+  label: Organ
   action: mkNERMentions
   priotity: 3
   type: token
@@ -121,7 +121,7 @@
     [entity='B-Organ'] [entity='I-Organ']*
 
 - name: ner-cell-type
-  label: [CellType]
+  label: CellType
   action: mkNERMentions
   priority: 3
   type: token
