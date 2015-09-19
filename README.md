@@ -67,20 +67,20 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 
 # How to use it
 
-## Common scenarios
+## Running the system on a directory of `nxml` papers
 
-### Running the system on a directory of `nxml` papers
-
-In order to run the system on a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing `nxml` files should be specified using the `nxmlDir` variable.
+The most common usage of `reach` is to parse a directory containing one or more papers in the NXML format.
+In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing `nxml` files should be specified using the `nxmlDir` variable.
 
 `sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"`
 
-#### Using the default `.conf` file
+If the configuration file is omitted, `reach` uses the default `.conf`. That is, the command:
 
 `sbt "runMain edu.arizona.sista.reach.ReachCLI"`
 
 will run the system using the `.conf` file under `src/main/resources/application.conf`.
-### Running the interactive `reach` shell for rule debugging:
+
+## Running the interactive `reach` shell for rule debugging:
 
 `sbt "runMain runMain edu.arizona.sista.reach.ReachShell"`
 
