@@ -38,7 +38,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
             case "p" =>
               // Here we will call recursion but then "reduce" the subsequence
               // to a single FriesEntry
-              val components = el.child flatMap (parseSubTree(_, name, sectionName, sectionId))
+              val components = el.child filter (_.label != "fig") flatMap (parseSubTree(_, name, sectionName, sectionId))
 
               // Merge all elements into a single FriesEntry
               var sb = new StringBuilder()
@@ -46,7 +46,11 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
                 sb ++= entry.text
               }
 
-              Seq(FriesEntry(name, "0", sectionId, sectionName, false, sb.toString))
+              val textEntry = Seq(FriesEntry(name, "0", sectionId, sectionName, false, sb.toString))
+
+              val figs = el.child filter (_.label == "fig") flatMap(parseSubTree(_, name, sectionName, sectionId))
+
+              figs ++ textEntry
             case "sec" | "fig" | "supplementary-material" =>
 
               // Otherwise, figure them out
