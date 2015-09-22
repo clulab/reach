@@ -1,4 +1,4 @@
-taxonomy: /edu/arizona/sista/reach/biogrammar/taxonomy.yml
+taxonomy: edu/arizona/sista/reach/biogrammar/taxonomy.yml
 
 vars:
   posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
@@ -6,12 +6,12 @@ vars:
   auxtriggers: "activ|regul"
 
 rules:
-  - import: /edu/arizona/sista/reach/biogrammar/events/bind_events.yml
-  - import: /edu/arizona/sista/reach/biogrammar/events/hydrolysis_events.yml
-  - import: /edu/arizona/sista/reach/biogrammar/events/translocation_events.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/bind_events.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/hydrolysis_events.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/translocation_events.yml
 
   # Phosphorylations
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Phosphorylation"
       actionFlow: "mkBioMention"
@@ -20,7 +20,7 @@ rules:
       nominalTriggerLemma: "phosphorylation"
 
   # Ubiquitination
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Ubiquitination"
       actionFlow: "mkUbiquitination"
@@ -29,7 +29,7 @@ rules:
       nominalTriggerLemma: "ubiquitination"
 
   # Hydroxylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Hydroxylation"
       actionFlow: "mkBioMention"
@@ -38,7 +38,7 @@ rules:
       nominalTriggerLemma: "hydroxylation"
 
   # Sumoylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Sumoylation"
       actionFlow: "mkBioMention"
@@ -47,7 +47,7 @@ rules:
       nominalTriggerLemma: "sumoylation"
 
   # Glycosylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Glycosylation"
       actionFlow: "mkBioMention"
@@ -56,7 +56,7 @@ rules:
       nominalTriggerLemma: "glycosylation"
 
   # Acetylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Acetylation"
       actionFlow: "mkBioMention"
@@ -65,7 +65,7 @@ rules:
       nominalTriggerLemma: "acetylation"
 
   # Farnesylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Farnesylation"
       actionFlow: "mkBioMention"
@@ -74,7 +74,7 @@ rules:
       nominalTriggerLemma: "farnesylation"
 
   # Ribosylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Ribosylation"
       actionFlow: "mkBioMention"
@@ -83,7 +83,7 @@ rules:
       nominalTriggerLemma: "ribosylation"
 
   # Methylation
-  - import: /edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Methylation"
       actionFlow: "mkBioMention"
@@ -92,7 +92,7 @@ rules:
       nominalTriggerLemma: "methylation"
 
   # Positive Activation
-  - import: /edu/arizona/sista/reach/biogrammar/events/pos-reg_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/pos-reg_template.yml
     vars:
       label: "Positive_activation"
       ruleType: "activation"
@@ -103,7 +103,7 @@ rules:
       controllerType: "PossibleController"
         
   # Negative Activation
-  - import: /edu/arizona/sista/reach/biogrammar/events/neg-reg_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/neg-reg_template.yml
     vars:
       label: "Negative_activation"
       ruleType: "activation"
@@ -114,7 +114,7 @@ rules:
       controllerType: "PossibleController"
 
   # Positive Regulation
-  - import: /edu/arizona/sista/reach/biogrammar/events/pos-reg_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/pos-reg_template.yml
     vars:
       label: "Positive_regulation"
       ruleType: "regulation"
@@ -125,7 +125,7 @@ rules:
       controllerType: "PossibleController"
 
   # Negative Regulation
-  - import: /edu/arizona/sista/reach/biogrammar/events/neg-reg_template.yml
+  - import: edu/arizona/sista/reach/biogrammar/events/neg-reg_template.yml
     vars:
       label: "Negative_regulation"
       ruleType: "regulation"
