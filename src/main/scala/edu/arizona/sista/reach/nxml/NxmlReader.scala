@@ -100,10 +100,12 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
     var bodyEntries = new ListBuffer[FriesEntry]
     var backEntries = new ListBuffer[FriesEntry]
+    var floatsEntries = new ListBuffer[FriesEntry]
 
     val front = doc \\ "front"
     val body = doc \\ "body"
     val back = doc \\ "back"
+    val floats = doc \\"floats-group"
     // Get the article title
     val title = front \\ "article-title"
 
@@ -118,6 +120,8 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
     backEntries ++= back flatMap (parseSubTree(_, docName, "", ""))
 
+    floatsEntries ++= floats flatMap (parseSubTree(_, docName, "", ""))
+
     // Get the abstract
     val abs = front \\ "abstract"
     val absEntries = new ListBuffer[FriesEntry]
@@ -126,11 +130,11 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       for(a <- abs){
         val nodes:Seq[FriesEntry] = parseSubTree(a, docName, "abstract", "abstract")
         // Override the generated section names to abstract
-        absEntries ++= nodes map (node => FriesEntry(docName, "0", "abstract", "abstract", node.isTitle, node.text))
+        absEntries ++= nodes map (node => FriesEntry(docName, "0", "abstract", "abstract", node.isTitle, node.text.replace('\n', ' ')))
       }
     }
 
-    val preProcessed = titleEntry ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList
+    val preProcessed = titleEntry ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList ::: floatsEntries.toList
 
     // Do postprocessing to remove any empty entries and set correcly the chunk id
     val postProcessed = preProcessed filter (e => !e.text.trim.isEmpty)
@@ -139,7 +143,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
     postProcessed.zipWithIndex map {
       // Assign the chunkId correctly
       case (e, ix) =>
-        FriesEntry(e.name, s"$ix", e.sectionId, e.sectionName, e.isTitle, e.text)
+        FriesEntry(e.name, s"$ix", e.sectionId, e.sectionName, e.isTitle, e.text.replace('\n', ' '))
     } filter {
       // Remove the entries in the ignoreSections list
       entry => !(this.ignoreSections contains entry.sectionId)
@@ -148,6 +152,11 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       e => FriesEntry(e.name, e.chunkId, e.sectionId,
          e.sectionName, e.isTitle,
         citationArtifact.replaceAllIn(e.text, ""))
+    } map {
+      // Remove unwanted new lines and tabs
+      e => FriesEntry(e.name, e.chunkId, e.sectionId,
+        e.sectionName, e.isTitle,
+        e.text.replace('\n', ' ').replace('\t', ' '))
     }
   }
 
