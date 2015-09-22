@@ -114,9 +114,9 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       Nil
     }
 
-    bodyEntries ++= parseSubTree(body.head, docName, "", "")
+    bodyEntries ++= body flatMap (parseSubTree(_, docName, "", ""))
 
-    backEntries ++= parseSubTree(back.head, docName, "", "")
+    backEntries ++= back flatMap (parseSubTree(_, docName, "", ""))
 
     // Get the abstract
     val abs = front \\ "abstract"

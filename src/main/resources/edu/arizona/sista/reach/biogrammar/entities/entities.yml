@@ -80,6 +80,7 @@
   pattern: |
     "RBD"
 
+# The negative lookaround used in this rule is incomplete and will need to be improved as more false positives are identified
 - name: multi-site
   label: Site
   action: unpackRelations
@@ -88,7 +89,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+/)))+
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
     [word=")"]?
 
 ###################
