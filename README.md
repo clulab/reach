@@ -97,7 +97,7 @@ enter `:help` to get a list of available commands.
 + [Specification of the FRIES format supported by `reach`](http://de.iplantcollaborative.org/dl/d/AF93EFAA-A97D-491D-808B-257BBB1B7110/fries-data-representation-spec-3.txt)
 + [`reach` output on the 1K papers from the summer 2015 Big Mechanism DARPA evaluation](http://de.iplantcollaborative.org/dl/d/845C66EE-F84E-42BE-8E04-8D24BA6A5E5F/REACH_1kpapers_FRIESformat.tar.gz). In FRIES format, generated in June 2015.
 + [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/878FDD6F-BF2A-4384-BEE0-3412F21B03EB/REACH_55kpapers_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
-+ [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/BB56D32D-6D8C-41A7-8AA2-8C1E1DB986AE/REACH_55kpapers_indexcardformat.tar.bz2). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
++ [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/A14990F1-CD89-48DC-9234-67FCCE539066/pi-mtg-summer-2015-55k-expt-index-cards-v3.zip). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
 + [`reach` output on the entire Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/4A5DDD7C-CC25-4FC8-A4AE-5F41A53751E6/REACH_full_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
 
 ## Code
