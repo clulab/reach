@@ -7,6 +7,8 @@ reach
 
 `reach` is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(Open-Domain-INformer)), our open-domain information extraction framework, which is released within our [`processors`](https://github.com/clulab/processors) repository. 
 
+Please scroll down to the bottom of this page for additional resources, including a `reach` output visualizer, REST API, and datasets created with `reach`.
+
 # Licensing
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
@@ -88,6 +90,12 @@ enter `:help` to get a list of available commands.
 
 # Modifying the code
 `reach` builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
+
+# Additional resources
+
+## Data
++ [Specification of the FRIES format supported by `reach`](http://de.iplantcollaborative.org/dl/d/AF93EFAA-A97D-491D-808B-257BBB1B7110/fries-data-representation-spec-3.txt)
++ [`reach` output on the 1K papers from the summer 2015 Big Mechanism DARPA evaluation](http://de.iplantcollaborative.org/dl/d/845C66EE-F84E-42BE-8E04-8D24BA6A5E5F/REACH_1kpapers_FRIESformat.tar.gz). In FRIES format, generated in June 2015.
 
 # Funding
 
