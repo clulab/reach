@@ -100,6 +100,9 @@ enter `:help` to get a list of available commands.
 + [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/BB56D32D-6D8C-41A7-8AA2-8C1E1DB986AE/REACH_55kpapers_indexcardformat.tar.bz2). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
 + [`reach` output on the entire Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/4A5DDD7C-CC25-4FC8-A4AE-5F41A53751E6/REACH_full_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
 
+## Code
++ [Interactive `reach` visualizer](http://agathon.sista.arizona.edu:8080/odinweb/bio)
+
 # Funding
 
 The development of `reach` was funded by the DARPA Big Mechanism program under ARO contract W911NF-14-1-0395.
