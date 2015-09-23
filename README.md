@@ -105,4 +105,4 @@ enter `:help` to get a list of available commands.
 
 # Funding
 
-The development of `reach` was funded by the DARPA Big Mechanism program under ARO contract W911NF-14-1-0395.
+The development of `reach` was funded by the [DARPA Big Mechanism program](http://www.darpa.mil/program/big-mechanism) under ARO contract W911NF-14-1-0395.
