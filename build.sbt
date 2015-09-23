@@ -2,7 +2,7 @@ name := "reach"
 
 version := "1.0.0"
 
-organization := "clulab.org"
+organization := "org.clulab"
 
 scalaVersion := "2.11.6"
 
