@@ -1,8 +1,8 @@
 name := "reach"
 
-version := "1.0-SNAPSHOT"
+version := "1.0.0"
 
-organization := "edu.arizona.sista"
+organization := "clulab.org"
 
 scalaVersion := "2.11.6"
 
@@ -72,8 +72,8 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "edu.arizona.sista" %% "processors" % "5.6-SNAPSHOT",
-  "edu.arizona.sista" %% "processors" % "5.6-SNAPSHOT" classifier "models",
+  "org.clulab" %% "processors" % "5.6.0",
+  "org.clulab" %% "processors" % "5.6.0" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",

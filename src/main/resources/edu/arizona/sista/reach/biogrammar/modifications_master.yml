@@ -1,5 +1,5 @@
-taxonomy: /edu/arizona/sista/reach/biogrammar/taxonomy.yml
+taxonomy: edu/arizona/sista/reach/biogrammar/taxonomy.yml
 
 rules:
-  - import: /edu/arizona/sista/reach/biogrammar/modifications/modifications.yml
-  - import: /edu/arizona/sista/reach/biogrammar/modifications/mutants.yml
+  - import: edu/arizona/sista/reach/biogrammar/modifications/modifications.yml
+  - import: edu/arizona/sista/reach/biogrammar/modifications/mutants.yml

@@ -16,7 +16,7 @@ import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.odin.extern.export.context._
 
-object RunSystem extends App {
+object ReachCLI extends App {
   // use specified config file or the default one if one is not provided
   val config =
     if (args.isEmpty) ConfigFactory.load()
