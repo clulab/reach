@@ -20,6 +20,7 @@ class ReachSystem(
   val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
   val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
   val eventRules = if (rules.isEmpty) readResource(RuleReader.eventsMasterFile) else rules.get.events
+  val contextRules = if (rules.isEmpty) readResource(RuleReader.contextRelationsFile) else rules.get.context
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
@@ -33,13 +34,15 @@ class ReachSystem(
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
+  // start the context extraction engine
+  val contextEngine = ExtractorEngine(contextRules, actions)
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
 
   /** returns string with all rules used by the system */
   def allRules: String =
-    Seq(entityRules, modificationRules, eventRules).mkString("\n\n")
+    Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
@@ -61,9 +64,11 @@ class ReachSystem(
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
+    val context = extractContextFrom(doc, entities, events)
+
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(events, State(events)).map(_.toBioMention)
-    resolveDisplay(complete)
+    resolveDisplay(complete) //++ context
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -101,6 +106,13 @@ class ReachSystem(
     // handle multiple Negation modifications
     NegationHandler.handleNegations(validMentions)
     validMentions
+  }
+
+  def extractContextFrom(doc: Document, entities: Seq[BioMention], events: Seq[BioMention]): Seq[BioMention] = {
+    // TODO: Write here!!
+    val contextMentions = eventEngine.extractByType[BioMention](doc, State(entities))
+
+    contextMentions
   }
 }
 

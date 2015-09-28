@@ -5,6 +5,10 @@
 - CellLine
 - Organ
 - CellType
+- Context:
+  - ContextDirection
+  - ContextLocation
+  - ContextPossesive
 - Modification:
     - PTM
     - Mutant
