@@ -7,6 +7,8 @@ reach
 
 `reach` is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(Open-Domain-INformer)), our open-domain information extraction framework, which is released within our [`processors`](https://github.com/clulab/processors) repository. 
 
+Please scroll down to the bottom of this page for additional resources, including a `reach` output visualizer, REST API, and datasets created with `reach`.
+
 # Licensing
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
@@ -89,6 +91,18 @@ enter `:help` to get a list of available commands.
 # Modifying the code
 `reach` builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
 
+# Additional resources
+
+## Data
++ [Specification of the FRIES format supported by `reach`](http://de.iplantcollaborative.org/dl/d/AF93EFAA-A97D-491D-808B-257BBB1B7110/fries-data-representation-spec-3.txt)
++ [`reach` output on the 1K papers from the summer 2015 Big Mechanism DARPA evaluation](http://de.iplantcollaborative.org/dl/d/845C66EE-F84E-42BE-8E04-8D24BA6A5E5F/REACH_1kpapers_FRIESformat.tar.gz). In FRIES format, generated in June 2015.
++ [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/878FDD6F-BF2A-4384-BEE0-3412F21B03EB/REACH_55kpapers_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
++ [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/A14990F1-CD89-48DC-9234-67FCCE539066/pi-mtg-summer-2015-55k-expt-index-cards-v3.zip). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
++ [`reach` output on the entire Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/4A5DDD7C-CC25-4FC8-A4AE-5F41A53751E6/REACH_full_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
+
+## Code
++ [Interactive `reach` visualizer](http://agathon.sista.arizona.edu:8080/odinweb/bio)
+
 # Funding
 
-The development of `reach` was funded by the DARPA Big Mechanism program under ARO contract W911NF-14-1-0395.
+The development of `reach` was funded by the [DARPA Big Mechanism program](http://www.darpa.mil/program/big-mechanism) under ARO contract W911NF-14-1-0395.
