@@ -14,6 +14,8 @@ import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.nxml._
+import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.Context._
 import edu.arizona.sista.odin.extern.export.context._
 
 object ReachCLI extends App {
@@ -29,6 +31,7 @@ object ReachCLI extends App {
   val encoding = config.getString("encoding")
   val outputType = config.getString("outputType")
   val logFile = new File(config.getString("logFile"))
+
 
   // lets start a new log file
   if (logFile.exists) {
@@ -72,6 +75,12 @@ object ReachCLI extends App {
   val nxmlReader = new NxmlReader(
     config.getStringList("nxml2fries.ignoreSections").asScala)
 
+  // CONTEXT
+  // This is to build the context vocabulary
+  val contextNames = mutable.Set[(String, String)]()
+  val contextDocs = mutable.Map[String, mutable.ArrayBuffer[Seq[BioMention]]]()
+  //////////////////////////////////////////////////
+
   // process papers in parallel
   for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
     val paperId = FilenameUtils.removeExtension(file.getName)
@@ -101,6 +110,9 @@ object ReachCLI extends App {
         Nil
     }
 
+    // Storage of context mentions
+    var contextLines = new mutable.ArrayBuffer[Seq[BioMention]]
+
     val paperMentions = new mutable.ArrayBuffer[BioMention]
     val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
     for (entry <- entries) {
@@ -108,6 +120,25 @@ object ReachCLI extends App {
         val mentions:Seq[BioMention] = reach.extractFrom(entry)
         mentions foreach { m => mentionsEntriesMap += (m -> entry) }
         paperMentions ++= mentions
+
+        // Filter out all the mentions we don't care about in context
+        val contextMentions = mentions filter {
+          mention => (contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+        }
+
+        // Add all the names to the context's names cache
+        contextMentions foreach {
+          contextNames += getContextKey(_)
+        }
+        // Unpack and store this section's context mentions
+        // Group mentions by line, for each we're going to extract it's context bio-mentions
+        val groupedMentions:Map[Int, Seq[BioMention]] = contextMentions.groupBy(_.sentence)
+
+        // Append the lists to the contextLines storage
+        groupedMentions.foreach{
+          case (key, value) => contextLines += value
+        }
+
       } catch {
         case e: Exception =>
           val report = s"""
@@ -132,9 +163,13 @@ object ReachCLI extends App {
       }
     }
 
+    contextDocs += (paperId -> contextLines)
+
     // done processing
     val endTime = now
     val endNS = System.nanoTime
+
+
 
     try outputType match {
       case "text" =>
@@ -144,8 +179,10 @@ object ReachCLI extends App {
         println(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
         FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
-      case "context" =>
-        println("Using context output ...")
+
+      case "pandas" =>
+
+        println("Using pandas output ...")
         // Write down the context output
         val outputter:PandasOutput = new PandasOutput()
 
@@ -188,6 +225,22 @@ object ReachCLI extends App {
         FileUtils.writeStringToFile(logFile, report, true)
     }
   }
+
+  // CONTEXT magic!
+  println("Infering context ...")
+
+  // Build the contextVocabulary
+  val contextVocabulary = contextNames.zipWithIndex.toMap
+
+  // One iteration per document
+  for((paperId, contextLines) <- contextDocs){
+
+    // Create a Context instance to do inference and make queries
+    val context = new DummyContext(contextVocabulary, contextLines.toSeq)
+
+  }
+
+  /////////////////
 
   def now = new Date()
 
