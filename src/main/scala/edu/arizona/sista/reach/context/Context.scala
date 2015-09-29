@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach.context
 
+import scala.collection.mutable
 import edu.arizona.sista.reach.mentions._
 
 /***
@@ -35,7 +36,31 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[Seq[BioM
   def query(line:Int):Seq[(String, String)] = latentSparseMatrix(line) map (inverseVocabulary(_))
 
   // Returns the matrices as a dense array to be printed
-  def densifyMatrices():Seq[Array[Boolean]] = throw new NotImplementedError()
+  def densifyMatrices:Tuple2[Seq[Seq[Boolean]], Seq[Seq[Boolean]]] = (densifyMatrix(observedSparseMatrix), densifyMatrix(latentSparseMatrix))
+
+  private def densifyMatrix(matrix:Seq[Seq[Int]]):Seq[Seq[Boolean]] = {
+    // Recursive function to fill the "matrix"
+    def _helper(num:Int, bound:Int, segment:List[Int]):List[Boolean] = {
+      val currentVal = if(num == segment.head) true else false
+
+      // Return now?
+      if(num == bound -1)
+        List(currentVal)
+      else{
+        if(currentVal)
+          currentVal :: _helper(num+1, bound, segment.tail)
+        else
+          currentVal :: _helper(num+1, bound, segment)
+      }
+    }
+
+    matrix map {
+      row => {
+        val sortedRow = row.sorted.toList
+        _helper(0, vocabulary.size, sortedRow)
+      }
+    }
+  }
 }
 
 class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[Seq[BioMention]]) extends Context(vocabulary, lines){
