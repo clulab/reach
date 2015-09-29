@@ -1,6 +1,6 @@
 package edu.arizona.sista.reach.apis
 
-import java.util.{Date, List => JList, Map => JMap}
+import java.util.{Date, Map => JMap}
 
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.odin.Mention
