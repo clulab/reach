@@ -50,7 +50,7 @@ class ApiRuler {
   def extractMentions(entry: FriesEntry): Seq[Mention] =
     reach.extractFrom(entry).toList
 
-  // gets a sequence of FriesEntries and their extracted mentions (by reference) and constructs a Response
+  // gets a sequence of FriesEntries and their extracted mentions (by name) and constructs a Response
   def mkResponse(entries: Seq[FriesEntry], lazyMentions: => Seq[Mention]): Response = {
     try {
       val startTime = new Date()
