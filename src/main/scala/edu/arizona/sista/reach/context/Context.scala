@@ -1,23 +1,33 @@
 package edu.arizona.sista.reach.context
 
 import scala.collection.mutable
+import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.mentions._
 
 /***
  * Base class for all context implementations
  * @author: Enrique Noriega <enoriega@email.arizona.edu>
  */
-abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[Seq[BioMention]]){
+abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]){
 
   // To be overriden in the implementations
-  protected def inferContext():Unit = {}
+  protected def inferContext:Unit
+
+  // To be overriden in the implementations. Returns a sequence of (Type, Val) features
+  // Feature order should be kept consisting for all return values
+  protected def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)]
 
   // Inverse vocabulary to resolve the names back
   protected val inverseVocabulary = vocabulary map (_.swap)
 
+  //protected val entryFeaturesVocabulary:Map[(String, String), Int]
+
   // Build sparse matrices
   // First, the observed value matrices
-  protected val observedSparseMatrix:Seq[Seq[Int]] = lines map {
+  val mentions = lines map (_._1)
+  val entryFeatures = lines map (_._2) map extractEntryFeatures
+
+  protected val observedSparseMatrix:Seq[Seq[Int]] = mentions.map{
     _.map {
       elem => vocabulary(Context.getContextKey(elem))
     }
@@ -27,16 +37,24 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[Seq[BioM
   protected val latentSparseMatrix:List[Seq[Int]] = observedSparseMatrix.map(x=>x).toList
 
   // Apply context fillin heuristic
-  inferContext()
+  inferContext
 
   /***
    * Queries the context of the specified line line. Returns a sequence of tuples
    * where the first element is the type of context and the second element a grounded id
    */
-  def query(line:Int):Seq[(String, String)] = latentSparseMatrix(line) map (inverseVocabulary(_))
+  def query(line:Int):Map[String, Seq[String]] = latentSparseMatrix(line) map (inverseVocabulary(_)) groupBy (_._1) mapValues (_.map(_._2))
 
-  // Returns the matrices as a dense array to be printed
-  def densifyMatrices:Tuple2[Seq[Seq[Boolean]], Seq[Seq[Boolean]]] = (densifyMatrix(observedSparseMatrix), densifyMatrix(latentSparseMatrix))
+  def densifyFeatures:Seq[Seq[Double]] = entryFeatures map { _.map(_._2).toSeq }
+
+  def latentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(latentSparseMatrix) //TODO: Maybe filter the context relation cols
+
+  def featureMatrix:Seq[Seq[Double]] = {
+    val categorical = densifyMatrix(observedSparseMatrix)
+    val numerical = densifyFeatures
+
+    categorical zip numerical  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } ++ n }
+  }
 
   private def densifyMatrix(matrix:Seq[Seq[Int]]):Seq[Seq[Boolean]] = {
     // Recursive function to fill the "matrix"
@@ -63,8 +81,9 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[Seq[BioM
   }
 }
 
-class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[Seq[BioMention]]) extends Context(vocabulary, lines){
-
+class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]) extends Context(vocabulary, lines){
+  protected override def inferContext:Unit = {}
+  protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
 object Context {

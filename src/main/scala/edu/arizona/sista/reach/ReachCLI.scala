@@ -78,7 +78,7 @@ object ReachCLI extends App {
   // CONTEXT
   // This is to build the context vocabulary
   val contextNames = mutable.Set[(String, String)]()
-  val contextDocs = mutable.Map[String, mutable.ArrayBuffer[Seq[BioMention]]]()
+  val contextDocs = mutable.Map[String, mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]]()
   //////////////////////////////////////////////////
 
   // process papers in parallel
@@ -111,7 +111,7 @@ object ReachCLI extends App {
     }
 
     // Storage of context mentions
-    var contextLines = new mutable.ArrayBuffer[Seq[BioMention]]
+    var contextLines = new mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]
     val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
@@ -136,7 +136,7 @@ object ReachCLI extends App {
 
         // Append the lists to the contextLines storage
         groupedMentions.foreach{
-          case (key, value) => contextLines += value
+          case (key, value) => contextLines += Tuple2(value, entry)
         }
 
       } catch {
