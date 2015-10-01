@@ -115,9 +115,13 @@ object ReachCLI extends App {
 
     val paperMentions = new mutable.ArrayBuffer[BioMention]
     val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
+
     for (entry <- entries) {
       try {
-        val mentions:Seq[BioMention] = reach.extractFrom(entry)
+        // Had to do this to extract the number of sentences even if no events were found in the FriesEntry
+        val docEntry = reach.mkDoc(entry.text, entry.name, entry.chunkId)
+        val mentions:Seq[BioMention] = reach.extractFrom(docEntry)
+        //////
         mentions foreach { m => mentionsEntriesMap += (m -> entry) }
         paperMentions ++= mentions
 
@@ -125,6 +129,12 @@ object ReachCLI extends App {
         val contextMentions = mentions filter {
           mention => (contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
         }
+
+        // TODO: DELETE ME!!
+        // mentions foreach {
+        //   x => println(x.labels.mkString(" "))
+        // }
+        ////////////////////
 
         // Add all the names to the context's names cache
         contextMentions foreach {
@@ -135,8 +145,15 @@ object ReachCLI extends App {
         val groupedMentions:Map[Int, Seq[BioMention]] = contextMentions.groupBy(_.sentence)
 
         // Append the lists to the contextLines storage
-        groupedMentions.foreach{
-          case (key, value) => contextLines += Tuple2(value, entry)
+        val mentionsPerLine = groupedMentions.map{
+          case (key, value) => (key, value map {(_, entry)} )
+        }.toMap
+
+        for(ix <- 0 until docEntry.sentences.size){
+          contextLines += (mentionsPerLine.lift(ix) match {
+            case None => (Seq(), entry)
+            case Some(a) => (a map (_._1), a.head._2) //TODO: Make this legible
+          })
         }
 
       } catch {
@@ -237,7 +254,8 @@ object ReachCLI extends App {
 
     // Create a Context instance to do inference and make queries
     val context = new DummyContext(contextVocabulary, contextLines.toSeq)
-
+    outputContext(context, contextDir + File.separator + paperId)
+    outputVocabularies(context, contextDir + File.separator + paperId)
   }
 
   /////////////////
