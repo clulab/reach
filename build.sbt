@@ -1,8 +1,8 @@
 name := "reach"
 
-version := "1.0.0"
+version := "1.0.1-SNAPSHOT"
 
-organization := "clulab.org"
+organization := "org.clulab"
 
 scalaVersion := "2.11.6"
 
