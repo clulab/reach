@@ -64,10 +64,10 @@ class ReachSystem(
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
-    val context = extractContextFrom(doc, entities, events)
+    val context = extractContextFrom(doc, entities)
 
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(events, State(events)).map(_.toBioMention)
+    val complete = MentionFilter.keepMostCompleteMentions(events ++ context, State(events)).map(_.toBioMention)
     resolveDisplay(complete) //++ context
   }
 
@@ -108,9 +108,9 @@ class ReachSystem(
     validMentions
   }
 
-  def extractContextFrom(doc: Document, entities: Seq[BioMention], events: Seq[BioMention]): Seq[BioMention] = {
+  def extractContextFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
     // TODO: Write here!!
-    val contextMentions = eventEngine.extractByType[BioMention](doc, State(entities))
+    val contextMentions = contextEngine.extractByType[BioMention](doc, State(entities))
 
     contextMentions
   }

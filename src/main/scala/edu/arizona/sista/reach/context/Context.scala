@@ -101,7 +101,7 @@ class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMent
 
 object Context {
   // Seq of the labels we care about in context
-  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Site")
+  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType")
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.xref match{
