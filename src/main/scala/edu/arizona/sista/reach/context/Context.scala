@@ -38,7 +38,7 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[Bio
   }
 
   // Now the latent states matrix, the first step is to clone the observed matrix
-  protected val latentSparseMatrix:List[Seq[Int]] = observedSparseMatrix.map(x=>x).toList
+  protected val latentSparseMatrix:List[Seq[Int]] = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
 
   // Apply context fillin heuristic
   inferContext
@@ -60,7 +60,7 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[Bio
     categorical zip numerical  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } ++ n }
   }
 
-  def latentVocabulary = inverseVocabulary.values.map(x => x._1 +  "||" + x._2)
+  def latentVocabulary = inverseVocabulary.values.filter(!_._1.startsWith("Context")).map(x => x._1 +  "||" + x._2)
 
   def observationVocavulary = inverseVocabulary.values.map(x => x._1 +  "||" + x._2) ++ entryFeaturesNames
 
@@ -101,7 +101,7 @@ class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMent
 
 object Context {
   // Seq of the labels we care about in context
-  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType")
+  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "ContextPossesive", "ContextLocation", "ContextDirection")
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.xref match{
