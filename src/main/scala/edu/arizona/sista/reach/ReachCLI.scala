@@ -84,6 +84,7 @@ object ReachCLI extends App {
   // process papers in parallel
   for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
     val paperId = FilenameUtils.removeExtension(file.getName)
+    println(s"Working on $paperId")
     val startTime = now // start measuring time here
     val startNS = System.nanoTime
 
@@ -129,12 +130,6 @@ object ReachCLI extends App {
         val contextMentions = mentions filter {
           mention => (contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
         }
-
-        // TODO: DELETE ME!!
-        // mentions foreach {
-        //   x => println(x.labels.mkString(" "))
-        // }
-        ////////////////////
 
         // Add all the names to the context's names cache
         contextMentions foreach {
@@ -253,7 +248,7 @@ object ReachCLI extends App {
   for((paperId, contextLines) <- contextDocs){
 
     // Create a Context instance to do inference and make queries
-    val context = new DummyContext(contextVocabulary, contextLines.toSeq)
+    val context = new PaddingContext(contextVocabulary, contextLines.toSeq)
     outputContext(context, contextDir + File.separator + paperId)
     outputVocabularies(context, contextDir + File.separator + paperId)
   }

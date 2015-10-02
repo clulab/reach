@@ -12,7 +12,7 @@ import java.io._
 abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]){
 
   // To be overriden in the implementations
-  protected def inferContext:Unit
+  protected def inferContext:List[Seq[Int]]
 
   // To be overriden in the implementations. Returns a sequence of (Type, Val) features
   // Feature order should be kept consisting for all return values
@@ -41,17 +41,17 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[Bio
   protected val latentSparseMatrix:List[Seq[Int]] = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
 
   // Apply context fillin heuristic
-  inferContext
+  protected val inferedLatentSparseMatrix:List[Seq[Int]] = inferContext
 
   /***
    * Queries the context of the specified line line. Returns a sequence of tuples
    * where the first element is the type of context and the second element a grounded id
    */
-  def query(line:Int):Map[String, Seq[String]] = latentSparseMatrix(line) map (inverseVocabulary(_)) groupBy (_._1) mapValues (_.map(_._2))
+  def query(line:Int):Map[String, Seq[String]] = inferedLatentSparseMatrix(line) map (inverseVocabulary(_)) groupBy (_._1) mapValues (_.map(_._2))
 
   def densifyFeatures:Seq[Seq[Double]] = entryFeatures map { _.map(_._2).toSeq }
 
-  def latentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(latentSparseMatrix) //TODO: Maybe filter the context relation cols
+  def latentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(inferedLatentSparseMatrix)
 
   def featureMatrix:Seq[Seq[Double]] = {
     val categorical = densifyMatrix(observedSparseMatrix)
@@ -95,7 +95,50 @@ abstract class Context(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[Bio
 }
 
 class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]) extends Context(vocabulary, lines){
-  protected override def inferContext:Unit = {}
+  protected override def inferContext = this.latentSparseMatrix
+  protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
+}
+
+class PaddingContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]) extends Context(vocabulary, lines){
+
+  private def contextTypes = Seq("Species", "Organ", "CellType", "CellLine")
+
+  // TODO: Do something smart to resolve ties
+  private def untie(entities:Seq[(String, String)]) = entities.head
+
+  private def padContext(prevStep:Seq[Int], remainingSteps:List[Seq[Int]]):List[Seq[Int]] = {
+
+    remainingSteps match {
+
+      case head::tail =>
+        // Group the prev step inferred row and the current by context type, then recurse
+        val prevContext = prevStep map (this.inverseVocabulary(_)) groupBy (_._1)
+        val currentContext = head map (this.inverseVocabulary(_)) groupBy (_._1)
+
+        // Apply the heuristic
+        // Inferred context of type "type"
+        val currentStep = contextTypes.flatMap{
+          x=> (prevContext.lift(x), currentContext.lift(x)) match {
+              // No prev, Current
+              case (None, Some(curr)) => Seq(untie(curr))
+              // Prev, No current
+              case (Some(prev), None) => Seq(prev.head)
+              // Prev, Current
+              case (Some(prev), Some(curr)) => Seq(untie(curr))
+              // No prev, No current
+              case (None, None) => Nil
+            }
+        } map (this.vocabulary(_))
+
+        // Recurse
+        currentStep :: padContext(currentStep, tail)
+
+      case Nil => Nil
+    }
+  }
+  // Policy 1
+  protected override def inferContext = padContext(Seq(), latentSparseMatrix)
+
   protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
