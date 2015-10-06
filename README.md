@@ -102,6 +102,8 @@ enter `:help` to get a list of available commands.
 
 ## Code
 + [Interactive `reach` visualizer](http://agathon.sista.arizona.edu:8080/odinweb/bio)
++ [REST API for `reach`](http://agathon.sista.arizona.edu:8080/odinweb/api)
++ [`reach` results explorer](http://agathon.sista.arizona.edu:8080/odinweb/explorer/)
 
 # Funding
 
