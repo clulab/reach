@@ -99,49 +99,6 @@ class DummyContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMent
   protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
-class PaddingContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]) extends Context(vocabulary, lines){
-
-  private def contextTypes = Seq("Species", "Organ", "CellType", "CellLine")
-
-  // TODO: Do something smart to resolve ties
-  private def untie(entities:Seq[(String, String)]) = entities.head
-
-  private def padContext(prevStep:Seq[Int], remainingSteps:List[Seq[Int]]):List[Seq[Int]] = {
-
-    remainingSteps match {
-
-      case head::tail =>
-        // Group the prev step inferred row and the current by context type, then recurse
-        val prevContext = prevStep map (this.inverseVocabulary(_)) groupBy (_._1)
-        val currentContext = head map (this.inverseVocabulary(_)) groupBy (_._1)
-
-        // Apply the heuristic
-        // Inferred context of type "type"
-        val currentStep = contextTypes.flatMap{
-          x=> (prevContext.lift(x), currentContext.lift(x)) match {
-              // No prev, Current
-              case (None, Some(curr)) => Seq(untie(curr))
-              // Prev, No current
-              case (Some(prev), None) => Seq(prev.head)
-              // Prev, Current
-              case (Some(prev), Some(curr)) => Seq(untie(curr))
-              // No prev, No current
-              case (None, None) => Nil
-            }
-        } map (this.vocabulary(_))
-
-        // Recurse
-        currentStep :: padContext(currentStep, tail)
-
-      case Nil => Nil
-    }
-  }
-  // Policy 1
-  protected override def inferContext = padContext(Seq(), latentSparseMatrix)
-
-  protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
-}
-
 object Context {
   // Seq of the labels we care about in context
   val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "ContextPossesive", "ContextLocation", "ContextDirection")
@@ -178,7 +135,7 @@ object Context {
     // Now the observed values
     val outStreamObserved:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outObserved)))
     for(step <- observedMatrix){
-      val line = step map ( x => s"$x") mkString (" ")
+      val line = step map ( x => f"$x%1.0f") mkString (" ")
       outStreamObserved.println(line)
     }
     outStreamObserved.close()
