@@ -29,14 +29,19 @@ object DependencyUtils {
       case Nil => results
       case first +: rest if results contains first => followTrail(rest, results)
       case first +: rest =>
-        val children = graph.getOutgoingEdges(first).map(_._1)
+        val children: Seq[Int] = try {
+          graph.getOutgoingEdges(first).map(_._1)
+        } catch {
+          case e: Exception =>
+            Nil
+        }
         followTrail(children ++ rest, first +: results)
     }
 
     val outgoing = (for (h <- heads) yield followTrail(Seq(h), Nil)).flatten.distinct
 
     // outgoing may only have a single index
-    if (outgoing.length > 1) Some(Interval(outgoing.min, outgoing.max)) else Some(Interval(outgoing.min, outgoing.min + 1))
+    if (outgoing.length > 1) Some(Interval(outgoing.min, outgoing.max+1)) else Some(Interval(outgoing.min, outgoing.min + 1))
   }
 
   /**
@@ -197,5 +202,26 @@ object DependencyUtils {
     val heads = for (i <- span.start until span.end) yield followTrail(i, Nil)
 
     heads.flatten.distinct.toSeq.sorted
+  }
+
+  /**
+   *
+   * @param a Interval in Sentence sentA
+   * @param b Interval in Sentence sentB
+   * @param sentA Sentence containing a
+   * @param sentB Sentence containing b
+   * @return returns true if Interval a contains Interval b or vice versa
+   */
+  def nested(a: Interval, b: Interval, sentA: Sentence, sentB: Sentence): Boolean = {
+    if (sentA != sentB) return false
+
+    val graph = sentA.dependencies.getOrElse(return false)
+
+    val aSubgraph = subgraph(a, sentA)
+    val bSubgraph = subgraph(b, sentB)
+
+    if((aSubgraph.isDefined && aSubgraph.get.contains(b)) ||
+      (bSubgraph.isDefined && bSubgraph.get.contains(a))) true
+    else false
   }
 }
