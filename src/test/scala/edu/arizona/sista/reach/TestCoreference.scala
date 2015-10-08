@@ -1,14 +1,16 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.mentions.BioEventMention
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
+
 
 /**
  * Tests coreference-based events
  * Date: 5/22/15
  */
 class TestCoreference extends FlatSpec with Matchers {
-/*  val sent1 = "Even more than Ras, ASPP2 is common, as is its ubiquitination."
+  val sent1 = "Even more than Ras, ASPP2 is common, as is its ubiquitination."
   sent1 should "produce a ubiquitination of ASPP2" in {
     val mentions = parseSentence(sent1)
     TestUtils.hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
@@ -75,8 +77,8 @@ class TestCoreference extends FlatSpec with Matchers {
     reg.get.arguments should contain key ("controlled")
     reg.get.arguments("controller") should have size (1)
     reg.get.arguments("controlled") should have size (1)
-    val controller = reg.get.arguments("controller").head.toBioMention
-    val controlled = reg.get.arguments("controlled").head.toBioMention
+    val controller = reg.get.arguments("controller").head
+    val controlled = reg.get.arguments("controlled").head
     controller.text should be ("Ras")
     controlled.text should be ("sumoylates it")
   }
@@ -226,6 +228,6 @@ class TestCoreference extends FlatSpec with Matchers {
   sent20 should "not contain an activation of and by the same entity" in {
     val mentions = parseSentence(sent20)
     hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
-  }*/
+  }
 }
 

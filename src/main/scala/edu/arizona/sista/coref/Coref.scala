@@ -1,254 +1,128 @@
-package edu.arizona.sista.reach.coref
+package edu.arizona.sista.coref
 
-import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.DarpaFlow
-import edu.arizona.sista.reach.utils.DependencyUtils
-import DependencyUtils._
+import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.DarpaLinks
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
 
-import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
-import scala.util.control.Breaks._
+import scala.annotation.tailrec
 
-class Coref extends DarpaFlow {
+class Coref {
 
   val debug: Boolean = false
+  val verbose: Boolean = false
 
-  def apply(mentions: Seq[Mention], state: State): Seq[BioMention] = applyAll(mentions).lastOption.getOrElse(Seq())
+  def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
 
-  def applyAll(mentions: Seq[Mention], keepAll: Boolean = false): Seq[Seq[BioMention]] = {
+  def applyAll(mentions: Seq[Mention], keepAll: Boolean = false): Seq[Seq[CorefMention]] = {
 
-    val doc: Document = mentions.headOption.getOrElse(return Seq()).document
+    val doc: Document = mentions.headOption.getOrElse(return Nil).document
 
     if (debug) {
       println("BEFORE COREF")
       displayMentions(mentions,doc)
+      println("Starting coref...")
     }
 
-    val chains = new mutable.HashMap[Mention,Seq[Mention]]
+    val orderedMentions: Seq[CorefMention] = mentions.sorted[Mention].map(_.toCorefMention)
 
-    val toSplit = new mutable.HashMap[Mention,Seq[Seq[Mention]]]
+    val links = new DarpaLinks(doc)
 
-    val alreadySplit = new mutable.HashMap[Mention,Seq[Mention]]
+    val allLinks = CorefFlow(links.exactStringMatch) andThen
+      CorefFlow(links.groundingMatch) andThen
+      CorefFlow(links.strictHeadMatch) andThen
+      CorefFlow(links.pronominalMatch)
 
-    def lookInside (m: Mention): Seq[Mention] = {
-      (for {
-        (k, v) <- m.arguments
-        a <- v
-        n = a match {
-          case found if mentions.contains(a) => lookInside(a)
-          case _ => a +: lookInside(a)
-        }
-      } yield n).flatten.toSeq
-    }
+//    def unresolvedInside (m: CorefMention, lbls: Seq[String] = Seq("Unresolved")): Boolean = {
+//      @tailrec def unresolvedInsideRec(ms: Seq[CorefMention]): Boolean = {
+//        if (ms.exists(m => ((m matches "Generic_entity") || (m matches "Generic_event")) && lbls.exists(l => m matches l))) true
+//        else {
+//          val (tbs, others) = ms.partition(mention => mention.isInstanceOf[CorefTextBoundMention])
+//          if (others.isEmpty) false
+//          else unresolvedInsideRec(others.flatMap(_.arguments.values.flatten.map(_.toCorefMention)))
+//        }
+//      }
+//      unresolvedInsideRec(Seq(m))
+//    }
 
-    def unresolvedInside (m: Mention): Boolean = {
-      if (m matches "Unresolved") true
-      else if (m.arguments.isEmpty) false
-      else m.arguments.flatMap(x => x._2).exists(x => unresolvedInside(x))
-    }
-
-    val themeMap = Map(
-      "Binding" -> 2,
-      "Ubiquitination" -> 1,
-      "Phosphorylation" -> 1,
-      "Hydroxylation" -> 1,
-      "Acetylation" -> 1,
-      "Farnesylation" -> 1,
-      "Glycosylation" -> 1,
-      "Methylation" -> 1,
-      "Ribosylation" -> 1,
-      "Sumoylation" -> 1,
-      "Hydrolysis" -> 1,
-      "Degradation" -> 1,
-      "Exchange" -> 2,
-      "Transcription" -> 1,
-      "Transportation" -> 1,
-      "Translocation" -> 1
-    )
-
-    // crucial: pass lemma so plurality isn't a concern
-    def themeCardinality(eventLemma: String): Int = {
-      themeMap.getOrElse(eventLemma,1)
-    }
-
-    def getChildren (m: Mention): Seq[Mention] = {
-      def getInnerChildren(m: Mention): Seq[Mention] = {
-        m match {
-          case t: BioTextBoundMention => Seq(t)
-          case e: BioEventMention =>
-            e +: (for {
-              (k, v) <- e.arguments
-              a <- v
-            } yield {
-                a match {
-                  case en: BioTextBoundMention => Seq(en)
-                  case ev: BioEventMention => ev +: getInnerChildren(ev)
-                  case rm: BioRelationMention => rm +: getInnerChildren(rm)
-                }
-              }).flatten.toSeq
-          case r: BioRelationMention =>
-            r +: (for {
-              (k, v) <- r.arguments
-              a <- v
-            } yield {
-                a match {
-                  case en: BioTextBoundMention => Seq(en)
-                  case ev: BioEventMention => ev +: getInnerChildren(ev)
-                  case rm: BioRelationMention => rm +: getInnerChildren(rm)
-                }
-              }).flatten.toSeq
-        }
-      }
-
-      m match {
-        case ut: BioTextBoundMention if ut.matches("Unresolved") => Seq()
-        case t: BioTextBoundMention if !t.matches("Unresolved") => Seq(t)
-        case e: BioEventMention =>
-          e +: (for {
-            (k, v) <- e.arguments
-            a <- v
-          } yield {
-              a match {
-                case en: BioTextBoundMention => Seq(en)
-                case ev: BioEventMention => ev +: getInnerChildren(ev)
-                case rm: BioRelationMention => rm +: getInnerChildren(rm)
-              }
-            }).flatten.toSeq
-        case r: BioRelationMention =>
-          r +: (for {
-            (k, v) <- r.arguments
-            a <- v
-          } yield {
-              a match {
-                case en: BioTextBoundMention => Seq(en)
-                case ev: BioEventMention => ev +: getInnerChildren(ev)
-                case rm: BioRelationMention => rm +: getInnerChildren(rm)
-              }
-            }).flatten.toSeq
+    def argsComplete(args: Map[String,Seq[CorefMention]], lbls: Seq[String]): Boolean = {
+      lbls match {
+        case binding if lbls contains "Binding" =>
+          args.contains("theme") && args("theme").length > 1
+        case simple if lbls contains "SimpleEvent" =>
+          args.contains("theme") && args("theme").nonEmpty
+        case complex if (lbls contains "ComplexEvent") || (lbls contains "Activation") =>
+          args.contains("controller") && args.contains("controlled") && args("controller").nonEmpty && args("controlled").nonEmpty
+        case _ => true
       }
     }
 
-    def resolve(mention: Mention): Seq[Mention] = {
-      mention match {
-        case mention: BioTextBoundMention if !mention.matches("Unresolved") => Seq(mention)
+    def resolveTBMs(mentions: Seq[CorefTextBoundMention]): Map[CorefTextBoundMention,Seq[CorefMention]] = {
+      mentions.map(mention => (mention, mention.firstSpecific.map(_.asInstanceOf[CorefMention]))).toMap
+    }
 
-        case mention: BioTextBoundMention if mention.matches("Unresolved") => {
-          if (debug) print(s"Resolving unresolved BioTextBoundMention ${mention.text} => ")
+    def resolveSimpleEvents(evts: Seq[CorefEventMention], resolvedTBMs: Map[CorefTextBoundMention,Seq[CorefMention]]): Map[CorefEventMention, Seq[CorefEventMention]] = {
+      require(evts.forall(_.matches("SimpleEvent")))
 
-          val resolved = chains.getOrElse(mention, {
-            println("Mention not used in coreference: " + mention.label + ": " + mention.text)
-            Seq(mention)
-          })
-            .filter(x => !x.matches("Unresolved") &&
-            (x.sentence == mention.sentence || mention.sentence - x.sentence == 1) &&
-            doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval,doc.sentences(x.sentence)).get).drop(1) == "N"
-            )
-            .span(m => m.precedes(mention))._1.lastOption.getOrElse({if (debug) println; return Seq()})
-          // resolved.asInstanceOf[BioTextBoundMention].modifications ++= mention.asInstanceOf[BioTextBoundMention].modifications
+      val (generics, specifics) = evts.partition(m => m.isGeneric)
 
-          if (debug) println(resolved.text)
+      val specificMap = (for {
+        specific <- specifics
 
-          Seq(resolved)
-        }
+        resolvedArgs = for {
+          (lbl, arg) <- specific.arguments
+          argMs = arg.map(m => resolvedTBMs.getOrElse(m.asInstanceOf[CorefTextBoundMention], Nil))
+        } yield lbl -> argMs
 
-        case mention: BioRelationMention => {
-          if (debug) print(s"Resolving BioRelationMention ${mention.text} => ")
-
-          val args = (for {
-            (argType, argMentions) <- mention.arguments
-          } yield argType -> argMentions.map(a => resolve(a)).flatten).filter(_._2.nonEmpty)
-          args match {
-            case regMissingArg if (mention.matches("ComplexEvent") ||
-              mention.matches("Negative_regulation") ||
-              mention.matches("Positive_activation") ||
-              mention.matches("Negative_activation")) &&
-              args.size < 2 =>
-              if (debug) println
-              Seq()
-
-            case stillUnresolved if args.size < 1 =>
-              if (debug) println
-              Seq()
-
-            case _ =>
-              val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy)
-              resolved.modifications ++= mention.asInstanceOf[BioRelationMention].modifications
-              resolved.mutableTokenInterval = mention.tokenInterval
-              if (debug) println(resolved.text)
-              Seq(resolved)
+        argSets = specific match {
+          case binding if binding matches "Binding" => {
+            val exceptTheme = combineArgs((resolvedArgs - "theme" - "theme1" - "theme2")
+              .map(entry => entry._1 -> entry._2.flatten))
+            val themeSets = combination(resolvedArgs.getOrElse("theme",Nil) ++
+              resolvedArgs.getOrElse("theme1",Nil) ++
+              resolvedArgs.getOrElse("theme2",Nil),2)
+            val newSets = exceptTheme.flatMap(argMap => themeSets.map(themeSet =>
+              argMap + ("theme" -> Seq(themeSet.headOption, themeSet.lastOption).flatten)))
+            newSets
           }
+          case _ => combineArgs(resolvedArgs.map(entry => entry._1 -> entry._2.flatten))
         }
-
-        case mention: BioEventMention if mention.matches("Unresolved") => {
-          if (debug) print(s"Resolving unresolved BioEventMention ${mention.text} => ")
-
-          val resolved = chains.getOrElse(mention, {
-            println("Mention not used in coreference: " + mention.label + ": " + mention.text)
-            Seq(mention)
-          })
-            .filter(x => !x.matches("Unresolved") && (x.sentence == mention.sentence || mention.sentence - x.sentence == 1))
-            .span(m => m.precedes(mention))._1.lastOption.getOrElse({if (debug) println; return Seq()})
-          resolved.asInstanceOf[BioEventMention].modifications ++= mention.asInstanceOf[BioEventMention].modifications
-          resolved.asInstanceOf[BioEventMention].mutableTokenInterval = mention.tokenInterval
-          if (debug) println(resolved.text)
-          Seq(resolved)
-        }
-
-        case mention: BioEventMention if !mention.matches("Unresolved") & toSplit.contains(mention) =>
-
-          if (debug) print(s"Resolving splittable BioEventMention ${mention.text} => ")
-
-            val themeSets = combination(toSplit(mention), themeCardinality(mention.label))
-            //println("Number of sets: " + themeSets.length)
-            //themeSets.foreach(s => println(s"(${for (m<-s) yield m.text + ","})"))
-
-            for (themeSet <- themeSets) yield {
-              val resolved = new BioEventMention(mention.labels,
-              mention.trigger,
-              mention.arguments - "theme" + ("theme" -> themeSet),
-              mention.sentence,
-              doc,
-              mention.keep,
-              "corefResolveSplitter")
-              resolved.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-              resolved.mutableTokenInterval = mention.tokenInterval
-              if (debug) println(resolved.text)
-
-              resolved
+      } yield {
+          if (verbose && argSets.nonEmpty) {
+            argSets.foreach { argSet =>
+              println("argSet: ")
+              argSet.foreach {
+                case (lbl: String, ms: Seq[CorefMention]) =>
+                  println(lbl + " -> " + ms.map(_.text).mkString(","))
+              }
             }
+          }
+         val value = argSets.flatMap(argSet =>
+           if (argsComplete(argSet,specific.labels)) {
+             val generated = new CorefEventMention(
+               specific.labels,
+               specific.trigger,
+               argSet,
+               specific.sentence,
+               specific.document,
+               specific.keep,
+               specific.foundBy + ", " + specific.sieves.mkString(", "))
+             generated.modifications ++= specific.modifications
+             Seq(generated)
+           } else Nil
+         )
+        specific -> value
+      }).toMap
 
-        case mention: BioEventMention if !mention.matches("Unresolved") & !toSplit.contains(mention) =>
+      val genericMap = (for {
+        generic <- generics
+      } yield {
+          // FIXME: first specific antecedent might not be best -- might want to combine arguments with previous
+          generic -> generic.firstSpecific.flatMap(m => specificMap.getOrElse(m.asInstanceOf[CorefEventMention],Nil))
+        }).toMap
 
-          if (debug) print(s"Resolving non-splitting BioEventMention ${mention.text} => ")
-
-            val args = (for {
-              (argType, argMentions) <- mention.arguments
-            } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
-
-            args match {
-              case regMissingArg if (mention.matches("ComplexEvent") || mention.matches("ActivationEvent")) &&
-                args.size < 2 =>
-                if (debug) println
-                Seq()
-              case bindingMissingTheme if mention.matches("Binding") && mention.arguments.getOrElse("theme",Seq()).length < 2 =>
-                if (debug) println
-                Seq()
-              case stillUnresolved if args.size < 1 =>
-                if (debug) println
-                Seq()
-              case _ =>
-                val resolved = new BioEventMention(mention.labels, mention.trigger, args, mention.sentence, mention.document, mention.keep, mention.foundBy)
-                resolved.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                resolved.mutableTokenInterval = mention.tokenInterval
-                if (debug) println(resolved.text)
-                Seq(resolved)
-            }
-
-        case m => Seq(m)
-      }
+      specificMap ++ genericMap
     }
 
     // http://oldfashionedsoftware.com/2009/07/30/lots-and-lots-of-foldleft-examples/
@@ -265,30 +139,264 @@ class Coref extends DarpaFlow {
       require(size > 0)
       if (ms.flatten.length <= size) return Seq(ms.flatten)
 
-      ms.foldLeft[Seq[Seq[A]]](Seq())((args,thm) => args ++ (for {
+      ms.foldLeft[Seq[Seq[A]]](Nil)((args,thm) => args ++ (for {
         ant <- thm
-        nxt <- if (size - 1 > 0) group(ms.span(ms.indexOf(_) <= ms.indexOf(thm))._2.flatten.toList,size-1).toSeq else Seq(Seq())
+        nxt <- if (size - 1 > 0) group(ms.span(ms.indexOf(_) <= ms.indexOf(thm))._2.flatten.toList,size-1).toSeq else Seq(Nil)
       } yield Seq(Seq(ant), nxt.toSeq).flatten))
     }
 
-    def mapMerger[A,B](maps: Seq[Map[A,Seq[B]]]): Map[A,Seq[B]] = {
-      val concat = new mutable.HashMap[A,Seq[B]]
-      for {
-        m <- maps
-        (k,v) <- m
-      } concat.update(k,concat.getOrElse(k,Seq()) ++ v)
-      concat.toMap
+    def combineArgs(args: Map[String, Seq[CorefMention]], numThemes: Int = 1): Seq[Map[String, Seq[CorefMention]]] = {
+      @tailrec
+      val stableKeys = args.keys.toSeq
+      def sum(xs: Seq[Int]): Int = {
+        @tailrec
+        def inner(xs: List[Int], accum: Int): Int = {
+          xs match {
+            case x :: tail => inner(tail, accum + x)
+            case Nil => accum
+          }
+        }
+        inner(xs.toList, 0)
+      }
+      def oneLess(countdown: Seq[Int], toRemove: Int): Seq[Int] = {
+        var i = countdown.length - 1
+        while (i >= 0) {
+          if (countdown(i) - toRemove >= 0) {
+            return countdown.patch(i,Seq(countdown(i) - toRemove),1)
+          }
+          i -= 1
+        }
+        Seq(-1)
+      }
+      def oneIteration(iteration: Seq[Int], sofar: Seq[Map[String, Seq[CorefMention]]], numThemes: Int): Seq[Map[String, Seq[CorefMention]]] = {
+        iteration match {
+          case end if sum(iteration) < 0 => sofar
+          case _ => {
+            oneIteration(
+              oneLess(iteration, numThemes),
+              sofar :+
+                iteration.zipWithIndex.map(arg => stableKeys(arg._2) -> Seq(args(stableKeys(arg._2))(arg._1))).toMap,
+              numThemes
+            )
+          }
+          }
+        }
+      oneIteration(stableKeys.map(args(_).length - 1), Nil, numThemes)
     }
 
-    def mentionMerger(mentions: Seq[Mention]): Seq[Mention] = {
-      val evs = mentions collect {case ev: EventMention => ev.asInstanceOf[EventMention]}
-      val mergedMentions = for {
-        (rxn,rxnMentions) <- evs.groupBy(_.labels)
-        (trig,trigMentions) <- rxnMentions.groupBy(_.trigger)
+    def resolveComplexEvents(evts: Seq[CorefMention], resolved: Map[CorefMention,Seq[CorefMention]]): Map[CorefMention, Seq[CorefMention]] = {
+      require(evts.forall(_.matches("ComplexEvent")))
+
+      val complexMap = (for {
+        evt <- evts
+
+        resolvedArgs = for {
+          (lbl, arg) <- evt match {
+            case rel: CorefRelationMention => evt.asInstanceOf[CorefRelationMention].arguments
+            case evm: CorefEventMention => evt.asInstanceOf[CorefEventMention].arguments
+          }
+          argMs = arg.map(m => resolved.getOrElse(m.asInstanceOf[CorefMention], Nil))
+        } yield lbl -> argMs.flatten
+
+        argSets = combineArgs(resolvedArgs)
       } yield {
-          trigMentions match {
-            case singleton if singleton.length == 1 => singleton.head
+          val argsl = evt match {
+            case rel: CorefRelationMention => evt.asInstanceOf[CorefRelationMention].arguments
+            case evm: CorefEventMention => evt.asInstanceOf[CorefEventMention].arguments
+          }
+          if (verbose) {
+            println("argSets:")
+            argSets.foreach { argSet =>
+              argSet.foreach {
+                case (lbl: String, ms: Seq[CorefMention]) =>
+                  println(lbl + " -> " + ms.map(_.text).mkString(","))
+              }
+            }
+          }
+          val value = argSets.flatMap(argSet =>
+            if (argsComplete(argSet,evt.labels)){
+              evt match {
+                case rel: CorefRelationMention =>
+                  val generated = new CorefRelationMention(
+                    evt.labels,
+                    argSet,
+                    evt.sentence,
+                    evt.document,
+                    evt.keep,
+                    evt.foundBy + evt.sieves.mkString(", ", ", ", ""))
+                  generated.modifications ++= evt.modifications
+                  Seq(generated)
+                case evm: CorefEventMention =>
+                  val generated = new CorefEventMention(
+                    evt.labels,
+                    evt.asInstanceOf[CorefEventMention].trigger,
+                    argSet,
+                    evt.sentence,
+                    evt.document,
+                    evt.keep,
+                    evt.foundBy + evt.sieves.mkString(", ", ", ", ""))
+                  generated.modifications ++= evt.modifications
+                  Seq(generated)
+              }
+            }
+            else Nil
+          )
+          //println(s"${evt.text} => (" + value.map(_.text).mkString(", ") + ")")
+          evt -> value
+        }).toMap
+      complexMap
+    }
+
+    def resolve(mentions: Seq[CorefMention]): Seq[CorefMention] = {
+      val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention]).map(_.asInstanceOf[CorefTextBoundMention])
+      val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
+      val cevts = mentions.filter(m => m.matches("ComplexEvent"))
+      val resolvedTBMs = resolveTBMs(tbms)
+      if (verbose) resolvedTBMs.foreach{ case (k,v) => println(s"TBM: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      val resolvedSimple = resolveSimpleEvents(sevts,resolvedTBMs)
+      if (verbose) resolvedSimple.foreach{ case (k,v) => println(s"SimpleEvent: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple)
+      if (verbose) resolvedComplex.foreach{ case (k,v) => println(s"ComplexEvent: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      val resolved = resolvedTBMs ++ resolvedSimple ++ resolvedComplex
+
+      val retVal = mentions.flatMap(mention => resolved.getOrElse(mention, Nil)).distinct
+      if (verbose) displayMentions(retVal,doc)
+      retVal
+    }
+
+  Seq(resolve(allLinks(orderedMentions)))
+  }
+}
+
+/*
+    def resolve(mention: Mention): Seq[Mention] = {
+      mention match {
+        case mention: BioTextBoundMention if !mention.matches("Unresolved") => Seq(mention)
+
+        case mention: BioTextBoundMention if mention.matches("Unresolved") => {
+          if (debug) print(s"Resolving unresolved BioTextBoundMention ${mention.text} => ")
+
+          val resolved = chains(mention)
+            .nextResolved()
+            .filter(x => (x.sentence == mention.sentence || mention.sentence - x.sentence == 1) &&
+            x.document.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval,x.document.sentences(x.sentence)).get).drop(1) == "N"
+            )
+
+          /*
+                    val resolved = chains.getOrElse(mention, {
+                      println("Mention not used in coreference: " + mention.label + ": " + mention.text)
+                      Seq(mention)
+                    })
+                      .filter(x => !x.matches("Unresolved") &&
+                      (x.sentence == mention.sentence || mention.sentence - x.sentence == 1) &&
+                      doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval,doc.sentences(x.sentence)).get).drop(1) == "N"
+                      )
+                      .span(m => m.precedes(mention))._1.lastOption.getOrElse({if (debug) println; return Nil})
+                    // resolved.asInstanceOf[BioTextBoundMention].modifications ++= mention.asInstanceOf[BioTextBoundMention].modifications
+          */
+
+          if (debug) resolved.foreach(x => println(x.text))
+
+          resolved
+        }
+
+        case mention: BioRelationMention => {
+          if (debug) print(s"Resolving BioRelationMention ${mention.text} => ")
+
+          val args = (for {
+            (argType, argMentions) <- mention.arguments
+          } yield argType -> argMentions.map(a => resolve(a)).flatten).filter(_._2.nonEmpty)
+          args match {
+            case regMissingArg if (mention.matches("ComplexEvent") ||
+              mention.matches("Negative_regulation") ||
+              mention.matches("Positive_activation") ||
+              mention.matches("Negative_activation")) &&
+              args.get("controlled").isEmpty =>
+              if (debug) println
+              Nil
+
+            case stillUnresolved if args.size < 1 =>
+              if (debug) println
+              Nil
+
             case _ =>
+              val resolved = new BioRelationMention(mention.labels, args, mention.sentence, doc, mention.keep, mention.foundBy + ",corefResolve")
+              resolved.modifications ++= mention.asInstanceOf[BioRelationMention].modifications
+              resolved.mutableTokenInterval = mention.tokenInterval
+              if (debug) println(resolved.text)
+              Seq(resolved)
+          }
+        }
+
+        case mention: BioEventMention if mention.matches("Unresolved") => {
+          if (debug) print(s"Resolving unresolved BioEventMention ${mention.text} => ")
+
+          val resolved = chains(mention)
+            .nextResolved()
+            .filter(x => x.sentence == mention.sentence || mention.sentence - x.sentence == 1)
+
+          resolved.foreach(m => m.asInstanceOf[BioEventMention].modifications ++= mention.asInstanceOf[BioEventMention].modifications)
+          resolved.foreach(m => m.asInstanceOf[BioEventMention].mutableTokenInterval = mention.tokenInterval)
+
+          if (debug) resolved.foreach(m => println(m.text))
+
+          resolved
+        }
+
+        case mention: BioEventMention if !mention.matches("Unresolved") & toSplit.contains(mention) =>
+
+          if (debug) print(s"Resolving splittable BioEventMention ${mention.text} => ")
+
+          val themeSets = combination(toSplit(mention), themeCardinality(mention.label))
+          //println("Number of sets: " + themeSets.length)
+          //themeSets.foreach(s => println(s"(${for (m<-s) yield m.text + ","})"))
+
+          for (themeSet <- themeSets) yield {
+            val resolved = new BioEventMention(mention.labels,
+              mention.trigger,
+              mention.arguments - "theme" + ("theme" -> themeSet),
+              mention.sentence,
+              doc,
+              mention.keep,
+              "corefResolveSplitter")
+            resolved.modifications ++= mention.asInstanceOf[BioEventMention].modifications
+            resolved.mutableTokenInterval = mention.tokenInterval
+            if (debug) println(resolved.text)
+
+            resolved
+          }
+
+        case mention: BioEventMention if !mention.matches("Unresolved") & !toSplit.contains(mention) =>
+
+          if (debug) print(s"Resolving non-splitting BioEventMention ${mention.text} => ")
+
+          val args = (for {
+            (argType, argMentions) <- mention.arguments
+          } yield argType -> argMentions.map(a => resolve(a)).flatten.distinct).filter(_._2.nonEmpty)
+
+          args match {
+            case regMissingArg if (mention.matches("ComplexEvent") || mention.matches("ActivationEvent")) &&
+              args.get("controlled").isEmpty =>
+              if (debug) println
+              Nil
+            case stillUnresolved if args.size < 1 =>
+              if (debug) println
+              Nil
+            case _ =>
+<<<<<<< HEAD
+              val resolved = new BioEventMention(
+                mention.labels,
+                mention.trigger,
+                args,
+                mention.sentence,
+                mention.document,
+                mention.keep,
+                mention.foundBy + ",corefResolveArgs")
+              resolved.modifications ++= mention.asInstanceOf[BioEventMention].modifications
+              resolved.mutableTokenInterval = mention.tokenInterval
+              if (debug) println(resolved.text)
+              Seq(resolved)
+=======
               val base = trigMentions.head
               val newMap = mapMerger[String,Mention](trigMentions.map(_.arguments))
               new BioEventMention(
@@ -896,24 +1004,10 @@ class Coref extends DarpaFlow {
               newEvs
             }).sorted
             sumChain.foreach(link => chains(link) = sumChain)
+>>>>>>> master
           }
-
-          alreadySplit += (ev -> newEvs)
-
-          newEvs
-
 
         case m => Seq(m)
       }
-
     }
-
-
-    results = results :+ (for {
-      m <- orderedMentions
-    } yield resolve(m)).flatten.sorted
-
-    results.map(_.map(_.toBioMention).distinct)
-  }
-}
-
+*/
