@@ -9,7 +9,7 @@ class BoundedPaddingContext(vocabulary:Map[(String, String), Int],
  bound:Int = 5 // Default bound to extend the policy
 ) extends Context(vocabulary, lines){
 
-  private def contextTypes = Seq("Species", "Organ", "CellType", "CellLine")
+  protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine")
 
   // TODO: Do something smart to resolve ties
   protected def untie(entities:Seq[(String, String)]) = entities.head
@@ -82,10 +82,36 @@ class PaddingContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMe
 }
 
 // Policy 3
-class FillingPolicy(vocabulary:Map[(String, String), Int],
+class FillingContext(vocabulary:Map[(String, String), Int],
  lines:Seq[(Seq[BioMention], FriesEntry)],
   bound:Int = 5) extends BoundedPaddingContext(vocabulary, lines, bound){
 
-    // Get the most common mentioned context of each type
-    val defaultContexts = this.mentions.flatten
+    // Override the infer context to fill the empty slots
+    protected override def inferContext = {
+      // Get the most common mentioned context of each type
+      val defaultContexts = this.mentions.flatten.map(Context.getContextKey(_))  // Get the context keys of the mentions
+        .filter(x => this.contextTypes.contains(x._1)).groupBy(_._1) // Keep only those we care about and group them by type
+        .mapValues(bucket => bucket.map(this.vocabulary(_))) // Get their numeric value from the vocabulary
+        .mapValues(bucket => bucket.groupBy(identity).mapValues(_.size)) // Count the occurences
+        .mapValues(bucket => Seq(bucket.maxBy(_._2)._1)) // Select the most common element
+
+      // Let the super class do its job
+      val paddedContext = super.inferContext
+
+      // Now for each line assign a default context if necessary
+      paddedContext map {
+        step =>
+          // Existing contexts for this line
+          val context = step.map(this.inverseVocabulary(_)).groupBy(_._1)
+          this.contextTypes flatMap {
+            ctype =>
+              context.lift(ctype) match {
+                case Some(x) =>
+                  x map (this.vocabulary(_))
+                case None =>
+                  defaultContexts.lift(ctype).getOrElse(Seq())
+              }
+          }
+      }
+    }
 }

@@ -248,7 +248,7 @@ object ReachCLI extends App {
   for((paperId, contextLines) <- contextDocs){
 
     // Create a Context instance to do inference and make queries
-    val context = new PaddingContext(contextVocabulary, contextLines.toSeq)
+    val context = new FillingContext(contextVocabulary, contextLines.toSeq)
     outputContext(context, contextDir + File.separator + paperId)
     outputVocabularies(context, contextDir + File.separator + paperId)
   }
