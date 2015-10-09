@@ -7,15 +7,15 @@ import scala.collection.mutable.MutableList
 import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.odin._
+import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.mentions._
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Change package to parent export.
+  *   Last Modified: Refactor mention helper functions to mention manager.
   */
 class MentionManager {
-  // Constants:
 
   // mention numbering sequence counter
   private val mSeqNum = new IncrementingCounter()
@@ -32,19 +32,6 @@ class MentionManager {
   //
   // Public API:
   //
-
-  def isEventSite(mention:BioMention):Boolean =
-    mention.modifications.exists(mod => mod.isInstanceOf[EventSite])
-
-  def isHypothesized(mention:BioMention):Boolean =
-    mention.modifications.exists(mod => mod.isInstanceOf[Hypothesis])
-
-  def isMutated(mention:BioMention):Boolean =
-    mention.modifications.exists(mod => mod.isInstanceOf[Mutant])
-
-  def isNegated(mention:BioMention):Boolean =
-    mention.modifications.exists(mod => mod.isInstanceOf[Negation])
-
 
   def mergedEvents (): Seq[Mention] = {
     roots.values.toSeq.sortBy(_.seqNum).map(_.mention)
@@ -220,6 +207,74 @@ class MentionManager {
     return mStrings.toList
   }
 
+}
+
+
+/** Companion object defining constant vals and read-only functions. */
+object MentionManager {
+  val ACTIVATION_EVENTS = Set(
+    "Negative_activation",
+    "Positive_activation"
+  )
+
+  val MODIFICATION_EVENTS = Set(
+    "Acetylation",
+    "Farnesylation",
+    "Glycosylation",
+    "Hydrolysis",
+    "Hydroxylation",
+    "Methylation",
+    "Phosphorylation",
+    "Ribosylation",
+    "Sumoylation",
+    "Ubiquitination"
+  )
+
+  val REGULATION_EVENTS = Set(
+    "Negative_regulation",
+    "Positive_regulation"
+  )
+
+  def hasFeatures(mention:BioMention):Boolean = {
+    mention.modifications.foreach(feat => {
+      if(feat.isInstanceOf[Mutant] || feat.isInstanceOf[PTM])
+        return true
+    })
+    return false
+  }
+
+  def isEventMention (mention:Mention): Boolean = {
+    mention.isInstanceOf[EventMention] || mention.isInstanceOf[RelationMention]
+  }
+
+  def isEventSite (mention:BioMention): Boolean =
+    mention.modifications.exists(mod => mod.isInstanceOf[EventSite])
+
+
+  def isHypothesized (mention:BioMention): Boolean =
+    mention.modifications.exists(isHypothesis)
+
+  def isHypothesis (mod:Modification) = mod.isInstanceOf[Hypothesis]
+
+
+  def isMutated (mention:BioMention): Boolean =
+    mention.modifications.exists(isMutation)
+
+  def isMutation (mod:Modification) = mod.isInstanceOf[Mutant]
+
+
+  def isNegated (mention:BioMention): Boolean =
+    mention.modifications.exists(isNegation)
+
+  def isNegation (mod:Modification) = mod.isInstanceOf[Negation]
+
+  def sentenceEndCharacterOffset (doc:Document, sentOffset:Int): Int = {
+    doc.sentences(sentOffset).endOffsets.last
+  }
+
+  def sentenceStartCharacterOffset (doc:Document, sentOffset:Int): Int = {
+    doc.sentences(sentOffset).startOffsets.head
+  }
 }
 
 
