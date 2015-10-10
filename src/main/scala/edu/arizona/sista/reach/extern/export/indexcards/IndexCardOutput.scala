@@ -322,7 +322,7 @@ class IndexCardOutput extends JsonOutputter {
   def mkTranslocationIndexCard(mention:BioMention):Option[PropMap] = {
     val f = new PropMap
     f("interaction_type") = "translocates"
-    f("participant_b") = mention.arguments.get("theme").get.head
+    f("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
     if(mention.arguments.contains("source")) {
       addLocation(f, "from", mention.arguments.get("source").get.head.toBioMention)
     }
