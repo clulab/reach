@@ -18,7 +18,7 @@ import JsonOutputter._
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Add trigger text to output.
+ *   Last Modified: Fix: activation missing controller bug.
  */
 class IndexCardOutput extends JsonOutputter {
 
@@ -75,24 +75,22 @@ class IndexCardOutput extends JsonOutputter {
 
   }
 
-  def mkIndexCardFileName(paperId:String, count:Int):String = s"$paperId-$ORGANIZATION-$RUN_ID-$count"
-
-  /** Creates index cards from all events read for this paper */
+  /**
+    * Creates annotations from all events read from this paper.
+    * This needs to be done in 2 passes:
+    *   1) save recursive events
+    *   2) save simple events that are not part of recursive events
+    */
   def mkCards(paperId:String,
               allMentions:Seq[Mention],
               startTime:Date,
               endTime:Date):Iterable[PropMap] = {
     val cards = new ListBuffer[PropMap]
 
-    //
-    // this needs to be done in 2 passes:
-    //   first, save recursive events
-    //   then, save simple events that are not part of recursive events
-    //
-
-    // keeps just events
+    // keeps events
     val eventMentions = allMentions.filter(MentionManager.isEventMention)
     // println(s"Found ${eventMentions.size} events.")
+
     // keeps track of simple events that participate in regulations
     val simpleEventsInRegs = new mutable.HashSet[Mention]()
 
@@ -108,14 +106,6 @@ class IndexCardOutput extends JsonOutputter {
 
       }
     }
-    /*
-    println(s"controlled size: ${simpleEventsInRegs.size}")
-    for(e <- eventMentions) {
-      if(simpleEventsInRegs.contains(e)) {
-        println(s"Found ${e.label}")
-      }
-    }
-    */
 
     // now, print everything else that wasn't printed already
     for(mention <- eventMentions) {
@@ -134,6 +124,7 @@ class IndexCardOutput extends JsonOutputter {
     cards.toList
   }
 
+  /** Main annotation dispatcher method. */
   def mkIndexCard(mention:BioMention):Option[PropMap] = {
     val eventType = mkEventType(mention.label)
     val f = new PropMap
@@ -154,6 +145,9 @@ class IndexCardOutput extends JsonOutputter {
       None
     }
   }
+
+  /** Return a new filename for each card. */
+  def mkIndexCardFileName(paperId:String, count:Int):String = s"$paperId-$ORGANIZATION-$RUN_ID-$count"
 
   def mkArgument(arg:BioMention):Any = {
     val argType = mkArgType(arg)
@@ -284,8 +278,10 @@ class IndexCardOutput extends JsonOutputter {
   /** Creates a card for an activation event */
   def mkActivationIndexCard(mention:BioMention):Option[PropMap] = {
     val f = new PropMap
-    // a modification event will have exactly one controller and one controlled
-    f("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
+    // a modification event must have exactly one controller and one controlled
+    val controller = mention.arguments.get("controller")
+    if (!controller.isDefined) return None
+    f("participant_a") = mkArgument(controller.get.head.toBioMention)
     f("participant_b") = mkArgument(mention.arguments.get("controlled").get.head.toBioMention)
     if(mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
