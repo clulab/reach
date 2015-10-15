@@ -18,7 +18,7 @@ import JsonOutputter._
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Fix: activation missing controller bug.
+ *   Last Modified: Throw error on activation missing controller bug.
  */
 class IndexCardOutput extends JsonOutputter {
 
@@ -280,10 +280,11 @@ class IndexCardOutput extends JsonOutputter {
     val f = new PropMap
     // a modification event must have exactly one controller and one controlled
     val controller = mention.arguments.get("controller")
-    if (!controller.isDefined) return None
+    if (!controller.isDefined)
+      throw new RuntimeException("ERROR: an activation event must have a controller argument!")
     f("participant_a") = mkArgument(controller.get.head.toBioMention)
     f("participant_b") = mkArgument(mention.arguments.get("controlled").get.head.toBioMention)
-    if(mention.label == "Positive_activation")
+    if (mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
     else
       f("interaction_type") = "decreases_activity"
