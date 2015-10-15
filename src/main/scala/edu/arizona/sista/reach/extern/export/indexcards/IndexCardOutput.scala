@@ -18,9 +18,27 @@ import JsonOutputter._
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Refactor mention management to mention manager.
+ *   Last Modified: Add trigger text to output.
  */
 class IndexCardOutput extends JsonOutputter {
+
+  /**
+   * Returns the given mentions in the index-card JSON format, as one big string.
+   * All index cards are concatenated into a single JSON string.
+   */
+  override def toJSON (paperId:String,
+                       allMentions:Seq[Mention],
+                       paperPassages:Seq[FriesEntry],
+                       startTime:Date,
+                       endTime:Date,
+                       outFilePrefix:String): String = {
+    // index cards are generated here
+    val cards = mkCards(paperId, allMentions, startTime, endTime)
+    val uniModel:PropMap = new PropMap
+    uniModel("cards") = cards
+    writeJsonToString(uniModel)
+  }
+
   /**
    * Writes the given mentions to output files in Fries JSON format.
    * Separate output files are written for sentences, entities, and events.
@@ -342,6 +360,8 @@ class IndexCardOutput extends JsonOutputter {
     f("reader_type") = "machine"
     f("reading_started") = startTime
     f("reading_complete") = endTime
+    if (mention.isInstanceOf[BioEventMention])
+      f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
     val ev = new StringList
     ev += mention.text
     f("evidence") = ev
@@ -349,36 +369,5 @@ class IndexCardOutput extends JsonOutputter {
     f("model_relation") = "extension"
   }
 
-  def startFrame(paperId:String, component:String):PropMap = {
-    val f = new PropMap
-    f("submitter") = component
-    f("score") = 0
-    f("pmc_id") = paperId.substring(3)
-    f("reader_type") = "machine"
-
-    f("object-type") = "frame"
-    val meta = new PropMap
-    meta("object-type") = "meta-info"
-    meta("component") = component
-    f("object-meta") = meta
-    f
-  }
-
-  /**
-   * Returns the given mentions in the index-card JSON format, as one big string.
-   * All index cards are concatenated into a single JSON string.
-   */
-  override def toJSON (paperId:String,
-                       allMentions:Seq[Mention],
-                       paperPassages:Seq[FriesEntry],
-                       startTime:Date,
-                       endTime:Date,
-                       outFilePrefix:String): String = {
-    // index cards are generated here
-    val cards = mkCards(paperId, allMentions, startTime, endTime)
-    val uniModel:PropMap = new PropMap
-    uniModel("cards") = cards
-    writeJsonToString(uniModel)
-  }
 }
 
