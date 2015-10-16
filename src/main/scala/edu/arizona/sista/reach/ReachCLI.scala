@@ -172,7 +172,7 @@ object ReachCLI extends App {
 
     val outputter:JsonOutputter = outputType.toLowerCase match {
       case "fries" => new FriesOutput()
-      case "indexcards" => new IndexCardOutput()
+      case "indexcard" => new IndexCardOutput()
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase()} not yet supported!")
     }
     outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
