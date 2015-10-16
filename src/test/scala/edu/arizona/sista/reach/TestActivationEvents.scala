@@ -211,4 +211,21 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "ActivationEvent") should have size (2)
     hasPositiveActivation("ASPP1", "STAT1", mentions) should be(true)
   }
+
+  // test missing controller argument
+  val sent26 = "ERK phosphorylation in lysates from A375 expressing indicated ORFs following shRNA mediated C-RAF depletion (shCRAF)."
+  sent26 should "not contain a positive activation" in {
+    val mentions = parseSentence(sent26)
+    mentions.filter(_.label.contains("Positive_activation")) should have size (0)
+  }
+
+  // test normal controller argument
+  val sent27 = "Interacting proteins that facilitate FGFR3 mediated STAT1 activation could exist in cells."
+  sent27 should "contain 1 activation with a controller" in {
+    val mentions = parseSentence(sent27)
+    val activations = mentions.filter(_ matches "Positive_activation")
+    activations should have size (1)
+    activations.head.arguments("controller") should have size (1)
+  }
+
 }
