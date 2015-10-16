@@ -2,7 +2,6 @@ package edu.arizona.sista.reach
 
 import java.io.File
 import java.util.Date
-import edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput
 
 import scala.collection.JavaConverters._
 import scala.collection.mutable
@@ -13,6 +12,7 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
+import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.context.Context._

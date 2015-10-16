@@ -2,22 +2,43 @@ package edu.arizona.sista.reach.extern.export.indexcards
 
 import java.io.{FileWriter, BufferedWriter, PrintWriter, File}
 import java.util.Date
-import edu.arizona.sista.reach.nxml.FriesEntry
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.odin.{RelationMention, Mention}
-import edu.arizona.sista.reach.extern.export.JsonOutputter
-import org.json4s.native.Serialization
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+
+import org.json4s.native.Serialization
+
+import edu.arizona.sista.odin.{RelationMention, Mention}
+import edu.arizona.sista.reach.extern.export._
+import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.nxml.FriesEntry
 
 import JsonOutputter._
 
 /**
  * Defines classes and methods used to build and output the index card format.
- *   Written by Mihai Surdeanu. 8/27/2015.
+ *   Written by: Mihai Surdeanu. 8/27/2015.
+ *   Last Modified: Throw error on activation missing controller bug.
  */
 class IndexCardOutput extends JsonOutputter {
+
+  /**
+   * Returns the given mentions in the index-card JSON format, as one big string.
+   * All index cards are concatenated into a single JSON string.
+   */
+  override def toJSON (paperId:String,
+                       allMentions:Seq[Mention],
+                       paperPassages:Seq[FriesEntry],
+                       startTime:Date,
+                       endTime:Date,
+                       outFilePrefix:String): String = {
+    // index cards are generated here
+    val cards = mkCards(paperId, allMentions, startTime, endTime)
+    val uniModel:PropMap = new PropMap
+    uniModel("cards") = cards
+    writeJsonToString(uniModel)
+  }
+
   /**
    * Writes the given mentions to output files in Fries JSON format.
    * Separate output files are written for sentences, entities, and events.
@@ -54,39 +75,28 @@ class IndexCardOutput extends JsonOutputter {
 
   }
 
-  def mkIndexCardFileName(paperId:String, count:Int):String = s"$paperId-$ORGANIZATION-$RUN_ID-$count"
-
-  /** Convert the entire output data structure to JSON and write it to the given file. */
-  private def writeJsonToFile (model:PropMap, outFile:File) = {
-    val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
-    Serialization.writePretty(model, out)
-    out.println()                           // add final newline which serialization omits
-    out.flush()
-    out.close()
-  }
-
-  /** Creates index cards from all events read for this paper */
+  /**
+    * Creates annotations from all events read from this paper.
+    * This needs to be done in 2 passes:
+    *   1) save recursive events
+    *   2) save simple events that are not part of recursive events
+    */
   def mkCards(paperId:String,
               allMentions:Seq[Mention],
               startTime:Date,
               endTime:Date):Iterable[PropMap] = {
     val cards = new ListBuffer[PropMap]
 
-    //
-    // this needs to be done in 2 passes:
-    //   first, save recursive events
-    //   then, save simple events that are not part of recursive events
-    //
-
-    // keeps just events
-    val eventMentions = allMentions.filter(isEventMention)
+    // keeps events
+    val eventMentions = allMentions.filter(MentionManager.isEventMention)
     // println(s"Found ${eventMentions.size} events.")
+
     // keeps track of simple events that participate in regulations
     val simpleEventsInRegs = new mutable.HashSet[Mention]()
 
     // first, print all regulation events
     for(mention <- eventMentions) {
-      if (REGULATION_EVENTS.contains(mention.label)) {
+      if (MentionManager.REGULATION_EVENTS.contains(mention.label)) {
         val bioMention = mention.toBioMention
         val card = mkRegulationIndexCard(bioMention, simpleEventsInRegs)
         card.foreach(c => {
@@ -96,18 +106,12 @@ class IndexCardOutput extends JsonOutputter {
 
       }
     }
-    /*
-    println(s"controlled size: ${simpleEventsInRegs.size}")
-    for(e <- eventMentions) {
-      if(simpleEventsInRegs.contains(e)) {
-        println(s"Found ${e.label}")
-      }
-    }
-    */
 
     // now, print everything else that wasn't printed already
     for(mention <- eventMentions) {
-      if (! REGULATION_EVENTS.contains(mention.label) && ! simpleEventsInRegs.contains(mention)) {
+      if (! MentionManager.REGULATION_EVENTS.contains(mention.label) &&
+          ! simpleEventsInRegs.contains(mention))
+      {
         val bioMention = mention.toBioMention
         val card = mkIndexCard(mention.toBioMention)
         card.foreach(c => {
@@ -120,6 +124,7 @@ class IndexCardOutput extends JsonOutputter {
     cards.toList
   }
 
+  /** Main annotation dispatcher method. */
   def mkIndexCard(mention:BioMention):Option[PropMap] = {
     val eventType = mkEventType(mention.label)
     val f = new PropMap
@@ -141,6 +146,9 @@ class IndexCardOutput extends JsonOutputter {
     }
   }
 
+  /** Return a new filename for each card. */
+  def mkIndexCardFileName(paperId:String, count:Int):String = s"$paperId-$ORGANIZATION-$RUN_ID-$count"
+
   def mkArgument(arg:BioMention):Any = {
     val argType = mkArgType(arg)
     argType match {
@@ -155,7 +163,7 @@ class IndexCardOutput extends JsonOutputter {
     f("entity_text") = arg.text
     f("entity_type") = arg.displayLabel.toLowerCase
     if(arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
-    if(hasFeatures(arg)) f("features") = mkFeatures(arg)
+    if(MentionManager.hasFeatures(arg)) f("features") = mkFeatures(arg)
     // TODO: we do not compare against the model; assume everything is new
     f("in_model") = false
     f
@@ -227,10 +235,8 @@ class IndexCardOutput extends JsonOutputter {
   }
 
   def mkHedging(f:PropMap, mention:BioMention) {
-    if(isNegated(mention)) f("negative_information") = true
-    else f("negative_information") = false
-    if(isHypothesized(mention)) f("hypothesis_information") = true
-    else f("hypothesis_information") = false
+    f("negative_information") = MentionManager.isNegated(mention)
+    f("hypothesis_information") = MentionManager.isHypothesized(mention)
   }
 
   def mkContext(f:PropMap, mention:BioMention): Unit = {
@@ -272,10 +278,13 @@ class IndexCardOutput extends JsonOutputter {
   /** Creates a card for an activation event */
   def mkActivationIndexCard(mention:BioMention):Option[PropMap] = {
     val f = new PropMap
-    // a modification event will have exactly one controller and one controlled
-    f("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
+    // a modification event must have exactly one controller and one controlled
+    val controller = mention.arguments.get("controller")
+    if (!controller.isDefined)
+      throw new RuntimeException("ERROR: an activation event must have a controller argument!")
+    f("participant_a") = mkArgument(controller.get.head.toBioMention)
     f("participant_b") = mkArgument(mention.arguments.get("controlled").get.head.toBioMention)
-    if(mention.label == "Positive_activation")
+    if (mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
     else
       f("interaction_type") = "decreases_activity"
@@ -322,7 +331,7 @@ class IndexCardOutput extends JsonOutputter {
   def mkTranslocationIndexCard(mention:BioMention):Option[PropMap] = {
     val f = new PropMap
     f("interaction_type") = "translocates"
-    f("participant_b") = mention.arguments.get("theme").get.head
+    f("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
     if(mention.arguments.contains("source")) {
       addLocation(f, "from", mention.arguments.get("source").get.head.toBioMention)
     }
@@ -348,6 +357,8 @@ class IndexCardOutput extends JsonOutputter {
     f("reader_type") = "machine"
     f("reading_started") = startTime
     f("reading_complete") = endTime
+    if (mention.isInstanceOf[BioEventMention])
+      f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
     val ev = new StringList
     ev += mention.text
     f("evidence") = ev
@@ -355,37 +366,5 @@ class IndexCardOutput extends JsonOutputter {
     f("model_relation") = "extension"
   }
 
-  def startFrame(paperId:String, component:String):PropMap = {
-    val f = new PropMap
-    f("submitter") = component
-    f("score") = 0
-    f("pmc_id") = paperId.substring(3)
-    f("reader_type") = "machine"
-
-    f("object-type") = "frame"
-    val meta = new PropMap
-    meta("object-type") = "meta-info"
-    meta("component") = component
-    f("object-meta") = meta
-    f
-  }
-
-  /**
-   * Returns the given mentions in the index-card JSON format, as one big string.
-   * All index cards are concatenated into a single JSON string.
-   */
-  override def toJSON (paperId:String,
-                       allMentions:Seq[Mention],
-                       paperPassages:Seq[FriesEntry],
-                       startTime:Date,
-                       endTime:Date,
-                       outFilePrefix:String): String = {
-    // index cards are generated here
-    val cards = mkCards(paperId, allMentions, startTime, endTime)
-
-    val uniModel:PropMap = new PropMap
-    uniModel("cards") = cards
-    writeJsonToString(uniModel)
-  }
 }
 

@@ -2,16 +2,14 @@ package edu.arizona.sista.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-import edu.arizona.sista.reach.nxml.FriesEntry
-import edu.arizona.sista.reach.mentions.{PTM, Grounding}
-import edu.arizona.sista.reach.extern.export.IncrementingId
-import edu.arizona.sista.processors.Document
-
 import org.json4s.native.Serialization
+
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.display._
-import edu.arizona.sista.reach.extern.export.JsonOutputter
+import edu.arizona.sista.reach.extern.export._
+import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.nxml.FriesEntry
 
 import JsonOutputter._
 
@@ -21,7 +19,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Rename class and package.
+  *   Last Modified: Add trigger text to output.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -30,6 +28,7 @@ class FriesOutput extends JsonOutputter {
   protected val entityIdCntr = new IncrementingId()
   // incrementing ID for numbering event mentions
   protected val eventIdCntr = new IncrementingId()
+
 
   //
   // Public API:
@@ -186,11 +185,11 @@ class FriesOutput extends JsonOutputter {
     val eventMap = new IDed
 
     // keeps just events
-    val eventMentions = allMentions.filter(isEventMention)
+    val eventMentions = allMentions.filter(MentionManager.isEventMention)
 
     // first, print all non regulation events
     for(mention <- eventMentions) {
-      if(! REGULATION_EVENTS.contains(mention.label)) {
+      if(! MentionManager.REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -200,7 +199,7 @@ class FriesOutput extends JsonOutputter {
 
     // now, print all regulation events, which control the above events
     for(mention <- eventMentions) {
-      if(REGULATION_EVENTS.contains(mention.label)) {
+      if(MentionManager.REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -229,6 +228,8 @@ class FriesOutput extends JsonOutputter {
     f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
+    if (mention.isInstanceOf[BioEventMention])
+      f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
     f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 
@@ -252,9 +253,9 @@ class FriesOutput extends JsonOutputter {
     }
 
     // event modifications
-    if(isNegated(mention))
+    if(MentionManager.isNegated(mention))
       f("is-negated") = true
-    if(isHypothesized(mention))
+    if(MentionManager.isHypothesized(mention))
       f("is-hypothesis") = true
 
     mkContext(f, mention)
@@ -401,8 +402,8 @@ class FriesOutput extends JsonOutputter {
     sent("frame-type") = "sentence"
     sent("frame-id") = mkSentenceId(paperId, passageMeta, offset)
     sent("passage") = mkPassageId(paperId, passageMeta)
-    sent("start-pos") = mkRelativePosition(paperId, passageMeta, getSentenceStartCharacterOffset(passageDoc, offset))
-    sent("end-pos") = mkRelativePosition(paperId, passageMeta, getSentenceEndCharacterOffset(passageDoc, offset))
+    sent("start-pos") = mkRelativePosition(paperId, passageMeta, MentionManager.sentenceStartCharacterOffset(passageDoc, offset))
+    sent("end-pos") = mkRelativePosition(paperId, passageMeta, MentionManager.sentenceEndCharacterOffset(passageDoc, offset))
     sent("text") = passageDoc.sentences(offset).getSentenceText
     sent
   }
