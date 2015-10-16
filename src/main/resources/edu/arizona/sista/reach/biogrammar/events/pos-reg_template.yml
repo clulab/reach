@@ -194,7 +194,7 @@
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   action: ${ actionFlow }
   pattern: |
-    (@controller:${ controllerType })? (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:${ controlledType }
+    @controller:${ controllerType } (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:${ controlledType }
 
 
 - name: Positive_${ ruleType }_token_2_verb

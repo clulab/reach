@@ -179,11 +179,10 @@ class DarpaActions extends Actions {
     // retrieve regulations that overlap this mention
     regs = state.mentionsFor(activation.sentence, activation.tokenInterval, "Regulation")
     // Don't report an Activation if an intersecting Regulation has been detected
+    // or if the Activation has no controller
     // or if it's controller and controlled are not distinct
-    if regs.isEmpty && hasDistinctControllerControlled(activation)
+    if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
   } yield activation.arguments.get("controller") match {
-    // if activation has no controller, return activation unmodified
-    case None => activation
     // if activation has entity controller, return activation unmodified
     case Some(Seq(controller)) if controller.matches("Entity") => activation
     // activation has event controller
@@ -458,6 +457,12 @@ class DarpaActions extends Actions {
     else if (label startsWith "Negative_")
       "Positive_" + label.substring(9)
     else sys.error("ERROR: Must have a polarized label here!")
+
+
+  /** Test whether the given mention has a controller argument. */
+  def hasController(mention: Mention): Boolean = {
+    return mention.arguments.get("controlled").isDefined
+  }
 
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
