@@ -213,6 +213,8 @@ class DarpaActions extends Actions {
       (theme1s, theme2s) match {
         case (t1s, Nil) if t1s.length > 1 => mkBindingsFromPairs(t1s.combinations(2).toList, m)
         case (Nil, t2s) if t2s.length > 1 => mkBindingsFromPairs(t2s.combinations(2).toList, m)
+        case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
+        case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
         case (t1s, t2s) =>
           val pairs = for {
             t1 <- t1s
@@ -487,7 +489,7 @@ class DarpaActions extends Actions {
     * with a PTM for any other kind of SimpleEvent.
     */
   def convertEventToEntity(event: BioEventMention): Option[BioMention] = {
-    if (!event.matches("SimpleEvent")) {
+    if (!event.matches("SimpleEvent") || event.matches("Generic_event")) {
       // we only handle simple events
       None
     } else if (event matches "Binding") {

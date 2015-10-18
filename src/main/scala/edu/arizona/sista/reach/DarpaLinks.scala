@@ -9,8 +9,8 @@ import edu.arizona.sista.struct.Interval
 
 class DarpaLinks(doc: Document) extends Links {
 
-  val debug: Boolean = false
-  val verbose: Boolean = false
+  val debug: Boolean = true
+  val verbose: Boolean = true
   val defaultSelector: AntecedentSelector = new LinearSelector
 
   /**
@@ -28,7 +28,7 @@ class DarpaLinks(doc: Document) extends Links {
     sameText.foreach {
       case (ent, ms) =>
         ms.foldLeft(Set.empty: Set[Mention])((prev,curr) => {
-          curr.asInstanceOf[CorefMention].antecedents = curr.asInstanceOf[CorefMention].antecedents ++ prev
+          curr.antecedents ++= prev
           Set(curr)
         })
     }
@@ -51,7 +51,7 @@ class DarpaLinks(doc: Document) extends Links {
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[Mention])((prev,curr) => {
-          curr.asInstanceOf[CorefMention].antecedents = curr.asInstanceOf[CorefMention].antecedents ++ prev
+          curr.antecedents ++= prev
           Set(curr)
         })
     }
@@ -95,8 +95,8 @@ class DarpaLinks(doc: Document) extends Links {
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
       if (debug) ants.foreach{ant => println(s"${g.text} links to ${ant.text}")}
-      g.antecedents = g.antecedents ++ ants
-      g.sieves = g.sieves + "strictHeadMatch"
+      g.antecedents ++= ants
+      g.sieves += "strictHeadMatch"
     }
     mentions
   }
@@ -133,9 +133,9 @@ class DarpaLinks(doc: Document) extends Links {
             if (verbose) println(s"matched '${ants.map(_.text).mkString(", ,")}'")
             val gInState = mentions.find(m => g == m)
             if (gInState.isDefined) {
-              gInState.get.asInstanceOf[CorefTextBoundMention].antecedents = gInState.get.asInstanceOf[CorefTextBoundMention].antecedents ++ ants
-              excludeThese = excludeThese ++ ants
-              gInState.get.asInstanceOf[CorefTextBoundMention].sieves = gInState.get.asInstanceOf[CorefTextBoundMention].sieves + "pronominalMatch"
+              gInState.get.asInstanceOf[CorefTextBoundMention].antecedents ++= ants
+              excludeThese ++= ants
+              gInState.get.asInstanceOf[CorefTextBoundMention].sieves += "pronominalMatch"
             }
           }
         }

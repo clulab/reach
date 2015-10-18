@@ -9,6 +9,7 @@
 - PossibleController:
     - Event:
         - SimpleEvent:
+            - Generic_event
             - Phosphorylation
             - Ubiquitination
             - Hydroxylation
@@ -30,6 +31,7 @@
                 - Negative_activation
     - Entity:
         - BioChemicalEntity:
+            - Generic_entity
             - Family
             - Simple_chemical
             - MacroMolecule:

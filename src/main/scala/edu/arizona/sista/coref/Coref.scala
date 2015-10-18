@@ -10,8 +10,8 @@ import scala.annotation.tailrec
 
 class Coref {
 
-  val debug: Boolean = false
-  val verbose: Boolean = false
+  val debug: Boolean = true
+  val verbose: Boolean = true
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
 
@@ -34,17 +34,17 @@ class Coref {
       CorefFlow(links.strictHeadMatch) andThen
       CorefFlow(links.pronominalMatch)
 
-//    def unresolvedInside (m: CorefMention, lbls: Seq[String] = Seq("Unresolved")): Boolean = {
-//      @tailrec def unresolvedInsideRec(ms: Seq[CorefMention]): Boolean = {
-//        if (ms.exists(m => ((m matches "Generic_entity") || (m matches "Generic_event")) && lbls.exists(l => m matches l))) true
-//        else {
-//          val (tbs, others) = ms.partition(mention => mention.isInstanceOf[CorefTextBoundMention])
-//          if (others.isEmpty) false
-//          else unresolvedInsideRec(others.flatMap(_.arguments.values.flatten.map(_.toCorefMention)))
-//        }
-//      }
-//      unresolvedInsideRec(Seq(m))
-//    }
+    def genericInside (m: CorefMention): Boolean = {
+      @tailrec def unresolvedInsideRec(ms: Seq[CorefMention]): Boolean = {
+        if (ms.exists(m => (m matches "Generic_entity") || (m matches "Generic_event"))) true
+        else {
+          val (tbs, others) = ms.partition(mention => mention.isInstanceOf[CorefTextBoundMention])
+          if (others.isEmpty) false
+          else unresolvedInsideRec(others.flatMap(_.arguments.values.flatten.map(_.toCorefMention)))
+        }
+      }
+      m.isGeneric || unresolvedInsideRec(Seq(m))
+    }
 
     def argsComplete(args: Map[String,Seq[CorefMention]], lbls: Seq[String]): Boolean = {
       lbls match {
@@ -67,8 +67,16 @@ class Coref {
 
       val (generics, specifics) = evts.partition(m => m.isGeneric)
 
-      val specificMap = (for {
-        specific <- specifics
+      val (toInspect, solid) = specifics.partition(m => genericInside(m))
+
+      val solidMap = (for {
+        s <- solid
+      } yield {
+          s -> Seq(s)
+        }).toMap
+
+      val inspectedMap = (for {
+        specific <- toInspect
 
         resolvedArgs = for {
           (lbl, arg) <- specific.arguments
@@ -115,6 +123,8 @@ class Coref {
         specific -> value
       }).toMap
 
+      val specificMap = solidMap ++ inspectedMap
+
       val genericMap = (for {
         generic <- generics
       } yield {
@@ -145,9 +155,12 @@ class Coref {
       } yield Seq(Seq(ant), nxt.toSeq).flatten))
     }
 
-    def combineArgs(args: Map[String, Seq[CorefMention]], numThemes: Int = 1): Seq[Map[String, Seq[CorefMention]]] = {
-      @tailrec
+    def combineArgs(argRaw: Map[String, Seq[CorefMention]], numThemes: Int = 1): Seq[Map[String, Seq[CorefMention]]] = {
+      val args = argRaw.filterKeys(k => argRaw(k).nonEmpty)
       val stableKeys = args.keys.toSeq
+
+      println(stableKeys.mkString(","))
+
       def sum(xs: Seq[Int]): Int = {
         @tailrec
         def inner(xs: List[Int], accum: Int): Int = {
@@ -169,6 +182,7 @@ class Coref {
         Seq(-1)
       }
       def oneIteration(iteration: Seq[Int], sofar: Seq[Map[String, Seq[CorefMention]]], numThemes: Int): Seq[Map[String, Seq[CorefMention]]] = {
+        println(iteration.mkString(","))
         iteration match {
           case end if sum(iteration) < 0 => sofar
           case _ => {
@@ -187,20 +201,31 @@ class Coref {
     def resolveComplexEvents(evts: Seq[CorefMention], resolved: Map[CorefMention,Seq[CorefMention]]): Map[CorefMention, Seq[CorefMention]] = {
       require(evts.forall(_.matches("ComplexEvent")))
 
-      val complexMap = (for {
+      val (toInspect, solid) = evts.partition(m => genericInside(m))
+
+      val solidMap = (for {
+        s <- solid
+      } yield {
+          println(s"solid: ${s.text}")
+          s -> Seq(s)
+        }).toMap
+
+      toInspect.foreach(s => println(s"toInspect: ${s.text}"))
+
+      val inspectedMap = (for {
         evt <- evts
 
         resolvedArgs = for {
           (lbl, arg) <- evt match {
-            case rel: CorefRelationMention => evt.asInstanceOf[CorefRelationMention].arguments
-            case evm: CorefEventMention => evt.asInstanceOf[CorefEventMention].arguments
+            case rel: CorefRelationMention => rel.arguments
+            case evm: CorefEventMention => evm.arguments
           }
           argMs = arg.map(m => resolved.getOrElse(m.asInstanceOf[CorefMention], Nil))
         } yield lbl -> argMs.flatten
 
         argSets = combineArgs(resolvedArgs)
       } yield {
-          val argsl = evt match {
+          evt match {
             case rel: CorefRelationMention => evt.asInstanceOf[CorefRelationMention].arguments
             case evm: CorefEventMention => evt.asInstanceOf[CorefEventMention].arguments
           }
@@ -244,7 +269,7 @@ class Coref {
           //println(s"${evt.text} => (" + value.map(_.text).mkString(", ") + ")")
           evt -> value
         }).toMap
-      complexMap
+      solidMap ++ inspectedMap
     }
 
     def resolve(mentions: Seq[CorefMention]): Seq[CorefMention] = {
