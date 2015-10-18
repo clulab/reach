@@ -177,7 +177,9 @@ class DarpaLinks(doc: Document) extends Links {
     subgraph(Interval(npHead),sent).getOrElse(mention.tokenInterval)
   }
 
-  def isPronominal(mention: Mention): Boolean = detMap.contains(mention.text) || headMap.contains(mention.text)
+  def isPronominal(mention: Mention): Boolean = {
+    (detMap.contains(mention.text) || headMap.contains(mention.text)) && mention.isInstanceOf[CorefTextBoundMention]
+  }
 
   final val themeMap = Map(
     "Binding" -> 2,
