@@ -19,7 +19,7 @@ class DarpaLinks(doc: Document) extends Links {
    * @param mentions All mentions
    * @return The same mentions but with new links (antecedents) added
    */
-  def exactStringMatch (mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+  def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] && !x.asInstanceOf[CorefTextBoundMention].isGeneric)
@@ -27,7 +27,7 @@ class DarpaLinks(doc: Document) extends Links {
       .filter(_._2.toSeq.length > 1)
     sameText.foreach {
       case (ent, ms) =>
-        ms.foldLeft(Set.empty: Set[Mention])((prev,curr) => {
+        ms.foldLeft(Set.empty: Set[Mention])((prev, curr) => {
           if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
           curr.antecedents ++= prev
           Set(curr)
@@ -51,7 +51,7 @@ class DarpaLinks(doc: Document) extends Links {
       .groupBy(m => m.asInstanceOf[CorefTextBoundMention].xref.get.id)
     sameGrounding.foreach {
       case (gr, ms) =>
-        ms.foldLeft(Set.empty: Set[Mention])((prev,curr) => {
+        ms.foldLeft(Set.empty: Set[Mention])((prev, curr) => {
           if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
           curr.antecedents ++= prev
           Set(curr)
@@ -83,86 +83,120 @@ class DarpaLinks(doc: Document) extends Links {
       val hd = doc.sentences(g.sentence)
         .words(findHeadStrict(gExpanded, doc.sentences(g.sentence)).getOrElse(g.tokenInterval.end - 1)).toLowerCase
       if (verbose) println(s"Searching for antecedents to '${g.text}' expanded to " +
-        s"'${doc.sentences(g.sentence).words.slice(gExpanded.start,gExpanded.end).mkString(" ")}' with head '$hd'")
+        s"'${doc.sentences(g.sentence).words.slice(gExpanded.start, gExpanded.end).mkString(" ")}' with head '$hd'")
       // what other tbms have this same head?
-      val cands = tbms.filter{m =>
+      val cands = tbms.filter { m =>
         val mExpanded = expand(m)
-        val wdsExpanded = m.sentenceObj.words.slice(mExpanded.start,mExpanded.end).toSeq
+        val wdsExpanded = m.sentenceObj.words.slice(mExpanded.start, mExpanded.end).toSeq
         wdsExpanded.contains(hd) &&
           !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence)) &&
-          m.precedes(g)}
+          m.precedes(g)
+      }
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
-      if (debug) ants.foreach{ant => println(s"${g.text} links to ${ant.text}")}
+      if (debug) ants.foreach { ant => println(s"${g.text} links to ${ant.text}") }
       g.antecedents ++= ants
       g.sieves += "strictHeadMatch"
     }
     mentions
   }
 
+  /**
+   * Match two mentions where the latter mention is a closed-class anaphor, matching number
+   * @param mentions All mentions
+   * @return The same mentions but with new links (antecedents) added.
+   */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     hasArgs.foreach {
-        case pronominal if pronominal.arguments.values.flatten.exists(arg => isPronominal(arg)) => {
-          // separate the arguments into pronominal and non-pronominal
-          val proMap = pronominal.arguments.map(args => args._1 -> args._2.partition(arg => isPronominal(arg)))
-          // exclude all the arguments of this event, plus this event itself,
-          // plus all the arguments of any events that have this event as an argument
-          var excludeThese = pronominal.arguments.values.flatten.toSeq ++
-            Seq(pronominal) ++
-            hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten
-          if (verbose) proMap.foreach(kv =>
-            println(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals (${kv._2._2.map(_.text).mkString(", ")})"))
-          proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach{ kv =>
-            val (lbl, g) = kv
-            if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'","', '","'")}")
-            val card = cardinality(g)
-            val cands = lbl match {
-              case "controlled" => mentions.filter { m =>
-                !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
-              }
-              case "controller" => mentions.filter { m =>
-                !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
-              }
-              case _ => tbms.filter { m =>
-                !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
-              }
+      case pronominal if pronominal.arguments.values.flatten.exists(arg => isPronominal(arg)) => {
+        // separate the arguments into pronominal and non-pronominal
+        val proMap = pronominal.arguments.map(args => args._1 -> args._2.partition(arg => isPronominal(arg)))
+        // exclude all the arguments of this event, plus this event itself,
+        // plus all the arguments of any events that have this event as an argument
+        var excludeThese = pronominal.arguments.values.flatten.toSeq ++
+          Seq(pronominal) ++
+          hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten
+        if (verbose) proMap.foreach(kv =>
+          println(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals (${kv._2._2.map(_.text).mkString(", ")})"))
+
+        // look at each matching generic argument in turn, in textual order
+        proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach { kv =>
+          val (lbl, g) = kv
+          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+
+          // look for the right number of antecedents
+          val card = cardinality(g)
+          val cands = lbl match {
+            // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
+            case "controlled" => mentions.filter { m =>
+              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
             }
-            if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
-            val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
-            if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
-            val gInState = mentions.find(m => g == m)
-            if (gInState.isDefined) {
-              gInState.get.antecedents ++= ants
-              excludeThese ++= ants
-              pronominal.sieves += "pronominalMatch"
+            case "controller" => mentions.filter { m =>
+              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+            }
+            case _ => tbms.filter { m =>
+              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
             }
           }
+          if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+
+          // apply selector to candidates
+          val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
+          if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
+
+          // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
+          // trying to link the two
+          val gInState = mentions.find(m => g == m)
+          if (gInState.isDefined) {
+            // Mark the anaphor as having the selected antecedent
+            gInState.get.antecedents ++= ants
+            // Make sure we don't link to the same antecedent for other arguments to this event
+            excludeThese ++= ants
+            pronominal.sieves += "pronominalMatch"
+          }
         }
-        case _ => ()
       }
+      case _ => ()
+    }
     mentions
   }
 
-  def nounPhraseMatch(mentions:Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+  /**
+   * Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.
+   * 'this protein' is known to have the label 'Protein'
+   * @param mentions All mentions
+   * @return The same mentions but with new links (antecedents) added.
+   */
+  def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Noun phrase matching=====\n")
+
+    // only apply this matcher to arguments to events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
+
     hasArgs.foreach {
       case np if np.arguments.values.flatten.exists(arg => isGenericNounPhrase(arg)) => {
+
         // separate the arguments into generic noun phrases and others
         val npMap = np.arguments.map(args => args._1 -> args._2.partition(arg => isGenericNounPhrase(arg)))
+
         // exclude all the arguments of this event, plus this event itself,
         // plus all the arguments of any events that have this event as an argument
         var excludeThese = np.arguments.values.flatten.toSeq ++
           Seq(np) ++
           hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(np)).flatMap(_.arguments.values).flatten
-        npMap.flatMap(npm => npm._2._1.map(v => (npm._1, v))).toSeq.sortBy(x => x._2).foreach{ kv =>
+
+        // look at each matching generic argument in turn, in textual order
+        npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
           val (lbl, g) = kv
-          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'","', '","'")}")
+          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+
+          // Look for the right number of antecedents
           val card = cardinality(g)
           val cands = lbl match {
+            // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
             case "controlled" => mentions.filter { m =>
               !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
@@ -177,11 +211,18 @@ class DarpaLinks(doc: Document) extends Links {
             }
           }
           if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+
+          // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
           if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
+
+          // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
+          // trying to link the two
           val gInState = mentions.find(m => g == m)
           if (gInState.isDefined) {
+            // Mark the anaphor as having the selected antecedent
             gInState.get.antecedents ++= ants
+            // Make sure we don't link to the same antecedent for other arguments to this event
             excludeThese ++= ants
             np.sieves += "nounPhraseMatch"
           }
@@ -193,6 +234,9 @@ class DarpaLinks(doc: Document) extends Links {
     mentions
   }
 
+  /**
+   * Are all the words (minus stopwords) in the obj mention also in the subj mention?
+   */
   def includes(subj: CorefMention, obj: CorefMention): Boolean = {
     val stopWords = Set(
       "the",
@@ -202,6 +246,9 @@ class DarpaLinks(doc: Document) extends Links {
     (obj.words.toSet - stopWords - subj.words.toSet).isEmpty
   }
 
+  /**
+   * From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
+   */
   def expand(mention: Mention): Interval = {
     val sent = doc.sentences(mention.sentence)
     val graph = sent.dependencies.getOrElse(return mention.tokenInterval)
@@ -213,7 +260,7 @@ class DarpaLinks(doc: Document) extends Links {
     var searchingHead = true
 
     // keep traversing incomingEdges until you reach the head of the NP
-    while(searchingHead) {
+    while (searchingHead) {
       val newHead = try {
         graph.getIncomingEdges(npHead).find(edge => edge._2 == "nn")
       } catch {
@@ -223,13 +270,19 @@ class DarpaLinks(doc: Document) extends Links {
       else searchingHead = false
     }
 
-    subgraph(Interval(npHead),sent).getOrElse(mention.tokenInterval)
+    subgraph(Interval(npHead), sent).getOrElse(mention.tokenInterval)
   }
 
+  /**
+   * Is this mention a pronoun or other closed-class anaphor?
+   */
   def isPronominal(mention: Mention): Boolean = {
     (detMap.contains(mention.text) || headMap.contains(mention.text)) && mention.isInstanceOf[CorefTextBoundMention]
   }
 
+  /**
+   * Is this mention a generic noun phrase that isn't a pronoun or other closed-class anaphor?
+   */
   def isGenericNounPhrase(mention: Mention): Boolean = {
     mention.isInstanceOf[CorefTextBoundMention] && mention.asInstanceOf[CorefMention].isGeneric && !isPronominal(mention)
   }
@@ -256,7 +309,7 @@ class DarpaLinks(doc: Document) extends Links {
 
   // crucial: pass lemma so plurality isn't a concern
   def themeCardinality(eventLemma: String): Int = {
-    themeMap.getOrElse(eventLemma,1)
+    themeMap.getOrElse(eventLemma, 1)
   }
 
   // generic antecedent matching with number approximation
@@ -291,6 +344,9 @@ class DarpaLinks(doc: Document) extends Links {
     "three" -> 3
   )
 
+  /**
+   * Return the cardinality of a phrase based on its determiners
+   */
   def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
     require(words.length == tags.length)
     val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
@@ -302,17 +358,21 @@ class DarpaLinks(doc: Document) extends Links {
     detMap.getOrElse(somenum, finalAttempt(somenum))
   }
 
+  /**
+   * Return the cardinality of a phrase based on its head -- is it plural?
+   */
   def headCardinality(somenum: String, tag: String): Int = {
     tag match {
-      case "PRP" | "PRP$" => headMap.getOrElse(somenum,0)
+      case "PRP" | "PRP$" => headMap.getOrElse(somenum, 0)
       case "NNS" | "NNPS" => 2
       case "NN" | "NNP" => 1
-      case _ => headMap.getOrElse(somenum,1)
+      case _ => headMap.getOrElse(somenum, 1)
     }
   }
 
-  //displayMentions(orderedMentions, doc)
-
+  /**
+   * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
+   */
   def cardinality(m: Mention): Int = {
     val sent = doc.sentences(m.sentence)
     val mhead = findHeadStrict(m.tokenInterval, sent).getOrElse(m.tokenInterval.start)
@@ -332,7 +392,7 @@ class DarpaLinks(doc: Document) extends Links {
    * @param mentions A Sequence of mentions to compare
    * @return boolean True if all mentions share a single grounding id
    */
-  def sameEntityID(mentions:Seq[Mention]): Boolean = {
+  def sameEntityID(mentions: Seq[Mention]): Boolean = {
     val groundings =
       mentions
         .map(_.toBioMention)
@@ -344,519 +404,4 @@ class DarpaLinks(doc: Document) extends Links {
     groundings.size == 1
   }
 
-/**
-  if (debug) println("\n=====Match entities by determiner/pronoun anaphor cardinality=====")
-  // travel in order through the event mentions in the document, trying to match the right number of arguments to each
-  for(mention <- orderedMentions) {
-    createByCardinality(mention, Seq("PRP","DT"))
-  }
-
-  if (keepAll) {
-    results = results :+ (for {
-      m <- orderedMentions
-    } yield resolve(m)).flatten.sorted
-  }
-
-  if (debug) println("\n=====Match entities by noun phrase anaphor cardinality=====")
-  // travel in order through the event mentions in the document, trying to match the right number of arguments to each
-  for(mention <- orderedMentions) {
-    createByCardinality(mention, Seq("NP"))
-  }
-
-  if (keepAll) {
-    results = results :+ (for {
-      m <- orderedMentions
-    } yield resolve(m)).flatten.sorted
-  }
-
-
-  def createByCardinality(mention: Mention, labelsToExamine: Seq[String] = Seq("PRP")): Seq[Mention] = {
-
-    if (alreadySplit contains mention) return alreadySplit(mention)
-
-    mention match {
-
-      // bindings need two themes each, but sometimes more than two are mentioned, in which case we
-      // need an exhaustive combination of all the bindings from theme1(s) to theme2(s)
-      case binding: BioEventMention if binding.matches("Binding") && unresolvedInside(binding) =>
-
-        if (debug) println(s"Checking numerosity of binding BioEventMention '${binding.text}' themes...")
-
-        val firstBindingArgWithThisTrigger = initialMentions
-          .filter(m => m matches "Binding")
-          .groupBy(m => m.asInstanceOf[BioEventMention].trigger)(binding.trigger)
-          .flatMap(m => lookInside(Seq(m)))
-          .distinct
-          .sorted
-          .head
-
-        // this gnarly thing returns BioChemicalEntities that are grounded, aren't already arguments in this event,
-        // and aren't controllers of a regulation that has this event as a controlled
-        val priors = orderedMentions.slice(0, orderedMentions.indexOf(firstBindingArgWithThisTrigger))
-          .filter(x => x.isInstanceOf[BioTextBoundMention] &&
-          (x.sentence == binding.sentence || binding.sentence - x.sentence == 1) &&
-          !x.matches("Unresolved") &&
-          x.matches("BioChemicalEntity") &&
-          doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
-          !binding.arguments.getOrElse("theme1", Nil).contains(x) &&
-          !binding.arguments.getOrElse("theme2", Nil).contains(x) &&
-          !chains.keys.exists(y => y.matches("ComplexEvent") &&
-            y.arguments.getOrElse("controller", Nil).contains(x) &&
-            y.arguments.getOrElse("controlled", Nil).contains(binding)))
-
-        if (debug) {
-          print("PRIORS: ")
-          for (p <- priors) print(s"${p.text}, ")
-          println
-        }
-
-        val theme1s: Seq[Mention] = binding.arguments.getOrElse("theme1", Nil)
-        val theme2s: Seq[Mention] = binding.arguments.getOrElse("theme2", Nil)
-
-        if (theme1s.isEmpty && theme2s.isEmpty) return Nil
-
-        // keeps track of antecedents found so far, so they won't be reused
-        var antecedents: Seq[Mention] = Nil
-
-        // look right to left through previous BioChemicalEntities; start with theme2(s) since we assume these appear
-        // later than theme1(s)
-        // FIXME: 'them' should prefer closely associated antecedents for plurals, e.g. "Ras and Mek", so we don't make an error on "Even more than Ras and Mek, ASPP2 is common, and so is its binding to them."
-        val t2Ants: Seq[Mention] = (for {
-          m <- theme2s
-        } yield {
-            val themes = m match {
-              case unres if unres.matches("Unresolved") =>
-                // exclude previously used antecedents
-                val validPriors = priors.filter(x => !antecedents.contains(x))
-                val num = cardinality(unres)
-
-                if (debug) println(s"Theme2 ${m.text} cardinality: $num")
-
-                validPriors match {
-                  case noneFound if noneFound.isEmpty => Nil
-                  case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Nil))((a, foundThemes) => {
-                    val numToAdd = cardinality(a)
-
-                    foundThemes match {
-                      case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
-                      case _ => foundThemes
-                    }
-                  })._2
-                }
-              case _ => Seq(m)
-            }
-            antecedents ++= themes
-            themes
-          }).flatten
-
-        val t1Ants = (for {
-          m <- theme1s
-        } yield {
-            val themes = m match {
-              case unres if unres.matches("Unresolved") =>
-                // exclude previously used antecedents
-                val validPriors = priors.filter(x => !antecedents.contains(x))
-                val num = cardinality(unres)
-
-                if (debug) println(s"Theme2 ${m.text} cardinality: $num")
-
-                validPriors match {
-                  case noneFound if noneFound.isEmpty => Nil
-                  case _ => validPriors.foldRight[(Int, Seq[Mention])]((0, Nil))((a, foundThemes) => {
-                    val numToAdd = cardinality(a)
-                    foundThemes match {
-                      case stillRoom if foundThemes._1 + numToAdd <= num => (foundThemes._1 + numToAdd, foundThemes._2 :+ a)
-                      case _ => foundThemes
-                    }
-                  }
-                  )._2
-                }
-
-              case _ => Seq(m)
-            }
-            antecedents ++= themes
-            themes
-          }).flatten
-
-        if (debug) {
-          print("Theme1 antecedents: ")
-          t1Ants.foreach(m => print(s"${m.text},"))
-          println
-          print("Theme2 antecedents: ")
-          t2Ants.foreach(m => print(s"${m.text},"))
-          println
-        }
-
-        // Basically the same as mkBinding in DarpaActions
-        val newBindings: Seq[Mention] = (t1Ants, t2Ants) match {
-          case (t1s, t2s) if t1Ants.isEmpty && t2Ants.isEmpty => Nil
-          case (t1s, t2s) if theme1s.isEmpty || theme2s.isEmpty =>
-            val mergedThemes = (t1s ++ t2s)
-            (for {pair <- mergedThemes.combinations(2)} yield {
-              val splitBinding = new BioEventMention(
-                binding.labels, binding.trigger, Map("theme" -> Seq(pair.head, pair.last)), binding.sentence, doc, binding.keep, binding.foundBy + ",corefCardinality"
-              )
-              splitBinding.modifications ++= binding.asInstanceOf[BioEventMention].modifications
-              splitBinding.mutableTokenInterval = binding.tokenInterval
-              splitBinding
-            }).toSeq
-          case _ => {
-            for {
-              theme1 <- t1Ants
-              theme2 <- t2Ants
-              if !sameEntityID(Seq(theme1, theme2))
-            } yield {
-              if (theme1.text.toLowerCase == "ubiquitin") {
-                val args = Map("theme" -> Seq(theme2))
-                val ubiq = new BioEventMention(
-                  "Ubiquitination" +: binding.labels.filter(_ != "Binding"), binding.trigger, args, binding.sentence, doc, binding.keep, binding.foundBy + ",corefCardinality")
-                ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                ubiq.mutableTokenInterval = mention.tokenInterval
-                ubiq
-              } else if (theme2.text.toLowerCase == "ubiquitin") {
-                val args = Map("theme" -> Seq(theme1))
-                val ubiq = new BioEventMention(
-                  "Ubiquitination" +: binding.labels.filter(_ != "Binding"), binding.trigger, args, binding.sentence, doc, binding.keep, binding.foundBy + ",corefCardinality")
-                ubiq.modifications ++= mention.asInstanceOf[BioEventMention].modifications
-                ubiq.mutableTokenInterval = mention.tokenInterval
-                ubiq
-              }
-              else {
-                val args = Map("theme" -> Seq(theme1, theme2))
-                val splitBinding = new BioEventMention(
-                  binding.labels, binding.trigger, args, binding.sentence, doc, binding.keep, binding.foundBy + ",corefCardinalityBinding")
-                splitBinding.modifications ++= binding.asInstanceOf[BioEventMention].modifications
-                splitBinding.mutableTokenInterval = binding.tokenInterval
-                splitBinding
-              }
-            }
-          }
-        }
-
-        if (debug) println(s"Number of new bindings: ${newBindings.toSeq.length}")
-
-        val distinctBindings = newBindings.filter(x => !chains.keys.exists(y => y.arguments == x.arguments &&
-          y.labels == x.labels &&
-          y.asInstanceOf[EventMention].trigger == x.asInstanceOf[EventMention].trigger))
-
-        if (newBindings.isEmpty && chains.contains(binding)) {
-          orderedMentions -= binding
-          chains(binding).foreach(link => chains(link) = chains(link).filter(_ != binding))
-          chains -= binding
-        } else if (!distinctBindings.isEmpty) {
-          // replace current binding with new bindings in the ordered mentions and in the chain map
-          orderedMentions = (orderedMentions - binding ++ distinctBindings).sorted
-          val newChain = (chains(binding).filter(_ != binding) ++ distinctBindings).sorted
-          for (link <- chains(binding)) {
-            chains(link) = newChain
-          }
-          for (link <- distinctBindings) {
-            chains(link) = newChain
-          }
-          if (chains contains binding) chains -= binding
-        }
-
-        alreadySplit += (binding -> distinctBindings)
-
-        distinctBindings
-
-      case reg: BioEventMention if reg.matches("ComplexEvent") && unresolvedInside(reg) =>
-
-        // Non-cause regulations (that is, regulations with a trigger) with multiple antecedents are invalid
-        //if (reg.isInstanceOf[BioEventMention] &&
-        //  reg.arguments.flatMap(_._2).filter(m => m.matches("Unresolved")).map(m => cardinality(m)).sum > 1) return Nil
-
-        if (debug) println(s"Checking numerosity of ComplexEvent '${reg.text}' arguments...")
-
-        val firstRegArgWithThisTrigger = initialMentions
-          .filter(m => m matches "ComplexEvent")
-          .groupBy(m => m.asInstanceOf[BioEventMention].trigger)(reg.trigger)
-          .flatMap(m => lookInside(Seq(m)))
-          .distinct
-          .sorted
-          .head
-
-        var antecedents: Seq[Mention] = Nil
-
-        val foundControlleds = reg.arguments.getOrElse("controlled", Nil) match {
-          case unres if unres.exists(m => m matches "Unresolved") =>
-
-            // this gnarly thing ensures that we only look at possible controllers that don't themselves control this
-            // regulation in this or the prior sentence
-            val priors =
-              orderedMentions.slice(0, orderedMentions.indexOf(firstRegArgWithThisTrigger)) filter (x => !x.matches("Unresolved") &&
-                (reg.sentence == x.sentence || (reg.sentence - x.sentence == 1)) &&
-                doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
-                !antecedents.contains(x) &&
-                x.asInstanceOf[BioMention].matches("PossibleControlled") &&
-                !reg.arguments.getOrElse("controller", Nil).contains(x))
-
-            if (debug) println(s"Controlled priors: $priors")
-
-            if (priors.isEmpty) {
-              Nil
-            } else {
-              val ants = (for {
-                p <- priors.takeRight(math.min(cardinality(unres.head), priors.length))
-              } yield createByCardinality(p)).flatten
-              antecedents ++= ants
-              ants
-            }
-          case res => (for (m <- res) yield createByCardinality(m)).flatten
-        }
-
-        val foundControllers = reg.arguments.getOrElse("controller", Nil) match {
-          case unres if unres.exists(m => m matches "Unresolved") =>
-            // this gnarly thing ensures that we only look at possible controllers that don't themselves control this
-            // regulation in this or the prior sentence
-            val priors =
-              orderedMentions.slice(0, orderedMentions.indexOf(firstRegArgWithThisTrigger)) filter (x => !x.matches("Unresolved") &&
-                (reg.sentence == x.sentence || (reg.sentence - x.sentence == 1)) &&
-                doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
-                !antecedents.contains(x) &&
-                x.asInstanceOf[BioMention].matches("PossibleController") &&
-                !reg.arguments.getOrElse("controlled", Nil).contains(x))
-
-            if (debug) println(s"Controller priors: $priors")
-
-            if (priors.isEmpty) Nil
-            else {
-              val ants = (for {
-                p <- priors.takeRight(math.min(cardinality(unres.head), priors.length))
-              } yield createByCardinality(p)).flatten
-              antecedents ++= ants
-              ants
-            }
-
-          case res => (for (m <- res) yield createByCardinality(m)).flatten
-        }
-
-        if (debug) {
-          println(s"Number of controllers: ${foundControllers.length}")
-          println(s"Number of controlleds: ${foundControlleds.length}")
-        }
-
-        val newRegs = foundControllers.length match {
-          case some if some > 0 =>
-            for {
-              d <- foundControlleds
-            } yield {
-              val newReg = reg match {
-                case reg: BioEventMention =>
-                  val ev = new BioEventMention(reg.labels, reg.asInstanceOf[BioEventMention].trigger,
-                    Map("controlled" -> Seq(d)), reg.sentence, doc, reg.keep, reg.foundBy + ",corefCardinality")
-                  ev.modifications ++= reg.modifications
-                  ev.mutableTokenInterval = reg.tokenInterval
-                  ev
-              }
-              newReg
-            }
-          case _ =>
-            for {
-              r <- foundControllers
-              d <- foundControlleds
-              if r != d
-            } yield {
-              val newReg = reg match {
-                case reg: BioEventMention =>
-                  val ev = new BioEventMention(reg.labels, reg.asInstanceOf[BioEventMention].trigger,
-                    Map("controller" -> Seq(r), "controlled" -> Seq(d)), reg.sentence, doc, reg.keep, reg.foundBy + ",corefCardinalityReg")
-                  ev.modifications ++= reg.modifications
-                  ev.mutableTokenInterval = reg.tokenInterval
-                  ev
-              }
-              newReg
-            }
-        }
-
-        if (debug) println(s"Length of newRegs: ${newRegs.length}")
-
-        if (newRegs.isEmpty && chains.contains(reg)) {
-          orderedMentions -= reg
-          chains(reg).foreach(link => chains(link) = chains(link).filter(_ != reg))
-          chains -= reg
-        } else if (!newRegs.forall(m => chains.contains(m))) {
-          // replace current reg with new regs in the ordered mentions and in the chain map
-          orderedMentions = (orderedMentions - reg ++ newRegs).sorted
-          val newChain = (if (chains contains reg) {
-            val chain = (chains(reg).filter(_ != reg) ++ newRegs).sorted
-            chains -= reg
-            chain
-          } else {
-            newRegs
-          }).sorted
-          for (link <- newChain) {
-            chains(link) = newChain
-          }
-        }
-
-        alreadySplit += (reg -> newRegs)
-
-        newRegs
-
-      case ev: BioEventMention if (ev.arguments.getOrElse("cause", Nil) ++ ev.arguments.getOrElse("theme", Nil))
-        .exists(arg => arg matches "Unresolved") =>
-
-        if (debug) println(s"Checking numerosity of non-binding BioEventMention '${ev.text}' themes and causes...")
-
-        val firstEvArgWithThisTrigger = initialMentions
-          .filter(m => m matches ev.label)
-          .groupBy(m => m.asInstanceOf[BioEventMention].trigger)(ev.trigger)
-          .flatMap(m => lookInside(Seq(m)))
-          .distinct
-          .sorted
-          .head
-
-        if (debug) println(s"First event argument with this trigger: ${displayMention(firstEvArgWithThisTrigger)}")
-
-        var antecedents: Seq[Mention] = Nil
-        val foundThemes = (for {
-          m <- ev.arguments("theme").filter(thm => thm.matches("Unresolved"))
-          priors = (orderedMentions.slice(0, orderedMentions.indexOf(firstEvArgWithThisTrigger))
-            filter (x => x.isInstanceOf[BioTextBoundMention] &&
-            (x.sentence == m.sentence || m.sentence - x.sentence == 1) &&
-            !x.matches("Unresolved") &&
-            x.matches(m.labels(1)) &&
-            doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
-            !antecedents.contains(x) &&
-            !chains.keys.exists(y => y.matches("ComplexEvent") &&
-              y.arguments.getOrElse("controller", Nil).contains(x) &&
-              y.arguments.getOrElse("controlled", Nil).contains(ev)))).distinct
-
-          brk1 = breakable {
-            if (priors.isEmpty) break()
-          }
-
-          num = cardinality(m)
-
-          themes = priors.takeRight(math.min(num, priors.length))
-          if themes.combinations(2).forall(pair => !sameEntityID(pair))
-        } yield {
-            antecedents ++= themes
-            themes
-          }).flatten ++ ev.arguments("theme").filter(thm => !thm.matches("Unresolved"))
-
-        val foundCauses = (for {
-          m <- ev.arguments.getOrElse("cause", Nil).filter(cau => cau.matches("Unresolved"))
-          priors = (orderedMentions.slice(0, orderedMentions.indexOf(firstEvArgWithThisTrigger))
-            filter (x => x.isInstanceOf[BioTextBoundMention] &&
-            (x.sentence == m.sentence || m.sentence - x.sentence == 1) &&
-            !x.matches("Unresolved") &&
-            x.matches(m.labels(1)) &&
-            doc.sentences(x.sentence).tags.getOrElse(Array())(findHeadStrict(x.tokenInterval, doc.sentences(x.sentence)).get).drop(1) == "N" &&
-            !antecedents.contains(x) &&
-            !chains.keys.exists(y => y.matches("ComplexEvent") &&
-              y.arguments.getOrElse("controller", Nil).contains(x) &&
-              y.arguments.getOrElse("controlled", Nil).contains(ev)))).distinct
-
-          brk1 = breakable {
-            if (priors.isEmpty) break()
-          }
-
-          num = cardinality(m)
-
-          causes = priors.takeRight(math.min(num, priors.length))
-          if causes.combinations(2).forall(pair => !sameEntityID(pair))
-        } yield {
-            antecedents ++= causes
-            causes
-          }).flatten ++ ev.arguments.getOrElse("cause",Nil).filter(cau => !cau.matches("Unresolved"))
-
-        val newEvs: Seq[BioEventMention] = (for {
-          t <- foundThemes
-          c <- if (foundCauses.nonEmpty) foundCauses else Seq(ev.trigger)
-        } yield {
-            c match {
-              case ev.trigger =>
-                val newEv =
-                  new BioEventMention(
-                    ev.labels,
-                    ev.trigger,
-                    ev.arguments - "theme" + ("theme" -> Seq(t)),
-                    ev.sentence,
-                    doc,
-                    ev.keep,
-                    ev.foundBy + ",corefCardinalitySimpleEvent")
-                newEv.modifications ++= ev.modifications
-                newEv.mutableTokenInterval = ev.mutableTokenInterval
-                newEv
-              case _ =>
-                val newEv =
-                  new BioEventMention(
-                    ev.labels,
-                    ev.trigger,
-                    ((ev.arguments - "theme") - "cause") ++ Map("theme" -> Seq(t), "cause" -> Seq(c)),
-                    ev.sentence,
-                    doc,
-                    ev.keep,
-                    ev.foundBy + ",corefCardinalitySimpleEvent")
-                newEv.modifications ++= ev.modifications
-                newEv.mutableTokenInterval = ev.mutableTokenInterval
-                newEv
-            }
-
-          }).distinct
-
-        if (newEvs.isEmpty && chains.contains(ev)) {
-          orderedMentions -= ev
-          chains(ev).foreach(link => chains(link) = chains(link).filter(_ != ev))
-          chains -= ev
-        } else if (!newEvs.forall(m => chains.contains(m))) {
-          orderedMentions = (orderedMentions - ev ++ newEvs).sorted
-          val sumChain = (if (chains contains ev) {
-            val chain = (chains(ev).filter(x => !(x == ev)) ++ newEvs).sorted
-            chains -= ev
-            chain
-          } else {
-            newEvs
-          }).sorted
-          sumChain.foreach(link => chains(link) = sumChain)
-        }
-
-        alreadySplit += (ev -> newEvs)
-
-        newEvs
-
-
-      case m => Seq(m)
-    }
-
-  }
-
-  /*
-
-      val classMap = Map(
-        "protein" -> "Gene_or_gene_product",
-        "gene" -> "Gene_or_gene_product",
-        "cistron" -> "Gene_or_gene_product",
-        "sequence" -> "Gene_or_gene_product",
-        "exon" -> "Gene_or_gene_product",
-        "intron" -> "Gene_or_gene_product",
-        "mutant" -> "Gene_or_gene_product",
-        "cytokine" -> "Gene_or_gene_product",
-        "smad" -> "Gene_or_gene_product"
-      )
-
-      if (debug) println("\n=====Match unresolved entities to prior resolved entity of same class=====")
-      for (mention <- orderedMentions) {
-
-      }
-  */
-
-  if (debug) println("\n=====Match unresolved events to closest of the same kind=====")
-  // event anaphora match closest previous event of same type
-  for((m,i) <- orderedMentions.zipWithIndex) {
-    if(m.isInstanceOf[BioEventMention] & m.matches("Unresolved")) {
-      val priorRx = orderedMentions.slice(0,i) filter (x => x.isInstanceOf[BioEventMention] && !x.matches("Unresolved") && x.matches(m.labels(1)))
-      if(priorRx.nonEmpty) {
-        val sumChain = (chains(priorRx.last) ++ chains(m)).distinct.sorted
-        if (debug) println(s"${m.text} matched " + sumChain.map(_.text).mkString(","))
-        chains(priorRx.last).foreach(link => chains(link) = sumChain)
-        chains(m).foreach(link => chains(link) = sumChain)
-      }
-    }
-  }
-
-  if (debug) println
-*/
 }
