@@ -13,5 +13,5 @@ class Links {
   /** The default action. Set to the identityLink. */
   val default: Link = identityLink
 
-  def identityLink(orderedMentions: Seq[CorefMention]) = orderedMentions
+  def identityLink(orderedMentions: Seq[CorefMention], selector: AntecedentSelector) = orderedMentions
 }

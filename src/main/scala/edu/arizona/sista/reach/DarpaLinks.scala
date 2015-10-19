@@ -19,7 +19,7 @@ class DarpaLinks(doc: Document) extends Links {
    * @param mentions All mentions
    * @return The same mentions but with new links (antecedents) added
    */
-  def exactStringMatch (mentions: Seq[CorefMention]): Seq[CorefMention] = {
+  def exactStringMatch (mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] && !x.asInstanceOf[CorefTextBoundMention].isGeneric)
@@ -42,7 +42,7 @@ class DarpaLinks(doc: Document) extends Links {
    * @param mentions All mentions
    * @return The same mentions but with new links (antecedents) added
    */
-  def groundingMatch(mentions: Seq[CorefMention]): Seq[CorefMention] = {
+  def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Exact entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
@@ -66,10 +66,7 @@ class DarpaLinks(doc: Document) extends Links {
    * @param mentions All mentions
    * @return The same mentions but with new links (antecedents) added.
    */
-  def strictHeadMatch(mentions: Seq[CorefMention]): Seq[CorefMention] = {
-    // FIXME: selector should be an input to the function
-    val selector = defaultSelector
-
+  def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -103,10 +100,7 @@ class DarpaLinks(doc: Document) extends Links {
     mentions
   }
 
-  def pronominalMatch(mentions: Seq[CorefMention]): Seq[CorefMention] = {
-    // FIXME: selector should be an input to the function
-    val selector = defaultSelector
-
+  def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])

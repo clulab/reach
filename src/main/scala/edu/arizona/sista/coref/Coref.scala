@@ -283,7 +283,7 @@ class Coref {
       retVal
     }
 
-  Seq(resolve(allLinks(orderedMentions)))
+  Seq(resolve(allLinks(orderedMentions, new LinearSelector)))
   }
 }
 

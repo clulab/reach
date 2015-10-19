@@ -1,11 +1,12 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.coref.AntecedentSelector
 import edu.arizona.sista.odin._
 
 package object mentions {
   type BioMention = Mention with Modifications with Grounding with Display
   type CorefMention = BioMention with Anaphoric
-  type Link = Seq[CorefMention] => Seq[CorefMention]
+  type Link = (Seq[CorefMention], AntecedentSelector) => Seq[CorefMention]
 
   implicit class MentionOps(mention: Mention) {
     def toBioMention: BioMention = mention match {
