@@ -36,15 +36,15 @@ class Coref {
       CorefFlow(links.nounPhraseMatch)
 
     def genericInside (m: CorefMention): Boolean = {
-      @tailrec def unresolvedInsideRec(ms: Seq[CorefMention]): Boolean = {
+      @tailrec def genericInsideRec(ms: Seq[CorefMention]): Boolean = {
         if (ms.exists(m => (m matches "Generic_entity") || (m matches "Generic_event"))) true
         else {
           val (tbs, others) = ms.partition(mention => mention.isInstanceOf[CorefTextBoundMention])
           if (others.isEmpty) false
-          else unresolvedInsideRec(others.flatMap(_.arguments.values.flatten.map(_.toCorefMention)))
+          else genericInsideRec(others.flatMap(_.arguments.values.flatten.map(_.toCorefMention)))
         }
       }
-      m.isGeneric || unresolvedInsideRec(Seq(m))
+      m.isGeneric || genericInsideRec(Seq(m))
     }
 
     def argsComplete(args: Map[String,Seq[CorefMention]], lbls: Seq[String]): Boolean = {
@@ -54,7 +54,8 @@ class Coref {
         case simple if lbls contains "SimpleEvent" =>
           args.contains("theme") && args("theme").nonEmpty
         case complex if (lbls contains "ComplexEvent") || (lbls contains "Activation") =>
-          args.contains("controller") && args.contains("controlled") && args("controller").nonEmpty && args("controlled").nonEmpty
+          args.contains("controller") && args.contains("controlled") &&
+            args("controller").nonEmpty && args("controlled").nonEmpty
         case _ => true
       }
     }
@@ -92,7 +93,7 @@ class Coref {
               resolvedArgs.getOrElse("theme1",Nil) ++
               resolvedArgs.getOrElse("theme2",Nil),2)
             val newSets = exceptTheme.flatMap(argMap => themeSets.map(themeSet =>
-              argMap + ("theme" -> Seq(themeSet.headOption, themeSet.lastOption).flatten)))
+              argMap + ("theme" -> Seq(themeSet.headOption, themeSet.lastOption).flatten.distinct)))
             newSets
           }
           case _ => combineArgs(resolvedArgs.map(entry => entry._1 -> entry._2.flatten))
@@ -148,7 +149,7 @@ class Coref {
 
     def combination[A](ms: Seq[Seq[A]], size: Int): Seq[Seq[A]] = {
       require(size > 0)
-      if (ms.flatten.length <= size) return Seq(ms.flatten)
+      if (ms.flatten.distinct.length <= size) return Seq(ms.flatten.distinct)
 
       ms.foldLeft[Seq[Seq[A]]](Nil)((args,thm) => args ++ (for {
         ant <- thm
