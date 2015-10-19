@@ -10,8 +10,8 @@ import scala.annotation.tailrec
 
 class Coref {
 
-  val debug: Boolean = true
-  val verbose: Boolean = true
+  val debug: Boolean = false
+  val verbose: Boolean = false
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
 
@@ -209,7 +209,7 @@ class Coref {
         }).toMap
 
       val inspectedMap = (for {
-        evt <- evts
+        evt <- toInspect
 
         resolvedArgs = for {
           (lbl, arg) <- evt match {
@@ -264,6 +264,7 @@ class Coref {
           )
           evt -> value
         }).toMap
+
       solidMap ++ inspectedMap
     }
 
