@@ -161,11 +161,10 @@ class TestCoreference extends FlatSpec with Matchers {
 //  }
 
   // Sane noun phrases should be matched
-
-  val sent14 = "Ras is common, and this protein binds GTP."
+  val sent14 = "ASPP1 is common, and this protein binds GTP."
   sent14 should "contain one binding event only" in {
     val mentions = parseSentence(sent14)
-    hasEventWithArguments("Binding", List("Ras", "GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP1", "GTP"), mentions) should be (true)
     mentions should have size (3)
   }
 
