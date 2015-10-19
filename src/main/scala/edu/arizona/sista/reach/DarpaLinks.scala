@@ -28,6 +28,7 @@ class DarpaLinks(doc: Document) extends Links {
     sameText.foreach {
       case (ent, ms) =>
         ms.foldLeft(Set.empty: Set[Mention])((prev,curr) => {
+          if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
           curr.antecedents ++= prev
           Set(curr)
         })
@@ -51,6 +52,7 @@ class DarpaLinks(doc: Document) extends Links {
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[Mention])((prev,curr) => {
+          if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
           curr.antecedents ++= prev
           Set(curr)
         })
@@ -117,25 +119,29 @@ class DarpaLinks(doc: Document) extends Links {
           var excludeThese = pronominal.arguments.values.flatten.toSeq ++
             Seq(pronominal) ++
             hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten
-          proMap.flatMap(pm => pm._2._1.map(v => (pm._1, v))).foreach{ kv =>
+          proMap.flatMap(pm => pm._2._1.map(v => (pm._1, v))).toSeq.sortBy(x => x._2).foreach{ kv =>
             val (lbl, g) = kv
-            if (verbose) println(s"Searching for antecedents to '${g.text}' excluding '${excludeThese.map(_.text).mkString("', '")}'")
+            if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'","', '","'")}")
             val card = cardinality(g)
             val cands = lbl match {
-              case "controlled" => hasArgs.filter { m =>
+              case "controlled" => mentions.filter { m =>
+                !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              }
+              case "controller" => mentions.filter { m =>
                 !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
               }
               case _ => tbms.filter { m =>
                 !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
               }
             }
+            if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
             val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
-            if (verbose) println(s"matched '${ants.map(_.text).mkString(", ,")}'")
+            if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
             val gInState = mentions.find(m => g == m)
             if (gInState.isDefined) {
-              gInState.get.asInstanceOf[CorefTextBoundMention].antecedents ++= ants
+              gInState.get.antecedents ++= ants
               excludeThese ++= ants
-              gInState.get.asInstanceOf[CorefTextBoundMention].sieves += "pronominalMatch"
+              pronominal.sieves += "pronominalMatch"
             }
           }
         }

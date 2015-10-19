@@ -116,7 +116,7 @@ class Coref {
                specific.sentence,
                specific.document,
                specific.keep,
-               specific.foundBy + ", " + specific.sieves.mkString(", "))
+               specific.foundBy + specific.sieves.mkString(", ", ", ", ""))
              generated.modifications ++= specific.modifications
              Seq(generated)
            } else Nil
@@ -160,8 +160,6 @@ class Coref {
       val args = argRaw.filterKeys(k => argRaw(k).nonEmpty)
       val stableKeys = args.keys.toSeq
 
-      println(stableKeys.mkString(","))
-
       def sum(xs: Seq[Int]): Int = {
         @tailrec
         def inner(xs: List[Int], accum: Int): Int = {
@@ -183,7 +181,6 @@ class Coref {
         Seq(-1)
       }
       def oneIteration(iteration: Seq[Int], sofar: Seq[Map[String, Seq[CorefMention]]], numThemes: Int): Seq[Map[String, Seq[CorefMention]]] = {
-        println(iteration.mkString(","))
         iteration match {
           case end if sum(iteration) < 0 => sofar
           case _ => {
@@ -207,11 +204,8 @@ class Coref {
       val solidMap = (for {
         s <- solid
       } yield {
-          println(s"solid: ${s.text}")
           s -> Seq(s)
         }).toMap
-
-      toInspect.foreach(s => println(s"toInspect: ${s.text}"))
 
       val inspectedMap = (for {
         evt <- evts
@@ -267,7 +261,6 @@ class Coref {
             }
             else Nil
           )
-          //println(s"${evt.text} => (" + value.map(_.text).mkString(", ") + ")")
           evt -> value
         }).toMap
       solidMap ++ inspectedMap
