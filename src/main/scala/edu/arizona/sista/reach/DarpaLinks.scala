@@ -9,8 +9,8 @@ import edu.arizona.sista.struct.Interval
 
 class DarpaLinks(doc: Document) extends Links {
 
-  val debug: Boolean = true
-  val verbose: Boolean = true
+  val debug: Boolean = false
+  val verbose: Boolean = false
   val defaultSelector: AntecedentSelector = new LinearSelector
 
   /**
@@ -113,7 +113,9 @@ class DarpaLinks(doc: Document) extends Links {
           var excludeThese = pronominal.arguments.values.flatten.toSeq ++
             Seq(pronominal) ++
             hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten
-          proMap.flatMap(pm => pm._2._1.map(v => (pm._1, v))).toSeq.sortBy(x => x._2).foreach{ kv =>
+          if (verbose) proMap.foreach(kv =>
+            println(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals (${kv._2._2.map(_.text).mkString(", ")})"))
+          proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach{ kv =>
             val (lbl, g) = kv
             if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'","', '","'")}")
             val card = cardinality(g)

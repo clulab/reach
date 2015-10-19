@@ -10,8 +10,8 @@ import scala.annotation.tailrec
 
 class Coref {
 
-  val debug: Boolean = true
-  val verbose: Boolean = true
+  val debug: Boolean = false
+  val verbose: Boolean = false
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
 
