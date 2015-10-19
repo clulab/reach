@@ -264,13 +264,13 @@
     (?<trigger> binding) (to|by|with)
     (@theme2:BioChemicalEntity)
 
-- name: binding_token_2
-  label: Binding
-  action: mkBinding
-  priority: 4
-  type: token
-  pattern: |
-    (?<trigger> binding) to (@theme2:BioChemicalEntity)
+#- name: binding_token_2
+#  label: Binding
+#  action: mkBinding
+#  priority: 4
+#  type: token
+#  pattern: |
+#    (?<trigger> binding) to (@theme2:BioChemicalEntity)
 
 - name: binding_token_3
   label: Binding
