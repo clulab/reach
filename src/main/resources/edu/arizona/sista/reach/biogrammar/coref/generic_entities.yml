@@ -7,8 +7,8 @@
     [tag=DT & !(incoming=/det/) & (word=/(?i)^both|each|many|most|some|that|these|this|those|which$/) & !(mention=/.*/)]
 
 
-- name: Nstar_not_in_Nstar
-  label: Generic_entity
+- name: Nstar_not_in_Nstar_proteins
+  label: [Generic_entity, Gene_or_gene_product]
   action: mkBioMention
   priority: ${ priority }
   type: token

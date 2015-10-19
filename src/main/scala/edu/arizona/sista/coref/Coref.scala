@@ -32,7 +32,8 @@ class Coref {
     val allLinks = CorefFlow(links.exactStringMatch) andThen
       CorefFlow(links.groundingMatch) andThen
       CorefFlow(links.strictHeadMatch) andThen
-      CorefFlow(links.pronominalMatch)
+      CorefFlow(links.pronominalMatch) andThen
+      CorefFlow(links.nounPhraseMatch)
 
     def genericInside (m: CorefMention): Boolean = {
       @tailrec def unresolvedInsideRec(ms: Seq[CorefMention]): Boolean = {

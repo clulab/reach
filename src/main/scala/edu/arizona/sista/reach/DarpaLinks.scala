@@ -144,6 +144,53 @@ class DarpaLinks(doc: Document) extends Links {
     mentions
   }
 
+  def nounPhraseMatch(mentions:Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (debug) println("\n=====Noun phrase matching=====\n")
+    val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
+    hasArgs.foreach {
+      case np if np.arguments.values.flatten.exists(arg => isGenericNounPhrase(arg)) => {
+        // separate the arguments into generic noun phrases and others
+        val npMap = np.arguments.map(args => args._1 -> args._2.partition(arg => isGenericNounPhrase(arg)))
+        // exclude all the arguments of this event, plus this event itself,
+        // plus all the arguments of any events that have this event as an argument
+        var excludeThese = np.arguments.values.flatten.toSeq ++
+          Seq(np) ++
+          hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(np)).flatMap(_.arguments.values).flatten
+        npMap.flatMap(npm => npm._2._1.map(v => (npm._1, v))).toSeq.sortBy(x => x._2).foreach{ kv =>
+          val (lbl, g) = kv
+          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'","', '","'")}")
+          val card = cardinality(g)
+          val cands = lbl match {
+            case "controlled" => mentions.filter { m =>
+              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
+                g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
+            }
+            case "controller" => mentions.filter { m =>
+              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
+                g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
+            }
+            case _ => tbms.filter { m =>
+              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
+                g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
+            }
+          }
+          if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+          val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
+          if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
+          val gInState = mentions.find(m => g == m)
+          if (gInState.isDefined) {
+            gInState.get.antecedents ++= ants
+            excludeThese ++= ants
+            np.sieves += "nounPhraseMatch"
+          }
+        }
+      }
+      case _ => ()
+    }
+
+    mentions
+  }
+
   def includes(subj: CorefMention, obj: CorefMention): Boolean = {
     val stopWords = Set(
       "the",
@@ -180,6 +227,11 @@ class DarpaLinks(doc: Document) extends Links {
   def isPronominal(mention: Mention): Boolean = {
     (detMap.contains(mention.text) || headMap.contains(mention.text)) && mention.isInstanceOf[CorefTextBoundMention]
   }
+
+  def isGenericNounPhrase(mention: Mention): Boolean = {
+    mention.isInstanceOf[CorefTextBoundMention] && mention.asInstanceOf[CorefMention].isGeneric && !isPronominal(mention)
+  }
+
 
   final val themeMap = Map(
     "Binding" -> 2,
