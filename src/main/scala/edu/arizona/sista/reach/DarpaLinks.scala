@@ -9,8 +9,8 @@ import edu.arizona.sista.struct.Interval
 
 class DarpaLinks(doc: Document) extends Links {
 
-  val debug: Boolean = false
-  val verbose: Boolean = false
+  val debug: Boolean = true
+  val verbose: Boolean = true
   val defaultSelector: AntecedentSelector = new LinearSelector
 
   /**
