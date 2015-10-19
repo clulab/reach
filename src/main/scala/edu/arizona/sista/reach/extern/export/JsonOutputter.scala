@@ -2,16 +2,18 @@ package edu.arizona.sista.reach.extern.export
 
 import java.io._
 import java.util.Date
-import edu.arizona.sista.reach.nxml.FriesEntry
-import edu.arizona.sista.reach.mentions._
+
+import org.json4s.native.Serialization
+
 import edu.arizona.sista.odin.{TextBoundMention, RelationMention, EventMention, Mention}
 import edu.arizona.sista.processors.Document
-import org.json4s.native.Serialization
+import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.nxml.FriesEntry
 
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Rename file writing method. Add method to return one big string.
+  *   Last Modified: Refactor mention management to mention manager.
   */
 trait JsonOutputter {
 
@@ -44,8 +46,12 @@ trait JsonOutputter {
 
 }
 
-/** Contain formatting utilities used by all formatters */
+
+/**
+  * Companion object containing types and formatting utilities used by all formatters.
+  */
 object JsonOutputter {
+  // some useful global type definitions
   type PropMap = scala.collection.mutable.HashMap[String, Any]
   type FrameList = scala.collection.mutable.MutableList[PropMap]  // has O(c) append
   type StringList = scala.collection.mutable.MutableList[String]  // has O(c) append
@@ -54,72 +60,11 @@ object JsonOutputter {
   implicit val formats = org.json4s.DefaultFormats
 
   val RUN_ID = "r1"
-  val COMPONENT = "REACH"
+  val COMPONENT = "Reach"
   val ORGANIZATION = "UAZ"
 
-  val MODIFICATION_EVENTS = Set(
-    "Phosphorylation",
-    "Ubiquitination",
-    "Hydroxylation",
-    "Sumoylation",
-    "Glycosylation",
-    "Acetylation",
-    "Farnesylation",
-    "Ribosylation",
-    "Methylation",
-    "Hydrolysis"
-  )
-
-  val REGULATION_EVENTS = Set(
-    "Positive_regulation",
-    "Negative_regulation"
-  )
-
-  val ACTIVATION_EVENTS = Set(
-    "Negative_activation",
-    "Positive_activation"
-  )
-
-  def isEventMention(m:Mention):Boolean = {
-    m.isInstanceOf[EventMention] || m.isInstanceOf[RelationMention]
-  }
-
-  def getSentenceStartCharacterOffset(doc:Document, sentOffset:Int):Int = {
-    doc.sentences(sentOffset).startOffsets.head
-  }
-
-  def getSentenceEndCharacterOffset(doc:Document, sentOffset:Int):Int = {
-    doc.sentences(sentOffset).endOffsets.last
-  }
-
-  def prettifyLabel(label:String):String = label.toLowerCase.replaceAll("_", "-")
-
-  def mkEventType(label:String):String = {
-    if(MODIFICATION_EVENTS.contains(label))
-      return "protein-modification"
-
-    if(label == "Binding")
-      return "complex-assembly"
-
-    if(label == "Transcription")
-      return "transcription"
-
-    if(label == "Translocation")
-      return "translocation"
-
-    if(label == "Complex")
-      return "complex-assembly"
-
-    if(REGULATION_EVENTS.contains(label))
-      return "regulation"
-
-    if(ACTIVATION_EVENTS.contains(label))
-      return "activation"
-
-    throw new RuntimeException("ERROR: unknown event type: " + label)
-  }
-
-  def mkArgType(arg:Mention):String = {
+  /** Select an argument-type output string for the given mention label. */
+  def mkArgType (arg:Mention): String = {
     if (arg matches "Complex") "complex"
     else if (arg matches "Entity") "entity"
     else if (arg matches "Site") "entity"
@@ -128,23 +73,34 @@ object JsonOutputter {
     else throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
   }
 
-  def isNegated(mention:BioMention):Boolean =
-    mention.modifications.exists(isNegation)
+  /** Select an event-type output string for the given mention label. */
+  def mkEventType (label:String): String = {
+    if (MentionManager.MODIFICATION_EVENTS.contains(label))
+      return "protein-modification"
 
-  def isNegation(m:Modification) = m.isInstanceOf[Negation]
+    if (label == "Binding")
+      return "complex-assembly"
 
-  def isHypothesized(mention:BioMention):Boolean =
-    mention.modifications.exists(isHypothesis)
+    if (label == "Transcription")
+      return "transcription"
 
-  def isHypothesis(m:Modification) = m.isInstanceOf[Hypothesis]
+    if (label == "Translocation")
+      return "translocation"
 
-  def hasFeatures(m:BioMention):Boolean = {
-    m.modifications.foreach(f => {
-      if(f.isInstanceOf[Mutant] || f.isInstanceOf[PTM])
-        return true
-    })
-    false
+    if (label == "Complex")
+      return "complex-assembly"
+
+    if (MentionManager.REGULATION_EVENTS.contains(label))
+      return "regulation"
+
+    if (MentionManager.ACTIVATION_EVENTS.contains(label))
+      return "activation"
+
+    throw new RuntimeException("ERROR: unknown event type: " + label)
   }
+
+  /** Canonicalize the given label string. */
+  def prettifyLabel (label:String): String = label.toLowerCase.replaceAll("_", "-")
 
   /** Convert the entire output data structure to JSON and write it to the given file. */
   def writeJsonToFile (model:PropMap, outFile:File) = {
