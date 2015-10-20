@@ -59,9 +59,22 @@ class NxmlSearcher(val indexDir:String) {
     results.toSet
   }
 
-  def useCase(resultDir:String): Unit = {
-    val docs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates")
+  def intersection(s1:Set[Int], s2:Set[Int]):Set[Int] = {
+    val result = new mutable.HashSet[Int]()
+    for(s <- s1) if(s2.contains(s)) result += s
+    result.toSet
+  }
 
+  def union(s1:Set[Int], s2:Set[Int]):Set[Int] = {
+    val result = new mutable.HashSet[Int]()
+    s1.foreach(result += _)
+    s2.foreach(result += _)
+    result.toSet
+  }
+
+  def useCase(resultDir:String): Unit = {
+    val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
+    val result = intersection(eventDocs, search("Ras AND (ROS OR MAPK OR Raf/Mek/Erk OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR EGFR OR apoptosis OR autophagy OR proliferation OR p53 OR RB OR glycolysis OR exosomes OR RAGE OR HMGB1)"))
   }
 }
 
