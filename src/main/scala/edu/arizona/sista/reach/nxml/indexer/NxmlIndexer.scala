@@ -29,22 +29,24 @@ class NxmlIndexer {
 
     // check that all files exist in the map
     var failed = false
+    var count = 0
     for(file <- files) {
       val fn = getFileName(file, "nxml")
       if(! fileToPmc.contains(fn)) {
         logger.debug(s"Did not find map for file $fn!")
         failed = true
+        count += 1
       }
     }
-    if(failed)
-      throw new RuntimeException("Failed to map some files. Exiting...")
+    // if(failed) throw new RuntimeException("Failed to map some files. Exiting...")
+    logger.debug(s"Failed to find PMC id for ${count} files.")
 
     // index
     val analyzer = new StandardAnalyzer
     val config = new IndexWriterConfig(analyzer)
     val index = FSDirectory.open(Paths.get(indexDir))
     val writer = new IndexWriter(index, config)
-    var count = 0
+    count = 0
     for (file <- files) {
       val entries = Try(nxmlReader.readNxml(file)) match {
         case Success(v) => v
@@ -52,7 +54,7 @@ class NxmlIndexer {
           logger.debug(s"NxmlReader failed on file $file")
           Nil
       }
-      if(entries != Nil) {
+      if(entries != Nil && fileToPmc.contains(getFileName(file, "nxml"))) {
         val id = fileToPmc.get(getFileName(file, "nxml")).get
         val text = mergeEntries(entries)
         val nxml = readNxml(file)
