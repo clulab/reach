@@ -60,7 +60,7 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def useCase(resultDir:String): Unit = {
-    val docs = search("phosphorylation ")
+    val docs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates")
 
   }
 }
