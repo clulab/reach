@@ -12,6 +12,7 @@ import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
 
+import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 import NxmlSearcher._
@@ -22,28 +23,18 @@ import NxmlSearcher._
  * Date: 10/19/15
  */
 class NxmlSearcher(val indexDir:String) {
-  def search(query:String, totalHits:Int):Seq[Document] = {
-    val analyzer = new StandardAnalyzer
-    val q = new QueryParser("text", analyzer).parse(query)
-    val index = FSDirectory.open(Paths.get(indexDir))
-    val reader = DirectoryReader.open(index)
-    val searcher = new IndexSearcher(reader)
-    val collector = TopScoreDocCollector.create(totalHits)
-    searcher.search(q, collector)
-    val hits = collector.topDocs().scoreDocs
-    val results = new ListBuffer[Document]
-    for(hit <- hits) {
-      val docId = hit.doc
-      val d = searcher.doc(docId)
-      results += d
-    }
-    reader.close()
-    logger.debug(s"""Found ${results.size} results for query "$query"""")
-    results.toList
+  val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
+  val searcher = new IndexSearcher(reader)
+
+  def close() = reader.close()
+
+  def docs(ids:Set[Int]):Set[Document] = {
+    val ds = new mutable.HashSet[Document]()
+    for(id <- ids) ds += searcher.doc(id)
+    ds.toSet
   }
 
-  def useCase(resultDir:String, totalHits:Int): Unit = {
-    val docs = search("penetrances", totalHits)
+  def saveNxml(resultDir:String, docs:Set[Document]): Unit = {
     for(doc <- docs) {
       val id = doc.get("id")
       val nxml = doc.get("nxml")
@@ -52,10 +43,31 @@ class NxmlSearcher(val indexDir:String) {
       os.close()
     }
   }
+
+  def search(query:String, totalHits:Int = TOTAL_HITS):Set[Int] = {
+    val analyzer = new StandardAnalyzer
+    val q = new QueryParser("text", analyzer).parse(query)
+    val collector = TopScoreDocCollector.create(totalHits)
+    searcher.search(q, collector)
+    val hits = collector.topDocs().scoreDocs
+    val results = new mutable.HashSet[Int]
+    for(hit <- hits) {
+      val docId = hit.doc
+      results += docId
+    }
+    logger.debug(s"""Found ${results.size} results for query "$query"""")
+    results.toSet
+  }
+
+  def useCase(resultDir:String): Unit = {
+    val docs = search("phosphorylation ")
+
+  }
 }
 
 object NxmlSearcher {
   val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
+  val TOTAL_HITS = 200000
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
@@ -63,6 +75,7 @@ object NxmlSearcher {
     val resultDir = props.getProperty("output")
 
     val searcher = new NxmlSearcher(indexDir)
-    searcher.useCase(resultDir, 10000)
+    searcher.useCase(resultDir)
+    searcher.close()
   }
 }

@@ -39,7 +39,8 @@ class NxmlIndexer {
       }
     }
     // if(failed) throw new RuntimeException("Failed to map some files. Exiting...")
-    logger.debug(s"Failed to find PMC id for ${count} files.")
+    if(count > 0)
+      logger.debug(s"Failed to find PMC id for ${count} files.")
 
     // index
     val analyzer = new StandardAnalyzer
@@ -66,6 +67,7 @@ class NxmlIndexer {
 
     }
     writer.close()
+    logger.debug(s"Indexing complete. Indexed ${count}/${files.size} files.")
 
   }
 
