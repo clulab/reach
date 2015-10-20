@@ -77,5 +77,8 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
-  "jline" % "jline" % "2.12.1"
+  "jline" % "jline" % "2.12.1",
+  "org.apache.lucene" % "lucene-core" % "5.3.1",
+  "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
+  "org.apache.lucene" % "lucene-queryparser" % "5.3.1"
 )
