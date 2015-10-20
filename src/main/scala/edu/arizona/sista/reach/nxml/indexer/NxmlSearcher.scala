@@ -13,7 +13,6 @@ import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
 
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 
 import NxmlSearcher._
 
