@@ -62,12 +62,12 @@ class ReachSystem(
     extractFrom(entries, entries map mkDoc)
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
-    val entities = for (doc <- documents) yield extractEntitiesFrom(doc)
-    contextEngine.infer(entries, documents, entities)
-    val entitiesWithContext = for (es <- entities) yield contextEngine.assign(es)
-    val events = for ((doc, es) <- documents zip entitiesWithContext) yield extractEventsFrom(doc, es)
-    contextEngine.update(events.flatten)
-    val eventsWithContext = contextEngine.assign(events.flatten)
+    val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
+    contextEngine.infer(entries, documents, entitiesPerEntry)
+    val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
+    val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield extractEventsFrom(doc, es)
+    contextEngine.update(eventsPerEntry.flatten)
+    val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
     val resolved = resolve(eventsWithContext)
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)

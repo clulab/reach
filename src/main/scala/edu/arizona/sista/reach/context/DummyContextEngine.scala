@@ -8,7 +8,7 @@ class DummyContextEngine extends ContextEngine {
   def infer(
       entries: Seq[FriesEntry],
       documents: Seq[Document],
-      mentions: Seq[Seq[BioMention]]
+      mentionsPerEntry: Seq[Seq[BioMention]]
   ): Unit = ()
   def update(mentions: Seq[BioMention]): Unit = ()
   def assign(mentions: Seq[BioMention]): Seq[BioMention] = mentions

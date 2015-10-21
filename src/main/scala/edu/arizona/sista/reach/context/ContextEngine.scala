@@ -11,7 +11,7 @@ trait ContextEngine {
   def infer(
       entries: Seq[FriesEntry],
       documents: Seq[Document],
-      mentions: Seq[Seq[BioMention]]
+      mentionsPerEntry: Seq[Seq[BioMention]]
   ): Unit
 
   /** updates those data structures with any new info */
