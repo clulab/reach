@@ -72,7 +72,6 @@ class ReachSystem(
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
     resolveDisplay(complete)
-
   }
 
   // the extractFrom() methods are the main entry points to the reach system
