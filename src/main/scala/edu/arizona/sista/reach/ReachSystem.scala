@@ -4,6 +4,7 @@ import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.LocalGrounder
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
@@ -12,11 +13,15 @@ import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
 class ReachSystem(
-    rules: Option[Rules] = None,
-    proc: Option[BioNLPProcessor] = None
+    rules: Option[Rules],
+    proc: Option[BioNLPProcessor]
 ) {
 
   import ReachSystem._
+
+  // overload constructor
+  def this() = this(None, None)
+  def this(rules: Option[Rules]) = this(rules, None)
 
   val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
   val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
@@ -34,6 +39,8 @@ class ReachSystem(
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
+  // initialize the context engine
+  val contextEngine = new DummyContextEngine
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
@@ -42,6 +49,8 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules).mkString("\n\n")
 
+  def mkDoc(entry: FriesEntry): Document = mkDoc(entry.text, entry.name, entry.chunkId)
+
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
@@ -49,23 +58,34 @@ class ReachSystem(
     doc
   }
 
+  def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
+    extractFrom(entries, entries map mkDoc)
+
+  def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
+    val entities = for (doc <- documents) yield extractEntitiesFrom(doc)
+    contextEngine.infer(entries, documents, entities)
+    val entitiesWithContext = for (es <- entities) yield contextEngine.assign(es)
+    val events = for ((doc, es) <- documents zip entitiesWithContext) yield extractEventsFrom(doc, es)
+    contextEngine.update(events.flatten)
+    val eventsWithContext = contextEngine.assign(events.flatten)
+    val resolved = resolve(eventsWithContext)
+    // Coref introduced incomplete Mentions that now need to be pruned
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
+    resolveDisplay(complete)
+
+  }
+
   // the extractFrom() methods are the main entry points to the reach system
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(entry.text, entry.name, entry.chunkId)
+    extractFrom(Seq(entry))
 
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
-    extractFrom(mkDoc(text, docId, chunkId))
-  }
+  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] =
+    extractFrom(FriesEntry(docId, chunkId, "NoSection", "NoSection", false, text))
 
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    val entities = extractEntitiesFrom(doc)
-    val events = extractEventsFrom(doc, entities)
-    val resolved = resolve(events)
-    // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
-    resolveDisplay(complete)
+    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", false, doc.text.get)), Seq(doc))
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
