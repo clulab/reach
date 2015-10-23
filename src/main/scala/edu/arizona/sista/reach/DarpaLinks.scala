@@ -249,8 +249,19 @@ class DarpaLinks(doc: Document) extends Links {
   def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Simple event matching=====\n")
 
-    val seLabels = Set("Phosphorylation", "Ubiquitination", "Hydroxylation", "Sumoylation", "Glycosylation",
-      "Acetylation", "Farnesylation", "Ribosylation", "Methylation", "Hydrolysis", "Translocation", "Binding")
+    val seLabels = Set(
+      "Phosphorylation",
+      "Ubiquitination",
+      "Hydroxylation",
+      "Sumoylation",
+      "Glycosylation",
+      "Acetylation",
+      "Farnesylation",
+      "Ribosylation",
+      "Methylation",
+      "Hydrolysis",
+      "Translocation",
+      "Binding")
 
     // We're only looking for generic simple events that are arguments of complex events
     val (complex, others) = mentions.partition(m => m matches "ComplexEvent")

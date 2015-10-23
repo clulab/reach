@@ -6,13 +6,77 @@
   pattern: |
     (?<trigger> [lemma=/^(auto)?phosphorylation/ & tag=/^N/])
 
-- name: binding_trigger
-  label: [Generic_event, Binding]
+- name: ubiq_trigger
+  label: [Generic_event, Ubiquitination]
   action: ${ actionFlow }
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/])
+    (?<trigger> [lemma=/ubiquitination/ & tag=/^N/])
+
+- name: hydrox_trigger
+  label: [Generic_event, Hydroxylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/hydroxylation/ & tag=/^N/])
+
+- name: sumo_trigger
+  label: [Generic_event, Sumoylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/sumoylation/ & tag=/^N/])
+
+- name: glycos_trigger
+  label: [Generic_event, Glycosylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/glycosylation/ & tag=/^N/])
+
+- name: acet_trigger
+  label: [Generic_event, Acetylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/acetylation/ & tag=/^N/])
+
+- name: farnes_trigger
+  label: [Generic_event, Farnesylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/farnesylation/ & tag=/^N/])
+
+- name: ribos_trigger
+  label: [Generic_event, Ribosylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/ribosylation/ & tag=/^N/])
+
+- name: meth_trigger
+  label: [Generic_event, Methylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/methylation/ & tag=/^N/])
+
+- name: hydrolysis_trigger
+  label: [Generic_event, Hydrolysis]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/hydrolization|hydrolysis/ & tag=/^N/])
 
 - name: translocation_trigger
   label: [Generic_event, Translocation]
@@ -22,25 +86,10 @@
   pattern: |
     (?<trigger> [lemma=/translocation|transport|recruitment|export|localiz/ & tag=/^N/])
 
-- name: ubiq_trigger
-  label: [Generic_event, Ubiquitination]
+- name: binding_trigger
+  label: [Generic_event, Binding]
   action: ${ actionFlow }
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/ubiquitination/ & tag=/^N/])
-
-#- name: posreg_trigger
-#  label: Generic_event
-#  priority: 5
-#  type: token
-#  pattern: |
-#    (?<trigger> [lemma=/acceler|accept|accompani|accumul|action|activ|allow|associ|augment|cataly|caus|cleav|compet|confer|consequ|contribut|convert|cooper|critic|direct|driv|elev|elicit|enhanc|escort|essenti|export|express|facilit|follow|free|gener|high|implic|import|inact|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modif|modul|necess|overexpress|oxid|pivot|play|posit|potenti|proce|produc|prolong|promot|rais|reactiv|recruit|releas|render|requir|rescu|respons|restor|result|retent|sequest|serv|signal|stimul|suffici|sulfat|support|synerg|synthes|target|transcript|transduc|transfer|transport|trigger|unaffect|underli|uninduc|up-regul|upregul|util/ & tag=/^N/])
-#
-#- name: negreg_trigger
-#  label: Generic_event
-#  priority: 5
-#  type: token
-#  pattern: |
-#    (?<trigger> [lemma=/downreg|down-reg|abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|shutdown|slow|starv|supress|uncoupl/ & tag=/^N/])
-#
+    (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/])
