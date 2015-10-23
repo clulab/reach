@@ -6,7 +6,7 @@ import java.nio.file.Paths
 import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
 import edu.arizona.sista.utils.{Files, StringUtils}
 import org.apache.lucene.analysis.standard.StandardAnalyzer
-import org.apache.lucene.document.{StringField, Field, TextField, Document}
+import org.apache.lucene.document.{StringField, Field, TextField, Document, StoredField}
 import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
@@ -75,7 +75,7 @@ class NxmlIndexer {
     val d = new Document
     d.add(new TextField("text", text, Field.Store.YES))
     d.add(new StringField("id", id, Field.Store.YES))
-    d.add(new Field("nxml", nxml, Field.Store.YES, Field.Index.NO))
+    d.add(new StoredField("nxml", nxml))
     writer.addDocument(d)
   }
 
