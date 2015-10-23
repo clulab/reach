@@ -33,7 +33,8 @@ class Coref {
       CorefFlow(links.groundingMatch) andThen
       CorefFlow(links.strictHeadMatch) andThen
       CorefFlow(links.pronominalMatch) andThen
-      CorefFlow(links.nounPhraseMatch)
+      CorefFlow(links.nounPhraseMatch) andThen
+      CorefFlow(links.simpleEventMatch)
 
     /**
      * Is the mention generic, e.g. "it", or does it have an argument containing a generic mention,
@@ -152,6 +153,7 @@ class Coref {
       val genericMap = (for {
         generic <- generics
       } yield {
+          println(s"Resolving ${generic.text}")
           // FIXME: first specific antecedent might not be best -- might want to combine arguments with previous
           generic -> generic.firstSpecific.flatMap(m => specificMap.getOrElse(m.asInstanceOf[CorefEventMention],Nil))
         }).toMap

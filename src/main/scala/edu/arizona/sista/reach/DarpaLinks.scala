@@ -17,6 +17,7 @@ class DarpaLinks(doc: Document) extends Links {
    * Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g. 'it'
    * won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
    * @param mentions All mentions
+   * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added
    */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
@@ -40,6 +41,7 @@ class DarpaLinks(doc: Document) extends Links {
    * Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
    * mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
    * @param mentions All mentions
+   * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added
    */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
@@ -64,6 +66,7 @@ class DarpaLinks(doc: Document) extends Links {
    * Match two mentions, at least one generic, in which the later mention's head is in the earlier one and the later
    * mention's words are a subset of the earlier one.
    * @param mentions All mentions
+   * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
@@ -104,6 +107,7 @@ class DarpaLinks(doc: Document) extends Links {
   /**
    * Match two mentions where the latter mention is a closed-class anaphor, matching number
    * @param mentions All mentions
+   * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
@@ -168,10 +172,11 @@ class DarpaLinks(doc: Document) extends Links {
    * Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.
    * 'this protein' is known to have the label 'Protein'
    * @param mentions All mentions
+   * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
   def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
-    if (debug) println("\n=====Noun phrase matching=====\n")
+    if (debug) println("\n=====Noun phrase matching=====")
 
     // only apply this matcher to arguments to events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -229,6 +234,62 @@ class DarpaLinks(doc: Document) extends Links {
         }
       }
       case _ => ()
+    }
+
+    mentions
+  }
+
+  /**
+   * Examine complex events with generic simple events as arguments, searching for the best match of the same label,
+   * e.g. "ASPP1 promotes this phosphorylation." will search for phosphorylations before this sentence.
+   * @param mentions All mentions
+   * @param selector Rule for selecting the best antecedent from candidates
+   * @return The same mentions but with new links (antecedents) added.
+   */
+  def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (debug) println("\n=====Simple event matching=====\n")
+
+    val seLabels = Set("Phosphorylation", "Ubiquitination", "Hydroxylation", "Sumoylation", "Glycosylation",
+      "Acetylation", "Farnesylation", "Ribosylation", "Methylation", "Hydrolysis", "Translocation", "Binding")
+
+    // We're only looking for generic simple events that are arguments of complex events
+    val (complex, others) = mentions.partition(m => m matches "ComplexEvent")
+    val (sevents, ignore) = others.partition(m => m matches "SimpleEvent")
+    // We need to have the specific event mentions ready to match our anaphors with
+    val (generics, specifics) = sevents.partition(m => m matches "Generic_event")
+
+    complex.foreach{ case cx if cx.arguments.values.flatten.exists(arg => arg.matches("Generic_event") &&
+      !specifics.filter(_.isInstanceOf[EventMention]).exists(sfc =>
+        sfc.asInstanceOf[CorefEventMention].trigger == arg.asInstanceOf[CorefEventMention].trigger)) =>
+      val argMap = cx.arguments.map(args => args._1 -> args._2.partition(arg => arg matches "Generic_event"))
+
+      var excludeThese = cx.arguments.values.flatten.toSeq ++
+        specifics.filter(sfc =>
+          cx.arguments.values.flatten.toSeq.filter(_.isInstanceOf[EventMention])
+            .map(_.asInstanceOf[EventMention].trigger).contains(sfc.asInstanceOf[EventMention].trigger))
+
+      argMap.map(arg => arg._2._1.map(v => (arg._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
+        val (lbl, g) = kv
+
+        if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+
+        val cands = specifics.filter(s => (s precedes g) && g.sentence - s.sentence < 2 && !excludeThese.contains(s) &&
+          (s matches g.labels.toSet.intersect(seLabels).toSeq.headOption.getOrElse("")))
+
+        if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+
+        val ant = selector(g.asInstanceOf[CorefMention], cands, 1)
+
+        if (verbose) println(s"matched '${ant.map(_.text).mkString(", ")}'")
+
+        val gInState = mentions.find(m => g == m)
+        if (gInState.isDefined) {
+          gInState.get.antecedents ++= ant
+          excludeThese ++= ant
+          cx.sieves += "simpleEventMatch"
+        }
+      }
+    case _ => ()
     }
 
     mentions

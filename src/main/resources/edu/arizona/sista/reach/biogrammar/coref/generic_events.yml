@@ -1,5 +1,5 @@
 - name: phospho_trigger
-  label: Generic_event
+  label: [Generic_event, Phosphorylation]
   action: ${ actionFlow }
   priority: ${ priority }
   type: token
@@ -7,23 +7,15 @@
     (?<trigger> [lemma=/^(auto)?phosphorylation/ & tag=/^N/])
 
 - name: binding_trigger
-  label: Generic_event
+  label: [Generic_event, Binding]
   action: ${ actionFlow }
   priority: ${ priority }
   type: token
   pattern: |
     (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/])
 
-- name: transcription_trigger
-  label: Generic_event
-  action: ${ actionFlow }
-  priority: ${ priority }
-  type: token
-  pattern: |
-    (?<trigger> [lemma=/transcription|expression/ & tag=/^N/])
-
-- name: transport_trigger
-  label: Generic_event
+- name: translocation_trigger
+  label: [Generic_event, Translocation]
   action: ${ actionFlow }
   priority: ${ priority }
   type: token
@@ -31,7 +23,7 @@
     (?<trigger> [lemma=/translocation|transport|recruitment|export|localiz/ & tag=/^N/])
 
 - name: ubiq_trigger
-  label: Generic_event
+  label: [Generic_event, Ubiquitination]
   action: ${ actionFlow }
   priority: ${ priority }
   type: token
