@@ -10,13 +10,13 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Update for KBEntry.
   */
 object LocalKBUtils {
 
   /** The type for all in-memory data structures representing local knowledge bases. */
-  type InMemoryKB = scala.collection.mutable.Map[String, KBResolution]
-  def  InMemoryKB():InMemoryKB = scala.collection.mutable.Map[String, KBResolution]()
+  type InMemoryKB = scala.collection.mutable.Map[String, KBEntry]
+  def  InMemoryKB():InMemoryKB = scala.collection.mutable.Map[String, KBEntry]()
 
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
@@ -61,9 +61,9 @@ object LocalKBUtils {
       val key = makeKBCanonKey(text)        // make canonical storage key
       val newEntry =
         if (species == "")
-          new KBResolution(metaInfo, key, refId)
+          new KBEntry(metaInfo, text, key, refId)
         else
-          new KBResolution(metaInfo, key, refId, Some(species))
+          new KBEntry(metaInfo, text, key, refId, Some(species))
 
       // fetch any existing entry with the same key and take action accordingly
       val entry = memKB.get(key)            // look for existing entry
@@ -80,7 +80,7 @@ object LocalKBUtils {
   }
 
 
-  def compareAndSelect (oldEntry:KBResolution, newEntry:KBResolution): Option[KBResolution] = {
+  def compareAndSelect (oldEntry:KBEntry, newEntry:KBEntry): Option[KBEntry] = {
     return None                             // TODO: IMPLEMENT LATER
   }
 

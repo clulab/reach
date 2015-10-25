@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait used to lookup information from external knowledge bases.
   *   Written by: Tom Hicks. 10/22/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Update for KBEntry.
   */
 trait KBLookup {
 
@@ -12,7 +12,7 @@ trait KBLookup {
     * NB: This method assumes a single resolution KB.
     * NB: This is a default method to be overridden by each child class.
     */
-  def resolve (text:String): Option[KBResolution] = None
+  def resolve (text:String): Option[KBEntry] = None
 
 }
 

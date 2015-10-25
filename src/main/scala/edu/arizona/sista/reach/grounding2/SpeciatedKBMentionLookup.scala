@@ -5,7 +5,7 @@ import edu.arizona.sista.odin._
 /**
   * Trait for accessing species-specific information from external knowledge bases.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Update for KBEntry.
   */
 trait SpeciatedKBMentionLookup extends SpeciatedKBLookup {
 
@@ -14,7 +14,7 @@ trait SpeciatedKBMentionLookup extends SpeciatedKBLookup {
     * Return a resolution for the entry, if any found.
     * NB: This default method ignores species and resolves to any species.
     */
-  def resolveHuman (mention:Mention): Option[KBResolution] = {
+  def resolveHuman (mention:Mention): Option[KBEntry] = {
     return resolveBySpecies(mention, HumanLabels)  // resolve for humans only
   }
 
@@ -23,7 +23,7 @@ trait SpeciatedKBMentionLookup extends SpeciatedKBLookup {
     * Return a resolution for the entry, if any found.
     * NB: This default method ignores species argument and resolves to any species.
     */
-  def resolveBySpecies (mention:Mention, species:SpeciesNames): Option[KBResolution] = {
+  def resolveBySpecies (mention:Mention, species:SpeciesNames): Option[KBEntry] = {
     return resolve(mention.text)            // ignore species argument: any species accepted
   }
 

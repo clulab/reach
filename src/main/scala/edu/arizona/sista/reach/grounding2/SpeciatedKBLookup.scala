@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for simple string lookup in external knowledge bases.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Update for KBEntry.
   */
 trait SpeciatedKBLookup extends KBLookup with Speciated {
 
@@ -12,7 +12,7 @@ trait SpeciatedKBLookup extends KBLookup with Speciated {
     * Return a resolution for the entry, if any found.
     * NB: This default method ignores species and resolves to any species.
     */
-  def resolveHuman (text:String): Option[KBResolution] = {
+  def resolveHuman (text:String): Option[KBEntry] = {
     return resolveBySpecies(text, HumanLabels)  // resolve for humans only
   }
 
@@ -21,7 +21,7 @@ trait SpeciatedKBLookup extends KBLookup with Speciated {
     * Return a resolution for the entry, if any found.
     * NB: This default method ignores species argument and resolves to any species.
     */
-  def resolveBySpecies (text:String, species:SpeciesNames): Option[KBResolution] = {
+  def resolveBySpecies (text:String, species:SpeciesNames): Option[KBEntry] = {
     return resolve(text)
   }
 
