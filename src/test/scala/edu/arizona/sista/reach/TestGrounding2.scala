@@ -121,29 +121,29 @@ class TestGrounding2 extends FlatSpec with Matchers {
     (LocalKBUtils.stripASuffix(set2, "stringtwo") == "string") should be (true)
   }
 
-  "tsvRowToFields()" should "return a sequence with an empty string" in {
-    val flds = LocalKBUtils.tsvRowToFields("")
-    (flds) should have size (1)
-    (flds == Seq("")) should be (true)
-  }
+  // "tsvRowToFields()" should "return a sequence with an empty string" in {
+  //   val flds = LocalKBUtils.tsvRowToFields("")
+  //   (flds) should have size (1)
+  //   (flds == Seq("")) should be (true)
+  // }
 
-  "tsvRowToFields(the SAME string)" should "return a sequence with the SAME string" in {
-    val flds = LocalKBUtils.tsvRowToFields("the SAME string")
-    (flds) should have size (1)
-    (flds == Seq("the SAME string")) should be (true)
-  }
+  // "tsvRowToFields(the SAME string)" should "return a sequence with the SAME string" in {
+  //   val flds = LocalKBUtils.tsvRowToFields("the SAME string")
+  //   (flds) should have size (1)
+  //   (flds == Seq("the SAME string")) should be (true)
+  // }
 
-  "tsvRowToFields(one\ttwo)" should "return a sequence of the two fields" in {
-    val flds = LocalKBUtils.tsvRowToFields("one\ttwo")
-    (flds) should have size (2)
-    (flds == Seq("one", "two")) should be (true)
-  }
+  // "tsvRowToFields(one\ttwo)" should "return a sequence of the two fields" in {
+  //   val flds = LocalKBUtils.tsvRowToFields("one\ttwo")
+  //   (flds) should have size (2)
+  //   (flds == Seq("one", "two")) should be (true)
+  // }
 
-  "tsvRowToFields( one \ttwo )" should "return a sequence of the two fields trimmed" in {
-    val flds = LocalKBUtils.tsvRowToFields(" one \ttwo ")
-    (flds) should have size (2)
-    (flds == Seq("one", "two")) should be (true)
-  }
+  // "tsvRowToFields( one \ttwo )" should "return a sequence of the two fields trimmed" in {
+  //   val flds = LocalKBUtils.tsvRowToFields(" one \ttwo ")
+  //   (flds) should have size (2)
+  //   (flds == Seq("one", "two")) should be (true)
+  // }
 
   "makePathInKBDir(testFile)" should "return complete filepath in KB directory" in {
     val expected = LocalKBConstants.KBDirResourcePath + java.io.File.separator + "testFile"
