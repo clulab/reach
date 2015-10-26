@@ -1,6 +1,6 @@
 name := "reach"
 
-version := "1.0.1-SNAPSHOT"
+version := "1.1.1-SNAPSHOT"
 
 organization := "org.clulab"
 
@@ -72,10 +72,13 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "processors" % "5.6.1-SNAPSHOT",
-  "org.clulab" %% "processors" % "5.6.1-SNAPSHOT" classifier "models",
+  "org.clulab" %% "processors" % "5.7.1-SNAPSHOT",
+  "org.clulab" %% "processors" % "5.7.1-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
-  "jline" % "jline" % "2.12.1"
+  "jline" % "jline" % "2.12.1",
+  "org.apache.lucene" % "lucene-core" % "5.3.1",
+  "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
+  "org.apache.lucene" % "lucene-queryparser" % "5.3.1"
 )

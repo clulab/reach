@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.LocalGrounder
@@ -64,11 +65,10 @@ class ReachSystem(
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
-    val context = extractContextFrom(doc, entities)
-
+    val resolved = resolve(events)
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(events ++ context, State(events)).map(_.toBioMention)
-    resolveDisplay(complete) //++ context
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
+    resolveDisplay(complete)
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -108,11 +108,9 @@ class ReachSystem(
     validMentions
   }
 
-  def extractContextFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
-    // TODO: Write here!!
-    val contextMentions = contextEngine.extractByType[BioMention](doc, State(entities))
-
-    contextMentions
+  def resolve(events: Seq[BioMention]): Seq[BioMention] = {
+    val coref = new Coref()
+    coref(events)
   }
 }
 

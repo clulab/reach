@@ -179,11 +179,10 @@ class DarpaActions extends Actions {
     // retrieve regulations that overlap this mention
     regs = state.mentionsFor(activation.sentence, activation.tokenInterval, "Regulation")
     // Don't report an Activation if an intersecting Regulation has been detected
+    // or if the Activation has no controller
     // or if it's controller and controlled are not distinct
-    if regs.isEmpty && hasDistinctControllerControlled(activation)
+    if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
   } yield activation.arguments.get("controller") match {
-    // if activation has no controller, return activation unmodified
-    case None => activation
     // if activation has entity controller, return activation unmodified
     case Some(Seq(controller)) if controller.matches("Entity") => activation
     // activation has event controller
@@ -213,6 +212,8 @@ class DarpaActions extends Actions {
       (theme1s, theme2s) match {
         case (t1s, Nil) if t1s.length > 1 => mkBindingsFromPairs(t1s.combinations(2).toList, m)
         case (Nil, t2s) if t2s.length > 1 => mkBindingsFromPairs(t2s.combinations(2).toList, m)
+        case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
+        case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
         case (t1s, t2s) =>
           val pairs = for {
             t1 <- t1s
@@ -459,6 +460,12 @@ class DarpaActions extends Actions {
       "Positive_" + label.substring(9)
     else sys.error("ERROR: Must have a polarized label here!")
 
+
+  /** Test whether the given mention has a controller argument. */
+  def hasController(mention: Mention): Boolean = {
+    return mention.arguments.get("controlled").isDefined
+  }
+
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
     * or if they are both present and are distinct.
@@ -487,7 +494,7 @@ class DarpaActions extends Actions {
     * with a PTM for any other kind of SimpleEvent.
     */
   def convertEventToEntity(event: BioEventMention): Option[BioMention] = {
-    if (!event.matches("SimpleEvent")) {
+    if (!event.matches("SimpleEvent") || event.matches("Generic_event")) {
       // we only handle simple events
       None
     } else if (event matches "Binding") {

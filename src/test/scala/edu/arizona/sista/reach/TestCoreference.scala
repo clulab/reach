@@ -2,18 +2,19 @@ package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
+import edu.arizona.sista.reach.mentions._
 
 /**
  * Tests coreference-based events
  * Date: 5/22/15
  */
 class TestCoreference extends FlatSpec with Matchers {
-/*  val sent1 = "Even more than Ras, ASPP2 is common, as is its ubiquitination."
-  sent1 should "produce a ubiquitination of ASPP2" in {
+  val sent1 = "ASPP2 is even more common than Ras, and it is often ubiquitinated."
+  sent1 should "not produce a ubiquitination of ASPP2" in {
     val mentions = parseSentence(sent1)
     TestUtils.hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
-  it should "not produce a ubiquitination of Ras" in {
+  it should "produce a ubiquitination of Ras" in {
     val mentions = parseSentence(sent1)
     TestUtils.hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (false)
   }
@@ -33,12 +34,12 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_.label == "Binding") should have size 1
   }
 
-  // TODO: this test should account for the binding we DON'T want
-  val sent4 = "Even more than Ras and Mek, ASPP2 is common, and so is their binding to it."
+  val sent4 = "ASPP2 is common, even more than Ras and Mek, and so is its binding to them."
   sent4 should "produce two bindings: (Ras, ASPP2), (Mek, ASPP2)" in {
     val mentions = parseSentence(sent4)
     TestUtils.hasEventWithArguments("Binding", List("Ras", "ASPP2"), mentions) should be (true)
     TestUtils.hasEventWithArguments("Binding", List("Mek", "ASPP2"), mentions) should be (true)
+    TestUtils.hasEventWithArguments("Binding", List("Mek", "Ras"), mentions) should be (false)
     mentions.filter(_.label == "Binding") should have size 2
   }
 
@@ -69,6 +70,7 @@ class TestCoreference extends FlatSpec with Matchers {
   val sent8 = "ASPP2 is common, it is well known, and Ras sumoylates it."
   sent8 should "contain one sumoylation and one regulation" in {
     val mentions = parseSentence(sent8)
+    TestUtils.hasEventWithArguments("Sumoylation", List("ASPP2"), mentions) should be (true)
     val reg = mentions.find(_ matches "Positive_regulation")
     reg should be ('defined)
     reg.get.arguments should contain key ("controller")
@@ -76,9 +78,7 @@ class TestCoreference extends FlatSpec with Matchers {
     reg.get.arguments("controller") should have size (1)
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
-    val controlled = reg.get.arguments("controlled").head.toBioMention
     controller.text should be ("Ras")
-    controlled.text should be ("sumoylates it")
   }
 
   // Works across sentences; ignores irrelevant pronouns.
@@ -100,15 +100,16 @@ class TestCoreference extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Ras","BioChemicalEntity",Seq("ASPP2"),mentions)
     hasPositiveRegulationByEntity("Mek","BioChemicalEntity",Seq("ASPP2"),mentions)
   }
-  sent10a should "contain no regulation events" in {
+  sent10a should "contain one phosphorylation and two regulations" in {
     val mentions = parseSentence(sent10a)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions)
-    mentions.filter(_ matches "Positive_regulation") should have size (0)
+    mentions.filter(_ matches "Positive_regulation") should have size (2)
+    hasPositiveRegulationByEntity("Ras","BioChemicalEntity",Seq("ASPP2"),mentions)
+    hasPositiveRegulationByEntity("Mek","BioChemicalEntity",Seq("ASPP2"),mentions)
   }
 
   // Number-sensitive search works with cause controlleds but not triggered regulation plurals
   val sent11 = "Ras and Mek are in proximity, and ASPP2 phosphorylates them."
-  val sent11a = "The phosphorylation of Ras and the ubiquitination of Mek are common. ASPP2 upregulates both of them."
   sent11 should "contain two phosphorylation and two regulations" in {
     val mentions = parseSentence(sent11)
     mentions.filter(_ matches "Phosphorylation") should have size (2)
@@ -118,53 +119,30 @@ class TestCoreference extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("Ras"),mentions)
     hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("Mek"),mentions)
   }
-  sent11a should "contain no regulations" in {
-    val mentions = parseSentence(sent11a)
-    mentions.filter(_ matches "Phosphorylation") should have size (1)
-    hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
-    mentions.filter(_ matches "Ubiquitination") should have size (1)
-    hasEventWithArguments("Ubiquitination", List("Mek"), mentions) should be (true)
-    mentions.filter(_ matches "ComplexEvent") should have size (0)
-    mentions.filter(_ matches "ActivationEvent") should have size (0)
-  }
 
   // Number-sensitive search works with activation controllers, but plurals are forbidden.
   val sent12 = "Ras is in proximity, and it activates ASPP2."
-  val sent12a = "Ras and Mek are in proximity, and they activate ASPP2."
   sent12 should "contain a Positive_activation" in {
     val mentions = parseSentence(sent12)
     mentions.filter(_ matches "ActivationEvent") should have size (1)
     hasEventWithArguments("Positive_activation", List("Ras", "ASPP2"), mentions) should be (true)
   }
 
-  sent12a should "contain no events" in {
-    val mentions = parseSentence(sent12a)
-    mentions.filter(_ matches "Event") should have size (0)
-  }
-
   // Number-sensitive search works with activation controlleds, but plurals are forbidden.
   val sent13 = "Mek is in proximity, and ASPP2 activates it."
-  val sent13a = "Ras and Mek are in proximity, and ASPP2 activates them."
   sent13 should "contain one activation and one regulation" in {
     val mentions = parseSentence(sent13)
     mentions.filter(_ matches "ActivationEvent") should have size (1)
     hasEventWithArguments("Positive_activation", List("ASPP2", "Mek"), mentions) should be (true)
   }
 
-  sent13a should "contain no events" in {
-    val mentions = parseSentence(sent13a)
-    mentions.filter(_ matches "Event") should have size (0)
-  }
-
   // Sane noun phrases should be matched
-  /**
-  val sent14 = "Ras is common, and this protein binds GTP."
+  val sent14 = "ASPP1 is common, and this protein binds GTP."
   sent14 should "contain one binding event only" in {
     val mentions = parseSentence(sent14)
-    hasEventWithArguments("Binding", List("Ras", "GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP1", "GTP"), mentions) should be (true)
     mentions should have size (3)
   }
-    */
 
   // Ignore noun phrases that can't have BioChemicalEntity antecedents
   val sent15 = "Ras is common, and a mouse binds GTP."
@@ -174,12 +152,12 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions should have size (2)
   }
 
-  // Ignore anything two sentences prior when searching for antecedents.
-  val sent16 = "Ras is common. This is an intervening sentence. It binds Mek."
-  sent16 should "not contain any events" in {
-    val mentions = parseSentence(sent16)
-    mentions filter (_ matches "Event") should have size (0)
-  }
+   // Ignore anything two sentences prior when searching for antecedents.
+   val sent16 = "Ras is common. This is an intervening sentence. It binds Mek."
+   sent16 should "not contain any events" in {
+     val mentions = parseSentence(sent16)
+     mentions filter (_ matches "Event") should have size (0)
+   }
 
   // Can find an antecedent mention between start of event mention and start of text bound mention
   val sent17 = "ASPP2 is common, and Ras binds the Mek protein."
@@ -226,6 +204,6 @@ class TestCoreference extends FlatSpec with Matchers {
   sent20 should "not contain an activation of and by the same entity" in {
     val mentions = parseSentence(sent20)
     hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
-  }*/
+  }
 }
 
