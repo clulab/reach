@@ -6,26 +6,26 @@ import edu.arizona.sista.reach.grounding2.LocalKBUtils._
 /**
   * Trait implementing common logic for local Knowledge Base lookup classes.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for KBEntry.
+  *   Last Modified: Refactor meta information to in-memory KB. Update for species name set.
   */
 trait LocalKBLookup extends SpeciatedKBLookup {
-  /** The meta-information for the external knowledge base. */
-  def metaInfo: KBMetaInfo
 
   /** The in-memory knowledge base that all lookups will work against. */
-  val memKB: InMemoryKB = InMemoryKB()
+  def memoryKB: InMemoryKB
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
-    return makeKBCanonKey(text)             // canonicalize text for KBs
+    return makeKBCanonKey(text)             // default: use utility fn to canonicalize
   }
 
   override def resolve (text:String): Option[KBEntry] = {
     val key = makeCanonicalKey(text)        // make a lookup key from the given text
-    return memKB.get(key)                   // look for existing entry
+    return memoryKB.resolve(key)            // look for existing entry
   }
 
-  override def resolveBySpecies (text:String, species:SpeciesNames): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
+  override def resolveBySpecies (text:String, species:SpeciesNameSet): Option[KBEntry] = {
+    val key = makeCanonicalKey(text)        // make a lookup key from the given text
+    return memoryKB.resolveBySpecies(key, species) // look for existing entry and species
   }
+
 }

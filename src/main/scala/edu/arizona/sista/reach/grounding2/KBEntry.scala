@@ -3,11 +3,9 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Refactor meta information to in-memory KB.
   */
 class KBEntry (
-  /** Meta-information for the KB which spawned this entry. */
-  val metaInfo: KBMetaInfo,
 
   /** Text for this entry, loaded from the external KB. */
   val text: String,

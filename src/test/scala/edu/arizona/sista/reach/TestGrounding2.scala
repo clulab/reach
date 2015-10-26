@@ -7,62 +7,55 @@ import edu.arizona.sista.reach.grounding2._
 /**
  * Unit tests to ensure grounding is working properly
  *   Written by: Tom Hicks. 10/23/2015.
- *   Last Modified: Update for KBEntry.
+ *   Last Modified: Update for removal of KB meta info.
  */
 class TestGrounding2 extends FlatSpec with Matchers {
 
-  // test KBMetaInfo
-  val kbm = new KBMetaInfo("baseURI://", "UAnamespace", "MIR:00000000")
-
-  "KBMetaInfo.referenceURI(007)" should "have a referenceURI of baseURI://007" in {
-    (kbm.referenceURI("007") == "baseURI://007") should be (true)
-  }
-
   // test KBEntry
-  val kbe = new KBEntry(kbm, "Adam", "key1", "XYX", Some("human"))
-  val kbe2 = new KBEntry(kbm, "Seth", "key3", "XXX", Some("human"), Some(Set("AAA", "BBB")))
+  val kbe = new KBEntry("Adam", "key1", "XYX", Some("human"))
+  val kbe2 = new KBEntry("Seth", "key3", "XXX", Some("human"), Some(Set("AAA", "BBB")))
 
-  "KBR(kbm, text, key, id)" should "NOT have an associated species when tested" in {
-    val kbe0 = new KBEntry(kbm, "Eve", "key2", "YYY")
+  "KBR(text, key, id)" should "NOT have an associated species when tested" in {
+    val kbe0 = new KBEntry("Eve", "key2", "YYY")
     (kbe0.hasSpecies) should be (false)
   }
 
-  "KBR(kbm, text, key, id, species)" should "have an associated species when tested" in {
+  "KBR(text, key, id, species)" should "have an associated species when tested" in {
     (kbe.hasSpecies) should be (true)
   }
 
-  "KBR(kbm, text, key, id, species)" should "have primary ID XYX" in {
+  "KBR(text, key, id, species)" should "have primary ID XYX" in {
     (kbe.hasPrimaryId("XYX")) should be (true)
   }
 
-  "KBR(kbm, text, key, id, species)" should "NOT have primary ID YYY" in {
+  "KBR(text, key, id, species)" should "NOT have primary ID YYY" in {
     (kbe.hasPrimaryId("YYY")) should be (false)
   }
 
-  "KBR(kbm, text, key, id, species)" should "NOT have alternate ID XYX" in {
+  "KBR(text, key, id, species)" should "NOT have alternate ID XYX" in {
     (kbe.hasAlternateId("XYX")) should be (false) // no alternates at all
   }
 
-  "KBR(kbm, text, key, id, species, alternateId)" should "have alternate IDs AAA and BBB" in {
+  "KBR(text, key, id, species, alternateId)" should "have alternate IDs AAA and BBB" in {
     (kbe2.hasAlternateId("AAA")) should be (true) // true alternate
     (kbe2.hasAlternateId("BBB")) should be (true) // true alternate
   }
 
-  "KBR(kbm, text, key, id, species, alternateId)" should "NOT have primary ID AAA" in {
+  "KBR(text, key, id, species, alternateId)" should "NOT have primary ID AAA" in {
     (kbe2.hasPrimaryId("AAA")) should be (false) // AAA is alternate, not primary
   }
 
-  "KBR(kbm, text, key, id, species, alternateId)" should "NOT have alternate ID XXX" in {
+  "KBR(text, key, id, species, alternateId)" should "NOT have alternate ID XXX" in {
     (kbe2.hasAlternateId("XXX")) should be (false) // XXX is primary, not alternate
   }
 
-  "KBR(kbm, text, key, id, species, alternateId)" should "have IDs XXX, AAA and BBB" in {
+  "KBR(text, key, id, species, alternateId)" should "have IDs XXX, AAA and BBB" in {
     (kbe2.hasId("XXX")) should be (true)    // primary
     (kbe2.hasId("AAA")) should be (true)    // alternate
     (kbe2.hasId("BBB")) should be (true)    // alternate
   }
 
-  "KBR(kbm, text, key, id, species, alternateId)" should "NOT have ID YYY" in {
+  "KBR(text, key, id, species, alternateId)" should "NOT have ID YYY" in {
     (kbe2.hasId("YYY")) should be (false)
   }
 
