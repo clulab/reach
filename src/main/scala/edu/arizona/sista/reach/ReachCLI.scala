@@ -15,7 +15,6 @@ import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context._
-import edu.arizona.sista.reach.context.Context._
 import edu.arizona.sista.odin.extern.export.context._
 
 object ReachCLI extends App {
@@ -77,8 +76,8 @@ object ReachCLI extends App {
 
   // CONTEXT
   // This is to build the context vocabulary
-  val contextNames = mutable.Set[(String, String)]()
-  val contextDocs = mutable.Map[String, mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]]()
+  // val contextNames = mutable.Set[(String, String)]()
+  // val contextDocs = mutable.Map[String, mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]]()
   //////////////////////////////////////////////////
 
   // process papers in parallel
@@ -112,8 +111,8 @@ object ReachCLI extends App {
     }
 
     // Storage of context mentions
-    var contextLines = new mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]
-
+    // var contextLines = new mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]
+    //
     val paperMentions = new mutable.ArrayBuffer[BioMention]
     val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
 
@@ -127,29 +126,29 @@ object ReachCLI extends App {
         paperMentions ++= mentions
 
         // Filter out all the mentions we don't care about in context
-        val contextMentions = mentions filter {
-          mention => (contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-        }
+        // val contextMentions = mentions filter {
+        //   mention => (contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+        // }
 
         // Add all the names to the context's names cache
-        contextMentions foreach {
-          contextNames += getContextKey(_)
-        }
+        // contextMentions foreach {
+        //   contextNames += getContextKey(_)
+        // }
         // Unpack and store this section's context mentions
         // Group mentions by line, for each we're going to extract it's context bio-mentions
-        val groupedMentions:Map[Int, Seq[BioMention]] = contextMentions.groupBy(_.sentence)
+        // val groupedMentions:Map[Int, Seq[BioMention]] = contextMentions.groupBy(_.sentence)
 
         // Append the lists to the contextLines storage
-        val mentionsPerLine = groupedMentions.map{
-          case (key, value) => (key, value map {(_, entry)} )
-        }.toMap
+        // val mentionsPerLine = groupedMentions.map{
+        //   case (key, value) => (key, value map {(_, entry)} )
+        // }.toMap
 
-        for(ix <- 0 until docEntry.sentences.size){
-          contextLines += (mentionsPerLine.lift(ix) match {
-            case None => (Seq(), entry)
-            case Some(a) => (a map (_._1), a.head._2) //TODO: Make this legible
-          })
-        }
+        // for(ix <- 0 until docEntry.sentences.size){
+        //   contextLines += (mentionsPerLine.lift(ix) match {
+        //     case None => (Seq(), entry)
+        //     case Some(a) => (a map (_._1), a.head._2) //TODO: Make this legible
+        //   })
+        // }
 
       } catch {
         case e: Exception =>
@@ -175,7 +174,7 @@ object ReachCLI extends App {
       }
     }
 
-    contextDocs += (paperId -> contextLines)
+    // contextDocs += (paperId -> contextLines)
 
     // done processing
     val endTime = now
@@ -239,19 +238,19 @@ object ReachCLI extends App {
   }
 
   // CONTEXT magic!
-  println("Infering context ...")
+  // println("Infering context ...")
 
   // Build the contextVocabulary
-  val contextVocabulary = contextNames.zipWithIndex.toMap
+  // val contextVocabulary = contextNames.zipWithIndex.toMap
 
   // One iteration per document
-  for((paperId, contextLines) <- contextDocs){
-
-    // Create a Context instance to do inference and make queries
-    val context = new FillingContext(contextVocabulary, contextLines.toSeq)
-    outputContext(context, contextDir + File.separator + paperId)
-    outputVocabularies(context, contextDir + File.separator + paperId)
-  }
+  // for((paperId, contextLines) <- contextDocs){
+  //
+  //   // Create a Context instance to do inference and make queries
+  //   val context = new FillingContext(contextVocabulary, contextLines.toSeq)
+  //   outputContext(context, contextDir + File.separator + paperId)
+  //   outputVocabularies(context, contextDir + File.separator + paperId)
+  // }
 
   /////////////////
 

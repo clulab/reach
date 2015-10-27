@@ -2,7 +2,7 @@ package edu.arizona.sista.reach.context
 
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.nxml.FriesEntry
-
+/*
 // Policy Two
 class BoundedPaddingContext(vocabulary:Map[(String, String), Int],
  lines:Seq[(Seq[BioMention], FriesEntry)],
@@ -115,3 +115,4 @@ class FillingContext(vocabulary:Map[(String, String), Int],
       }
     }
 }
+*/
