@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Define internal KB, entry insertion.
+  *   Last Modified: Change to default empty species.
   */
 class InMemoryKB (
 
@@ -36,7 +36,7 @@ class InMemoryKB (
     }
     else {                                  // key not seen before
       val seMap = SpeciesEntryMap()         // allocate new species-entry map
-      seMap.put(entry.species.getOrElse(""), entry) // add entry under its species
+      seMap.put(entry.species, entry)       // add entry under its species
       thisKB.put(entry.key, seMap)          // add new species-entry map to KB
     }
   }
@@ -66,7 +66,7 @@ class InMemoryKB (
       var text = flds(0)                    // assign fields in order
       var refId = flds(1)
       var species = flds(2)
-      insertOrUpdateEntry(makeEntry(text, refId, species)) // store new entry
+      insertOrUpdateEntry(makeEntry(text, refId, species))  // store new entry
     }
     source.close()
   }
@@ -88,10 +88,7 @@ class InMemoryKB (
   /** Make and return a KB entry from the given fields. */
   private def makeEntry (text:String, refId:String, species:String): KBEntry = {
     val key = makeCanonicalKey(text)        // make canonical storage key
-    if (species == "")
-      new KBEntry(text, key, refId)
-    else
-      new KBEntry(text, key, refId, Some(species.toLowerCase))
+    return new KBEntry(text, key, refId, species.toLowerCase)
   }
 
   /** Sort the columns of a 2-col or 3-col TSV row into correct order. */

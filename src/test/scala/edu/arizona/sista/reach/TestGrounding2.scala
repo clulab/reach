@@ -5,15 +5,15 @@ import TestUtils._
 import edu.arizona.sista.reach.grounding2._
 
 /**
- * Unit tests to ensure grounding is working properly
- *   Written by: Tom Hicks. 10/23/2015.
- *   Last Modified: Update for removal of KB meta info.
- */
+  * Unit tests to ensure grounding is working properly
+  *   Written by: Tom Hicks. 10/23/2015.
+  *   Last Modified: Change to default empty species.
+  */
 class TestGrounding2 extends FlatSpec with Matchers {
 
   // test KBEntry
-  val kbe = new KBEntry("Adam", "key1", "XYX", Some("human"))
-  val kbe2 = new KBEntry("Seth", "key3", "XXX", Some("human"), Some(Set("AAA", "BBB")))
+  val kbe = new KBEntry("Adam", "key1", "XYX", "human")
+  val kbe2 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("AAA", "BBB")))
 
   "KBR(text, key, id)" should "NOT have an associated species when tested" in {
     val kbe0 = new KBEntry("Eve", "key2", "YYY")

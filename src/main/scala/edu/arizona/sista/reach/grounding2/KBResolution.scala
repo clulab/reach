@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Intial creation: extend KB entry, encapsulate KB meta info.
+  *   Last Modified: Change to default empty species.
   */
 class KBResolution (
 
@@ -14,7 +14,7 @@ class KBResolution (
   text: String,
   key: String,
   id: String,
-  species: Option[String] = None,
+  species: String = "",
   alternateIds: Option[Set[String]] = None,
   standardName: Option[String] = None
 
