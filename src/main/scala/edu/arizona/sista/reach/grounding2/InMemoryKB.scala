@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor KB loading methods here.
+  *   Last Modified: Update for rename of key transform trait.
   */
 class InMemoryKB (
 
@@ -15,7 +15,7 @@ class InMemoryKB (
   /** The filename of the external KB to be loaded into memory. */
   val kbFilename: String
 
-) extends Speciated with LocalKeyTransforms {
+) extends Speciated with KBKeyTransforms {
 
   def addEntry (entry:KBEntry) = {
   }

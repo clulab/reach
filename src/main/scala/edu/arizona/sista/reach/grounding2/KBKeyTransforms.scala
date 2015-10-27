@@ -5,9 +5,9 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Specialized lookup key transformation methods, for writing local KB accessors.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Change into trait. Refactor key methods here.
+  *   Last Modified: Rename this trait.
   */
-trait LocalKeyTransforms {
+trait KBKeyTransforms {
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
@@ -63,7 +63,7 @@ trait LocalKeyTransforms {
 
 
 /** Trait Companion Object allows Mixin OR Import pattern. */
-object LocalKeyTransforms extends LocalKeyTransforms {
+object KBKeyTransforms extends KBKeyTransforms {
 
   /** List of transform methods to apply for alternate Protein lookups. */
   val proteinKeyTransforms = Seq( stripProteinSuffixes _,
