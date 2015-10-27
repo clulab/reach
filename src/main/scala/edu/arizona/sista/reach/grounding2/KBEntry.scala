@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Change to default empty species.
+  *   Last Modified: Add combine method.
   */
 class KBEntry (
 
@@ -41,6 +41,21 @@ class KBEntry (
 
   /** Tell whether the given ID is equal to the primary id. */
   def hasPrimaryId (anId:String): Boolean = (anId == id)
+
+  /** Merge the contents of the given entry with this one, returning a new entry. */
+  def combine (other:KBEntry, overwriteText:Boolean=false): KBEntry = {
+    var altIds = this.alternateIds.getOrElse(Set()) ++ other.alternateIds.getOrElse(Set())
+    if (this.id != other.id)                    // if primary IDs are different
+      altIds = altIds ++ Set(this.id, other.id) // then add them both as alternates
+    return new KBEntry(
+      if (overwriteText) other.text else this.text,
+      this.key,
+      this.id,
+      if (this.hasSpecies()) this.species else other.species,
+      if (altIds.isEmpty) None else Some(altIds),
+      this.standardName orElse other.standardName orElse None
+    )
+  }
 
   /** Override method to provide logging/debugging printout. */
   override def toString(): String =

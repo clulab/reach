@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Change to default empty species.
+  *   Last Modified: Finish KB fill implementation.
   */
 class InMemoryKB (
 
@@ -30,20 +30,15 @@ class InMemoryKB (
   /** Insert the given entry, merge it with an existing entry, or ignore it,
       depending on the contents and state of this KB. */
   def insertOrUpdateEntry (entry:KBEntry) = {
-    val seMap = thisKB.get(entry.key)       // lookup the given key in this KB
-    if (seMap.isDefined) {                  // if key is already in this KB
-      mergeOrIgnoreEntry(entry, seMap.get)  // handle the (possibly duplicate) entry
-    }
-    else {                                  // key not seen before
-      val seMap = SpeciesEntryMap()         // allocate new species-entry map
-      seMap.put(entry.species, entry)       // add entry under its species
-      thisKB.put(entry.key, seMap)          // add new species-entry map to KB
-    }
-  }
+    var rentry= entry                       // default: prepare to add new entry
+    var seMap = thisKB.get(entry.key).getOrElse(SpeciesEntryMap()) // get or make new SEMap
+    val oldEntry = seMap.get(entry.species) // lookup the entry by species
+    if (oldEntry.isDefined)                 // if there is existing entry for this species
+      rentry = oldEntry.get.combine(entry)  // combined entry will replace existing entry
 
-  /** Merge the given entry into this KB or ignore it, if it is a duplicate entry. */
-  def mergeOrIgnoreEntry (entry:KBEntry, seMap:SpeciesEntryMap) = {
-    // TODO: IMPLEMENT LATER
+    // at this point, rentry contains a new or an updated entry to be re-stored
+    seMap.put(rentry.species, rentry)       // add/replace entry under its species
+    thisKB.put(rentry.key, seMap)           // put new/updated species-entry map into KB
   }
 
 
@@ -80,10 +75,6 @@ class InMemoryKB (
     return None                             // TODO: IMPLEMENT LATER
   }
 
-
-  private def compareAndSelect (oldEntry:KBEntry, newEntry:KBEntry): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
-  }
 
   /** Make and return a KB entry from the given fields. */
   private def makeEntry (text:String, refId:String, species:String): KBEntry = {
