@@ -43,25 +43,30 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       documents: Seq[Document],
       mentionsPerEntry: Seq[Seq[BioMention]]
   ) {
-    // TODO: Build the vocabulary
-    // vocabulary = _
-    // TODO: Annotate the documents
-    // vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]
-    // TODO:
-    //inverseVocabulary = vocabulary map (_.swap)
+    // Build the vocabularies
+    vocabulary = mentionsPerEntry.flatten.filter{
+      mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+    }.map(ContextEngine.getContextKey).zipWithIndex.toMap
+
+    inverseVocabulary = vocabulary map (_.swap)
+
+    // TODO: This is not right!! need to split by lines not by fries entries!
+    val lines = mentionsPerEntry zip entries
 
     // Build sparse matrices
     // First, the observed value matrices
-    //mentions = lines map (_._1)
-    //entryFeatures = lines map (_._2) map extractEntryFeatures
-    // observedSparseMatrix:Seq[Seq[Int]] = mentions.map{
-    //   _.map {
-    //     elem => vocabulary(ContextEngine.getContextKey(elem))
-    //   }
-    // }
-    // inferedLatentSparseMatrix = inferContext
+    val mentions = lines map (_._1)
+    val entryFeatures = lines map (_._2) map extractEntryFeatures
 
-    //latentSparseMatrix = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
+    observedSparseMatrix = mentions.map{
+      _.map {
+        elem => vocabulary(ContextEngine.getContextKey(elem))
+      }
+    }
+
+    inferedLatentSparseMatrix = inferContext
+
+    latentSparseMatrix = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
   }
 
   // Implementation of the update method of the ContextEngine trait
@@ -71,6 +76,8 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
 
   // Internal methods
+
+  protected def inferContext:List[Seq[Int]]
   /***
    * Queries the context of the specified line line. Returns a sequence of tuples
    * where the first element is the type of context and the second element a grounded id
