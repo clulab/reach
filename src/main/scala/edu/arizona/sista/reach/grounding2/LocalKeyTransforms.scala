@@ -5,21 +5,31 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Specialized lookup key transformation methods, for writing local KB accessors.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Change into trait. Refactor key methods here.
   */
-object LocalKeyTransforms {
+trait LocalKeyTransforms {
 
-  /** List of transform methods to apply for alternate Protein lookups. */
-  val proteinKeyTransforms = Seq( stripProteinSuffixes _,
-                                  stripFamilySuffixes _,
-                                  stripMutantProtein _,
-                                  unmutateProteinKey _ )
+  /** Canonicalize the given text string into a key for both storage and lookup. */
+  def makeCanonicalKey (text:String): String = {
+    var key:String = text.toLowerCase
+    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
+    key = key.filterNot(KeyCharactersToRemove)
+    return stripASuffix(AllKeysStopSuffixes, key)
+  }
 
+  /** Try to remove one of the suffixes in the given set from the given text. */
+  def stripASuffix (suffixes:Set[String], text:String): String = {
+    var key = text
+    suffixes.foreach { suffix =>
+      key = key.stripSuffix(suffix)
+    }
+    return key
+  }
 
   /** Return the portion of the key string minus one of the protein family suffixes,
     * if found in the given key string, else return the key unchanged. */
   def stripFamilySuffixes (key:String): String = {
-    return LocalKBUtils.stripASuffix(FamilyStopSuffixes, key)
+    return stripASuffix(FamilyStopSuffixes, key)
   }
 
   /** Return the portion of the key string before a trailing mutation phrase,
@@ -37,7 +47,7 @@ object LocalKeyTransforms {
   /** Return the portion of the key string minus one of the protein suffixes, if found
     * in the given key string, else return the key unchanged. */
   def stripProteinSuffixes (key:String): String = {
-    return LocalKBUtils.stripASuffix(ProteinStopSuffixes, key)
+    return stripASuffix(ProteinStopSuffixes, key)
   }
 
   /** Return the protein portion of a mutatation-protein string, if found
@@ -49,5 +59,15 @@ object LocalKeyTransforms {
       case _ => key
     }
   }
+}
 
+
+/** Trait Companion Object allows Mixin OR Import pattern. */
+object LocalKeyTransforms extends LocalKeyTransforms {
+
+  /** List of transform methods to apply for alternate Protein lookups. */
+  val proteinKeyTransforms = Seq( stripProteinSuffixes _,
+                                  stripFamilySuffixes _,
+                                  stripMutantProtein _,
+                                  unmutateProteinKey _ )
 }

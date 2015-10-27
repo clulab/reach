@@ -10,32 +10,9 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Refactor meta information to in-memory KB.
+  *   Last Modified: Refactor KB loading and key methods elsewhere.
   */
 object LocalKBUtils {
-
-  /** The type for all in-memory data structures representing local knowledge bases. */
-  type InMemoryKB = scala.collection.mutable.Map[String, KBEntry]
-  def  InMemoryKB():InMemoryKB = scala.collection.mutable.Map[String, KBEntry]()
-
-
-  /** Canonicalize the given text string into a key for both storage and lookup. */
-  def makeKBCanonKey (text:String): String = {
-    var key:String = text.toLowerCase
-    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
-    key = key.filterNot(KeyCharactersToRemove)
-    return stripASuffix(AllKeysStopSuffixes, key)
-  }
-
-  /** Try to remove one of the suffixes in the given set from the given text. */
-  def stripASuffix (suffixes:Set[String], text:String): String = {
-    var key = text
-    suffixes.foreach { suffix =>
-      key = key.stripSuffix(suffix)
-    }
-    return key
-  }
-
 
   // def readAndFillKB (memKB:InMemoryKB, kbFilename:String) = {
   //   val kbResourcePath = makePathInKBDir(kbFilename)
@@ -78,22 +55,6 @@ object LocalKBUtils {
   //   }
   //   source.close()
   // }
-
-
-  def compareAndSelect (oldEntry:KBEntry, newEntry:KBEntry): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
-  }
-
-  /** Convert a single row string from a TSV file to a sequence of string fields. */
-  def tsvRowToFields (row:String): Seq[String] = {
-    return row.split("\t").map(_.trim)
-  }
-
-
-  def validateFields (fields:Seq[String]): Boolean = {
-    return ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty) ||
-           ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty)
-  }
 
 
   /** Return a Scala Source object created from the given resource path string. If the

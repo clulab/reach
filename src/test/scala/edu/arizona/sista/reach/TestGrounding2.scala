@@ -85,40 +85,40 @@ class TestGrounding2 extends FlatSpec with Matchers {
     (kbe.isHumanSpecies("HOMO SAPIENS")) should be (true)
   }
 
-  // test LocalKBUtils
-  "makeKBCanonKey(identical)" should "return identical string" in {
-    (LocalKBUtils.makeKBCanonKey("identical") == "identical") should be (true)
+  // test LocalKeyTransforms
+  "makeCanonicalKey(identical)" should "return identical string" in {
+    (LocalKeyTransforms.makeCanonicalKey("identical") == "identical") should be (true)
   }
 
-  "makeKBCanonKey(a non-identical)" should "return a non-identical string" in {
-    (LocalKBUtils.makeKBCanonKey("a non-identical") == "a non-identical") should be (false)
+  "makeCanonicalKey(a non-identical)" should "return a non-identical string" in {
+    (LocalKeyTransforms.makeCanonicalKey("a non-identical") == "a non-identical") should be (false)
   }
 
-  "makeKBCanonKey(A-B and/or C)" should "return abandorc" in {
-    (LocalKBUtils.makeKBCanonKey("A-B and/or C") == "abandorc") should be (true)
+  "makeCanonicalKey(A-B and/or C)" should "return abandorc" in {
+    (LocalKeyTransforms.makeCanonicalKey("A-B and/or C") == "abandorc") should be (true)
   }
 
-  "makeKBCanonKey(MAN_human)" should "return man" in {
-    (LocalKBUtils.makeKBCanonKey("MAN_human") == "man") should be (true)
+  "makeCanonicalKey(MAN_human)" should "return man" in {
+    (LocalKeyTransforms.makeCanonicalKey("MAN_human") == "man") should be (true)
   }
 
-  "makeKBCanonKey(WO-MAN_HUMAN)" should "return woman" in {
-    (LocalKBUtils.makeKBCanonKey("WO-MAN_HUMAN") == "woman") should be (true)
+  "makeCanonicalKey(WO-MAN_HUMAN)" should "return woman" in {
+    (LocalKeyTransforms.makeCanonicalKey("WO-MAN_HUMAN") == "woman") should be (true)
   }
 
   val set0 = Set[String]()
   val set1 = Set("one")
   val set2 = Set("one", "two")
   "stripASuffix(set0, string one)" should "return string one" in {
-    (LocalKBUtils.stripASuffix(set0, "string one") == "string one") should be (true)
+    (LocalKeyTransforms.stripASuffix(set0, "string one") == "string one") should be (true)
   }
 
   "stripASuffix(set1, stringone)" should "return string" in {
-    (LocalKBUtils.stripASuffix(set1, "stringone") == "string") should be (true)
+    (LocalKeyTransforms.stripASuffix(set1, "stringone") == "string") should be (true)
   }
 
   "stripASuffix(set2, stringtwo)" should "return string" in {
-    (LocalKBUtils.stripASuffix(set2, "stringtwo") == "string") should be (true)
+    (LocalKeyTransforms.stripASuffix(set2, "stringtwo") == "string") should be (true)
   }
 
   // "tsvRowToFields()" should "return a sequence with an empty string" in {

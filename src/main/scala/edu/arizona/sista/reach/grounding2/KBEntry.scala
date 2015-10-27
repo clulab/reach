@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor meta information to in-memory KB.
+  *   Last Modified: Add toString method.
   */
 class KBEntry (
 
@@ -41,4 +41,8 @@ class KBEntry (
 
   /** Tell whether the given ID is equal to the primary id. */
   def hasPrimaryId (anId:String): Boolean = (anId == id)
+
+  /** Override method to provide logging/debugging printout. */
+  override def toString(): String =
+    s"<KBEntry: ${text} | ${key} | ${id} | ${species.getOrElse('NONE)}>"
 }
