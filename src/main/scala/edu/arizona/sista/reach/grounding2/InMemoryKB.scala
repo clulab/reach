@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for rename of key transform trait.
+  *   Last Modified: Define internal KB, entry insertion.
   */
 class InMemoryKB (
 
@@ -16,18 +16,44 @@ class InMemoryKB (
   val kbFilename: String
 
 ) extends Speciated with KBKeyTransforms {
+  // type to map species name strings to KB entries for the same key:
+  type SpeciesEntryMap = scala.collection.mutable.Map[String, KBEntry]
+  def  SpeciesEntryMap() = scala.collection.mutable.Map[String, KBEntry]()
 
-  def addEntry (entry:KBEntry) = {
+  type KnowledgeBase = scala.collection.mutable.Map[String, SpeciesEntryMap]
+  def  KnowledgeBase() = scala.collection.mutable.Map[String, SpeciesEntryMap]()
+
+  // the root data structure implementing this in-memory knowledge base
+  val thisKB: KnowledgeBase = KnowledgeBase()
+
+
+  /** Insert the given entry, merge it with an existing entry, or ignore it,
+      depending on the contents and state of this KB. */
+  def insertOrUpdateEntry (entry:KBEntry) = {
+    val seMap = thisKB.get(entry.key)       // lookup the given key in this KB
+    if (seMap.isDefined) {                  // if key is already in this KB
+      mergeOrIgnoreEntry(entry, seMap.get)  // handle the (possibly duplicate) entry
+    }
+    else {                                  // key not seen before
+      val seMap = SpeciesEntryMap()         // allocate new species-entry map
+      seMap.put(entry.species.getOrElse(""), entry) // add entry under its species
+      thisKB.put(entry.key, seMap)          // add new species-entry map to KB
+    }
+  }
+
+  /** Merge the given entry into this KB or ignore it, if it is a duplicate entry. */
+  def mergeOrIgnoreEntry (entry:KBEntry, seMap:SpeciesEntryMap) = {
+    // TODO: IMPLEMENT LATER
   }
 
 
-  /** Create and return a new KB resolution from this in-memory KB and the given KB entry. */
+  /** Create and return a new KB resolution from this KB and the given KB entry. */
   def newResolution (entry:KBEntry): KBResolution = {
     new KBResolution(metaInfo, entry)
   }
 
   /**
-    * Load the in-memory KB from a 2 or 3-column, tab-separated-value (TSV) text file.
+    * Load this KB from a 2 or 3-column, tab-separated-value (TSV) text file.
     *   1st column is the name string,
     *   2nd column is the ID string (2-col file) or species (3-col file),
     *   3rd column is the ID string (3-col file).
@@ -36,12 +62,13 @@ class InMemoryKB (
     val kbResourcePath = LocalKBUtils.makePathInKBDir(kbFilename)
     val source = LocalKBUtils.sourceFromResource(kbResourcePath)
     source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
-      val flds = parseFields(fields)
-      var text = flds(0)
+      val flds = parseFields(fields)        // extract and order fields
+      var text = flds(0)                    // assign fields in order
       var refId = flds(1)
       var species = flds(2)
-      val newEntry = makeEntry(text, refId, species)
+      insertOrUpdateEntry(makeEntry(text, refId, species)) // store new entry
     }
+    source.close()
   }
 
 
@@ -94,4 +121,6 @@ class InMemoryKB (
   // MAIN - Load this KB from an external file upon Construction.
   //
   readAndFillKB()                           // load in-memory KB on instantiation
+//  thisKB.foreach { case (k, seMap) =>       // REMOVE LATER
+//    seMap.foreach { case (k2, ent) => println(ent.toString()) }} // REMOVE LATER
 }
