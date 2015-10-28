@@ -15,6 +15,7 @@ class TestGrounding2 extends FlatSpec with Matchers {
   val kbe1 = new KBEntry("Adam", "key1", "XYX", "human")
   val kbe2 = new KBEntry("Eve",  "key1", "YXY", "")
   val kbe3 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("AAA", "BBB")))
+  val kbe5k = new KBEntry("Seth", "key3", "QQQ", "human", None)
   val kbe50 = new KBEntry("Seth", "key3", "XXX", "human", None)
   val kbe51 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("AAA")))
   val kbe52 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("BBB", "CCC")))
@@ -140,6 +141,45 @@ class TestGrounding2 extends FlatSpec with Matchers {
     (nkbe.alternateIds.get.contains("AAA")) should be (true)
     (nkbe.alternateIds.get.contains("BBB")) should be (true)
     (nkbe.alternateIds.get.contains("CCC")) should be (true)
+  }
+
+  "kbe5k.combine(kbe5k)" should "have alternateIds of None" in {
+    val nkbe = kbe5k.combine(kbe5k)
+    (nkbe.alternateIds.isEmpty) should be (true)
+  }
+
+  "kbe5k.combine(kbe50)" should "have alternateIds of Set(QQQ, XXX)" in {
+    val nkbe = kbe5k.combine(kbe50)
+    (nkbe.alternateIds.isEmpty) should be (false)
+    (nkbe.alternateIds.get) should have size (2)
+    (nkbe.alternateIds.get.contains("QQQ")) should be (true)
+    (nkbe.alternateIds.get.contains("XXX")) should be (true)
+  }
+
+  "kbe50.combine(kbe5k)" should "have alternateIds of Set(QQQ, XXX)" in {
+    val nkbe = kbe50.combine(kbe5k)
+    (nkbe.alternateIds.isEmpty) should be (false)
+    (nkbe.alternateIds.get) should have size (2)
+    (nkbe.alternateIds.get.contains("QQQ")) should be (true)
+    (nkbe.alternateIds.get.contains("XXX")) should be (true)
+  }
+
+  "kbe5k.combine(kbe51)" should "have alternateIds of Set(AAA, QQQ, XXX)" in {
+    val nkbe = kbe5k.combine(kbe51)
+    (nkbe.alternateIds.isEmpty) should be (false)
+    (nkbe.alternateIds.get) should have size (3)
+    (nkbe.alternateIds.get.contains("AAA")) should be (true)
+    (nkbe.alternateIds.get.contains("QQQ")) should be (true)
+    (nkbe.alternateIds.get.contains("XXX")) should be (true)
+  }
+
+  "kbe51.combine(kbe5k)" should "have alternateIds of Set(AAA, QQQ, XXX)" in {
+    val nkbe = kbe51.combine(kbe5k)
+    (nkbe.alternateIds.isEmpty) should be (false)
+    (nkbe.alternateIds.get) should have size (3)
+    (nkbe.alternateIds.get.contains("AAA")) should be (true)
+    (nkbe.alternateIds.get.contains("QQQ")) should be (true)
+    (nkbe.alternateIds.get.contains("XXX")) should be (true)
   }
 
   "kbe60.combine(kbe60)" should "have NO standard name" in {
