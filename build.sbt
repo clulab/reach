@@ -1,6 +1,6 @@
 name := "reach"
 
-version := "1.1.1-SNAPSHOT"
+version := "1.1.1"
 
 organization := "org.clulab"
 
@@ -72,7 +72,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "processors" % "5.7.1-SNAPSHOT",
+  "org.clulab" %% "processors" % "5.7.1",
   "org.clulab" %% "processors" % "5.7.1-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
