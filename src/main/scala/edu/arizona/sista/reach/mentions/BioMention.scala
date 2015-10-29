@@ -3,6 +3,7 @@ package edu.arizona.sista.reach.mentions
 import edu.arizona.sista.odin._
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.context.Context
 
 class BioTextBoundMention(
   labels: Seq[String],
@@ -30,7 +31,7 @@ class BioEventMention(
   keep: Boolean,
   foundBy: String
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display {
+    with Modifications with Grounding with Display with Context{
 
   // FIXME
   // sketchy code to mutate the mention's tokenInterval

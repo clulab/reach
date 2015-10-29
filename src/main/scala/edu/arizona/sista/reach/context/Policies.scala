@@ -2,12 +2,14 @@ package edu.arizona.sista.reach.context
 
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.nxml.FriesEntry
-/*
+import edu.arizona.sista.reach.context.rulebased._
+
+
+
 // Policy Two
-class BoundedPaddingContext(vocabulary:Map[(String, String), Int],
- lines:Seq[(Seq[BioMention], FriesEntry)],
+class BoundedPaddingContext(
  bound:Int = 5 // Default bound to extend the policy
-) extends Context(vocabulary, lines){
+) extends RuleBasedContextEngine{
 
   protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine")
 
@@ -76,20 +78,20 @@ class BoundedPaddingContext(vocabulary:Map[(String, String), Int],
   protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
+
 // Policy 1
-class PaddingContext(vocabulary:Map[(String, String), Int], lines:Seq[(Seq[BioMention], FriesEntry)]) extends BoundedPaddingContext(vocabulary, lines, lines.size){
+class PaddingContext extends BoundedPaddingContext(Int.MaxValue){
 
 }
 
+
 // Policy 3
-class FillingContext(vocabulary:Map[(String, String), Int],
- lines:Seq[(Seq[BioMention], FriesEntry)],
-  bound:Int = 5) extends BoundedPaddingContext(vocabulary, lines, bound){
+class FillingContext(bound:Int = 5) extends BoundedPaddingContext(bound){
 
     // Override the infer context to fill the empty slots
     protected override def inferContext = {
       // Get the most common mentioned context of each type
-      val defaultContexts = this.mentions.flatten.map(Context.getContextKey(_))  // Get the context keys of the mentions
+      val defaultContexts = this.mentions.flatten.map(ContextEngine.getContextKey(_))  // Get the context keys of the mentions
         .filter(x => this.contextTypes.contains(x._1)).groupBy(_._1) // Keep only those we care about and group them by type
         .mapValues(bucket => bucket.map(this.vocabulary(_))) // Get their numeric value from the vocabulary
         .mapValues(bucket => bucket.groupBy(identity).mapValues(_.size)) // Count the occurences
@@ -115,4 +117,3 @@ class FillingContext(vocabulary:Map[(String, String), Int],
       }
     }
 }
-*/

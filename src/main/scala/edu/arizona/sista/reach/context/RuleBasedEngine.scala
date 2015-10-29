@@ -23,10 +23,11 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   protected var inverseVocabulary:Map[Int, (String, String)] = _
 
 
+  protected var mentions:Seq[Seq[BioMention]] = _
 
   // Build sparse matrices
   // First, the observed value matrices
-  protected var mentions:Seq[FriesEntry] = _
+  protected var entries:Seq[FriesEntry] = _
   protected var entryFeatures:Seq[Array[(String, Double)]] = _
   protected var observedSparseMatrix:Seq[Seq[Int]] = _
 
@@ -51,11 +52,31 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     inverseVocabulary = vocabulary map (_.swap)
 
     // TODO: This is not right!! need to split by lines not by fries entries!
-    val lines = mentionsPerEntry zip entries
+    val lines:Seq[(Seq[BioMention], FriesEntry)] =  (0 until entries.size).flatMap{
+      ix =>
+        val entry = entries(ix)
+        val doc = documents(ix)
+        val men = mentionsPerEntry(ix)
+
+        // Cast mentions as TextBound and sort by sentence index
+        val sortedMentions = men.filter{
+          case tb:BioTextBoundMention => true
+          case _ => false
+        }.sortWith(_.sentence < _.sentence)
+
+        // Group mentions by sentence index and attach the fries entry
+        val groupedMentions:Map[Int, Seq[BioMention]] = sortedMentions.groupBy(_.sentence)
+
+        // Return seq of (Seq[BioMention], FriesEntry) tuples. Each corresponds to each line
+        for(i <- 0 until doc.sentences.size) yield (groupedMentions.lift(ix).getOrElse(Nil).filter{
+          mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+        }, entry)
+    }
+
 
     // Build sparse matrices
     // First, the observed value matrices
-    val mentions = lines map (_._1)
+    mentions = lines map (_._1)
     val entryFeatures = lines map (_._2) map extractEntryFeatures
 
     observedSparseMatrix = mentions.map{
@@ -64,9 +85,10 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       }
     }
 
+    latentSparseMatrix = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
+
     inferedLatentSparseMatrix = inferContext
 
-    latentSparseMatrix = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
   }
 
   // Implementation of the update method of the ContextEngine trait

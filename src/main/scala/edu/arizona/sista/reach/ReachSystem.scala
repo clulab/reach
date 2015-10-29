@@ -9,6 +9,7 @@ import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
+import edu.arizona.sista.reach.context.rulebased._
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
@@ -41,7 +42,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize the context engine
-  val contextEngine = new DummyContextEngine
+  val contextEngine = new BoundedPaddingContext
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
