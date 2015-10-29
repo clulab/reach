@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Skip KB file loading if KB filename not given.
+  *   Last Modified: Begin lookups in memory KB.
   */
 class InMemoryKB (
 
@@ -64,17 +64,28 @@ class InMemoryKB (
     }
   }
 
+
+  def lookup (key:String): Option[KBEntry] = {
+    thisKB.get(key).flatMap(spMap =>
+      spMap.find{case(k,kbe) => kbe.hasNoSpecies()}).map((pair) => pair._2)
+  }
+
+  def lookupHuman (text:String): Option[KBEntry] = {
+    return None                             // TODO: IMPLEMENT LATER
+  }
+
+  def lookupByASpecies (text:String, species:String): Option[KBEntry] = {
+    return None                             // TODO: IMPLEMENT LATER
+  }
+
+  def lookupBySpecies (key:String, species:SpeciesNameSet): Option[KBEntry] = {
+    return None                             // TODO: IMPLEMENT LATER
+  }
+
+
   /** Create and return a new KB resolution from this KB and the given KB entry. */
   def newResolution (entry:KBEntry): KBResolution = {
     new KBResolution(metaInfo, entry)
-  }
-
-  def resolve (text:String): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
-  }
-
-  def resolveBySpecies (text:String, species:SpeciesNameSet): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
   }
 
 
