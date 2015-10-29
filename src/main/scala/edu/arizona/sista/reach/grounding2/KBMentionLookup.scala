@@ -5,7 +5,7 @@ import edu.arizona.sista.odin._
 /**
   * Trait for simple and species-specific Mention lookup in local knowledge bases.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Add method for basic resolve of mention. Rename trait.
+  *   Last Modified: Add method for single species resolution.
   */
 trait KBMentionLookup extends KBLookup {
 
@@ -22,6 +22,12 @@ trait KBMentionLookup extends KBLookup {
     */
   def resolveHuman (mention:Mention): Option[KBEntry] =
     resolveBySpecies(mention, HumanLabels)  // resolve for humans only
+
+  /** Resolve the given Mention to an optional entry in a knowledge base,
+    * for the single named species. Return a resolution for the entry, if any found.
+    */
+  def resolveByASpecies (mention:Mention, species:String): Option[KBEntry] =
+    resolveBySpecies(mention.text, SpeciesNameSet(species))
 
   /** Resolve the given Mention to an optional entry in a knowledge base,
     * for any of the species name strings in the given set.

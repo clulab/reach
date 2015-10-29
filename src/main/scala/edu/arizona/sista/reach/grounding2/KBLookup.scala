@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for simple and species-specific string lookup in local knowledge bases.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Merge in speciated trait.
+  *   Last Modified: Add method for single species resolution.
   */
 trait KBLookup extends Speciated {
 
@@ -21,6 +21,12 @@ trait KBLookup extends Speciated {
     */
   def resolveHuman (text:String): Option[KBEntry] =
     resolveBySpecies(text, HumanLabels)     // resolve for humans only
+
+  /** Resolve the given text string to an optional entry in a knowledge base,
+    * for the single named species. Return a resolution for the entry, if any found.
+    */
+  def resolveByASpecies (text:String, species:String): Option[KBEntry] =
+    resolveBySpecies(text, SpeciesNameSet(species))
 
   /** Resolve the given string to an optional entry in a knowledge base,
     * for any of the species names in the given set.
