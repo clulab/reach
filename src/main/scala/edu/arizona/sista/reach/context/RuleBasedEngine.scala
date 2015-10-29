@@ -25,6 +25,9 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   protected var mentions:Seq[Seq[BioMention]] = _
 
+  // Map of documents to offsets
+  protected var docOffsets:Map[String, Int] = _
+
   // Build sparse matrices
   // First, the observed value matrices
   protected var entries:Seq[FriesEntry] = _
@@ -44,6 +47,15 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       documents: Seq[Document],
       mentionsPerEntry: Seq[Seq[BioMention]]
   ) {
+    // Build the document offsets
+    val docLengths = documents.map(_.sentences.size)
+    val docCumLengths:Seq[Int] = docLengths.scanLeft(0)((a, b) => a+b).dropRight(1)
+
+    assert(docCumLengths.size == documents.size, "Something is wrong with context document offsets")
+
+    //documents.map(_.id.getOrElse("N/A")).foreach(println(_))
+    docOffsets = documents.map(_.id.getOrElse("N/A")).zip(docCumLengths).toMap
+
     // Build the vocabularies
     vocabulary = mentionsPerEntry.flatten.filter{
       mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
@@ -94,7 +106,22 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Implementation of the update method of the ContextEngine trait
   def update(mentions: Seq[BioMention]) {}
   // Implementation of the assign method of the ContextEngine trait
-  def assign(mentions: Seq[BioMention]): Seq[BioMention] = mentions
+  def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
+    mentions.foreach{
+      case em:BioEventMention =>
+        // Reconstruct the line number of the mention relative to the document
+        val offset = docOffsets(em.document.id.getOrElse("N/A"))
+        val relativeLine = em.sentence
+
+        val line = offset + relativeLine
+
+        // Query the context engine and assign it to the BioEventMention
+        em.context = Some(this.query(line))
+      case _ => Unit
+    }
+
+    mentions
+  }
 
 
   // Internal methods
