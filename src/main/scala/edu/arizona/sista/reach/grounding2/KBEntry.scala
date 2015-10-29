@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add has no species methods.
+  *   Last Modified: Add/use is no species value constant.
   */
 class KBEntry (
 
@@ -17,7 +17,7 @@ class KBEntry (
   val id: String,
 
   /** The species associated with this entry, if any. Empty string represents no species. */
-  val species: String = "",
+  val species: String = KBEntry.NoSpeciesValue,
 
   /** Alternate IDs which might be found in external input sources. */
   val alternateIds: Option[Set[String]] = None,
@@ -28,8 +28,8 @@ class KBEntry (
 ) extends Speciated {
 
   /** Tell whether this entry has an associated species or not. */
-  def hasSpecies(): Boolean = (species != "")
-  def hasNoSpecies(): Boolean = (species == "")
+  def hasSpecies(): Boolean = (species != KBEntry.NoSpeciesValue)
+  def hasNoSpecies(): Boolean = (species == KBEntry.NoSpeciesValue)
 
   /** Tell whether the given ID is already associated with this entry,
       either as the primary or an alternate ID. */
@@ -62,4 +62,15 @@ class KBEntry (
   /** Override method to provide logging/debugging printout. */
   override def toString(): String =
     s"<KBEntry: ${text} | ${key} | ${id} | ${species}>"
+}
+
+
+object KBEntry {
+
+  /** Constant which represents the lack of a species in a KB entry. */
+  val NoSpeciesValue: String = ""
+
+  /** Tell whether the given string is the special no-species constant or not. */
+  def isNoSpeciesValue (species:String): Boolean = (species == NoSpeciesValue)
+
 }
