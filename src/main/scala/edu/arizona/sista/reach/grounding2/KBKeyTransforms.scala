@@ -5,9 +5,14 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Specialized lookup key transformation methods, for writing local KB accessors.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Rename this trait.
+  *   Last Modified: Add method to make alternate keys.
   */
 trait KBKeyTransforms {
+
+  /** Return a sequence of alternate keys, one for each of the given key transforms. */
+  def makeAlternateKeys (key:String, transformFns:Seq[(String) => String]): Seq[String] = {
+    transformFns.map(_.apply(key)).filter(_ != key)
+  }
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
@@ -16,6 +21,7 @@ trait KBKeyTransforms {
     key = key.filterNot(KeyCharactersToRemove)
     return stripASuffix(AllKeysStopSuffixes, key)
   }
+
 
   /** Try to remove one of the suffixes in the given set from the given text. */
   def stripASuffix (suffixes:Set[String], text:String): String = {

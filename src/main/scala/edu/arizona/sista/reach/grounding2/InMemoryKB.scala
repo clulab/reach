@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Finish KB fill implementation.
+  *   Last Modified: Skip KB file loading if KB filename not given.
   */
 class InMemoryKB (
 
@@ -13,7 +13,7 @@ class InMemoryKB (
   val metaInfo: KBMetaInfo,
 
   /** The filename of the external KB to be loaded into memory. */
-  val kbFilename: String
+  val kbFilename: String = null             // default for KBs with no file to load
 
 ) extends Speciated with KBKeyTransforms {
   // type to map species name strings to KB entries for the same key:
@@ -42,30 +42,32 @@ class InMemoryKB (
   }
 
 
+  /**
+    * Load this KB from the given 2 or 3-column, tab-separated-value (TSV) text file.
+    *   1st column is the name string,
+    *   2nd column is the ID string (2-col file) or species (3-col file),
+    *   3rd column is the ID string (3-col file).
+    * If filename argument is null or the empty string, skip file loading.
+    */
+  def loadFromFile (filename:String) = {
+    if ((filename != null) && !filename.trim.isEmpty) { // skip loading if filename missing
+      val kbResourcePath = LocalKBUtils.makePathInKBDir(filename)
+      val source = LocalKBUtils.sourceFromResource(kbResourcePath)
+      source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
+        val flds = parseFields(fields)        // extract and order fields
+        var text = flds(0)                    // assign fields in order
+        var refId = flds(1)
+        var species = flds(2)
+        insertOrUpdateEntry(makeEntry(text, refId, species))  // store new entry
+      }
+      source.close()
+    }
+  }
+
   /** Create and return a new KB resolution from this KB and the given KB entry. */
   def newResolution (entry:KBEntry): KBResolution = {
     new KBResolution(metaInfo, entry)
   }
-
-  /**
-    * Load this KB from a 2 or 3-column, tab-separated-value (TSV) text file.
-    *   1st column is the name string,
-    *   2nd column is the ID string (2-col file) or species (3-col file),
-    *   3rd column is the ID string (3-col file).
-    */
-  def readAndFillKB () = {
-    val kbResourcePath = LocalKBUtils.makePathInKBDir(kbFilename)
-    val source = LocalKBUtils.sourceFromResource(kbResourcePath)
-    source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
-      val flds = parseFields(fields)        // extract and order fields
-      var text = flds(0)                    // assign fields in order
-      var refId = flds(1)
-      var species = flds(2)
-      insertOrUpdateEntry(makeEntry(text, refId, species))  // store new entry
-    }
-    source.close()
-  }
-
 
   def resolve (text:String): Option[KBEntry] = {
     return None                             // TODO: IMPLEMENT LATER
@@ -108,7 +110,7 @@ class InMemoryKB (
   //
   // MAIN - Load this KB from an external file upon Construction.
   //
-  readAndFillKB()                           // load in-memory KB on instantiation
+  loadFromFile(kbFilename)                  // load in-memory KB on instantiation
 //  thisKB.foreach { case (k, seMap) =>       // REMOVE LATER
 //    seMap.foreach { case (k2, ent) => println(ent.toString()) }} // REMOVE LATER
 }

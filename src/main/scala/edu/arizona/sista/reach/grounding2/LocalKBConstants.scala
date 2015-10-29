@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Add alternate subcellular location file.
   */
 object LocalKBConstants {
 
@@ -58,6 +58,9 @@ object LocalKBConstants {
 
   /** Filename of the static cellular location file. */
   val StaticCellLocationFilename = "GO-subcellular-locations.tsv"
+
+  /** Filename of the alternate static cellular location file. */
+  val StaticCellLocation2Filename = "uniprot-subcellular-locations.tsv"
 
   /** Filename of the static small molecule (chemical) file. */
   val StaticChemicalFilename = "chebi.tsv.gz"

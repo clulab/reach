@@ -3,20 +3,20 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class representing meta-information about an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Initial creation as a class.
+  *   Last Modified: Add dummy defaults to constructor arguments.
   */
 class KBMetaInfo (
 
   /** The primary URI of the external KB (e.g., http://identifiers.org/uniprot/). */
-  val baseURI: String,
+  val baseURI: String = "http://org.clulab.reach/uazid/",
 
   /** The namespace of the external KB (e.g., uniprot). */
-  val namespace: String,
+  val namespace: String = "uazid",
 
   /** The Resource Identifier for the primary resource location for this
     * knowledge base (e.g., MIR:00100164).
     * NB: This is MIRIAM registration ID of the external knowledge base, NOT an entity ID. */
-  val resourceId: String
+  val resourceId: String = "MIR:00000000"   // fake MIRIAM registration number
 
 ) {
 
