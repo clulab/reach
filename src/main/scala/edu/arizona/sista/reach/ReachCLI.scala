@@ -8,6 +8,7 @@ import scala.collection.mutable
 import scala.util.{ Try,Success,Failure }
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
+import edu.arizona.sista.processors.Document
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.extern.export._
@@ -116,46 +117,18 @@ object ReachCLI extends App {
     val paperMentions = new mutable.ArrayBuffer[BioMention]
     val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
 
+    // Create the documents
+    val documents = new mutable.ArrayBuffer[Document]
     for (entry <- entries) {
       try {
-        // Had to do this to extract the number of sentences even if no events were found in the FriesEntry
-        val docEntry = reach.mkDoc(entry.text, entry.name, entry.chunkId)
-        val mentions:Seq[BioMention] = reach.extractFrom(docEntry)
-        //////
-        mentions foreach { m => mentionsEntriesMap += (m -> entry) }
-        paperMentions ++= mentions
-
-        // Filter out all the mentions we don't care about in context
-        // val contextMentions = mentions filter {
-        //   mention => (contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-        // }
-
-        // Add all the names to the context's names cache
-        // contextMentions foreach {
-        //   contextNames += getContextKey(_)
-        // }
-        // Unpack and store this section's context mentions
-        // Group mentions by line, for each we're going to extract it's context bio-mentions
-        // val groupedMentions:Map[Int, Seq[BioMention]] = contextMentions.groupBy(_.sentence)
-
-        // Append the lists to the contextLines storage
-        // val mentionsPerLine = groupedMentions.map{
-        //   case (key, value) => (key, value map {(_, entry)} )
-        // }.toMap
-
-        // for(ix <- 0 until docEntry.sentences.size){
-        //   contextLines += (mentionsPerLine.lift(ix) match {
-        //     case None => (Seq(), entry)
-        //     case Some(a) => (a map (_._1), a.head._2) //TODO: Make this legible
-        //   })
-        // }
-
-      } catch {
+        documents += reach.mkDoc(entry.text, entry.name, entry.chunkId)
+      }
+      catch {
         case e: Exception =>
           val report = s"""
                           |==========
                           |
-                          | ¡¡¡ extraction error !!!
+                          | ¡¡¡ annotation error !!!
                           |
                           |paper: $paperId
               |chunk: ${entry.chunkId}
@@ -174,6 +147,38 @@ object ReachCLI extends App {
       }
     }
 
+
+    // Had to do this to extract the number of sentences even if no events were found in the FriesEntry
+
+
+    //////
+    try{
+
+      val mentions:Seq[BioMention] = reach.extractFrom(entries, documents)
+      paperMentions ++= mentions
+
+
+  } catch {
+    case e: Exception =>
+      val report = s"""
+                      |==========
+                      |
+                      | ¡¡¡ extraction error !!!
+                      |
+                      |paper: $paperId
+          |
+          |error:
+          |${e.toString}
+          |
+          |stack trace:
+          |${e.getStackTrace.mkString("\n")}
+          |
+          |==========
+          |""".stripMargin
+      FileUtils.writeStringToFile(logFile, report, true)
+  }
+
+
     // contextDocs += (paperId -> contextLines)
 
     // done processing
@@ -191,24 +196,24 @@ object ReachCLI extends App {
         FileUtils.writeLines(outFile, lines.asJavaCollection)
         FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
 
-      case "pandas" =>
-
-        println("Using pandas output ...")
-        // Write down the context output
-        val outputter:PandasOutput = new PandasOutput()
-
-        val (entities, events, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
-        // Write the text files
-        val outMentions = new File(contextDir, s"$paperId.entities")
-        val outEvents = new File(contextDir, s"$paperId.events")
-        val outRelations = new File(contextDir, s"$paperId.relations")
-        val outLines = new File(contextDir, s"$paperId.lines")
-        FileUtils.writeLines(outMentions, entities.asJavaCollection)
-        FileUtils.writeLines(outEvents, events.asJavaCollection)
-        FileUtils.writeLines(outRelations, relations.asJavaCollection)
-        FileUtils.writeLines(outLines, lines.asJavaCollection)
-
-        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+      // case "pandas" =>
+      //
+      //   println("Using pandas output ...")
+      //   // Write down the context output
+      //   val outputter:PandasOutput = new PandasOutput()
+      //
+      //   val (entities, events, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
+      //   // Write the text files
+      //   val outMentions = new File(contextDir, s"$paperId.entities")
+      //   val outEvents = new File(contextDir, s"$paperId.events")
+      //   val outRelations = new File(contextDir, s"$paperId.relations")
+      //   val outLines = new File(contextDir, s"$paperId.lines")
+      //   FileUtils.writeLines(outMentions, entities.asJavaCollection)
+      //   FileUtils.writeLines(outEvents, events.asJavaCollection)
+      //   FileUtils.writeLines(outRelations, relations.asJavaCollection)
+      //   FileUtils.writeLines(outLines, lines.asJavaCollection)
+      //
+      //   FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
 
       // Anything that is not text (including Hans-style output)
       case _ =>
