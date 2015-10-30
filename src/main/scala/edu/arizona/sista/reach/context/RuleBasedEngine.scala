@@ -51,6 +51,12 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     val docLengths = documents.map(_.sentences.size)
     val docCumLengths:Seq[Int] = docLengths.scanLeft(0)((a, b) => a+b).dropRight(1)
 
+    //println(s"Sizes: ${documents.size}\t${docCumLengths.size}")
+    //documents.zip(docCumLengths) foreach {
+      //case (doc, len) =>
+        //println(s"${doc.id}:\t$len")
+    //}
+
     assert(docCumLengths.size == documents.size, "Something is wrong with context document offsets")
 
     //documents.map(_.id.getOrElse("N/A")).foreach(println(_))
@@ -110,7 +116,13 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     mentions.foreach{
       case em:BioEventMention =>
         // Reconstruct the line number of the mention relative to the document
-        val offset = docOffsets(em.document.id.getOrElse("N/A"))
+        val key = em.document.id.getOrElse("N/A")
+
+        if(!(docOffsets contains key)){
+          println(s"KNF: $key in ${docOffsets.keys.mkString(" ")}")
+        }
+
+        val offset = docOffsets(key)
         val relativeLine = em.sentence
 
         val line = offset + relativeLine

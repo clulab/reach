@@ -75,12 +75,6 @@ object ReachCLI extends App {
   val nxmlReader = new NxmlReader(
     config.getStringList("nxml2fries.ignoreSections").asScala)
 
-  // CONTEXT
-  // This is to build the context vocabulary
-  // val contextNames = mutable.Set[(String, String)]()
-  // val contextDocs = mutable.Map[String, mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]]()
-  //////////////////////////////////////////////////
-
   // process papers in parallel
   for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
     val paperId = FilenameUtils.removeExtension(file.getName)
@@ -115,7 +109,7 @@ object ReachCLI extends App {
     // var contextLines = new mutable.ArrayBuffer[(Seq[BioMention], FriesEntry)]
     //
     val paperMentions = new mutable.ArrayBuffer[BioMention]
-    val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
+    //val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
 
     // Create the documents
     val documents = new mutable.ArrayBuffer[Document]
@@ -159,23 +153,23 @@ object ReachCLI extends App {
 
 
   } catch {
-    case e: Exception =>
-      val report = s"""
-                      |==========
-                      |
-                      | ¡¡¡ extraction error !!!
-                      |
-                      |paper: $paperId
-          |
-          |error:
-          |${e.toString}
-          |
-          |stack trace:
-          |${e.getStackTrace.mkString("\n")}
-          |
-          |==========
-          |""".stripMargin
-      FileUtils.writeStringToFile(logFile, report, true)
+      case e: Exception =>
+        val report = s"""
+                        |==========
+                        |
+                        | ¡¡¡ extraction error !!!
+                        |
+                        |paper: $paperId
+            |
+            |error:
+            |${e.toString}
+            |
+            |stack trace:
+            |${e.getStackTrace.mkString("\n")}
+            |
+            |==========
+            |""".stripMargin
+        FileUtils.writeStringToFile(logFile, report, true)
   }
 
 
