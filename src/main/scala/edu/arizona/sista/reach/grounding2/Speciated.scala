@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for species features used in external knowledge bases.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Rename species name set.
+  *   Last Modified: Add is member of method for species.
   */
 trait Speciated {
 
@@ -18,6 +18,11 @@ trait Speciated {
   /** Tell whether the given species string is label for humans or not. */
   def isHumanSpecies (species: String): Boolean = {
     if (HumanLabels.contains(species.toLowerCase)) true else false
+  }
+
+  /** Tell whether the given species string is a member of the given set of species. */
+  def isMemberOf (species: String, speciesSet:SpeciesNameSet): Boolean = {
+    if (speciesSet.contains(species.toLowerCase)) true else false
   }
 
 }
