@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Begin lookups in memory KB.
+  *   Last Modified: Implement lookups, new resolution method.
   */
 class InMemoryKB (
 
@@ -16,6 +16,7 @@ class InMemoryKB (
   val kbFilename: String = null             // default for KBs with no file to load
 
 ) extends Speciated with KBKeyTransforms {
+
   // type to map species name strings to KB entries for the same key:
   type SpeciesEntryMap = scala.collection.mutable.Map[String, KBEntry]
   def  SpeciesEntryMap() = scala.collection.mutable.Map[String, KBEntry]()
@@ -41,7 +42,6 @@ class InMemoryKB (
     thisKB.put(rentry.key, seMap)           // put new/updated species-entry map into KB
   }
 
-
   /**
     * Load this KB from the given 2 or 3-column, tab-separated-value (TSV) text file.
     *   1st column is the name string,
@@ -65,28 +65,39 @@ class InMemoryKB (
   }
 
 
+  /** Find the optional KB entry, for the given key, which does not contain a species.
+      Returns the first KB entry found (should only be one) or None. */
   def lookup (key:String): Option[KBEntry] = {
     thisKB.get(key).flatMap(spMap =>
       spMap.find{case(k,kbe) => kbe.hasNoSpecies()}).map((pair) => pair._2)
   }
 
-  def lookupHuman (text:String): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
+  /** Finds an optional set of KB entries, for the given key, which have
+      humans as the species. May return more than 1 entry because of synonyms. */
+  def lookupHuman (key:String): Option[Seq[KBEntry]] = {
+    thisKB.get(key).flatMap(spMap =>
+      Some(spMap.values.filter((kbe) => isHumanSpecies(kbe.species)).toSeq))
   }
 
-  def lookupByASpecies (text:String, species:String): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
+  /** Find the optional KB entry, for the given key, which matches the given species.
+      Returns the first KB entry found (should only be one) or None. */
+  def lookupByASpecies (key:String, species:String): Option[KBEntry] = {
+    thisKB.get(key).flatMap(spMap =>
+      spMap.find{case(k,kbe) => kbe.species == species.toLowerCase}).map((pair) => pair._2)
   }
 
-  def lookupBySpecies (key:String, species:SpeciesNameSet): Option[KBEntry] = {
-    return None                             // TODO: IMPLEMENT LATER
+  /** Finds an optional set of KB entries, for the given key, which contains a
+      species in the given set of species. */
+  def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Seq[KBEntry]] = {
+    thisKB.get(key).flatMap(spMap =>
+      Some(spMap.values.filter((kbe) => isMemberOf(kbe.species,speciesSet)).toSeq))
   }
 
 
   /** Create and return a new KB resolution from this KB and the given KB entry. */
-  def newResolution (entry:KBEntry): KBResolution = {
-    new KBResolution(metaInfo, entry)
-  }
+  def newResolution (entry:Option[KBEntry]): Option[KBResolution] =
+    entry.map(kbe => new KBResolution(metaInfo, kbe))
+//    if (KBEntry.isDefined) Some(new KBResolution(metaInfo, entry.get)) else None
 
 
   /** Make and return a KB entry from the given fields. */
