@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for simple and species-specific string lookup in local knowledge bases.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Add method for single species resolution.
+  *   Last Modified: Update to return KB resolutions.
   */
 trait KBLookup extends Speciated {
 
@@ -13,19 +13,19 @@ trait KBLookup extends Speciated {
     *     for KBs with multiple entries.
     * NB: This is a non-operative default method to be overridden by each child class.
     */
-  def resolve (text:String): Option[KBEntry] = None
+  def resolve (text:String): Option[KBResolution] = None
 
   /** Resolve the given text string to an optional entry in a knowledge base,
     * failing if the KB entry is not for humans.
     * Return a resolution for the entry, if any found.
     */
-  def resolveHuman (text:String): Option[KBEntry] =
+  def resolveHuman (text:String): Option[KBResolution] =
     resolveBySpecies(text, HumanLabels)     // resolve for humans only
 
   /** Resolve the given text string to an optional entry in a knowledge base,
     * for the single named species. Return a resolution for the entry, if any found.
     */
-  def resolveByASpecies (text:String, species:String): Option[KBEntry] =
+  def resolveByASpecies (text:String, species:String): Option[KBResolution] =
     resolveBySpecies(text, SpeciesNameSet(species))
 
   /** Resolve the given string to an optional entry in a knowledge base,
@@ -34,7 +34,7 @@ trait KBLookup extends Speciated {
     * NB: This is a non-operative default method to be overridden by each child class.
     * NB: This default method ignores species argument and calls basic resolve.
     */
-  def resolveBySpecies (text:String, species:SpeciesNameSet): Option[KBEntry] =
+  def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Option[KBResolution] =
     resolve(text)
 
 }
