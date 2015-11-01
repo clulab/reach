@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Implement lookups, new resolution method.
+  *   Last Modified: Redo IMKB lookups logic.
   */
 class InMemoryKB (
 
@@ -68,29 +68,44 @@ class InMemoryKB (
   /** Find the optional KB entry, for the given key, which does not contain a species.
       Returns the first KB entry found (should only be one) or None. */
   def lookup (key:String): Option[KBEntry] = {
-    thisKB.get(key).flatMap(spMap =>
-      spMap.find{case(k,kbe) => kbe.hasNoSpecies()}).map((pair) => pair._2)
+    thisKB.get(key).flatMap(spMap => spMap.values.find((kbe) => kbe.hasNoSpecies()))
   }
 
-  /** Finds an optional set of KB entries, for the given key, which have
-      humans as the species. May return more than 1 entry because of synonyms. */
-  def lookupHuman (key:String): Option[Seq[KBEntry]] = {
-    thisKB.get(key).flatMap(spMap =>
-      Some(spMap.values.filter((kbe) => isHumanSpecies(kbe.species)).toSeq))
+  /** Find the optional KB entries, for the given key. */
+  def lookupAll (key:String): Option[Iterable[KBEntry]] = {
+    thisKB.get(key).map(spMap => spMap.values)
   }
 
   /** Find the optional KB entry, for the given key, which matches the given species.
       Returns the first KB entry found (should only be one) or None. */
   def lookupByASpecies (key:String, species:String): Option[KBEntry] = {
-    thisKB.get(key).flatMap(spMap =>
-      spMap.find{case(k,kbe) => kbe.species == species.toLowerCase}).map((pair) => pair._2)
+    thisKB.get(key).flatMap(spMap => spMap.get(species.toLowerCase))
+  }
+
+  /** Finds an optional set of KB entries, for the given key, which have
+      humans as the species. May return more than 1 entry because of synonyms. */
+  def lookupHuman (key:String): Option[Iterable[KBEntry]] = {
+    // thisKB.get(key).map(spMap => spMap.values.filter{case kbe => isHumanSpecies(kbe.species)})
+    // thisKB.get(key).map(spMap => spMap.values.filter((kbe) => isHumanSpecies(kbe.species)))
+    val kbes = lookupAll(key)
+    if (kbes.isDefined) {
+      val matches = kbes.get.filter(kbe => isHumanSpecies(kbe.species))
+      if (matches.isEmpty) None else Some(matches)
+    }
+    else None
   }
 
   /** Finds an optional set of KB entries, for the given key, which contains a
       species in the given set of species. */
-  def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Seq[KBEntry]] = {
-    thisKB.get(key).flatMap(spMap =>
-      Some(spMap.values.filter((kbe) => isMemberOf(kbe.species,speciesSet)).toSeq))
+  def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Iterable[KBEntry]] = {
+    // thisKB.get(key).flatMap(spMap =>
+    //   Some(spMap.values.filter((kbe) => isMemberOf(kbe.species,speciesSet)).toSeq))
+    val kbes = lookupAll(key)
+    if (kbes.isDefined) {
+      val matches = kbes.get.filter(kbe => isMemberOf(kbe.species,speciesSet))
+      if (matches.isEmpty) None else Some(matches)
+    }
+    else None
   }
 
 
