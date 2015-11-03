@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Redo IMKB lookups logic.
+  *   Last Modified: Sort lookup methods by name.
   */
 class InMemoryKB (
 
@@ -82,19 +82,6 @@ class InMemoryKB (
     thisKB.get(key).flatMap(spMap => spMap.get(species.toLowerCase))
   }
 
-  /** Finds an optional set of KB entries, for the given key, which have
-      humans as the species. May return more than 1 entry because of synonyms. */
-  def lookupHuman (key:String): Option[Iterable[KBEntry]] = {
-    // thisKB.get(key).map(spMap => spMap.values.filter{case kbe => isHumanSpecies(kbe.species)})
-    // thisKB.get(key).map(spMap => spMap.values.filter((kbe) => isHumanSpecies(kbe.species)))
-    val kbes = lookupAll(key)
-    if (kbes.isDefined) {
-      val matches = kbes.get.filter(kbe => isHumanSpecies(kbe.species))
-      if (matches.isEmpty) None else Some(matches)
-    }
-    else None
-  }
-
   /** Finds an optional set of KB entries, for the given key, which contains a
       species in the given set of species. */
   def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Iterable[KBEntry]] = {
@@ -108,11 +95,27 @@ class InMemoryKB (
     else None
   }
 
+  /** Finds an optional set of KB entries, for the given key, which have
+      humans as the species. May return more than 1 entry because of synonyms. */
+  def lookupHuman (key:String): Option[Iterable[KBEntry]] = {
+    // thisKB.get(key).map(spMap => spMap.values.filter{case kbe => isHumanSpecies(kbe.species)})
+    // thisKB.get(key).map(spMap => spMap.values.filter((kbe) => isHumanSpecies(kbe.species)))
+    val kbes = lookupAll(key)
+    if (kbes.isDefined) {
+      val matches = kbes.get.filter(kbe => isHumanSpecies(kbe.species))
+      if (matches.isEmpty) None else Some(matches)
+    }
+    else None
+  }
+
 
   /** Create and return a new KB resolution from this KB and the given KB entry. */
+  def newResolution (entry:KBEntry): KBResolution = new KBResolution(metaInfo, entry)
+
+  /** Create and return a new KB resolution from this KB and the given optional KB entry. */
   def newResolution (entry:Option[KBEntry]): Option[KBResolution] =
     entry.map(kbe => new KBResolution(metaInfo, kbe))
-//    if (KBEntry.isDefined) Some(new KBResolution(metaInfo, entry.get)) else None
+  // if (KBEntry.isDefined) Some(new KBResolution(metaInfo, entry.get)) else None
 
 
   /** Make and return a KB entry from the given fields. */
