@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Begin to update AzFailsafeKBML.
+  *   Last Modified: Finish rewrite of AzFailsafeKBML.
   */
 
 //
@@ -159,38 +159,30 @@ class AzFailsafeKBML extends LocalKBMentionLookup {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
-  override def resolve (mention:Mention): Option[KBResolution] = {
-    var res = resolve(mention.text)         // defer to string lookup
-    if (res.isEmpty) {
-      val kbe = newEntry(mention)
-      memoryKB.insertOrUpdateEntry(kbe)
-      res = Some(memoryKB.newResolution(kbe))
+  // base resolve of text string which does all the work for this class
+  override def resolve (text:String): Option[KBResolution] = {
+    val key = makeCanonicalKey(text)
+    val entry = memoryKB.lookup(key)            // look for existing entry
+    if (entry.isDefined)                        // if KB entry is already defined
+      return Some(memoryKB.newResolution(entry.get)) // create/wrap return value
+    else {                                      // else no existing entry, so
+      val refId = "UAZ%05d".format(idCntr.next) // create a new reference ID
+      val kbe = new KBEntry(text, key, refId)   // create a new KB entry
+      memoryKB.insertOrUpdateEntry(kbe)         // insert the new KB entry
+      return Some(memoryKB.newResolution(kbe))  // wrap return value in optional
     }
-    return res
   }
 
-  override def resolveByASpecies (text:String, species:String): Option[KBResolution] = {
-    return None                             // IMPLEMENT LATER
-  }
+  // implementations which ignore the given species and defer to the base text resolve
+  override def resolveHuman (text:String): Option[KBResolution] = resolve(text)
+  override def resolveByASpecies (text:String, species:String): Option[KBResolution] = resolve(text)
+  override def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = Some(Iterable(resolve(text).get))
 
-  override def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = {
-    return None                             // IMPLEMENT LATER
-  }
-
-  override def resolveHuman (text:String): Option[KBResolution] = {
-    return None                             // IMPLEMENT LATER
-  }
-
-  private def newEntry (mention:Mention): KBEntry = {
-    val key = makeCanonicalKey(mention.text)  // make a lookup key from the given mention text
-    val refId = "UAZ%05d".format(idCntr.next) // create a new reference ID
-    return new KBEntry(mention.text, key, refId)
-  }
-
-  private def newEntry (mention:Mention, species:String): KBEntry = {
-    val key = makeCanonicalKey(mention.text)  // make a lookup key from the given mention text
-    val refId = "UAZ%05d".format(idCntr.next) // create a new reference ID
-    return new KBEntry(mention.text, key, refId, species)
-  }
+  // mention resolves which also ignore the given species and defer to the base text resolve
+  override def resolveHuman (mention:Mention): Option[KBResolution] = resolve(mention.text)
+  override def resolve (mention:Mention): Option[KBResolution] = resolve(mention.text)
+  override def resolveByASpecies (mention:Mention, species:String): Option[KBResolution] =
+    resolve(mention.text)
+  override def resolveBySpecies (mention:Mention, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = resolveBySpecies(mention.text, speciesSet)
 
 }
