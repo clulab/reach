@@ -29,7 +29,7 @@ trait KBLookup extends Speciated {
 
   /** Resolve the given text string to an optional entry in a knowledge base,
     * failing if the KB entry is not for humans.
-    * Return a resolution for the entry, if any found.
+    * Return a resolution for a human entry, if any found.
     * NB: This is a non-operative default method to be overridden by each child class.
     */
   def resolveHuman (text:String): Option[KBResolution]
