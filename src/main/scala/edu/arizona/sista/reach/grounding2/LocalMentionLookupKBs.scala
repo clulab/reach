@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Initial refactoring.
+  *   Last Modified: Update for abstract base trait.
   */
 
 //
@@ -154,7 +154,7 @@ class StaticTissueTypeKBML extends LocalKBMentionLookup {
 //
 
 /** KB accessor implementation which always resolves each mention with a local, fake ID. */
-class AzFailsafeKBML extends KBMentionLookup {
+class AzFailsafeKBML extends LocalKBLookup {
   val memoryKB = new InMemoryKB(new KBMetaInfo()) // no external KB file to load!
 
   private val idCntr = new IncrementingCounter() // counter sequence class
