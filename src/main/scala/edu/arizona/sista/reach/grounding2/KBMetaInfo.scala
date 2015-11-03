@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class representing meta-information about an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add dummy defaults to constructor arguments.
+  *   Last Modified: Add toString method.
   */
 class KBMetaInfo (
 
@@ -27,4 +27,7 @@ class KBMetaInfo (
     */
   def referenceURI (id:String): String = s"${baseURI}${id}"
 
+  /** Override method to provide logging/debugging printout. */
+  override def toString(): String =
+    s"<KBMetaInfo: ${baseURI} | ${namespace} | ${resourceId}>"
 }

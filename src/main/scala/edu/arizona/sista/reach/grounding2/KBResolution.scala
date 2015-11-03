@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Change to default empty species.
+  *   Last Modified: Add toString method.
   */
 class KBResolution (
 
@@ -24,4 +24,7 @@ class KBResolution (
   def this(metaInfo:KBMetaInfo, ent:KBEntry) =
     this(metaInfo, ent.text, ent.key, ent.id, ent.species, ent.alternateIds, ent.standardName)
 
+  /** Override method to provide logging/debugging printout. */
+  override def toString(): String =
+    s"<KBResolution: ${metaInfo}  ${text} | ${key} | ${id} | ${species}>"
 }
