@@ -7,9 +7,9 @@ import edu.arizona.sista.reach.grounding2._
 /**
  * Unit tests to ensure the in-memory KB is working for grounding.
  *   Written by: Tom Hicks. 10/26/2015.
- *   Last Modified: Refactor and add tests for IMKB lookup types.
+ *   Last Modified: Rename this test file.
  */
-class TestKB2 extends FlatSpec with Matchers {
+class TestIMKB extends FlatSpec with Matchers {
 
   val imkb2 = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/uazclu/", "UAZ", "MIR:00000000"),
