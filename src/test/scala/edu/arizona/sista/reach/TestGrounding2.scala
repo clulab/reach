@@ -2,7 +2,9 @@ package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
+
 import edu.arizona.sista.reach.grounding2._
+import edu.arizona.sista.reach.grounding2.LocalKBKeyTransforms._
 
 /**
   * Unit tests to ensure grounding is working properly
@@ -226,6 +228,49 @@ class TestGrounding2 extends FlatSpec with Matchers {
   }
 
   // test LocalKBKeyTransforms
+  "makeAlternateKeys(identical, proteinKeyTransforms)" should "return identical string" in {
+    (makeAlternateKeys("identical",proteinKeyTransforms)).isEmpty should be (true)
+    (makeAlternateKeys("IDENTICAL",proteinKeyTransforms)).isEmpty should be (true)
+    (makeAlternateKeys("no change",proteinKeyTransforms)).isEmpty should be (true)
+    (makeAlternateKeys("result: empty list",proteinKeyTransforms)).isEmpty should be (true)
+  }
+
+  "makeAlternateKeys(LHS-RHS, proteinKeyTransforms)" should "return RHS" in {
+    // val xkeys = makeAlternateKeys("LHS-RHS", Seq(unmutateProteinKey _))
+    val xkeys = makeAlternateKeys("LHS-RHS", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "RHS") should be (true)
+  }
+
+  "makeAlternateKeys(hairy protein, proteinKeyTransforms)" should "return hairy" in {
+    // val xkeys = makeAlternateKeys("hairy protein", Seq(stripProteinSuffixes _))
+    val xkeys = makeAlternateKeys("hairy protein", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "hairy") should be (true)
+  }
+
+  "makeAlternateKeys(Parsnip family, proteinKeyTransforms)" should "return Parsnip" in {
+    // val xkeys = makeAlternateKeys("Parnsip family", Seq(stripFamilySuffixes _))
+    val xkeys = makeAlternateKeys("Parsnip family", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "Parsnip") should be (true)
+  }
+
+  "makeAlternateKeys(savage API mutant, proteinKeyTransforms)" should "return savage" in {
+    // val xkeys = makeAlternateKeys("savage API mutant", Seq(stripMutantProtein _))
+    val xkeys = makeAlternateKeys("savage API mutant", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "savage") should be (true)
+  }
+
+  "makeAlternateKeys(phosphorylated WILD XK mutant, proteinKeyTransforms)" should "return WILD" in {
+    // val xkeys = makeAlternateKeys("phosphorylated WILD XK mutant", Seq(stripMutantProtein _))
+    val xkeys = makeAlternateKeys("phosphorylated WILD XK mutant", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "WILD") should be (true)
+  }
+
+
   "makeCanonicalKey(identical)" should "return identical string" in {
     (LocalKBKeyTransforms.makeCanonicalKey("identical") == "identical") should be (true)
   }
