@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Finish rewrite of AzFailsafeKBML.
+  *   Last Modified: Factor out KBML traits which do alternate lookups (for proteins & families).
   */
 
 //
@@ -32,10 +32,11 @@ class StaticCellLocationKBML extends LocalKBMentionLookup {
 }
 
 /** KB mention lookup to resolve alternate subcellular location names via static KBs. */
-// class StaticCellLocationKBML2 extends LocalKBMentionLookup {
-//  val memoryKB = new InMemoryKB(
-//    new KBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00000005"), StaticCellLocation2Filename)
-// }
+class StaticCellLocationKBML2 extends LocalKBMentionLookup {
+  val memoryKB = new InMemoryKB(
+    new KBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00000005"),
+                   StaticCellLocation2Filename)
+}
 
 
 //
@@ -70,19 +71,6 @@ class StaticChemicalKBML extends LocalKBMentionLookup {
 //
 // Protein Accessors
 //
-
-/** Base KB accessor to resolve protein names in mentions. */
-trait LocalProteinKBML extends LocalKBMentionLookup {
-  // TODO: LATER Override to perform alternate key lookups? (OR move to LookupKBs)?
-
-  /** Overridden to perform alternate key lookups. */
-  // override def resolve (mention:Mention): Map[String,String] = {
-  //   val key = getLookupKey(mention)         // make a key from the mention
-  //   val props = theKB.get(key)              // lookup key
-  //   return if (props.isDefined) props.get   // find it or try alternate keys
-  //          else tryAlternateKeys(key, LocalKeyTransforms.proteinKeyTransforms).getOrElse(Map.empty)
-  // }
-}
 
 /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
 class GendProteinKBML extends LocalProteinKBML {
