@@ -5,23 +5,18 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Specialized lookup key transformation methods, for writing local KB accessors.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add method to make alternate keys.
+  *   Last Modified: Sort and rename this trait to reflect Reach-specific nature.
   */
-trait KBKeyTransforms {
+trait LocalKBKeyTransforms {
+
+  //
+  // General transform methods
+  //
 
   /** Return a sequence of alternate keys, one for each of the given key transforms. */
   def makeAlternateKeys (key:String, transformFns:Seq[(String) => String]): Seq[String] = {
     transformFns.map(_.apply(key)).filter(_ != key)
   }
-
-  /** Canonicalize the given text string into a key for both storage and lookup. */
-  def makeCanonicalKey (text:String): String = {
-    var key:String = text.toLowerCase
-    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
-    key = key.filterNot(KeyCharactersToRemove)
-    return stripASuffix(AllKeysStopSuffixes, key)
-  }
-
 
   /** Try to remove one of the suffixes in the given set from the given text. */
   def stripASuffix (suffixes:Set[String], text:String): String = {
@@ -30,6 +25,19 @@ trait KBKeyTransforms {
       key = key.stripSuffix(suffix)
     }
     return key
+  }
+
+
+  //
+  // REACH-specific transform methods
+  //
+
+  /** Canonicalize the given text string into a key for both storage and lookup. */
+  def makeCanonicalKey (text:String): String = {
+    var key:String = text.toLowerCase
+    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
+    key = key.filterNot(KeyCharactersToRemove)
+    return stripASuffix(AllKeysStopSuffixes, key)
   }
 
   /** Return the portion of the key string minus one of the protein family suffixes,
@@ -69,7 +77,7 @@ trait KBKeyTransforms {
 
 
 /** Trait Companion Object allows Mixin OR Import pattern. */
-object KBKeyTransforms extends KBKeyTransforms {
+object LocalKBKeyTransforms extends LocalKBKeyTransforms {
 
   /** List of transform methods to apply for alternate Protein lookups. */
   val proteinKeyTransforms = Seq( stripProteinSuffixes _,

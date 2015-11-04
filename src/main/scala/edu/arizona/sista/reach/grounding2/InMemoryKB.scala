@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Sort lookup methods by name.
+  *   Last Modified: Update for key transforms class rename.
   */
 class InMemoryKB (
 
@@ -15,7 +15,7 @@ class InMemoryKB (
   /** The filename of the external KB to be loaded into memory. */
   val kbFilename: String = null             // default for KBs with no file to load
 
-) extends Speciated with KBKeyTransforms {
+) extends Speciated with LocalKBKeyTransforms {
 
   // type to map species name strings to KB entries for the same key:
   type SpeciesEntryMap = scala.collection.mutable.Map[String, KBEntry]

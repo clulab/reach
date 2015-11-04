@@ -5,7 +5,7 @@ import edu.arizona.sista.odin._
 /**
   * Trait implementing override logic for knowledge bases which try alternate resolutions.
   *   Written by Tom Hicks. 11/03/2015.
-  *   Last Modified: Implement alternative key lookups: untested.
+  *   Last Modified: Update for key transforms class rename.
   */
 trait LocalProteinKBML extends LocalKBMentionLookup {
 
@@ -19,7 +19,7 @@ trait LocalProteinKBML extends LocalKBMentionLookup {
 
   override def resolve (text:String): Option[KBResolution] = {
     val key = makeCanonicalKey(text)
-    val allKeys = key +: makeAlternateKeys(key, KBKeyTransforms.proteinKeyTransforms)
+    val allKeys = key +: makeAlternateKeys(key, LocalKBKeyTransforms.proteinKeyTransforms)
     memoryKB.newResolution(lookups(allKeys))
   }
 
@@ -34,7 +34,7 @@ trait LocalProteinKBML extends LocalKBMentionLookup {
 
   override def resolveByASpecies (text:String, species:String): Option[KBResolution] = {
     val key = makeCanonicalKey(text)
-    val allKeys = key +: makeAlternateKeys(key, KBKeyTransforms.proteinKeyTransforms)
+    val allKeys = key +: makeAlternateKeys(key, LocalKBKeyTransforms.proteinKeyTransforms)
     memoryKB.newResolution(lookupsByASpecies(allKeys, species))
   }
 
@@ -49,7 +49,7 @@ trait LocalProteinKBML extends LocalKBMentionLookup {
 
   override def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = {
     val key = makeCanonicalKey(text)
-    val allKeys = key +: makeAlternateKeys(key, KBKeyTransforms.proteinKeyTransforms)
+    val allKeys = key +: makeAlternateKeys(key, LocalKBKeyTransforms.proteinKeyTransforms)
     val entries = lookupsBySpecies(allKeys, speciesSet)
     entries.map(_.map(kbe => memoryKB.newResolution(kbe)))
   }
@@ -65,7 +65,7 @@ trait LocalProteinKBML extends LocalKBMentionLookup {
 
   override def resolveHuman (text:String): Option[KBResolution] = {
     val key = makeCanonicalKey(text)
-    val allKeys = key +: makeAlternateKeys(key, KBKeyTransforms.proteinKeyTransforms)
+    val allKeys = key +: makeAlternateKeys(key, LocalKBKeyTransforms.proteinKeyTransforms)
     val entries = lookupsHuman(allKeys)                   // find matching entries
     memoryKB.newResolution(entries.flatMap(_.headOption)) // return first entry or None
   }
