@@ -17,10 +17,12 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Name of the entry features
   protected def entryFeaturesNames:Seq[String] = Seq()
 
-  protected var vocabulary:Map[(String, String), Int] = _
+  protected var observationVocabulary:Map[(String, String), Int] = _
+  protected var latentStateVocabulary:Map[(String, String), Int] = _
 
-  // Inverse vocabulary to resolve the names back
-  protected var inverseVocabulary:Map[Int, (String, String)] = _
+  // Inverse observationVocabulary to resolve the names back
+  protected var inverseObservationVocabulary:Map[Int, (String, String)] = _
+  protected var inverseLatentStateVocabulary:Map[Int, (String, String)] = _
 
 
   protected var mentions:Seq[Seq[BioMention]] = _
@@ -63,13 +65,20 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     docOffsets = documents.map(_.id.getOrElse("N/A")).zip(docCumLengths).toMap
 
     // Build the vocabularies
-    vocabulary = mentionsPerEntry.flatten.filter{
+    observationVocabulary = mentionsPerEntry.flatten.filter{
       mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
     }.map(ContextEngine.getContextKey).zipWithIndex.toMap
 
-    inverseVocabulary = vocabulary map (_.swap)
+    inverseObservationVocabulary = observationVocabulary map (_.swap)
 
-    // TODO: This is not right!! need to split by lines not by fries entries!
+    latentStateVocabulary = mentionsPerEntry.flatten.filter{
+      mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+    }.map(ContextEngine.getContextKey).filter{
+      !_._1.startsWith("Context")
+    }.zipWithIndex.toMap
+
+    inverseLatentStateVocabulary = latentStateVocabulary map (_.swap)
+
     val lines:Seq[(Seq[BioMention], FriesEntry)] =  (0 until entries.size).flatMap{
       ix =>
         val entry = entries(ix)
@@ -99,11 +108,18 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
     observedSparseMatrix = mentions.map{
       _.map {
-        elem => vocabulary(ContextEngine.getContextKey(elem))
+        elem => observationVocabulary(ContextEngine.getContextKey(elem))
       }
     }
 
-    latentSparseMatrix = observedSparseMatrix.map(x=>x).map(_.filter(!inverseVocabulary(_)._1.startsWith("Context"))).toList
+    latentSparseMatrix = mentions.map{
+      _.map{
+        elem =>
+          val key = ContextEngine.getContextKey(elem)
+          if (!key._1.startsWith("Context")) latentStateVocabulary(key) else -1
+          //filteredVocabulary(key)
+      }.filter(_ != -1)
+    }.toList
 
     inferedLatentSparseMatrix = inferContext
 
@@ -118,9 +134,9 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         // Reconstruct the line number of the mention relative to the document
         val key = em.document.id.getOrElse("N/A")
 
-        if(!(docOffsets contains key)){
-          println(s"KNF: $key in ${docOffsets.keys.mkString(" ")}")
-        }
+        // if(!(docOffsets contains key)){
+        //   println(s"KNF: $key in ${docOffsets.keys.mkString(" ")}")
+        // }
 
         val offset = docOffsets(key)
         val relativeLine = em.sentence
@@ -143,7 +159,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
    * Queries the context of the specified line line. Returns a sequence of tuples
    * where the first element is the type of context and the second element a grounded id
    */
-  protected def query(line:Int):Map[String, Seq[String]] = inferedLatentSparseMatrix(line) map (inverseVocabulary(_)) groupBy (_._1) mapValues (_.map(_._2))
+  protected def query(line:Int):Map[String, Seq[String]] = inferedLatentSparseMatrix(line) map ( inverseLatentStateVocabulary(_)) groupBy (_._1) mapValues (_.map(_._2))
 
   protected def densifyFeatures:Seq[Seq[Double]] = entryFeatures map { _.map(_._2).toSeq }
 
@@ -156,9 +172,9 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     categorical zip numerical  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } ++ n }
   }
 
-  protected def latentVocabulary = inverseVocabulary.values.filter(!_._1.startsWith("Context")).map(x => x._1 +  "||" + x._2)
+  protected def latentVocabulary = inverseLatentStateVocabulary.values.map(x => x._1 +  "||" + x._2)
 
-  protected def observationVocavulary = inverseVocabulary.values.map(x => x._1 +  "||" + x._2) ++ entryFeaturesNames
+  protected def observationVocavulary = inverseObservationVocabulary.values.map(x => x._1 +  "||" + x._2) ++ entryFeaturesNames
 
   private def densifyMatrix(matrix:Seq[Seq[Int]]):Seq[Seq[Boolean]] = {
     // Recursive function to fill the "matrix"
@@ -184,7 +200,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     matrix map {
       row => {
         val sortedRow = row.sorted.toList
-        _helper(0, vocabulary.size, sortedRow)
+        _helper(0, observationVocabulary.size, sortedRow)
       }
     }
   }

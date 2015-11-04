@@ -22,8 +22,8 @@ class BoundedPaddingContext(
 
       case head::tail =>
         // Group the prev step inferred row and the current by context type, then recurse
-        val prevContext = prevStep map (this.inverseVocabulary(_)) groupBy (_._1)
-        val currentContext = head map (this.inverseVocabulary(_)) groupBy (_._1)
+        val prevContext = prevStep map (this.inverseLatentStateVocabulary(_)) groupBy (_._1)
+        val currentContext = head map (this.inverseLatentStateVocabulary(_)) groupBy (_._1)
 
         // Apply the heuristic
         // Inferred context of type "x"
@@ -63,7 +63,7 @@ class BoundedPaddingContext(
               }
             }
 
-        } map (this.vocabulary(_))
+        } map (this.latentStateVocabulary(_))
 
         // Recurse
         currentStep :: padContext(currentStep, tail, newRepetitions, bound)
@@ -93,7 +93,7 @@ class FillingContext(bound:Int = 5) extends BoundedPaddingContext(bound){
       // Get the most common mentioned context of each type
       val defaultContexts = this.mentions.flatten.map(ContextEngine.getContextKey(_))  // Get the context keys of the mentions
         .filter(x => this.contextTypes.contains(x._1)).groupBy(_._1) // Keep only those we care about and group them by type
-        .mapValues(bucket => bucket.map(this.vocabulary(_))) // Get their numeric value from the vocabulary
+        .mapValues(bucket => bucket.map(this.observationVocabulary(_))) // Get their numeric value from the vocabulary
         .mapValues(bucket => bucket.groupBy(identity).mapValues(_.size)) // Count the occurences
         .mapValues(bucket => Seq(bucket.maxBy(_._2)._1)) // Select the most common element
 
@@ -104,12 +104,12 @@ class FillingContext(bound:Int = 5) extends BoundedPaddingContext(bound){
       paddedContext map {
         step =>
           // Existing contexts for this line
-          val context = step.map(this.inverseVocabulary(_)).groupBy(_._1)
+          val context = step.map(this.inverseLatentStateVocabulary(_)).groupBy(_._1)
           this.contextTypes flatMap {
             ctype =>
               context.lift(ctype) match {
                 case Some(x) =>
-                  x map (this.vocabulary(_))
+                  x map (this.latentStateVocabulary(_))
                 case None =>
                   defaultContexts.lift(ctype).getOrElse(Seq())
               }
