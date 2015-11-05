@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for key transforms class rename.
+  *   Last Modified: Remove commented lines.
   */
 class InMemoryKB (
 
@@ -85,8 +85,6 @@ class InMemoryKB (
   /** Finds an optional set of KB entries, for the given key, which contains a
       species in the given set of species. */
   def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Iterable[KBEntry]] = {
-    // thisKB.get(key).flatMap(spMap =>
-    //   Some(spMap.values.filter((kbe) => isMemberOf(kbe.species,speciesSet)).toSeq))
     val kbes = lookupAll(key)
     if (kbes.isDefined) {
       val matches = kbes.get.filter(kbe => isMemberOf(kbe.species,speciesSet))
@@ -98,8 +96,6 @@ class InMemoryKB (
   /** Finds an optional set of KB entries, for the given key, which have
       humans as the species. May return more than 1 entry because of synonyms. */
   def lookupHuman (key:String): Option[Iterable[KBEntry]] = {
-    // thisKB.get(key).map(spMap => spMap.values.filter{case kbe => isHumanSpecies(kbe.species)})
-    // thisKB.get(key).map(spMap => spMap.values.filter((kbe) => isHumanSpecies(kbe.species)))
     val kbes = lookupAll(key)
     if (kbes.isDefined) {
       val matches = kbes.get.filter(kbe => isHumanSpecies(kbe.species))
@@ -115,7 +111,6 @@ class InMemoryKB (
   /** Create and return a new KB resolution from this KB and the given optional KB entry. */
   def newResolution (entry:Option[KBEntry]): Option[KBResolution] =
     entry.map(kbe => new KBResolution(metaInfo, kbe))
-  // if (KBEntry.isDefined) Some(new KBResolution(metaInfo, entry.get)) else None
 
 
   /** Make and return a KB entry from the given fields. */
@@ -151,6 +146,6 @@ class InMemoryKB (
   // MAIN - Load this KB from an external file upon Construction.
   //
   loadFromFile(kbFilename)                  // load in-memory KB on instantiation
-//  thisKB.foreach { case (k, seMap) =>       // REMOVE LATER
-//    seMap.foreach { case (k2, ent) => println(ent.toString()) }} // REMOVE LATER
+  // thisKB.foreach { case (k, seMap) =>       // for DEBUGGING
+  //   seMap.foreach { case (k2, ent) => println(ent.toString()) }} // for DEBUGGING
 }

@@ -8,13 +8,11 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
  * Unit tests to ensure alternate resolutions are working for KB grounding.
  *   Written by: Tom Hicks. 11/4/2015.
- *   Last Modified: Initial creation.
+ *   Last Modified: Update for hierarchy refactoring.
  */
 class TestAltResolutions extends FlatSpec with Matchers {
 
   val imkb4 = new TestProtFamKBML           // defined after this class (LOOK BELOW)
-
-  println(imkb4)                            // REMOVE LATER
 
   // this KB includes species, therefore plain resolve should always fail:
   "LocalProteinKBML resolve" should "fail despite alternate lookups" in {
@@ -165,7 +163,7 @@ class TestAltResolutions extends FlatSpec with Matchers {
 
 
 // Protein family KB using alternate protein resolutions
-class TestProtFamKBML extends LocalProteinKBML {
+class TestProtFamKBML extends LocalAltKBMentionLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
                    StaticProteinFamilyFilename)

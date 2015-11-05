@@ -1,13 +1,11 @@
 package edu.arizona.sista.reach.grounding2
 
-import edu.arizona.sista.odin._
-
 /**
   * Trait implementing override logic for knowledge bases which try alternate resolutions.
   *   Written by Tom Hicks. 11/03/2015.
-  *   Last Modified: Transform lower cased text instead of keys.
+  *   Last Modified: Rename class for refactoring in hierarchy.
   */
-trait LocalProteinKBML extends LocalKBMentionLookup {
+trait LocalAltKBLookup extends LocalKBLookup {
 
   /** Override default lookup to try alternate key lookups. */
   override def resolve (text:String): Option[KBResolution] = {
