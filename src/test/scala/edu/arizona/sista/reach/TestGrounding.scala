@@ -1,6 +1,7 @@
 package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
+import edu.arizona.sista.reach.mentions._
 import TestUtils._
 
 /**
@@ -29,4 +30,16 @@ class TestGrounding extends FlatSpec with Matchers {
     //TODO: revisit grounding lookup algo after eval
     //(e1.xref == e2.xref) should be (true)
   }
+
+  val grounding3 = "MEK phosphorylates Ras."
+  grounding3 should "contain grounded entities" in {
+    val mentions = parseSentence(grounding3)
+    val tbms = mentions flatMap {
+      case m: BioTextBoundMention => Some(m)
+      case _ => None
+    }
+    tbms(0).xref should be ('defined)
+    tbms(1).xref should be ('defined)
+  }
+
 }
