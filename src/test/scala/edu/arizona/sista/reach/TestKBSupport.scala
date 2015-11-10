@@ -4,7 +4,7 @@ import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 
 import edu.arizona.sista.reach.grounding2._
-import edu.arizona.sista.reach.grounding2.LocalKBKeyTransforms._
+import edu.arizona.sista.reach.grounding2.ReachKeyTransforms._
 
 /**
   * Unit tests to ensure grounding is working properly
@@ -227,7 +227,7 @@ class TestKBSupport extends FlatSpec with Matchers {
     (kbe1.isHumanSpecies("HOMO SAPIENS")) should be (true)
   }
 
-  // test LocalKBKeyTransforms
+  // test ReachKeyTransforms
   "makeAlternateKeys(identical, proteinKeyTransforms)" should "return identical string" in {
     (makeAlternateKeys("identical",proteinKeyTransforms)).isEmpty should be (true)
     (makeAlternateKeys("IDENTICAL",proteinKeyTransforms)).isEmpty should be (true)
@@ -271,38 +271,38 @@ class TestKBSupport extends FlatSpec with Matchers {
 
 
   "makeCanonicalKey(identical)" should "return identical string" in {
-    (LocalKBKeyTransforms.makeCanonicalKey("identical") == "identical") should be (true)
+    (makeCanonicalKey("identical") == "identical") should be (true)
   }
 
   "makeCanonicalKey(a non-identical)" should "return a non-identical string" in {
-    (LocalKBKeyTransforms.makeCanonicalKey("a non-identical") == "a non-identical") should be (false)
+    (makeCanonicalKey("a non-identical") == "a non-identical") should be (false)
   }
 
   "makeCanonicalKey(A-B and/or C)" should "return abandorc" in {
-    (LocalKBKeyTransforms.makeCanonicalKey("A-B and/or C") == "abandorc") should be (true)
+    (makeCanonicalKey("A-B and/or C") == "abandorc") should be (true)
   }
 
   "makeCanonicalKey(MAN_human)" should "return man" in {
-    (LocalKBKeyTransforms.makeCanonicalKey("MAN_human") == "man") should be (true)
+    (makeCanonicalKey("MAN_human") == "man") should be (true)
   }
 
   "makeCanonicalKey(WO-MAN_HUMAN)" should "return woman" in {
-    (LocalKBKeyTransforms.makeCanonicalKey("WO-MAN_HUMAN") == "woman") should be (true)
+    (makeCanonicalKey("WO-MAN_HUMAN") == "woman") should be (true)
   }
 
   val set0 = Set[String]()
   val set1 = Set("one")
   val set2 = Set("one", "two")
   "stripASuffix(set0, string one)" should "return string one" in {
-    (LocalKBKeyTransforms.stripASuffix(set0, "string one") == "string one") should be (true)
+    (stripASuffix(set0, "string one") == "string one") should be (true)
   }
 
   "stripASuffix(set1, stringone)" should "return string" in {
-    (LocalKBKeyTransforms.stripASuffix(set1, "stringone") == "string") should be (true)
+    (stripASuffix(set1, "stringone") == "string") should be (true)
   }
 
   "stripASuffix(set2, stringtwo)" should "return string" in {
-    (LocalKBKeyTransforms.stripASuffix(set2, "stringtwo") == "string") should be (true)
+    (stripASuffix(set2, "stringtwo") == "string") should be (true)
   }
 
   // test KBUtils

@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add flag for has species info, move multi-key lookups here.
+  *   Last Modified: Update for key transform trait rename.
   */
 class InMemoryKB (
 
@@ -18,7 +18,7 @@ class InMemoryKB (
   /** Tell whether this KB contains species information. */
   val hasSpeciesInfo: Boolean = false       // default for KBs without species info
 
-) extends Speciated with LocalKBKeyTransforms {
+) extends Speciated with ReachKeyTransforms {
 
   // type to map species name strings to KB entries for the same key:
   type SpeciesEntryMap = scala.collection.mutable.Map[String, KBEntry]

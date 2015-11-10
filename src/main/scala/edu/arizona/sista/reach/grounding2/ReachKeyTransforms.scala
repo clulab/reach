@@ -3,37 +3,11 @@ package edu.arizona.sista.reach.grounding2
 import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 
 /**
-  * Methods for transforming text strings into potential keys for lookup in KBs.
-  *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add/use key transform type.
+  * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
+  *   Written by Tom Hicks. 11/10/2015.
+  *   Last Modified: Split off and extend basic key transforms.
   */
-trait LocalKBKeyTransforms {
-
-  /** Type alias for functions which take a text string and return a potential key string. */
-  type KeyTransforms = Seq[(String) => String]
-
-  //
-  // General transform methods
-  //
-
-  /** Return a sequence of alternate keys, one for each of the given key transforms. */
-  def makeAlternateKeys (key:String, transformFns:KeyTransforms): Seq[String] = {
-    transformFns.map(_.apply(key)).filter(_ != key)
-  }
-
-  /** Try to remove one of the suffixes in the given set from the given text. */
-  def stripASuffix (suffixes:Set[String], text:String): String = {
-    var key = text
-    suffixes.foreach { suffix =>
-      key = key.stripSuffix(suffix)
-    }
-    return key
-  }
-
-
-  //
-  // REACH-specific transform methods
-  //
+trait ReachKeyTransforms extends KBKeyTransforms {
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
@@ -80,7 +54,7 @@ trait LocalKBKeyTransforms {
 
 
 /** Trait Companion Object allows Mixin OR Import pattern. */
-object LocalKBKeyTransforms extends LocalKBKeyTransforms {
+object ReachKeyTransforms extends ReachKeyTransforms {
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
   val familyKeyTransforms = Seq( stripFamilySuffixes _ )
