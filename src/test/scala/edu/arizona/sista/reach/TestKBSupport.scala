@@ -9,9 +9,9 @@ import edu.arizona.sista.reach.grounding2.LocalKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for separation of protein/family lookups.
+  *   Last Modified: Rename this class.
   */
-class TestGrounding2 extends FlatSpec with Matchers {
+class TestKBSupport extends FlatSpec with Matchers {
 
   // test KBEntry
   val kbe1 = new KBEntry("Adam", "key1", "XYX", "human")
@@ -304,30 +304,6 @@ class TestGrounding2 extends FlatSpec with Matchers {
   "stripASuffix(set2, stringtwo)" should "return string" in {
     (LocalKBKeyTransforms.stripASuffix(set2, "stringtwo") == "string") should be (true)
   }
-
-  // "tsvRowToFields()" should "return a sequence with an empty string" in {
-  //   val flds = LocalKBUtils.tsvRowToFields("")
-  //   (flds) should have size (1)
-  //   (flds == Seq("")) should be (true)
-  // }
-
-  // "tsvRowToFields(the SAME string)" should "return a sequence with the SAME string" in {
-  //   val flds = LocalKBUtils.tsvRowToFields("the SAME string")
-  //   (flds) should have size (1)
-  //   (flds == Seq("the SAME string")) should be (true)
-  // }
-
-  // "tsvRowToFields(one\ttwo)" should "return a sequence of the two fields" in {
-  //   val flds = LocalKBUtils.tsvRowToFields("one\ttwo")
-  //   (flds) should have size (2)
-  //   (flds == Seq("one", "two")) should be (true)
-  // }
-
-  // "tsvRowToFields( one \ttwo )" should "return a sequence of the two fields trimmed" in {
-  //   val flds = LocalKBUtils.tsvRowToFields(" one \ttwo ")
-  //   (flds) should have size (2)
-  //   (flds == Seq("one", "two")) should be (true)
-  // }
 
   // test KBUtils
   "makePathInKBDir(testFile)" should "return complete filepath in KB directory" in {
