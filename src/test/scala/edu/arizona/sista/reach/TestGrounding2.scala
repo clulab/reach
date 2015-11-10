@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.grounding2.LocalKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for key transforms class rename.
+  *   Last Modified: Update for separation of protein/family lookups.
   */
 class TestGrounding2 extends FlatSpec with Matchers {
 
@@ -249,13 +249,6 @@ class TestGrounding2 extends FlatSpec with Matchers {
     (xkeys.head == "hairy") should be (true)
   }
 
-  "makeAlternateKeys(Parsnip family, proteinKeyTransforms)" should "return Parsnip" in {
-    // val xkeys = makeAlternateKeys("Parnsip family", Seq(stripFamilySuffixes _))
-    val xkeys = makeAlternateKeys("Parsnip family", proteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "Parsnip") should be (true)
-  }
-
   "makeAlternateKeys(savage API mutant, proteinKeyTransforms)" should "return savage" in {
     // val xkeys = makeAlternateKeys("savage API mutant", Seq(stripMutantProtein _))
     val xkeys = makeAlternateKeys("savage API mutant", proteinKeyTransforms)
@@ -268,6 +261,12 @@ class TestGrounding2 extends FlatSpec with Matchers {
     val xkeys = makeAlternateKeys("phosphorylated WILD XK mutant", proteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "WILD") should be (true)
+  }
+
+  "makeAlternateKeys(Parsnip family, familyKeyTransforms)" should "return Parsnip" in {
+    val xkeys = makeAlternateKeys("Parsnip family", familyKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "Parsnip") should be (true)
   }
 
 
