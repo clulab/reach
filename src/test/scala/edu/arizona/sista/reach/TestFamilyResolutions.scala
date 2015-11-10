@@ -8,9 +8,9 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for IMKB has species arg, separation of protein/family lookups.
+  *   Last Modified: Rename this class.
   */
-class TestAltResolutions extends FlatSpec with Matchers {
+class TestFamilyResolutions extends FlatSpec with Matchers {
 
   val imkbPF = new TestProtFamKBL           // defined after this class (LOOK BELOW)
 
