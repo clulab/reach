@@ -3,18 +3,21 @@ package edu.arizona.sista.reach.grounding2
 import edu.arizona.sista.reach.grounding2.LocalKBConstants._
 
 /**
-  * Specialized lookup key transformation methods, for writing local KB accessors.
+  * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Sort and rename this trait to reflect Reach-specific nature.
+  *   Last Modified: Add/use key transform type.
   */
 trait LocalKBKeyTransforms {
+
+  /** Type alias for functions which take a text string and return a potential key string. */
+  type KeyTransforms = Seq[(String) => String]
 
   //
   // General transform methods
   //
 
   /** Return a sequence of alternate keys, one for each of the given key transforms. */
-  def makeAlternateKeys (key:String, transformFns:Seq[(String) => String]): Seq[String] = {
+  def makeAlternateKeys (key:String, transformFns:KeyTransforms): Seq[String] = {
     transformFns.map(_.apply(key)).filter(_ != key)
   }
 
@@ -79,9 +82,11 @@ trait LocalKBKeyTransforms {
 /** Trait Companion Object allows Mixin OR Import pattern. */
 object LocalKBKeyTransforms extends LocalKBKeyTransforms {
 
+  /** List of transform methods to apply for alternate Protein Family lookups. */
+  val familyKeyTransforms = Seq( stripFamilySuffixes _ )
+
   /** List of transform methods to apply for alternate Protein lookups. */
   val proteinKeyTransforms = Seq( stripProteinSuffixes _,
-                                  stripFamilySuffixes _,
                                   stripMutantProtein _,
                                   unmutateProteinKey _ )
 }

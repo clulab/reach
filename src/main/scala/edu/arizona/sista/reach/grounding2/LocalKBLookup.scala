@@ -27,7 +27,7 @@ trait LocalKBLookup extends KBLookup with LocalKBKeyTransforms {
   }
 
   /** Resolve the given string to an optional group of entries in a knowledge base,
-    * returning a resolution for any species entry found in the KB.
+    * returning resolutions for any species entries found in the KB.
     */
   override def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = {
     val key = makeCanonicalKey(text)        // make a lookup key from the given text

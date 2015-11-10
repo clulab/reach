@@ -11,6 +11,7 @@ object LocalKBConstants {
   val AllKeysStopSuffixes = Set("_human")
 
   /** The set of words to remove from a key to create a protein family lookup key. */
+  // val FamilyStopSuffixes = Set(" family", " protein family")
   val FamilyStopSuffixes = Set(" family")
 
   /** The set of characters to remove from the text to create a lookup key. */

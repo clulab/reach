@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Remove commented lines.
+  *   Last Modified: Add flag for has species info, move multi-key lookups here.
   */
 class InMemoryKB (
 
@@ -13,7 +13,10 @@ class InMemoryKB (
   val metaInfo: KBMetaInfo,
 
   /** The filename of the external KB to be loaded into memory. */
-  val kbFilename: String = null             // default for KBs with no file to load
+  val kbFilename: String = null,            // default for KBs with no file to load
+
+  /** Tell whether this KB contains species information. */
+  val hasSpeciesInfo: Boolean = false       // default for KBs without species info
 
 ) extends Speciated with LocalKBKeyTransforms {
 
@@ -65,22 +68,43 @@ class InMemoryKB (
   }
 
 
+  /** Find the optional set of KB entries for the given key. */
+  def lookupAll (key:String): Option[Iterable[KBEntry]] = {
+    thisKB.get(key).map(spMap => spMap.values)
+  }
+
+
   /** Find the optional KB entry, for the given key, which does not contain a species.
       Returns the first KB entry found (should only be one) or None. */
   def lookup (key:String): Option[KBEntry] = {
     thisKB.get(key).flatMap(spMap => spMap.values.find((kbe) => kbe.hasNoSpecies()))
   }
 
-  /** Find the optional KB entries, for the given key. */
-  def lookupAll (key:String): Option[Iterable[KBEntry]] = {
-    thisKB.get(key).map(spMap => spMap.values)
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookups (allKeys:Seq[String]): Option[KBEntry] = {
+    allKeys.foreach { key =>
+      val entry = lookup(key)
+      if (entry.isDefined) return entry
+    }
+    return None                             // tried all keys: no success
   }
+
 
   /** Find the optional KB entry, for the given key, which matches the given species.
       Returns the first KB entry found (should only be one) or None. */
   def lookupByASpecies (key:String, species:String): Option[KBEntry] = {
     thisKB.get(key).flatMap(spMap => spMap.get(species.toLowerCase))
   }
+
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookupsByASpecies (allKeys:Seq[String], species:String): Option[KBEntry] = {
+    allKeys.foreach { key =>
+      val entry = lookupByASpecies(key, species)
+      if (entry.isDefined) return entry
+    }
+    return None                             // tried all keys: no success
+  }
+
 
   /** Finds an optional set of KB entries, for the given key, which contains a
       species in the given set of species. */
@@ -93,6 +117,18 @@ class InMemoryKB (
     else None
   }
 
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookupsBySpecies (allKeys:Seq[String],
+                        speciesSet:SpeciesNameSet): Option[Iterable[KBEntry]] =
+  {
+    allKeys.foreach { key =>
+      val entries = lookupBySpecies(key, speciesSet)
+      if (entries.isDefined) return entries
+    }
+    return None                             // tried all keys: no success
+  }
+
+
   /** Finds an optional set of KB entries, for the given key, which have
       humans as the species. May return more than 1 entry because of synonyms. */
   def lookupHuman (key:String): Option[Iterable[KBEntry]] = {
@@ -102,6 +138,15 @@ class InMemoryKB (
       if (matches.isEmpty) None else Some(matches)
     }
     else None
+  }
+
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookupsHuman (allKeys:Seq[String]): Option[Iterable[KBEntry]] = {
+    allKeys.foreach { key =>
+      val entries = lookupHuman(key)
+      if (entries.isDefined) return entries
+    }
+    return None                             // tried all keys: no success
   }
 
 
@@ -121,11 +166,11 @@ class InMemoryKB (
 
   /** Sort the columns of a 2-col or 3-col TSV row into correct order. */
   private def parseFields (fields:Seq[String]): Seq[String] = {
-    if (fields.size == 3)                   // with species
+    if (hasSpeciesInfo)
       return Seq(fields(0), fields(2), fields(1))
     else if (fields.size == 2)              // w/o species
       return Seq(fields(0), fields(1), "")
-    else                                  // should never happen if validation works
+    else                                    // should never happen if validation works
       throw new Exception(
         s"BAD INPUT: validation failed to remove row with missing required fields: ${fields}")
   }
@@ -137,8 +182,10 @@ class InMemoryKB (
 
   /** Check for required fields in one row of a 2 or 3-column TSV input file. */
   private def tsvValidateFields (fields:Seq[String]): Boolean = {
-    return ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty) ||
-           ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty)
+    if (hasSpeciesInfo)
+      ((fields.size == 3) && fields(0).nonEmpty && fields(2).nonEmpty)
+    else
+      ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty)
   }
 
 

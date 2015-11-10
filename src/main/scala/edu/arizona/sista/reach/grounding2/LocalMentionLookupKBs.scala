@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Make protein and protein family KBMLs extend alternate KBML.
+  *   Last Modified: Update for IMKB has species argument.
   */
 
 //
@@ -86,7 +86,7 @@ class ManualProteinKBML extends LocalAltKBMentionLookup {
 class StaticProteinKBML extends LocalAltKBMentionLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00100164"),
-                   StaticProteinFilename)
+                   StaticProteinFilename, true) // true = has species
 }
 
 
@@ -110,7 +110,7 @@ class ManualProteinFamilyKBML extends LocalAltKBMentionLookup {
 class StaticProteinFamilyKBML extends LocalAltKBMentionLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
-                   StaticProteinFamilyFilename)
+                   StaticProteinFamilyFilename, true) // true = has species
 }
 
 
