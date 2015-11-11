@@ -7,9 +7,9 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Initial refactoring: untested.
+  *   Last Modified: Rename this class. Still untested.
   */
-class LocalGrounder extends DarpaFlow {
+class ReachGrounder extends DarpaFlow {
 
   /** An exception in case we somehow fail to assign an ID during resolution. */
   case class NoFailSafe(message:String) extends Exception(message)
@@ -59,7 +59,7 @@ class LocalGrounder extends DarpaFlow {
       }
     }
     // we should never get here because our accessors include a failsafe ID assignment
-    throw NoFailSafe(s"LocalGrounder failed to assign an ID to ${mention.displayLabel} '${mention.text}' in S${mention.sentence}")
+    throw NoFailSafe(s"ReachGrounder failed to assign an ID to ${mention.displayLabel} '${mention.text}' in S${mention.sentence}")
   }
 
 }
