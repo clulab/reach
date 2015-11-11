@@ -1,11 +1,11 @@
 package edu.arizona.sista.reach.grounding2
 
-import edu.arizona.sista.reach.grounding2.LocalKBConstants._
+import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Split off and extend basic key transforms.
+  *   Last Modified: Update for util and constant renames.
   */
 trait ReachKeyTransforms extends KBKeyTransforms {
 

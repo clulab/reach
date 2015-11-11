@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for key transform trait rename.
+  *   Last Modified: Update for util and constant renames.
   */
 class InMemoryKB (
 
@@ -54,8 +54,8 @@ class InMemoryKB (
     */
   def loadFromFile (filename:String) = {
     if ((filename != null) && !filename.trim.isEmpty) { // skip loading if filename missing
-      val kbResourcePath = LocalKBUtils.makePathInKBDir(filename)
-      val source = LocalKBUtils.sourceFromResource(kbResourcePath)
+      val kbResourcePath = ReachKBUtils.makePathInKBDir(filename)
+      val source = ReachKBUtils.sourceFromResource(kbResourcePath)
       source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
         val flds = parseFields(fields)        // extract and order fields
         var text = flds(0)                    // assign fields in order

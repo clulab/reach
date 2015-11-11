@@ -1,13 +1,13 @@
 package edu.arizona.sista.reach.grounding2
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.grounding2.LocalKBConstants._
+import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 
 /**
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for trait renames.
+  *   Last Modified: Update for util and constant renames.
   */
 
 //

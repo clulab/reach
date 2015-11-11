@@ -5,14 +5,14 @@ import java.util.zip.GZIPInputStream
 
 import scala.io.Source
 
-import edu.arizona.sista.reach.grounding2.LocalKBConstants._
+import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Cleanup.
+  *   Last Modified: Rename this object.
   */
-object LocalKBUtils {
+object ReachKBUtils {
 
   /** Return a Scala Source object created from the given resource path string. If the
     * resource path ends with ".gz" the source is created around a gzip input stream. */

@@ -3,9 +3,9 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add alternate subcellular location file.
+  *   Last Modified: Rename this object.
   */
-object LocalKBConstants {
+object ReachKBConstants {
 
   /** The set of words to remove from all keys to create a lookup key. */
   val AllKeysStopSuffixes = Set("_human")

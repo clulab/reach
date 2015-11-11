@@ -1,12 +1,12 @@
 package edu.arizona.sista.reach.grounding2
 
-import edu.arizona.sista.reach.grounding2.LocalKBConstants._
+import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 
 /**
   * A collection of classes which provide mappings of text strings to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for trait renames.
+  *   Last Modified: Update for util and constant renames.
   */
 
 /** KB lookup to resolve subcellular location names via static KBs. */

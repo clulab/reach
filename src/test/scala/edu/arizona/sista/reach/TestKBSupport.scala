@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.grounding2.ReachKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Rename this class.
+  *   Last Modified: Update for util and constant renames.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
@@ -307,8 +307,8 @@ class TestKBSupport extends FlatSpec with Matchers {
 
   // test KBUtils
   "makePathInKBDir(testFile)" should "return complete filepath in KB directory" in {
-    val expected = LocalKBConstants.KBDirResourcePath + java.io.File.separator + "testFile"
-    val path = LocalKBUtils.makePathInKBDir("testFile")
+    val expected = ReachKBConstants.KBDirResourcePath + java.io.File.separator + "testFile"
+    val path = ReachKBUtils.makePathInKBDir("testFile")
   }
 
 }
