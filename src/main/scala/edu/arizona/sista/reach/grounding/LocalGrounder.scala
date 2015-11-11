@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Also use manual and generated KBs.
+  *   Last Modified: Reorder protein family search first.
   */
 class LocalGrounder extends DarpaFlow {
 
@@ -22,10 +22,10 @@ class LocalGrounder extends DarpaFlow {
     * 5. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val searchSequence = Seq(
-    new StaticProteinKBAccessor,
-    new ManualProteinKBAccessor,
     new StaticProteinFamilyKBAccessor,
     new ManualProteinFamilyKBAccessor,
+    new StaticProteinKBAccessor,
+    new ManualProteinKBAccessor,
     // NB: generated protein families are included in the generated protein KB:
     new GendProteinKBAccessor,
 
