@@ -3,9 +3,9 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait implementing override logic for knowledge bases which try alternate resolutions.
   *   Written by Tom Hicks. 11/03/2015.
-  *   Last Modified: Add transforms parameter to alt resolvers, move lookups to IMKB.
+  *   Last Modified: Rename this trait.
   */
-trait LocalAltKBLookup extends LocalKBLookup {
+trait IMKBAltLookup extends IMKBLookup {
 
   /** Create and try alternate key lookups. */
   def resolveAlt (text:String, transforms:KeyTransforms): Option[KBResolution] = {

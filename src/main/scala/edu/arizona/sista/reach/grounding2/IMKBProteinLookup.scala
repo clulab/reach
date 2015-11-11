@@ -5,9 +5,9 @@ import edu.arizona.sista.reach.grounding2.ReachKeyTransforms._
 /**
   * Trait implementing alternate key lookups for protein knowledge bases.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Update for key transform trait rename.
+  *   Last Modified: Update for trait renames.
   */
-trait IMKBProteinLookup extends LocalAltKBLookup {
+trait IMKBProteinLookup extends IMKBAltLookup {
 
   /** Resolve given text string to an optional entry in the IMKB using alternate
     * key lookups. Return a resolution for the entry, if any found.

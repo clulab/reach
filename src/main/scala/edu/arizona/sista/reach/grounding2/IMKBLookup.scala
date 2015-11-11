@@ -3,9 +3,9 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait implementing common logic for local Knowledge Base lookup classes.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for key transform trait rename.
+  *   Last Modified: Rename this trait.
   */
-trait LocalKBLookup extends KBLookup with ReachKeyTransforms {
+trait IMKBLookup extends KBLookup with ReachKeyTransforms {
 
   /** The in-memory knowledge base that all lookups will work against. */
   def memoryKB: InMemoryKB

@@ -6,25 +6,25 @@ import edu.arizona.sista.reach.grounding2.LocalKBConstants._
   * A collection of classes which provide mappings of text strings to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for IMKB has species argument, new alt lookup classes.
+  *   Last Modified: Update for trait renames.
   */
 
 /** KB lookup to resolve subcellular location names via static KBs. */
-class StaticCellLocationKBLookup extends LocalKBLookup {
+class StaticCellLocationKBLookup extends IMKBLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/go/", "go", "MIR:00000022"),
                    StaticCellLocationFilename)
 }
 
 /** KB lookup to resolve small molecule (metabolite) names via static KBs. */
-class StaticMetaboliteKBLookup extends LocalKBLookup {
+class StaticMetaboliteKBLookup extends IMKBLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/hmdb/", "hmdb", "MIR:00000051"),
                    StaticMetaboliteFilename)
 }
 
 /** KB lookup to resolve small molecule (chemical) names via static KBs. */
-class StaticChemicalKBLookup extends LocalKBLookup {
+class StaticChemicalKBLookup extends IMKBLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/chebi/", "chebi", "MIR:00100009"),
                    StaticChemicalFilename)
@@ -45,7 +45,7 @@ class StaticProteinFamilyKBLookup extends IMKBFamilyLookup {
 }
 
 /** KB lookup to resolve tissue type names via static KBs. */
-class StaticTissueTypeKBLookup extends LocalKBLookup {
+class StaticTissueTypeKBLookup extends IMKBLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00000005"),
                    StaticTissueTypeFilename)
