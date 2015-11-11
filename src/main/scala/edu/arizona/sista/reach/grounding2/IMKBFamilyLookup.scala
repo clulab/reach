@@ -1,11 +1,11 @@
 package edu.arizona.sista.reach.grounding2
 
-import edu.arizona.sista.reach.grounding2.ReachKeyTransforms._
+import edu.arizona.sista.reach.grounding2.ReachKBKeyTransforms._
 
 /**
   * Trait implementing alternate key lookups for protein family knowledge bases.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Update for trait renames.
+  *   Last Modified: Update for reach kb key transform rename.
   */
 trait IMKBFamilyLookup extends IMKBAltLookup {
 

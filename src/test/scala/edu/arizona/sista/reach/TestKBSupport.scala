@@ -4,12 +4,12 @@ import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 
 import edu.arizona.sista.reach.grounding2._
-import edu.arizona.sista.reach.grounding2.ReachKeyTransforms._
+import edu.arizona.sista.reach.grounding2.ReachKBKeyTransforms._
 
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for util and constant renames.
+  *   Last Modified: Update for reach kb key transform rename.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 

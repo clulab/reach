@@ -5,9 +5,9 @@ import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Update for util and constant renames.
+  *   Last Modified: Rename this trait again for consistency.
   */
-trait ReachKeyTransforms extends KBKeyTransforms {
+trait ReachKBKeyTransforms extends KBKeyTransforms {
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
@@ -54,7 +54,7 @@ trait ReachKeyTransforms extends KBKeyTransforms {
 
 
 /** Trait Companion Object allows Mixin OR Import pattern. */
-object ReachKeyTransforms extends ReachKeyTransforms {
+object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
   val familyKeyTransforms = Seq( stripFamilySuffixes _ )
