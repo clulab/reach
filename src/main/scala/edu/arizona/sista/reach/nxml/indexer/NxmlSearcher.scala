@@ -3,6 +3,7 @@ package edu.arizona.sista.reach.nxml.indexer
 import java.io.{FileWriter, PrintWriter, File}
 import java.nio.file.Paths
 
+import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.utils.StringUtils
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.Document
@@ -16,6 +17,8 @@ import scala.collection.mutable
 
 import NxmlSearcher._
 
+import scala.collection.mutable.ArrayBuffer
+
 /**
  * Searches the NXML index created by NXML indexer
  * User: mihais
@@ -24,6 +27,7 @@ import NxmlSearcher._
 class NxmlSearcher(val indexDir:String) {
   val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
   val searcher = new IndexSearcher(reader)
+  val proc = new BioNLPProcessor()
 
   def close() = reader.close()
 
@@ -71,12 +75,32 @@ class NxmlSearcher(val indexDir:String) {
     result.toSet
   }
 
+  def countDocsContaining(eventDocs:Set[Int], token:String):Int = {
+    val query = "Ras AND " + token
+    val result = intersection(eventDocs, search(query))
+    result.size
+  }
+
   def useCase(resultDir:String): Unit = {
     val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
     val result = intersection(eventDocs, search("Ras AND (ROS OR MAPK OR Raf/Mek/Erk OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR EGFR OR apoptosis OR autophagy OR proliferation OR p53 OR RB OR glycolysis OR exosomes OR RAGE OR HMGB1)"))
     logger.debug(s"The result contains ${result.size} documents.")
     val resultDocs = docs(result)
     saveNxml(resultDir, resultDocs)
+
+    //
+    // histogram of term distribution in docs
+    //
+    val histoPoints = Array("ROS", "MAPK", "Raf/Mek/Erk", "Akt", "NfkB", "TGFb", "TGFbeta", "TGFb1", "TGFbeta1", "EGFR", "apoptosis", "autophagy", "proliferation", "p53", "RB", "glycolysis", "exosomes", "RAGE", "HMGB1")
+    val histoValues = new ArrayBuffer[(String, Int)]()
+    for(point <- histoPoints) {
+      histoValues += new Tuple2(point, countDocsContaining(eventDocs, point))
+    }
+    val histoFile = new PrintWriter(new FileWriter(resultDir + File.separator + "histo.txt"))
+    for(i <- histoValues.sortBy(0 - _._2)) {
+      histoFile.println(s"${i._1}\t${i._2}")
+    }
+    histoFile.close()
   }
 }
 
