@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding2.ReachKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for util and constant renames.
+  *   Last Modified: Update for flattened hierarchy.
   */
 
 //
@@ -73,17 +73,17 @@ class StaticChemicalKBML extends IMKBMentionLookup {
 //
 
 /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
-class GendProteinKBML extends IMKBAltMentionLookup {
+class GendProteinKBML extends IMKBProteinMentionLookup {
   val memoryKB = new InMemoryKB(new KBMetaInfo(), GendProteinFilename)
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
-class ManualProteinKBML extends IMKBAltMentionLookup {
+class ManualProteinKBML extends IMKBProteinMentionLookup {
   val memoryKB = new InMemoryKB(new KBMetaInfo(), ManualProteinFilename)
 }
 
 /** KB accessor to resolve protein names via static KBs. */
-class StaticProteinKBML extends IMKBAltMentionLookup {
+class StaticProteinKBML extends IMKBProteinMentionLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00100164"),
                    StaticProteinFilename, true) // true = has species
@@ -97,17 +97,17 @@ class StaticProteinKBML extends IMKBAltMentionLookup {
 //
 
 /** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
-class GendProteinFamilyKBML extends IMKBAltMentionLookup {
+class GendProteinFamilyKBML extends IMKBFamilyMentionLookup {
   val memoryKB = new InMemoryKB(new KBMetaInfo(), GendProteinFilename)
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
-class ManualProteinFamilyKBML extends IMKBAltMentionLookup {
+class ManualProteinFamilyKBML extends IMKBFamilyMentionLookup {
   val memoryKB = new InMemoryKB(new KBMetaInfo(), ManualProteinFilename)
 }
 
 /** KB accessor to resolve protein family names via static KBs. */
-class StaticProteinFamilyKBML extends IMKBAltMentionLookup {
+class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
                    StaticProteinFamilyFilename, true) // true = has species
