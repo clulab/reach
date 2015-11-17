@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait implementing common logic for local Knowledge Base lookup classes.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Group trait implementations to flatten hierarchy.
+  *   Last Modified: Implement resolve which favors human results.
   */
 trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
 
@@ -15,9 +15,10 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     * Return a resolution for the entry, if any found.
     */
   override def resolve (text:String): Option[KBResolution] = {
-    // TODO: FIX IMPLEMENTATION LATER
-    val key = makeCanonicalKey(text)        // make a lookup key from the given text
-    return memoryKB.newResolution(memoryKB.lookup(key))
+    if (!memoryKB.hasSpeciesInfo)           // if KB has species information
+      resolveNoSpecies(text)                // then try to resolve the text without species
+    else                                    // else prefer human resolution above others
+      memoryKB.newResolution(resolveHuman(text) orElse memoryKB.lookupAny(makeCanonicalKey(text)))
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base,
@@ -53,8 +54,8 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     * Return a resolution for the entry, if any found.
     */
   def resolveNoSpecies (text:String): Option[KBResolution] = {
-    // TODO: IMPLEMENT LATER
-    return None
+    val key = makeCanonicalKey(text)        // make a lookup key from the given text
+    return memoryKB.newResolution(memoryKB.lookupNoSpecies(key))
   }
 
   //
@@ -67,11 +68,12 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     * Return a resolution for the entry, if any found.
     */
   override def resolveAlt (text:String, transforms:KeyTransforms): Option[KBResolution] = {
-    // TODO: FIX IMPLEMENTATION LATER
-    val key = makeCanonicalKey(text)
-    val lcKey = text.toLowerCase            // transform lower cased keys
-    val allKeys = key +: makeAlternateKeys(lcKey, transforms)
-    memoryKB.newResolution(memoryKB.lookups(allKeys))
+    if (!memoryKB.hasSpeciesInfo)           // if KB has no species information
+      resolveNoSpeciesAlt(text, transforms) // then try to resolve the text without species
+    else {                                  // else prefer human resolution above others
+      val allKeys = reachAlternateKeys(text, transforms)
+      memoryKB.newResolution(resolveHumanAlt(text, transforms) orElse memoryKB.lookupsAny(allKeys))
+    }
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base,
@@ -83,9 +85,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
   override def resolveByASpeciesAlt (text:String, species:String,
                                      transforms:KeyTransforms): Option[KBResolution] =
   {
-    val key = makeCanonicalKey(text)
-    val lcKey = text.toLowerCase            // transform lower cased keys
-    val allKeys = key +: makeAlternateKeys(lcKey, transforms)
+    val allKeys = reachAlternateKeys(text, transforms)
     memoryKB.newResolution(memoryKB.lookupsByASpecies(allKeys, species))
   }
 
@@ -97,9 +97,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
   override def resolveBySpeciesAlt (text:String, speciesSet:SpeciesNameSet,
                                     transforms:KeyTransforms): Option[Iterable[KBResolution]] =
   {
-    val key = makeCanonicalKey(text)
-    val lcKey = text.toLowerCase            // transform lower cased keys
-    val allKeys = key +: makeAlternateKeys(lcKey, transforms)
+    val allKeys = reachAlternateKeys(text, transforms)
     val entries = memoryKB.lookupsBySpecies(allKeys, speciesSet)
     entries.map(_.map(kbe => memoryKB.newResolution(kbe)))
   }
@@ -111,9 +109,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     * Return a resolution for a human entry, if any found.
     */
   override def resolveHumanAlt (text:String, transforms:KeyTransforms): Option[KBResolution] = {
-    val key = makeCanonicalKey(text)
-    val lcKey = text.toLowerCase            // transform lower cased keys
-    val allKeys = key +: makeAlternateKeys(lcKey, transforms)
+    val allKeys = reachAlternateKeys(text, transforms)
     val entries = memoryKB.lookupsHuman(allKeys)
     memoryKB.newResolution(entries.flatMap(_.headOption)) // return first entry or None
   }
@@ -125,8 +121,8 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     * Return a resolution for the entry, if any found.
     */
   def resolveNoSpeciesAlt (text:String, transforms:KeyTransforms): Option[KBResolution] = {
-    // TODO: IMPLEMENT LATER
-    return None
+    val allKeys = reachAlternateKeys(text, transforms)
+    memoryKB.newResolution(memoryKB.lookupsNoSpecies(allKeys))
   }
 
 }

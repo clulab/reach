@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Split off bio-specific methods leaving this base trait.
+  *   Last Modified: Minor rename of method parameter.
   */
 trait KBKeyTransforms {
 
@@ -12,8 +12,8 @@ trait KBKeyTransforms {
 
 
   /** Return a sequence of alternate keys, one for each of the given key transforms. */
-  def makeAlternateKeys (key:String, transformFns:KeyTransforms): Seq[String] = {
-    transformFns.map(_.apply(key)).filter(_ != key)
+  def makeAlternateKeys (text:String, transformFns:KeyTransforms): Seq[String] = {
+    transformFns.map(_.apply(text)).filter(_ != text)
   }
 
   /** Try to remove one of the suffixes in the given set from the given text. */

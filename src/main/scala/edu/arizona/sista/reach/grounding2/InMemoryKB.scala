@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for reach kb key transform rename.
+  *   Last Modified: Refactor some lookups.
   */
 class InMemoryKB (
 
@@ -68,26 +68,29 @@ class InMemoryKB (
   }
 
 
-  /** Find the optional set of KB entries for the given key. */
-  def lookupAll (key:String): Option[Iterable[KBEntry]] = {
+  /** Find the optional set of all KB entries for the given key. */
+  def lookupAll (key:String): Option[Iterable[KBEntry]] =
     thisKB.get(key).map(spMap => spMap.values)
-  }
-
-
-  /** Find the optional KB entry, for the given key, which does not contain a species.
-      Returns the first KB entry found (should only be one) or None. */
-  def lookup (key:String): Option[KBEntry] = {
-    thisKB.get(key).flatMap(spMap => spMap.values.find((kbe) => kbe.hasNoSpecies()))
-  }
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookups (allKeys:Seq[String]): Option[KBEntry] = {
+  def lookupsAll (allKeys:Seq[String]): Option[Iterable[KBEntry]] = {
     allKeys.foreach { key =>
-      val entry = lookup(key)
-      if (entry.isDefined) return entry
+      val entries = lookupAll(key)
+      if (entries.isDefined) return entries
     }
     return None                             // tried all keys: no success
   }
+
+
+  /** Find any optional KB entry for the given key. Returns the first
+      KB entry found or None. */
+  def lookupAny (key:String): Option[KBEntry] = {
+    thisKB.get(key).flatMap(spMap => spMap.values.headOption)
+  }
+
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookupsAny (allKeys:Seq[String]): Option[KBEntry] =
+    applyLookupFn(lookupAny, allKeys)
 
 
   /** Find the optional KB entry, for the given key, which matches the given species.
@@ -145,6 +148,28 @@ class InMemoryKB (
     allKeys.foreach { key =>
       val entries = lookupHuman(key)
       if (entries.isDefined) return entries
+    }
+    return None                             // tried all keys: no success
+  }
+
+
+  /** Find the optional KB entry, for the given key, which does not contain a species.
+      Returns the first KB entry found (should only be one) or None. */
+  def lookupNoSpecies (key:String): Option[KBEntry] = {
+    thisKB.get(key).flatMap(spMap => spMap.values.find((kbe) => kbe.hasNoSpecies()))
+  }
+
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookupsNoSpecies (allKeys:Seq[String]): Option[KBEntry] =
+    applyLookupFn(lookupNoSpecies, allKeys)
+
+
+  /** Try lookup function on all given keys until one succeeds or all fail. */
+  private def applyLookupFn (fn:(String) => Option[KBEntry],
+                             allKeys:Seq[String]): Option[KBEntry] = {
+    allKeys.foreach { key =>
+      val entry = fn.apply(key)
+      if (entry.isDefined) return entry
     }
     return None                             // tried all keys: no success
   }

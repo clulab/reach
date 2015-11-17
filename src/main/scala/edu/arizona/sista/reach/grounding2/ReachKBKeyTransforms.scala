@@ -5,7 +5,7 @@ import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Rename this trait again for consistency.
+  *   Last Modified: Add reach alternate key function.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -16,6 +16,15 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     key = key.filterNot(KeyCharactersToRemove)
     return stripASuffix(AllKeysStopSuffixes, key)
   }
+
+
+  /** Return alternate lookup keys created from the given text string and transform functions. */
+  def reachAlternateKeys (text:String, transformFns:KeyTransforms): Seq[String] = {
+    val lcText = text.toLowerCase           // transform lower cased text only
+    val allTexts = lcText +: makeAlternateKeys(lcText, transformFns)
+    return allTexts.map(makeCanonicalKey(_))
+  }
+
 
   /** Return the portion of the key string minus one of the protein family suffixes,
     * if found in the given key string, else return the key unchanged. */
