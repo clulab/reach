@@ -7,12 +7,13 @@ import edu.arizona.sista.reach.grounding2._
 /**
   * Unit tests to ensure the AZ fail safe KB is working for grounding.
   *   Written by: Tom Hicks. 11/10/2015.
-  *   Last Modified: Split out this tester from basic KB tests.
+  *   Last Modified: Update for new/refactored resolves.
   */
 class TestAzFailsafeKB extends FlatSpec with Matchers {
 
   // Tests of AZ Failsafe KB
   val kbAZ = new AzFailsafeKBML
+
   "AZ Failsafe KB" should "return new UAZ ID for new resolve, then repeat it" in {
     val x3 = kbAZ.resolve("XXX")
     (x3.isDefined) should be (true)
@@ -55,6 +56,16 @@ class TestAzFailsafeKB extends FlatSpec with Matchers {
     (kbAZ.resolveBySpecies("xxx", Set("giraffe")).get.head.id == xxx.id) should be (true)
     (kbAZ.resolveBySpecies("xxx", Set("human", "mouse")).isDefined) should be (true)
     (kbAZ.resolveBySpecies("xxx", Set("human", "mouse")).get.head.id == xxx.id) should be (true)
+  }
+
+  "AZ Failsafe KB" should "return new UAZ ID for new resolve and resolveNoSpecies" in {
+    val x3 = kbAZ.resolve("XXX")
+    (x3.isDefined) should be (true)
+    val xxx = x3.get
+    (kbAZ.resolveNoSpecies("XXX").get.id == xxx.id) should be (true)
+    (kbAZ.resolveNoSpecies("xxx").get.id == xxx.id) should be (true)
+    (kbAZ.resolveNoSpecies("XXXX").get.id == xxx.id) should be (false) // 4 Xs
+    (kbAZ.resolveNoSpecies("xxxx").get.id == xxx.id) should be (false) // 4 xs
   }
 
 }

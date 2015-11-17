@@ -8,35 +8,38 @@ import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for util and constant renames.
+  *   Last Modified: Update for new/refactored resolves.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
   val imkbPF = new TestProtFamKBL           // defined after this class (LOOK BELOW)
 
-  // this KB includes species, therefore plain resolve should always fail:
-  "LocalProteinKBML resolve" should "fail despite alternate lookups" in {
-    // key not in KB:
+  // this KB is a protein Family, therefore resolves using protein transforms should fail:
+  "FamilyKBL resolve" should "fail despite alternate family lookups" in {
+    // keys not in KB:
     (imkbPF.resolve("NOTINKB").isDefined) should be (false)
     (imkbPF.resolve("notinkb").isDefined) should be (false)
     (imkbPF.resolve("notinkb_human").isDefined) should be (false)
     (imkbPF.resolve("notinkb protein").isDefined) should be (false)
     (imkbPF.resolve("notinkb family").isDefined) should be (false)
-    // entry has a species:
-    (imkbPF.resolve("PTHR21244").isDefined) should be (false)
-    (imkbPF.resolve("pthr21244").isDefined) should be (false)
-    (imkbPF.resolve("pthr21244_human").isDefined) should be (false)
+    // protein key transforms not applicable for protein families:
     (imkbPF.resolve("pthr21244 protein").isDefined) should be (false)
-    (imkbPF.resolve("pthr21244 family").isDefined) should be (false)
     (imkbPF.resolve("mutant-pthr21244").isDefined) should be (false)
-    (imkbPF.resolve("hk").isDefined) should be (false)
-    (imkbPF.resolve("hk_human").isDefined) should be (false)
     (imkbPF.resolve("hk protein").isDefined) should be (false)
-    (imkbPF.resolve("hk family").isDefined) should be (false)
     (imkbPF.resolve("mutant-hk").isDefined) should be (false)
   }
 
-  "LocalProteinKBML resolveByASpecies" should "fail despite alternate lookups" in {
+  "FamilyKBL resolve" should "work with alternate family lookups" in {
+    (imkbPF.resolve("PTHR21244").isDefined) should be (true)
+    (imkbPF.resolve("pthr21244").isDefined) should be (true)
+    (imkbPF.resolve("pthr21244_human").isDefined) should be (true)
+    (imkbPF.resolve("pthr21244 family").isDefined) should be (true)
+    (imkbPF.resolve("hk").isDefined) should be (true)
+    (imkbPF.resolve("hk_human").isDefined) should be (true)
+    (imkbPF.resolve("hk family").isDefined) should be (true)
+  }
+
+  "FamilyKBL resolveByASpecies" should "fail despite alternate lookups" in {
     // key not in KB:
     (imkbPF.resolveByASpecies("NotInKB", "ant").isDefined) should be (false)
     (imkbPF.resolveByASpecies("NotInKB_human", "ant").isDefined) should be (false)
@@ -57,7 +60,7 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (imkbPF.resolveByASpecies("mutant-hk", "saccharomyces cerevisiae").isDefined) should be (false)
   }
 
-  "LocalProteinKBML resolveByASpecies" should "work with alternate lookups" in {
+  "FamilyKBL resolveByASpecies" should "work with alternate lookups" in {
     (imkbPF.resolveByASpecies("pthr21244", "human").isDefined) should be (true)
     (imkbPF.resolveByASpecies("pthr21244_human", "human").isDefined) should be (true)
     (imkbPF.resolveByASpecies("pthr21244 family", "human").isDefined) should be (true)
@@ -71,7 +74,7 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   val setH =   Set("human")
   val setHM =  Set("human", "mouse")
   val setHMG = Set("human", "mouse", "gorilla")
-  "LocalProteinKBML resolveBySpecies" should "should fail despite alternate lookups" in {
+  "FamilyKBL resolveBySpecies" should "should fail despite alternate lookups" in {
     // key not in KB:
     (imkbPF.resolveBySpecies("NotInKB", setA).isDefined) should be (false)
     (imkbPF.resolveBySpecies("NotInKB_human", setA).isDefined) should be (false)
@@ -102,7 +105,7 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (imkbPF.resolveBySpecies("mutant-pthr21244", setHMG).isDefined) should be (false)
   }
 
-  "LocalProteinKBML resolveBySpecies" should "work with alternate lookups" in {
+  "FamilyKBL resolveBySpecies" should "work with alternate lookups" in {
     (imkbPF.resolveBySpecies("pthr21244", setH).isDefined) should be (true)
     (imkbPF.resolveBySpecies("PTHR21244", setH).isDefined) should be (true)
     (imkbPF.resolveBySpecies("pthr21244_human", setH).isDefined) should be (true)
@@ -129,7 +132,7 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (imkbPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).get.size == 1) should be (true)
   }
 
-  "LocalProteinKBML resolveHuman" should "fail despite alternate lookups" in {
+  "FamilyKBL resolveHuman" should "fail despite alternate lookups" in {
     // key not in KB:
     (imkbPF.resolveHuman("NotInKB").isDefined) should be (false)
     (imkbPF.resolveHuman("NotInKB_human").isDefined) should be (false)
@@ -149,13 +152,35 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (imkbPF.resolveHuman("mutant-PTHR21244").isDefined) should be (false)
   }
 
-  "LocalProteinKBML resolveHuman" should "work with alternate lookups" in {
+  "FamilyKBL resolveHuman" should "work with alternate lookups" in {
     (imkbPF.resolveHuman("pthr21244").isDefined) should be (true)
     (imkbPF.resolveHuman("PTHR21244").isDefined) should be (true)
     (imkbPF.resolveHuman("pthr21244_human").isDefined) should be (true)
     (imkbPF.resolveHuman("PTHR21244_human").isDefined) should be (true)
     (imkbPF.resolveHuman("pthr21244 family").isDefined) should be (true)
     (imkbPF.resolveHuman("PTHR21244 family").isDefined) should be (true)
+  }
+
+  // this KB includes species, therefore resolveNoSpecies should always fail:
+  "FamilyKBL resolveNoSpecies" should "fail despite alternate lookups" in {
+    // key not in KB:
+    (imkbPF.resolveNoSpecies("NOTINKB").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("notinkb").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("notinkb_human").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("notinkb protein").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("notinkb family").isDefined) should be (false)
+    // entry has a species:
+    (imkbPF.resolveNoSpecies("PTHR21244").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("pthr21244").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("pthr21244_human").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("pthr21244 protein").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("pthr21244 family").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("mutant-pthr21244").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("hk").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("hk_human").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("hk protein").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("hk family").isDefined) should be (false)
+    (imkbPF.resolveNoSpecies("mutant-hk").isDefined) should be (false)
   }
 
 }
@@ -165,5 +190,5 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 class TestProtFamKBL extends IMKBFamilyLookup {
   val memoryKB = new InMemoryKB(
     new KBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
-                   StaticProteinFamilyFilename, true)
+                   StaticProteinFamilyFilename, true)  // true = has species
 }
