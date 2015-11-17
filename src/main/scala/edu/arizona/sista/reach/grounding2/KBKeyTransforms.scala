@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Minor rename of method parameter.
+  *   Last Modified: Enhance logic to strip multiple suffixes.
   */
 trait KBKeyTransforms {
 
@@ -16,13 +16,16 @@ trait KBKeyTransforms {
     transformFns.map(_.apply(text)).filter(_ != text)
   }
 
-  /** Try to remove one of the suffixes in the given set from the given text. */
-  def stripASuffix (suffixes:Set[String], text:String): String = {
-    var key = text
+  /** Try to remove all of the suffixes in the given set from the given text. */
+  def stripSuffixes (suffixes:Seq[String], text:String): String = {
+    var modText = text
     suffixes.foreach { suffix =>
-      key = key.stripSuffix(suffix)
+      modText = modText.stripSuffix(suffix)
     }
-    return key
+    if (modText == text)                    // if no suffixes were stripped
+      return text                           // then return the unaltered text
+    else                                    // else at least one suffix was stripped
+      return stripSuffixes(suffixes, modText) // so try another round of stripping
   }
 
 }

@@ -5,7 +5,7 @@ import edu.arizona.sista.reach.grounding2.ReachKBConstants._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Add reach alternate key function.
+  *   Last Modified: Update for multiple suffix stripping.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -14,7 +14,7 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     var key:String = text.toLowerCase
     // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
     key = key.filterNot(KeyCharactersToRemove)
-    return stripASuffix(AllKeysStopSuffixes, key)
+    return stripSuffixes(AllKeysStopSuffixes, key)
   }
 
 
@@ -29,7 +29,7 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   /** Return the portion of the key string minus one of the protein family suffixes,
     * if found in the given key string, else return the key unchanged. */
   def stripFamilySuffixes (key:String): String = {
-    return stripASuffix(FamilyStopSuffixes, key)
+    return stripSuffixes(FamilyStopSuffixes, key)
   }
 
   /** Return the portion of the key string before a trailing mutation phrase,
@@ -47,7 +47,7 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   /** Return the portion of the key string minus one of the protein suffixes, if found
     * in the given key string, else return the key unchanged. */
   def stripProteinSuffixes (key:String): String = {
-    return stripASuffix(ProteinStopSuffixes, key)
+    return stripSuffixes(ProteinStopSuffixes, key)
   }
 
   /** Return the protein portion of a mutatation-protein string, if found

@@ -3,22 +3,21 @@ package edu.arizona.sista.reach.grounding2
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Back-port auxiliary KB constants.
+  *   Last Modified: Update for multiple suffix stripping.
   */
 object ReachKBConstants {
 
   /** The set of words to remove from all keys to create a lookup key. */
-  val AllKeysStopSuffixes = Set("_human")
+  val AllKeysStopSuffixes = Seq("_human")
 
   /** The set of words to remove from a key to create a protein family lookup key. */
-  // val FamilyStopSuffixes = Set(" family", " protein family")
-  val FamilyStopSuffixes = Set(" family")
+  val FamilyStopSuffixes = Seq(" protein family", " family")
 
   /** The set of characters to remove from the text to create a lookup key. */
   val KeyCharactersToRemove = " /-".toSet
 
   /** The set of words to remove from a key to create a protein lookup key. */
-  val ProteinStopSuffixes = Set(" protein")
+  val ProteinStopSuffixes = Seq(" mutant protein", " protein")
 
 
   /** File Path to the directory which holds the entity knowledge bases. */

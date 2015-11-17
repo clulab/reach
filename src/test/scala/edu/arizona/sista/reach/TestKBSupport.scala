@@ -9,18 +9,18 @@ import edu.arizona.sista.reach.grounding2.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for reach kb key transform rename.
+  *   Last Modified: Update for multiple suffix stripping.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
   // test KBEntry
   val kbe1 = new KBEntry("Adam", "key1", "XYX", "human")
   val kbe2 = new KBEntry("Eve",  "key1", "YXY", "")
-  val kbe3 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("AAA", "BBB")))
-  val kbe5k = new KBEntry("Seth", "key3", "QQQ", "human", None)
-  val kbe50 = new KBEntry("Seth", "key3", "XXX", "human", None)
-  val kbe51 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("AAA")))
-  val kbe52 = new KBEntry("Seth", "key3", "XXX", "human", Some(Set("BBB", "CCC")))
+  val kbe3 = new KBEntry("Chang", "key3", "XXX", "human", Some(Set("AAA", "BBB")))
+  val kbe5k = new KBEntry("Chang", "key3", "QQQ", "human", None)
+  val kbe50 = new KBEntry("Chang", "key3", "XXX", "human", None)
+  val kbe51 = new KBEntry("Chang", "key3", "XXX", "human", Some(Set("AAA")))
+  val kbe52 = new KBEntry("Chang", "key3", "XXX", "human", Some(Set("BBB", "CCC")))
   val kbe60 = new KBEntry("Able", "key6", "ZZZ", "human", None, None)
   val kbe61 = new KBEntry("Able", "key6", "ZZZ", "human", None, Some("STANDARD1"))
 
@@ -256,6 +256,20 @@ class TestKBSupport extends FlatSpec with Matchers {
     (xkeys.head == "savage") should be (true)
   }
 
+  "makeAlternateKeys(weird protein mutant, proteinKeyTransforms)" should "return weird" in {
+    // val xkeys = makeAlternateKeys("weird protein mutant", Seq(stripProteinSuffixes _))
+    val xkeys = makeAlternateKeys("weird protein mutant", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "weird") should be (true)
+  }
+
+  "makeAlternateKeys(odd mutant protein, proteinKeyTransforms)" should "return odd" in {
+    // val xkeys = makeAlternateKeys("odd mutant protein", Seq(stripProteinSuffixes _))
+    val xkeys = makeAlternateKeys("odd mutant protein", proteinKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "odd") should be (true)
+  }
+
   "makeAlternateKeys(phosphorylated WILD XK mutant, proteinKeyTransforms)" should "return WILD" in {
     // val xkeys = makeAlternateKeys("phosphorylated WILD XK mutant", Seq(stripMutantProtein _))
     val xkeys = makeAlternateKeys("phosphorylated WILD XK mutant", proteinKeyTransforms)
@@ -267,6 +281,12 @@ class TestKBSupport extends FlatSpec with Matchers {
     val xkeys = makeAlternateKeys("Parsnip family", familyKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "Parsnip") should be (true)
+  }
+
+  "makeAlternateKeys(sad protein family, familyKeyTransforms)" should "return sad" in {
+    val xkeys = makeAlternateKeys("sad protein family", familyKeyTransforms)
+    (xkeys.size == 1) should be (true)
+    (xkeys.head == "sad") should be (true)
   }
 
 
@@ -290,19 +310,19 @@ class TestKBSupport extends FlatSpec with Matchers {
     (makeCanonicalKey("WO-MAN_HUMAN") == "woman") should be (true)
   }
 
-  val set0 = Set[String]()
-  val set1 = Set("one")
-  val set2 = Set("one", "two")
-  "stripASuffix(set0, string one)" should "return string one" in {
-    (stripASuffix(set0, "string one") == "string one") should be (true)
+  val seq0 = Seq[String]()
+  val seq1 = Seq("one")
+  val seq2 = Seq("one", "two")
+  "stripSuffixes(seq0, string one)" should "return string one" in {
+    (stripSuffixes(seq0, "string one") == "string one") should be (true)
   }
 
-  "stripASuffix(set1, stringone)" should "return string" in {
-    (stripASuffix(set1, "stringone") == "string") should be (true)
+  "stripSuffixes(seq1, stringone)" should "return string" in {
+    (stripSuffixes(seq1, "stringone") == "string") should be (true)
   }
 
-  "stripASuffix(set2, stringtwo)" should "return string" in {
-    (stripASuffix(set2, "stringtwo") == "string") should be (true)
+  "stripSuffixes(seq2, stringtwo)" should "return string" in {
+    (stripSuffixes(seq2, "stringtwo") == "string") should be (true)
   }
 
   // test KBUtils
