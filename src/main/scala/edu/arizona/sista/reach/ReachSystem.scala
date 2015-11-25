@@ -75,13 +75,10 @@ class ReachSystem(
     val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
     modifiedEntities flatMap {
       case m: BioTextBoundMention =>
+        // if a mention has many mutations attached to it return a mention for each mutation
         val mutations = m.modifications.filter(_.isInstanceOf[Mutant])
-
-        // if a mention has many mutations attached to it
-        // return a mention for each mutation
         if (mutations.isEmpty || mutations.size == 1) Seq(m)
         else {
-          val modifications = m.modifications diff mutations
           mutations map { mut =>
             val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
             tbm.modifications += mut
