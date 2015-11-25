@@ -91,6 +91,7 @@ class NxmlSearcher(val indexDir:String) {
     //
     // histogram of term distribution in docs
     //
+    logger.debug("Generating topic histogram...")
     val histoPoints = Array("ROS", "MAPK", "Raf/Mek/Erk", "Akt", "NfkB", "TGFb", "TGFbeta", "TGFb1", "TGFbeta1", "EGFR", "apoptosis", "autophagy", "proliferation", "p53", "RB", "glycolysis", "exosomes", "RAGE", "HMGB1")
     val histoValues = new ArrayBuffer[(String, Int)]()
     for(point <- histoPoints) {
@@ -102,6 +103,7 @@ class NxmlSearcher(val indexDir:String) {
     }
     histoFile.close()
   }
+  logger.debug("Done.")
 }
 
 object NxmlSearcher {
