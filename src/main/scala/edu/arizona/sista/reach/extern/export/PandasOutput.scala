@@ -9,14 +9,12 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 /**
   * Class to output a field-separated text file to parse as a Pandas' Data Frame
   *   Written by Enrique Noriega. 27/7/2015.
-  *
+  *   Last Modified: Correct spelling of possessive.
   */
-
 class PandasOutput() {
   def toCSV(paperID:String,
             allMentions:Seq[BioMention],
-            paperPassages:Map[BioMention, FriesEntry]):(Seq[String],
-               Seq[String], Seq[String], Seq[String]) = {
+            paperPassages:Map[BioMention, FriesEntry]): (Seq[String], Seq[String], Seq[String], Seq[String]) = {
 
     // Get fetch documents
     val docs = (allMentions map (m => (m.document, paperPassages(m))) sortBy { t:(Document, FriesEntry) =>
@@ -93,7 +91,7 @@ class PandasOutput() {
             case rel:BioRelationMention =>
               var sb = new mutable.StringBuilder()
 
-              val interesting = Seq("ContextPossesive", "ContextLocation", "ContextDirection")
+              val interesting = Seq("ContextPossessive", "ContextLocation", "ContextDirection")
 
               if(interesting.exists(rel.labels.contains(_))){
 
@@ -118,8 +116,8 @@ class PandasOutput() {
                 sb ++= s"\t${rel.text}\t"
 
                 // Get the type of context
-                if(rel.labels contains "ContextPossesive"){
-                  sb ++= "ContextPossesive"
+                if(rel.labels contains "ContextPossessive"){
+                  sb ++= "ContextPossessive"
                   relations += sb.toString
                 }
                 else if(rel.labels contains "ContextLocation"){
