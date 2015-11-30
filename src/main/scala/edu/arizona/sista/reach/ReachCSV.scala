@@ -40,6 +40,7 @@ object ReachCSV extends App {
     val text = line(textColumn)
     val docId = line(docIdColumn)
     val chunkId = line(chunkIdColumn)
+    println(s"Processing $docId, $chunkId...")
     val entry = FriesEntry(docId, chunkId, "", "", isTitle = false, text) // we have no section information for this CSV data
 
     try {

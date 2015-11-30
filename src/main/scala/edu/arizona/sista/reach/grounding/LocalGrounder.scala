@@ -1,5 +1,7 @@
 package edu.arizona.sista.reach.grounding
 
+import com.typesafe.config.ConfigFactory
+
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
@@ -7,12 +9,16 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Also use manual and generated KBs.
+  *   Last Modified: Add auxiliary grounding controlled by config flag.
   */
 class LocalGrounder extends DarpaFlow {
 
   /** An exception in case we somehow fail to assign an ID during resolution. */
   case class NoFailSafe(message:String) extends Exception(message)
+
+  // Read config file to determine whether to include knowledge bases
+  val config = ConfigFactory.load()
+  val useAuxGrounding = config.getBoolean("useAuxGrounding")
 
   /** Project local sequence for resolving entities: check local facade KBs in this order:
     * 1. Proteins
@@ -21,35 +27,67 @@ class LocalGrounder extends DarpaFlow {
     * 4. Subcellular Locations
     * 5. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
-  protected val searchSequence = Seq(
 
-    new StaticProteinKBAccessor,
-    new ManualProteinKBAccessor,
-    new StaticProteinFamilyKBAccessor,
-    new ManualProteinFamilyKBAccessor,
+  protected val searchSequence =
+    if (!useAuxGrounding)
+      Seq(
+        new StaticProteinFamilyKBAccessor,
+        new ManualProteinFamilyKBAccessor,
+        new StaticProteinKBAccessor,
+        new ManualProteinKBAccessor,
+        // NB: generated protein families are included in the generated protein KB:
+        new GendProteinKBAccessor,
 
-    // Context-relevant accessors
-    new CellTypeKBAccessor,
-    new InferredCellTypeKBAccessor, // These mentions come from a rule
-    new SpeciesKBAccessor,
-    new CellLinesKBAccessor,
-    new OrganKBAccessor,
-    new StaticTissueTypeKBLookup,
+        new StaticChemicalKBAccessor,
+        new StaticMetaboliteKBAccessor,
+        new ManualChemicalKBAccessor,
+        new GendChemicalKBAccessor,
 
-    // NB: generated protein families are included in the generated protein KB:
-    new GendProteinKBAccessor,
+        new StaticCellLocationKBAccessor,
+        new ManualCellLocationKBAccessor,
+        new GendCellLocationKBAccessor,
 
-    new StaticChemicalKBAccessor,
-    new StaticMetaboliteKBAccessor,
-    new ManualChemicalKBAccessor,
-    new GendChemicalKBAccessor,
+        // Context-relevant accessors
+        new CellTypeKBAccessor,
+        new InferredCellTypeKBAccessor, // These mentions come from a rule
+        new SpeciesKBAccessor,
+        new CellLinesKBAccessor,
+        new OrganKBAccessor,
+        new StaticTissueTypeKBLookup,
 
-    new StaticCellLocationKBAccessor,
-    new ManualCellLocationKBAccessor,
-    new GendCellLocationKBAccessor,
+        new AzFailsafeKBAccessor
+      )
+    else
+      Seq(
+        new AuxProteinKBAccessor,
+        new AuxBioProcessKBAccessor,
+        new AuxMetaboliteKBAccessor,
+        new StaticProteinFamilyKBAccessor,
+        new ManualProteinFamilyKBAccessor,
+        new StaticProteinKBAccessor,
+        new ManualProteinKBAccessor,
+        // NB: generated protein families are included in the generated protein KB:
+        new GendProteinKBAccessor,
 
-    new AzFailsafeKBAccessor
-  )
+        new StaticChemicalKBAccessor,
+        new StaticMetaboliteKBAccessor,
+        new ManualChemicalKBAccessor,
+        new GendChemicalKBAccessor,
+
+        new StaticCellLocationKBAccessor,
+        new ManualCellLocationKBAccessor,
+        new GendCellLocationKBAccessor,
+
+        // Context-relevant accessors
+        new CellTypeKBAccessor,
+        new InferredCellTypeKBAccessor, // These mentions come from a rule
+        new SpeciesKBAccessor,
+        new CellLinesKBAccessor,
+        new OrganKBAccessor,
+        new StaticTissueTypeKBLookup,
+
+        new AzFailsafeKBAccessor
+      )
 
 
   /** Local implementation of trait: use project specific KBs to ground and augment given mentions. */

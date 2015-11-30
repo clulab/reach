@@ -54,6 +54,7 @@ package object mentions {
           m.foundBy
         )
         tbm.modifications ++= m.modifications
+        tbm.xref = m.xref
         tbm
       }
       case m: BioEventMention => {
@@ -67,6 +68,7 @@ package object mentions {
           m.foundBy
         )
         ev.modifications ++= m.modifications
+        ev.xref = m.xref
         ev
       }
 
@@ -80,6 +82,7 @@ package object mentions {
           m.foundBy
         )
         rel.modifications ++= m.modifications
+        rel.xref = m.xref
         rel
       }
 
