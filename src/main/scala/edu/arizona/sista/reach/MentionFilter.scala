@@ -53,7 +53,6 @@ object MentionFilter {
              // treat it as a CorefEventMention to simplify filtering
              .toCorefMention.asInstanceOf[CorefEventMention]
            // how many args does the controlled Mention have?
-           // argCount = controlled.antecedent.getOrElse(controlled).asInstanceOf[CorefEventMention].arguments.size
            argCount = controlled.antecedentOrElse(controlled).arguments.size
       } yield {
         // Are there any "more complete" SimpleEvents in the State
@@ -63,7 +62,6 @@ object MentionFilter {
             // If the label is the same, these MUST be CorefEventMentions (i.e SimpleEvents)
             .map(_.toCorefMention.asInstanceOf[CorefEventMention])
             .filter(m =>
-            // m.antecedent.getOrElse(m).asInstanceOf[CorefEventMention].arguments.size > argCount &&
             m.antecedentOrElse(m).arguments.size > argCount &&
               (m.trigger == controlled.trigger))
         // Do we have any "more complete" Mentions to substitute for the controlled?

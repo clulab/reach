@@ -36,7 +36,6 @@ package object display {
   }
 
   def displayMention(mention: Mention) {
-    // val printMention = mention.toCorefMention.antecedent.getOrElse(mention).asInstanceOf[CorefMention]
     val printMention = mention.antecedentOrElse(mention)
     val boundary = s"\t${"-" * 30}"
     println(s"mention text: ${printMention.text}")

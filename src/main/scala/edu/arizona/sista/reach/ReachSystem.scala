@@ -150,7 +150,6 @@ object ReachSystem {
       newParents ++= parents
       newParents += em.label
       em.arguments.values.foreach(ms => ms.foreach( m => {
-        // resolveDisplayForArguments(m.asInstanceOf[CorefMention].antecedent.getOrElse(m).asInstanceOf[CorefMention], newParents.toSet)
         val crm = m.asInstanceOf[CorefMention]
         resolveDisplayForArguments(crm.antecedentOrElse(crm), newParents.toSet)
       }))
