@@ -25,9 +25,11 @@ trait Anaphoric {
   def toSingletons: Seq[Anaphoric]
 
   def antecedent: Option[Anaphoric] = {
-    require(antecedents.size < 2,
-      s"Multiple antecedents found for ${this.text}: ${this.antecedents.map(_.text).mkString(", ")}!")
-    val ant = if(this.isGeneric) this.firstSpecific else Nil
+    val ant = if(this.isGeneric) {
+      require(antecedents.size < 2,
+        s"Multiple antecedents found for ${this.text}: ${this.antecedents.map(_.text).mkString(", ")}!")
+      this.firstSpecific
+    } else Nil
     ant.headOption
   }
 
