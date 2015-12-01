@@ -213,5 +213,13 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = parseSentence(sent20)
     hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
   }
+
+  val sent21 = "Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy post organ transplant ."
+  sent21 should "not produce a requirement error from Anaphoric.antecedent" in {
+    val mentions = parseSentence(sent21)
+    mentions.forall { mention =>
+      !mention.toCorefMention.antecedentOrElse(mention.toCorefMention).isGeneric
+    } should be (true)
+  }
 }
 
