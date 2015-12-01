@@ -28,7 +28,7 @@ class DarpaLinks(doc: Document) extends Links {
       .filter(_._2.toSeq.length > 1)
     sameText.foreach {
       case (ent, ms) =>
-        ms.foldLeft(Set.empty: Set[Mention])((prev, curr) => {
+        ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
           if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
           curr.antecedents ++= prev
           Set(curr)
@@ -53,7 +53,7 @@ class DarpaLinks(doc: Document) extends Links {
       .groupBy(m => m.asInstanceOf[CorefTextBoundMention].xref.get.id)
     sameGrounding.foreach {
       case (gr, ms) =>
-        ms.foldLeft(Set.empty: Set[Mention])((prev, curr) => {
+        ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
           if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
           curr.antecedents ++= prev
           Set(curr)
@@ -112,6 +112,7 @@ class DarpaLinks(doc: Document) extends Links {
    */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Pronominal matching=====")
+    val state = State(mentions)
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     hasArgs.foreach {

@@ -212,8 +212,26 @@ class DarpaActions extends Actions {
       (theme1s, theme2s) match {
         case (t1s, Nil) if t1s.length > 1 => mkBindingsFromPairs(t1s.combinations(2).toList, m)
         case (Nil, t2s) if t2s.length > 1 => mkBindingsFromPairs(t2s.combinations(2).toList, m)
-        case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
-        case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
+        case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") =>
+          Seq(new BioEventMention(
+          Seq("Binding", "SimpleEvent", "Event", "PossibleController"),
+          m.trigger,
+          m.arguments - "theme1" - "theme2" + ("theme" -> gen1),
+          m.sentence,
+          m.document,
+          m.keep,
+          m.foundBy
+          ))
+        case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") =>
+          Seq(new BioEventMention(
+            Seq("Binding", "SimpleEvent", "Event", "PossibleController"),
+            m.trigger,
+            m.arguments - "theme1" - "theme2" + ("theme" -> gen2),
+            m.sentence,
+            m.document,
+            m.keep,
+            m.foundBy
+          ))
         case (t1s, t2s) =>
           val pairs = for {
             t1 <- t1s

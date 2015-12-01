@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 5/26/2015.
-  *   Last Modified: Add other sets of stop suffixes.
+  *   Last Modified: Add auxiliary KB filenames.
   */
 trait KnowledgeBaseConstants {
 
@@ -76,5 +76,27 @@ trait KnowledgeBaseConstants {
 
   /** Filename of the static tissue type file. */
   val StaticTissueTypeFilename = "tissue-type.tsv"
+
+
+  /** Filename of the auxiliary biological processes file. */
+  val AuxBioProcessFilename = "AuxBioProcess.tsv"
+
+  /** Filename of the auxiliary cellular location file. */
+  val AuxCellLocationFilename = "AuxCellLocation.tsv"
+
+  /** Filename of the auxiliary small molecule (chemical) file. */
+  val AuxChemicalFilename = "AuxChemical.tsv"
+
+  /** Filename of the auxiliary small molecule (metabolite) file. */
+  val AuxMetaboliteFilename = "AuxMetabolite.tsv"
+
+  /** Filename of the auxiliary protein file. */
+  val AuxProteinFilename = "AuxProtein.tsv"
+
+  /** Filename of the auxiliary protein family file. */
+  val AuxProteinFamilyFilename = "AuxProteinFamily.tsv"
+
+  /** Filename of the auxiliary protein file. */
+  val AuxTissueTypeFilename = "AuxTissueType.tsv"
 
 }

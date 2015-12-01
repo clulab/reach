@@ -3,6 +3,7 @@ package edu.arizona.sista.reach.mentions
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.struct.Interval
+import edu.arizona.sista.coref.CorefUtils._
 
 class CorefTextBoundMention(
                            labels: Seq[String],
@@ -16,6 +17,29 @@ class CorefTextBoundMention(
   def isGeneric: Boolean = labels contains "Generic_entity"
 
   def number: Int = 1
+
+  def toSingletons: Seq[CorefTextBoundMention] = {
+    val ants = this.firstSpecific.filterNot(_ == this)
+    if (ants.isEmpty) Seq(this)
+    else {
+      for {
+        ant <- ants
+      } yield {
+        val copy = new CorefTextBoundMention(
+          this.labels,
+          this.tokenInterval,
+          this.sentence,
+          this.document,
+          this.keep,
+          this.foundBy)
+        copy.antecedents = Set(ant)
+        copy.sieves = this.sieves
+        copy
+      }
+    }
+  }
+
+  def isComplete: Boolean = !this.isGeneric || this.antecedent.nonEmpty
 }
 
 class CorefEventMention(
@@ -31,6 +55,39 @@ class CorefEventMention(
   def isGeneric: Boolean = labels contains "Generic_event"
 
   def number: Int = 1
+
+  def toSingletons: Seq[CorefEventMention] = {
+    val ants = this.firstSpecific.filterNot(_ == this)
+    if (ants.isEmpty) Seq(this)
+    else {
+      for {
+        ant <- ants
+      } yield {
+        val copy = new CorefEventMention(
+          this.labels,
+          this.trigger,
+          this.arguments,
+          this.sentence,
+          this.document,
+          this.keep,
+          this.foundBy)
+        copy.antecedents = Set(ant)
+        copy.sieves = this.sieves
+        copy
+      }
+    }
+  }
+
+  def isComplete: Boolean = this match {
+    case gnc if this.isGeneric => this.antecedent.nonEmpty
+    case spc =>
+      val completeArgs = for {
+        (lbl, args) <- this.arguments
+        newArgs = args.filter(_.toCorefMention.isComplete).map(_.toCorefMention)
+        if newArgs.nonEmpty
+      } yield lbl -> newArgs
+      argsComplete(completeArgs, spc.labels)
+  }
 }
 
 
@@ -46,5 +103,17 @@ class CorefRelationMention(
   def isGeneric: Boolean = false
 
   def number: Int = 1
+
+  def toSingletons: Seq[CorefRelationMention] = Seq(this)
+
+  def isComplete: Boolean = {
+    val completeArgs = for {
+      (lbl, args) <- this.arguments
+      newArgs = args.filter(_.toCorefMention.isComplete).map(_.toCorefMention)
+      if newArgs.nonEmpty
+    } yield lbl -> newArgs
+    argsComplete(completeArgs, this.labels)
+  }
+
 }
 

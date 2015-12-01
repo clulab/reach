@@ -13,6 +13,7 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
++ **1.1.2** - Bug fixes in the index card output
 + **1.1.1** - Improved event coreference resolution
 + **1.1.0** - Added entity and event coreference resolution
 + [more...](CHANGES.md)

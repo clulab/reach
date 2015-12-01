@@ -1,12 +1,11 @@
 package edu.arizona.sista.reach.extern.export.indexcards
 
-import java.io.{FileWriter, BufferedWriter, PrintWriter, File}
+import java.io.File
 import java.util.Date
+import java.util.regex.Pattern
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
-
-import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin.{RelationMention, Mention}
 import edu.arizona.sista.reach.extern.export._
@@ -14,6 +13,7 @@ import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 import JsonOutputter._
+import IndexCardOutput._
 
 /**
  * Defines classes and methods used to build and output the index card format.
@@ -162,18 +162,28 @@ class IndexCardOutput extends JsonOutputter {
     val f = new PropMap
     f("entity_text") = arg.text
     f("entity_type") = arg.displayLabel.toLowerCase
+
+    // println(s"Argument and grounding: ${arg.text} ${arg.xref}")
+
+    if(! arg.isGrounded) {
+      println(s"Failed to ground argument ${arg.text}!")
+    }
+    assert(arg.isGrounded) // participants should always be grounded here! (even if only to an UAZID)
     if(arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
     if(MentionManager.hasFeatures(arg)) f("features") = mkFeatures(arg)
-    // TODO: we do not compare against the model; assume everything is new
-    f("in_model") = false
+    // TODO: we do not compare against the model; assume everything exists, so the validation works
+    f("in_model") = true
     f
   }
 
   def mkFeatures(arg:BioMention):FrameList = {
     val fl = new FrameList
     arg.modifications.foreach {
-      case ptm: PTM => fl += mkPTMFeature(ptm)
-      case mut: Mutant => fl += mkMutantFeature(mut)
+      case ptm: PTM =>
+        fl += mkPTMFeature(ptm)
+      case mut: Mutant =>
+        //println(s"argument and mutation: ${arg.text} ${mut.evidence.text}")
+        fl += mkMutantFeature(mut)
       case _ => // there may be other features that are not relevant for the index card output
     }
     fl
@@ -191,9 +201,39 @@ class IndexCardOutput extends JsonOutputter {
   def mkMutantFeature(m:Mutant):PropMap = {
     val f = new PropMap
     f("feature_type") = "mutation"
-    if(m.evidence.text.length > 0)
-      f("position") = m.evidence.text
+    if(m.evidence.text.length > 0) {
+      val ev = m.evidence.text
+      f("evidence") = ev
+
+      if(ev.toLowerCase.startsWith("mutant") ||
+         ev.toLowerCase.startsWith("mutation")) {
+        addUnspecifiedMutation(f)
+      } else {
+        val lm = LETTER_MUTATION.matcher(ev)
+        if(lm.matches()) {
+          addMutation(f, ev, 0)
+        } else {
+          val ldm = LETTER_DIGIT_MUTATION.matcher(ev)
+          if(ldm.find()) {
+            addMutation(f, ldm.group(1), ldm.group(2).toInt)
+          } else {
+            // TODO: this should never happen
+            addUnspecifiedMutation(f)
+          }
+        }
+      }
+    } else {
+      addUnspecifiedMutation(f)
+    }
     f
+  }
+
+  def addMutation(f:PropMap, base:String, site:Int): Unit = {
+    f("to_base") = base
+    f("site") = site
+  }
+  def addUnspecifiedMutation(f:PropMap): Unit = {
+    addMutation(f, "A", 0)
   }
 
   def mkComplexArgument(complex:RelationMention):FrameList = {
@@ -265,14 +305,22 @@ class IndexCardOutput extends JsonOutputter {
       case "Negative_regulation" => false
       case _ => throw new RuntimeException(s"ERROR: unknown regulation event ${mention.label}!")
     }
-    val f = mkModificationIndexCard(controlled, positiveModification = posMod)
+    val ex = mkModificationIndexCard(controlled, positiveModification = posMod)
 
     // add participant_a from the controller
     if(! mention.arguments.contains("controller"))
       throw new RuntimeException("ERROR: a regulation event must have a controller argument!")
-    f.get("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
+    ex.get("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
 
-    f
+    // add hedging and context
+    mkHedging(ex.get, mention)
+    mkContext(ex.get, mention)
+
+    // all this becomes the extracted_information block
+    val f = new PropMap
+    f("extracted_information") = ex.get
+    Some(f)
+
   }
 
   /** Creates a card for an activation event */
@@ -280,7 +328,7 @@ class IndexCardOutput extends JsonOutputter {
     val f = new PropMap
     // a modification event must have exactly one controller and one controlled
     val controller = mention.arguments.get("controller")
-    if (!controller.isDefined)
+    if (controller.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
     f("participant_a") = mkArgument(controller.get.head.toBioMention)
     f("participant_b") = mkArgument(mention.arguments.get("controlled").get.head.toBioMention)
@@ -366,5 +414,10 @@ class IndexCardOutput extends JsonOutputter {
     f("model_relation") = "extension"
   }
 
+}
+
+object IndexCardOutput {
+  val LETTER_DIGIT_MUTATION = Pattern.compile("^([ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]+)(\\d+)")
+  val LETTER_MUTATION = Pattern.compile("^([ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]+)$")
 }
 

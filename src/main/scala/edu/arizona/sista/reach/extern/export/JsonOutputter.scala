@@ -5,15 +5,13 @@ import java.util.Date
 
 import org.json4s.native.Serialization
 
-import edu.arizona.sista.odin.{TextBoundMention, RelationMention, EventMention, Mention}
-import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Refactor mention management to mention manager.
+  *   Last Modified: Remove unused imports.
   */
 trait JsonOutputter {
 
