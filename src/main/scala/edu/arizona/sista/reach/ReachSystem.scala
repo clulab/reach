@@ -41,8 +41,6 @@ class ReachSystem(
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
-  // initialize the context engine
-  val contextEngine = new BoundedPaddingContext
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
@@ -64,6 +62,9 @@ class ReachSystem(
     extractFrom(entries, entries map mkDoc)
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
+    // initialize the context engine
+    val contextEngine = new BoundedPaddingContext
+    
     val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
     contextEngine.infer(entries, documents, entitiesPerEntry)
     val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
