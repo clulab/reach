@@ -4,7 +4,6 @@
 
 - name: mutant_1
   label: Mutant
-  label: Mutant
   priority: 1
   type: token
   action: unpackRelations

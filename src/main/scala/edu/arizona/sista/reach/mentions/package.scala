@@ -89,6 +89,11 @@ package object mentions {
       case m: Mention => m.toBioMention.toCorefMention
     }
 
+
+    def antecedentOrElse [M >: CorefMention] (default: => M): M = {
+      mention.toCorefMention.antecedent.getOrElse(default).asInstanceOf[CorefMention]
+    }
+
     private def convertArguments(
       arguments: Map[String, Seq[Mention]]
     ): Map[String, Seq[BioMention]] = arguments.transform {

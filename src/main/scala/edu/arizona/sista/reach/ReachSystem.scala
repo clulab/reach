@@ -62,9 +62,10 @@ class ReachSystem(
     require(doc.text.isDefined, "document should keep original text")
     val entities = extractEntitiesFrom(doc)
     val events = extractEventsFrom(doc, entities)
-    val resolved = resolve(events)
+    val completeUnresolved = MentionFilter.keepMostCompleteMentions(events, State(events))
+    val resolved = resolve(completeUnresolved)
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved))
     resolveDisplay(complete)
   }
 
@@ -102,7 +103,7 @@ class ReachSystem(
     validMentions
   }
 
-  def resolve(events: Seq[BioMention]): Seq[BioMention] = {
+  def resolve(events: Seq[BioMention]): Seq[CorefMention] = {
     val coref = new Coref()
     coref(events)
   }
@@ -113,7 +114,7 @@ object ReachSystem {
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,
   // so sometimes it may not require modification
-  def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = {
+  def resolveDisplay(ms: Seq[CorefMention]): Seq[CorefMention] = {
     // let's do a first attempt, using only grounding info
     // this is useful for entities that do not participate in events
     for(m <- ms) {
@@ -143,13 +144,15 @@ object ReachSystem {
     ms
   }
 
-  def resolveDisplayForArguments(em:BioMention, parents:Set[String]) {
+  def resolveDisplayForArguments(em:CorefMention, parents:Set[String]) {
     if(em.labels.contains("Event")) { // recursively traverse the arguments of events
       val newParents = new mutable.HashSet[String]()
       newParents ++= parents
       newParents += em.label
       em.arguments.values.foreach(ms => ms.foreach( m => {
-        resolveDisplayForArguments(m.asInstanceOf[BioMention], newParents.toSet)
+        // resolveDisplayForArguments(m.asInstanceOf[CorefMention].antecedent.getOrElse(m).asInstanceOf[CorefMention], newParents.toSet)
+        val crm = m.asInstanceOf[CorefMention]
+        resolveDisplayForArguments(crm.antecedentOrElse(crm), newParents.toSet)
       }))
     } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
       if(em.xref.isDefined && em.xref.get.namespace.contains("interpro")) {

@@ -141,7 +141,15 @@ class TestCoreference extends FlatSpec with Matchers {
   sent14 should "contain one binding event only" in {
     val mentions = parseSentence(sent14)
     hasEventWithArguments("Binding", List("ASPP1", "GTP"), mentions) should be (true)
-    mentions should have size (3)
+    mentions should have size (4)
+  }
+
+  // Filter out bindings with one complete theme and one unresolved theme.
+  val sent14b = "This protein binds GTP."
+  sent14b should "contain no binding events" in {
+    val mentions = parseSentence(sent14b)
+    mentions.filter(_ matches "Binding") should have size (0)
+    mentions should have size (1)
   }
 
   // Ignore noun phrases that can't have BioChemicalEntity antecedents

@@ -4,7 +4,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/^(auto)?phosphorylation/ & tag=/^N/])
+    (?<trigger> [lemma=/^(auto)?phosphorylation/ & tag=/^N/ & !mention=/./])
 
 - name: ubiq_trigger
   label: [Generic_event, Ubiquitination]
@@ -12,7 +12,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/ubiquitination/ & tag=/^N/])
+    (?<trigger> [lemma=/ubiquitination/ & tag=/^N/ & !mention=/./])
 
 - name: hydrox_trigger
   label: [Generic_event, Hydroxylation]
@@ -20,7 +20,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/hydroxylation/ & tag=/^N/])
+    (?<trigger> [lemma=/hydroxylation/ & tag=/^N/ & !mention=/./])
 
 - name: sumo_trigger
   label: [Generic_event, Sumoylation]
@@ -28,7 +28,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/sumoylation/ & tag=/^N/])
+    (?<trigger> [lemma=/sumoylation/ & tag=/^N/ & !mention=/./])
 
 - name: glycos_trigger
   label: [Generic_event, Glycosylation]
@@ -36,7 +36,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/glycosylation/ & tag=/^N/])
+    (?<trigger> [lemma=/glycosylation/ & tag=/^N/ & !mention=/./])
 
 - name: acet_trigger
   label: [Generic_event, Acetylation]
@@ -44,7 +44,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/acetylation/ & tag=/^N/])
+    (?<trigger> [lemma=/acetylation/ & tag=/^N/ & !mention=/./])
 
 - name: farnes_trigger
   label: [Generic_event, Farnesylation]
@@ -52,7 +52,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/farnesylation/ & tag=/^N/])
+    (?<trigger> [lemma=/farnesylation/ & tag=/^N/ & !mention=/./])
 
 - name: ribos_trigger
   label: [Generic_event, Ribosylation]
@@ -60,7 +60,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/ribosylation/ & tag=/^N/])
+    (?<trigger> [lemma=/ribosylation/ & tag=/^N/ & !mention=/./])
 
 - name: meth_trigger
   label: [Generic_event, Methylation]
@@ -68,7 +68,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/methylation/ & tag=/^N/])
+    (?<trigger> [lemma=/methylation/ & tag=/^N/ & !mention=/./])
 
 - name: hydrolysis_trigger
   label: [Generic_event, Hydrolysis]
@@ -76,7 +76,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/hydrolization|hydrolysis/ & tag=/^N/])
+    (?<trigger> [lemma=/hydrolization|hydrolysis/ & tag=/^N/ & !mention=/./])
 
 - name: translocation_trigger
   label: [Generic_event, Translocation]
@@ -84,7 +84,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/translocation|transport|recruitment|export|localiz/ & tag=/^N/])
+    (?<trigger> [lemma=/translocation|transport|recruitment|export|localiz/ & tag=/^N/ & !mention=/./])
 
 - name: binding_trigger
   label: [Generic_event, Binding]
@@ -92,4 +92,4 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/])
+    (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/ & !mention=/./])

@@ -1,6 +1,5 @@
 package edu.arizona.sista.reach
 
-import scala.collection.mutable.MutableList
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.processors.{ Document, Sentence }
@@ -16,7 +15,7 @@ package object display {
       printSyntacticDependencies(s)
       println
 
-      val sortedMentions = mentionsBySentence(i).sortBy(_.label)
+      val sortedMentions = mentionsBySentence(i).filter(!_.toCorefMention.isGeneric).sortBy(_.label)
       val (events, entities) = sortedMentions.partition(_ matches "Event")
       val (tbs, rels) = entities.partition(_.isInstanceOf[TextBoundMention])
       val sortedEntities = tbs ++ rels.sortBy(_.label)
@@ -37,15 +36,17 @@ package object display {
   }
 
   def displayMention(mention: Mention) {
+    // val printMention = mention.toCorefMention.antecedent.getOrElse(mention).asInstanceOf[CorefMention]
+    val printMention = mention.antecedentOrElse(mention)
     val boundary = s"\t${"-" * 30}"
-    println(s"mention text: ${mention.text}")
-    println(mention.labels)
+    println(s"mention text: ${printMention.text}")
+    println(printMention.labels)
     println(boundary)
-    println(s"\tRule => ${mention.foundBy}")
-    val mentionType = mention.getClass.toString.split("""\.""").last
+    println(s"\tRule => ${printMention.foundBy}")
+    val mentionType = printMention.getClass.toString.split("""\.""").last
     println(s"\tType => $mentionType")
     println(boundary)
-    mention match {
+    printMention match {
       case tb: BioTextBoundMention =>
         println(s"\t${tb.asInstanceOf[Display].displayLabel}|${tb.labels} => ${tb.text}")
         if (tb.isGrounded) println(s"\txref: ${tb.xref.get}")
@@ -69,7 +70,7 @@ package object display {
     b.arguments foreach {
       case (k, vs) =>
         vs foreach { v =>
-          val vm = v.toBioMention
+          val vm = v.antecedentOrElse(v.toCorefMention)
           println(s"\t$k (${vm.labels}) => ${vm.text}")
           displayModifications(vm)
         }
@@ -107,53 +108,6 @@ package object display {
     val firstStep = spaceBefore replaceAllIn (s, m => m group 1)
     val spaceAfter = """([(\[{])\s+""".r
     spaceAfter replaceAllIn (firstStep, m => m group 1)
-  }
-
-  /** Generates a representation of the given mention as a list of strings. */
-   def mentionToStrings (mention:Mention): List[String] = {
-     return mentionToStrings(mention, 0)
-   }
-
-  /** Return a list of strings representing the given mention at the given indentation level. */
-  private def mentionToStrings (mention:Mention, level:Integer): List[String] = {
-    val mStrings:MutableList[String] = MutableList[String]()
-    val indent = ("  " * level)
-    mention match {
-      case mention: TextBoundMention =>
-        mStrings += s"${indent}TextBoundMention: [S${mention.sentence}]: ${mention.label}"
-        mStrings += s"${indent}text: ${mention.text}"
-        //if (mention.isGrounded)
-        //  mStrings += s"${indent}xref: ${mention.xref.get}"
-        if (level == 0) mStrings += ("=" * 80)
-      case mention: EventMention =>
-        mStrings += s"${indent}EventMention: [S${mention.sentence}]: ${mention.label}"
-        mStrings += s"${indent}text: ${mention.text}"
-        mStrings += s"${indent}trigger:"
-        mStrings ++= mentionToStrings(mention.trigger, level+1)
-        mention.arguments foreach {
-          case (k,vs) => {
-            mStrings += s"${indent}${k} (${vs.length}):"
-            for (v <- vs) {
-              mStrings ++= mentionToStrings(v, level+1)
-            }
-          }
-        }
-        if (level == 0) mStrings += ("=" * 80)
-      case mention: RelationMention =>
-        mStrings += s"${indent}RelationMention: [S${mention.sentence}]: ${mention.label}"
-        mStrings += s"${indent}text: ${mention.text}"
-        mention.arguments foreach {
-          case (k,vs) => {
-            mStrings += s"${indent}${k} (${vs.length}):"
-            for (v <- vs) {
-              mStrings ++= mentionToStrings(v, level+1)
-            }
-          }
-        }
-        if (level == 0) mStrings += ("=" * 80)
-      case _ => ()
-    }
-    return mStrings.toList
   }
 
 }
