@@ -19,7 +19,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Add trigger text to output.
+  *   Last Modified: Update for coreference mentions.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -51,6 +51,7 @@ class FriesOutput extends JsonOutputter {
     val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
     val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
                                                    startTime, endTime)
+    // entityMap: map from entity pointers to unique ids
     val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap, startTime, endTime)
 
     val uniModel:PropMap = new PropMap      // combine models into one
@@ -73,14 +74,8 @@ class FriesOutput extends JsonOutputter {
                           startTime:Date,
                           endTime:Date,
                           outFilePrefix:String): Unit = {
-    // println("ALL MENTIONS:")
-    // for(m <- allMentions) {
-    //   println(m)
-    //   displayMention(m)
-    // }
 
-    // map of FriesEntry, using chunkId as key
-    val passageMap = passagesToMap(paperPassages)
+    val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
@@ -138,7 +133,7 @@ class FriesOutput extends JsonOutputter {
   }
 
 
-  /** Returns a 2-tuple of a model object representing all entity mentions extracted
+  /** Returns a 2-tuple of a model object, representing all entity mentions extracted
       from this paper, and a map from entity pointers to unique IDs. */
   private def entitiesToModel (paperId:String,
                                allMentions:Seq[Mention],
@@ -153,7 +148,10 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    for(mention <- allMentions) {
+    // dereference all coreference mentions:
+    val derefedMentions = allMentions.map(m => m.antecedentOrElse(m))
+
+    for(mention <- derefedMentions) {
       mention match {
         case em:TextBoundMention =>
           val cid = getChunkId(em)
@@ -184,12 +182,15 @@ class FriesOutput extends JsonOutputter {
     // stores all ids for simple events
     val eventMap = new IDed
 
-    // keeps just events
-    val eventMentions = allMentions.filter(MentionManager.isEventMention)
+    // dereference all coreference mentions:
+    val derefedMentions = allMentions.map(m => m.antecedentOrElse(m))
+
+    // keeps just events:
+    val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
 
     // first, print all non regulation events
-    for(mention <- eventMentions) {
-      if(! MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+    for (mention <- eventMentions) {
+      if (!MentionManager.REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -198,8 +199,8 @@ class FriesOutput extends JsonOutputter {
     }
 
     // now, print all regulation events, which control the above events
-    for(mention <- eventMentions) {
-      if(MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+    for (mention <- eventMentions) {
+      if (MentionManager.REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -244,18 +245,23 @@ class FriesOutput extends JsonOutputter {
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
 
-    if(arguments.isDefined) {
-      val args = new FrameList
-      for(key <- arguments.get.keys) {
-        arguments.get.get(key).foreach(as => for(i <- as.indices) args += mkArgument(key, as(i), i, entityMap, eventMap))
+    if (arguments.isDefined) {
+      val argList = new FrameList
+      for (key <- arguments.get.keys) {
+        arguments.get.get(key).foreach { argSeq =>
+          for (i <- argSeq.indices) {
+            val derefedArg = argSeq(i).antecedentOrElse(argSeq(i).toCorefMention)
+            argList += mkArgument(key, derefedArg, i, entityMap, eventMap)
+          }
+        }
       }
-      f("arguments") = args
+      f("arguments") = argList
     }
 
     // event modifications
-    if(MentionManager.isNegated(mention))
+    if (MentionManager.isNegated(mention))
       f("is-negated") = true
-    if(MentionManager.isHypothesized(mention))
+    if (MentionManager.isHypothesized(mention))
       f("is-hypothesis") = true
 
     mkContext(f, mention)
@@ -302,12 +308,10 @@ class FriesOutput extends JsonOutputter {
         m("arg") = entityMap.get(arg).get
       case "event" =>
         // this is an event, which we MUST have seen before
-        /*
-        if(! eventMap.contains(arg)) {
+        if (! eventMap.contains(arg)) {     // COMMENT LATER
           println("CANNOT FIND ARG: " + arg + " with HASH CODE: " + arg.hashCode())
           displayMention(arg)
         }
-        */
         if (!eventMap.contains(arg)) {
           val msg = s"$arg with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
           throw new Exception(msg)
