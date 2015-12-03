@@ -528,7 +528,7 @@ class DarpaActions extends Actions {
       Some(complex)
     } else {
       // get the theme of the event (assume only one theme)
-      val entity = event.arguments("theme").head
+      val entity = event.arguments("theme").head.toBioMention
       // get an optional site (assumen only one site)
       val siteOption = event.arguments.get("site").map(_.head)
       // create new mention for the entity
@@ -541,6 +541,7 @@ class DarpaActions extends Actions {
         entity.foundBy)
       // attach a modification based on the event trigger
       val label = getModificationLabel(event.trigger.text)
+      modifiedEntity.xref = entity.xref
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = siteOption)
       Some(modifiedEntity)
     }
