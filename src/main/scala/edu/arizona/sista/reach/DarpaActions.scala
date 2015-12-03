@@ -523,8 +523,8 @@ class DarpaActions extends Actions {
     else if (controlled.isEmpty || controller.isEmpty) false
     else {
       // we are only concerned with the first controlled and controller
-      val p1 = m.paths(controlled.head)
-      val p2 = m.paths(controller.head)
+      val p1 = m.getPath("controlled", controlled.head)
+      val p2 = m.getPath("controller", controller.head)
       if (p1.nonEmpty && p2.nonEmpty) {
         p1.head == p2.head
       } else false
