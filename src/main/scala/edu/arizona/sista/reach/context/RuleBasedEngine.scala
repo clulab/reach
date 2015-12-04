@@ -17,8 +17,8 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Name of the entry features
   protected def entryFeaturesNames:Seq[String] = Seq()
 
-  protected var observationVocabulary:Map[(String, String), Int] = _
-  protected var latentStateVocabulary:Map[(String, String), Int] = _
+  var observationVocabulary:Map[(String, String), Int] = _
+  var latentStateVocabulary:Map[(String, String), Int] = _
 
   // Inverse observationVocabulary to resolve the names back
   protected var inverseObservationVocabulary:Map[Int, (String, String)] = _
@@ -40,7 +40,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   protected var latentSparseMatrix:List[Seq[Int]] = _
 
   // Apply context fillin heuristic
-  protected var inferedLatentSparseMatrix:List[Seq[Int]] = _
+  var inferedLatentSparseMatrix:List[Seq[Int]] = _
   //////////////////////////////////////////////////////////////////////////////////////////
 
   // Implementation of the infer method of the ContextEngine trait
@@ -53,21 +53,14 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     val docLengths = documents.map(_.sentences.size)
     val docCumLengths:Seq[Int] = docLengths.scanLeft(0)((a, b) => a+b).dropRight(1)
 
-    //println(s"Sizes: ${documents.size}\t${docCumLengths.size}")
-    //documents.zip(docCumLengths) foreach {
-      //case (doc, len) =>
-        //println(s"${doc.id}:\t$len")
-    //}
-
     assert(docCumLengths.size == documents.size, "Something is wrong with context document offsets")
 
-    //documents.map(_.id.getOrElse("N/A")).foreach(println(_))
     docOffsets = documents.map(_.id.getOrElse("N/A")).zip(docCumLengths).toMap
 
     // Build the vocabularies
     observationVocabulary = mentionsPerEntry.flatten.filter{
       mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-    }.map(ContextEngine.getContextKey).zipWithIndex.toMap
+    }.map(ContextEngine.getContextKey).toSet.zipWithIndex.toMap
 
     inverseObservationVocabulary = observationVocabulary map (_.swap)
 
@@ -75,7 +68,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
     }.map(ContextEngine.getContextKey).filter{
       !_._1.startsWith("Context")
-    }.zipWithIndex.toMap
+    }.toSet.zipWithIndex.toMap
 
     inverseLatentStateVocabulary = latentStateVocabulary map (_.swap)
 
@@ -163,10 +156,10 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   protected def densifyFeatures:Seq[Seq[Double]] = entryFeatures map { _.map(_._2).toSeq }
 
-  protected def latentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(inferedLatentSparseMatrix)
+  def latentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(inferedLatentSparseMatrix, latentStateVocabulary)
 
   protected def featureMatrix:Seq[Seq[Double]] = {
-    val categorical = densifyMatrix(observedSparseMatrix)
+    val categorical = densifyMatrix(observedSparseMatrix, observationVocabulary)
     val numerical = densifyFeatures
 
     categorical zip numerical  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } ++ n }
@@ -176,7 +169,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   protected def observationVocavulary = inverseObservationVocabulary.values.map(x => x._1 +  "||" + x._2) ++ entryFeaturesNames
 
-  private def densifyMatrix(matrix:Seq[Seq[Int]]):Seq[Seq[Boolean]] = {
+  private def densifyMatrix(matrix:Seq[Seq[Int]], voc:Map[(String, String), Int]):Seq[Seq[Boolean]] = {
     // Recursive function to fill the "matrix"
     def _helper(num:Int, bound:Int, segment:List[Int]):List[Boolean] = {
 
@@ -188,10 +181,12 @@ abstract class RuleBasedContextEngine extends ContextEngine {
           case _ =>
             val currentVal = if(num == segment.head) true else false
 
-            if(currentVal)
+            if(currentVal){
               currentVal :: _helper(num+1, bound, segment.tail)
-            else
+            }
+            else{
               currentVal :: _helper(num+1, bound, segment)
+            }
 
         }
       }
@@ -200,7 +195,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     matrix map {
       row => {
         val sortedRow = row.sorted.toList
-        _helper(0, observationVocabulary.size, sortedRow)
+        _helper(0, voc.size, sortedRow)
       }
     }
   }
