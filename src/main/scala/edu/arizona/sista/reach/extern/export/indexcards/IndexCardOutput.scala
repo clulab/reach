@@ -22,7 +22,7 @@ import IndexCardOutput._
  */
 class IndexCardOutput extends JsonOutputter {
 
-  val mentionMgr: MentionManager = new MentionManager // remove later
+  val mentionMgr: MentionManager = new MentionManager // REMOVE LATER
 
   /**
    * Returns the given mentions in the index-card JSON format, as one big string.
