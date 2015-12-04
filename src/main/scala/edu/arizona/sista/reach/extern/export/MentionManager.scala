@@ -13,7 +13,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Cleanup, update mentionToStrings for Coref mentions.
+  *   Last Modified: Refactor argument accessors to mention/package.
   */
 class MentionManager {
 
@@ -49,21 +49,6 @@ class MentionManager {
   def mentionToStrings (mention:Mention): List[String] = {
     return mentionToStrings(mention, 0)
   }
-
-
-  /** Return the named argument from the arguments of the given mention. */
-  def namedArgument (mention:Mention, argName:String): Option[Seq[Mention]] = {
-    mention.arguments.get(argName)
-  }
-  def causeArgs       (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "cause")
-  def controlledArgs  (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "controlled")
-  def controllerArgs  (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "controller")
-  def destinationArgs (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "destination")
-  def goalArgs        (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "goal")
-  def proteinArgs     (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "protein")
-  def themeArgs       (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "theme")
-  def siteArgs        (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "site")
-  def sourceArgs      (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "source")
 
 
   /** Output a string representation of the mentions selected by the given label string
