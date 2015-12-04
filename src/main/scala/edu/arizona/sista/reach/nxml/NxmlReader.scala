@@ -5,7 +5,6 @@ import scala.xml.factory.XMLLoader
 import javax.xml.parsers.{SAXParser,SAXParserFactory}
 import scala.collection.mutable.ListBuffer
 import java.io.File
-import edu.arizona.sista.reach.nxml.FriesEntry
 
 // This singleton is necessary to avoid loading NXML's DTD
 object MyXML extends XMLLoader[Elem] {
