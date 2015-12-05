@@ -136,7 +136,7 @@ class IndexCardOutput extends JsonOutputter {
 
 
   /** Main annotation dispatcher method. */
-  def mkIndexCard(mention:BioMention):Option[PropMap] = {
+  def mkIndexCard(mention:CorefMention):Option[PropMap] = {
     val eventType = mkEventType(mention)
     val f = new PropMap
     val ex = eventType match {
