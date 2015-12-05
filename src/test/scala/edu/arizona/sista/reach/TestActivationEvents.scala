@@ -228,4 +228,14 @@ class TestActivationEvents extends FlatSpec with Matchers {
     activations.head.arguments("controller") should have size (1)
   }
 
+  // tests that controller/controlled don't have overlapping syntactic paths
+  val sent28 = "The basal levels of EGFR downstream signaling, shown by the levels of activation specific phosphorylation of Akt, ERK, and STAT3, were not consistently associated with the HER family expression levels or EGFR sequence coding status in a positive or negative manner among the cell lines."
+  sent28 should "not contain regulations or activations" in {
+    val mentions = parseSentence(sent28)
+    val regulations = mentions.filter(_ matches "Regulation")
+    val activations = mentions.filter(_ matches "ActivationEvent")
+    regulations should be ('empty)
+    activations should be ('empty)
+  }
+
 }

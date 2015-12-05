@@ -72,7 +72,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "processors" % "5.7.2-SNAPSHOT",
+  "org.clulab" %% "processors" % "5.7.3-SNAPSHOT",
   "org.clulab" %% "processors" % "5.7.2-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",

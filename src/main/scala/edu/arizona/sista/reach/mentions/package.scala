@@ -90,6 +90,29 @@ package object mentions {
       case m: Mention => m.toBioMention.toCorefMention
     }
 
+
+    def antecedentOrElse [M >: CorefMention] (default: => M): M = {
+      mention.toCorefMention.antecedent.getOrElse(default).asInstanceOf[CorefMention]
+    }
+
+
+    /** Return the named argument from the arguments of the given mention. */
+    def namedArguments (argName:String): Option[Seq[Mention]] = {
+      val crm = this.toCorefMention.antecedentOrElse(this.toCorefMention)
+      val named = crm.arguments.get(argName)
+      if (named.isDefined)
+        Some(named.get.map(m => m.toCorefMention.antecedentOrElse(m.toCorefMention)))
+      else None
+    }
+
+    def controlledArgs  (): Option[Seq[Mention]] = namedArguments("controlled")
+    def controllerArgs  (): Option[Seq[Mention]] = namedArguments("controller")
+    def destinationArgs (): Option[Seq[Mention]] = namedArguments("destination")
+    def themeArgs       (): Option[Seq[Mention]] = namedArguments("theme")
+    def siteArgs        (): Option[Seq[Mention]] = namedArguments("site")
+    def sourceArgs      (): Option[Seq[Mention]] = namedArguments("source")
+
+
     private def convertArguments(
       arguments: Map[String, Seq[Mention]]
     ): Map[String, Seq[BioMention]] = arguments.transform {

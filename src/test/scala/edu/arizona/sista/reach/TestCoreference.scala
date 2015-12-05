@@ -141,7 +141,15 @@ class TestCoreference extends FlatSpec with Matchers {
   sent14 should "contain one binding event only" in {
     val mentions = parseSentence(sent14)
     hasEventWithArguments("Binding", List("ASPP1", "GTP"), mentions) should be (true)
-    mentions should have size (3)
+    mentions should have size (4)
+  }
+
+  // Filter out bindings with one complete theme and one unresolved theme.
+  val sent14b = "This protein binds GTP."
+  sent14b should "contain no binding events" in {
+    val mentions = parseSentence(sent14b)
+    mentions.filter(_ matches "Binding") should have size (0)
+    mentions should have size (1)
   }
 
   // Ignore noun phrases that can't have BioChemicalEntity antecedents
@@ -204,6 +212,28 @@ class TestCoreference extends FlatSpec with Matchers {
   sent20 should "not contain an activation of and by the same entity" in {
     val mentions = parseSentence(sent20)
     hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
+  }
+
+  val sent21 = "Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy post organ transplant ."
+  sent21 should "not produce a requirement error from Anaphoric.antecedent" in {
+    val mentions = parseSentence(sent21)
+    mentions.forall { mention =>
+      !mention.toCorefMention.antecedentOrElse(mention.toCorefMention).isGeneric
+    } should be (true)
+  }
+
+  val sent22 = "Second, STAT1 accumulates and shows nuclear localization in the cartilage of TD-affected human fetuses " +
+    "as well as in mice carrying the K644E-FGFR3 mutation (homologous to human K650E)     ,     . Finally, two " +
+    "experimental studies show that the loss of STAT1 partially rescues the growth-inhibitory action of FGF signaling " +
+    "in chondrocytes     ,     , both suggesting the role of STAT1 in the growth-inhibitory FGFR3 action in cartilage."
+  sent22 should "not produce an activation with an activation controlled" in {
+    val mentions = parseSentence(sent22)
+    mentions filter (_ matches "ActivationEvent") should have size (3)
+    mentions.forall { mention =>
+      !(mention matches "ActivationEvent") ||
+        mention.arguments("controlled").forall(controlled => !(controlled.antecedentOrElse(controlled) matches "Event"))
+    } should be (true)
+    hasEventWithArguments("Positive_Activation", List("STAT1 partially rescues the growth-inhibitory action of FGF"), mentions) should be (false)
   }
 }
 
