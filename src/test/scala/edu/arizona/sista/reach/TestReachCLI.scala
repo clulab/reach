@@ -9,6 +9,7 @@ import org.scalatest.{Matchers, FlatSpec}
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
   * User: mihais
   * Date: 12/4/15
+  * Last Modified: Add commented test for IndexCard output.
   */
 class TestReachCLI extends FlatSpec with Matchers {
   val nxmlDir = new File("src/test/resources/inputs/nxml")

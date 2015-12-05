@@ -134,6 +134,9 @@ class DarpaActions extends Actions {
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // iterate over mentions giving preference to mentions that have an event controller
     mention <- sortMentionsByController(mentions)
+    // controller/controlled paths shouldn't overlap.
+    // NOTE this needs to be done on mentions coming directly from Odin
+    if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     regulation = removeDummy(switchLabel(mention.toBioMention))
     // If there the Mention has both a controller and controlled, they should be distinct
@@ -174,6 +177,9 @@ class DarpaActions extends Actions {
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // Prefer Activations with SimpleEvents as the controller
     mention <- preferSimpleEventControllers(mentions)
+    // controller/controlled paths shouldn't overlap.
+    // NOTE this needs to be done on mentions coming directly from Odin
+    if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     activation = removeDummy(switchLabel(mention.toBioMention))
     // retrieve regulations that overlap this mention
@@ -503,6 +509,25 @@ class DarpaActions extends Actions {
         case (Some(g1), Some(g2)) => g1 != g2
         case _ => true // seems like they are different
       }
+    }
+  }
+
+  /** checks if a mention has a controller/controlled
+    * arguments with syntactic paths from the trigger
+    * that overlap
+    */
+  def hasSynPathOverlap(m: Mention): Boolean = {
+    val controlled = m.arguments.getOrElse("controlled", Nil)
+    val controller = m.arguments.getOrElse("controller", Nil)
+    if (m.paths.isEmpty) false
+    else if (controlled.isEmpty || controller.isEmpty) false
+    else {
+      // we are only concerned with the first controlled and controller
+      val p1 = m.getPath("controlled", controlled.head)
+      val p2 = m.getPath("controller", controller.head)
+      if (p1.nonEmpty && p2.nonEmpty) {
+        p1.head == p2.head
+      } else false
     }
   }
 
