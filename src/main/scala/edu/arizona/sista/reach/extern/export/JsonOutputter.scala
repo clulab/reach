@@ -72,7 +72,8 @@ object JsonOutputter {
   }
 
   /** Select an event-type output string for the given mention label. */
-  def mkEventType (label:String): String = {
+  def mkEventType (mention:Mention): String = {
+    val label = mention.label
     if (MentionManager.MODIFICATION_EVENTS.contains(label))
       return "protein-modification"
 
@@ -94,7 +95,7 @@ object JsonOutputter {
     if (MentionManager.ACTIVATION_EVENTS.contains(label))
       return "activation"
 
-    throw new RuntimeException("ERROR: unknown event type: " + label)
+    throw new RuntimeException("ERROR: unknown event type: " + label + " in event:\n" + mention.json(pretty = true))
   }
 
   /** Canonicalize the given label string. */

@@ -233,7 +233,7 @@ class FriesOutput extends JsonOutputter {
     f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 
-    val evType = mkEventType(mention.label)
+    val evType = mkEventType(mention)
     f("type") = evType
     if(evType != "complex-assembly")
       f("subtype") = prettifyLabel(mention.label)

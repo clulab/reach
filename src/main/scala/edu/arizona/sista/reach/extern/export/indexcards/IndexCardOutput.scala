@@ -126,7 +126,7 @@ class IndexCardOutput extends JsonOutputter {
 
   /** Main annotation dispatcher method. */
   def mkIndexCard(mention:BioMention):Option[PropMap] = {
-    val eventType = mkEventType(mention.label)
+    val eventType = mkEventType(mention)
     val f = new PropMap
     val ex = eventType match {
       case "protein-modification" => mkModificationIndexCard(mention)
@@ -293,7 +293,7 @@ class IndexCardOutput extends JsonOutputter {
 
     // INDEX CARD LIMITATION:
     // We only know how to output regulations when controlled is a modification!
-    val eventType = mkEventType(controlled.label)
+    val eventType = mkEventType(controlled)
     if(eventType != "protein-modification") return None
 
     // do not output this event again later, when we output single modifications
