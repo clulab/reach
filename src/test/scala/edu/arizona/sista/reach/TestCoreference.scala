@@ -221,5 +221,19 @@ class TestCoreference extends FlatSpec with Matchers {
       !mention.toCorefMention.antecedentOrElse(mention.toCorefMention).isGeneric
     } should be (true)
   }
+
+  val sent22 = "Second, STAT1 accumulates and shows nuclear localization in the cartilage of TD-affected human fetuses " +
+    "as well as in mice carrying the K644E-FGFR3 mutation (homologous to human K650E)     ,     . Finally, two " +
+    "experimental studies show that the loss of STAT1 partially rescues the growth-inhibitory action of FGF signaling " +
+    "in chondrocytes     ,     , both suggesting the role of STAT1 in the growth-inhibitory FGFR3 action in cartilage."
+  sent22 should "not produce an activation with an activation controlled" in {
+    val mentions = parseSentence(sent22)
+    mentions filter (_ matches "ActivationEvent") should have size (3)
+    mentions.forall { mention =>
+      !(mention matches "ActivationEvent") ||
+        mention.arguments("controlled").forall(controlled => !(controlled.antecedentOrElse(controlled) matches "Event"))
+    } should be (true)
+    hasEventWithArguments("Positive_Activation", List("STAT1 partially rescues the growth-inhibitory action of FGF"), mentions) should be (false)
+  }
 }
 

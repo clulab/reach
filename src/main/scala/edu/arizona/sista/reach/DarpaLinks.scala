@@ -137,13 +137,13 @@ class DarpaLinks(doc: Document) extends Links {
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
             case "controlled" => mentions.filter { m =>
-              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              m.getClass == g.getClass && !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
             }
             case "controller" => mentions.filter { m =>
-              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              m.getClass == g.getClass && !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
             }
             case _ => tbms.filter { m =>
-              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              m.getClass == g.getClass && !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
             }
           }
           if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
