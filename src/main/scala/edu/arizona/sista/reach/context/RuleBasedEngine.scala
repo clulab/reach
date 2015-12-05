@@ -158,6 +158,8 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   def latentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(inferedLatentSparseMatrix, latentStateVocabulary)
 
+  def preprocessedLatentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(latentSparseMatrix, latentStateVocabulary)
+
   protected def featureMatrix:Seq[Seq[Double]] = {
     val categorical = densifyMatrix(observedSparseMatrix, observationVocabulary)
     val numerical = densifyFeatures

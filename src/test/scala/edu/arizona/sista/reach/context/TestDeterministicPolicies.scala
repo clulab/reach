@@ -10,8 +10,8 @@ import edu.arizona.sista.reach.ReachSystem
 trait Fixtures {
   // Set up the fixtures
   def nxml1 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC2597732.nxml")).mkString
-  def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC534114.nxml")).mkString
-  def artificialNxml = Source.fromURL(getClass.getResource("/inputs/nxml/ContextTests.nxml")).mkString
+  def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC3441633.nxml")).mkString
+  def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 
   val reader = new NxmlReader
   val reachSystem = new ReachSystem
@@ -20,8 +20,8 @@ trait Fixtures {
 
 class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
 
-  def contextAssignment(nxml:String){
-
+  def contextAssignmentBehavior(nxml:String){
+    info("Testing context assignment")
     val entries = reader.readNxml(nxml, nxml)
 
     val mentions:Seq[BioEventMention] = reachSystem.extractFrom(entries).filter{
@@ -54,49 +54,58 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
     }
   }
 
+  def boundedPaddingBehavior(nxml:String){
+    info(s"Testing bounding padding context")
+    // Extract context for the sentences of a doc, not to the attached mentions
+    val friesEntries = reader.readNxml(nxml, "")
+    val documents = friesEntries map reachSystem.mkDoc
+    val entitiesPerEntry =  for (doc <- documents) yield reachSystem.extractEntitiesFrom(doc)
+
+
+    val boundedPaddingEngine = new BoundedPaddingContext
+    boundedPaddingEngine.infer(friesEntries, documents, entitiesPerEntry)
+
+    // No more than $bound repetitions of the same context
+    val bound = 5
+    it should s"not extend an existing context more than $bound times" in {
+
+      val sparseMatrix = boundedPaddingEngine.preprocessedLatentStateMatrix.transpose
+      val matrix = boundedPaddingEngine.latentStateMatrix.transpose
+      // Transpose the matrix
+
+      // Count the number of zeros from before hitting a one from right to left
+
+      val counts = sparseMatrix.map(_.scanRight(0){(step:Boolean, cs:Int) => if(!step) cs+1 else 0}.drop(1))
+
+      // Select the indices that are to be checked
+      val selection = (sparseMatrix zip counts).map{ case (s, c) => (s zip c).zipWithIndex filter {case((value, count), ix) => value && count > bound} map (_._2)}
+
+      // check them
+      selection foreach {
+        _ foreach {
+          x =>
+            val extended = matrix(2).drop(x).take(bound+1).map(if(_) 1 else 0).sum
+            extended should be <= bound
+        }
+      }
+
+    }
+  }
+
   // Tests
   behavior of "PMC2597732.nxml"
 
-  it should behave like contextAssignment(nxml1)
+  it should behave like contextAssignmentBehavior(nxml1)
+  it should behave like boundedPaddingBehavior(nxml1)
 
-  // behavior of "PMC534114.nxml"
-  //
-  // it should behave like contextAssignment(nxml2)
+  behavior of "PMC3441633.nxml"
 
-  behavior of "Context tests"
+  it should behave like contextAssignmentBehavior(nxml2)
+  it should behave like boundedPaddingBehavior(nxml2)
 
-  // Extract context for the sentences of a doc, not to the attached mentions
-  val friesEntries = reader.readNxml(nxml1, "")
-  val documents = friesEntries map reachSystem.mkDoc
-  val entitiesPerEntry =  for (doc <- documents) yield reachSystem.extractEntitiesFrom(doc)
+  behavior of "PMC1289294.nxml"
 
-  behavior of "Bounding padding context"
-  val boundedPaddingEngine = new BoundedPaddingContext
-  boundedPaddingEngine.infer(friesEntries, documents, entitiesPerEntry)
+  it should behave like contextAssignmentBehavior(nxml3)
+  it should behave like boundedPaddingBehavior(nxml3)
 
-  // No more than 5 repetitions of the same context
-  it should "not extend an existing context more than 5 times" in {
-
-    val matrix = boundedPaddingEngine.latentStateMatrix
-
-
-    val x = List.fill(matrix(0).size)(0)
-    info(s"Vector dimensions: ${matrix.size} x ${x.size}")
-    info(s"${matrix map (_.mkString(" ")) mkString ("\n")}")
-
-    val accumulators:List[Int] = matrix.foldRight(x){
-      (current:Seq[Boolean], prev:List[Int]) =>
-        prev zip current map {
-          case (p, c) => if(!c) 0 else p + 1
-        }
-    }
-
-    val max = accumulators.max
-    info(s"The max span of a context is of $max")
-    max should be <= 5
-  }
-
-  // Mention where context starts
-
-  ////////
 }
