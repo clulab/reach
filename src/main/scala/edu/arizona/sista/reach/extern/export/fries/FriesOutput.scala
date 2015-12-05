@@ -306,7 +306,19 @@ class FriesOutput extends JsonOutputter {
       case "entity" =>
         // this is an entity: fetch its id from the entity map
         if(! entityMap.contains(arg)) {
-          throw new RuntimeException(s"Found entity argument [${arg.text}] not in entityMap:\n" + arg.json(pretty = true))
+          /*
+          println("Document:")
+          for(i <- arg.document.sentences.indices) {
+            println(s"Sentence #$i: ${arg.document.sentences(i).words.mkString(" ")}")
+          }
+          println("entityMap:")
+          for(e <- entityMap.keySet) {
+            println(s"\t${e.text} with labels ${e.labels.mkString(", ")}")
+          }
+          */
+
+          throw new RuntimeException(s"Found entity argument [${arg.text}] not in entityMap in sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
+
         }
         // assert(entityMap.contains(arg))
         m("arg") = entityMap.get(arg).get
