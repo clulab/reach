@@ -72,8 +72,8 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "processors" % "5.7.1",
-  "org.clulab" %% "processors" % "5.7.1" classifier "models",
+  "org.clulab" %% "processors" % "5.7.2",
+  "org.clulab" %% "processors" % "5.7.2" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
