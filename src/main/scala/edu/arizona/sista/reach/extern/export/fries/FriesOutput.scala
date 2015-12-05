@@ -235,7 +235,7 @@ class FriesOutput extends JsonOutputter {
     f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 
-    val evType = mkEventType(mention.label)
+    val evType = mkEventType(mention)
     f("type") = evType
     if(evType != "complex-assembly")
       f("subtype") = prettifyLabel(mention.label)
@@ -305,7 +305,10 @@ class FriesOutput extends JsonOutputter {
         m("args") = participants
       case "entity" =>
         // this is an entity: fetch its id from the entity map
-        assert(entityMap.contains(arg))
+        if(! entityMap.contains(arg)) {
+          throw new RuntimeException(s"Found entity argument [${arg.text}] not in entityMap:\n" + arg.json(pretty = true))
+        }
+        // assert(entityMap.contains(arg))
         m("arg") = entityMap.get(arg).get
       case "event" =>
         // this is an event, which we MUST have seen before
