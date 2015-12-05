@@ -58,7 +58,7 @@ object ReachCSV extends App {
       )
 
     } catch {
-      case e: Exception =>
+      case e: Throwable =>
         val report = s"""
                       |==========
                       |
