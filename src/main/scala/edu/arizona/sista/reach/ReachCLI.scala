@@ -70,7 +70,7 @@ class ReachCLI(val nxmlDir:File,
         try {
           paperMentions ++= reach.extractFrom(entry)
         } catch {
-          case e: Exception =>
+          case e: Throwable =>
             this.synchronized { errorCount += 1}
             val report = s"""
               |==========
@@ -111,7 +111,7 @@ class ReachCLI(val nxmlDir:File,
           outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, outputDir)
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
       } catch {
-        case e: Exception =>
+        case e: Throwable =>
           this.synchronized { errorCount += 1}
           val report =
             s"""

@@ -337,7 +337,7 @@ class DarpaLinks(doc: Document) extends Links {
       val newHead = try {
         graph.getIncomingEdges(npHead).find(edge => edge._2 == "nn")
       } catch {
-        case e: Exception => None
+        case e: Throwable => None
       }
       if (newHead.isDefined) npHead = newHead.get._1
       else searchingHead = false
