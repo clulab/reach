@@ -74,7 +74,7 @@ class ReachSystem(
     // we can't send all mentions to resolve coref, so we group them by document first
     val resolved = eventsWithContext.groupBy(_.document).values.map(resolve).flatten.toList
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
     resolveDisplay(complete)
   }
