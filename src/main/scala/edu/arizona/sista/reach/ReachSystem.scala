@@ -68,7 +68,10 @@ class ReachSystem(
     val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
     contextEngine.infer(entries, documents, entitiesPerEntry)
     val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
-    val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield extractEventsFrom(doc, es)
+    val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield {
+        val events = extractEventsFrom(doc, es)
+        MentionFilter.keepMostCompleteMentions(events, State(events))
+    }
     contextEngine.update(eventsPerEntry.flatten)
     val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
     // we can't send all mentions to resolve coref, so we group them by document first
