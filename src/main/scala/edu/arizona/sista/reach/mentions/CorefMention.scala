@@ -19,22 +19,25 @@ class CorefTextBoundMention(
   def number: Int = 1
 
   def toSingletons: Seq[CorefTextBoundMention] = {
-    val ants = this.firstSpecific.filterNot(_ == this)
-    if (ants.isEmpty) Seq(this)
+    if (!this.isGeneric) Seq(this)
     else {
-      for {
-        ant <- ants
-      } yield {
-        val copy = new CorefTextBoundMention(
-          this.labels,
-          this.tokenInterval,
-          this.sentence,
-          this.document,
-          this.keep,
-          this.foundBy)
-        copy.antecedents = Set(ant)
-        copy.sieves = this.sieves
-        copy
+      val ants = this.firstSpecific.filterNot(_ == this).filter(_.isComplete)
+      if (ants.isEmpty) Nil
+      else {
+        for {
+          ant <- ants
+        } yield {
+          val copy = new CorefTextBoundMention(
+            this.labels,
+            this.tokenInterval,
+            this.sentence,
+            this.document,
+            this.keep,
+            this.foundBy)
+          copy.antecedents = Set(ant)
+          copy.sieves = this.sieves
+          copy
+        }
       }
     }
   }
@@ -57,36 +60,42 @@ class CorefEventMention(
   def number: Int = 1
 
   def toSingletons: Seq[CorefEventMention] = {
-    val ants = this.firstSpecific.filterNot(_ == this)
-    if (ants.isEmpty) Seq(this)
+    if (!this.isGeneric) Seq(this)
     else {
-      for {
-        ant <- ants
-      } yield {
-        val copy = new CorefEventMention(
-          this.labels,
-          this.trigger,
-          this.arguments,
-          this.sentence,
-          this.document,
-          this.keep,
-          this.foundBy)
-        copy.antecedents = Set(ant)
-        copy.sieves = this.sieves
-        copy
+      val ants = this.firstSpecific.filterNot(_ == this).filter(_.isComplete)
+      if (ants.isEmpty) Nil
+      else {
+        for {
+          ant <- ants
+        } yield {
+          val copy = new CorefEventMention(
+            this.labels,
+            this.trigger,
+            this.arguments,
+            this.sentence,
+            this.document,
+            this.keep,
+            this.foundBy)
+          copy.antecedents = Set(ant)
+          copy.sieves = this.sieves
+          copy
+        }
       }
     }
   }
 
-  def isComplete: Boolean = this match {
-    case gnc if this.isGeneric => this.antecedent.nonEmpty
-    case spc =>
-      val completeArgs = for {
-        (lbl, args) <- this.arguments
-        newArgs = args.filter(_.toCorefMention.isComplete).map(_.toCorefMention)
-        if newArgs.nonEmpty
-      } yield lbl -> newArgs
-      argsComplete(completeArgs, spc.labels)
+  def isComplete: Boolean = {
+    val toExamine = this.antecedent.getOrElse(this)
+    toExamine match {
+      case gnc if this.isGeneric => this.antecedent.nonEmpty
+      case spc =>
+        val completeArgs = for {
+          (lbl, args) <- this.arguments
+          newArgs = args.filter(_.toCorefMention.isComplete).map(_.toCorefMention)
+          if newArgs.nonEmpty
+        } yield lbl -> newArgs
+        argsComplete(completeArgs, spc.asInstanceOf[CorefMention].labels)
+    }
   }
 }
 
