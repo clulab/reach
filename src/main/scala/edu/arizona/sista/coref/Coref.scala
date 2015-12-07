@@ -109,7 +109,7 @@ class Coref {
                 specific.sentence,
                 specific.document,
                 specific.keep,
-                specific.foundBy + (if(specific.sieves.isEmpty) "" else specific.sieves.mkString(", ")))
+                specific.foundBy + (if(specific.sieves.isEmpty) "" else specific.sieves.mkString(", ", ", ", "")))
               generated.modifications ++= specific.modifications
               generated.sieves ++= specific.sieves
               Seq(generated)
@@ -258,7 +258,7 @@ class Coref {
                     evt.sentence,
                     evt.document,
                     evt.keep,
-                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ")))
+                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
                   generated.modifications ++= evt.modifications
                   generated.sieves ++= evt.sieves
                   Seq(generated)
@@ -270,7 +270,7 @@ class Coref {
                     evt.sentence,
                     evt.document,
                     evt.keep,
-                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ")))
+                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
                   generated.modifications ++= evt.modifications
                   generated.sieves ++= evt.sieves
                   Seq(generated)
