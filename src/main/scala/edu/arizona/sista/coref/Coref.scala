@@ -2,7 +2,7 @@ package edu.arizona.sista.coref
 
 import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.DarpaLinks
+import edu.arizona.sista.reach.{DarpaActions, DarpaLinks}
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.coref.CorefUtils._
@@ -13,6 +13,7 @@ class Coref {
 
   val debug: Boolean = false
   val verbose: Boolean = false
+  val da: DarpaActions = new DarpaActions()
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
 
@@ -41,7 +42,7 @@ class Coref {
     /**
      * Make a map from TextBoundMentions to copies of themselves with a maximum of 1 antecedent
      */
-    def resolveTBMs(mentions: Seq[CorefTextBoundMention]): Map[CorefTextBoundMention,Seq[CorefMention]] = {
+    def resolveTBMs(mentions: Seq[CorefTextBoundMention]): Map[CorefTextBoundMention,Seq[CorefTextBoundMention]] = {
       mentions.map(mention => (mention, mention.toSingletons)).toMap
     }
 
@@ -206,8 +207,10 @@ class Coref {
      * mentions but with any generic mentions (including in the arguments) replaced with their non-generic antecedents.
      */
     def resolveComplexEvents(evts: Seq[CorefMention], resolved: Map[CorefMention,Seq[CorefMention]]): Map[CorefMention, Seq[CorefMention]] = {
-      require(evts.forall(_.matches("ComplexEvent")))
+      require(evts.forall(_.matches("ComplexEvent")), s"Only complex events should be passed to the first argument of" +
+        s" resolveComplexEvents. you passed ${evts.filterNot(_.matches("ComplexEvent")).map(_.text).mkString("\n","\n","\n")}")
 
+      var createdComplexes: Seq[CorefMention] = Nil
       val (toInspect, solid) = evts.partition(m => genericInside(m))
 
       // Events with no generic participants point to themselves
@@ -221,22 +224,32 @@ class Coref {
         evt <- toInspect
 
         // Check already-made maps for previously resolved arguments
-        resolvedArgs = for {
-          (lbl, arg) <- evt match {
-            case rel: CorefRelationMention => rel.arguments
-            case evm: CorefEventMention => evm.arguments
-          }
-          argMs = arg.map(m => resolved.getOrElse(m.asInstanceOf[CorefMention], Nil))
-        } yield lbl -> argMs.flatten
+        resolvedArgs = (for {
+          (lbl, arg) <- evt.arguments
+          //_=println(s"lbl: $lbl\nargs: ${arg.map(_.text).mkString("\n")}")
+          argMs = arg.map(m => resolved.getOrElse(m.toCorefMention, Nil))
+          argsAsEntities = argMs.map(ms => ms.map(m =>
+            if(lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
+              val ant = da.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).get.toCorefMention
+              createdComplexes = createdComplexes :+ ant
+              val copy = new CorefEventMention(
+                m.labels,
+                m.asInstanceOf[CorefEventMention].trigger,
+                m.asInstanceOf[CorefEventMention].arguments,
+                m.sentence,
+                m.document,
+                m.keep,
+                m.foundBy)
+              copy.antecedents = Set(ant)
+              copy.sieves = m.sieves
+              copy
+            } else m))
+        } yield lbl -> argsAsEntities.flatten).toMap
 
         // Because of plural anaphors like "them", we may have to split the arguments into multiple sets to make
         // new events
         argSets = combineArgs(resolvedArgs)
       } yield {
-          evt match {
-            case rel: CorefRelationMention => evt.asInstanceOf[CorefRelationMention].arguments
-            case evm: CorefEventMention => evt.asInstanceOf[CorefEventMention].arguments
-          }
           if (verbose) {
             println("argSets:")
             argSets.foreach { argSet =>
@@ -283,7 +296,7 @@ class Coref {
 
       // Note: we intentionally avoid generic complex events; recursive complex events are rare in any case, and
       // complicated enough to be likely to induce errors
-      solidMap ++ inspectedMap
+      solidMap ++ inspectedMap ++ createdComplexes.map(c => c -> Seq(c)).toMap
     }
 
     /**
