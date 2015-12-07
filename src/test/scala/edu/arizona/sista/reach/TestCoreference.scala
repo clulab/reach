@@ -249,5 +249,18 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = parseSentence(sent23)
     mentions filter (_ matches "Regulation") should have size (0)
   }
+
+  val sent24 = "Previous work has shown that Gab1 is not a global substrate of Shp2, as complex formation between " +
+    "Gab1 and Shp2 does not reduce the total EGF-induced tyrosine phosphorylation levels of Gab1 [15]. However there " +
+    "have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation " +
+    "sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the " +
+    "PI-3 kinase pathway"
+  sent24 should "should have a complex controller if it produces an ActivationEvent" in {
+    val mentions = parseSentence(sent24)
+    val act = mentions.find(_ matches "ActivationEvent")
+    if (act.nonEmpty) {
+      act.get.arguments("controller").isInstanceOf[CorefRelationMention] should be (true)
+    }
+  }
 }
 
