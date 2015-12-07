@@ -43,7 +43,9 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_.label == "Binding") should have size 2
   }
 
-  val sent5 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
+  val sent5 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either " +
+    "total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates " +
+    "were probed with antibodies to detect associated Ras effector molecules."
   sent5 should "contain 2 binding events" in {
     val mentions = parseSentence(sent5)
     hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
@@ -208,13 +210,17 @@ class TestCoreference extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("ASPP1", "Ras"), mentions) should be (true)
   }
 
-  val sent20 = "We also monitored how siRNA-induced loss of LMTK2 influenced phosphorylation of PP1Cthr320. Four different LMTK2 siRNAs all markedly reduced LMTK2 levels and this led to a corresponding decrease in PP1Cthr320 phosphorylation."
+  val sent20 = "We also monitored how siRNA-induced loss of LMTK2 influenced phosphorylation of PP1Cthr320. Four " +
+    "different LMTK2 siRNAs all markedly reduced LMTK2 levels and this led to a corresponding decrease in PP1Cthr320 " +
+    "phosphorylation."
   sent20 should "not contain an activation of and by the same entity" in {
     val mentions = parseSentence(sent20)
     hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
   }
 
-  val sent21 = "Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy post organ transplant ."
+  val sent21 = "Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, " +
+    "RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy " +
+    "post organ transplant ."
   sent21 should "not produce a requirement error from Anaphoric.antecedent" in {
     val mentions = parseSentence(sent21)
     mentions.forall { mention =>
