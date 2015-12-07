@@ -241,5 +241,13 @@ class TestCoreference extends FlatSpec with Matchers {
     } should be (true)
     hasEventWithArguments("Positive_Activation", List("STAT1 partially rescues the growth-inhibitory action of FGF"), mentions) should be (false)
   }
+
+  val sent23 = "Most efforts at understanding Ras mediated transformation have centered on identifying those targets " +
+    "that bind RasGTP . However , our data raise the possibility that there is a class of proteins , such as " +
+    "PI3KC2beta , that bind nucleotide-free Ras and are negatively regulated by this interaction ."
+  sent23 should "not produce any Regulations" in {
+    val mentions = parseSentence(sent23)
+    mentions filter (_ matches "Regulation") should have size (0)
+  }
 }
 
