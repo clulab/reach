@@ -51,7 +51,8 @@ class Coref {
      * in the arguments) replaced with their non-generic antecedents.
      */
     def resolveSimpleEvents(evts: Seq[CorefEventMention], resolvedTBMs: Map[CorefTextBoundMention,Seq[CorefMention]]): Map[CorefEventMention, Seq[CorefEventMention]] = {
-      require(evts.forall(_.matches("SimpleEvent")))
+      require(evts.forall(_.matches("SimpleEvent")), s"Only simple events should be passed to the first argument of" +
+        s" resolveSimpleEvents. you passed ${evts.filterNot(_.matches("SimpleEvent")).map(_.text).mkString("\n","\n","\n")}")
 
       // Events which are themselves generic trigger a search for specific events of the same type
       val (generics, specifics) = evts.partition(m => m.isGeneric)

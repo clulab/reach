@@ -23,6 +23,7 @@ class CorefTextBoundMention(
     else {
       val ants = this.firstSpecific.filterNot(_ == this).filter(_.isComplete)
       if (ants.isEmpty) Nil
+      else if (ants.size == 1) Seq(this)
       else {
         for {
           ant <- ants
@@ -64,6 +65,7 @@ class CorefEventMention(
     else {
       val ants = this.firstSpecific.filterNot(_ == this).filter(_.isComplete)
       if (ants.isEmpty) Nil
+      else if (ants.size == 1) Seq(this)
       else {
         for {
           ant <- ants
