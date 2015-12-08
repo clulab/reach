@@ -19,7 +19,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Temporarily add mention manager for better debugging output.
+  *   Last Modified: Cleanup after Coref bugs fixed.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -29,7 +29,6 @@ class FriesOutput extends JsonOutputter {
   // incrementing ID for numbering event mentions
   protected val eventIdCntr = new IncrementingId()
 
-  val mentionMgr: MentionManager = new MentionManager // REMOVE LATER
 
   //
   // Public API:
@@ -312,11 +311,10 @@ class FriesOutput extends JsonOutputter {
         m("arg") = entityMap.get(arg).get
       case "event" =>
         // this is an event, which we MUST have seen before
-        if (! eventMap.contains(arg)) {     // COMMENT LATER
-          println("CANNOT FIND ARG: " + arg + " with HASH CODE: " + arg.hashCode())
-          // displayMention(arg)
-          mentionMgr.mentionToStrings(arg).foreach(println(_)) // REMOVE LATER
-        }
+        // if (! eventMap.contains(arg)) {
+        //   println("CANNOT FIND ARG: " + arg + " with HASH CODE: " + arg.hashCode())
+        //   displayMention(arg)
+        // }
         if (!eventMap.contains(arg)) {
           val msg = s"$arg with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
           throw new Exception(msg)

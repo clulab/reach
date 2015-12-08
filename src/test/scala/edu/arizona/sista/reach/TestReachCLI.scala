@@ -35,23 +35,23 @@ class TestReachCLI extends FlatSpec with Matchers {
     errorCount should be (0)
   }
 
-  // "ReachCLI" should "output FRIES correctly on NXML papers" in {
-  //   println(s"Will output FRIES output in directory ${friesDir.getAbsolutePath}")
-  //   val outputType = "fries"
-  //   val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, friesLogFile)
-  //   val errorCount = cli.processPapers()
-  //   if(errorCount > 0) dumpLog(friesLogFile)
-  //   errorCount should be (0)
-  // }
+  "ReachCLI" should "output FRIES correctly on NXML papers" in {
+    println(s"Will output FRIES output in directory ${friesDir.getAbsolutePath}")
+    val outputType = "fries"
+    val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, friesLogFile)
+    val errorCount = cli.processPapers()
+    if(errorCount > 0) dumpLog(friesLogFile)
+    errorCount should be (0)
+  }
 
-  // "ReachCLI" should "output IndexCard correctly on NXML papers" in {
-  //   println(s"Will output IndexCard output in directory ${friesDir.getAbsolutePath}")
-  //   val outputType = "indexcard"
-  //   val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, friesLogFile)
-  //   val errorCount = cli.processPapers()
-  //   if(errorCount > 0) dumpLog(friesLogFile)
-  //   errorCount should be (0)
-  // }
+  "ReachCLI" should "output IndexCard correctly on NXML papers" in {
+    println(s"Will output IndexCard output in directory ${friesDir.getAbsolutePath}")
+    val outputType = "indexcard"
+    val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, friesLogFile)
+    val errorCount = cli.processPapers()
+    if(errorCount > 0) dumpLog(friesLogFile)
+    errorCount should be (0)
+  }
 
   def dumpLog(logFile:File): Unit = {
     println("LOG FILE:")
