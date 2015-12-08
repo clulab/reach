@@ -18,11 +18,9 @@ import IndexCardOutput._
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Update for coreference mentions.
+ *   Last Modified: Cleanup after Coref bugs fixed.
  */
 class IndexCardOutput extends JsonOutputter {
-
-  val mentionMgr: MentionManager = new MentionManager // REMOVE LATER
 
   /**
    * Returns the given mentions in the index-card JSON format, as one big string.
@@ -96,11 +94,6 @@ class IndexCardOutput extends JsonOutputter {
     // dereference all coreference mentions:
     val derefedMentions = allMentions.map(m => m.antecedentOrElse(m.toCorefMention))
 
-    println(s"PAPER: ${paperId}")           // REMOVE LATER
-    derefedMentions.foreach { m =>          // REMOVE LATER
-      mentionMgr.mentionToStrings(m).foreach(println(_))
-    }
-
     // keeps just events:
     val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
 
@@ -165,8 +158,6 @@ class IndexCardOutput extends JsonOutputter {
       case "entity" => mkSingleArgument(derefArg)
       case "complex" => mkComplexArgument(derefArg)
       case _ => {
-        println(s"(mkArgument): REJECTED. arg=")                  // REMOVE LATER
-        mentionMgr.mentionToStrings(derefArg).foreach(println(_)) // REMOVE LATER
         throw new RuntimeException(s"ERROR: argument type '$argType' not supported!")
       }
     }
@@ -181,7 +172,6 @@ class IndexCardOutput extends JsonOutputter {
     // assert(arg.isGrounded, s"Argument '${arg.text}' should be grounded at this point!")
     if (!arg.isGrounded) {
       println(s"Failed to ground argument ${arg.text}!")
-      mentionMgr.mentionToStrings(arg).foreach(println(_)) // REMOVE LATER
     }
     if (arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
 
@@ -315,10 +305,6 @@ class IndexCardOutput extends JsonOutputter {
 
     // INDEX CARD LIMITATION:
     // We only know how to output regulations when controlled is a modification!
-    if (controlled.label == "Generic_event") {                  // REMOVE LATER
-      println(s"(mkRegulationIndexCard): GENERIC=")             // REMOVE LATER
-      mentionMgr.mentionToStrings(controlled).foreach(println(_)) // REMOVE LATER
-    }
     val eventType = mkEventType(controlled)
     if (eventType != "protein-modification") return None
 
