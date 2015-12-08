@@ -259,7 +259,8 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = parseSentence(sent24)
     val act = mentions.find(_ matches "ActivationEvent")
     if (act.nonEmpty) {
-      act.get.arguments("controller").isInstanceOf[CorefRelationMention] should be (true)
+      val controller = act.get.arguments("controller").head
+      (controller.antecedentOrElse(controller) matches "Complex") should be (true)
     }
   }
 }
