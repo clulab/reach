@@ -43,7 +43,9 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.filter(_.label == "Binding") should have size 2
   }
 
-  val sent5 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates were probed with antibodies to detect associated Ras effector molecules."
+  val sent5 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either " +
+    "total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates " +
+    "were probed with antibodies to detect associated Ras effector molecules."
   sent5 should "contain 2 binding events" in {
     val mentions = parseSentence(sent5)
     hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
@@ -208,13 +210,17 @@ class TestCoreference extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("ASPP1", "Ras"), mentions) should be (true)
   }
 
-  val sent20 = "We also monitored how siRNA-induced loss of LMTK2 influenced phosphorylation of PP1Cthr320. Four different LMTK2 siRNAs all markedly reduced LMTK2 levels and this led to a corresponding decrease in PP1Cthr320 phosphorylation."
+  val sent20 = "We also monitored how siRNA-induced loss of LMTK2 influenced phosphorylation of PP1Cthr320. Four " +
+    "different LMTK2 siRNAs all markedly reduced LMTK2 levels and this led to a corresponding decrease in PP1Cthr320 " +
+    "phosphorylation."
   sent20 should "not contain an activation of and by the same entity" in {
     val mentions = parseSentence(sent20)
     hasPositiveActivation("LMTK2","LMTK2",mentions) should be (false)
   }
 
-  val sent21 = "Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy post organ transplant ."
+  val sent21 = "Inhibition of mTOR kinase is feasible with the macrolide natural product rapamycin (aka: sirolimus, " +
+    "RAPA, Rapamune, AY-22989, and NSC-226080). Rapamycin is an FDA-approved agent used as immunosuppressive therapy " +
+    "post organ transplant ."
   sent21 should "not produce a requirement error from Anaphoric.antecedent" in {
     val mentions = parseSentence(sent21)
     mentions.forall { mention =>
@@ -234,6 +240,28 @@ class TestCoreference extends FlatSpec with Matchers {
         mention.arguments("controlled").forall(controlled => !(controlled.antecedentOrElse(controlled) matches "Event"))
     } should be (true)
     hasEventWithArguments("Positive_Activation", List("STAT1 partially rescues the growth-inhibitory action of FGF"), mentions) should be (false)
+  }
+
+  val sent23 = "Most efforts at understanding Ras mediated transformation have centered on identifying those targets " +
+    "that bind RasGTP . However , our data raise the possibility that there is a class of proteins , such as " +
+    "PI3KC2beta , that bind nucleotide-free Ras and are negatively regulated by this interaction ."
+  sent23 should "not produce any Regulations" in {
+    val mentions = parseSentence(sent23)
+    mentions filter (_ matches "Regulation") should have size (0)
+  }
+
+  val sent24 = "Previous work has shown that Gab1 is not a global substrate of Shp2, as complex formation between " +
+    "Gab1 and Shp2 does not reduce the total EGF-induced tyrosine phosphorylation levels of Gab1 [15]. However there " +
+    "have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation " +
+    "sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the " +
+    "PI-3 kinase pathway"
+  sent24 should "should have a complex controller if it produces an ActivationEvent" in {
+    val mentions = parseSentence(sent24)
+    val act = mentions.find(_ matches "ActivationEvent")
+    if (act.nonEmpty) {
+      val controller = act.get.arguments("controller").head
+      (controller.antecedentOrElse(controller) matches "Complex") should be (true)
+    }
   }
 }
 

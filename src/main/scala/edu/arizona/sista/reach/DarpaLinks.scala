@@ -29,8 +29,10 @@ class DarpaLinks(doc: Document) extends Links {
     sameText.foreach {
       case (ent, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
-          if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
-          curr.antecedents ++= prev
+          if (curr.antecedents.isEmpty) {
+            if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
+            curr.antecedents ++= prev
+          }
           Set(curr)
         })
     }
@@ -54,8 +56,10 @@ class DarpaLinks(doc: Document) extends Links {
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
-          if (debug) println(s"$curr matches ${prev.map(_.text).mkString(", ")}")
-          curr.antecedents ++= prev
+          if (curr.antecedents.isEmpty) {
+            if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
+            curr.antecedents ++= prev
+          }
           Set(curr)
         })
     }
@@ -78,7 +82,7 @@ class DarpaLinks(doc: Document) extends Links {
     for {
       g <- gnrc
       // save pronominals for later -- only noun phrases are of interest here
-      if !isPronominal(g)
+      if !isPronominal(g) & g.antecedents.isEmpty
     } {
       // expand the mention so we can find its head
       val gExpanded = expand(g)
@@ -115,7 +119,7 @@ class DarpaLinks(doc: Document) extends Links {
     val state = State(mentions)
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
-    hasArgs.foreach {
+    hasArgs.filter(_.antecedents.isEmpty).foreach {
       case pronominal if pronominal.arguments.values.flatten.exists(arg => isPronominal(arg)) => {
         // separate the arguments into pronominal and non-pronominal
         val proMap = pronominal.arguments.map(args => args._1 -> args._2.partition(arg => isPronominal(arg)))
@@ -182,7 +186,7 @@ class DarpaLinks(doc: Document) extends Links {
     // only apply this matcher to arguments to events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
 
-    hasArgs.foreach {
+    hasArgs.filter(_.antecedents.isEmpty).foreach {
       case np if np.arguments.values.flatten.exists(arg => isGenericNounPhrase(arg)) => {
 
         // separate the arguments into generic noun phrases and others
@@ -270,7 +274,7 @@ class DarpaLinks(doc: Document) extends Links {
     // We need to have the specific event mentions ready to match our anaphors with
     val (generics, specifics) = sevents.partition(m => m matches "Generic_event")
 
-    complex.foreach{ case cx if cx.arguments.values.flatten.exists(arg => arg.matches("Generic_event") &&
+    complex.filter(_.antecedents.isEmpty).foreach{ case cx if cx.arguments.values.flatten.exists(arg => arg.matches("Generic_event") &&
       !specifics.filter(_.isInstanceOf[EventMention]).exists(sfc =>
         sfc.asInstanceOf[CorefEventMention].trigger == arg.asInstanceOf[CorefEventMention].trigger)) =>
       val argMap = cx.arguments.map(args => args._1 -> args._2.partition(arg => arg matches "Generic_event"))
