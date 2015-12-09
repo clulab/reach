@@ -29,7 +29,7 @@ class DarpaLinks(doc: Document) extends Links {
     sameText.foreach {
       case (ent, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
-          if (curr.antecedents.isEmpty) {
+          if (curr.antecedents.isEmpty && !curr.isGeneric) {
             if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
             curr.antecedents ++= prev
           }
@@ -56,7 +56,7 @@ class DarpaLinks(doc: Document) extends Links {
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
-          if (curr.antecedents.isEmpty) {
+          if (curr.antecedents.isEmpty && !curr.isGeneric) {
             if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
             curr.antecedents ++= prev
           }
@@ -95,7 +95,8 @@ class DarpaLinks(doc: Document) extends Links {
       val cands = tbms.filter { m =>
         val mExpanded = expand(m)
         val wdsExpanded = m.sentenceObj.words.slice(mExpanded.start, mExpanded.end).toSeq
-        wdsExpanded.contains(hd) &&
+        !g.isGeneric &&
+          wdsExpanded.contains(hd) &&
           !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence)) &&
           m.precedes(g)
       }

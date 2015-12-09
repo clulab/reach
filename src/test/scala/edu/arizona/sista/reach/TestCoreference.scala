@@ -263,5 +263,14 @@ class TestCoreference extends FlatSpec with Matchers {
       (controller.antecedentOrElse(controller) matches "Complex") should be (true)
     }
   }
+
+  val sent25 = "Another example can be given with mutated p53. The pivotal role of p53 as a tumor suppressor is " +
+    "illustrated by the fact that this protein is found mutated in ∼50% of human cancers. In most cases, mutations " +
+    "in p53 greatly increase the otherwise short half life of this protein and cause it to accumulate in tumor cells."
+  sent25 should "not produce an error due to multiple antecedents" in {
+    val mentions = parseSentence(sent25)
+    mentions.find(_.text == "p53").nonEmpty should be (true)
+  }
+
 }
 
