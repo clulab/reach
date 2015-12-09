@@ -7,7 +7,7 @@ import scala.io.Source
 /**
   * A collection of classes which implement auxiliary knowledge base accessors.
   *   Written by Tom Hicks. 11/13/2015.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Enable chemicals using ChemIDplus KB.
   */
 
 /** KB accessor to resolve biological process names via an auxiliary KB. */
@@ -33,14 +33,14 @@ class AuxBioProcessKBAccessor extends LocalKBAccessor {
 
 
 /** KB accessor to resolve small molecule (chemical) names via an auxiliary KB. */
-// class AuxChemicalKBAccessor extends LocalKBAccessor {
-//   override def baseURI = "http://identifiers.org/chebi/"
-//   override def namespace = "chebi"
-//   override def resourceID = "MIR:00100009"
+class AuxChemicalKBAccessor extends LocalKBAccessor {
+  override def baseURI = "http://identifiers.org/chemidplus/"
+  override def namespace = "chemidplus"
+  override def resourceID = "MIR:00000096"
 
-//   // MAIN: load KB to initialize class
-//   readAndFillKB(LocalKBUtils.makePathInKBDir(AuxChemicalFilename))
-// }
+  // MAIN: load KB to initialize class
+  readAndFillKB(LocalKBUtils.makePathInKBDir(AuxChemicalFilename))
+}
 
 
 /** KB accessor to resolve small molecule (metabolite) names via an auxiliary KB. */

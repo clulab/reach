@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 4/6/2015.
-  *   Last Modified: Add auxiliary grounding controlled by config flag.
+  *   Last Modified: Add auxiliary chemical KB.
   */
 class LocalGrounder extends DarpaFlow {
 
@@ -52,6 +52,7 @@ class LocalGrounder extends DarpaFlow {
       Seq(
         new AuxProteinKBAccessor,
         new AuxBioProcessKBAccessor,
+        new AuxChemicalKBAccessor,
         new AuxMetaboliteKBAccessor,
         new StaticProteinFamilyKBAccessor,
         new ManualProteinFamilyKBAccessor,
