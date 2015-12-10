@@ -100,6 +100,7 @@ enter `:help` to get a list of available commands.
 + [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/878FDD6F-BF2A-4384-BEE0-3412F21B03EB/REACH_55kpapers_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
 + [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/A14990F1-CD89-48DC-9234-67FCCE539066/pi-mtg-summer-2015-55k-expt-index-cards-v3.zip). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
 + [`reach` output on the entire Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/4A5DDD7C-CC25-4FC8-A4AE-5F41A53751E6/REACH_full_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
++ [`reach` output](https://www.dropbox.com/s/iw5ql5xy19tbmq0/13K-indexcards_151210.tgz?dl=0) and [NXML input](https://www.dropbox.com/s/m34qa54p03fto2g/13K-input-nxml-files_151210.tgz?dl=0) on the 13K papers used in the FRIES use-case evaluation of December 2015. In index-card format, generated on December 9th, 2015.
 
 ## Code
 + [Interactive `reach` visualizer](http://agathon.sista.arizona.edu:8080/odinweb/bio)
