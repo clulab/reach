@@ -255,7 +255,7 @@ class TestCoreference extends FlatSpec with Matchers {
     "have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation " +
     "sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the " +
     "PI-3 kinase pathway"
-  sent24 should "should have a complex controller if it produces an ActivationEvent" in {
+  sent24 should "have a complex controller if it produces an ActivationEvent" in {
     val mentions = parseSentence(sent24)
     val act = mentions.find(_ matches "ActivationEvent")
     if (act.nonEmpty) {
@@ -280,5 +280,52 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.find(_.text == "Grb2").nonEmpty should be (true)
   }
 
+  val simpleEventTypes = Seq(
+    "Phosphorylation",
+    "Ubiquitination",
+    "Hydroxylation",
+    "Sumoylation",
+    "Acetylation",
+    "Farnesylation",
+    "Ribosylation",
+    "Methylation"
+  )
+  val simpleEventVbs = Seq(
+    "phosphorylates",
+    "ubiquitinates",
+    "hydroxylates",
+    "sumoylates",
+    "acetylates",
+    "farnesylates",
+    "ribosylates",
+    "methylates"
+  )
+  val simpleEventNs = Seq(
+    "phosphorylation",
+    "ubiquitination",
+    "hydroxylation",
+    "sumoylation",
+    "acetylation",
+    "farnesylation",
+    "ribosylation",
+    "methylation"
+  )
+
+  for (i <- simpleEventTypes.indices) {
+    // Event coreference only with definite determiners or demonstratives
+    val sent27a = s"We found that ASPP1 ${simpleEventVbs(i)} ASPP2, and this ${simpleEventNs(i)} upregulates STAT1."
+    val sent27b = s"We found that ASPP1 ${simpleEventVbs(i)} ASPP2, and ${simpleEventNs(i)} upregulates STAT1."
+    sent27a should "contain an ActivationEvent" in {
+      val mentions = parseSentence(sent27a)
+      mentions filter (_ matches "ActivationEvent") should have size (1)
+      hasEventWithArguments(simpleEventTypes(i), List("ASPP2"), mentions) should be(true)
+      hasEventWithArguments("Positive_activation", List(s"ASPP2", "STAT1"), mentions) should be(true)
+    }
+    sent27b should "not contain an ActivationEvent" in {
+      val mentions = parseSentence(sent27b)
+      mentions filter (_ matches "ActivationEvent") should have size (0)
+      hasEventWithArguments(simpleEventTypes(i), List("ASPP2"), mentions) should be(true)
+    }
+  }
 }
 

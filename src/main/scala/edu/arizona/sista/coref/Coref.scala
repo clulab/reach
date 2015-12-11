@@ -3,6 +3,7 @@ package edu.arizona.sista.coref
 import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.{DarpaActions, DarpaLinks}
+import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.coref.CorefUtils._
@@ -27,7 +28,18 @@ class Coref {
       println("Starting coref...")
     }
 
-    val orderedMentions: Seq[CorefMention] = mentions.sorted[Mention].map(_.toCorefMention)
+    // order mentions and also remove Generic_event mentions that do not have definite determiners.
+    val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
+    val orderedMentions: Seq[CorefMention] = mentions
+      .map(_.toCorefMention)
+      .filterNot(m => {
+        m.matches("Generic_event") && {
+          val sent = m.sentenceObj
+          val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
+          outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
+          outgoing.isEmpty
+        }
+    }).sorted[Mention]
 
     val links = new DarpaLinks(doc)
 
