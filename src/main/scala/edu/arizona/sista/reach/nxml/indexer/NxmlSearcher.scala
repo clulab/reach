@@ -5,6 +5,8 @@ import java.nio.file.Paths
 
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.utils.StringUtils
+import org.apache.lucene.analysis.Analyzer
+import org.apache.lucene.analysis.core.WhitespaceAnalyzer
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.Document
 import org.apache.lucene.index.DirectoryReader
@@ -37,6 +39,15 @@ class NxmlSearcher(val indexDir:String) {
     ds.toSet
   }
 
+  def saveIds(docs:Set[Document]): Unit = {
+    val os = new PrintWriter(new FileWriter("ids.txt"))
+    for(doc <- docs) {
+      val id = doc.get("id")
+      os.println(id)
+    }
+    os.close()
+  }
+
   def saveNxml(resultDir:String, docs:Set[Document]): Unit = {
     for(doc <- docs) {
       val id = doc.get("id")
@@ -48,8 +59,15 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def search(query:String, totalHits:Int = TOTAL_HITS):Set[Int] = {
-    val analyzer = new StandardAnalyzer
-    val q = new QueryParser("text", analyzer).parse(query)
+    searchByField(query, "text", new StandardAnalyzer(), totalHits)
+  }
+
+  def searchByField(query:String,
+                    field:String,
+                    analyzer:Analyzer,
+                    totalHits:Int = TOTAL_HITS,
+                    verbose:Boolean = true):Set[Int] = {
+    val q = new QueryParser(field, analyzer).parse(query)
     val collector = TopScoreDocCollector.create(totalHits)
     searcher.search(q, collector)
     val hits = collector.topDocs().scoreDocs
@@ -58,7 +76,7 @@ class NxmlSearcher(val indexDir:String) {
       val docId = hit.doc
       results += docId
     }
-    logger.debug(s"""Found ${results.size} results for query "$query"""")
+    if(verbose) logger.debug(s"""Found ${results.size} results for query "$query"""")
     results.toSet
   }
 
@@ -87,6 +105,7 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug(s"The result contains ${result.size} documents.")
     val resultDocs = docs(result)
     saveNxml(resultDir, resultDocs)
+    saveIds(resultDocs)
 
     //
     // histogram of term distribution in docs
@@ -102,8 +121,25 @@ class NxmlSearcher(val indexDir:String) {
       histoFile.println(s"${i._1}\t${i._2}")
     }
     histoFile.close()
+    logger.debug("Done.")
   }
-  logger.debug("Done.")
+
+  def searchByIds(ids:Array[String], resultDir:String): Unit = {
+    val result = new mutable.HashSet[Int]()
+    for(id <- ids) {
+      val docs = searchByField(id, "id", new WhitespaceAnalyzer, verbose = false)
+      if(docs.isEmpty) {
+        logger.info(s"Found 0 results for id $id!")
+      } else if(docs.size > 1) {
+        logger.info(s"Found ${docs.size} for id $id, which should not happen!")
+      }
+      result ++= docs
+    }
+    logger.debug(s"Found ${result.size} documents for ${ids.length} ids.")
+    val resultDocs = docs(result.toSet)
+
+    saveNxml(resultDir, resultDocs)
+  }
 }
 
 object NxmlSearcher {
@@ -114,9 +150,26 @@ object NxmlSearcher {
     val props = StringUtils.argsToProperties(args)
     val indexDir = props.getProperty("index")
     val resultDir = props.getProperty("output")
-
     val searcher = new NxmlSearcher(indexDir)
-    searcher.useCase(resultDir)
+
+    if(props.containsKey("ids")) {
+      val ids = readIds(props.getProperty("ids"))
+      searcher.searchByIds(ids, resultDir)
+    } else {
+      searcher.useCase(resultDir)
+    }
+
     searcher.close()
+  }
+
+  def readIds(fn:String):Array[String] = {
+    val ids = new ArrayBuffer[String]()
+    for(line <- io.Source.fromFile(fn).getLines()) {
+      var l = line.trim
+      if (! l.startsWith("PMC"))
+        l = "PMC" + l
+      ids += l
+    }
+    ids.toArray
   }
 }
