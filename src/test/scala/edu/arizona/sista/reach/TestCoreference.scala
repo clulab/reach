@@ -272,5 +272,13 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.find(_.text == "p53").nonEmpty should be (true)
   }
 
+  val sent26 = "Many RTKs interact directly with Grb2, some rely on Shc family adaptors to recruit Grb2, and others " +
+    "do both    . While direct Grb2/RTK interactions involve binding of the Grb2 SH2 domain to pYXNX motifs, Shc " +
+    "proteins interact with RTKs primarily through the binding of their N-terminal PTB domain to NPXpY motifs."
+  sent26 should "not produce an error due to multiple antecedents" in {
+    val mentions = parseSentence(sent26)
+    mentions.find(_.text == "Grb2").nonEmpty should be (true)
+  }
+
 }
 

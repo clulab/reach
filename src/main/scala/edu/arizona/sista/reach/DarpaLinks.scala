@@ -271,41 +271,56 @@ class DarpaLinks(doc: Document) extends Links {
 
     // We're only looking for generic simple events that are arguments of complex events
     val (complex, others) = mentions.partition(m => m matches "ComplexEvent")
-    val (sevents, ignore) = others.partition(m => m matches "SimpleEvent")
+    val (simplex, ignore) = others.partition(m => m matches "SimpleEvent")
     // We need to have the specific event mentions ready to match our anaphors with
-    val (generics, specifics) = sevents.partition(m => m matches "Generic_event")
+    val (generics, specifics) = simplex.partition(m => m matches "Generic_event")
 
+    // ComplexEvent mentions one by one. Ignore ComplexEvents with no generic SimpleEvent arguments, and arguments that
+    // are merely triggers of more complete SimpleEvents
     complex.filter(_.antecedents.isEmpty).foreach{ case cx if cx.arguments.values.flatten.exists(arg => arg.matches("Generic_event") &&
       !specifics.filter(_.isInstanceOf[EventMention]).exists(sfc =>
         sfc.asInstanceOf[CorefEventMention].trigger == arg.asInstanceOf[CorefEventMention].trigger)) =>
+
+      // Create a map just like m.arguments but with the values partitioned into generic and non-generic
       val argMap = cx.arguments.map(args => args._1 -> args._2.partition(arg => arg matches "Generic_event"))
 
+      // These are the mentions excluded from matching with generic arguments: mentions participating in this event
+      // already, and mentions participating in some parent event (that has this ComplexEvent as an argument). It's a
+      // var because we'll be adding found antecedents as we go.
       var excludeThese = cx.arguments.values.flatten.toSeq ++
         specifics.filter(sfc =>
           cx.arguments.values.flatten.toSeq.filter(_.isInstanceOf[EventMention])
             .map(_.asInstanceOf[EventMention].trigger).contains(sfc.asInstanceOf[EventMention].trigger))
 
+      // Looking just at the generic arguments, since we don't need to find antecedents to full mentions.
       argMap.map(arg => arg._2._1.map(v => (arg._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
+        // the label for the argument type (e.g. "theme") and the generic argument we need an antecedent for.
         val (lbl, g) = kv
 
-        if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
-
-        val cands = specifics.filter(s => (s precedes g) && g.sentence - s.sentence < 2 && !excludeThese.contains(s) &&
-          (s matches g.labels.toSet.intersect(seLabels).toSeq.headOption.getOrElse("")))
-
-        if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
-
-        val ant = selector(g.asInstanceOf[CorefMention], cands, 1)
-
-        if (verbose) println(s"matched '${ant.map(_.text).mkString(", ")}'")
-
         val gInState = mentions.find(m => g == m)
-        if (gInState.isDefined) {
+
+        // first check if g already has had an antecedent found during a different ComplexEvent's search
+        if (gInState.isDefined && gInState.get.antecedents.isEmpty) {
+
+          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+
+          // candidates for the generic mention g's antecedents are full SimpleEvent mentions that precede g by 0-1
+          // sentences, which haven't been found as an antecedent to another argument yet, and which has matching labels
+          val cands = specifics.filter(s => (s precedes g) && g.sentence - s.sentence < 2 && !excludeThese.contains(s) &&
+            (s matches g.labels.toSet.intersect(seLabels).toSeq.headOption.getOrElse("")))
+
+          if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+
+          // use the selector to choose which among the candidates is best. Assume 1 antecedent for now.
+          val ant = selector(g.asInstanceOf[CorefMention], cands, 1)
+
+          if (verbose) println(s"matched '${ant.map(_.text).mkString(", ")}'")
+
           gInState.get.antecedents ++= ant
           excludeThese ++= ant
           cx.sieves += "simpleEventMatch"
+          }
         }
-      }
     case _ => ()
     }
 
