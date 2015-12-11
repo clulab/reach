@@ -97,7 +97,7 @@ class Coref {
               println("argSet: ")
               argSet.foreach {
                 case (lbl: String, ms: Seq[CorefMention]) =>
-                  println(lbl + " -> " + ms.map(_.text).mkString(","))
+                  println(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[",",","]")).mkString(","))
               }
             }
           }
@@ -209,7 +209,7 @@ class Coref {
      */
     def resolveComplexEvents(evts: Seq[CorefMention], resolved: Map[CorefMention,Seq[CorefMention]]): Map[CorefMention, Seq[CorefMention]] = {
       require(evts.forall(_.matches("ComplexEvent")), s"Only complex events should be passed to the first argument of" +
-        s" resolveComplexEvents. you passed ${evts.filterNot(_.matches("ComplexEvent")).map(_.text).mkString("\n","\n","\n")}")
+        s" resolveComplexEvents, but you passed ${evts.filterNot(_.matches("ComplexEvent")).map(_.text).mkString("\n","\n","\n")}")
 
       var createdComplexes: Seq[CorefMention] = Nil
       val (toInspect, solid) = evts.partition(m => genericInside(m))
@@ -256,7 +256,7 @@ class Coref {
             argSets.foreach { argSet =>
               argSet.foreach {
                 case (lbl: String, ms: Seq[CorefMention]) =>
-                  println(lbl + " -> " + ms.map(_.text).mkString(","))
+                  println(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[",",","]")).mkString(","))
               }
             }
           }
@@ -313,11 +313,11 @@ class Coref {
       val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
       val cevts = mentions.filter(m => m.matches("ComplexEvent"))
       val resolvedTBMs = resolveTBMs(tbms)
-      if (verbose) resolvedTBMs.foreach{ case (k,v) => println(s"TBM: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      if (verbose) resolvedTBMs.foreach{ case (k,v) => println(s"TBM: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[",",","]")).mkString(",") + ")")}
       val resolvedSimple = resolveSimpleEvents(sevts,resolvedTBMs)
-      if (verbose) resolvedSimple.foreach{ case (k,v) => println(s"SimpleEvent: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      if (verbose) resolvedSimple.foreach{ case (k,v) => println(s"SimpleEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[",",","]")).mkString(",") + ")")}
       val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple)
-      if (verbose) resolvedComplex.foreach{ case (k,v) => println(s"ComplexEvent: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      if (verbose) resolvedComplex.foreach{ case (k,v) => println(s"ComplexEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[",",","]")).mkString(",") + ")")}
       val resolved = resolvedTBMs ++ resolvedSimple ++ resolvedComplex
 
       val retVal = corefDistinct(mentions.flatMap(mention => resolved.getOrElse(mention, Nil)))
