@@ -13,7 +13,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Refactor mention helper functions to mention manager.
+  *   Last Modified: Refactor argument accessors to mention/package.
   */
 class MentionManager {
 
@@ -49,21 +49,6 @@ class MentionManager {
   def mentionToStrings (mention:Mention): List[String] = {
     return mentionToStrings(mention, 0)
   }
-
-
-  /** Return the named argument from the arguments of the given mention. */
-  def namedArgument (mention:Mention, argName:String): Option[Seq[Mention]] = {
-    mention.arguments.get(argName)
-  }
-  def causeArgs       (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "cause")
-  def controlledArgs  (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "controlled")
-  def controllerArgs  (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "controller")
-  def destinationArgs (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "destination")
-  def goalArgs        (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "goal")
-  def proteinArgs     (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "protein")
-  def themeArgs       (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "theme")
-  def siteArgs        (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "site")
-  def sourceArgs      (mention:Mention): Option[Seq[Mention]] = namedArgument(mention, "source")
 
 
   /** Output a string representation of the mentions selected by the given label string
@@ -133,20 +118,22 @@ class MentionManager {
   private def mentionToStrings (mention:Mention, level:Integer): List[String] = {
     val mStrings:MutableList[String] = MutableList[String]()
     val indent = ("  " * level)
+    val mType = mention.getClass.toString.split("""\.""").last
     val label = preferredLabel(mention)
+    mStrings += s"${indent}${mType}: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
+    mStrings += s"${indent}text: ${mention.text}"
+    mStrings += s"${indent}labels: ${mention.labels}"
+    mStrings += s"${indent}foundBy: ${mention.foundBy}"
+
     mention match {
-      case mention: TextBoundMention =>
-        mStrings += s"${indent}TextBoundMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
-        mStrings += s"${indent}text: ${mention.text}"
-        if (mention.toBioMention.isGrounded)
-          mStrings += s"${indent}xref: ${mention.toBioMention.xref.get}"
+      case tbm: TextBoundMention =>
+        if (tbm.toBioMention.isGrounded)
+          mStrings += s"${indent}xref: ${tbm.toBioMention.xref.get}"
 
-      case mention: EventMention =>
-        mStrings += s"${indent}EventMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
-        mStrings += s"${indent}text: ${mention.text}"
+      case evm: EventMention =>
         mStrings += s"${indent}trigger:"
-        mStrings ++= mentionToStrings(mention.trigger, level+1)
-        mention.arguments foreach {
+        mStrings ++= mentionToStrings(evm.trigger, level+1)
+        evm.arguments foreach {
           case (k,vs) => {
             mStrings += s"${indent}${k} (${vs.length}):"
             for (v <- vs) {
@@ -155,10 +142,8 @@ class MentionManager {
           }
         }
 
-      case mention: RelationMention =>
-        mStrings += s"${indent}RelationMention: S${mention.sentence}/${mention.startOffset}/${mention.endOffset}: ${label}"
-        mStrings += s"${indent}text: ${mention.text}"
-        mention.arguments foreach {
+      case rm: RelationMention =>
+        rm.arguments foreach {
           case (k,vs) => {
             mStrings += s"${indent}${k} (${vs.length}):"
             for (v <- vs) {
@@ -166,12 +151,20 @@ class MentionManager {
             }
           }
         }
-      case _ => ()
+
+      case _ =>
+        mStrings += s"${indent}UNKNOWN MENTION TYPE"
     }
 
     // postprocessing common to all participants of match above:
-    if (mention.isInstanceOf[BioEventMention])
+    if (mention.isInstanceOf[BioMention])
       mStrings ++= modificationsToStrings(mention.toBioMention, level)
+
+    mention.toCorefMention.antecedent foreach { ante =>
+      mStrings += s"${indent}antecedent:"
+      mStrings ++= mentionToStrings(ante.asInstanceOf[CorefMention], level+1)
+    }
+
     if (level == 0) mStrings += ("=" * 80)
 
     // all done at this level: return accumulated list of output strings

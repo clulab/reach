@@ -134,6 +134,9 @@ class DarpaActions extends Actions {
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // iterate over mentions giving preference to mentions that have an event controller
     mention <- sortMentionsByController(mentions)
+    // controller/controlled paths shouldn't overlap.
+    // NOTE this needs to be done on mentions coming directly from Odin
+    if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     regulation = removeDummy(switchLabel(mention.toBioMention))
     // If there the Mention has both a controller and controlled, they should be distinct
@@ -174,6 +177,9 @@ class DarpaActions extends Actions {
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // Prefer Activations with SimpleEvents as the controller
     mention <- preferSimpleEventControllers(mentions)
+    // controller/controlled paths shouldn't overlap.
+    // NOTE this needs to be done on mentions coming directly from Odin
+    if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     activation = removeDummy(switchLabel(mention.toBioMention))
     // retrieve regulations that overlap this mention
@@ -212,8 +218,26 @@ class DarpaActions extends Actions {
       (theme1s, theme2s) match {
         case (t1s, Nil) if t1s.length > 1 => mkBindingsFromPairs(t1s.combinations(2).toList, m)
         case (Nil, t2s) if t2s.length > 1 => mkBindingsFromPairs(t2s.combinations(2).toList, m)
-        case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
-        case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") => Seq(m.toBioMention)
+        case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") =>
+          Seq(new BioEventMention(
+          Seq("Binding", "SimpleEvent", "Event", "PossibleController"),
+          m.trigger,
+          m.arguments - "theme1" - "theme2" + ("theme" -> gen1),
+          m.sentence,
+          m.document,
+          m.keep,
+          m.foundBy
+          ))
+        case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") =>
+          Seq(new BioEventMention(
+            Seq("Binding", "SimpleEvent", "Event", "PossibleController"),
+            m.trigger,
+            m.arguments - "theme1" - "theme2" + ("theme" -> gen2),
+            m.sentence,
+            m.document,
+            m.keep,
+            m.foundBy
+          ))
         case (t1s, t2s) =>
           val pairs = for {
             t1 <- t1s
@@ -488,6 +512,25 @@ class DarpaActions extends Actions {
     }
   }
 
+  /** checks if a mention has a controller/controlled
+    * arguments with syntactic paths from the trigger
+    * that overlap
+    */
+  def hasSynPathOverlap(m: Mention): Boolean = {
+    val controlled = m.arguments.getOrElse("controlled", Nil)
+    val controller = m.arguments.getOrElse("controller", Nil)
+    if (m.paths.isEmpty) false
+    else if (controlled.isEmpty || controller.isEmpty) false
+    else {
+      // we are only concerned with the first controlled and controller
+      val p1 = m.getPath("controlled", controlled.head)
+      val p2 = m.getPath("controller", controller.head)
+      if (p1.nonEmpty && p2.nonEmpty) {
+        p1.head == p2.head
+      } else false
+    }
+  }
+
   /** Gets a BioEventMention. If it is not a SimpleEvent it returns None.
     * If it is a SimpleEvent it will return an entity that represents
     * the product of the event: a complex for a binding and an entity
@@ -510,7 +553,7 @@ class DarpaActions extends Actions {
       Some(complex)
     } else {
       // get the theme of the event (assume only one theme)
-      val entity = event.arguments("theme").head
+      val entity = event.arguments("theme").head.toBioMention
       // get an optional site (assumen only one site)
       val siteOption = event.arguments.get("site").map(_.head)
       // create new mention for the entity
@@ -523,6 +566,7 @@ class DarpaActions extends Actions {
         entity.foundBy)
       // attach a modification based on the event trigger
       val label = getModificationLabel(event.trigger.text)
+      modifiedEntity.xref = entity.xref
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = siteOption)
       Some(modifiedEntity)
     }

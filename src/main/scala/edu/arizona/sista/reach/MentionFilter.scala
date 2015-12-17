@@ -1,25 +1,27 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.coref.CorefUtils._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
+
 import scala.collection.mutable
 
 object MentionFilter {
 
   // a simple, imperfect way of removing incomplete Mentions
-  def pruneMentions(ms: Seq[BioMention]): Seq[BioMention] = {
+  def pruneMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
 
-    val (events, nonEvents) = ms.partition(_.isInstanceOf[BioEventMention])
+    val (events, nonEvents) = ms.partition(_.isInstanceOf[CorefEventMention])
     // We need to remove underspecified EventMentions of near-duplicate groupings
     // (ex. same phospho, but one is missing a site)
     val mentionGroupings =
-      events.map(_.asInstanceOf[BioEventMention]).groupBy(m => (m.trigger, m.label))
+      events.map(_.asInstanceOf[CorefEventMention]).groupBy(m => (m.trigger, m.label))
 
     // remove incomplete mentions
     val completeEventMentions =
       for ((k, ems) <- mentionGroupings) yield {
-        val maxSize: Int = ems.map(_.arguments.size).max
-        val filteredEMs = ems.filter(m => m.arguments.size == maxSize)
+        val maxSize: Int = ems.map(_.arguments.values.flatten.size).max
+        val filteredEMs = ems.filter(m => m.arguments.values.flatten.size == maxSize)
         filteredEMs
       }
     nonEvents ++ completeEventMentions.flatten.toSeq
@@ -27,7 +29,7 @@ object MentionFilter {
 
   // Removal of incomplete Mentions with special care to Regulations
   // calls pruneMentions after attending to Regulations
-  def filterRegulations(regulations: Seq[Mention], other: Seq[Mention], state: State): Seq[Mention] = {
+  def filterRegulations(regulations: Seq[BioMention], other: Seq[BioMention], state: State): Seq[CorefMention] = {
 
     // Move any Negation modification on a Regulation's controlled arg to the Regulation
     def promoteNegationModifications(parent: BioMention, child: BioMention): Unit = {
@@ -45,21 +47,23 @@ object MentionFilter {
     val correctedRegulations =
       for {reg <- regulations
            // it should only ever have ONE controlled
-           controlled =
-           reg.arguments("controlled")
+           controlled = reg
+             .arguments("controlled")
              .head
-             // treat it as a BioEventMention to simplify filtering
-             .asInstanceOf[BioEventMention]
+             // treat it as a CorefEventMention to simplify filtering
+             .toCorefMention.asInstanceOf[CorefEventMention]
            // how many args does the controlled Mention have?
-           argCount = controlled.arguments.size
+           argCount = controlled.antecedentOrElse(controlled).arguments.size
       } yield {
         // Are there any "more complete" SimpleEvents in the State
         // that are candidates to replace the current "controlled" arg?
         val replacementCandidates: Seq[BioEventMention] =
           state.mentionsFor(reg.sentence, controlled.tokenInterval, controlled.label)
-            // If the label is the same, these MUST be BioEventMentions (i.e SimpleEvents)
-            .map(_.asInstanceOf[BioEventMention])
-            .filter(m => m.arguments.size > argCount && (m.trigger == controlled.trigger))
+            // If the label is the same, these MUST be CorefEventMentions (i.e SimpleEvents)
+            .map(_.toCorefMention.asInstanceOf[CorefEventMention])
+            .filter(m =>
+            m.antecedentOrElse(m).arguments.size > argCount &&
+              (m.trigger == controlled.trigger))
         // Do we have any "more complete" Mentions to substitute for the controlled?
         replacementCandidates match {
           // Use the current reg, since there aren't any "more complete"
@@ -69,16 +73,16 @@ object MentionFilter {
           case candidates =>
             // For each "more complete" SimpleEvent, create a new Regulation...
             for (r <- candidates) yield {
-              reg match {
+              reg.toCorefMention match {
                 // Is the reg we're replacing a BioRelationMention?
-                case relReg: BioRelationMention =>
+                case relReg: CorefRelationMention =>
                   val updatedArgs = relReg.arguments updated("controlled", Seq(r))
-                  val junk = relReg.arguments("controlled").head.toBioMention
+                  val junk = relReg.arguments("controlled").head.toCorefMention
                   // Keep track of what we need to get rid of...
                   toRemove += junk
                   // Create the "more complete" BioRelationMentions
                   val moreCompleteReg =
-                    new BioRelationMention(
+                    new CorefRelationMention(
                       relReg.labels,
                       updatedArgs,
                       relReg.sentence,
@@ -90,14 +94,14 @@ object MentionFilter {
                   // return the new Regulation
                   moreCompleteReg
                 // Is the Regulation we're replacing a BioEventMention?
-                case eventReg: BioEventMention =>
+                case eventReg: CorefEventMention =>
                   val updatedArgs = eventReg.arguments updated("controlled", Seq(r))
-                  val junk = eventReg.arguments("controlled").head.toBioMention
+                  val junk = eventReg.arguments("controlled").head.toCorefMention
                   // Keep track of what we need to get rid of...
                   toRemove += junk
                   // Create the "more complete" BioEventMentions
                   val moreCompleteReg =
-                    new BioEventMention(
+                    new CorefEventMention(
                       eventReg.labels,
                       eventReg.trigger,
                       updatedArgs,
@@ -114,7 +118,7 @@ object MentionFilter {
         }
       }
 
-    def filterByController(regulations: Seq[Mention]): Seq[Mention] = {
+    def filterByController(regulations: Seq[BioMention]): Seq[CorefMention] = {
       // collect all regulation events with a Complex controller
       val regulationsWithComplexController = regulations.filter { m =>
         m.arguments.contains("controller") && m.arguments("controller").head.matches("Complex")
@@ -135,7 +139,7 @@ object MentionFilter {
           }
         }
       }
-      regulationsWithComplexController ++ remainingRegulations
+      (regulationsWithComplexController ++ remainingRegulations).map(_.toCorefMention)
     }
     val correctedRegs = correctedRegulations
       .flatten
@@ -147,25 +151,22 @@ object MentionFilter {
 
     // Remove any "controlled" Mentions we discarded
     val nonRegs =
-      other
+      corefDistinct(other
         .filterNot(m => toRemove.contains(m))
-        .map(_.toBioMention)
-        .distinct
+        .map(_.toCorefMention))
     // Convert Regulations to BioMentions
     val cleanRegulations =
-      correctedRegs
-        .map(_.toBioMention)
-        .distinct
+      corefDistinct(correctedRegs
+        .map(_.toCorefMention))
     // We don't want to accidentally filter out any SimpleEvents
     // that are valid arguments to the filtered Regs
-    val keepThese:Seq[Mention] =
-      cleanRegulations.flatMap(_.arguments.values)
+    val keepThese:Seq[CorefMention] =
+      corefDistinct(cleanRegulations.flatMap(_.arguments.values)
         .flatten
         .filter(m => m matches "SimpleEvent")
-        .map(_.toBioMention)
-        .distinct
+        .map(_.toCorefMention))
     // Return the filtered with the arguments to the Regulations
-    val remainingNonRegs = (pruneMentions(nonRegs) ++ keepThese).distinct
+    val remainingNonRegs = corefDistinct(pruneMentions(nonRegs) ++ keepThese)
 
     /*
     println(s"\n${cleanRegulations.size} cleanRegulations after pruning:")
@@ -174,18 +175,18 @@ object MentionFilter {
     remainingNonRegs foreach display.displayMention
     println("#" * 40 + "\n")
     */
-    (cleanRegulations ++ remainingNonRegs).distinct
+    corefDistinct(cleanRegulations ++ remainingNonRegs)
   }
 
   // Filter out "incomplete" events
-  def keepMostCompleteMentions(ms: Seq[Mention], state: State): Seq[Mention] = {
+  def keepMostCompleteMentions(ms: Seq[BioMention], state: State): Seq[CorefMention] = {
     // Regulations require special attention
     val (regulations, other) = ms.partition(_ matches "Regulation")
     regulations match {
       case someRegs if someRegs.nonEmpty =>
         filterRegulations(someRegs, other, state)
       case Nil =>
-        pruneMentions(other.map(_.toBioMention))
+        pruneMentions(other.map(_.toCorefMention))
     }
   }
 

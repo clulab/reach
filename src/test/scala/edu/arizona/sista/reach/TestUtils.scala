@@ -2,6 +2,7 @@ package edu.arizona.sista.reach
 
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.display._
+import edu.arizona.sista.reach.extern.export.MentionManager
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
@@ -14,6 +15,7 @@ object TestUtils {
   val testReach = new ReachSystem // All tests should use this system!
   val docId = "testdoc"
   val chunkId = "1"
+  val mentionManager = new MentionManager()
 
   def parseSentence(sentence:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, sentence)
@@ -41,7 +43,7 @@ object TestUtils {
     if(verbose) {
       println("Mentions:")
       for (m <- mentions) {
-        mentionToStrings(m).foreach(println(_))
+        mentionManager.mentionToStrings(m).foreach(println(_))
         println()
       }
     }
@@ -63,7 +65,7 @@ object TestUtils {
           val allText = s"${
             m.arguments.values.
               flatten
-              .map(_.text)
+              .map(arg => arg.toCorefMention.antecedent.getOrElse(arg).asInstanceOf[CorefMention].text)
               .mkString(" ")
           }".toLowerCase
 
@@ -80,7 +82,7 @@ object TestUtils {
   def hasEntity(text: String, mentions: Seq[Mention]): Boolean = {
     for (m <- mentions) {
       if (m.isInstanceOf[TextBoundMention]) {
-        val tm = m.asInstanceOf[TextBoundMention]
+        val tm = m.toCorefMention.antecedent.getOrElse(m).asInstanceOf[CorefMention]
         if (tm.text == text) {
           //println(s"\t==> found entity mention: ${tm.text}")
           return true
@@ -95,9 +97,9 @@ object TestUtils {
       if (m.isInstanceOf[RelationMention]) {
         val rm = m.asInstanceOf[RelationMention]
         if (rm.arguments.contains("site") &&
-          contains(rm.arguments.get("site").get, site) &&
+          contains(rm.arguments.get("site").get.map(s => s.toCorefMention.antecedent.getOrElse(s).asInstanceOf[CorefMention]), site) &&
           rm.arguments.contains("protein") &&
-          contains(rm.arguments.get("protein").get, text)) {
+          contains(rm.arguments.get("protein").get.map(p => p.toCorefMention.antecedent.getOrElse(p).asInstanceOf[CorefMention]), text)) {
           //println(s"\t==> found entity mention with site: ${rm.text}")
           return true
         }
@@ -107,7 +109,7 @@ object TestUtils {
   }
 
   def contains(mentions: Seq[Mention], text: String): Boolean = {
-    for (m <- mentions) if (m.text == text) return true
+    for (m <- mentions) if (m.toCorefMention.antecedent.getOrElse(m).asInstanceOf[CorefMention].text == text) return true
     false
   }
 
@@ -131,11 +133,13 @@ object TestUtils {
 
           if (controller.isDefined && controlled.isDefined && controlled.get.head.isInstanceOf[EventMention]) {
             // some obvious sanity checks
-            val controlledEvent = controlled.get.head.asInstanceOf[EventMention]
+            val controlledEventArg = controlled.get.head
+            val controlledEvent = controlledEventArg.toCorefMention.antecedent.getOrElse(controlledEventArg).asInstanceOf[CorefMention]
             if (controller.get.head.text == controllerEntity && // found the controller entity
               controlledEvent.label == controlledLabel) {
               val allText = s"${m.text} ${controlledEvent.arguments.values
                 .flatten
+                .map(a => a.toCorefMention.antecedent.getOrElse(a).asInstanceOf[CorefMention])
                 .map(_.text)
                 .mkString(" ")}".toLowerCase
 
@@ -171,9 +175,13 @@ object TestUtils {
           if (controller.isDefined && controlled.isDefined &&
               controlled.get.head.isInstanceOf[TextBoundMention] &&
               controller.get.head.isInstanceOf[TextBoundMention]) {
+
+            val controllerText = controller.get.head.toCorefMention.antecedent.getOrElse(controller.get.head).asInstanceOf[CorefMention].text
+            val controlledText = controlled.get.head.toCorefMention.antecedent.getOrElse(controlled.get.head).asInstanceOf[CorefMention].text
+
             // some obvious sanity checks
-            if (controller.get.head.text == controllerEntity && // found the controller entity
-                controlled.get.head.text == controlledEntity) {
+            if (controllerText == controllerEntity && // found the controller entity
+                controlledText == controlledEntity) {
               return true
             }
           }
@@ -196,30 +204,6 @@ object TestUtils {
       mentionsBySentence(i).sortBy(_.label) foreach displayMention
       println("=" * 50)
     }
-  }
-
-  def displayMention(mention: Mention) {
-    val boundary =  s"\t${"-" * 30}"
-    println(mention.labels)
-    println(boundary)
-    println(s"\tRule => ${mention.foundBy}")
-    println(s"\tType => ${mention.getClass.toString.split("""\.""").last}")
-    println(boundary)
-    mention match {
-      case m: TextBoundMention =>
-        println(s"\t${m.labels} => ${m.text}")
-      case m: EventMention =>
-        println(s"\ttrigger => ${m.trigger.text}")
-        m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
-        }
-      case m: RelationMention =>
-        m.arguments foreach {
-          case (k, vs) => for (v <- vs) println(s"\t$k (${v.labels}) => ${v.text}")
-        }
-      case _ => ()
-    }
-    println(s"$boundary\n")
   }
 
   implicit class MentionTestUtils(mention: BioMention) {

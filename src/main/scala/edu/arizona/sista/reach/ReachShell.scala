@@ -52,7 +52,7 @@ object ReachShell extends App {
           reach = new ReachSystem(Some(rules), Some(proc))
           println("successfully reloaded rules")
         } catch {
-          case e: Exception => println(s"error reloading: ${e.getMessage}")
+          case e: Throwable => println(s"error reloading: ${e.getMessage}")
         }*/
 
       //case ":entityrules" =>

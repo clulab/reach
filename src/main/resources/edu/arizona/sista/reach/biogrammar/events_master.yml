@@ -92,10 +92,10 @@ rules:
       nominalTriggerLemma: "methylation"
 
   # Generic (incomplete) events
-#  - import: edu/arizona/sista/reach/biogrammar/coref/generic_events.yml
-#    vars:
-#      priority: "5"
-#      actionFlow: "mkBioMention"
+  - import: edu/arizona/sista/reach/biogrammar/coref/generic_events.yml
+    vars:
+      priority: "5"
+      actionFlow: "mkBioMention"
 
   # Positive Regulation
   - import: edu/arizona/sista/reach/biogrammar/events/pos-reg_template.yml

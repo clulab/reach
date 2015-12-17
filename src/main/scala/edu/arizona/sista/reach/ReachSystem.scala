@@ -4,7 +4,6 @@ import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.LocalGrounder
-import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
@@ -13,15 +12,11 @@ import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
 class ReachSystem(
-    rules: Option[Rules],
-    proc: Option[BioNLPProcessor]
+    rules: Option[Rules] = None,
+    proc: Option[BioNLPProcessor] = None
 ) {
 
   import ReachSystem._
-
-  // overload constructor
-  def this() = this(None, None)
-  def this(rules: Option[Rules]) = this(rules, None)
 
   val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
   val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
@@ -39,8 +34,6 @@ class ReachSystem(
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
-  // initialize the context engine
-  val contextEngine = new DummyContextEngine
   // initialize processor
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
@@ -49,8 +42,6 @@ class ReachSystem(
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules).mkString("\n\n")
 
-  def mkDoc(entry: FriesEntry): Document = mkDoc(entry.text, entry.name, entry.chunkId)
-
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
@@ -58,33 +49,24 @@ class ReachSystem(
     doc
   }
 
-  def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
-    extractFrom(entries, entries map mkDoc)
-
-  def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
-    val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
-    contextEngine.infer(entries, documents, entitiesPerEntry)
-    val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
-    val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield extractEventsFrom(doc, es)
-    contextEngine.update(eventsPerEntry.flatten)
-    val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
-    val resolved = resolve(eventsWithContext)
-    // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toBioMention)
-    resolveDisplay(complete)
-  }
-
   // the extractFrom() methods are the main entry points to the reach system
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(Seq(entry))
+    extractFrom(entry.text, entry.name, entry.chunkId)
 
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] =
-    extractFrom(FriesEntry(docId, chunkId, "NoSection", "NoSection", false, text))
+  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
+    extractFrom(mkDoc(text, docId, chunkId))
+  }
 
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", false, doc.text.get)), Seq(doc))
+    val entities = extractEntitiesFrom(doc)
+    val events = extractEventsFrom(doc, entities)
+    val completeUnresolved = MentionFilter.keepMostCompleteMentions(events, State(events))
+    val resolved = resolve(completeUnresolved)
+    // Coref introduced incomplete Mentions that now need to be pruned
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved))
+    resolveDisplay(complete)
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -94,13 +76,10 @@ class ReachSystem(
     val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
     modifiedEntities flatMap {
       case m: BioTextBoundMention =>
+        // if a mention has many mutations attached to it return a mention for each mutation
         val mutations = m.modifications.filter(_.isInstanceOf[Mutant])
-
-        // if a mention has many mutations attached to it
-        // return a mention for each mutation
         if (mutations.isEmpty || mutations.size == 1) Seq(m)
         else {
-          val modifications = m.modifications diff mutations
           mutations map { mut =>
             val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
             tbm.modifications += mut
@@ -124,7 +103,7 @@ class ReachSystem(
     validMentions
   }
 
-  def resolve(events: Seq[BioMention]): Seq[BioMention] = {
+  def resolve(events: Seq[BioMention]): Seq[CorefMention] = {
     val coref = new Coref()
     coref(events)
   }
@@ -135,7 +114,7 @@ object ReachSystem {
   // This function should set the right displayMention for each mention.
   // By default the displayMention is set to the main label of the mention,
   // so sometimes it may not require modification
-  def resolveDisplay(ms: Seq[BioMention]): Seq[BioMention] = {
+  def resolveDisplay(ms: Seq[CorefMention]): Seq[CorefMention] = {
     // let's do a first attempt, using only grounding info
     // this is useful for entities that do not participate in events
     for(m <- ms) {
@@ -165,13 +144,14 @@ object ReachSystem {
     ms
   }
 
-  def resolveDisplayForArguments(em:BioMention, parents:Set[String]) {
+  def resolveDisplayForArguments(em:CorefMention, parents:Set[String]) {
     if(em.labels.contains("Event")) { // recursively traverse the arguments of events
       val newParents = new mutable.HashSet[String]()
       newParents ++= parents
       newParents += em.label
       em.arguments.values.foreach(ms => ms.foreach( m => {
-        resolveDisplayForArguments(m.asInstanceOf[BioMention], newParents.toSet)
+        val crm = m.asInstanceOf[CorefMention]
+        resolveDisplayForArguments(crm.antecedentOrElse(crm), newParents.toSet)
       }))
     } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
       if(em.xref.isDefined && em.xref.get.namespace.contains("interpro")) {

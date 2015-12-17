@@ -1,24 +1,24 @@
 package edu.arizona.sista.reach.extern.export.indexcards
 
-import java.io.{FileWriter, BufferedWriter, PrintWriter, File}
+import java.io.File
 import java.util.Date
+import java.util.regex.Pattern
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
-import org.json4s.native.Serialization
-
-import edu.arizona.sista.odin.{RelationMention, Mention}
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 import JsonOutputter._
+import IndexCardOutput._
 
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Throw error on activation missing controller bug.
+ *   Last Modified: Cleanup after Coref bugs fixed.
  */
 class IndexCardOutput extends JsonOutputter {
 
@@ -72,8 +72,12 @@ class IndexCardOutput extends JsonOutputter {
       writeJsonToFile(card, outFile)
       count += 1
     }
-
   }
+
+  /** Return a new filename for each card. */
+  def mkIndexCardFileName(paperId:String, count:Int):String =
+    s"$paperId-$ORGANIZATION-$RUN_ID-$count"
+
 
   /**
     * Creates annotations from all events read from this paper.
@@ -87,9 +91,11 @@ class IndexCardOutput extends JsonOutputter {
               endTime:Date):Iterable[PropMap] = {
     val cards = new ListBuffer[PropMap]
 
-    // keeps events
-    val eventMentions = allMentions.filter(MentionManager.isEventMention)
-    // println(s"Found ${eventMentions.size} events.")
+    // dereference all coreference mentions:
+    val derefedMentions = allMentions.map(m => m.antecedentOrElse(m.toCorefMention))
+
+    // keeps just events:
+    val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
 
     // keeps track of simple events that participate in regulations
     val simpleEventsInRegs = new mutable.HashSet[Mention]()
@@ -97,13 +103,11 @@ class IndexCardOutput extends JsonOutputter {
     // first, print all regulation events
     for(mention <- eventMentions) {
       if (MentionManager.REGULATION_EVENTS.contains(mention.label)) {
-        val bioMention = mention.toBioMention
-        val card = mkRegulationIndexCard(bioMention, simpleEventsInRegs)
+        val card = mkRegulationIndexCard(mention, simpleEventsInRegs)
         card.foreach(c => {
-          addMeta(c, bioMention, paperId, startTime, endTime)
+          addMeta(c, mention, paperId, startTime, endTime)
           cards += c
         })
-
       }
     }
 
@@ -112,10 +116,9 @@ class IndexCardOutput extends JsonOutputter {
       if (! MentionManager.REGULATION_EVENTS.contains(mention.label) &&
           ! simpleEventsInRegs.contains(mention))
       {
-        val bioMention = mention.toBioMention
-        val card = mkIndexCard(mention.toBioMention)
+        val card = mkIndexCard(mention)
         card.foreach(c => {
-          addMeta(c, bioMention, paperId, startTime, endTime)
+          addMeta(c, mention, paperId, startTime, endTime)
           cards += c
         })
       }
@@ -124,9 +127,10 @@ class IndexCardOutput extends JsonOutputter {
     cards.toList
   }
 
+
   /** Main annotation dispatcher method. */
-  def mkIndexCard(mention:BioMention):Option[PropMap] = {
-    val eventType = mkEventType(mention.label)
+  def mkIndexCard(mention:CorefMention):Option[PropMap] = {
+    val eventType = mkEventType(mention)
     val f = new PropMap
     val ex = eventType match {
       case "protein-modification" => mkModificationIndexCard(mention)
@@ -136,7 +140,7 @@ class IndexCardOutput extends JsonOutputter {
       case "regulation" => throw new RuntimeException("ERROR: regulation events must be saved before!")
       case _ => throw new RuntimeException(s"ERROR: event type $eventType not supported!")
     }
-    if(ex.isDefined) {
+    if (ex.isDefined) {
       mkHedging(ex.get, mention)
       mkContext(ex.get, mention)
       f("extracted_information") = ex.get
@@ -146,34 +150,45 @@ class IndexCardOutput extends JsonOutputter {
     }
   }
 
-  /** Return a new filename for each card. */
-  def mkIndexCardFileName(paperId:String, count:Int):String = s"$paperId-$ORGANIZATION-$RUN_ID-$count"
 
-  def mkArgument(arg:BioMention):Any = {
-    val argType = mkArgType(arg)
+  def mkArgument(arg:CorefMention):Any = {
+    val derefArg = arg.antecedentOrElse(arg)
+    val argType = mkArgType(derefArg)
     argType match {
-      case "entity" => mkSingleArgument(arg)
-      case "complex" => mkComplexArgument(arg.asInstanceOf[RelationMention])
-      case _ => throw new RuntimeException(s"ERROR: argument type $argType not supported!")
+      case "entity" => mkSingleArgument(derefArg)
+      case "complex" => mkComplexArgument(derefArg)
+      case _ => {
+        throw new RuntimeException(s"ERROR: argument type '$argType' not supported!")
+      }
     }
   }
 
-  def mkSingleArgument(arg:BioMention):PropMap = {
+  def mkSingleArgument(arg:CorefMention):PropMap = {
     val f = new PropMap
     f("entity_text") = arg.text
     f("entity_type") = arg.displayLabel.toLowerCase
-    if(arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
-    if(MentionManager.hasFeatures(arg)) f("features") = mkFeatures(arg)
-    // TODO: we do not compare against the model; assume everything is new
-    f("in_model") = false
+
+    // participants should always be grounded here! (even if only to an UAZID)
+    // assert(arg.isGrounded, s"Argument '${arg.text}' should be grounded at this point!")
+    if (!arg.isGrounded) {
+      println(s"Failed to ground argument ${arg.text}!")
+    }
+    if (arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
+
+    if (MentionManager.hasFeatures(arg)) f("features") = mkFeatures(arg)
+    // TODO: we do not compare against the model; assume everything exists, so the validation works
+    f("in_model") = true
     f
   }
 
-  def mkFeatures(arg:BioMention):FrameList = {
+  def mkFeatures(arg:CorefMention):FrameList = {
     val fl = new FrameList
     arg.modifications.foreach {
-      case ptm: PTM => fl += mkPTMFeature(ptm)
-      case mut: Mutant => fl += mkMutantFeature(mut)
+      case ptm: PTM =>
+        fl += mkPTMFeature(ptm)
+      case mut: Mutant =>
+        //println(s"argument and mutation: ${arg.text} ${mut.evidence.text}")
+        fl += mkMutantFeature(mut)
       case _ => // there may be other features that are not relevant for the index card output
     }
     fl
@@ -191,17 +206,49 @@ class IndexCardOutput extends JsonOutputter {
   def mkMutantFeature(m:Mutant):PropMap = {
     val f = new PropMap
     f("feature_type") = "mutation"
-    if(m.evidence.text.length > 0)
-      f("position") = m.evidence.text
+    if(m.evidence.text.length > 0) {
+      val ev = m.evidence.text
+      f("evidence") = ev
+
+      if(ev.toLowerCase.startsWith("mutant") ||
+         ev.toLowerCase.startsWith("mutation")) {
+        addUnspecifiedMutation(f)
+      } else {
+        val lm = LETTER_MUTATION.matcher(ev)
+        if(lm.matches()) {
+          addMutation(f, ev, 0)
+        } else {
+          val ldm = LETTER_DIGIT_MUTATION.matcher(ev)
+          if(ldm.find()) {
+            addMutation(f, ldm.group(1), ldm.group(2).toInt)
+          } else {
+            // TODO: this should never happen
+            addUnspecifiedMutation(f)
+          }
+        }
+      }
+    } else {
+      addUnspecifiedMutation(f)
+    }
     f
   }
 
-  def mkComplexArgument(complex:RelationMention):FrameList = {
+  def addMutation(f:PropMap, base:String, site:Int): Unit = {
+    f("to_base") = base
+    f("site") = site
+  }
+  def addUnspecifiedMutation(f:PropMap): Unit = {
+    addMutation(f, "A", 0)
+  }
+
+
+  def mkComplexArgument(complex:CorefMention):FrameList = {
     val fl = new FrameList
     val participants = complex.arguments.get("theme")
-    if(participants.isEmpty) throw new RuntimeException("ERROR: cannot have a complex with 0 participants!")
-    participants.get.foreach(p => {
-      fl += mkSingleArgument(p.toBioMention)
+    if (participants.isEmpty)
+      throw new RuntimeException("ERROR: cannot have a complex with 0 participants!")
+    participants.get.foreach(part => {
+      fl += mkSingleArgument(part.antecedentOrElse(part.toCorefMention))
     })
     fl
   }
@@ -210,54 +257,59 @@ class IndexCardOutput extends JsonOutputter {
     xref.namespace + ":" + xref.id
   }
 
-  def mkEventModification(mention:BioMention):PropMap = {
+  def mkEventModification(mention:CorefMention):PropMap = {
     val f = new PropMap
     f("modification_type") = mention.displayLabel.toLowerCase
-    if(mention.arguments.contains("site"))
-      f("position") = mention.arguments.get("site").get.head.text
+    val position = mention.siteArgs
+    if (position.isDefined)
+      f("position") = position.get.head.text
     f
   }
 
   /** Creates a card for a simple, modification event */
-  def mkModificationIndexCard(mention:BioMention,
+  def mkModificationIndexCard(mention:CorefMention,
                               positiveModification:Boolean = true):Option[PropMap] = {
     val f = new PropMap
+
     // a modification event will have exactly one theme
-    f("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
-    if(positiveModification)
+    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+
+    if (positiveModification)
       f("interaction_type") = "adds_modification"
     else
       f("interaction_type") = "inhibits_modification"
+
     val mods = new FrameList
     mods += mkEventModification(mention)
     f("modifications") = mods
     Some(f)
   }
 
-  def mkHedging(f:PropMap, mention:BioMention) {
+  def mkHedging(f:PropMap, mention:CorefMention) {
     f("negative_information") = MentionManager.isNegated(mention)
     f("hypothesis_information") = MentionManager.isHypothesized(mention)
   }
 
-  def mkContext(f:PropMap, mention:BioMention): Unit = {
+  def mkContext(f:PropMap, mention:CorefMention): Unit = {
     // TODO: add context information here!
   }
 
   /** Creates a card for a regulation event */
-  def mkRegulationIndexCard(mention:BioMention,
+  def mkRegulationIndexCard(mention:CorefMention,
                             simpleEventsInRegs:mutable.HashSet[Mention]):Option[PropMap] = {
-    if(! mention.arguments.contains("controlled"))
+
+    val controlleds = mention.controlledArgs
+    if (controlleds.isEmpty)
       throw new RuntimeException("ERROR: a regulation event must have a controlled argument!")
-    val controlledMention = mention.arguments.get("controlled").get.head
-    val controlled = controlledMention.toBioMention
+    val controlled = controlleds.get.head.toCorefMention
 
     // INDEX CARD LIMITATION:
     // We only know how to output regulations when controlled is a modification!
-    val eventType = mkEventType(controlled.label)
-    if(eventType != "protein-modification") return None
+    val eventType = mkEventType(controlled)
+    if (eventType != "protein-modification") return None
 
     // do not output this event again later, when we output single modifications
-    simpleEventsInRegs += controlledMention
+    simpleEventsInRegs += controlled
 
     // populate participant_b and the interaction type from the controlled event
     val posMod = mention.label match {
@@ -265,25 +317,41 @@ class IndexCardOutput extends JsonOutputter {
       case "Negative_regulation" => false
       case _ => throw new RuntimeException(s"ERROR: unknown regulation event ${mention.label}!")
     }
-    val f = mkModificationIndexCard(controlled, positiveModification = posMod)
+    val ex = mkModificationIndexCard(controlled, positiveModification = posMod)
 
     // add participant_a from the controller
-    if(! mention.arguments.contains("controller"))
-      throw new RuntimeException("ERROR: a regulation event must have a controller argument!")
-    f.get("participant_a") = mkArgument(mention.arguments.get("controller").get.head.toBioMention)
+    val controllers = mention.controllerArgs
+    if (controllers.isEmpty)
+      throw new RuntimeException("ERROR: an activation event must have a controller argument!")
+    val controller = controllers.get.head.toCorefMention
+    ex.get("participant_a") = mkArgument(controller)
 
-    f
+    // add hedging and context
+    mkHedging(ex.get, mention)
+    mkContext(ex.get, mention)
+
+    // all this becomes the extracted_information block
+    val f = new PropMap
+    f("extracted_information") = ex.get
+    Some(f)
   }
 
+
   /** Creates a card for an activation event */
-  def mkActivationIndexCard(mention:BioMention):Option[PropMap] = {
+  def mkActivationIndexCard(mention:CorefMention):Option[PropMap] = {
     val f = new PropMap
+
     // a modification event must have exactly one controller and one controlled
-    val controller = mention.arguments.get("controller")
-    if (!controller.isDefined)
+    val controllers = mention.controllerArgs
+    if (controllers.isEmpty)
       throw new RuntimeException("ERROR: an activation event must have a controller argument!")
-    f("participant_a") = mkArgument(controller.get.head.toBioMention)
-    f("participant_b") = mkArgument(mention.arguments.get("controlled").get.head.toBioMention)
+    f("participant_a") = mkArgument(controllers.get.head.toCorefMention)
+
+    val controlleds = mention.controlledArgs
+    if (controlleds.isEmpty)
+      throw new RuntimeException("ERROR: an activation event must have a controlled argument!")
+    f("participant_b") = mkArgument(controlleds.get.head.toCorefMention)
+
     if (mention.label == "Positive_activation")
       f("interaction_type") = "increases_activity"
     else
@@ -291,34 +359,39 @@ class IndexCardOutput extends JsonOutputter {
     Some(f)
   }
 
+
   /** Creates a card for a complex-assembly event */
-  def mkBindingIndexCard(mention:BioMention):Option[PropMap] = {
+  def mkBindingIndexCard(mention:CorefMention):Option[PropMap] = {
     val f = new PropMap
     f("interaction_type") = "binds"
 
-    val participants = mention.arguments.get("theme").get
+    val participants = mention.themeArgs.get
+
     // a Binding events must have at least 2 arguments
-    val participantA = participants.head.toBioMention
-    f("participant_a") = mkArgument(participantA)
-    val participantB = participants.tail
-    if(participantB.size == 1) {
-      f("participant_b") = mkArgument(participantB.head.toBioMention)
-    } else if(participantB.size > 1) {
+    f("participant_a") = mkArgument(participants.head.toCorefMention)
+
+    val participantsTail = participants.tail
+    if (participantsTail.size == 1) {
+      f("participant_b") = mkArgument(participantsTail.head.toCorefMention)
+    }
+    else if (participantsTail.size > 1) {
       // store them all as a single complex.
       // INDEX CARD LIMITATION: This is ugly, but there is no other way with the current format
       val fl = new FrameList
-      participantB.foreach(p => {
-        fl += mkSingleArgument(p.toBioMention)
+      participantsTail.foreach(part => {
+        fl += mkSingleArgument(part.toCorefMention)
       })
       f("participant_b") = fl
-    } else {
+    }
+    else {
       throw new RuntimeException("ERROR: A complex assembly event must have at least 2 participants!")
     }
 
     // add binding sites if present
-    if(mention.arguments.contains("site")) {
+    val sites = mention.siteArgs
+    if (sites.isDefined) {
       val fl = new StringList
-      for(site <- mention.arguments.get("site").get) {
+      for (site <- sites.get) {
         fl += site.text
       }
       f("binding_site") = fl
@@ -327,27 +400,32 @@ class IndexCardOutput extends JsonOutputter {
     Some(f)
   }
 
+
   /** Creates a card for a translocation event */
-  def mkTranslocationIndexCard(mention:BioMention):Option[PropMap] = {
+  def mkTranslocationIndexCard(mention:CorefMention):Option[PropMap] = {
     val f = new PropMap
     f("interaction_type") = "translocates"
-    f("participant_b") = mkArgument(mention.arguments.get("theme").get.head.toBioMention)
-    if(mention.arguments.contains("source")) {
-      addLocation(f, "from", mention.arguments.get("source").get.head.toBioMention)
-    }
-    if(mention.arguments.contains("destination")) {
-      addLocation(f, "to", mention.arguments.get("destination").get.head.toBioMention)
-    }
+    f("participant_b") = mkArgument(mention.themeArgs.get.head.toCorefMention)
+
+    val sources = mention.sourceArgs
+    if (sources.isDefined)
+      addLocation(f, "from", sources.get.head.toCorefMention)
+
+    val destinations = mention.destinationArgs
+    if (destinations.isDefined)
+      addLocation(f, "to", destinations.get.head.toCorefMention)
+
     Some(f)
   }
 
-  def addLocation(f:PropMap, prefix:String, loc:BioMention): Unit = {
+
+  def addLocation(f:PropMap, prefix:String, loc:CorefMention): Unit = {
     f(prefix + "_location_id") = mkIdentifier(loc.xref.get)
     f(prefix + "_location_text") = loc.text
   }
 
   def addMeta(f:PropMap,
-              mention:BioMention,
+              mention:CorefMention,
               paperId:String,
               startTime:Date,
               endTime:Date): Unit = {
@@ -368,3 +446,8 @@ class IndexCardOutput extends JsonOutputter {
 
 }
 
+
+object IndexCardOutput {
+  val LETTER_DIGIT_MUTATION = Pattern.compile("^([ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]+)(\\d+)")
+  val LETTER_MUTATION = Pattern.compile("^([ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]+)$")
+}

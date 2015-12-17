@@ -5,15 +5,13 @@ import java.util.Date
 
 import org.json4s.native.Serialization
 
-import edu.arizona.sista.odin.{TextBoundMention, RelationMention, EventMention, Mention}
-import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Refactor mention management to mention manager.
+  *   Last Modified: Remove unused imports.
   */
 trait JsonOutputter {
 
@@ -74,7 +72,8 @@ object JsonOutputter {
   }
 
   /** Select an event-type output string for the given mention label. */
-  def mkEventType (label:String): String = {
+  def mkEventType (mention:Mention): String = {
+    val label = mention.label
     if (MentionManager.MODIFICATION_EVENTS.contains(label))
       return "protein-modification"
 
@@ -96,7 +95,7 @@ object JsonOutputter {
     if (MentionManager.ACTIVATION_EVENTS.contains(label))
       return "activation"
 
-    throw new RuntimeException("ERROR: unknown event type: " + label)
+    throw new RuntimeException("ERROR: unknown event type: " + label + " in event:\n" + mention.json(pretty = true))
   }
 
   /** Canonicalize the given label string. */
