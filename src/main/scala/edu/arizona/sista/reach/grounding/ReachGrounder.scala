@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
 import com.typesafe.config.ConfigFactory
 

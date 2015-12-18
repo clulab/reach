@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
 /**
   * Class representing meta-information about an external Knowledge Base.

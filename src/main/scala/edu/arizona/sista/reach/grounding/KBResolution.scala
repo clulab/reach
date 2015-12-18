@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.

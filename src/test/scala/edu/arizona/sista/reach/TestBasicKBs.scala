@@ -2,7 +2,7 @@ package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
-import edu.arizona.sista.reach.grounding2._
+import edu.arizona.sista.reach.grounding._
 
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.

@@ -1,6 +1,6 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
-import edu.arizona.sista.reach.grounding2.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.

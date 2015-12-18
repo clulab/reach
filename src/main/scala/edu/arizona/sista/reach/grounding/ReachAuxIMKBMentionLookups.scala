@@ -1,7 +1,7 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.grounding2.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * A collection of classes which implement auxiliary knowledge base accessors.

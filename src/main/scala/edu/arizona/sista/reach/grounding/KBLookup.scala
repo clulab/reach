@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
 /**
   * Trait for simple and species-specific string lookup in local knowledge bases.

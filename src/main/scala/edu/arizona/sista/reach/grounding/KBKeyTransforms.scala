@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.

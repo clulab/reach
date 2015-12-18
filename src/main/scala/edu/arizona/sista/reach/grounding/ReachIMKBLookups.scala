@@ -1,6 +1,6 @@
-package edu.arizona.sista.reach.grounding2
+package edu.arizona.sista.reach.grounding
 
-import edu.arizona.sista.reach.grounding2.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * A collection of classes which provide mappings of text strings to identifiers

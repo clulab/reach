@@ -5,36 +5,14 @@ import java.util.zip.GZIPInputStream
 
 import scala.io.Source
 
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
+
 /**
   * Support methods for writing local KB accessors.
-  *   Written by Tom Hicks. 4/16/2015.
-  *   Last Modified: Refactor: separate out method to strip a suffix.
+  *   Written by Tom Hicks. 10/23/2015.
+  *   Last Modified: Rename this object.
   */
-object LocalKBUtils extends KnowledgeBaseConstants {
-
-  /** Tell whether the given species string is label for humans or not. */
-  def isHumanSpecies (species: String): Boolean = {
-    if (HumanLabels.contains(species.toLowerCase)) true else false
-  }
-
-
-  /** Canonicalize the given text string into a key for both storage and lookup. */
-  def makeKBCanonKey (text:String): String = {
-    var key:String = text.toLowerCase
-    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
-    key = key.filterNot(KeyCharactersToRemove)
-    return stripASuffix(AllKeysStopSuffixes, key)
-  }
-
-  /** Try to remove one of the suffixes in the given set from the given text. */
-  def stripASuffix (suffixes:Set[String], text:String): String = {
-    var key = text
-    suffixes.foreach { suffix =>
-      key = key.stripSuffix(suffix)
-    }
-    return key
-  }
-
+object ReachKBUtils {
 
   /** Return a Scala Source object created from the given resource path string. If the
     * resource path ends with ".gz" the source is created around a gzip input stream. */
@@ -66,7 +44,6 @@ object LocalKBUtils extends KnowledgeBaseConstants {
   def makePathInUserDir (filename:String): String = {
     return System.getProperty("user.dir") + File.separator + filename
   }
-
 }
 
 

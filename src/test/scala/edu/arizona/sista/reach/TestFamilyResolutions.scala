@@ -2,8 +2,8 @@ package edu.arizona.sista.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
-import edu.arizona.sista.reach.grounding2._
-import edu.arizona.sista.reach.grounding2.ReachKBConstants._
+import edu.arizona.sista.reach.grounding._
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.

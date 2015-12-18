@@ -3,7 +3,7 @@ package edu.arizona.sista.reach
 import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.grounding.LocalGrounder
+import edu.arizona.sista.reach.grounding.ReachGrounder
 import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
@@ -24,7 +24,7 @@ class ReachSystem(
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
-  val grounder = new LocalGrounder
+  val grounder = new ReachGrounder
   // start entity extraction engine
   // this engine extracts all physical entities of interest and grounds them
   val entityEngine = ExtractorEngine(entityRules, actions, grounder.apply)
