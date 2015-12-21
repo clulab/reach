@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Back-port auxiliary grounding controlled by config flag.
+  *   Last Modified: Add KBMLs for Context.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -47,6 +47,12 @@ class ReachGrounder extends DarpaFlow {
         new ManualCellLocationKBML,
         new GendCellLocationKBML,
 
+        new ContextCellTypeKBML,
+        new ContextSpeciesKBML,
+        new ContextCellLineKBML,
+        new ContextOrganKBML,
+        new StaticTissueTypeKBML,
+
         new AzFailsafeKBML
       )
     else
@@ -70,6 +76,12 @@ class ReachGrounder extends DarpaFlow {
         new StaticCellLocationKBML,
         new ManualCellLocationKBML,
         new GendCellLocationKBML,
+
+        new ContextCellTypeKBML,
+        new ContextSpeciesKBML,
+        new ContextCellLineKBML,
+        new ContextOrganKBML,
+        new StaticTissueTypeKBML,
 
         new AzFailsafeKBML
       )
