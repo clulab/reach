@@ -61,7 +61,7 @@ object CorefUtils {
         args.contains("theme") && args("theme").length == 2
       case simple if lbls contains "SimpleEvent" =>
         args.contains("theme") && args("theme").nonEmpty
-      case complex if (lbls contains "ComplexEvent") || (lbls contains "Activation") =>
+      case complex if lbls contains "ComplexEvent" =>
         args.contains("controller") && args.contains("controlled") &&
           args("controller").nonEmpty && args("controlled").nonEmpty
       case _ => true

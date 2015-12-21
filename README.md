@@ -13,9 +13,8 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
++ **1.1.3** - Bug fixes in coreference resolution plus output formats
 + **1.1.2** - Bug fixes in the index card output
-+ **1.1.1** - Improved event coreference resolution
-+ **1.1.0** - Added entity and event coreference resolution
 + [more...](CHANGES.md)
 
 # Authors  
@@ -55,13 +54,13 @@ The `jar` is available on Maven Central. To use, simply add the following depend
     <dependency>
        <groupId>clulab.org</groupId>
        <artifactId>reach_2.11</artifactId>
-       <version>1.1.1</version>
+       <version>1.1.3</version>
     </dependency>
 
  The equivalent SBT dependencies are:
 
     libraryDependencies ++= Seq(
-        "clulab.org" %% "reach" % "1.1.1"
+        "clulab.org" %% "reach" % "1.1.3"
     )
 
 # How to compile the source code
@@ -101,6 +100,7 @@ enter `:help` to get a list of available commands.
 + [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/878FDD6F-BF2A-4384-BEE0-3412F21B03EB/REACH_55kpapers_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
 + [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/A14990F1-CD89-48DC-9234-67FCCE539066/pi-mtg-summer-2015-55k-expt-index-cards-v3.zip). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
 + [`reach` output on the entire Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/4A5DDD7C-CC25-4FC8-A4AE-5F41A53751E6/REACH_full_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
++ [`reach` output](https://www.dropbox.com/s/iw5ql5xy19tbmq0/13K-indexcards_151210.tgz?dl=0) and [NXML input](https://www.dropbox.com/s/m34qa54p03fto2g/13K-input-nxml-files_151210.tgz?dl=0) on the 13K papers used in the FRIES use-case evaluation of December 2015. In index-card format, generated on December 9th, 2015.
 
 ## Code
 + [Interactive `reach` visualizer](http://agathon.sista.arizona.edu:8080/odinweb/bio)

@@ -8,33 +8,27 @@ import org.biopax.paxtools.model.level3._
 
 import scala.collection.JavaConverters._
 
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
+
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Update for renamed lookup methods and constant filenames.
+  *   Last Modified: Update for grounding system rewrite.
   */
-object EntityChecker extends App with KnowledgeBaseConstants {
+object EntityChecker extends App {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
-  // Search classes for resolving entities:
-  val StaticProteinFamilyKBLookup = new StaticProteinFamilyKBLookup
-  val StaticProteinKBLookup = new StaticProteinKBLookup
-  val StaticChemicalKBLookup = new StaticChemicalKBLookup
-  val StaticMetaboliteKBLookup = new StaticMetaboliteKBLookup
-  val StaticCellLocationKBLookup = new StaticCellLocationKBLookup
-  // val StaticTissueTypeKBLookup = new StaticTissueTypeKBLookup
-
   /** Search sequence for resolving proteins. */
-  protected val proteinSearcher = Seq( StaticProteinKBLookup,
-                                       StaticProteinFamilyKBLookup )
+  protected val proteinSearcher = Seq( new StaticProteinFamilyKBLookup,
+                                       new StaticProteinKBLookup )
 
   /** Search sequence for small molecules. */
-  protected val chemSearcher = Seq( StaticChemicalKBLookup,
-                                    StaticMetaboliteKBLookup )
+  protected val chemSearcher = Seq( new StaticChemicalKBLookup,
+                                    new StaticMetaboliteKBLookup )
 
   /** Search sequence for sub cellular locations terms. */
-  protected val cellLocationSearcher = Seq( StaticCellLocationKBLookup )
+  protected val cellLocationSearcher = Seq( new StaticCellLocationKBLookup )
 
 
   /** Read the BioPAX model from the given input stream and check the entities. */
@@ -52,8 +46,7 @@ object EntityChecker extends App with KnowledgeBaseConstants {
       (model.getObjects(classOf[SmallMolecule])).asScala
     val molecules = instances.toSeq.map(_.getDisplayName()).sorted.distinct
     println(s"FOUND: ${molecules.size} small molecules in input model")
-    val resolved = molecules.map(resolveKey(_, chemSearcher))
-    val missing = molecules.zip(resolved).filter(_._2.isEmpty).map(_._1)
+    val missing = molecules.filterNot(lookup(_, chemSearcher))
     outputMissing(missing, GendChemicalFilename, GendChemicalPrefix)
   }
 
@@ -62,8 +55,7 @@ object EntityChecker extends App with KnowledgeBaseConstants {
       (model.getObjects(classOf[CellularLocationVocabulary])).asScala
     val cellLocs = instances.toSeq.flatMap(_.getTerm().asScala).sorted.distinct
     println(s"FOUND: ${cellLocs.size} cellular location terms in input model")
-    val resolved = cellLocs.map(resolveKey(_, cellLocationSearcher))
-    val missing = cellLocs.zip(resolved).filter(_._2.isEmpty).map(_._1)
+    val missing = cellLocs.filterNot(lookup(_, cellLocationSearcher))
     outputMissing(missing, GendCellLocationFilename, GendCellLocationPrefix)
   }
 
@@ -72,12 +64,8 @@ object EntityChecker extends App with KnowledgeBaseConstants {
     var proteins = instances.toSeq.map(_.getDisplayName()) ++ findComplexProteinNames(model)
     proteins = proteins.sorted.distinct     // sort and remove duplicate names
     println(s"FOUND: ${proteins.size} distinct proteins in input model")
-    val tried = proteins.map(resolveKey(_, proteinSearcher))         // try to resolve protein names
-    val missing = proteins.zip(tried).filter(_._2.isEmpty).map(_._1) // find unresolved names
-    // try to find remaining unresolved protein names using alternate, transformed keys:
-    val tried2 = missing.map(tryAlternateKeys(_, LocalKeyTransforms.proteinKeyTransforms, proteinSearcher))
-    val stillMissing = missing.zip(tried2).filter(_._2.isEmpty).map(_._1).sorted.distinct
-    outputMissing(stillMissing, GendProteinFilename, GendProteinPrefix)
+    val missing = proteins.filterNot(lookup(_, proteinSearcher))
+    outputMissing(missing, GendProteinFilename, GendProteinPrefix)
   }
 
 
@@ -92,7 +80,7 @@ object EntityChecker extends App with KnowledgeBaseConstants {
 
   /** Output the missing entity names and generated IDs to the given file. */
   private def outputMissing (missing:Seq[String], filename:String, prefix:String) = {
-    val outFile:File = LocalKBUtils.makeFileInKBDir(filename)
+    val outFile:File = ReachKBUtils.makeFileInKBDir(filename)
     val out:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)))
     // val now = Platform.currentTime.toString  // make ID unique per program run
     missing.foreach { entName =>
@@ -104,33 +92,15 @@ object EntityChecker extends App with KnowledgeBaseConstants {
   }
 
 
-  /** Search the KB lookups in sequence for the given key. Return the result from the
-    * first lookup which resolves the given key, or None otherwise. */
-  private def resolveKey (key:String, searchSequence:Seq[LocalKBLookup]): Option[String] = {
-    searchSequence.foreach { kb =>
-      val resInfo = kb.resolve(key)
-      if (resInfo.isDefined)
-        return resInfo
+  /** Search the KB lookups in sequence for the given text string. Return true for
+    * the first lookup which resolves the given text, or false if none do. */
+  private def lookup (text: String, searchSequence:Seq[IMKBLookup]): Boolean = {
+    searchSequence.foreach { kbLookup =>    // for each KB in the sequence
+      val res = kbLookup.resolve(text)      // lookup the given text string
+      if (res.isDefined)                    // if an entry for the text is found in a KB
+        return true
     }
-    return None
-  }
-
-  /** For each of the given transforms, try the given KB lookups in sequence. Return the
-    * result from the first lookup which resolves a transformed key, or None otherwise. */
-  private def tryAlternateKeys (key:String,
-                                transformFns:Seq[(String) => String],
-                                searchSequence:Seq[LocalKBLookup]): Option[String] = {
-    transformFns.foreach { xFormFN =>
-      val xfKey = xFormFN.apply(key)        // create new, transformed key
-      if (xfKey != key) {                   // if new key is really different
-        searchSequence.foreach { kb =>      // search each KB for the new key
-          val resInfo = kb.resolve(xfKey)
-          if (resInfo.isDefined)
-            return resInfo                  // return info for first matching key/KB
-        }
-      }
-    }
-    return None
+    return false                            // else signal failure to find text in any KB
   }
 
 

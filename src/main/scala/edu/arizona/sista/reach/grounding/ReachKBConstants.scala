@@ -2,25 +2,22 @@ package edu.arizona.sista.reach.grounding
 
 /**
   * Trait for defining constants used by grounding and entity checking code.
-  *   Written by Tom Hicks. 5/26/2015.
-  *   Last Modified: Add auxiliary KB filenames.
+  *   Written by Tom Hicks. 10/22/2015.
+  *   Last Modified: Rename constants for Context filenames.
   */
-trait KnowledgeBaseConstants {
+object ReachKBConstants {
 
   /** The set of words to remove from all keys to create a lookup key. */
-  val AllKeysStopSuffixes = Set("_human")
+  val AllKeysStopSuffixes = Seq("_human")
 
   /** The set of words to remove from a key to create a protein family lookup key. */
-  val FamilyStopSuffixes = Set(" family")
+  val FamilyStopSuffixes = Seq(" protein family", " family")
 
   /** The set of characters to remove from the text to create a lookup key. */
   val KeyCharactersToRemove = " /-".toSet
 
   /** The set of words to remove from a key to create a protein lookup key. */
-  val ProteinStopSuffixes = Set(" protein")
-
-  /** The set of words to remove from the text to create a lookup key. */
-  val HumanLabels = Set("homo sapiens", "human")
+  val ProteinStopSuffixes = Seq(" mutant protein", " protein")
 
 
   /** File Path to the directory which holds the entity knowledge bases. */
@@ -62,6 +59,9 @@ trait KnowledgeBaseConstants {
   /** Filename of the static cellular location file. */
   val StaticCellLocationFilename = "GO-subcellular-locations.tsv"
 
+  /** Filename of the alternate static cellular location file. */
+  val StaticCellLocation2Filename = "uniprot-subcellular-locations.tsv"
+
   /** Filename of the static small molecule (chemical) file. */
   val StaticChemicalFilename = "chebi.tsv.gz"
 
@@ -88,6 +88,19 @@ trait KnowledgeBaseConstants {
 
   /** Filename of the organs file */
   val OrganFilename = "Organ.tsv"
+
+ /** Filename of the context species file */
+  val ContextSpeciesFilename = "Species.tsv"
+
+  /** Filename of the contenxt cell lines file */
+  val ContextCellLineFilename = "Cell_Lines.tsv"
+
+  /** Filename of the context cell types file */
+  val ContextCellTypeFilename = "Cell_Type.tsv"
+
+  /** Filename of the context organs file */
+  val ContextOrganFilename = "Organ.tsv"
+
 
   /** Filename of the auxiliary biological processes file. */
   val AuxBioProcessFilename = "AuxBioProcess.tsv"

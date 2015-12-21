@@ -2,7 +2,8 @@ package edu.arizona.sista.coref
 
 import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.DarpaLinks
+import edu.arizona.sista.reach.{DarpaActions, DarpaLinks}
+import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.coref.CorefUtils._
@@ -13,6 +14,7 @@ class Coref {
 
   val debug: Boolean = false
   val verbose: Boolean = false
+  val da: DarpaActions = new DarpaActions()
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
 
@@ -26,7 +28,18 @@ class Coref {
       println("Starting coref...")
     }
 
-    val orderedMentions: Seq[CorefMention] = mentions.sorted[Mention].map(_.toCorefMention)
+    // order mentions and also remove Generic_event mentions that do not have definite determiners.
+    val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
+    val orderedMentions: Seq[CorefMention] = mentions
+      .map(_.toCorefMention)
+      .filterNot(m => {
+        m.matches("Generic_event") && {
+          val sent = m.sentenceObj
+          val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
+          outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
+          outgoing.isEmpty
+        }
+    }).sorted[Mention]
 
     val links = new DarpaLinks(doc)
 
@@ -41,7 +54,7 @@ class Coref {
     /**
      * Make a map from TextBoundMentions to copies of themselves with a maximum of 1 antecedent
      */
-    def resolveTBMs(mentions: Seq[CorefTextBoundMention]): Map[CorefTextBoundMention,Seq[CorefMention]] = {
+    def resolveTBMs(mentions: Seq[CorefTextBoundMention]): Map[CorefTextBoundMention,Seq[CorefTextBoundMention]] = {
       mentions.map(mention => (mention, mention.toSingletons)).toMap
     }
 
@@ -50,7 +63,8 @@ class Coref {
      * in the arguments) replaced with their non-generic antecedents.
      */
     def resolveSimpleEvents(evts: Seq[CorefEventMention], resolvedTBMs: Map[CorefTextBoundMention,Seq[CorefMention]]): Map[CorefEventMention, Seq[CorefEventMention]] = {
-      require(evts.forall(_.matches("SimpleEvent")))
+      require(evts.forall(_.matches("SimpleEvent")), s"Only simple events should be passed to the first argument of" +
+        s" resolveSimpleEvents. you passed ${evts.filterNot(_.matches("SimpleEvent")).map(_.text).mkString("\n","\n","\n")}")
 
       // Events which are themselves generic trigger a search for specific events of the same type
       val (generics, specifics) = evts.partition(m => m.isGeneric)
@@ -95,7 +109,7 @@ class Coref {
               println("argSet: ")
               argSet.foreach {
                 case (lbl: String, ms: Seq[CorefMention]) =>
-                  println(lbl + " -> " + ms.map(_.text).mkString(","))
+                  println(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[",",","]")).mkString(","))
               }
             }
           }
@@ -109,7 +123,7 @@ class Coref {
                 specific.sentence,
                 specific.document,
                 specific.keep,
-                specific.foundBy + (if(specific.sieves.isEmpty) "" else specific.sieves.mkString(", ")))
+                specific.foundBy + (if(specific.sieves.isEmpty) "" else specific.sieves.mkString(", ", ", ", "")))
               generated.modifications ++= specific.modifications
               generated.sieves ++= specific.sieves
               Seq(generated)
@@ -206,8 +220,10 @@ class Coref {
      * mentions but with any generic mentions (including in the arguments) replaced with their non-generic antecedents.
      */
     def resolveComplexEvents(evts: Seq[CorefMention], resolved: Map[CorefMention,Seq[CorefMention]]): Map[CorefMention, Seq[CorefMention]] = {
-      require(evts.forall(_.matches("ComplexEvent")))
+      require(evts.forall(_.matches("ComplexEvent")), s"Only complex events should be passed to the first argument of" +
+        s" resolveComplexEvents, but you passed ${evts.filterNot(_.matches("ComplexEvent")).map(_.text).mkString("\n","\n","\n")}")
 
+      var createdComplexes: Seq[CorefMention] = Nil
       val (toInspect, solid) = evts.partition(m => genericInside(m))
 
       // Events with no generic participants point to themselves
@@ -221,28 +237,38 @@ class Coref {
         evt <- toInspect
 
         // Check already-made maps for previously resolved arguments
-        resolvedArgs = for {
-          (lbl, arg) <- evt match {
-            case rel: CorefRelationMention => rel.arguments
-            case evm: CorefEventMention => evm.arguments
-          }
-          argMs = arg.map(m => resolved.getOrElse(m.asInstanceOf[CorefMention], Nil))
-        } yield lbl -> argMs.flatten
+        resolvedArgs = (for {
+          (lbl, arg) <- evt.arguments
+          //_=println(s"lbl: $lbl\nargs: ${arg.map(_.text).mkString("\n")}")
+          argMs = arg.map(m => resolved.getOrElse(m.toCorefMention, Nil))
+          argsAsEntities = argMs.map(ms => ms.map(m =>
+            if(lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
+              val ant = da.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).get.toCorefMention
+              createdComplexes = createdComplexes :+ ant
+              val copy = new CorefEventMention(
+                m.labels,
+                m.asInstanceOf[CorefEventMention].trigger,
+                m.asInstanceOf[CorefEventMention].arguments,
+                m.sentence,
+                m.document,
+                m.keep,
+                m.foundBy)
+              copy.antecedents = Set(ant)
+              copy.sieves = m.sieves
+              copy
+            } else m))
+        } yield lbl -> argsAsEntities.flatten).toMap
 
         // Because of plural anaphors like "them", we may have to split the arguments into multiple sets to make
         // new events
         argSets = combineArgs(resolvedArgs)
       } yield {
-          evt match {
-            case rel: CorefRelationMention => evt.asInstanceOf[CorefRelationMention].arguments
-            case evm: CorefEventMention => evt.asInstanceOf[CorefEventMention].arguments
-          }
           if (verbose) {
             println("argSets:")
             argSets.foreach { argSet =>
               argSet.foreach {
                 case (lbl: String, ms: Seq[CorefMention]) =>
-                  println(lbl + " -> " + ms.map(_.text).mkString(","))
+                  println(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[",",","]")).mkString(","))
               }
             }
           }
@@ -258,7 +284,7 @@ class Coref {
                     evt.sentence,
                     evt.document,
                     evt.keep,
-                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ")))
+                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
                   generated.modifications ++= evt.modifications
                   generated.sieves ++= evt.sieves
                   Seq(generated)
@@ -270,7 +296,7 @@ class Coref {
                     evt.sentence,
                     evt.document,
                     evt.keep,
-                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ")))
+                    evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
                   generated.modifications ++= evt.modifications
                   generated.sieves ++= evt.sieves
                   Seq(generated)
@@ -283,7 +309,7 @@ class Coref {
 
       // Note: we intentionally avoid generic complex events; recursive complex events are rare in any case, and
       // complicated enough to be likely to induce errors
-      solidMap ++ inspectedMap
+      solidMap ++ inspectedMap ++ createdComplexes.map(c => c -> Seq(c)).toMap
     }
 
     /**
@@ -299,11 +325,11 @@ class Coref {
       val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
       val cevts = mentions.filter(m => m.matches("ComplexEvent"))
       val resolvedTBMs = resolveTBMs(tbms)
-      if (verbose) resolvedTBMs.foreach{ case (k,v) => println(s"TBM: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      if (verbose) resolvedTBMs.foreach{ case (k,v) => println(s"TBM: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[",",","]")).mkString(",") + ")")}
       val resolvedSimple = resolveSimpleEvents(sevts,resolvedTBMs)
-      if (verbose) resolvedSimple.foreach{ case (k,v) => println(s"SimpleEvent: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      if (verbose) resolvedSimple.foreach{ case (k,v) => println(s"SimpleEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[",",","]")).mkString(",") + ")")}
       val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple)
-      if (verbose) resolvedComplex.foreach{ case (k,v) => println(s"ComplexEvent: ${k.text} => (" + v.map(_.text).mkString(",") + ")")}
+      if (verbose) resolvedComplex.foreach{ case (k,v) => println(s"ComplexEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[",",","]")).mkString(",") + ")")}
       val resolved = resolvedTBMs ++ resolvedSimple ++ resolvedComplex
 
       val retVal = corefDistinct(mentions.flatMap(mention => resolved.getOrElse(mention, Nil)))

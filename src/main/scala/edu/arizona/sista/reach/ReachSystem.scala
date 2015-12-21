@@ -3,8 +3,7 @@ package edu.arizona.sista.reach
 import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.grounding.LocalGrounder
-import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.grounding.ReachGrounder
 import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
@@ -14,15 +13,11 @@ import scala.collection.immutable.HashSet
 import scala.collection.mutable
 
 class ReachSystem(
-    rules: Option[Rules],
-    proc: Option[BioNLPProcessor]
+    rules: Option[Rules] = None,
+    proc: Option[BioNLPProcessor] = None
 ) {
 
   import ReachSystem._
-
-  // overload constructor
-  def this() = this(None, None)
-  def this(rules: Option[Rules]) = this(rules, None)
 
   val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
   val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
@@ -31,7 +26,7 @@ class ReachSystem(
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
-  val grounder = new LocalGrounder
+  val grounder = new ReachGrounder
   // start entity extraction engine
   // this engine extracts all physical entities of interest and grounds them
   val entityEngine = ExtractorEngine(entityRules, actions, grounder.apply)
@@ -48,8 +43,6 @@ class ReachSystem(
   /** returns string with all rules used by the system */
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
-
-  def mkDoc(entry: FriesEntry): Document = mkDoc(entry.text, entry.name, entry.chunkId)
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
@@ -84,10 +77,11 @@ class ReachSystem(
 
   // the extractFrom() methods are the main entry points to the reach system
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(Seq(entry))
+    extractFrom(entry.text, entry.name, entry.chunkId)
 
-  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] =
-    extractFrom(FriesEntry(docId, chunkId, "NoSection", "NoSection", false, text))
+  def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
+    extractFrom(mkDoc(text, docId, chunkId))
+  }
 
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
