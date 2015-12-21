@@ -58,7 +58,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
     info(s"Testing bounding padding context")
     // Extract context for the sentences of a doc, not to the attached mentions
     val friesEntries = reader.readNxml(nxml, "")
-    val documents = friesEntries map reachSystem.mkDoc
+    val documents = friesEntries map (e => reachSystem.mkDoc(e.text, e.name, e.chunkId))
     val entitiesPerEntry =  for (doc <- documents) yield reachSystem.extractEntitiesFrom(doc)
 
 

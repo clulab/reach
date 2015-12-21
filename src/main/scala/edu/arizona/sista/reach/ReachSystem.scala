@@ -11,6 +11,7 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.reach.context.rulebased._
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
+import edu.arizona.sista.reach.context._
 
 class ReachSystem(
     rules: Option[Rules] = None,
@@ -52,7 +53,9 @@ class ReachSystem(
   }
 
   def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
-    extractFrom(entries, entries map mkDoc)
+    extractFrom(entries, entries.map{
+        e => mkDoc(e.text, e.name, e.chunkId)
+    })
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
     // initialize the context engine
