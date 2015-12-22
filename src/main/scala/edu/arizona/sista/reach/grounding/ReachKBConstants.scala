@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Rename constants for Context filenames.
+  *   Last Modified: Update for gzipped Species file.
   */
 object ReachKBConstants {
 
@@ -79,7 +79,7 @@ object ReachKBConstants {
 
 
  /** Filename of the context species file */
-  val ContextSpeciesFilename = "Species.tsv"
+  val ContextSpeciesFilename = "Species.tsv.gz"
 
   /** Filename of the contenxt cell lines file */
   val ContextCellLineFilename = "Cell_Lines.tsv"
