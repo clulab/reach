@@ -77,17 +77,6 @@ object ReachKBConstants {
   /** Filename of the static tissue type file. */
   val StaticTissueTypeFilename = "tissue-type.tsv"
 
-  /** Filename of the species file */
-  val SpeciesFilename = "Species.tsv"
-
-  /** Filename of the cell lines file */
-  val CellLinesFilename = "Cell_Lines.tsv"
-
-  /** Filename of the cell types file */
-  val CellTypesFilename = "Cell_Type.tsv"
-
-  /** Filename of the organs file */
-  val OrganFilename = "Organ.tsv"
 
  /** Filename of the context species file */
   val ContextSpeciesFilename = "Species.tsv"
