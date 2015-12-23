@@ -16,7 +16,6 @@ import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context._
-import edu.arizona.sista.reach.extern.export.context._
 
 class ReachCLI(val nxmlDir:File,
                val outputDir:File,
