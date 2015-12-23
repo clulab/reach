@@ -6,12 +6,13 @@ import java.util.Date
 import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Remove unused imports.
+  *   Last Modified: Update for context.
   */
 trait JsonOutputter {
 
@@ -67,6 +68,10 @@ object JsonOutputter {
     else if (arg matches "Entity") "entity"
     else if (arg matches "Site") "entity"
     else if (arg matches "Cellular_component") "entity"
+    else if (arg matches "CellLine") "entity"
+    else if (arg matches "CellType") "entity"
+    else if (arg matches "Organ") "entity"
+    else if (arg matches "Species") "entity"
     else if (arg matches "Event") "event"
     else throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
   }
