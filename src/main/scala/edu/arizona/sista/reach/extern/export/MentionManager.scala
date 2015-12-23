@@ -8,12 +8,13 @@ import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Refactor argument accessors to mention/package.
+  *   Last Modified: Add context output.
   */
 class MentionManager {
 
@@ -156,9 +157,14 @@ class MentionManager {
         mStrings += s"${indent}UNKNOWN MENTION TYPE"
     }
 
-    // postprocessing common to all participants of match above:
-    if (mention.isInstanceOf[BioMention])
-      mStrings ++= modificationsToStrings(mention.toBioMention, level)
+    // postprocessing common to participants of match above:
+
+    if (mention.isInstanceOf[BioMention]) {
+      val bioMention = mention.toBioMention
+      mStrings ++= modificationsToStrings(bioMention, level)
+      if (bioMention.context.isDefined)
+        mStrings ++= contextToStrings(bioMention.context.get, level)
+    }
 
     mention.toCorefMention.antecedent foreach { ante =>
       mStrings += s"${indent}antecedent:"
@@ -168,6 +174,22 @@ class MentionManager {
     if (level == 0) mStrings += ("=" * 80)
 
     // all done at this level: return accumulated list of output strings
+    return mStrings.toList
+  }
+
+
+  /** Return a list of strings representing the context properties from the
+      given context map. */
+  private def contextToStrings (ctxMap:ContextMap, level:Integer): List[String] = {
+    val mStrings:MutableList[String] = MutableList[String]()
+    val headIndent = ("  " * level)
+    val indent = ("  " * (level+1))
+    if (!ctxMap.isEmpty) {
+      mStrings += s"${headIndent}context:"
+      ctxMap foreach { ctxEntry =>
+        mStrings += s"${indent}${ctxEntry._1}: ${ctxEntry._2}"
+      }
+    }
     return mStrings.toList
   }
 
