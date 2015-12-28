@@ -139,6 +139,7 @@ class NxmlSearcher(val indexDir:String) {
     val resultDocs = docs(result.toSet)
 
     saveNxml(resultDir, resultDocs)
+    saveIds(resultDocs)
   }
 }
 
