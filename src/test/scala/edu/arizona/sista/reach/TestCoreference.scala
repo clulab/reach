@@ -159,7 +159,7 @@ class TestCoreference extends FlatSpec with Matchers {
   sent15 should "not contain any events" in {
     val mentions = parseSentence(sent15)
     mentions filter (_ matches "Event") should have size (0)
-    mentions should have size (2)
+    mentions should have size (3)
   }
 
    // Ignore anything two sentences prior when searching for antecedents.
@@ -328,4 +328,3 @@ class TestCoreference extends FlatSpec with Matchers {
     }
   }
 }
-

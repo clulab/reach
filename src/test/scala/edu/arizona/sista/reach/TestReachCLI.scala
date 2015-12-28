@@ -9,7 +9,7 @@ import org.scalatest.{Matchers, FlatSpec}
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
   * User: mihais
   * Date: 12/4/15
-  * Last Modified: Add commented test for IndexCard output.
+  * Last Modified: Make separate output temp directory for IndexCards.
   */
 class TestReachCLI extends FlatSpec with Matchers {
   val nxmlDir = new File("src/test/resources/inputs/nxml")
@@ -17,6 +17,10 @@ class TestReachCLI extends FlatSpec with Matchers {
   lazy val tmpFriesDir = Files.mkTmpDir("tmpFries", deleteOnExit = true)
   lazy val friesDir = new File(tmpFriesDir)
   lazy val friesLogFile = new File(tmpFriesDir + File.separator + "log.txt")
+
+  lazy val tmpICDir = Files.mkTmpDir("tmpIC", deleteOnExit = true)
+  lazy val icDir = new File(tmpICDir)
+  lazy val icLogFile = new File(tmpICDir + File.separator + "log.txt")
 
   lazy val tmpTxtDir = Files.mkTmpDir("tmpTxt", deleteOnExit = true)
   lazy val txtDir = new File(tmpTxtDir)
@@ -45,11 +49,11 @@ class TestReachCLI extends FlatSpec with Matchers {
   }
 
   "ReachCLI" should "output IndexCard correctly on NXML papers" in {
-    println(s"Will output IndexCard output in directory ${friesDir.getAbsolutePath}")
+    println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
     val outputType = "indexcard"
-    val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, friesLogFile)
+    val cli = new ReachCLI(nxmlDir, icDir, encoding, outputType, ignoreSections, icLogFile)
     val errorCount = cli.processPapers()
-    if(errorCount > 0) dumpLog(friesLogFile)
+    if(errorCount > 0) dumpLog(icLogFile)
     errorCount should be (0)
   }
 

@@ -22,7 +22,8 @@ package object ner {
     Map("hmdb" -> Seq("Simple_chemical", "BioChemicalEntity"),
         "chebi" -> Seq("Simple_chemical", "BioChemicalEntity"),
         "ProteinFamilies" -> Seq("Family", "BioChemicalEntity"),
-        "tissue-type" -> Seq("Cellular_component", "BioChemicalEntity"),
+        //"tissue-type" -> Seq("Cellular_component", "BioChemicalEntity", "TissueType"),
+        "tissue-type" -> Seq("CellType"),
         "uniprot-proteins" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
         "uniprot-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
         "GO-subcellular-locations" -> Seq("Cellular_component", "BioChemicalEntity"),
@@ -36,8 +37,12 @@ package object ner {
         "manual-family" -> Seq("Family", "BioChemicalEntity"),
         "manual-cellular_component" -> Seq("Cellular_component", "BioChemicalEntity"),
         "manual-gene_or_gene_product" -> Seq("Gene_or_gene_product", "BioChemicalEntity"),
-        "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"))
-     // .withDefaultValue(Seq("BioChemicalEntity"))
+        "manual-simple_chemical" -> Seq("Simple_chemical", "BioChemicalEntity"),
+     // .withDefaultValue(Seq("BioChemicalEntity")),
+        "Species" -> Seq("Species"),
+        "Cell_Lines" -> Seq("CellLine"),
+        "Organ" -> Seq("Organ"),
+        "Cell_Type" -> Seq("CellType"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
 
@@ -45,7 +50,8 @@ package object ner {
     Map("uniprot-proteins" -> speciesOfInterest,
         "ProteinFamilies" -> speciesOfInterest).withDefaultValue(Nil)
 
-  val IGNORE_THESE = Seq("chebi", "tissue-type")
+  //val IGNORE_THESE = Seq("chebi", "tissue-type")
+  val IGNORE_THESE = Seq("chebi")
   def mkLabelRepresentation(kb: String): String = "[" + KBLUT(kb).mkString(", ") + "]"
 
   /**

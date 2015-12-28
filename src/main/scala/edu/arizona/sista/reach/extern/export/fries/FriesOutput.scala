@@ -19,7 +19,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Cleanup after Coref bugs fixed.
+  *   Last Modified: Simplify context output.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -28,7 +28,6 @@ class FriesOutput extends JsonOutputter {
   protected val entityIdCntr = new IncrementingId()
   // incrementing ID for numbering event mentions
   protected val eventIdCntr = new IncrementingId()
-
 
   //
   // Public API:
@@ -264,15 +263,14 @@ class FriesOutput extends JsonOutputter {
     if (MentionManager.isHypothesized(mention))
       f("is-hypothesis") = true
 
-    mkContext(f, mention)
+    // context features
+    if (mention.context.exists(! _.isEmpty))
+      f("context") = mention.context.get
 
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
   }
 
-  def mkContext(f:PropMap, mention:BioMention): Unit = {
-    // TODO: add context here
-  }
 
   private def mkArgument(name:String,
                          arg:Mention,

@@ -18,7 +18,7 @@ import IndexCardOutput._
 /**
  * Defines classes and methods used to build and output the index card format.
  *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Cleanup after Coref bugs fixed.
+ *   Last Modified: Add context output.
  */
 class IndexCardOutput extends JsonOutputter {
 
@@ -150,6 +150,11 @@ class IndexCardOutput extends JsonOutputter {
     }
   }
 
+  /** Add the properties of the given context map to the given property map. */
+  def mkContext (f:PropMap, mention:CorefMention): Unit = {
+    if (mention.context.exists(! _.isEmpty))
+      f("context") = mention.context.get
+  }
 
   def mkArgument(arg:CorefMention):Any = {
     val derefArg = arg.antecedentOrElse(arg)
@@ -288,10 +293,6 @@ class IndexCardOutput extends JsonOutputter {
   def mkHedging(f:PropMap, mention:CorefMention) {
     f("negative_information") = MentionManager.isNegated(mention)
     f("hypothesis_information") = MentionManager.isHypothesized(mention)
-  }
-
-  def mkContext(f:PropMap, mention:CorefMention): Unit = {
-    // TODO: add context information here!
   }
 
   /** Creates a card for a regulation event */

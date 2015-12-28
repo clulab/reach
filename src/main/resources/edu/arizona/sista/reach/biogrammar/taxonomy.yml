@@ -1,6 +1,14 @@
 - Cellular_component
 - Site
 - ModificationTrigger
+- Species
+- CellLine
+- Organ
+- CellType
+- Context:
+  - ContextDirection
+  - ContextLocation
+  - ContextPossessive
 - Modification:
     - PTM
     - Mutant

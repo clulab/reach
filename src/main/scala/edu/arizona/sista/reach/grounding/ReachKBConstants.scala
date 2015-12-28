@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for multiple suffix stripping.
+  *   Last Modified: Update for gzipped Species file.
   */
 object ReachKBConstants {
 
@@ -76,6 +76,19 @@ object ReachKBConstants {
 
   /** Filename of the static tissue type file. */
   val StaticTissueTypeFilename = "tissue-type.tsv"
+
+
+ /** Filename of the context species file */
+  val ContextSpeciesFilename = "Species.tsv.gz"
+
+  /** Filename of the contenxt cell lines file */
+  val ContextCellLineFilename = "Cell_Lines.tsv"
+
+  /** Filename of the context cell types file */
+  val ContextCellTypeFilename = "Cell_Type.tsv"
+
+  /** Filename of the context organs file */
+  val ContextOrganFilename = "Organ.tsv"
 
 
   /** Filename of the auxiliary biological processes file. */

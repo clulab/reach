@@ -5,7 +5,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Update for multiple suffix stripping.
+  *   Last Modified: Add logic for an organ to inferred cell type transform.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -30,6 +30,16 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     * if found in the given key string, else return the key unchanged. */
   def stripFamilySuffixes (key:String): String = {
     return stripSuffixes(FamilyStopSuffixes, key)
+  }
+
+  /** Return the portion of the key string minus one of the organ-cell-type suffixes,
+    * if found in the given key string, else return the key unchanged. */
+  def stripOrganCellTypeSuffixes (key:String): String = {
+    val suffixPat = """(.*)(cells?|tissues?|fluids?)""".r  // trailing context strings
+    return key match {
+      case suffixPat(lhs, _) => lhs
+      case _ => key
+    }
   }
 
   /** Return the portion of the key string before a trailing mutation phrase,
@@ -67,6 +77,9 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
   val familyKeyTransforms = Seq( stripFamilySuffixes _ )
+
+  /** List of transform methods to apply for alternate Organ-CellType lookups. */
+  val organCellTypeKeyTransforms = Seq( stripOrganCellTypeSuffixes _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
   val proteinKeyTransforms = Seq( stripProteinSuffixes _,

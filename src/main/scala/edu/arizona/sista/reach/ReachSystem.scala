@@ -8,8 +8,10 @@ import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
+import edu.arizona.sista.reach.context.rulebased._
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
+import edu.arizona.sista.reach.context._
 
 class ReachSystem(
     rules: Option[Rules] = None,
@@ -21,6 +23,7 @@ class ReachSystem(
   val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
   val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
   val eventRules = if (rules.isEmpty) readResource(RuleReader.eventsMasterFile) else rules.get.events
+  val contextRules = if (rules.isEmpty) readResource(RuleReader.contextRelationsFile) else rules.get.context
   // initialize actions object
   val actions = new DarpaActions
   // initialize grounder
@@ -40,13 +43,39 @@ class ReachSystem(
 
   /** returns string with all rules used by the system */
   def allRules: String =
-    Seq(entityRules, modificationRules, eventRules).mkString("\n\n")
+    Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
     doc
+  }
+
+  def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
+    extractFrom(entries, entries.map{
+        e => mkDoc(e.text, e.name, e.chunkId)
+    })
+
+  def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
+    // initialize the context engine
+    val contextEngine = new BoundedPaddingContext
+
+    val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
+    contextEngine.infer(entries, documents, entitiesPerEntry)
+    val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
+    val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield {
+        val events = extractEventsFrom(doc, es)
+        MentionFilter.keepMostCompleteMentions(events, State(events))
+    }
+    contextEngine.update(eventsPerEntry.flatten)
+    val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
+    // we can't send all mentions to resolve coref, so we group them by document first
+    val resolved = eventsWithContext.groupBy(_.document).values.map(resolve).flatten.toList
+    // Coref introduced incomplete Mentions that now need to be pruned
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+    // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
+    resolveDisplay(complete)
   }
 
   // the extractFrom() methods are the main entry points to the reach system
@@ -60,13 +89,7 @@ class ReachSystem(
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    val entities = extractEntitiesFrom(doc)
-    val events = extractEventsFrom(doc, entities)
-    val completeUnresolved = MentionFilter.keepMostCompleteMentions(events, State(events))
-    val resolved = resolve(completeUnresolved)
-    // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved))
-    resolveDisplay(complete)
+    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", false, doc.text.get)), Seq(doc))
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -83,7 +106,7 @@ class ReachSystem(
           mutations map { mut =>
             val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
             tbm.modifications += mut
-            tbm.xref = m.xref // mentions should stay grounded
+            BioMention.copyAttachments(m, tbm) // mentions should stay grounded
             tbm
           }
         }

@@ -1,10 +1,11 @@
 package edu.arizona.sista.reach
 
 import edu.arizona.sista.coref.AntecedentSelector
+import edu.arizona.sista.reach.context.Context
 import edu.arizona.sista.odin._
 
 package object mentions {
-  type BioMention = Mention with Modifications with Grounding with Display
+  type BioMention = Mention with Modifications with Grounding with Display with Context
   type CorefMention = BioMention with Anaphoric
   type Link = (Seq[CorefMention], AntecedentSelector) => Seq[CorefMention]
 
@@ -54,7 +55,7 @@ package object mentions {
           m.foundBy
         )
         tbm.modifications ++= m.modifications
-        tbm.xref = m.xref
+        BioMention.copyAttachments(m, tbm)
         tbm
       }
       case m: BioEventMention => {
@@ -68,7 +69,7 @@ package object mentions {
           m.foundBy
         )
         ev.modifications ++= m.modifications
-        ev.xref = m.xref
+        BioMention.copyAttachments(m, ev)
         ev
       }
 
@@ -82,7 +83,7 @@ package object mentions {
           m.foundBy
         )
         rel.modifications ++= m.modifications
-        rel.xref = m.xref
+        BioMention.copyAttachments(m, rel)
         rel
       }
 

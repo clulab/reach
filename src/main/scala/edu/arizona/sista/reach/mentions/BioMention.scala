@@ -3,6 +3,7 @@ package edu.arizona.sista.reach.mentions
 import edu.arizona.sista.odin._
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.context.Context
 
 class BioTextBoundMention(
   labels: Seq[String],
@@ -12,7 +13,7 @@ class BioTextBoundMention(
   keep: Boolean,
   foundBy: String
 ) extends TextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display {
+    with Modifications with Grounding with Display with Context{
 
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
@@ -30,7 +31,7 @@ class BioEventMention(
   keep: Boolean,
   foundBy: String
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display {
+    with Modifications with Grounding with Display with Context{
 
   // FIXME
   // sketchy code to mutate the mention's tokenInterval
@@ -54,7 +55,7 @@ class BioRelationMention(
   keep: Boolean,
   foundBy: String
 ) extends RelationMention(labels, arguments, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display {
+    with Modifications with Grounding with Display with Context {
 
   // FIXME
   // sketchy code to mutate the mention's tokenInterval
@@ -68,4 +69,11 @@ class BioRelationMention(
     super.hashCode() * 42 + mutations.hashCode()
   }
 
+}
+
+object BioMention{
+    def copyAttachments(src:BioMention, dst:BioMention){
+        dst.xref = src.xref
+        dst.context = src.context
+    }
 }

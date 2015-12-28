@@ -8,12 +8,14 @@ import scala.collection.mutable
 import scala.util.{ Try,Success,Failure }
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
+import edu.arizona.sista.processors.Document
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
+import edu.arizona.sista.reach.context._
 
 class ReachCLI(val nxmlDir:File,
                val outputDir:File,

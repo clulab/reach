@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.2.0** - First release of context extraction! Context includes: species, organs, cell lines and types. Improved coreference resolution with constraints on determiner type.
 + **1.1.3** - Bug fixes in coreference resolution plus output formats
 + **1.1.2** - Bug fixes in the index card output
 + **1.1.1** - Improved event coreference resolution
