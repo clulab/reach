@@ -86,7 +86,7 @@ If the configuration file is omitted, Reach uses the default `.conf`. That is, t
 
 will run the system using the `.conf` file under `src/main/resources/application.conf`.
 
-## Running the interactive Reach shell for rule debugging:
+## Running the interactive Reach shell for rule debugging
 
 `sbt "runMain runMain edu.arizona.sista.reach.ReachShell"`
 
