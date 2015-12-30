@@ -31,7 +31,7 @@ All our own code is licensed under Apache License Version 2.0. **However, some o
 
 # Citations
 
-For now, please cite this paper:
+If you use `reach`, please cite this paper:
 
 ```
 @inproceedings{Valenzuela+:2015aa,
@@ -45,6 +45,8 @@ For now, please cite this paper:
   Note = {Paper available at \url{http://www.aclweb.org/anthology/P/P15/P15-4022.pdf}},
 }
 ```
+
+More publications from the `reach` project are available [here](http://agathon.sista.arizona.edu:8080/odinweb/papers).
 
 # Installation
 
@@ -93,20 +95,13 @@ enter `:help` to get a list of available commands.
 # Modifying the code
 `reach` builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
 
-# Additional resources
+# `reach` web services
 
-## Data
-+ [Specification of the FRIES format supported by `reach`](http://de.iplantcollaborative.org/dl/d/AF93EFAA-A97D-491D-808B-257BBB1B7110/fries-data-representation-spec-3.txt)
-+ [`reach` output on the 1K papers from the summer 2015 Big Mechanism DARPA evaluation](http://de.iplantcollaborative.org/dl/d/845C66EE-F84E-42BE-8E04-8D24BA6A5E5F/REACH_1kpapers_FRIESformat.tar.gz). In FRIES format, generated in June 2015.
-+ [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/878FDD6F-BF2A-4384-BEE0-3412F21B03EB/REACH_55kpapers_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
-+ [`reach` output on 55K papers from the Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/A14990F1-CD89-48DC-9234-67FCCE539066/pi-mtg-summer-2015-55k-expt-index-cards-v3.zip). In MITRE's index-card format (converted from the above FRIES format by Hans Chalupsky), generated in July 2015.
-+ [`reach` output on the entire Open Access subset of PubMed](http://de.iplantcollaborative.org/dl/d/4A5DDD7C-CC25-4FC8-A4AE-5F41A53751E6/REACH_full_FRIESformat.tar.gz). In FRIES format, generated in July 2015.
-+ [`reach` output](https://www.dropbox.com/s/iw5ql5xy19tbmq0/13K-indexcards_151210.tgz?dl=0) and [NXML input](https://www.dropbox.com/s/m34qa54p03fto2g/13K-input-nxml-files_151210.tgz?dl=0) on the 13K papers used in the FRIES use-case evaluation of December 2015. In index-card format, generated on December 9th, 2015.
+We have developed a series of web services on top of the `reach` library. All are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/).
 
-## Code
-+ [Interactive `reach` visualizer](http://agathon.sista.arizona.edu:8080/odinweb/bio)
-+ [REST API for `reach`](http://agathon.sista.arizona.edu:8080/odinweb/api)
-+ [`reach` results explorer](http://agathon.sista.arizona.edu:8080/odinweb/explorer/)
+# `reach` datasets
+
+We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using `reach`. All datasets are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/data).
 
 # Funding
 
