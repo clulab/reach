@@ -566,7 +566,7 @@ class DarpaActions extends Actions {
         entity.foundBy)
       // attach a modification based on the event trigger
       val label = getModificationLabel(event.trigger.text)
-      modifiedEntity.xref = entity.xref
+      BioMention.copyAttachments(entity, modifiedEntity)
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = siteOption)
       Some(modifiedEntity)
     }

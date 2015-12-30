@@ -75,5 +75,6 @@ object BioMention{
     def copyAttachments(src:BioMention, dst:BioMention){
         dst.xref = src.xref
         dst.context = src.context
+        dst.modifications ++= src.modifications
     }
 }
