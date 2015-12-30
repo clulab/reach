@@ -29,6 +29,8 @@ class FriesOutput extends JsonOutputter {
   // incrementing ID for numbering event mentions
   protected val eventIdCntr = new IncrementingId()
 
+  var currEvent = ""
+
   //
   // Public API:
   //
@@ -214,6 +216,8 @@ class FriesOutput extends JsonOutputter {
                              mention:BioMention,
                              entityMap: IDed,
                              eventMap:IDed): PropMap = {
+    currEvent = mention.text
+
     val f = startFrame(COMPONENT)
     f("frame-type") = "event-mention"
     val eid = mkEventId(paperId, passageMeta, mention.sentence)
@@ -314,7 +318,7 @@ class FriesOutput extends JsonOutputter {
           }
           */
 
-          throw new RuntimeException(s"Found entity argument [${arg.text}] not in entityMap in sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
+          throw new RuntimeException(s"Found entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
 
         }
         // assert(entityMap.contains(arg))
