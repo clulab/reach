@@ -3,11 +3,11 @@ Reach
 
 # What is it?
 
-Reach stands for **Re**ading and **A**ssembling **C**ontextual and **H**olistic Mechanisms from Text. In plain English, `reach is an information extraction system for the biomedical domain, which aims to read scientific literature and extract cancer signaling pathways. `reach` implements a fairly complete extraction pipeline, including: recognition of biochemical entities (proteins, chemicals, etc.), grounding them to known knowledge bases such as Uniprot, extraction of BioPAX-like interactions, e.g., phosphorylation, complex assembly, positive/negative regulations, and coreference resolution, for both entities and interactions.  
+Reach stands for **Re**ading and **A**ssembling **C**ontextual and **H**olistic Mechanisms from Text. In plain English, `reach is an information extraction system for the biomedical domain, which aims to read scientific literature and extract cancer signaling pathways. Reach implements a fairly complete extraction pipeline, including: recognition of biochemical entities (proteins, chemicals, etc.), grounding them to known knowledge bases such as Uniprot, extraction of BioPAX-like interactions, e.g., phosphorylation, complex assembly, positive/negative regulations, and coreference resolution, for both entities and interactions.  
 
-`reach` is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(Open-Domain-INformer)), our open-domain information extraction framework, which is released within our [`processors`](https://github.com/clulab/processors) repository. 
+Reach is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(Open-Domain-INformer)), our open-domain information extraction framework, which is released within our [`processors`](https://github.com/clulab/processors) repository. 
 
-Please scroll down to the bottom of this page for additional resources, including a `reach` output visualizer, REST API, and datasets created with `reach`.
+Please scroll down to the bottom of this page for additional resources, including a Reach output visualizer, REST API, and datasets created with Reach.
 
 # Licensing
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
@@ -20,7 +20,7 @@ All our own code is licensed under Apache License Version 2.0. **However, some o
 
 # Authors  
 
-`reach` was created by the following members of the [`clulab` at the University of Arizona](http://clulab.cs.arizona.edu/):
+Reach was created by the following members of the [CLU lab at the University of Arizona](http://clulab.cs.arizona.edu/):
 
 + Marco Valenzuela  
 + Gus Hahn-Powell  
@@ -31,7 +31,7 @@ All our own code is licensed under Apache License Version 2.0. **However, some o
 
 # Citations
 
-If you use `reach`, please cite this paper:
+If you use Reach, please cite this paper:
 
 ```
 @inproceedings{Valenzuela+:2015aa,
@@ -46,7 +46,7 @@ If you use `reach`, please cite this paper:
 }
 ```
 
-More publications from the `reach` project are available [here](http://agathon.sista.arizona.edu:8080/odinweb/papers).
+More publications from the Reach project are available [here](http://agathon.sista.arizona.edu:8080/odinweb/papers).
 
 # Installation
 
@@ -75,34 +75,34 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 
 ## Running the system on a directory of `nxml` papers
 
-The most common usage of `reach` is to parse a directory containing one or more papers in the NXML format.
+The most common usage of Reach is to parse a directory containing one or more papers in the NXML format.
 In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing `nxml` files should be specified using the `nxmlDir` variable.
 
 `sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"`
 
-If the configuration file is omitted, `reach` uses the default `.conf`. That is, the command:
+If the configuration file is omitted, Reach uses the default `.conf`. That is, the command:
 
 `sbt "runMain edu.arizona.sista.reach.ReachCLI"`
 
 will run the system using the `.conf` file under `src/main/resources/application.conf`.
 
-## Running the interactive `reach` shell for rule debugging:
+## Running the interactive Reach shell for rule debugging:
 
 `sbt "runMain runMain edu.arizona.sista.reach.ReachShell"`
 
 enter `:help` to get a list of available commands.
 
 # Modifying the code
-`reach` builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
+Reach builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
 
-# `reach` web services
+# Reach web services
 
-We have developed a series of web services on top of the `reach` library. All are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/).
+We have developed a series of web services on top of the Reach library. All are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/).
 
-# `reach` datasets
+# Reach datasets
 
-We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using `reach`. All datasets are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/data).
+We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using Reach. All datasets are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/data).
 
 # Funding
 
-The development of `reach` was funded by the [DARPA Big Mechanism program](http://www.darpa.mil/program/big-mechanism) under ARO contract W911NF-14-1-0395.
+The development of Reach was funded by the [DARPA Big Mechanism program](http://www.darpa.mil/program/big-mechanism) under ARO contract W911NF-14-1-0395.
