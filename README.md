@@ -73,10 +73,10 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 
 # How to use it
 
-## Running the system on a directory of `nxml` papers
+## Running the system on a directory of NXML papers
 
 The most common usage of Reach is to parse a directory containing one or more papers in the NXML format.
-In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing `nxml` files should be specified using the `nxmlDir` variable.
+In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing NXML files should be specified using the `nxmlDir` variable.
 
 `sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"`
 
