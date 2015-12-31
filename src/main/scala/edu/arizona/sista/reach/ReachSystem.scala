@@ -105,8 +105,12 @@ class ReachSystem(
         else {
           mutations map { mut =>
             val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
+            // copy all attachments
+            BioMention.copyAttachments(m, tbm)
+            // remove all mutations
+            tbm.modifications = tbm.modifications diff mutations
+            // add desired mutation only
             tbm.modifications += mut
-            BioMention.copyAttachments(m, tbm) // mentions should stay grounded
             tbm
           }
         }
