@@ -33,11 +33,11 @@ class Coref {
     val orderedMentions: Seq[CorefMention] = mentions
       .map(_.toCorefMention)
       .filterNot(m => {
-        m.matches("Generic_event") && {
+        m.isGeneric && !m.isClosedClass && {
           val sent = m.sentenceObj
           val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
-          outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
-          outgoing.isEmpty
+          val hasDet = outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
+          hasDet.isEmpty
         }
     }).sorted[Mention]
 
@@ -124,8 +124,7 @@ class Coref {
                 specific.document,
                 specific.keep,
                 specific.foundBy + (if(specific.sieves.isEmpty) "" else specific.sieves.mkString(", ", ", ", "")))
-              generated.modifications ++= specific.modifications
-              generated.sieves ++= specific.sieves
+              BioMention.copyAttachments(specific, generated)
               Seq(generated)
             } else Nil
           )
@@ -285,8 +284,7 @@ class Coref {
                     evt.document,
                     evt.keep,
                     evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
-                  generated.modifications ++= evt.modifications
-                  generated.sieves ++= evt.sieves
+                  BioMention.copyAttachments(evt, generated)
                   Seq(generated)
                 case evm: CorefEventMention =>
                   val generated = new CorefEventMention(
@@ -297,8 +295,7 @@ class Coref {
                     evt.document,
                     evt.keep,
                     evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
-                  generated.modifications ++= evt.modifications
-                  generated.sieves ++= evt.sieves
+                  BioMention.copyAttachments(evt, generated)
                   Seq(generated)
               }
             }

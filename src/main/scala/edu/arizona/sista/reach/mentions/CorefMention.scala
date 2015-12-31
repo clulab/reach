@@ -43,7 +43,16 @@ class CorefTextBoundMention(
     }
   }
 
-  def isComplete: Boolean = !this.isGeneric || this.antecedent.nonEmpty
+  def isComplete: Boolean = !this.isGeneric || (this.antecedent.nonEmpty && this.antecedent.get.isComplete)
+
+  def isClosedClass: Boolean = {
+    if (!this.isGeneric || this.words.length > 1) false
+    else {
+      val tag = this.tags.get.headOption.getOrElse("NA")
+      val closedClass = Seq("DT", "PRP", "PRP$", "WDT", "WP", "WP$")
+      closedClass contains tag
+    }
+  }
 }
 
 class CorefEventMention(
@@ -99,6 +108,8 @@ class CorefEventMention(
         argsComplete(completeArgs, spc.asInstanceOf[CorefMention].labels)
     }
   }
+
+  def isClosedClass: Boolean = false
 }
 
 
@@ -126,5 +137,6 @@ class CorefRelationMention(
     argsComplete(completeArgs, this.labels)
   }
 
+  def isClosedClass: Boolean = false
 }
 

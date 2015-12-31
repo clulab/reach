@@ -34,4 +34,6 @@ trait Anaphoric {
   }
 
   def isComplete: Boolean
+
+  def isClosedClass: Boolean
 }
