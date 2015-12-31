@@ -327,4 +327,17 @@ class TestCoreference extends FlatSpec with Matchers {
       hasEventWithArguments(simpleEventTypes(i), List("ASPP2"), mentions) should be(true)
     }
   }
+
+  // Filter out open-class generic mentions ("protein") that have no definite determiner.
+  val sent28a = "ASPP1 is common, and a protein is phosphorylated."
+  val sent28b = "ASPP1 is common, and a cistron phosphorylates ASPP2."
+  sent28a should "not contain any events" in {
+    val mentions = parseSentence(sent28a)
+    mentions filter (_ matches "Event") should have size (0)
+  }
+  sent28b should "not contain any complex events" in {
+    val mentions = parseSentence(sent28b)
+    mentions filter (_ matches "ComplexEvent") should have size (0)
+  }
+
 }

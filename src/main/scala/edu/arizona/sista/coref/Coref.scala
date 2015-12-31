@@ -33,12 +33,25 @@ class Coref {
     val orderedMentions: Seq[CorefMention] = mentions
       .map(_.toCorefMention)
       .filterNot(m => {
-        m.isGeneric && !m.isClosedClass && {
-          val sent = m.sentenceObj
-          val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
-          val hasDet = outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
-          hasDet.isEmpty
+      m.isGeneric && !m.isClosedClass && {
+        val sent = m.sentenceObj
+        val hd = findHeadStrict(m.tokenInterval, sent)
+        if (hd.isEmpty || hd.get < 0 || hd.get >= sent.dependencies.get.outgoingEdges.length) false
+        else {
+          try {
+            val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
+            val hasDet = outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
+            hasDet.isEmpty
+          } catch {
+            case e: Throwable =>
+              println(s"Sentence: ${sent.getSentenceText()}")
+              println(s"Mention text: ${m.text}")
+              println(s"Head index is: $hd")
+              displayMention(m)
+              true
+          }
         }
+      }
     }).sorted[Mention]
 
     val links = new DarpaLinks(doc)
