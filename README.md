@@ -13,6 +13,7 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
++ **1.2.1** - Bug fix in the unboxing of controller events. New Year's Eve release!
 + **1.2.0** - First release of context extraction! Context includes: species, organs, cell lines and types. Improved coreference resolution with constraints on determiner type.
 + **1.1.3** - Bug fixes in coreference resolution plus output formats
 + **1.1.2** - Bug fixes in the index card output
@@ -57,13 +58,13 @@ The `jar` is available on Maven Central. To use, simply add the following depend
     <dependency>
        <groupId>clulab.org</groupId>
        <artifactId>reach_2.11</artifactId>
-       <version>1.2.0</version>
+       <version>1.2.1</version>
     </dependency>
 
  The equivalent SBT dependencies are:
 
     libraryDependencies ++= Seq(
-        "clulab.org" %% "reach" % "1.2.0"
+        "clulab.org" %% "reach" % "1.2.1"
     )
 
 # How to compile the source code

@@ -1,6 +1,6 @@
 name := "reach"
 
-version := "1.2.0"
+version := "1.2.1"
 
 organization := "org.clulab"
 
