@@ -47,7 +47,7 @@ If you use Reach, please cite this paper:
 }
 ```
 
-More publications from the Reach project are available [here](http://agathon.sista.arizona.edu:8080/odinweb/papers).
+More publications from the Reach project are available [here](https://github.com/clulab/reach/wiki/Publications).
 
 # Installation
 
@@ -102,7 +102,7 @@ We have developed a series of web services on top of the Reach library. All are 
 
 # Reach datasets
 
-We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using Reach. All datasets are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/data).
+We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using Reach. All datasets are freely available [here](https://github.com/clulab/reach/wiki/Datasets).
 
 # Funding
 
