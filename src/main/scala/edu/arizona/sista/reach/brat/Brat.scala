@@ -3,6 +3,7 @@ package edu.arizona.sista.reach.brat
 import java.io.{File, InputStream}
 
 import edu.arizona.sista.reach.utils.BratUtils
+import edu.arizona.sista.coref.CorefUtils._
 
 import scala.collection.mutable.HashMap
 import edu.arizona.sista.struct.Interval
@@ -110,8 +111,9 @@ object Brat {
     }
   }
 
-  def dumpStandoff(mentions: Seq[Mention], doc: Document): String =
-    dumpStandoff(mentions, doc, Nil)
+  def dumpStandoff(mentions: Seq[Mention], doc: Document): String = {
+    dumpStandoff(makeCorefRelations(mentions), doc, Nil)
+  }
 
 
   def dumpStandoff(mentions: Seq[Mention], doc: Document, annotations: Seq[Annotation]): String = {
@@ -155,7 +157,6 @@ object Brat {
 
     mention match {
       case m: TextBoundMention =>
-
         val offsets = s"${sentence.startOffsets(m.start)} ${sentence.endOffsets(m.end - 1)}"
         val str = if (doc.text.isDefined) m.text else sentence.words.slice(m.start, m.end).mkString(" ")
 

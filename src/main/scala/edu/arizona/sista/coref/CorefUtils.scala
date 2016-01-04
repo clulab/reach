@@ -1,5 +1,6 @@
 package edu.arizona.sista.coref
 
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.mentions._
 
 import scala.annotation.tailrec
@@ -68,4 +69,23 @@ object CorefUtils {
     }
   }
 
+  def makeCorefRelations(mentions: Seq[Mention]): Seq[Mention] = {
+    val corefRels = (for(m <- mentions) yield {
+      val cm = m.toCorefMention
+      val corefRel = if (cm.isGeneric && cm.antecedent.nonEmpty) {
+        val args = Map("Antecedent" -> Seq(m.antecedentOrElse(m)), "Anaphor" -> Seq(m))
+        val corefRelation = new CorefRelationMention(
+          Seq("Coreference"),
+          args,
+          cm.sentence,
+          cm.document,
+          cm.keep,
+          "Brat_standoff"
+        )
+        Seq(corefRelation)
+      } else Nil
+      corefRel
+    }).flatten
+    mentions ++ corefRels
+  }
 }
