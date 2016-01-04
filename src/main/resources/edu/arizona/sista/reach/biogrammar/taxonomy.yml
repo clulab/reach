@@ -5,7 +5,6 @@
 - CellLine
 - Organ
 - CellType
-- Coreference
 - Context:
   - ContextDirection
   - ContextLocation
