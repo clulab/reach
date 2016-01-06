@@ -153,6 +153,7 @@ class PandasOutput() {
                       case Some(xref) => s"$k,${xref.printString}"
                       case None => s"$k,N/A"
                     }
+                    case _ => Unit // TODO: Make Coref aware!
                   }
                 }
 
