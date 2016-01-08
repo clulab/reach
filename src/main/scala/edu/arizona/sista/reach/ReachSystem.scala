@@ -59,7 +59,7 @@ class ReachSystem(
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
     // initialize the context engine
-    val contextEngine = new BoundedPaddingContext
+    val contextEngine = new BidirectionalPaddingContext
 
     val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
     contextEngine.infer(entries, documents, entitiesPerEntry)

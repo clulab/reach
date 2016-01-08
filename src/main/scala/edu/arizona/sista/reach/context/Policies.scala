@@ -117,3 +117,19 @@ class FillingContext(bound:Int = 5) extends BoundedPaddingContext(bound){
       }
     }
 }
+
+// Policy 4
+class BidirectionalPaddingContext(
+    bound:Int = 5 // Default bound to extend the policy
+) extends BoundedPaddingContext{
+    protected override def inferContext = {
+        // Do the same as before
+        val firstPass = super.inferContext
+        // Reverse the sequences and use the same algorithm
+        val reversedContext = firstPass map { _.reverse }
+        val paddedContext = padContext(Seq(), reversedContext,
+         Seq.fill(this.contextTypes.size)(1), bound)
+        // Don't forget to reverse again
+        paddedContext map { _.reverse }
+    }
+}
