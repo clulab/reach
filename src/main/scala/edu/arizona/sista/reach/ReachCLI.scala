@@ -17,12 +17,16 @@ import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.extern.export.context._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
 class ReachCLI(val nxmlDir:File,
                val outputDir:File,
                val encoding:String,
                val outputType:String,
                val ignoreSections:Seq[String],
+               val contextEngineType: Engine,
+               val contextEngineParams: Map[String, String],
                val logFile:File) {
 
   def processPapers(): Int = {
@@ -186,6 +190,15 @@ object ReachCLI extends App {
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
   val logFile = new File(config.getString("logFile"))
 
+  val contextEngineType:Engine = Engine.withName(config.getString("contextEngine.type"))
+  val contextConfig = config.getConfig("contextEngine.params").root
+  // TODO: There most be a better way to do this!
+  val contextEngineParams:Map[String, String] = contextConfig.keySet.asScala.map{
+      key => key -> contextConfig.asScala.apply(key).unwrapped.toString
+  }.toMap
+
+  println(s"Context engine: $contextEngineType\tParams: $contextEngineParams")
+
   // lets start a new log file
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
@@ -205,7 +218,9 @@ object ReachCLI extends App {
     sys.error(s"${friesDir.getCanonicalPath} is not a directory")
   }
 
-  val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, logFile)
+  val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType,
+       ignoreSections, contextEngineType, contextEngineParams, logFile)
+
   cli.processPapers()
 
   def now = new Date()
