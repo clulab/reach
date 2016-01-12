@@ -13,6 +13,7 @@ import scala.util.Try
  */
 object TestUtils {
   val testReach = new ReachSystem // All tests should use this system!
+  val bioproc = testReach.processor // quick access to a process, if needed.
   val docId = "testdoc"
   val chunkId = "1"
   val mentionManager = new MentionManager()
