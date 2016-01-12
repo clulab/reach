@@ -17,11 +17,11 @@ object TestUtils {
   val chunkId = "1"
   val mentionManager = new MentionManager()
 
-  def parseSentence(sentence:String, verbose:Boolean = false):Seq[BioMention] = {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, sentence)
+  def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = Try(testReach.extractFrom(entry))
     if(! result.isSuccess)
-      throw new RuntimeException("ERROR: parseSentence failed on sentence: " + sentence)
+      throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)
     val mentions = printMentions(result, verbose)
     mentions
   }
@@ -31,7 +31,7 @@ object TestUtils {
     // Get only entities (after modficationEngine)
     val result = Try(testReach.extractEntitiesFrom(doc))
     if(! result.isSuccess)
-      throw new RuntimeException("ERROR: parseSentence failed on sentence: " + sentence)
+      throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + sentence)
     val mentions = printMentions(result, verbose)
     mentions
   }

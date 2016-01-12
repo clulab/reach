@@ -15,7 +15,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen1 = "RAS does not phosphorylate MEK"
 
     sen1 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen1)
+      val mentions = getBioMentions(sen1)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -32,7 +32,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen2 = "RAS doesn't phosphorylate MEK"
 
     sen2 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen2)
+      val mentions = getBioMentions(sen2)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -49,7 +49,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen3 = "RAS is not phosphorylating MEK"
 
     sen3 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen3)
+      val mentions = getBioMentions(sen3)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -66,7 +66,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen4 = "RAS isn't phosphorylating MEK"
 
     sen4 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen4)
+      val mentions = getBioMentions(sen4)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -83,7 +83,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen5 = "RAS wasn't phosphorylated"
 
     sen5 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen5)
+      val mentions = getBioMentions(sen5)
 
       mentions filter (_ matches "Event") should have size (1)
 
@@ -95,7 +95,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen6 = "RAS fails to phosphorylate MEK"
 
     sen6 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen6)
+      val mentions = getBioMentions(sen6)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -111,7 +111,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen7 = "RAS fails phosphorylating MEK"
 
     sen7 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen7)
+      val mentions = getBioMentions(sen7)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -127,7 +127,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen8 = "RAS plays no role in the phosphorylation of MEK"
 
     sen8 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen8)
+      val mentions = getBioMentions(sen8)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -143,7 +143,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen9 = "RAS plays little role in the phosphorylation of MEK"
 
     sen9 should "contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen9)
+      val mentions = getBioMentions(sen9)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -161,7 +161,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen10 = "RAS phosphorylates MEK"
 
     sen10 should "not contain a mention with a negation modification" in {
-      val mentions = parseSentence(sen10)
+      val mentions = getBioMentions(sen10)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -178,7 +178,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen11 = "RAS doesn't fail to phosphorylate MEK"
 
     sen11 should "not contain any negation mentions" in {
-      val mentions = parseSentence(sen11)
+      val mentions = getBioMentions(sen11)
 
       mentions filter (_ matches "Event") should have size (2)
 
@@ -194,7 +194,7 @@ class NegationTests extends FlatSpec with Matchers{
     val sen12 = "RAS fails not to phosphorylate MEK"
 
     sen12 should "not contain any negation mentions" in {
-      val mentions = parseSentence(sen12)
+      val mentions = getBioMentions(sen12)
 
       mentions filter (_ matches "Event") should have size (2)
 
