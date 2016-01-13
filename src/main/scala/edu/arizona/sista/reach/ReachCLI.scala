@@ -192,7 +192,7 @@ object ReachCLI extends App {
 
   val contextEngineType:Engine = Engine.withName(config.getString("contextEngine.type"))
   val contextConfig = config.getConfig("contextEngine.params").root
-  // TODO: There most be a better way to do this!
+  // TODO: There must be a better way to do this!
   val contextEngineParams:Map[String, String] = contextConfig.keySet.asScala.map{
       key => key -> contextConfig.asScala.apply(key).unwrapped.toString
   }.toMap
