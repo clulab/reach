@@ -1,6 +1,6 @@
 package edu.arizona.sista.reach
 
-import edu.arizona.sista.reach.nxml.FriesEntry
+import edu.arizona.sista.reach.nxml.{NxmlReader, FriesEntry}
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export.MentionManager
 import edu.arizona.sista.reach.mentions._
@@ -13,6 +13,7 @@ import scala.util.Try
  */
 object TestUtils {
   val testReach = new ReachSystem // All tests should use this system!
+  val testReader = new NxmlReader
   val bioproc = testReach.processor // quick access to a process, if needed.
   val docId = "testdoc"
   val chunkId = "1"
