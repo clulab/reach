@@ -8,14 +8,16 @@ import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import edu.arizona.sista.reach.context.rulebased._
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
 import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
 class ReachSystem(
     rules: Option[Rules] = None,
-    proc: Option[BioNLPProcessor] = None
+    proc: Option[BioNLPProcessor] = None,
+    contextEngineType: Engine = Dummy,
+    contextParams: Map[String, String] = Map()
 ) {
 
   import ReachSystem._
@@ -59,7 +61,7 @@ class ReachSystem(
 
   def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
     // initialize the context engine
-    val contextEngine = new BoundedPaddingContext
+    val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
     val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
     contextEngine.infer(entries, documents, entitiesPerEntry)
