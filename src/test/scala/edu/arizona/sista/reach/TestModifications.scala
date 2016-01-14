@@ -979,10 +979,20 @@ class TestModifications extends FlatSpec with Matchers {
   }
 
   val siteTest3 = "Phosphorylation (p) of Akt (Ser-473), mTOR (Ser 2448) and Rictor (Ser 792) was quantified."
-  siteTest2 should "contain 3 Sites" in {
+  siteTest3 should "contain 3 Sites" in {
     val mentions = parseSentence(siteTest3)
     val sites = mentions.filter(_ matches "Site")
     sites should have size (3)
     sites.exists(_.text contains "Ser-473") should be (true)
+  }
+
+  val siteTest4 = "Phosphorylation of Akt (S473M) was attenuated."
+  siteTest4 should "not contain any sites" in {
+    val mentions = parseSentence(siteTest4)
+    val sites = mentions.filter(_ matches "Site")
+    sites should have size (0)
+    val akt = mentions filter (_.text == "Akt")
+    akt should have size (1)
+    akt.head.countMutations should be (1)
   }
 }
