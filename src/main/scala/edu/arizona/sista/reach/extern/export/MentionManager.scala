@@ -207,7 +207,7 @@ class MentionManager {
           mStrings += s"${indent}event-site: ${site.text}"
         case Hypothesis(evidence) =>
           mStrings += s"${indent}hypothesis: ${evidence.text}"
-        case Mutant(evidence) =>
+        case Mutant(evidence, foundBy) =>
           mStrings += s"${indent}mutant: ${evidence.text}"
         case Negation(evidence) =>
           mStrings += s"${indent}negation: ${evidence.text}"

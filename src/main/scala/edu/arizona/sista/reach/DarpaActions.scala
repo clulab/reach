@@ -109,7 +109,7 @@ class DarpaActions extends Actions {
         val bioMention = m.arguments("entity").head.toBioMention
         val mutants = m.arguments("mutant")
         mutants foreach { mutant =>
-          bioMention.modifications += Mutant(evidence = mutant)
+          bioMention.modifications += Mutant(evidence = mutant, foundBy = m.foundBy)
         }
     }
     Nil

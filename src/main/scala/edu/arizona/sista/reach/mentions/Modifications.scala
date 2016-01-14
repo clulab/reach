@@ -30,8 +30,10 @@ case class PTM(
   }
 }
 
-case class Mutant(evidence: Mention) extends Modification{
+case class Mutant(evidence: Mention, foundBy: String) extends Modification{
   val label = "Mutant"
+
+  override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }
 
 case class EventSite(site: Mention) extends Modification {
