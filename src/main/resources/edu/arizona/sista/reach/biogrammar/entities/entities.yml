@@ -89,7 +89,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+\b/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
     [word=")"]?
 
 ###################
