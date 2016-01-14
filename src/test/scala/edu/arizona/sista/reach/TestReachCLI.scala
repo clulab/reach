@@ -3,6 +3,8 @@ package edu.arizona.sista.reach
 import java.io.File
 
 import edu.arizona.sista.utils.Files
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 import org.scalatest.{Matchers, FlatSpec}
 
 /**
@@ -30,10 +32,13 @@ class TestReachCLI extends FlatSpec with Matchers {
   val ignoreSections = List("references", "materials", "materials|methods", "methods", "supplementary-material")
   val useAuxGrounding = false
 
+  val contextEngineType = Dummy
+  val contextEngineParams:Map[String, String] = Map()
+
   "ReachCLI" should "output TEXT correctly on NXML papers" in {
     println(s"Will output TEXT output in directory ${txtDir.getAbsolutePath}")
     val outputType = "text"
-    val cli = new ReachCLI(nxmlDir, txtDir, encoding, outputType, ignoreSections, txtLogFile)
+    val cli = new ReachCLI(nxmlDir, txtDir, encoding, outputType, ignoreSections, contextEngineType, contextEngineParams, txtLogFile)
     val errorCount = cli.processPapers()
     if(errorCount > 0) dumpLog(friesLogFile)
     errorCount should be (0)
@@ -42,7 +47,7 @@ class TestReachCLI extends FlatSpec with Matchers {
   "ReachCLI" should "output FRIES correctly on NXML papers" in {
     println(s"Will output FRIES output in directory ${friesDir.getAbsolutePath}")
     val outputType = "fries"
-    val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, friesLogFile)
+    val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, contextEngineType, contextEngineParams, friesLogFile)
     val errorCount = cli.processPapers()
     if(errorCount > 0) dumpLog(friesLogFile)
     errorCount should be (0)
@@ -51,7 +56,7 @@ class TestReachCLI extends FlatSpec with Matchers {
   "ReachCLI" should "output IndexCard correctly on NXML papers" in {
     println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
     val outputType = "indexcard"
-    val cli = new ReachCLI(nxmlDir, icDir, encoding, outputType, ignoreSections, icLogFile)
+    val cli = new ReachCLI(nxmlDir, icDir, encoding, outputType, ignoreSections, contextEngineType, contextEngineParams, icLogFile)
     val errorCount = cli.processPapers()
     if(errorCount > 0) dumpLog(icLogFile)
     errorCount should be (0)
