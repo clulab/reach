@@ -17,8 +17,8 @@ object PaperReader extends App {
 
   println("loading ...")
   val config = ConfigFactory.load()
-  val papersDir = "src/test/resources/inputs/nxml/"
-  val outFile = "mentions.ser"
+  val papersDir = config.getString("assembly.papersDir")
+  val outFile = config.getString("assembly.serializedPapers")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
   val nxmlReader = new NxmlReader(ignoreSections)
   val reach = new ReachSystem
