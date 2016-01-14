@@ -14,14 +14,19 @@ import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
+import edu.arizona.sista.reach.extern.export.context._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
 class ReachCLI(val nxmlDir:File,
                val outputDir:File,
                val encoding:String,
                val outputType:String,
                val ignoreSections:Seq[String],
+               val contextEngineType: Engine,
+               val contextEngineParams: Map[String, String],
                val logFile:File) {
 
   def processPapers(): Int = {
@@ -65,9 +70,12 @@ class ReachCLI(val nxmlDir:File,
       }
 
       val paperMentions = new mutable.ArrayBuffer[BioMention]
+      val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
       for (entry <- entries) {
         try {
-          paperMentions ++= reach.extractFrom(entry)
+          val mentions = reach.extractFrom(entry)
+          mentions foreach { m => mentionsEntriesMap += (m -> entry) }
+          paperMentions ++= mentions
         } catch {
           case e: Throwable =>
             this.synchronized { errorCount += 1}
@@ -106,6 +114,20 @@ class ReachCLI(val nxmlDir:File,
           FileUtils.writeLines(outFile, lines.asJavaCollection)
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
         // Anything that is not text (including Fries-style output)
+        case "pandas" =>
+          println("Using pandas output ...")
+          val outputter:PandasOutput = new PandasOutput()
+          val (entities, events, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
+          val outMentions = new File(outputDir, s"$paperId.entities")
+          val outEvents = new File(outputDir, s"$paperId.events")
+          val outRelations = new File(outputDir, s"$paperId.relations")
+          val outLines = new File(outputDir, s"$paperId.lines")
+          FileUtils.writeLines(outMentions, entities.asJavaCollection)
+          FileUtils.writeLines(outEvents, events.asJavaCollection)
+          FileUtils.writeLines(outRelations, relations.asJavaCollection)
+          FileUtils.writeLines(outLines, lines.asJavaCollection)
+
+          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
         case _ =>
           outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, outputDir)
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
@@ -168,6 +190,15 @@ object ReachCLI extends App {
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
   val logFile = new File(config.getString("logFile"))
 
+  val contextEngineType:Engine = Engine.withName(config.getString("contextEngine.type"))
+  val contextConfig = config.getConfig("contextEngine.params").root
+  // TODO: There must be a better way to do this!
+  val contextEngineParams:Map[String, String] = contextConfig.keySet.asScala.map{
+      key => key -> contextConfig.asScala.apply(key).unwrapped.toString
+  }.toMap
+
+  println(s"Context engine: $contextEngineType\tParams: $contextEngineParams")
+
   // lets start a new log file
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
@@ -187,7 +218,9 @@ object ReachCLI extends App {
     sys.error(s"${friesDir.getCanonicalPath} is not a directory")
   }
 
-  val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, logFile)
+  val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType,
+       ignoreSections, contextEngineType, contextEngineParams, logFile)
+
   cli.processPapers()
 
   def now = new Date()

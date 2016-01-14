@@ -6,6 +6,8 @@ import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.reach.nxml.NxmlReader
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.ReachSystem
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
 trait Fixtures {
   // Set up the fixtures
@@ -14,7 +16,8 @@ trait Fixtures {
   def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 
   val reader = new NxmlReader
-  val reachSystem = new ReachSystem
+  lazy val reachSystemP4 = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
+  lazy val reachSystemP3 = new ReachSystem(contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
   /////////
 }
 
@@ -24,7 +27,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
     info("Testing context assignment")
     val entries = reader.readNxml(nxml, nxml)
 
-    val mentions:Seq[BioEventMention] = reachSystem.extractFrom(entries).filter{
+    val mentions:Seq[BioEventMention] = reachSystemP4.extractFrom(entries).filter{
         case em:BioEventMention => true
         case _ => false
       }.map(_.asInstanceOf[BioEventMention])
@@ -58,16 +61,56 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
     info(s"Testing bounding padding context")
     // Extract context for the sentences of a doc, not to the attached mentions
     val friesEntries = reader.readNxml(nxml, "")
-    val documents = friesEntries map (e => reachSystem.mkDoc(e.text, e.name, e.chunkId))
-    val entitiesPerEntry =  for (doc <- documents) yield reachSystem.extractEntitiesFrom(doc)
+    val documents = friesEntries map (e => reachSystemP4.mkDoc(e.text, e.name, e.chunkId))
+    val entitiesPerEntry =  for (doc <- documents) yield reachSystemP4.extractEntitiesFrom(doc)
 
 
-    val boundedPaddingEngine = new BoundedPaddingContext
+    val bound = 5
+    val boundedPaddingEngine = new BoundedPaddingContext(bound)
     boundedPaddingEngine.infer(friesEntries, documents, entitiesPerEntry)
 
     // No more than $bound repetitions of the same context
-    val bound = 5
+
     it should s"not extend an existing context more than $bound times" in {
+
+      val sparseMatrix = boundedPaddingEngine.preprocessedLatentStateMatrix.transpose
+      val matrix = boundedPaddingEngine.latentStateMatrix.transpose
+      // Transpose the matrix
+
+      // Count the number of zeros from before hitting a one from right to left
+
+      val counts = sparseMatrix.map(_.scanRight(0){(step:Boolean, cs:Int) => if(!step) cs+1 else 0}.drop(1))
+
+      // Select the indices that are to be checked
+      val selection = (sparseMatrix zip counts).map{ case (s, c) => (s zip c).zipWithIndex filter {case((value, count), ix) => value && count > bound} map (_._2)}
+
+      // check them
+      selection foreach {
+        _ foreach {
+          x =>
+            val extended = matrix(2).drop(x).take(bound+1).map(if(_) 1 else 0).sum
+            extended should be <= bound
+        }
+      }
+
+    }
+  }
+
+  def bidirectionalPaddingBehavior(nxml:String){
+    info(s"Testing bidirectional bounding padding context")
+    // Extract context for the sentences of a doc, not to the attached mentions
+    val friesEntries = reader.readNxml(nxml, "")
+    val documents = friesEntries map (e => reachSystemP4.mkDoc(e.text, e.name, e.chunkId))
+    val entitiesPerEntry =  for (doc <- documents) yield reachSystemP4.extractEntitiesFrom(doc)
+
+
+
+    val boundedPaddingEngine = new BidirectionalPaddingContext(bound=5)
+    boundedPaddingEngine.infer(friesEntries, documents, entitiesPerEntry)
+
+    // No more than $bound repetitions of the same context
+    val bound = 10
+    it should s"not extend an existing context more than $bound times in both directions" in {
 
       val sparseMatrix = boundedPaddingEngine.preprocessedLatentStateMatrix.transpose
       val matrix = boundedPaddingEngine.latentStateMatrix.transpose
@@ -97,15 +140,18 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
 
   it should behave like contextAssignmentBehavior(nxml1)
   it should behave like boundedPaddingBehavior(nxml1)
+  it should behave like bidirectionalPaddingBehavior(nxml1)
 
   behavior of "PMC3441633.nxml"
 
   it should behave like contextAssignmentBehavior(nxml2)
   it should behave like boundedPaddingBehavior(nxml2)
+  it should behave like bidirectionalPaddingBehavior(nxml2)
 
   behavior of "PMC1289294.nxml"
 
   it should behave like contextAssignmentBehavior(nxml3)
   it should behave like boundedPaddingBehavior(nxml3)
+  it should behave like bidirectionalPaddingBehavior(nxml3)
 
 }

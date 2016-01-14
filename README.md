@@ -23,12 +23,12 @@ All our own code is licensed under Apache License Version 2.0. **However, some o
 
 Reach was created by the following members of the [CLU lab at the University of Arizona](http://clulab.cs.arizona.edu/):
 
-+ Marco Valenzuela  
-+ Gus Hahn-Powell  
-+ Dane Bell  
-+ Tom Hicks  
-+ Enrique Noriega  
-+ [Mihai Surdeanu](Mihai Surdeanu)  
++ [Marco Valenzuela](https://github.com/marcovzla)  
++ [Gus Hahn-Powell](https://github.com/myedibleenso)  
++ [Dane Bell](https://github.com/danebell)  
++ [Tom Hicks](https://github.com/hickst)  
++ [Enrique Noriega](https://github.com/enoriega)  
++ [Mihai Surdeanu](https://github.com/MihaiSurdeanu)  
 
 # Citations
 
@@ -47,7 +47,7 @@ If you use Reach, please cite this paper:
 }
 ```
 
-More publications from the Reach project are available [here](http://agathon.sista.arizona.edu:8080/odinweb/papers).
+More publications from the Reach project are available [here](https://github.com/clulab/reach/wiki/Publications).
 
 # Installation
 
@@ -89,7 +89,7 @@ will run the system using the `.conf` file under `src/main/resources/application
 
 ## Running the interactive Reach shell for rule debugging
 
-`sbt "runMain runMain edu.arizona.sista.reach.ReachShell"`
+`sbt "runMain edu.arizona.sista.reach.ReachShell"`
 
 enter `:help` to get a list of available commands.
 
@@ -102,7 +102,7 @@ We have developed a series of web services on top of the Reach library. All are 
 
 # Reach datasets
 
-We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using Reach. All datasets are freely available [here](http://agathon.sista.arizona.edu:8080/odinweb/data).
+We have generated multiple datasets by reading publications from the [open-access PubMed subset](http://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/) using Reach. All datasets are freely available [here](https://github.com/clulab/reach/wiki/Datasets).
 
 # Funding
 

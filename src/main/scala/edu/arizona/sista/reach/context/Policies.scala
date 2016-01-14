@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.context.rulebased._
 
 // Policy Two
 class BoundedPaddingContext(
- bound:Int = 5 // Default bound to extend the policy
+ bound:Int = 3 // Default bound to extend the policy
 ) extends RuleBasedContextEngine{
 
   protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine")
@@ -86,7 +86,7 @@ class PaddingContext extends BoundedPaddingContext(Int.MaxValue){
 
 
 // Policy 3
-class FillingContext(bound:Int = 5) extends BoundedPaddingContext(bound){
+class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
 
     // Override the infer context to fill the empty slots
     protected override def inferContext = {
@@ -115,5 +115,21 @@ class FillingContext(bound:Int = 5) extends BoundedPaddingContext(bound){
               }
           }
       }
+    }
+}
+
+// Policy 4
+class BidirectionalPaddingContext(
+    bound:Int = 3 // Default bound to extend the policy
+) extends BoundedPaddingContext{
+    protected override def inferContext = {
+        // Do the same as before
+        val firstPass = super.inferContext
+        // Reverse the sequences and use the same algorithm
+        val reversedContext = firstPass map { _.reverse }
+        val paddedContext = padContext(Seq(), reversedContext,
+         Seq.fill(this.contextTypes.size)(1), bound)
+        // Don't forget to reverse again
+        paddedContext map { _.reverse }
     }
 }
