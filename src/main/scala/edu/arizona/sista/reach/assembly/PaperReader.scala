@@ -7,7 +7,6 @@ import org.apache.commons.io.FilenameUtils
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.nxml.NxmlReader
 import edu.arizona.sista.reach.ReachSystem
-import edu.arizona.sista.processors.Document
 import edu.arizona.sista.utils.ClassLoaderObjectInputStream
 
 object PaperReader extends App {
