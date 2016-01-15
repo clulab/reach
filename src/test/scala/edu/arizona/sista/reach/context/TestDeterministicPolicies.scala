@@ -14,8 +14,8 @@ trait Fixtures {
   def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 
   // save RAM by passing in BioNLPProcessor instance from TestUtils
-  lazy val reachSystemP4 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
-  lazy val reachSystemP3 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
+  val reachSystemP4 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
+  val reachSystemP3 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
 }
 
 class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
