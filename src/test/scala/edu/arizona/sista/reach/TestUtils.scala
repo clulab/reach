@@ -1,6 +1,6 @@
 package edu.arizona.sista.reach
 
-import edu.arizona.sista.reach.nxml.FriesEntry
+import edu.arizona.sista.reach.nxml.{NxmlReader, FriesEntry}
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export.MentionManager
 import edu.arizona.sista.reach.mentions._
@@ -13,15 +13,17 @@ import scala.util.Try
  */
 object TestUtils {
   val testReach = new ReachSystem // All tests should use this system!
+  val testReader = new NxmlReader
+  val bioproc = testReach.processor // quick access to a process, if needed.
   val docId = "testdoc"
   val chunkId = "1"
   val mentionManager = new MentionManager()
 
-  def parseSentence(sentence:String, verbose:Boolean = false):Seq[BioMention] = {
-    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, sentence)
+  def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = Try(testReach.extractFrom(entry))
     if(! result.isSuccess)
-      throw new RuntimeException("ERROR: parseSentence failed on sentence: " + sentence)
+      throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)
     val mentions = printMentions(result, verbose)
     mentions
   }
@@ -31,7 +33,7 @@ object TestUtils {
     // Get only entities (after modficationEngine)
     val result = Try(testReach.extractEntitiesFrom(doc))
     if(! result.isSuccess)
-      throw new RuntimeException("ERROR: parseSentence failed on sentence: " + sentence)
+      throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + sentence)
     val mentions = printMentions(result, verbose)
     mentions
   }

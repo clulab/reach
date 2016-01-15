@@ -1,13 +1,11 @@
 package edu.arizona.sista.reach.context
 
 import io.Source
-import scala.collection.mutable
-import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.reach.nxml.NxmlReader
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.ReachSystem
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
-import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
+import edu.arizona.sista.reach.TestUtils._
+import org.scalatest.{Matchers, FlatSpec}
 
 trait Fixtures {
   // Set up the fixtures
@@ -15,17 +13,17 @@ trait Fixtures {
   def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC3441633.nxml")).mkString
   def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 
-  val reader = new NxmlReader
-  lazy val reachSystemP4 = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
-  lazy val reachSystemP3 = new ReachSystem(contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
-  /////////
+  // save RAM by passing in BioNLPProcessor instance from TestUtils
+  val reachSystemP4 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
+  val reachSystemP3 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
 }
 
 class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
 
   def contextAssignmentBehavior(nxml:String){
     info("Testing context assignment")
-    val entries = reader.readNxml(nxml, nxml)
+    val entries = testReader.readNxml(nxml, nxml)
+
 
     val mentions:Seq[BioEventMention] = reachSystemP4.extractFrom(entries).filter{
         case em:BioEventMention => true
@@ -60,7 +58,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
   def boundedPaddingBehavior(nxml:String){
     info(s"Testing bounding padding context")
     // Extract context for the sentences of a doc, not to the attached mentions
-    val friesEntries = reader.readNxml(nxml, "")
+    val friesEntries = testReader.readNxml(nxml, "")
     val documents = friesEntries map (e => reachSystemP4.mkDoc(e.text, e.name, e.chunkId))
     val entitiesPerEntry =  for (doc <- documents) yield reachSystemP4.extractEntitiesFrom(doc)
 
@@ -99,7 +97,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
   def bidirectionalPaddingBehavior(nxml:String){
     info(s"Testing bidirectional bounding padding context")
     // Extract context for the sentences of a doc, not to the attached mentions
-    val friesEntries = reader.readNxml(nxml, "")
+    val friesEntries = testReader.readNxml(nxml, "")
     val documents = friesEntries map (e => reachSystemP4.mkDoc(e.text, e.name, e.chunkId))
     val entitiesPerEntry =  for (doc <- documents) yield reachSystemP4.extractEntitiesFrom(doc)
 
