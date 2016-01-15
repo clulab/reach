@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach.assembly
+package edu.arizona.sista.reach
 
 import java.io._
 import scala.collection.JavaConverters._
@@ -6,7 +6,6 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.nxml.NxmlReader
-import edu.arizona.sista.reach.ReachSystem
 import edu.arizona.sista.utils.ClassLoaderObjectInputStream
 
 object PaperReader extends App {
@@ -16,8 +15,8 @@ object PaperReader extends App {
 
   println("loading ...")
   val config = ConfigFactory.load()
-  val papersDir = config.getString("assembly.papersDir")
-  val outFile = config.getString("assembly.serializedPapers")
+  val papersDir = config.getString("PaperReader.papersDir")
+  val outFile = config.getString("PaperReader.serializedPapers")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
   val nxmlReader = new NxmlReader(ignoreSections)
   val reach = new ReachSystem
