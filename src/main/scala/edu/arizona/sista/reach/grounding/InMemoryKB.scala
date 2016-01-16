@@ -1,16 +1,18 @@
 package edu.arizona.sista.reach.grounding
 
 import scala.io.Source
+import edu.arizona.sista.reach.grounding._
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor some lookups.
+  *   Last Modified: Refactor namespace and meta info.
   */
 class InMemoryKB (
 
   /** Meta information about the external KB from which this KB was created. */
-  val metaInfo: KBMetaInfo,
+  val metaInfo: IMKBMetaInfo,
 
   /** The filename of the external KB to be loaded into memory. */
   val kbFilename: String = null,            // default for KBs with no file to load
@@ -20,15 +22,11 @@ class InMemoryKB (
 
 ) extends Speciated with ReachKBKeyTransforms {
 
-  // type to map species name strings to KB entries for the same key:
-  type SpeciesEntryMap = scala.collection.mutable.Map[String, KBEntry]
-  def  SpeciesEntryMap() = scala.collection.mutable.Map[String, KBEntry]()
-
-  type KnowledgeBase = scala.collection.mutable.Map[String, SpeciesEntryMap]
-  def  KnowledgeBase() = scala.collection.mutable.Map[String, SpeciesEntryMap]()
-
   // the root data structure implementing this in-memory knowledge base
   val thisKB: KnowledgeBase = KnowledgeBase()
+
+  // the sole namespace for this knowledge base
+  val thisNamespace: String = metaInfo.getOrElse("namespace", DefaultNamespace)
 
 
   /** Insert the given entry, merge it with an existing entry, or ignore it,
@@ -186,7 +184,7 @@ class InMemoryKB (
   /** Make and return a KB entry from the given fields. */
   private def makeEntry (text:String, refId:String, species:String): KBEntry = {
     val key = makeCanonicalKey(text)        // make canonical storage key
-    return new KBEntry(text, key, refId, species.toLowerCase)
+    return new KBEntry(text, key, thisNamespace, refId, species.toLowerCase)
   }
 
   /** Sort the columns of a 2-col or 3-col TSV row into correct order. */

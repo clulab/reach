@@ -1,9 +1,11 @@
 package edu.arizona.sista.reach.grounding
 
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
+
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add/use is no species value constant.
+  *   Last Modified: Refactor namespace and meta info.
   */
 class KBEntry (
 
@@ -13,7 +15,10 @@ class KBEntry (
   /** Computed key string, which indexes this entry. */
   val key: String,
 
-  /** The KB reference ID, loaded from the external KB. */
+  /** The external namespace for this entry (e.g., go, uniprot). */
+  val namespace: String = DefaultNamespace,
+
+  /** The reference ID, relative to the namespace for this entry (e.g., GO:0033110, P12345). */
   val id: String,
 
   /** The species associated with this entry, if any. Empty string represents no species. */
@@ -52,6 +57,7 @@ class KBEntry (
     return new KBEntry(
       if (overwriteText) other.text else this.text,
       this.key,
+      if (overwriteText) other.namespace else this.namespace,
       this.id,
       if (this.hasSpecies()) this.species else other.species,
       altIds,
@@ -61,7 +67,7 @@ class KBEntry (
 
   /** Override method to provide logging/debugging printout. */
   override def toString(): String =
-    s"<KBEntry: ${text} | ${key} | ${id} | ${species}>"
+    s"<KBEntry: ${text} | ${key} | ${namespace} | ${id} | ${species}>"
 }
 
 

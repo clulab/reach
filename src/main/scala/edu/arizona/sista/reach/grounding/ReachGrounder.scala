@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Add KBMLs for Context.
+  *   Last Modified: Update for KB resolution facade.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -99,7 +99,7 @@ class ReachGrounder extends DarpaFlow {
     searchSequence.foreach { kbml =>
       val resolution = kbml.resolve(mention)
       if (!resolution.isEmpty) {
-        mention.ground(resolution.get.metaInfo.namespace, resolution.get.id)
+        mention.ground(resolution.get.namespace, resolution.get.id)
         return mention
       }
     }

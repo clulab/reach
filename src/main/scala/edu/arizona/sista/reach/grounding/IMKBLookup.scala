@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait implementing common logic for local Knowledge Base lookup classes.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Implement resolve which favors human results.
+  *   Last Modified: Update for KB resolution facade.
   */
 trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
 
@@ -18,7 +18,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     if (!memoryKB.hasSpeciesInfo)           // if KB has species information
       resolveNoSpecies(text)                // then try to resolve the text without species
     else                                    // else prefer human resolution above others
-      memoryKB.newResolution(resolveHuman(text) orElse memoryKB.lookupAny(makeCanonicalKey(text)))
+      resolveHuman(text) orElse memoryKB.newResolution(memoryKB.lookupAny(makeCanonicalKey(text)))
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base,
@@ -72,7 +72,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
       resolveNoSpeciesAlt(text, transforms) // then try to resolve the text without species
     else {                                  // else prefer human resolution above others
       val allKeys = reachAlternateKeys(text, transforms)
-      memoryKB.newResolution(resolveHumanAlt(text, transforms) orElse memoryKB.lookupsAny(allKeys))
+      resolveHumanAlt(text, transforms) orElse memoryKB.newResolution(memoryKB.lookupsAny(allKeys))
     }
   }
 
