@@ -9,23 +9,23 @@ import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for multiple suffix stripping.
+  *   Last Modified: Update for refactored namespace and meta info.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
   // test KBEntry
-  val kbe1 = new KBEntry("Adam", "key1", "XYX", "human")
-  val kbe2 = new KBEntry("Eve",  "key1", "YXY", "")
-  val kbe3 = new KBEntry("Chang", "key3", "XXX", "human", Some(Set("AAA", "BBB")))
-  val kbe5k = new KBEntry("Chang", "key3", "QQQ", "human", None)
-  val kbe50 = new KBEntry("Chang", "key3", "XXX", "human", None)
-  val kbe51 = new KBEntry("Chang", "key3", "XXX", "human", Some(Set("AAA")))
-  val kbe52 = new KBEntry("Chang", "key3", "XXX", "human", Some(Set("BBB", "CCC")))
-  val kbe60 = new KBEntry("Able", "key6", "ZZZ", "human", None, None)
-  val kbe61 = new KBEntry("Able", "key6", "ZZZ", "human", None, Some("STANDARD1"))
+  val kbe1 = new KBEntry("Adam", "key1", "tst", "XYX", "human")
+  val kbe2 = new KBEntry("Eve",  "key1", "tst", "YXY", "")
+  val kbe3 = new KBEntry("Chang", "key3", "tst", "XXX", "human", Some(Set("AAA", "BBB")))
+  val kbe5k = new KBEntry("Chang", "key3", "tst", "QQQ", "human", None)
+  val kbe50 = new KBEntry("Chang", "key3", "tst", "XXX", "human", None)
+  val kbe51 = new KBEntry("Chang", "key3", "tst", "XXX", "human", Some(Set("AAA")))
+  val kbe52 = new KBEntry("Chang", "key3", "tst", "XXX", "human", Some(Set("BBB", "CCC")))
+  val kbe60 = new KBEntry("Able", "key6", "tst", "ZZZ", "human", None, None)
+  val kbe61 = new KBEntry("Able", "key6", "tst", "ZZZ", "human", None, Some("STANDARD1"))
 
   "KBR(text, key, id)" should "NOT have an associated species when tested" in {
-    val kbe0 = new KBEntry("Eve", "key2", "YYY")
+    val kbe0 = new KBEntry("Eve", "key2", "tst", "YYY")
     (kbe0.hasSpecies) should be (false)
   }
 

@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Update for refactored namespace and meta info.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -187,6 +187,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 // Protein KB using alternate protein resolutions
 class TestProteinKBL extends IMKBProteinLookup {
   val memoryKB = new InMemoryKB(
-    new KBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00100164"),
-                   StaticProteinFilename, true)  // true = has species
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00100164"),
+    StaticProteinFilename, true)            // true = has species
 }

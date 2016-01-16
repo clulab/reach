@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 12/20/2015.
-  *   Last Modified: Initial creation: only resolve tests.
+  *   Last Modified: Update for refactored namespace and meta info.
   */
 class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
 
@@ -60,5 +60,5 @@ class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
 
 // Protein family KB using alternate protein resolutions
 class TestOctKBL extends IMKBOrganCellTypeLookup {
-  val memoryKB = new InMemoryKB(new KBMetaInfo(), ContextCellTypeFilename)
+  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), ContextCellTypeFilename)
 }
