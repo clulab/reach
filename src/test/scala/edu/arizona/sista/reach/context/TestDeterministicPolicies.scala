@@ -8,6 +8,7 @@ import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.ReachSystem
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
+import edu.arizona.sista.reach.TestUtils._
 
 trait Fixtures {
   // Set up the fixtures
@@ -27,7 +28,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
     info("Testing context assignment")
     val entries = reader.readNxml(nxml, nxml)
 
-    val mentions:Seq[BioEventMention] = reachSystemP4.extractFrom(entries).filter{
+    val mentions:Seq[BioEventMention] = testReach.extractFrom(entries).filter{
         case em:BioEventMention => true
         case _ => false
       }.map(_.asInstanceOf[BioEventMention])
@@ -60,9 +61,9 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
   def boundedPaddingBehavior(nxml:String){
     info(s"Testing bounding padding context")
     // Extract context for the sentences of a doc, not to the attached mentions
-    val friesEntries = reader.readNxml(nxml, "")
-    val documents = friesEntries map (e => reachSystemP4.mkDoc(e.text, e.name, e.chunkId))
-    val entitiesPerEntry =  for (doc <- documents) yield reachSystemP4.extractEntitiesFrom(doc)
+    val friesEntries = testReader.readNxml(nxml, "")
+    val documents = friesEntries map (e => testReach.mkDoc(e.text, e.name, e.chunkId))
+    val entitiesPerEntry =  for (doc <- documents) yield testReach.extractEntitiesFrom(doc)
 
 
     val bound = 5
@@ -99,9 +100,9 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
   def bidirectionalPaddingBehavior(nxml:String){
     info(s"Testing bidirectional bounding padding context")
     // Extract context for the sentences of a doc, not to the attached mentions
-    val friesEntries = reader.readNxml(nxml, "")
-    val documents = friesEntries map (e => reachSystemP4.mkDoc(e.text, e.name, e.chunkId))
-    val entitiesPerEntry =  for (doc <- documents) yield reachSystemP4.extractEntitiesFrom(doc)
+    val friesEntries = testReader.readNxml(nxml, "")
+    val documents = friesEntries map (e => testReach.mkDoc(e.text, e.name, e.chunkId))
+    val entitiesPerEntry =  for (doc <- documents) yield testReach.extractEntitiesFrom(doc)
 
 
 
