@@ -9,7 +9,7 @@
   action: unpackRelations
   keep: false
   pattern: |
-    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^[ACDEFGHIKLMNPQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_2
   label: Mutant
@@ -29,8 +29,26 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]) [lemma=/^(mutant|mutation)/]?
 
-#NOTE: mutant_4 should happen AFTER mutant_1 - mutant_3
 - name: mutant_4
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^\d+[ACDEFGHIKLMNPQRSTVWY]$/] ">" [word=/^[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_5
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^Delta[ACDEFGHIKLMNPQRSTVWY]\d+$/]) [lemma=/^(mutant|mutation)/]?
+
+#NOTE: mutantlate_.+ should happen AFTER mutant_.+
+- name: mutantlate_1
   label: Mutant
   priority: 2
   action: mkBioMention
@@ -39,8 +57,7 @@
   pattern: |
     (?<= [mention=BioChemicalEntity]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?! [mention=Mutant])
 
-#NOTE: mutant_5 should happen AFTER mutant_1 - mutant_3
-- name: mutant_5
+- name: mutantlate_2
   label: Mutant
   priority: 2
   action: mkBioMention

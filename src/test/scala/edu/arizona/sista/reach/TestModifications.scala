@@ -978,6 +978,22 @@ class TestModifications extends FlatSpec with Matchers {
     mentions.head hasMutation "Mutation" should be (true)
   }
 
+  val mutantTest16 = "We used a substitution mutant of Raf (76A>T)"
+  mutantTest16 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest16)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "Mutation" should be (true)
+  }
+
+  val mutantTest17 = "We used a deletion mutant of Raf (ΔF508)"
+  mutantTest17 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest17)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "Mutation" should be (true)
+  }
+
   val siteTest3 = "Phosphorylation (p) of Akt (Ser-473), mTOR (Ser 2448) and Rictor (Ser 792) was quantified."
   siteTest2 should "contain 3 Sites" in {
     val mentions = getBioMentions(siteTest3)
@@ -995,6 +1011,4 @@ class TestModifications extends FlatSpec with Matchers {
     akt should have size (1)
     akt.head.countMutations should be (1)
   }
-
-
 }
