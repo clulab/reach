@@ -574,13 +574,13 @@ class TestModifications extends FlatSpec with Matchers {
   val sent1b = "The ubiquitinated AKT binds to ASPP2."
   "ReachSystem" should "not find a PTMs as events" in {
     // TODO: Both fail! (DANE + MARCO)
-    var mentions = parseSentence(sent1)
+    var mentions = getBioMentions(sent1)
     val p = mentions.find(_ matches "Phosphorylation") // Dane: this is a PTM not an event!
     p.isDefined should be (false) // Dane
     var b = mentions.find(_ matches "Binding") // Marco: why does this fail??
     b.isDefined should be (true) // Marco
 
-    mentions = parseSentence(sent1b)
+    mentions = getBioMentions(sent1b)
     val u = mentions.find(_ matches "Ubiquitination")
     u.isDefined should be (false)
     b = mentions.find(_ matches "Binding")
@@ -669,7 +669,7 @@ class TestModifications extends FlatSpec with Matchers {
   val sent9 = "The phosphorylated p53 by ASPP2 is doing something..."
   // this is not a PTM! It is an event with a cause
   sent9 should "contain 1 phosphorylation and 1 regulation event" in {
-    val mentions = parseSentence(sent9)
+    val mentions = getBioMentions(sent9)
     hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
   }
@@ -679,7 +679,7 @@ class TestModifications extends FlatSpec with Matchers {
   //
   val sent10 = "Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation"
   sent10 should "have 2 mutations for FGFR3" in {
-    val mentions = parseSentence(sent10)
+    val mentions = getBioMentions(sent10)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (2)
     fgfr(0).countMutations should be (1)
@@ -691,7 +691,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent11 = "Note that only FGFR3 K650M causes STAT1 phosphorylation"
   sent11 should "have 1 mutation for FGFR3" in {
-    val mentions = parseSentence(sent11)
+    val mentions = getBioMentions(sent11)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (1)
     fgfr.head.countMutations should be (1)
@@ -699,7 +699,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent12 = "Note that only the K650M-FGFR3 mutant causes STAT1 phosphorylation"
   sent12 should "have 1 mutation for FGFR3" in {
-    val mentions = parseSentence(sent12)
+    val mentions = getBioMentions(sent12)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (1)
     fgfr.head.hasMutation("K650M") should be (true)
@@ -707,7 +707,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent13 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   sent13 should "not contain a ubiquitination event (this is a PTM)" in {
-    val mentions = parseSentence(sent13)
+    val mentions = getBioMentions(sent13)
     mentions.count(_ matches "Ubiquitination") should be (0)
     hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
     val kras = mentions.find(_.text contains "K-Ras")
@@ -723,7 +723,7 @@ class TestModifications extends FlatSpec with Matchers {
   //
   val sent14 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   sent14 should "contain 2 phosphorylations (one for each ERK mutation) and 2 Positive Regulations" in {
-    val mentions = parseSentence(sent14)
+    val mentions = getBioMentions(sent14)
 
     // We have one phosphorylation per Site
     val phosphos = mentions.filter(_ matches "Phosphorylation")
@@ -742,7 +742,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent15 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
   sent15 should "contain 2 Positive Regulations NOT Activations (1 for each ERK mutation)" in {
-    val mentions = parseSentence(sent15)
+    val mentions = getBioMentions(sent15)
 
     // We have 1 Reg per ERK mutant
     val regs = mentions.filter(_ matches "Positive_regulation")
@@ -751,7 +751,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent16 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
   sent16 should "contain 2 Positive Regulations NOT Activations (1 for each ERK mutation)" in {
-    val mentions = parseSentence(sent16)
+    val mentions = getBioMentions(sent16)
 
     // We have 1 Reg per ERK mutant
     val regs = mentions.filter(_ matches "Positive_regulation")
@@ -761,7 +761,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val siteTest1 = "activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   siteTest1 should "contain 2 sites (distinct phosphorylations)" in {
-    val mentions = parseSentence(siteTest1)
+    val mentions = getBioMentions(siteTest1)
 
     // We have one phosphorylation per Site
     val phosphos = mentions.filter(_ matches "Phosphorylation")
@@ -777,14 +777,14 @@ class TestModifications extends FlatSpec with Matchers {
 
   val siteTest2 = "Ser56 RAS"
   siteTest2 should "contain 2 entities (1 Site)" in {
-    val mentions = parseSentence(siteTest2)
+    val mentions = getBioMentions(siteTest2)
     mentions should have size (2)
     mentions.count(_ matches "Site") should be (1)
   }
 
   val mutantTest1 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
   mutantTest1 should "contain 2 mutations for ERK and 1 for FGFR3" in {
-    val mentions = parseSentence(mutantTest1)
+    val mentions = getBioMentions(mutantTest1)
 
     val fgfr = mentions filter(_.text == "FGFR3")
     fgfr should have size (1)
@@ -802,7 +802,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest2 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
   mutantTest2 should "contain 2 mutations for ERK and 1 for FGFR3" in {
-    val mentions = parseSentence(mutantTest2)
+    val mentions = getBioMentions(mutantTest2)
 
     val fgfr = mentions filter(_.text == "FGFR3")
     fgfr should have size (1)
@@ -820,7 +820,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest3 = "MEK R567Q"
   mutantTest3 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest3)
+    val mentions = getBioMentions(mutantTest3)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "R567Q" should be (true)
@@ -828,7 +828,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest4 = "MEK mutant R567Q"
   mutantTest4 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest4)
+    val mentions = getBioMentions(mutantTest4)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "R567Q" should be (true)
@@ -836,7 +836,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest5 = "MEK (R678Q, G890K)"
   mutantTest5 should "contain 1 entity with 2 Mutant modification" in {
-    val mentions = parseSentence(mutantTest5)
+    val mentions = getBioMentions(mutantTest5)
     mentions should have size (2)
     mentions(0).countMutations should be (1)
     mentions(1).countMutations should be (1)
@@ -847,7 +847,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest6 = "K111M and K112M ASPP1 mutants and ASPP2"
   mutantTest6 should "countain 2 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest6)
+    val mentions = getBioMentions(mutantTest6)
     mentions should have size (3)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (2)
@@ -864,7 +864,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest7 = "K111M, K112M, and K113M ASPP1 mutants and ASPP2"
   mutantTest7 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest7)
+    val mentions = getBioMentions(mutantTest7)
     mentions should have size (4)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -883,7 +883,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest8 = "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
   mutantTest8 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest8)
+    val mentions = getBioMentions(mutantTest8)
     mentions should have size (4)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -902,7 +902,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest9 = "Ser785His mutant RAS"
   mutantTest9 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest9)
+    val mentions = getBioMentions(mutantTest9)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -910,7 +910,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest10 = "Ser785His RAS"
   mutantTest10 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest10)
+    val mentions = getBioMentions(mutantTest10)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -918,7 +918,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest11 = "Ser785His mutant of RAS"
   mutantTest11 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest11)
+    val mentions = getBioMentions(mutantTest11)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -926,7 +926,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest12 = "K111M, K112M, and K113M mutants of ASPP1 and the RAS complex are phosphorylated."
   mutantTest12 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest12)
+    val mentions = getBioMentions(mutantTest12)
     mentions should have size (8)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -945,7 +945,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest13 = "Ser785His mutation of RAS"
   mutantTest13 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest13)
+    val mentions = getBioMentions(mutantTest13)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -953,7 +953,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest14 = "K111M, K112M, and K113M mutations of ASPP1 and the RAS complex are phosphorylated."
   mutantTest14 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest14)
+    val mentions = getBioMentions(mutantTest14)
     mentions should have size (8)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -972,15 +972,15 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest15 = "Mutation of the PIK3CA gene"
   mutantTest15 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest15)
+    val mentions = getBioMentions(mutantTest15)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Mutation" should be (true)
   }
 
   val siteTest3 = "Phosphorylation (p) of Akt (Ser-473), mTOR (Ser 2448) and Rictor (Ser 792) was quantified."
-  siteTest3 should "contain 3 Sites" in {
-    val mentions = parseSentence(siteTest3)
+  siteTest2 should "contain 3 Sites" in {
+    val mentions = getBioMentions(siteTest3)
     val sites = mentions.filter(_ matches "Site")
     sites should have size (3)
     sites.exists(_.text contains "Ser-473") should be (true)
@@ -988,11 +988,13 @@ class TestModifications extends FlatSpec with Matchers {
 
   val siteTest4 = "Phosphorylation of Akt (S473M) was attenuated."
   siteTest4 should "not contain any sites" in {
-    val mentions = parseSentence(siteTest4)
+    val mentions = getBioMentions(siteTest4)
     val sites = mentions.filter(_ matches "Site")
     sites should have size (0)
     val akt = mentions filter (_.text == "Akt")
     akt should have size (1)
     akt.head.countMutations should be (1)
   }
+
+
 }
