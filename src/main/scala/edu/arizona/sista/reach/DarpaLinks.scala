@@ -95,10 +95,11 @@ class DarpaLinks(doc: Document) extends Links {
       val cands = tbms.filter { m =>
         val mExpanded = expand(m)
         val wdsExpanded = m.sentenceObj.words.slice(mExpanded.start, mExpanded.end).toSeq
-        !g.isGeneric &&
+        m.precedes(g) &&
+          !g.isGeneric &&
           wdsExpanded.contains(hd) &&
-          !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence)) &&
-          m.precedes(g)
+          m.labels == g.labels &&
+          !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence))
       }
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
@@ -142,13 +143,28 @@ class DarpaLinks(doc: Document) extends Links {
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
             case "controlled" => mentions.filter { m =>
-              m.getClass == g.getClass && !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              m.precedes(g) &&
+                g.sentence - m.sentence < 2 &&
+                m.getClass == g.getClass &&
+                !m.isGeneric &&
+                !excludeThese.contains(m) &&
+                (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention])
             }
             case "controller" => mentions.filter { m =>
-              m.getClass == g.getClass && !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              m.precedes(g) &&
+                g.sentence - m.sentence < 2 &&
+                m.getClass == g.getClass &&
+                !m.isGeneric &&
+                !excludeThese.contains(m) &&
+                (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention])
             }
             case _ => tbms.filter { m =>
-              m.getClass == g.getClass && !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m)
+              m.precedes(g) &&
+                g.sentence - m.sentence < 2 &&
+                m.getClass == g.getClass &&
+                !m.isGeneric &&
+                !excludeThese.contains(m) &&
+                m.matches("PossibleController")
             }
           }
           if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
@@ -209,15 +225,27 @@ class DarpaLinks(doc: Document) extends Links {
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
             case "controlled" => mentions.filter { m =>
-              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
+              m.precedes(g) &&
+                g.sentence - m.sentence < 2 &&
+                !m.isGeneric &&
+                !excludeThese.contains(m) &&
+                (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention]) &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
             case "controller" => mentions.filter { m =>
-              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
+              m.precedes(g) &&
+                g.sentence - m.sentence < 2 &&
+                !m.isGeneric &&
+                !excludeThese.contains(m) &&
+                (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention]) &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
             case _ => tbms.filter { m =>
-              !m.isGeneric && m.precedes(g) && g.sentence - m.sentence < 2 && !excludeThese.contains(m) &&
+              m.precedes(g) &&
+                g.sentence - m.sentence < 2 &&
+                !m.isGeneric &&
+                !excludeThese.contains(m) &&
+                m.matches("PossibleController") &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
           }
