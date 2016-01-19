@@ -7,27 +7,34 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor namespace and meta info.
+  *   Last Modified: Refactor IMKB constructors.
   */
 class InMemoryKB (
 
-  /** Meta information about the external KB from which this KB was created. */
-  val metaInfo: IMKBMetaInfo,
+  /** The external namespace for this entry (e.g., go, uniprot). */
+  val namespace: String = DefaultNamespace,
 
   /** The filename of the external KB to be loaded into memory. */
   val kbFilename: String = null,            // default for KBs with no file to load
 
   /** Tell whether this KB contains species information. */
-  val hasSpeciesInfo: Boolean = false       // default for KBs without species info
+  val hasSpeciesInfo: Boolean = false,      // default for KBs without species info
+
+  /** Meta information about the external KB from which this KB was created. */
+  val metaInfo: IMKBMetaInfo = new IMKBMetaInfo()
 
 ) extends Speciated with ReachKBKeyTransforms {
 
-  // the root data structure implementing this in-memory knowledge base
+  /** Auxiliary constructor for common instantiation. */
+  def this (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo) =
+    this(namespace, kbFilename, false, metaInfo)
+
+  /** Auxiliary constructor for common instantiation. */
+  def this (kbFilename: String) = this(DefaultNamespace, kbFilename, false, new IMKBMetaInfo())
+
+
+  /** The root data structure implementing this in-memory knowledge base. */
   val thisKB: KnowledgeBase = KnowledgeBase()
-
-  // the sole namespace for this knowledge base
-  val thisNamespace: String = metaInfo.getOrElse("namespace", DefaultNamespace)
-
 
   /** Insert the given entry, merge it with an existing entry, or ignore it,
       depending on the contents and state of this KB. */
@@ -184,7 +191,7 @@ class InMemoryKB (
   /** Make and return a KB entry from the given fields. */
   private def makeEntry (text:String, refId:String, species:String): KBEntry = {
     val key = makeCanonicalKey(text)        // make canonical storage key
-    return new KBEntry(text, key, thisNamespace, refId, species.toLowerCase)
+    return new KBEntry(text, key, namespace, refId, species.toLowerCase)
   }
 
   /** Sort the columns of a 2-col or 3-col TSV row into correct order. */

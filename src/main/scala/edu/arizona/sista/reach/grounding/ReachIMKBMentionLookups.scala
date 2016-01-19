@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Refactor namespace and meta info.
+  *   Last Modified: Update for IMKB ctor changes.
   */
 
 //
@@ -16,26 +16,24 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /** KB accessor to resolve subcellular location names via KBs generated from the BioPax model. */
 class GendCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), GendCellLocationFilename)
+  val memoryKB = new InMemoryKB(GendCellLocationFilename)
 }
 
 /** KB accessor to resolve subcellular location names via manually maintained KBs. */
 class ManualCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), ManualCellLocationFilename)
+  val memoryKB = new InMemoryKB(ManualCellLocationFilename)
 }
 
 /** KB mention lookup to resolve subcellular location names via static KBs. */
 class StaticCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/go/", "go", "MIR:00000022"),
-                     StaticCellLocationFilename)
+  val memoryKB = new InMemoryKB("go", StaticCellLocationFilename,
+    new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022"))
 }
 
 /** KB mention lookup to resolve alternate subcellular location names via static KBs. */
 class StaticCellLocationKBML2 extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00000005"),
-                     StaticCellLocation2Filename)
+  val memoryKB = new InMemoryKB("uniprot", StaticCellLocation2Filename,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
 }
 
 
@@ -45,26 +43,24 @@ class StaticCellLocationKBML2 extends IMKBMentionLookup {
 
 /** KB accessor to resolve small molecule (chemical) names via KBs generated from the BioPax model. */
 class GendChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), GendChemicalFilename)
+  val memoryKB = new InMemoryKB(GendChemicalFilename)
 }
 
 /** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
 class ManualChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), ManualChemicalFilename)
+  val memoryKB = new InMemoryKB(ManualChemicalFilename)
 }
 
 /** KB accessor to resolve small molecule (metabolite) names via static KBs. */
 class StaticMetaboliteKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/hmdb/", "hmdb", "MIR:00000051"),
-                     StaticMetaboliteFilename)
+  val memoryKB = new InMemoryKB("hmdb", StaticMetaboliteFilename,
+    new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051"))
 }
 
 /** KB accessor to resolve small molecule (chemical) names via static KBs. */
 class StaticChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/chebi/", "chebi", "MIR:00100009"),
-                     StaticChemicalFilename)
+  val memoryKB = new InMemoryKB("chebi", StaticChemicalFilename,
+    new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009"))
 }
 
 
@@ -74,19 +70,18 @@ class StaticChemicalKBML extends IMKBMentionLookup {
 
 /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
 class GendProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), GendProteinFilename)
+  val memoryKB = new InMemoryKB(GendProteinFilename)
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), ManualProteinFilename)
+  val memoryKB = new InMemoryKB(ManualProteinFilename)
 }
 
 /** KB accessor to resolve protein names via static KBs. */
 class StaticProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00100164"),
-                     StaticProteinFilename, true) // true = has species
+  val memoryKB = new InMemoryKB("uniprot", StaticProteinFilename, true, // true = has species
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164"))
 }
 
 
@@ -98,19 +93,18 @@ class StaticProteinKBML extends IMKBProteinMentionLookup {
 
 /** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
 class GendProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), GendProteinFilename)
+  val memoryKB = new InMemoryKB(GendProteinFilename)
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo(), ManualProteinFilename)
+  val memoryKB = new InMemoryKB(ManualProteinFilename)
 }
 
 /** KB accessor to resolve protein family names via static KBs. */
 class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
-                     StaticProteinFamilyFilename, true) // true = has species
+  val memoryKB = new InMemoryKB("interpro", StaticProteinFamilyFilename, true, // true = has species
+    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011"))
 }
 
 
@@ -120,9 +114,8 @@ class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
 
 /** KB accessor to resolve tissue type names via static KBs. */
 class StaticTissueTypeKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "uniprot", "MIR:00000005"),
-                     StaticTissueTypeFilename)
+  val memoryKB = new InMemoryKB("uniprot", StaticTissueTypeFilename,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
 }
 
 
@@ -132,7 +125,7 @@ class StaticTissueTypeKBML extends IMKBMentionLookup {
 
 /** KB accessor implementation which always resolves each mention with a local, fake ID. */
 class AzFailsafeKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(new IMKBMetaInfo()) // no external KB file to load!
+  val memoryKB = new InMemoryKB()           // no external KB file to load!
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
