@@ -1,32 +1,29 @@
 package edu.arizona.sista.reach.context
 
 import io.Source
-import scala.collection.mutable
-import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.reach.nxml.NxmlReader
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.ReachSystem
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 import edu.arizona.sista.reach.TestUtils._
-
+import org.scalatest.{Matchers, FlatSpec}
 trait Fixtures {
   // Set up the fixtures
   def nxml1 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC2597732.nxml")).mkString
   def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC3441633.nxml")).mkString
   def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 
-  val reader = new NxmlReader
-  lazy val reachSystemP4 = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
-  lazy val reachSystemP3 = new ReachSystem(contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
-  /////////
+  // save RAM by passing in BioNLPProcessor instance from TestUtils
+  val reachSystemP4 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5"))
+  val reachSystemP3 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
 }
 
 class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
 
   def contextAssignmentBehavior(nxml:String){
     info("Testing context assignment")
-    val entries = reader.readNxml(nxml, nxml)
+    val entries = testReader.readNxml(nxml, nxml)
+
 
     val mentions:Seq[BioEventMention] = testReach.extractFrom(entries).filter{
         case em:BioEventMention => true
