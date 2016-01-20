@@ -7,9 +7,9 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for IMKB factory.
+  *   Last Modified: Rename class.
   */
-class TestBasicKBs extends FlatSpec with Matchers {
+class TestTsvKBs extends FlatSpec with Matchers {
 
   // Tests of non-speciated (2-column) knowledge base
   val imkb2 = new TsvIMKBFactory("UAZ", "uniprot-subcellular-locations.tsv",
