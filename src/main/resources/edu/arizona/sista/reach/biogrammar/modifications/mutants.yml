@@ -2,52 +2,137 @@
 # Mutants
 #########
 
-- name: mutant_1
+- name: mutant_sub1
   label: Mutant
   priority: 1
   type: token
   action: unpackRelations
+  example: "K182L"
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^[ACDEFGHIKLMNPQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_2
+- name: mutant_sub2
   label: Mutant
   priority: 1
   type: token
   action: unpackRelations
+  example: "P88i" # TODO: Is this a legal mutation name?
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_3
+- name: mutant_sub3letter
   label: Mutant
   priority: 1
   type: token
   action: unpackRelations
+  example: "Ser43Val"
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_4
+- name: mutant_4rangle
   label: Mutant
   priority: 1
   type: token
   action: unpackRelations
+  example: "91T>Y"
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^\d+[ACDEFGHIKLMNPQRSTVWY]$/] ">" [word=/^[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_5
+- name: mutant_5Delta
   label: Mutant
   priority: 1
   type: token
   action: unpackRelations
+  example: "DeltaN663"
   keep: false
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^Delta[ACDEFGHIKLMNPQRSTVWY]\d+$/]) [lemma=/^(mutant|mutation)/]?
 
-#NOTE: mutantlate_.+ should happen AFTER mutant_.+
+- name: mutant_sub4range
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "W34_A36del"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^([ACDEFGHIKLMNPQRSTVWY]?\d+_)?[ACDEFGHIKLMNPQRSTVWY]?\d+del[ACDEFGHIKLMNPQRSTVWY]?$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_sub5rangelong
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "414delCys"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^((Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+_)?(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+del(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_dup1
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "Q18_H33dup"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^([ACDEFGHIKLMNPQRSTVWY]?\d+_)?[ACDEFGHIKLMNPQRSTVWY]?\d+dup?$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_dup2long
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "Gly101dup"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^((Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+_)?(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+dup?$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_ins1
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "K66_A67insEMYQ"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^[ACDEFGHIKLMNPQRSTVWY]?\d+_[ACDEFGHIKLMNPQRSTVWY]?\d+ins[ACDEFGHIKLMNPQRSTVWY]+$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_ins2long
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "Glu66_Tyr67insHis"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+_(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+ins(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)+$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_fs1
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "S228fs"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^[ACDEFGHIKLMNPQRSTVWY]\d+fs$/]) [lemma=/^(mutant|mutation)/]?
+
+- name: mutant_fs2long
+  label: Mutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "Leu81fs"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+fs$/]) [lemma=/^(mutant|mutation)/]?
+
+#NOTE: mutantlate_.+ should happen AFTER mutant_.+, because they are generic
 - name: mutantlate_1
   label: Mutant
   priority: 2
