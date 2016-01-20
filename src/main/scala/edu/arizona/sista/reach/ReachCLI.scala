@@ -31,7 +31,7 @@ class ReachCLI(val nxmlDir:File,
 
   def processPapers(): Int = {
     println("initializing reach ...")
-    val reach = new ReachSystem
+    val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
     println("initializing NxmlReader ...")
     val nxmlReader = new NxmlReader(ignoreSections)
