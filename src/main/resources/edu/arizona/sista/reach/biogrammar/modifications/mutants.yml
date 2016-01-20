@@ -140,7 +140,7 @@
   type: token
   keep: false
   pattern: |
-    (?<= [mention=BioChemicalEntity]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?! [mention=Mutant])
+    (?<= [mention=BioChemicalEntity]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?! ("("? [mention=Mutant] ")"?))
 
 - name: mutantlate_2
   label: Mutant
@@ -149,7 +149,7 @@
   type: token
   keep: false
   pattern: |
-    (?<! [mention=Mutant]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?= ("of" [tag=DT]?)? [mention=BioChemicalEntity])
+    (?<! [mention=Mutant]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?= ("of" [tag=DT]?)? [mention=BioChemicalEntity] (?! ("("? [mention=Mutant] ")"?)))
 
 ##########
 # Store Mutant mods
