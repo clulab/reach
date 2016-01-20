@@ -11,7 +11,13 @@
   - ContextPossessive
 - Modification:
     - PTM
-    - Mutant
+    - Mutant:
+        - GenericMutant
+        - SubstitutionMutant
+        - DeletionMutant
+        - DuplicationMutant
+        - InsertionMutant
+        - FrameshiftMutant
     - EventSite
     - Negation
 - PossibleController:

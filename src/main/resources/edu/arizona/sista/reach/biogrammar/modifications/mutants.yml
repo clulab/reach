@@ -3,7 +3,7 @@
 #########
 
 - name: mutant_sub1
-  label: Mutant
+  label: SubstitutionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -12,18 +12,18 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^[ACDEFGHIKLMNPQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_sub2
-  label: Mutant
-  priority: 1
-  type: token
-  action: unpackRelations
-  example: "P88i" # TODO: Is this a legal mutation name?
-  keep: false
-  pattern: |
-    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/]) [lemma=/^(mutant|mutation)/]?
+#- name: mutant_sub2
+#  label: SubstitutionMutant
+#  priority: 1
+#  type: token
+#  action: unpackRelations
+#  example: "P88i" # TODO: Is this a legal mutation name?
+#  keep: false
+#  pattern: |
+#    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^P\d+[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_sub3letter
-  label: Mutant
+- name: mutant_sub3long
+  label: SubstitutionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -32,8 +32,8 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/(?i)^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)\d+(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_4rangle
-  label: Mutant
+- name: mutant_sub4rangle
+  label: SubstitutionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -42,18 +42,8 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^\d+[ACDEFGHIKLMNPQRSTVWY]$/] ">" [word=/^[ACDEFGHIKLMNPQRSTVWY]$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_5Delta
-  label: Mutant
-  priority: 1
-  type: token
-  action: unpackRelations
-  example: "DeltaN663"
-  keep: false
-  pattern: |
-    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^Delta[ACDEFGHIKLMNPQRSTVWY]\d+$/]) [lemma=/^(mutant|mutation)/]?
-
-- name: mutant_sub4range
-  label: Mutant
+- name: mutant_del1range
+  label: DeletionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -62,8 +52,8 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^([ACDEFGHIKLMNPQRSTVWY]?\d+_)?[ACDEFGHIKLMNPQRSTVWY]?\d+del[ACDEFGHIKLMNPQRSTVWY]?$/]) [lemma=/^(mutant|mutation)/]?
 
-- name: mutant_sub5rangelong
-  label: Mutant
+- name: mutant_del2rangelong
+  label: DeletionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -72,8 +62,18 @@
   pattern: |
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^((Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+_)?(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+del(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?$/]) [lemma=/^(mutant|mutation)/]?
 
+- name: mutant_del3Delta
+  label: DeletionMutant
+  priority: 1
+  type: token
+  action: unpackRelations
+  example: "DeltaN663"
+  keep: false
+  pattern: |
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^Delta[ACDEFGHIKLMNPQRSTVWY]\d+$/]) [lemma=/^(mutant|mutation)/]?
+
 - name: mutant_dup1
-  label: Mutant
+  label: DuplicationMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -83,7 +83,7 @@
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^([ACDEFGHIKLMNPQRSTVWY]?\d+_)?[ACDEFGHIKLMNPQRSTVWY]?\d+dup?$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_dup2long
-  label: Mutant
+  label: DuplicationMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -93,7 +93,7 @@
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^((Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+_)?(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+dup?$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_ins1
-  label: Mutant
+  label: InsertionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -103,7 +103,7 @@
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^[ACDEFGHIKLMNPQRSTVWY]?\d+_[ACDEFGHIKLMNPQRSTVWY]?\d+ins[ACDEFGHIKLMNPQRSTVWY]+$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_ins2long
-  label: Mutant
+  label: InsertionMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -113,7 +113,7 @@
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+_(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)?\d+ins(Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val)+$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_fs1
-  label: Mutant
+  label: FrameshiftMutant
   priority: 1
   type: token
   action: unpackRelations
@@ -123,7 +123,7 @@
     [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^[ACDEFGHIKLMNPQRSTVWY]\d+fs$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_fs2long
-  label: Mutant
+  label: FrameshiftMutant
   priority: 1
   type: token
   action: unpackRelations

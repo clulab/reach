@@ -14,6 +14,8 @@ sealed trait Modification {
   // modifications should at least have a label that explains
   // what kind of modification they are
   def label: String
+
+  def matches(query: String): Boolean = this.label == query
 }
 
 case class PTM(
@@ -31,7 +33,7 @@ case class PTM(
 }
 
 case class Mutant(evidence: Mention, foundBy: String) extends Modification{
-  val label = "Mutant"
+  val label = evidence.label
 
   override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }

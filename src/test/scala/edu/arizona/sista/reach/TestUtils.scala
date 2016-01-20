@@ -210,6 +210,16 @@ object TestUtils {
 
   implicit class MentionTestUtils(mention: BioMention) {
 
+    def hasMutation(mutant: String, subType: String): Boolean = mention match {
+      case empty if mention.modifications.isEmpty => false
+      case _ =>
+        val mutations =
+          mention.modifications
+            .filter(_.isInstanceOf[Mutant])
+            .map(_.asInstanceOf[Mutant])
+        mutations.exists(mutation => mutation.evidence.text.contains(mutant) && mutation.matches(subType))
+    }
+
     def hasMutation(mutant: String): Boolean = mention match {
       case empty if mention.modifications.isEmpty => false
       case _ =>
