@@ -51,6 +51,10 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
               val figs = el.child filter (_.label == "fig") flatMap(parseSubTree(_, name, sectionName, sectionId))
 
               figs ++ textEntry
+            case "sub" | "sup" =>
+              // Add spaces with the super and sub scripts to help tokenization
+              Seq(FriesEntry(name, "0", sectionId, sectionName, true, " " + el.text + " "))
+
             case "sec" | "fig" | "supplementary-material" =>
 
               // Otherwise, figure them out
