@@ -18,7 +18,7 @@ class TsvIMKBFactory (
   val kbFilename: String = "",              // default for KBs with no file to load
 
   /** Tell whether this KB contains species information. */
-  val hasSpeciesInfo: Boolean = false,      // default for KBs without species info
+  val hasSpeciesInfo: Boolean = false,      // default to KBs without species info
 
   /** Meta information about the external KB from which this KB was created. */
   val metaInfo: IMKBMetaInfo = new IMKBMetaInfo()
