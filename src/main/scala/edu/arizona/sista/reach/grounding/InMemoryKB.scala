@@ -7,12 +7,9 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor loading to factory class.
+  *   Last Modified: Add namespace only with aux constructor: move it back to meta info.
   */
 class InMemoryKB (
-
-  /** The external namespace for this entry (e.g., go, uniprot). */
-  val namespace: String = DefaultNamespace,
 
   /** Tell whether this KB contains species information. */
   val hasSpeciesInfo: Boolean = false,      // default for KBs without species info
@@ -21,6 +18,12 @@ class InMemoryKB (
   val metaInfo: IMKBMetaInfo = new IMKBMetaInfo()
 
 ) extends Speciated with ReachKBKeyTransforms {
+
+  /** Auxiliary constructor to add namespace to meta information for reference. */
+  def this (namespace: String, hasSpeciesInfo: Boolean, metaInfo: IMKBMetaInfo) = {
+    this(hasSpeciesInfo, metaInfo)
+    this.metaInfo.put("namespace", namespace)
+  }
 
   /** The root data structure implementing this in-memory knowledge base. */
   val thisKB: KnowledgeBase = KnowledgeBase()
