@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Guard file loading.
   */
 class TsvIMKBFactory (
 
@@ -15,7 +15,7 @@ class TsvIMKBFactory (
   val namespace: String = DefaultNamespace,
 
   /** The filename of the external KB to be loaded into memory. */
-  val kbFilename: String = null,            // default for KBs with no file to load
+  val kbFilename: String = "",              // default for KBs with no file to load
 
   /** Tell whether this KB contains species information. */
   val hasSpeciesInfo: Boolean = false,      // default for KBs without species info
@@ -25,18 +25,19 @@ class TsvIMKBFactory (
 
 ) extends Speciated with ReachKBKeyTransforms {
 
-  /** Auxiliary constructor for common instantiation. */
+  /** Auxiliary constructor. */
   def this (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo) =
     this(namespace, kbFilename, false, metaInfo)
 
-  /** Auxiliary constructor for common instantiation. */
+  /** Auxiliary constructor. */
   def this (kbFilename: String) = this(DefaultNamespace, kbFilename, false, new IMKBMetaInfo())
 
 
   /** Create, fill and return an in-memory knowledge base. */
   def make (): InMemoryKB = {
     val thisKB: InMemoryKB = new InMemoryKB(namespace, hasSpeciesInfo, metaInfo)
-    loadFromKBDir(thisKB, kbFilename)       // load new in-memory KB
+    if (kbFilename != "")
+      loadFromKBDir(thisKB, kbFilename)     // load new in-memory KB
     // thisKB.foreach { case (k, seMap) =>     // for DEBUGGING
     //   seMap.foreach { case (k2, ent) => println(ent.toString()) }} // for DEBUGGING
     return thisKB
