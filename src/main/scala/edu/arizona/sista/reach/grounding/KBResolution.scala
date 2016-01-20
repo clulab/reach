@@ -3,15 +3,15 @@ package edu.arizona.sista.reach.grounding
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Redo as facade for KB entry and meta info.
+  *   Last Modified: Reorder ctor arguments.
   */
 class KBResolution (
 
-  /** Meta information about the KB from which this resolution was created. */
-  val metaInfo: KBMetaInfo,
-
   /** KB entry containing relevant resolution information. */
-  val entry: KBEntry
+  val entry: KBEntry,
+
+  /** Meta information about the KB from which this resolution was created. */
+  val metaInfo: KBMetaInfo
 
 ) {
 

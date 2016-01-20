@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for IMKB ctor changes.
+  *   Last Modified: Refactor AZ fail safe KBML to own class file. Update for IMKB factory.
   */
 
 //
@@ -16,24 +16,24 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /** KB accessor to resolve subcellular location names via KBs generated from the BioPax model. */
 class GendCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(GendCellLocationFilename)
+  val memoryKB = new TsvIMKBFactory(GendCellLocationFilename).make()
 }
 
 /** KB accessor to resolve subcellular location names via manually maintained KBs. */
 class ManualCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(ManualCellLocationFilename)
+  val memoryKB = new TsvIMKBFactory(ManualCellLocationFilename).make()
 }
 
 /** KB mention lookup to resolve subcellular location names via static KBs. */
 class StaticCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB("go", StaticCellLocationFilename,
-    new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022"))
+  val memoryKB = new TsvIMKBFactory("go", StaticCellLocationFilename,
+    new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022")).make()
 }
 
 /** KB mention lookup to resolve alternate subcellular location names via static KBs. */
 class StaticCellLocationKBML2 extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB("uniprot", StaticCellLocation2Filename,
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
+  val memoryKB = new TsvIMKBFactory("uniprot", StaticCellLocation2Filename,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")).make()
 }
 
 
@@ -43,24 +43,24 @@ class StaticCellLocationKBML2 extends IMKBMentionLookup {
 
 /** KB accessor to resolve small molecule (chemical) names via KBs generated from the BioPax model. */
 class GendChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(GendChemicalFilename)
+  val memoryKB = new TsvIMKBFactory(GendChemicalFilename).make()
 }
 
 /** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
 class ManualChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB(ManualChemicalFilename)
+  val memoryKB = new TsvIMKBFactory(ManualChemicalFilename).make()
 }
 
 /** KB accessor to resolve small molecule (metabolite) names via static KBs. */
 class StaticMetaboliteKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB("hmdb", StaticMetaboliteFilename,
-    new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051"))
+  val memoryKB = new TsvIMKBFactory("hmdb", StaticMetaboliteFilename,
+    new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051")).make()
 }
 
 /** KB accessor to resolve small molecule (chemical) names via static KBs. */
 class StaticChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB("chebi", StaticChemicalFilename,
-    new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009"))
+  val memoryKB = new TsvIMKBFactory("chebi", StaticChemicalFilename,
+    new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009")).make()
 }
 
 
@@ -70,18 +70,18 @@ class StaticChemicalKBML extends IMKBMentionLookup {
 
 /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
 class GendProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new InMemoryKB(GendProteinFilename)
+  val memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new InMemoryKB(ManualProteinFilename)
+  val memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
 }
 
 /** KB accessor to resolve protein names via static KBs. */
 class StaticProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new InMemoryKB("uniprot", StaticProteinFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164"))
+  val memoryKB = new TsvIMKBFactory("uniprot", StaticProteinFilename, true, // true = has species
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")).make()
 }
 
 
@@ -93,18 +93,18 @@ class StaticProteinKBML extends IMKBProteinMentionLookup {
 
 /** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
 class GendProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new InMemoryKB(GendProteinFilename)
+  val memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new InMemoryKB(ManualProteinFilename)
+  val memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
 }
 
 /** KB accessor to resolve protein family names via static KBs. */
 class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new InMemoryKB("interpro", StaticProteinFamilyFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011"))
+  val memoryKB = new TsvIMKBFactory("interpro", StaticProteinFamilyFilename, true, // true = has species
+    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")).make()
 }
 
 
@@ -114,46 +114,6 @@ class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
 
 /** KB accessor to resolve tissue type names via static KBs. */
 class StaticTissueTypeKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB("uniprot", StaticTissueTypeFilename,
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
-}
-
-
-//
-// Failsafe Accessor
-//
-
-/** KB accessor implementation which always resolves each mention with a local, fake ID. */
-class AzFailsafeKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB()           // no external KB file to load!
-
-  private val idCntr = new IncrementingCounter() // counter sequence class
-
-  // base resolve of text string which does all the work for this class
-  override def resolve (text:String): Option[KBResolution] = {
-    val key = makeCanonicalKey(text)
-    val entry = memoryKB.lookupNoSpecies(key)   // look for an existing entry
-    if (entry.isDefined)                        // if KB entry is already defined
-      return memoryKB.newResolution(entry)      // create/wrap return value
-    else {                                      // else no existing entry, so
-      val refId = "UAZ%05d".format(idCntr.next) // create a new reference ID
-      val kbe = new KBEntry(text, key, DefaultNamespace, refId) // create a new KB entry
-      memoryKB.insertOrUpdateEntry(kbe)         // insert the new KB entry
-      return Some(memoryKB.newResolution(kbe))  // wrap return value in optional
-    }
-  }
-
-  // implementations which ignore the given species and defer to the base text resolve
-  override def resolveHuman (text:String): Option[KBResolution] = resolve(text)
-  override def resolveByASpecies (text:String, species:String): Option[KBResolution] = resolve(text)
-  override def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = Some(Iterable(resolve(text).get))
-  override def resolveNoSpecies (text:String): Option[KBResolution] = resolve(text)
-
-  // mention resolves which also ignore the given species and defer to the base text resolve
-  override def resolve (mention:Mention): Option[KBResolution] = resolve(mention.text)
-  override def resolveHuman (mention:Mention): Option[KBResolution] = resolve(mention.text)
-  override def resolveByASpecies (mention:Mention, species:String): Option[KBResolution] =
-    resolve(mention.text)
-  override def resolveBySpecies (mention:Mention, speciesSet:SpeciesNameSet): Option[Iterable[KBResolution]] = resolveBySpecies(mention.text, speciesSet)
-  override def resolveNoSpecies (mention:Mention): Option[KBResolution] = resolve(mention.text)
+  val memoryKB = new TsvIMKBFactory("uniprot", StaticTissueTypeFilename,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")).make()
 }

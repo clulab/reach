@@ -7,13 +7,13 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for IMKB ctor changes.
+  *   Last Modified: Update for IMKB factory.
   */
 class TestBasicKBs extends FlatSpec with Matchers {
 
   // Tests of non-speciated (2-column) knowledge base
-  val imkb2 = new InMemoryKB("UAZ", "uniprot-subcellular-locations.tsv",
-    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
+  val imkb2 = new TsvIMKBFactory("UAZ", "uniprot-subcellular-locations.tsv",
+    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000")).make()
 
   "InMemoryKB COL-2" should "lookupAll on IMKB from COL-2 TSV file" in {
     (imkb2.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
@@ -65,8 +65,8 @@ class TestBasicKBs extends FlatSpec with Matchers {
 
 
   // Tests of speciated (3-column) knowledge base
-  val imkbPF = new InMemoryKB("UAZ", "ProteinFamilies.tsv.gz", true,
-    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
+  val imkbPF = new TsvIMKBFactory("UAZ", "ProteinFamilies.tsv.gz", true,
+    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000")).make()
 
   // test lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)
 

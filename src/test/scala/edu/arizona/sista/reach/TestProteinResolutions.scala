@@ -186,6 +186,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
 // Protein KB using alternate protein resolutions
 class TestProteinKBL extends IMKBProteinLookup {
-  val memoryKB = new InMemoryKB("uniprot", StaticProteinFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164"))
+  val memoryKB = new TsvIMKBFactory("uniprot", StaticProteinFilename, true, // true = has species
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")).make()
 }
