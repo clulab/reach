@@ -2,7 +2,7 @@ package edu.arizona.sista.reach
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.struct.{ Interval, DirectedGraph }
+import edu.arizona.sista.struct.{ DirectedGraph }
 
 class DarpaActions extends Actions {
 
@@ -463,8 +463,6 @@ class DarpaActions extends Actions {
    * This is necessary so we can properly inspect the semantic negatives,
    *   which are often not in the path, but modify tokens in it,
    *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
-   * @param tokens
-   * @return
    */
   def addAdjectivalModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
     t <- tokens
@@ -486,9 +484,7 @@ class DarpaActions extends Actions {
 
 
   /** Test whether the given mention has a controller argument. */
-  def hasController(mention: Mention): Boolean = {
-    return mention.arguments.get("controlled").isDefined
-  }
+  def hasController(mention: Mention): Boolean = mention.arguments.get("controlled").isDefined
 
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
@@ -603,7 +599,7 @@ class DarpaActions extends Actions {
           em.keep,
           em.foundBy)
       } else em
-    case m => m
+    case _ => m
   }
 
   def validArguments(mention: Mention, state: State): Boolean = mention match {
