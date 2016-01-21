@@ -95,7 +95,7 @@ package object display {
           + s"""$indent\t\t\tMutation rule: ${evidence.foundBy}\n"""
           + s"""$indent\t\t\tMutation attachment rule: $foundBy""")
       case PTM(mod, evidence, site) =>
-        val siteText = if (site.nonEmpty) {s" @ ${site.get}"} else ""
+        val siteText = if (site.nonEmpty) {s" @ ${site.get.text}"} else ""
         val evidenceText = if (evidence.nonEmpty) {s""" based on \"${evidence.get.text}\""""} else ""
         println(s"""$indent\t\t$PTM = \"$mod\"$siteText$evidenceText""")
       case EventSite(site) =>
