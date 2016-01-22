@@ -3,6 +3,7 @@ package edu.arizona.sista.reach.nxml
 import scala.xml._
 import scala.xml.factory.XMLLoader
 import javax.xml.parsers.{SAXParser,SAXParserFactory}
+import scala.xml.transform.RewriteRule
 import scala.collection.mutable.ListBuffer
 import java.io.File
 
@@ -17,16 +18,30 @@ object MyXML extends XMLLoader[Elem] {
 }
 //////////////////////////////////////////////////////////
 
+object PreprocessNxml extends RewriteRule {
+  // surrounds sup/sub content with spaces
+  override def transform(n: Node): Seq[Node] = n match {
+    case <sup>{text}</sup> => <sup> {text} </sup>
+    case <sub>{text}</sub> => <sub> {text} </sub>
+    case elem: Elem => elem.copy(child = elem.child.flatMap(this.transform))
+    case other => other
+  }
+}
+
+//////////////////////////////////////////////////////////
+
 class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
   // This is a regex to remove the artifacts left from citation removal
   val citationArtifact = """[\(\[][ ,;(and)]+[\)\]]""".r
 
   /** Parsed an Nxml document and gives back an NxmlDoc instance */
-  def readNxml(doc:Elem, docName:String):Seq[FriesEntry] = {
+  def readNxml(originalDoc:Elem, docName:String):Seq[FriesEntry] = {
     var sec_counter = 0
     var fig_counter = 0
     var supm_counter = 0
+
+    val doc = PreprocessNxml(originalDoc)
 
     def parseSubTree(node:Node, name:String, sectionName:String, sectionId:String):Seq[FriesEntry] = {
       node match {
@@ -51,9 +66,6 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
               val figs = el.child filter (_.label == "fig") flatMap(parseSubTree(_, name, sectionName, sectionId))
 
               figs ++ textEntry
-            case "sub" | "sup" =>
-              // Add spaces with the super and sub scripts to help tokenization
-              Seq(FriesEntry(name, "0", sectionId, sectionName, true, " " + el.text + " "))
 
             case "sec" | "fig" | "supplementary-material" =>
 
