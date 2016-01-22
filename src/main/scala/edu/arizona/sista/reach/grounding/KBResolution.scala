@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Reorder ctor arguments.
+  *   Last Modified: Update for removal of alternate IDs.
   */
 class KBResolution (
 
@@ -21,7 +21,6 @@ class KBResolution (
   def key: String = entry.key
   def id: String = entry.id
   def species: String = entry.species
-  def alternateIds: Option[Set[String]] = entry.alternateIds
   def standardName: Option[String] = entry.standardName
 
   /** Override method to provide logging/debugging printout. */
