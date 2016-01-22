@@ -118,9 +118,9 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       }
     }
 
-    var bodyEntries = new ListBuffer[FriesEntry]
-    var backEntries = new ListBuffer[FriesEntry]
-    var floatsEntries = new ListBuffer[FriesEntry]
+    val bodyEntries = new ListBuffer[FriesEntry]
+    val backEntries = new ListBuffer[FriesEntry]
+    val floatsEntries = new ListBuffer[FriesEntry]
 
     val front = doc \\ "front"
     val body = doc \\ "body"
