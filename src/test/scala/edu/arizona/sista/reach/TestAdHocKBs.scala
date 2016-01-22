@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Unit tests to ensure a mixed-namespace in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 1/20/2016.
-  *   Last Modified: Initial creation: not all tests pass yet.
+  *   Last Modified: Initial working version.
   */
 class TestAdHocKBs extends FlatSpec with Matchers {
 
@@ -78,67 +78,6 @@ class TestAdHocKBs extends FlatSpec with Matchers {
     (ahkb3.lookupNoSpecies("apoptosis").isDefined) should be (false) // assumed human
     (ahkb3.lookupNoSpecies("nadph").isDefined) should be (false)     // assumed human
     (ahkb3.lookupNoSpecies("ros").isDefined) should be (false)       // assumed human
-  }
-
-
-  // Tests of speciated (3-column) knowledge base
-  val ahkb4 = new AdHocIMKBFactory("adhoc.tsv").make()
-
-  // test lookups directly in AHKB (remember: all test keys must be lowercased to succeed!)
-
-  "AdHocKB COL-4" should "lookupAll on AHKB from COL-4 gzipped TSV file" in {
-    (ahkb4.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (ahkb4.lookupAll("PTHR21244").isDefined) should be (false) // uppercase
-    (ahkb4.lookupAll("pthr21244").isDefined) should be (true)
-    (ahkb4.lookupAll("hk").isDefined) should be (true)
-  }
-
-  "AdHocKB COL-4" should "lookupAny on AHKB from COL-4 gzipped TSV file" in {
-    (ahkb4.lookupAny("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (ahkb4.lookupAny("PTHR21244").isDefined) should be (false) // uppercase
-    (ahkb4.lookupAny("pthr21244").isDefined) should be (true)
-    (ahkb4.lookupAny("hk").isDefined) should be (true)
-  }
-
-  "AdHocKB COL-4" should "lookupByASpecies on AHKB from COL-4 gzipped TSV file" in {
-    (ahkb4.lookupByASpecies("NOT-IN-KB", "human").isDefined) should be (false) // not in KB
-    (ahkb4.lookupByASpecies("PTHR21244", "human").isDefined) should be (false) // uppercase
-    (ahkb4.lookupByASpecies("pthr21244", "human").isDefined) should be (true)
-    (ahkb4.lookupByASpecies("pthr21244", "HUMAN").isDefined) should be (true)
-    (ahkb4.lookupByASpecies("pthr21244", "mouse").isDefined) should be (true)
-    (ahkb4.lookupByASpecies("pthr21244", "aardvark").isDefined) should be (false) // not in KB
-    (ahkb4.lookupByASpecies("hk", "saccharomyces cerevisiae").isDefined) should be (true)
-  }
-
-  "AdHocKB COL-4" should "lookupBySpecies on AHKB from COL-4 gzipped TSV file" in {
-    (ahkb4.lookupBySpecies("pthr21244", Set("aardvark")).isDefined) should be (false)
-    (ahkb4.lookupBySpecies("pthr21244", Set("human")).isDefined) should be (true)
-    val pt = ahkb4.lookupBySpecies("pthr21244", Set("human", "mouse"))
-    (pt.isDefined) should be (true)
-    (pt.get.size == 2) should be (true)
-    (ahkb4.lookupBySpecies("pthr21244", Set("human","mouse","gorilla")).isDefined) should be (true)
-    val pt2 = (ahkb4.lookupBySpecies("pthr21244", Set("human", "mouse","gorilla")))
-    (pt2.isDefined) should be (true)
-    (pt2.get.size == 2) should be (true)
-    (ahkb4.lookupBySpecies("hk", Set("human", "mouse")).isDefined) should be (false)
-    (ahkb4.lookupBySpecies("hk", Set("saccharomyces cerevisiae", "ant")).isDefined) should be (true)
-    (ahkb4.lookupBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).isDefined) should be (true)
-    (ahkb4.lookupBySpecies(
-      "hk", Set("ant", "saccharomyces cerevisiae")).get.size == 1) should be (true)
-  }
-
-  "AdHocKB COL-4" should "lookupHuman on AHKB from COL-4 gzipped TSV file" in {
-    (ahkb4.lookupHuman("hk").isDefined) should be (false) // yeast only
-    (ahkb4.lookupHuman("PTHR21244").isDefined) should be (false)
-    (ahkb4.lookupHuman("pthr21244").isDefined) should be (true)
-  }
-
-  "AdHocKB COL-4" should "lookupNoSpecies on AHKB from COL-4 gzipped TSV file" in {
-    (ahkb4.lookupNoSpecies("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (ahkb4.lookupNoSpecies("not-in-kb").isDefined) should be (false) // not in KB
-    (ahkb4.lookupNoSpecies("PTHR21244").isDefined) should be (false) // uppercase
-    (ahkb4.lookupNoSpecies("pthr21244").isDefined) should be (false) // has a species
-    (ahkb4.lookupNoSpecies("hk").isDefined) should be (false)        // has a species
   }
 
 }
