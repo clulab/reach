@@ -10,7 +10,7 @@ import org.scalatest.{Matchers, FlatSpec}
 trait Fixtures {
   // Set up the fixtures
   def nxml1 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC2597732.nxml")).mkString
-  def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC3441633.nxml")).mkString
+  def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC3189917.nxml")).mkString
   def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 
   // save RAM by passing in BioNLPProcessor instance from TestUtils
@@ -24,8 +24,15 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
     info("Testing context assignment")
     val entries = testReader.readNxml(nxml, nxml)
 
+    val x = reachSystemP4.extractFrom(entries)
 
-    val mentions:Seq[BioEventMention] = reachSystemP4.extractFrom(entries).filter{
+    val tbMentions:Seq[BioTextBoundMention] = x.filter{
+      case tm:BioTextBoundMention => true
+      case _ => false
+    }.map(_.asInstanceOf[BioTextBoundMention])
+
+
+    val mentions:Seq[BioEventMention] = x.filter{
         case em:BioEventMention => true
         case _ => false
       }.map(_.asInstanceOf[BioEventMention])
@@ -38,6 +45,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
       // Remove/Change the filter if context is attached to other BioMentions
 
       val size = context.flatMap(_.values.flatten).size
+
 
       info(s"The number of context resolutions is: $size")
       size should be > 0
@@ -140,7 +148,7 @@ class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
   it should behave like boundedPaddingBehavior(nxml1)
   it should behave like bidirectionalPaddingBehavior(nxml1)
 
-  behavior of "PMC3441633.nxml"
+  behavior of "PMC3189917.nxml"
 
   it should behave like contextAssignmentBehavior(nxml2)
   it should behave like boundedPaddingBehavior(nxml2)
