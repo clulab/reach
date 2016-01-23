@@ -11,7 +11,7 @@ class BoundedPaddingContext(
  bound:Int = 3 // Default bound to extend the policy
 ) extends RuleBasedContextEngine{
 
-  protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine", "Cellular_component")
+  protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine", "Cellular_location")
 
   // TODO: Do something smart to resolve ties
   protected def untie(entities:Seq[(String, String)]) = entities.head
