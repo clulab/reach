@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait implementing common logic for local Knowledge Base lookup classes.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Simplify with return of resolution sequences.
   */
 trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
 
@@ -18,7 +18,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     if (!memoryKB.hasSpeciesInfo)           // if KB has species information
       resolveNoSpecies(text)                // then try to resolve the text without species
     else                                    // else prefer human resolution above others
-      resolveHuman(text) orElse memoryKB.newResolutions(memoryKB.lookupAll(makeCanonicalKey(text)))
+      resolveHuman(text) orElse memoryKB.lookupAll(makeCanonicalKey(text))
   }
 
   /** Resolve the given text string to optional group of entries in a knowledge base,
@@ -26,8 +26,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   override def resolveByASpecies (text:String, species:String): Resolutions = {
     val key = makeCanonicalKey(text)        // make a lookup key from the given text
-    val entries = memoryKB.lookupByASpecies(key, species) // find matching entries in memory KB
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupByASpecies(key, species) // find matching entries in memory KB
   }
 
   /** Resolve the given text string to an optional group of entries in a knowledge base,
@@ -35,8 +34,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   override def resolveBySpecies (text:String, speciesSet:SpeciesNameSet): Resolutions = {
     val key = makeCanonicalKey(text)        // make a lookup key from the given text
-    val entries = memoryKB.lookupBySpecies(key, speciesSet) // find matching entries in memory KB
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupBySpecies(key, speciesSet) // find matching entries in memory KB
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base,
@@ -45,8 +43,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   override def resolveHuman (text:String): Resolutions = {
     val key = makeCanonicalKey(text)        // make a lookup key from the given text
-    val entries = memoryKB.lookupHuman(key) // find matching entries in memory KB
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupHuman(key)               // find matching entries in memory KB
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base which
@@ -55,8 +52,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   override def resolveNoSpecies (text:String): Resolutions = {
     val key = makeCanonicalKey(text)        // make a lookup key from the given text
-    val entries = memoryKB.lookupNoSpecies(key) // find matching entries in memory KB
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupNoSpecies(key)           // find matching entries in memory KB
   }
 
   //
@@ -74,7 +70,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
       resolveNoSpeciesAlt(text, transforms) // then try to resolve the text without species
     else {                                  // else prefer human resolution above others
       val allKeys = reachAlternateKeys(text, transforms)
-      resolveHumanAlt(text, transforms) orElse memoryKB.newResolutions(memoryKB.lookupsAll(allKeys))
+      resolveHumanAlt(text, transforms) orElse memoryKB.lookupsAll(allKeys)
     }
   }
 
@@ -88,8 +84,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
                                      transforms:KeyTransforms): Resolutions =
   {
     val allKeys = reachAlternateKeys(text, transforms)
-    val entries = memoryKB.lookupsByASpecies(allKeys, species)
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupsByASpecies(allKeys, species)
   }
 
   /** Resolve the given text string to an optional group of entries in a knowledge base,
@@ -101,8 +96,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
                                     transforms:KeyTransforms): Resolutions =
   {
     val allKeys = reachAlternateKeys(text, transforms)
-    val entries = memoryKB.lookupsBySpecies(allKeys, speciesSet)
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupsBySpecies(allKeys, speciesSet)
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base,
@@ -113,8 +107,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   override def resolveHumanAlt (text:String, transforms:KeyTransforms): Resolutions = {
     val allKeys = reachAlternateKeys(text, transforms)
-    val entries = memoryKB.lookupsHuman(allKeys)
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupsHuman(allKeys)
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base which
@@ -125,8 +118,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   def resolveNoSpeciesAlt (text:String, transforms:KeyTransforms): Resolutions = {
     val allKeys = reachAlternateKeys(text, transforms)
-    val entries = memoryKB.lookupsNoSpecies(allKeys)
-    return memoryKB.newResolutions(entries)
+    memoryKB.lookupsNoSpecies(allKeys)
   }
 
 }
