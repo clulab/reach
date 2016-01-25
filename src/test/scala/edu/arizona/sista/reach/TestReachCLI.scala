@@ -11,7 +11,7 @@ import org.scalatest.{Matchers, FlatSpec}
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
   * User: mihais
   * Date: 12/4/15
-  * Last Modified: Make separate output temp directory for IndexCards.
+  * Last Modified: Update for removal of aux grounding.
   */
 class TestReachCLI extends FlatSpec with Matchers {
   val nxmlDir = new File("src/test/resources/inputs/nxml")
@@ -30,7 +30,6 @@ class TestReachCLI extends FlatSpec with Matchers {
 
   val encoding = "utf-8"
   val ignoreSections = List("references", "materials", "materials|methods", "methods", "supplementary-material")
-  val useAuxGrounding = false
 
   val contextEngineType = Dummy
   val contextEngineParams:Map[String, String] = Map()

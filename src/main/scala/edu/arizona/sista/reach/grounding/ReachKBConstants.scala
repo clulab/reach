@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Change default namespace.
+  *   Last Modified: Remove aux KB constants.
   */
 object ReachKBConstants {
 
@@ -93,27 +93,5 @@ object ReachKBConstants {
 
   /** Filename of the context organs file */
   val ContextOrganFilename = "Organ.tsv"
-
-
-  /** Filename of the auxiliary biological processes file. */
-  val AuxBioProcessFilename = "AuxBioProcess.tsv"
-
-  /** Filename of the auxiliary cellular location file. */
-  val AuxCellLocationFilename = "AuxCellLocation.tsv"
-
-  /** Filename of the auxiliary small molecule (chemical) file. */
-  val AuxChemicalFilename = "AuxChemical.tsv"
-
-  /** Filename of the auxiliary small molecule (metabolite) file. */
-  val AuxMetaboliteFilename = "AuxMetabolite.tsv"
-
-  /** Filename of the auxiliary protein file. */
-  val AuxProteinFilename = "AuxProtein.tsv"
-
-  /** Filename of the auxiliary protein family file. */
-  val AuxProteinFamilyFilename = "AuxProteinFamily.tsv"
-
-  /** Filename of the auxiliary protein file. */
-  val AuxTissueTypeFilename = "AuxTissueType.tsv"
 
 }

@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Redo for returned resolution sequences.
+  *   Last Modified: Remove aux grounding.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -18,10 +18,8 @@ class ReachGrounder extends DarpaFlow {
 
   // Read config file to determine whether to include knowledge bases
   val config = ConfigFactory.load()
-  val useAuxGrounding = config.getBoolean("useAuxGrounding")
 
   /** Project local sequence for resolving entities: check local facade KBs in this order:
-    * 1. Auxiliary KBs, if specified by config parameter
     * 2. Protein Families
     * 3. Proteins
     * 4. Small Molecules (metabolites and chemicals)
@@ -29,63 +27,31 @@ class ReachGrounder extends DarpaFlow {
     * 6. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val searchSequence =
-    if (!useAuxGrounding)
-      Seq(
-        new StaticProteinFamilyKBML,
-        new ManualProteinFamilyKBML,
-        new StaticProteinKBML,
-        new ManualProteinKBML,
-        // NB: generated protein families are included in the generated protein KB:
-        new GendProteinKBML,
+    Seq(
+      new StaticProteinFamilyKBML,
+      new ManualProteinFamilyKBML,
+      new StaticProteinKBML,
+      new ManualProteinKBML,
+      // NB: generated protein families are included in the generated protein KB:
+      new GendProteinKBML,
 
-        new StaticChemicalKBML,
-        new StaticMetaboliteKBML,
-        new ManualChemicalKBML,
-        new GendChemicalKBML,
+      new StaticChemicalKBML,
+      new StaticMetaboliteKBML,
+      new ManualChemicalKBML,
+      new GendChemicalKBML,
 
-        new StaticCellLocationKBML,
-        new ManualCellLocationKBML,
-        new GendCellLocationKBML,
+      new StaticCellLocationKBML,
+      new ManualCellLocationKBML,
+      new GendCellLocationKBML,
 
-        new ContextCellTypeKBML,
-        new ContextSpeciesKBML,
-        new ContextCellLineKBML,
-        new ContextOrganKBML,
-        new StaticTissueTypeKBML,
+      new ContextCellTypeKBML,
+      new ContextSpeciesKBML,
+      new ContextCellLineKBML,
+      new ContextOrganKBML,
+      new StaticTissueTypeKBML,
 
-        new AzFailsafeKBML
-      )
-    else
-      Seq(
-        new AuxProteinKBML,
-        new AuxBioProcessKBML,
-        new AuxMetaboliteKBML,
-
-        new StaticProteinFamilyKBML,
-        new ManualProteinFamilyKBML,
-        new StaticProteinKBML,
-        new ManualProteinKBML,
-        // NB: generated protein families are included in the generated protein KB:
-        new GendProteinKBML,
-
-        new StaticChemicalKBML,
-        new StaticMetaboliteKBML,
-        new ManualChemicalKBML,
-        new GendChemicalKBML,
-
-        new StaticCellLocationKBML,
-        new ManualCellLocationKBML,
-        new GendCellLocationKBML,
-
-        new ContextCellTypeKBML,
-        new ContextSpeciesKBML,
-        new ContextCellLineKBML,
-        new ContextOrganKBML,
-        new StaticTissueTypeKBML,
-
-        new AzFailsafeKBML
-      )
-
+      new AzFailsafeKBML
+    )
 
   /** Local implementation of darpa flow trait: use project specific KBs to ground
       and augment given mentions. */
