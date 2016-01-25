@@ -54,8 +54,7 @@ package object mentions {
           m.keep,
           m.foundBy
         )
-        tbm.modifications ++= m.modifications
-        BioMention.copyAttachments(m, tbm)
+        CorefMention.copyAttachments(m, tbm)
         tbm
       }
       case m: BioEventMention => {
@@ -68,8 +67,7 @@ package object mentions {
           m.keep,
           m.foundBy
         )
-        ev.modifications ++= m.modifications
-        BioMention.copyAttachments(m, ev)
+        CorefMention.copyAttachments(m, ev)
         ev
       }
 
@@ -82,8 +80,7 @@ package object mentions {
           m.keep,
           m.foundBy
         )
-        rel.modifications ++= m.modifications
-        BioMention.copyAttachments(m, rel)
+        CorefMention.copyAttachments(m, rel)
         rel
       }
 

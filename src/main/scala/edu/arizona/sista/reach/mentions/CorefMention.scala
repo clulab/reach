@@ -140,3 +140,10 @@ class CorefRelationMention(
   def isClosedClass: Boolean = false
 }
 
+object CorefMention {
+  def copyAttachments(src:BioMention, dst:CorefMention){
+    dst.xref = src.xref
+    dst.context = src.context
+    dst.modifications ++= src.modifications
+  }
+}
