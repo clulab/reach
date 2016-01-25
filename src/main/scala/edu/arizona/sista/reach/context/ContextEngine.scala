@@ -25,7 +25,7 @@ trait ContextEngine {
 
 object ContextEngine {
   // Seq of the labels we care about in context
-  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "ContextPossessive", "ContextLocation", "ContextDirection")
+  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_location", "ContextPossessive", "ContextLocation", "ContextDirection")
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.xref match{
