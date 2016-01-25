@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Guard file loading.
+  *   Last Modified: Update for renamed IMKB method. Lowercase namespace.
   */
 class TsvIMKBFactory (
 
@@ -21,26 +21,31 @@ class TsvIMKBFactory (
   val hasSpeciesInfo: Boolean = false,      // default to KBs without species info
 
   /** Meta information about the external KB from which this KB was created. */
-  val metaInfo: IMKBMetaInfo = new IMKBMetaInfo()
+  val metaInfo: Option[IMKBMetaInfo] = None
 
 ) extends Speciated with ReachKBKeyTransforms {
 
-  /** Auxiliary constructor. */
-  def this (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo) =
-    this(namespace, kbFilename, false, metaInfo)
+  /** Additional constructor to workaround option. */
+  def this (namespace: String, kbFilename: String, hasSpeciesInfo: Boolean, metaInfo: IMKBMetaInfo) =
+    this(namespace, kbFilename, hasSpeciesInfo, Some(metaInfo))
 
-  /** Auxiliary constructor. */
-  def this (kbFilename: String) = this(DefaultNamespace, kbFilename, false, new IMKBMetaInfo())
+  /** Additional constructor to default unused arguments. */
+  def this (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo) =
+    this(namespace, kbFilename, false, Some(metaInfo))
+
+  /** Additional constructor to default unused arguments. */
+  def this (kbFilename: String) = this(DefaultNamespace, kbFilename, false, None)
 
 
   /** Create, fill and return an in-memory knowledge base. */
   def make (): InMemoryKB = {
-    val thisKB: InMemoryKB = new InMemoryKB(namespace, hasSpeciesInfo, metaInfo)
+    val imkb: InMemoryKB = new InMemoryKB(namespace.toLowerCase, hasSpeciesInfo,
+                                          metaInfo.getOrElse(new IMKBMetaInfo()))
     if (kbFilename != "")
-      loadFromKBDir(thisKB, kbFilename)     // load new in-memory KB
-    // thisKB.foreach { case (k, seMap) =>     // for DEBUGGING
-    //   seMap.foreach { case (k2, ent) => println(ent.toString()) }} // for DEBUGGING
-    return thisKB
+      loadFromKBDir(imkb, kbFilename)     // load new in-memory KB
+    // imkb.theKB.foreach { case (k, entries) =>   // for DEBUGGING: COMMENT LATER
+    //   entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING: COMMENT LATER
+    return imkb
   }
 
 
@@ -61,7 +66,7 @@ class TsvIMKBFactory (
           var text = flds(0)                    // assign fields in order
           var refId = flds(1)
           var species = flds(2)
-          theKB.insertOrUpdateEntry(makeEntry(text, refId, species))  // store new entry
+          theKB.addEntry(makeEntry(text, refId, species)) // store new entry
       }
       source.close()
     }
@@ -70,7 +75,7 @@ class TsvIMKBFactory (
   /** Make and return a KB entry from the given fields. */
   private def makeEntry (text:String, refId:String, species:String): KBEntry = {
     val key = makeCanonicalKey(text)        // make canonical storage key
-    return new KBEntry(text, key, namespace, refId, species.toLowerCase)
+    return new KBEntry(text, key, namespace.toLowerCase, refId, species.toLowerCase)
   }
 
   /** Sort the columns of a 2-col or 3-col TSV row into correct order. */

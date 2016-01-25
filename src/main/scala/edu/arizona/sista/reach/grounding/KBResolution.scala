@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for removal of alternate IDs.
+  *   Last Modified: Update for removal of alternate IDs. Make MetaInfo optional.
   */
 class KBResolution (
 
@@ -11,7 +11,7 @@ class KBResolution (
   val entry: KBEntry,
 
   /** Meta information about the KB from which this resolution was created. */
-  val metaInfo: KBMetaInfo
+  val metaInfo: Option[KBMetaInfo] = None
 
 ) {
 
@@ -25,6 +25,6 @@ class KBResolution (
 
   /** Override method to provide logging/debugging printout. */
   override def toString(): String =
-    s"<KBResolution: ${metaInfo}  ${text} | ${key} | ${namespace} | ${id} | ${species}>"
+    s"""<KBResolution: ${text} | ${key} | ${namespace} | ${id} | ${species} | ${metaInfo.getOrElse("")}>"""
 
 }

@@ -1,13 +1,15 @@
 package edu.arizona.sista.reach.grounding
 
 import scala.io.Source
+import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
+
 import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add namespace only with aux constructor: move it back to meta info.
+  *   Last Modified: Redo to use Sets of KB entries. Move type aliases here.
   */
 class InMemoryKB (
 
@@ -19,64 +21,49 @@ class InMemoryKB (
 
 ) extends Speciated with ReachKBKeyTransforms {
 
-  /** Auxiliary constructor to add namespace to meta information for reference. */
+  /** Additional constructor to add namespace to meta information for reference. */
   def this (namespace: String, hasSpeciesInfo: Boolean, metaInfo: IMKBMetaInfo) = {
     this(hasSpeciesInfo, metaInfo)
     this.metaInfo.put("namespace", namespace)
   }
 
+
   /** The root data structure implementing this in-memory knowledge base. */
-  val thisKB: KnowledgeBase = KnowledgeBase()
+  val theKB = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
 
-
-  /** Insert the given entry, merge it with an existing entry, or ignore it,
-      depending on the contents and state of this KB. */
-  def insertOrUpdateEntry (entry:KBEntry) = {
-    var rentry= entry                       // default: prepare to add new entry
-    var seMap = thisKB.get(entry.key).getOrElse(SpeciesEntryMap()) // get or make new SEMap
-    val oldEntry = seMap.get(entry.species) // lookup the entry by species
-    if (oldEntry.isDefined)                 // if there is existing entry for this species
-      rentry = oldEntry.get.combine(entry)  // combined entry will replace existing entry
-
-    // at this point, rentry contains a new or an updated entry to be re-stored
-    seMap.put(rentry.species, rentry)       // add/replace entry under its species
-    thisKB.put(rentry.key, seMap)           // put new/updated species-entry map into KB
-  }
+  /** Add the given entry to this KB, if it is unique. */
+  def addEntry (entry:KBEntry) = theKB.addBinding(entry.key, entry)
 
 
   /** Find the optional set of all KB entries for the given key. */
-  def lookupAll (key:String): Option[Iterable[KBEntry]] =
-    thisKB.get(key).map(spMap => spMap.values)
+  def lookupAll (key:String): Option[Iterable[KBEntry]] = theKB.get(key).map(eset => eset)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsAll (allKeys:Seq[String]): Option[Iterable[KBEntry]] = {
+  def lookupsAll (allKeys:Seq[String]): Option[Iterable[KBEntry]] =
+    applyLookupFn(lookupAll, allKeys)
+
+
+  /** Find any optional KB entry for the given key. Returns the first
+      KB entry found or None. */
+  def lookupAny (key:String): Option[KBEntry] = theKB.get(key).flatMap(eset => eset.headOption)
+
+  /** Try lookups for all given keys until one succeeds or all fail. */
+  def lookupsAny (allKeys:Seq[String]): Option[KBEntry] = {
     allKeys.foreach { key =>
-      val entries = lookupAll(key)
-      if (entries.isDefined) return entries
+      val entry = lookupAny(key)
+      if (entry.isDefined) return entry
     }
     return None                             // tried all keys: no success
   }
 
 
-  /** Find any optional KB entry for the given key. Returns the first
-      KB entry found or None. */
-  def lookupAny (key:String): Option[KBEntry] = {
-    thisKB.get(key).flatMap(spMap => spMap.values.headOption)
-  }
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsAny (allKeys:Seq[String]): Option[KBEntry] =
-    applyLookupFn(lookupAny, allKeys)
-
-
   /** Find the optional KB entry, for the given key, which matches the given species.
-      Returns the first KB entry found (should only be one) or None. */
-  def lookupByASpecies (key:String, species:String): Option[KBEntry] = {
-    thisKB.get(key).flatMap(spMap => spMap.get(species.toLowerCase))
-  }
+      Returns the first KB entry found or None. */
+  def lookupByASpecies (key:String, species:String): Option[Iterable[KBEntry]] =
+    theKB.get(key).map(eset => eset.filter(kbe => kbe.species == species)).filter(_.nonEmpty)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsByASpecies (allKeys:Seq[String], species:String): Option[KBEntry] = {
+  def lookupsByASpecies (allKeys:Seq[String], species:String): Option[Iterable[KBEntry]] = {
     allKeys.foreach { key =>
       val entry = lookupByASpecies(key, species)
       if (entry.isDefined) return entry
@@ -87,14 +74,8 @@ class InMemoryKB (
 
   /** Finds an optional set of KB entries, for the given key, which contains a
       species in the given set of species. */
-  def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Iterable[KBEntry]] = {
-    val kbes = lookupAll(key)
-    if (kbes.isDefined) {
-      val matches = kbes.get.filter(kbe => isMemberOf(kbe.species,speciesSet))
-      if (matches.isEmpty) None else Some(matches)
-    }
-    else None
-  }
+  def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Option[Iterable[KBEntry]] =
+    theKB.get(key).map(eset => eset.filter(kbe => isMemberOf(kbe.species, speciesSet))).filter(_.nonEmpty)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
   def lookupsBySpecies (allKeys:Seq[String],
@@ -110,47 +91,40 @@ class InMemoryKB (
 
   /** Finds an optional set of KB entries, for the given key, which have
       humans as the species. May return more than 1 entry because of synonyms. */
-  def lookupHuman (key:String): Option[Iterable[KBEntry]] = {
-    val kbes = lookupAll(key)
-    if (kbes.isDefined) {
-      val matches = kbes.get.filter(kbe => isHumanSpecies(kbe.species))
-      if (matches.isEmpty) None else Some(matches)
-    }
-    else None
-  }
+  def lookupHuman (key:String): Option[Iterable[KBEntry]] =
+    theKB.get(key).map(eset => eset.filter(kbe => isHumanSpecies(kbe.species))).filter(_.nonEmpty)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsHuman (allKeys:Seq[String]): Option[Iterable[KBEntry]] = {
-    allKeys.foreach { key =>
-      val entries = lookupHuman(key)
-      if (entries.isDefined) return entries
-    }
-    return None                             // tried all keys: no success
-  }
+  def lookupsHuman (allKeys:Seq[String]): Option[Iterable[KBEntry]] =
+    applyLookupFn(lookupHuman, allKeys)
 
 
   /** Find the optional KB entry, for the given key, which does not contain a species.
-      Returns the first KB entry found (should only be one) or None. */
-  def lookupNoSpecies (key:String): Option[KBEntry] = {
-    thisKB.get(key).flatMap(spMap => spMap.values.find((kbe) => kbe.hasNoSpecies()))
-  }
+      Returns the first KB entry found or None. */
+  def lookupNoSpecies (key:String): Option[Iterable[KBEntry]] =
+    theKB.get(key).map(eset => eset.filter(kbe => kbe.hasNoSpecies())).filter(_.nonEmpty)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsNoSpecies (allKeys:Seq[String]): Option[KBEntry] =
+  def lookupsNoSpecies (allKeys:Seq[String]): Option[Iterable[KBEntry]] =
     applyLookupFn(lookupNoSpecies, allKeys)
 
 
-  /** Create and return a new KB resolution from this KB and the given KB entry. */
-  def newResolution (entry:KBEntry): KBResolution = new KBResolution(entry, metaInfo)
+  /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
+  def newResolution (entry: KBEntry): KBResolution = new KBResolution(entry) // no metaInfo for now
 
-  /** Create and return a new KB resolution from this KB and the given optional KB entry. */
-  def newResolution (entry:Option[KBEntry]): Option[KBResolution] =
-    entry.map(kbe => new KBResolution(kbe, metaInfo))
+  /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
+      this KB and the given KB entries. */
+  def newResolutions (entries: Option[Iterable[KBEntry]]): Resolutions =
+    entries.map(_.map(kbe => newResolution(kbe)))
+
+  /** Wrap the given KB entry in a new singleton-sequence of resolutions formed from
+      this KB and the given KB entry. */
+  def toResolutions (entry: KBEntry): Resolutions = Option(Iterable.apply(newResolution(entry)))
 
 
   /** Try lookup function on all given keys until one succeeds or all fail. */
-  private def applyLookupFn (fn:(String) => Option[KBEntry],
-                             allKeys:Seq[String]): Option[KBEntry] = {
+  private def applyLookupFn (fn:(String) => Option[Iterable[KBEntry]],
+                             allKeys:Seq[String]): Option[Iterable[KBEntry]] = {
     allKeys.foreach { key =>
       val entry = fn.apply(key)
       if (entry.isDefined) return entry

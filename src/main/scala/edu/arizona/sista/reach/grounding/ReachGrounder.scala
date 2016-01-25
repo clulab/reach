@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Update for KB resolution facade.
+  *   Last Modified: Redo for returned resolution sequences.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -97,7 +97,8 @@ class ReachGrounder extends DarpaFlow {
   /** Search the KB accessors in sequence, use the first one which resolves the given mention. */
   private def resolveAndAugment(mention: BioMention, state: State): Mention = {
     searchSequence.foreach { kbml =>
-      val resolution = kbml.resolve(mention)
+      // There may be more than one entry returned in the set, so just take any one, for now:
+      val resolution = kbml.resolve(mention).flatMap(kbeset => kbeset.headOption)
       if (!resolution.isEmpty) {
         mention.ground(resolution.get.namespace, resolution.get.id)
         return mention

@@ -3,12 +3,12 @@ package edu.arizona.sista.reach.grounding
 /**
   * Class representing meta-information about an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor IMKB meta info.
+  *   Last Modified: Change base URI.
   */
 class IMKBMetaInfo (
 
   /** The primary URI of the external KB (e.g., http://identifiers.org/uniprot/). */
-  val baseURI: String = "http://org.clulab.reach/uazid/",
+  val baseURI: String = "http://org.clulab.reach/uaz/",
 
   /** The Resource Identifier for the primary resource location for this
     * knowledge base (e.g., MIR:00100164).
