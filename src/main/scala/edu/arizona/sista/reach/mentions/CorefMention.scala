@@ -14,7 +14,7 @@ class CorefTextBoundMention(
                            foundBy: String
                            ) extends BioTextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy) with Anaphoric {
 
-  def isGeneric: Boolean = labels contains "Generic_entity"
+  def isGeneric: Boolean = (labels contains "Generic_entity") || (labels contains "GenericMutant")
 
   def number: Int = 1
 
@@ -144,6 +144,16 @@ object CorefMention {
   def copyAttachments(src:BioMention, dst:CorefMention){
     dst.xref = src.xref
     dst.context = src.context
-    dst.modifications ++= src.modifications
+    dst.modifications ++= corefMods(src.modifications)
+  }
+
+  private def corefMods(modifications: Set[Modification]): Set[Modification] = {
+    for {
+      modification <- modifications
+      corefMod = modification match {
+        case mutation: Mutant => Mutant(mutation.evidence.toCorefMention, mutation.evidence.foundBy)
+        case anythingElse: Modification => anythingElse
+      }
+    } yield corefMod
   }
 }
