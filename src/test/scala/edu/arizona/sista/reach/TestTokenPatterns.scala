@@ -5,9 +5,11 @@ import edu.arizona.sista.processors.bionlp.BioNLPProcessor
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.odin.impl.TokenPattern
 import edu.arizona.sista.odin._
+import TestUtils._
 
 class TestTokenPatterns extends FlatSpec with Matchers {
-  val proc = new BioNLPProcessor
+  // use shared processor instance from TestUtils
+  val proc = bioproc
   val text1 = "TGFBR2 phosphorylates peri-kappa B and inhibits the ubiquitination of SMAD3."
   val text2 = "TGFBR2 phosphorylates peri-kappa B and peri-kappa C and inhibits the ubiquitination of SMAD3."
   val text3 = "TGFBR2 phosphorylates peri-kappa B and peri-kappa C by TGFBR3 and inhibits the ubiquitination of SMAD3."

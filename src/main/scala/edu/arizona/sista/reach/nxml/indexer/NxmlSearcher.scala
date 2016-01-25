@@ -51,8 +51,12 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def saveNxml(resultDir:String, docs:Set[(Document, Float)], howManyToSave:Int = 0): Unit = {
-    // TODO: if howManyToSave > 0, stop saving NXMLs after that many
-    for(doc <- docs.toList.sortBy(- _._2)) {
+    val docSeq = if (howManyToSave > 0) {
+      docs.toSeq.sortBy(-_._2).take(howManyToSave)
+    } else {
+      docs.toSeq.sortBy(-_._2)
+    }
+    for(doc <- docSeq) {
       val id = doc._1.get("id")
       val nxml = doc._1.get("nxml")
       val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
