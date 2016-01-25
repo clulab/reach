@@ -18,7 +18,7 @@ trait Fixtures {
   val reachSystemP3 = new ReachSystem(proc = Some(bioproc), contextEngineType = Engine.withName("Policy3"), contextParams = Map("bound" -> "5"))
 }
 
-class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
+class TestDeterministicPolicies extends FlatSpec with Matchers with Fixtures {
 
   def contextAssignmentBehavior(nxml:String){
     info("Testing context assignment")
