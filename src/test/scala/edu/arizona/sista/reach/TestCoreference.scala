@@ -340,4 +340,15 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions filter (_ matches "ComplexEvent") should have size (0)
   }
 
+  // Organs and other context entities can't be antecedents
+  val sent29 = "Liver is delicious, and it phosphorylates Raf."
+  val sent30 = "Humans are numerous, and they are sometimes activated by Raf."
+  sent29 should "not contain any complex events" in {
+    val mentions = getBioMentions(sent29)
+    mentions filter (_ matches "ComplexEvent") should have size (0)
+  }
+  sent30 should "not contain any Events" in {
+    val mentions = getBioMentions(sent30)
+    mentions filter (_ matches "Event") should have size (0)
+  }
 }

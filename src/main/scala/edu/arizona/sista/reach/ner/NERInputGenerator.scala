@@ -38,7 +38,7 @@ object NERInputGenerator {
         // Only worry about the first column of the file
         val synonym = line.split("\t").head
         // get tokens
-        val doc = preprocessor.mkDocument(synonym, keepText = false)
+        val doc = preprocessor.mkDocument(preprocessor.preprocessText(synonym), keepText = false)
         doc.sentences.flatMap(_.words)
       })
         .distinct
@@ -122,4 +122,3 @@ object NERInputWriter extends App {
 
   entitySyns.foreach( syn => NERInputGenerator.mkNERInputFile(syn, outPath))
 }
-
