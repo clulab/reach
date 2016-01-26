@@ -69,11 +69,18 @@ class ReachCLI(val nxmlDir:File,
           Nil
       }
 
+      // These documents are sorted
+      val paperDocObjects = new mutable.ArrayBuffer[Document]
       val paperMentions = new mutable.ArrayBuffer[BioMention]
       val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
       for (entry <- entries) {
         try {
-          val mentions = reach.extractFrom(entry)
+          // Create a document instance per entry and add it to the cache
+          val doc = reach.mkDoc(entry.text, entry.name, entry.chunkId)
+          // Add it to the document cache
+          paperDocObjects += doc
+          // Process it as usual
+          val mentions = reach.extractFrom(doc)
           mentions foreach { m => mentionsEntriesMap += (m -> entry) }
           paperMentions ++= mentions
         } catch {
@@ -106,6 +113,17 @@ class ReachCLI(val nxmlDir:File,
       val endNS = System.nanoTime
 
       try outputType match {
+        case "context-html" =>
+          val outputter = new HtmlOutput(paperDocObjects, paperMentions)
+          // Write the context stuff
+          val ctxSentencesFile = new File(outputDir, s"$paperId.ctxSentences")
+          FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
+
+          val ctxEventsFile = new File(outputDir, s"$paperId.ctxEvents")
+          FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
+
+          val ctxMentionsFile = new File(outputDir, s"$paperId.ctxMentions")
+          FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
         case "text" =>
           val mentionMgr = new MentionManager()
           val lines = mentionMgr.sortMentionsToStrings(paperMentions)
