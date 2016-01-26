@@ -120,7 +120,7 @@ class InMemoryKB (
 
 
   /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
-  def newResolution (entry: KBEntry): KBResolution = new KBResolution(entry) // no metaInfo for now
+  def newResolution (entry: KBEntry): KBResolution = new KBResolution(entry) // ignore metaInfo for now
 
   /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
       this KB and the given KB entries. */

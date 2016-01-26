@@ -3,19 +3,25 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait implementing common logic for local Knowledge Base lookup classes.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Simplify with return of resolution sequences.
+  *   Last Modified: Expose IMKB meta info and has species flag.
   */
 trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
 
   /** The in-memory knowledge base that all lookups will work against. */
   def memoryKB: InMemoryKB
 
+  /** Tell whether this KB contains species information or not. */
+  def hasSpeciesInfo: Boolean = memoryKB.hasSpeciesInfo
+
+  /** Return meta information about the external KB from which this KB was created. */
+  def metaInfo: IMKBMetaInfo = memoryKB.metaInfo
+
 
   /** Resolve the given text string to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.
     */
   override def resolve (text:String): Resolutions = {
-    if (!memoryKB.hasSpeciesInfo)           // if KB has species information
+    if (!hasSpeciesInfo)                    // if KB does not have species information
       resolveNoSpecies(text)                // then try to resolve the text without species
     else                                    // else prefer human resolution above others
       resolveHuman(text) orElse memoryKB.lookupAll(makeCanonicalKey(text))
@@ -66,7 +72,7 @@ trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
     */
   override def resolveAlt (text:String, transforms:KeyTransforms): Resolutions = {
     var entries: Resolutions = None
-    if (!memoryKB.hasSpeciesInfo)           // if KB has no species information
+    if (!hasSpeciesInfo)                    // if KB does not have species information
       resolveNoSpeciesAlt(text, transforms) // then try to resolve the text without species
     else {                                  // else prefer human resolution above others
       val allKeys = reachAlternateKeys(text, transforms)
