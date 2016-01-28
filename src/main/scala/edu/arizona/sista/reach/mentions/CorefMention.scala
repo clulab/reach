@@ -343,6 +343,8 @@ class CorefRelationMention(
   }
 
   def isClosedClass: Boolean = false
+
+  def isGenericNounPhrase: Boolean = false
 }
 
 object CorefMention {

@@ -38,4 +38,6 @@ trait Anaphoric {
   def isComplete: Boolean
 
   def isClosedClass: Boolean
+
+  def isGenericNounPhrase: Boolean
 }
