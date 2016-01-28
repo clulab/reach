@@ -58,6 +58,7 @@ class Coref {
 
     val allLinks = CorefFlow(links.exactStringMatch) andThen
       CorefFlow(links.groundingMatch) andThen
+      CorefFlow(links.mutantProteinMatch) andThen
       CorefFlow(links.strictHeadMatch) andThen
       CorefFlow(links.pronominalMatch) andThen
       CorefFlow(links.nounPhraseMatch) andThen

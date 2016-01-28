@@ -351,4 +351,20 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent30)
     mentions filter (_ matches "Event") should have size (0)
   }
+
+  // Link a known mutant of a known protein with an unknown mutant of a known protein
+  val sent31a = "ASPP1 K341L is common, and this mutant ASPP1 binds GTP."
+  val sent31b = "ASPP2 K341L is common, and this mutant ASPP1 binds GTP."
+  sent31a should "contain a binding to a non-generic mutant" in {
+    val mentions = getBioMentions(sent31a)
+    val relevantMutant = mentions.find(_ matches "Binding").get.arguments.values.flatten.find(_.text == "ASPP1").get
+    relevantMutant.toCorefMention.antecedent.get.asInstanceOf[CorefMention].mutants.exists(mut => mut.text == "K341L") should be (true)
+  }
+  sent31b should "not contain a binding to a non-generic mutant" in {
+    val mentions = getBioMentions(sent31b)
+    val relevantMutant = mentions.find(_ matches "Binding").get.arguments.values.flatten.find(m => m.text == "ASPP1").get.toCorefMention
+    relevantMutant.antecedent.isEmpty should be (true)
+    relevantMutant.hasGenericMutation should be (true)
+    mentions.find(_ matches "Binding").get.arguments.values.flatten.find(m => m.text == "ASPP2").isEmpty should be (true)
+  }
 }

@@ -10,12 +10,14 @@ trait Anaphoric {
 
   def isGeneric: Boolean
 
+  def hasGenericMutation: Boolean
+
   def text: String
 
   def number: Int
 
   def firstSpecific: Seq[Anaphoric] = {
-    if (!this.isGeneric) Seq(this)
+    if (!this.isGeneric && !this.hasGenericMutation) Seq(this)
     else if (this.antecedents.isEmpty) Nil
     else {
       (for (ant <- antecedents) yield ant.asInstanceOf[Anaphoric].firstSpecific).flatten.toSeq
@@ -25,7 +27,7 @@ trait Anaphoric {
   def toSingletons: Seq[Anaphoric]
 
   def antecedent: Option[Anaphoric] = {
-    val ant = if(this.isGeneric) {
+    val ant = if(this.isGeneric || this.hasGenericMutation) {
       require(antecedents.size < 2,
         s"Multiple antecedents found for ${this.text}: ${this.antecedents.map(_.text).mkString(", ")}!")
       this.firstSpecific

@@ -16,13 +16,17 @@ class CorefTextBoundMention(
 
   def isGeneric: Boolean = (labels contains "Generic_entity") || (labels contains "GenericMutant")
 
-  def number: Int = 1
+  def hasGenericMutation: Boolean = this.mutants.exists(mut => mut.isGeneric)
 
   def toSingletons: Seq[CorefTextBoundMention] = {
-    if (!this.isGeneric) Seq(this)
+    if (!this.isGeneric && !this.mutants.exists(mut => mut.isGeneric)) Seq(this)
     else {
-      val ants = this.firstSpecific.filterNot(_ == this).filter(_.isComplete)
-      if (ants.isEmpty) Nil
+      val ants = this.firstSpecific.filter(_.isComplete)
+        .filterNot(a => a == this || a.asInstanceOf[CorefMention].hasGenericMutation)
+      if (ants.isEmpty) {
+        if (this.mutants.exists(mut => mut.isGeneric)) Seq(this)
+        else Nil
+      }
       else if (ants.size == 1) Seq(this)
       else {
         for {
@@ -67,7 +71,7 @@ class CorefEventMention(
 
   def isGeneric: Boolean = labels contains "Generic_event"
 
-  def number: Int = 1
+  def hasGenericMutation: Boolean = false
 
   def toSingletons: Seq[CorefEventMention] = {
     if (!this.isGeneric) Seq(this)
@@ -124,6 +128,8 @@ class CorefRelationMention(
 
   def isGeneric: Boolean = false
 
+  def hasGenericMutation: Boolean = false
+
   def number: Int = 1
 
   def toSingletons: Seq[CorefRelationMention] = Seq(this)
@@ -151,7 +157,7 @@ object CorefMention {
     for {
       modification <- modifications
       corefMod = modification match {
-        case mutation: Mutant => Mutant(mutation.evidence.toCorefMention, mutation.evidence.foundBy)
+        case mutation: Mutant => Mutant(mutation.evidence.toCorefMention, mutation.foundBy)
         case anythingElse: Modification => anythingElse
       }
     } yield corefMod

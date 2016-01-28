@@ -134,7 +134,7 @@
 
 #NOTE: mutantlate_.+ should happen AFTER mutant_.+, because they are generic
 - name: mutantlate_1
-  label: Mutant
+  label: GenericMutant
   priority: 2
   action: mkBioMention
   type: token
@@ -143,7 +143,7 @@
     (?<= [mention=BioChemicalEntity]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?! ("("? [mention=Mutant] ")"?))
 
 - name: mutantlate_2
-  label: Mutant
+  label: GenericMutant
   priority: 2
   action: mkBioMention
   type: token

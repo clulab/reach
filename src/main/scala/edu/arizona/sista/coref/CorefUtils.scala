@@ -42,7 +42,7 @@ object CorefUtils {
    */
   def genericInside (m: CorefMention): Boolean = {
     @tailrec def genericInsideRec(ms: Seq[CorefMention]): Boolean = {
-      if (ms.exists(m => (m matches "Generic_entity") || (m matches "Generic_event"))) true
+      if (ms.exists(m => m.isGeneric || m.hasGenericMutation)) true
       else {
         val (tbs, others) = ms.partition(mention => mention.isInstanceOf[CorefTextBoundMention])
         if (others.isEmpty) false

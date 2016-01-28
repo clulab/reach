@@ -8,6 +8,8 @@ trait Modifications {
   var modifications: Set[Modification] = Set.empty
 
   def isModified: Boolean = modifications.nonEmpty
+
+  def mutants: Set[Mutant] = modifications.filter(_.isInstanceOf[Mutant]).asInstanceOf[Set[Mutant]]
 }
 
 sealed trait Modification {
@@ -34,6 +36,9 @@ case class PTM(
 
 case class Mutant(evidence: Mention, foundBy: String) extends Modification{
   val label = evidence.label
+  val text = evidence.text
+
+  def isGeneric: Boolean = evidence.toCorefMention.isGeneric
 
   override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }

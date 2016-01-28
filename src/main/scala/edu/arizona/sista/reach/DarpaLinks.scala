@@ -16,15 +16,18 @@ class DarpaLinks(doc: Document) extends Links {
   /**
    * Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g. 'it'
    * won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
-   * @param mentions All mentions
+    *
+    * @param mentions All mentions
    * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added
    */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Exact entity string matching=====")
     val sameText = mentions
-      .filter(x => x.isInstanceOf[CorefTextBoundMention] && !x.asInstanceOf[CorefTextBoundMention].isGeneric)
-      .groupBy(m => m.text.toLowerCase)
+      .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
+        !x.asInstanceOf[CorefTextBoundMention].isGeneric  &&
+        !x.asInstanceOf[CorefTextBoundMention].hasGenericMutation)
+      .groupBy(m => m.text.toLowerCase + "(" + m.mutants.map(_.text).mkString("/") + ")")
       .filter(_._2.toSeq.length > 1)
     sameText.foreach {
       case (ent, ms) =>
@@ -66,10 +69,41 @@ class DarpaLinks(doc: Document) extends Links {
     mentions
   }
 
+  def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (debug) println("\n=====Mutant protein matching=====")
+
+    val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention])
+    val gms = tbms.filter(m => m.isInstanceOf[CorefTextBoundMention] && m.mutants.exists(mut => mut.isGeneric))
+
+    gms.foreach {
+      case gm =>
+        if (verbose) println(s"Searching for antecedents to ${gm.text} ${gm.mutants.find(_.isGeneric).get.text}")
+
+        val cands = tbms.filter { m =>
+          m.precedes(gm) &&
+            m.isGrounded &&
+            m.xref.get.namespace == gm.xref.get.namespace &&
+            m.xref.get.id == gm.xref.get.id &&
+            m.mutants.nonEmpty &&
+            m.mutants.forall(mut => !mut.isGeneric)
+        }
+
+        val ants = selector(gm, cands diff Seq(gm), gm.number)
+        if (debug) ants.foreach { ant =>
+          println(s"${gm.text} ${gm.mutants.find(mut => mut.isGeneric).get.text} links " +
+            s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}") }
+
+        gm.antecedents ++= ants
+        gm.sieves += "mutantProteinMatch"
+    }
+    mentions
+  }
+
   /**
    * Match two mentions, at least one generic, in which the later mention's head is in the earlier one and the later
    * mention's words are a subset of the earlier one.
-   * @param mentions All mentions
+    *
+    * @param mentions All mentions
    * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
@@ -204,10 +238,18 @@ class DarpaLinks(doc: Document) extends Links {
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
 
     hasArgs.filter(_.antecedents.isEmpty).foreach {
-      case np if np.arguments.values.flatten.exists(arg => isGenericNounPhrase(arg)) => {
-
+      case np if np.arguments.values.flatten.exists(arg =>
+        arg.isInstanceOf[TextBoundMention] &&
+          arg.toCorefMention.isGenericNounPhrase &&
+          arg.toCorefMention.antecedents.isEmpty) => {
         // separate the arguments into generic noun phrases and others
-        val npMap = np.arguments.map(args => args._1 -> args._2.partition(arg => isGenericNounPhrase(arg)))
+        val npMap = np.arguments.map(args =>
+          args._1 -> args._2.partition(arg =>
+            arg.isInstanceOf[TextBoundMention] &&
+              arg.toCorefMention.isGenericNounPhrase &&
+              arg.toCorefMention.antecedents.isEmpty
+          )
+        )
 
         // exclude all the arguments of this event, plus this event itself,
         // plus all the arguments of any events that have this event as an argument
