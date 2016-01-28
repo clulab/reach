@@ -1,6 +1,6 @@
 name := "reach"
 
-version := "1.2.2-SNAPSHOT"
+version := "1.2.3-SNAPSHOT"
 
 organization := "org.clulab"
 
@@ -12,7 +12,7 @@ scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 fork := true
 
 // options for forked jvm
-javaOptions += "-Xmx8G"
+javaOptions += "-Xmx10G"
 
 // forward sbt's stdin to forked process
 connectInput in run := true
