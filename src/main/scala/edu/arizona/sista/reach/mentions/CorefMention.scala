@@ -2,6 +2,7 @@ package edu.arizona.sista.reach.mentions
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.coref.CorefUtils._
 
@@ -57,6 +58,109 @@ class CorefTextBoundMention(
       val closedClass = Seq("DT", "PRP", "PRP$", "WDT", "WP", "WP$")
       closedClass contains tag
     }
+  }
+
+  // generic antecedent matching with number approximation
+  private val detMap = Map("a" -> 1,
+    "an" -> 1,
+    "both" -> 2,
+    "that" -> 1,
+    "those" -> 2,
+    "these" -> 2, // assume two for now...
+    "this" -> 1,
+    "few" -> 3,
+    "some" -> 3, // assume three for now...
+    "one" -> 1,
+    "two" -> 2,
+    "three" -> 3,
+    "four" -> 4,
+    "five" -> 5,
+    "six" -> 6,
+    "seven" -> 7,
+    "eight" -> 8,
+    "nine" -> 9,
+    "ten" -> 10,
+    "its" -> 1,
+    "their" -> 2)
+
+  private val headMap = Map("it" -> 1,
+    "they" -> 2,
+    "theirs" -> 1,
+    "them" -> 2,
+    "that" -> 1,
+    "both" -> 2,
+    "those" -> 2,
+    "these" -> 2, // assume two for now...
+    "this" -> 1,
+    "some" -> 3, // assume three for now...
+    "one" -> 1,
+    "two" -> 2,
+    "three" -> 3,
+    "four" -> 4,
+    "five" -> 5,
+    "six" -> 6,
+    "seven" -> 7,
+    "eight" -> 8,
+    "nine" -> 9,
+    "ten" -> 10
+  )
+
+  /**
+    * Return the cardinality of a phrase based on its determiners
+    */
+  private def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
+    require(words.length == tags.length)
+    val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
+    def finalAttempt(num: String): Int = try {
+      num.toInt
+    } catch {
+      case e: NumberFormatException => 0
+    }
+    detMap.getOrElse(somenum, finalAttempt(somenum))
+  }
+
+  /**
+    * Return the cardinality of a phrase based on its head -- is it plural?
+    */
+  private def headCardinality(somenum: String, tag: String): Int = {
+    tag match {
+      case "PRP" | "PRP$" => headMap.getOrElse(somenum, 0)
+      case "NNS" | "NNPS" => 2
+      case "NN" | "NNP" => 1
+      case _ => headMap.getOrElse(somenum, 1)
+    }
+  }
+
+  /**
+    * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
+    */
+  def number: Int = {
+    val sent = this.sentenceObj
+    val mhead = findHeadStrict(this.tokenInterval, sent).getOrElse(this.tokenInterval.start)
+    val phrase = subgraph(this.tokenInterval, sent)
+    val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end),
+      sent.tags.get.slice(phrase.get.start, phrase.get.end))
+    val hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
+
+    this match {
+      case informativeDeterminer if dc != 0 => dc
+      case informativeHead if dc == 0 & hc != 0 => hc
+      case _ => 1
+    }
+  }
+
+  def isGenericNounPhrase: Boolean = {
+    this.isGeneric &&
+      !this.isClosedClass &&
+      Seq("NN", "NNS").contains(this.sentenceObj.tags.get(
+          findHeadStrict(
+            this.tokenInterval,
+            this.sentenceObj
+          ).getOrElse(
+            this.tokenInterval.start
+          )
+        )
+      )
   }
 }
 
@@ -116,6 +220,99 @@ class CorefEventMention(
   }
 
   def isClosedClass: Boolean = false
+
+  // generic antecedent matching with number approximation
+  private val detMap = Map("a" -> 1,
+    "an" -> 1,
+    "both" -> 2,
+    "that" -> 1,
+    "those" -> 2,
+    "these" -> 2, // assume two for now...
+    "this" -> 1,
+    "few" -> 3,
+    "some" -> 3, // assume three for now...
+    "one" -> 1,
+    "two" -> 2,
+    "three" -> 3,
+    "four" -> 4,
+    "five" -> 5,
+    "six" -> 6,
+    "seven" -> 7,
+    "eight" -> 8,
+    "nine" -> 9,
+    "ten" -> 10,
+    "its" -> 1,
+    "their" -> 2)
+
+  private val headMap = Map("it" -> 1,
+    "they" -> 2,
+    "theirs" -> 1,
+    "them" -> 2,
+    "that" -> 1,
+    "both" -> 2,
+    "those" -> 2,
+    "these" -> 2, // assume two for now...
+    "this" -> 1,
+    "some" -> 3, // assume three for now...
+    "one" -> 1,
+    "two" -> 2,
+    "three" -> 3,
+    "four" -> 4,
+    "five" -> 5,
+    "six" -> 6,
+    "seven" -> 7,
+    "eight" -> 8,
+    "nine" -> 9,
+    "ten" -> 10
+  )
+
+  /**
+    * Return the cardinality of a phrase based on its determiners
+    */
+  private def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
+    require(words.length == tags.length)
+    val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$")
+      .contains(x._1)).getOrElse(return 0)._2)
+    def finalAttempt(num: String): Int = try {
+      num.toInt
+    } catch {
+      case e: NumberFormatException => 0
+    }
+    detMap.getOrElse(somenum, finalAttempt(somenum))
+  }
+
+  /**
+    * Return the cardinality of a phrase based on its head -- is it plural?
+    */
+  private def headCardinality(somenum: String, tag: String): Int = {
+    tag match {
+      case "PRP" | "PRP$" => headMap.getOrElse(somenum, 0)
+      case "NNS" | "NNPS" => 2
+      case "NN" | "NNP" => 1
+      case _ => headMap.getOrElse(somenum, 1)
+    }
+  }
+
+  /**
+    * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
+    */
+  def number: Int = {
+    val sent = this.sentenceObj
+    val mhead = findHeadStrict(this.tokenInterval, sent).getOrElse(this.tokenInterval.start)
+    val phrase = subgraph(this.tokenInterval, sent)
+    val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end),
+      sent.tags.get.slice(phrase.get.start, phrase.get.end))
+    val hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
+
+    this match {
+      case informativeDeterminer if dc != 0 => dc
+      case informativeHead if dc == 0 & hc != 0 => hc
+      case _ => 1
+    }
+  }
+
+  // For now, only CorefTextBoundMention can be a generic noun phrase
+  def isGenericNounPhrase: Boolean = false
 }
 
 

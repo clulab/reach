@@ -117,7 +117,7 @@ class DarpaLinks(doc: Document) extends Links {
     for {
       g <- gnrc
       // save pronominals for later -- only noun phrases are of interest here
-      if !isPronominal(g) & g.antecedents.isEmpty
+      if !g.isClosedClass & g.antecedents.isEmpty
     } {
       // expand the mention so we can find its head
       val gExpanded = expand(g)
@@ -147,19 +147,19 @@ class DarpaLinks(doc: Document) extends Links {
 
   /**
    * Match two mentions where the latter mention is a closed-class anaphor, matching number
-   * @param mentions All mentions
+    *
+    * @param mentions All mentions
    * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Pronominal matching=====")
-    val state = State(mentions)
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     hasArgs.filter(_.antecedents.isEmpty).foreach {
-      case pronominal if pronominal.arguments.values.flatten.exists(arg => isPronominal(arg)) => {
+      case pronominal if pronominal.arguments.values.flatten.exists(arg => arg.toCorefMention.isClosedClass) => {
         // separate the arguments into pronominal and non-pronominal
-        val proMap = pronominal.arguments.map(args => args._1 -> args._2.partition(arg => isPronominal(arg)))
+        val proMap = pronominal.arguments.map(args => args._1 -> args._2.partition(arg => arg.toCorefMention.isClosedClass))
         // exclude all the arguments of this event, plus this event itself,
         // plus all the arguments of any events that have this event as an argument
         var excludeThese = pronominal.arguments.values.flatten.toSeq ++
@@ -173,8 +173,6 @@ class DarpaLinks(doc: Document) extends Links {
           val (lbl, g) = kv
           if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
-          // look for the right number of antecedents
-          val card = cardinality(g)
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
             case "controlled" => mentions.filter { m =>
@@ -205,7 +203,7 @@ class DarpaLinks(doc: Document) extends Links {
           if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
 
           // apply selector to candidates
-          val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
+          val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
           if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
@@ -228,7 +226,8 @@ class DarpaLinks(doc: Document) extends Links {
   /**
    * Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.
    * 'this protein' is known to have the label 'Protein'
-   * @param mentions All mentions
+    *
+    * @param mentions All mentions
    * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
@@ -261,10 +260,9 @@ class DarpaLinks(doc: Document) extends Links {
         // look at each matching generic argument in turn, in textual order
         npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
           val (lbl, g) = kv
-          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          if (verbose) println(s"Searching for antecedents to '${g.text}' " +
+            s"excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
-          // Look for the right number of antecedents
-          val card = cardinality(g)
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
             case "controlled" => mentions.filter { m =>
@@ -295,7 +293,7 @@ class DarpaLinks(doc: Document) extends Links {
           if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
 
           // apply selector to candidates
-          val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, card)
+          val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
           if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
@@ -319,7 +317,8 @@ class DarpaLinks(doc: Document) extends Links {
   /**
    * Examine complex events with generic simple events as arguments, searching for the best match of the same label,
    * e.g. "ASPP1 promotes this phosphorylation." will search for phosphorylations before this sentence.
-   * @param mentions All mentions
+    *
+    * @param mentions All mentions
    * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added.
    */
@@ -437,21 +436,6 @@ class DarpaLinks(doc: Document) extends Links {
     subgraph(Interval(npHead), sent).getOrElse(mention.tokenInterval)
   }
 
-  /**
-   * Is this mention a pronoun or other closed-class anaphor?
-   */
-  def isPronominal(mention: Mention): Boolean = {
-    (detMap.contains(mention.text) || headMap.contains(mention.text)) && mention.isInstanceOf[CorefTextBoundMention]
-  }
-
-  /**
-   * Is this mention a generic noun phrase that isn't a pronoun or other closed-class anaphor?
-   */
-  def isGenericNounPhrase(mention: Mention): Boolean = {
-    mention.isInstanceOf[CorefTextBoundMention] && mention.asInstanceOf[CorefMention].isGeneric && !isPronominal(mention)
-  }
-
-
   final val themeMap = Map(
     "Binding" -> 2,
     "Ubiquitination" -> 1,
@@ -479,7 +463,6 @@ class DarpaLinks(doc: Document) extends Links {
   // generic antecedent matching with number approximation
   val detMap = Map("a" -> 1,
     "an" -> 1,
-    //"the" -> 1, // assume one for now...
     "both" -> 2,
     "that" -> 1,
     "those" -> 2,
@@ -490,6 +473,13 @@ class DarpaLinks(doc: Document) extends Links {
     "one" -> 1,
     "two" -> 2,
     "three" -> 3,
+    "four" -> 4,
+    "five" -> 5,
+    "six" -> 6,
+    "seven" -> 7,
+    "eight" -> 8,
+    "nine" -> 9,
+    "ten" -> 10,
     "its" -> 1,
     "their" -> 2)
 
@@ -505,55 +495,20 @@ class DarpaLinks(doc: Document) extends Links {
     "some" -> 3, // assume three for now...
     "one" -> 1,
     "two" -> 2,
-    "three" -> 3
+    "three" -> 3,
+    "four" -> 4,
+    "five" -> 5,
+    "six" -> 6,
+    "seven" -> 7,
+    "eight" -> 8,
+    "nine" -> 9,
+    "ten" -> 10
   )
 
   /**
-   * Return the cardinality of a phrase based on its determiners
-   */
-  def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
-    require(words.length == tags.length)
-    val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
-    def finalAttempt(num: String): Int = try {
-      num.toInt
-    } catch {
-      case e: NumberFormatException => 0
-    }
-    detMap.getOrElse(somenum, finalAttempt(somenum))
-  }
-
-  /**
-   * Return the cardinality of a phrase based on its head -- is it plural?
-   */
-  def headCardinality(somenum: String, tag: String): Int = {
-    tag match {
-      case "PRP" | "PRP$" => headMap.getOrElse(somenum, 0)
-      case "NNS" | "NNPS" => 2
-      case "NN" | "NNP" => 1
-      case _ => headMap.getOrElse(somenum, 1)
-    }
-  }
-
-  /**
-   * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
-   */
-  def cardinality(m: Mention): Int = {
-    val sent = doc.sentences(m.sentence)
-    val mhead = findHeadStrict(m.tokenInterval, sent).getOrElse(m.tokenInterval.start)
-    val phrase = subgraph(m.tokenInterval, sent)
-    val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end), sent.tags.get.slice(phrase.get.start, phrase.get.end))
-    val hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
-
-    m match {
-      case informativeDeterminer if dc != 0 => dc
-      case informativeHead if dc == 0 & hc != 0 => hc
-      case _ => 1
-    }
-  }
-
-  /**
    * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
-   * @param mentions A Sequence of mentions to compare
+    *
+    * @param mentions A Sequence of mentions to compare
    * @return boolean True if all mentions share a single grounding id
    */
   def sameEntityID(mentions: Seq[Mention]): Boolean = {
