@@ -138,7 +138,7 @@ class Coref {
                 specific.document,
                 specific.keep,
                 specific.foundBy + (if(specific.sieves.isEmpty) "" else specific.sieves.mkString(", ", ", ", "")))
-              BioMention.copyAttachments(specific, generated)
+              CorefMention.copyAttachments(specific, generated)
               Seq(generated)
             } else Nil
           )
@@ -298,7 +298,7 @@ class Coref {
                     evt.document,
                     evt.keep,
                     evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
-                  BioMention.copyAttachments(evt, generated)
+                  CorefMention.copyAttachments(evt, generated)
                   Seq(generated)
                 case evm: CorefEventMention =>
                   val generated = new CorefEventMention(
@@ -309,7 +309,7 @@ class Coref {
                     evt.document,
                     evt.keep,
                     evt.foundBy + (if(evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
-                  BioMention.copyAttachments(evt, generated)
+                  CorefMention.copyAttachments(evt, generated)
                   Seq(generated)
               }
             }

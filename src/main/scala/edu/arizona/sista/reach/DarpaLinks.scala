@@ -45,7 +45,8 @@ class DarpaLinks(doc: Document) extends Links {
   /**
    * Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
    * mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
-   * @param mentions All mentions
+    *
+    * @param mentions All mentions
    * @param selector Rule for selecting the best antecedent from candidates
    * @return The same mentions but with new links (antecedents) added
    */

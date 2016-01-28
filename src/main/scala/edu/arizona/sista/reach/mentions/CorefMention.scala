@@ -39,6 +39,7 @@ class CorefTextBoundMention(
             this.document,
             this.keep,
             this.foundBy)
+          CorefMention.copyAttachments(this,copy)
           copy.antecedents = Set(ant)
           copy.sieves = this.sieves
           copy
@@ -91,6 +92,7 @@ class CorefEventMention(
             this.document,
             this.keep,
             this.foundBy)
+          CorefMention.copyAttachments(this,copy)
           copy.antecedents = Set(ant)
           copy.sieves = this.sieves
           copy
