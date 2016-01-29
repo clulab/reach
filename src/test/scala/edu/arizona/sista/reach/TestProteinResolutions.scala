@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Update for IMKB lookup changes.
+  *   Last Modified: Update for tsv factory.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -186,6 +186,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
 // Protein KB using alternate protein resolutions
 class TestProteinKBL extends IMKBProteinLookup {
-  memoryKB = new TsvIMKBFactory("uniprot", StaticProteinFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")).make()
+  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")) // true = has species
 }

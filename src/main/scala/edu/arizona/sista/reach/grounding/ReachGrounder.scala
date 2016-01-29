@@ -12,7 +12,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Redo to optionally insert static AdHoc KB before standard KBs.
+  *   Last Modified: Remove debug statements.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -98,12 +98,8 @@ class ReachGrounder extends DarpaFlow {
   val config = ConfigFactory.load()
   if (config.hasPath("grounding.adHocFiles")) {
     val moreKBs = config.getConfigList("grounding.adHocFiles").asScala.flatMap(addAdHocFile(_))
-    println(s"moreKBs=${moreKBs}")                // REMOVE LATER
-    println(s"moreKBs.class=${moreKBs.getClass}") // REMOVE LATER
     if (!moreKBs.isEmpty)
       searchSequence = moreKBs ++ standardSearchSequence
-    println(s"searchSequence=${searchSequence}")                // REMOVE LATER
-    println(s"searchSequence.class=${searchSequence.getClass}") // REMOVE LATER
   }
 
 }

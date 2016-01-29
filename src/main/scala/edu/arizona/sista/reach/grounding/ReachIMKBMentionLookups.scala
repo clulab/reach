@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Add Bio Processes accessor class. Update for IMKB mention lookup changes.
+  *   Last Modified: Update for tsv factory.
   */
 
 //
@@ -26,24 +26,24 @@ class StaticBioProcessKBML extends IMKBMentionLookup {
 
 /** KB accessor to resolve subcellular location names via KBs generated from the BioPax model. */
 class GendCellLocationKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory(GendCellLocationFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(GendCellLocationFilename)
 }
 
 /** KB accessor to resolve subcellular location names via manually maintained KBs. */
 class ManualCellLocationKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory(ManualCellLocationFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(ManualCellLocationFilename)
 }
 
 /** KB accessor to resolve subcellular location names via static KB. */
 class StaticCellLocationKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory("go", StaticCellLocationFilename,
-    new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022")).make()
+  memoryKB = (new TsvIMKBFactory).make("go", StaticCellLocationFilename,
+    new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022"))
 }
 
 /** KB accessor to resolve alternate subcellular location names via static KB. */
 class StaticCellLocationKBML2 extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory("uniprot", StaticCellLocation2Filename,
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")).make()
+  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticCellLocation2Filename,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
 }
 
 
@@ -53,24 +53,24 @@ class StaticCellLocationKBML2 extends IMKBMentionLookup {
 
 /** KB accessor to resolve small molecule (chemical) names via KBs generated from the BioPax model. */
 class GendChemicalKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory(GendChemicalFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(GendChemicalFilename)
 }
 
 /** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
 class ManualChemicalKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory(ManualChemicalFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(ManualChemicalFilename)
 }
 
 /** KB accessor to resolve small molecule (metabolite) names via static KB. */
 class StaticMetaboliteKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory("hmdb", StaticMetaboliteFilename,
-    new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051")).make()
+  memoryKB = (new TsvIMKBFactory).make("hmdb", StaticMetaboliteFilename,
+    new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051"))
 }
 
 /** KB accessor to resolve small molecule (chemical) names via static KB. */
 class StaticChemicalKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory("chebi", StaticChemicalFilename,
-    new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009")).make()
+  memoryKB = (new TsvIMKBFactory).make("chebi", StaticChemicalFilename,
+    new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009"))
 }
 
 
@@ -80,18 +80,18 @@ class StaticChemicalKBML extends IMKBMentionLookup {
 
 /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
 class GendProteinKBML extends IMKBProteinMentionLookup {
-  memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(GendProteinFilename)
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinKBML extends IMKBProteinMentionLookup {
-  memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(ManualProteinFilename)
 }
 
 /** KB accessor to resolve protein names via static KB. */
 class StaticProteinKBML extends IMKBProteinMentionLookup {
-  memoryKB = new TsvIMKBFactory("uniprot", StaticProteinFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")).make()
+  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")) // true = has species
 }
 
 
@@ -103,18 +103,18 @@ class StaticProteinKBML extends IMKBProteinMentionLookup {
 
 /** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
 class GendProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(GendProteinFilename)
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
+  memoryKB = (new TsvIMKBFactory).make(ManualProteinFilename)
 }
 
 /** KB accessor to resolve protein family names via static KB. */
 class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  memoryKB = new TsvIMKBFactory("interpro", StaticProteinFamilyFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")).make()
+  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true,
+    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")) // true = has species
 }
 
 
@@ -124,6 +124,6 @@ class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
 
 /** KB accessor to resolve tissue type names via static KB. */
 class StaticTissueTypeKBML extends IMKBMentionLookup {
-  memoryKB = new TsvIMKBFactory("uniprot", StaticTissueTypeFilename,
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")).make()
+  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticTissueTypeFilename,
+    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
 }
