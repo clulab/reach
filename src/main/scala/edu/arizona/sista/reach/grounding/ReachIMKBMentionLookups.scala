@@ -7,8 +7,18 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
   * A collection of classes which provide mappings of Mentions to identifiers
   * using an encapsulated, locally-sourced knowledge base.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Refactor AZ fail safe KBML to own class file. Update for IMKB factory.
+  *   Last Modified: Add Bio Processes accessor class. Update for IMKB mention lookup changes.
   */
+
+//
+// Bio Processes Accessors
+//
+
+/** KB accessor to resolve bio process names via static KB. */
+class StaticBioProcessKBML extends IMKBMentionLookup {
+  memoryKB = (new AdHocIMKBFactory).make(StaticBioProcessFilename)
+}
+
 
 //
 // Subcellular Location Accessors
@@ -16,23 +26,23 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /** KB accessor to resolve subcellular location names via KBs generated from the BioPax model. */
 class GendCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory(GendCellLocationFilename).make()
+  memoryKB = new TsvIMKBFactory(GendCellLocationFilename).make()
 }
 
 /** KB accessor to resolve subcellular location names via manually maintained KBs. */
 class ManualCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory(ManualCellLocationFilename).make()
+  memoryKB = new TsvIMKBFactory(ManualCellLocationFilename).make()
 }
 
-/** KB mention lookup to resolve subcellular location names via static KBs. */
+/** KB accessor to resolve subcellular location names via static KB. */
 class StaticCellLocationKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory("go", StaticCellLocationFilename,
+  memoryKB = new TsvIMKBFactory("go", StaticCellLocationFilename,
     new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022")).make()
 }
 
-/** KB mention lookup to resolve alternate subcellular location names via static KBs. */
+/** KB accessor to resolve alternate subcellular location names via static KB. */
 class StaticCellLocationKBML2 extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory("uniprot", StaticCellLocation2Filename,
+  memoryKB = new TsvIMKBFactory("uniprot", StaticCellLocation2Filename,
     new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")).make()
 }
 
@@ -43,23 +53,23 @@ class StaticCellLocationKBML2 extends IMKBMentionLookup {
 
 /** KB accessor to resolve small molecule (chemical) names via KBs generated from the BioPax model. */
 class GendChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory(GendChemicalFilename).make()
+  memoryKB = new TsvIMKBFactory(GendChemicalFilename).make()
 }
 
 /** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
 class ManualChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory(ManualChemicalFilename).make()
+  memoryKB = new TsvIMKBFactory(ManualChemicalFilename).make()
 }
 
-/** KB accessor to resolve small molecule (metabolite) names via static KBs. */
+/** KB accessor to resolve small molecule (metabolite) names via static KB. */
 class StaticMetaboliteKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory("hmdb", StaticMetaboliteFilename,
+  memoryKB = new TsvIMKBFactory("hmdb", StaticMetaboliteFilename,
     new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051")).make()
 }
 
-/** KB accessor to resolve small molecule (chemical) names via static KBs. */
+/** KB accessor to resolve small molecule (chemical) names via static KB. */
 class StaticChemicalKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory("chebi", StaticChemicalFilename,
+  memoryKB = new TsvIMKBFactory("chebi", StaticChemicalFilename,
     new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009")).make()
 }
 
@@ -70,17 +80,17 @@ class StaticChemicalKBML extends IMKBMentionLookup {
 
 /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
 class GendProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
+  memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
+  memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
 }
 
-/** KB accessor to resolve protein names via static KBs. */
+/** KB accessor to resolve protein names via static KB. */
 class StaticProteinKBML extends IMKBProteinMentionLookup {
-  val memoryKB = new TsvIMKBFactory("uniprot", StaticProteinFilename, true, // true = has species
+  memoryKB = new TsvIMKBFactory("uniprot", StaticProteinFilename, true, // true = has species
     new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")).make()
 }
 
@@ -93,17 +103,17 @@ class StaticProteinKBML extends IMKBProteinMentionLookup {
 
 /** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
 class GendProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
+  memoryKB = new TsvIMKBFactory(GendProteinFilename).make()
 }
 
 /** KB accessor to resolve protein names via manually maintained KBs. */
 class ManualProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
+  memoryKB = new TsvIMKBFactory(ManualProteinFilename).make()
 }
 
-/** KB accessor to resolve protein family names via static KBs. */
+/** KB accessor to resolve protein family names via static KB. */
 class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
-  val memoryKB = new TsvIMKBFactory("interpro", StaticProteinFamilyFilename, true, // true = has species
+  memoryKB = new TsvIMKBFactory("interpro", StaticProteinFamilyFilename, true, // true = has species
     new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")).make()
 }
 
@@ -112,8 +122,8 @@ class StaticProteinFamilyKBML extends IMKBFamilyMentionLookup {
 // Tissue Type Accessor
 //
 
-/** KB accessor to resolve tissue type names via static KBs. */
+/** KB accessor to resolve tissue type names via static KB. */
 class StaticTissueTypeKBML extends IMKBMentionLookup {
-  val memoryKB = new TsvIMKBFactory("uniprot", StaticTissueTypeFilename,
+  memoryKB = new TsvIMKBFactory("uniprot", StaticTissueTypeFilename,
     new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")).make()
 }

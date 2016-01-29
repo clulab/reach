@@ -3,11 +3,16 @@ package edu.arizona.sista.reach.grounding
 import edu.arizona.sista.odin._
 
 /**
-  * Trait implementing common logic for local Knowledge Base Mention lookup classes.
+  * Class implementing logic for local KB Mention lookups on top of base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Change to class, add IMKB ctor argument.
   */
-trait IMKBMentionLookup extends IMKBLookup with KBMentionLookup with KBAltMentionLookup {
+class IMKBMentionLookup (
+
+  /** The in-memory knowledge base that all lookups will work against. */
+  memoryKB: InMemoryKB = new InMemoryKB()
+
+) extends IMKBLookup (memoryKB) with KBMentionLookup with KBAltMentionLookup {
 
   /** Resolve the given Mention to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.

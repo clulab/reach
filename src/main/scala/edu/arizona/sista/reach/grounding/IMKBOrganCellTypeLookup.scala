@@ -7,9 +7,14 @@ import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
   * Trait implementing alternate key lookups for cell types which can be inferred
   * from the organ name and specific contextual suffixes.
   *   Written by Tom Hicks. 12/20/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Change to class, add IMKB ctor argument.
   */
-trait IMKBOrganCellTypeLookup extends IMKBLookup {
+class IMKBOrganCellTypeLookup (
+
+  /** The in-memory knowledge base that all lookups will work against. */
+  memoryKB: InMemoryKB = new InMemoryKB()
+
+) extends IMKBLookup (memoryKB) {
 
   /** Resolve the given text string to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.

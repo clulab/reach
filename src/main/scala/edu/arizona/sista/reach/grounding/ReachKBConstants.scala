@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Remove aux KB constants.
+  *   Last Modified: Add bio process KB constant.
   */
 object ReachKBConstants {
 
@@ -59,6 +59,9 @@ object ReachKBConstants {
   /** Filename of the manually maintained protein family file. */
   val ManualProteinFamilyFilename = "manual-family.tsv"
 
+
+  /** Filename of the static bio processes file. */
+  val StaticBioProcessFilename = "bio_process.tsv"
 
   /** Filename of the static cellular location file. */
   val StaticCellLocationFilename = "GO-subcellular-locations.tsv"

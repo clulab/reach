@@ -1,14 +1,16 @@
 package edu.arizona.sista.reach.grounding
 
 /**
-  * Trait implementing common logic for local Knowledge Base lookup classes.
+  * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Expose IMKB meta info and has species flag.
+  *   Last Modified: Change to class, add IMKB ctor var argument.
   */
-trait IMKBLookup extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
+class IMKBLookup (
 
   /** The in-memory knowledge base that all lookups will work against. */
-  def memoryKB: InMemoryKB
+  var memoryKB: InMemoryKB = new InMemoryKB()
+
+) extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
 
   /** Tell whether this KB contains species information or not. */
   def hasSpeciesInfo: Boolean = memoryKB.hasSpeciesInfo

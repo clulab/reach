@@ -6,10 +6,9 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * KB accessor implementation which always resolves each mention with a local, fake ID.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Simplify with return of resolution sequences.
+  *   Last Modified: Update for IMKB mention lookup changes.
   */
 class AzFailsafeKBML extends IMKBMentionLookup {
-  val memoryKB = new InMemoryKB()           // no external KB file to load!
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
