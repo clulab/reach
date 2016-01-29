@@ -113,8 +113,8 @@ class ReachCLI(val nxmlDir:File,
       val endNS = System.nanoTime
 
       try outputType match {
-        case "context-html" =>
-          val outputter = new HtmlOutput(paperDocObjects, paperMentions)
+        case "context-interval" =>
+          val outputter = new IntervalOutput(paperDocObjects, paperMentions)
           // Write the context stuff
           val ctxSentencesFile = new File(outputDir, s"$paperId.ctxSentences")
           FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)

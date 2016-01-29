@@ -10,7 +10,7 @@ import edu.arizona.sista.reach.context.ContextEngine.contextMatching
   *   Written by Enrique Noriega. 27/7/2015.
   *   Last Modified: Correct spelling of possessive.
   */
-class HtmlOutput(docs:Seq[Document], mentions:Seq[Mention]){
+class IntervalOutput(docs:Seq[Document], mentions:Seq[Mention]){
 
   val sentences:Seq[String] = docs.flatMap(_.sentences.map(s => s.words.mkString(" ")))
   val ctxMentions = new mutable.ArrayBuffer[String]
