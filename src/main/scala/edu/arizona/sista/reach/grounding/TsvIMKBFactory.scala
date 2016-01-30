@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Rewrite as simple factory class.
+  *   Last Modified: Add another factory method signature.
   */
 class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
@@ -35,6 +35,10 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
   /** Additional factory method to default unused arguments. */
   def make (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
     make(namespace, kbFilename, false, Some(metaInfo))
+
+  /** Additional factory method to default unused arguments. */
+  def make (kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
+    make(DefaultNamespace, kbFilename, false, Some(metaInfo))
 
   /** Additional factory method to default unused arguments. */
   def make (kbFilename: String): InMemoryKB = make(DefaultNamespace, kbFilename, false, None)
