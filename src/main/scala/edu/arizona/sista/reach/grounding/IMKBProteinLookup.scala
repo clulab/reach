@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 
 /**
-  * Trait implementing alternate key lookups for protein knowledge bases.
+  * Class implementing alternate key lookups for protein knowledge bases.
   *   Written by Tom Hicks. 11/10/2015.
   *   Last Modified: Change to class, add IMKB ctor argument.
   */

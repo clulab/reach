@@ -4,12 +4,17 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 
 /**
-  * Trait implementing alternate key lookups for cell types which can be inferred
+  * Class implementing alternate key mention lookups for cell types which can be inferred
   * from the organ name and specific contextual suffixes.
   *   Written by Tom Hicks. 12/20/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Change to class. Add IMKB ctor argument.
   */
-trait IMKBOrganCellTypeMentionLookup extends IMKBMentionLookup {
+class IMKBOrganCellTypeMentionLookup (
+
+  /** The in-memory knowledge base that all lookups will work against. */
+  memoryKB: InMemoryKB = new InMemoryKB()
+
+) extends IMKBMentionLookup {
 
   /** Resolve the given Mention to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.

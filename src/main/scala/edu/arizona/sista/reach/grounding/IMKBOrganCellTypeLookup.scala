@@ -4,7 +4,7 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 
 /**
-  * Trait implementing alternate key lookups for cell types which can be inferred
+  * Class implementing alternate key lookups for cell types which can be inferred
   * from the organ name and specific contextual suffixes.
   *   Written by Tom Hicks. 12/20/2015.
   *   Last Modified: Change to class, add IMKB ctor argument.

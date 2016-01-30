@@ -4,11 +4,16 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 
 /**
-  * Trait implementing alternate key lookups for protein knowledge bases.
+  * Class implementing alternate key mentions lookups for protein knowledge bases.
   *   Written by Tom Hicks. 11/15/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Change to class. Add IMKB ctor argument.
   */
-trait IMKBProteinMentionLookup extends IMKBMentionLookup {
+class IMKBProteinMentionLookup (
+
+  /** The in-memory knowledge base that all lookups will work against. */
+  memoryKB: InMemoryKB = new InMemoryKB()
+
+) extends IMKBMentionLookup {
 
   /** Resolve the given Mention to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.
