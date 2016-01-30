@@ -7,14 +7,14 @@ import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
   * Class implementing alternate key mention lookups for cell types which can be inferred
   * from the organ name and specific contextual suffixes.
   *   Written by Tom Hicks. 12/20/2015.
-  *   Last Modified: Change to class. Add IMKB ctor argument.
+  *   Last Modified: Fix: call superclass constructor.
   */
 class IMKBOrganCellTypeMentionLookup (
 
   /** The in-memory knowledge base that all lookups will work against. */
   memoryKB: InMemoryKB = new InMemoryKB()
 
-) extends IMKBMentionLookup {
+) extends IMKBMentionLookup (memoryKB) {
 
   /** Resolve the given Mention to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.

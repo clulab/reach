@@ -6,14 +6,14 @@ import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 /**
   * Class implementing alternate key mentions lookups for protein knowledge bases.
   *   Written by Tom Hicks. 11/15/2015.
-  *   Last Modified: Change to class. Add IMKB ctor argument.
+  *   Last Modified: Fix: call superclass constructor.
   */
 class IMKBProteinMentionLookup (
 
   /** The in-memory knowledge base that all lookups will work against. */
   memoryKB: InMemoryKB = new InMemoryKB()
 
-) extends IMKBMentionLookup {
+) extends IMKBMentionLookup (memoryKB) {
 
   /** Resolve the given Mention to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.
