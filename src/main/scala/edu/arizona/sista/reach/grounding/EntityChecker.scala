@@ -8,27 +8,28 @@ import org.biopax.paxtools.model.level3._
 
 import scala.collection.JavaConverters._
 
+import edu.arizona.sista.reach.grounding.ReachIMKBLookups._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Update for grounding system rewrite.
+  *   Last Modified: Update for singleton KBL creator.
   */
 object EntityChecker extends App {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
   /** Search sequence for resolving proteins. */
-  protected val proteinSearcher = Seq( new StaticProteinFamilyKBLookup,
-                                       new StaticProteinKBLookup )
+  protected val proteinSearcher = Seq( staticProteinFamilyKBLookup,
+                                       staticProteinKBLookup )
 
   /** Search sequence for small molecules. */
-  protected val chemSearcher = Seq( new StaticChemicalKBLookup,
-                                    new StaticMetaboliteKBLookup )
+  protected val chemSearcher = Seq( staticChemicalKBLookup,
+                                    staticMetaboliteKBLookup )
 
   /** Search sequence for sub cellular locations terms. */
-  protected val cellLocationSearcher = Seq( new StaticCellLocationKBLookup )
+  protected val cellLocationSearcher = Seq( staticCellLocationKBLookup )
 
 
   /** Read the BioPAX model from the given input stream and check the entities. */

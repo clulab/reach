@@ -3,44 +3,56 @@ package edu.arizona.sista.reach.grounding
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
-  * A collection of classes which provide mappings of text strings to identifiers
-  * using an encapsulated, locally-sourced knowledge base.
+  * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for tsv factory.
+  *   Last Modified: Rewrite as singleton for all KBLs.
   */
+object ReachIMKBLookups {
 
-/** KB lookup to resolve subcellular location names via static KBs. */
-class StaticCellLocationKBLookup extends IMKBLookup {
-  memoryKB = (new TsvIMKBFactory).make("go", StaticCellLocationFilename,
-    new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022"))
-}
+  /** Single factory instance to generate Tsv IMKB classes. */
+  val tsvIMKBFactory = new TsvIMKBFactory
 
-/** KB lookup to resolve small molecule (metabolite) names via static KBs. */
-class StaticMetaboliteKBLookup extends IMKBLookup {
-  memoryKB = (new TsvIMKBFactory).make("hmbd", StaticMetaboliteFilename,
-    new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051"))
-}
 
-/** KB lookup to resolve small molecule (chemical) names via static KBs. */
-class StaticChemicalKBLookup extends IMKBLookup {
-  memoryKB = (new TsvIMKBFactory).make("chebi", StaticChemicalFilename,
-    new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009"))
-}
+  /** KB lookup to resolve subcellular location names via static KB. */
+  def staticCellLocationKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/go/", "MIR:00000022")
+    metaInfo.put("file", StaticCellLocationFilename)
+    new IMKBLookup(tsvIMKBFactory.make("go", StaticCellLocationFilename, metaInfo))
+  }
 
-/** KB accessor to resolve protein names via static KBs with alternate lookups. */
-class StaticProteinKBLookup extends IMKBProteinLookup {
-  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true, // true = has species
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164"))
-}
+  /** KB lookup to resolve small molecule (metabolite) names via static KB. */
+  def staticMetaboliteKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/hmdb/", "MIR:00000051")
+    metaInfo.put("file", StaticMetaboliteFilename)
+    new IMKBLookup(tsvIMKBFactory.make("hmbd", StaticMetaboliteFilename, metaInfo))
+  }
 
-/** KB lookup to resolve protein family names via static KBs with alternate lookups. */
-class StaticProteinFamilyKBLookup extends IMKBFamilyLookup {
-  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true,
-    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")) // true = has species
-}
+  /** KB lookup to resolve small molecule (chemical) names via static KB. */
+  def staticChemicalKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009")
+    metaInfo.put("file", StaticChemicalFilename)
+    new IMKBLookup(tsvIMKBFactory.make("chebi", StaticChemicalFilename, metaInfo))
+  }
 
-/** KB lookup to resolve tissue type names via static KBs. */
-class StaticTissueTypeKBLookup extends IMKBLookup {
-  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticTissueTypeFilename,
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005"))
+  /** KB accessor to resolve protein names via static KBs with alternate lookups. */
+  def staticProteinKBLookup: IMKBProteinLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
+    metaInfo.put("file", StaticProteinFilename)
+    new IMKBProteinLookup(tsvIMKBFactory.make("uniprot", StaticProteinFilename, true, metaInfo))
+  }
+
+  /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
+  def staticProteinFamilyKBLookup: IMKBFamilyLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
+    metaInfo.put("file", StaticProteinFamilyFilename)
+    new IMKBFamilyLookup(tsvIMKBFactory.make("interpro", StaticProteinFamilyFilename, true, metaInfo))
+  }
+
+  /** KB lookup to resolve tissue type names via static KB. */
+  def staticTissueTypeKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")
+    metaInfo.put("file", StaticTissueTypeFilename)
+    new IMKBLookup(tsvIMKBFactory.make("uniprot", StaticTissueTypeFilename, metaInfo))
+  }
+
 }

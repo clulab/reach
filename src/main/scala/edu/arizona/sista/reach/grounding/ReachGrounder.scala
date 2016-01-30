@@ -8,11 +8,12 @@ import com.typesafe.config.{Config, ConfigFactory}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Remove debug statements.
+  *   Last Modified: Update for singleton KBML creator.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -28,29 +29,29 @@ class ReachGrounder extends DarpaFlow {
     * 7. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
     */
   protected val standardSearchSequence: Seq[IMKBMentionLookup] = Seq(
-    new StaticProteinFamilyKBML,
-    new ManualProteinFamilyKBML,
-    new StaticProteinKBML,
-    new ManualProteinKBML,
+    staticProteinFamilyKBML,
+    manualProteinFamilyKBML,
+    staticProteinKBML,
+    manualProteinKBML,
     // NB: generated protein families are included in the generated protein KB:
-    new GendProteinKBML,
+    gendProteinKBML,
 
-    new StaticBioProcessKBML,
+    staticBioProcessKBML,
 
-    new StaticChemicalKBML,
-    new StaticMetaboliteKBML,
-    new ManualChemicalKBML,
-    new GendChemicalKBML,
+    staticChemicalKBML,
+    staticMetaboliteKBML,
+    manualChemicalKBML,
+    gendChemicalKBML,
 
-    new StaticCellLocationKBML,
-    new ManualCellLocationKBML,
-    new GendCellLocationKBML,
+    staticCellLocationKBML,
+    manualCellLocationKBML,
+    gendCellLocationKBML,
 
     new ContextCellTypeKBML,
     new ContextSpeciesKBML,
     new ContextCellLineKBML,
     new ContextOrganKBML,
-    new StaticTissueTypeKBML,
+    staticTissueTypeKBML,
 
     new AzFailsafeKBML
   )
