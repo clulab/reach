@@ -7,12 +7,12 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Unit tests to ensure a mixed-namespace in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 1/20/2016.
-  *   Last Modified: Update for factory changes. Rename class.
+  *   Last Modified: Update ad hoc file name.
   */
 class TestAdHocIMKBs extends FlatSpec with Matchers {
 
   // Tests of 3-column KB without specific species, so human assumed:
-  val ahkb3 = (new AdHocIMKBFactory).make("adhoc.tsv")
+  val ahkb3 = (new AdHocIMKBFactory).make("NMZ-CMU_160111.tsv")
 
   "AdHocKB COL-3" should "lookupAll on AHKB from COL-3 TSV file" in {
     (ahkb3.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
