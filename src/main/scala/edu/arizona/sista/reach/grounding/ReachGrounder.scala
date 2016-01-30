@@ -13,7 +13,7 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Update for singleton KBML creator.
+  *   Last Modified: Update for addition of context accessors to singleton KBML creator.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -47,10 +47,10 @@ class ReachGrounder extends DarpaFlow {
     manualCellLocationKBML,
     gendCellLocationKBML,
 
-    new ContextCellTypeKBML,
-    new ContextSpeciesKBML,
-    new ContextCellLineKBML,
-    new ContextOrganKBML,
+    contextCellTypeKBML,
+    contextSpeciesKBML,
+    contextCellLineKBML,
+    contextOrganKBML,
     staticTissueTypeKBML,
 
     new AzFailsafeKBML

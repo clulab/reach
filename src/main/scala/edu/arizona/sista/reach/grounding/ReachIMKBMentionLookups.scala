@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Rewrite as singleton for all KBMLs.
+  *   Last Modified: Add context KMBL classes as methods here.
   */
 
 object ReachIMKBMentionLookups {
@@ -154,6 +154,39 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")
     metaInfo.put("file", StaticTissueTypeFilename)
     new IMKBMentionLookup(tsvIMKBFactory.make("uniprot", StaticTissueTypeFilename, metaInfo))
+  }
+
+  //
+  // Context-related Accessors
+  //
+
+  /** KB accessor to resolve cell lines via a context KB. */
+  def contextCellLineKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo()
+    metaInfo.put("file", ContextCellLineFilename)
+    new IMKBMentionLookup(tsvIMKBFactory.make(ContextCellLineFilename, metaInfo))
+  }
+
+  /** KB accessor to resolve cell types via a context KB.
+    Uses alternate key lookups for organ to cell type inference. */
+  def contextCellTypeKBML: IMKBOrganCellTypeMentionLookup = {
+    val metaInfo = new IMKBMetaInfo()
+    metaInfo.put("file", ContextCellTypeFilename)
+    new IMKBOrganCellTypeMentionLookup(tsvIMKBFactory.make(ContextCellTypeFilename, metaInfo))
+  }
+
+  /** KB accessor to resolve organ names via a context KB. */
+  def contextOrganKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo()
+    metaInfo.put("file", ContextOrganFilename)
+    new IMKBMentionLookup(tsvIMKBFactory.make(ContextOrganFilename, metaInfo))
+  }
+
+  /** KB accessor to resolve species names via a context KB. */
+  def contextSpeciesKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/taxonomy/", "MIR:00000006")
+    metaInfo.put("file", ContextSpeciesFilename)
+    new IMKBMentionLookup(tsvIMKBFactory.make("taxonomy", ContextSpeciesFilename, metaInfo))
   }
 
 }
