@@ -7,12 +7,14 @@ import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import scala.util.Try
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
 /**
  * Utility methods for the tests in this directory
  */
 object TestUtils {
-  val testReach = new ReachSystem // All tests should use this system!
+  val testReach = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5")) // All tests should use this system!
   val testReader = new NxmlReader
   val bioproc = testReach.processor // quick access to a process, if needed.
   val docId = "testdoc"
