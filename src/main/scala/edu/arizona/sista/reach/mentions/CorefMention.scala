@@ -113,7 +113,16 @@ class CorefTextBoundMention(
     */
   private def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
     require(words.length == tags.length)
-    val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
+    //val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
+    val somenum = words(tags
+      .zipWithIndex
+      .find(x => x._1 == "CD")
+      .getOrElse(tags
+        .zipWithIndex
+        .find(x => Seq("DT", "PRP$")
+          .contains(x._1))
+        .getOrElse(return 0))
+      ._2)
     def finalAttempt(num: String): Int = try {
       num.toInt
     } catch {
@@ -274,8 +283,16 @@ class CorefEventMention(
     */
   private def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
     require(words.length == tags.length)
-    val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$")
-      .contains(x._1)).getOrElse(return 0)._2)
+    //val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
+    val somenum = words(tags
+      .zipWithIndex
+      .find(x => x._1 == "CD")
+      .getOrElse(tags
+        .zipWithIndex
+        .find(x => Seq("DT", "PRP$")
+          .contains(x._1))
+        .getOrElse(return 0))
+      ._2)
     def finalAttempt(num: String): Int = try {
       num.toInt
     } catch {
