@@ -42,7 +42,10 @@ package object ner {
         "Species" -> Seq("Species"),
         "Cell_Lines" -> Seq("CellLine"),
         "Organ" -> Seq("Organ"),
-        "Cell_Type" -> Seq("CellType"))
+        "Cell_Type" -> Seq("CellType"),
+        "AuxBioProcess" -> Seq("Dummy"),
+        "AuxProtein" -> Seq("Dummy"),
+        "AuxMetabolite" -> Seq("Dummy"))
 
   val speciesOfInterest = Seq("Human", "Homo sapiens")
 

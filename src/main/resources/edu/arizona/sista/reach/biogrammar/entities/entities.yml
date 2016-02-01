@@ -154,7 +154,7 @@
 
 # TODO: verify this ontology
 - name: ner-cellular_component-entities
-  label: Cellular_component
+  label: [Cellular_component]
   action: mkNERMentions
   priority: 3
   type: token
