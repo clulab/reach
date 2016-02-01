@@ -360,11 +360,61 @@ class TestCoreference extends FlatSpec with Matchers {
     val relevantMutant = mentions.find(_ matches "Binding").get.arguments.values.flatten.find(_.text == "ASPP1").get
     relevantMutant.toCorefMention.antecedent.get.asInstanceOf[CorefMention].mutants.exists(mut => mut.text == "K341L") should be (true)
   }
-  sent31b should "not contain a binding to a non-generic mutant" in {
+  sent31b should "contain a binding to ASPP1" in {
     val mentions = getBioMentions(sent31b)
     val relevantMutant = mentions.find(_ matches "Binding").get.arguments.values.flatten.find(m => m.text == "ASPP1").get.toCorefMention
     relevantMutant.antecedent.isEmpty should be (true)
     relevantMutant.hasGenericMutation should be (true)
-    mentions.find(_ matches "Binding").get.arguments.values.flatten.find(m => m.text == "ASPP2").isEmpty should be (true)
   }
+  it should "not contain a binding to ASPP2" in {
+    val mentions = getBioMentions(sent31b)
+    mentions.find(_ matches "Binding").get.arguments.values.flatten.exists(m => m.text == "ASPP2") should be (false)
+  }
+
+  // Link a known mutant of a known protein with an unknown mutant of a known protein
+  val sent32a = "ASPP1 K341L is common, and the K341L mutant binds GTP."
+  val sent32b = "ASPP1 K341M is common, and the K341L mutant binds GTP."
+  sent32a should "contain a binding to a non-generic mutant" in {
+    val mentions = getBioMentions(sent32a)
+    val relevantMutant = mentions.find(_ matches "Binding").get.arguments.values.flatten.find(_.text == "mutant").get
+    relevantMutant.toCorefMention.antecedent.get.asInstanceOf[CorefMention].mutants.exists(mut => mut.text == "K341L") should be (true)
+  }
+  sent32b should "not contain a binding" in {
+    val mentions = getBioMentions(sent32b)
+    mentions.exists(_ matches "Binding") should be (false)
+  }
+
+  // Link an unknown mutant to a fully known one. Don't link when the anaphor is anything other than 'mutant(s)'
+  val sent33a = "ASPP1 K341L is common, and the mutant binds GTP."
+  val sent33b = "ASPP1 is common, and the mutant binds GTP."
+  val sent33c = "ASPP1 K341L is common, and the protein binds GTP."
+  sent33a should "contain a binding to a non-generic mutant" in {
+    val mentions = getBioMentions(sent33a)
+    val relevantMutant = mentions.find(_ matches "Binding").get.arguments.values.flatten.find(_.text == "mutant").get
+    relevantMutant.toCorefMention.antecedent.get.asInstanceOf[CorefMention].mutants.exists(mut => mut.text == "K341L") should be (true)
+  }
+  sent33b should "not contain a binding" in {
+    val mentions = getBioMentions(sent33b)
+    mentions.exists(_ matches "Binding") should be (false)
+  }
+  sent33c should "not contain a binding" in {
+    val mentions = getBioMentions(sent33c)
+    mentions.exists(_ matches "Binding") should be (false)
+  }
+
+  val sent34 = "Cells were transfected with N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants and analyzed " +
+    "for activatory STAT1(Y701) phosphorylation 48 hours later. In 293T and RCS cells, all six FGFR3 mutants induced " +
+    "activatory ERK(T202/Y204) phosphorylation"
+//  sent34 should "produce 6 regulations for 6 mutants" in {
+//    val mentions = getBioMentions(sent34)
+//
+//  }
+  val sent35 = "Vectors carrying the wild-type FGFR3 as well as the N540K (HCH), G380R (ACH), R248C, Y373C, K650E " +
+  "(TD) and K650M (SADDAN and TD) mutants were expressed in CHO cells. It is possible that N540K, G380R, R248C and " +
+  "Y373C mutants still activate STAT1 in cells, despite the lack of this capacity in a kinase assay"
+
+  val sent36 = "GST-N343 was phosphorylated. In contrast, its Ala mutant at Ser34 (S34A) was not phosphorylated. The " +
+    "Ala mutant at Thr149 was phosphorylated by Cdk5/p35, similarly to the unmutated fragment."
+
+
 }

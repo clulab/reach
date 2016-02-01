@@ -17,7 +17,10 @@ class CorefTextBoundMention(
 
   def isGeneric: Boolean = (labels contains "Generic_entity") || (labels contains "GenericMutant")
 
-  def hasGenericMutation: Boolean = this.mutants.exists(mut => mut.isGeneric)
+  def hasGenericMutation: Boolean = {
+    this.mutants.exists(mut => mut.isGeneric) ||
+    (this.isGeneric && this.text.toLowerCase.take(6) == "mutant" && this.mutants.isEmpty)
+  }
 
   def toSingletons: Seq[CorefTextBoundMention] = {
     if (!this.isGeneric && !this.mutants.exists(mut => mut.isGeneric)) Seq(this)

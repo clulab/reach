@@ -92,7 +92,8 @@ class DarpaLinks(doc: Document) extends Links {
         val ants = selector(gm, cands diff Seq(gm), gm.number)
         if (debug) ants.foreach { ant =>
           println(s"${gm.text} ${gm.mutants.find(mut => mut.isGeneric).get.text} links " +
-            s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}") }
+            s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}")
+        }
 
         gm.antecedents ++= ants
         gm.sieves += "mutantProteinMatch"
@@ -259,7 +260,7 @@ class DarpaLinks(doc: Document) extends Links {
 
         // look at each matching generic argument in turn, in textual order
         npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
-          val (lbl, g) = kv
+          val (lbl, g) = (kv._1, kv._2.toCorefMention)
           if (verbose) println(s"Searching for antecedents to '${g.text}' " +
             s"excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
@@ -271,6 +272,7 @@ class DarpaLinks(doc: Document) extends Links {
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
                 (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention]) &&
+                compatibleMutants(m, g) &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
             case "controller" => mentions.filter { m =>
@@ -279,6 +281,7 @@ class DarpaLinks(doc: Document) extends Links {
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
                 (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention]) &&
+                compatibleMutants(m, g) &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
             case _ => tbms.filter { m =>
@@ -287,6 +290,7 @@ class DarpaLinks(doc: Document) extends Links {
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
                 m.matches("PossibleController") &&
+                compatibleMutants(m, g) &&
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
           }
@@ -523,4 +527,12 @@ class DarpaLinks(doc: Document) extends Links {
     groundings.size == 1
   }
 
+  def compatibleMutants(a: CorefMention, b: CorefMention): Boolean = {
+    val sameMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) &&
+      b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
+    if (sameMutants && !a.hasGenericMutation && !b.hasGenericMutation) true
+    else if (a.hasGenericMutation && b.mutants.nonEmpty) true
+    else if (b.hasGenericMutation && a.mutants.nonEmpty) true
+    else false
+  }
 }

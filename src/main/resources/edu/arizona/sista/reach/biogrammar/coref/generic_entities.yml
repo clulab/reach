@@ -1,3 +1,11 @@
+- name: Generic_mutant_known_mutation
+  label: [Generic_entity, Gene_or_gene_product]
+  priority: 2
+  action: mkBioMention
+  type: token
+  pattern: |
+    (?<! [mention=BioChemicalEntity]) [!(mention=/.*/) & tag=/^NN/ & !(incoming=/^nn/) & lemma=/(?i)^mutant$/] (?! [mention=BioChemicalEntity])
+
 # Words with a DT POS but which are not acting as determiners, e.g. 'this' in "This is an example."
 - name: DT_not_determiner
   label: Generic_entity
@@ -14,7 +22,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    [tag=/^N/ & !(incoming=/^nn/) & !(outgoing=nn) & !(mention=/.*/) & word=/(?i)^(protein|gene|cistron|sequence|region|frame|exon|intron|mutant|target|cytokine|factor|smad|antigen|marker|mediator)s?$/]
+    [tag=/^N/ & !(incoming=/^nn/) & !(outgoing=nn) & !(mention=/.*/) & word=/(?i)^(protein|gene|cistron|sequence|region|frame|mutant|exon|intron|target|cytokine|factor|smad|antigen|marker|mediator)s?$/]
 
 # Closed-class anaphors
 - name: PRP
