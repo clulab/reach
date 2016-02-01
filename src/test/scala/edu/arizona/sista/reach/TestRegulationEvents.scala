@@ -163,7 +163,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val controlled = reg.get.arguments("controlled").head.toBioMention
     controller.text should be ("ASPP1")
     controller.modifications should have size (1)
-    controller.modifications.head.label should be ("phosphorylated")
+    controller.modifications.head.label should be ("Phosphorylation")
     controlled.labels should contain ("Ubiquitination")
     controlled.arguments should contain key ("theme")
     controlled.arguments should not contain key ("cause")

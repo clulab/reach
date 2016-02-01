@@ -1,6 +1,6 @@
 name := "reach"
 
-version := "1.2.2-SNAPSHOT"
+version := "1.2.3-SNAPSHOT"
 
 organization := "org.clulab"
 
@@ -12,7 +12,7 @@ scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 fork := true
 
 // options for forked jvm
-javaOptions += "-Xmx8G"
+javaOptions += "-Xmx10G"
 
 // forward sbt's stdin to forked process
 connectInput in run := true
@@ -72,8 +72,8 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "processors" % "5.7.3",
-  "org.clulab" %% "processors" % "5.7.3" classifier "models",
+  "org.clulab" %% "processors" % "5.8.0",
+  "org.clulab" %% "processors" % "5.8.0" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
