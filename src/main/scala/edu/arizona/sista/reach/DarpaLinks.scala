@@ -163,9 +163,8 @@ class DarpaLinks(doc: Document) extends Links {
         val proMap = pronominal.arguments.map(args => args._1 -> args._2.partition(arg => arg.toCorefMention.isClosedClass))
         // exclude all the arguments of this event, plus this event itself,
         // plus all the arguments of any events that have this event as an argument
-        var excludeThese = pronominal.arguments.values.flatten.toSeq ++
-          Seq(pronominal) ++
-          hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten
+        var excludeThese = Seq(pronominal)
+
         if (verbose) proMap.foreach(kv =>
           println(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals (${kv._2._2.map(_.text).mkString(", ")})"))
 
@@ -173,6 +172,13 @@ class DarpaLinks(doc: Document) extends Links {
         proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach { kv =>
           val (lbl, g) = kv
           if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+
+          val gTag = g.tags.get.headOption
+
+          if(gTag.isEmpty || gTag.head != "PRP$") {
+            excludeThese ++= pronominal.arguments.values.flatten.toSeq.map(_.toCorefMention) ++
+              hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten.map(_.toCorefMention)
+          }
 
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
