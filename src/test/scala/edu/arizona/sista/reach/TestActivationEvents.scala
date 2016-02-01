@@ -238,4 +238,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
     activations should be ('empty)
   }
 
+  val sent29 = "HDAC inhibitors including trichostatin A (TSA) completely restored RECK"
+  sent29 should "contain 3 negative activations" in {
+    val mentions = getBioMentions(sent29)
+    mentions.filter(_.label.contains("Negative_activation")) should have size (3)
+    hasNegativeActivation("HDAC", "RECK", mentions) should be(true)
+    hasNegativeActivation("trichostatin A", "HDAC", mentions) should be(true)
+    hasNegativeActivation("TSA", "HDAC", mentions) should be(true)
+  }
 }
