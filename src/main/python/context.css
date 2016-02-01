@@ -1,0 +1,31 @@
+body {
+  font-size:100%;
+  line-height:1.5;
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FEFAFD;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.ctxEvents{
+	color: red;
+}
+
+.ctxMentions{
+	color: green;
+  text-decoration : underline;
+  font-weight: bold;
+}
+
+.ctxAnnCtx{
+	background-color: cyan;
+  font-weight: bold;
+	/*color:white;*/
+}
+
+.ctxAnnEvt{
+	background-color: yellow;
+}
