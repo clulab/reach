@@ -385,15 +385,15 @@ class DarpaActions extends Actions {
 
   /** retrieves the appropriate modification label */
   def getModificationLabel(text: String): String = text.toLowerCase match {
-    case string if string contains "acetylat" => "acetylated"
-    case string if string contains "farnesylat" => "farnesylated"
-    case string if string contains "glycosylat" => "glycosylated"
-    case string if string contains "hydroxylat" => "hydroxylated"
-    case string if string contains "methylat" => "methylated"
-    case string if string contains "phosphorylat" => "phosphorylated"
-    case string if string contains "ribosylat" => "ribosylated"
-    case string if string contains "sumoylat" => "sumoylated"
-    case string if string contains "ubiquitinat" => "ubiquitinated"
+    case string if string contains "acetylat" => "Acetylation"
+    case string if string contains "farnesylat" => "Farnesylation"
+    case string if string contains "glycosylat" => "Glycosylation"
+    case string if string contains "hydroxylat" => "Hydroxylation"
+    case string if string contains "methylat" => "Methylation"
+    case string if string contains "phosphorylat" => "Phosphorylation"
+    case string if string contains "ribosylat" => "Ribosylation"
+    case string if string contains "sumoylat" => "Sumoylation"
+    case string if string contains "ubiquitinat" => "Ubiquitination"
     case _ => "UNKNOWN"
   }
 
