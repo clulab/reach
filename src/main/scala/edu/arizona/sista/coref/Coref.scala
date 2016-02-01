@@ -12,8 +12,8 @@ import scala.annotation.tailrec
 
 class Coref {
 
-  val debug: Boolean = false
   val verbose: Boolean = false
+  val debug: Boolean = verbose
   val da: DarpaActions = new DarpaActions()
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)

@@ -9,23 +9,23 @@ import edu.arizona.sista.struct.Interval
 
 class DarpaLinks(doc: Document) extends Links {
 
-  val debug: Boolean = false
   val verbose: Boolean = false
+  val debug: Boolean = verbose
   val defaultSelector: AntecedentSelector = new LinearSelector
 
   /**
-   * Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g. 'it'
-   * won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
+    * Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g. 'it'
+    * won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
     *
     * @param mentions All mentions
-   * @param selector Rule for selecting the best antecedent from candidates
-   * @return The same mentions but with new links (antecedents) added
-   */
+    * @param selector Rule for selecting the best antecedent from candidates
+    * @return The same mentions but with new links (antecedents) added
+    */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
-        !x.asInstanceOf[CorefTextBoundMention].isGeneric  &&
+        !x.asInstanceOf[CorefTextBoundMention].isGeneric &&
         !x.asInstanceOf[CorefTextBoundMention].hasGenericMutation)
       .groupBy(m => m.text.toLowerCase + "(" + m.mutants.map(_.text).mkString("/") + ")")
       .filter(_._2.toSeq.length > 1)
@@ -43,13 +43,13 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
-   * mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
+    * Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
+    * mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
     *
     * @param mentions All mentions
-   * @param selector Rule for selecting the best antecedent from candidates
-   * @return The same mentions but with new links (antecedents) added
-   */
+    * @param selector Rule for selecting the best antecedent from candidates
+    * @return The same mentions but with new links (antecedents) added
+    */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Exact entity grounding matching=====")
     // exact grounding
@@ -102,13 +102,13 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * Match two mentions, at least one generic, in which the later mention's head is in the earlier one and the later
-   * mention's words are a subset of the earlier one.
+    * Match two mentions, at least one generic, in which the later mention's head is in the earlier one and the later
+    * mention's words are a subset of the earlier one.
     *
     * @param mentions All mentions
-   * @param selector Rule for selecting the best antecedent from candidates
-   * @return The same mentions but with new links (antecedents) added.
-   */
+    * @param selector Rule for selecting the best antecedent from candidates
+    * @return The same mentions but with new links (antecedents) added.
+    */
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
@@ -147,12 +147,12 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * Match two mentions where the latter mention is a closed-class anaphor, matching number
+    * Match two mentions where the latter mention is a closed-class anaphor, matching number
     *
     * @param mentions All mentions
-   * @param selector Rule for selecting the best antecedent from candidates
-   * @return The same mentions but with new links (antecedents) added.
-   */
+    * @param selector Rule for selecting the best antecedent from candidates
+    * @return The same mentions but with new links (antecedents) added.
+    */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
@@ -225,13 +225,13 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.
-   * 'this protein' is known to have the label 'Protein'
+    * Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.
+    * 'this protein' is known to have the label 'Protein'
     *
     * @param mentions All mentions
-   * @param selector Rule for selecting the best antecedent from candidates
-   * @return The same mentions but with new links (antecedents) added.
-   */
+    * @param selector Rule for selecting the best antecedent from candidates
+    * @return The same mentions but with new links (antecedents) added.
+    */
   def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Noun phrase matching=====")
 
@@ -259,6 +259,7 @@ class DarpaLinks(doc: Document) extends Links {
           hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(np)).flatMap(_.arguments.values).flatten
 
         // look at each matching generic argument in turn, in textual order
+        // Note: Do *not* turn this into flatMap
         npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
           val (lbl, g) = (kv._1, kv._2.toCorefMention)
           if (verbose) println(s"Searching for antecedents to '${g.text}' " +
@@ -319,13 +320,13 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * Examine complex events with generic simple events as arguments, searching for the best match of the same label,
-   * e.g. "ASPP1 promotes this phosphorylation." will search for phosphorylations before this sentence.
+    * Examine complex events with generic simple events as arguments, searching for the best match of the same label,
+    * e.g. "ASPP1 promotes this phosphorylation." will search for phosphorylations before this sentence.
     *
     * @param mentions All mentions
-   * @param selector Rule for selecting the best antecedent from candidates
-   * @return The same mentions but with new links (antecedents) added.
-   */
+    * @param selector Rule for selecting the best antecedent from candidates
+    * @return The same mentions but with new links (antecedents) added.
+    */
   def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (debug) println("\n=====Simple event matching=====\n")
 
@@ -345,13 +346,13 @@ class DarpaLinks(doc: Document) extends Links {
 
     // We're only looking for generic simple events that are arguments of complex events
     val (complex, others) = mentions.partition(m => m matches "ComplexEvent")
-    val (simplex, ignore) = others.partition(m => m matches "SimpleEvent")
+    val (simplex, _) = others.partition(m => m matches "SimpleEvent")
     // We need to have the specific event mentions ready to match our anaphors with
-    val (generics, specifics) = simplex.partition(m => m matches "Generic_event")
+    val (_, specifics) = simplex.partition(m => m matches "Generic_event")
 
     // ComplexEvent mentions one by one. Ignore ComplexEvents with no generic SimpleEvent arguments, and arguments that
     // are merely triggers of more complete SimpleEvents
-    complex.filter(_.antecedents.isEmpty).foreach{ case cx if cx.arguments.values.flatten.exists(arg => arg.matches("Generic_event") &&
+    complex.filter(_.antecedents.isEmpty).foreach { case cx if cx.arguments.values.flatten.exists(arg => arg.matches("Generic_event") &&
       !specifics.filter(_.isInstanceOf[EventMention]).exists(sfc =>
         sfc.asInstanceOf[CorefEventMention].trigger == arg.asInstanceOf[CorefEventMention].trigger)) =>
 
@@ -367,6 +368,7 @@ class DarpaLinks(doc: Document) extends Links {
             .map(_.asInstanceOf[EventMention].trigger).contains(sfc.asInstanceOf[EventMention].trigger))
 
       // Looking just at the generic arguments, since we don't need to find antecedents to full mentions.
+      // Note: Do *not* turn this into flatMap
       argMap.map(arg => arg._2._1.map(v => (arg._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
         // the label for the argument type (e.g. "theme") and the generic argument we need an antecedent for.
         val (lbl, g) = kv
@@ -393,8 +395,8 @@ class DarpaLinks(doc: Document) extends Links {
           gInState.get.antecedents ++= ant
           excludeThese ++= ant
           cx.sieves += "simpleEventMatch"
-          }
         }
+      }
     case _ => ()
     }
 
@@ -402,8 +404,8 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * Are all the words (minus stopwords) in the obj mention also in the subj mention?
-   */
+    * Are all the words (minus stopwords) in the obj mention also in the subj mention?
+    */
   def includes(subj: CorefMention, obj: CorefMention): Boolean = {
     val stopWords = Set(
       "the",
@@ -414,8 +416,8 @@ class DarpaLinks(doc: Document) extends Links {
   }
 
   /**
-   * From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
-   */
+    * From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
+    */
   def expand(mention: Mention): Interval = {
     val sent = doc.sentences(mention.sentence)
     val graph = sent.dependencies.getOrElse(return mention.tokenInterval)
@@ -510,11 +512,11 @@ class DarpaLinks(doc: Document) extends Links {
   )
 
   /**
-   * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
+    * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
     *
     * @param mentions A Sequence of mentions to compare
-   * @return boolean True if all mentions share a single grounding id
-   */
+    * @return boolean True if all mentions share a single grounding id
+    */
   def sameEntityID(mentions: Seq[Mention]): Boolean = {
     val groundings =
       mentions
