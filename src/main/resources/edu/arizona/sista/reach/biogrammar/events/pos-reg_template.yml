@@ -10,7 +10,7 @@
 
 - name: Positive_${ ruleType }_syntax_1_verb
   priority: ${ priority }
-  example: ""
+  example: "X activates Y"
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
@@ -21,13 +21,25 @@
 
 - name: Positive_${ ruleType }_syntax_1b_verb
   priority: ${ priority }
-  example: ""
+  example: "X positively regulates Y"
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
     controlled:${ controlledType } = dobj /nn|amod/{,2}
     controller:${ controllerType } = <xcomp? (nsubj | agent) nn{,2}
+
+
+# Handles occurrence of prep_by when NOT passive voice
+- name: Positive_${ ruleType }_syntax_1c_verb
+  priority: ${ priority }
+  example: "X promotes pathway by Y"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
+    controlled:${ controlledType } = prep_by /conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
 
 
 # Note: Captures passive voice; thus verb must be VBD|VBN

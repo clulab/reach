@@ -5,7 +5,7 @@
 
 - name: Negative_${ ruleType }_syntax_1_verb
   priority: ${ priority }
-  example: ""
+  example: "X inhibits Y"
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
@@ -17,6 +17,7 @@
 # Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
+  example: "X is inhibited by Y"
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
