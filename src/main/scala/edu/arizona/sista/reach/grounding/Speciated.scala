@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for species features used in external knowledge bases.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Add is member of method for species.
+  *   Last Modified: Add human default value string.
   */
 trait Speciated {
 
@@ -29,4 +29,9 @@ trait Speciated {
 
 
 /** Trait Companion Object allows Mixin OR Import pattern. */
-object Speciated extends Speciated
+object Speciated extends Speciated {
+
+  /** Default value for human species. */
+  val Human: String = "human"
+
+}

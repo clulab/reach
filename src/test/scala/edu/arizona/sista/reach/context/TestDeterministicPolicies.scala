@@ -12,7 +12,7 @@ trait Fixtures {
   def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
 }
 
-class DeterministicPoliciesTests extends FlatSpec with Matchers with Fixtures {
+class TestDeterministicPolicies extends FlatSpec with Matchers with Fixtures {
 
   def contextAssignmentBehavior(nxml:String){
     info("Testing context assignment")

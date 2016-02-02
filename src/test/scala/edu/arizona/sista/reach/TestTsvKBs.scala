@@ -7,14 +7,13 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for refactored IMKB lookups.
+  *   Last Modified: Update for tsv factory.
   */
-class TestBasicKBs extends FlatSpec with Matchers {
+class TestTsvKBs extends FlatSpec with Matchers {
 
   // Tests of non-speciated (2-column) knowledge base
-  val imkb2 = new InMemoryKB(
-    new KBMetaInfo("http://identifiers.org/uazclu/", "UAZ", "MIR:00000000"),
-    "uniprot-subcellular-locations.tsv")
+  val imkb2 = (new TsvIMKBFactory).make("uniprot", "uniprot-subcellular-locations.tsv",
+    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
 
   "InMemoryKB COL-2" should "lookupAll on IMKB from COL-2 TSV file" in {
     (imkb2.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
@@ -66,9 +65,8 @@ class TestBasicKBs extends FlatSpec with Matchers {
 
 
   // Tests of speciated (3-column) knowledge base
-  val imkbPF = new InMemoryKB(
-    new KBMetaInfo("http://identifiers.org/uazclu/", "UAZ", "MIR:00000000"),
-    "ProteinFamilies.tsv.gz", true)
+  val imkbPF = (new TsvIMKBFactory).make("interpro", "ProteinFamilies.tsv.gz", true,
+    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
 
   // test lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)
 
@@ -89,8 +87,8 @@ class TestBasicKBs extends FlatSpec with Matchers {
   "InMemoryKB COL-3" should "lookupByASpecies on IMKB from COL-3 gzipped TSV file" in {
     (imkbPF.lookupByASpecies("NOT-IN-KB", "human").isDefined) should be (false) // not in KB
     (imkbPF.lookupByASpecies("PTHR21244", "human").isDefined) should be (false) // uppercase
+    (imkbPF.lookupByASpecies("pthr21244", "HUMAN").isDefined) should be (false) // species uppercase
     (imkbPF.lookupByASpecies("pthr21244", "human").isDefined) should be (true)
-    (imkbPF.lookupByASpecies("pthr21244", "HUMAN").isDefined) should be (true)
     (imkbPF.lookupByASpecies("pthr21244", "mouse").isDefined) should be (true)
     (imkbPF.lookupByASpecies("pthr21244", "aardvark").isDefined) should be (false) // not in KB
     (imkbPF.lookupByASpecies("hk", "saccharomyces cerevisiae").isDefined) should be (true)
