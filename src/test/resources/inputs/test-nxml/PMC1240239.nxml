@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Environ Health Perspect</journal-id>
+      <journal-title>Environmental Health Perspectives</journal-title>
+      <issn pub-type="ppub">0091-6765</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">11333182</article-id>
+      <article-id pub-id-type="pmc">1240239</article-id>
+      <article-id pub-id-type="pii">sc271_5_1835</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Involvement of the glycoproteic Ib-V-IX complex in nickel-induced platelet activation.</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Riondino</surname>
+            <given-names>S</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pulcinelli</surname>
+            <given-names>F M</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pignatelli</surname>
+            <given-names>P</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gazzaniga</surname>
+            <given-names>P P</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <aff>Department of Experimental Medicine and Pathology, University of Rome La Sapienza, Viale Regina Elena 324, 00161 Rome, Italy.</aff>
+      <pub-date pub-type="ppub">
+        <month>3</month>
+        <year>2001</year>
+      </pub-date>
+      <volume>109</volume>
+      <issue>3</issue>
+      <fpage>225</fpage>
+      <lpage>228</lpage>
+      <abstract>
+        <p>We studied the effect of nickel ions on platelet function because hypernickelemia has been found in patients with acute myocardial infarction. We previously demonstrated that nickel can activate an intracellular pathway leading to cytoskeleton reorganization consequent to tyrosine phosphorylation of p60(src) in human platelets independently of integrin alpha-IIb-beta(3). Moreover, in von Willebrand factor-stimulated platelets, the tyrosine phosphorylation of pp60(c-src) is closely associated with the activation of phosphatidylinositol 3-kinase (PIK), and two adhesion receptors, glycoprotein (Gp)Ib and GpIIb/IIIa(alpha-IIb-beta(3)), are involved. In our study, 1 and 5 mM nickel in the presence of fibrinogen induced platelet aggregation (independently of protein kinase C activation) and secretion. The pretreatment with a PIK inhibitor, wortmannin, strongly decreased nickel-induced platelet aggregation. Platelet treatment with mocarhagin, a cobra venom metalloproteinase that cleaves GpIba, significantly reduced aggregation induced by 5 mM without affecting the response to other agonists such as adenosine diphosphate (ADP). Moreover, nickel caused PIK translocation to the cytoskeleton. Taken together, these observations suggest a partial involvement of both integrins alpha-IIb-beta(3) and GpIb-V-IX complex in Ni(2+)-induced platelet activation.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>

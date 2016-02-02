@@ -74,7 +74,8 @@ class ReachCLI(val nxmlDir:File,
       for (entry <- entries) {
         try {
           val mentions = reach.extractFrom(entry)
-          mentions foreach { m => mentionsEntriesMap += (m -> entry) }
+          if (outputType == "pandas")       // avoid work needed only for pandas output
+            mentions foreach { m => mentionsEntriesMap += (m -> entry) }
           paperMentions ++= mentions
         } catch {
           case e: Throwable =>
