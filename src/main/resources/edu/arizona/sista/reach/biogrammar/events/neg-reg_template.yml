@@ -14,12 +14,13 @@
     controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|amod|conj_|cc|prep_of|prep_in$/{,2}
 
 
+# Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Negative_${ ruleType }_syntax_2_verb
   priority: ${ priority }
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (>nsubjpass|<vmod) /conj_|nn|amod|cc/{,2}
     controller:${ controllerType } = (agent|prep_by) /conj_|nn|amod|cc|prep_of|prep_in$/{,2}
 
