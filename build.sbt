@@ -8,6 +8,8 @@ scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
+testOptions in Test += Tests.Argument("-oD")
+
 // fork jvm to separate process
 fork := true
 
