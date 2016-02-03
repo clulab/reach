@@ -80,7 +80,7 @@
   example: "Q18_H33dup"
   keep: false
   pattern: |
-    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^([ACDEFGHIKLMNPQRSTVWY]?\d+_)?[ACDEFGHIKLMNPQRSTVWY]?\d+dup?$/]) [lemma=/^(mutant|mutation)/]?
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^([ACDEFGHIKLMNPQRSTVWY]?\d+_)?[ACDEFGHIKLMNPQRSTVWY]?\d+dup$/]) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_dup2long
   label: DuplicationMutant

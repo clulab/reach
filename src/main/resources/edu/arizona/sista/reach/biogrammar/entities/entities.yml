@@ -89,7 +89,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+\b/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
     [word=")"]?
 
 ###################
@@ -99,7 +99,7 @@
 - name: ner-species
   label: Species
   action: mkNERMentions
-  priotity: 3
+  priority: 3
   type: token
   pattern: |
     [entity='B-Species'] [entity='I-Species']*
@@ -107,7 +107,7 @@
 - name: ner-cell-lines
   label: CellLine
   action: mkNERMentions
-  priotity: 3
+  priority: 3
   type: token
   pattern: |
     [entity='B-Cell_lines'] [entity='I-Cell_lines']*
@@ -115,7 +115,7 @@
 - name: ner-organ
   label: Organ
   action: mkNERMentions
-  priotity: 3
+  priority: 3
   type: token
   pattern: |
     [entity='B-Organ'] [entity='I-Organ']*
@@ -130,7 +130,7 @@
 
 # - name: ner-infered-cell-type
 #   label: [CellType]
-#   priotity: 4
+#   priority: 4
 #   type: token
 #   pattern: |
 #     @Organ [lemma=/^(cells?|tissue|fluids?)/]

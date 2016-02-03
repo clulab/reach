@@ -260,9 +260,20 @@
     (?<trigger> [lemma="effect"] of [lemma=/${ nominalTriggerLemma }/ & !word=/(?i)^de/]) on @theme:BioChemicalEntity (at [!tag=/^(V|JJ)/]{1,2} @site:Site)?
 
 # too specific?
-- name: ${ eventName }_token_8_noun
+- name: ${ eventName }_token_8a_noun
   priority: 4
-  example: "fff ${ nominalTriggerLemma } (Fig. 2)."
+  example: "ERK(K156/H204) ${ nominalTriggerLemma } (Fig. 2)."
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @theme:BioChemicalEntity "(" [!tag=/^V/]{,4}? @site:Site? ([tag=/^,|CC/] @site:Site)* ")" (?<trigger>[lemma=/${ nominalTriggerLemma }/ & !word=/(?i)^de/]) (?! "of" @BioChemicalEntity)
+
+
+# too specific?
+- name: ${ eventName }_token_8b_noun
+  priority: 4
+  example: "ERK(K156M/H204M) ${ nominalTriggerLemma } (Fig. 2)."
   type: token
   label: ${ label }
   action: ${ actionFlow }
