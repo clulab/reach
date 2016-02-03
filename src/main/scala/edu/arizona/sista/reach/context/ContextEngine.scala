@@ -1,10 +1,13 @@
 package edu.arizona.sista.reach.context
 
+
 import java.io._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.nxml.FriesEntry
+import edu.arizona.sista.reach.context.rulebased._
+import edu.arizona.sista.reach.utils.FileReader
 
 trait ContextEngine {
 
@@ -29,7 +32,7 @@ object ContextEngine {
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.xref match{
-      case Some(xref) => xref.printString
+      case Some(xref) => xref.id
       case None => "UNGROUNDED"
     } else "UNGROUNDED"
 
@@ -38,52 +41,47 @@ object ContextEngine {
     (labels.head, id)
   }
 
-  // // Writes the two matrix files to disk
-  // def outputContext(context:ContextEngine, path:String) = {
-  //
-  //   val outObserved = path + ".obs"
-  //   val outLatent = path + ".lat"
-  //
-  //   val observedMatrix = context.featureMatrix
-  //   val latentMatrix = context.latentStateMatrix
-  //
-  //   // First output the latent states sequence
-  //   val outStreamLatent:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outLatent)))
-  //
-  //   for(step <- latentMatrix){
-  //     val line = step map (if(_) "1" else "0") mkString(" ")
-  //     outStreamLatent.println(line)
-  //   }
-  //   outStreamLatent.close()
-  //
-  //   // Now the observed values
-  //   val outStreamObserved:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outObserved)))
-  //   for(step <- observedMatrix){
-  //     val line = step map ( x => f"$x%1.0f") mkString (" ")
-  //     outStreamObserved.println(line)
-  //   }
-  //   outStreamObserved.close()
-  // }
-  //
-  // def outputVocabularies(context:ContextEngine, path:String) = {
-  //   val outObserved = path + ".obsvoc"
-  //   val outLatent = path + ".latvoc"
-  //   // First output the latent states voc
-  //   val outStreamLatent:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outLatent)))
-  //
-  //   context.latentVocabulary foreach {
-  //     outStreamLatent.println(_)
-  //   }
-  //
-  //   outStreamLatent.close()
-  //
-  //   // Now the observed voc
-  //   val outStreamObserved:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outObserved)))
-  //
-  //   context.observationVocavulary foreach {
-  //     outStreamObserved.println(_)
-  //   }
-  //
-  //   outStreamObserved.close()
-  // }
+  // Vocabularies
+  // Get relevant files
+  val kbFiles = Seq(("Cell_Lines.tsv", "CellLine"), ("Cell_Type.tsv", "CellType"), ("Organ.tsv", "Organ"), ("Species.tsv.gz", "Species"), ("tissue-type.tsv", "CellType"),
+    ("uniprot-subcellular-locations.tsv", "Cellular_component"), ("GO-subcellular-locations.tsv", "Cellular_component"), ("biopax-cellular_component.tsv", "Cellular_component"),
+    ("manual-cellular_component.tsv", "Cellular_component")) map {
+      case (path, ctxType) => (ctxType, new File("src/main/resources/edu/arizona/sista/reach/kb", path))
+    }
+
+  // Build a map of Cxt Key -> Text description
+  val latentVocabulary:Map[(String, String), String] = (kbFiles flatMap {
+    case (ctxType, file) =>
+      FileReader.readFile(file) map (_.split("\t").toList) map {
+        tokens =>
+          val key = tokens.last
+          val value = tokens.dropRight(1).mkString(" ")
+          println(s"${(ctxType, key)}")
+          (ctxType, key) -> value
+    }
+  }).toMap
+
+  // Same here but for the observed features
+  val featureVocabulary:Map[(String, String), String] = latentVocabulary // Now add any new stuff that may show up as a feature
+
+  def getDescription(mention:BioMention, voc:Map[(String, String), String]):String = getDescription(getContextKey(mention), voc)
+
+  def getDescription(key:(String, String), voc:Map[(String, String), String]):String = voc.lift(key) match {
+    case Some(desc) => desc
+    case None =>
+      println(s"WARNING: key $key not found in the context vocabulary")
+      "MISSING"
+  }
+
+  def getIndex(mention:BioMention, voc:Map[(String, String), String]):Int = getIndex(getContextKey(mention), voc)
+
+  // index 0 is "Missing", the rest of the entries get shifted 1 position
+  def getIndex(key:(String, String), voc:Map[(String, String), String]):Int = voc.keys.toList.indexOf(key) match{
+    case -1 =>
+      println(s"WARNING: key $key not found in the context vocabulary")
+      0
+    case ix:Int => ix + 1
+  }
+
+  def getKey(ix:Int, voc:Map[(String, String), String]):(String, String) = if(ix>0) voc.keys.toList(ix - 1) else ("MISSING", "MISSING")
 }
