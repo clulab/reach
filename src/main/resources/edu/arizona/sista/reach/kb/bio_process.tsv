@@ -1,0 +1,246 @@
+DNA damage checkpoint	go	GO:0000077
+DNA damage response	go	GO:0000077
+DNA recombination	go	GO:0006310
+DNA repair	go	GO:0006281
+DNA replication	go	GO:0006260
+DNA-dependent transcription	go	GO:0006351
+EMT	go	GO:0001837
+RNA localization	go	GO:0006403
+RNA splicing	go	GO:0008380
+acquired immune response	go	GO:0002250
+acquired immunity	go	GO:0002250
+adaptive immune response	go	GO:0002250
+adaptive immunity	go	GO:0002250
+adhesion	go	GO:0007155
+anabolism	go	GO:0009058
+angiogenesis	go	GO:0001525
+apopotosis	go	GO:0006915
+apoptotic process	go	GO:0006915
+autophagic cell death	go	GO:0048102
+autophagic programmed cell death	go	GO:0048102
+autophagocytosis	go	GO:0048102
+autophagy	go	GO:0006914
+axis specification	go	GO:0007389
+bioenergetics	go	GO:0006091
+bioformation	go	GO:0009058
+biogenesis	go	GO:0044085
+biosynthesis	go	GO:0009058
+biosynthetic process	go	GO:0009058
+blood cell biosynthesis	go	GO:0030097
+blood cell formation	go	GO:0030097
+blood circulation	go	GO:0008015
+breakdown of substances	go	GO:0009056
+breakdown of substances	go	GO:0009056
+cancer microenvironment	mesh	D059016
+catabolic process	go	GO:0009056
+catabolism	go	GO:0009056
+cell Multiplication	go	GO:0008283
+cell adhesion	go	GO:0007155
+cell aging	mesh	D000375
+cell communication	go	GO:0007154
+cell cycle	go	GO:0007049
+cell death	go	GO:0008219
+cell defense	go	GO:0006968
+cell development	go	GO:0032502
+cell differentiation	go	GO:0030154
+cell division cycle	go	GO:0007049
+cell enlargement	go	GO:0016049
+cell expansion	go	GO:0016049
+cell growth	go	GO:0016049
+cell interaction	go	GO:0007154
+cell killing	go	GO:0001906
+cell locomotion	go	GO:0016477
+cell microenvironment	mesh	D060833
+cell migration	go	GO:0016477
+cell motility	go	GO:0016477
+cell movement	go	GO:0016477
+cell polarity	mesh	D016764
+cell polarization	mesh	D016764
+cell proliferation	go	GO:0008283
+cell quiescence	go	GO:0044838
+cell recognition	go	GO:0008037
+cell reproduction	go	GO:0008283
+cell senescence	mesh	D000375
+cell survival	mesh	D002470
+cell viability	mesh	D002470
+cell-cell adhesion	go	GO:0016337
+cell-cell signaling	go	GO:0007267
+cell-extracellular matrix signalling	go	GO:0035426
+cell-matrix adhesion	go	GO:0007160
+cell-to-cell interaction	go	GO:0007154
+cellular aging	mesh	D000375
+cellular component biogenesis	go	GO:0044085
+cellular component morphogenesis	go	GO:0032989
+cellular component motion	go	GO:0006928
+cellular component movement	go	GO:0006928
+cellular component organization	go	GO:0016043
+cellular defense response	go	GO:0006968
+cellular energetics	go	GO:0006091
+cellular growth	go	GO:0016049
+cellular microenvironment	mesh	D060833
+cellular organization	go	GO:0016043
+cellular quiescence	go	GO:0044838
+cellular response to extracellular stimulus	go	GO:0031668
+cellular senescence	mesh	D000375
+cellular structure morphogenesis	go	GO:0032989
+cellular transport	go	GO:0006810
+chromatin architecture	go	GO:0031497
+chromatin assembly	go	GO:0031497
+chromatin assembly/disassembly	go	GO:0031497
+chromatin modeling	go	GO:0006338
+chromatin organization	go	GO:0006325
+chromatin remodeling	go	GO:0006338
+chromosome division	go	GO:0007059
+chromosome segregation	go	GO:0007059
+chromosome transmission	go	GO:0007059
+circadian process	go	GO:0007623
+circadian rhythm	go	GO:0007623
+citric acid cycle	go	GO:0006099
+complex assembly	go	GO:0006461
+contact inhibition	go	GO:0060242
+cytokine production	go	GO:0001816
+cytokinesis	go	GO:0000910
+cytoplasmic division	go	GO:0000910
+cytoskeleton organization	go	GO:0007010
+dedifferentiation	go	GO:0043696
+degradation of metabolites	go	GO:0009056
+degradation of metabolites	go	GO:0009056
+developmental process	go	GO:0032502
+differentiation	go	GO:0030154
+dormacy	go	GO:0044838
+double-strand break DNA repair	go	GO:0006302
+double-strand break repair	go	GO:0006302
+ectoderm development	go	GO:0007398
+embryo development	go	GO:0009790
+embryogenesis	go	GO:0009790
+embryonal development	go	GO:0009790
+embryonic programming	go	GO:0009790
+endocytosis	go	GO:0006897
+endoderm development	go	GO:0007492
+energy expenditure	go	GO:0006091
+energy metabolism	go	GO:0006091
+epigenesis	mesh	D044127
+epigenetic process	mesh	D044127
+epigenetics	mesh	D044127
+epithelial to mesenchymal transition	go	GO:0001837
+epithelial-mesenchymal transformation	go	GO:0001837
+epithelial-mesenchymal transformation	go	GO:0001837
+establishment of chromatin architecture	go	GO:0031497
+exocytosis	go	GO:0006887
+exosome	go	GO:0070062
+extracellular exosome	go	GO:0070062
+extracellular matrix-cell signaling	go	GO:0035426
+genome instability	mesh	D042822
+genome stability	mesh	D042822
+genomic instability	mesh	D042822
+genomic instability	mesh	D042822
+genomic stability	mesh	D042822
+glycolysis	go	GO:0006096
+glycolytic process	go	GO:0006096
+growth of cell	go	GO:0016049
+growth of cell mass	go	GO:0016049
+growth of cell size	go	GO:0016049
+haematopoiesis	go	GO:0030097
+haemopoiesis	go	GO:0030097
+hematopoiesis	go	GO:0030097
+hemopoiesis	go	GO:0030097
+hexose monophosphate pathway	go	GO:0006098
+homeostasis	go	GO:0042592
+homeostatic process	go	GO:0042592
+hypoxia response	go	GO:0001666
+immune response	go	GO:0006955
+immune surveillance	go	GO:0006955
+immunity	go	GO:0006955
+immunological killing	go	GO:0006955
+immunological monitoring	go	GO:0006955
+increase of cell mass	go	GO:0016049
+increase of cell size	go	GO:0016049
+infiltration	mesh	D009361
+inflammation	go	GO:0006954
+inflammatory response	go	GO:0006954
+innate immune response	go	GO:0045087
+innate immunity	go	GO:0045087
+interferon production	go	GO:0001816
+interferon/interleukin production	go	GO:0001816
+interleukin production	go	GO:0001816
+invasion	mesh	D009361
+invasiveness	mesh	D009361
+krebs cycle	go	GO:0006099
+localization	go	GO:0051179
+mRNA maturation	go	GO:0006397
+mRNA processing	go	GO:0006397
+maintenance of chromatin architecture	go	GO:0006325
+meiosis	go	GO:0007126
+meiotic cell division	go	GO:0007126
+meiotic nuclear division	go	GO:0007126
+mesoderm development	go	GO:0007498
+metabolic process	go	GO:0008152
+metabolism	go	GO:0008152
+metastasis	mesh	D009362
+mitochondria organisation	go	GO:0007005
+mitochondria organization	go	GO:0007005
+mitochondrial membrane potential	go	GO:0051881
+mitochondrion organization	go	GO:0007005
+mitosis	go	GO:0007067
+mitotic cell division	go	GO:0007067
+mitotic nuclear division	go	GO:0007067
+necroptosis	go	GO:0097528
+necrosis	mesh	D009336
+necrotic cell death	mesh	D009336
+neovascularization	go	GO:0001525
+nonspecific immune response	go	GO:0045087
+organ development	go	GO:0032502
+organelle organization	go	GO:0006996
+oxidative phosphorylation	go	GO:0006119
+paracrine signaling	go	GO:0038001
+pattern biosynthesis	go	GO:0007389
+pattern formation	go	GO:0007389
+pattern specification	go	GO:0007389
+pattern specification process	go	GO:0007389
+pentose phosphate pathway	go	GO:0006098
+pentose-phosphate shunt	go	GO:0006098
+peptidolysis	go	GO:0006508
+plasma membrane invagination	go	GO:0006897
+programmed cell death	go	GO:0006915
+programmed cell death by autophagy	go	GO:0048102
+programmed cell death by macroautophagy	go	GO:0048102
+protein anabolism	go	GO:0006412
+protein biosynthesis	go	GO:0006412
+protein complex assembly	go	GO:0006461
+protein degradation	go	GO:0006508
+protein digestion	go	GO:0006508
+protein folding	go	GO:0006457
+protein formation	go	GO:0006412
+protein localization	go	GO:0008104
+protein refolding	go	GO:0006457
+protein unfolding	go	GO:0006457
+proteolysis	go	GO:0006508
+quiescence	go	GO:0044838
+recognition of surroundings by cell	go	GO:0008037
+replicative senescence	mesh	D000375
+reproduction	go	GO:0000003
+respiratory-chain phosphorylation	go	GO:0006119
+response to hypoxia	go	GO:0001666
+response to hypoxic stress	go	GO:0001666
+response to low oxygen tension	go	GO:0001666
+response to lowered oxygen tension	go	GO:0001666
+response to stimulus	go	GO:0050896
+response to stress	go	GO:0006950
+segmentation	go	GO:0007389
+senescence	mesh	D000375
+signal response	go	GO:0050896
+signal transduction	go	GO:0007165
+signal transduction pathways	go	GO:0007165
+signalling cascade	go	GO:0007165
+signalling pathway	go	GO:0007165
+stem cell microenvironment	mesh	D055153
+stem cell niche	mesh	D055153
+stress response	go	GO:0006950
+subcellular localization	go	GO:0051179
+tissue development	go	GO:0032502
+transcription	go	GO:0006351
+transdifferentiation	go	GO:0060290
+translation	go	GO:0006412
+transport	go	GO:0006810
+tricarboxylic acid cycle	go	GO:0006099
+tumor microenvironment	mesh	D059016

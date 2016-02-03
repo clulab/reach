@@ -1,9 +1,13 @@
 package edu.arizona.sista.reach.grounding
 
+import scala.util.hashing.MurmurHash3._
+
+import edu.arizona.sista.reach.grounding.ReachKBConstants._
+
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add/use is no species value constant.
+  *   Last Modified: Remove alternate IDs. Replace combine with equality.
   */
 class KBEntry (
 
@@ -13,55 +17,53 @@ class KBEntry (
   /** Computed key string, which indexes this entry. */
   val key: String,
 
-  /** The KB reference ID, loaded from the external KB. */
+  /** The external namespace for this entry (e.g., go, uniprot). */
+  val namespace: String = DefaultNamespace,
+
+  /** The reference ID, relative to the namespace for this entry (e.g., GO:0033110, P12345). */
   val id: String,
 
   /** The species associated with this entry, if any. Empty string represents no species. */
   val species: String = KBEntry.NoSpeciesValue,
-
-  /** Alternate IDs which might be found in external input sources. */
-  val alternateIds: Option[Set[String]] = None,
 
   /** Standard nomenclature: some KBs might provide a standardized name alias. */
   val standardName: Option[String] = None
 
 ) extends Speciated {
 
+  /** Helper method for equals redefinition. */
+  def canEqual (other: Any): Boolean = other.isInstanceOf[KBEntry]
+
+  /** Redefine instance equality based on matching some fields of this class. */
+  override def equals (other: Any): Boolean = other match {
+    case that: KBEntry => (
+      that.canEqual(this) &&
+      this.key == that.key &&
+      this.namespace == that.namespace &&
+      this.id == that.id &&
+      this.species == that.species
+    )
+    case _ => false
+  }
+
+  /** Redefine hashCode. */
+  override def hashCode: Int = {
+    val h0 = stringHash("edu.arizona.sista.reach.grounding.KBEntry")
+    val h1 = mix(h0, key.hashCode)
+    val h2 = mix(h1, namespace.hashCode)
+    val h3 = mix(h2, id.hashCode)
+    val h4 = mixLast(h3, species.hashCode)
+    finalizeHash(h4, 4)
+  }
+
   /** Tell whether this entry has an associated species or not. */
   def hasSpecies(): Boolean = (species != KBEntry.NoSpeciesValue)
   def hasNoSpecies(): Boolean = (species == KBEntry.NoSpeciesValue)
 
-  /** Tell whether the given ID is already associated with this entry,
-      either as the primary or an alternate ID. */
-  def hasId (anId:String): Boolean = {
-    hasPrimaryId(anId) || hasAlternateId(anId)
-  }
-
-  /** Tell whether the given ID is one of the alternate IDs. */
-  def hasAlternateId (anId:String): Boolean = alternateIds.exists(_.contains(anId))
-
-  /** Tell whether the given ID is equal to the primary id. */
-  def hasPrimaryId (anId:String): Boolean = (anId == id)
-
-  /** Merge the contents of the given entry with this one, returning a new entry. */
-  def combine (other:KBEntry, overwriteText:Boolean=false): KBEntry = {
-    var altIds = (this.alternateIds ++ other.alternateIds).reduceOption(_ ++ _)
-    // if primary IDs are different then add them both as alternates
-    if (this.id != other.id)
-      altIds = (altIds ++ Some(Set(this.id, other.id))).reduceOption(_ ++ _)
-    return new KBEntry(
-      if (overwriteText) other.text else this.text,
-      this.key,
-      this.id,
-      if (this.hasSpecies()) this.species else other.species,
-      altIds,
-      this.standardName orElse other.standardName orElse None
-    )
-  }
 
   /** Override method to provide logging/debugging printout. */
   override def toString(): String =
-    s"<KBEntry: ${text} | ${key} | ${id} | ${species}>"
+    s"<KBEntry: ${text} | ${key} | ${namespace} | ${id} | ${species}>"
 }
 
 

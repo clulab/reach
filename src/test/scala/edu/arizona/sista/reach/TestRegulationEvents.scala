@@ -355,7 +355,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   // Problematic because of inclusion of "combination of rapamycin"; "rapamycin is found as the cause
-/*  val sent39 = "inhibition of ERK phosphorylation by combination of rapamycin"
+  /*  val sent39 = "inhibition of ERK phosphorylation by combination of rapamycin"
   sent39 should "contain 1 negative regulation and 1 phosphorylation" in {
     val mentions = getBioMentions(sent39)
     mentions.filter(_ matches "Negative_regulation") should have size (1)
@@ -363,4 +363,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "Phosphorylation") should have size (1)
   }*/
 
+  val sent40 = "GSK-3 promotes the pathway by phosphorylating LRP5"
+  sent40 should "contain 1 positive regulation and 1 phosphorylation" in {
+    val mentions = getBioMentions(sent40)
+    mentions.filter(_ matches "Negative_regulation") should have size (0)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("GSK-3", "Phosphorylation", List("LRP5"), mentions) should be (true)
+  }
 }

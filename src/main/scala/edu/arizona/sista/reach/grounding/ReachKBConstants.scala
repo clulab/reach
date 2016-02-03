@@ -3,9 +3,13 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for gzipped Species file.
+  *   Last Modified: Add bio process KB constant.
   */
 object ReachKBConstants {
+
+  /** The default namespace string for KBs. */
+  val DefaultNamespace: String = "uaz"
+
 
   /** The set of words to remove from all keys to create a lookup key. */
   val AllKeysStopSuffixes = Seq("_human")
@@ -56,6 +60,9 @@ object ReachKBConstants {
   val ManualProteinFamilyFilename = "manual-family.tsv"
 
 
+  /** Filename of the static bio processes file. */
+  val StaticBioProcessFilename = "bio_process.tsv"
+
   /** Filename of the static cellular location file. */
   val StaticCellLocationFilename = "GO-subcellular-locations.tsv"
 
@@ -89,27 +96,5 @@ object ReachKBConstants {
 
   /** Filename of the context organs file */
   val ContextOrganFilename = "Organ.tsv"
-
-
-  /** Filename of the auxiliary biological processes file. */
-  val AuxBioProcessFilename = "AuxBioProcess.tsv"
-
-  /** Filename of the auxiliary cellular location file. */
-  val AuxCellLocationFilename = "AuxCellLocation.tsv"
-
-  /** Filename of the auxiliary small molecule (chemical) file. */
-  val AuxChemicalFilename = "AuxChemical.tsv"
-
-  /** Filename of the auxiliary small molecule (metabolite) file. */
-  val AuxMetaboliteFilename = "AuxMetabolite.tsv"
-
-  /** Filename of the auxiliary protein file. */
-  val AuxProteinFilename = "AuxProtein.tsv"
-
-  /** Filename of the auxiliary protein family file. */
-  val AuxProteinFamilyFilename = "AuxProteinFamily.tsv"
-
-  /** Filename of the auxiliary protein file. */
-  val AuxTissueTypeFilename = "AuxTissueType.tsv"
 
 }
