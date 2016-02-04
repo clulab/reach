@@ -1,6 +1,5 @@
 package edu.arizona.sista.reach.grounding
 
-import scala.io.Source
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
 import edu.arizona.sista.reach.grounding._
@@ -9,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Redo IMKB lookups to return resolution sequences.
+  *   Last Modified: Remove unused import.
   */
 class InMemoryKB (
 
