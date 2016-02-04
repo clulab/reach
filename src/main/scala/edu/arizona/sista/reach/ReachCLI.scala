@@ -17,6 +17,7 @@ import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.extern.export.context._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.rulebased.RuleBasedContextEngine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
@@ -70,19 +71,13 @@ class ReachCLI(val nxmlDir:File,
       }
 
       // These documents are sorted
-      val paperDocObjects = new mutable.ArrayBuffer[Document]
+      val documents = new mutable.ArrayBuffer[Document]
       val paperMentions = new mutable.ArrayBuffer[BioMention]
-      val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
+      //val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
       for (entry <- entries) {
         try {
           // Create a document instance per entry and add it to the cache
-          val doc = reach.mkDoc(entry.text, entry.name, entry.chunkId)
-          // Add it to the document cache
-          paperDocObjects += doc
-          // Process it as usual
-          val mentions = reach.extractFrom(doc)
-          mentions foreach { m => mentionsEntriesMap += (m -> entry) }
-          paperMentions ++= mentions
+          documents += reach.mkDoc(entry.text, entry.name, entry.chunkId)
         } catch {
           case e: Throwable =>
             this.synchronized { errorCount += 1}
@@ -108,22 +103,88 @@ class ReachCLI(val nxmlDir:File,
         }
       }
 
+      try{
+        val mentions:Seq[BioMention] = reach.extractFrom(entries, documents)
+        paperMentions ++= mentions
+      } catch {
+        case e: Exception =>
+         val report = s"""
+             |==========
+             |
+             | ¡¡¡ extraction error !!!
+             |
+             |paper: $paperId
+             |
+             |error:
+             |${e.toString}
+             |
+             |stack trace:
+             |${e.getStackTrace.mkString("\n")}
+             |
+             |==========
+             |""".stripMargin
+         FileUtils.writeStringToFile(logFile, report, true)
+       }
+
+
       // done processing
       val endTime = ReachCLI.now
       val endNS = System.nanoTime
 
       try outputType match {
-        case "context-interval" =>
-          val outputter = new IntervalOutput(paperDocObjects, paperMentions)
+        case "context-output" =>
+
+          // Create paper directory
+          val paperDir = new File(outputDir, paperId)
+
+          if(!paperDir.exists){
+            paperDir.mkdir
+          }
+
+          // These are the intervals for generating HTML files
+          val outputter = new IntervalOutput(documents, paperMentions)
           // Write the context stuff
-          val ctxSentencesFile = new File(outputDir, s"$paperId.ctxSentences")
+          val ctxSentencesFile = new File(paperDir, "sentences.txt")
           FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
 
-          val ctxEventsFile = new File(outputDir, s"$paperId.ctxEvents")
+          val ctxEventsFile = new File(paperDir, "event_intervals.txt")
           FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
 
-          val ctxMentionsFile = new File(outputDir, s"$paperId.ctxMentions")
+          val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
           FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
+
+          // These are the context plotfiles
+            // Write obs.txt
+          val contextEngine = reach.contextCache(paperId)
+
+          contextEngine match {
+            case ce:RuleBasedContextEngine =>
+              val obs = ce.getObservationsMatrixStrings
+              FileUtils.writeLines(new File(paperDir, "obs.txt"), obs.asJavaCollection)
+              val states = ce.getStatesMatrixStrings
+              FileUtils.writeLines(new File(paperDir, "states.txt"), states.asJavaCollection)
+            case _ =>
+              // So far, these only makes sense if we use a rule based context engine
+              Unit
+          }
+
+            // Context_events.txt created by python!!!
+
+          // Observation (features) vocabulary. These are descriptions
+          val obsLabelsFile = new File(outputDir, "obs_labels.txt")
+          if(!obsLabelsFile.exists){
+            val obs_labels = ContextEngine.featureVocabulary.values.toList
+            FileUtils.writeLines(obsLabelsFile, obs_labels.asJavaCollection)
+          }
+
+          // Context (states) vocabulary. These are descriptions
+          val statesLabelsFile = new File(outputDir, "states_labels.txt")
+          if(!statesLabelsFile.exists){
+            val states_labels = ContextEngine.latentVocabulary.values.toList
+            FileUtils.writeLines(statesLabelsFile, states_labels.asJavaCollection)
+          }
+          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+
         case "text" =>
           val mentionMgr = new MentionManager()
           val lines = mentionMgr.sortMentionsToStrings(paperMentions)
@@ -132,20 +193,20 @@ class ReachCLI(val nxmlDir:File,
           FileUtils.writeLines(outFile, lines.asJavaCollection)
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
         // Anything that is not text (including Fries-style output)
-        case "pandas" =>
-          println("Using pandas output ...")
-          val outputter:PandasOutput = new PandasOutput()
-          val (entities, events, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
-          val outMentions = new File(outputDir, s"$paperId.entities")
-          val outEvents = new File(outputDir, s"$paperId.events")
-          val outRelations = new File(outputDir, s"$paperId.relations")
-          val outLines = new File(outputDir, s"$paperId.lines")
-          FileUtils.writeLines(outMentions, entities.asJavaCollection)
-          FileUtils.writeLines(outEvents, events.asJavaCollection)
-          FileUtils.writeLines(outRelations, relations.asJavaCollection)
-          FileUtils.writeLines(outLines, lines.asJavaCollection)
-
-          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+        // case "pandas" =>
+        //   println("Using pandas output ...")
+        //   val outputter:PandasOutput = new PandasOutput()
+        //   val (entities, events, relations, lines) = outputter.toCSV(paperId, paperMentions, mentionsEntriesMap.toMap)
+        //   val outMentions = new File(outputDir, s"$paperId.entities")
+        //   val outEvents = new File(outputDir, s"$paperId.events")
+        //   val outRelations = new File(outputDir, s"$paperId.relations")
+        //   val outLines = new File(outputDir, s"$paperId.lines")
+        //   FileUtils.writeLines(outMentions, entities.asJavaCollection)
+        //   FileUtils.writeLines(outEvents, events.asJavaCollection)
+        //   FileUtils.writeLines(outRelations, relations.asJavaCollection)
+        //   FileUtils.writeLines(outLines, lines.asJavaCollection)
+        //
+        //   FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
         case _ =>
           outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, outputDir)
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)

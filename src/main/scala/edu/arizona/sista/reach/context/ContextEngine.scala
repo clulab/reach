@@ -56,7 +56,6 @@ object ContextEngine {
         tokens =>
           val key = tokens.last
           val value = tokens.dropRight(1).mkString(" ")
-          println(s"${(ctxType, key)}")
           (ctxType, key) -> value
     }
   }).toMap

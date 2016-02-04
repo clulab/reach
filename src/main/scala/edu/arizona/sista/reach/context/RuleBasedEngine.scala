@@ -18,14 +18,6 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Name of the entry features
   protected def entryFeaturesNames:Seq[String] = Seq()
 
-  // var observationVocabulary:Map[(String, String), Int] = _
-  // var latentStateVocabulary:Map[(String, String), Int] = _
-
-  // Inverse observationVocabulary to resolve the names back
-  // protected var inverseObservationVocabulary:Map[Int, (String, String)] = _
-  // protected var inverseLatentStateVocabulary:Map[Int, (String, String)] = _
-
-
   protected var mentions:Seq[Seq[BioMention]] = _
 
   // Map of documents to offsets
@@ -57,21 +49,6 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     assert(docCumLengths.size == documents.size, "Something is wrong with context document offsets")
 
     docOffsets = documents.map(_.id.getOrElse("N/A")).zip(docCumLengths).toMap
-
-    // Build the vocabularies
-    // observationVocabulary = mentionsPerEntry.flatten.filter{
-    //   mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-    // }.map(ContextEngine.getContextKey).toSet.zipWithIndex.toMap
-    //
-    // inverseObservationVocabulary = observationVocabulary map (_.swap)
-    //
-    // latentStateVocabulary = mentionsPerEntry.flatten.filter{
-    //   mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-    // }.map(ContextEngine.getContextKey).filter{
-    //   !_._1.startsWith("Context")
-    // }.toSet.zipWithIndex.toMap
-
-    // inverseLatentStateVocabulary = latentStateVocabulary map (_.swap)
 
     val lines:Seq[(Seq[BioMention], FriesEntry)] =  (0 until entries.size).flatMap{
       ix =>
@@ -163,9 +140,12 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   protected def featureMatrix:Seq[Seq[Double]] = {
     val categorical = densifyMatrix(observedSparseMatrix, ContextEngine.featureVocabulary)
-    val numerical = densifyFeatures
+    // TODO Implement this is extra features are added
+    //val numerical = densifyFeatures
 
-    categorical zip numerical  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } ++ n }
+//    categorical /*zip numerical*/  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } /*++ n*/ }
+    categorical  map { c => c.map{ case false => 0.0; case true => 1.0 }  }
+
   }
 
   protected def latentVocabulary = ContextEngine.latentVocabulary.keys map ( k => k._1 + "||" + ContextEngine.getDescription(k, ContextEngine.latentVocabulary))
@@ -204,55 +184,12 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     }
   }
   //////////////////////////////////////////////////////////////////////////////////////////
-}
 
-object RuleBasedContextEngine{
-  // Writes the two matrix files to disk
-  def outputContext(context:RuleBasedContextEngine, path:String) = {
-
-    val outObserved = path + ".obs"
-    val outLatent = path + ".lat"
-
-    val observedMatrix = context.featureMatrix
-    val latentMatrix = context.latentStateMatrix
-
-    // First output the latent states sequence
-    val outStreamLatent:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outLatent)))
-
-    for(step <- latentMatrix){
-      val line = step map (if(_) "1" else "0") mkString(" ")
-      outStreamLatent.println(line)
-    }
-    outStreamLatent.close()
-
-    // Now the observed values
-    val outStreamObserved:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outObserved)))
-    for(step <- observedMatrix){
-      val line = step map ( x => f"$x%1.0f") mkString (" ")
-      outStreamObserved.println(line)
-    }
-    outStreamObserved.close()
+  def getObservationsMatrixStrings:Seq[String] = featureMatrix map {
+    step => step map ( x => f"$x%1.0f") mkString (" ")
   }
 
-  def outputVocabularies(context:RuleBasedContextEngine, path:String) = {
-    val outObserved = path + ".obsvoc"
-    val outLatent = path + ".latvoc"
-    // First output the latent states voc
-    val outStreamLatent:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outLatent)))
-
-    context.latentVocabulary foreach {
-      outStreamLatent.println(_)
-    }
-
-    outStreamLatent.close()
-
-    // Now the observed voc
-    val outStreamObserved:PrintWriter = new PrintWriter(new BufferedWriter(new FileWriter(outObserved)))
-
-    context.observationVocavulary foreach {
-      outStreamObserved.println(_)
-    }
-
-    outStreamObserved.close()
+  def getStatesMatrixStrings:Seq[String] = latentStateMatrix map {
+    step => step map (if(_) "1" else "0") mkString(" ")
   }
 }
