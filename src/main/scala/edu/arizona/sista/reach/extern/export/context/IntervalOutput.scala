@@ -24,7 +24,7 @@ class IntervalOutput(docs:Seq[Document], mentions:Seq[Mention]){
   for (doc <- docs) {
 
     // Sentence counter
-    var x = 0
+    var x = 1
 
 
     for(i <- 0 to doc.sentences.size){

@@ -163,7 +163,7 @@ def main(paths):
 
 		doc = path.split('.')[0]
 
-		with open('%s.ctxAnnCtx' % doc, 'w') as f, open('%s.ctxAnnEvt' % doc, 'w') as g:
+		with open('manual_context_intervals.txt', 'w') as f, open('manual_event_intervals.txt', 'w') as g:
 			for c in ctx:
 				f.write('%s\n' % c)
 

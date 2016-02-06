@@ -183,6 +183,12 @@ class ReachCLI(val nxmlDir:File,
             val states_labels = ContextEngine.latentVocabulary.values.toList
             FileUtils.writeLines(statesLabelsFile, states_labels.asJavaCollection)
           }
+
+          val statesIdsFile = new File(outputDir, "states_keys.txt")
+          if(!statesIdsFile.exists){
+            val statesIds = ContextEngine.latentVocabulary.keys.map( x => x._2)
+            FileUtils.writeLines(statesIdsFile, statesIds.asJavaCollection)
+          }
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
 
         case "text" =>
