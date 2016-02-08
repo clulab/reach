@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for separate bioresources project with all KBs gzipped.
+  *   Last Modified: Correct doc string on metabolite KB.
   */
 object ReachKBConstants {
 
@@ -72,7 +72,7 @@ object ReachKBConstants {
   /** Filename of the static small molecule (chemical) file. */
   val StaticChemicalFilename = "chebi.tsv.gz"
 
-  /** Filename of the static small molecule (chemical) file. */
+  /** Filename of the static small molecule (metabolite) file. */
   val StaticMetaboliteFilename = "hmdb.tsv.gz"
 
   /** Filename of the static protein file. */

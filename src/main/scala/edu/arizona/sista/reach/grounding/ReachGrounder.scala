@@ -13,58 +13,24 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Update for addition of context accessors to singleton KBML creator.
+  *   Last Modified: Rewrite to search specific KBs based on labels.
   */
 class ReachGrounder extends DarpaFlow {
+
+  /** Type alias for a sequence of KB search accessors. */
+  type KBSearchSequence = Seq[IMKBMentionLookup]
 
   /** An exception in case we somehow fail to assign an ID during resolution. */
   case class NoFailSafe(message:String) extends Exception(message)
 
-  /** Project local sequence for resolving entities: check local facade KBs in this order:
-    * 2. Protein Families
-    * 3. Proteins
-    * 4. Biological Processes
-    * 5. Small Molecules (metabolites and chemicals)
-    * 6. Subcellular Locations
-    * 7. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
-    */
-  protected val standardSearchSequence: Seq[IMKBMentionLookup] = Seq(
-    staticProteinFamilyKBML,
-    manualProteinFamilyKBML,
-    staticProteinKBML,
-    manualProteinKBML,
-    // NB: generated protein families are included in the generated protein KB:
-    gendProteinKBML,
-
-    staticBioProcessKBML,
-
-    staticChemicalKBML,
-    staticMetaboliteKBML,
-    manualChemicalKBML,
-    gendChemicalKBML,
-
-    staticCellLocationKBML,
-    manualCellLocationKBML,
-    gendCellLocationKBML,
-
-    contextCellTypeKBML,
-    contextSpeciesKBML,
-    contextCellLineKBML,
-    contextOrganKBML,
-    staticTissueTypeKBML,
-
-    new AzFailsafeKBML
-  )
 
   /** Local implementation of darpa flow trait: use project specific KBs to ground
       and augment given mentions. */
   def apply (mentions: Seq[Mention], state: State): Seq[Mention] = mentions map {
-    case tm: BioTextBoundMention => resolveAndAugment(tm, state)
+    case tm: BioTextBoundMention => resolveMention(tm, state)
     case m => m
   }
 
-  /** Single instance of factory class for instantiating new AdHoc KBMLs. */
-  private val adHocFactory = new AdHocIMKBFactory
 
   /** Return a new instance of an AdHoc KBML created using the given config map. */
   private def addAdHocFile (fileDef: Config): Option[IMKBMentionLookup] = {
@@ -75,32 +41,97 @@ class ReachGrounder extends DarpaFlow {
     }
   }
 
-  /** Search the KB accessors in sequence, use the first one which resolves the given mention. */
-  private def resolveAndAugment (mention: BioMention, state: State): Mention = {
+  /** Search a sequence of KB accessors, which sequence determined by the main mention label. */
+  private def resolveMention (mention: BioMention, state: State): Mention = {
+    mention.label match {
+      case "Bioprocess" => augmentMention(mention, state, bioProcessSeq)
+      case "CellLine" => augmentMention(mention, state, cellLineSeq)
+      case "CellType" => augmentMention(mention, state, cellTypeSeq)
+      case "Cellular_component" => augmentMention(mention, state, cellComponentSeq)
+      case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
+        augmentMention(mention, state, proteinSeq)
+      case "Family" =>  augmentMention(mention, state, familySeq)
+      case "Organ" => augmentMention(mention, state, organSeq)
+      case "Simple_chemical" => augmentMention(mention, state, chemicalSeq)
+      case "Species" => augmentMention(mention, state, speciesSeq)
+      case _ =>  augmentMention(mention, state, azFailsafeSeq)
+    }
+  }
+
+  private def augmentMention (mention: BioMention, state: State,
+                              searchSequence: KBSearchSequence): Mention = {
     searchSequence.foreach { kbml =>
       // There may be more than one entry returned in the set, so just take any one, for now:
-      val resolution = kbml.resolve(mention).flatMap(kbeset => kbeset.headOption)
+      val resolution = kbml.resolve(mention).flatMap(reses => reses.headOption)
       if (!resolution.isEmpty) {
         mention.ground(resolution.get.namespace, resolution.get.id)
         return mention
       }
     }
-    // we should never get here because our accessors include a failsafe ID assignment
-    throw NoFailSafe(s"ReachGrounder failed to assign an ID to ${mention.displayLabel} '${mention.text}' in S${mention.sentence}")
+    // if reach here, we assign a failsafe backup ID:
+    azFailsafe.resolve(mention).flatMap(reses => reses.headOption).foreach(res => mention.ground(res.namespace, res.id))
+    return mention
   }
 
 
   // Reach Grounder Initialization
   //
 
-  protected var searchSequence: Seq[IMKBMentionLookup] = standardSearchSequence
+  /** Single instance of factory class for instantiating multiple new AdHoc KBMLs. */
+  val adHocFactory = new AdHocIMKBFactory
 
-  // Read config file to determine which (if any) additional knowledge bases to include
+  /** Single instance of KB to user for Fallback grounding: when all others fail. */
+  val azFailsafe = new AzFailsafeKBML
+  val azFailsafeSeq: KBSearchSequence = Seq(azFailsafe)
+
+  // val staticTissueType = staticTissueTypeKBML()  // CURRENTLY UNUSED
+
+  // this KB is used in multiple sequences, so allocate it once:
+  val modelGendProteinAndFamily = gendProteinKBML // families included in generated KB
+
+  /** Variable to hold additional "adhoc" KBs which are dynamically added to search. */
+  var extraKBs: KBSearchSequence = Seq()
+
+  // Read config file to determine which (if any) additional knowledge bases to include:
   val config = ConfigFactory.load()
   if (config.hasPath("grounding.adHocFiles")) {
     val moreKBs = config.getConfigList("grounding.adHocFiles").asScala.flatMap(addAdHocFile(_))
-    if (!moreKBs.isEmpty)
-      searchSequence = moreKBs ++ standardSearchSequence
+    if (!moreKBs.isEmpty) extraKBs = moreKBs
   }
+
+  // instantiate the various search sequences, each sequence for a different label:
+  val bioProcessSeq: KBSearchSequence = extraKBs ++ Seq( staticBioProcessKBML )
+  val cellLineSeq: KBSearchSequence = extraKBs ++ Seq( contextCellLineKBML )
+  val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( contextCellTypeKBML )
+
+  val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
+    staticCellLocationKBML,                 // GO subcellular KB
+    staticCellLocationKBML2,                // Uniprot subcellular KB
+    manualCellLocationKBML,
+    gendCellLocationKBML
+  )
+
+  val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
+    staticChemicalKBML,
+    staticMetaboliteKBML,
+    manualChemicalKBML,
+    gendChemicalKBML
+  )
+
+  val familySeq: KBSearchSequence = extraKBs ++ Seq(
+    staticProteinFamilyKBML,
+    manualProteinFamilyKBML,
+    modelGendProteinAndFamily
+  )
+
+  val organSeq: KBSearchSequence = extraKBs ++ Seq( contextOrganKBML )
+
+  val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
+    staticProteinKBML,
+    manualProteinKBML,
+    modelGendProteinAndFamily
+  )
+
+  val speciesSeq: KBSearchSequence = extraKBs ++ Seq( contextSpeciesKBML )
 
 }
