@@ -9,21 +9,15 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
+import edu.arizona.sista.reach.grounding.ReachGrounder._
 import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Save all candidate resolutions in Grounding trait.
+  *   Last Modified: Move singletons to companion object.
   */
 class ReachGrounder extends DarpaFlow {
-
-  /** Type alias for a sequence of KB search accessors. */
-  type KBSearchSequence = Seq[IMKBMentionLookup]
-
-  /** An exception in case we somehow fail to assign an ID during resolution. */
-  case class NoFailSafe(message:String) extends Exception(message)
-
 
   /** Local implementation of darpa flow trait: use project specific KBs to ground
       and augment given mentions. */
@@ -73,21 +67,7 @@ class ReachGrounder extends DarpaFlow {
     return mention
   }
 
-
   // Reach Grounder Initialization
-  //
-
-  /** Single instance of factory class for instantiating multiple new AdHoc KBMLs. */
-  val adHocFactory = new AdHocIMKBFactory
-
-  /** Single instance of KB to user for Fallback grounding: when all others fail. */
-  val azFailsafe = new AzFailsafeKBML
-  val azFailsafeSeq: KBSearchSequence = Seq(azFailsafe)
-
-  // val staticTissueType = staticTissueTypeKBML()  // CURRENTLY UNUSED
-
-  // this KB is used in multiple sequences, so allocate it once:
-  val modelGendProteinAndFamily = gendProteinKBML // families included in generated KB
 
   /** Variable to hold additional "adhoc" KBs which are dynamically added to search. */
   var extraKBs: KBSearchSequence = Seq()
@@ -133,5 +113,24 @@ class ReachGrounder extends DarpaFlow {
   )
 
   val speciesSeq: KBSearchSequence = extraKBs ++ Seq( contextSpeciesKBML )
+}
+
+
+object ReachGrounder {
+
+  /** Type alias for a sequence of KB search accessors. */
+  type KBSearchSequence = Seq[IMKBMentionLookup]
+
+  /** Factory class for instantiating multiple new AdHoc KBMLs. */
+  val adHocFactory = new AdHocIMKBFactory
+
+  /** KB to use for Fallback grounding: when all others fail. */
+  val azFailsafe = new AzFailsafeKBML
+  val azFailsafeSeq: KBSearchSequence = Seq(azFailsafe)
+
+  // val staticTissueType = staticTissueTypeKBML()  // CURRENTLY UNUSED
+
+  // this KB is used in multiple sequences, so allocate it once:
+  val modelGendProteinAndFamily = gendProteinKBML // families included in generated KB
 
 }
