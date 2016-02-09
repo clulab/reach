@@ -9,15 +9,15 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
-import edu.arizona.sista.reach.grounding.ReachGrounder._
+import edu.arizona.sista.reach.grounding.ReachEntityLookup._
 import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Move singletons to companion object.
+  *   Last Modified: Rename this class.
   */
-class ReachGrounder extends DarpaFlow {
+class ReachEntityLookup extends DarpaFlow {
 
   /** Local implementation of darpa flow trait: use project specific KBs to ground
       and augment given mentions. */
@@ -116,7 +116,7 @@ class ReachGrounder extends DarpaFlow {
 }
 
 
-object ReachGrounder {
+object ReachEntityLookup {
 
   /** Type alias for a sequence of KB search accessors. */
   type KBSearchSequence = Seq[IMKBMentionLookup]

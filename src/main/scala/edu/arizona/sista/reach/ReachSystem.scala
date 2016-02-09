@@ -3,7 +3,7 @@ package edu.arizona.sista.reach
 import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.grounding.ReachGrounder
+import edu.arizona.sista.reach.grounding.ReachEntityLookup
 import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
@@ -28,11 +28,11 @@ class ReachSystem(
   val contextRules = if (rules.isEmpty) readResource(RuleReader.contextRelationsFile) else rules.get.context
   // initialize actions object
   val actions = new DarpaActions
-  // initialize grounder
-  val grounder = new ReachGrounder
+  // initialize entity lookup (find grounding candidates)
+  val entityLookup = new ReachEntityLookup
   // start entity extraction engine
   // this engine extracts all physical entities of interest and grounds them
-  val entityEngine = ExtractorEngine(entityRules, actions, grounder.apply)
+  val entityEngine = ExtractorEngine(entityRules, actions, entityLookup.apply)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
   val modificationEngine = ExtractorEngine(modificationRules, actions)
@@ -144,7 +144,7 @@ object ReachSystem {
   // By default the displayMention is set to the main label of the mention,
   // so sometimes it may not require modification
   def resolveDisplay(ms: Seq[CorefMention]): Seq[CorefMention] = {
-    // let's do a first attempt, using only grounding info
+    // let's do a first attempt, using only preliminary grounding info
     // this is useful for entities that do not participate in events
     for(m <- ms) {
       m match {
