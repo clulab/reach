@@ -252,6 +252,26 @@
     theme1:BioChemicalEntity+ = <amod <prep_of <acomp{,2} nsubj
     theme2:BioChemicalEntity+ = <amod
 
+- name: binding_syntax_26_verb
+  example: "Only Smad3LC and Smad3C exhibited the ability to bind APC10."
+  label: Binding
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [word=bind & tag=VB]
+    theme1:BioChemicalEntity+ = <vmod [lemma="ability"] <dobj [lemma=/exhibit|have|show|display/] nsubj
+    theme2:BioChemicalEntity+ = dobj
+
+- name: binding_syntax_27_verb
+  example: "Only Smad3LC and Smad3C were able to bind APC10."
+  label: Binding
+  action: mkBinding
+  priority: 4
+  pattern: |
+    trigger = [word=bind & tag=VB]
+    theme1:BioChemicalEntity+ = <xcomp [lemma="able"] nsubj
+    theme2:BioChemicalEntity+ = dobj
+
 # added to catch patterns like "increased XX binding to YY"
 # when the prep_to is (wrongly) attached to increased instead of binding
 - name: binding_token_1
