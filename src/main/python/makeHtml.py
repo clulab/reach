@@ -83,7 +83,6 @@ def readIntervals(path):
 
 
 
-
 	return ret
 
 def buildSentence(sentence, intervals, intervalNames):
@@ -124,15 +123,19 @@ def buildSentence(sentence, intervals, intervalNames):
 
 	return ret
 
-def buildContents(sentences, intervalDicts, intervalNames):
+def buildContents(sentences, sections, intervalDicts, intervalNames):
+
 	lines = []
 
 	for ix, sentence in enumerate(sentences):
+		if ix in sections:
+			lines.append("<hr/>")
+
 		lines.append('<b><i>%i:</i></b> %s' % (ix, buildSentence(sentence, [d[ix] for d in intervalDicts],intervalNames)))
 
 	return '\n'.join(lines)
 
-def buildMarkup(title, sentences, intervalDicts, intervalNames):
+def buildMarkup(title, sentences, sections, intervalDicts, intervalNames):
 	html = """<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="%s">
@@ -141,7 +144,7 @@ def buildMarkup(title, sentences, intervalDicts, intervalNames):
 	<body>
 		%s
 	</body>
-</html>""" % (css, title, buildContents(sentences, intervalDicts, intervalNames))
+</html>""" % (css, title, buildContents(sentences, sections, intervalDicts, intervalNames))
 
 	return html
 
@@ -163,18 +166,31 @@ def buildMarkup(title, sentences, intervalDicts, intervalNames):
 #
 # 	shutil.copyfile(css, '%s/%s' % (dir, css))
 
+def readSections(path):
+	with open(path) as f:
+		lines = f.readlines()
+
+	ret = []
+	prev = lines[0]
+	for ix, l in enumerate(lines[1:]):
+		if l != prev:
+			ret.append(ix)
+		prev = l
+	return ret
+
 def main(dir, types):
 
 	sentences = readSentences(os.path.join(dir, 'sentences.txt'))
+	sections = readSections(os.path.join(dir, 'sections.txt'))
 	dicts = []
 	dicts.append(readIntervals(os.path.join(dir, 'event_intervals.txt')))
 	dicts.append(readIntervals(os.path.join(dir, 'mention_intervals.txt')))
 	dicts.append(readIntervals(os.path.join(dir, 'manual_context_intervals.txt')))
 	dicts.append(readIntervals(os.path.join(dir, 'manual_event_intervals.txt')))
 
-	html = buildMarkup("index", sentences, dicts, types)
+	html = buildMarkup("index", sentences, sections, dicts, types)
 
-	with open('%s.html' % "index", 'w') as f:
+	with open(os.path.join(dir, 'index.html'), 'w') as f:
 		f.write(html)
 
 
@@ -183,6 +199,6 @@ def main(dir, types):
 if __name__ == '__main__':
 	dir = sys.argv[1]
 	dictNames = ['ctxEvents', 'ctxMentions', 'ctxAnnCtx', 'ctxAnnEvt']
-	#dictNames = ['ctxEvents', 'ctxAnnCtx', 'ctxAnnEvt']
+	#dictNames = ['ctxEvents', 'ctxMentions']
 
 	main(dir, dictNames)

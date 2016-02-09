@@ -77,7 +77,7 @@ class ReachCLI(val nxmlDir:File,
       for (entry <- entries) {
         try {
           // Create a document instance per entry and add it to the cache
-          documents += reach.mkDoc(entry.text, entry.name, entry.chunkId)
+          documents += reach.mkDoc(entry.text, entry.sectionId, entry.chunkId)
         } catch {
           case e: Throwable =>
             this.synchronized { errorCount += 1}
@@ -142,7 +142,7 @@ class ReachCLI(val nxmlDir:File,
           }
 
           // These are the intervals for generating HTML files
-          val outputter = new IntervalOutput(documents, paperMentions)
+          val outputter = new IntervalOutput(documents, entries, paperMentions)
           // Write the context stuff
           val ctxSentencesFile = new File(paperDir, "sentences.txt")
           FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
@@ -152,6 +152,12 @@ class ReachCLI(val nxmlDir:File,
 
           val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
           FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
+
+          val ctxSectionsFile = new File(paperDir, "sections.txt")
+          FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
+
+          val ctxReachEventsFile = new File(paperDir, "reach_events.txt")
+          FileUtils.writeLines(ctxReachEventsFile, outputter.eventLines.asJavaCollection)
 
           // These are the context plotfiles
             // Write obs.txt
@@ -168,7 +174,7 @@ class ReachCLI(val nxmlDir:File,
               Unit
           }
 
-            // Context_events.txt created by python!!!
+          // Context_events.txt created by python!!!
 
           // Observation (features) vocabulary. These are descriptions
           val obsLabelsFile = new File(outputDir, "obs_labels.txt")

@@ -72,8 +72,11 @@ def main(path, vocabularyPath):
                 # import ipdb; ipdb.set_trace()
 
                 for ix, x in enumerate(vocabulary):
-                    if ctxIds[c].split(':')[-1] in x:
+                    if ctxIds[c].split(':')[-1] in x.upper():
                         ctxId = ix
+
+                if ctxId == -1:
+                    print "#WARNING %s not present in the dictonaries" % ctxIds[c].split(':')[-1]
 
                 print 'Event\t%i\t%s\t%i\t%s' % (eventIndex, ctxType, ctxId, ctxIx)
 

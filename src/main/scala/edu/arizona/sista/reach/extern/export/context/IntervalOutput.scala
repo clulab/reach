@@ -2,39 +2,47 @@ package edu.arizona.sista.reach.extern.export.context
 
 import edu.arizona.sista.processors.Document
 import scala.collection.mutable
+import scala.collection.mutable.SortedSet
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.context.ContextEngine.contextMatching
+import edu.arizona.sista.reach.nxml._
 
 /**
   * Class to output files used by python to generate an HTML file
   *   Written by Enrique Noriega. 27/7/2015.
   *   Last Modified: Correct spelling of possessive.
   */
-class IntervalOutput(docs:Seq[Document], mentions:Seq[Mention]){
+class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[Mention]){
 
   val sentences:Seq[String] = docs.flatMap(_.sentences.map(s => s.words.mkString(" ")))
   val ctxMentions = new mutable.ArrayBuffer[String]
   val evtIntervals = new mutable.ArrayBuffer[String]
+  val sections:Seq[String] = docs.zip(entries).flatMap(_ match {case (d, e) => List.fill(d.sentences.size)(e.sectionName)})
+  val eventLines = new mutable.ArrayBuffer[String]
 
   val events = mentions filter {
       case ev:EventMention => true
       case _ => false
+
   }
+
+  // Sentence counter
+  var x = 0
 
   for (doc <- docs) {
 
-    // Sentence counter
-    var x = 1
-
-
     for(i <- 0 to doc.sentences.size){
-        val its = events.filter(_.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
+        val its = events.filter(e => e.document.id == doc.id && e.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
             ev =>
-            val ti = ev.tokenInterval
-            s"${ti.start}-${ti.end-1}"
+              eventLines += s"${ev.labels.head}\t${x + i}"
+
+              val ti = ev.tokenInterval
+              s"${ti.start}-${ti.end-1}"
         }
-        val itsStr = s"${x+i} " + (if(its.size > 0) its.mkString(" ") else "")
-        evtIntervals += itsStr
+        if(its.size > 0){
+          val itsStr = s"${x+i} " + its.mkString(" ")
+          evtIntervals += itsStr
+        }
     }
 
     // Store context mentions
@@ -45,7 +53,7 @@ class IntervalOutput(docs:Seq[Document], mentions:Seq[Mention]){
 
 
     for(i <- 0 to doc.sentences.size){
-        val its = cts.filter(_.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
+        val its = cts.filter(e => e.document.id == doc.id && e.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
             tb =>
             val ti = tb.tokenInterval
             s"${ti.start}-${ti.end-1}"
