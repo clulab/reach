@@ -8,12 +8,13 @@ import com.typesafe.config.{Config, ConfigFactory}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Rewrite to search specific KBs based on labels.
+  *   Last Modified: Save all candidate resolutions in Grounding trait.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -61,15 +62,14 @@ class ReachGrounder extends DarpaFlow {
   private def augmentMention (mention: BioMention, state: State,
                               searchSequence: KBSearchSequence): Mention = {
     searchSequence.foreach { kbml =>
-      // There may be more than one entry returned in the set, so just take any one, for now:
-      val resolution = kbml.resolve(mention).flatMap(reses => reses.headOption)
-      if (!resolution.isEmpty) {
-        mention.ground(resolution.get.namespace, resolution.get.id)
+      val resolutions = kbml.resolve(mention)
+      if (resolutions.isDefined) {
+        mention.nominate(resolutions)       // save candidate resolutions in mention
         return mention
       }
     }
     // if reach here, we assign a failsafe backup ID:
-    azFailsafe.resolve(mention).flatMap(reses => reses.headOption).foreach(res => mention.ground(res.namespace, res.id))
+    mention.nominate(azFailsafe.resolve(mention))
     return mention
   }
 
