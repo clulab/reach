@@ -1,10 +1,25 @@
-- name: Generic_mutant_known_mutation
+# 'mutant' when it's not preceded or followed by a macromolecule; early priority so it can participate in mutation rules
+- name: Generic_mutant_known_mutation1
   label: [Generic_entity, Gene_or_gene_product]
   priority: 2
   action: mkBioMention
   type: token
   pattern: |
-    (?<! [mention=BioChemicalEntity]) [!(mention=/.*/) & tag=/^NN/ & !(incoming=/^nn/) & lemma=/(?i)^mutant$/] (?! [mention=BioChemicalEntity])
+    (?<! [mention=/Generic_entity|Family|MacroMolecule/])
+    [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
+    (?! [mention=/Generic_entity|Family|MacroMolecule/])
+
+- name: Generic_mutant_known_mutation2
+  label: [Generic_entity, Gene_or_gene_product]
+  priority: 2
+  action: mkBioMention
+  type: token
+  pattern: |
+    [!(mention=/.*/) & tag=/\$$/ & lemma=/(?i)^its|their|whose$/]?
+    [mention=/Simple_chemical/]?
+    [word=/^substitution|deletion|duplication|insertion|frameshift$/]?
+    [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
+    (?! [mention=/Generic_entity|Family|MacroMolecule/])
 
 # Words with a DT POS but which are not acting as determiners, e.g. 'this' in "This is an example."
 - name: DT_not_determiner
