@@ -29,18 +29,19 @@ class Coref {
     }
 
     // order mentions and also remove Generic_event mentions that do not have definite determiners.
-    val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
+    val legalDeterminers = Seq("the", "this", "that", "these", "those", "such", "its", "their", "whose")
     val orderedMentions: Seq[CorefMention] = mentions
       .map(_.toCorefMention)
       .filterNot(m => {
-      m.isGeneric && !m.isClosedClass && {
+      m.isGeneric && !m.isClosedClass && !m.lemmas.get.contains("mutant") && {
         val sent = m.sentenceObj
         val hd = findHeadStrict(m.tokenInterval, sent)
         if (hd.isEmpty || hd.get < 0 || hd.get >= sent.dependencies.get.outgoingEdges.length) false
         else {
           try {
             val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
-            val hasDet = outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
+            val hasDet = outgoing.find(dep => (dep._2 == "det" | dep._2 == "poss") &&
+              legalDeterminers.contains(sent.words(dep._1).toLowerCase))
             hasDet.isEmpty
           } catch {
             case e: Throwable =>
