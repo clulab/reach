@@ -67,6 +67,7 @@ class CorefTextBoundMention(
   private val detMap = Map("a" -> 1,
     "an" -> 1,
     "both" -> 2,
+    "each" -> 2,
     "that" -> 1,
     "those" -> 2,
     "these" -> 2, // assume two for now...
@@ -92,6 +93,7 @@ class CorefTextBoundMention(
     "them" -> 2,
     "that" -> 1,
     "both" -> 2,
+    "each" -> 2,
     "those" -> 2,
     "these" -> 2, // assume two for now...
     "this" -> 1,
