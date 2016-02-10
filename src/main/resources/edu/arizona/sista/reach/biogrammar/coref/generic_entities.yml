@@ -47,3 +47,4 @@
   type: token
   pattern: |
     [tag=/^PRP/ & word=/(?i)^(it|its|they|them|their|this|these|that|those|which|whose|each|all|any|one)$/ & !(mention=/.*/)]
+    (?! [mention=/Entity/])
