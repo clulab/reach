@@ -42,6 +42,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       documents: Seq[Document],
       mentionsPerEntry: Seq[Seq[BioMention]]
   ) {
+
     // Build the document offsets
     val docLengths = documents.map(_.sentences.size)
     val docCumLengths:Seq[Int] = docLengths.scanLeft(0)((a, b) => a+b).dropRight(1)
@@ -57,20 +58,20 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         val men = mentionsPerEntry(ix)
 
         // Cast mentions as TextBound and sort by sentence index
-        val sortedMentions = men.filter{
-          case tb:BioTextBoundMention => true
-          case _ => false
-        }.sortWith(_.sentence < _.sentence)
+        val sortedMentions = men.sortWith(_.sentence < _.sentence)
 
         // Group mentions by sentence index and attach the fries entry
         val groupedMentions:Map[Int, Seq[BioMention]] = sortedMentions.groupBy(_.sentence)
 
         // Return seq of (Seq[BioMention], FriesEntry) tuples. Each corresponds to each line
-        for(i <- 0 until doc.sentences.size) yield (groupedMentions.lift(ix).getOrElse(Nil).filter{
-          mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-        }, entry)
+        for(i <- 0 until doc.sentences.size) yield {
+          (groupedMentions.lift(i).getOrElse(Nil).filter{
+            mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+            // mention =>
+            //   mention.labels.map(ContextEngine.contextMatching.contains(_)).exists(x => x)
+          }, entry)
+        }
     }
-
 
     // Build sparse matrices
     // First, the observed value matrices
@@ -190,6 +191,6 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   }
 
   def getStatesMatrixStrings:Seq[String] = latentStateMatrix map {
-    step => step map (if(_) "1" else "0") mkString(" ")
+    step => step map (if(_) 1 else 0) mkString(" ")
   }
 }

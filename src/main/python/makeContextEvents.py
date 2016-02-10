@@ -1,9 +1,13 @@
 ''' Creates the context_events file out of a curated tsv file '''
 import sys, csv
+import numpy as np
 from collections import defaultdict
 
-def main(path, vocabularyPath):
+def main(path, vocabularyPath, statesPath):
     ''' Parses a TSV file and outputs the context_events file '''
+
+    # Load the states matrix
+    states = np.loadtxt(statesPath).astype(int)
 
     with open(vocabularyPath) as f:
         vocabulary = [l[:-1] for l in f]
@@ -78,10 +82,17 @@ def main(path, vocabularyPath):
                 if ctxId == -1:
                     print "#WARNING %s not present in the dictonaries" % ctxIds[c].split(':')[-1]
 
+                # update the states matrix with a 1
+                states[ctxIx, ctxId] = 1
+
                 print 'Event\t%i\t%s\t%i\t%s' % (eventIndex, ctxType, ctxId, ctxIx)
+
+
+    # Save the states matrix
+    np.savetxt(statesPath, states, fmt="%i")
 
 
 
 if __name__ == '__main__':
     # Only one file at a time
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3])
