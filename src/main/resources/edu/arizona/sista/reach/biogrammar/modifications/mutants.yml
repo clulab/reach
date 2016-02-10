@@ -155,15 +155,29 @@
 # Store Mutant mods
 #########
 
-- name: mutantmod_1
+- name: mutantmod_1a
   label: Mutant
   action: storeMutants
   priority: 3
   type: token
   pattern: |
-    [lemma=/^(mutant|mutation)/]? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]? @mutant:Mutant [lemma=/^(mutant|mutation)/]?
-      |
-    @mutant:Mutant [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]?
+    [lemma=/^(mutant|mutation)/]?
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule)
+    [lemma=/^(mutant|mutation)/]?
+    @mutant:Mutant
+    [lemma=/^(mutant|mutation)/]?
+
+- name: mutantmod_1b
+  label: Mutant
+  action: storeMutants
+  priority: 3
+  type: token
+  pattern: |
+    @mutant:Mutant
+    [lemma=/^(mutant|mutation)/]?
+    ("of" [tag=DT]?)?
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule)
+    [lemma=/^(mutant|mutation)/]?
 
 - name: mutantmod_2
   label: Mutant
