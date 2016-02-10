@@ -115,7 +115,6 @@ class CorefTextBoundMention(
     */
   private def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
     require(words.length == tags.length)
-    //val somenum = words(tags.zipWithIndex.find(x => Seq("DT", "CD", "PRP$").contains(x._1)).getOrElse(return 0)._2)
     val somenum = words(tags
       .zipWithIndex
       .find(x => x._1 == "CD")
@@ -149,6 +148,7 @@ class CorefTextBoundMention(
     * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
     */
   def number: Int = {
+    if (this.mutants.nonEmpty) return 1
     val sent = this.sentenceObj
     val mhead = findHeadStrict(this.tokenInterval, sent).getOrElse(this.tokenInterval.start)
     val phrase = subgraph(this.tokenInterval, sent)
