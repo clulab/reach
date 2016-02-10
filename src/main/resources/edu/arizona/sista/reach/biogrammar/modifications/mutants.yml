@@ -187,35 +187,53 @@
   pattern: |
     (?<! [mention=BioChemicalEntity])
     @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag="CC"] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
-    [lemma=/^(mutant|mutation)/]? ("of" [tag=DT]?)? @entity:BioChemicalEntity
+    [lemma=/^(mutant|mutation)/]?
+    ("of" [tag=DT]?)?
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule)
 
-- name: mutantmod_3
+- name: mutantmod_3a
   label: Mutant
   example: "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
   action: storeMutants
   priority: 3
   type: token
   pattern: |
-    @entity:BioChemicalEntity [lemma=/^(mutant|mutation)/]?
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule) [lemma=/^(mutant|mutation)/]?
     @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag="CC"] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
-    (?![mention=BioChemicalEntity])
+    (?![mention=/Generic_entity|Family|MacroMolecule/])
+
+- name: mutantmod_3b
+  label: Mutant
+  example: "wild-type ASPP1 and the K111M, K112M, and K113M mutants"
+  action: storeMutants
+  priority: 3
+  type: token
+  pattern: |
+    (@entity:Family | @entity:MacroMolecule) [lemma=/^(mutant|mutation)/]?
+    [tag="CC"] [tag="DT"]?
+    @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag="CC"] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
+    [lemma=/^(mutant|mutation)/]
 
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens
   label: Mutant
   action: storeMutants
   priority: 3
-  example: "ERK(T202M/Y204E)"
+  example: "ERK(T202M Y204E)"
   type: token
   pattern: |
-    @entity:BioChemicalEntity "(" @mutant:Mutant+ ")"
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule) "(" @mutant:Mutant+ ")"
 
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens2
   label: Mutant
   action: storeMutants
   priority: 3
-  example: "ERK(T202M/Y204E)"
+  example: "ERK(T202M, Y204E)"
   type: token
   pattern: |
-    @entity:BioChemicalEntity "(" @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag=CC] @mutant:Mutant)? | [tag=CC] @mutant:Mutant) ")"
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule)
+    (at [word=/^[ACDEFGHIKLMNPQRSTVWY]\d+$/])?
+    "("
+    @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag=CC] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
+    ")"
