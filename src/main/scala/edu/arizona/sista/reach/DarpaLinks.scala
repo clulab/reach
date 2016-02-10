@@ -78,16 +78,19 @@ class DarpaLinks(doc: Document) extends Links {
 
     gms.foreach {
       case gm =>
-        if (verbose) println(s"Searching for antecedents to ${gm.text} ${gm.mutants.find(_.isGeneric).get.text}")
+        if (verbose) println(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.find(_.isGeneric).get.text}'")
 
         val cands = tbms.filter { m =>
           m.precedes(gm) &&
+            !m.isGeneric &&
             m.isGrounded &&
-            m.xref.get.namespace == gm.xref.get.namespace &&
-            m.xref.get.id == gm.xref.get.id &&
-            m.mutants.nonEmpty &&
+            ((m.xref.get.namespace == gm.xref.get.namespace &&
+            m.xref.get.id == gm.xref.get.id) | gm.isGeneric) &&
+            (m.mutants.nonEmpty | gm.tags.get.head.takeRight(1) == "$") &&
             m.mutants.forall(mut => !mut.isGeneric)
         }
+
+        if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
         val ants = selector(gm, cands diff Seq(gm), gm.number)
         if (debug) ants.foreach { ant =>
@@ -125,7 +128,7 @@ class DarpaLinks(doc: Document) extends Links {
       // get the head of the noun phrase the mention is in
       val hd = doc.sentences(g.sentence)
         .words(findHeadStrict(gExpanded, doc.sentences(g.sentence)).getOrElse(g.tokenInterval.end - 1)).toLowerCase
-      if (verbose) println(s"Searching for antecedents to '${g.text}' expanded to " +
+      if (verbose) println(s"Searching for ${g.number.toString} antecedents to '${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")}' expanded to " +
         s"'${doc.sentences(g.sentence).words.slice(gExpanded.start, gExpanded.end).mkString(" ")}' with head '$hd'")
       // what other tbms have this same head?
       val cands = tbms.filter { m =>
@@ -139,7 +142,10 @@ class DarpaLinks(doc: Document) extends Links {
       }
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
-      if (debug) ants.foreach { ant => println(s"${g.text} links to ${ant.text}") }
+      if (debug) ants.foreach { ant =>
+        println(s"${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")} links to" +
+          s" ${ant.text}${ant.mutants.map(_.text).mkString(" ", " ", "")}")
+      }
       g.antecedents ++= ants
       g.sieves += "strictHeadMatch"
     }
@@ -170,8 +176,8 @@ class DarpaLinks(doc: Document) extends Links {
 
         // look at each matching generic argument in turn, in textual order
         proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach { kv =>
-          val (lbl, g) = kv
-          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          val (lbl, g) = (kv._1, kv._2.toCorefMention)
+          if (verbose) println(s"Searching for ${g.number.toString} antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           val gTag = g.tags.get.headOption
 
@@ -207,11 +213,11 @@ class DarpaLinks(doc: Document) extends Links {
                 m.matches("PossibleController")
             }
           }
-          if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+          if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
           // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
-          if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
+          if (verbose) println(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
           // trying to link the two
@@ -268,7 +274,7 @@ class DarpaLinks(doc: Document) extends Links {
         // Note: Do *not* turn this into flatMap
         npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
           val (lbl, g) = (kv._1, kv._2.toCorefMention)
-          if (verbose) println(s"Searching for antecedents to '${g.text}' " +
+          if (verbose) println(s"Searching for ${g.number.toString} antecedents to '${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")}' " +
             s"excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           val cands = lbl match {
@@ -301,11 +307,11 @@ class DarpaLinks(doc: Document) extends Links {
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
           }
-          if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+          if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
           // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
-          if (verbose) println(s"matched '${ants.map(_.text).mkString(", ")}'")
+          if (verbose) println(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
           // trying to link the two
