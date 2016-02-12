@@ -3,9 +3,14 @@
 # Template for positive regulation|activation
 #
 
+#
+# Global notes (applying to both pos-reg and neg-reg rules):
+# use prep_in$ instead of prep_in, to avoid matching prep_including, which has different semantics
+#
+
 - name: Positive_${ ruleType }_syntax_1_verb
   priority: ${ priority }
-  example: ""
+  example: "X activates Y"
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
@@ -16,7 +21,7 @@
 
 - name: Positive_${ ruleType }_syntax_1b_verb
   priority: ${ priority }
-  example: ""
+  example: "X positively regulates Y"
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
@@ -25,12 +30,25 @@
     controller:${ controllerType } = <xcomp? (nsubj | agent) nn{,2}
 
 
+# Handles occurrence of prep_by when NOT passive voice
+- name: Positive_${ ruleType }_syntax_1c_verb
+  priority: ${ priority }
+  example: "X promotes pathway by Y"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
+    controlled:${ controlledType } = prep_by /conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
+
+
+# Note: Captures passive voice; thus verb must be VBD|VBN
 - name: Positive_${ ruleType }_syntax_2_verb
   priority: ${ priority }
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (>/^nsubj/|<vmod) /conj_|nn|cc|dep|amod/{,2}
     controller:${ controllerType } = (agent|prep_by) /conj_|nn|cc|dep|amod|prep_of|prep_in$/{,2}
 

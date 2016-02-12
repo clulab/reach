@@ -11,10 +11,10 @@ import org.scalatest.{Matchers, FlatSpec}
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
   * User: mihais
   * Date: 12/4/15
-  * Last Modified: Fix: create context engine initialization so we actually test context.
+  * Last Modified: Change test input directory.
   */
 class TestReachCLI extends FlatSpec with Matchers {
-  val nxmlDir = new File("src/test/resources/inputs/nxml")
+  val nxmlDir = new File("src/test/resources/inputs/test-nxml")
 
   lazy val tmpFriesDir = Files.mkTmpDir("tmpFries", deleteOnExit = true)
   lazy val friesDir = new File(tmpFriesDir)

@@ -10,7 +10,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Rename this object.
+  *   Last Modified: Move tsvRowToFields method here.
   */
 object ReachKBUtils {
 
@@ -44,6 +44,12 @@ object ReachKBUtils {
   def makePathInUserDir (filename:String): String = {
     return System.getProperty("user.dir") + File.separator + filename
   }
+
+  /** Convert a single row string from a TSV file to a sequence of string fields. */
+  def tsvRowToFields (row:String): Seq[String] = {
+    return row.split("\t").map(_.trim)
+  }
+
 }
 
 

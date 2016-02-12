@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for new/refactored resolves.
+  *   Last Modified: Update for tsv factory.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
@@ -188,7 +188,6 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
 // Protein family KB using alternate protein resolutions
 class TestProtFamKBL extends IMKBFamilyLookup {
-  val memoryKB = new InMemoryKB(
-    new KBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
-                   StaticProteinFamilyFilename, true)  // true = has species
+  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true,
+    new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")) // true = has species
 }
