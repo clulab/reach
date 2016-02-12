@@ -27,7 +27,7 @@ def makeCtxIntervals(lines):
 def makeEventIntervals(lines):
 	ret = []
 	for ix, row in enumerate(lines):
-		print "Event intervals for line: %i" % ix
+		#print "Event intervals for line: %i" % ix
 		intervals = makeEventInterval(row)
 		for interval in [("%i-%i" % (i[0], i[1]), i[2].upper())  for i in intervals]:
 			ret.append("%i %s\t%s" % (ix, interval[0], interval[1]))

@@ -128,7 +128,7 @@ def buildContents(sentences, sections, intervalDicts, intervalNames):
 	lines = []
 
 	for ix, sentence in enumerate(sentences):
-		if ix in sections:
+		if ix+1 in sections:
 			lines.append("<hr/>")
 
 		lines.append('<b><i>%i:</i></b> %s' % (ix, buildSentence(sentence, [d[ix] for d in intervalDicts],intervalNames)))
