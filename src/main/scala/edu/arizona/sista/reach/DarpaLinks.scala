@@ -52,7 +52,7 @@ class DarpaLinks(doc: Document) extends Links {
     val sameGrounding = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] && !x.asInstanceOf[CorefTextBoundMention].isGeneric)
       .filter(x => x.asInstanceOf[CorefTextBoundMention].isGrounded)
-      .groupBy(m => m.asInstanceOf[CorefTextBoundMention].xref.get.id)
+      .groupBy(m => m.asInstanceOf[CorefTextBoundMention].grounding.get.id)
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
@@ -524,8 +524,8 @@ class DarpaLinks(doc: Document) extends Links {
       mentions
         .map(_.toBioMention)
         // only look at grounded Mentions
-        .filter(_.xref.isDefined)
-        .map(_.xref.get)
+        .filter(_.isGrounded)
+        .map(_.grounding.get)
         .toSet
     // should be 1 if all are the same entity
     groundings.size == 1

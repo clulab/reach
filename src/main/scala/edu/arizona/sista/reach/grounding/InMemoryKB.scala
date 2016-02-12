@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Remove unused import.
+  *   Last Modified: Include meta info in resolutions.
   */
 class InMemoryKB (
 
@@ -119,7 +119,7 @@ class InMemoryKB (
 
 
   /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
-  def newResolution (entry: KBEntry): KBResolution = new KBResolution(entry) // ignore metaInfo for now
+  def newResolution (entry: KBEntry): KBResolution = new KBResolution(entry, Some(metaInfo))
 
   /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
       this KB and the given KB entries. */
