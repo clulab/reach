@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Include meta info in resolutions.
+  *   Last Modified: Sort returned resolutions for results reproducibility.
   */
 class InMemoryKB (
 
@@ -36,7 +36,7 @@ class InMemoryKB (
 
   /** Return resolutions for the set of all KB entries for the given key. */
   def lookupAll (key:String): Resolutions =
-    newResolutions(theKB.get(key).map(eset => eset))
+    newResolutions(theKB.get(key).map(eset => eset.toSeq))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
   def lookupsAll (allKeys:Seq[String]): Resolutions =
@@ -62,14 +62,14 @@ class InMemoryKB (
       Returns resolutions for matching entries or None. */
   def lookupByASpecies (key:String, species:String): Resolutions =
     newResolutions(theKB.get(key)
-                   .map(eset => eset.filter(kbe => kbe.species == species))
+                   .map(eset => eset.toSeq.filter(kbe => kbe.species == species))
                    .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
   def lookupsByASpecies (allKeys:Seq[String], species:String): Resolutions = {
     allKeys.foreach { key =>
-      val entry = lookupByASpecies(key, species)
-      if (entry.isDefined) return entry
+      val entries = lookupByASpecies(key, species)
+      if (entries.isDefined) return entries
     }
     return None                             // tried all keys: no success
   }
@@ -79,7 +79,7 @@ class InMemoryKB (
       given set of species. Returns resolutions for matching entries or None. */
  def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Resolutions =
     newResolutions(theKB.get(key)
-                   .map(eset => eset.filter(kbe => isMemberOf(kbe.species, speciesSet)))
+                   .map(eset => eset.toSeq.filter(kbe => isMemberOf(kbe.species, speciesSet)))
                    .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
@@ -98,7 +98,7 @@ class InMemoryKB (
       Returns resolutions for matching entries or None. */
   def lookupHuman (key:String): Resolutions =
     newResolutions(theKB.get(key)
-                   .map(eset => eset.filter(kbe => isHumanSpecies(kbe.species)))
+                   .map(eset => eset.toSeq.filter(kbe => isHumanSpecies(kbe.species)))
                    .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
@@ -110,7 +110,7 @@ class InMemoryKB (
       Returns resolutions for matching entries or None. */
   def lookupNoSpecies (key:String): Resolutions =
     newResolutions(theKB.get(key)
-                   .map(eset => eset.filter(kbe => kbe.hasNoSpecies()))
+                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies()))
                    .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
@@ -123,12 +123,13 @@ class InMemoryKB (
 
   /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
       this KB and the given KB entries. */
-  def newResolutions (entries: Option[Iterable[KBEntry]]): Resolutions =
-    entries.map(_.map(kbe => newResolution(kbe)))
+  def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions =
+    entries.map(_.map(kbe => newResolution(kbe))).map(_.sortBy(kbe => (kbe.species, kbe.id)))
+
 
   /** Wrap the given KB entry in a new singleton-sequence of resolutions formed from
       this KB and the given KB entry. */
-  def toResolutions (entry: KBEntry): Resolutions = Option(Iterable.apply(newResolution(entry)))
+  def toResolutions (entry: KBEntry): Resolutions = Option(Seq.apply(newResolution(entry)))
 
   /** Wrap the given optional KB entry in a new singleton-sequence of resolutions formed from
       this KB and the given KB entry. */
@@ -139,8 +140,8 @@ class InMemoryKB (
   /** Try lookup function on all given keys until one succeeds or all fail. */
   private def applyLookupFn (fn:(String) => Resolutions, allKeys:Seq[String]): Resolutions = {
     allKeys.foreach { key =>
-      val entry = fn.apply(key)
-      if (entry.isDefined) return entry
+      val entries = fn.apply(key)
+      if (entries.isDefined) return entries
     }
     return None                             // tried all keys: no success
   }
