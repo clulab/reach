@@ -5,14 +5,24 @@ import java.util.zip.GZIPInputStream
 
 import scala.io.Source
 
+import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Move tsvRowToFields method here.
+  *   Last Modified: Update for grounding changes.
   */
 object ReachKBUtils {
+
+  // Isolating a kludge from ReachSystem. TODO: IMPLEMENT BETTER SOLUTION LATER
+  def isFamilyGrounded (mention:BioMention): Boolean =
+    (mention.isGrounded && mention.grounding.get.namespace.contains("interpro"))
+
+  // Isolating a kludge from ReachSystem. TODO: IMPLEMENT BETTER SOLUTION LATER
+  def isProteinGrounded (mention:BioMention): Boolean =
+    (mention.isGrounded && mention.grounding.get.namespace.contains("uniprot"))
+
 
   /** Return a Scala Source object created from the given resource path string. If the
     * resource path ends with ".gz" the source is created around a gzip input stream. */

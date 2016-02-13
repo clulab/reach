@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for new equality and removal of alternate IDs.
+  *   Last Modified: Update for grounding changes.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
@@ -24,11 +24,10 @@ class TestKBSupport extends FlatSpec with Matchers {
   val kbe33 = new KBEntry("Chan", "key3", "QQ", "idid", "human")
   val kbe34 = new KBEntry("Chan", "key3", "ns", "QQQQ", "human")
   val kbe35 = new KBEntry("Chan", "key3", "ns", "idid", "QQQQQ")
-  val kbe36 = new KBEntry("Chan", "key3", "ns", "idid", "human", Some("QQQQ"))
   val kbe37 = new KBEntry("Chan", "QQQQ", "QQ", "QQQQ", "QQQQQ")
 
   val kbe60 = new KBEntry("Able", "key6", "tst", "ZZZ", "mouse")
-  val kbe61 = new KBEntry("Able", "key6", "tst", "ZZZ", "mouse", Some("STANDARD1"))
+  val kbe61 = new KBEntry("able", "key6", "tst", "ZZZ", "mouse")
 
   "KBEntry(text, key, ns, id)" should "NOT have an associated species when tested" in {
     (kbe0.hasNoSpecies) should be (true)
@@ -36,14 +35,14 @@ class TestKBSupport extends FlatSpec with Matchers {
     (kbe2.hasNoSpecies) should be (false)
     (kbe30.hasNoSpecies) should be (false)
     (kbe35.hasNoSpecies) should be (false)
-    (kbe61.hasNoSpecies) should be (false)
+    (kbe60.hasNoSpecies) should be (false)
   }
 
   "KBEntry(text, key, ns, id, species)" should "have an associated species when tested" in {
     (kbe2.hasSpecies) should be (true)
     (kbe30.hasSpecies) should be (true)
     (kbe35.hasSpecies) should be (true)
-    (kbe61.hasSpecies) should be (true)
+    (kbe60.hasSpecies) should be (true)
     (kbe0.hasSpecies) should be (false)
     (kbe1.hasSpecies) should be (false)
   }
@@ -51,7 +50,6 @@ class TestKBSupport extends FlatSpec with Matchers {
   "KBEntry" should "should equal another KBEntry when tested" in {
     (kbe30.equals(kbe30)) should be (true)
     (kbe30.equals(kbe31)) should be (true)
-    (kbe30.equals(kbe36)) should be (true)
     (kbe60.equals(kbe61)) should be (true)
   }
 

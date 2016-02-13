@@ -11,5 +11,5 @@ package object grounding {
   type KBMetaInfo = scala.collection.mutable.HashMap[String, String]
   def  KBMetaInfo = scala.collection.mutable.HashMap[String, String]()
 
-  type Resolutions = Option[Iterable[KBResolution]]
+  type Resolutions = Option[Seq[KBResolution]]
 }
