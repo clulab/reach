@@ -1,18 +1,36 @@
 package edu.arizona.sista.reach
 
+import scala.util.Try
+
 import org.scalatest.{Matchers, FlatSpec}
+
 import TestUtils._
+
+import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBUtils._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Update for tsv factory.
+  *   Last Modified: Add isFamilyGrounded/isProteinGrounded tests.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
   val imkbP = new TestProteinKBL           // defined after this class (LOOK BELOW)
+
+  "ProteinKBL resolves" should "should be marked as protein grounded but not family grounded" in {
+    val txtU = "PTHR2 is cool."
+    val menU = getBioMentions(txtU).head
+    val txtL = "pthr2 is also cool."
+    val menL = getBioMentions(txtL).head
+
+    (isProteinGrounded(menU)) should be (true)
+    (isProteinGrounded(menL)) should be (true)
+    (isFamilyGrounded(menU)) should be (false)
+    (isFamilyGrounded(menL)) should be (false)
+  }
 
   "ProteinKBL resolve" should "fail despite alternate lookups" in {
     // keys not in KB:
@@ -186,6 +204,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
 // Protein KB using alternate protein resolutions
 class TestProteinKBL extends IMKBProteinLookup {
-  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true,
-    new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")) // true = has species
+  val meta = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
+  meta.put("protein", "true")               // mark as from a protein KB
+  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true, meta)
 }
