@@ -11,17 +11,17 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for grounding changes.
+  *   Last Modified: Implement better "is family/protein grounded" methods.
   */
 object ReachKBUtils {
 
-  // Isolating a kludge from ReachSystem. TODO: IMPLEMENT BETTER SOLUTION LATER
+  /** Tell whether the given mention is grounded from a protein family KB or not. */
   def isFamilyGrounded (mention:BioMention): Boolean =
-    (mention.isGrounded && mention.grounding.get.namespace.contains("interpro"))
+    mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("family"))
 
-  // Isolating a kludge from ReachSystem. TODO: IMPLEMENT BETTER SOLUTION LATER
+  /** Tell whether the given mention is grounded from a protein KB or not. */
   def isProteinGrounded (mention:BioMention): Boolean =
-    (mention.isGrounded && mention.grounding.get.namespace.contains("uniprot"))
+    mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("protein"))
 
 
   /** Return a Scala Source object created from the given resource path string. If the
