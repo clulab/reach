@@ -1,23 +1,24 @@
 # 'mutant' when it's not preceded or followed by a macromolecule; early priority so it can participate in mutation rules
 - name: Generic_mutant_known_mutation1
   label: [Generic_entity, Gene_or_gene_product]
-  priority: 2
+  priority: ${ priority }
   action: mkBioMention
   type: token
   pattern: |
-    (?<! [mention=/Generic_entity|Family|MacroMolecule/])
+    (?<! [mention=MacroMolecule])
     [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
     (?! [mention=/Generic_entity|Family|MacroMolecule/])
 
 - name: Generic_mutant_known_mutation2
   label: [Generic_entity, Gene_or_gene_product]
-  priority: 2
+  priority: ${ priority }
   action: mkBioMention
   type: token
   pattern: |
+    (?<! [mention=MacroMolecule])
     [!(mention=/.*/) & tag=/\$$/ & lemma=/(?i)^its|their|whose$/]?
-    [mention=/Simple_chemical/]?
-    [word=/^substitution|deletion|duplication|insertion|frameshift$/]?
+    [mention=Simple_chemical]?
+    [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Protein]?
     [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
     (?! [mention=/Generic_entity|Family|MacroMolecule/])
 
