@@ -114,7 +114,7 @@ class CorefTextBoundMention(
     * Return the cardinality of a phrase based on its determiners
     */
   private def detCardinality(words: Seq[String], tags: Seq[String]): Int = {
-    require(words.length == tags.length)
+    require(words.length == tags.length, s"Mention '${words.mkString(" ")}' has different number of tags and words!")
     val somenum = words(tags
       .zipWithIndex
       .find(x => x._1 == "CD")
@@ -148,12 +148,22 @@ class CorefTextBoundMention(
     * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
     */
   def number: Int = {
-    if (this.mutants.nonEmpty) return 1
+    // number is always 1 if mutants are known, because we have split them into singletons already
+    if (this.mutants.nonEmpty && this.mutants.forall(mut => !mut.isGeneric)) return 1
     val sent = this.sentenceObj
-    val mhead = findHeadStrict(this.tokenInterval, sent).getOrElse(this.tokenInterval.start)
-    val phrase = subgraph(this.tokenInterval, sent)
-    val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end),
-      sent.tags.get.slice(phrase.get.start, phrase.get.end))
+    // Is it safe to assume that generic mutations will be adjacent to their protein? Unsure.
+    val startFrom = if (mutants.nonEmpty && this.mutants.exists(_.isGeneric)) {
+      val genMut = this.mutants.find(_.isGeneric).get.evidence
+      Interval(math.min(genMut.tokenInterval.start, this.tokenInterval.start),
+        math.max(genMut.tokenInterval.end, this.tokenInterval.end))
+    } else this.tokenInterval
+    val mhead = findHeadStrict(startFrom, sent).getOrElse(this.tokenInterval.start)
+    val phrase = subgraph(startFrom, sent).getOrElse(this.tokenInterval)
+    println(sent.words.slice(phrase.start, phrase.end).mkString(" "))
+    // use determiner ("the") or explicit number ("all six") if it exists and is useful
+    val dc = detCardinality(sent.words.slice(phrase.start, phrase.end),
+      sent.tags.get.slice(phrase.start, phrase.end))
+    // use head if determiner is nonexistent or not useful
     val hc = headCardinality(sent.words(mhead), sent.tags.get(mhead))
 
     this match {
