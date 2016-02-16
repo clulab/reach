@@ -170,7 +170,7 @@
 - name: mutantmod_1b
   label: Mutant
   action: storeMutants
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     @mutant:Mutant
@@ -182,7 +182,7 @@
 - name: mutantmod_2
   label: Mutant
   action: storeMutants
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     (?<! [mention=BioChemicalEntity])
@@ -195,7 +195,7 @@
   label: Mutant
   example: "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
   action: storeMutants
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule) [lemma=/^(mutant|mutation)/]?
@@ -206,7 +206,7 @@
   label: Mutant
   example: "wild-type ASPP1 and the K111M, K112M, and K113M mutants"
   action: storeMutants
-  priority: 3
+  priority: 4
   type: token
   pattern: |
     (@entity:Family | @entity:MacroMolecule) [lemma=/^(mutant|mutation)/]?
@@ -218,7 +218,7 @@
 - name: mutantmod_withparens
   label: Mutant
   action: storeMutants
-  priority: 3
+  priority: 4
   example: "ERK(T202M Y204E)"
   type: token
   pattern: |
@@ -228,7 +228,7 @@
 - name: mutantmod_withparens2
   label: Mutant
   action: storeMutants
-  priority: 3
+  priority: 4
   example: "ERK(T202M, Y204E)"
   type: token
   pattern: |
