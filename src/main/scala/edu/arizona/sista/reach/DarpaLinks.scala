@@ -51,12 +51,14 @@ class DarpaLinks(doc: Document) extends Links {
     * @return The same mentions but with new links (antecedents) added
     */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
-    if (debug) println("\n=====Exact entity grounding matching=====")
+    if (debug) println("\n=====Entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] && !x.asInstanceOf[CorefTextBoundMention].isGeneric)
       .filter(x => x.asInstanceOf[CorefTextBoundMention].isGrounded)
-      .groupBy(m => m.asInstanceOf[CorefTextBoundMention].xref.get.id)
+      .groupBy(m => m.asInstanceOf[CorefTextBoundMention].xref.get.namespace + "|" +
+        m.asInstanceOf[CorefTextBoundMention].xref.get.id + "|" +
+        m.mutants.map(_.text).mkString("/"))
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
