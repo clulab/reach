@@ -377,4 +377,20 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p32", "GST"), mentions) should be (false)
   }
 
+  // Special example from assembly requirement doc
+  val sent37a = "Src tyrosyl phosphorylates Ras that is GTP bound"
+  val sent37b = "Ras that is GTP bound is phosphorylated by Src tyrosyl"
+  sent37a should "contain a binding between GTP and Ras" in {
+    val mentions = getBioMentions(sent37a)
+    hasEventWithArguments("Binding", List("Ras", "GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Src", "GTP"), mentions) should be (false)
+    hasEventWithArguments("Binding", List("Ras", "Src"), mentions) should be (false)
+  }
+  sent37b should "contain a binding between GTP and Ras" in {
+    val mentions = getBioMentions(sent37b)
+    hasEventWithArguments("Binding", List("Ras", "GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Src", "GTP"), mentions) should be (false)
+    hasEventWithArguments("Binding", List("Ras", "Src"), mentions) should be (false)
+  }
+
 }
