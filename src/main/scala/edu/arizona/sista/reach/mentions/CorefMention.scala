@@ -159,7 +159,6 @@ class CorefTextBoundMention(
     } else this.tokenInterval
     val mhead = findHeadStrict(startFrom, sent).getOrElse(this.tokenInterval.start)
     val phrase = subgraph(startFrom, sent).getOrElse(this.tokenInterval)
-    println(sent.words.slice(phrase.start, phrase.end).mkString(" "))
     // use determiner ("the") or explicit number ("all six") if it exists and is useful
     val dc = detCardinality(sent.words.slice(phrase.start, phrase.end),
       sent.tags.get.slice(phrase.start, phrase.end))
