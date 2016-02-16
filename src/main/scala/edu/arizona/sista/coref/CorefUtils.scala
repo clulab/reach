@@ -1,6 +1,9 @@
 package edu.arizona.sista.coref
 
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.utils.DependencyUtils._
+import edu.arizona.sista.struct.Interval
 
 import scala.annotation.tailrec
 import scala.collection.mutable
@@ -66,6 +69,42 @@ object CorefUtils {
           args("controller").nonEmpty && args("controlled").nonEmpty
       case _ => true
     }
+  }
+
+  /**
+    * From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
+    */
+  def expand(mention: Mention): Interval = {
+    val sent = mention.document.sentences(mention.sentence)
+    val graph = sent.dependencies.getOrElse(return mention.tokenInterval)
+
+    val localHead = findHeadStrict(mention.tokenInterval, sent).getOrElse(mention.tokenInterval.end - 1)
+
+    var npHead = localHead
+
+    var searchingHead = true
+
+    // keep traversing incomingEdges until you reach the head of the NP
+    while (searchingHead) {
+      val newHead = try {
+        graph.getIncomingEdges(npHead).find(edge => edge._2 == "nn")
+      } catch {
+        case e: Throwable => None
+      }
+      if (newHead.isDefined) npHead = newHead.get._1
+      else searchingHead = false
+    }
+
+    subgraph(Interval(npHead), sent).getOrElse(mention.tokenInterval)
+  }
+
+  def compatibleMutants(a: CorefMention, b: CorefMention): Boolean = {
+    val sameMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) &&
+      b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
+    if (sameMutants && !a.hasGenericMutation && !b.hasGenericMutation) true
+    else if (a.hasGenericMutation && b.mutants.nonEmpty) true
+    else if (b.hasGenericMutation && a.mutants.nonEmpty) true
+    else false
   }
 
 }

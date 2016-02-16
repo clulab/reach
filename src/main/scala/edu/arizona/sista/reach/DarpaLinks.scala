@@ -1,11 +1,11 @@
 package edu.arizona.sista.reach
 
 import edu.arizona.sista.coref.{AntecedentSelector, LinearSelector, Links}
+import edu.arizona.sista.coref.CorefUtils._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.struct.Interval
 
 class DarpaLinks(doc: Document) extends Links {
 
@@ -415,140 +415,5 @@ class DarpaLinks(doc: Document) extends Links {
     }
 
     mentions
-  }
-
-  /**
-    * Are all the words (minus stopwords) in the obj mention also in the subj mention?
-    */
-  def includes(subj: CorefMention, obj: CorefMention): Boolean = {
-    val stopWords = Set(
-      "the",
-      "a"
-    )
-
-    (obj.words.toSet - stopWords - subj.words.toSet).isEmpty
-  }
-
-  /**
-    * From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
-    */
-  def expand(mention: Mention): Interval = {
-    val sent = doc.sentences(mention.sentence)
-    val graph = sent.dependencies.getOrElse(return mention.tokenInterval)
-
-    val localHead = findHeadStrict(mention.tokenInterval, sent).getOrElse(mention.tokenInterval.end - 1)
-
-    var npHead = localHead
-
-    var searchingHead = true
-
-    // keep traversing incomingEdges until you reach the head of the NP
-    while (searchingHead) {
-      val newHead = try {
-        graph.getIncomingEdges(npHead).find(edge => edge._2 == "nn")
-      } catch {
-        case e: Throwable => None
-      }
-      if (newHead.isDefined) npHead = newHead.get._1
-      else searchingHead = false
-    }
-
-    subgraph(Interval(npHead), sent).getOrElse(mention.tokenInterval)
-  }
-
-  final val themeMap = Map(
-    "Binding" -> 2,
-    "Ubiquitination" -> 1,
-    "Phosphorylation" -> 1,
-    "Hydroxylation" -> 1,
-    "Acetylation" -> 1,
-    "Farnesylation" -> 1,
-    "Glycosylation" -> 1,
-    "Methylation" -> 1,
-    "Ribosylation" -> 1,
-    "Sumoylation" -> 1,
-    "Hydrolysis" -> 1,
-    "Degradation" -> 1,
-    "Exchange" -> 2,
-    "Transcription" -> 1,
-    "Transportation" -> 1,
-    "Translocation" -> 1
-  )
-
-  // crucial: pass lemma so plurality isn't a concern
-  def themeCardinality(eventLemma: String): Int = {
-    themeMap.getOrElse(eventLemma, 1)
-  }
-
-  // generic antecedent matching with number approximation
-  val detMap = Map("a" -> 1,
-    "an" -> 1,
-    "both" -> 2,
-    "that" -> 1,
-    "those" -> 2,
-    "these" -> 2, // assume two for now...
-    "this" -> 1,
-    "few" -> 3,
-    "some" -> 3, // assume three for now...
-    "one" -> 1,
-    "two" -> 2,
-    "three" -> 3,
-    "four" -> 4,
-    "five" -> 5,
-    "six" -> 6,
-    "seven" -> 7,
-    "eight" -> 8,
-    "nine" -> 9,
-    "ten" -> 10,
-    "its" -> 1,
-    "their" -> 2)
-
-  val headMap = Map("it" -> 1,
-    "they" -> 2,
-    "theirs" -> 1,
-    "them" -> 2,
-    "that" -> 1,
-    "both" -> 2,
-    "those" -> 2,
-    "these" -> 2, // assume two for now...
-    "this" -> 1,
-    "some" -> 3, // assume three for now...
-    "one" -> 1,
-    "two" -> 2,
-    "three" -> 3,
-    "four" -> 4,
-    "five" -> 5,
-    "six" -> 6,
-    "seven" -> 7,
-    "eight" -> 8,
-    "nine" -> 9,
-    "ten" -> 10
-  )
-
-  /**
-    * Do we have exactly 1 unique grounding id for this Sequence of Mentions?
-    *
-    * @param mentions A Sequence of mentions to compare
-    * @return boolean True if all mentions share a single grounding id
-    */
-  def sameEntityID(mentions: Seq[Mention]): Boolean = {
-    val groundings =
-      mentions
-        .map(_.toBioMention)
-        // only look at grounded Mentions
-        .filter(_.xref.isDefined)
-        .map(_.xref.get)
-        .toSet
-    // should be 1 if all are the same entity
-    groundings.size == 1
-  }
-
-  def compatibleMutants(a: CorefMention, b: CorefMention): Boolean = {
-    val sameMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) &&
-      b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
-    if (sameMutants && !a.hasGenericMutation && !b.hasGenericMutation) true
-    else if (a.hasGenericMutation && b.mutants.nonEmpty) true
-    else if (b.hasGenericMutation && a.mutants.nonEmpty) true
-    else false
   }
 }
