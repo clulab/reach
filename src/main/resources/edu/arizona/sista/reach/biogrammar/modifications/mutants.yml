@@ -158,10 +158,10 @@
 - name: mutantmod_1a
   label: Mutant
   action: storeMutants
-  priority: 3
+  priority: 4
   type: token
   pattern: |
-    [lemma=/^(mutant|mutation)/]?
+    (?<! [mention=Mutant])
     (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule)
     [lemma=/^(mutant|mutation)/]?
     @mutant:Mutant
