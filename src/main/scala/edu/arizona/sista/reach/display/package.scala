@@ -30,6 +30,7 @@ package object display {
   }
 
   def printSyntacticDependencies(s:Sentence): Unit = {
+    println(s.lemmas.get.mkString(" "))
     if(s.dependencies.isDefined) {
       println(s.dependencies.get.toString)
     }
@@ -93,7 +94,7 @@ package object display {
       case Mutant(evidence) =>
         println(s"""$indent\t\tMutant by \"${evidence.text}\"""")
       case PTM(mod, evidence, site) =>
-        val siteText = if (site.nonEmpty) {s" @ ${site.get}"} else ""
+        val siteText = if (site.nonEmpty) {s" @ ${site.get.text}"} else ""
         val evidenceText = if (evidence.nonEmpty) {s""" based on \"${evidence.get.text}\""""} else ""
         println(s"""$indent\t\t$PTM = \"$mod\"$siteText$evidenceText""")
       case EventSite(site) =>
