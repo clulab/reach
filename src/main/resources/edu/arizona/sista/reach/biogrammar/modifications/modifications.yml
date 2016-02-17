@@ -20,13 +20,23 @@
   pattern: |
     (^[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
 
-- name: modification_trigger_3
+#- name: modification_trigger_3a
+#  label: ModificationTrigger
+#  priority: 1
+#  type: token
+#  action: mkBioMention
+#  pattern: |
+#    (?<= [mention="BioChemicalEntity"] (when | if) (it | they)) [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+#
+
+- name: modification_trigger_3b
   label: ModificationTrigger
   priority: 1
   type: token
   action: mkBioMention
   pattern: |
-    (?<= [mention="BioChemicalEntity"] that [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+    (?<= [mention="BioChemicalEntity"] [word=/^that|which$/] [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+
 
 
 ##########
@@ -51,15 +61,28 @@
   pattern: |
     @site:Site @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] )?
 
-# WTX that is phosphorylated at serine 286
-- name: PTMmodification_3
+## WTX (when | if) it is phosphorylated at serine 286
+#- name: PTMmodification_3a
+#  label: PTM
+#  action: storePTM
+#  priority: 2
+#  type: token
+#  example: "WTX when it is phosphorylated at serine 286"
+#  pattern: |
+#    (@entity:BioChemicalEntity [tag=/,|CC/])*?
+#    @entity:BioChemicalEntity (when | if) (it | they) [lemma="be"]
+#    @mod:ModificationTrigger
+#    ((at | on) @site:Site)?
+
+# WTX (that|which) is phosphorylated at serine 286
+- name: PTMmodification_3b
   label: PTM
   action: storePTM
   priority: 2
   type: token
   pattern: |
     (@entity:BioChemicalEntity [tag=/,|CC/])*?
-    @entity:BioChemicalEntity that [lemma="be"]
+    @entity:BioChemicalEntity (that | which) [lemma="be"]
     @mod:ModificationTrigger
     ((at | on) @site:Site)?
 
