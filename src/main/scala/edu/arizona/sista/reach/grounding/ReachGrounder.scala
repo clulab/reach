@@ -2,13 +2,14 @@ package edu.arizona.sista.reach.grounding
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
 
 /**
   * Class which implements methods to select the final groundings for a mention sequence.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Add selection frame for grounding selection.
   */
 class ReachGrounder extends DarpaFlow {
 
@@ -21,7 +22,15 @@ class ReachGrounder extends DarpaFlow {
 
   /** Select the final grounding for the given mention. */
   private def selectGrounding (mention: BioMention, state: State): Mention = {
-    return mention                          // TODO: IMPLEMENT LATER
+    assert(mention.isGrounded,              // SHOULD be grounded before this point
+           s"Mention '${mention}' should be grounded before final grounding selection.")
+
+    if (mention.hasCandidates && hasSpeciesContext(mention)) {
+      println(mention.context.get.get("Species")) // TODO: IMPLEMENT LATER
+    }
+    else mention.selectCurrentGrounding
+
+    return mention
   }
 
 }
