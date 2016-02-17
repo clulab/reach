@@ -317,6 +317,16 @@
   pattern: |
     [lemma=/^(when|after|once|if)/] (?<trigger> [lemma="bind"]) [lemma="to"]? [tag=/^(DT|JJ)/]* @theme1:BioChemicalEntity [tag=/^NN/]? ","? [tag=/^(DT|JJ)/]* @theme2:BioChemicalEntity
 
+- name: binding_thatisbound
+  label: Binding
+  action: mkBinding
+  priority: 4
+  example: "Src tyrosyl phosphorylates Ras that is GTP bound"
+  pattern: |
+    trigger = [word=bound & tag=/^VB(D|N)$/]
+    theme1:BioChemicalEntity+ = (<rcmod | <vmod)
+    theme2:BioChemicalEntity+ = (<rcmod | <vmod) (<rcmod | rcmod)
+
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
   label: Binding
