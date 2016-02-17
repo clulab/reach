@@ -10,7 +10,7 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Comment out debugging prints.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
@@ -24,7 +24,7 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   val resols: Resolutions = Some(Seq(kbr1, kbr2, kbr3))
 
   text1 should "produce 4 entities mentions" in {
-    printMentions(Try(mentions), true)      // DEBUGGING
+    // printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size (4)
     mentions2 should have size (4)
   }
@@ -108,7 +108,7 @@ class TestGroundingTrait extends FlatSpec with Matchers {
 
   "After final ground, all mentions" should "still be grounded" in {
     mentions.foreach(_.ground(kbr1))
-    printMentions(Try(mentions), true)      // DEBUGGING
+    // printMentions(Try(mentions), true)      // DEBUGGING
     (mentions.forall(_.isGrounded)) should be (true)
   }
 
