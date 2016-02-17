@@ -377,18 +377,34 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p32", "GST"), mentions) should be (false)
   }
 
-  val sent37 = "Only Smad3LC and Smad3C were able to bind APC10."
-  sent37 should "contain two bindings with APC10" in {
-    val mentions = getBioMentions(sent37)
+  // Special example from assembly requirement doc
+  val sent37a = "Src tyrosyl phosphorylates Ras that is GTP bound"
+  val sent37b = "Ras that is GTP bound is phosphorylated by Src tyrosyl"
+  sent37a should "contain a binding between GTP and Ras" in {
+    val mentions = getBioMentions(sent37a)
+    hasEventWithArguments("Binding", List("Ras", "GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Src", "GTP"), mentions) should be (false)
+    hasEventWithArguments("Binding", List("Ras", "Src"), mentions) should be (false)
+  }
+  sent37b should "contain a binding between GTP and Ras" in {
+    val mentions = getBioMentions(sent37b)
+    hasEventWithArguments("Binding", List("Ras", "GTP"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Src", "GTP"), mentions) should be (false)
+    hasEventWithArguments("Binding", List("Ras", "Src"), mentions) should be (false)
+  }
+
+  val sent38 = "Only Smad3LC and Smad3C were able to bind APC10."
+  sent38 should "contain two bindings with APC10" in {
+    val mentions = getBioMentions(sent38)
     mentions filter (_ matches "Binding") should have size (2)
     hasEventWithArguments("Binding", List("Smad3LC", "APC10"), mentions) should be (true)
     hasEventWithArguments("Binding", List("Smad3C", "APC10"), mentions) should be (true)
     hasEventWithArguments("Binding", List("Smad3C", "Smad3LC"), mentions) should be (false)
   }
 
-  val sent38 = "Only Smad3LC and Smad3C exhibited the ability to bind APC10."
-  sent38 should "contain two bindings with APC10" in {
-    val mentions = getBioMentions(sent38)
+  val sent39 = "Only Smad3LC and Smad3C exhibited the ability to bind APC10."
+  sent39 should "contain two bindings with APC10" in {
+    val mentions = getBioMentions(sent39)
     mentions filter (_ matches "Binding") should have size (2)
     hasEventWithArguments("Binding", List("Smad3LC", "APC10"), mentions) should be (true)
     hasEventWithArguments("Binding", List("Smad3C", "APC10"), mentions) should be (true)

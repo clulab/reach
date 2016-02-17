@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for removal of alternate IDs. Make MetaInfo optional.
+  *   Last Modified: Define equality methods. Reformat log string.
   */
 class KBResolution (
 
@@ -21,10 +21,27 @@ class KBResolution (
   def key: String = entry.key
   def id: String = entry.id
   def species: String = entry.species
-  def standardName: Option[String] = entry.standardName
+
+  /** Helper method for equals redefinition. */
+  def canEqual (other: Any): Boolean = other.isInstanceOf[KBResolution]
+
+  /** Redefine instance equality based on matching of entry's fields. */
+  override def equals (other: Any): Boolean = other match {
+    case that: KBResolution => (that.canEqual(this) && this.entry.equals(that.entry))
+    case _ => false
+  }
+
+  /** Redefine hashCode. */
+  override def hashCode: Int = entry.hashCode
+
+  /** Return a formatted string containing this resolution's namespace and ID. */
+  def nsId (): String = s"${namespace}:${id}"
+
+  /** Method to provide logging/debugging printout. */
+  def logString(): String =
+    s"""<KBResolution:|${text}|${key}|${namespace}|${id}|${species}|${metaInfo.getOrElse("")}|>"""
 
   /** Override method to provide logging/debugging printout. */
-  override def toString(): String =
-    s"""<KBResolution: ${text} | ${key} | ${namespace} | ${id} | ${species} | ${metaInfo.getOrElse("")}>"""
+  override def toString(): String = s"KBResolution(${key}, ${namespace}, ${id}, ${species})"
 
 }

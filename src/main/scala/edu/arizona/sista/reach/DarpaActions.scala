@@ -500,7 +500,7 @@ class DarpaActions extends Actions {
       val c1 = controlled.head.toBioMention
       val c2 = controller.head.toBioMention
       if (c1 == c2) false // they are the same mention
-      else (c1.xref, c2.xref) match {
+      else (c1.grounding, c2.grounding) match {
         // if they are grounded the grounding should be different
         case (Some(g1), Some(g2)) => g1 != g2
         case _ => true // seems like they are different
@@ -582,9 +582,9 @@ class DarpaActions extends Actions {
 
   /** Returns true if both mentions are grounded to the same entity */
   def sameEntityID(m1: BioMention, m2: BioMention): Boolean = {
-    require(m1.xref.isDefined, "mention must be grounded")
-    require(m2.xref.isDefined, "mention must be grounded")
-    m1.xref == m2.xref
+    require(m1.isGrounded, "mention must be grounded")
+    require(m2.isGrounded, "mention must be grounded")
+    m1.grounding == m2.grounding
   }
 
   def removeDummy(m: BioMention): BioMention = m match {

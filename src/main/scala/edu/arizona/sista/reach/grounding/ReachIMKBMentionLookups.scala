@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Add context KMBL classes as methods here.
+  *   Last Modified: Add family and protein meta info to appropriate KBs.
   */
 
 object ReachIMKBMentionLookups {
@@ -100,6 +100,7 @@ object ReachIMKBMentionLookups {
   def gendProteinKBML: IMKBProteinMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", GendProteinFilename)
+    metaInfo.put("protein", "true")         // mark as from a protein KB
     new IMKBProteinMentionLookup(tsvIMKBFactory.make(GendProteinFilename, metaInfo))
   }
 
@@ -107,6 +108,7 @@ object ReachIMKBMentionLookups {
   def manualProteinKBML: IMKBProteinMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualProteinFilename)
+    metaInfo.put("protein", "true")         // mark as from a protein KB
     new IMKBProteinMentionLookup(tsvIMKBFactory.make(ManualProteinFilename, metaInfo))
   }
 
@@ -114,6 +116,7 @@ object ReachIMKBMentionLookups {
   def staticProteinKBML: IMKBProteinMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
     metaInfo.put("file", StaticProteinFilename)
+    metaInfo.put("protein", "true")         // mark as from a protein KB
     new IMKBProteinMentionLookup(tsvIMKBFactory.make("uniprot", StaticProteinFilename, true, metaInfo))
   }
 
@@ -127,6 +130,7 @@ object ReachIMKBMentionLookups {
   def gendProteinFamilyKBML: IMKBFamilyMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", GendProteinFilename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyMentionLookup(tsvIMKBFactory.make(GendProteinFilename, metaInfo))
   }
 
@@ -134,6 +138,7 @@ object ReachIMKBMentionLookups {
   def manualProteinFamilyKBML: IMKBFamilyMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualProteinFilename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyMentionLookup(tsvIMKBFactory.make(ManualProteinFilename, metaInfo))
   }
 
@@ -141,6 +146,7 @@ object ReachIMKBMentionLookups {
   def staticProteinFamilyKBML: IMKBFamilyMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
     metaInfo.put("file", StaticProteinFamilyFilename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyMentionLookup(tsvIMKBFactory.make("interpro",
                                                     StaticProteinFamilyFilename, true, metaInfo))
   }
