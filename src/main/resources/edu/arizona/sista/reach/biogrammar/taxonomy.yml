@@ -38,6 +38,9 @@
                 - Positive_activation
                 - Negative_activation
     - Entity:
+      # Any BioEntity may appear as the controlled in an Activation
+      - BioEntity:
+        - BioProcess   # ex. "apoptosis"
         - BioChemicalEntity:
             - Generic_entity
             - Family
