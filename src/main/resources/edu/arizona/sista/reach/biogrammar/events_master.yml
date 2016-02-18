@@ -127,7 +127,7 @@ rules:
       triggers: "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
       actionFlow: "mkActivation"
       priority: "7" # must be 1 + priority of regulations!
-      controlledType: "BioChemicalEntity"
+      controlledType: "BioEntity" # include bioprocesses as possible controlled
       controllerType: "PossibleController"
 
   # Negative Activation
@@ -138,5 +138,5 @@ rules:
       triggers: "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress"
       actionFlow: "mkActivation"
       priority: "7" # must be 1 + priority of regulations!
-      controlledType: "BioChemicalEntity"
+      controlledType: "BioEntity" # include bioprocesses as possible controlled
       controllerType: "PossibleController"
