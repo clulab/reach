@@ -6,6 +6,7 @@
   type: token
   pattern: |
     (?<! [mention=MacroMolecule])
+    [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Protein]?
     [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
     (?! [mention=/Generic_entity|Family|MacroMolecule/])
 
