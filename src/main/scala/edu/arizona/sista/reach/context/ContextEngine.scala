@@ -43,10 +43,10 @@ object ContextEngine {
 
   // Vocabularies
   // Get relevant files
-  val kbFiles = Seq(("Cell_Lines.tsv", "CellLine"), ("Cell_Type.tsv", "CellType"), ("Organ.tsv", "Organ"), ("Species.tsv.gz", "Species"), ("tissue-type.tsv", "CellType"),
-    ("uniprot-subcellular-locations.tsv", "Cellular_component"), ("GO-subcellular-locations.tsv", "Cellular_component"), ("biopax-cellular_component.tsv", "Cellular_component"),
-    ("manual-cellular_component.tsv", "Cellular_component")) map {
-      case (path, ctxType) => (ctxType, new File("src/main/resources/edu/arizona/sista/reach/kb", path))
+  val kbFiles = Seq(("Cell_Lines.tsv.gz", "CellLine"), ("Cell_Type.tsv.gz", "CellType"), ("Organ.tsv.gz", "Organ"), ("Species.tsv.gz", "Species"), ("tissue-type.tsv.gz", "CellType"),
+    ("uniprot-subcellular-locations.tsv.gz", "Cellular_component"), ("GO-subcellular-locations.tsv.gz", "Cellular_component"), ("biopax-cellular_component.tsv.gz", "Cellular_component"),
+    ("manual-cellular_component.tsv.gz", "Cellular_component")) map {
+      case (path, ctxType) => (ctxType, new File("src/main/resources/org/clulab/reach/kb", path))
     }
 
   // Build a map of Cxt Key -> Text description
