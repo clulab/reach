@@ -14,7 +14,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Add context output.
+  *   Last Modified: Update for grounding changes.
   */
 class MentionManager {
 
@@ -129,7 +129,7 @@ class MentionManager {
     mention match {
       case tbm: TextBoundMention =>
         if (tbm.toBioMention.isGrounded)
-          mStrings += s"${indent}xref: ${tbm.toBioMention.xref.get}"
+          mStrings += s"${indent}grounding: ${tbm.toBioMention.grounding.get}"
 
       case evm: EventMention =>
         mStrings += s"${indent}trigger:"

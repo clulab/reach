@@ -8,6 +8,7 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export._
+import edu.arizona.sista.reach.grounding.KBResolution
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
@@ -19,7 +20,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Simplify context output.
+  *   Last Modified: Update for grounding changes.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -356,9 +357,9 @@ class FriesOutput extends JsonOutputter {
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
     f("type") = prettifyLabel(mention.displayLabel)
-    val xrefs = new FrameList
-    mention.xref.foreach(r => xrefs += mkXref(r))
-    f("xrefs") = xrefs
+    val groundings = new FrameList
+    mention.grounding.foreach(grnd => groundings += mkGrounding(grnd))
+    f("xrefs") = groundings
     if(mention.isModified) {
       val ms = new FrameList
       for(m <- mention.modifications) {
@@ -448,11 +449,11 @@ class FriesOutput extends JsonOutputter {
   private def mkEventId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
     s"evem-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset-${eventIdCntr.genNextId()}"
 
-  private def mkXref(xref:Grounding.Xref):PropMap = {
+  private def mkGrounding(grounding:KBResolution):PropMap = {
     val m = new PropMap
     m("object-type") = "db-reference"
-    m("namespace") = xref.namespace
-    m("id") = xref.id
+    m("namespace") = grounding.namespace
+    m("id") = grounding.id
     m
   }
 

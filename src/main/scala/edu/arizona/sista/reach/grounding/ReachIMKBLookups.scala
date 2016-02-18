@@ -5,7 +5,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Rewrite as singleton for all KBLs.
+  *   Last Modified: Add family and protein meta info to appropriate KBs.
   */
 object ReachIMKBLookups {
 
@@ -38,6 +38,7 @@ object ReachIMKBLookups {
   def staticProteinKBLookup: IMKBProteinLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
     metaInfo.put("file", StaticProteinFilename)
+    metaInfo.put("protein", "true")         // mark as from a protein KB
     new IMKBProteinLookup(tsvIMKBFactory.make("uniprot", StaticProteinFilename, true, metaInfo))
   }
 
@@ -45,6 +46,7 @@ object ReachIMKBLookups {
   def staticProteinFamilyKBLookup: IMKBFamilyLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
     metaInfo.put("file", StaticProteinFamilyFilename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyLookup(tsvIMKBFactory.make("interpro", StaticProteinFamilyFilename, true, metaInfo))
   }
 

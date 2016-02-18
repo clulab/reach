@@ -32,8 +32,8 @@ object ContextEngine {
   val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "ContextPossessive", "ContextLocation", "ContextDirection")
 
   def getContextKey(mention:BioMention):(String, String) ={
-    val id = if(mention.isGrounded) mention.xref match{
-      case Some(xref) => xref.id
+    val id = if(mention.isGrounded) mention.grounding match{
+      case Some(grounding) => grounding.nsId
       case None => "UNGROUNDED"
     } else "UNGROUNDED"
 

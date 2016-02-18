@@ -48,7 +48,7 @@ package object display {
     printMention match {
       case tb: BioTextBoundMention =>
         println(s"\t${tb.asInstanceOf[Display].displayLabel}|${tb.labels} => ${tb.text}")
-        if (tb.isGrounded) println(s"\txref: ${tb.xref.get}")
+        if (tb.isGrounded) println(s"\tgrounding: ${tb.grounding.get}")
         displayModifications(tb)
       case em: BioEventMention =>
         displayModifications(em)
