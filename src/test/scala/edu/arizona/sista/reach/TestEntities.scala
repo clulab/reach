@@ -95,4 +95,11 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.size should be (0)
   }
 
+  // test recognition of BioProcess entities
+  val sent7 = "In some cases, the presence of Ras inhibits autophagy."
+  sent7 should "contain 1 BioProcess entity (\"autophagy\")" in {
+    val mentions = getBioMentions(sent7)
+    mentions.count (_ matches "BioProcess") should be (1) 
+  }
+
 }
