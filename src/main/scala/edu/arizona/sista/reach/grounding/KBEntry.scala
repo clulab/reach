@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Remove standard name.
+  *   Last Modified: Add nsId method.
   */
 class KBEntry (
 
@@ -54,12 +54,14 @@ class KBEntry (
   }
 
   /** Tell whether this entry has an associated species or not. */
-  def hasSpecies(): Boolean = (species != KBEntry.NoSpeciesValue)
-  def hasNoSpecies(): Boolean = (species == KBEntry.NoSpeciesValue)
+  def hasSpecies: Boolean = (species != KBEntry.NoSpeciesValue)
+  def hasNoSpecies: Boolean = (species == KBEntry.NoSpeciesValue)
 
+  /** Return a formatted string containing this entry's namespace and ID. */
+  def nsId: String = s"${namespace}:${id}"
 
   /** Override method to provide logging/debugging printout. */
-  override def toString(): String =
+  override def toString: String =
     s"<KBEntry: ${text} | ${key} | ${namespace} | ${id} | ${species}>"
 }
 

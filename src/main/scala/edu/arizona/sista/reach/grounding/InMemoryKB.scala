@@ -2,13 +2,12 @@ package edu.arizona.sista.reach.grounding
 
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
-import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Sort returned resolutions for results reproducibility.
+  *   Last Modified: Add method to return sequence of KB entries. Remove spurious imports.
   */
 class InMemoryKB (
 
@@ -32,6 +31,9 @@ class InMemoryKB (
 
   /** Add the given entry to this KB, if it is unique. */
   def addEntry (entry:KBEntry) = theKB.addBinding(entry.key, entry)
+
+  /** Return an sequence over the entries in this KB. */
+  def entries: Seq[KBEntry] = theKB.values.flatten.toSeq
 
 
   /** Return resolutions for the set of all KB entries for the given key. */
@@ -110,7 +112,7 @@ class InMemoryKB (
       Returns resolutions for matching entries or None. */
   def lookupNoSpecies (key:String): Resolutions =
     newResolutions(theKB.get(key)
-                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies()))
+                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies))
                    .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
