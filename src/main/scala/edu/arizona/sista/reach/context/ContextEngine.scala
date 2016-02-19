@@ -33,7 +33,7 @@ object ContextEngine {
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.grounding match{
-      case Some(grounding) => grounding.nsId
+      case Some(grounding) => grounding.nsId.split(":").takeRight(1)(0)
       case None => "UNGROUNDED"
     } else "UNGROUNDED"
 
