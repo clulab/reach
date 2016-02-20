@@ -1,13 +1,12 @@
 package edu.arizona.sista.reach.grounding
 
 import scala.io.Source
-import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
 
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Rewrite as simple factory class.
+  *   Last Modified: Remove spurious import.
   */
 class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
 

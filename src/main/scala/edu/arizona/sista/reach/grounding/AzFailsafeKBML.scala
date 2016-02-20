@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * KB accessor implementation which always resolves each mention with a local, fake ID.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for IMKB mention lookup changes.
+  *   Last Modified: Refactor singleton instance here.
   */
 class AzFailsafeKBML extends IMKBMentionLookup {
 
@@ -39,4 +39,10 @@ class AzFailsafeKBML extends IMKBMentionLookup {
   override def resolveBySpecies (mention:Mention, speciesSet:SpeciesNameSet): Resolutions =
     resolveBySpecies(mention.text, speciesSet)
   override def resolveNoSpecies (mention:Mention): Resolutions = resolve(mention.text)
+}
+
+
+object AzFailsafeKBML {
+  /** Singleton instance of the AZ failsafe KBML. */
+  val AzFailsafe = new AzFailsafeKBML
 }
