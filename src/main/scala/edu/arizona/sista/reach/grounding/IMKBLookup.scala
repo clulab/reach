@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Change to class, add IMKB ctor var argument.
+  *   Last Modified: Add method to return sequence of KB entries.
   */
 class IMKBLookup (
 
@@ -11,6 +11,9 @@ class IMKBLookup (
   var memoryKB: InMemoryKB = new InMemoryKB()
 
 ) extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
+
+  /** Return a sequence over the entries in this KB. */
+  def entries = memoryKB.entries
 
   /** Tell whether this KB contains species information or not. */
   def hasSpeciesInfo: Boolean = memoryKB.hasSpeciesInfo
