@@ -1048,7 +1048,7 @@ class TestModifications extends FlatSpec with Matchers {
     mentions.head hasMutation ("G31_Q33dup", "DuplicationMutant") should be (true)
   }
 
-  val mutantTest21 = "We used a duplication mutant of Raf (Arg83fs)"
+  val mutantTest21 = "We used a frameshift mutant of Raf (Arg83fs)"
   mutantTest21 should "contain 1 entity with 1 Mutant modification" in {
     val mentions = getBioMentions(mutantTest21)
     mentions should have size (1)
