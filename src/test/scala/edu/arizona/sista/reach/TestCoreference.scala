@@ -351,4 +351,13 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent30)
     mentions filter (_ matches "Event") should have size (0)
   }
+
+  // Spread grounding from Ras to ungrounded alias H-Ras.
+  val sent31 = "H-Ras (Ras) is phosphorylated."
+  sent31 should "apply Ras grounding to H-Ras" in {
+    val mentions = getBioMentions(sent31)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
+  }
 }
