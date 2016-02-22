@@ -1,0 +1,10 @@
+- name: alias_entityparen1
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    "("
+    (@alias:Family | @alias:MacroMolecule)
+    ")"
