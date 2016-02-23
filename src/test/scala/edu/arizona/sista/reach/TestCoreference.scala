@@ -5,9 +5,9 @@ import TestUtils._
 import edu.arizona.sista.reach.mentions._
 
 /**
- * Tests coreference-based events
- * Date: 5/22/15
- */
+  * Tests coreference-based events
+  * Date: 5/22/15
+  */
 class TestCoreference extends FlatSpec with Matchers {
   val sent1 = "ASPP2 is even more common than Ras, and it is often ubiquitinated."
   sent1 should "not produce a ubiquitination of ASPP2" in {
@@ -162,12 +162,12 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions should have size (3)
   }
 
-   // Ignore anything two sentences prior when searching for antecedents.
-   val sent16 = "Ras is common. This is an intervening sentence. It binds Mek."
-   sent16 should "not contain any events" in {
-     val mentions = getBioMentions(sent16)
-     mentions filter (_ matches "Event") should have size (0)
-   }
+  // Ignore anything two sentences prior when searching for antecedents.
+  val sent16 = "Ras is common. This is an intervening sentence. It binds Mek."
+  sent16 should "not contain any events" in {
+    val mentions = getBioMentions(sent16)
+    mentions filter (_ matches "Event") should have size (0)
+  }
 
   // Can find an antecedent mention between start of event mention and start of text bound mention
   val sent17 = "ASPP2 is common, and Ras binds the Mek protein."
@@ -369,6 +369,7 @@ class TestCoreference extends FlatSpec with Matchers {
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
 
+  // Aliases must be of same type
   val sent32 = "Ras (hereafter referred to as S135) is phosphorylated."
   sent32 should "not apply Ras grounding to S135 or vice versa" in {
     val mentions = getBioMentions(sent32)
@@ -377,11 +378,47 @@ class TestCoreference extends FlatSpec with Matchers {
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
   val sent33 = "K-Ras (hereafter referred to as S135) is phosphorylated."
-  sent32 should "not apply S135 grounding to H-Ras or vice versa" in {
-    val mentions = getBioMentions(sent32)
+  sent33 should "not apply S135 grounding to H-Ras or vice versa" in {
+    val mentions = getBioMentions(sent33)
     val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
 
+  val sent34 = "K-Ras, sometimes called Ras, phosphorylates Akt."
+  sent34 should "apply Ras grounding to H-Ras" in {
+    val mentions = getBioMentions(sent34)
+    val kras = mentions.find(_.text == "K-Ras")
+    val ras = mentions.find(_.text == "Ras")
+    kras.isDefined should be (true)
+    ras.isDefined should be (true)
+    kras.get.grounding.get.equals(ras.get.grounding.get) should be (true)
+  }
+
+  val sent35 = "K-Ras (alias Ras) phosphorylates Akt."
+  sent35 should "apply Ras grounding to H-Ras" in {
+    val mentions = getBioMentions(sent35)
+    val kras = mentions.find(_.text == "K-Ras")
+    val ras = mentions.find(_.text == "Ras")
+    kras.isDefined should be (true)
+    ras.isDefined should be (true)
+    kras.get.grounding.get.equals(ras.get.grounding.get) should be (true)
+  }
+
+  // Series should work with 'or'
+  val sent36 = "Akt (a.k.a. Akt334, AktTR, or Akt4H) is phosphorylated."
+  sent36 should "apply Akt grounding to 3 proteins" in {
+    val mentions = getBioMentions(sent36)
+    val entities = mentions filter (m => m matches "Entity")
+    entities should have size (4)
+    entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)
+  }
+  // Series should not work with 'and'
+  val sent37 = "Akt (a.k.a. Akt334 and Akt4H) is phosphorylated."
+  sent37 should "not apply Akt grounding to other proteins" in {
+    val mentions = getBioMentions(sent37)
+    val entities = mentions filter (m => m matches "Entity")
+    entities should have size (3)
+    entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (false)
+  }
 }
