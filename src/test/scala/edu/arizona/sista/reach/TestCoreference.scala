@@ -413,7 +413,8 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (4)
     entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)
   }
-  // Series should not work with 'and'
+  // Series should not work with 'and' (because we could have "Ras and Akt (a.k.a. Ras334 and Akt4H)"),
+  // which isn't handled yet.
   val sent37 = "Akt (a.k.a. Akt334 and Akt4H) is phosphorylated."
   sent37 should "not apply Akt grounding to other proteins" in {
     val mentions = getBioMentions(sent37)
@@ -421,4 +422,25 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (3)
     entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (false)
   }
+
+  // Alias assignment works in any order, and across sentences!
+  val sent38a = "Akt (also called Akt334, AktTR, or Akt4H) is phosphorylated. AktTR is also ubiquitinated."
+  sent38a should "apply Akt grounding to 3 proteins" in {
+    val mentions = getBioMentions(sent38a)
+    val akt = mentions filter (m => m.text == "Akt")
+    akt should have size (1)
+    val s2akt = mentions filter (m => m.sentence == 1 && m.matches("Entity"))
+    s2akt should have size (1)
+    akt.head.grounding.get.equals(s2akt.head.grounding.get)
+  }
+  val sent38b = "AktTR is ubiquitinated. Akt, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
+  sent38b should "apply Akt grounding to 3 proteins" in {
+    val mentions = getBioMentions(sent38b)
+    val akt = mentions filter (m => m.text == "Akt")
+    akt should have size (1)
+    val s2akt = mentions filter (m => m.sentence == 0 && m.matches("Entity"))
+    s2akt should have size (1)
+    akt.head.grounding.get.equals(s2akt.head.grounding.get)
+  }
+
 }
