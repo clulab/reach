@@ -353,11 +353,35 @@ class TestCoreference extends FlatSpec with Matchers {
   }
 
   // Spread grounding from Ras to ungrounded alias H-Ras.
-  val sent31 = "H-Ras (Ras) is phosphorylated."
-  sent31 should "apply Ras grounding to H-Ras" in {
-    val mentions = getBioMentions(sent31)
+  val sent31a = "H-Ras (hereafter referred to as Ras) is phosphorylated."
+  sent31a should "apply Ras grounding to H-Ras" in {
+    val mentions = getBioMentions(sent31a)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
+  // Order shouldn't matter
+  val sent31b = "Ras (hereafter referred to as K-Ras) is phosphorylated."
+  sent31b should "apply Ras grounding to K-Ras" in {
+    val mentions = getBioMentions(sent31b)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
+  }
+
+  val sent32 = "Ras (hereafter referred to as S135) is phosphorylated."
+  sent32 should "not apply Ras grounding to S135 or vice versa" in {
+    val mentions = getBioMentions(sent32)
+    val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
+  }
+  val sent33 = "K-Ras (hereafter referred to as S135) is phosphorylated."
+  sent32 should "not apply S135 grounding to H-Ras or vice versa" in {
+    val mentions = getBioMentions(sent32)
+    val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
+  }
+
 }
