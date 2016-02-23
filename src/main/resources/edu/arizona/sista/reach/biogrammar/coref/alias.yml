@@ -7,7 +7,7 @@
     (@alias:Family | @alias:MacroMolecule)
     [tag="-LRB-"]
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
     [tag="-RRB-"]
 
 - name: alias_paren2_referredto
@@ -22,7 +22,7 @@
     ([tag="RB"]?
     "referred" "to" "as")?
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
     [tag="-RRB-"]
 
 - name: alias_paren3_knownas
@@ -37,7 +37,7 @@
     ([tag="RB"]?
     [word=/^known|designated$/ & tag="VBN"] "as"?)?
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
     [tag="-RRB-"]
 
 - name: alias_paren4_called
@@ -52,7 +52,7 @@
     ([tag="RB"]?
     [lemma=/^call|term|name$/ & tag="VBN"])?
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
     [tag="-RRB-"]
 
 - name: alias_paren5_alias
@@ -65,7 +65,7 @@
     [tag="-LRB-"]
     [word=/^alias|a\.k\.a\.$/]
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
     [tag="-RRB-"]
 
 - name: alias_comma1_referredto
@@ -80,7 +80,8 @@
     [tag="RB"]?
     "referred" "to" "as"
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    [tag=/^\.|,|:$/]
 
 - name: alias_comma2_knownas
   label: Alias
@@ -94,7 +95,8 @@
     [tag="RB"]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    [tag=/^\.|,|:$/]
 
 - name: alias_comma2_called
   label: Alias
@@ -108,5 +110,6 @@
     [tag="RB"]?
     [lemma=/^call|term|name$/ & tag="VBN"]
     (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    [tag=/^\.|,|:$/]
 
