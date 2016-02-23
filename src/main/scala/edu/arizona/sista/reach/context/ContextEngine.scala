@@ -9,6 +9,7 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.context.rulebased._
 import edu.arizona.sista.reach.utils.FileReader
 import edu.arizona.sista.reach.grounding.ReachKBUtils
+import edu.arizona.sista.reach.grounding.ReachContextKBLister
 
 trait ContextEngine {
 
@@ -29,11 +30,11 @@ trait ContextEngine {
 
 object ContextEngine {
   // Seq of the labels we care about in context
-  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "ContextPossessive", "ContextLocation", "ContextDirection")
+  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", /*"Cellular_component",*/ "ContextPossessive", "ContextLocation", "ContextDirection")
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.grounding match{
-      case Some(grounding) => grounding.nsId.split(":").takeRight(1)(0)
+      case Some(grounding) => grounding.nsId
       case None => "UNGROUNDED"
     } else "UNGROUNDED"
 
@@ -43,23 +44,30 @@ object ContextEngine {
   }
 
   // Vocabularies
-  // Get relevant files
-  val kbFiles = Seq(("Cell_Lines.tsv.gz", "CellLine"), ("Cell_Type.tsv.gz", "CellType"), ("Organ.tsv.gz", "Organ"), ("Species.tsv.gz", "Species"), ("tissue-type.tsv.gz", "CellType"),
-    ("uniprot-subcellular-locations.tsv.gz", "Cellular_component"), ("GO-subcellular-locations.tsv.gz", "Cellular_component"), ("biopax-cellular_component.tsv.gz", "Cellular_component"),
-    ("manual-cellular_component.tsv.gz", "Cellular_component")) map {
-      case (path, ctxType) => (ctxType, ReachKBUtils.makePathInKBDir(path))
-    }
 
+  // Rebuild the latent vocabulary out of the new grounding component
   // Build a map of Cxt Key -> Text description
-  val latentVocabulary:Map[(String, String), String] = (kbFiles flatMap {
-    case (ctxType, file) =>
-      ReachKBUtils.sourceFromResource(file).getLines map (_.split("\t").toList) map {
-        tokens =>
-          val key = tokens.last
-          val value = tokens.dropRight(1).mkString(" ")
-          (ctxType, key) -> value
-    }
-  }).toMap
+
+  // Sort the context entries and removes redundant entries
+  val sortedContextEntries:Seq[ReachContextKBLister.ContextGrounding] = ReachContextKBLister.listContextKBs.sortWith{
+    (a, b) =>
+      if(a.ctxType != b.ctxType){
+        a.ctxType < b.ctxType
+      }
+      else{
+        val s = s"${a.namespace}:${a.id}"
+        val t = s"${b.namespace}:${b.id}"
+
+        s < t
+      }
+  }.groupBy{ // Group by namespace and id
+    e => (e.namespace, e.id)
+  }.values.map(_(0)).toSeq // Select the first element of each group
+
+
+  val latentVocabulary:Map[(String, String), String] = sortedContextEntries.map{
+    entry => ((entry.ctxType, s"${entry.namespace}:${entry.id}") -> entry.text)
+  }.toMap
 
   // Same here but for the observed features
   val featureVocabulary:Map[(String, String), String] = latentVocabulary // Now add any new stuff that may show up as a feature

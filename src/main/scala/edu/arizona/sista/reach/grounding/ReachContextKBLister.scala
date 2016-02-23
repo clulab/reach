@@ -9,16 +9,15 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
   */
 object ReachContextKBLister {
   /** A sequence of the context related KB instances, whose values are to be listed. */
-  val ContextKBs = Seq( ContextCellLine, ContextCellType, ContextOrgan, ContextSpecies )
+  val ContextKBs = Seq( (ContextCellLine, "CellLine"), (ContextCellType, "CellType"), (ContextOrgan, "Organ"), (ContextSpecies, "Species") )
 
   /** Return a sequence of grounding information objects from the context related KBs. */
   def listContextKBs: Seq[ContextGrounding] = {
-    ContextKBs.map(kb => kb.entries).flatten.map(kbe =>
-      ContextGrounding(kbe.text, kbe.key, kbe.namespace, kbe.id, kbe.nsId, kbe.species))
+    ContextKBs.flatMap{ case (kb, ctxType) => kb.entries map (kbe => ContextGrounding(ctxType, kbe.text, kbe.key, kbe.namespace, kbe.id, kbe.nsId, kbe.species))}
   }
 
   /** Case class to hold grounding information about context related KB entries. */
-  case class ContextGrounding(text:String, key:String, namespace:String, id:String,
+  case class ContextGrounding(ctxType:String, text:String, key:String, namespace:String, id:String,
                               nsId:String, species:String)
 
 }
