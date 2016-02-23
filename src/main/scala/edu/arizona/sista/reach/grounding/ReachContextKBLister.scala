@@ -5,11 +5,13 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Object implementing logic to enumerate context related KB entries.
   *   Written by Tom Hicks. 2/19/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Add cell component KBs as context KBs.
   */
 object ReachContextKBLister {
   /** A sequence of the context related KB instances, whose values are to be listed. */
-  val ContextKBs = Seq( (ContextCellLine, "CellLine"), (ContextCellType, "CellType"), (ContextOrgan, "Organ"), (ContextSpecies, "Species") )
+  val ContextKBs = Seq( (ContextCellLine, "CellLine"), (ContextCellType, "CellType"),
+   (ContextOrgan, "Organ"), (ContextSpecies, "Species"),
+    (StaticCellLocation, "Cellular_component"), (StaticCellLocation2, "Cellular_component"), (ModelGendCellLocation, "Cellular_component"))
 
   /** Return a sequence of grounding information objects from the context related KBs. */
   def listContextKBs: Seq[ContextGrounding] = {

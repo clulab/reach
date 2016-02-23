@@ -67,8 +67,6 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         for(i <- 0 until doc.sentences.size) yield {
           (groupedMentions.lift(i).getOrElse(Nil).filter{
             mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
-            // mention =>
-            //   mention.labels.map(ContextEngine.contextMatching.contains(_)).exists(x => x)
           }, entry)
         }
     }

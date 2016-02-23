@@ -30,7 +30,7 @@ trait ContextEngine {
 
 object ContextEngine {
   // Seq of the labels we care about in context
-  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", /*"Cellular_component",*/ "ContextPossessive", "ContextLocation", "ContextDirection")
+  val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "ContextPossessive", "ContextLocation", "ContextDirection")
 
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.grounding match{
@@ -72,7 +72,13 @@ object ContextEngine {
   // Same here but for the observed features
   val featureVocabulary:Map[(String, String), String] = latentVocabulary // Now add any new stuff that may show up as a feature
 
-  def getDescription(mention:BioMention, voc:Map[(String, String), String]):String = getDescription(getContextKey(mention), voc)
+  def getDescription(mention:BioMention, voc:Map[(String, String), String]):String = {
+    val key = getContextKey(mention)
+    if(key._2.startsWith("uaz:")){
+      println(s"Warning: ${mention.text}")
+    }
+    getDescription(key, voc)
+  }
 
   def getDescription(key:(String, String), voc:Map[(String, String), String]):String = voc.lift(key) match {
     case Some(desc) => desc
@@ -81,7 +87,13 @@ object ContextEngine {
       "MISSING"
   }
 
-  def getIndex(mention:BioMention, voc:Map[(String, String), String]):Int = getIndex(getContextKey(mention), voc)
+  def getIndex(mention:BioMention, voc:Map[(String, String), String]):Int = {
+    val key = getContextKey(mention)
+    if(key._2.startsWith("uaz:")){
+      println(s"Warning: ${mention.text}")
+    }
+    getIndex(key, voc)
+  }
 
   // index 0 is "Missing", the rest of the entries get shifted 1 position
   def getIndex(key:(String, String), voc:Map[(String, String), String]):Int = voc.keys.toList.indexOf(key) match{
