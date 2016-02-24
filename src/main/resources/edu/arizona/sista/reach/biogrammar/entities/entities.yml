@@ -177,6 +177,15 @@
   pattern: |
     [entity='B-Site'] [entity='I-Site']*
 
+- name: ner-bioprocess-entities
+  label: BioProcess
+  action: mkNERMentions
+  example: "apoptosis"
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-BioProcess'] [entity='I-BioProcess']*
+
 # TODO: Ideally, this should somehow be added to the KB
 - name: missing-simple_chemical
   label: Simple_chemical

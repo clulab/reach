@@ -8,19 +8,18 @@ import com.typesafe.config.{Config, ConfigFactory}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.grounding._
+import edu.arizona.sista.reach.grounding.AzFailsafeKBML._
 import edu.arizona.sista.reach.grounding.ReachEntityLookup._
 import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Rename this class.
+  *   Last Modified: Move single instances of KBMLs out of this class. Remove spurious import.
   */
-class ReachEntityLookup extends DarpaFlow {
+class ReachEntityLookup {
 
-  /** Local implementation of darpa flow trait: use project specific KBs to ground
-      and augment given mentions. */
+  /** Use project specific KBs to ground and augment given mentions. */
   def apply (mentions: Seq[Mention], state: State): Seq[Mention] = mentions map {
     case tm: BioTextBoundMention => resolveMention(tm, state)
     case m => m
@@ -32,7 +31,7 @@ class ReachEntityLookup extends DarpaFlow {
     if (fileDef.isEmpty) return None        // sanity check
     val params: Map[String, _ >: String] = fileDef.root.unwrapped.asScala
     params.get("kb").map { fname =>
-      new IMKBMentionLookup(adHocFactory.make(fname.asInstanceOf[String]))
+      new IMKBMentionLookup(AdHocIMKBFactory.make(fname.asInstanceOf[String]))
     }
   }
 
@@ -63,7 +62,7 @@ class ReachEntityLookup extends DarpaFlow {
       }
     }
     // if reach here, we assign a failsafe backup ID:
-    mention.nominate(azFailsafe.resolve(mention))
+    mention.nominate(AzFailsafe.resolve(mention))
     return mention
   }
 
@@ -79,40 +78,43 @@ class ReachEntityLookup extends DarpaFlow {
     if (!moreKBs.isEmpty) extraKBs = moreKBs
   }
 
+  /** KB search sequence to use for Fallback grounding: when all others fail. */
+  val azFailsafeSeq: KBSearchSequence = Seq(AzFailsafe)
+
   // instantiate the various search sequences, each sequence for a different label:
-  val bioProcessSeq: KBSearchSequence = extraKBs ++ Seq( staticBioProcessKBML )
-  val cellLineSeq: KBSearchSequence = extraKBs ++ Seq( contextCellLineKBML )
-  val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( contextCellTypeKBML )
+  val bioProcessSeq: KBSearchSequence = extraKBs ++ Seq( StaticBioProcess )
+  val cellLineSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellLine )
+  val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
 
   val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
-    staticCellLocationKBML,                 // GO subcellular KB
-    staticCellLocationKBML2,                // Uniprot subcellular KB
-    manualCellLocationKBML,
-    gendCellLocationKBML
+    StaticCellLocation,                 // GO subcellular KB
+    StaticCellLocation2,                // Uniprot subcellular KB
+    ManualCellLocation,
+    ModelGendCellLocation
   )
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
-    staticChemicalKBML,
-    staticMetaboliteKBML,
-    manualChemicalKBML,
-    gendChemicalKBML
+    StaticChemical,
+    StaticMetabolite,
+    ManualChemical,
+    ModelGendChemical
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    staticProteinFamilyKBML,
-    manualProteinFamilyKBML,
-    modelGendProteinAndFamily
+    StaticProteinFamily,
+    ManualProteinFamily,
+    ModelGendProteinAndFamily
   )
 
-  val organSeq: KBSearchSequence = extraKBs ++ Seq( contextOrganKBML )
+  val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    staticProteinKBML,
-    manualProteinKBML,
-    modelGendProteinAndFamily
+    StaticProtein,
+    ManualProtein,
+    ModelGendProteinAndFamily
   )
 
-  val speciesSeq: KBSearchSequence = extraKBs ++ Seq( contextSpeciesKBML )
+  val speciesSeq: KBSearchSequence = extraKBs ++ Seq( ContextSpecies )
 }
 
 
@@ -120,17 +122,5 @@ object ReachEntityLookup {
 
   /** Type alias for a sequence of KB search accessors. */
   type KBSearchSequence = Seq[IMKBMentionLookup]
-
-  /** Factory class for instantiating multiple new AdHoc KBMLs. */
-  val adHocFactory = new AdHocIMKBFactory
-
-  /** KB to use for Fallback grounding: when all others fail. */
-  val azFailsafe = new AzFailsafeKBML
-  val azFailsafeSeq: KBSearchSequence = Seq(azFailsafe)
-
-  // val staticTissueType = staticTissueTypeKBML()  // CURRENTLY UNUSED
-
-  // this KB is used in multiple sequences, so allocate it once:
-  val modelGendProteinAndFamily = gendProteinKBML // families included in generated KB
 
 }

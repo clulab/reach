@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Define equality methods. Reformat log string.
+  *   Last Modified: Pass nsId call to entry.
   */
 class KBResolution (
 
@@ -35,13 +35,13 @@ class KBResolution (
   override def hashCode: Int = entry.hashCode
 
   /** Return a formatted string containing this resolution's namespace and ID. */
-  def nsId (): String = s"${namespace}:${id}"
+  def nsId: String = entry.nsId
 
   /** Method to provide logging/debugging printout. */
-  def logString(): String =
+  def logString: String =
     s"""<KBResolution:|${text}|${key}|${namespace}|${id}|${species}|${metaInfo.getOrElse("")}|>"""
 
   /** Override method to provide logging/debugging printout. */
-  override def toString(): String = s"KBResolution(${key}, ${namespace}, ${id}, ${species})"
+  override def toString: String = s"KBResolution(${key}, ${namespace}, ${id}, ${species})"
 
 }

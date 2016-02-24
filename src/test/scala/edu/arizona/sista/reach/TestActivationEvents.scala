@@ -246,4 +246,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
     hasNegativeActivation("trichostatin A", "HDAC", mentions) should be(true)
     hasNegativeActivation("TSA", "HDAC", mentions) should be(true)
   }
+
+  // Test Activations where the controlled is a BioProcess
+  val sent30 = "In some cases, the presence of Ras inhibits autophagy."
+  sent30 should "contain 1 negative activation over a BioProcess" in {
+    val mentions = getBioMentions(sent30)
+    mentions.filter(_.label.contains("Negative_activation")) should have size (1)
+    hasNegativeActivation("Ras", "autophagy", mentions) should be (true)
+  }
 }
