@@ -2,7 +2,7 @@ package edu.arizona.sista.coref
 
 import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.grounding.{KBEntry, KBResolution}
+import edu.arizona.sista.reach.grounding.{ReachKBConstants, KBEntry, KBResolution}
 import edu.arizona.sista.reach.{DarpaActions, DarpaLinks}
 import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.reach.display._
@@ -67,8 +67,8 @@ class Coref {
         !(aliases contains a.grounding.get.entry) &&  // assume any existing entry is correct
         !(aliases contains b.grounding.get.entry)     // so don't replace existing entry
     } {
-      if (a.grounding.get.namespace == "uaz") aliases(a.grounding.get.entry) = b
-      else if (b.grounding.get.namespace == "uaz") aliases(b.grounding.get.entry) = a
+      if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
+      else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
     }
 
     if (debug) println("\n=====Alias matching=====")
