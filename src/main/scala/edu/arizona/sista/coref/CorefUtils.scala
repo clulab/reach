@@ -1,5 +1,6 @@
 package edu.arizona.sista.coref
 
+import edu.arizona.sista.reach.grounding.ReachKBConstants
 import edu.arizona.sista.reach.mentions._
 
 import scala.annotation.tailrec
@@ -68,4 +69,33 @@ object CorefUtils {
     }
   }
 
+  /**
+    * Do two mentions have groundings that match? E.g. 'H-Ras' (a family) and 'S135' (a site)
+    * are not compatible because they don't have the same labels
+    *
+    * @param a
+    * @param b
+    */
+  def compatibleGrounding(a: CorefMention, b: CorefMention): Boolean = {
+    a.isInstanceOf[CorefTextBoundMention] && b.isInstanceOf[CorefTextBoundMention] &&
+      a.label == b.label &&
+      !a.isGeneric && !b.isGeneric &&
+      compatibleContext(a, b) &&
+      ((a.isGrounded && a.grounding().get.namespace == ReachKBConstants.DefaultNamespace) ^
+        (b.isGrounded && b.grounding().get.namespace == ReachKBConstants.DefaultNamespace))
+  }
+
+  /**
+    * Do two mentions have contexts that match?
+    *
+    * @param a
+    * @param b
+    */
+  def compatibleContext(a: CorefMention, b: CorefMention): Boolean = {
+    val aContext = a.context.getOrElse(Map[String,Seq[String]]())
+    val bContext = b.context.getOrElse(Map[String,Seq[String]]())
+    a.label == b.label &&
+      aContext.keySet.intersect(bContext.keySet)
+        .forall(k => aContext(k).toSet == bContext(k).toSet) // FIXME: Too strict?
+  }
 }
