@@ -26,7 +26,7 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
     // System.err.println(s"CELL-LINES.size=${clines.size}")
     (clines.size > 0) should be (true)
     (clines.count(cg => hasId(cg, "UA-CLine-100060"))) should be (1)
-    clines.filter(cg => hasText(cg, "Rat1")).foreach(System.err.println(_))
+    // clines.filter(cg => hasText(cg, "Rat1")).foreach(System.err.println(_))
     (clines.count(cg => hasText(cg, "Rat1"))) should be (4)
   }
 
