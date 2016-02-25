@@ -1,0 +1,5 @@
+sudo: required
+dist: trusty
+language: scala
+scala:
+  - 2.11.6
