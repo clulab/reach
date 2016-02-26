@@ -3,3 +3,7 @@ dist: trusty
 language: scala
 scala:
   - 2.11.6
+branches:
+  only:
+    - master
+
