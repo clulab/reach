@@ -11,18 +11,18 @@ scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 testOptions in Test += Tests.Argument("-oD")
 
 // fork jvm to separate process
-fork := true
+// fork := true
 
 parallelExecution in Test := false
 
 // options for forked jvm
-javaOptions += "-Xmx4G"
+// javaOptions += "-Xmx4G"
 
 // forward sbt's stdin to forked process
-connectInput in run := true
+// connectInput in run := true
 
 // don't show output prefix
-outputStrategy := Some(StdoutOutput)
+// outputStrategy := Some(StdoutOutput)
 
 //
 // publishing settings
