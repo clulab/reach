@@ -13,8 +13,10 @@ testOptions in Test += Tests.Argument("-oD")
 // fork jvm to separate process
 fork := true
 
+parallelExecution in Test := false
+
 // options for forked jvm
-javaOptions += "-Xmx10G"
+javaOptions += "-Xmx5G"
 
 // forward sbt's stdin to forked process
 connectInput in run := true

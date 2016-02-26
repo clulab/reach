@@ -10,12 +10,12 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Comment out debugging prints.
+  *   Last Modified: Fix: test after species reduction.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
-//  val g1 = "Mast cells and lymphocytes are not found in duck adenoids."
-  val text1 = "AKT1 and lymphocytes are not found in duck adenoids."
+//  val g1 = "Mast cells and lymphocytes are not found in bullfrog adenoids."
+  val text1 = "AKT1 and lymphocytes are not found in bullfrog adenoids."
   val mentions = getBioMentions(text1)
   val mentions2 = getBioMentions(text1)        // another copy
   val kbr1 = new KBResolution(new KBEntry("test-1", "test1", "UAZtest", "ID1"))

@@ -11,7 +11,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Implement better "is family/protein grounded" methods.
+  *   Last Modified: Add method to read all lines from a file.
   */
 object ReachKBUtils {
 
@@ -53,6 +53,15 @@ object ReachKBUtils {
   /** Return a path string for the given filename in the current user working directory. */
   def makePathInUserDir (filename:String): String = {
     return System.getProperty("user.dir") + File.separator + filename
+  }
+
+  /** Read and return all the lines from the specified file. */
+  def readLines (filename:String): List[String] = {
+    val kbResourcePath = ReachKBUtils.makePathInKBDir(ProteinDomainSuffixesFilename)
+    val source = ReachKBUtils.sourceFromResource(kbResourcePath)
+    val lines = source.getLines().toList
+    source.close()
+    lines
   }
 
   /** Convert a single row string from a TSV file to a sequence of string fields. */
