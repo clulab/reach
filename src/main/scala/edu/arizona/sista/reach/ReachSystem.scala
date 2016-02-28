@@ -76,6 +76,8 @@ class ReachSystem(
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
+
+
     resolveDisplay(complete)
   }
 
