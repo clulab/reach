@@ -107,150 +107,94 @@ class MutableAssemblyManager(
     if (m matches "Entity") Set(EntityLabel(m.label)) ++ mods else mods
   }
 
-  protected def createSimpleEntity(m: Mention, ptm: Option[assembly.PTM]): (IDPointer, SimpleEntity) = m.toBioMention match {
-    // TODO: refactor to avoid two cases?
-    // TODO: add require() for labels?
-    case ge if ge matches "Generic_entity" =>
-      val ante = ge.toCorefMention.antecedent
-      val e = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else ge
-      val id = getOrCreateID(e)
-      val mods = mkAssemblyModifications(e)
-      val repr =
-        new SimpleEntity(
-          // TODO: decide whether or not we should use a richer representation for the grounding ID
-          e.nsId,
-          // modifications relevant to assembly
-          if (ptm.isEmpty) mods else mods ++ Set(ptm.get),
-          true,
-          // TODO: confirm that this is a pointer back to the current object
-          // ...what happens when .toImmutable is called?
-          this
-        )
-      // update LUTs
-      // TODO: should we store the corefmention, or the antecedent mention?
-      updateLUTs(id, ge, repr)
-      // id and repr pair
-      (id, repr)
+  protected def createSimpleEntity(m: Mention, ptm: Option[assembly.PTM]): (IDPointer, SimpleEntity) = {
 
-    case e if (e matches "Entity") && !(e matches "Generic_entity") =>
-      val id = getOrCreateID(e)
-      val mods = mkAssemblyModifications(e)
-      val repr =
-        new SimpleEntity(
-          // TODO: decide whether or not we should use a richer representation for the grounding ID
-          e.nsId,
-          // modifications relevant to assembly
-          if (ptm.isEmpty) mods else mods ++ Set(ptm.get),
-          false,
-          // TODO: confirm that this is a pointer back to the current object
-          // ...what happens when .toImmutable is called?
-          this
-        )
-      // update LUTs
-      updateLUTs(id, e, repr)
-      // id and repr pair
-      (id, repr)
+    val bm = m.toBioMention
+    require(bm matches "Entity")
+    // check for coref
+    val ante = bm.toCorefMention.antecedent
+    val e = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else bm
+    // prepare id
+    val id = getOrCreateID(e)
+    val mods = mkAssemblyModifications(e)
+    val repr =
+      new SimpleEntity(
+        // TODO: decide whether or not we should use a richer representation for the grounding ID
+        e.nsId,
+        // modifications relevant to assembly
+        if (ptm.isEmpty) mods else mods ++ Set(ptm.get),
+        true,
+        // TODO: confirm that this is a pointer back to the current object
+        // ...what happens when .toImmutable is called?
+        this
+      )
+    // update LUTs
+    // TODO: should we store the corefmention, or the antecedent mention?
+    updateLUTs(id, e, repr)
+    // id and repr pair
+    (id, repr)
   }
 
-  protected def createBinding(m: Mention): (IDPointer, Complex) = m.toBioMention match {
-    // TODO: refactor to avoid two cases?
-    // TODO: add require() for labels?
-    case gb if (gb matches "Binding") && (gb matches "Generic_event") =>
-      val ante = gb.toCorefMention.antecedent
-      val b = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else gb
-      val id = getOrCreateID(b)
-      val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
-      val repr =
-        new Complex(
-          mbrs,
-          true,
-          // TODO: confirm that this is a pointer back to the current object
-          // ...what happens when .toImmutable is called?
-          this
-        )
-      // update LUTs
-      // TODO: should we store the coref mention, or the antecedent mention?
-      updateLUTs(id, gb, repr)
-      (id, repr)
-
-    case b if (b matches "Binding") && !(b matches "Generic_event") =>
-      val id = getOrCreateID(b)
-      val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
-      val repr =
-        new Complex(
-          mbrs,
-          false,
-          // TODO: confirm that this is a pointer back to the current object
-          // ...what happens when .toImmutable is called?
-          this
-        )
-      // update LUTs
-      updateLUTs(id, b, repr)
-      (id, repr)
+  protected def createBinding(m: Mention): (IDPointer, Complex) = {
+    
+    val bm = m.toBioMention
+    require(bm matches "Binding")
+    // check for coref
+    val ante = bm.toCorefMention.antecedent
+    val b = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else bm
+    // prepare id
+    val id = getOrCreateID(b)
+    val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
+    val repr =
+      new Complex(
+        mbrs,
+        true,
+        // TODO: confirm that this is a pointer back to the current object
+        // ...what happens when .toImmutable is called?
+        this
+      )
+    // update LUTs
+    // TODO: should we store the coref mention, or the antecedent mention?
+    updateLUTs(id, bm, repr)
+    (id, repr)
   }
 
-  protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = m.toBioMention match {
-    // TODO: refactor to avoid two cases?
-    // TODO: add require() for labels?
-    case ge if (ge matches "SimpleEvent") && !(ge matches "Binding") && (ge matches "Generic_event") =>
-      val ante = ge.toCorefMention.antecedent
-      val e = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else ge
-      val id = getOrCreateID(e)
-      val input: Map[String, Set[IDPointer]] = e.arguments.map{
-        case (role: String, mns: Seq[Mention]) =>
-          (role, mns.map(createIDwithEERepresentation).map(_._1).toSet)
-      }
-      val output: Set[IDPointer] = {
-        // TODO: handle site
-        val ptm = assembly.PTM(e.label, None)
-        e.arguments("theme")
-          .map(m => createSimpleEntity(m, Some(ptm))).map(_._1)
-          .toSet
-      }
-      val repr =
-        new SimpleEvent(
-          input,
-          output,
-          e.label,
-          true,
-          // TODO: confirm that this is a pointer back to the current object
-          // ...what happens when .toImmutable is called?
-          this
-        )
-      // update LUTs
-      // TODO: should we store the corefmention, or the antecedent mention?
-      updateLUTs(id, ge, repr)
-      (id, repr)
+  protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = {
 
-    case e if (e matches "SimpleEvent") && !(e matches "Binding") && !(e matches "Generic_event") =>
-      val id = getOrCreateID(e)
-      val input: Map[String, Set[IDPointer]] = e.arguments.map{
-        case (role: String, mns: Seq[Mention]) =>
-          (role, mns.map(createIDwithEERepresentation).map(_._1).toSet)
-      }
-      val output: Set[IDPointer] = {
-        // TODO: handle site
-        val ptm = assembly.PTM(e.label, None)
-        e.arguments("theme")
-          // for each theme, create a simple entity with the appropriate PTM
-          // and get its ID
-          .map(m => createSimpleEntity(m, Some(ptm))).map(_._1)
-          .toSet
-      }
-      val repr =
-        new SimpleEvent(
-          input,
-          output,
-          e.label,
-          true,
-          // TODO: confirm that this is a pointer back to the current object
-          // ...what happens when .toImmutable is called?
-          this
-        )
-      // update LUTs
-      // TODO: should we store the coref mention, or the antecedent mention?
-      updateLUTs(id, e, repr)
-      (id, repr)
+    val bm = m.toBioMention
+    require((bm matches "SimpleEvent") && !(bm matches "Binding"))
+    // check for coref
+    val ante = bm.toCorefMention.antecedent
+    val e = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else bm
+    // prepare id
+    val id = getOrCreateID(e)
+    // prepare input (roles -> repr. pointers)
+    val input: Map[String, Set[IDPointer]] = e.arguments.map{
+      case (role: String, mns: Seq[Mention]) =>
+        (role, mns.map(createIDwithEERepresentation).map(_._1).toSet)
+    }
+    // prepare output
+    val output: Set[IDPointer] = {
+      // TODO: handle site
+      val ptm = assembly.PTM(e.label, None)
+      e.arguments("theme")
+        .map(m => createSimpleEntity(m, Some(ptm))).map(_._1)
+        .toSet
+    }
+    val repr =
+      new SimpleEvent(
+        input,
+        output,
+        e.label,
+        true,
+        // TODO: confirm that this is a pointer back to the current object
+        // ...what happens when .toImmutable is called?
+        this
+      )
+    // update LUTs
+    // TODO: should we store the coref mention, or the antecedent mention?
+    updateLUTs(id, e, repr)
+    (id, repr)
   }
 
   //    def createRegulation(m: Mention): (IDPointer, Regulation) = m.toBioMention match {
