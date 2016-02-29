@@ -126,7 +126,6 @@ class TestEntities extends FlatSpec with Matchers {
     doc.text = Some(mekText2)
     doc.sentences.head.entities = Some(ggpLabels)
     val mentions = testReach.extractFrom(doc)
-    displayMentions(mentions, doc)
     mentions should have size (1)
     mentions.head matches "Family" should be (true)
   }
