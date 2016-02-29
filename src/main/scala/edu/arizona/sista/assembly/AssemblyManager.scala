@@ -1,20 +1,22 @@
 package edu.arizona.sista.assembly
 
 import collection.Map
-import collection.mutable
 import collection.immutable
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.mentions.{MentionOps, BioMention}
+import edu.arizona.sista.reach.mentions.{MentionOps, CorefMention}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import edu.arizona.sista.reach.mentions
 import edu.arizona.sista.assembly
 
-abstract class AssemblyManager {
 
-  val mentionToID: Map[Mention, IDPointer]
-  val idToEERepresentation: Map[IDPointer, EntityEventRepresentation]
-  // reverse dict of ID to Mention
-  val idToMention: Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
+class AssemblyManager(
+  m2id: Map[Mention, IDPointer] = Map.empty[Mention, IDPointer],
+  id2repr: Map[IDPointer, EntityEventRepresentation] = Map.empty[IDPointer, EntityEventRepresentation]
+) {
+
+  var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
+  var idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation] = id2repr.toMap
+  def idToMention: Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
 
   def getEERepresentation(m: Mention): EntityEventRepresentation = {
     val id = mentionToID(m)
@@ -33,38 +35,6 @@ abstract class AssemblyManager {
       .map(id => idToMention(id))
       .toSet
   }
-}
-
-// immutable assembly manager
-class ImmutableAssemblyManager(
-  val mentionToID: immutable.Map[Mention, IDPointer],
-  val idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation]
-) extends AssemblyManager {
-
-  def toMutable: MutableAssemblyManager = {
-    // convert immutable LUTs to a mutable form
-    val mngr =
-      new MutableAssemblyManager(
-        mutable.Map(mentionToID.toSeq: _*),
-        mutable.Map(idToEERepresentation.toSeq: _*)
-      )
-    // TODO: shouldn't EERepresentations now point to the new MutableAssemblyManager?
-    mngr
-  }
-}
-
-class MutableAssemblyManager(
-    val mentionToID: mutable.Map[Mention, IDPointer] = mutable.Map.empty[Mention, IDPointer],
-    val idToEERepresentation: mutable.Map[IDPointer, EntityEventRepresentation] = mutable.Map.empty[IDPointer, EntityEventRepresentation]
-) extends AssemblyManager {
-
-  def toImmutable: ImmutableAssemblyManager =
-    // convert mutable LUTs to an immutable form
-    // TODO: shouldn't EERepresentations now point to this new ImmutableAssemblyManager?
-    new ImmutableAssemblyManager(
-      immutable.Map(mentionToID.toSeq: _*),
-      immutable.Map(idToEERepresentation.toSeq: _*)
-    )
 
   def createID: IDPointer = mentionToID.size + 1
 
@@ -77,21 +47,20 @@ class MutableAssemblyManager(
       case None =>
         // get an ID for the current mention
         val id: IDPointer = getOrCreateID(m)
-        // update LUT 1
-        mentionToID(m) = id
         // create new representation
         val repr = createEERepresentation(m)
-        // update LUT 2
-        idToEERepresentation(id) = repr
+        // update LUTs
+        updateLUTs(id, m, repr)
+
         repr
     }
   }
 
   def updateLUTs(id: IDPointer, m: Mention, repr: EntityEventRepresentation): Unit = {
     // update LUT #1
-    mentionToID(m) = id
+    mentionToID  = mentionToID + (m -> id)
     // update LUT #2
-    idToEERepresentation(id) = repr
+    idToEERepresentation = idToEERepresentation + (id -> repr)
   }
 
   protected def mkAssemblyModifications(m: Mention): Set[AssemblyModification] = {
@@ -109,11 +78,11 @@ class MutableAssemblyManager(
 
   protected def createSimpleEntity(m: Mention, ptm: Option[assembly.PTM]): (IDPointer, SimpleEntity) = {
 
-    val bm = m.toBioMention
-    require(bm matches "Entity")
+    val cm = m.toCorefMention
+    require(cm matches "Entity")
     // check for coref
-    val ante = bm.toCorefMention.antecedent
-    val e = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else bm
+    val ante = cm.antecedent
+    val e = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
     // prepare id
     val id = getOrCreateID(e)
     val mods = mkAssemblyModifications(e)
@@ -123,52 +92,49 @@ class MutableAssemblyManager(
         e.nsId,
         // modifications relevant to assembly
         if (ptm.isEmpty) mods else mods ++ Set(ptm.get),
-        true,
-        // TODO: confirm that this is a pointer back to the current object
-        // ...what happens when .toImmutable is called?
+        // TODO: ask Dane how best to check if this guy is resolved...
+        cm.isGeneric,
         this
       )
     // update LUTs
-    // TODO: should we store the corefmention, or the antecedent mention?
     updateLUTs(id, e, repr)
     // id and repr pair
     (id, repr)
   }
 
   protected def createBinding(m: Mention): (IDPointer, Complex) = {
-    
-    val bm = m.toBioMention
-    require(bm matches "Binding")
+
+    val cm = m.toCorefMention
+    require(cm matches "Binding")
     // check for coref
-    val ante = bm.toCorefMention.antecedent
-    val b = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else bm
+    val ante = cm.antecedent
+    val b = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
     // prepare id
     val id = getOrCreateID(b)
     val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
     val repr =
       new Complex(
         mbrs,
-        true,
-        // TODO: confirm that this is a pointer back to the current object
-        // ...what happens when .toImmutable is called?
+        // TODO: ask Dane how best to check if this guy is resolved...
+        cm.isGeneric,
         this
       )
     // update LUTs
-    // TODO: should we store the coref mention, or the antecedent mention?
-    updateLUTs(id, bm, repr)
+    updateLUTs(id, b, repr)
     (id, repr)
   }
 
   protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = {
 
-    val bm = m.toBioMention
-    require((bm matches "SimpleEvent") && !(bm matches "Binding"))
+    val cm = m.toCorefMention
+    require((cm matches "SimpleEvent") && !(cm matches "Binding"))
     // check for coref
-    val ante = bm.toCorefMention.antecedent
-    val e = if (ante.nonEmpty) ante.get.asInstanceOf[BioMention] else bm
+    val ante = cm.antecedent
+    val e = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
     // prepare id
     val id = getOrCreateID(e)
     // prepare input (roles -> repr. pointers)
+    // TODO: filter out sites from input
     val input: Map[String, Set[IDPointer]] = e.arguments.map{
       case (role: String, mns: Seq[Mention]) =>
         (role, mns.map(createIDwithEERepresentation).map(_._1).toSet)
@@ -177,16 +143,19 @@ class MutableAssemblyManager(
     val output: Set[IDPointer] = {
       // TODO: handle site
       val ptm = assembly.PTM(e.label, None)
+      // NOTE: we need to be careful if we use something other than theme
       e.arguments("theme")
         .map(m => createSimpleEntity(m, Some(ptm))).map(_._1)
         .toSet
     }
+    // TODO: throw exception if arguments contains "cause"
     val repr =
       new SimpleEvent(
         input,
         output,
         e.label,
-        true,
+        // TODO: ask Dane how best to check if this guy is resolved...
+        cm.isGeneric,
         // TODO: confirm that this is a pointer back to the current object
         // ...what happens when .toImmutable is called?
         this
@@ -197,10 +166,18 @@ class MutableAssemblyManager(
     (id, repr)
   }
 
+
+  // dedup should cover some of Emek's stuff
+  // 1. Approx. sieves (by proximity)
+  //   - proximity is 1 or 2 sentences
+  //   - entities without mutations
+  //   - entities without sites (PTMs)
   //    def createRegulation(m: Mention): (IDPointer, Regulation) = m.toBioMention match {
   //      // val controlled = reg.arguments("controlled").map(createEERepresentation)
-  //      // controller: Option[EntityEventRepresentation]
-  //      // controlled: Set[SimpleEvent]
+          // convert to PTM?????
+          // TODO: binarize controllers!
+  //      // controller: Entity
+  //      // controlled: Event
   //    }
 
   /**
@@ -224,8 +201,4 @@ class MutableAssemblyManager(
    * returns an EntityEventRepresentation
    * */
   def createEERepresentation(m: Mention): EntityEventRepresentation = createIDwithEERepresentation(m)._2
-}
-
-object AssemblyManager {
-
 }
