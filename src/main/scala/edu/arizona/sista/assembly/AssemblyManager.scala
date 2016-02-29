@@ -76,7 +76,16 @@ class AssemblyManager(
     if (m matches "Entity") Set(EntityLabel(m.label)) ++ mods else mods
   }
 
-  protected def createSimpleEntity(m: Mention, ptm: Option[assembly.PTM]): (IDPointer, SimpleEntity) = {
+  /**
+   * takes a set of optional modifications (useful for building output of SimpleEvent)
+   * @param m an Odin mention
+   * @param mods an optional set of AssemblyModifications (useful for building output of SimpleEvent)
+   * @return a tuple of (IDPointer, SimpleEntity)
+   */
+  protected def createSimpleEntity(
+    m: Mention,
+    mods: Option[Set[assembly.AssemblyModification]]
+  ): (IDPointer, SimpleEntity) = {
 
     val cm = m.toCorefMention
     require(cm matches "Entity")
@@ -85,13 +94,13 @@ class AssemblyManager(
     val e = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
     // prepare id
     val id = getOrCreateID(e)
-    val mods = mkAssemblyModifications(e)
+    val modifications = mkAssemblyModifications(e)
     val repr =
       new SimpleEntity(
         // TODO: decide whether or not we should use a richer representation for the grounding ID
         e.nsId,
         // modifications relevant to assembly
-        if (ptm.isEmpty) mods else mods ++ Set(ptm.get),
+        if (mods.isEmpty) modifications else modifications ++ mods.get,
         // TODO: ask Dane how best to check if this guy is resolved...
         cm.isGeneric,
         this
