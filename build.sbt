@@ -10,13 +10,7 @@ scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
 testOptions in Test += Tests.Argument("-oD")
 
-// fork jvm to separate process
-fork := true
-
 parallelExecution in Test := false
-
-// options for forked jvm
-javaOptions += "-Xmx5G"
 
 // forward sbt's stdin to forked process
 connectInput in run := true
@@ -46,24 +40,24 @@ pomIncludeRepository := { _ => false }
 // mandatory stuff to add to the pom for publishing
 pomExtra := (
   <url>https://github.com/clulab/reach</url>
-  <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-  <scm>
-    <url>https://github.com/clulab/reach</url>
-    <connection>https://github.com/clulab/reach</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>mihai.surdeanu</id>
-      <name>Mihai Surdeanu</name>
-      <email>mihai@surdeanu.info</email>
-    </developer>
-  </developers>)
+    <licenses>
+      <license>
+        <name>Apache License, Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+    <scm>
+      <url>https://github.com/clulab/reach</url>
+      <connection>https://github.com/clulab/reach</connection>
+    </scm>
+    <developers>
+      <developer>
+        <id>mihai.surdeanu</id>
+        <name>Mihai Surdeanu</name>
+        <email>mihai@surdeanu.info</email>
+      </developer>
+    </developers>)
 
 //
 // end publishing settings

@@ -143,8 +143,13 @@
   pattern: |
     [entity='B-Gene_or_gene_product' & !word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/]+
     [entity='I-Gene_or_gene_product']*
+    # we may see the word "protein"
     # we can't always trust the crf.  Make sure it isn't an obvious family
-    (?! [lemma="substrate" | lemma="family"])
+    (?!
+    [lemma=substrate | lemma=family]
+    |
+    [lemma=protein] [lemma=family]
+    )
 
 # TODO: verify this ontology
 - name: ner-family-entities
@@ -157,7 +162,7 @@
     | # we can't always trust the crf.
     [entity='B-Gene_or_gene_product']+ [entity='I-Gene_or_gene_product']*
     # only allow the GGP ner label iff lemma of next tok is "family"
-    (?= [lemma="family"])
+    (?=  [lemma=protein]? [lemma="family"])
 
 # TODO: verify this ontology
 - name: ner-cellular_component-entities
