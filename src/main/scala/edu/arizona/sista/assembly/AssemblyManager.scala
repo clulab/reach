@@ -114,12 +114,13 @@ class AssemblyManager(
   protected def createBinding(m: Mention): (IDPointer, Complex) = {
 
     val cm = m.toCorefMention
-    require(cm matches "Binding")
+    require(cm matches "Binding", "createBinding only handles Binding mentions.")
     // check for coref
     val ante = cm.antecedent
     val b = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
     // prepare id
     val id = getOrCreateID(b)
+    // TODO: do binding events have sites?
     val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
     val repr =
       new Complex(
