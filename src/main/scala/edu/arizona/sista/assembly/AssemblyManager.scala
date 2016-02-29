@@ -137,25 +137,36 @@ class AssemblyManager(
   protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = {
 
     val cm = m.toCorefMention
-    require((cm matches "SimpleEvent") && !(cm matches "Binding"))
+    require((cm matches "SimpleEvent") && !(cm matches "Binding"), "createSimpleEvent only accepts SimpleEvent mentions that are NOT Bindings.")
+    // there should not be a cause among the arguments
+    require(!(cm.arguments contains "cause"), "SimpleEvent should not contain a cause!")
     // check for coref
     val ante = cm.antecedent
     val e = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
     // prepare id
     val id = getOrCreateID(e)
     // prepare input (roles -> repr. pointers)
-    // TODO: filter out sites from input
-    val input: Map[String, Set[IDPointer]] = e.arguments.map{
+    // filter out sites from input
+    val siteLessArgs = e.arguments - "site"
+    val input: Map[String, Set[IDPointer]] = siteLessArgs map {
       case (role: String, mns: Seq[Mention]) =>
         (role, mns.map(createIDwithEERepresentation).map(_._1).toSet)
     }
     // prepare output
     val output: Set[IDPointer] = {
-      // TODO: handle site
-      val ptm = assembly.PTM(e.label, None)
+      // handle sites
+      val ptms: Set[AssemblyModification] = e match {
+        case hasSites if hasSites.arguments contains "site" =>
+          // create a PTM for each site
+          hasSites.arguments("site").toSet.map(site => assembly.PTM(e.label, Some(site.text)))
+          // create a PTM without a site
+        case noSites => Set(assembly.PTM(e.label, None))
+      }
+
       // NOTE: we need to be careful if we use something other than theme
       e.arguments("theme")
-        .map(m => createSimpleEntity(m, Some(ptm))).map(_._1)
+        // TODO: should this be one PTM per entity?
+        .map(m => createSimpleEntity(m, Some(ptms))).map(_._1)
         .toSet
     }
     // TODO: throw exception if arguments contains "cause"
