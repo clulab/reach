@@ -1,5 +1,7 @@
 package edu.arizona.sista.assembly
 
+import collection.Map
+
 trait EntityEventRepresentation {
   // whether or not the representation comes from a coref mention
   def coref: Boolean
@@ -63,11 +65,11 @@ class Regulation (
   val coref: Boolean,
   val manager: AssemblyManager) extends Event {
 
-  def controller: Option[Event] = controllerPointer match {
-    case Some(id) => Some(manager.getEERepresentation(id).asInstanceOf[Event])
+  def controller: Option[EntityEventRepresentation] = controllerPointer match {
+    case Some(id) => Some(manager.getEERepresentation(id))
     case _ => None
   }
-  def controlled: Set[Entity] =
-    controlledPointers.map(id => manager.getEERepresentation(id).asInstanceOf[Entity])
+  def controlled: Set[SimpleEvent] =
+    controlledPointers.map(id => manager.getEERepresentation(id).asInstanceOf[SimpleEvent])
 
 }
