@@ -15,13 +15,13 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Move single instances of KBMLs out of this class. Remove spurious import.
+  *   Last Modified: Restrict to bio mentions. Remove unused state arguments. Fix: bioprocess label.
   */
 class ReachEntityLookup {
 
   /** Use project specific KBs to ground and augment given mentions. */
-  def apply (mentions: Seq[Mention], state: State): Seq[Mention] = mentions map {
-    case tm: BioTextBoundMention => resolveMention(tm, state)
+  def apply (mentions: Seq[BioMention]): Seq[BioMention] = mentions map {
+    case tm: BioTextBoundMention => resolveMention(tm)
     case m => m
   }
 
@@ -36,24 +36,23 @@ class ReachEntityLookup {
   }
 
   /** Search a sequence of KB accessors, which sequence determined by the main mention label. */
-  private def resolveMention (mention: BioMention, state: State): Mention = {
+  private def resolveMention (mention: BioMention): BioMention = {
     mention.label match {
-      case "Bioprocess" => augmentMention(mention, state, bioProcessSeq)
-      case "CellLine" => augmentMention(mention, state, cellLineSeq)
-      case "CellType" => augmentMention(mention, state, cellTypeSeq)
-      case "Cellular_component" => augmentMention(mention, state, cellComponentSeq)
+      case "BioProcess" => augmentMention(mention, bioProcessSeq)
+      case "CellLine" => augmentMention(mention, cellLineSeq)
+      case "CellType" => augmentMention(mention, cellTypeSeq)
+      case "Cellular_component" => augmentMention(mention, cellComponentSeq)
       case "Complex" | "GENE" | "Gene_or_gene_product" | "Protein" =>
-        augmentMention(mention, state, proteinSeq)
-      case "Family" =>  augmentMention(mention, state, familySeq)
-      case "Organ" => augmentMention(mention, state, organSeq)
-      case "Simple_chemical" => augmentMention(mention, state, chemicalSeq)
-      case "Species" => augmentMention(mention, state, speciesSeq)
-      case _ =>  augmentMention(mention, state, azFailsafeSeq)
+        augmentMention(mention, proteinSeq)
+      case "Family" =>  augmentMention(mention, familySeq)
+      case "Organ" => augmentMention(mention, organSeq)
+      case "Simple_chemical" => augmentMention(mention, chemicalSeq)
+      case "Species" => augmentMention(mention, speciesSeq)
+      case _ =>  augmentMention(mention, azFailsafeSeq)
     }
   }
 
-  private def augmentMention (mention: BioMention, state: State,
-                              searchSequence: KBSearchSequence): Mention = {
+  private def augmentMention (mention: BioMention, searchSequence: KBSearchSequence): BioMention = {
     searchSequence.foreach { kbml =>
       val resolutions = kbml.resolve(mention)
       if (resolutions.isDefined) {

@@ -13,8 +13,10 @@ testOptions in Test += Tests.Argument("-oD")
 // fork jvm to separate process
 fork := true
 
+parallelExecution in Test := false
+
 // options for forked jvm
-javaOptions += "-Xmx10G"
+javaOptions += "-Xmx5G"
 
 // forward sbt's stdin to forked process
 connectInput in run := true
@@ -74,7 +76,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.0",
+  "org.clulab" % "bioresources" % "1.1.1",
   "org.clulab" %% "processors" % "5.8.1",
   "org.clulab" %% "processors" % "5.8.1" classifier "models",
   "com.typesafe" % "config" % "1.2.1",

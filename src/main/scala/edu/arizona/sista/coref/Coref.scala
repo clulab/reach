@@ -2,6 +2,7 @@ package edu.arizona.sista.coref
 
 import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.grounding.{ReachKBConstants, KBEntry}
 import edu.arizona.sista.reach.{mentions, DarpaActions, DarpaLinks}
 import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.reach.display._
@@ -302,6 +303,8 @@ class Coref {
 
   def apply(sectionMentions: Seq[Seq[Mention]]): Seq[Seq[CorefMention]] = {
 
+    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, BioMention]
+
     for {
       mentions <- sectionMentions
     } yield {
@@ -338,6 +341,32 @@ class Coref {
             }
           }
         }).sorted[Mention]
+
+      // find aliases
+      val aliasRelations = orderedMentions filter (_ matches "Alias")
+      for {
+        aliasRelation <- aliasRelations
+        entities = aliasRelation.arguments.getOrElse("alias", Nil)
+        pair <- entities.combinations(2)
+        (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
+        if compatibleGrounding(a, b) && // includes check to see that they're both grounded
+          !(aliases contains a.grounding.get.entry) &&  // assume any existing entry is correct
+          !(aliases contains b.grounding.get.entry)     // so don't replace existing entry
+      } {
+        if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
+        else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
+      }
+
+      if (debug) println("\n=====Alias matching=====")
+      // share more complete grounding based on alias map
+      orderedMentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
+        mention =>
+          val kbEntry = mention.grounding.get.entry
+          if (aliases contains kbEntry) {
+            if (debug) println(s"${mention.text} matches ${aliases(kbEntry).text}")
+            mention.copyGroundingFrom(aliases(kbEntry))
+          }
+      }
 
       val links = new DarpaLinks(doc)
 
