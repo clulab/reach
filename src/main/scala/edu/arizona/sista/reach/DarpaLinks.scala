@@ -7,7 +7,7 @@ import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.struct.Interval
 
-class DarpaLinks(doc: Document) extends Links {
+class DarpaLinks extends Links {
 
   val debug: Boolean = false
   val verbose: Boolean = debug
@@ -74,6 +74,7 @@ class DarpaLinks(doc: Document) extends Links {
    * @return The same mentions but with new links (antecedents) added.
    */
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    val doc = mentions.head.document
     if (debug) println("\n=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -377,7 +378,7 @@ class DarpaLinks(doc: Document) extends Links {
    * From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
    */
   def expand(mention: Mention): Interval = {
-    val sent = doc.sentences(mention.sentence)
+    val sent = mention.document.sentences(mention.sentence)
     val graph = sent.dependencies.getOrElse(return mention.tokenInterval)
 
     val localHead = findHeadStrict(mention.tokenInterval, sent).getOrElse(mention.tokenInterval.end - 1)
@@ -501,7 +502,7 @@ class DarpaLinks(doc: Document) extends Links {
    * Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
    */
   def cardinality(m: Mention): Int = {
-    val sent = doc.sentences(m.sentence)
+    val sent = m.document.sentences(m.sentence)
     val mhead = findHeadStrict(m.tokenInterval, sent).getOrElse(m.tokenInterval.start)
     val phrase = subgraph(m.tokenInterval, sent)
     val dc = detCardinality(sent.words.slice(phrase.get.start, phrase.get.end), sent.tags.get.slice(phrase.get.start, phrase.get.end))
