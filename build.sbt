@@ -63,11 +63,6 @@ pomExtra := (
 // end publishing settings
 //
 
-resolvers ++= Seq(
-  "BioPAX Releases" at "http://biopax.sourceforge.net/m2repo/releases",
-  "BioPAX Snapshots" at "http://biopax.sourceforge.net/m2repo/snapshots"
-)
-
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
   "org.clulab" % "bioresources" % "1.1.1",
