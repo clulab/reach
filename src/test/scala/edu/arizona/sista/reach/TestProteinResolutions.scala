@@ -14,7 +14,7 @@ import edu.arizona.sista.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Add isFamilyGrounded/isProteinGrounded tests.
+  *   Last Modified: Add tests for PTM-related protein prefixes.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -32,6 +32,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (isFamilyGrounded(menL)) should be (false)
   }
 
+
   "ProteinKBL resolve" should "fail despite alternate lookups" in {
     // keys not in KB:
     (imkbP.resolve("NOTINKB").isDefined) should be (false)
@@ -39,6 +40,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("notinkb_human").isDefined) should be (false)
     (imkbP.resolve("notinkb protein").isDefined) should be (false)
     (imkbP.resolve("notinkb family").isDefined) should be (false)
+    (imkbP.resolve("mutant-zyx-1").isDefined) should be (false) // mutant pattern not matched
     // family key transforms not applicable for proteins:
     (imkbP.resolve("pthr2 family").isDefined) should be (false)
     (imkbP.resolve("zyx-1 family").isDefined) should be (false)
@@ -53,8 +55,47 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("zyx-1").isDefined) should be (true)
     (imkbP.resolve("zyx-1_human").isDefined) should be (true)
     (imkbP.resolve("zyx-1 protein").isDefined) should be (true)
-//    (imkbP.resolve("mutant-zyx-1").isDefined) should be (true) // MUTANT PATTERN MATCH FAILS
+    (imkbP.resolve("STAT1").isDefined) should be (true)
+    (imkbP.resolve("stat1").isDefined) should be (true)
+    (imkbP.resolve("STBA").isDefined) should be (true)
+    (imkbP.resolve("stba").isDefined) should be (true)
   }
+
+  "ProteinKBL resolve" should "work via protein domain lookup" in {
+    (imkbP.resolve("PI3Kbeta-RBD").isDefined) should be (true)
+    (imkbP.resolve("pi3kbeta-rbd").isDefined) should be (true)
+    (imkbP.resolve("PI3Kbeta-DSS1_SEM1").isDefined) should be (true)
+    (imkbP.resolve("pi3kbeta-dss1_sem1").isDefined) should be (true)
+    (imkbP.resolve("PTHR2-ZU5").isDefined) should be (true)
+    (imkbP.resolve("pthr2-zu5").isDefined) should be (true)
+    (imkbP.resolve("pthr2-DSS1_SEM1").isDefined) should be (true)
+  }
+
+  "ProteinKBL resolve" should "fail despite protein domain lookup" in {
+    (imkbP.resolve("NotInKB-RBD").isDefined) should be (false) // protein not in KB
+    (imkbP.resolve("PI3KC2b-RBD").isDefined) should be (false) // protein not in KB
+    (imkbP.resolve("zyx-1-rbd").isDefined) should be (false) // pre-key text fails pattern match
+    (imkbP.resolve("PI3K-C2-alpha-RBD").isDefined) should be (false) // pre-key text fails pattern match
+  }
+
+  "ProteinKBL resolve" should "fail despite PTM prefix stripping" in {
+    (imkbP.resolve("pNOTINKB").isDefined) should be (false)
+    (imkbP.resolve("pnotinkb").isDefined) should be (false)
+    (imkbP.resolve("uNOTINKB").isDefined) should be (false)
+    (imkbP.resolve("unotinkb").isDefined) should be (false)
+  }
+
+  "ProteinKBL resolve" should "work with PTM prefix stripping" in {
+    (imkbP.resolve("pSTAT1").isDefined) should be (true)
+    (imkbP.resolve("pstat1").isDefined) should be (true)
+    (imkbP.resolve("pSTBA").isDefined) should be (true)
+    (imkbP.resolve("pstba").isDefined) should be (true)
+    (imkbP.resolve("uSTAT1").isDefined) should be (true)
+    (imkbP.resolve("ustat1").isDefined) should be (true)
+    (imkbP.resolve("uSTBA").isDefined) should be (true)
+    (imkbP.resolve("ustba").isDefined) should be (true)
+  }
+
 
   "ProteinKBL resolveByASpecies" should "fail despite alternate lookups" in {
     // key not in KB:
@@ -63,6 +104,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("NotInKB protein", "ant").isDefined) should be (false)
     (imkbP.resolveByASpecies("NotInKB family", "ant").isDefined) should be (false)
     (imkbP.resolveByASpecies("mutant-NotInKB", "ant").isDefined) should be (false)
+    (imkbP.resolveByASpecies("mutant-zyx-1", "caenorhabditis elegans").isDefined) should be (false)
     // entry does not have this species:
     (imkbP.resolveByASpecies("zyx-1", "frog").isDefined) should be (false)
     (imkbP.resolveByASpecies("zyx-1_human", "frog").isDefined) should be (false)
@@ -83,8 +125,34 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("zyx-1", "caenorhabditis elegans").isDefined) should be (true)
     (imkbP.resolveByASpecies("zyx-1_human", "caenorhabditis elegans").isDefined) should be (true)
     (imkbP.resolveByASpecies("zyx-1 protein", "caenorhabditis elegans").isDefined) should be (true)
-//    (imkbP.resolveByASpecies("mutant-zyx-1", "caenorhabditis elegans").isDefined) should be (true) // MUTANT PATTERN MATCH FAILS
   }
+
+  "ProteinKBL resolveByASpecies" should "work via protein domain lookup" in {
+    (imkbP.resolveByASpecies("PI3Kbeta-RBD", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("pi3kbeta-rbd", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("PI3Kbeta-DSS1_SEM1", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("pi3kbeta-dss1_sem1", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("PI3Kdelta-RBD", "mouse").isDefined) should be (true)
+    (imkbP.resolveByASpecies("pi3kdelta-rbd", "mouse").isDefined) should be (true)
+    (imkbP.resolveByASpecies("PI3Kdelta-DSS1_SEM1", "mouse").isDefined) should be (true)
+    (imkbP.resolveByASpecies("pi3kdelta-dss1_sem1", "mouse").isDefined) should be (true)
+  }
+
+  "ProteinKBL resolveByASpecies" should "fail despite protein domain lookup" in {
+    // proteins not in KB:
+    (imkbP.resolveByASpecies("NotInKB-RBD", "human").isDefined) should be (false)
+    (imkbP.resolveByASpecies("PI3KC2b-RBD", "human").isDefined) should be (false)
+    // pre-key text fails pattern match:
+    (imkbP.resolveByASpecies("zyx-1-rbd", "human").isDefined) should be (false)
+    (imkbP.resolveByASpecies("PI3K-C2-alpha-RBD", "human").isDefined) should be (false)
+    // wrong species:
+    (imkbP.resolveByASpecies("PI3Kdelta-RBD", "rat").isDefined) should be (false)
+    (imkbP.resolveByASpecies("pi3kdelta-rbd", "rat").isDefined) should be (false)
+    (imkbP.resolveByASpecies("PI3Kdelta-DSS1_SEM1", "rat").isDefined) should be (false)
+    (imkbP.resolveByASpecies("pi3kdelta-dss1_sem1", "rat").isDefined) should be (false)
+  }
+
+
 
   val setA =   Set("aardvark")
   val setF =   Set("frog")
@@ -148,6 +216,32 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get.size == 1) should be (true)
   }
 
+  "ProteinKBL resolveBySpecies" should "work via protein domain lookup" in {
+    (imkbP.resolveBySpecies("PI3Kbeta-RBD", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("pi3kbeta-rbd", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("PI3Kbeta-DSS1_SEM1", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("pi3kbeta-dss1_sem1", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("PI3Kdelta-RBD", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("pi3kdelta-rbd", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("PI3Kdelta-DSS1_SEM1", setHM).isDefined) should be (true)
+    (imkbP.resolveBySpecies("pi3kdelta-dss1_sem1", setHM).isDefined) should be (true)
+  }
+
+  "ProteinKBL resolveBySpecies" should "fail despite protein domain lookup" in {
+    // proteins not in KB:
+    (imkbP.resolveBySpecies("NotInKB-RBD", setHM).isDefined) should be (false)
+    (imkbP.resolveBySpecies("PI3KC2b-RBD", setHM).isDefined) should be (false)
+    // pre-key text fails pattern match:
+    (imkbP.resolveBySpecies("zyx-1-rbd", setHM).isDefined) should be (false)
+    (imkbP.resolveBySpecies("PI3K-C2-alpha-RBD", setHM).isDefined) should be (false)
+    // wrong species:
+    (imkbP.resolveBySpecies("PI3Kdelta-RBD", setF).isDefined) should be (false)
+    (imkbP.resolveBySpecies("pi3kdelta-rbd", setF).isDefined) should be (false)
+    (imkbP.resolveBySpecies("PI3Kdelta-DSS1_SEM1", setF).isDefined) should be (false)
+    (imkbP.resolveBySpecies("pi3kdelta-dss1_sem1", setF).isDefined) should be (false)
+  }
+
+
   "ProteinKBL resolveHuman" should "fail despite alternate lookups" in {
     // key not in KB:
     (imkbP.resolveHuman("NotInKB").isDefined) should be (false)
@@ -177,6 +271,26 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveHuman("mutant-PTHR2").isDefined) should be (true)
   }
 
+  "ProteinKBL resolveHuman" should "work via protein domain lookup" in {
+    (imkbP.resolveHuman("PI3Kbeta-RBD").isDefined) should be (true)
+    (imkbP.resolveHuman("pi3kbeta-rbd").isDefined) should be (true)
+    (imkbP.resolveHuman("PI3Kbeta-DSS1_SEM1").isDefined) should be (true)
+    (imkbP.resolveHuman("pi3kbeta-dss1_sem1").isDefined) should be (true)
+    (imkbP.resolveHuman("PTHR2-ZU5").isDefined) should be (true)
+    (imkbP.resolveHuman("pthr2-ZU5").isDefined) should be (true)
+    (imkbP.resolveHuman("pthr2-DSS1_SEM1").isDefined) should be (true)
+  }
+
+  "ProteinKBL resolveHuman" should "fail despite protein domain lookup" in {
+    // proteins not in KB:
+    (imkbP.resolveHuman("NotInKB-RBD").isDefined) should be (false)
+    (imkbP.resolveHuman("PI3KC2b-RBD").isDefined) should be (false)
+    // pre-key text fails pattern match:
+    (imkbP.resolveHuman("zyx-1-rbd").isDefined) should be (false)
+    (imkbP.resolveHuman("PI3K-C2-alpha-RBD").isDefined) should be (false)
+  }
+
+
   // this KB includes species, therefore resolveNoSpecies should always fail:
   "ProteinKBL resolveNoSpecies" should "fail despite alternate lookups" in {
     // key not in KB:
@@ -185,6 +299,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveNoSpecies("notinkb_human").isDefined) should be (false)
     (imkbP.resolveNoSpecies("notinkb protein").isDefined) should be (false)
     (imkbP.resolveNoSpecies("notinkb family").isDefined) should be (false)
+    (imkbP.resolveNoSpecies("notinkb-RBD").isDefined) should be (false)
     // entry has a species:
     (imkbP.resolveNoSpecies("PTHR2").isDefined) should be (false)
     (imkbP.resolveNoSpecies("pthr2").isDefined) should be (false)
@@ -197,6 +312,8 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveNoSpecies("zyx-1 protein").isDefined) should be (false)
     (imkbP.resolveNoSpecies("zyx-1 family").isDefined) should be (false)
     (imkbP.resolveNoSpecies("mutant-zyx-1").isDefined) should be (false)
+    (imkbP.resolveNoSpecies("PI3Kbeta-RBD").isDefined) should be (false)
+    (imkbP.resolveNoSpecies("PTHR2-ZU5").isDefined) should be (false)
   }
 
 }

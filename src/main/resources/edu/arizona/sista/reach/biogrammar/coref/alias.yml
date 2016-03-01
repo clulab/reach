@@ -1,0 +1,115 @@
+- name: alias_paren1_nil
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    [tag="-LRB-"]
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    [tag="-RRB-"]
+
+- name: alias_paren2_referredto
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    [tag="-LRB-"]
+    ("which" [lemma="be"])?
+    ([tag="RB"]?
+    "referred" "to" "as")?
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    [tag="-RRB-"]
+
+- name: alias_paren3_knownas
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    [tag="-LRB-"]
+    ("which" [lemma="be"])?
+    ([tag="RB"]?
+    [word=/^known|designated$/ & tag="VBN"] "as"?)?
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    [tag="-RRB-"]
+
+- name: alias_paren4_called
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    [tag="-LRB-"]
+    ("which" [lemma="be"])?
+    ([tag="RB"]?
+    [lemma=/^call|term|name$/ & tag="VBN"])?
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    [tag="-RRB-"]
+
+- name: alias_paren5_alias
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    [tag="-LRB-"]
+    [word=/^alias|a\.k\.a\.$/]
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    [tag="-RRB-"]
+
+- name: alias_comma1_referredto
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    ","
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    "referred" "to" "as"
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    [tag=/^\.|,|:$/]
+
+- name: alias_comma2_knownas
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    ","
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    [word=/^known|designated$/ & tag="VBN"] "as"?
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    [tag=/^\.|,|:$/]
+
+- name: alias_comma2_called
+  label: Alias
+  action: mkBioMention
+  priority: 4
+  type: token
+  pattern: |
+    (@alias:Family | @alias:MacroMolecule)
+    ","
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    [lemma=/^call|term|name$/ & tag="VBN"]
+    (@alias:Family | @alias:MacroMolecule)
+    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    [tag=/^\.|,|:$/]
+

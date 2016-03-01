@@ -17,8 +17,8 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
   def hasKey (cg:ContextGrounding, key:String): Boolean = cg.key.contains(key)
   def hasText (cg:ContextGrounding, text:String): Boolean = cg.text.contains(text)
 
-  "Context KBs list" should "have at least 90000 entries" in {
-    (ctxList.size > 90000) should be (true)
+  "Context KBs list" should "have at least 1000 entries" in {
+    (ctxList.size > 1000) should be (true)
   }
 
   "Context KBs list" should "have cell line entries" in {
@@ -26,7 +26,7 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
     // System.err.println(s"CELL-LINES.size=${clines.size}")
     (clines.size > 0) should be (true)
     (clines.count(cg => hasId(cg, "UA-CLine-100060"))) should be (1)
-    clines.filter(cg => hasText(cg, "Rat1")).foreach(System.err.println(_))
+    // clines.filter(cg => hasText(cg, "Rat1")).foreach(System.err.println(_))
     (clines.count(cg => hasText(cg, "Rat1"))) should be (4)
   }
 
@@ -54,9 +54,9 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
     val species = ctxList.filter(cg => cg.namespace.contains("taxonomy"))
     // System.err.println(s"SPECIES.size=${species.size}")
     (species.size > 0) should be (true)
-    (species.count(cg => hasText(cg, "A. aceti"))) should be (8)
-    (species.count(cg => hasText(cg, "Zymomonas"))) should be (4)
-    (species.count(cg => hasKey(cg, "l.bicolor"))) should be (1)
+    (species.count(cg => hasText(cg, "biovar"))) should be (4)
+    (species.count(cg => hasText(cg, "occidentalis"))) should be (6)
+    (species.count(cg => hasKey(cg, "baumannii"))) should be (2)
     // species.filter(cg => hasText(cg, "Zymomonas")).foreach(System.err.println(_))
   }
 

@@ -2,6 +2,7 @@ package edu.arizona.sista.coref
 
 import edu.arizona.sista.odin.{Mention, _}
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.grounding.{ReachKBConstants, KBEntry, KBResolution}
 import edu.arizona.sista.reach.{DarpaActions, DarpaLinks}
 import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.reach.display._
@@ -12,8 +13,8 @@ import scala.annotation.tailrec
 
 class Coref {
 
-  val verbose: Boolean = false
-  val debug: Boolean = verbose
+  val debug: Boolean = false
+  val verbose: Boolean = debug
   val da: DarpaActions = new DarpaActions()
 
   def apply(mentions: Seq[Mention]): Seq[CorefMention] = applyAll(mentions).lastOption.getOrElse(Nil)
@@ -21,6 +22,7 @@ class Coref {
   def applyAll(mentions: Seq[Mention], keepAll: Boolean = false): Seq[Seq[CorefMention]] = {
 
     val doc: Document = mentions.headOption.getOrElse(return Nil).document
+    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, BioMention]
 
     if (debug) {
       println("BEFORE COREF")
@@ -54,6 +56,32 @@ class Coref {
         }
       }
     }).sorted[Mention]
+
+    // find aliases
+    val aliasRelations = orderedMentions filter (_ matches "Alias")
+    for {
+      aliasRelation <- aliasRelations
+      entities = aliasRelation.arguments.getOrElse("alias", Nil)
+      pair <- entities.combinations(2)
+      (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
+      if compatibleGrounding(a, b) && // includes check to see that they're both grounded
+        !(aliases contains a.grounding.get.entry) &&  // assume any existing entry is correct
+        !(aliases contains b.grounding.get.entry)     // so don't replace existing entry
+    } {
+      if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
+      else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
+    }
+
+    if (debug) println("\n=====Alias matching=====")
+    // share more complete grounding based on alias map
+    orderedMentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
+      mention =>
+        val kbEntry = mention.grounding.get.entry
+        if (aliases contains kbEntry) {
+          if (debug) println(s"${mention.text} matches ${aliases(kbEntry).text}")
+          mention.copyGroundingFrom(aliases(kbEntry))
+        }
+    }
 
     val links = new DarpaLinks(doc)
 
@@ -328,7 +356,8 @@ class Coref {
      * Using subfunctions for TextBoundMentions, SimpleEvents, and ComplexEvents, create maps for each mention in
      * mentions to its antecedent as determined by the linking functions already applied, creating new mentions as
      * necessary
-     * @param mentions all the input mentions with their antecedents already chosen by the linking functions
+      *
+      * @param mentions all the input mentions with their antecedents already chosen by the linking functions
      * @return mentions with generic mentions replaced by their antecedents
      */
     def resolve(mentions: Seq[CorefMention]): Seq[CorefMention] = {

@@ -10,11 +10,7 @@ scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
 testOptions in Test += Tests.Argument("-oD")
 
-// fork jvm to separate process
-fork := true
-
-// options for forked jvm
-javaOptions += "-Xmx10G"
+parallelExecution in Test := false
 
 // forward sbt's stdin to forked process
 connectInput in run := true
@@ -74,9 +70,9 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.0",
-  "org.clulab" %% "processors" % "5.8.2-SNAPSHOT",
-  "org.clulab" %% "processors" % "5.8.2-SNAPSHOT" classifier "models",
+  "org.clulab" % "bioresources" % "1.1.1",
+  "org.clulab" %% "processors" % "5.8.1",
+  "org.clulab" %% "processors" % "5.8.1" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
