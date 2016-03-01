@@ -74,8 +74,8 @@ class ReachSystem(
     }
     contextEngine.update(eventsPerEntry.flatten)
     val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
-    // we can't send all mentions to resolve coref, so we group them by document first
-    val resolved = eventsWithContext.groupBy(_.document).values.map(resolve).flatten.toList
+    // Coref expects to get all mentions grouped by document
+    val resolved = resolveCoref(groupMentionsByDocument(eventsWithContext, documents))
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
@@ -87,6 +87,12 @@ class ReachSystem(
     }
 
     resolveDisplay(complete)
+  }
+
+  // this method groups the mentions by document
+  // the sequence of documents should be sorted in order of appearance in the paper
+  def groupMentionsByDocument(mentions: Seq[BioMention], documents: Seq[Document]): Seq[Seq[BioMention]] = {
+    for (doc <- documents) yield mentions.filter(_.document == doc)
   }
 
   // the extractFrom() methods are the main entry points to the reach system
@@ -148,10 +154,13 @@ class ReachSystem(
     validMentions
   }
 
-  def resolve(events: Seq[BioMention]): Seq[CorefMention] = {
+  // this method gets sequence composed of sequences of mentions, one per doc.
+  // each doc corresponds to a chunk of the paper, and it expects them to be in order of appearance
+  def resolveCoref(eventsPerDocument: Seq[Seq[BioMention]]): Seq[CorefMention] = {
     val coref = new Coref()
-    coref(events)
+    coref(eventsPerDocument).flatten
   }
+
 }
 
 object ReachSystem {
