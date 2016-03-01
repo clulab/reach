@@ -1,12 +1,12 @@
 - Alias
-- CellLine
-- CellType
-- Cellular_component
 - ModificationTrigger
-- Organ
 - Site
-- Species
 - Context:
+  - Species
+  - CellLine
+  - Organ
+  - CellType
+  - Cellular_component
   - ContextDirection
   - ContextLocation
   - ContextPossessive
