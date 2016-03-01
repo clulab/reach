@@ -309,74 +309,77 @@ class Coref {
       mentions <- docMentions
     } yield {
 
-      if (debug) {
-        println("BEFORE COREF")
-        displayMentions(mentions, mentions.head.document)
-        println("Starting coref...")
-      }
+      if (mentions.isEmpty) Nil
+      else {
+        if (debug) {
+          println("BEFORE COREF")
+          displayMentions(mentions, mentions.head.document)
+          println("Starting coref...")
+        }
 
-      // order mentions and also remove Generic_event mentions that do not have definite determiners.
-      val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
-      val orderedMentions: Seq[CorefMention] = mentions
-        .map(_.toCorefMention)
-        .filterNot(m => {
-          m.isGeneric && !m.isClosedClass && {
-            val sent = m.sentenceObj
-            val hd = findHeadStrict(m.tokenInterval, sent)
-            if (hd.isEmpty || hd.get < 0 || hd.get >= sent.dependencies.get.outgoingEdges.length) false
-            else {
-              try {
-                val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
-                val hasDet = outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
-                hasDet.isEmpty
-              } catch {
-                case e: Throwable =>
-                  println(s"Sentence: ${sent.getSentenceText()}")
-                  println(s"Mention text: ${m.text}")
-                  println(s"Head index is: $hd")
-                  displayMention(m)
-                  true
+        // order mentions and also remove Generic_event mentions that do not have definite determiners.
+        val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
+        val orderedMentions: Seq[CorefMention] = mentions
+          .map(_.toCorefMention)
+          .filterNot(m => {
+            m.isGeneric && !m.isClosedClass && {
+              val sent = m.sentenceObj
+              val hd = findHeadStrict(m.tokenInterval, sent)
+              if (hd.isEmpty || hd.get < 0 || hd.get >= sent.dependencies.get.outgoingEdges.length) false
+              else {
+                try {
+                  val outgoing = sent.dependencies.get.getOutgoingEdges(findHeadStrict(m.tokenInterval, sent).get)
+                  val hasDet = outgoing.find(dep => dep._2 == "det" && legalDeterminers.contains(sent.words(dep._1).toLowerCase))
+                  hasDet.isEmpty
+                } catch {
+                  case e: Throwable =>
+                    println(s"Sentence: ${sent.getSentenceText()}")
+                    println(s"Mention text: ${m.text}")
+                    println(s"Head index is: $hd")
+                    displayMention(m)
+                    true
+                }
               }
             }
-          }
-        }).sorted[Mention]
+          }).sorted[Mention]
 
-      // find aliases
-      val aliasRelations = orderedMentions filter (_ matches "Alias")
-      for {
-        aliasRelation <- aliasRelations
-        entities = aliasRelation.arguments.getOrElse("alias", Nil)
-        pair <- entities.combinations(2)
-        (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
-        if compatibleGrounding(a, b) && // includes check to see that they're both grounded
-          !(aliases contains a.grounding.get.entry) &&  // assume any existing entry is correct
-          !(aliases contains b.grounding.get.entry)     // so don't replace existing entry
-      } {
-        if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
-        else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
+        // find aliases
+        val aliasRelations = orderedMentions filter (_ matches "Alias")
+        for {
+          aliasRelation <- aliasRelations
+          entities = aliasRelation.arguments.getOrElse("alias", Nil)
+          pair <- entities.combinations(2)
+          (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
+          if compatibleGrounding(a, b) && // includes check to see that they're both grounded
+            !(aliases contains a.grounding.get.entry) && // assume any existing entry is correct
+            !(aliases contains b.grounding.get.entry) // so don't replace existing entry
+        } {
+          if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
+          else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
+        }
+
+        if (debug) println("\n=====Alias matching=====")
+        // share more complete grounding based on alias map
+        orderedMentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
+          mention =>
+            val kbEntry = mention.grounding.get.entry
+            if (aliases contains kbEntry) {
+              if (debug) println(s"${mention.text} matches ${aliases(kbEntry).text}")
+              mention.copyGroundingFrom(aliases(kbEntry))
+            }
+        }
+
+        val links = new DarpaLinks
+
+        val allLinks = CorefFlow(links.exactStringMatch) andThen
+          CorefFlow(links.groundingMatch) andThen
+          CorefFlow(links.strictHeadMatch) andThen
+          CorefFlow(links.pronominalMatch) andThen
+          CorefFlow(links.nounPhraseMatch) andThen
+          CorefFlow(links.simpleEventMatch)
+
+        resolve(allLinks(orderedMentions, new LinearSelector)).filter(_.isComplete)
       }
-
-      if (debug) println("\n=====Alias matching=====")
-      // share more complete grounding based on alias map
-      orderedMentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
-        mention =>
-          val kbEntry = mention.grounding.get.entry
-          if (aliases contains kbEntry) {
-            if (debug) println(s"${mention.text} matches ${aliases(kbEntry).text}")
-            mention.copyGroundingFrom(aliases(kbEntry))
-          }
-      }
-
-      val links = new DarpaLinks
-
-      val allLinks = CorefFlow(links.exactStringMatch) andThen
-        CorefFlow(links.groundingMatch) andThen
-        CorefFlow(links.strictHeadMatch) andThen
-        CorefFlow(links.pronominalMatch) andThen
-        CorefFlow(links.nounPhraseMatch) andThen
-        CorefFlow(links.simpleEventMatch)
-
-      resolve(allLinks(orderedMentions, new LinearSelector)).filter(_.isComplete)
     }
   }
 }

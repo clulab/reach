@@ -454,4 +454,11 @@ class TestCoreference extends FlatSpec with Matchers {
     val akt = mentions.find(_.text == "Akt").get
     mentions.filter(_.text == "AktTR").forall(m => m.grounding.get == akt.grounding.get) should be (true)
   }
+  // No problem if no mentions in a document.
+  val sent40 = "This sentence has no mentions."
+  "Empty document: coref" should "share Akt grounding across sections" in {
+    val fe = FriesEntry("anotherTest", "noMentions", "02", "end", false, sent40)
+    val mentions = testReach.extractFrom(Seq(fe))
+    mentions.isEmpty should be (true)
+  }
 }
