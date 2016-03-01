@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.nxml.FriesEntry
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 import edu.arizona.sista.reach.mentions._
@@ -443,4 +444,14 @@ class TestCoreference extends FlatSpec with Matchers {
     akt.head.grounding.get.equals(s2akt.head.grounding.get)
   }
 
+  // Alias assignment works across sections of a document
+  val sent39a = "Akt, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
+  val sent39b = "AktTR is ubiquitinated."
+  "Intra-document alias" should "share Akt grounding across sections" in {
+    val fe1 = FriesEntry("test", "aliasDoc", "01", "start", false, sent39a)
+    val fe2 = FriesEntry("test", "aliasDoc", "01", "start", false, sent39b)
+    val mentions = testReach.extractFrom(Seq(fe1, fe2))
+    val akt = mentions.find(_.text == "Akt").get
+    mentions.filter(_.text == "AktTR").forall(m => m.grounding.get == akt.grounding.get) should be (true)
+  }
 }
