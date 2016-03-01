@@ -8,7 +8,7 @@ import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.struct.Interval
 
-class DarpaLinks(doc: Document) extends Links {
+class DarpaLinks extends Links {
 
   val debug: Boolean = false
   val verbose: Boolean = debug
@@ -113,6 +113,7 @@ class DarpaLinks(doc: Document) extends Links {
     * @return The same mentions but with new links (antecedents) added.
     */
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    val doc = mentions.head.document
     if (debug) println("\n=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])

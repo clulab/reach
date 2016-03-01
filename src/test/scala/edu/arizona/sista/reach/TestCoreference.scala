@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.nxml.FriesEntry
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 import edu.arizona.sista.reach.mentions._
@@ -505,5 +506,23 @@ class TestCoreference extends FlatSpec with Matchers {
     val s2akt = mentions filter (m => m.sentence == 0 && m.matches("Entity"))
     s2akt should have size (1)
     akt.head.grounding.get.equals(s2akt.head.grounding.get)
+  }
+
+  // Alias assignment works across sections of a document
+  val sent45a = "Akt, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
+  val sent45b = "AktTR is ubiquitinated."
+  "Intra-document alias" should "share Akt grounding across sections" in {
+    val fe1 = FriesEntry("test", "aliasDoc", "01", "start", false, sent45a)
+    val fe2 = FriesEntry("test", "aliasDoc", "01", "start", false, sent45b)
+    val mentions = testReach.extractFrom(Seq(fe1, fe2))
+    val akt = mentions.find(_.text == "Akt").get
+    mentions.filter(_.text == "AktTR").forall(m => m.grounding.get == akt.grounding.get) should be (true)
+  }
+  // No problem if no mentions in a document.
+  val sent46 = "This sentence has no mentions."
+  "Empty document: coref" should "share Akt grounding across sections" in {
+    val fe = FriesEntry("anotherTest", "noMentions", "02", "end", false, sent46)
+    val mentions = testReach.extractFrom(Seq(fe))
+    mentions.isEmpty should be (true)
   }
 }
