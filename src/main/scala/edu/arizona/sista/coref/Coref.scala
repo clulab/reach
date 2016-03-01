@@ -14,7 +14,7 @@ import scala.annotation.tailrec
 class Coref {
 
   val debug: Boolean = false
-  val verbose: Boolean = false
+  val verbose: Boolean = debug
   val da: DarpaActions = new DarpaActions()
 
   /**
@@ -301,18 +301,17 @@ class Coref {
   }
 
 
-  def apply(sectionMentions: Seq[Seq[Mention]]): Seq[Seq[CorefMention]] = {
+  def apply(docMentions: Seq[Seq[Mention]]): Seq[Seq[CorefMention]] = {
 
     val aliases = scala.collection.mutable.HashMap.empty[KBEntry, BioMention]
 
     for {
-      mentions <- sectionMentions
+      mentions <- docMentions
     } yield {
-      val doc: Document = mentions.headOption.getOrElse(return Nil).document
 
       if (debug) {
         println("BEFORE COREF")
-        displayMentions(mentions, doc)
+        displayMentions(mentions, mentions.head.document)
         println("Starting coref...")
       }
 
@@ -368,7 +367,7 @@ class Coref {
           }
       }
 
-      val links = new DarpaLinks(doc)
+      val links = new DarpaLinks
 
       val allLinks = CorefFlow(links.exactStringMatch) andThen
         CorefFlow(links.groundingMatch) andThen
