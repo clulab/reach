@@ -53,13 +53,24 @@ class AssemblyManager(
     idToEERepresentation(id)
   }
 
+  /**
+   * Retrieves an [[EntityEventRepresentation]] associated with the given [[IDPointer]].
+   * Assumes an [[EntityEventRepresentation]] associated with the provide [[IDPointer]] already exists.
+   * @param id an [[IDPointer]]
+   * @return an [[EntityEventRepresentation]]
+   */
   def getEERepresentation(id: IDPointer): EntityEventRepresentation =
     idToEERepresentation(id)
 
+  /**
+   * Collects mentions pointing to a given [[EntityEventRepresentation]].
+   * @param repr an [[EntityEventRepresentation]]
+   * @return a sequence of Mention serving pointing to the given representation
+   */
   def getEvidence(repr: EntityEventRepresentation): Set[Mention] = {
     idToEERepresentation.filter {
       // which IDs point to EEReprs that are identical to the one given?
-      case (k, v) => v == repr }
+      case (k, v) => v isEquivalentTo repr }
       .keys
       // retrieve the mention by id
       .map(id => idToMention(id))
