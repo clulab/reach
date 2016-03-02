@@ -330,7 +330,7 @@ class AssemblyManager(
       val ptms: Set[AssemblyModification] = e match {
         case hasSites if hasSites.arguments contains "site" =>
           // create a PTM for each site
-          hasSites.arguments("site").toSet.map(site => assembly.PTM(e.label, Some(site.text)))
+          for (site <- hasSites.arguments("site").toSet[Mention]) yield assembly.PTM(e.label, Some(site.text))
           // create a PTM without a site
         case noSites => Set(assembly.PTM(e.label, None))
       }
@@ -341,6 +341,7 @@ class AssemblyManager(
         .map(m => createSimpleEntity(m, Some(ptms))).map(_._1)
         .toSet
     }
+
     // TODO: throw exception if arguments contains "cause"
     val repr =
       new SimpleEvent(
