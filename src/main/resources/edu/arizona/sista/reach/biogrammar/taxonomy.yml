@@ -13,7 +13,6 @@
 - Modification:
     - PTM
     - Mutant:
-        - WildType
         - GenericMutant
         - SubstitutionMutant
         - DeletionMutant
