@@ -38,7 +38,7 @@ class Complex (
   val manager: AssemblyManager
 ) extends Entity {
   // the actual members of the complex
-  def members:Set[Entity] = memberPointers.map(m => manager.getEERepresentation(m).asInstanceOf[Entity])
+  def members: Set[Entity] = memberPointers.map(m => manager.getEERepresentation(m).asInstanceOf[Entity])
   // members should be entities
   require(members.forall(_.isInstanceOf[Entity]), "All members of complex must be a kind of Entity")
 
