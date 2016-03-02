@@ -36,7 +36,77 @@ class AssemblyManager(
       .toSet
   }
 
-  def createID: IDPointer = mentionToID.size + 1
+  /**
+   * Creates an [[EntityEventRepresentation]] for each valid Mention
+   * See [[isValidMention]] for details on validation check
+   * @param mentions a sequence of Mention to store in the AssemblyManager LUTs
+   */
+  // create an EntityEventRepresentation for each mention
+  def trackMentions(mentions: Seq[Mention]): Unit = {
+    // do not store Sites, Activations, etc. in LUT 1
+    mentions.filter(isValidMention)
+      .map(getOrCreateEERepresentation)
+  }
+
+  /**
+   * Checks to see if the mention can be safely handled by the AssemblyManager
+   * Currently Sites are not stored in the LUTs,
+   * though they can appear as part of a modification
+   * (see the [[assembly.PTM]] [[AssemblyModification]] for an example)
+   * @param mention an Odin Mention
+   * @return true if the mention can be safely handled by the manager; false otherwise
+   */
+  def isValidMention(mention: Mention): Boolean = {
+
+    val m = getResolvedForm(mention.toCorefMention)
+
+    m match {
+      // don't store sites
+      case site if site matches "Site" => false
+      // simple events should not have a cause
+      case se if se matches "SimpleEvent" => !(se.arguments contains "cause")
+      // don't store activations
+      case activation if activation matches "Activation" => false
+      // regs must have controlled and controller
+      case reg if reg matches "Regulation" =>
+        (m.arguments contains "controller") && (m.arguments contains "controlled")
+      // assume valid otherwise
+      case _ => true
+    }
+  }
+  /**
+   * Get antecedent if present.  Otherwise return the mention as-is.
+   *
+   * Used to retrieve the appropriate features of a mention's antecedent.
+   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
+   * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
+   */
+  def getResolvedForm(cm: CorefMention): CorefMention = {
+    val ante = cm.antecedent
+    if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
+  }
+
+  /**
+   * Checks to see if a coref mention has an antecedent.
+   *
+   * If the mentions made it through the coref component of reach,
+   * the only mentions that might have an antecedent should be those with a "Generic_*"
+   * this is just a broader, fail-safe check...
+   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
+   * @return true if cm has an antecedent; false otherwise
+   */
+  protected def hasCorefResolution(cm: CorefMention): Boolean = if (cm.antecedent.nonEmpty) true else false
+
+  /**
+   * Gets the polarity of a mention.  Should only be relevant to ComplexEvents
+   * @param m an Odin Mention
+   * @return [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
+   */
+  def getPolarityLabel(m: Mention): String = m match {
+    case pos if pos matches "Positive_regulation" => AssemblyManager.positive
+    case neg if neg matches "Negative_regulation" => AssemblyManager.negative
+    case _ => AssemblyManager.unknown
+  }
 
   def getOrCreateID(m: Mention): IDPointer = mentionToID.getOrElse(m, createID)
 
@@ -87,13 +157,13 @@ class AssemblyManager(
     mods: Option[Set[assembly.AssemblyModification]]
   ): (IDPointer, SimpleEntity) = {
 
-    val cm = m.toCorefMention
-    require(cm matches "Entity")
     // check for coref
-    val ante = cm.antecedent
-    val e = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
-    // prepare id
-    val id = getOrCreateID(e)
+    val cm = m.toCorefMention
+    val e = getResolvedForm(cm)
+
+    // mention should be an Entity
+    require(cm matches "Entity")
+
     val modifications = mkAssemblyModifications(e)
     val repr =
       new SimpleEntity(
@@ -113,20 +183,20 @@ class AssemblyManager(
 
   protected def createBinding(m: Mention): (IDPointer, Complex) = {
 
-    val cm = m.toCorefMention
-    require(cm matches "Binding", "createBinding only handles Binding mentions.")
     // check for coref
-    val ante = cm.antecedent
-    val b = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
-    // prepare id
-    val id = getOrCreateID(b)
+    val cm = m.toCorefMention
+    val b = getResolvedForm(cm)
+
+    // mention must be a Binding
+    require(b matches "Binding", "createBinding only handles Binding mentions.")
+
     // TODO: do binding events have sites?
     val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
     val repr =
       new Complex(
         mbrs,
-        // TODO: ask Dane how best to check if this guy is resolved...
-        cm.isGeneric,
+        // check if coref was successful (i.e., it found something)
+        hasCorefResolution(cm),
         this
       )
     // update LUTs
@@ -136,15 +206,14 @@ class AssemblyManager(
 
   protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = {
 
+    // check for coref
     val cm = m.toCorefMention
+    val e = getResolvedForm(cm)
+
+    // mention should be a SimpleEvent, but not a Binding
     require((cm matches "SimpleEvent") && !(cm matches "Binding"), "createSimpleEvent only accepts SimpleEvent mentions that are NOT Bindings.")
     // there should not be a cause among the arguments
     require(!(cm.arguments contains "cause"), "SimpleEvent should not contain a cause!")
-    // check for coref
-    val ante = cm.antecedent
-    val e = if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
-    // prepare id
-    val id = getOrCreateID(e)
     // prepare input (roles -> repr. pointers)
     // filter out sites from input
     val siteLessArgs = e.arguments - "site"
@@ -175,12 +244,13 @@ class AssemblyManager(
         input,
         output,
         e.label,
-        // TODO: ask Dane how best to check if this guy is resolved...
-        cm.isGeneric,
-        // TODO: confirm that this is a pointer back to the current object
-        // ...what happens when .toImmutable is called?
+        // check if coref was successful (i.e., it found something)
+        hasCorefResolution(cm),
         this
       )
+
+    // prepare id
+    val id = getOrCreateID(m)
     // update LUTs
     // TODO: should we store the coref mention, or the antecedent mention?
     updateLUTs(id, e, repr)
