@@ -65,7 +65,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
  The equivalent SBT dependencies are:
 
     libraryDependencies ++= Seq(
-        "clulab.org" %% "reach" % "1.2.2"
+        "org.clulab" %% "reach" % "1.2.2"
     )
 
 # How to compile the source code
