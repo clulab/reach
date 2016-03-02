@@ -1,11 +1,14 @@
 package edu.arizona.sista.assembly
 
 import collection.Map
+import scala.util.hashing.MurmurHash3._
 
 trait EntityEventRepresentation {
   // whether or not the representation comes from a coref mention
   def coref: Boolean
-  def isEquivalentTo(other: EntityEventRepresentation): Boolean
+  def isEquivalentTo(other: Any): Boolean
+
+  def equivalenceHash: Int
 }
 
 trait Entity extends EntityEventRepresentation {
@@ -22,10 +25,22 @@ class SimpleEntity (
   def summarize: String =
     s"SimpleEntity(id=${this.id}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager})"
 
-  def isEquivalentTo(other: EntityEventRepresentation): Boolean = other match {
-    // FIXME: understand why == doesn't work here...seems very strange
-    // ...two SimpleEvents with the same id, modifications, coref, and manager are not necessarily equal...why?
-    case se: SimpleEntity => this.id == se.id && this.modifications == se.modifications
+  def equivalenceHash: Int = {
+    // the seed (not counted in the length of finalizeHash)
+    // decided to use the class name
+    val h0 = stringHash("edu.arizona.sista.assembly.SimpleEntity")
+    // a representation of the ID
+    val h1 = mix(h0, id.hashCode)
+    // a representation of the set of modifications
+    val h2 = mixLast(h1, modsHash)
+    finalizeHash(h2, 2)
+  }
+
+  // hash of mods is sum of mods hashes
+  def modsHash: Int = modifications.map(_.hashCode).sum
+
+  def isEquivalentTo(other: Any): Boolean = other match {
+    case se: SimpleEntity => this.equivalenceHash == se.equivalenceHash
     case _ => false
   }
 }
@@ -37,6 +52,7 @@ class Complex (
   // assembly manager used for the retrieval of EntityEventRepresentations
   val manager: AssemblyManager
 ) extends Entity {
+
   // the actual members of the complex
   def members: Set[Entity] = memberPointers.map(m => manager.getEERepresentation(m).asInstanceOf[Entity])
   // members should be entities
@@ -45,14 +61,30 @@ class Complex (
   def summarize: String =
     s"Complex(members=${members.map(_.summarize).mkString("{", ", ", "}")}, coref=${this.coref}, mngr=${this.manager})"
 
+  def membersHash: Int = {
+    val h0 = stringHash("Complex.members")
+    val hs = members.map(_.equivalenceHash)
+    val h = mixLast(h0, unorderedHash(hs))
+    finalizeHash(h, members.size)
+  }
+
+  def equivalenceHash: Int = {
+    // the seed (not counted in the length of finalizeHash)
+    // decided to use the class name
+    val h0 = stringHash("edu.arizona.sista.assembly.Complex")
+    // comprised of the equiv. hash of members
+    val h1 = mixLast(h0, members.map(_.equivalenceHash).sum)
+    finalizeHash(h1, 1)
+  }
+
   def contains(other: EntityEventRepresentation): Boolean = other match {
     // FIXME: should be able to just use this.members contains e
-    case e: Entity => this.members exists(_ isEquivalentTo e)
+    case e: Entity => this.members exists(_.equivalenceHash == e.equivalenceHash)
     case _ => false
   }
   
-  def isEquivalentTo(other: EntityEventRepresentation): Boolean = other match {
-    case complex: Complex => this.members.forall(m => complex.members contains m)
+  def isEquivalentTo(other: Any): Boolean = other match {
+    case complex: Complex => this.equivalenceHash == complex.equivalenceHash
     case _ => false
   }
 }
@@ -87,23 +119,35 @@ class SimpleEvent (
   def output: Set[Entity] =
     outputPointers.map(id => manager.getEERepresentation(id).asInstanceOf[Entity])
 
-  def isEquivalentTo(other: EntityEventRepresentation): Boolean = other match {
-    // FIXME: should be able to just say a.input == b.input && a.output == b.output && a.label == b.label
-    case se: SimpleEvent =>
-      // both events must have same label
-      this.label == se.label &&
-      // both events must have same roles
-      this.input.keys.toSet == se.input.keys.toSet &&
-      // input values for each role must be equivalent
-        this.input.forall(pair =>
-          pair._2.forall{
-            case i: Entity => se.input(pair._1: String) exists (_.isEquivalentTo(i))
-          }
-        ) &&
-        // output should be the same size
-        this.output.size == se.output.size &&
-      // the output must be equivalent
-      this.output.forall(o => output exists(_ isEquivalentTo(o)))
+  def inputHash: Int = {
+    val h0 = stringHash("SimpleEvent.input")
+    val hs = output.map(_.equivalenceHash)
+    val h = mixLast(h0, unorderedHash(hs))
+    finalizeHash(h, input.size)
+  }
+
+  def outputHash: Int = {
+    val h0 = stringHash("SimpleEvent.output")
+    val hs = output.map(_.equivalenceHash)
+    val h = mixLast(h0, unorderedHash(hs))
+    finalizeHash(h, output.size)
+  }
+
+  def equivalenceHash: Int = {
+    // the seed (not counted in the length of finalizeHash)
+    // decided to use the class name
+    val h0 = stringHash("edu.arizona.sista.assembly.SimpleEvent")
+    // the label of the SimpleEvent
+    val h1 = mix(h0, label.hashCode)
+    // the input of the SimpleEvent
+    val h2 = mix(h1, inputHash)
+    // the output of the SimpleEvent
+    val h3 = mixLast(h2, outputHash)
+    finalizeHash(h3, 3)
+  }
+
+  def isEquivalentTo(other: Any): Boolean = other match {
+    case se: SimpleEvent => this.equivalenceHash == se.equivalenceHash
     case _ => false
   }
 }
@@ -121,9 +165,36 @@ class Regulation (
   def controlled: Set[SimpleEvent] =
     controlledPointers.map(id => manager.getEERepresentation(id).asInstanceOf[SimpleEvent])
 
-  def isEquivalentTo(other: EntityEventRepresentation): Boolean = other match {
+  private def controllerHash: Int = {
+    val h0 = stringHash("Regulation.controller")
+    val hs = controller.map(_.equivalenceHash)
+    val h = mixLast(h0, unorderedHash(hs))
+    finalizeHash(h, controller.size)
+  }
+
+  private def controlledHash: Int = {
+    val h0 = stringHash("Regulation.controlled")
+    val hs = controlled.map(_.equivalenceHash)
+    val h = mixLast(h0, unorderedHash(hs))
+    finalizeHash(h, controlled.size)
+  }
+
+  def equivalenceHash: Int = {
+    // the seed (not counted in the length of finalizeHash)
+    // decided to use the class name
+    val h0 = stringHash("edu.arizona.sista.assembly.Regulation")
+    // the polarity of the Regulation
+    val h1 = mix(h0, stringHash(polarity))
+    // controller
+    val h2 = mix(h1, controllerHash)
+    // controlled
+    val h3 = mixLast(h2, controlledHash)
+    finalizeHash(h3, 3)
+  }
+
+  def isEquivalentTo(other: Any): Boolean = other match {
     // controller and controlled must be the same
-    case reg: Regulation => this.controller == reg.controller && reg.controlled == reg.controlled
+    case reg: Regulation => this.equivalenceHash == reg.equivalenceHash
     case _ => false
   }
 }

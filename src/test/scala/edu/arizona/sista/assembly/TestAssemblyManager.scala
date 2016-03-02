@@ -97,7 +97,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
         .map(_.asInstanceOf[SimpleEvent])
 
     // FIXME
-    phosEvents.groupBy(p => (p.input, p.output, p.label) ) should have size(2)
+    phosEvents.groupBy(p => (p.inputHash, p.outputHash, p.label) ) should have size(2)
   }
 
   text3 should "have a SimpleEntity representing Ras w/ PTM(phos + site) as output to a phosphorylation" in {
