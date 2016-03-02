@@ -362,19 +362,58 @@ class AssemblyManager(
     (id, repr)
   }
 
+  /**
+   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param m an Odin Mention
+   * @return a tuple of ([[IDPointer]], [[Regulation]])
+   */
+  def createRegulation(m: Mention): (IDPointer, Regulation) = {
 
-  // dedup should cover some of Emek's stuff
-  // 1. Approx. sieves (by proximity)
-  //   - proximity is 1 or 2 sentences
-  //   - entities without mutations
-  //   - entities without sites (PTMs)
-  //    def createRegulation(m: Mention): (IDPointer, Regulation) = m.toBioMention match {
-  //      // val controlled = reg.arguments("controlled").map(createEERepresentation)
-          // convert to PTM?????
-          // TODO: binarize controllers!
-  //      // controller: Entity
-  //      // controlled: Event
-  //    }
+    // check for coref
+    val cm = m.toCorefMention
+    val reg = getResolvedForm(cm)
+
+    // get polarity
+    val polarity = getPolarityLabel(reg)
+
+    // mention should be a Regulation
+    require(reg matches "Regulation", "createRegulation only handles Regulations")
+    // mention's polarity should be either positive or negative
+    require(polarity == AssemblyManager.positive || polarity == AssemblyManager.negative, "Polarity of Regulation must be positive or negative")
+    // all controlled args must be simple events
+    require(reg.arguments("controlled").forall(_ matches "SimpleEvent"), "The 'controlled' of any Regulation must be a SimpleEvent")
+
+    val controllers: Set[IDPointer] = {
+      reg.arguments("controller")
+        .toSet[Mention]
+        .map(c => getOrCreateIDwithEERepresentation(c)._1)
+    }
+
+    val controlleds: Set[IDPointer] = {
+      reg.arguments("controller")
+        .toSet[Mention]
+        .map(c => getOrCreateIDwithEERepresentation(c)._1)
+    }
+
+    val repr =
+      new Regulation(
+        controllers,
+        controlleds,
+        polarity,
+        // check if coref was successful (i.e., it found something)
+        hasCorefResolution(cm),
+        this
+      )
+
+    // prepare id
+    val id = getOrCreateID(m)
+    // update LUTs
+    updateLUTs(id, m, repr)
+
+    //println(s"ID for mention '${cm.text}' with label ${cm.label} is $id")
+    // id and repr pair
+    (id, repr)
+  }
 
   /**
    * LUT updates happen internally
@@ -386,9 +425,7 @@ class AssemblyManager(
       case e if e matches "Entity" => createSimpleEntity(e, None)
       case binding if binding matches "Binding" => createBinding(binding)
       case se if (se matches "SimpleEvent") && ! (se matches "Binding") => createSimpleEvent(m)
-      //case regulation if regulation matches "Regulation" => createRegulation(regulation)
-      // TODO: generic reg
-      // TODO: reg
+      case regulation if regulation matches "Regulation" => createRegulation(regulation)
     }
 
   }

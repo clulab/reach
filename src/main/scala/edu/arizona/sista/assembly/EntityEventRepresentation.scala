@@ -109,16 +109,15 @@ class SimpleEvent (
 }
 
 class Regulation (
-  val controllerPointer: Option[IDPointer],
+  val controllerPointers: Set[IDPointer],
   val controlledPointers: Set[IDPointer],
   val polarity: String,
   val coref: Boolean,
   val manager: AssemblyManager) extends Event {
 
-  def controller: Option[EntityEventRepresentation] = controllerPointer match {
-    case Some(id) => Some(manager.getEERepresentation(id))
-    case _ => None
-  }
+  def controller: Set[EntityEventRepresentation] =
+    controlledPointers.map(manager.getEERepresentation)
+
   def controlled: Set[SimpleEvent] =
     controlledPointers.map(id => manager.getEERepresentation(id).asInstanceOf[SimpleEvent])
 
