@@ -9,13 +9,27 @@ import edu.arizona.sista.reach.mentions
 import edu.arizona.sista.assembly
 
 
+/**
+ * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
+ *             These LUTs are used to populate the mentionToID and idToEERepresentation LUTs containing the same information.
+ *             Subsequent updates to these LUTs create new LUTs.
+ *             The motivation for the LUTs was to allow for changes in the mapping of a Mention -...-> [[EntityEventRepresentation]]
+ *             to easily propagate in nested cases.
+ *             For example, an update to the (Mention -> [[EntityEventRepresentation]]) mapping of a SimpleEvent Mention will propagate
+ *             to the (Mention -> [[EntityEventRepresentation]]) mapping of any ComplexEvent Mention containing this SimpleEvent Mention.
+ * @param m2id a lookup table from Mention -> [[IDPointer]].  Each key (Mention) should map to a unique [[IDPointer]].
+ * @param id2repr a lookup table from [[IDPointer]] -> [[EntityEventRepresentation]].
+ *                Keys ([[IDPointer]]) may point to the same value (EntityEventRepresentation)
+ */
 class AssemblyManager(
-  m2id: Map[Mention, IDPointer] = Map.empty[Mention, IDPointer],
-  id2repr: Map[IDPointer, EntityEventRepresentation] = Map.empty[IDPointer, EntityEventRepresentation]
+  m2id: Map[Mention, IDPointer],
+  id2repr: Map[IDPointer, EntityEventRepresentation]
 ) {
 
   var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
   var idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation] = id2repr.toMap
+  // TODO: this is potentially expensive...
+  // Should probably be a var initialized to this, but where to do the updates?
   def idToMention: Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
 
   // initialize to size of LUT 2
@@ -219,6 +233,16 @@ class AssemblyManager(
     idToEERepresentation = idToEERepresentation + (id -> repr)
   }
 
+  /**
+   * Builds a Set[AssemblyModfication] from the modifcations belonging to a Mention m.
+   * Currently, only a subset of Mention [[edu.arizona.sista.reach.mentions.Modification]] are considered relevant to assembly:
+   * PTM
+   * Mutant
+   *
+   * Additionally, a Mention corresponding to an Entity will include an [[assembly.EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
+   * @param m an Odin Mention
+   * @return Set[AssemblyModification]
+   */
   protected def mkAssemblyModifications(m: Mention): Set[AssemblyModification] = {
     // we only care to represent a subset of the Modifications associated with a mention
     val mods: Set[AssemblyModification] =
@@ -233,10 +257,14 @@ class AssemblyManager(
   }
 
   /**
-   * takes a set of optional modifications (useful for building output of SimpleEvent)
-   * @param m an Odin mention
-   * @param mods an optional set of AssemblyModifications (useful for building output of SimpleEvent)
-   * @return a tuple of (IDPointer, SimpleEntity)
+   * Takes a set of optional modifications (useful for building output of SimpleEvent)
+   *
+   * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
+   * @param m an Odin Mention
+   * @param mods an optional set of [[AssemblyModification]].
+   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[assembly.PTM]] comes from the [[SimpleEvent]]
+   *             (i.e., the PTM cannot be recovered by simply examining m out of context)
+   * @return a tuple of ([[IDPointer]], [[SimpleEntity]])
    */
   protected def createSimpleEntity(
     m: Mention,
@@ -277,6 +305,11 @@ class AssemblyManager(
     (id, repr)
   }
 
+  /**
+   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param m an Odin Mention
+   * @return a tuple of ([[IDPointer]], [[Complex]])
+   */
   protected def createBinding(m: Mention): (IDPointer, Complex) = {
 
     // check for coref
@@ -305,6 +338,11 @@ class AssemblyManager(
     (id, repr)
   }
 
+  /**
+   * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param m an Odin Mention
+   * @return a tuple of ([[IDPointer]], [[Complex]])
+   */
   protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = {
 
     // check for coref
@@ -416,9 +454,12 @@ class AssemblyManager(
   }
 
   /**
-   * LUT updates happen internally
-   * returns an (IDPointer, EntityEventRepresentation) tuple
-   * */
+   * Creates a ([[IDPointer]], [[EntityEventRepresentation]]) tuple from a Mention m.
+   * Assumes the Mention m is not already present in the [[mentionToID]] LUT
+   * Updates to [[mentionToID]] and [[idToEERepresentation]] in the relevant create* call
+   * @param m an Odin Mention
+   * @return a tuple of ([[IDPointer]], [[EntityEventRepresentation]])
+   */
   def createIDwithEERepresentation(m: Mention): (IDPointer, EntityEventRepresentation) = {
 
     m.toBioMention match {
@@ -443,8 +484,10 @@ class AssemblyManager(
   }
 
   /**
-   * LUT updates happen internally
-   * returns an EntityEventRepresentation
-   * */
+   * Attempts to retrieve a ([[IDPointer]], [[EntityEventRepresentation]]) tuple given a Mention m.
+   * The tuple will be created if the Mention m is not already present in the [[mentionToID]] LUT
+   * @param m an Odin Mention
+   * @return an [[EntityEventRepresentation]]
+   */
   def createEERepresentation(m: Mention): EntityEventRepresentation = createIDwithEERepresentation(m)._2
 }
