@@ -29,6 +29,7 @@ class ReachSystem(
   // initialize actions object
   val actions = new DarpaActions
   val entityLookup = new ReachEntityLookup // initialize entity lookup (find grounding candidates)
+  val grounder = new ReachGrounder
   // start entity extraction engine
   // this engine extracts all physical entities of interest and grounds them
   val entityEngine = ExtractorEngine(entityRules, actions)
@@ -71,8 +72,13 @@ class ReachSystem(
     }
     contextEngine.update(eventsPerEntry.flatten)
     val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
+    System.err.println("******* BEFORE GROUNDING **********") // REMOVE LATER
+    eventsWithContext.foreach { grounder.printMention }       // REMOVE LATER
+    val grounded = grounder(eventsWithContext)
+    System.err.println("******* AFTER GROUNDING **********") // REMOVE LATER
+    grounded.foreach { grounder.printMention }               // REMOVE LATER
     // we can't send all mentions to resolve coref, so we group them by document first
-    val resolved = eventsWithContext.groupBy(_.document).values.map(resolve).flatten.toList
+    val resolved = grounded.groupBy(_.document).values.map(resolve).flatten.toList
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
