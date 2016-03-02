@@ -406,16 +406,21 @@ class TestCoreference extends FlatSpec with Matchers {
   val sent34 = "Cells were transfected with N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants and analyzed " +
     "for activatory STAT1(Y701) phosphorylation 48 hours later. In 293T and RCS cells, all six FGFR3 mutants induced " +
     "activatory ERK(T202/Y204) phosphorylation"
-//  sent34 should "produce 6 regulations for 6 mutants" in {
-//    val mentions = getBioMentions(sent34)
-//
-//  }
-  val sent35 = "Vectors carrying the wild-type FGFR3 as well as the N540K (HCH), G380R (ACH), R248C, Y373C, K650E " +
-  "(TD) and K650M (SADDAN and TD) mutants were expressed in CHO cells. It is possible that N540K, G380R, R248C and " +
-  "Y373C mutants still activate STAT1 in cells, despite the lack of this capacity in a kinase assay"
+  sent34 should "contain 12 regulations of 2 ERK phosphorylations" in {
+    val mentions = getBioMentions(sent34)
+    val phos = mentions.filter(m => m.matches("Phosphorylation") &&
+      m.arguments.getOrElse("theme", Nil).map(_.text).contains("ERK"))
+    phos should have size (2)
+    val regs = mentions.filter(m => m.matches("Positive_regulation"))
+    regs should have size (12)
+  }
 
-  val sent36 = "GST-N343 was phosphorylated. In contrast, its Ala mutant at Ser34 (S34A) was not phosphorylated. The " +
-    "Ala mutant at Thr149 was phosphorylated by Cdk5/p35, similarly to the unmutated fragment."
+//  val sent35 = "Vectors carrying the wild-type FGFR3 as well as the N540K (HCH), G380R (ACH), R248C, Y373C, K650E " +
+//  "(TD) and K650M (SADDAN and TD) mutants were expressed in CHO cells. It is possible that N540K, G380R, R248C and " +
+//  "Y373C mutants still activate STAT1 in cells, despite the lack of this capacity in a kinase assay"
+//
+//  val sent36 = "GST-N343 was phosphorylated. In contrast, its Ala mutant at Ser34 (S34A) was not phosphorylated. The " +
+//    "Ala mutant at Thr149 was phosphorylated by Cdk5/p35, similarly to the unmutated fragment."
 
   // Spread grounding from Ras to ungrounded alias H-Ras.
   val sent37a = "H-Ras (hereafter referred to as Ras) is phosphorylated."
