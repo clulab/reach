@@ -18,6 +18,36 @@ class AssemblyManager(
   var idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation] = id2repr.toMap
   def idToMention: Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
 
+  // initialize to size of LUT 2
+  private var nextID: IDPointer = idToEERepresentation.size
+
+  /**
+   * A (mostly) human readable printout of the (key, value) pairs in the [[mentionToID]]] LUT
+   */
+  def mentionIndexSummary(): Unit = {
+    mentionToID.foreach{ pair =>
+      val m = pair._1
+      val id = pair._2
+      println(s"${mentionSummary(m)} => $id")
+    }
+  }
+
+  /**
+   * A high-level summary of a Mention m
+   * @param m an Odin Mention
+   * @return a high-level String representation of m
+   */
+  def mentionSummary(m: Mention): String = {
+    val docRepr = s"DOC:${m.document.id.get} (sent. ${m.sentence})"
+    s"Mention(label=${m.label}, text='${m.text}', doc=$docRepr)"
+  }
+
+  /**
+   * Retrieves an [[EntityEventRepresentation]] for a Mention.
+   * Assumes an [[EntityEventRepresentation]] for the given Mention already exists.
+   * @param m an Odin Mention
+   * @return an [[EntityEventRepresentation]]
+   */
   def getEERepresentation(m: Mention): EntityEventRepresentation = {
     val id = mentionToID(m)
     idToEERepresentation(id)
@@ -108,28 +138,73 @@ class AssemblyManager(
     case _ => AssemblyManager.unknown
   }
 
+  /**
+   * Creates a unique [[IDPointer]].
+   * This implementation does not rely on updates to either the [[mentionToID]] or [[idToEERepresentation]] LUT to determine a unique [[IDPointer]].
+   * @return a unique [[IDPointer]]
+   */
+  // use the size of LUT 2 to create a new ID
+  def createID: IDPointer = {
+    val currentID = nextID
+    nextID += 1
+    currentID
+  }
+
+  /**
+   * Attempts to retrieve an [[IDPointer]] for a Mention, and creates a new [[IDPointer]] if none is found.
+   * @param m an Odin Mention
+   * @return an [[IDPointer]] unique to m
+   */
   def getOrCreateID(m: Mention): IDPointer = mentionToID.getOrElse(m, createID)
 
+  /**
+   * Attempts to retrieve an [[EntityEventRepresentation]] for m.
+   * If a representation cannot be retrieved, a new one is created.
+   * Whenever a new representation is created,
+   * the [[mentionToID]] and [[idToEERepresentation]] LUTs will be updated (see [[createEERepresentation]] for details)
+   * @param m an Odin Mention
+   * @return the [[EntityEventRepresentation]] corresponding to m
+   */
   def getOrCreateEERepresentation(m: Mention): EntityEventRepresentation = {
+    // ensure this mention should be stored in LUT 1
+    require(isValidMention(m), s"mention with the label ${m.label} cannot be tracked by the AssemblyManager")
+
     mentionToID.getOrElse(m, None) match {
       // if an ID already exists, retrieve the associated representation
       case id: IDPointer => idToEERepresentation(id)
-      case None =>
-        // get an ID for the current mention
-        val id: IDPointer = getOrCreateID(m)
-        // create new representation
-        val repr = createEERepresentation(m)
-        // update LUTs
-        updateLUTs(id, m, repr)
-
-        repr
+      // create new representation
+      case None => createEERepresentation(m)
     }
   }
 
+  /**
+   * Updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param id a unique [[IDPointer]] for m
+   * @param m an Odin Mention
+   * @param repr the [[EntityEventRepresentation]] corresponding to m
+   */
   def updateLUTs(id: IDPointer, m: Mention, repr: EntityEventRepresentation): Unit = {
     // update LUT #1
-    mentionToID  = mentionToID + (m -> id)
+    updateMentionToIDTable(m, id)
     // update LUT #2
+    updateIdToEERepresentationTable(id, repr)
+  }
+
+  /**
+   * Updates the [[mentionToID]] LUT
+   * @param m an Odin Mention
+   * @param id an [[IDPointer]] unique to m
+   */
+  private def updateMentionToIDTable(m: Mention, id: IDPointer): Unit = {
+    mentionToID  = mentionToID + (m -> id)
+  }
+
+  /**
+   * Updates the [[idToEERepresentation]] LUT
+   * @param id a unique [[IDPointer]] pointing to repr
+   * @param repr an [[EntityEventRepresentation]] associated with the provided id
+   */
+  private def updateIdToEERepresentationTable(id: IDPointer, repr: EntityEventRepresentation): Unit = {
     idToEERepresentation = idToEERepresentation + (id -> repr)
   }
 
@@ -170,13 +245,23 @@ class AssemblyManager(
         // TODO: decide whether or not we should use a richer representation for the grounding ID
         e.nsId,
         // modifications relevant to assembly
-        if (mods.isEmpty) modifications else modifications ++ mods.get,
-        // TODO: ask Dane how best to check if this guy is resolved...
-        cm.isGeneric,
+        if (mods.isDefined) modifications ++ mods.get else modifications,
+        // check if coref was successful (i.e., it found something)
+        hasCorefResolution(cm),
         this
       )
-    // update LUTs
-    updateLUTs(id, e, repr)
+
+    // prepare id
+    // if mods have been provided, a new id should be created since createSimpleEvent calls this method
+    // and the current representation could be an output of a SimpleEvent
+    // for a sentence like "Ras is phosphorylated", the Mention for "Ras" should only point to the PTM-less form;
+    // however, when createSimpleEvent calls this method to construct an output representation,
+    // it gives it the PTMs to associate with this mention
+    val id = if (mods.nonEmpty) createID else getOrCreateID(e)
+    // Only update table 1 if no additional mods were provided
+    if (mods.isEmpty) updateLUTs(id, m, repr) else updateIdToEERepresentationTable(id, repr)
+
+    //println(s"ID for mention '${cm.text}' with label ${cm.label}${if (mods.nonEmpty) s" and mods ${mods.get}" else ""} is $id")
     // id and repr pair
     (id, repr)
   }
@@ -199,8 +284,13 @@ class AssemblyManager(
         hasCorefResolution(cm),
         this
       )
+
+    // prepare id
+    val id = getOrCreateID(m)
     // update LUTs
-    updateLUTs(id, b, repr)
+    updateLUTs(id, m, repr)
+
+    //println(s"ID for binding mention '${cm.text}' is $id")
     (id, repr)
   }
 
@@ -215,12 +305,14 @@ class AssemblyManager(
     // there should not be a cause among the arguments
     require(!(cm.arguments contains "cause"), "SimpleEvent should not contain a cause!")
     // prepare input (roles -> repr. pointers)
+
     // filter out sites from input
     val siteLessArgs = e.arguments - "site"
     val input: Map[String, Set[IDPointer]] = siteLessArgs map {
       case (role: String, mns: Seq[Mention]) =>
-        (role, mns.map(createIDwithEERepresentation).map(_._1).toSet)
+        (role, mns.map(getOrCreateIDwithEERepresentation).map(_._1).toSet)
     }
+
     // prepare output
     val output: Set[IDPointer] = {
       // handle sites
@@ -252,8 +344,9 @@ class AssemblyManager(
     // prepare id
     val id = getOrCreateID(m)
     // update LUTs
-    // TODO: should we store the coref mention, or the antecedent mention?
-    updateLUTs(id, e, repr)
+    updateLUTs(id, m, repr)
+
+    //println(s"ID for ${cm.label} mention of SimpleEvent '${cm.text}' is $id")
     (id, repr)
   }
 
@@ -285,6 +378,19 @@ class AssemblyManager(
       // TODO: generic reg
       // TODO: reg
     }
+
+  }
+
+  /**
+   * Attempts to retrieve a ([[IDPointer]], [[EntityEventRepresentation]]) tuple given a Mention m.
+   * The tuple will be created if the Mention m is not already present in the [[mentionToID]] LUT
+   * @param m an Odin Mention
+   * @return a tuple of ([[IDPointer]], [[EntityEventRepresentation]])
+   */
+  def getOrCreateIDwithEERepresentation(m: Mention): (IDPointer, EntityEventRepresentation) = {
+    val id = getOrCreateID(m)
+    val repr = idToEERepresentation.getOrElse(id, createEERepresentation(m))
+    (id, repr)
   }
 
   /**
