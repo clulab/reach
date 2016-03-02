@@ -491,3 +491,10 @@ class AssemblyManager(
    */
   def createEERepresentation(m: Mention): EntityEventRepresentation = createIDwithEERepresentation(m)._2
 }
+
+object AssemblyManager {
+  val positive = "Positive"
+  val negative = "Negative"
+  val unknown = "UNKNOWN"
+  def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+}
