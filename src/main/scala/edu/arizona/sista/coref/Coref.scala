@@ -50,7 +50,10 @@ class Coref {
       // Search for arguments in already-completed TBM map
       resolvedArgs = for {
         (lbl, arg) <- specific.arguments
-        argMs = arg.map(m => resolvedTBMs.getOrElse(m.asInstanceOf[CorefTextBoundMention], Nil))
+        argMs = arg.map(m => {
+          specific.sieves ++= m.toCorefMention.sieves
+          resolvedTBMs.getOrElse(m.asInstanceOf[CorefTextBoundMention], Nil)
+        })
       } yield lbl -> argMs
 
       // Because of plural anaphors like "them", we may have to split the arguments into multiple sets to make
@@ -205,7 +208,10 @@ class Coref {
       resolvedArgs = (for {
         (lbl, arg) <- evt.arguments
         //_=println(s"lbl: $lbl\nargs: ${arg.map(_.text).mkString("\n")}")
-        argMs = arg.map(m => resolved.getOrElse(m.toCorefMention, Nil))
+        argMs = arg.map(m => {
+          evt.sieves ++= m.toCorefMention.sieves
+          resolved.getOrElse(m.toCorefMention, Nil)
+        })
         argsAsEntities = argMs.map(ms => ms.map(m =>
           if (lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
             val ant = da.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).get.toCorefMention
@@ -366,6 +372,7 @@ class Coref {
             if (aliases contains kbEntry) {
               if (debug) println(s"${mention.text} matches ${aliases(kbEntry).text}")
               mention.copyGroundingFrom(aliases(kbEntry))
+              mention.sieves += "aliasGroundingMatch"
             }
         }
 
