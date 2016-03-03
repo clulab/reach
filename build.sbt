@@ -76,3 +76,13 @@ libraryDependencies ++= Seq(
   "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
   "org.apache.lucene" % "lucene-queryparser" % "5.3.1"
 )
+
+// settings for building project website
+
+site.settings
+// include documentation
+site.includeScaladoc()
+
+ghpages.settings
+
+git.remoteRepo := "git@github.com:clulab/reach.git"
