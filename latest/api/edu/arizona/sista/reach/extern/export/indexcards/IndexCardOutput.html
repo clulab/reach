@@ -1,0 +1,927 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>IndexCardOutput - edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput</title>
+          <meta name="description" content="IndexCardOutput - edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput" />
+          <meta name="keywords" content="IndexCardOutput edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../../index.html';
+            var hash = 'edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a href="IndexCardOutput$.html" title="See companion object"><img src="../../../../../../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a href="../../../../../../package.html" class="extype" name="edu">edu</a>.<a href="../../../../../package.html" class="extype" name="edu.arizona">arizona</a>.<a href="../../../../package.html" class="extype" name="edu.arizona.sista">sista</a>.<a href="../../../package.html" class="extype" name="edu.arizona.sista.reach">reach</a>.<a href="../../package.html" class="extype" name="edu.arizona.sista.reach.extern">extern</a>.<a href="../package.html" class="extype" name="edu.arizona.sista.reach.extern.export">export</a>.<a href="package.html" class="extype" name="edu.arizona.sista.reach.extern.export.indexcards">indexcards</a></p>
+        <h1><a href="IndexCardOutput$.html" title="See companion object">IndexCardOutput</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="IndexCardOutput$.html" title="See companion object">object IndexCardOutput</a>
+            | <a href="package.html" class="extype" name="edu.arizona.sista.reach.extern.export.indexcards">package indexcards</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">IndexCardOutput</span><span class="result"> extends <a href="../JsonOutputter.html" class="extype" name="edu.arizona.sista.reach.extern.export.JsonOutputter">JsonOutputter</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Defines classes and methods used to build and output the index card format.
+  Written by: Mihai Surdeanu. 8/27/2015.
+  Last Modified: Update for grounding changes.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../JsonOutputter.html" class="extype" name="edu.arizona.sista.reach.extern.export.JsonOutputter">JsonOutputter</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput"><span>IndexCardOutput</span></li><li class="in" name="edu.arizona.sista.reach.extern.export.JsonOutputter"><span>JsonOutputter</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;():edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput"></a>
+      <a id="&lt;init&gt;:IndexCardOutput"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">IndexCardOutput</span><span class="params">()</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@&lt;init&gt;():edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#addLocation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="addLocation(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,prefix:String,loc:edu.arizona.sista.reach.mentions.CorefMention):Unit"></a>
+      <a id="addLocation(PropMap,String,CorefMention):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addLocation</span><span class="params">(<span name="f">f: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>, <span name="prefix">prefix: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="loc">loc: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@addLocation(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,prefix:String,loc:edu.arizona.sista.reach.mentions.CorefMention):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#addMeta" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="addMeta(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,mention:edu.arizona.sista.reach.mentions.CorefMention,paperId:String,startTime:java.util.Date,endTime:java.util.Date):Unit"></a>
+      <a id="addMeta(PropMap,CorefMention,String,Date,Date):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addMeta</span><span class="params">(<span name="f">f: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>, <span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>, <span name="paperId">paperId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="startTime">startTime: <span class="extype" name="java.util.Date">Date</span></span>, <span name="endTime">endTime: <span class="extype" name="java.util.Date">Date</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@addMeta(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,mention:edu.arizona.sista.reach.mentions.CorefMention,paperId:String,startTime:java.util.Date,endTime:java.util.Date):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#addMutation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="addMutation(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,base:String,site:Int):Unit"></a>
+      <a id="addMutation(PropMap,String,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addMutation</span><span class="params">(<span name="f">f: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>, <span name="base">base: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="site">site: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@addMutation(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,base:String,site:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#addUnspecifiedMutation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="addUnspecifiedMutation(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap):Unit"></a>
+      <a id="addUnspecifiedMutation(PropMap):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addUnspecifiedMutation</span><span class="params">(<span name="f">f: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@addUnspecifiedMutation(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkActivationIndexCard" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkActivationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkActivationIndexCard(CorefMention):Option[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkActivationIndexCard</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkActivationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a card for an activation event</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkArgument" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkArgument(arg:edu.arizona.sista.reach.mentions.CorefMention):Any"></a>
+      <a id="mkArgument(CorefMention):Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkArgument</span><span class="params">(<span name="arg">arg: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkArgument(arg:edu.arizona.sista.reach.mentions.CorefMention):Any" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkBindingIndexCard" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkBindingIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkBindingIndexCard(CorefMention):Option[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkBindingIndexCard</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkBindingIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a card for a complex-assembly event</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkCards" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mkCards(paperId:String,allMentions:Seq[edu.arizona.sista.odin.Mention],startTime:java.util.Date,endTime:java.util.Date):Iterable[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkCards(String,Seq[Mention],Date,Date):Iterable[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkCards</span><span class="params">(<span name="paperId">paperId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="allMentions">allMentions: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>, <span name="startTime">startTime: <span class="extype" name="java.util.Date">Date</span></span>, <span name="endTime">endTime: <span class="extype" name="java.util.Date">Date</span></span>)</span><span class="result">: <span class="extype" name="scala.Iterable">Iterable</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkCards(paperId:String,allMentions:Seq[edu.arizona.sista.odin.Mention],startTime:java.util.Date,endTime:java.util.Date):Iterable[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates annotations from all events read from this paper.</p><div class="fullcomment"><div class="comment cmt"><p>Creates annotations from all events read from this paper.
+This needs to be done in 2 passes:
+  1) save recursive events
+  2) save simple events that are not part of recursive events
+</p></div></div>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkComplexArgument" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkComplexArgument(complex:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.FrameList"></a>
+      <a id="mkComplexArgument(CorefMention):FrameList"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkComplexArgument</span><span class="params">(<span name="complex">complex: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <a href="../JsonOutputter$.html#FrameList=scala.collection.mutable.MutableList[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.FrameList">FrameList</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkComplexArgument(complex:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.FrameList" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkContext" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkContext(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,mention:edu.arizona.sista.reach.mentions.CorefMention):Unit"></a>
+      <a id="mkContext(PropMap,CorefMention):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkContext</span><span class="params">(<span name="f">f: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>, <span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkContext(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,mention:edu.arizona.sista.reach.mentions.CorefMention):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Add the properties of the given context map to the given property map.</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkEventModification" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkEventModification(mention:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap"></a>
+      <a id="mkEventModification(CorefMention):PropMap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkEventModification</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkEventModification(mention:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkFeatures" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkFeatures(arg:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.FrameList"></a>
+      <a id="mkFeatures(CorefMention):FrameList"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkFeatures</span><span class="params">(<span name="arg">arg: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <a href="../JsonOutputter$.html#FrameList=scala.collection.mutable.MutableList[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.FrameList">FrameList</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkFeatures(arg:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.FrameList" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkHedging" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkHedging(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,mention:edu.arizona.sista.reach.mentions.CorefMention):Unit"></a>
+      <a id="mkHedging(PropMap,CorefMention):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkHedging</span><span class="params">(<span name="f">f: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>, <span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkHedging(f:edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap,mention:edu.arizona.sista.reach.mentions.CorefMention):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkIdentifier" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkIdentifier(grounding:edu.arizona.sista.reach.grounding.KBResolution):String"></a>
+      <a id="mkIdentifier(KBResolution):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkIdentifier</span><span class="params">(<span name="grounding">grounding: <a href="../../../grounding/KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkIdentifier(grounding:edu.arizona.sista.reach.grounding.KBResolution):String" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkIndexCard" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkIndexCard(CorefMention):Option[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkIndexCard</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Main annotation dispatcher method.</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkIndexCardFileName" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkIndexCardFileName(paperId:String,count:Int):String"></a>
+      <a id="mkIndexCardFileName(String,Int):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkIndexCardFileName</span><span class="params">(<span name="paperId">paperId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkIndexCardFileName(paperId:String,count:Int):String" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a new filename for each card.</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkModificationIndexCard" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkModificationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention,positiveModification:Boolean):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkModificationIndexCard(CorefMention,Boolean):Option[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkModificationIndexCard</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>, <span name="positiveModification">positiveModification: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkModificationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention,positiveModification:Boolean):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a card for a simple, modification event</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkMutantFeature" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkMutantFeature(m:edu.arizona.sista.reach.mentions.Mutant):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap"></a>
+      <a id="mkMutantFeature(Mutant):PropMap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkMutantFeature</span><span class="params">(<span name="m">m: <a href="../../../mentions/Mutant.html" class="extype" name="edu.arizona.sista.reach.mentions.Mutant">Mutant</a></span>)</span><span class="result">: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkMutantFeature(m:edu.arizona.sista.reach.mentions.Mutant):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkPTMFeature" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkPTMFeature(ptm:edu.arizona.sista.reach.mentions.PTM):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap"></a>
+      <a id="mkPTMFeature(PTM):PropMap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkPTMFeature</span><span class="params">(<span name="ptm">ptm: <a href="../../../mentions/PTM.html" class="extype" name="edu.arizona.sista.reach.mentions.PTM">PTM</a></span>)</span><span class="result">: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkPTMFeature(ptm:edu.arizona.sista.reach.mentions.PTM):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkRegulationIndexCard" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkRegulationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention,simpleEventsInRegs:scala.collection.mutable.HashSet[edu.arizona.sista.odin.Mention]):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkRegulationIndexCard(CorefMention,HashSet[Mention]):Option[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkRegulationIndexCard</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>, <span name="simpleEventsInRegs">simpleEventsInRegs: <span class="extype" name="scala.collection.mutable.HashSet">HashSet</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkRegulationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention,simpleEventsInRegs:scala.collection.mutable.HashSet[edu.arizona.sista.odin.Mention]):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a card for a regulation event</p>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkSingleArgument" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkSingleArgument(arg:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap"></a>
+      <a id="mkSingleArgument(CorefMention):PropMap"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkSingleArgument</span><span class="params">(<span name="arg">arg: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkSingleArgument(arg:edu.arizona.sista.reach.mentions.CorefMention):edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#mkTranslocationIndexCard" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkTranslocationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]"></a>
+      <a id="mkTranslocationIndexCard(CorefMention):Option[PropMap]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkTranslocationIndexCard</span><span class="params">(<span name="mention">mention: <a href="../../../mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../JsonOutputter$.html#PropMap=scala.collection.mutable.HashMap[String,Any]" class="extmbr" name="edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap">PropMap</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@mkTranslocationIndexCard(mention:edu.arizona.sista.reach.mentions.CorefMention):Option[edu.arizona.sista.reach.extern.export.JsonOutputter.PropMap]" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a card for a translocation event</p>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#toJSON" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toJSON(paperId:String,allMentions:Seq[edu.arizona.sista.odin.Mention],paperPassages:Seq[edu.arizona.sista.reach.nxml.FriesEntry],startTime:java.util.Date,endTime:java.util.Date,outFilePrefix:String):String"></a>
+      <a id="toJSON(String,Seq[Mention],Seq[FriesEntry],Date,Date,String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toJSON</span><span class="params">(<span name="paperId">paperId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="allMentions">allMentions: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>, <span name="paperPassages">paperPassages: <span class="extype" name="scala.Seq">Seq</span>[<a href="../../../nxml/FriesEntry.html" class="extype" name="edu.arizona.sista.reach.nxml.FriesEntry">FriesEntry</a>]</span>, <span name="startTime">startTime: <span class="extype" name="java.util.Date">Date</span></span>, <span name="endTime">endTime: <span class="extype" name="java.util.Date">Date</span></span>, <span name="outFilePrefix">outFilePrefix: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@toJSON(paperId:String,allMentions:Seq[edu.arizona.sista.odin.Mention],paperPassages:Seq[edu.arizona.sista.reach.nxml.FriesEntry],startTime:java.util.Date,endTime:java.util.Date,outFilePrefix:String):String" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the given mentions in the index-card JSON format, as one big string.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the given mentions in the index-card JSON format, as one big string.
+All index cards are concatenated into a single JSON string.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput">IndexCardOutput</a> → <a href="../JsonOutputter.html" class="extype" name="edu.arizona.sista.reach.extern.export.JsonOutputter">JsonOutputter</a></dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput#writeJSON" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="writeJSON(paperId:String,allMentions:Seq[edu.arizona.sista.odin.Mention],paperPassages:Seq[edu.arizona.sista.reach.nxml.FriesEntry],startTime:java.util.Date,endTime:java.util.Date,outFilePrefix:String):Unit"></a>
+      <a id="writeJSON(String,Seq[Mention],Seq[FriesEntry],Date,Date,String):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">writeJSON</span><span class="params">(<span name="paperId">paperId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="allMentions">allMentions: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>, <span name="paperPassages">paperPassages: <span class="extype" name="scala.Seq">Seq</span>[<a href="../../../nxml/FriesEntry.html" class="extype" name="edu.arizona.sista.reach.nxml.FriesEntry">FriesEntry</a>]</span>, <span name="startTime">startTime: <span class="extype" name="java.util.Date">Date</span></span>, <span name="endTime">endTime: <span class="extype" name="java.util.Date">Date</span></span>, <span name="outFilePrefix">outFilePrefix: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../../index.html#edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput@writeJSON(paperId:String,allMentions:Seq[edu.arizona.sista.odin.Mention],paperPassages:Seq[edu.arizona.sista.reach.nxml.FriesEntry],startTime:java.util.Date,endTime:java.util.Date,outFilePrefix:String):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Writes the given mentions to output files in Fries JSON format.</p><div class="fullcomment"><div class="comment cmt"><p>Writes the given mentions to output files in Fries JSON format.
+Separate output files are written for sentences, entities, and events.
+Each output file is prefixed with the given prefix string.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput">IndexCardOutput</a> → <a href="../JsonOutputter.html" class="extype" name="edu.arizona.sista.reach.extern.export.JsonOutputter">JsonOutputter</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="edu.arizona.sista.reach.extern.export.JsonOutputter">
+              <h3>Inherited from <a href="../JsonOutputter.html" class="extype" name="edu.arizona.sista.reach.extern.export.JsonOutputter">JsonOutputter</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

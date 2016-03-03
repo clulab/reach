@@ -1,0 +1,879 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>ReachSystem - edu.arizona.sista.reach.ReachSystem</title>
+          <meta name="description" content="ReachSystem - edu.arizona.sista.reach.ReachSystem" />
+          <meta name="keywords" content="ReachSystem edu.arizona.sista.reach.ReachSystem" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'edu.arizona.sista.reach.ReachSystem';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a href="ReachSystem$.html" title="See companion object"><img src="../../../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a href="../../../package.html" class="extype" name="edu">edu</a>.<a href="../../package.html" class="extype" name="edu.arizona">arizona</a>.<a href="../package.html" class="extype" name="edu.arizona.sista">sista</a>.<a href="package.html" class="extype" name="edu.arizona.sista.reach">reach</a></p>
+        <h1><a href="ReachSystem$.html" title="See companion object">ReachSystem</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="ReachSystem$.html" title="See companion object">object ReachSystem</a>
+            | <a href="package.html" class="extype" name="edu.arizona.sista.reach">package reach</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ReachSystem</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="edu.arizona.sista.reach.ReachSystem"><span>ReachSystem</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="edu.arizona.sista.reach.ReachSystem#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(rules:Option[edu.arizona.sista.reach.RuleReader.Rules],proc:Option[edu.arizona.sista.processors.bionlp.BioNLPProcessor],contextEngineType:edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Engine,contextParams:Map[String,String]):edu.arizona.sista.reach.ReachSystem"></a>
+      <a id="&lt;init&gt;:ReachSystem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ReachSystem</span><span class="params">(<span name="rules">rules: <span class="extype" name="scala.Option">Option</span>[<a href="RuleReader$$Rules.html" class="extype" name="edu.arizona.sista.reach.RuleReader.Rules">Rules</a>] = <span class="symbol">None</span></span>, <span name="proc">proc: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="edu.arizona.sista.processors.bionlp.BioNLPProcessor">BioNLPProcessor</span>] = <span class="symbol">None</span></span>, <span name="contextEngineType">contextEngineType: <a href="context/ContextEngineFactory$$Engine$.html#Engine=edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Value" class="extmbr" name="edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Engine">Engine</a> = <span class="symbol"><span class="name"><a href="../../../package.html">Dummy</a></span></span></span>, <span name="contextParams">contextParams: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">Map()</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@&lt;init&gt;(rules:Option[edu.arizona.sista.reach.RuleReader.Rules],proc:Option[edu.arizona.sista.processors.bionlp.BioNLPProcessor],contextEngineType:edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Engine,contextParams:Map[String,String]):edu.arizona.sista.reach.ReachSystem" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@##():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.ReachSystem#actions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="actions:edu.arizona.sista.reach.DarpaActions"></a>
+      <a id="actions:DarpaActions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">actions</span><span class="result">: <a href="DarpaActions.html" class="extype" name="edu.arizona.sista.reach.DarpaActions">DarpaActions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@actions:edu.arizona.sista.reach.DarpaActions" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#allRules" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="allRules:String"></a>
+      <a id="allRules:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allRules</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@allRules:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">returns string with all rules used by the system</p>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.ReachSystem#contextRules" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contextRules:String"></a>
+      <a id="contextRules:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contextRules</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@contextRules:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#entityEngine" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="entityEngine:edu.arizona.sista.odin.ExtractorEngine"></a>
+      <a id="entityEngine:ExtractorEngine"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">entityEngine</span><span class="result">: <span class="extype" name="edu.arizona.sista.odin.ExtractorEngine">ExtractorEngine</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@entityEngine:edu.arizona.sista.odin.ExtractorEngine" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#entityLookup" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="entityLookup:edu.arizona.sista.reach.grounding.ReachEntityLookup"></a>
+      <a id="entityLookup:ReachEntityLookup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">entityLookup</span><span class="result">: <a href="grounding/ReachEntityLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachEntityLookup">ReachEntityLookup</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@entityLookup:edu.arizona.sista.reach.grounding.ReachEntityLookup" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#entityRules" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="entityRules:String"></a>
+      <a id="entityRules:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">entityRules</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@entityRules:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.ReachSystem#eventEngine" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="eventEngine:edu.arizona.sista.odin.ExtractorEngine"></a>
+      <a id="eventEngine:ExtractorEngine"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eventEngine</span><span class="result">: <span class="extype" name="edu.arizona.sista.odin.ExtractorEngine">ExtractorEngine</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@eventEngine:edu.arizona.sista.odin.ExtractorEngine" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#eventRules" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="eventRules:String"></a>
+      <a id="eventRules:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eventRules</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@eventRules:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractEntitiesFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractEntitiesFrom(doc:edu.arizona.sista.processors.Document):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractEntitiesFrom(Document):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractEntitiesFrom</span><span class="params">(<span name="doc">doc: <span class="extype" name="edu.arizona.sista.processors.Document">Document</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractEntitiesFrom(doc:edu.arizona.sista.processors.Document):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractEventsFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractEventsFrom(doc:edu.arizona.sista.processors.Document,entities:Seq[edu.arizona.sista.reach.mentions.BioMention]):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractEventsFrom(Document,Seq[BioMention]):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractEventsFrom</span><span class="params">(<span name="doc">doc: <span class="extype" name="edu.arizona.sista.processors.Document">Document</span></span>, <span name="entities">entities: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractEventsFrom(doc:edu.arizona.sista.processors.Document,entities:Seq[edu.arizona.sista.reach.mentions.BioMention]):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractFrom(doc:edu.arizona.sista.processors.Document):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractFrom(Document):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractFrom</span><span class="params">(<span name="doc">doc: <span class="extype" name="edu.arizona.sista.processors.Document">Document</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractFrom(doc:edu.arizona.sista.processors.Document):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractFrom(text:String,docId:String,chunkId:String):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractFrom(String,String,String):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractFrom</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="docId">docId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="chunkId">chunkId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractFrom(text:String,docId:String,chunkId:String):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractFrom(entry:edu.arizona.sista.reach.nxml.FriesEntry):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractFrom(FriesEntry):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractFrom</span><span class="params">(<span name="entry">entry: <a href="nxml/FriesEntry.html" class="extype" name="edu.arizona.sista.reach.nxml.FriesEntry">FriesEntry</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractFrom(entry:edu.arizona.sista.reach.nxml.FriesEntry):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractFrom(entries:Seq[edu.arizona.sista.reach.nxml.FriesEntry],documents:Seq[edu.arizona.sista.processors.Document]):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractFrom(Seq[FriesEntry],Seq[Document]):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractFrom</span><span class="params">(<span name="entries">entries: <span class="extype" name="scala.Seq">Seq</span>[<a href="nxml/FriesEntry.html" class="extype" name="edu.arizona.sista.reach.nxml.FriesEntry">FriesEntry</a>]</span>, <span name="documents">documents: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.processors.Document">Document</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractFrom(entries:Seq[edu.arizona.sista.reach.nxml.FriesEntry],documents:Seq[edu.arizona.sista.processors.Document]):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#extractFrom" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extractFrom(entries:Seq[edu.arizona.sista.reach.nxml.FriesEntry]):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="extractFrom(Seq[FriesEntry]):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractFrom</span><span class="params">(<span name="entries">entries: <span class="extype" name="scala.Seq">Seq</span>[<a href="nxml/FriesEntry.html" class="extype" name="edu.arizona.sista.reach.nxml.FriesEntry">FriesEntry</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@extractFrom(entries:Seq[edu.arizona.sista.reach.nxml.FriesEntry]):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.ReachSystem#groupMentionsByDocument" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="groupMentionsByDocument(mentions:Seq[edu.arizona.sista.reach.mentions.BioMention],documents:Seq[edu.arizona.sista.processors.Document]):Seq[Seq[edu.arizona.sista.reach.mentions.BioMention]]"></a>
+      <a id="groupMentionsByDocument(Seq[BioMention],Seq[Document]):Seq[Seq[BioMention]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">groupMentionsByDocument</span><span class="params">(<span name="mentions">mentions: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>, <span name="documents">documents: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.processors.Document">Document</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@groupMentionsByDocument(mentions:Seq[edu.arizona.sista.reach.mentions.BioMention],documents:Seq[edu.arizona.sista.processors.Document]):Seq[Seq[edu.arizona.sista.reach.mentions.BioMention]]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.ReachSystem#mkDoc" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mkDoc(text:String,docId:String,chunkId:String):edu.arizona.sista.processors.Document"></a>
+      <a id="mkDoc(String,String,String):Document"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mkDoc</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="docId">docId: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="chunkId">chunkId: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>)</span><span class="result">: <span class="extype" name="edu.arizona.sista.processors.Document">Document</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@mkDoc(text:String,docId:String,chunkId:String):edu.arizona.sista.processors.Document" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#modificationEngine" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="modificationEngine:edu.arizona.sista.odin.ExtractorEngine"></a>
+      <a id="modificationEngine:ExtractorEngine"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">modificationEngine</span><span class="result">: <span class="extype" name="edu.arizona.sista.odin.ExtractorEngine">ExtractorEngine</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@modificationEngine:edu.arizona.sista.odin.ExtractorEngine" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#modificationRules" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="modificationRules:String"></a>
+      <a id="modificationRules:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">modificationRules</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@modificationRules:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#mutationsToMentions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mutationsToMentions(mention:edu.arizona.sista.reach.mentions.BioTextBoundMention):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
+      <a id="mutationsToMentions(BioTextBoundMention):Seq[BioMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mutationsToMentions</span><span class="params">(<span name="mention">mention: <a href="mentions/BioTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.BioTextBoundMention">BioTextBoundMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@mutationsToMentions(mention:edu.arizona.sista.reach.mentions.BioTextBoundMention):Seq[edu.arizona.sista.reach.mentions.BioMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If the given mention has many mutations attached to it, return a mention for each mutation.</p>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.ReachSystem#processor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="processor:edu.arizona.sista.processors.bionlp.BioNLPProcessor"></a>
+      <a id="processor:BioNLPProcessor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">processor</span><span class="result">: <span class="extype" name="edu.arizona.sista.processors.bionlp.BioNLPProcessor">BioNLPProcessor</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@processor:edu.arizona.sista.processors.bionlp.BioNLPProcessor" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.ReachSystem#resolveCoref" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="resolveCoref(eventsPerDocument:Seq[Seq[edu.arizona.sista.reach.mentions.BioMention]]):Seq[edu.arizona.sista.reach.mentions.CorefMention]"></a>
+      <a id="resolveCoref(Seq[Seq[BioMention]]):Seq[CorefMention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveCoref</span><span class="params">(<span name="eventsPerDocument">eventsPerDocument: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a>]]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@resolveCoref(eventsPerDocument:Seq[Seq[edu.arizona.sista.reach.mentions.BioMention]]):Seq[edu.arizona.sista.reach.mentions.CorefMention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@toString():String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.ReachSystem@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

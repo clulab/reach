@@ -1,0 +1,1087 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>IMKBLookup - edu.arizona.sista.reach.grounding.IMKBLookup</title>
+          <meta name="description" content="IMKBLookup - edu.arizona.sista.reach.grounding.IMKBLookup" />
+          <meta name="keywords" content="IMKBLookup edu.arizona.sista.reach.grounding.IMKBLookup" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'edu.arizona.sista.reach.grounding.IMKBLookup';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="edu">edu</a>.<a href="../../../package.html" class="extype" name="edu.arizona">arizona</a>.<a href="../../package.html" class="extype" name="edu.arizona.sista">sista</a>.<a href="../package.html" class="extype" name="edu.arizona.sista.reach">reach</a>.<a href="package.html" class="extype" name="edu.arizona.sista.reach.grounding">grounding</a></p>
+        <h1>IMKBLookup</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="edu.arizona.sista.reach.grounding">package grounding</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">IMKBLookup</span><span class="result"> extends <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a> with <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a> with <a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
+  Written by Tom Hicks. 10/23/2015.
+  Last Modified: Add method to return sequence of KB entries.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a>, <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a>, <a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a>, <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a>, <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="AzFailsafeKBML.html" class="extype" name="edu.arizona.sista.reach.grounding.AzFailsafeKBML">AzFailsafeKBML</a>, <a href="IMKBFamilyLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyLookup">IMKBFamilyLookup</a>, <a href="IMKBFamilyMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyMentionLookup">IMKBFamilyMentionLookup</a>, <a href="IMKBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBMentionLookup">IMKBMentionLookup</a>, <a href="IMKBOrganCellTypeLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup">IMKBOrganCellTypeLookup</a>, <a href="IMKBOrganCellTypeMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeMentionLookup">IMKBOrganCellTypeMentionLookup</a>, <a href="IMKBProteinLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinLookup">IMKBProteinLookup</a>, <a href="IMKBProteinMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinMentionLookup">IMKBProteinMentionLookup</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="edu.arizona.sista.reach.grounding.IMKBLookup"><span>IMKBLookup</span></li><li class="in" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms"><span>ReachKBKeyTransforms</span></li><li class="in" name="edu.arizona.sista.reach.grounding.KBAltLookup"><span>KBAltLookup</span></li><li class="in" name="edu.arizona.sista.reach.grounding.KBKeyTransforms"><span>KBKeyTransforms</span></li><li class="in" name="edu.arizona.sista.reach.grounding.KBLookup"><span>KBLookup</span></li><li class="in" name="edu.arizona.sista.reach.grounding.Speciated"><span>Speciated</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="edu.arizona.sista.reach.grounding.IMKBLookup#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(memoryKB:edu.arizona.sista.reach.grounding.InMemoryKB):edu.arizona.sista.reach.grounding.IMKBLookup"></a>
+      <a id="&lt;init&gt;:IMKBLookup"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">IMKBLookup</span><span class="params">(<span name="memoryKB">memoryKB: <a href="InMemoryKB.html" class="extype" name="edu.arizona.sista.reach.grounding.InMemoryKB">InMemoryKB</a> = <span class="symbol"><span class="name"><a href="InMemoryKB.html">new InMemoryKB()</a></span></span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@&lt;init&gt;(memoryKB:edu.arizona.sista.reach.grounding.InMemoryKB):edu.arizona.sista.reach.grounding.IMKBLookup" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms.KeyTransforms" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="KeyTransforms=Seq[String=&gt;String]"></a>
+      <a id="KeyTransforms:KeyTransforms"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">KeyTransforms</span><span class="result"> = <span class="extype" name="scala.collection.Seq">Seq</span>[(<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@KeyTransforms=Seq[String=&gt;String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Type alias for functions which take a text string and return a potential key string.</p><div class="fullcomment"><div class="comment cmt"><p>Type alias for functions which take a text string and return a potential key string.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated.SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpeciesNameSet=Set[String]"></a>
+      <a id="SpeciesNameSet:SpeciesNameSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SpeciesNameSet</span><span class="result"> = <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@SpeciesNameSet=Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Species name sets.</p><div class="fullcomment"><div class="comment cmt"><p>Species name sets.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#HumanLabels" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="HumanLabels:Speciated.this.SpeciesNameSet"></a>
+      <a id="HumanLabels:SpeciesNameSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">HumanLabels</span><span class="result">: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.SpeciesNameSet">SpeciesNameSet</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@HumanLabels:Speciated.this.SpeciesNameSet" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A set of label strings for humans, found in KBs.</p><div class="fullcomment"><div class="comment cmt"><p>A set of label strings for humans, found in KBs.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
+      <a id="SpeciesNameSet(String*):Set[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SpeciesNameSet</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@SpeciesNameSet(xs:String*):Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#entries" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="entries:Seq[edu.arizona.sista.reach.grounding.KBEntry]"></a>
+      <a id="entries:Seq[KBEntry]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">entries</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBEntry.html" class="extype" name="edu.arizona.sista.reach.grounding.KBEntry">KBEntry</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@entries:Seq[edu.arizona.sista.reach.grounding.KBEntry]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a sequence over the entries in this KB.</p>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#hasSpeciesInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hasSpeciesInfo:Boolean"></a>
+      <a id="hasSpeciesInfo:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasSpeciesInfo</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@hasSpeciesInfo:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether this KB contains species information or not.</p>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#hyphenatedProteinKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hyphenatedProteinKey(key:String):String"></a>
+      <a id="hyphenatedProteinKey(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hyphenatedProteinKey</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@hyphenatedProteinKey(key:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Check for one of several types of hyphen-separated strings and, if found,
+extract and return the candidate key portion, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Check for one of several types of hyphen-separated strings and, if found,
+extract and return the candidate key portion, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#isHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isHumanSpecies(species:String):Boolean"></a>
+      <a id="isHumanSpecies(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isHumanSpecies</span><span class="params">(<span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@isHumanSpecies(species:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given species string is label for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is label for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#isMemberOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isMemberOf(species:String,speciesSet:Speciated.this.SpeciesNameSet):Boolean"></a>
+      <a id="isMemberOf(String,SpeciesNameSet):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isMemberOf</span><span class="params">(<span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="speciesSet">speciesSet: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.SpeciesNameSet">SpeciesNameSet</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@isMemberOf(species:String,speciesSet:Speciated.this.SpeciesNameSet):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given species string is a member of the given set of species.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is a member of the given set of species.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#makeAlternateKeys" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
+      <a id="makeAlternateKeys(String,KeyTransforms):Seq[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">makeAlternateKeys</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p><div class="fullcomment"><div class="comment cmt"><p>Return a sequence of alternate keys, one for each of the given key transforms.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#makeCanonicalKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="makeCanonicalKey(text:String):String"></a>
+      <a id="makeCanonicalKey(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">makeCanonicalKey</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@makeCanonicalKey(text:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Canonicalize the given text string into a key for both storage and lookup.</p><div class="fullcomment"><div class="comment cmt"><p>Canonicalize the given text string into a key for both storage and lookup.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#memoryKB" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="memoryKB:edu.arizona.sista.reach.grounding.InMemoryKB"></a>
+      <a id="memoryKB:InMemoryKB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">var</span>
+      </span>
+      <span class="symbol">
+        <span class="name">memoryKB</span><span class="result">: <a href="InMemoryKB.html" class="extype" name="edu.arizona.sista.reach.grounding.InMemoryKB">InMemoryKB</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@memoryKB:edu.arizona.sista.reach.grounding.InMemoryKB" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#metaInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="metaInfo:edu.arizona.sista.reach.grounding.IMKBMetaInfo"></a>
+      <a id="metaInfo:IMKBMetaInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metaInfo</span><span class="result">: <a href="IMKBMetaInfo.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBMetaInfo">IMKBMetaInfo</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@metaInfo:edu.arizona.sista.reach.grounding.IMKBMetaInfo" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return meta information about the external KB from which this KB was created.</p>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#reachAlternateKeys" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="reachAlternateKeys(text:String,transformFns:ReachKBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
+      <a id="reachAlternateKeys(String,KeyTransforms):Seq[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">reachAlternateKeys</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@reachAlternateKeys(text:String,transformFns:ReachKBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return alternate lookup keys created from the given text string and transform functions.</p><div class="fullcomment"><div class="comment cmt"><p>Return alternate lookup keys created from the given text string and transform functions.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolve" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolve(text:String):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolve(String):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolve</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolve(text:String):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base.
+Return a resolution for the entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveAlt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveAlt(text:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveAlt(String,KeyTransforms):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveAlt</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transforms">transforms: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveAlt(text:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base.
+If the text is not found, use the given text transforming functions to create
+and lookup alternate keys.
+Return a resolution for the entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveByASpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveByASpecies(text:String,species:String):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveByASpecies(String,String):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveByASpecies</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveByASpecies(text:String,species:String):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to optional group of entries in a knowledge base,
+returning resolutions for all entries found in the KB, for the given species.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to optional group of entries in a knowledge base,
+returning resolutions for all entries found in the KB, for the given species.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveByASpeciesAlt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveByASpeciesAlt(text:String,species:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveByASpeciesAlt(String,String,KeyTransforms):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveByASpeciesAlt</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transforms">transforms: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveByASpeciesAlt(text:String,species:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base,
+for the single named species.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base,
+for the single named species.
+If the text is not found, use the given text transforming functions to create
+and lookup alternate keys.
+Return a resolution for the entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveBySpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveBySpecies(text:String,speciesSet:IMKBLookup.this.SpeciesNameSet):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveBySpecies(String,SpeciesNameSet):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveBySpecies</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="speciesSet">speciesSet: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.SpeciesNameSet">SpeciesNameSet</a></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveBySpecies(text:String,speciesSet:IMKBLookup.this.SpeciesNameSet):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional group of entries in a knowledge base,
+returning resolutions for all entries found in the KB, with any of the given species.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional group of entries in a knowledge base,
+returning resolutions for all entries found in the KB, with any of the given species.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveBySpeciesAlt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveBySpeciesAlt(text:String,speciesSet:IMKBLookup.this.SpeciesNameSet,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveBySpeciesAlt(String,SpeciesNameSet,KeyTransforms):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveBySpeciesAlt</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="speciesSet">speciesSet: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.SpeciesNameSet">SpeciesNameSet</a></span>, <span name="transforms">transforms: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveBySpeciesAlt(text:String,speciesSet:IMKBLookup.this.SpeciesNameSet,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional group of entries in a knowledge base,
+returning resolutions for all species entries found in the KB.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional group of entries in a knowledge base,
+returning resolutions for all species entries found in the KB.
+If the text is not found, use the given text transforming functions to create
+and lookup alternate keys.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveHuman" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveHuman(text:String):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveHuman(String):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveHuman</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveHuman(text:String):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base,
+failing if the entry is not for humans.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base,
+failing if the entry is not for humans.
+Return a resolution for a human entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveHumanAlt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveHumanAlt(text:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveHumanAlt(String,KeyTransforms):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveHumanAlt</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transforms">transforms: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveHumanAlt(text:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base,
+failing if the entry is not for humans.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base,
+failing if the entry is not for humans.
+If the text is not found, use the given text transforming functions to create
+and lookup alternate keys.
+Return a resolution for a human entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveNoSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveNoSpecies(text:String):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveNoSpecies(String):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveNoSpecies</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveNoSpecies(text:String):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base which
+explicitly does not have an associated species.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base which
+explicitly does not have an associated species. Fail if all entries have species.
+Return a resolution for the entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#resolveNoSpeciesAlt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resolveNoSpeciesAlt(text:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions"></a>
+      <a id="resolveNoSpeciesAlt(String,KeyTransforms):Resolutions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resolveNoSpeciesAlt</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transforms">transforms: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <a href="package.html#Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]" class="extmbr" name="edu.arizona.sista.reach.grounding.Resolutions">Resolutions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@resolveNoSpeciesAlt(text:String,transforms:IMKBLookup.this.KeyTransforms):edu.arizona.sista.reach.grounding.Resolutions" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Resolve the given text string to an optional entry in a knowledge base which
+explicitly does not have an associated species.</p><div class="fullcomment"><div class="comment cmt"><p>Resolve the given text string to an optional entry in a knowledge base which
+explicitly does not have an associated species. Fail if all entries have species.
+If the text is not found, use the given text transforming functions to create
+and lookup alternate keys.
+Return a resolution for the entry, if any found.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripFamilySuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stripFamilySuffixes(key:String):String"></a>
+      <a id="stripFamilySuffixes(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stripFamilySuffixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@stripFamilySuffixes(key:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the portion of the key string minus one of the protein family suffixes,
+if found in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus one of the protein family suffixes,
+if found in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripMutantProtein" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stripMutantProtein(key:String):String"></a>
+      <a id="stripMutantProtein(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stripMutantProtein</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@stripMutantProtein(key:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the portion of the key string before a trailing mutation phrase,
+if found in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string before a trailing mutation phrase,
+if found in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripOrganCellTypeSuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stripOrganCellTypeSuffixes(key:String):String"></a>
+      <a id="stripOrganCellTypeSuffixes(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stripOrganCellTypeSuffixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@stripOrganCellTypeSuffixes(key:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the portion of the key string minus one of the organ-cell-type suffixes,
+if found in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus one of the organ-cell-type suffixes,
+if found in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripPTMPrefixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stripPTMPrefixes(key:String):String"></a>
+      <a id="stripPTMPrefixes(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stripPTMPrefixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@stripPTMPrefixes(key:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the portion of the key string minus any of the PTM-related prefixes, if found
+in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus any of the PTM-related prefixes, if found
+in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripProteinSuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stripProteinSuffixes(key:String):String"></a>
+      <a id="stripProteinSuffixes(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stripProteinSuffixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@stripProteinSuffixes(key:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the portion of the key string minus one of the protein suffixes, if found
+in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus one of the protein suffixes, if found
+in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#stripSuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stripSuffixes(suffixes:Seq[String],text:String):String"></a>
+      <a id="stripSuffixes(Seq[String],String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stripSuffixes</span><span class="params">(<span name="suffixes">suffixes: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@stripSuffixes(suffixes:Seq[String],text:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Try to remove all of the suffixes in the given set from the given text.</p><div class="fullcomment"><div class="comment cmt"><p>Try to remove all of the suffixes in the given set from the given text.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBLookup@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">
+              <h3>Inherited from <a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></h3>
+            </div><div class="parent" name="edu.arizona.sista.reach.grounding.KBAltLookup">
+              <h3>Inherited from <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></h3>
+            </div><div class="parent" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">
+              <h3>Inherited from <a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></h3>
+            </div><div class="parent" name="edu.arizona.sista.reach.grounding.KBLookup">
+              <h3>Inherited from <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a></h3>
+            </div><div class="parent" name="edu.arizona.sista.reach.grounding.Speciated">
+              <h3>Inherited from <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
