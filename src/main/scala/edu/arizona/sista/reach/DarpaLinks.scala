@@ -23,6 +23,7 @@ class DarpaLinks extends Links {
     * @return The same mentions but with new links (antecedents) added
     */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
@@ -52,6 +53,7 @@ class DarpaLinks extends Links {
     * @return The same mentions but with new links (antecedents) added
     */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
@@ -72,6 +74,7 @@ class DarpaLinks extends Links {
   }
 
   def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Mutant protein matching=====")
 
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention])
@@ -113,6 +116,7 @@ class DarpaLinks extends Links {
     * @return The same mentions but with new links (antecedents) added.
     */
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     val doc = mentions.head.document
     if (debug) println("\n=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
@@ -161,6 +165,7 @@ class DarpaLinks extends Links {
     * @return The same mentions but with new links (antecedents) added.
     */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -246,6 +251,7 @@ class DarpaLinks extends Links {
     * @return The same mentions but with new links (antecedents) added.
     */
   def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Noun phrase matching=====")
 
     // only apply this matcher to arguments to events -- others are irrelevant
@@ -341,6 +347,7 @@ class DarpaLinks extends Links {
     * @return The same mentions but with new links (antecedents) added.
     */
   def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
+    if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Simple event matching=====\n")
 
     val seLabels = Set(
