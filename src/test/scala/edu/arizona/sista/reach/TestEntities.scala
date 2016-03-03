@@ -115,4 +115,18 @@ class TestEntities extends FlatSpec with Matchers {
     mentions should have size (1)
     mentions.head matches "Family" should be (true)
   }
+
+  // test lookahead assertions on ner rules for GGP and Family entities
+  val mekText2 = "the MEK protein family"
+  mekText2 should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
+    val doc = bioproc.annotate(mekText2)
+    val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O", "O")
+    // manipulate the document for this test
+    doc.id = Some("MEK-test")
+    doc.text = Some(mekText2)
+    doc.sentences.head.entities = Some(ggpLabels)
+    val mentions = testReach.extractFrom(doc)
+    mentions should have size (1)
+    mentions.head matches "Family" should be (true)
+  }
 }
