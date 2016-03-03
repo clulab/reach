@@ -1,7 +1,0 @@
-taxonomy: edu/arizona/sista/reach/biogrammar/taxonomy.yml
-
-rules:
-  - import: edu/arizona/sista/reach/biogrammar/entities/entities.yml
-  - import: edu/arizona/sista/reach/biogrammar/coref/generic_entities.yml
-    vars:
-      priority: "3"

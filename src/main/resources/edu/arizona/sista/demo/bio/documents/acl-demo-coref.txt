@@ -1,5 +1,0 @@
-Even more than Ras, ASPP2 is common, as is its ubiquitination.
-To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated.
-Much work has been done on ASPP2. It is known that Ras binds it.
-Ras and Mek are in proximity, and they phosphorylate ASPP2.
-Ras and Mek are in proximity, and ASPP2 phosphorylates them.
