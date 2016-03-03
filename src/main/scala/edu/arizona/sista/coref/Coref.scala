@@ -25,10 +25,19 @@ class Coref {
   }
 
   /**
+    * Make a map from TextBoundMentions to the sieves used to find their antecedents (if any)
+    */
+  def tbmSieves(mentions: Seq[CorefTextBoundMention]): Map[CorefTextBoundMention, Set[String]] = {
+    mentions.map(mention => (mention, mention.sieves)).toMap
+  }
+
+  /**
     * Make a map from the given SimpleEvent mentions to the same mentions but with any generic mentions (including
     * in the arguments) replaced with their non-generic antecedents.
     */
-  def resolveSimpleEvents(evts: Seq[CorefEventMention], resolvedTBMs: Map[CorefTextBoundMention, Seq[CorefMention]]): Map[CorefEventMention, Seq[CorefEventMention]] = {
+  def resolveSimpleEvents(evts: Seq[CorefEventMention],
+                          resolvedTBMs: Map[CorefTextBoundMention, Seq[CorefMention]],
+                          sieveMap: Map[CorefTextBoundMention, Set[String]]): Map[CorefEventMention, Seq[CorefEventMention]] = {
     require(evts.forall(_.matches("SimpleEvent")), s"Only simple events should be passed to the first argument of" +
       s" resolveSimpleEvents. you passed ${evts.filterNot(_.matches("SimpleEvent")).map(_.text).mkString("\n", "\n", "\n")}")
 
@@ -51,7 +60,7 @@ class Coref {
       resolvedArgs = for {
         (lbl, arg) <- specific.arguments
         argMs = arg.map(m => {
-          specific.sieves ++= m.toCorefMention.sieves
+          specific.sieves ++= sieveMap.getOrElse(m.asInstanceOf[CorefTextBoundMention], Set.empty)
           resolvedTBMs.getOrElse(m.asInstanceOf[CorefTextBoundMention], Nil)
         })
       } yield lbl -> argMs
@@ -106,6 +115,13 @@ class Coref {
     val genericMap = generics.map(generic => (generic, generic.toSingletons)).toMap
 
     specificMap ++ genericMap
+  }
+
+  /**
+    * Make a map from EventMentions to the sieves used to find their antecedents (if any)
+    */
+  def evtSieves(mentions: Seq[CorefEventMention]): Map[CorefEventMention, Set[String]] = {
+    mentions.map(mention => (mention, mention.sieves)).toMap
   }
 
   // http://oldfashionedsoftware.com/2009/07/30/lots-and-lots-of-foldleft-examples/
@@ -187,7 +203,9 @@ class Coref {
     * Make a map from the given ComplexEvent mentions (whether they are RelationMentions or EventMentions) to the same
     * mentions but with any generic mentions (including in the arguments) replaced with their non-generic antecedents.
     */
-  def resolveComplexEvents(evts: Seq[CorefMention], resolved: Map[CorefMention, Seq[CorefMention]]): Map[CorefMention, Seq[CorefMention]] = {
+  def resolveComplexEvents(evts: Seq[CorefMention],
+                           resolved: Map[CorefMention, Seq[CorefMention]],
+                           sieveMap: Map[CorefMention, Set[String]]): Map[CorefMention, Seq[CorefMention]] = {
     require(evts.forall(_.matches("ComplexEvent")), s"Only complex events should be passed to the first argument of" +
       s" resolveComplexEvents, but you passed ${evts.filterNot(_.matches("ComplexEvent")).map(_.text).mkString("\n", "\n", "\n")}")
 
@@ -209,7 +227,7 @@ class Coref {
         (lbl, arg) <- evt.arguments
         //_=println(s"lbl: $lbl\nargs: ${arg.map(_.text).mkString("\n")}")
         argMs = arg.map(m => {
-          evt.sieves ++= m.toCorefMention.sieves
+          evt.sieves ++= sieveMap.getOrElse(m.toCorefMention, Set.empty)
           resolved.getOrElse(m.toCorefMention, Nil)
         })
         argsAsEntities = argMs.map(ms => ms.map(m =>
@@ -294,11 +312,16 @@ class Coref {
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention]).map(_.asInstanceOf[CorefTextBoundMention])
     val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
     val cevts = mentions.filter(m => m.matches("ComplexEvent"))
+
     val resolvedTBMs = resolveTBMs(tbms)
+    val tbmSieveMap = tbmSieves(tbms.filter(_.isGeneric))
     if (verbose) resolvedTBMs.foreach { case (k, v) => println(s"TBM: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
-    val resolvedSimple = resolveSimpleEvents(sevts, resolvedTBMs)
+
+    val resolvedSimple = resolveSimpleEvents(sevts, resolvedTBMs, tbmSieveMap)
+    val evtSieveMap = evtSieves(sevts.filter(_.isGeneric))
     if (verbose) resolvedSimple.foreach { case (k, v) => println(s"SimpleEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
-    val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple)
+
+    val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple, tbmSieveMap ++ evtSieveMap)
     if (verbose) resolvedComplex.foreach { case (k, v) => println(s"ComplexEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
     val resolved = resolvedTBMs ++ resolvedSimple ++ resolvedComplex
 
