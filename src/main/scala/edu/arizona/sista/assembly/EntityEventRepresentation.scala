@@ -36,8 +36,17 @@ class SimpleEntity (
     finalizeHash(h2, 2)
   }
 
-  // hash of mods is sum of mods hashes
-  def modsHash: Int = modifications.map(_.hashCode).sum
+  /**
+   * Hash representing the [[modifications]].
+   * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
+   * @return an Int hash based on the hashcodes of the modifications
+   */
+  def modsHash: Int = {
+    val h0 = stringHash("SimpleEntity.modifications")
+    val hs = modifications.map(_.hashCode)
+    val h = mixLast(h0, unorderedHash(hs))
+    finalizeHash(h, modifications.size)
+  }
 
   def isEquivalentTo(other: Any): Boolean = other match {
     case se: SimpleEntity => this.equivalenceHash == se.equivalenceHash
