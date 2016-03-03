@@ -21,6 +21,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val text5 = "Mek binds with Ras."
   val text6 = "Ras binds with MEK."
 
+  // the assembly manager is not intimidated by multiple documents
   val doc1 = createDoc(text1, "assembly-test1")
   val doc2 = createDoc(text2, "assembly-test2")
   val doc3 = createDoc(text3, "assembly-test3")
@@ -63,20 +64,12 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     evidence should have size(3)
   }
 
-  it should "have three SimpleEvent representations for the Phosphorylation of Ras" in {
+  it should "have three SimpleEvent representations (non-distinct) for the Phosphorylation of Ras" in {
     val am = AssemblyManager()
 
     am.trackMentions(mentions1 ++ mentions2 ++ mentions3)
 
-    val phosEvents: Seq[SimpleEvent] =
-      am.idToEERepresentation
-        .values
-        .toSeq
-        .filter{
-          case se: SimpleEvent => se.label == "Phosphorylation"
-          case _ => false
-        }
-        .map(_.asInstanceOf[SimpleEvent])
+    val phosEvents = am.getSimpleEvents("Phosphorylation")
 
     phosEvents should have size(3)
   }
@@ -86,18 +79,9 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.trackMentions(mentions1 ++ mentions2 ++ mentions3)
 
-    val phosEvents: Seq[SimpleEvent] =
-      am.idToEERepresentation
-        .values
-        .toSeq
-        .filter{
-          case se: SimpleEvent => se.label == "Phosphorylation"
-          case _ => false
-        }
-        .map(_.asInstanceOf[SimpleEvent])
+    val distinctPhosEvents = am.distinctSimpleEvents("Phosphorylation")
 
-    // FIXME
-    phosEvents.groupBy(p => (p.inputHash, p.outputHash, p.label) ) should have size(2)
+    distinctPhosEvents should have size(2)
   }
 
   text3 should "have a SimpleEntity representing Ras w/ PTM(phos + site) as output to a phosphorylation" in {

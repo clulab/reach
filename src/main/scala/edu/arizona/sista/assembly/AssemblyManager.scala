@@ -36,27 +36,6 @@ class AssemblyManager(
   private var nextID: IDPointer = idToEERepresentation.size
 
   /**
-   * A (mostly) human readable printout of the (key, value) pairs in the [[mentionToID]]] LUT
-   */
-  def mentionIndexSummary(): Unit = {
-    mentionToID.foreach{ pair =>
-      val m = pair._1
-      val id = pair._2
-      println(s"${mentionSummary(m)} => $id")
-    }
-  }
-
-  /**
-   * A high-level summary of a Mention m
-   * @param m an Odin Mention
-   * @return a high-level String representation of m
-   */
-  def mentionSummary(m: Mention): String = {
-    val docRepr = s"DOC:${m.document.id.get} (sent. ${m.sentence})"
-    s"Mention(label=${m.label}, text='${m.text}', doc=$docRepr)"
-  }
-
-  /**
    * Retrieves an [[EntityEventRepresentation]] for a Mention.
    * Assumes an [[EntityEventRepresentation]] for the given Mention already exists.
    * @param m an Odin Mention
@@ -75,6 +54,12 @@ class AssemblyManager(
    */
   def getEERepresentation(id: IDPointer): EntityEventRepresentation =
     idToEERepresentation(id)
+
+  /**
+   * Retrieves the Set of [[EntityEventRepresentation]] tracked by the manager.
+   * @return Set[EntityEventRepresentation]
+   */
+  def getEERepresentations: Set[EntityEventRepresentation] = idToEERepresentation.values.toSet
 
   /**
    * Collects mentions pointing to a given [[EntityEventRepresentation]].
@@ -490,6 +475,264 @@ class AssemblyManager(
    * @return an [[EntityEventRepresentation]]
    */
   def createEERepresentation(m: Mention): EntityEventRepresentation = createIDwithEERepresentation(m)._2
+
+  /**
+   * A (mostly) human readable printout of the (key, value) pairs in the [[mentionToID]]] LUT
+   */
+  def mentionIndexSummary(): Unit = {
+    mentionToID.foreach{ pair =>
+      val m = pair._1
+      val id = pair._2
+      println(s"${mentionSummary(m)} => $id")
+    }
+  }
+
+  //
+  // Grouping utilities
+  //
+
+  /**
+   * Returns groups of equivalent [[EntityEventRepresentation]], ignoring differences due to [[IDPointer]] references.
+   *
+   * Mentions may point to (essentially) the same [[EntityEventRepresentation]], which would only differ in terms of the [[IDPointer]], which link an [[EntityEventRepresentation]] to a particular Mention
+   */
+  def groupEEReprs: Seq[Seq[EntityEventRepresentation]] = {
+    idToEERepresentation.values
+      // ignore IDPointers for grouping purposes
+      .groupBy(_.equivalenceHash)
+      .mapValues(_.toSeq)
+      .values
+      .toSeq
+  }
+
+  /**
+   * Returns head of each group returned by [[groupEEReprs]].
+   *
+   * @return a Set of [[EntityEventRepresentation]]
+   */
+  def distinctEEReprs: Set[EntityEventRepresentation] = {
+    groupEEReprs.map(_.head)
+      .toSet
+  }
+
+  /**
+   * Returns Set of "distinct" [[EntityEventRepresentation]] with corresponding evidence.
+   */
+  def distinctEEReprsWithEvidence: Set[(EntityEventRepresentation, Set[Mention])] = {
+    distinctEEReprs.map(repr => (repr, getEvidence(repr)))
+  }
+
+  // SimpleEntity
+
+  /**
+   * Retrieves all SimpleEntities from the manager.
+   * Note that these are non-distinct.
+   */
+  def getSimpleEntities: Set[SimpleEntity] = {
+    for {
+      e: EntityEventRepresentation <- getEERepresentations
+      if e.isInstanceOf[SimpleEntity]
+      entity = e.asInstanceOf[SimpleEntity]
+    } yield entity
+  }
+
+  /**
+   * Returns "distinct" Set of SimpleEntity. Ignores multiple instances of the same SimpleEntity.
+   * @return a Set of SimpleEntity
+   */
+  def distinctSimpleEntities: Set[SimpleEntity] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[SimpleEntity]
+      entity = e.asInstanceOf[SimpleEntity]
+    } yield entity
+  }
+
+  /**
+   * Returns "distinct" Set of SimpleEntities and all evidence (Set[Mention]) corresponding to each [[SimpleEntity]].
+   * @return Set[(SimpleEntity, Set[Mention])]
+   */
+  def distinctSimpleEntitiesWithEvidence: Set[(SimpleEntity, Set[Mention])] = {
+    distinctSimpleEntities
+      .map( entity => (entity, getEvidence(entity)))
+  }
+
+  // Complex
+
+  /**
+   * Retrieves all Complexes from the manager.
+   * Note that these are non-distinct (Complexes may differ in terms of their IDPointers).
+   */
+  def getComplexes: Set[Complex] = {
+    for {
+      e: EntityEventRepresentation <- getEERepresentations
+      if e.isInstanceOf[Complex]
+      complex = e.asInstanceOf[Complex]
+    } yield complex
+  }
+
+  /**
+   * Returns "distinct" Set of Complexes. Ignores differences in IDPointers.
+   * @return a Set of Complexes
+   */
+  def distinctComplexes: Set[Complex] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[Complex]
+      complex = e.asInstanceOf[Complex]
+    } yield complex
+  }
+
+  /**
+   * Returns "distinct" Set of Complexes and all evidence (Set[Mention]) corresponding to each Complex.
+   * @return Set[(Complex, Set[Mention])]
+   */
+  def distinctComplexesWithEvidence: Set[(Complex, Set[Mention])] = {
+    distinctComplexes
+      .map( comp => (comp, getEvidence(comp)))
+  }
+
+  // SimpleEvents
+
+  /**
+   * Retrieves all SimpleEvents from the manager.
+   * Note that these are non-distinct (SimpleEvents may differ in terms of their IDPointers).
+   */
+  def getSimpleEvents: Set[SimpleEvent] = {
+    for {
+      e: EntityEventRepresentation <- getEERepresentations
+      if e.isInstanceOf[SimpleEvent]
+      se = e.asInstanceOf[SimpleEvent]
+    } yield se
+  }
+
+  /**
+   * Retrieves all SimpleEvents from the manager matching the provided event label.
+   * Note that these are non-distinct (SimpleEvents may differ in terms of their IDPointers).
+   * @param label a String to match against each [[SimpleEvent.label]]
+   */
+  def getSimpleEvents(label: String): Set[SimpleEvent] = {
+    for {
+      e: EntityEventRepresentation <- getEERepresentations
+      if e.isInstanceOf[SimpleEvent]
+      se = e.asInstanceOf[SimpleEvent]
+      if se.label == label
+    } yield se
+  }
+
+  /**
+   * Returns "distinct" Set of SimpleEvents. Ignores differences in IDPointers.
+   * @return a Set of SimpleEvents
+   */
+  def distinctSimpleEvents: Set[SimpleEvent] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[SimpleEvent]
+      se = e.asInstanceOf[SimpleEvent]
+    } yield se
+  }
+
+  /**
+   * Returns "distinct" Set of SimpleEvents matching the provided event label. Ignores differences in IDPointers.
+   * @param label a String to match against each [[SimpleEvent.label]]
+   * @return a Set of SimpleEvents
+   */
+  def distinctSimpleEvents(label: String): Set[SimpleEvent] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[SimpleEvent]
+      se = e.asInstanceOf[SimpleEvent]
+      if se.label == label
+    } yield se
+  }
+
+  /**
+   * Returns "distinct" Set of SimpleEvent matching the provided event label and all evidence (Set[Mention]) corresponding to each SimpleEvent.
+   * @param label a String to match against each [[SimpleEvent.label]]
+   * @return Set[(SimpleEvent, Set[Mention])]
+   */
+  def distinctSimpleEventsWithEvidence(label: String): Set[(SimpleEvent, Set[Mention])] = {
+    distinctSimpleEvents(label)
+      .map( se => (se, getEvidence(se)))
+  }
+
+  // Regulations
+
+  /**
+   * Retrieves all Regulations from the manager.
+   * Note that these are non-distinct (Regulations may differ in terms of their IDPointers).
+   */
+  def getRegulations: Set[Regulation] = {
+    for {
+      e: EntityEventRepresentation <- getEERepresentations
+      if e.isInstanceOf[Regulation]
+      reg = e.asInstanceOf[Regulation]
+    } yield reg
+  }
+
+  /**
+   * Retrieves all Regulations from the manager matching the provided polarity label.
+   * Note that these are non-distinct (Regulations may differ in terms of their IDPointers).
+   * @param polarity a String to match against each [[Regulation.polarity]]
+   */
+  def getRegulations(polarity: String): Set[Regulation] = {
+    for {
+      e: EntityEventRepresentation <- getEERepresentations
+      if e.isInstanceOf[Regulation]
+      reg = e.asInstanceOf[Regulation]
+      if reg.polarity == polarity
+    } yield reg
+  }
+
+  /**
+   * Returns "distinct" Set of Regulation. Ignores differences in IDPointers.
+   * @return a Set of Regulation
+   */
+  def distinctRegulations: Set[Regulation] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[Regulation]
+      reg = e.asInstanceOf[Regulation]
+    } yield reg
+  }
+
+  /**
+   * Returns "distinct" Set of Regulations matching the provided polarity. Ignores differences in IDPointers.
+   * @param polarity
+   * @return a Set of Regulations
+   */
+  def distinctRegulations(polarity: String): Set[Regulation] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[Regulation]
+      reg = e.asInstanceOf[Regulation]
+      if reg.polarity == polarity
+    } yield reg
+  }
+
+  /**
+   * Returns "distinct" Set of Regulations matching the provided event label and all evidence (Set[Mention]) corresponding to each Regulations.
+   * @param polarity a String to match against each [[Regulation.polarity]]
+   * @return Set[(Regulation, Set[Mention])]
+   */
+  def distinctRegulationsWithEvidence(polarity: String): Set[(Regulation, Set[Mention])] = {
+    distinctRegulations(polarity)
+      .map( reg => (reg, getEvidence(reg)))
+  }
+
+  //
+  // summary utilities
+  //
+
+  /**
+   * A high-level summary of a Mention m
+   * @param m an Odin Mention
+   * @return a high-level String representation of m
+   */
+  def mentionSummary(m: Mention): String = {
+    val docRepr = s"DOC:${m.document.id.get} (sent. ${m.sentence})"
+    s"Mention(label=${m.label}, text='${m.text}', doc=$docRepr)"
+  }
 }
 
 object AssemblyManager {
