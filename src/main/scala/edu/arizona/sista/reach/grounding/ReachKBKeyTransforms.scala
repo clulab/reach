@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Allow case-sensitive transforms. Redo patterns as case-insensitive.
+  *   Last Modified: Restrict PTM patterns per issue #90.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -88,8 +88,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val OrganSuffixPat = """(?i)(.*)(cells?|tissues?|fluids?)""".r
 
   /** Match protein names beginning with special PTM-related prefix characters. */
-  // val PTMPrefixPat = """(p|u)([A-Z0-9_-][A-Za-z0-9_-]*)""".r // LATER: USE THIS ONE?
-  val PTMPrefixPat = """(p|u)([A-Za-z0-9_-]+)""".r
+  val PTMPrefixPat = """(p|u)([A-Z0-9_-][A-Za-z0-9_-]*)""".r
 
   /** Match phosphorylation mutation phrases, case insensitive. */
   val PhosphorMutationPat = """(?i)phosphorylated\s+(.*)\s+\w+\s+mutant""".r
