@@ -979,13 +979,13 @@ class TestModifications extends FlatSpec with Matchers {
   }
 
   // TODO: Restore this test later?
-//  val mutantTest15 = "Mutation of the PIK3CA gene"
-//  mutantTest15 should "contain 1 entity with 1 Mutant modification" in {
-//    val mentions = getBioMentions(mutantTest15)
-//    mentions should have size (1)
-//    mentions.head.countMutations should be (1)
-//    mentions.head hasMutation "Mutation" should be (true)
-//  }
+  val mutantTest15 = "Mutation of the PIK3CA gene"
+  mutantTest15 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest15)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation "Mutation" should be (true)
+  }
 
   val mutantTest16 = "We used a substitution mutant of Raf (76A>T)"
   mutantTest16 should "contain 1 entity with 1 Mutant modification" in {
