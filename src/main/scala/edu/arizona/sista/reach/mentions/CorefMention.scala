@@ -7,13 +7,13 @@ import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.coref.CorefUtils._
 
 class CorefTextBoundMention(
-                           labels: Seq[String],
-                           tokenInterval: Interval,
-                           sentence: Int,
-                           document: Document,
-                           keep: Boolean,
-                           foundBy: String
-                           ) extends BioTextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy) with Anaphoric {
+  labels: Seq[String],
+  tokenInterval: Interval,
+  sentence: Int,
+  document: Document,
+  keep: Boolean,
+  foundBy: String
+) extends BioTextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy) with Anaphoric {
 
   def isGeneric: Boolean = (labels contains "Generic_entity") || (labels contains "GenericMutant")
 
@@ -188,14 +188,14 @@ class CorefTextBoundMention(
 }
 
 class CorefEventMention(
-                       labels: Seq[String],
-                       trigger: TextBoundMention,
-                       arguments: Map[String, Seq[Mention]],
-                       sentence: Int,
-                       document: Document,
-                       keep: Boolean,
-                       foundBy: String
-                       ) extends BioEventMention(labels, trigger, arguments, sentence, document, keep, foundBy) with Anaphoric {
+  labels: Seq[String],
+  trigger: TextBoundMention,
+  arguments: Map[String, Seq[Mention]],
+  sentence: Int,
+  document: Document,
+  keep: Boolean,
+  foundBy: String
+) extends BioEventMention(labels, trigger, arguments, sentence, document, keep, foundBy) with Anaphoric {
 
   def isGeneric: Boolean = labels contains "Generic_event"
 
