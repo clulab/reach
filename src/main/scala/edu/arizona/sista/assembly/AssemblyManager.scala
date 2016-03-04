@@ -102,7 +102,7 @@ class AssemblyManager(
   /**
    * Collects mentions pointing to a given [[EntityEventRepresentation]].
    * @param repr an [[EntityEventRepresentation]]
-   * @return a sequence of Mention serving pointing to the given representation
+   * @return a sequence of Mention serving as textual evidence of the given representation
    */
   def getEvidence(repr: EntityEventRepresentation): Set[Mention] = {
     idToEERepresentation.filter {
