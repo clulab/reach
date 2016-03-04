@@ -191,7 +191,7 @@ class Complex (
     // decided to use the class name
     val h0 = stringHash("edu.arizona.sista.assembly.Complex")
     // comprised of the equiv. hash of members
-    val h1 = mixLast(h0, members.map(_.equivalenceHash).sum)
+    val h1 = mixLast(h0, membersHash)
     finalizeHash(h1, 1)
   }
 
