@@ -42,13 +42,9 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     am.trackMentions(mentions1 ++ mentions2 ++ mentions3)
 
     val ras = mentions1.filter(m => (m matches "Entity") && (m.text.toLowerCase == "ras")).head
-    val se = am.getEERepresentation(ras).asInstanceOf[SimpleEntity]
-    val ptms = se.modifications.filter{
-      case ptm: assembly.PTM => true
-      case _ => false
-    }
+    val se = am.getSimpleEntity(ras)
 
-    ptms should have size(0)
+    se.getPTMs should have size(0)
   }
 
   it should "have 3 mentions as evidence" in {
@@ -59,9 +55,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val ras = mentions1.filter(m => (m matches "Entity") && (m.text.toLowerCase == "ras")).head
 
     val se = am.getEERepresentation(ras)
-    val evidence = am.getEvidence(se)
 
-    evidence should have size(3)
+    se.evidence should have size(3)
   }
 
   it should "have three SimpleEvent representations (non-distinct) for the Phosphorylation of Ras" in {
@@ -91,25 +86,19 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     val p = mentions3.filter(_ matches "Phosphorylation").head
 
-    val phos = am.getEERepresentation(p).asInstanceOf[SimpleEvent]
-    val evidence = am.getEvidence(phos)
+    val phos = am.getSimpleEvent(p)
 
-    evidence should have size(1)
+    phos.evidence should have size(1)
 
-    val output = phos.output
-    output should have size(1)
+    phos.output should have size(1)
 
-    val outputEntity = output.head.asInstanceOf[SimpleEntity]
+    val outputEntity =  phos.output.head.asInstanceOf[SimpleEntity]
 
-    val ptms =
-      outputEntity.modifications.filter{
-        case ptm: assembly.PTM => true
-        case _ => false
-      }
+    val ptms = outputEntity.getPTMs
 
     ptms should have size(1)
 
-    val ptm = ptms.head.asInstanceOf[assembly.PTM]
+    val ptm = ptms.head
 
     ptm.label should be("Phosphorylation")
 
@@ -121,10 +110,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.trackMentions(mentions5 ++ mentions6)
 
-    val complexes =
-      am.idToEERepresentation
-        .values
-        .filter(_.isInstanceOf[Complex])
+    val complexes = am.getComplexes
 
     complexes should have size(2)
   }
@@ -134,14 +120,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.trackMentions(mentions5 ++ mentions6)
 
-    val complexes =
-      am.idToEERepresentation
-        .values
-        .filter(_.isInstanceOf[Complex])
-        .map(_.asInstanceOf[Complex])
+    val complexes = am.getComplexes
 
     val (c1, c2) = (complexes.head, complexes.last)
-    c1.isEquivalentTo(c2) should be(true)
+    c1 isEquivalentTo c2 should be(true)
   }
 
   it should "have two mentions as evidence" in {
@@ -151,9 +133,11 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     val b = mentions5.filter(_ matches "Binding").head
 
-    val complex = am.getEERepresentation(b)
-    val evidence = am.getEvidence(complex)
+    val complex = am.getComplex(b)
 
+    val evidence = complex.evidence
+
+    evidence contains b should be(true)
     evidence should have size(2)
   }
 
