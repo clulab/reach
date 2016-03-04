@@ -1,5 +1,7 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.assembly
 import collection.Map
 import scala.util.hashing.MurmurHash3._
 
@@ -13,6 +15,13 @@ trait EntityEventRepresentation {
    * @return true or false
    */
   def coref: Boolean
+
+  /**
+   * The Set of Mentions serving as textual evidence for this [[EntityEventRepresentation]].
+   * @return Set[Mention]
+   */
+  def evidence: Set[Mention] = manager.getEvidence(this)
+
   /**
    * A custom equality that ignores [[IDPointer]] information.  Used to compared derived classes of [[EntityEventRepresentation]].
    * Though not enforced, the implementation should make use of [[equivalenceHash]].
@@ -60,11 +69,31 @@ class SimpleEntity (
 ) extends Entity {
 
   /**
-   * Summary making use of [[id]], [[modifications]], [[coref]], and [[manager]]
+   * Summary making use of [[id]], [[modifications]], [[coref]], and [[manager]].
    * @return a String summary of the [[SimpleEntity]]
    */
   def summarize: String =
     s"SimpleEntity(id=${this.id}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager})"
+
+  /**
+   * Returns the Set of [[assembly.PTM]] contained in [[modifications]].
+   */
+  def getPTMs: Set[assembly.PTM] = for {
+    m: AssemblyModification <- modifications
+    if m.isInstanceOf[assembly.PTM]
+    ptm = m.asInstanceOf[assembly.PTM]
+  } yield ptm
+
+  /**
+   * Returns the Set of [[assembly.PTM]] contained in [[modifications]] matching the given label.
+   * @param label the label used to filter [[assembly.PTM]]
+   */
+  def getPTMs(label: String): Set[assembly.PTM] = for {
+    m: AssemblyModification <- modifications
+    if m.isInstanceOf[assembly.PTM]
+    ptm = m.asInstanceOf[assembly.PTM]
+    if ptm.label == label
+  } yield ptm
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[SimpleEntity]].
