@@ -306,10 +306,11 @@ class Regulation (
 
   /**
    * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controlled" argument (retrieved using using the [[manager.idToEERepresentation]] and the [[controlledPointers]]).
-   * @return a Set of [[SimpleEvent]]
+   * In REACH, the controlled of a Regulation can be either Binding or SimpleEvent converted into an Entity with a PTM.  Eventually, though, we will probably allow other Regulations.
+   * @return a Set of [[EntityEventRepresentation]]
    */
-  def controlled: Set[SimpleEvent] =
-    controlledPointers.map(id => manager.getEERepresentation(id).asInstanceOf[SimpleEvent])
+  def controlled: Set[EntityEventRepresentation] =
+    controlledPointers.map(id => manager.getEERepresentation(id))
 
   /**
    * Hash representing the [[controller]].
