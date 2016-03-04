@@ -978,7 +978,6 @@ class TestModifications extends FlatSpec with Matchers {
     ras.head.countMutations should be (0)
   }
 
-  // TODO: Restore this test later?
   val mutantTest15 = "Mutation of the PIK3CA gene"
   mutantTest15 should "contain 1 entity with 1 Mutant modification" in {
     val mentions = getBioMentions(mutantTest15)
