@@ -2,6 +2,7 @@ package edu.arizona.sista.reach.nxml.indexer
 
 import java.io.File
 import java.nio.file.Paths
+import java.util.regex.{Matcher, Pattern}
 
 import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
 import edu.arizona.sista.utils.{Files, StringUtils}
@@ -40,7 +41,7 @@ class NxmlIndexer {
     }
     // if(failed) throw new RuntimeException("Failed to map some files. Exiting...")
     if(count > 0)
-      logger.debug(s"Failed to find PMC id for ${count} files.")
+      logger.debug(s"Failed to find PMC id for $count files.")
 
     // index
     val analyzer = new StandardAnalyzer
@@ -56,25 +57,26 @@ class NxmlIndexer {
           Nil
       }
       if(entries != Nil && fileToPmc.contains(getFileName(file, "nxml"))) {
-        val id = fileToPmc.get(getFileName(file, "nxml")).get
+        val meta = fileToPmc.get(getFileName(file, "nxml")).get
         val text = mergeEntries(entries)
         val nxml = readNxml(file)
-        addDoc(writer, id, text, nxml)
+        addDoc(writer, meta, text, nxml)
       }
       count += 1
       if(count % 100 == 0)
-        logger.debug(s"Indexed ${count}/${files.size} files.")
+        logger.debug(s"Indexed $count/${files.size} files.")
 
     }
     writer.close()
-    logger.debug(s"Indexing complete. Indexed ${count}/${files.size} files.")
+    logger.debug(s"Indexing complete. Indexed $count/${files.size} files.")
 
   }
 
-  def addDoc(writer:IndexWriter, id:String, text:String, nxml:String): Unit = {
+  def addDoc(writer:IndexWriter, meta:PMCMetaData, text:String, nxml:String): Unit = {
     val d = new Document
     d.add(new TextField("text", text, Field.Store.YES))
-    d.add(new StringField("id", id, Field.Store.YES))
+    d.add(new StringField("id", meta.pmcId, Field.Store.YES))
+    d.add(new StringField("year", meta.year, Field.Store.YES))
     d.add(new StoredField("nxml", nxml))
     writer.addDocument(d)
   }
@@ -94,16 +96,18 @@ class NxmlIndexer {
     os.toString()
   }
 
-  def readMapFile(mapFile:String):Map[String, String] = {
+  def readMapFile(mapFile:String):Map[String, PMCMetaData] = {
     // map from file name (wo/ extension) to pmc id
-    val map = new mutable.HashMap[String, String]()
+    val map = new mutable.HashMap[String, PMCMetaData]()
     for(line <- io.Source.fromFile(mapFile).getLines()) {
       val tokens = line.split("\\t")
       if(tokens.length > 2) { // skip headers
         val fn = getFileName(tokens(0), "tar.gz")
         val pmcId = tokens(2)
-        map += fn -> pmcId
-        // logger.debug(s"$fn -> $pmcId")
+        val journalName = tokens(1)
+        val year = extractPubYear(journalName)
+        map += fn -> new PMCMetaData(pmcId, year)
+        logger.debug(s"$fn -> $pmcId, $year")
       }
     }
     logger.debug(s"PMC map contains ${map.size} files.")
@@ -118,11 +122,25 @@ class NxmlIndexer {
     assert(ext > slash)
     path.substring(slash + 1, ext)
   }
+
+  def extractPubYear(journalName:String):String = {
+    val m = YEAR_PATTERN.matcher(journalName)
+    if(m.find()) {
+      return m.group(1)
+    }
+    throw new RuntimeException(s"ERROR: did not find publication year for journal $journalName!")
+  }
 }
+
+case class PMCMetaData(
+  val pmcId:String,
+  val year:String)
 
 object NxmlIndexer {
   val logger = LoggerFactory.getLogger(classOf[NxmlIndexer])
   val IGNORE_SECTIONS = Array("references", "materials", "materials|methods", "methods", "supplementary-material")
+
+  val YEAR_PATTERN = Pattern.compile("\\s+(19|20[0-9][0-9])\\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)", Pattern.CASE_INSENSITIVE)
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
