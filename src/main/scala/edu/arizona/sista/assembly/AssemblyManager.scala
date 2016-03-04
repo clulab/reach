@@ -62,6 +62,44 @@ class AssemblyManager(
   def getEERepresentations: Set[EntityEventRepresentation] = idToEERepresentation.values.toSet
 
   /**
+   * Returns a SimpleEntity for a Mention with the appropriate labels.
+   * @param m an Odin Mention.  Must have the label "Entity" and not the label "Complex".
+   */
+  def getSimpleEntity(m: Mention): SimpleEntity = {
+    require(m matches "Entity", "Mention is not an Entity")
+    require(! (m matches "Complex"), "Mention is a Complex")
+    getOrCreateEERepresentation(m).asInstanceOf[SimpleEntity]
+  }
+
+  /**
+   * Returns a Regulation for a Mention m with the appropriate label.
+   * @param m an Odin Mention.  Must have the label "Binding".
+   */
+  def getComplex(m: Mention): Complex = {
+    require(m matches "Binding", "Mention is not a Binding")
+    getOrCreateEERepresentation(m).asInstanceOf[Complex]
+  }
+
+  /**
+   * Returns a SimpleEvent for a Mention m with the appropriate labels.
+   * @param m an Odin Mention.  Must have the label "SimpleEvent" and not the label "Binding".
+   */
+  def getSimpleEvent(m: Mention): SimpleEvent = {
+    require(m matches "SimpleEvent", "Mention is not a SimpleEvent")
+    require(!(m matches "Binding"), "Mention is a Binding")
+    getOrCreateEERepresentation(m).asInstanceOf[SimpleEvent]
+  }
+
+  /**
+   * Returns a Regulation for a Mention m with the label "Regulation"
+   * @param m an Odin Mention.  Must have the label "Regulation"
+   */
+  def getRegulation(m: Mention): Regulation = {
+    require(m matches "Regulation", "Mention is not a Regulation")
+    getOrCreateEERepresentation(m).asInstanceOf[Regulation]
+  }
+
+  /**
    * Collects mentions pointing to a given [[EntityEventRepresentation]].
    * @param repr an [[EntityEventRepresentation]]
    * @return a sequence of Mention serving pointing to the given representation
@@ -77,14 +115,24 @@ class AssemblyManager(
   }
 
   /**
+   * Creates an [[EntityEventRepresentation]] if m is a valid Mention
+   * See [[isValidMention]] for details on validation check
+   * @param m an Odin Mention
+   */
+  def trackMention(m: Mention): Unit = {
+    // do not store Sites, Activations, etc. in LUT 1
+    if (isValidMention(m)) getOrCreateEERepresentation(m)
+  }
+
+  /**
    * Creates an [[EntityEventRepresentation]] for each valid Mention
    * See [[isValidMention]] for details on validation check
    * @param mentions a sequence of Mention to store in the AssemblyManager LUTs
    */
-  // create an EntityEventRepresentation for each mention
   def trackMentions(mentions: Seq[Mention]): Unit = {
     // do not store Sites, Activations, etc. in LUT 1
     mentions.filter(isValidMention)
+      // get or create an EntityEventRepresentation for each mention
       .map(getOrCreateEERepresentation)
   }
 
