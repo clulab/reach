@@ -5,6 +5,7 @@ import java.nio.file.Paths
 import java.util.regex.{Matcher, Pattern}
 
 import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
+import edu.arizona.sista.struct.MutableNumber
 import edu.arizona.sista.utils.{Files, StringUtils}
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.{StringField, Field, TextField, Document, StoredField}
@@ -76,7 +77,7 @@ class NxmlIndexer {
     val d = new Document
     d.add(new TextField("text", text, Field.Store.YES))
     d.add(new StringField("id", meta.pmcId, Field.Store.YES))
-    d.add(new StringField("year", meta.year, Field.Store.YES))
+    d.add(new StringField("year", meta.year, Field.Store.YES)) // TODO: index as DateField or NumericField?
     d.add(new StoredField("nxml", nxml))
     writer.addDocument(d)
   }
@@ -99,18 +100,20 @@ class NxmlIndexer {
   def readMapFile(mapFile:String):Map[String, PMCMetaData] = {
     // map from file name (wo/ extension) to pmc id
     val map = new mutable.HashMap[String, PMCMetaData]()
+    val errorCount = new MutableNumber[Int](0)
     for(line <- io.Source.fromFile(mapFile).getLines()) {
       val tokens = line.split("\\t")
       if(tokens.length > 2) { // skip headers
         val fn = getFileName(tokens(0), "tar.gz")
         val pmcId = tokens(2)
         val journalName = tokens(1)
-        val year = extractPubYear(journalName)
+        val year = extractPubYear(journalName, errorCount)
         map += fn -> new PMCMetaData(pmcId, year)
-        logger.debug(s"$fn -> $pmcId, $year")
+        // logger.debug(s"$fn -> $pmcId, $year")
       }
     }
     logger.debug(s"PMC map contains ${map.size} files.")
+    logger.debug(s"Found $errorCount errors when processing this file.")
     map.toMap
   }
 
@@ -123,12 +126,14 @@ class NxmlIndexer {
     path.substring(slash + 1, ext)
   }
 
-  def extractPubYear(journalName:String):String = {
+  def extractPubYear(journalName:String, errorCount:MutableNumber[Int]):String = {
     val m = YEAR_PATTERN.matcher(journalName)
     if(m.find()) {
       return m.group(1)
     }
-    throw new RuntimeException(s"ERROR: did not find publication year for journal $journalName!")
+    errorCount.value = errorCount.value + 1
+    logger.debug(s"WARNING: did not find publication year for journal $journalName!")
+    "1950"
   }
 }
 
@@ -140,7 +145,7 @@ object NxmlIndexer {
   val logger = LoggerFactory.getLogger(classOf[NxmlIndexer])
   val IGNORE_SECTIONS = Array("references", "materials", "materials|methods", "methods", "supplementary-material")
 
-  val YEAR_PATTERN = Pattern.compile("\\s+(19|20[0-9][0-9])\\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)", Pattern.CASE_INSENSITIVE)
+  val YEAR_PATTERN = Pattern.compile("\\s+(19|18|20[0-9][0-9])") // \\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)", Pattern.CASE_INSENSITIVE)
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
