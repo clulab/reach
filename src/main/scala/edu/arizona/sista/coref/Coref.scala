@@ -203,9 +203,11 @@ class Coref {
     * Make a map from the given ComplexEvent mentions (whether they are RelationMentions or EventMentions) to the same
     * mentions but with any generic mentions (including in the arguments) replaced with their non-generic antecedents.
     */
-  def resolveComplexEvents(evts: Seq[CorefMention],
-                           resolved: Map[CorefMention, Seq[CorefMention]],
-                           sieveMap: Map[CorefMention, Set[String]]): Map[CorefMention, Seq[CorefMention]] = {
+  def resolveComplexEvents(
+    evts: Seq[CorefMention],
+    resolved: Map[CorefMention, Seq[CorefMention]],
+    sieveMap: Map[CorefMention, Set[String]]
+  ): Map[CorefMention, Seq[CorefMention]] = {
     require(evts.forall(_.matches("ComplexEvent")), s"Only complex events should be passed to the first argument of" +
       s" resolveComplexEvents, but you passed ${evts.filterNot(_.matches("ComplexEvent")).map(_.text).mkString("\n", "\n", "\n")}")
 
