@@ -711,7 +711,16 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Regulations matching the provided event label and all evidence (Set[Mention]) corresponding to each Regulations.
+   * Returns "distinct" Set of Regulations and all evidence (Set[Mention]) corresponding to each Regulations.
+   * @return Set[(Regulation, Set[Mention])]
+   */
+  def distinctRegulationsWithEvidence: Set[(Regulation, Set[Mention])] = {
+    distinctRegulations
+      .map( reg => (reg, getEvidence(reg)))
+  }
+
+  /**
+   * Returns "distinct" Set of Regulations matching the provided polority and all evidence (Set[Mention]) corresponding to each Regulations.
    * @param polarity a String to match against each [[Regulation.polarity]]
    * @return Set[(Regulation, Set[Mention])]
    */
