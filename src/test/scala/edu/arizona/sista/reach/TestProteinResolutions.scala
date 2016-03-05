@@ -83,17 +83,22 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("pnotinkb").isDefined) should be (false)
     (imkbP.resolve("uNOTINKB").isDefined) should be (false)
     (imkbP.resolve("unotinkb").isDefined) should be (false)
+    // does not match restricted pattern (and not in KB without pattern matching)
+    (imkbP.resolve("PSTAT1").isDefined) should be (false)
+    (imkbP.resolve("Pstat1").isDefined) should be (false)
+    (imkbP.resolve("pstat1").isDefined) should be (false)
+    (imkbP.resolve("uerk").isDefined) should be (false)
+    (imkbP.resolve("ustat1").isDefined) should be (false)
+    (imkbP.resolve("ustba").isDefined) should be (false)
   }
 
   "ProteinKBL resolve" should "work with PTM prefix stripping" in {
     (imkbP.resolve("pSTAT1").isDefined) should be (true)
-    (imkbP.resolve("pstat1").isDefined) should be (true)
-    (imkbP.resolve("pSTBA").isDefined) should be (true)
-    (imkbP.resolve("pstba").isDefined) should be (true)
+    (imkbP.resolve("pSTBC").isDefined) should be (true)
+    (imkbP.resolve("pERK").isDefined) should be (true)
+    (imkbP.resolve("uERK").isDefined) should be (true)
     (imkbP.resolve("uSTAT1").isDefined) should be (true)
-    (imkbP.resolve("ustat1").isDefined) should be (true)
     (imkbP.resolve("uSTBA").isDefined) should be (true)
-    (imkbP.resolve("ustba").isDefined) should be (true)
   }
 
 
