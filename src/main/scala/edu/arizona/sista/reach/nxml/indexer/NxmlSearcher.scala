@@ -234,7 +234,7 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def useCase5(resultDir:String): Unit = {
-    val eventDocs = search(""""water sanitation" AND infection AND (allergy OR autoimmune)""")
+    val eventDocs = search(""""water sanitation"~10 AND infection AND (allergy OR autoimmune)""")
     logger.debug(s"The result contains ${eventDocs.size} documents.")
     saveDocsSplitByYear(resultDir, eventDocs, 2010)
     logger.debug("Done.")
@@ -276,8 +276,8 @@ object NxmlSearcher {
       //searcher.useCase1(resultDir)
       //searcher.useCase2(resultDir)
       //searcher.useCase3(resultDir)
-      searcher.useCase4(resultDir)
-      //searcher.useCase5(resultDir)
+      //searcher.useCase4(resultDir)
+      searcher.useCase5(resultDir)
     }
 
     searcher.close()
