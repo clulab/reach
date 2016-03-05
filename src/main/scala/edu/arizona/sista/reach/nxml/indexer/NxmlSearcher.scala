@@ -79,6 +79,32 @@ class NxmlSearcher(val indexDir:String) {
     sos.close()
   }
 
+  def saveDocsSplitByYear(resultDir:String, docIds:Set[(Int, Float)], yearThreshold:Int): Unit = {
+    val sos = new PrintWriter(new FileWriter("scores.tsv"))
+    var before = 0
+    var after = 0
+    for(docId <- docIds) {
+      val doc = searcher.doc(docId._1)
+      val id = doc.get("id")
+      val nxml = doc.get("nxml")
+      val year = doc.get("year")
+      if(year.toInt <= yearThreshold) {
+        val os = new PrintWriter(new FileWriter(resultDir + "-before" + File.separator + id + ".nxml"))
+        os.print(nxml)
+        os.close()
+        before += 1
+      } else {
+        val os = new PrintWriter(new FileWriter(resultDir + "-after" + File.separator + id + ".nxml"))
+        os.print(nxml)
+        os.close()
+        after += 1
+      }
+      sos.println(s"$id\t${docId._2}")
+    }
+    sos.close()
+    logger.debug(s"Found $before docs <= $yearThreshold and $after docs > $yearThreshold.")
+  }
+
   def search(query:String, totalHits:Int = TOTAL_HITS):Set[(Int, Float)] = {
     searchByField(query, "text", new StandardAnalyzer(), totalHits)
   }
@@ -120,10 +146,30 @@ class NxmlSearcher(val indexDir:String) {
     result.toSet
   }
 
-  def union(s1:Set[Int], s2:Set[Int]):Set[Int] = {
-    val result = new mutable.HashSet[Int]()
-    s1.foreach(result += _)
-    s2.foreach(result += _)
+  def union(s1:Set[(Int, Float)], s2:Set[(Int, Float)]):Set[(Int, Float)] = {
+    val result = new mutable.HashSet[(Int, Float)]()
+    val intersect = new mutable.HashSet[Int]()
+    for(s <- s1) {
+      var found = false
+      var otherScore = 0.0.toFloat
+      for(o <- s2 if ! found) {
+        if(s._1 == o._1) {
+          found = true
+          intersect += s._1
+          otherScore = o._2
+        }
+      }
+      if(found) {
+        result += new Tuple2(s._1, s._2 + otherScore)
+      } else {
+        result += s
+      }
+    }
+    for(s <- s2) {
+      if(! intersect.contains(s._1)) {
+        result += s
+      }
+    }
     result.toSet
   }
 
@@ -133,7 +179,7 @@ class NxmlSearcher(val indexDir:String) {
     result.size
   }
 
-  def useCase(resultDir:String): Unit = {
+  def useCase1(resultDir:String): Unit = {
     val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
     val result = intersection(eventDocs, search("Ras AND (ROS OR MAPK OR Raf/Mek/Erk OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR EGFR OR apoptosis OR autophagy OR proliferation OR p53 OR RB OR glycolysis OR exosomes OR RAGE OR HMGB1)"))
     logger.debug(s"The result contains ${result.size} documents.")
@@ -176,6 +222,24 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  def useCase4(resultDir:String): Unit = {
+    val eventDocs1 = search("prevalence AND (overweight OR obesity OR stunting) AND (economy OR GDP)")
+    logger.debug(s"Found ${eventDocs1.size} documents from query 1.")
+    val eventDocs2 = search("""(undernutrition OR malnutrition OR stunting OR wasting) AND (infant OR child OR childhood) AND (obesity OR "metabolic syndrome")""")
+    logger.debug(s"Found ${eventDocs2.size} documents from query 2.")
+    val eventDocs = union(eventDocs1, eventDocs2)
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocsSplitByYear(resultDir, eventDocs, 2010)
+    logger.debug("Done.")
+  }
+
+  def useCase5(resultDir:String): Unit = {
+    val eventDocs = search(""""water sanitation" AND infection AND (allergy OR autoimmune)""")
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocsSplitByYear(resultDir, eventDocs, 2010)
+    logger.debug("Done.")
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
@@ -209,7 +273,11 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase(resultDir)
+      //searcher.useCase1(resultDir)
+      //searcher.useCase2(resultDir)
+      //searcher.useCase3(resultDir)
+      searcher.useCase4(resultDir)
+      //searcher.useCase5(resultDir)
     }
 
     searcher.close()
