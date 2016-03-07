@@ -206,4 +206,17 @@ class NegationTests extends FlatSpec with Matchers{
       phospho should have size (1)
       getNegations(phospho.head) should have size (0)
     }
+
+    val sent13 = "decreased PTPN13 expression increases phosphorylation of EphrinB1"
+    sent13 should "contain a negative regulation according to hedging rules" in {
+      val mentions = getBioMentions(sent13)
+      val posregs = mentions filter (_ matches "Positive_regulation")
+      val negregs = mentions filter (_ matches "Negative_regulation")
+      posregs should have size (0)
+      negregs should have size (1)
+      val negreg = negregs.head.asInstanceOf[BioEventMention]
+      // event label should match trigger label
+      negreg.label should equal (negreg.trigger.label)
+    }
+
 }

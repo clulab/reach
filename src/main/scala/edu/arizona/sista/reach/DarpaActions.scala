@@ -422,8 +422,10 @@ class DarpaActions extends Actions {
       val numNegatives = arguments.map(arg => countSemanticNegatives(trigger, arg, excluded)).sum
       if (numNegatives % 2 != 0) { // odd number of negatives
         val newLabels = flipLabel(m.labels.head) +: m.labels.tail
+        // trigger labels should match event labels
+        val newTrigger = m.trigger.copy(labels = newLabels)
         // return new mention with flipped label
-        new BioEventMention(newLabels, m.trigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
+        new BioEventMention(newLabels, newTrigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
       } else {
         m // return mention unmodified
       }
