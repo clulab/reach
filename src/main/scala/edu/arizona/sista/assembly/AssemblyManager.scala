@@ -290,7 +290,8 @@ class AssemblyManager(
   }
 
   /**
-   * Takes a set of optional modifications (useful for building output of SimpleEvent)
+   * Create a [[SimpleEntity]] representation from a Mention
+   * and an optional set of optional modifications (useful for building output of SimpleEvent)
    *
    * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
@@ -299,7 +300,7 @@ class AssemblyManager(
    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
    * @return a tuple of ([[IDPointer]], [[SimpleEntity]])
    */
-  protected def createSimpleEntity(
+  protected def createSimpleEntityWithID(
     m: Mention,
     mods: Option[Set[assembly.AssemblyModification]]
   ): (IDPointer, SimpleEntity) = {
@@ -339,21 +340,40 @@ class AssemblyManager(
   }
 
   /**
+   * Create a [[SimpleEntity]] representation from a Mention
+   * and an optional set of optional modifications (useful for building output of SimpleEvent)
+   *
+   * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
+   * @param m an Odin Mention
+   * @param mods an optional set of [[AssemblyModification]].
+   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[assembly.PTM]] comes from the [[SimpleEvent]]
+   *             (i.e., the PTM cannot be recovered by simply examining m out of context)
+   * @return a [[SimpleEntity]]
+   */
+  protected def createSimpleEntity(
+    m: Mention,
+    mods: Option[Set[assembly.AssemblyModification]]
+  ): SimpleEntity = createSimpleEntityWithID(m, mods)._2
+
+
+  /**
    * Creates a [[Complex]] from a Binding Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
    * @param m an Odin Mention
    * @return a tuple of ([[IDPointer]], [[Complex]])
    */
-  protected def createBinding(m: Mention): (IDPointer, Complex) = {
+  protected def createComplexWithID(m: Mention): (IDPointer, Complex) = {
 
     // check for coref
     val cm = m.toCorefMention
     val b = getResolvedForm(cm)
 
     // mention must be a Binding
-    require(b matches "Binding", "createBinding only handles Binding mentions.")
-
+    //TODO: change name to createComplex
+    require(b matches "Binding", "createComplex only handles Binding mentions.")
+    //TODO: add require that says arguments only contains key "theme"
+    // This way we will know if we're missing stuff
     // TODO: do binding events have sites?
-    val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntity(m, None)).map(_._1).toSet
+    val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntityWithID(m, None)).map(_._1).toSet
     val repr =
       new Complex(
         mbrs,
@@ -372,11 +392,18 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
    * @param m an Odin Mention
-   * @return a tuple of ([[IDPointer]], [[Complex]])
+   * @return a [[Complex]]
    */
-  protected def createSimpleEvent(m: Mention): (IDPointer, SimpleEvent) = {
+  protected def createComplexWIthID(m: Mention): Complex = createComplexWithID(m)._2
+
+  /**
+   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param m an Odin Mention
+   * @return a tuple of ([[IDPointer]], [[SimpleEvent]])
+   */
+  protected def createSimpleEventWithID(m: Mention): (IDPointer, SimpleEvent) = {
 
     // check for coref
     val cm = m.toCorefMention
@@ -392,7 +419,7 @@ class AssemblyManager(
     val siteLessArgs = e.arguments - "site"
     val input: Map[String, Set[IDPointer]] = siteLessArgs map {
       case (role: String, mns: Seq[Mention]) =>
-        (role, mns.map(getOrCreateIDwithEERepresentation).map(_._1).toSet)
+        (role, mns.map(getOrCreateEERepresentationWithID).map(_._1).toSet)
     }
 
     // prepare output
@@ -409,7 +436,7 @@ class AssemblyManager(
       // NOTE: we need to be careful if we use something other than theme
       e.arguments("theme")
         // TODO: should this be one PTM per entity?
-        .map(m => createSimpleEntity(m, Some(ptms))).map(_._1)
+        .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._1)
         .toSet
     }
 
@@ -434,11 +461,18 @@ class AssemblyManager(
   }
 
   /**
+   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param m an Odin Mention
+   * @return a [[SimpleEvent]]
+   */
+  protected def createSimpleEvent(m: Mention): SimpleEvent = createSimpleEventWithID(m)._2
+
+  /**
    * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
    * @param m an Odin Mention
    * @return a tuple of ([[IDPointer]], [[Regulation]])
    */
-  def createRegulation(m: Mention): (IDPointer, Regulation) = {
+  protected def createRegulationWithID(m: Mention): (IDPointer, Regulation) = {
 
     // check for coref
     val cm = m.toCorefMention
@@ -457,13 +491,13 @@ class AssemblyManager(
     val controllers: Set[IDPointer] = {
       reg.arguments("controller")
         .toSet[Mention]
-        .map(c => getOrCreateIDwithEERepresentation(c)._1)
+        .map(c => getOrCreateEERepresentationWithID(c)._1)
     }
 
     val controlleds: Set[IDPointer] = {
       reg.arguments("controller")
         .toSet[Mention]
-        .map(c => getOrCreateIDwithEERepresentation(c)._1)
+        .map(c => getOrCreateEERepresentationWithID(c)._1)
     }
 
     val repr =
@@ -487,21 +521,27 @@ class AssemblyManager(
   }
 
   /**
+   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+   * @param m an Odin Mention
+   * @return a [[Regulation]]
+   */
+  protected def createRegulation(m: Mention): Regulation = createRegulationWithID(m)._2
+
+  /**
    * Creates a ([[IDPointer]], [[EntityEventRepresentation]]) tuple from a Mention m.
    * Assumes the Mention m is not already present in the [[mentionToID]] LUT
    * Updates to [[mentionToID]] and [[idToEERepresentation]] in the relevant create* call
    * @param m an Odin Mention
    * @return a tuple of ([[IDPointer]], [[EntityEventRepresentation]])
    */
-  def createIDwithEERepresentation(m: Mention): (IDPointer, EntityEventRepresentation) = {
+  protected def createEERepresentationWithID(m: Mention): (IDPointer, EntityEventRepresentation) = {
 
     m.toBioMention match {
-      case e if e matches "Entity" => createSimpleEntity(e, None)
-      case binding if binding matches "Binding" => createBinding(binding)
-      case se if (se matches "SimpleEvent") && ! (se matches "Binding") => createSimpleEvent(m)
-      case regulation if regulation matches "Regulation" => createRegulation(regulation)
+      case e if e matches "Entity" => createSimpleEntityWithID(e, None)
+      case binding if binding matches "Binding" => createComplexWithID(binding)
+      case se if (se matches "SimpleEvent") && ! (se matches "Binding") => createSimpleEventWithID(m)
+      case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
     }
-
   }
 
   /**
@@ -510,7 +550,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return a tuple of ([[IDPointer]], [[EntityEventRepresentation]])
    */
-  def getOrCreateIDwithEERepresentation(m: Mention): (IDPointer, EntityEventRepresentation) = {
+  def getOrCreateEERepresentationWithID(m: Mention): (IDPointer, EntityEventRepresentation) = {
     val id = getOrCreateID(m)
     val repr = idToEERepresentation.getOrElse(id, createEERepresentation(m))
     (id, repr)
@@ -522,7 +562,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return an [[EntityEventRepresentation]]
    */
-  def createEERepresentation(m: Mention): EntityEventRepresentation = createIDwithEERepresentation(m)._2
+  def createEERepresentation(m: Mention): EntityEventRepresentation = createEERepresentationWithID(m)._2
 
   /**
    * A (mostly) human readable printout of the (key, value) pairs in the [[mentionToID]]] LUT
