@@ -141,4 +141,13 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     evidence should have size(2)
   }
 
+  // TODO: add Regulation tests
+  val regText = ""
+  regText should "have X non-distinct Regulations" in {
+
+  }
+  regText should "have X distinct Regulations" in {
+
+  }
+
 }
