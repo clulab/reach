@@ -1,5 +1,6 @@
 package edu.arizona.sista
 
+import edu.arizona.sista.odin.Mention
 
 package object assembly {
 
@@ -9,6 +10,8 @@ package object assembly {
   type GroundingID = String
   // unique ID associated with each Mention
   type IDPointer = Int
+  // a sieve is a function that takes a Seq[Mention] and an AssemblyManager as input and produces an AssemblyManager
+  type Sieve = (Seq[Mention], AssemblyManager) => AssemblyManager
 
 
 
