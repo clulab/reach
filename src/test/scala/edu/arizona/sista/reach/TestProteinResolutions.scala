@@ -14,7 +14,7 @@ import edu.arizona.sista.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Add tests for protein-domain pattern.
+  *   Last Modified: Add tests for PTM-related protein prefixes.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -55,6 +55,10 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("zyx-1").isDefined) should be (true)
     (imkbP.resolve("zyx-1_human").isDefined) should be (true)
     (imkbP.resolve("zyx-1 protein").isDefined) should be (true)
+    (imkbP.resolve("STAT1").isDefined) should be (true)
+    (imkbP.resolve("stat1").isDefined) should be (true)
+    (imkbP.resolve("STBA").isDefined) should be (true)
+    (imkbP.resolve("stba").isDefined) should be (true)
   }
 
   "ProteinKBL resolve" should "work via protein domain lookup" in {
@@ -72,6 +76,29 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("PI3KC2b-RBD").isDefined) should be (false) // protein not in KB
     (imkbP.resolve("zyx-1-rbd").isDefined) should be (false) // pre-key text fails pattern match
     (imkbP.resolve("PI3K-C2-alpha-RBD").isDefined) should be (false) // pre-key text fails pattern match
+  }
+
+  "ProteinKBL resolve" should "fail despite PTM prefix stripping" in {
+    (imkbP.resolve("pNOTINKB").isDefined) should be (false)
+    (imkbP.resolve("pnotinkb").isDefined) should be (false)
+    (imkbP.resolve("uNOTINKB").isDefined) should be (false)
+    (imkbP.resolve("unotinkb").isDefined) should be (false)
+    // does not match restricted pattern (and not in KB without pattern matching)
+    (imkbP.resolve("PSTAT1").isDefined) should be (false)
+    (imkbP.resolve("Pstat1").isDefined) should be (false)
+    (imkbP.resolve("pstat1").isDefined) should be (false)
+    (imkbP.resolve("uerk").isDefined) should be (false)
+    (imkbP.resolve("ustat1").isDefined) should be (false)
+    (imkbP.resolve("ustba").isDefined) should be (false)
+  }
+
+  "ProteinKBL resolve" should "work with PTM prefix stripping" in {
+    (imkbP.resolve("pSTAT1").isDefined) should be (true)
+    (imkbP.resolve("pSTBC").isDefined) should be (true)
+    (imkbP.resolve("pERK").isDefined) should be (true)
+    (imkbP.resolve("uERK").isDefined) should be (true)
+    (imkbP.resolve("uSTAT1").isDefined) should be (true)
+    (imkbP.resolve("uSTBA").isDefined) should be (true)
   }
 
 

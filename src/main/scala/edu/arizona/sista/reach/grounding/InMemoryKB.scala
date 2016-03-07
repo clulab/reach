@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add method to return sequence of KB entries. Remove spurious imports.
+  *   Last Modified: Remove unused lookup methods.
   */
 class InMemoryKB (
 
@@ -43,21 +43,6 @@ class InMemoryKB (
   /** Try lookups for all given keys until one succeeds or all fail. */
   def lookupsAll (allKeys:Seq[String]): Resolutions =
     applyLookupFn(lookupAll, allKeys)
-
-
-  /** Find any optional KB entry for the given key. Returns a resolution
-      for the first KB entry found or None. */
-  def lookupAny (key:String): Option[KBResolution] =
-    makeResolution(theKB.get(key).flatMap(eset => eset.headOption))
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsAny (allKeys:Seq[String]): Option[KBResolution] = {
-    allKeys.foreach { key =>
-      val entry = lookupAny(key)
-      if (entry.isDefined) return entry
-    }
-    return None                             // tried all keys: no success
-  }
 
 
   /** Find the set of KB entries, for the given key, which match the given single species.

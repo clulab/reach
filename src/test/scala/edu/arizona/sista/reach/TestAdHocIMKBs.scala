@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Unit tests to ensure a mixed-namespace in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 1/20/2016.
-  *   Last Modified: Update for separate bioresources project with all KBs gzipped.
+  *   Last Modified: Update for removal of lookup any.
   */
 class TestAdHocIMKBs extends FlatSpec with Matchers {
 
@@ -23,17 +23,6 @@ class TestAdHocIMKBs extends FlatSpec with Matchers {
     (ahkb3.lookupAll("apoptosis").isDefined) should be (true)
     (ahkb3.lookupAll("nadph").isDefined) should be (true)
     (ahkb3.lookupAll("ros").isDefined) should be (true)
-  }
-
-  "AdHocKB COL-3" should "lookupAny on AHKB from COL-3 TSV file" in {
-    (ahkb3.lookupAny("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (ahkb3.lookupAny("not-in-kb").isDefined) should be (false) // not in KB
-    (ahkb3.lookupAny("TROP2").isDefined) should be (false)  // uppercase
-    (ahkb3.lookupAny("Trop2").isDefined) should be (false)  // mixed case
-    (ahkb3.lookupAny("trop2").isDefined) should be (true)
-    (ahkb3.lookupAny("apoptosis").isDefined) should be (true)
-    (ahkb3.lookupAny("nadph").isDefined) should be (true)
-    (ahkb3.lookupAny("ros").isDefined) should be (true)
   }
 
   "AdHocKB COL-3" should "lookupByASpecies on AHKB from COL-3 TSV file" in {
