@@ -6,7 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.nxml.NxmlReader
-import edu.arizona.sista.utils.ClassLoaderObjectInputStream
+import edu.arizona.sista.utils.Serializer
 
 object PaperReader extends App {
 
@@ -25,7 +25,7 @@ object PaperReader extends App {
   val dataset = readPapers(papersDir)
 
   println("serializing ...")
-  save(dataset, outFile)
+  Serializer.save(dataset, outFile)
 
   def readPapers(path: String): Dataset = readPapers(new File(path))
 
@@ -46,20 +46,6 @@ object PaperReader extends App {
       mention <- reach.extractFrom(entry)
     } yield mention
     paperId -> mentions.toVector
-  }
-
-  def save(data: Dataset, path: String): Unit = {
-    val oos = new ObjectOutputStream(new FileOutputStream(path))
-    oos.writeObject(data)
-    oos.close()
-  }
-
-  def load(path: String): Dataset = {
-    val cl = getClass().getClassLoader()
-    val ois = new ClassLoaderObjectInputStream(cl, new FileInputStream(path))
-    val data = ois.readObject().asInstanceOf[Dataset]
-    ois.close()
-    data
   }
 
 }
