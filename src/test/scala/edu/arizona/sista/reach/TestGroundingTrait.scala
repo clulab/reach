@@ -10,7 +10,7 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Fix: test after species reduction.
+  *   Last Modified: Comment out tests for commented out methods.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
@@ -68,23 +68,23 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   }
 
 
-  "After select current grounding, all mentions" should "still be grounded" in {
-    mentions.foreach(_.selectCurrentGrounding)
-    // printMentions(Try(mentions), true)      // DEBUGGING
-    (mentions.forall(_.isGrounded)) should be (true)
-  }
+  // "After select current grounding, all mentions" should "still be grounded" in {
+  //   mentions.foreach(_.selectCurrentGrounding)
+  //   // printMentions(Try(mentions), true)      // DEBUGGING
+  //   (mentions.forall(_.isGrounded)) should be (true)
+  // }
 
-  "After select current grounding, no mentions" should "have candidates anymore" in {
-    (mentions.forall(! _.hasCandidates)) should be (true)
-  }
+  // "After select current grounding, no mentions" should "have candidates anymore" in {
+  //   (mentions.forall(! _.hasCandidates)) should be (true)
+  // }
 
-  "After select current grounding, no mentions" should "have more candidates anymore" in {
-    (mentions.forall(! _.hasMoreCandidates)) should be (true)
-  }
+  // "After select current grounding, no mentions" should "have more candidates anymore" in {
+  //   (mentions.forall(! _.hasMoreCandidates)) should be (true)
+  // }
 
-  "After select current grounding, all mentions" should "still have non-empty nsId string" in {
-    (mentions.forall(_.nsId != "")) should be (true)
-  }
+  // "After select current grounding, all mentions" should "still have non-empty nsId string" in {
+  //   (mentions.forall(_.nsId != "")) should be (true)
+  // }
 
 
   "After nominate, all mentions" should "still be grounded" in {
@@ -106,22 +106,22 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   }
 
 
-  "After final ground, all mentions" should "still be grounded" in {
-    mentions.foreach(_.ground(kbr1))
-    // printMentions(Try(mentions), true)      // DEBUGGING
-    (mentions.forall(_.isGrounded)) should be (true)
-  }
+  // "After final ground, all mentions" should "still be grounded" in {
+  //   mentions.foreach(_.ground(kbr1))
+  //   // printMentions(Try(mentions), true)      // DEBUGGING
+  //   (mentions.forall(_.isGrounded)) should be (true)
+  // }
 
-  "After final ground, no mentions" should "have candidates anymore" in {
-    (mentions.forall(! _.hasCandidates)) should be (true)
-  }
+  // "After final ground, no mentions" should "have candidates anymore" in {
+  //   (mentions.forall(! _.hasCandidates)) should be (true)
+  // }
 
-  "After final ground, no mentions" should "have more candidates anymore" in {
-    (mentions.forall(! _.hasMoreCandidates)) should be (true)
-  }
+  // "After final ground, no mentions" should "have more candidates anymore" in {
+  //   (mentions.forall(! _.hasMoreCandidates)) should be (true)
+  // }
 
-  "After final ground, all mentions" should "still have non-empty nsId string" in {
-    (mentions.forall(_.nsId != "")) should be (true)
-  }
+  // "After final ground, all mentions" should "still have non-empty nsId string" in {
+  //   (mentions.forall(_.nsId != "")) should be (true)
+  // }
 
 }
