@@ -9,4 +9,5 @@ edu.arizona.sista.reach.TestGroundingTrait \
 edu.arizona.sista.reach.TestProteinResolutions \
 edu.arizona.sista.reach.TestFamilyResolutions \
 edu.arizona.sista.reach.TestOrganCellTypeResolutions \
+edu.arizona.sista.reach.TestReachContextKBLister.scala \
 edu.arizona.sista.reach.TestGrounding'
