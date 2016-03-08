@@ -17,6 +17,13 @@ trait EntityEventRepresentation {
   def coref: Boolean
 
   /**
+   * Whether or not the [[EntityEventRepresentation]] is negated by its evidence (i.e., whether or not the evidence gives a negative example for this [[EntityEventRepresentation]]).
+   * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
+   * @return true or false
+   */
+  def negated: Boolean
+
+  /**
    * The Set of Mentions serving as textual evidence for this [[EntityEventRepresentation]].
    * @return Set[Mention]
    */
@@ -65,6 +72,7 @@ class SimpleEntity (
   val id: GroundingID,
   val modifications: Set[AssemblyModification],
   val coref: Boolean,
+  val negated: Boolean,
   val manager: AssemblyManager
 ) extends Entity {
 
@@ -106,8 +114,10 @@ class SimpleEntity (
     // a representation of the ID
     val h1 = mix(h0, id.hashCode)
     // a representation of the set of modifications
-    val h2 = mixLast(h1, modsHash)
-    finalizeHash(h2, 2)
+    val h2 = mix(h1, modsHash)
+    // whether or not the representation is negated
+    val h3 = mixLast(h2, negated.hashCode)
+    finalizeHash(h3, 3)
   }
 
   /**
@@ -143,6 +153,7 @@ class SimpleEntity (
 class Complex (
   val memberPointers: Set[IDPointer],
   val coref: Boolean,
+  val negated: Boolean,
   // assembly manager used for the retrieval of EntityEventRepresentations
   val manager: AssemblyManager
 ) extends Entity {
@@ -191,8 +202,10 @@ class Complex (
     // decided to use the class name
     val h0 = stringHash("edu.arizona.sista.assembly.Complex")
     // comprised of the equiv. hash of members
-    val h1 = mixLast(h0, membersHash)
-    finalizeHash(h1, 1)
+    val h1 = mix(h0, membersHash)
+    // whether or not the representation is negated
+    val h2 = mixLast(h1, negated.hashCode)
+    finalizeHash(h2, 2)
   }
 
   /**
@@ -226,6 +239,7 @@ class SimpleEvent (
   val outputPointers: Set[IDPointer],
   val label: String,
   val coref: Boolean,
+  val negated: Boolean,
   val manager: AssemblyManager
 ) extends Event {
 
@@ -293,8 +307,10 @@ class SimpleEvent (
     // the input of the SimpleEvent
     val h2 = mix(h1, inputHash)
     // the output of the SimpleEvent
-    val h3 = mixLast(h2, outputHash)
-    finalizeHash(h3, 3)
+    val h3 = mix(h2, outputHash)
+    // whether or not the representation is negated
+    val h4 = mixLast(h3, negated.hashCode)
+    finalizeHash(h4, 4)
   }
 
   /**
@@ -324,6 +340,7 @@ class Regulation (
   val controlledPointers: Set[IDPointer],
   val polarity: String,
   val coref: Boolean,
+  val negated: Boolean,
   val manager: AssemblyManager) extends Event {
 
   /**
@@ -378,8 +395,10 @@ class Regulation (
     // controller
     val h2 = mix(h1, controllerHash)
     // controlled
-    val h3 = mixLast(h2, controlledHash)
-    finalizeHash(h3, 3)
+    val h3 = mix(h2, controlledHash)
+    // whether or not the representation is negated
+    val h4 = mixLast(h3, negated.hashCode)
+    finalizeHash(h4, 4)
   }
 
   /**

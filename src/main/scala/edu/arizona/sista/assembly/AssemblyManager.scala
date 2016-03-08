@@ -3,7 +3,7 @@ package edu.arizona.sista.assembly
 import collection.Map
 import collection.immutable
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.mentions.{MentionOps, CorefMention}
+import edu.arizona.sista.reach.mentions.{Negation, MentionOps, CorefMention}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import edu.arizona.sista.reach.mentions
 import edu.arizona.sista.assembly
@@ -321,6 +321,8 @@ class AssemblyManager(
         if (mods.isDefined) modifications ++ mods.get else modifications,
         // check if coref was successful (i.e., it found something)
         hasCorefResolution(cm),
+        // check if negated
+        hasNegation(m),
         this
       )
 
@@ -379,6 +381,8 @@ class AssemblyManager(
         mbrs,
         // check if coref was successful (i.e., it found something)
         hasCorefResolution(cm),
+        // check if negated
+        hasNegation(m),
         this
       )
 
@@ -448,6 +452,8 @@ class AssemblyManager(
         e.label,
         // check if coref was successful (i.e., it found something)
         hasCorefResolution(cm),
+        // check if negated
+        hasNegation(m),
         this
       )
 
@@ -507,6 +513,8 @@ class AssemblyManager(
         polarity,
         // check if coref was successful (i.e., it found something)
         hasCorefResolution(cm),
+        // check if negated
+        hasNegation(m),
         this
       )
 
@@ -829,6 +837,32 @@ class AssemblyManager(
   def mentionSummary(m: Mention): String = {
     val docRepr = s"DOC:${m.document.id.get} (sent. ${m.sentence})"
     s"Mention(label=${m.label}, text='${m.text}', doc=$docRepr)"
+  }
+
+
+  //
+  // evidence checks
+  //
+
+  /**
+   * Checks whether evidence contains a Negation modification
+   * @param m an Odin Mention
+   * @return true or false
+   */
+  def hasNegation(m: Mention): Boolean = {
+    // get mention's coref resolution
+    val cm: CorefMention = m.toCorefMention
+    val ante = cm.antecedentOrElse(cm)
+
+    ante match {
+      // does the entity have a Negation mod?
+      case entity if ante matches "Entity" =>
+        entity.modifications exists (_.isInstanceOf[Negation])
+      // does the event have a Negation mod OR do any of its arguments have a Negation mod?
+      case event if event matches "Event" =>
+        (event.modifications exists (_.isInstanceOf[Negation])) || (event.arguments.values.flatten exists hasNegation)
+      case _ => false
+    }
   }
 }
 

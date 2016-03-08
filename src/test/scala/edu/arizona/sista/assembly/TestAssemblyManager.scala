@@ -36,6 +36,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val mentions5 = testReach.extractFrom(doc5)
   val mentions6 = testReach.extractFrom(doc6)
 
+  //
+  // SimpleEntity tests
+  //
+
   s"$text1 $text2 $text3" should "contain a SimpleEntity representation for Ras without a PTM" in {
     val am = AssemblyManager()
 
@@ -58,6 +62,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     se.evidence should have size(3)
   }
+
+  //
+  // SimpleEvent tests
+  //
 
   it should "have three SimpleEvent representations (non-distinct) for the Phosphorylation of Ras" in {
     val am = AssemblyManager()
@@ -105,6 +113,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     ptm.site.isDefined should be(true)
   }
 
+  //
+  // Complex tests
+  //
+
   s"$text5 $text6" should "contain 2 Complexes (one for each mention) representing Mek-Ras binding" in {
     val am = AssemblyManager()
 
@@ -141,13 +153,60 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     evidence should have size(2)
   }
 
-  // TODO: add Regulation tests
-  val regText = ""
-  regText should "have X non-distinct Regulations" in {
+  //
+  // Negation tests
+  //
 
+  val negPhos = "Mek was not phosphorylated."
+  negPhos should "have a negated SimpleEvent representation for the Phosphorylation mention" in {
+
+    val doc = createDoc(negPhos, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager()
+
+    am.trackMentions(mentions)
+
+    val m = mentions.filter(_ matches "Phosphorylation").head
+
+    val phos = am.getSimpleEvent(m)
+
+    phos.negated should be(true)
   }
-  regText should "have X distinct Regulations" in {
 
+  val negReg = "Mek was not phosphorylated by Ras."
+  negReg should "have a negated Regulation representation" in {
+
+    val doc = createDoc(negReg, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager()
+
+    am.trackMentions(mentions)
+
+    val m = mentions.filter(_ matches "Regulation").head
+
+    val reg = am.getRegulation(m)
+
+    reg.negated should be(true)
+  }
+
+  it should "not have a negated SimpleEvent representation for the Phosphorylation" in {
+    val doc = createDoc(negReg, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager()
+
+    am.trackMentions(mentions)
+
+    val m = mentions.filter(_ matches "Phosphorylation").head
+
+    val phos = am.getSimpleEvent(m)
+
+    phos.negated should be(false)
   }
 
 }
