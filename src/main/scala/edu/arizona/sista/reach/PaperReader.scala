@@ -8,6 +8,8 @@ import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.nxml.NxmlReader
 import edu.arizona.sista.utils.Serializer
 
+import scala.collection.parallel.ForkJoinTaskSupport
+
 object PaperReader extends App {
 
   type PaperId = String
@@ -15,6 +17,8 @@ object PaperReader extends App {
 
   println("loading ...")
   val config = ConfigFactory.load()
+  // the number of threads to use for parallelization
+  val threadLimit = config.getInt("threadLimit")
   val papersDir = config.getString("PaperReader.papersDir")
   val outFile = config.getString("PaperReader.serializedPapers")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
@@ -31,6 +35,11 @@ object PaperReader extends App {
 
   def readPapers(dir: File): Dataset = {
     require(dir.isDirectory, s"'${dir.getCanonicalPath}' is not a directory")
+    // read papers in parallel
+    val files = dir.listFiles.par
+    // limit parallelization
+    files.tasksupport =
+      new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
     val data = for {
       file <- dir.listFiles.par // read papers in parallel
       if file.getName.endsWith(".nxml")
