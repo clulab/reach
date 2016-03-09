@@ -30,7 +30,8 @@ class ReachCLI(
   val logFile:File
 ) {
 
-  def processPapers(nthreads: Option[Int]): Int = {
+  /** Process papers with optional limits on parallelization **/
+  def processPapers(threadLimit: Option[Int]): Int = {
     println("initializing reach ...")
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
@@ -42,9 +43,9 @@ class ReachCLI(
     // process papers in parallel
     val files = nxmlDir.listFiles.par
     // limit parallelization
-    if (nthreads.nonEmpty) {
+    if (threadLimit.nonEmpty) {
       files.tasksupport =
-        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(nthreads.get))
+        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
     }
     for (file <- files if file.getName.endsWith(".nxml")) {
       val paperId = FilenameUtils.removeExtension(file.getName)
@@ -218,7 +219,7 @@ object ReachCLI extends App {
   }.toMap
 
   // the number of threads to use for parallelization
-  val nthreads = config.getInt("nthreads")
+  val threadLimit = config.getInt("threadLimit")
 
   println(s"Context engine: $contextEngineType\tParams: $contextEngineParams")
 
@@ -244,7 +245,7 @@ object ReachCLI extends App {
   val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType,
        ignoreSections, contextEngineType, contextEngineParams, logFile)
 
-  cli.processPapers(Some(nthreads))
+  cli.processPapers(Some(threadLimit))
 
   def now = new Date()
 }

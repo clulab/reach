@@ -18,7 +18,7 @@ object PaperReader extends App {
   println("loading ...")
   val config = ConfigFactory.load()
   // the number of threads to use for parallelization
-  val nthreads = config.getInt("nthreads")
+  val threadLimit = config.getInt("threadLimit")
   val papersDir = config.getString("PaperReader.papersDir")
   val outFile = config.getString("PaperReader.serializedPapers")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
@@ -39,7 +39,7 @@ object PaperReader extends App {
     val files = dir.listFiles.par
     // limit parallelization
     files.tasksupport =
-      new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(nthreads))
+      new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
     val data = for {
       file <- dir.listFiles.par // read papers in parallel
       if file.getName.endsWith(".nxml")
