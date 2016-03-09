@@ -31,7 +31,7 @@ class ReachSystem(
   val entityLookup = new ReachEntityLookup // initialize entity lookup (find grounding candidates)
   val grounder = new ReachGrounder
   // start entity extraction engine
-  // this engine extracts all physical entities of interest and grounds them
+  // this engine extracts all physical entities of interest
   val entityEngine = ExtractorEngine(entityRules, actions)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
@@ -72,11 +72,11 @@ class ReachSystem(
     }
     contextEngine.update(eventsPerEntry.flatten)
     val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
-    System.err.println("******* BEFORE GROUNDING **********") // REMOVE LATER
-    eventsWithContext.foreach { grounder.printMention }       // REMOVE LATER
+    // System.err.println("******* BEFORE GROUNDING **********") // REMOVE LATER
+    // eventsWithContext.foreach { grounder.printMention }       // REMOVE LATER
     val grounded = grounder(eventsWithContext)
-    System.err.println("******* AFTER GROUNDING **********") // REMOVE LATER
-    grounded.foreach { grounder.printMention }               // REMOVE LATER
+    // System.err.println("******* AFTER GROUNDING **********") // REMOVE LATER
+    // grounded.foreach { grounder.printMention }               // REMOVE LATER
     // Coref expects to get all mentions grouped by document
     val resolved = resolveCoref(groupMentionsByDocument(grounded, documents))
     // Coref introduced incomplete Mentions that now need to be pruned
