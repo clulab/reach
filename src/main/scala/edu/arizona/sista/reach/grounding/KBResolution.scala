@@ -1,9 +1,11 @@
 package edu.arizona.sista.reach.grounding
 
+import scala.Serializable
+
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Pass nsId call to entry.
+  *   Last Modified: Make class serializable.
   */
 class KBResolution (
 
@@ -13,7 +15,7 @@ class KBResolution (
   /** Meta information about the KB from which this resolution was created. */
   val metaInfo: Option[KBMetaInfo] = None
 
-) {
+) extends Serializable {
 
   // Facade functions for field access
   def namespace: String = entry.namespace

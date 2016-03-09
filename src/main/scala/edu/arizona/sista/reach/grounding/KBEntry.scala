@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach.grounding
 
+import scala.Serializable
 import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
@@ -7,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add nsId method.
+  *   Last Modified: Make class serializable.
   */
 class KBEntry (
 
@@ -26,7 +27,7 @@ class KBEntry (
   /** The species associated with this entry, if any. Empty string represents no species. */
   val species: String = KBEntry.NoSpeciesValue
 
-) extends Speciated {
+) extends Speciated with Serializable {
 
   /** Helper method for equals redefinition. */
   def canEqual (other: Any): Boolean = other.isInstanceOf[KBEntry]
