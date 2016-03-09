@@ -11,9 +11,9 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Add method to read all lines from a file.
+  *   Last Modified: Add resolution filters.
   */
-object ReachKBUtils {
+object ReachKBUtils extends Speciated {
 
   /** Tell whether the given mention is grounded from a protein family KB or not. */
   def isFamilyGrounded (mention:BioMention): Boolean =
@@ -68,6 +68,29 @@ object ReachKBUtils {
   def tsvRowToFields (row:String): Seq[String] = {
     return row.split("\t").map(_.trim)
   }
+
+
+  /** Filter sequence to return human resolutions (sorted). */
+  def selectHuman (resolutions:Seq[KBResolution]): Seq[KBResolution] =
+    resolutions.filter(kbr => isHumanSpecies(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+
+  /** Filter sequence to return resolutions which have no species. */
+  def selectNoSpecies (resolutions:Seq[KBResolution]): Seq[KBResolution] =
+    resolutions.filter(kbr => kbr.hasNoSpecies)
+
+  /** Filter sequence to return only resolutions (sorted) with a non-human species. */
+  def selectNotHuman (resolutions:Seq[KBResolution]): Seq[KBResolution] = {
+    resolutions.filter(kbr => kbr.hasSpecies && !isHumanSpecies(kbr.species))
+              .sortBy(kbr => (kbr.species, kbr.id))
+  }
+
+  /** Filter sequence to return only resolutions with the given species. */
+  def selectASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
+    resolutions.filter(kbr => kbr.species == species)
+
+  /** Filter sequence to return only resolutions (sorted) without the given species. */
+  def selectNotASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
+    resolutions.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
 
 }
 
