@@ -24,7 +24,7 @@ import edu.arizona.sista.assembly
 class AssemblyManager(
   m2id: Map[Mention, IDPointer],
   id2repr: Map[IDPointer, EntityEventRepresentation]
-) {
+) extends Serializable {
 
   var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
   var idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation] = id2repr.toMap
