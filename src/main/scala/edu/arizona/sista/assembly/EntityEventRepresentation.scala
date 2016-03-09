@@ -8,7 +8,7 @@ import scala.util.hashing.MurmurHash3._
 /**
  * Trait used for entity/event representations of a Mention.
  */
-trait EntityEventRepresentation {
+trait EntityEventRepresentation extends Serializable {
   /**
    * Whether or not the [[EntityEventRepresentation]] was produced by a Mention resolved through coref.
    * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
