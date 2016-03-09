@@ -26,7 +26,7 @@ class KBEntry (
   /** The species associated with this entry, if any. Empty string represents no species. */
   val species: String = KBEntry.NoSpeciesValue
 
-) extends Speciated {
+) extends Speciated with Serializable {
 
   /** Helper method for equals redefinition. */
   def canEqual (other: Any): Boolean = other.isInstanceOf[KBEntry]
