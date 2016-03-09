@@ -256,6 +256,89 @@ class AssemblyManager(
     idToEERepresentation = idToEERepresentation + (id -> repr)
   }
 
+  //
+  // Utils for removing IDs
+  //
+
+  /**
+   * Removes mention and corresponding [[EntityEventRepresentation]] associated with the provided id.
+   * If the corresponding EntityEventRepresentation is a [[SimpleEvent]], remove its output as well.
+   * @param id an [[IDPointer]] used to identify mentions and EntityEventRepresentations for removal
+   */
+  def removeEntriesContainingID(id: IDPointer): Unit = {
+
+    // get ids of EEReprs containing the given id
+    val ids = for {
+      r <- idToEERepresentation.values.toSeq
+      if r.containsID(id)
+    } yield r match {
+        // if an event, get event's id and ids of event's outputs
+        case event: SimpleEvent =>
+          event.outputPointers ++ Set(event.uniqueID)
+        case repr => Set(repr.uniqueID)
+      }
+
+    removeEntriesCorrespondingToIDs(ids.flatten)
+  }
+
+  /**
+   * Removes mention and corresponding EERepresentation from the AssemblyManager
+   * @param m
+   */
+  def removeEntriesContainingIDofMention(m: Mention): Unit = {
+    val id = getOrCreateID(m)
+    println(s"Mention id: $id")
+    removeEntriesContainingID(id)
+  }
+
+  /**
+   * Removes entries referencing the given [[EntityEventRepresentation]].
+   * @param repr an [[EntityEventRepresentation]] used to identify mentions and EntityEventRepresentations for removal
+   */
+  def removeEntriesContainingIDofEERepresentation(repr: EntityEventRepresentation): Unit = {
+
+    // get ids of EERepresentations containing the id of the given EERepresentation
+    val idsForRemoval: Seq[IDPointer] = for {
+      r <- idToEERepresentation.values.toSeq
+      if r.containsID(repr.uniqueID)
+    } yield r.uniqueID
+
+    removeEntriesCorrespondingToIDs(idsForRemoval)
+  }
+
+  /**
+   * Removes entries referencing the any of the given [[IDPointer]].
+   * @param ids a Seq[IDPointer] used to identify mentions and EntityEventRepresentations for removal
+   */
+  def removeEntriesCorrespondingToIDs(ids: Seq[IDPointer]): Unit = {
+
+    // remove mentions associated with the IDs
+
+    val id2m = idToMention
+
+    for {
+      id <- ids
+      if id2m contains id
+      m = id2m(id)
+    } {
+      println(s"removing mention with text '${m.text}'")
+      mentionToID = mentionToID - m
+    }
+
+    // remove EEReprs containing the given id
+    for {
+      id <- ids
+    } {
+      println(s"removing $id from 'idToEERepresentation'")
+      idToEERepresentation = idToEERepresentation - id
+    }
+
+  }
+
+  //
+  // Utils for handling modifications
+  //
+
   /**
    * Builds a Set[AssemblyModfication] from the modifcations belonging to a Mention m.
    * Currently, only a subset of Mention [[edu.arizona.sista.reach.mentions.Modification]] are considered relevant to assembly:
