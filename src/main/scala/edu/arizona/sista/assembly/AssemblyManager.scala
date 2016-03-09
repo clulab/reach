@@ -158,17 +158,15 @@ class AssemblyManager(
     val m = getResolvedForm(mention.toCorefMention)
 
     m match {
-      // don't store sites
-      case site if site matches "Site" => false
       // simple events should not have a cause
-      case se if se matches "SimpleEvent" => !(se.arguments contains "cause")
-      // don't store activations
-      case activation if activation matches "Activation" => false
+      case se if se matches "SimpleEvent" =>
+        !(se.arguments contains "cause")
       // regs must have controlled and controller
       case reg if reg matches "Regulation" =>
         (m.arguments contains "controller") && (m.arguments contains "controlled")
-      // assume valid otherwise
-      case _ => true
+      case entity if entity matches "Entity" => true
+      // assume invalid otherwise
+      case _ => false
     }
   }
 
