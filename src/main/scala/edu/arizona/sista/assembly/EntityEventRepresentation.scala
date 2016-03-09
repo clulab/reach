@@ -85,7 +85,7 @@ trait Entity extends EntityEventRepresentation {
  */
 class SimpleEntity(
   val uniqueID: IDPointer,
-  val id: GroundingID,
+  val grounding: GroundingID,
   val modifications: Set[AssemblyModification],
   val coref: Boolean,
   val negated: Boolean,
@@ -93,11 +93,11 @@ class SimpleEntity(
 ) extends Entity {
 
   /**
-   * Summary making use of [[id]], [[modifications]], [[coref]], and [[manager]].
+   * Summary making use of [[grounding]], [[modifications]], [[coref]], and [[manager]].
    * @return a String summary of the [[SimpleEntity]]
    */
   def summarize: String =
-    s"SimpleEntity(id=${this.id}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager})"
+    s"SimpleEntity(grounding=${this.grounding}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager})"
 
   /**
    * Returns the Set of [[assembly.PTM]] contained in [[modifications]].
@@ -121,14 +121,14 @@ class SimpleEntity(
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[SimpleEntity]].
-   * @return a hash (Int) based primarily on the [[id]] and [[modsHash]]
+   * @return a hash (Int) based primarily on the [[grounding]] and [[modsHash]]
    */
   def equivalenceHash: Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
     val h0 = stringHash("edu.arizona.sista.assembly.SimpleEntity")
     // a representation of the ID
-    val h1 = mix(h0, id.hashCode)
+    val h1 = mix(h0, grounding.hashCode)
     // a representation of the set of modifications
     val h2 = mix(h1, modsHash)
     // whether or not the representation is negated
