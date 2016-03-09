@@ -37,16 +37,30 @@ trait EntityEventRepresentation {
    * @return true or false
    */
   def isEquivalentTo(other: Any): Boolean
+
   /**
    * A hash used for equivalency comparisons of derived classes of [[EntityEventRepresentation]].
    * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
    * @return a hash (Int) representing a derived instance of [[EntityEventRepresentation]]
    */
   def equivalenceHash: Int
+
   /**
    * a pointer to the [[AssemblyManager]] instance that produced this [[EntityEventRepresentation]]
    */
   val manager: AssemblyManager
+
+  /**
+   * the [[IDPointer]] assigned to this [[EntityEventRepresentation]]
+   */
+  val uniqueID: IDPointer
+
+  /**
+   * Whether or not this [[EntityEventRepresentation]] contains a reference to the provided [[IDPointer]]
+   * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
+   * @return true or false
+   */
+  def containsID(someID: IDPointer): Boolean
 }
 
 /**
@@ -62,13 +76,15 @@ trait Entity extends EntityEventRepresentation {
 
 /**
  * A [[Entity]] representation of a Mention of a Protein, GGP, Simple_chemical, etc. (see the children of "Entity" in the taxonomy)
+ * @param uniqueID [[IDPointer]] assigned to this [[SimpleEntity]] by the [[AssemblyManager]]
  * @param id [[GroundingID]] for the [[SimpleEntity]]
  * @param modifications a Set of [[AssemblyModification]], such as [[edu.arizona.sista.assembly.PTM]] and [[edu.arizona.sista.assembly.EntityLabel]].
  *                      These are relevant to the identity of the [[SimpleEntity]] and describe its state (ex. Phosphorylated @ Ser123).
  * @param coref whether or not the [[SimpleEntity]] was produced by a Mention resolved through coref
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[SimpleEntity]]
  */
-class SimpleEntity (
+class SimpleEntity(
+  val uniqueID: IDPointer,
   val id: GroundingID,
   val modifications: Set[AssemblyModification],
   val coref: Boolean,
@@ -142,15 +158,26 @@ class SimpleEntity (
     case se: SimpleEntity => this.equivalenceHash == se.equivalenceHash
     case _ => false
   }
+
+  /**
+   * Whether or not the [[SimpleEntity]] contains the provided [[IDPointer]].
+   * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
+   * @return true or false
+   */
+  def containsID(someID: IDPointer): Boolean = {
+    uniqueID == someID
+  }
 }
 
 /**
  * A [[Entity]] representation of a Binding Mention.
  * @param memberPointers a Set of [[IDPointer]] corresponding to the Mentions serving as members to the [[Complex]]
+ * @param uniqueID the [[IDPointer]] assigned to the [[Complex]] by the AssemblyManager
  * @param coref whether or not the [[Complex]] was produced by a Mention resolved through coref
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Complex]]
  */
-class Complex (
+class Complex(
+  val uniqueID: IDPointer,
   val memberPointers: Set[IDPointer],
   val coref: Boolean,
   val negated: Boolean,
@@ -218,6 +245,15 @@ class Complex (
     case complex: Complex => this.equivalenceHash == complex.equivalenceHash
     case _ => false
   }
+
+  /**
+   * Whether or not the [[Complex]] contains the provided [[IDPointer]].
+   * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
+   * @return true or false
+   */
+  def containsID(someID: IDPointer): Boolean = {
+    uniqueID == someID || (memberPointers contains someID)
+  }
 }
 
 /**
@@ -226,15 +262,17 @@ class Complex (
 trait Event extends EntityEventRepresentation
 
 /**
- * A representation for any Mention with the label SimpleEvent.  Note that a Binding is represented using a [[Complex]].
- * @param inputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as input to the [[SimpleEvent]].
+ * Representation for any Mention with the label SimpleEvent.  Note that a Binding is represented using a [[Complex]].
+ * @param uniqueID the [[IDPointer]] assigned to this [[SimpleEvent]] by the [[AssemblyManager]]
+ * @param inputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as input to the [[SimpleEvent]]
  * @param outputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as output to the [[SimpleEvent]].
  *                       In practice, this is a single [[Entity]] with at least one [[edu.arizona.sista.assembly.PTM]] (corresponding to [[SimpleEvent.label]].
  * @param label the label of the SimpleEvent (ex. Phosphorylation, Farnesylation, etc)
  * @param coref whether or not the [[Complex]] was produced by a Mention resolved through coref
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Complex]]
  */
-class SimpleEvent (
+class SimpleEvent(
+  val uniqueID: IDPointer,
   val inputPointers: Map[String, Set[IDPointer]],
   val outputPointers: Set[IDPointer],
   val label: String,
@@ -323,10 +361,20 @@ class SimpleEvent (
     case se: SimpleEvent => this.equivalenceHash == se.equivalenceHash
     case _ => false
   }
+
+  /**
+   * Whether or not the [[SimpleEvent]] contains the provided [[IDPointer]].
+   * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
+   * @return true or false
+   */
+  def containsID(someID: IDPointer): Boolean = {
+    uniqueID == someID || ((inputPointers.values.flatten.toSet ++ outputPointers) contains someID)
+  }
 }
 
 /**
- *
+ * Representation of a Regulation event.
+ * @param uniqueID the [[IDPointer]] assigned to this [[Regulation]]
  * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]].
  *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]].
  * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]].
@@ -335,7 +383,8 @@ class SimpleEvent (
  * @param coref whether or not the [[Complex]] was produced by a Mention resolved through coref
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Complex]]
  */
-class Regulation (
+class Regulation(
+  val uniqueID: IDPointer,
   val controllerPointers: Set[IDPointer],
   val controlledPointers: Set[IDPointer],
   val polarity: String,
@@ -411,5 +460,14 @@ class Regulation (
     // controller and controlled must be the same
     case reg: Regulation => this.equivalenceHash == reg.equivalenceHash
     case _ => false
+  }
+
+  /**
+   * Whether or not the [[Regulation]] contains the provided [[IDPointer]].
+   * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
+   * @return true or false
+   */
+  def containsID(someID: IDPointer): Boolean = {
+    uniqueID == someID || ((controlledPointers ++ controllerPointers) contains someID)
   }
 }
