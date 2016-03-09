@@ -8,6 +8,7 @@ case class Row(
   input: String,
   output: String,
   controller: String,
+  eventLabel: String,
   precededBy: Seq[IDPointer],
   negated: Boolean,
   evidence: Set[Mention]
