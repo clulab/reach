@@ -24,10 +24,11 @@ case class Row(
     evidence.toSeq.map(_.sentenceObj.getSentenceText)
   }
 
-  def toString(sep: String): String = {
+  def toTSVrow: String = {
     val precedingEvents = precededBy.distinct.sorted.mkString(", ")
     val seenIn = papers.toSeq.sorted.mkString(", ")
-    s"$input\t$output\t$controller\t$precedingEvents$seen$getTextualEvidence$seenIn"
+    val examples = getTextualEvidence.mkString(" ++++ ")
+    s"$input\t$output\t$controller\t$eventLabel$precedingEvents\t$seen\t$examples\t$seenIn"
   }
 }
 
