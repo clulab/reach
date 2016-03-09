@@ -166,17 +166,15 @@ class AssemblyManager(
       case _ => true
     }
   }
+
   /**
-   * Get antecedent if present.  Otherwise return the mention as-is.
+   * Get antecedent if present.  Otherwise return the CorefMntion as-is.
    *
    * Used to retrieve the appropriate features of a mention's antecedent.
    * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
    * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
    */
-  def getResolvedForm(cm: CorefMention): CorefMention = {
-    val ante = cm.antecedent
-    if (ante.nonEmpty) ante.get.asInstanceOf[Mention].toCorefMention else cm
-  }
+  def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
 
   /**
    * Checks to see if a coref mention has an antecedent.
