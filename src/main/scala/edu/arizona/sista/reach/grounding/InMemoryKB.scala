@@ -3,11 +3,12 @@ package edu.arizona.sista.reach.grounding
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBUtils._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Remove unused lookup methods.
+  *   Last Modified: Add default sort-by-human for resolutions returned from IMKB.
   */
 class InMemoryKB (
 
@@ -110,9 +111,12 @@ class InMemoryKB (
 
   /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
       this KB and the given KB entries. */
-  def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions =
-    entries.map(_.map(kbe => newResolution(kbe))).map(_.sortBy(kbe => (kbe.species, kbe.id)))
-
+  def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions = {
+    val resSeq = entries.map(_.map(kbe => newResolution(kbe)))
+    resSeq.map { resolutions =>
+      selectHuman(resolutions) ++ selectNoSpecies(resolutions) ++ selectNotHuman(resolutions)
+    }
+  }
 
   /** Wrap the given KB entry in a new singleton-sequence of resolutions formed from
       this KB and the given KB entry. */
