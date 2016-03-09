@@ -51,8 +51,8 @@ class AssemblyExporter(am: AssemblyManager) {
       pair <- am.distinctSimpleEntitiesWithEvidence
       entity: SimpleEntity = pair._1
       evidence: Set[Mention] = pair._2
-      id: GroundingID = entity.id
-      text: String = evidence.map(_.text.toLowerCase).max
+      id: GroundingID = entity.grounding
+      text: String = if (evidence.nonEmpty) s"${evidence.map(_.text.toLowerCase).max}::$id" else s"???::$id"
     } yield (id, text)
 
     pairs.toMap
@@ -81,7 +81,7 @@ class AssemblyExporter(am: AssemblyManager) {
           .map(getPTMrepresentation)
           .mkString(".", ".","")
 
-        val text = grounding2Text.getOrElse(entity.id, entity.id)
+        val text = grounding2Text.getOrElse(entity.grounding, entity.grounding)
        s"$text$mutantForms$features"
 
     case complex: Complex =>
