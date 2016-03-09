@@ -161,7 +161,7 @@ object AssemblyExporter {
   )
 
   def getPTMrepresentation(ptm: PTM): String = {
-    // attempt to retrieve the abberviated form of the label
+    // attempt to retrieve the abbreviated form of the label
     // if the key is missing from the LUT,
     // return the lowercase form of the first letter of the PTM's label
     PTMLUT.getOrElse(ptm.label, ptm.label.toLowerCase.head.toString)
