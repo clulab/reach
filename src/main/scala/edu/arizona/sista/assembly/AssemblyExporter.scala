@@ -21,7 +21,7 @@ case class Row(
   val papers = evidence.map(_.document.id.getOrElse("UNKNOWN"))
 
   def getTextualEvidence: Seq[String] = {
-    evidence.toSeq.map(_.text)
+    evidence.toSeq.map(_.sentenceObj.getSentenceText)
   }
 
   def toString(sep: String): String = {
