@@ -105,13 +105,18 @@ class AssemblyManager(
    * @return a sequence of Mention serving as textual evidence of the given representation
    */
   def getEvidence(repr: EntityEventRepresentation): Set[Mention] = {
-    idToEERepresentation.filter {
+    val ids = idToEERepresentation.filter {
       // which IDs point to EEReprs that are identical to the one given?
-      case (k, v) => v isEquivalentTo repr }
-      .keys
-      // retrieve the mention by id
-      .map(id => idToMention(id))
-      .toSet
+      case (k, v) => v isEquivalentTo repr }.keys
+
+    // retrieve the mention by id
+    val evidence = for {
+      id <- ids
+      // TODO: why might the id not exist in this map?
+      if idToMention contains id
+      e = idToMention(id)
+    } yield e
+    evidence.toSet
   }
 
   //
