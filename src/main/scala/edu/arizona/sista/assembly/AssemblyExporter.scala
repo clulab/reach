@@ -71,15 +71,15 @@ class AssemblyExporter(am: AssemblyManager) {
 
         // construct mutant forms, if present
         val mutantForms: String = mutations
-          .map(m => s"[${m.mutantType}]")
+          .map(m => s":[${m.mutantType}]")
           //ex. :[mutant1]:[mutant2]
-          .toSeq.mkString(":", ":", "")
+          .toSeq.mkString(":")
 
         // find PTMs
         val ptms: Set[PTM] = other.filter(_.isInstanceOf[PTM])map(_.asInstanceOf[PTM])
         val features: String = ptms
           .map(getPTMrepresentation)
-          .mkString(".", ".","")
+          .mkString(".")
 
         val text = grounding2Text.getOrElse(entity.grounding, entity.grounding)
        s"$text$mutantForms$features"
