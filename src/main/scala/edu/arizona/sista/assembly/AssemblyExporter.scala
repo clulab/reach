@@ -19,9 +19,8 @@ case class Row(
   // the set of paper ids where mentions of this event were found
   val papers = evidence.map(_.document.id.getOrElse("UNKNOWN"))
 
-  // gets the most common span
-  def getTextualEvidence: String = {
-    evidence.toSeq.map(_.text).max
+  def getTextualEvidence: Seq[String] = {
+    evidence.toSeq.map(_.text)
   }
 
   def toString(sep: String): String = {
