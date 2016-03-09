@@ -13,7 +13,7 @@ class KBResolution (
   /** Meta information about the KB from which this resolution was created. */
   val metaInfo: Option[KBMetaInfo] = None
 
-) {
+) extends Serializable {
 
   // Facade functions for field access
   def namespace: String = entry.namespace
