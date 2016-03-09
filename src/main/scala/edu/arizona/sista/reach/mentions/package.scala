@@ -121,7 +121,5 @@ package object mentions {
     ): Map[String,Seq[CorefMention]] = arguments.transform {
       case (k, v) => v.map(_.toCorefMention)
     }
-
   }
-
 }
