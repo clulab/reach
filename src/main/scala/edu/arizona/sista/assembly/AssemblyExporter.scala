@@ -127,12 +127,19 @@ class AssemblyExporter(am: AssemblyManager) {
 
   def writeTSV(outfile: String): Unit = {
     val f = new File(outfile)
+    val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT LABEL\tPRECEDED BY\tSEEN\tEVIDENCE\tSEEN IN\n"
     val text = getRows
-      .map(_.toString)
       .toSeq
-      .sorted
+      .sortBy(r => (r.eventLabel, r.papers.size, r.seen))
+      .map(_.toTSVrow)
       .mkString("\n")
-    FileUtils.writeStringToFile(f, text)
+    FileUtils.writeStringToFile(f, header + text)
+  }
+
+  def getEventLabel(e: EntityEventRepresentation): String = e match {
+    case binding: Complex => "Binding"
+    case reg: Regulation => "Regulation"
+    case se: SimpleEvent => se.label
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
@@ -146,6 +153,7 @@ class AssemblyExporter(am: AssemblyManager) {
             createInput(event),
             createOutput(event),
             createController(event),
+            getEventLabel(event),
             precededBy(event),
             event.negated,
             event.evidence
@@ -158,14 +166,15 @@ class AssemblyExporter(am: AssemblyManager) {
 object AssemblyExporter {
 
   val PTMLUT: Map[String, String] = Map(
-      "Phosphorylation" -> "p",
-      "Ubiquitination" -> "u"
+      "Phosphorylation" -> ".p",
+      "Ubiquitination" -> ".u"
   )
 
   def getPTMrepresentation(ptm: PTM): String = {
     // attempt to retrieve the abbreviated form of the label
     // if the key is missing from the LUT,
     // return the lowercase form of the first letter of the PTM's label
-    PTMLUT.getOrElse(ptm.label, ptm.label.toLowerCase.head.toString)
+    val altPTM = s".${ptm.label.toLowerCase.head.toString}"
+    PTMLUT.getOrElse(ptm.label, altPTM)
   }
 }
