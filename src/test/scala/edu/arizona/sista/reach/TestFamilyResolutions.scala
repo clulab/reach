@@ -208,5 +208,5 @@ class TestProtFamKBL extends IMKBFamilyLookup {
   val meta = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
   meta.put("family", "true")                // mark as from a protein family KB
   memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true, meta)
-  println(s"IMKB.metaInfo=${memoryKB.metaInfo}")
+  // println(s"IMKB.metaInfo=${memoryKB.metaInfo}")
 }
