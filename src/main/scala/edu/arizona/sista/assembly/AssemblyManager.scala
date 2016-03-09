@@ -34,7 +34,7 @@ class AssemblyManager(
 
   // initialize to size of LUT 2
   private var nextID: IDPointer = idToEERepresentation.size
-  
+
   /**
    * Retrieves an [[EntityEventRepresentation]] for a Mention.
    * Assumes an [[EntityEventRepresentation]] for the given Mention already exists.
@@ -287,7 +287,6 @@ class AssemblyManager(
    */
   def removeEntriesContainingIDofMention(m: Mention): Unit = {
     val id = getOrCreateID(m)
-    println(s"Mention id: $id")
     removeEntriesContainingID(id)
   }
 
@@ -321,7 +320,6 @@ class AssemblyManager(
       if id2m contains id
       m = id2m(id)
     } {
-      println(s"removing mention with text '${m.text}'")
       mentionToID = mentionToID - m
     }
 
@@ -329,7 +327,6 @@ class AssemblyManager(
     for {
       id <- ids
     } {
-      println(s"removing $id from 'idToEERepresentation'")
       idToEERepresentation = idToEERepresentation - id
     }
 
