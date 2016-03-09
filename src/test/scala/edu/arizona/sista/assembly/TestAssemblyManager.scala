@@ -209,4 +209,19 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     phos.negated should be(false)
   }
 
+  "AssemblyManager" should s"not contain any EEReprs for '$negPhos' if all EEReprs referencing Mek are removed" in {
+    val doc = createDoc(negPhos, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager()
+
+    am.trackMentions(mentions)
+
+    val m = mentions.filter(_ matches "Entity").head
+
+    am.removeEntriesContainingIDofMention(m)
+
+    am.idToEERepresentation.size should be(0)
+  }
 }
