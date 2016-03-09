@@ -9,6 +9,7 @@ case class Row(
   output: String,
   controller: String,
   precededBy: Seq[IDPointer],
+  negated: Boolean,
   evidence: Set[Mention]
 ) {
   // this might serve as a proxy for confidence, though
@@ -145,6 +146,7 @@ class AssemblyExporter(am: AssemblyManager) {
             createOutput(event),
             createController(event),
             precededBy(event),
+            event.negated,
             event.evidence
          )
       }
