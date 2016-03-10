@@ -95,9 +95,18 @@ class AssemblyExporter(am: AssemblyManager) {
 
     case reg: Regulation =>
       // get event IDs for each controlled
-      reg.controlled.map(c => EERLUT(c.equivalenceHash)).mkString(", ")
+      reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash, reportError(reg, c))).mkString(", ")
   }
 
+  def reportError(reg: Regulation, c: EntityEventRepresentation): String = {
+    println(s"$c is a controlled of a regulation but it is not a Complex or Event!")
+    val labels = c.evidence.map(_.label)
+    val evidence = reg.evidence.map(_.text)
+    println(s"Evidence for reg: $evidence")
+    println(s"Evidence for controlled: ${c.evidence.map(_.text)}")
+    println(s"Labels assigned to evidence: $labels")
+    "???"
+  }
   def createOutput(repr: EntityEventRepresentation): String = repr match {
 
     case complex: Complex =>
