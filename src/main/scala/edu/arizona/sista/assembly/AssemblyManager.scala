@@ -165,7 +165,10 @@ class AssemblyManager(
         !(se.arguments contains "cause")
       // regs must have controlled and controller
       case reg if reg matches "Regulation" =>
-        (m.arguments contains "controller") && (m.arguments contains "controlled")
+        (m.arguments contains "controller") &&
+          (m.arguments contains "controlled") &&
+          // controlled must be valid (disallow Activations)
+          m.arguments("controlled").forall(isValidMention)
       case entity if entity matches "Entity" => true
       // assume invalid otherwise
       case _ => false
@@ -681,6 +684,7 @@ class AssemblyManager(
       case e if e matches "Entity" => createSimpleEntityWithID(e, None)
       case binding if binding matches "Binding" => createComplexWithID(binding)
       case se if (se matches "SimpleEvent") && ! (se matches "Binding") => createSimpleEventWithID(m)
+      case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
       case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
     }
   }
