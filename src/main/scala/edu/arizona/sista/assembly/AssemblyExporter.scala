@@ -68,7 +68,9 @@ class AssemblyExporter(val manager: AssemblyManager) {
       case hasMention if manager.idToMention contains hasMention =>
          manager.idToMention(hasMention).text
       case noSourceMention =>
-        val altText = entity.evidence.map(resolveEvidence).map(_.text)
+        val altText =
+          entity.withSameGrounding
+          .flatMap(_.evidence.map(resolveEvidence).map(_.text))
         if (altText.nonEmpty) altText.head else "???"
     }
     text
