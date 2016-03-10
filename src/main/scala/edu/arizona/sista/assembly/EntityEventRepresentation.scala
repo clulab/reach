@@ -167,6 +167,16 @@ class SimpleEntity(
   def containsID(someID: IDPointer): Boolean = {
     uniqueID == someID
   }
+
+  /**
+   * Find SimpleEntities with simple same grounding
+   */
+  def withSameGrounding: Set[SimpleEntity] = {
+    for {
+      se <- manager.getSimpleEntities
+      if se.grounding == this.grounding
+    } yield se
+  }
 }
 
 /**
