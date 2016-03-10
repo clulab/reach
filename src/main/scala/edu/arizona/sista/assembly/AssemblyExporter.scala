@@ -171,6 +171,7 @@ class AssemblyExporter(am: AssemblyManager) {
             createInput(event),
             createOutput(event),
             createController(event),
+            EERLUT(event.equivalenceHash),
             getEventLabel(event),
             precededBy(event),
             event.negated,
