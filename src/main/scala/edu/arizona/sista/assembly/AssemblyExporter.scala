@@ -53,7 +53,7 @@ class AssemblyExporter(am: AssemblyManager) {
     val pairs: Set[(GroundingID, String)] = for {
       pair <- am.distinctSimpleEntitiesWithEvidence
       entity: SimpleEntity = pair._1
-      evidence: Set[Mention] = pair._2
+      evidence: Set[Mention] = pair._2.map(resolveEvidence)
       id: GroundingID = entity.grounding
       text: String = if (evidence.nonEmpty) s"${evidence.map(_.text.toLowerCase).max}::$id" else s"???::$id"
     } yield (id, text)
