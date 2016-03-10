@@ -1,6 +1,7 @@
 package edu.arizona.sista.assembly
 
 import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.reach.mentions._
 import java.io.File
 import org.apache.commons.io.FileUtils
 
@@ -8,6 +9,7 @@ case class Row(
   input: String,
   output: String,
   controller: String,
+  eventID: String,
   eventLabel: String,
   precededBy: Seq[IDPointer],
   negated: Boolean,
@@ -36,14 +38,15 @@ class AssemblyExporter(am: AssemblyManager) {
 
   import AssemblyExporter._
 
-  val distinctEERs = am.distinctEEReprs
+  // distinct EntityEventRepresentations
+  val distinctEERS = am.distinctEEReprs
 
   // LUT for retrieving unique IDs
-  val EERLUT: Map[Int, IDPointer] = distinctEERs.zipWithIndex.map{
+  val EERLUT: Map[Int, String] = distinctEERS.zipWithIndex.map{
     case pair =>
-      val repr: EntityEventRepresentation = pair._1
+      val event: EntityEventRepresentation = pair._1
       val id: Int = pair._2
-      (repr.equivalenceHash, id)
+      (event.equivalenceHash, s"E$id")
   }.toMap
 
   val grounding2Text: Map[GroundingID, String] = {
