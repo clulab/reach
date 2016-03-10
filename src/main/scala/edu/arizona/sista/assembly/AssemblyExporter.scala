@@ -180,6 +180,10 @@ class AssemblyExporter(am: AssemblyManager) {
       }
     rows
     }
+
+  def getEventRows: Set[Row] = {
+    getRows.filter(_.eventLabel != "entity")
+  }
 }
 
 object AssemblyExporter {
