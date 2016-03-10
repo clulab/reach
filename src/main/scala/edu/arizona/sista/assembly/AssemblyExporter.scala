@@ -30,7 +30,7 @@ case class Row(
     val precedingEvents = precededBy.distinct.sorted.mkString(", ")
     val seenIn = papers.toSeq.sorted.mkString(", ")
     val examples = getTextualEvidence.mkString(" ++++ ")
-    s"$input\t$output\t$controller\t$eventLabel$precedingEvents\t$seen\t$examples\t$seenIn"
+    s"$input\t$output\t$controller\t$eventID\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
   }
 }
 
