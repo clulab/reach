@@ -75,9 +75,9 @@ trait Entity extends EntityEventRepresentation {
 }
 
 /**
- * A [[Entity]] representation of a Mention of a Protein, GGP, Simple_chemical, etc. (see the children of "Entity" in the taxonomy)
+ * A [[SimpleEntity]] representation of a Mention of a Protein, GGP, Simple_chemical, etc. (see the children of "Entity" in the taxonomy)
  * @param uniqueID [[IDPointer]] assigned to this [[SimpleEntity]] by the [[AssemblyManager]]
- * @param id [[GroundingID]] for the [[SimpleEntity]]
+ * @param grounding [[GroundingID]] for the [[SimpleEntity]]
  * @param modifications a Set of [[AssemblyModification]], such as [[edu.arizona.sista.assembly.PTM]] and [[edu.arizona.sista.assembly.EntityLabel]].
  *                      These are relevant to the identity of the [[SimpleEntity]] and describe its state (ex. Phosphorylated @ Ser123).
  * @param coref whether or not the [[SimpleEntity]] was produced by a Mention resolved through coref
