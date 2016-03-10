@@ -188,10 +188,16 @@ class AssemblyExporter(am: AssemblyManager) {
 
 object AssemblyExporter {
 
+  import AssemblyManager._
+
   val PTMLUT: Map[String, String] = Map(
       "Phosphorylation" -> ".p",
       "Ubiquitination" -> ".u"
   )
+
+  def resolveEvidence(m: Mention): CorefMention = {
+    getResolvedForm(m.toCorefMention)
+  }
 
   def getPTMrepresentation(ptm: PTM): String = {
     // attempt to retrieve the abbreviated form of the label
