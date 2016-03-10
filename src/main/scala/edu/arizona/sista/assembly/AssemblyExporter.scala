@@ -156,14 +156,16 @@ class AssemblyExporter(am: AssemblyManager) {
     case binding: Complex => "Binding"
     case reg: Regulation => "Regulation"
     case se: SimpleEvent => se.label
+    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[PTM]) =>
+      ptm.modifications.find(_.isInstanceOf[PTM]).get.asInstanceOf[PTM].label
+    // filter these out later
+    case entity => "entity"
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
   def getRows: Set[Row] = {
 
-      val rows: Set[Row] = distinctEERs
-        // ignore SimpleEntities not in other events
-        .filter(r => ! r.isInstanceOf[SimpleEntity])
+      val rows: Set[Row] = distinctEERS
         .map { event =>
           Row(
             createInput(event),
