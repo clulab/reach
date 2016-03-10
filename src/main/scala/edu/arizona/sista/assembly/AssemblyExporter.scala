@@ -175,7 +175,7 @@ class AssemblyExporter(am: AssemblyManager) {
             getEventLabel(event),
             precededBy(event),
             event.negated,
-            event.evidence
+            event.evidence //++ event.evidence.map(resolveEvidence)
          )
       }
     rows
