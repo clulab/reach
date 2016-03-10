@@ -34,12 +34,12 @@ case class Row(
   }
 }
 
-class AssemblyExporter(am: AssemblyManager) {
+class AssemblyExporter(val manager: AssemblyManager) {
 
   import AssemblyExporter._
 
   // distinct EntityEventRepresentations
-  val distinctEERS = am.distinctEEReprs
+  val distinctEERS = manager.distinctEEReprs
 
   // LUT for retrieving unique IDs
   val EERLUT: Map[Int, String] = distinctEERS.zipWithIndex.map{
@@ -51,7 +51,7 @@ class AssemblyExporter(am: AssemblyManager) {
 
   val grounding2Text: Map[GroundingID, String] = {
     val pairs: Set[(GroundingID, String)] = for {
-      pair <- am.distinctSimpleEntitiesWithEvidence
+      pair <- manager.distinctSimpleEntitiesWithEvidence
       entity: SimpleEntity = pair._1
       evidence: Set[Mention] = pair._2.map(resolveEvidence)
       id: GroundingID = entity.grounding
@@ -59,6 +59,19 @@ class AssemblyExporter(am: AssemblyManager) {
     } yield (id, text)
 
     pairs.toMap
+  }
+
+  def getText(entity: SimpleEntity): String = {
+    val text = entity.uniqueID match {
+      // if the SimpleEntity was not created as the output of a SimpleEvent,
+      // it should have true evidence
+      case hasMention if manager.idToMention contains hasMention =>
+         manager.idToMention(hasMention).text
+      case noSourceMention =>
+        val altText = entity.evidence.map(resolveEvidence).map(_.text)
+        if (altText.nonEmpty) altText.head else "???"
+    }
+    text
   }
 
   def createInput(repr: EntityEventRepresentation): String = repr match {
@@ -84,8 +97,8 @@ class AssemblyExporter(am: AssemblyManager) {
           .map(getPTMrepresentation)
           .mkString(".")
 
-        val text = grounding2Text.getOrElse(entity.grounding, entity.grounding)
-       s"$text$mutantForms$features"
+        val text = getText(entity)
+       s"$text::${entity.grounding}$mutantForms$features"
 
     case complex: Complex =>
       complex.members.map(createInput).mkString(", ")
