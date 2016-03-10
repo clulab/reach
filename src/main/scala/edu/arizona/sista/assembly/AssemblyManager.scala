@@ -809,6 +809,18 @@ class AssemblyManager(
   }
 
   /**
+   * Retrieves all SimpleEntities containing the given
+   * @param mod an [[AssemblyModification]]
+   * @return a Set of SimpleEntities sharing mod
+   */
+  def getSimpleEntitiesByModification[M <: AssemblyModification](mod: M): Set[SimpleEntity] = {
+    for {
+      se <- getSimpleEntities
+      if se.modifications contains mod
+    } yield se
+  }
+
+  /**
    * Returns "distinct" Set of SimpleEntity. Ignores multiple instances of the same SimpleEntity.
    * @return a Set of SimpleEntity
    */
