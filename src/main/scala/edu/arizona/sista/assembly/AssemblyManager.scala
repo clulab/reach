@@ -176,17 +176,6 @@ class AssemblyManager(
   }
 
   /**
-   * Checks to see if a coref mention has an antecedent.
-   *
-   * If the mentions made it through the coref component of reach,
-   * the only mentions that might have an antecedent should be those with a "Generic_*"
-   * this is just a broader, fail-safe check...
-   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
-   * @return true if cm has an antecedent; false otherwise
-   */
-  protected def hasCorefResolution(cm: CorefMention): Boolean = if (cm.antecedent.nonEmpty) true else false
-
-  /**
    * Gets the polarity of a mention.  Should only be relevant to ComplexEvents
    * @param m an Odin Mention
    * @return [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
@@ -403,10 +392,8 @@ class AssemblyManager(
         e.nsId,
         // modifications relevant to assembly
         if (mods.isDefined) modifications ++ mods.get else modifications,
-        // check if coref was successful (i.e., it found something)
-        hasCorefResolution(cm),
-        // check if negated
-        hasNegation(m),
+        // source mention
+        if (mods.isEmpty) Some(m) else None,
         this
       )
 
@@ -466,10 +453,7 @@ class AssemblyManager(
       new Complex(
         id,
         mbrs,
-        // check if coref was successful (i.e., it found something)
-        hasCorefResolution(cm),
-        // check if negated
-        hasNegation(m),
+        Some(m),
         this
       )
 
@@ -544,10 +528,7 @@ class AssemblyManager(
         input,
         output,
         e.label,
-        // check if coref was successful (i.e., it found something)
-        hasCorefResolution(cm),
-        // check if negated
-        hasNegation(m),
+        Some(m),
         this
       )
 
@@ -613,10 +594,7 @@ class AssemblyManager(
         controllers,
         controlleds,
         polarity,
-        // check if coref was successful (i.e., it found something)
-        hasCorefResolution(cm),
-        // check if negated
-        hasNegation(m),
+        Some(m),
         this
       )
 
@@ -1027,31 +1005,6 @@ class AssemblyManager(
     s"Mention(label=${m.label}, text='${m.text}', doc=$docRepr)"
   }
 
-
-  //
-  // evidence checks
-  //
-
-  /**
-   * Checks whether evidence contains a Negation modification
-   * @param m an Odin Mention
-   * @return true or false
-   */
-  def hasNegation(m: Mention): Boolean = {
-    // get mention's coref resolution
-    val cm: CorefMention = m.toCorefMention
-    val ante = cm.antecedentOrElse(cm)
-
-    ante match {
-      // does the entity have a Negation mod?
-      case entity if ante matches "Entity" =>
-        entity.modifications exists (_.isInstanceOf[Negation])
-      // does the event have a Negation mod OR do any of its arguments have a Negation mod?
-      case event if event matches "Event" =>
-        (event.modifications exists (_.isInstanceOf[Negation])) || (event.arguments.values.flatten exists hasNegation)
-      case _ => false
-    }
-  }
 }
 
 object AssemblyManager {

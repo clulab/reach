@@ -2,6 +2,7 @@ package edu.arizona.sista.assembly
 
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.assembly
+import edu.arizona.sista.reach.mentions._
 import collection.Map
 import scala.util.hashing.MurmurHash3._
 
@@ -9,19 +10,24 @@ import scala.util.hashing.MurmurHash3._
  * Trait used for entity/event representations of a Mention.
  */
 trait EntityEventRepresentation extends Serializable {
+
+
+  /**
+   * The evidence from which this [[EntityEventRepresentation]] was constructed.
+   */
+  def sourceMention: Option[Mention]
+
   /**
    * Whether or not the [[EntityEventRepresentation]] was produced by a Mention resolved through coref.
-   * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
    * @return true or false
    */
-  def coref: Boolean
+  def coref: Boolean = if (sourceMention.nonEmpty) hasCorefResolution(sourceMention.get) else false
 
   /**
    * Whether or not the [[EntityEventRepresentation]] is negated by its evidence (i.e., whether or not the evidence gives a negative example for this [[EntityEventRepresentation]]).
-   * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
    * @return true or false
    */
-  def negated: Boolean
+  def negated: Boolean = if (sourceMention.nonEmpty) hasNegation(sourceMention.get) else false
 
   /**
    * The Set of Mentions serving as textual evidence for this [[EntityEventRepresentation]].
@@ -61,6 +67,45 @@ trait EntityEventRepresentation extends Serializable {
    * @return true or false
    */
   def containsID(someID: IDPointer): Boolean
+
+  //
+  // evidence checks
+  //
+
+  /**
+   * Checks whether evidence contains a Negation modification
+   * @param m an Odin Mention
+   * @return true or false
+   */
+  def hasNegation(m: Mention): Boolean = {
+    // get mention's coref resolution
+    val cm: CorefMention = m.toCorefMention
+    val ante = cm.antecedentOrElse(cm)
+
+    ante match {
+      // does the entity have a Negation mod?
+      case entity if ante matches "Entity" =>
+        entity.modifications exists (_.isInstanceOf[Negation])
+      // does the event have a Negation mod OR do any of its arguments have a Negation mod?
+      case event if event matches "Event" =>
+        (event.modifications exists (_.isInstanceOf[Negation])) || (event.arguments.values.flatten exists hasNegation)
+      case _ => false
+    }
+  }
+
+  /**
+   * Checks to see if a coref mention has an antecedent.
+   *
+   * If the mentions made it through the coref component of reach,
+   * the only mentions that might have an antecedent should be those with a "Generic_*"
+   * this is just a broader, fail-safe check...
+   * @param m an Odin Mention
+   * @return true if cm has an antecedent; false otherwise
+   */
+  def hasCorefResolution(m: Mention): Boolean = {
+    val cm = m.toCorefMention
+    cm.antecedent.nonEmpty
+  }
 }
 
 /**
@@ -80,15 +125,14 @@ trait Entity extends EntityEventRepresentation {
  * @param grounding [[GroundingID]] for the [[SimpleEntity]]
  * @param modifications a Set of [[AssemblyModification]], such as [[edu.arizona.sista.assembly.PTM]] and [[edu.arizona.sista.assembly.EntityLabel]].
  *                      These are relevant to the identity of the [[SimpleEntity]] and describe its state (ex. Phosphorylated @ Ser123).
- * @param coref whether or not the [[SimpleEntity]] was produced by a Mention resolved through coref
+ * @param sourceMention the Mention from which this [[SimpleEntity]] was constructed
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[SimpleEntity]]
  */
 class SimpleEntity(
   val uniqueID: IDPointer,
   val grounding: GroundingID,
   val modifications: Set[AssemblyModification],
-  val coref: Boolean,
-  val negated: Boolean,
+  val sourceMention: Option[Mention],
   val manager: AssemblyManager
 ) extends Entity {
 
@@ -183,14 +227,13 @@ class SimpleEntity(
  * A [[Entity]] representation of a Binding Mention.
  * @param memberPointers a Set of [[IDPointer]] corresponding to the Mentions serving as members to the [[Complex]]
  * @param uniqueID the [[IDPointer]] assigned to the [[Complex]] by the AssemblyManager
- * @param coref whether or not the [[Complex]] was produced by a Mention resolved through coref
+ * @param sourceMention the Mention from which this [[Complex]] was constructed
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Complex]]
  */
 class Complex(
   val uniqueID: IDPointer,
   val memberPointers: Set[IDPointer],
-  val coref: Boolean,
-  val negated: Boolean,
+  val sourceMention: Option[Mention],
   // assembly manager used for the retrieval of EntityEventRepresentations
   val manager: AssemblyManager
 ) extends Entity {
@@ -275,19 +318,18 @@ trait Event extends EntityEventRepresentation
  * Representation for any Mention with the label SimpleEvent.  Note that a Binding is represented using a [[Complex]].
  * @param uniqueID the [[IDPointer]] assigned to this [[SimpleEvent]] by the [[AssemblyManager]]
  * @param inputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as input to the [[SimpleEvent]]
- * @param outputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as output to the [[SimpleEvent]].
+ * @param outputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as output to the [[SimpleEvent]]
  *                       In practice, this is a single [[Entity]] with at least one [[edu.arizona.sista.assembly.PTM]] (corresponding to [[SimpleEvent.label]].
  * @param label the label of the SimpleEvent (ex. Phosphorylation, Farnesylation, etc)
- * @param coref whether or not the [[Complex]] was produced by a Mention resolved through coref
- * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Complex]]
+ * @param sourceMention the Mention from which this [[SimpleEvent]] was constructed
+ * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[SimpleEvent]]
  */
 class SimpleEvent(
   val uniqueID: IDPointer,
   val inputPointers: Map[String, Set[IDPointer]],
   val outputPointers: Set[IDPointer],
   val label: String,
-  val coref: Boolean,
-  val negated: Boolean,
+  val sourceMention: Option[Mention],
   val manager: AssemblyManager
 ) extends Event {
 
@@ -385,21 +427,20 @@ class SimpleEvent(
 /**
  * Representation of a Regulation event.
  * @param uniqueID the [[IDPointer]] assigned to this [[Regulation]]
- * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]].
- *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]].
- * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]].
- *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]].
+ * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]]
+ *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]]
+ * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]]
+ *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]]
  * @param polarity whether the [[Regulation]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
- * @param coref whether or not the [[Complex]] was produced by a Mention resolved through coref
- * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Complex]]
+ * @param sourceMention the Mention from which this [[Regulation]] was constructed
+ * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Regulation]]
  */
 class Regulation(
   val uniqueID: IDPointer,
   val controllerPointers: Set[IDPointer],
   val controlledPointers: Set[IDPointer],
   val polarity: String,
-  val coref: Boolean,
-  val negated: Boolean,
+  val sourceMention: Option[Mention],
   val manager: AssemblyManager) extends Event {
 
   /**
