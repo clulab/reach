@@ -26,6 +26,8 @@ class AssemblyManager(
   id2repr: Map[IDPointer, EntityEventRepresentation]
 ) extends Serializable {
 
+  import AssemblyManager._
+
   var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
   var idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation] = id2repr.toMap
   // TODO: this is potentially expensive...
@@ -107,7 +109,7 @@ class AssemblyManager(
   def getEvidence(repr: EntityEventRepresentation): Set[Mention] = {
     val ids = idToEERepresentation.filter {
       // which IDs point to EEReprs that are identical to the one given?
-      case (k, v) => v isEquivalentTo repr }.keys
+      case (id, r2) => r2 isEquivalentTo repr }.keys
 
     // retrieve the mention by id
     val evidence = for {
@@ -169,15 +171,6 @@ class AssemblyManager(
       case _ => false
     }
   }
-
-  /**
-   * Get antecedent if present.  Otherwise return the CorefMntion as-is.
-   *
-   * Used to retrieve the appropriate features of a mention's antecedent.
-   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
-   * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
-   */
-  def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
 
   /**
    * Checks to see if a coref mention has an antecedent.
@@ -1003,4 +996,13 @@ object AssemblyManager {
   val negative = "Negative"
   val unknown = "UNKNOWN"
   def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+
+  /**
+   * Get antecedent if present.  Otherwise return the CorefMntion as-is.
+   *
+   * Used to retrieve the appropriate features of a mention's antecedent.
+   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
+   * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
+   */
+  def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
 }
