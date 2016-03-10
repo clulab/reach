@@ -139,10 +139,14 @@ class AssemblyExporter(am: AssemblyManager) {
 
   def writeTSV(outfile: String, threshold: Int): Unit = {
     val f = new File(outfile)
-    val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT LABEL\tPRECEDED BY\tSEEN\tEVIDENCE\tSEEN IN\n"
-    val text = getRows
+    val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
+    val text =
+      // only events
+      getEventRows
+        // FIXME: at least some evidence)
+      .filter(_.seen > threshold)
       .toSeq
-      .sortBy(r => (r.eventLabel, r.papers.size, r.seen))
+      .sortBy(r => (r.eventLabel, -r.papers.size, -r.seen))
       .map(_.toTSVrow)
       .mkString("\n")
     FileUtils.writeStringToFile(f, header + text)
