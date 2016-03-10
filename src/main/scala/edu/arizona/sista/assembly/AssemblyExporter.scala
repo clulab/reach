@@ -204,6 +204,12 @@ object AssemblyExporter {
     // if the key is missing from the LUT,
     // return the lowercase form of the first letter of the PTM's label
     val altPTM = s".${ptm.label.toLowerCase.head.toString}"
-    PTMLUT.getOrElse(ptm.label, altPTM)
+    val ptmText = PTMLUT.getOrElse(ptm.label, altPTM)
+    ptm.site match {
+      // has site
+      case Some(site) => s"$ptmText@$site"
+      // no site
+      case None => ptmText
+    }
   }
 }
