@@ -747,6 +747,53 @@ class AssemblyManager(
     distinctEEReprs.map(repr => (repr, getEvidence(repr)))
   }
 
+
+  // Entity
+
+  /**
+   * Returns "distinct" Set of Entities. Ignores multiple instances of the same Entity.
+   * @return a Set of Entity
+   */
+  def distinctEntities: Set[Entity] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[Entity]
+      entity = e.asInstanceOf[Entity]
+    } yield entity
+  }
+
+  /**
+   * Returns "distinct" Set of Entities and all evidence (Set[Mention]) corresponding to each [[Entity]].
+   * @return Set[(Entity, Set[Mention])]
+   */
+  def distinctEntitiesWithEvidence: Set[(Entity, Set[Mention])] = {
+    distinctEntities
+      .map( entity => (entity, getEvidence(entity)))
+  }
+
+  // Event
+
+  /**
+   * Returns "distinct" Set of Events. Ignores multiple instances of the same Entity.
+   * @return a Set of Event
+   */
+  def distinctEvents: Set[Event] = {
+    for {
+      e: EntityEventRepresentation <- distinctEEReprs
+      if e.isInstanceOf[Event]
+      event = e.asInstanceOf[Event]
+    } yield event
+  }
+
+  /**
+   * Returns "distinct" Set of Events and all evidence (Set[Mention]) corresponding to each [[Event]].
+   * @return Set[(SimpleEntity, Set[Mention])]
+   */
+  def distinctEventsWithEvidence: Set[(Event, Set[Mention])] = {
+    distinctEvents
+      .map( event => (event, getEvidence(event)))
+  }
+
   // SimpleEntity
 
   /**
