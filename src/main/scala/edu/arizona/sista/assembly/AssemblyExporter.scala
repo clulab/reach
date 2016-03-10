@@ -137,7 +137,7 @@ class AssemblyExporter(am: AssemblyManager) {
     Nil
   }
 
-  def writeTSV(outfile: String): Unit = {
+  def writeTSV(outfile: String, threshold: Int): Unit = {
     val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT LABEL\tPRECEDED BY\tSEEN\tEVIDENCE\tSEEN IN\n"
     val text = getRows
