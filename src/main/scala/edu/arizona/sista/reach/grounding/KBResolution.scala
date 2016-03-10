@@ -17,12 +17,20 @@ class KBResolution (
 
 ) extends Serializable {
 
-  // Facade functions for field access
+  // Facade functions for field access:
   def namespace: String = entry.namespace
   def text: String = entry.text
   def key: String = entry.key
   def id: String = entry.id
   def species: String = entry.species
+
+  /** Facade function: return a formatted string containing this resolution's namespace and ID. */
+  def nsId: String = entry.nsId
+
+  /** Facade functions: tell whether this resolution has an associated species or not. */
+  def hasSpecies: Boolean = entry.hasSpecies
+  def hasNoSpecies: Boolean = entry.hasNoSpecies
+
 
   /** Helper method for equals redefinition. */
   def canEqual (other: Any): Boolean = other.isInstanceOf[KBResolution]
@@ -35,9 +43,6 @@ class KBResolution (
 
   /** Redefine hashCode. */
   override def hashCode: Int = entry.hashCode
-
-  /** Return a formatted string containing this resolution's namespace and ID. */
-  def nsId: String = entry.nsId
 
   /** Method to provide logging/debugging printout. */
   def logString: String =

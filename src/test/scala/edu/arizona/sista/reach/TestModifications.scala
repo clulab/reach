@@ -986,11 +986,90 @@ class TestModifications extends FlatSpec with Matchers {
     mentions.head hasMutation "Mutation" should be (true)
   }
 
+  val mutantTest16 = "We used a substitution mutant of Raf (76A>T)"
+  mutantTest16 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest16)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("76A>T", "SubstitutionMutant") should be (true)
+  }
+
+  val mutantTest17 = "We used a deletion mutant of Raf (ΔF508)"
+  mutantTest17 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest17)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("DeltaF508", "DeletionMutant") should be (true)
+  }
+
+  val mutantTest18a = "We used a deletion mutant of Raf (K29del)"
+  val mutantTest18b = "We used a deletion mutant of Raf (29delK)"
+  val mutantTest18c = "We used a deletion mutant of Raf (M27_K29del)"
+  val mutantTest18d = "We used a deletion mutant of Raf (27_29del)"
+  mutantTest18a should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18a)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("K29del", "DeletionMutant") should be (true)
+  }
+  mutantTest18b should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18b)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("29delK", "DeletionMutant") should be (true)
+  }
+  mutantTest18c should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18c)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("M27_K29del", "DeletionMutant") should be (true)
+  }
+  mutantTest18d should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18d)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("27_29del", "DeletionMutant") should be (true)
+  }
+
+  val mutantTest19 = "We used an insertion mutant of Raf (K29_M30insQSK)"
+  mutantTest19 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest19)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("K29_M30insQSK", "InsertionMutant") should be (true)
+  }
+
+  val mutantTest20 = "We used a duplication mutant of Raf (G31_Q33dup)"
+  mutantTest20 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest20)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("G31_Q33dup", "DuplicationMutant") should be (true)
+  }
+
+  val mutantTest21 = "We used a frameshift mutant of Raf (Arg83fs)"
+  mutantTest21 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest21)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("Arg83fs", "FrameshiftMutant") should be (true)
+  }
+
   val siteTest3 = "Phosphorylation (p) of Akt (Ser-473), mTOR (Ser 2448) and Rictor (Ser 792) was quantified."
   siteTest2 should "contain 3 Sites" in {
     val mentions = getBioMentions(siteTest3)
     val sites = mentions.filter(_ matches "Site")
     sites should have size (3)
     sites.exists(_.text contains "Ser-473") should be (true)
+  }
+
+  val siteTest4 = "Phosphorylation of Akt (S473M) was attenuated."
+  siteTest4 should "not contain any sites" in {
+    val mentions = getBioMentions(siteTest4)
+    val sites = mentions.filter(_ matches "Site")
+    sites should have size (0)
+    val akt = mentions filter (_.text == "Akt")
+    akt should have size (1)
+    akt.head.countMutations should be (1)
   }
 }

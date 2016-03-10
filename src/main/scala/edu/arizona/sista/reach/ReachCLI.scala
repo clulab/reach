@@ -5,6 +5,7 @@ import java.util.Date
 
 import scala.collection.JavaConverters._
 import scala.collection.mutable
+import scala.collection.parallel.ForkJoinTaskSupport
 import scala.util.{ Try,Success,Failure }
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
@@ -14,23 +15,23 @@ import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
-import edu.arizona.sista.reach.extern.export.context._
 import edu.arizona.sista.reach.nxml._
-import edu.arizona.sista.reach.context._
-import edu.arizona.sista.reach.context.rulebased.RuleBasedContextEngine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
-class ReachCLI(val nxmlDir:File,
-               val outputDir:File,
-               val encoding:String,
-               val outputType:String,
-               val ignoreSections:Seq[String],
-               val contextEngineType: Engine,
-               val contextEngineParams: Map[String, String],
-               val logFile:File) {
+class ReachCLI(
+  val nxmlDir:File,
+  val outputDir:File,
+  val encoding:String,
+  val outputType:String,
+  val ignoreSections:Seq[String],
+  val contextEngineType: Engine,
+  val contextEngineParams: Map[String, String],
+  val logFile:File
+) {
 
-  def processPapers(): Int = {
+  /** Process papers with optional limits on parallelization **/
+  def processPapers(threadLimit: Option[Int]): Int = {
     println("initializing reach ...")
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
@@ -40,7 +41,13 @@ class ReachCLI(val nxmlDir:File,
     var errorCount = 0
 
     // process papers in parallel
-    for (file <- nxmlDir.listFiles.par if file.getName.endsWith(".nxml")) {
+    val files = nxmlDir.listFiles.par
+    // limit parallelization
+    if (threadLimit.nonEmpty) {
+      files.tasksupport =
+        new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
+    }
+    for (file <- files if file.getName.endsWith(".nxml")) {
       val paperId = FilenameUtils.removeExtension(file.getName)
       val startTime = ReachCLI.now // start measuring time here
       val startNS = System.nanoTime
@@ -169,20 +176,22 @@ class ReachCLI(val nxmlDir:File,
     errorCount // should be 0 :)
   }
 
-  def outputMentions(mentions:Seq[Mention],
-                     paperPassages:Seq[FriesEntry],
-                     outputType:String,
-                     paperId:String,
-                     startTime:Date,
-                     endTime:Date,
-                     outputDir:File) = {
+  def outputMentions(
+    mentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    outputType:String,
+    paperId:String,
+    startTime:Date,
+    endTime:Date,
+    outputDir:File
+  ) = {
     val outFile = outputDir + File.separator + paperId
     // println(s"Outputting to $outFile using $outputType")
 
     val outputter:JsonOutputter = outputType.toLowerCase match {
       case "fries" => new FriesOutput()
       case "indexcard" => new IndexCardOutput()
-      case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase()} not yet supported!")
+      case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
     outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
   }
@@ -209,6 +218,9 @@ object ReachCLI extends App {
       key => key -> contextConfig.asScala.apply(key).unwrapped.toString
   }.toMap
 
+  // the number of threads to use for parallelization
+  val threadLimit = config.getInt("threadLimit")
+
   println(s"Context engine: $contextEngineType\tParams: $contextEngineParams")
 
   // lets start a new log file
@@ -233,7 +245,7 @@ object ReachCLI extends App {
   val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType,
        ignoreSections, contextEngineType, contextEngineParams, logFile)
 
-  cli.processPapers()
+  cli.processPapers(Some(threadLimit))
 
   def now = new Date()
 }

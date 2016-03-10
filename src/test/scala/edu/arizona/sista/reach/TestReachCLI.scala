@@ -38,7 +38,7 @@ class TestReachCLI extends FlatSpec with Matchers {
     println(s"Will output TEXT output in directory ${txtDir.getAbsolutePath}")
     val outputType = "text"
     val cli = new ReachCLI(nxmlDir, txtDir, encoding, outputType, ignoreSections, contextEngineType, contextEngineParams, txtLogFile)
-    val errorCount = cli.processPapers()
+    val errorCount = cli.processPapers(threadLimit = None)
     if(errorCount > 0) dumpLog(friesLogFile)
     errorCount should be (0)
   }
@@ -47,7 +47,7 @@ class TestReachCLI extends FlatSpec with Matchers {
     println(s"Will output FRIES output in directory ${friesDir.getAbsolutePath}")
     val outputType = "fries"
     val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType, ignoreSections, contextEngineType, contextEngineParams, friesLogFile)
-    val errorCount = cli.processPapers()
+    val errorCount = cli.processPapers(threadLimit = None)
     if(errorCount > 0) dumpLog(friesLogFile)
     errorCount should be (0)
   }
@@ -56,7 +56,7 @@ class TestReachCLI extends FlatSpec with Matchers {
     println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
     val outputType = "indexcard"
     val cli = new ReachCLI(nxmlDir, icDir, encoding, outputType, ignoreSections, contextEngineType, contextEngineParams, icLogFile)
-    val errorCount = cli.processPapers()
+    val errorCount = cli.processPapers(threadLimit = None)
     if(errorCount > 0) dumpLog(icLogFile)
     errorCount should be (0)
   }
