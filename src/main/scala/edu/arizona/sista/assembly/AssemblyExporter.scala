@@ -13,7 +13,9 @@ case class Row(
   eventLabel: String,
   precededBy: Seq[IDPointer],
   negated: Boolean,
-  evidence: Set[Mention]
+  evidence: Set[Mention],
+  // to make debugging easier
+  sourceRepresentation: EntityEventRepresentation
 ) {
   // this might serve as a proxy for confidence, though
   // it would also be good to know how many times this event
@@ -62,15 +64,12 @@ class AssemblyExporter(val manager: AssemblyManager) {
   }
 
   def getText(entity: SimpleEntity): String = {
-    val text = entity.uniqueID match {
-      // if the SimpleEntity was not created as the output of a SimpleEvent,
-      // it should have true evidence
-      case hasMention if manager.idToMention contains hasMention =>
-         manager.idToMention(hasMention).text
-      case noSourceMention =>
+   val text = entity.sourceMention match {
+      case Some(m) => m.text
+      case noSource =>
         val altText =
           entity.withSameGrounding
-          .flatMap(_.evidence.map(resolveEvidence).map(_.text))
+            .flatMap(_.evidence.map(resolveEvidence).map(_.text))
         if (altText.nonEmpty) altText.head else "???"
     }
     text
@@ -159,7 +158,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
       // only events
       getEventRows
         // FIXME: at least some evidence)
-      .filter(_.seen > threshold)
+      .filter(_.seen >= threshold)
       .toSeq
       .sortBy(r => (r.eventLabel, -r.papers.size, -r.seen))
       .map(_.toTSVrow)
@@ -190,13 +189,15 @@ class AssemblyExporter(val manager: AssemblyManager) {
             getEventLabel(event),
             precededBy(event),
             event.negated,
-            event.evidence //++ event.evidence.map(resolveEvidence)
+            event.evidence,
+            event
          )
       }
     rows
     }
 
   def getEventRows: Set[Row] = {
+    // TODO: change to partition and filter so that its EventID can't be referenced by a Regulation
     getRows.filter(_.eventLabel != "entity")
   }
 }
