@@ -158,13 +158,20 @@ class AssemblyExporter(val manager: AssemblyManager) {
   def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
     val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
+    val rowsForOutput = rowFilter(getEventRows)
     val text =
       // only events
-      rowFilter(getEventRows)
+      rowsForOutput
       .toSeq
       .sortBy(r => (r.eventLabel, -r.docIDs.size, -r.seen))
       .map(_.toTSVrow)
       .mkString("\n")
+
+    // make sure the output is valid
+    val regs = rowsForOutput.filter(_.eventLabel == "Regulation")
+    val problems = regs.filter(r => ! rowsForOutput.exists(_.eventID == r.input))
+    require(problems.isEmpty, "Regulation input ID not found in EventIDs for rows!")
+    // write the output to disk
     FileUtils.writeStringToFile(f, header + text)
   }
 
