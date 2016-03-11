@@ -43,12 +43,11 @@ class AssemblyExporter(val manager: AssemblyManager) {
   // distinct EntityEventRepresentations
   val distinctEERS = manager.distinctEEReprs
 
-  // LUT for retrieving unique IDs
-  val EERLUT: Map[Int, String] = distinctEERS.zipWithIndex.map{
-    case pair =>
-      val event: EntityEventRepresentation = pair._1
-      val id: Int = pair._2
-      (event.equivalenceHash, s"E$id")
+  // LUT for retrieving IDs to distinct EERs
+  // TODO: A better version of this should probably belong to the manager
+  val EERLUT: Map[Int, String] = distinctEERS.map{
+    case eer =>
+      (eer.equivalenceHash, mkEventID(eer))
   }.toMap
 
   val grounding2Text: Map[GroundingID, String] = {
@@ -61,6 +60,10 @@ class AssemblyExporter(val manager: AssemblyManager) {
     } yield (id, text)
 
     pairs.toMap
+  }
+
+  def mkEventID(eer: EntityEventRepresentation): String = {
+    s"E${eer.uniqueID}"
   }
 
   def getText(entity: SimpleEntity): String = {
