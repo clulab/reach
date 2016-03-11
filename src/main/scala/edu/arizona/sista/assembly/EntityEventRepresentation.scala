@@ -448,7 +448,7 @@ class Regulation(
    * @return a Set of [[EntityEventRepresentation]]
    */
   def controller: Set[EntityEventRepresentation] =
-    controlledPointers.map(manager.getEERepresentation)
+    controllerPointers.map(manager.getEERepresentation)
 
   /**
    * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controlled" argument (retrieved using using the [[manager.idToEERepresentation]] and the [[controlledPointers]]).
