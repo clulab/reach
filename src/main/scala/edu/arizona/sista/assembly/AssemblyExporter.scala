@@ -1,6 +1,7 @@
 package edu.arizona.sista.assembly
 
 import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.reach.grounding.ReachKBConstants
 import edu.arizona.sista.reach.mentions._
 import java.io.File
 import org.apache.commons.io.FileUtils
@@ -270,7 +271,7 @@ object AssemblyExporter {
   def hasUAZgrounding(m: Mention): Boolean = {
     m match {
       case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId.toLowerCase.startsWith("uaz")
+        entity.toCorefMention.nsId.toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
       case site if site matches "Site" => false
       case event if event matches "Event" =>
         event.arguments.values.flatten.exists(hasUAZgrounding)
