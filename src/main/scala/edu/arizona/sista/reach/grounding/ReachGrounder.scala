@@ -10,7 +10,7 @@ import edu.arizona.sista.reach.extern.export.MentionManager
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Redo to propagate ambiguity.
+  *   Last Modified: WIP: begin to match context by nsId.
   */
 class ReachGrounder extends Speciated {
 
@@ -28,8 +28,9 @@ class ReachGrounder extends Speciated {
       case bem: BioEventMention => groundArguments(bem)
       case  bm: BioTextBoundMention =>
         if (bm.hasMoreCandidates) {         // only redo grounding if more than one choice
-          // System.err.println(s"SPECIES=${species}") // REMOVE LATER
-          if (species.isEmpty || containsHumanSpecies(species))
+          System.err.println(s"SPECIES=${species}") // REMOVE LATER
+          // if (species.isEmpty || containsHumanSpecies(species)) // USE LATER?
+          if (species.isEmpty || containsHumanNsId(species)) // use nsId for now
             groundAsHuman(bm)               // then prioritize human grounding
           else                              // else context can influence this grounding
             groundBySpecies(bm, species)
@@ -58,8 +59,8 @@ class ReachGrounder extends Speciated {
       val ordered = selectHuman(cands) ++ selectNoSpecies(cands) ++ selectNotHuman(cands)
       mention.nominate(Some(ordered))
     }
-    // System.err.println("AS_HUMAN")          // REMOVE LATER
-    // printMention(mention)                   // REMOVE LATER
+    System.err.println("AS_HUMAN")          // REMOVE LATER
+    printMention(mention)                   // REMOVE LATER
     return mention
   }
 
@@ -68,15 +69,18 @@ class ReachGrounder extends Speciated {
   def groundBySpecies (mention: BioTextBoundMention, species: Seq[String]): BioMention = {
     if (mention.hasMoreCandidates) {        // sanity check
       val cands = mention.candidates.get
-      val candSpecies: Set[String] = cands.map(_.species.toLowerCase).toSet
-      val firstMatch = species.find{ case sp:String => candSpecies.contains(sp.toLowerCase) }
+      // val candSpecies: Set[String] = cands.map(_.species.toLowerCase).toSet  // USE LATER?
+      // val firstMatch = species.find{ case sp:String => candSpecies.contains(sp.toLowerCase) }
+      val candSpecies: Set[String] = cands.map(_.nsId).toSet // use nsId for now
+      val firstMatch = species.find{ case nsId:String => candSpecies.contains(nsId) } // use nsId for now
       val ordered = if (firstMatch.isDefined)
-        selectASpecies(cands, firstMatch.get) ++ selectNotASpecies(cands, firstMatch.get)
+        // selectASpecies(cands, firstMatch.get) ++ selectNotASpecies(cands, firstMatch.get) // USE LATER?
+        selectByNsId(cands, firstMatch.get) ++ selectByNotNsId(cands, firstMatch.get)
       else cands
-      mention.nominate(Some(ordered))
+      mention.nominate(Some(ordered))       // reattach reordered grounding candidates
     }
-    // System.err.println("BY_SPECIES")       // REMOVE LATER
-    // printMention(mention)                  // REMOVE LATER
+    System.err.println("BY_SPECIES")        // REMOVE LATER
+    printMention(mention)                   // REMOVE LATER
     return mention
   }
 
