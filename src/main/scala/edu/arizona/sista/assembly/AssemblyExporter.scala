@@ -270,7 +270,7 @@ object AssemblyExporter {
   def hasUAZgrounding(m: Mention): Boolean = {
     m match {
       case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId.startsWith("UAZ")
+        entity.toCorefMention.nsId.toLowerCase.startsWith("uaz")
       case site if site matches "Site" => false
       case event if event matches "Event" =>
         event.arguments.values.flatten.exists(hasUAZgrounding)
