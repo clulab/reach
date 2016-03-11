@@ -257,6 +257,23 @@ object AssemblyExporter {
       .filter(_.docIDs.toSet.size >= 2)
       // 2. Findings cannot include protein families.
       .filter(r => r.evidence.forall(e => ! containsFamily(e)))
+      // 3. Findings should not have an unresolved (UAZ) grounding.
+      // FIXME: probably this should operate over EERs, not their evidence
+      .filter(r => r.evidence.forall(e => ! hasUAZgrounding(e)))
   }
 
+  /**
+   * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
+   * @param m an Odin Mention
+   * @return true or false
+   */
+  def hasUAZgrounding(m: Mention): Boolean = {
+    m match {
+      case entity if entity matches "Entity" =>
+        entity.toCorefMention.nsId.startsWith("UAZ")
+      case site if site matches "Site" => false
+      case event if event matches "Event" =>
+        event.arguments.values.flatten.exists(hasUAZgrounding)
+    }
+  }
 }
