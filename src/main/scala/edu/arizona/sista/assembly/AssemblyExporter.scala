@@ -22,7 +22,7 @@ case class Row(
   // was involved in other events (input, controller, etc)
   val seen = evidence.size
   // the set of paper ids where mentions of this event were found
-  val papers = evidence.map(_.document.id.getOrElse("UNKNOWN"))
+  val docIDs = evidence.map(_.document.id.getOrElse("UNKNOWN"))
 
   def getTextualEvidence: Seq[String] = {
     evidence.toSeq.map(_.sentenceObj.getSentenceText)
@@ -30,7 +30,7 @@ case class Row(
 
   def toTSVrow: String = {
     val precedingEvents = precededBy.distinct.sorted.mkString(", ")
-    val seenIn = papers.toSeq.sorted.mkString(", ")
+    val seenIn = docIDs.toSeq.sorted.mkString(", ")
     val examples = getTextualEvidence.mkString(" ++++ ")
     s"$input\t$output\t$controller\t$eventID\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
   }
