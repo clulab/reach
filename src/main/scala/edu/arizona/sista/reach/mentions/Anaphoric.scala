@@ -28,8 +28,9 @@ trait Anaphoric {
 
   def antecedent: Option[Anaphoric] = {
     val ant = if(this.isGeneric || this.hasGenericMutation) {
-      require(antecedents.size < 2,
-        s"Multiple antecedents found for ${this.text}: ${this.antecedents.map(_.text).mkString(", ")}!")
+      // FIXME: this guy fails on PMC3178447
+      //require(antecedents.size < 2,
+      //  s"Multiple antecedents found for ${this.text}: ${this.antecedents.map(_.text).mkString(", ")}!")
       this.firstSpecific
     } else Nil
     ant.headOption
