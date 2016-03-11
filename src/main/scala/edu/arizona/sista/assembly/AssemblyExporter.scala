@@ -151,16 +151,14 @@ class AssemblyExporter(val manager: AssemblyManager) {
     Nil
   }
 
-  def writeTSV(outfile: String, threshold: Int): Unit = {
+  def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
     val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
     val text =
       // only events
-      getEventRows
-        // FIXME: at least some evidence)
-      .filter(_.seen >= threshold)
+      rowFilter(getEventRows)
       .toSeq
-      .sortBy(r => (r.eventLabel, -r.papers.size, -r.seen))
+      .sortBy(r => (r.eventLabel, -r.docIDs.size, -r.seen))
       .map(_.toTSVrow)
       .mkString("\n")
     FileUtils.writeStringToFile(f, header + text)
@@ -228,4 +226,34 @@ object AssemblyExporter {
       case None => ptmText
     }
   }
+
+  /**
+   * Recursively checks whether or not a Mention m contains a Mention with the label Family
+   * @param m an Odin Mention
+   * @return true or false
+   */
+  def containsFamily(m: Mention): Boolean = {
+    m match {
+      case entity if entity matches "Entity" =>
+        entity matches "Family"
+      case site if site matches "Site" => false
+      case event if event matches "Event" =>
+        event.arguments.values.flatten.exists(containsFamily)
+    }
+  }
+
+  /**
+   * Applies MITRE requirements to assembled events
+   * @param rows a Set[Row]
+   * @return a filtered Set of [[Row]]
+   */
+  def MITREfilter(rows: Set[Row]): Set[Row] = {
+    // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
+    rows.filter(_.seen >= 3)
+      // 1b. Evidence come from at least 2 different sections.
+      .filter(_.docIDs.toSet.size >= 2)
+      // 2. Findings cannot include protein families.
+      .filter(r => r.evidence.forall(e => ! containsFamily(e)))
+  }
+
 }
