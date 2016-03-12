@@ -7,7 +7,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add nsId method.
+  *   Last Modified: Refactor namespace:ID method to utils class.
   */
 class KBEntry (
 
@@ -58,7 +58,7 @@ class KBEntry (
   def hasNoSpecies: Boolean = (species == KBEntry.NoSpeciesValue)
 
   /** Return a formatted string containing this entry's namespace and ID. */
-  def nsId: String = s"${namespace}:${id}"
+  def nsId: String = ReachKBUtils.makeNamespaceId(namespace, id)
 
   /** Override method to provide logging/debugging printout. */
   override def toString: String =

@@ -367,3 +367,12 @@
     theme1:BioChemicalEntity+ = nn+
     theme2:BioChemicalEntity+ = prep_of+
 
+- name: complex_formation
+  label: Binding 
+  example: "Complex formation between Gab1 and the protein tyrosine phosphatase Shp2 negatively regulates something."
+  action: mkBinding
+  priority: 5
+  pattern: |
+    trigger = /(?i)complex/ formation
+    theme1:BioChemicalEntity+ = prep_between
+

@@ -3,12 +3,15 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add filename of protein domain suffixes.
+  *   Last Modified: Add namespace:ID separator constant.
   */
 object ReachKBConstants {
 
   /** The default namespace string for KBs. */
   val DefaultNamespace: String = "uaz"
+
+  /** The string used to separate a namespace and an ID. */
+  val NamespaceIdSeparator: String = ":"
 
 
   /** The set of words to remove from all keys to create a lookup key. */
