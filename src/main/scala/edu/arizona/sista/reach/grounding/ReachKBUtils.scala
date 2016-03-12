@@ -11,7 +11,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Add methods to select by and format namespace:ID. Move tsv field validator here.
+  *   Last Modified: Replace nsId selectors with species set selectors.
   */
 object ReachKBUtils extends Speciated {
 
@@ -95,21 +95,21 @@ object ReachKBUtils extends Speciated {
               .sortBy(kbr => (kbr.species, kbr.id))
   }
 
-  /** Filter sequence to return only resolutions (sorted) with the given namespace:ID. */
-  def selectByNsId (resolutions:Seq[KBResolution], nsId:String): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.nsId == nsId).sortBy(kbr => (kbr.species, kbr.id))
-
-  /** Filter sequence to return only resolutions (sorted) without the given namespace:ID. */
-  def selectByNotNsId (resolutions:Seq[KBResolution], nsId:String): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.nsId != nsId).sortBy(kbr => (kbr.species, kbr.id))
-
-  /** Filter sequence to return only resolutions with the given species. */
+  /** Filter sequence to return only resolutions (sorted) with the given species. */
   def selectASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.species == species)
+    resolutions.filter(kbr => kbr.species == species).sortBy(_.id)
 
   /** Filter sequence to return only resolutions (sorted) without the given species. */
   def selectNotASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
     resolutions.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
+
+  /** Filter sequence to return only resolutions (sorted) with a species in the given set. */
+  def selectBySpecies (resolutions:Seq[KBResolution], species:Set[String]): Seq[KBResolution] =
+    resolutions.filter(kbr => species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+
+  /** Filter sequence to return only resolutions (sorted) without a species in the given set. */
+  def selectByNotSpecies (resolutions:Seq[KBResolution], species:Set[String]): Seq[KBResolution] =
+    resolutions.filter(kbr => !species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
 }
 
