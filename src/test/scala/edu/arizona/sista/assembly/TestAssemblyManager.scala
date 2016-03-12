@@ -138,14 +138,14 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     c1 isEquivalentTo c2 should be(true)
   }
 
-  it should "have two mentions as evidence" in {
+  it should "have 2 mentions as evidence" in {
     val am = AssemblyManager()
 
     am.trackMentions(mentions5 ++ mentions6)
 
     val b = mentions5.filter(_ matches "Binding").head
 
-    val complex = am.getComplex(b)
+    val complex = am.getSimpleEvent(b)
 
     val evidence = complex.evidence
 

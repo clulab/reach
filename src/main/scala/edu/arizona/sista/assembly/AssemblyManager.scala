@@ -79,10 +79,10 @@ class AssemblyManager(
 
   /**
    * Returns a Regulation for a Mention m with the appropriate label.
-   * @param m an Odin Mention.  Must have the label "Binding".
+   * @param m an Odin Mention.  Must have the label "Complex".
    */
   def getComplex(m: Mention): Complex = {
-    require(m matches "Binding", "Mention is not a Binding")
+    require(m matches "Complex", "Mention is not a Complex")
     getOrCreateEERepresentation(m).asInstanceOf[Complex]
   }
 
@@ -92,7 +92,6 @@ class AssemblyManager(
    */
   def getSimpleEvent(m: Mention): SimpleEvent = {
     require(m matches "SimpleEvent", "Mention is not a SimpleEvent")
-    require(!(m matches "Binding"), "Mention is a Binding")
     getOrCreateEERepresentation(m).asInstanceOf[SimpleEvent]
   }
 
@@ -172,9 +171,10 @@ class AssemblyManager(
       case reg if reg matches "Regulation" =>
         (m.arguments contains "controller") &&
           (m.arguments contains "controlled") &&
-          // controlled must be an Event, but not an Activation
+          // controlled must be an Event (or Complex), but not an Activation
           m.arguments("controlled").forall {
-            // controlled cannnot be an entity
+            // controlled cannot be an entity UNLESS it is a Complex
+            case complex if complex matches "Complex" => true
             case entity if entity matches "Entity" => false
             case event if event matches "Event" => isValidMention(event)
           }
@@ -503,6 +503,10 @@ class AssemblyManager(
   // SimpleEvent creation
   //
 
+
+
+
+
   /**
    * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
    * @param m an Odin Mention
@@ -510,60 +514,154 @@ class AssemblyManager(
    */
   private def createSimpleEventWithID(m: Mention): (SimpleEvent, IDPointer) = {
 
-    // check for coref
-    val cm = m.toCorefMention
-    val e = getResolvedForm(cm)
+    //
+    // helper functions for label-based dispatch
+    //
 
-    // mention should be a SimpleEvent, but not a Binding
-    require((cm matches "SimpleEvent") && !(cm matches "Binding"), "createSimpleEvent only accepts SimpleEvent mentions that are NOT Bindings.")
-    // there should not be a cause among the arguments
-    require(!(cm.arguments contains "cause"), "SimpleEvent should not contain a cause!")
-    // prepare input (roles -> repr. pointers)
+    /**
+     * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+     * @param m an Odin Mention
+     * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+     */
+    def handleBinding(m: Mention): (SimpleEvent, IDPointer) = {
 
-    // filter out sites from input
-    val siteLessArgs = e.arguments - "site"
-    val input: Map[String, Set[IDPointer]] = siteLessArgs map {
-      case (role: String, mns: Seq[Mention]) =>
-        (role, mns.map(getOrCreateEERepresentationWithID).map(_._2).toSet)
-    }
+      // check for coref
+      val cm = m.toCorefMention
+      val e = getResolvedForm(cm)
 
-    // prepare output
-    val output: Set[IDPointer] = {
-      // handle sites
-      val ptms: Set[AssemblyModification] = e match {
-        case hasSites if hasSites.arguments contains "site" =>
-          // create a PTM for each site
-          for (site <- hasSites.arguments("site").toSet[Mention]) yield assembly.PTM(e.label, Some(site.text))
-          // create a PTM without a site
-        case noSites => Set(assembly.PTM(e.label, None))
+      // mention should be a SimpleEvent, but not a Binding
+      require(cm matches "Binding", "handleBinding only accepts Binding mentions.")
+      // there should not be a cause among the arguments
+      require(!(cm.arguments contains "cause"), "Binding should not contain a cause!")
+      // prepare input (roles -> repr. pointers)
+
+      // construct inputs from themes
+      // TODO: how to handle sites?
+      val correctedThemes = e.arguments
+        .filter(_._1.toLowerCase.startsWith("theme"))
+        .values
+        .flatten
+        .toSeq
+      val themeMap: Map[String, Seq[Mention]] = Map("theme" -> correctedThemes)
+      val input: Map[String, Set[IDPointer]] = themeMap map {
+        case (role: String, mns: Seq[Mention]) =>
+          (role, mns.map(getOrCreateEERepresentationWithID).map(_._2).toSet)
       }
 
-      // NOTE: we need to be careful if we use something other than theme
-      e.arguments("theme")
-        // TODO: should this be one PTM per entity?
-        .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2)
+      // prepare output
+      val complexMembers: Set[IDPointer] = correctedThemes
+        .map(m => createSimpleEntityWithID(m, None))
+        .map(_._2)
         .toSet
+
+      // prepare id for SimpleEvent
+      val id = getOrCreateID(m)
+
+      //prepare id for output (Complex)
+      // prepare id
+      val complexPointer = createID
+
+      // prepare Complex
+      val complex =
+        new Complex(
+          complexPointer,
+          complexMembers,
+          None,
+          this
+        )
+
+      // update table #2
+      updateIdToEERepresentationTable(complexPointer, complex)
+
+      // prepare SimpleEvent
+      // TODO: throw exception if arguments contains "cause"
+      val repr =
+        new SimpleEvent(
+          id,
+          input,
+          Set(complexPointer),
+          e.label,
+          Some(m),
+          this
+        )
+
+      // update LUTs
+      updateLUTs(id, m, repr)
+
+      (repr, id)
     }
 
-    // prepare id
-    val id = getOrCreateID(m)
+    /**
+     * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[mentionToID]] and [[idToEERepresentation]] LUTs
+     * @param m an Odin Mention
+     * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+     */
+    def handleNBSimpleEvent(m: Mention): (SimpleEvent, IDPointer) = {
 
-    // prepare SimpleEvent
-    // TODO: throw exception if arguments contains "cause"
-    val repr =
-      new SimpleEvent(
-        id,
-        input,
-        output,
-        e.label,
-        Some(m),
-        this
-      )
+      // check for coref
+      val cm = m.toCorefMention
+      val e = getResolvedForm(cm)
 
-    // update LUTs
-    updateLUTs(id, m, repr)
+      // mention should be a SimpleEvent, but not a Binding
+      require((cm matches "SimpleEvent") && !(cm matches "Binding"), "handleNBSimpleEvent only accepts a SimpleEvent Mention that is NOT a Binding.")
+      // prepare input (roles -> repr. pointers)
 
-    (repr, id)
+      // filter out sites from input
+      val siteLessArgs = e.arguments - "site"
+      val input: Map[String, Set[IDPointer]] = siteLessArgs map {
+        case (role: String, mns: Seq[Mention]) =>
+          (role, mns.map(getOrCreateEERepresentationWithID).map(_._2).toSet)
+      }
+
+      // prepare output
+      val output: Set[IDPointer] = {
+        // handle sites
+        val ptms: Set[AssemblyModification] = e match {
+          case hasSites if hasSites.arguments contains "site" =>
+            // create a PTM for each site
+            for (site <- hasSites.arguments("site").toSet[Mention]) yield assembly.PTM(e.label, Some(site.text))
+          // create a PTM without a site
+          case noSites => Set(assembly.PTM(e.label, None))
+        }
+
+        // NOTE: we need to be careful if we use something other than theme
+        e.arguments("theme")
+          // TODO: should this be one PTM per entity?
+          .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2)
+          .toSet
+      }
+
+      // prepare id
+      val id = getOrCreateID(m)
+
+      // prepare SimpleEvent
+      val repr =
+        new SimpleEvent(
+          id,
+          input,
+          output,
+          e.label,
+          Some(m),
+          this
+        )
+
+      // update LUTs
+      updateLUTs(id, m, repr)
+
+      (repr, id)
+    }
+
+    //
+    // handle dispatch
+    //
+
+    require(m matches "SimpleEvent", "createSimpleEventWithID requires Mention with the label SimpleEvent.")
+    // there should not be a cause among the arguments
+    require(!(getResolvedForm(m.toCorefMention).arguments contains "cause"), "SimpleEvent should not contain a cause!")
+    m match {
+      case binding if binding matches "Binding" => handleBinding(binding)
+      case other => handleNBSimpleEvent(other)
+    }
   }
 
   /**
@@ -692,9 +790,7 @@ class AssemblyManager(
   private def createEERepresentationWithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
      m.toBioMention match {
       case e if e matches "Entity" => createSimpleEntityWithID(e, None)
-      case binding if binding matches "Binding" => createComplexWithID(binding)
-      case se if (se matches "SimpleEvent") && ! (se matches "Binding") => createSimpleEventWithID(m)
-      case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
+      case se if se matches "SimpleEvent" => createSimpleEventWithID(se)
       case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
     }
   }

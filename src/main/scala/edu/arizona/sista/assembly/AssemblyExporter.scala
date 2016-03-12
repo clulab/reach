@@ -131,7 +131,10 @@ class AssemblyExporter(val manager: AssemblyManager) {
       complex.members.map(createInput).mkString("{", ", ", "}")
 
     case se: SimpleEvent =>
-      se.output.map(createInput).mkString(", ")
+      se.output.map{
+        case binding: Complex => createOutput(binding)
+        case other => createInput(other)
+      }.mkString(", ")
 
     case reg: Regulation =>
       reg.controlled.map(createOutput).mkString(", ")
