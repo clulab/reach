@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBUtils._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 3/10/2016
-  *   Last Modified: Initial creation.
+  *   Last Modified: Return immutable sets from lookup.
   */
 class ReverseLookupKB (
   /** The namespace for all IDs read from the KB data file. */
@@ -22,10 +22,10 @@ class ReverseLookupKB (
   def addEntry (key:String, valu:String) = theKB.addBinding(key, valu)
 
   /** Return a species name set for the given key. */
-  def lookup (key:String): Option[Set[String]] = theKB.get(key)
+  def lookup (key:String): Option[collection.immutable.Set[String]] = theKB.get(key).map(_.toSet)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookups (allKeys:Seq[String]): Option[Set[String]] = {
+  def lookups (allKeys:Seq[String]): Option[collection.immutable.Set[String]] = {
     allKeys.foreach { key =>
       val spNames = lookup(key)
       if (spNames.isDefined) return spNames
