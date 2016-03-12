@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Trait which holds grounding information for a mention.
   *   Written by: Marco Valenzuela, Tom Hicks.
-  *   Last Modified: Add candidate test methods and select current grounding method.
+  *   Last Modified: Propagate ambiguity: comment out finalization methods.
   */
 trait Grounding {
   this: Mention =>
@@ -31,15 +31,15 @@ trait Grounding {
   def grounding (): Option[KBResolution] = _grounding
 
   /** Set the final resolution for grounding. */
-  def ground (resolution: KBResolution): Unit = {
-    _grounding = Some(resolution)
-    _candidates = None                      // final grounding done: remove candidates
-  }
+  // def ground (resolution: KBResolution): Unit = {
+  //   _grounding = Some(resolution)
+  //   _candidates = None                      // final grounding done: remove candidates
+  // }
 
   /** Returns true if this mention has more than one candidate grounding. */
   def hasCandidates: Boolean = _candidates.isDefined
 
-  /** Returns true if this mention has more than one candidate grounding. */
+  /** Returns true if this mention is grounded and has more than one candidate grounding. */
   def hasMoreCandidates: Boolean = _candidates.isDefined && (_candidates.get.size > 1)
 
   /** Returns true if this mention is grounded. */
@@ -57,10 +57,10 @@ trait Grounding {
   def nsId (): String = if (_grounding.isDefined) _grounding.get.nsId else ""
 
   /** Select the current grounding as the final grounding. */
-  def selectCurrentGrounding (): Unit = {
-    assert(this.isGrounded,                 // MUST be grounded before calling this method
-           s"Mention '${this}' MUST be grounded before selecting current grounding.")
-    _candidates = None                      // final grounding done: remove candidates
-  }
+  // def selectCurrentGrounding (): Unit = {
+  //   assert(this.isGrounded,                 // MUST be grounded before calling this method
+  //          s"Mention '${this}' MUST be grounded before selecting current grounding.")
+  //   _candidates = None                      // final grounding done: remove candidates
+  // }
 
 }
