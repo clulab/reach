@@ -153,9 +153,15 @@ class AssemblyExporter(val manager: AssemblyManager) {
 
   }
 
-  // TODO: implement a stub in AssemblyManager
-  def precededBy(repr: EntityEventRepresentation): Seq[IDPointer] = {
-    Nil
+  /**
+   * Converts predecessors of Event to Event IDs
+   * @param eer an [[EntityEventRepresentation]]
+   * @return a Set of String representing Event IDs of eer's predecessors
+   */
+  def precededBy(eer: EntityEventRepresentation): Set[String] = eer match {
+    case entity: Entity => Set.empty[String]
+    case event: Event =>
+      event.predecessors.map(se => EERLUT(se.equivalenceHash))
   }
 
   def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
@@ -272,7 +278,7 @@ object AssemblyExporter {
    */
   def MITREfilter(rows: Set[Row]): Set[Row] = {
     // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
-    rows.filter(_.seen >= 3)
+    val filteredRows = rows.filter(_.seen >= 3)
       // 1b. Evidence come from at least 2 different sections.
       .filter(_.docIDs.toSet.size >= 2)
       // 2. Findings cannot include protein families.
@@ -280,8 +286,32 @@ object AssemblyExporter {
       // 3. Findings should not have an unresolved (UAZ) grounding.
       // FIXME: probably this should operate over EERs, not their evidence
       .filter(r => r.evidence.forall(e => ! hasUAZgrounding(e)))
+    // 4. Only keep precedence entries that exist in set of filteredRow's event IDs
+    val eventIDs = filteredRows.map(_.eventID)
+    filteredRows.map(r => filterPrecededBy(r, eventIDs))
   }
 
+  def filterPrecededBy(row: Row, eventIDs: Set[String]): Row = row match {
+    case nopredecessors if nopredecessors.precededBy.isEmpty => nopredecessors
+    case validPreds if validPreds.precededBy.forall(eid => eventIDs contains eid) =>
+      validPreds
+
+    case problem =>
+      // keep only the predecessors that exist in the current set of rows
+      val validPs: Set[String] = problem.precededBy intersect eventIDs
+
+      Row(
+        problem.input,
+        problem.output,
+        problem.controller,
+        problem.eventID,
+        problem.eventLabel,
+        validPs,
+        problem.negated,
+        problem.evidence,
+        problem.sourceRepresentation
+      )
+  }
   /**
    * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
    * @param m an Odin Mention
