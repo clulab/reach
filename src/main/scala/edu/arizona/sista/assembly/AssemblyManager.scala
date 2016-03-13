@@ -18,21 +18,22 @@ import edu.arizona.sista.assembly
  *             For example, an update to the (Mention -> [[EntityEventRepresentation]]) mapping of a SimpleEvent Mention will propagate
  *             to the (Mention -> [[EntityEventRepresentation]]) mapping of any ComplexEvent Mention containing this SimpleEvent Mention.
  * @param m2id a lookup table from Mention -> [[IDPointer]].  Each key (Mention) should map to a unique [[IDPointer]].
- * @param id2repr a lookup table from [[IDPointer]] -> [[EntityEventRepresentation]].
+ * @param id2eer a lookup table from [[IDPointer]] -> [[EntityEventRepresentation]].
  *                Keys ([[IDPointer]]) may point to the same value (EntityEventRepresentation)
  */
 class AssemblyManager(
   m2id: Map[Mention, IDPointer],
-  id2repr: Map[IDPointer, EntityEventRepresentation]
+  id2eer: Map[IDPointer, EntityEventRepresentation]
 ) extends Serializable {
 
   import AssemblyManager._
 
-  var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
-  var idToEERepresentation: immutable.Map[IDPointer, EntityEventRepresentation] = id2repr.toMap
-  var idToMention: immutable.Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
+  private var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
+  private var idToEER: immutable.Map[IDPointer, EntityEventRepresentation] = id2eer.toMap
+  private var idToMention: immutable.Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
   // initialize to size of LUT 2
-  private var nextID: IDPointer = idToEERepresentation.size
+  private var nextID: IDPointer = idToEER.size
+
 
   /**
    * Retrieves ID from an [[EntityEventRepresentation.uniqueID]]
@@ -204,7 +205,7 @@ class AssemblyManager(
    * @return a unique [[IDPointer]]
    */
   // use the size of LUT 2 to create a new ID
-  def createID: IDPointer = {
+  private def createID: IDPointer = {
     val currentID = nextID
     nextID += 1
     currentID
@@ -215,7 +216,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return an [[IDPointer]] unique to m
    */
-  def getOrCreateID(m: Mention): IDPointer = mentionToID.getOrElse(m, createID)
+  private def getOrCreateID(m: Mention): IDPointer = mentionToID.getOrElse(m, createID)
 
   //
   // Utils for modifying storage tables
@@ -233,7 +234,7 @@ class AssemblyManager(
     // update LUT #1b
     updateIDtoMentionTable(m, id)
     // update LUT #2
-    updateIdToEERTable(id, eer)
+    updateIDtoEERTable(id, eer)
   }
 
   /**
@@ -259,7 +260,7 @@ class AssemblyManager(
    * @param id a unique [[IDPointer]] pointing to eer
    * @param eer an [[EntityEventRepresentation]] associated with the provided id
    */
-  private def updateIdToEERTable(id: IDPointer, eer: EntityEventRepresentation): Unit = {
+  private def updateIDtoEERTable(id: IDPointer, eer: EntityEventRepresentation): Unit = {
     idToEER = idToEER + (id -> eer)
   }
 
@@ -428,7 +429,7 @@ class AssemblyManager(
       )
 
     // Only update table 1 if no additional mods were provided
-    if (mods.isEmpty) updateLUTs(id, m, eer) else  updateIdToEERTable(id, eer) // updateLUTs(id, newEvidence, repr)
+    if (mods.isEmpty) updateLUTs(id, m, eer) else  updateIDtoEERTable(id, eer) // updateLUTs(id, newEvidence, repr)
 
     // eer and id pair
     (eer, id)
@@ -503,10 +504,6 @@ class AssemblyManager(
   // SimpleEvent creation
   //
 
-
-
-
-
   /**
    * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
@@ -571,7 +568,7 @@ class AssemblyManager(
         )
 
       // update table #2
-      updateIdToEERTable(complexPointer, complex)
+      updateIDtoEERTable(complexPointer, complex)
 
       // prepare SimpleEvent
       // TODO: throw exception if arguments contains "cause"
@@ -826,7 +823,13 @@ class AssemblyManager(
    * Retrieves all tracked Mentions from [[AssemblyManager.mentionToID]]
    * @return the Set of Odin Mentions tracked by this AssemblyManager
    */
-  def getTrackedMentions: Set[Mention] = mentionToID.keys.toSet
+  def trackedMentions: Set[Mention] = mentionToID.keys.toSet
+
+  /**
+   * Retrieves all EntityEventRepresentations found in [[AssemblyManager.idToEER]]
+   * @return the Set of Odin Mentions tracked by this AssemblyManager
+   */
+  def EERs: Set[EntityEventRepresentation] = idToEER.values.toSet
 
   /**
    * Retrieves ID from an [[EntityEventRepresentation.uniqueID]]
@@ -923,11 +926,23 @@ class AssemblyManager(
   //
 
   /**
+   * Get non-distinct equivalent EERs matching the provided equivalenceHash (eh)
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   * @return
+   */
+  def getEquivalentEERs(eh: Int): Set[EntityEventRepresentation] = {
+    for {
+      eer <- getEERs
+      if eer.equivalenceHash == eh
+    } yield eer
+  }
+
+  /**
    * Returns groups of equivalent [[EntityEventRepresentation]], ignoring differences due to [[IDPointer]] references.
    *
    * Mentions may point to (essentially) the same [[EntityEventRepresentation]], which would only differ in terms of the [[IDPointer]], which link an [[EntityEventRepresentation]] to a particular Mention
    */
-  def groupEERs: Seq[Seq[EntityEventRepresentation]] = {
+  def groupedEERs: Seq[Seq[EntityEventRepresentation]] = {
     idToEER.values
       // ignore IDPointers for grouping purposes
       .groupBy(_.equivalenceHash)
@@ -937,12 +952,24 @@ class AssemblyManager(
   }
 
   /**
-   * Returns head of each group returned by [[groupEERs]].
+   * Gets distinct members of eers after grouping by [[EntityEventRepresentation.equivalenceHash]].
+   * @param eers an [[EntityEventRepresentation]] Set
+   * @return
+   */
+  def distinctEERsFromSet(eers: Set[EntityEventRepresentation]): Set[EntityEventRepresentation] = {
+    eers.groupBy(_.equivalenceHash)
+      .mapValues(_.head)
+      .values
+      .toSet
+  }
+
+  /**
+   * Returns head of each group returned by [[groupedEERs]].
    *
    * @return a Set of [[EntityEventRepresentation]]
    */
   def distinctEERs: Set[EntityEventRepresentation] = {
-    groupEERs.map(_.head)
+    groupedEERs.map(_.head)
       .toSet
   }
 

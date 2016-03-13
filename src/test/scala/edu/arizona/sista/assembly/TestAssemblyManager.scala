@@ -221,6 +221,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.removeEntriesContainingIDofMention(m)
 
-    am.idToEER.size should be(0)
+    am.EERs.size should be(0)
   }
+
 }
