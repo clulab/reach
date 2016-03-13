@@ -9,6 +9,21 @@ import edu.arizona.sista.reach.mentions
 import edu.arizona.sista.assembly
 
 
+
+/**
+ * Stores precedence information for two distinct [[EntityEventRepresentation]]
+ * @param before [[EntityEventRepresentation.equivalenceHash]] identifying the EER that precedes [[PrecedenceRelation.after]]
+ * @param after [[EntityEventRepresentation.equivalenceHash]] identifying the EER that follows [[PrecedenceRelation.before]]
+ * @param evidence the mentions that serve as evidence for this precedence relation
+ * @param foundBy the name of the Sieve which found this relation
+ */
+case class PrecedenceRelation(
+  before: Int,
+  after: Int,
+  var evidence: Set[Mention],
+  foundBy: String
+)
+
 /**
  * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
  *             These LUTs are used to populate the mentionToID and idToEERepresentation LUTs containing the same information.
@@ -31,98 +46,219 @@ class AssemblyManager(
   private var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
   private var idToEER: immutable.Map[IDPointer, EntityEventRepresentation] = id2eer.toMap
   private var idToMention: immutable.Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
+  // PrecedenceRelations associated with a distinct EER (key is equivalenceHash)
+  private var idToPrecedenceRelations: immutable.Map[Int, Set[PrecedenceRelation]] =
+    Map.empty
+      .withDefaultValue(Set.empty[PrecedenceRelation])
   // initialize to size of LUT 2
   private var nextID: IDPointer = idToEER.size
 
+  //
+  // Handle PrecedenceRelations
+  //
 
   /**
-   * Retrieves ID from an [[EntityEventRepresentation.uniqueID]]
-    * @param repr an EntityEventRepresentation
-   * @return the IDPointer for the repr
+   * Stores a PrecedenceRelation in [[idToPrecedenceRelations]] connecting "before" and "after".
+   * Tracks "before" and "after" Mentions and produces EERs, is not already present.
+   * @param before an Odin Mention that causally precedes "after"
+   * @param after an Odin Mention that (causally) follows "before"
+   * @param foundBy the name of the sieve or procedure that discovered this precedence relation
    */
-  def getID(repr: EntityEventRepresentation): IDPointer = repr.uniqueID
+  def storePrecedenceRelation(before: Mention, after: Mention, foundBy: String): Unit = {
+
+    // ensure Mentions are being tracked
+    // and get their corresponding EERs
+    val eer1 = getOrCreateEER(before)
+    val eer2 = getOrCreateEER(after)
+
+    // create a PR for the two EERs
+    val pr = PrecedenceRelation(
+      before = eer1.equivalenceHash,
+      after = eer2.equivalenceHash,
+      evidence = Set.empty[Mention],
+      foundBy
+    )
+
+    updateIDtoPrecedenceRelations(pr)
+  }
 
   /**
-   * Retrieves an [[EntityEventRepresentation]] for a Mention.
-   * Assumes an [[EntityEventRepresentation]] for the given Mention already exists.
+   * Stores a PrecedenceRelation in [[idToPrecedenceRelations]] for the EERs corresponding to "before" and "after"
+   * @param before an [[EntityEventRepresentation]] that causally precedes "after"
+   * @param after an [[EntityEventRepresentation]] that (causally) follows "before"
+   * @param foundBy the name of the sieve or procedure that discovered this precedence relation
+   */
+  def storePrecedenceRelation(
+    before: EntityEventRepresentation,
+    after: EntityEventRepresentation,
+    foundBy: String
+  ): Unit = {
+
+    val pr = PrecedenceRelation(
+      before.equivalenceHash,
+      after.equivalenceHash,
+      Set.empty[Mention],
+      foundBy
+    )
+
+    updateIDtoPrecedenceRelations(pr)
+  }
+
+  /**
+   * Update entries in [[idToPrecedenceRelations]] for pr.before and pr.after
+   * @param pr a [[PrecedenceRelation]]
+   */
+  private def updateIDtoPrecedenceRelations(pr: PrecedenceRelation): Unit = {
+
+    // update PRs for before
+    updateIDtoPrecedenceRelations(pr.before, pr)
+    // update PRs for after
+    updateIDtoPrecedenceRelations(pr.after, pr)
+  }
+
+  /**
+   * Update entry in [[idToPrecedenceRelations]] for the provided equivalenceHash (eh)
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   * @param pr a [[PrecedenceRelation]]
+   */
+  private def updateIDtoPrecedenceRelations(eh: Int, pr: PrecedenceRelation): Unit = {
+    val old = idToPrecedenceRelations.getOrElse(eh, Set.empty)
+    // add the pr to the set of existing PRs
+    idToPrecedenceRelations = idToPrecedenceRelations + (eh -> (old ++ Set(pr)))
+  }
+
+  // retrieval of PrecedenceRelations
+  /**
+   * Retrieves the Set of PrecedenceRelations corresponding to the provided [[EntityEventRepresentation.equivalenceHash]] (eh)
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   */
+  def getPrecedenceRelations(eh: Int): Set[PrecedenceRelation] = idToPrecedenceRelations(eh)
+
+  /**
+   * Retrieves the Set of PrecedenceRelations corresponding to the provided [[EntityEventRepresentation]] (eer)
+   * @param eer an [[EntityEventRepresentation]]
+   */
+  def getPrecedenceRelations(eer: EntityEventRepresentation): Set[PrecedenceRelation] = {
+    idToPrecedenceRelations(eer.equivalenceHash)
+  }
+
+  /**
+   * Retrieves the Set of PrecedenceRelations corresponding to the provided Mention
    * @param m an Odin Mention
-   * @return an [[EntityEventRepresentation]]
    */
-  def getEERepresentation(m: Mention): EntityEventRepresentation = {
-    val id = mentionToID(m)
-    idToEERepresentation(id)
+  def getPrecedenceRelations(m: Mention): Set[PrecedenceRelation] = {
+    getPrecedenceRelations(getOrCreateEER(m))
   }
 
   /**
-   * Retrieves an [[EntityEventRepresentation]] associated with the given [[IDPointer]].
-   * Assumes an [[EntityEventRepresentation]] associated with the provide [[IDPointer]] already exists.
-   * @param id an [[IDPointer]]
-   * @return an [[EntityEventRepresentation]]
+   * Retrieves the distinct Set of EER predecessors for the provided equivalenceHash (eh).
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   * @return the Set of distinct EntityEventRepresentations known to causally precede any EER corresponding to eh
    */
-  def getEERepresentation(id: IDPointer): EntityEventRepresentation =
-    idToEERepresentation(id)
+  def distinctPredecessorsOf(eh: Int): Set[EntityEventRepresentation] = {
+   val predecessors = predecessorsOf(eh)
+    distinctEERsFromSet(predecessors)
+  }
 
-  /**
-   * Retrieves the Set of [[EntityEventRepresentation]] tracked by the manager.
-   * @return Set[EntityEventRepresentation]
-   */
-  def getEERepresentations: Set[EntityEventRepresentation] = idToEERepresentation.values.toSet
-
-  /**
-   * Returns a SimpleEntity for a Mention with the appropriate labels.
-   * @param m an Odin Mention.  Must have the label "Entity" and not the label "Complex".
-   */
-  def getSimpleEntity(m: Mention): SimpleEntity = {
-    require(m matches "Entity", "Mention is not an Entity")
-    require(! (m matches "Complex"), "Mention is a Complex")
-    getOrCreateEERepresentation(m).asInstanceOf[SimpleEntity]
+  def distinctPredecessorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+    distinctPredecessorsOf(eer.equivalenceHash)
   }
 
   /**
-   * Returns a Regulation for a Mention m with the appropriate label.
-   * @param m an Odin Mention.  Must have the label "Complex".
+   * Retrieves the distinct Set of EER predecessors for the provided Mention (m).
+   * @param m an Odin Mention
+   * @return the Set of distinct EntityEventRepresentations known to causally precede the EER corresponding to M
    */
-  def getComplex(m: Mention): Complex = {
-    require(m matches "Complex", "Mention is not a Complex")
-    getOrCreateEERepresentation(m).asInstanceOf[Complex]
+  def distinctPredecessorsOf(m: Mention): Set[EntityEventRepresentation] = {
+    distinctPredecessorsOf(getOrCreateEER(m))
   }
 
   /**
-   * Returns a SimpleEvent for a Mention m with the appropriate labels.
-   * @param m an Odin Mention.  Must have the label "SimpleEvent" and not the label "Binding".
+   * Retrieves the non-distinct Set of EER predecessors for the provided equivalenceHash (eh).
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   * @return the Set of non-distinct EntityEventRepresentations known to causally precede any EER corresponding to eh
    */
-  def getSimpleEvent(m: Mention): SimpleEvent = {
-    require(m matches "SimpleEvent", "Mention is not a SimpleEvent")
-    getOrCreateEERepresentation(m).asInstanceOf[SimpleEvent]
+  def predecessorsOf(eh: Int): Set[EntityEventRepresentation] = for {
+    pr <- getPrecedenceRelations(eh)
+    before = pr.before
+    if before != eh
+    eer <- getEquivalentEERs(before)
+  } yield eer
+
+  /**
+   * Retrieves the non-distinct Set of EER predecessors for the provided EER.
+   * @param eer an [[EntityEventRepresentation]]
+   * @return the Set of non-distinct EntityEventRepresentations known to causally precede eer
+   */
+  def predecessorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+    predecessorsOf(eer.equivalenceHash)
   }
 
   /**
-   * Returns a Regulation for a Mention m with the label "Regulation"
-   * @param m an Odin Mention.  Must have the label "Regulation"
+   * Retrieves the non-distinct Set of EER predecessors for the provided Mention (m).
+   * @param m an Odin Mention
+   * @return the Set of non-distinct EntityEventRepresentations known to causally precede the EER corresponding to m
    */
-  def getRegulation(m: Mention): Regulation = {
-    require(m matches "Regulation", "Mention is not a Regulation")
-    getOrCreateEERepresentation(m).asInstanceOf[Regulation]
+  def predecessorsOf(m: Mention): Set[EntityEventRepresentation] = {
+    predecessorsOf(getOrCreateEER(m))
   }
 
   /**
-   * Collects mentions pointing to a given [[EntityEventRepresentation]].
-   * @param repr an [[EntityEventRepresentation]]
-   * @return a sequence of Mention serving as textual evidence of the given representation
+   * Retrieves the distinct Set of EER successors for the provided equivalenceHash (eh).
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
    */
-  def getEvidence(repr: EntityEventRepresentation): Set[Mention] = {
-    val ids = idToEERepresentation.filter {
-      // which IDs point to EEReprs that are identical to the one given?
-      case (id, r2) => r2 isEquivalentTo repr }.keys
+  def distinctSuccessorsOf(eh: Int): Set[EntityEventRepresentation] = {
+    val successors = successorsOf(eh)
+    distinctEERsFromSet(successors)
+  }
 
-    // retrieve the mention by id
-    val evidence = for {
-      id <- ids
-      // check is needed, because output of a SimpleEvent has no Mention
-      if idToMention contains id
-      e = idToMention(id)
-    } yield e
-    evidence.toSet
+  /**
+   * Retrieves the distinct Set of EER successors for the provided EER.
+   * @param eer an [[EntityEventRepresentation]]
+   * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
+   */
+  def distinctSuccessorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+    distinctSuccessorsOf(eer.equivalenceHash)
+  }
+
+  /**
+   * Retrieves the distinct Set of EER successors for the provided Mention (m).
+   * @param m an Odin Mention
+   * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
+   */
+  def distinctSuccessorsOf(m: Mention): Set[EntityEventRepresentation] = {
+    distinctSuccessorsOf(getOrCreateEER(m))
+  }
+
+  /**
+   * Retrieves the non-distinct Set of EER successors for the provided equivalenceHash (eh).
+   * @param eh an [[EntityEventRepresentation.equivalenceHash]]
+   * @return the Set of non-distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
+   */
+  def successorsOf(eh: Int): Set[EntityEventRepresentation] = for {
+    pr <- getPrecedenceRelations(eh)
+    after = pr.after
+    if after != eh
+    eer <- getEquivalentEERs(after)
+  } yield eer
+
+  /**
+   * Retrieves the non-distinct Set of EER successors for the provided EER.
+   * @param eer an [[EntityEventRepresentation]]
+   * @return the Set of non-distinct EntityEventRepresentations known to causally succeed eer
+   */
+  def successorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+    successorsOf(eer.equivalenceHash)
+  }
+
+  /**
+   * Retrieves the non-distinct Set of EER successors for the provided Mention (m).
+   * @param m an Odin Mention
+   * @return the Set of non-distinct EntityEventRepresentations known to causally succeed the EER corresponding to m
+   */
+  def successorsOf(m: Mention): Set[EntityEventRepresentation] = {
+    successorsOf(getOrCreateEER(m))
   }
 
   //

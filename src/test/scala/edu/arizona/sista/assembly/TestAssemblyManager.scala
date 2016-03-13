@@ -208,7 +208,102 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     phos.negated should be(false)
   }
 
-  "AssemblyManager" should s"not contain any EEReprs for '$negPhos' if all EEReprs referencing Mek are removed" in {
+  // test PrecedenceRelations
+
+  it should "not have any precedence relations for the phosphorylation" in {
+    val doc = createDoc(negPhos, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager()
+
+    am.trackMentions(mentions)
+
+    val p = mentions.filter(_ matches "Phosphorylation").head
+
+    // test AssemblyManager's methods
+    am.predecessorsOf(p).size should be(0)
+    am.distinctPredecessorsOf(p).size should be(0)
+    am.successorsOf(p).size should be(0)
+    am.distinctSuccessorsOf(p).size should be(0)
+
+    val se = am.getSimpleEvent(p)
+
+    // test Event methods
+    se.predecessors.size should be(0)
+    se.distinctPredecessors.size should be(0)
+    se.successors.size should be(0)
+    se.distinctSuccessors.size should be(0)
+  }
+
+  val precedenceText = "Ras is phosphorylated by Mek after Mek is bound to p53."
+
+  precedenceText should "have a PrecedenceRelation showing the Phosphorylation following the Binding" in {
+
+    val doc = createDoc(precedenceText, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager()
+
+    am.trackMentions(mentions)
+
+    val p = mentions.filter(_ matches "Phosphorylation").head
+    val b = mentions.filter(_ matches "Binding").head
+
+    // test mention-based methods
+    am.storePrecedenceRelation(p, b, "mention-based-test")
+
+    am.getPrecedenceRelations(p).size should be(1)
+    am.predecessorsOf(p).size should be(0)
+    am.distinctPredecessorsOf(p).size should be(0)
+    am.successorsOf(p).size should be(1)
+    am.distinctSuccessorsOf(p).size should be(1)
+
+    am.getPrecedenceRelations(b).size should be(1)
+    am.predecessorsOf(b).size should be(1)
+    am.distinctPredecessorsOf(b).size should be(1)
+    am.successorsOf(b).size should be(0)
+    am.distinctSuccessorsOf(b).size should be(0)
+
+    // test eer-based methods
+    val pSE = am.getSimpleEvent(p)
+    val bSE = am.getSimpleEvent(b)
+
+    // test mention-based methods
+    am.storePrecedenceRelation(p, b, "mention-based-test")
+
+    pSE.precedenceRelations.size should be(1)
+    pSE.predecessors.size should be(0)
+    pSE.distinctPredecessors.size should be(0)
+    pSE.successors.size should be(1)
+    pSE.distinctSuccessors.size should be(1)
+
+    bSE.precedenceRelations.size should be(1)
+    bSE.predecessors.size should be(1)
+    bSE.distinctPredecessors.size should be(1)
+    bSE.successors.size should be(0)
+    bSE.distinctSuccessors.size should be(0)
+
+    // test distinct v. non-distinct
+    am.storePrecedenceRelation(p, b, "mention-based-test2")
+    // this is a set, but the difference in
+    // foundBy means "mention-based-test2" won't get collapsed
+    pSE.precedenceRelations.size should be(2)
+    pSE.predecessors.size should be(0)
+    pSE.distinctPredecessors.size should be(0)
+    pSE.successors.size should be(1)
+    pSE.distinctSuccessors.size should be(1)
+    // this is a set, but the difference in
+    // foundBy means "mention-based-test2" won't get collapsed
+    bSE.precedenceRelations.size should be(2)
+    bSE.predecessors.size should be(1)
+    bSE.distinctPredecessors.size should be(1)
+    bSE.successors.size should be(0)
+    bSE.distinctSuccessors.size should be(0)
+  }
+
+  "AssemblyManager" should s"not contain any EERs for '$negPhos' if all EERs referencing Mek are removed" in {
     val doc = createDoc(negPhos, "assembly-test")
 
     val mentions = testReach.extractFrom(doc)

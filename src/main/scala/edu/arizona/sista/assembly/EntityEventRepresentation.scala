@@ -312,7 +312,29 @@ class Complex(
 /**
  * Trait for an Event representation of a Mention.
  */
-trait Event extends EntityEventRepresentation
+trait Event extends EntityEventRepresentation {
+
+  /** PrecedenceRelations for this Event */
+  def precedenceRelations: Set[PrecedenceRelation] = {
+    manager.getPrecedenceRelations(equivalenceHash)
+  }
+
+  /** Causal predecessors of this Event */
+  def predecessors: Set[Event] =
+    manager.predecessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+
+  /** Distinct causal predecessors of this Event */
+  def distinctPredecessors: Set[Event] =
+    manager.distinctPredecessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+
+  /** Causal successors of this Event */
+  def successors: Set[Event] =
+    manager.successorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+
+  /** Distinct causal successors of this Event */
+  def distinctSuccessors: Set[Event] =
+    manager.distinctSuccessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+}
 
 /**
  * Representation for any Mention with the label SimpleEvent.  Note that a Binding is represented using a [[Complex]].
