@@ -3,7 +3,6 @@ package edu.arizona.sista.assembly
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.assembly
 
 class TestAssemblyManager extends FlatSpec with Matchers {
 
@@ -58,7 +57,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     val ras = mentions1.filter(m => (m matches "Entity") && (m.text.toLowerCase == "ras")).head
 
-    val se = am.getEERepresentation(ras)
+    val se = am.getEER(ras)
 
     se.evidence should have size(3)
   }
@@ -222,6 +221,6 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.removeEntriesContainingIDofMention(m)
 
-    am.idToEERepresentation.size should be(0)
+    am.idToEER.size should be(0)
   }
 }

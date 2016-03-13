@@ -42,7 +42,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
   import AssemblyExporter._
 
   // distinct EntityEventRepresentations
-  val distinctEERS = manager.distinctEEReprs
+  val distinctEERS = manager.distinctEERs
 
   // LUT for retrieving IDs to distinct EERs
   // TODO: A better version of this should probably belong to the manager

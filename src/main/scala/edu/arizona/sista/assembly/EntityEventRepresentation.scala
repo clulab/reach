@@ -239,10 +239,10 @@ class Complex(
 ) extends Entity {
 
   /**
-   * The [[Entity]] Set of members, retrieved from [[manager.idToEERepresentation]] using the [[memberPointers]].
+   * The [[Entity]] Set of members, retrieved from [[manager.idToEER]] using the [[memberPointers]].
    * @return the [[Entity]] Set of [[Complex]] members
    */
-  def members: Set[Entity] = memberPointers.map(m => manager.getEERepresentation(m).asInstanceOf[Entity])
+  def members: Set[Entity] = memberPointers.map(m => manager.getEER(m).asInstanceOf[Entity])
 
   /**
    * Summary making use of [[members]], [[coref]], and [[manager]]
@@ -340,14 +340,14 @@ class SimpleEvent(
   require(output.forall(_.isInstanceOf[Entity]), s"not all output elements of $label are entities")
 
   /**
-   * A representation of the argument roles and the [[Entity]] Set corresponding to each role (retrieved using using the [[manager.idToEERepresentation]] and the [[inputPointers]]).
+   * A representation of the argument roles and the [[Entity]] Set corresponding to each role (retrieved using using the [[manager.idToEER]] and the [[inputPointers]]).
    * @return a Map from argument role (a String) -> a Set of [[Entity]]
    */
   def input: Map[String, Set[Entity]] = {
     inputPointers.map(pair =>
       (pair._1, pair._2.map(
         // retrieve each id and cast as Entity
-        id => manager.getEERepresentation(id).asInstanceOf[Entity]
+        id => manager.getEER(id).asInstanceOf[Entity]
         )
       )
     )
@@ -355,10 +355,10 @@ class SimpleEvent(
 
   /**
    * A representation of the output of the [[SimpleEvent]].
-   * @return an [[Entity]] Set retrieved using the [[manager.idToEERepresentation]] and the [[outputPointers]]
+   * @return an [[Entity]] Set retrieved using the [[manager.idToEER]] and the [[outputPointers]]
    */
   def output: Set[Entity] =
-    outputPointers.map(id => manager.getEERepresentation(id).asInstanceOf[Entity])
+    outputPointers.map(id => manager.getEER(id).asInstanceOf[Entity])
 
   /**
    * Hash representing the [[input]].
@@ -444,19 +444,19 @@ class Regulation(
   val manager: AssemblyManager) extends Event {
 
   /**
-   * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controller" argument (retrieved using using the [[manager.idToEERepresentation]] and the [[controllerPointers]]).
+   * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controller" argument (retrieved using using the [[manager.idToEER]] and the [[controllerPointers]]).
    * @return a Set of [[EntityEventRepresentation]]
    */
   def controller: Set[EntityEventRepresentation] =
-    controllerPointers.map(manager.getEERepresentation)
+    controllerPointers.map(manager.getEER)
 
   /**
-   * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controlled" argument (retrieved using using the [[manager.idToEERepresentation]] and the [[controlledPointers]]).
+   * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controlled" argument (retrieved using using the [[manager.idToEER]] and the [[controlledPointers]]).
    * In REACH, the controlled of a Regulation can be either Binding or SimpleEvent converted into an Entity with a PTM.  Eventually, though, we will probably allow other Regulations.
    * @return a Set of [[EntityEventRepresentation]]
    */
   def controlled: Set[EntityEventRepresentation] =
-    controlledPointers.map(id => manager.getEERepresentation(id))
+    controlledPointers.map(id => manager.getEER(id))
 
   /**
    * Hash representing the [[controller]].
@@ -484,7 +484,7 @@ class Regulation(
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[Regulation]].
-   * @return an Int hash based primarily on the [[polarity]], [[controllerHash]], and [[controlledHash]]
+   * @return an Int hash based on the [[polarity]], [[controllerHash]], [[controlledHash]], and [[negated.hashCode]]
    */
   def equivalenceHash: Int = {
     // the seed (not counted in the length of finalizeHash)
