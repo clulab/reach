@@ -12,7 +12,7 @@ case class Row(
   controller: String,
   eventID: String,
   eventLabel: String,
-  precededBy: Seq[IDPointer],
+  precededBy: Set[String],
   negated: Boolean,
   evidence: Set[Mention],
   // to make debugging easier
@@ -30,7 +30,7 @@ case class Row(
   }
 
   def toTSVrow: String = {
-    val precedingEvents = precededBy.distinct.sorted.mkString(", ")
+    val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
     val seenIn = docIDs.toSeq.sorted.mkString(", ")
     val examples = getTextualEvidence.mkString(" ++++ ")
     s"$input\t$output\t$controller\t$eventID\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
@@ -79,7 +79,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
     text
   }
 
-  def createInput(repr: EntityEventRepresentation): String = repr match {
+  def createInput(eer: EntityEventRepresentation): String = eer match {
 
     case entity: SimpleEntity =>
 
@@ -125,7 +125,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
     println(s"Labels assigned to evidence: $labels")
     "???"
   }
-  def createOutput(repr: EntityEventRepresentation): String = repr match {
+  def createOutput(eer: EntityEventRepresentation): String = eer match {
 
     case complex: Complex =>
       complex.members.map(createInput).mkString("{", ", ", "}")
@@ -142,7 +142,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
     case _ => ""
   }
 
-  def createController(repr: EntityEventRepresentation): String = repr match {
+  def createController(eer: EntityEventRepresentation): String = eer match {
 
     case reg: Regulation =>
       reg.controller.map{ c =>
@@ -159,21 +159,30 @@ class AssemblyExporter(val manager: AssemblyManager) {
   }
 
   def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
-    val f = new File(outfile)
-    val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
     val rowsForOutput = rowFilter(getEventRows)
-    val text =
-      // only events
-      rowsForOutput
-      .toSeq
-      .sortBy(r => (r.eventLabel, -r.docIDs.size, -r.seen))
-      .map(_.toTSVrow)
-      .mkString("\n")
 
     // make sure the output is valid
     val regs = rowsForOutput.filter(_.eventLabel == "Regulation")
-    val problems = regs.filter(r => ! rowsForOutput.exists(_.eventID == r.input))
-    require(problems.isEmpty, "Regulation input ID not found in EventIDs for rows!")
+    val eventIDs: Set[String] = rowsForOutput.map(_.eventID)
+    val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
+    val regOutputIDs = rowsForOutput
+      .filter(_.eventLabel == "Regulation")
+      .map(_.output)
+    //val problems = regs.filter(r => ! rowsForOutput.exists(_.eventID == r.input))
+    // check if all precededBy IDs exist as row IDs
+    require(precededByIDs.forall(eid => eventIDs contains eid), "Event ID in preceded by does not correspond to any row's ID!")
+    // check if all regs have output IDs that correspond to some row ID
+    require(regOutputIDs.forall(eid => eventIDs contains eid), "Regulation input ID not found in EventIDs for rows!")
+    // prepare output
+    val f = new File(outfile)
+    val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
+    val text =
+    // only events
+      rowsForOutput
+        .toSeq
+        .sortBy(r => (r.eventLabel, -r.docIDs.size, -r.seen))
+        .map(_.toTSVrow)
+        .mkString("\n")
     // write the output to disk
     FileUtils.writeStringToFile(f, header + text)
   }
