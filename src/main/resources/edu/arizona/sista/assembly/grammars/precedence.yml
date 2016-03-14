@@ -5,15 +5,13 @@ taxonomy: edu/arizona/sista/reach/biogrammar/taxonomy.yml
 
 # vars for assembly sieve
 vars:
-  mylabel: "Assembly"
+  mylabel: "Precedence"
   deprulepriority: "1"
   surfacerulepriority: "2"
   # < operator should be outside of regex
-  incomingbeforetimeprep: "</^prep_(before|prior_to)$/"
-  incomingaftertimeprep: "</^prep_(after|following)$/"
-  after_type: "PossibleController"
+  after_type: "Event"
   # "after" should be some kind of Event that transforms "before"
-  before_type: "PossibleController"
+  before_type: "Event"
   beforesurface: "[lemma=/^(before|prior|precede)$/]"
   aftersurface: "[lemma=/^follow|after$/]"
 
@@ -23,79 +21,85 @@ rules:
   - name: assembly-prep-syntax-1
     label: ${mylabel}
     priority: ${deprulepriority}
-    example: "A is ubiquitinated before the phosphorylation of B."
+    example: "BEF is ubiquitinated before the phosphorylation of AFT."
     pattern: |
       before:${before_type}
-      # before the X
-      after:${after_type} = ${incomingbeforetimeprep}
+      # before the AFT
+      after:${after_type} = /^prep_(before|prior_to)$/
 
   - name: assembly-prep-syntax-2
     label: ${mylabel}
     priority: ${deprulepriority}
-    example: "A is ubiquitinated following the phosphorylation of B."
+    example: "AFT is ubiquitinated following the phosphorylation of BEF."
     pattern: |
       after:${after_type}
-      # after X
-      before:${before_type} = ${incomingaftertimeprep}
+      # after BEF
+      before:${before_type} = /^prep_(after|following)$/
 
   - name: assembly-prep-syntax-3
     label: DirectConnection
     priority: ${deprulepriority}
-    example: "A is ubiquitinated due to the phosphorylation of B."
+    example: "AFT is ubiquitinated due to the phosphorylation of BEF."
     pattern: |
-      before:${before_type}
-      after:${after_type} = <prep_due_to | <prep_because_of
+      after:${after_type}
+      # due to BEF
+      before:${before_type} = prep_due_to | prep_because_of
 
   - name: assembly-verb-syntax-1
     label: DirectConnection
     priority: ${deprulepriority}
-    example: "the ubiquitination of A leads to the phosphorylation of B."
+    example: "the ubiquitination of BEF leads to the phosphorylation of AFT."
     pattern: |
       before:${before_type}
+      # ... leads to AFT
       after:${after_type} = <nsubj [lemma=/^(lead)$/] prep_to
 
-  - name: assembly-verb-syntax-2
+  - name: assembly-verb-syntax-2a
     label: DirectConnection
     priority: ${deprulepriority}
-    example: "the ubiquitination of A precedes the phosphorylation of B."
+    example: "the ubiquitination of AFT follows the phosphorylation of BEF."
     pattern: |
-      before:${before_type}
-      after:${after_type} = <nsubj [lemma=/^(precede)$/] dobj
+      before:${after_type}
+      # AFT follows ...
+      after:${before_type} =  <dobj [lemma=/^follow$/] nsubj
 
-  - name: assembly-verb-syntax-3
+  - name: assembly-verb-syntax-2b
     label: DirectConnection
     priority: ${deprulepriority}
-    example: "the ubiquitination of A causes the phosphorylation of B."
+    example: "The ubiquitination of BEF precedes the phosphorylation of AFT. The ubiquitination of BEF precipitates the phosphorylation of AFT."
     pattern: |
       after:${after_type}
-      before:${before_type} = <nsubj [lemma=/^(precipitate|cause|follow)$/] dobj
+      # BEF precedes ...
+      before:${before_type} =  <dobj [lemma=/^(precede|precipitat)/] nsubj
 
-  - name: assembly-verb-syntax-4
-    example: "A ubiquitination is a result of B phosphorylation."
+  - name: assembly-verb-syntax-3
+    example: "AFT ubiquitination is a result of BEF phosphorylation.  AFT ubiquitination results from BEF phosphorylation."
     label: ${mylabel}
     priority: ${deprulepriority}
     pattern: |
      before:${after_type}
-     after:${before_type} = </prepc?_of/ [lemma=result] nsubj
+     # AFT results from BEF
+     after:${before_type} = </(prepc?_of|prep_from)/ [lemma=result] nsubj
 
-  - name: assembly-verb-syntax-5
-    example: "A is ubiquitinated, resulting in the phosphorylation of B."
+  - name: assembly-verb-syntax-4
+    example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
     label: ${mylabel}
     priority: ${deprulepriority}
     pattern: |
      after:${after_type}
-     before:${before_type} = <prep_in [lemma=result & tag=VBG] >vmod
+     # BEF ..., resulting from ...
+     before:${before_type} = <prep_in [lemma=result & tag=VBG] >xcomp nsubjpass
 
-  - name: assembly-verb-syntax-6
-    example: "As a result of A phosphorylation, B is ubiquitinated. A is phosphorylated as a result of B ubiqutination."
+  - name: assembly-verb-syntax-5
+    example: "As a result of BEF phosphorylation, AFT is ubiquitinated. AFT is phosphorylated as a result of BEF ubiqutination."
     label: ${mylabel}
     priority: ${deprulepriority}
     pattern: |
      after:${after_type}
      before:${before_type} = prep_as [lemma=result] /prepc?_of/
 
-  - name: assembly-verb-syntax-7
-    example: "A phosphorylation results in B ubiqutination."
+  - name: assembly-verb-syntax-6
+    example: "AFT phosphorylation results in BEF ubiqutination."
     label: ${mylabel}
     priority: ${deprulepriority}
     pattern: |
@@ -106,15 +110,15 @@ rules:
   - name: assembly-syntax-pass-1
     label: DirectConnection
     priority: ${deprulepriority}
-    example: "the ubiquitination of A is followed by the phosphorylation of B."
+    example: "the ubiquitination of BEF is followed by the phosphorylation of AFT."
     pattern: |
       before:${before_type}
-      after:${after_type} = <nsubjpass [lemma=/^(precipitate|cause|follow)$/] agent
+      after:${after_type} = <nsubjpass [lemma=/^(precipitate|follow)$/] agent
 
   - name: assembly-syntax-pass-2
     label: DirectConnection
     priority: ${deprulepriority}
-    example: "the ubiquitination of A is preceded by the phosphorylation of B."
+    example: "the ubiquitination of AFT is preceded by the phosphorylation of BEF."
     pattern: |
       after:${after_type}
       before:${before_type} = <nsubjpass [lemma=/^(precede)$/] agent
@@ -125,32 +129,32 @@ rules:
 
   # finds a direct connection
   - name: assembly-surface-1
-    example: "A is ubiquitination immediately follows the phosphorylation of B. A is ubiquitinated immediately following the phosphorylation of B.  A ubiquitination is immediately followed by the phosphorylation of B."
+    example: "AFT is ubiquitination immediately follows the phosphorylation of BEF. AFT is ubiquitinated immediately following the phosphorylation of BEF.  BEF ubiquitination is immediately followed by the phosphorylation of AFT."
     label: DirectConnection
     type: token
     priority: ${surfacerulepriority}
     pattern: |
-      # "A precedes B" pattern
+      # "BEF precedes AFT" pattern
       @before:${after_type} [lemma=be]? [lemma=/^immediate|direct$/] ${beforesurface} [tag=IN]? [tag=DT]? @after:${before_type}
       |
-      # "A follows B" pattern
+      # "AFT follows BEF" pattern
       @before:${after_type} [lemma=be]? [lemma=/^immediate|direct$/] ${aftersurface} [tag=IN]? [tag=DT]? @after:${before_type}
 
   # finds a direct connection
   - name: assembly-surface-2
-    example: "A is ubiquitinated following the phosphorylation of B.  A is ubiquitinated prior to the phosphorylation of B."
+    example: "AFT is ubiquitinated following the phosphorylation of BEF.  BEF is ubiquitinated prior to the phosphorylation of AFT."
     label: ${mylabel}
     type: token
     priority: ${surfacerulepriority}
     pattern: |
-      # "A precedes B" pattern
+      # "BEF precedes AFT" pattern
       @before:${after_type} [lemma=be]? ${aftersurface} [tag=IN]? [tag=DT]? @after:${before_type}
       |
-      # "A follows B" pattern
+      # "AFT follows BEF" pattern
       @before:${after_type} [lemma=be]? ${beforesurface} [tag=IN]? [tag=DT]? @after:${before_type}
 
   - name: assembly-surface-3
-    example: "A is ubiquitinated in response to the phosphorylation of B."
+    example: "AFT is ubiquitinated in response to the phosphorylation of BEF."
     label: ${mylabel}
     type: token
     priority: ${surfacerulepriority}
@@ -158,7 +162,7 @@ rules:
      @after:${before_type} in response to []{,2} @before:${after_type}
 
   - name: assembly-surface-4
-    example: "X ubiquitination has downstream effects on the phosphorylation of Y."
+    example: "BEF ubiquitination has downstream effects on the phosphorylation of AFT."
     label: ${mylabel}
     type: token
     priority: ${surfacerulepriority}
@@ -167,7 +171,7 @@ rules:
      @before:${after_type} [lemma=have] []{,2} [lemma=effect] on []{,2} @after:${before_type}
 
   - name: assembly-surface-5
-    example: "A ubiquitination is a result of B phosphorylation."
+    example: "AFT ubiquitination is a result of BEF phosphorylation."
     label: ${mylabel}
     type: token
     priority: ${surfacerulepriority}
@@ -175,7 +179,7 @@ rules:
      @after:${before_type} [lemma=be] result of []{,2} @before:${after_type}
 
   - name: assembly-surface-6
-    example: "A is ubiquitinated, resulting in the phosphorylation of B."
+    example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
     label: ${mylabel}
     type: token
     priority: ${surfacerulepriority}
@@ -183,7 +187,7 @@ rules:
      @before:${after_type} []{,2} [lemma=result] in []{,2} @after:${before_type}
 
   - name: assembly-surface-7
-    example: "A is ubiquitinated, thereby increasing the phosphorylation of B."
+    example: "BEF is ubiquitinated, thereby increasing the phosphorylation of AFT."
     label: ${mylabel}
     type: token
     priority: ${surfacerulepriority}
