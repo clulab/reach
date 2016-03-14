@@ -3,20 +3,83 @@ package edu.arizona.sista.assembly
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.RuleReader
 
+/**
+ * Contains all sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
+ * @param mentions a Seq of Odin Mentions
+ */
 class Sieves(mentions: Seq[Mention]) {
+
+  import SieveUtils._
+  import Constraints._
 
   val reachMentions = mentions
 
   /**
-   * populates an AssemblyManager with mentions (default behavior of AssemblyManager)
+   * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
    * @param mentions a sequence of Odin Mentions
    * @param manager an AssemblyManager
-   * @return an AssemblyManager with representations for each relevant mention
+   * @return an AssemblyManager
    */
   def trackMentions(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
     val am = AssemblyManager()
     am.trackMentions(mentions)
     am
+  }
+
+  /**
+   * Rule-based method for detecting precedence relations
+   * @param mentions a sequence of Odin Mentions
+   * @param manager an AssemblyManager
+   * @return an AssemblyManager
+   */
+  def ruleBasedPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    import AssemblyManager._
+
+    val p = "/edu/arizona/sista/assembly/grammars/precedence.yml"
+
+    val name = "ruleBasedPrecedence"
+    // find rule-based PrecedenceRelations
+    for {
+      rel <- assemblyViaRules(p, mentions)
+      before = rel.arguments.getOrElse(beforeRole, Nil)
+      after = rel.arguments.getOrElse(afterRole, Nil)
+      if before.nonEmpty && after.nonEmpty
+      // both "before" and "after" should have single mentions
+      b = before.head
+      a = after.head
+      // FIXME: remove this check after adding support for Activations
+      if isValidMention(b) && isValidMention(a)
+      // cannot be an existing regulation
+      if notAnExistingComplexEvent(rel)
+    } {
+      // store the precedence relation
+      manager.storePrecedenceRelation(b, a, Set(rel), name)
+    }
+
+    manager
+  }
+}
+
+
+/**
+ * Constraints used to validate the output of sieves
+ */
+
+object Constraints {
+
+  // roles for precedence relations
+  val beforeRole = "before"
+  val afterRole = "after"
+
+  // For a complex event "C", with a controlled "A", do not re-create "A precedes C"
+  def notAnExistingComplexEvent(link: Mention):Boolean = {
+    val before = link.arguments(beforeRole).head
+    val after = link.arguments(afterRole).head
+    val argsOfBefore: Set[Mention] = before.arguments.values.flatten.toSet
+    val argsOfAfter: Set[Mention] = after.arguments.values.flatten.toSet
+
+    !(argsOfBefore contains after) && !(argsOfAfter contains before)
   }
 }
 
