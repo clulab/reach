@@ -48,8 +48,6 @@ class Sieves(mentions: Seq[Mention]) {
       // both "before" and "after" should have single mentions
       b = before.head
       a = after.head
-      // FIXME: remove this check after adding support for Activations
-      if isValidMention(b) && isValidMention(a)
       // cannot be an existing regulation
       if notAnExistingComplexEvent(rel)
     } {
