@@ -239,12 +239,12 @@ class AssemblyExporter(val manager: AssemblyManager) {
   }
 
   def getEventLabel(e: EntityEventRepresentation): String = e match {
-    case binding: Complex => "Binding"
     case reg: Regulation => "Regulation"
     case act: Activation => "Activation"
     case se: SimpleEvent => se.label
     case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[PTM]) =>
       ptm.modifications.find(_.isInstanceOf[PTM]).get.asInstanceOf[PTM].label
+    //case comp: Complex => "entity"
     // filter these out later
     case entity => "entity"
   }
