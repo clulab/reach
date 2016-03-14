@@ -62,9 +62,15 @@ class AssemblyManager(
    * Tracks "before" and "after" Mentions and produces EERs, is not already present.
    * @param before an Odin Mention that causally precedes "after"
    * @param after an Odin Mention that (causally) follows "before"
+   * @param evidence a Set of Odin Mentions serving as evidence for the precedence relation
    * @param foundBy the name of the sieve or procedure that discovered this precedence relation
    */
-  def storePrecedenceRelation(before: Mention, after: Mention, foundBy: String): Unit = {
+  def storePrecedenceRelation(
+    before: Mention,
+    after: Mention,
+    evidence: Set[Mention],
+    foundBy: String
+  ): Unit = {
 
     // ensure Mentions are being tracked
     // and get their corresponding EERs
@@ -75,12 +81,25 @@ class AssemblyManager(
     val pr = PrecedenceRelation(
       before = eer1.equivalenceHash,
       after = eer2.equivalenceHash,
-      evidence = Set.empty[Mention],
+      evidence,
       foundBy
     )
 
     updateIDtoPrecedenceRelations(pr)
   }
+
+  /**
+   * Stores a PrecedenceRelation in [[idToPrecedenceRelations]] connecting "before" and "after".
+   * Tracks "before" and "after" Mentions and produces EERs, is not already present.
+   * @param before an Odin Mention that causally precedes "after"
+   * @param after an Odin Mention that (causally) follows "before"
+   * @param foundBy the name of the sieve or procedure that discovered this precedence relation
+   */
+  def storePrecedenceRelation(
+    before: Mention,
+    after: Mention,
+    foundBy: String
+  ): Unit = storePrecedenceRelation(before, after, Set.empty[Mention], foundBy)
 
   /**
    * Stores a PrecedenceRelation in [[idToPrecedenceRelations]] for the EERs corresponding to "before" and "after"
@@ -285,39 +304,6 @@ class AssemblyManager(
     mentions.filter(isValidMention)
       // get or create an EntityEventRepresentation for each mention
       .map(getOrCreateEER)
-  }
-
-  /**
-   * Checks to see if the mention can be safely handled by the AssemblyManager
-   * Currently Sites are not stored in the LUTs,
-   * though they can appear as part of a modification
-   * (see the [[assembly.PTM]] [[AssemblyModification]] for an example)
-   * @param mention an Odin Mention
-   * @return true if the mention can be safely handled by the manager; false otherwise
-   */
-  def isValidMention(mention: Mention): Boolean = {
-
-    val m = getResolvedForm(mention.toCorefMention)
-
-    m match {
-      case entity if entity matches "Entity" => true
-      // simple events should not have a cause
-      case se if se matches "SimpleEvent" =>
-        !(se.arguments contains "cause")
-      // regs must have controlled and controller
-      case reg if reg matches "Regulation" =>
-        (m.arguments contains "controller") &&
-          (m.arguments contains "controlled") &&
-          // controlled must be an Event (or Complex), but not an Activation
-          m.arguments("controlled").forall {
-            // controlled cannot be an entity UNLESS it is a Complex
-            case complex if complex matches "Complex" => true
-            case entity if entity matches "Entity" => false
-            case event if event matches "Event" => isValidMention(event)
-          }
-      // assume invalid otherwise (ex. Activations)
-      case _ => false
-    }
   }
 
   /**
@@ -1411,4 +1397,38 @@ object AssemblyManager {
    * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
    */
   def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
+
+  /**
+   * Checks to see if the mention can be safely handled by the AssemblyManager
+   * Currently Sites are not stored in the LUTs,
+   * though they can appear as part of a modification
+   * (see the [[assembly.PTM]] [[AssemblyModification]] for an example)
+   * @param mention an Odin Mention
+   * @return true if the mention can be safely handled by the manager; false otherwise
+   */
+  def isValidMention(mention: Mention): Boolean = {
+
+    val m = getResolvedForm(mention.toCorefMention)
+
+    m match {
+      case entity if entity matches "Entity" => true
+      // simple events should not have a cause
+      case se if se matches "SimpleEvent" =>
+        !(se.arguments contains "cause")
+      // regs must have controlled and controller
+      case reg if reg matches "Regulation" =>
+        (m.arguments contains "controller") &&
+          (m.arguments contains "controlled") &&
+          // controlled must be an Event (or Complex), but not an Activation
+          m.arguments("controlled").forall {
+            // controlled cannot be an entity UNLESS it is a Complex
+            case complex if complex matches "Complex" => true
+            case entity if entity matches "Entity" => false
+            case event if event matches "Event" => isValidMention(event)
+          }
+      // assume invalid otherwise (ex. Activations)
+      case _ => false
+    }
+  }
+
 }
