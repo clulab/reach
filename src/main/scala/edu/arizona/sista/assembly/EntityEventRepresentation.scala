@@ -320,19 +320,19 @@ trait Event extends EntityEventRepresentation {
   }
 
   /** Causal predecessors of this Event */
-  def predecessors: Set[Event] =
+  def predecessors: Set[EntityEventRepresentation] =
     manager.predecessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
 
   /** Distinct causal predecessors of this Event */
-  def distinctPredecessors: Set[Event] =
+  def distinctPredecessors: Set[EntityEventRepresentation] =
     manager.distinctPredecessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
 
   /** Causal successors of this Event */
-  def successors: Set[Event] =
+  def successors: Set[EntityEventRepresentation] =
     manager.successorsOf(equivalenceHash).map(_.asInstanceOf[Event])
 
   /** Distinct causal successors of this Event */
-  def distinctSuccessors: Set[Event] =
+  def distinctSuccessors: Set[EntityEventRepresentation] =
     manager.distinctSuccessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
 }
 
