@@ -135,6 +135,6 @@ object CorefUtils {
     val bContext = b.context.getOrElse(Map[String,Seq[String]]())
     a.label == b.label &&
       aContext.keySet.intersect(bContext.keySet)
-        .forall(k => aContext(k).toSet == bContext(k).toSet) // FIXME: Too strict?
+        .forall(k => aContext(k).toSet.intersect(bContext(k).toSet).nonEmpty) // FIXME: Too strict?
   }
 }

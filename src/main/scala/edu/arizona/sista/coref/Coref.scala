@@ -13,7 +13,7 @@ import scala.annotation.tailrec
 
 class Coref {
 
-  val debug: Boolean = false
+  val debug: Boolean = true
   val verbose: Boolean = debug
   val da: DarpaActions = new DarpaActions()
 
