@@ -123,6 +123,17 @@ rules:
       after:${after_type}
       before:${before_type} = <nsubjpass [lemma=/^(precede)$/] agent
 
+  - name: assembly-syntax-pass-3
+    label: DirectConnection
+    priority: ${deprulepriority}
+    example: "the ubiquitination of BEF is required for the phosphorylation of AFT.  The binding of p85 and Gab1 is required for Gab1 mediated activation of PI-3 kinase."
+    pattern: |
+      before:${after_type}
+      # describes a precondition
+      # ... is required for AFT
+      after:${before_type} = <nsubjpass [lemma=require] prep_for
+
+
   ############################
   # Surface rules
   ############################
