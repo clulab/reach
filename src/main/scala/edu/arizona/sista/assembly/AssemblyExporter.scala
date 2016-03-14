@@ -171,14 +171,14 @@ class AssemblyExporter(val manager: AssemblyManager) {
     val regs = rowsForOutput.filter(_.eventLabel == "Regulation")
     val eventIDs: Set[String] = rowsForOutput.map(_.eventID)
     val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
-    val regOutputIDs = rowsForOutput
+    val regInputIDs = rowsForOutput
       .filter(_.eventLabel == "Regulation")
-      .map(_.output)
+      .map(_.input)
     //val problems = regs.filter(r => ! rowsForOutput.exists(_.eventID == r.input))
     // check if all precededBy IDs exist as row IDs
     require(precededByIDs.forall(eid => eventIDs contains eid), "Event ID in preceded by does not correspond to any row's ID!")
     // check if all regs have output IDs that correspond to some row ID
-    require(regOutputIDs.forall(eid => eventIDs contains eid), "Regulation input ID not found in EventIDs for rows!")
+    require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation input ID not found in EventIDs for rows!")
     // prepare output
     val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
