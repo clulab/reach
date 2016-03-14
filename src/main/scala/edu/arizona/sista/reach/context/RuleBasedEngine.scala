@@ -23,6 +23,9 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Map of documents to offsets
   protected var docOffsets:Map[String, Int] = _
 
+  // Default species context
+  protected var fallbackSpecies:Option[String] = _
+
   // Build sparse matrices
   // First, the observed value matrices
   protected var entries:Seq[FriesEntry] = _
@@ -42,6 +45,21 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       documents: Seq[Document],
       mentionsPerEntry: Seq[Seq[BioMention]]
   ) {
+
+    // Compute the fallback species
+    val speciesId:Seq[String] = mentionsPerEntry.flatten.filter{
+        case tb:BioTextBoundMention =>
+            if(tb.labels.contains("Species"))
+                true
+            else
+                false
+        case _ => false
+    }.map(ContextEngine.getContextKey(_)._2)
+
+    val speciesIdCounts:Seq[String] = speciesId.groupBy(l => l).mapValues(_.length).toList.sortBy(_._2).map(_._1)
+
+    // Assign the fallback species, if any
+    fallbackSpecies = if(speciesIdCounts.length > 0) Some(speciesIdCounts(0)) else None
 
     // Build the document offsets
     val docLengths = documents.map(_.sentences.size)
@@ -114,7 +132,16 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         val line = offset + relativeLine
 
         // Query the context engine and assign it to the BioEventMention
-        em.context = Some(this.query(line))
+        val mentionContext = this.query(line)
+        val fallbackContext = if(mentionContext.contains("Species"))
+            mentionContext
+        else
+            fallbackSpecies match {
+                case Some(s) => mentionContext + ("Species" -> Seq(s))
+                case None => mentionContext
+            }
+
+        em.context = Some(fallbackContext)
       case _ => Unit
     }
 
