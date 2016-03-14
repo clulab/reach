@@ -312,8 +312,8 @@ class AssemblyManager(
    * @return [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
    */
   def getPolarityLabel(m: Mention): String = m match {
-    case pos if pos matches "Positive_regulation" => AssemblyManager.positive
-    case neg if neg matches "Negative_regulation" => AssemblyManager.negative
+    case pos if pos matches "(?i)^positive".r => AssemblyManager.positive
+    case neg if neg matches "(?i)^negative".r => AssemblyManager.negative
     case _ => AssemblyManager.unknown
   }
 
@@ -510,9 +510,10 @@ class AssemblyManager(
   ): (SimpleEntity, IDPointer) = {
 
     /** Used to create "new" mention whenever mods are provided **/
-    def createEvidence(m: Mention): Mention = {
-      m.asInstanceOf[TextBoundMention]
-        .copy(foundBy = s"${m.foundBy}-output-representation")
+    def createEvidence(m: Mention): Mention = m match {
+      case tb: TextBoundMention => tb.copy(foundBy = s"${tb.foundBy}-output-representation")
+      case rel: RelationMention => rel.copy(foundBy = s"${rel.foundBy}-output-representation")
+      case em: EventMention => em.copy(foundBy = s"${em.foundBy}-output-representation")
     }
 
     // check for coref
@@ -587,20 +588,19 @@ class AssemblyManager(
 
     // check for coref
     val cm = m.toCorefMention
-    val b = getResolvedForm(cm)
+    val c = getResolvedForm(cm)
 
-    // mention must be a Binding
-    //TODO: change name to createComplex
-    require(b matches "Binding", "createComplex only handles Binding mentions.")
-    //TODO: add require that says arguments only contains key "theme"
-    // This way we will know if we're missing stuff
+    require(c matches "Complex|Binding".r, "createComplex only handles Complex and Binding mentions.")
 
     // prepare id
     val id = getOrCreateID(m)
 
     // prepare Complex
     // TODO: do binding events have sites?
-    val mbrs: Set[IDPointer] = b.arguments("theme").map(m => createSimpleEntityWithID(m, None)).map(_._2).toSet
+
+    val themes = getAllThemes(c)
+
+    val mbrs: Set[IDPointer] = themes.map(m => createSimpleEntityWithID(m, None)).map(_._2).toSet
     val eer =
       new Complex(
         id,
@@ -856,6 +856,70 @@ class AssemblyManager(
    */
   private def createRegulation(m: Mention): Regulation = createRegulationWithID(m)._1
 
+  /**
+   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * @param m an Odin Mention
+   * @return a [[Activation]]
+   */
+  private def createActivation(m: Mention): Activation = createActivationWithID(m)._1
+
+  //
+  // Regulation creation
+  //
+
+  /**
+   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * @param m an Odin Mention
+   * @return a tuple of ([[Activation]], [[IDPointer]])
+   */
+  private def createActivationWithID(m: Mention): (Activation, IDPointer) = {
+
+    // check for coref
+    val cm = m.toCorefMention
+    val act = getResolvedForm(cm)
+
+    // get polarity
+    val polarity = getPolarityLabel(act)
+
+    // mention should be a Activation
+    require(act matches "ActivationEvent", "createActivation only handles Activations")
+    // mention's polarity should be either positive or negative
+    require(polarity == AssemblyManager.positive || polarity == AssemblyManager.negative, "Polarity of ComplexEvent must be positive or negative")
+
+    val controllers: Set[IDPointer] = {
+      act.arguments("controller")
+        .toSet[Mention]
+        .map(c => getOrCreateEERwithID(c)._2)
+    }
+
+    val controlleds: Set[IDPointer] = {
+      act.arguments("controlled")
+        .toSet[Mention]
+        .map(c => getOrCreateEERwithID(c)._2)
+    }
+
+    // prepare id
+    val id = getOrCreateID(m)
+
+    // prepare Regulation
+
+    val eer =
+      new Activation(
+        id,
+        controllers,
+        controlleds,
+        polarity,
+        Some(m),
+        this
+      )
+
+    // update LUTs
+    updateLUTs(id, m, eer)
+
+    // eer and id pair
+    (eer, id)
+  }
+
   //
   // EntityEventRepresentation creation
   //
@@ -908,9 +972,11 @@ class AssemblyManager(
    */
   private def createEERwithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
      m.toBioMention match {
+      case complex if complex matches "Complex" => createComplexWithID(complex)
       case e if e matches "Entity" => createSimpleEntityWithID(e, None)
       case se if se matches "SimpleEvent" => createSimpleEventWithID(se)
       case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
+      case activation if activation matches "ActivationEvent" => createActivationWithID(activation)
     }
   }
 
@@ -1336,7 +1402,7 @@ class AssemblyManager(
 
   /**
    * Returns "distinct" Set of Regulations matching the provided polarity. Ignores differences in IDPointers.
-   * @param polarity
+   * @param polarity a String to match against each [[Regulation.polarity]]
    * @return a Set of Regulations
    */
   def distinctRegulations(polarity: String): Set[Regulation] = {
@@ -1349,7 +1415,7 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Regulations and all evidence (Set[Mention]) corresponding to each Regulations.
+   * Returns "distinct" Set of Regulations and all evidence (Set[Mention]) corresponding to each Regulation.
    * @return Set[(Regulation, Set[Mention])]
    */
   def distinctRegulationsWithEvidence: Set[(Regulation, Set[Mention])] = {
@@ -1358,13 +1424,86 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Regulations matching the provided polority and all evidence (Set[Mention]) corresponding to each Regulations.
+   * Returns "distinct" Set of Regulations matching the provided polarity and all evidence (Set[Mention]) corresponding to each Regulation.
    * @param polarity a String to match against each [[Regulation.polarity]]
    * @return Set[(Regulation, Set[Mention])]
    */
   def distinctRegulationsWithEvidence(polarity: String): Set[(Regulation, Set[Mention])] = {
     distinctRegulations(polarity)
       .map( reg => (reg, getEvidence(reg)))
+  }
+
+  // Activations
+
+  /**
+   * Retrieves all Activations from the manager.
+   * Note that these are non-distinct (Activations may differ in terms of their IDPointers).
+   */
+  def getActivations: Set[Activation] = {
+    for {
+      e: EntityEventRepresentation <- getEERs
+      if e.isInstanceOf[Activation]
+      act = e.asInstanceOf[Activation]
+    } yield act
+  }
+
+  /**
+   * Retrieves all Activations from the manager matching the provided polarity label.
+   * Note that these are non-distinct (Activations may differ in terms of their IDPointers).
+   * @param polarity a String to match against each [[Activation.polarity]]
+   */
+  def getActivations(polarity: String): Set[Activation] = {
+    for {
+      e: EntityEventRepresentation <- getEERs
+      if e.isInstanceOf[Activation]
+      act = e.asInstanceOf[Activation]
+      if act.polarity == polarity
+    } yield act
+  }
+
+  /**
+   * Returns "distinct" Set of Activations. Ignores differences in IDPointers.
+   * @return a Set of Regulation
+   */
+  def distinctActivations: Set[Activation] = {
+    for {
+      e: EntityEventRepresentation <- distinctEERs
+      if e.isInstanceOf[Activation]
+      act = e.asInstanceOf[Activation]
+    } yield act
+  }
+
+  /**
+   * Returns "distinct" Set of Activations matching the provided polarity. Ignores differences in IDPointers.
+   * @param polarity a String to match against each [[Activation.polarity]]
+   * @return a Set of Activations
+   */
+  def distinctActivations(polarity: String): Set[Activation] = {
+    for {
+      e: EntityEventRepresentation <- distinctEERs
+      if e.isInstanceOf[Activation]
+      act = e.asInstanceOf[Activation]
+      if act.polarity == polarity
+    } yield act
+  }
+
+  /**
+   * Returns "distinct" Set of Activations and all evidence (Set[Mention]) corresponding to each Activation.
+   * @return Set[(Regulation, Set[Mention])]
+   */
+  def distinctActivationsWithEvidence: Set[(Regulation, Set[Mention])] = {
+    distinctRegulations
+      .map( reg => (reg, getEvidence(reg)))
+  }
+
+  /**
+   * Returns "distinct" Set of Activations matching the provided polarity and all evidence (Set[Mention]) corresponding to each Activation.
+   * @param polarity a String to match against each [[Activation.polarity]]
+   * @return Set[(Activation, Set[Mention])]
+   */
+  def distinctActivationsWithEvidence(polarity: String): Set[(Activation, Set[Mention])] = {
+    distinctActivations(polarity)
+      .map( act => (act, getEvidence(act)))
   }
 
   //
@@ -1411,24 +1550,52 @@ object AssemblyManager {
     val m = getResolvedForm(mention.toCorefMention)
 
     m match {
+
       case entity if entity matches "Entity" => true
+
       // simple events should not have a cause
       case se if se matches "SimpleEvent" =>
         !(se.arguments contains "cause")
+
+      // activations must have controlled and controller
+      case act if act matches "ActivationEvent" =>
+        (act.arguments contains "controller") &&
+          (act.arguments contains "controlled") &&
+          // controllers must be Entities
+          act.arguments("controller").forall {
+            case entity if entity matches "Entity" => true
+            case _ => false
+          } &&
+          // make sure all controlleds are valid
+          act.arguments("controlled").forall(isValidMention)
+
       // regs must have controlled and controller
       case reg if reg matches "Regulation" =>
-        (m.arguments contains "controller") &&
-          (m.arguments contains "controlled") &&
+        (reg.arguments contains "controller") &&
+          (reg.arguments contains "controlled") &&
           // controlled must be an Event (or Complex), but not an Activation
-          m.arguments("controlled").forall {
+          reg.arguments("controlled").forall {
             // controlled cannot be an entity UNLESS it is a Complex
             case complex if complex matches "Complex" => true
             case entity if entity matches "Entity" => false
             case event if event matches "Event" => isValidMention(event)
           }
-      // assume invalid otherwise (ex. Activations)
+
+      // assume invalid otherwise
       case _ => false
     }
   }
 
+  /**
+   * Retrieves all themes from a Mention
+   * @param m an Odin Mention
+   * @return a Seq[Mention] produced by a flattening of all values corresponding to theme* keys
+   */
+  def getAllThemes(m: Mention): Seq[Mention] = {
+    m.arguments
+      .filter(_._1.toLowerCase.startsWith("theme"))
+      .values
+      .flatten
+      .toSeq
+  }
 }
