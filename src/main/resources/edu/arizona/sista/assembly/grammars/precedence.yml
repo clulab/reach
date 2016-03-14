@@ -106,6 +106,16 @@ rules:
      before:${before_type}
      after:${after_type} = <nsubj [lemma=result] prep_in
 
+  - name: assembly-verb-syntax-7
+    example: "The RBD of PI3KC2B binds HRAS , when HRAS is not bound to GTP . AFT binds HRAS, when BEF in not bound to GTP"
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    pattern: |
+     after:${after_type}
+     # ..., when BEF
+     # use lookaround assertion to check if WH word present
+     before:${before_type} = dobj rcmod (?= advmod [tag=WRB])
+
   # Passives
   - name: assembly-syntax-pass-1
     label: DirectConnection
@@ -132,7 +142,6 @@ rules:
       # describes a precondition
       # ... is required for AFT
       after:${before_type} = <nsubjpass [lemma=require] prep_for
-
 
   ############################
   # Surface rules
