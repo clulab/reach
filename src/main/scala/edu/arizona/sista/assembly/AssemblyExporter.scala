@@ -79,31 +79,39 @@ class AssemblyExporter(val manager: AssemblyManager) {
     text
   }
 
+  /**
+   * Create text representation of SimpleEntity
+   * @param entity a SimpleEntity
+   * @return a String representing entity and its modifications, mutations, etc
+   */
+  def createSimpleEntityText(entity: SimpleEntity): String = {
+
+    // partition modifications
+    val (muts, other) =
+      entity.modifications.partition(_.isInstanceOf[MutantEntity])
+
+    // mutations
+    val mutations = muts.map(_.asInstanceOf[MutantEntity])
+
+    // construct mutant forms, if present
+    val mutantForms: String = mutations
+      .map(m => s":[${m.mutantType}]")
+      //ex. :[mutant1]:[mutant2]
+      .toSeq.mkString(":")
+
+    // find PTMs
+    val ptms: Set[PTM] = other.filter(_.isInstanceOf[PTM])map(_.asInstanceOf[PTM])
+    val features: String = ptms
+      .map(getPTMrepresentation)
+      .mkString(".")
+
+    val text = getText(entity)
+    s"$text::${entity.grounding}$mutantForms$features"
+  }
+
   def createInput(eer: EntityEventRepresentation): String = eer match {
 
-    case entity: SimpleEntity =>
-
-        // partition modifications
-        val (muts, other) =
-          entity.modifications.partition(_.isInstanceOf[MutantEntity])
-
-        // mutations
-        val mutations = muts.map(_.asInstanceOf[MutantEntity])
-
-        // construct mutant forms, if present
-        val mutantForms: String = mutations
-          .map(m => s":[${m.mutantType}]")
-          //ex. :[mutant1]:[mutant2]
-          .toSeq.mkString(":")
-
-        // find PTMs
-        val ptms: Set[PTM] = other.filter(_.isInstanceOf[PTM])map(_.asInstanceOf[PTM])
-        val features: String = ptms
-          .map(getPTMrepresentation)
-          .mkString(".")
-
-        val text = getText(entity)
-       s"$text::${entity.grounding}$mutantForms$features"
+    case entity: SimpleEntity => createSimpleEntityText(entity)
 
     case complex: Complex =>
       complex.members.map(createInput).mkString(", ")
@@ -111,16 +119,26 @@ class AssemblyExporter(val manager: AssemblyManager) {
     case se: SimpleEvent =>
       se.input.values.flatten.map(createInput).mkString(", ")
 
+    // inputs to an activation are entities
+    case act: Activation =>
+      act.controlled.map {
+        // get IDs of any events
+        case event: Event => EERLUT.getOrElse(event.equivalenceHash, reportError(act, event))
+        // represent entities directly
+        case entity: Entity => createInput(entity)
+      }.mkString(", ")
+
+    // inputs to a regulation are other events
     case reg: Regulation =>
       // get event IDs for each controlled
       reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash, reportError(reg, c))).mkString(", ")
   }
 
-  def reportError(reg: Regulation, c: EntityEventRepresentation): String = {
-    println(s"$c is a controlled of a regulation but it is not a Complex or Event!")
+  def reportError(ce: ComplexEvent, c: EntityEventRepresentation): String = {
+    println(s"$c is a controlled of a ComplexEvent but it is not a Complex or Event!")
     val labels = c.evidence.map(_.label)
-    val evidence = reg.evidence.map(_.text)
-    println(s"Evidence for reg: $evidence")
+    val evidence = ce.evidence.map(_.text)
+    println(s"Evidence for ComplexEvent: $evidence")
     println(s"Evidence for controlled: ${c.evidence.map(_.text)}")
     println(s"Labels assigned to evidence: $labels")
     "???"
@@ -136,6 +154,9 @@ class AssemblyExporter(val manager: AssemblyManager) {
         case other => createInput(other)
       }.mkString(", ")
 
+    case act: Activation =>
+      act.controlled.map(c => s"${createInput(c)}.a").mkString(", ")
+
     case reg: Regulation =>
       reg.controlled.map(createOutput).mkString(", ")
 
@@ -144,9 +165,10 @@ class AssemblyExporter(val manager: AssemblyManager) {
 
   def createController(eer: EntityEventRepresentation): String = eer match {
 
-    case reg: Regulation =>
-      reg.controller.map{ c =>
-        s"${createInput(c)}.${reg.polarity}"
+    case ce: ComplexEvent =>
+      ce.controller.map {
+        case entity: SimpleEntity => createSimpleEntityText(entity)
+        case c => s"${createOutput(c)}.${ce.polarity}"
       }.mkString(", ")
 
     case _ => ""
@@ -164,21 +186,44 @@ class AssemblyExporter(val manager: AssemblyManager) {
       event.predecessors.map(se => EERLUT(se.equivalenceHash))
   }
 
-  def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
-    val rowsForOutput = rowFilter(getEventRows)
-
+  /** for debugging purposes */
+  def rowsWithPrecededByIDProblems(rows: Set[Row]): Set[Row] = {
     // make sure the output is valid
-    val regs = rowsForOutput.filter(_.eventLabel == "Regulation")
+    val eventIDs: Set[String] = rows.map(_.eventID)
+    val problems = rows.filter(r => ! r.precededBy.forall(eid => eventIDs contains eid))
+    problems
+  }
+
+  /** for debugging purposes */
+  def rowsWithOutputIDProblems(rows: Set[Row]): Set[Row] = {
+    // make sure the output is valid
+    val eventIDs: Set[String] = rows.map(_.eventID)
+    val problems = rows
+      .filter(r => r.eventLabel == "Regulation")
+      .filterNot(r => eventIDs contains r.input)
+    problems
+  }
+
+  /** Validate the rows before writing */
+  def validateOutput(rowsForOutput: Set[Row]): Unit = {
+    // make sure the output is valid
     val eventIDs: Set[String] = rowsForOutput.map(_.eventID)
     val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
     val regInputIDs = rowsForOutput
-      .filter(_.eventLabel == "Regulation")
+      .filter(r => r.eventLabel == "Regulation")
       .map(_.input)
-    //val problems = regs.filter(r => ! rowsForOutput.exists(_.eventID == r.input))
     // check if all precededBy IDs exist as row IDs
     require(precededByIDs.forall(eid => eventIDs contains eid), "Event ID in preceded by does not correspond to any row's ID!")
     // check if all regs have output IDs that correspond to some row ID
-    require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation input ID not found in EventIDs for rows!")
+    require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation's input ID not found in EventIDs for rows!")
+  }
+
+  def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
+    val rowsForOutput = rowFilter(getEventRows)
+
+    // validate output
+    validateOutput(rowsForOutput)
+
     // prepare output
     val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
@@ -196,6 +241,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
   def getEventLabel(e: EntityEventRepresentation): String = e match {
     case binding: Complex => "Binding"
     case reg: Regulation => "Regulation"
+    case act: Activation => "Activation"
     case se: SimpleEvent => se.label
     case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[PTM]) =>
       ptm.modifications.find(_.isInstanceOf[PTM]).get.asInstanceOf[PTM].label
@@ -223,10 +269,8 @@ class AssemblyExporter(val manager: AssemblyManager) {
     rows
     }
 
-  def getEventRows: Set[Row] = {
-    // TODO: change to partition and filter so that its EventID can't be referenced by a Regulation
-    getRows.filter(_.eventLabel != "entity")
-  }
+  def getEventRows: Set[Row] = getRows.filter(_.eventLabel != "entity")
+
 }
 
 object AssemblyExporter {
@@ -261,16 +305,30 @@ object AssemblyExporter {
    * @param m an Odin Mention
    * @return true or false
    */
-  def containsFamily(m: Mention): Boolean = {
-    m match {
-      case entity if entity matches "Entity" =>
-        entity matches "Family"
-      case site if site matches "Site" => false
-      case event if event matches "Event" =>
-        event.arguments.values.flatten.exists(containsFamily)
-    }
+  def containsFamily(m: Mention): Boolean = m match {
+    case entity if entity matches "Entity" =>
+      entity matches "Family"
+    case site if site matches "Site" => false
+    case event if event matches "Event" =>
+      event.arguments.values.flatten.exists(containsFamily)
   }
 
+  def isValidMITREMention(m: Mention): Boolean = m match {
+    case entity if entity matches "Entity" => true
+    case se if se matches "SimpleEvent" => true
+    case reg if reg matches "Regulation" => isValidRegulation(reg)
+    // no activations for MITRE
+    case act if act matches "ActivationEvent" => false
+    // assume false...
+    case other => false
+  }
+
+  def isValidRegulation(m: Mention): Boolean = m match {
+    case entity if entity matches "Entity" => true
+    case se if se matches "SimpleEvent" => true
+    case act if act matches "ActivationEvent" => false
+    case reg if reg matches "Regulation" => reg.arguments.values.flatten.forall(isValidRegulation)
+  }
   /**
    * Applies MITRE requirements to assembled events
    * @param rows a Set[Row]
@@ -281,7 +339,9 @@ object AssemblyExporter {
     val filteredRows = rows.filter(_.seen >= 3)
       // 1b. Evidence come from at least 2 different sections.
       .filter(_.docIDs.toSet.size >= 2)
-      // 2. Findings cannot include protein families.
+      // 2a. No Activations, etc.
+      .filter(r => r.evidence.forall(isValidMITREMention))
+      // 2b. Findings cannot include protein families.
       .filter(r => r.evidence.forall(e => ! containsFamily(e)))
       // 3. Findings should not have an unresolved (UAZ) grounding.
       // FIXME: probably this should operate over EERs, not their evidence
