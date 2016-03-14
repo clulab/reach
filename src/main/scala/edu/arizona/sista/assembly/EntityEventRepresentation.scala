@@ -447,23 +447,29 @@ class SimpleEvent(
 }
 
 /**
- * Representation of a Regulation event.
- * @param uniqueID the [[IDPointer]] assigned to this [[Regulation]]
- * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]]
- *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]]
- * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]]
- *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEERepresentation]]
- * @param polarity whether the [[Regulation]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
- * @param sourceMention the Mention from which this [[Regulation]] was constructed
- * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Regulation]]
+ * Representation of a ComplexEvent.
  */
-class Regulation(
-  val uniqueID: IDPointer,
-  val controllerPointers: Set[IDPointer],
-  val controlledPointers: Set[IDPointer],
-  val polarity: String,
-  val sourceMention: Option[Mention],
-  val manager: AssemblyManager) extends Event {
+trait ComplexEvent extends Event {
+  /** The [[IDPointer]] assigned to this [[ComplexEvent]] */
+  val uniqueID: IDPointer
+  /**
+    * A Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[ComplexEvent]]
+    * It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
+    * */
+  val controllerPointers: Set[IDPointer]
+  /**
+   * A Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[ComplexEvent]]
+   * It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
+   */
+  val controlledPointers: Set[IDPointer]
+  /** Whether the [[ComplexEvent]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]] */
+  val polarity: String
+  /** The Mention from which this [[ComplexEvent]] was constructed */
+  val sourceMention: Option[Mention]
+  /** a pointer to the [[AssemblyManager]] instance that produced this [[ComplexEvent]] */
+  val manager: AssemblyManager
+
+  val eerString = "edu.arizona.sista.assembly.ComplexEvent"
 
   /**
    * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controller" argument (retrieved using using the [[manager.idToEER]] and the [[controllerPointers]]).
@@ -472,9 +478,8 @@ class Regulation(
   def controller: Set[EntityEventRepresentation] =
     controllerPointers.map(manager.getEER)
 
-  /**
+/**
    * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controlled" argument (retrieved using using the [[manager.idToEER]] and the [[controlledPointers]]).
-   * In REACH, the controlled of a Regulation can be either Binding or SimpleEvent converted into an Entity with a PTM.  Eventually, though, we will probably allow other Regulations.
    * @return a Set of [[EntityEventRepresentation]]
    */
   def controlled: Set[EntityEventRepresentation] =
@@ -486,7 +491,7 @@ class Regulation(
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controller]]
    */
   private def controllerHash: Int = {
-    val h0 = stringHash("Regulation.controller")
+    val h0 = stringHash(s"$eerString.controller")
     val hs = controller.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, controller.size)
@@ -498,20 +503,20 @@ class Regulation(
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controlled]]
    */
   private def controlledHash: Int = {
-    val h0 = stringHash("Regulation.controlled")
+    val h0 = stringHash(s"$eerString.controlled")
     val hs = controlled.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, controlled.size)
   }
 
   /**
-   * Used by [[isEquivalentTo]] to compare against another [[Regulation]].
+   * Used by [[isEquivalentTo]] to compare against another [[ComplexEvent]].
    * @return an Int hash based on the [[polarity]], [[controllerHash]], [[controlledHash]], and [[negated.hashCode]]
    */
   def equivalenceHash: Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
-    val h0 = stringHash("edu.arizona.sista.assembly.Regulation")
+    val h0 = stringHash(eerString)
     // the polarity of the Regulation
     val h1 = mix(h0, stringHash(polarity))
     // controller
@@ -524,23 +529,74 @@ class Regulation(
   }
 
   /**
-   * Used to compare against another [[Regulation]].
-   * Based on the equality of [[equivalenceHash]] to that of another [[Regulation]].
+   * Used to compare against another [[ComplexEvent]].
+   * Based on the equality of [[equivalenceHash]] to that of another [[ComplexEvent]].
    * @param other the thing to compare against
    * @return true or false
    */
   def isEquivalentTo(other: Any): Boolean = other match {
     // controller and controlled must be the same
-    case reg: Regulation => this.equivalenceHash == reg.equivalenceHash
+    case ce: ComplexEvent => this.equivalenceHash == ce.equivalenceHash
     case _ => false
   }
 
   /**
-   * Whether or not the [[Regulation]] contains the provided [[IDPointer]].
+   * Whether or not the [[ComplexEvent]] contains the provided [[IDPointer]].
    * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
    * @return true or false
    */
   def containsID(someID: IDPointer): Boolean = {
     uniqueID == someID || ((controlledPointers ++ controllerPointers) contains someID)
   }
+}
+
+/**
+ * Representation of a Regulation.
+ * @param uniqueID the [[IDPointer]] assigned to this [[Regulation]]
+ * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]]
+ *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
+ * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]]
+ *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
+ * @param polarity whether the [[Regulation]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
+ * @param sourceMention the Mention from which this [[Regulation]] was constructed
+ * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Regulation]]
+ */
+class Regulation(
+  val uniqueID: IDPointer,
+  val controllerPointers: Set[IDPointer],
+  val controlledPointers: Set[IDPointer],
+  val polarity: String,
+  val sourceMention: Option[Mention],
+  val manager: AssemblyManager
+)  extends ComplexEvent {
+
+  override val eerString = "edu.arizona.sista.assembly.Regulation"
+
+}
+
+/**
+ * Representation of a Activation.
+ * @param uniqueID the [[IDPointer]] assigned to this [[Activation]]
+ * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Activation]]
+ *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
+ * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Activation]]
+ *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
+ * @param polarity whether the [[Activation]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
+ * @param sourceMention the Mention from which this [[Activation]] was constructed
+ * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[Activation]]
+ */
+class Activation(
+  val uniqueID: IDPointer,
+  val controllerPointers: Set[IDPointer],
+  val controlledPointers: Set[IDPointer],
+  val polarity: String,
+  val sourceMention: Option[Mention],
+  val manager: AssemblyManager
+)  extends ComplexEvent {
+
+  override val eerString = "edu.arizona.sista.assembly.Activation"
+
+  require(controller.forall(_.isInstanceOf[Entity]), "Controllers of an Activation must be Entities!")
+
+  //TODO: figure out how to override def controller to return Set[Entity]
 }
