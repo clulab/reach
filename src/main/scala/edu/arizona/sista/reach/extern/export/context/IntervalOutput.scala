@@ -18,6 +18,8 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
   val ctxMentions = new mutable.ArrayBuffer[String]
   val evtIntervals = new mutable.ArrayBuffer[String]
   val sections:Seq[String] = docs.zip(entries).flatMap(_ match {case (d, e) => List.fill(d.sentences.size)(e.sectionName)})
+  val titles:Seq[Boolean] = docs.zip(entries).flatMap(_ match { case (d, e) =>
+  List.fill(d.sentences.size)(e.isTitle)})
   val eventLines = new mutable.ArrayBuffer[String]
 
   val events = mentions filter {
