@@ -129,4 +129,12 @@ class TestEntities extends FlatSpec with Matchers {
     mentions should have size (1)
     mentions.head matches "Family" should be (true)
   }
+
+  val sent8 = "Our model, in which E2-induced SRC-3 phosphorylation occurs in a complex with ER"
+  sent8 should "not contain any sites and it should have 1 simple chemical" in {
+    val mentions = getBioMentions(sent8)
+    mentions.count(_ matches "Site") should be (0)
+    mentions.count(_ matches "Simple_chemical") should be (1)
+  }
+
 }

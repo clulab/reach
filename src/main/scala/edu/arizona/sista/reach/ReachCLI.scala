@@ -211,12 +211,11 @@ object ReachCLI extends App {
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
   val logFile = new File(config.getString("logFile"))
 
-  val contextEngineType:Engine = Engine.withName(config.getString("contextEngine.type"))
+  // for context engine
+  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   val contextConfig = config.getConfig("contextEngine.params").root
-  // TODO: There must be a better way to do this!
-  val contextEngineParams:Map[String, String] = contextConfig.keySet.asScala.map{
-      key => key -> contextConfig.asScala.apply(key).unwrapped.toString
-  }.toMap
+  val contextEngineParams: Map[String, String] =
+    context.createContextEngineParams(contextConfig)
 
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
@@ -227,7 +226,7 @@ object ReachCLI extends App {
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
   }
-  FileUtils.writeStringToFile(logFile, s"${now}\nstarting extraction ...\n")
+  FileUtils.writeStringToFile(logFile, s"$now\nstarting extraction ...\n")
 
   // if nxmlDir does not exist there is nothing to do
   if (!nxmlDir.exists) {
