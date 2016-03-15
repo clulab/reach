@@ -39,9 +39,16 @@
                 - Positive_activation
                 - Negative_activation
     - Entity:
+<<<<<<< Updated upstream
       # Any BioEntity may appear as the controlled in an Activation
       - BioEntity:
         - BioProcess   # ex. "apoptosis"
+=======
+        - Species
+        - CellLine
+        - Organ
+        - CellType
+>>>>>>> Stashed changes
         - BioChemicalEntity:
             - Generic_entity
             - Family
