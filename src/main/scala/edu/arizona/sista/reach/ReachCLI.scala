@@ -16,6 +16,9 @@ import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
+import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.rulebased._
+import edu.arizona.sista.reach.extern.export.context._
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
@@ -26,15 +29,14 @@ class ReachCLI(val nxmlDir:File,
                val ignoreSections:Seq[String],
                val contextEngineType: Engine,
                val contextEngineParams: Map[String, String],
-               val logFile:File,
-               val xrefToken:Option[String] = None) {
+               val logFile:File) {
 
-  def processPapers(): Int = {
+  def processPapers(threadLimit: Option[Int]): Int = {
     println("initializing reach ...")
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
     println("initializing NxmlReader ...")
-    val nxmlReader = new NxmlReader(ignoreSections, xrefToken)
+    val nxmlReader = new NxmlReader(ignoreSections)
 
     var errorCount = 0
 
@@ -272,7 +274,6 @@ object ReachCLI extends App {
   val encoding = config.getString("encoding")
   val outputType = config.getString("outputType")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
-  val xrefToken = if (config.hasPath("nxml2fries.xrefToken")) Some(config.getString("nxml2fries.xrefToken")) else None
   val logFile = new File(config.getString("logFile"))
 
   // for context engine
@@ -306,7 +307,7 @@ object ReachCLI extends App {
   }
 
   val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType,
-       ignoreSections, contextEngineType, contextEngineParams, logFile, xrefToken)
+       ignoreSections, contextEngineType, contextEngineParams, logFile)
 
   cli.processPapers(Some(threadLimit))
 

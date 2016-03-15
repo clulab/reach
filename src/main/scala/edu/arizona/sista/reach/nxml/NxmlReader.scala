@@ -30,7 +30,7 @@ object PreprocessNxml extends RewriteRule {
 
 //////////////////////////////////////////////////////////
 
-class NxmlReader(ignoreSections:Seq[String] = Nil, xrefToken:Option[String] = None) {
+class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
   // This is a regex to remove the artifacts left from citation removal
   val citationArtifact = """[\(\[][ ,;(and)]+[\)\]]""".r
@@ -107,12 +107,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil, xrefToken:Option[String] = No
             case "title" | "label" => Seq(FriesEntry(name, "0", sectionId, sectionName, true, el.text))
             // Ommit the references if specified, but keeping the blank characters
             case "xref" =>
-
-              val text = xrefToken match {
-                case Some(token) => token
-                case None => " " * el.text.length
-              }
-
+              val text = " " * el.text.length
               Seq(FriesEntry(name, "0", "xref", "xref", false, text))
             // The following tags will be ignored
             case "table" | "table-wrap" | "td" | "ack" | "glossary" | "ref-list" | "fn-group" =>  Nil
