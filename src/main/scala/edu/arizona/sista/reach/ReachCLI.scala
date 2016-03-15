@@ -28,14 +28,15 @@ class ReachCLI(val nxmlDir:File,
                val ignoreSections:Seq[String],
                val contextEngineType: Engine,
                val contextEngineParams: Map[String, String],
-               val logFile:File) {
+               val logFile:File,
+               val xrefToken:Option[String] = None) {
 
   def processPapers(): Int = {
     println("initializing reach ...")
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
     println("initializing NxmlReader ...")
-    val nxmlReader = new NxmlReader(ignoreSections)
+    val nxmlReader = new NxmlReader(ignoreSections, xrefToken)
 
     var errorCount = 0
 
@@ -265,6 +266,7 @@ object ReachCLI extends App {
   val encoding = config.getString("encoding")
   val outputType = config.getString("outputType")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
+  val xrefToken = if (config.hasPath("nxml2fries.xrefToken")) Some(config.getString("nxml2fries.xrefToken")) else None
   val logFile = new File(config.getString("logFile"))
 
   val contextEngineType:Engine = Engine.withName(config.getString("contextEngine.type"))
@@ -296,7 +298,7 @@ object ReachCLI extends App {
   }
 
   val cli = new ReachCLI(nxmlDir, friesDir, encoding, outputType,
-       ignoreSections, contextEngineType, contextEngineParams, logFile)
+       ignoreSections, contextEngineType, contextEngineParams, logFile, xrefToken)
 
   cli.processPapers()
 
