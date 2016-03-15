@@ -1,7 +1,6 @@
 # SimpleEvent tempate covers: Phosphorylation, Hydroxylation, Ubiquitination?, Ribosylation, Farnesylation, Acetylation, Glycosylation, Methylation, Sumoylation
 
 ######## variables (examples) ###################
-# priority (example) = 5
 # verbalTriggerLemma (example) = phosphorylate
 # nominalTriggerLemma (example) = phosphorylation
 # labels (example) = Phosphorylation
@@ -11,7 +10,7 @@
 
 
 - name: ${ eventName }_syntax_1_verb
-  priority: ${ priority }
+  priority: 5
   example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together ${ verbalTriggerLemma }d araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
   label: ${ label }
   action: ${ actionFlow }
@@ -23,7 +22,7 @@
 
 
 - name: ${ eventName }_syntax_2_verb
-  priority: ${ priority }
+  priority: 5
   example: "Human deoxycytidine kinase is ${ verbalTriggerLemma }d by ASPP2 on serine 128. The BRCT1 domain of XRCC1 is ${ verbalTriggerLemma }d in vitro by DNA-PK. ... reveals that XRCC1 is ${ verbalTriggerLemma }d by the co-immunoprecipitated DNA-PK"
   label: ${ label }
   action: ${ actionFlow }
@@ -35,7 +34,7 @@
 
 
 - name: ${ eventName }_syntax_3_verb
-  priority: ${ priority }
+  priority: 5
   example: ""
   label: ${ label }
   action: ${ actionFlow }
@@ -47,7 +46,7 @@
 
 
 - name: ${ eventName }_syntax_4_verb
-  priority: ${ priority }
+  priority: 5
   example: "Hence ASPP2 can be ${ verbalTriggerLemma }d at serine 827 by MAPK1 in vitro."
   label: ${ label }
   action: ${ actionFlow }
@@ -59,7 +58,7 @@
 
 
 - name: ${ eventName }_syntax_5_verb
-  priority: ${ priority }
+  priority: 5
   example: "IKK contains two catalytic subunits, IKKalpha and IKKbeta, both of which are able to correctly ${ verbalTriggerLemma } IkappaB.  Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that specifically ${ verbalTriggerLemma }s ASPP2."
   label: ${ label }
   action: ${ actionFlow }
@@ -71,7 +70,7 @@
 
 
 - name: ${ eventName }_syntax_6_verb
-  priority: ${ priority }
+  priority: 5
   example: "We measured transcription activation in the presence of ASPP2, which is phosphorylated by Ras."
   label: ${ label }
   action: ${ actionFlow }
@@ -83,7 +82,7 @@
 
 
 - name: ${ eventName }_syntax_verb_underwent
-  priority: ${ priority }
+  priority: 5
   example: "We found that endogenous K-Ras and H-Ras underwent mono-ubiquitination in HEK293T cells."
   label: ${ label }
   action: ${ actionFlow }
@@ -95,7 +94,7 @@
 
 
 - name: ${ eventName }_syntax_1_noun
-  priority: ${ priority }
+  priority: 5
   example: "... which includes ${ nominalTriggerLemma } of PKC isozymes by phosphoinositide-dependent protein kinases.  Ras ${ nominalTriggerLemma } of ASPP2 increased."
   label: ${ label }
   action: ${ actionFlow }
@@ -107,7 +106,7 @@
 
 
 - name: ${ eventName }_syntax_2_noun
-  priority: ${ priority }
+  priority: 5
   example: "Overexpressed PRAS40 suppressed the ${ nominalTriggerLemma } of S6K1 and 4E-BP1 at their rapamycin-sensitive ${ nominalTriggerLemma } sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed ${ nominalTriggerLemma } of PRAS40 (Ser(183)) and its binding to raptor."
   label: ${ label }
   action: ${ actionFlow }
@@ -119,7 +118,7 @@
 
 
 - name: ${ eventName }_syntax_3_noun
-  priority: ${ priority }
+  priority: 5
   example: "ERK- mediated serine ${ nominalTriggerLemma } of the GAB1 adaptor has been shown to ..."
   label: ${ label }
   action: ${ actionFlow }
@@ -131,7 +130,7 @@
 
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
 - name: ${ eventName }_syntax_4_noun
-  priority: ${ priority }
+  priority: 5
   example: " ... mediated by inter-Rad53 ${ nominalTriggerLemma }.  ASPP1 and ASPP2 have two conserved putative MAPK2 ${ nominalTriggerLemma } sites in their C-terminus."
   label: ${ label }
   action: ${ actionFlow }
@@ -142,7 +141,7 @@
 
 
 - name: ${ eventName }_syntax_5_noun
-  priority: ${ priority }
+  priority: 5
   example: "Interestingly, we observed two conserved putative MAPK ${ nominalTriggerLemma } sites in ASPP1 and ASPP2."
   label: ${ label }
   action: ${ actionFlow }
@@ -153,7 +152,7 @@
 
 
 - name: ${ eventName }_syntax_6_noun
-  priority: ${ priority }
+  priority: 5
   example: "... the transcriptional cofactor beta-catenin is destabilized via ${ nominalTriggerLemma } of ASPP1 by protein kinase GSK3beta in complex with Axin family members"
   label: ${ label }
   action: ${ actionFlow }
@@ -165,7 +164,7 @@
 
 
 - name: ${ eventName }_syntax_7_noun
-  priority: ${ priority }
+  priority: 5
   example: ""
   label: ${ label }
   action: ${ actionFlow }
@@ -174,7 +173,7 @@
     theme:BioChemicalEntity = < nsubj dobj prep_of appos? /nn|cc|conj/{,2}
 
 - name: ${ eventName }_syntax_8_noun
-  priority: ${ priority }
+  priority: 5
   example: "RAS plays no role in the ${ nominalTriggerLemma } of Mek."
   label: ${ label }
   action: ${ actionFlow }
@@ -189,7 +188,7 @@
 ##################
 
 - name: ${ eventName }_token_1_noun
-  priority: ${ priority }
+  priority: 5
   example: " ... which blocks an inhibitory threonine ${ nominalTriggerLemma } on the JM domains of EGFR and HER2"
   type: token
   label: ${ label }
@@ -200,7 +199,7 @@
 
 # verbose, but nec. to handle coordination
 - name: ${ eventName }_token_2_noun
-  priority: ${ priority }
+  priority: 5
   example: " ... which blocks an inhibitory threonine ${ nominalTriggerLemma } on the JM domains of EGFR and HER2"
   type: token
   label: ${ label }
@@ -210,7 +209,7 @@
 
 
 - name: ${ eventName }_token_3_noun
-  priority: ${ priority }
+  priority: 5
   example: " ... , thereby increasing ERBB3 ${ nominalTriggerLemma }."
   type: token
   label: ${ label }
@@ -221,7 +220,7 @@
 
 # relies on EventSite modifications
 - name: ${ eventName }_token_4_noun
-  priority: ${ priority }
+  priority: 5
   example: "Experiments revealed ${ nominalTriggerLemma } at Lys residues 104 and 147 of K-Ras."
   type: token
   label: ${ label }
@@ -232,7 +231,7 @@
 
 # FIXME wait until the thread bundle bug is fixed
 - name: ${ eventName }_token_5_noun
-  priority: ${ priority }
+  priority: 5
   example: "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine ${ nominalTriggerLemma } on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
   type: token
   label: ${ label }
@@ -242,7 +241,7 @@
 
 # FIXME the additional pattern will go away when the odin bug related to thread bundles is truly fixed
 - name: ${ eventName }_token_6_noun
-  priority: ${ priority }
+  priority: 5
   example: "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine ${ nominalTriggerLemma } on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
   type: token
   label: ${ label }
@@ -252,7 +251,7 @@
 
 # effects of patterns
 - name: ${ eventName }_token_7_noun
-  priority: ${ priority }
+  priority: 5
   example: "The effects of ${ nominalTriggerLemma } on Ras are not isoform-specific."
   type: token
   label: ${ label }
@@ -262,7 +261,7 @@
 
 # too specific?
 - name: ${ eventName }_token_8a_noun
-  priority: ${ priority }
+  priority: 5
   example: "ERK(K156/H204) ${ nominalTriggerLemma } (Fig. 2)."
   type: token
   label: ${ label }
@@ -273,7 +272,7 @@
 
 # too specific?
 - name: ${ eventName }_token_8b_noun
-  priority: ${ priority }
+  priority: 5
   example: "ERK(K156M/H204M) ${ nominalTriggerLemma } (Fig. 2)."
   type: token
   label: ${ label }
@@ -283,7 +282,7 @@
 
 
 - name: ${ eventName }_token_4_verb
-  priority: ${ priority }
+  priority: 5
   example: "Under the same conditions, ASPP2 (693-1128) fragment ${ verbalTriggerLemma }d by p38 SAPK had very low levels of incorporated 32P."
   type: token
   label: ${ label }
@@ -293,7 +292,7 @@
 
 
 - name: ${ eventName }_token_5_verb
-  priority: ${ priority }
+  priority: 5
   example: ""
   type: token
   label: ${ label }
@@ -307,7 +306,7 @@
 
 # relies on EventSite modifications
 - name: ${ eventName }_token_7_verb
-  priority: ${ priority }
+  priority: 5
   example: "JAK3 ${ verbalTriggerLemma }s three HuR residues (Y63, Y68, Y200)"
   type: token
   label: ${ label }

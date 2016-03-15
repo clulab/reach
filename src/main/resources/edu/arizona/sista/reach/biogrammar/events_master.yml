@@ -7,26 +7,17 @@ vars:
 
 rules:
   - import: edu/arizona/sista/reach/biogrammar/events/bind_events.yml
-    vars:
-      priority: "5"
-
   - import: edu/arizona/sista/reach/biogrammar/events/hydrolysis_events.yml
-    vars:
-      priority: "5"
-
   - import: edu/arizona/sista/reach/biogrammar/events/translocation_events.yml
-    vars:
-      priority: "5"
 
   # Phosphorylations
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
-     eventName: "Phosphorylation"
-     actionFlow: "mkBioMention"
-     label: "Phosphorylation"
-     verbalTriggerLemma: "phosphorylate"
-     nominalTriggerLemma: "phosphorylation"
-     priority: "5"
+      eventName: "Phosphorylation"
+      actionFlow: "mkBioMention"
+      label: "Phosphorylation"
+      verbalTriggerLemma: "phosphorylate"
+      nominalTriggerLemma: "phosphorylation"
 
   # Ubiquitination
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -36,7 +27,6 @@ rules:
       label: "Ubiquitination"
       verbalTriggerLemma: "ubiquitinate"
       nominalTriggerLemma: "ubiquitination"
-      priority: "5"
 
   # Hydroxylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -46,7 +36,6 @@ rules:
       label: "Hydroxylation"
       verbalTriggerLemma: "hydroxylate"
       nominalTriggerLemma: "hydroxylation"
-      priority: "5"
 
   # Sumoylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -56,7 +45,6 @@ rules:
       label: "Sumoylation"
       verbalTriggerLemma: "sumoylate"
       nominalTriggerLemma: "sumoylation"
-      priority: "5"
 
   # Glycosylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -66,7 +54,6 @@ rules:
       label: "Glycosylation"
       verbalTriggerLemma: "glycosylate"
       nominalTriggerLemma: "glycosylation"
-      priority: "5"
 
   # Acetylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -76,7 +63,6 @@ rules:
       label: "Acetylation"
       verbalTriggerLemma: "acetylate"
       nominalTriggerLemma: "acetylation"
-      priority: "5"
 
   # Farnesylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -86,7 +72,6 @@ rules:
       label: "Farnesylation"
       verbalTriggerLemma: "farnesylate"
       nominalTriggerLemma: "farnesylation"
-      priority: "5"
 
   # Ribosylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -96,7 +81,6 @@ rules:
       label: "Ribosylation"
       verbalTriggerLemma: "ribosylate"
       nominalTriggerLemma: "ribosylation"
-      priority: "5"
 
   # Methylation
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -106,13 +90,12 @@ rules:
       label: "Methylation"
       verbalTriggerLemma: "methylate"
       nominalTriggerLemma: "methylation"
-      priority: "5"
 
   # Generic (incomplete) events
   - import: edu/arizona/sista/reach/biogrammar/coref/generic_events.yml
     vars:
-      actionFlow: "mkBioMention"
       priority: "6"
+      actionFlow: "mkBioMention"
 
   # Positive Regulation
   - import: edu/arizona/sista/reach/biogrammar/events/pos-reg_template.yml

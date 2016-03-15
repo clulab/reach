@@ -4,5 +4,3 @@ rules:
   - import: edu/arizona/sista/reach/biogrammar/modifications/modifications.yml
   - import: edu/arizona/sista/reach/biogrammar/modifications/mutants.yml
   - import: edu/arizona/sista/reach/biogrammar/coref/alias.yml
-    vars:
-      priority: "4"
