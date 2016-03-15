@@ -530,4 +530,21 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = testReach.extractFrom(Seq(fe))
     mentions.isEmpty should be (true)
   }
+  // No error when some mentions have generic and some non-generic mutations
+  val sent47 = "We analyzed sporadic CRCs in Omani (of African origin, N = 61), Iranian (of Caucasian origin, " +
+    "N = 53) and African American (N = 95) patients for microsatellite instability, expression status of mismatched " +
+    "repair genes (hMLH1, hMSH2) and presence of the BRAF (V600E) mutation. In the Omani group, all tumors with " +
+    "BRAF mutations were located in the left side of the colon, and for African Americans, 88% of tumors with BRAF " +
+    "mutations were found in the right side of the colon."
+  sent47 should "not produce an error" in {
+    val mentions = getBioMentions(sent47)
+  }
+  // No error indicating CorefMentions that should have been split but weren't
+  val sent48 = "Since EGFR mutation is known to be associated with sensitivity to erlotinib, and KRAS mutations are " +
+    "associated with resistance, we focused on the group of wild-type EGFR/KRAS cell lines. We found that the half " +
+    "maximal inhibitory concentration (IC50) for erlotinib was significantly higher in cell lines that segregated to " +
+    "clusters with methylated SRAMs compared to those that segregated to clusters with unmethylated SRAMs"
+  sent48 should "not produce an error" in {
+    val mentions = getBioMentions(sent48)
+  }
 }

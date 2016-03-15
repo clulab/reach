@@ -16,9 +16,9 @@ class DarpaLinks extends Links {
 
   /**
     * Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g. 'it'
-    * won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
+    * won't match with 'it').
     *
-    * @param mentions All mentions
+    * @param mentions All mentions that might be linkable
     * @param selector Rule for selecting the best antecedent from candidates
     * @return The same mentions but with new links (antecedents) added
     */
@@ -46,9 +46,9 @@ class DarpaLinks extends Links {
 
   /**
     * Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
-    * mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.
+    * mentions (e.g. 'it' won't match with 'it').
     *
-    * @param mentions All mentions
+    * @param mentions All mentions that might be linkable
     * @param selector Rule for selecting the best antecedent from candidates
     * @return The same mentions but with new links (antecedents) added
     */
@@ -57,13 +57,15 @@ class DarpaLinks extends Links {
     if (debug) println("\n=====Entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
-      .filter(x => x.isInstanceOf[CorefTextBoundMention] && !x.asInstanceOf[CorefTextBoundMention].isGeneric)
+      .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
+        !x.asInstanceOf[CorefTextBoundMention].isGeneric &&
+        !x.hasGenericMutation)
       .filter(x => x.asInstanceOf[CorefTextBoundMention].isGrounded)
       .groupBy(m => m.asInstanceOf[CorefTextBoundMention].grounding.get.id)
     sameGrounding.foreach {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
-          if (curr.antecedents.isEmpty && !curr.isGeneric) {
+          if (curr.antecedents.isEmpty && curr.nonGeneric) {
             if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
             curr.antecedents ++= prev
           }
@@ -73,12 +75,18 @@ class DarpaLinks extends Links {
     mentions
   }
 
+  /**
+    *
+    * @param mentions
+    * @param selector
+    * @return
+    */
   def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Mutant protein matching=====")
 
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention])
-    val gms = tbms.filter(m => m.isInstanceOf[CorefTextBoundMention] && m.mutants.exists(mut => mut.isGeneric))
+    val gms = tbms.filter(m => m.hasGenericMutation)
 
     gms.foreach {
       case gm =>
