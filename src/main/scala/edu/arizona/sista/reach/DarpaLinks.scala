@@ -75,12 +75,6 @@ class DarpaLinks extends Links {
     mentions
   }
 
-  /**
-    *
-    * @param mentions
-    * @param selector
-    * @return
-    */
   def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Mutant protein matching=====")
