@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Enhance logic to strip multiple suffixes.
+  *   Last Modified: Update for case-insensitive transforms.
   */
 trait KBKeyTransforms {
 
@@ -12,8 +12,8 @@ trait KBKeyTransforms {
 
 
   /** Return a sequence of alternate keys, one for each of the given key transforms. */
-  def makeAlternateKeys (text:String, transformFns:KeyTransforms): Seq[String] = {
-    transformFns.map(_.apply(text)).filter(_ != text)
+  def applyTransforms (text:String, transformFns:KeyTransforms): Seq[String] = {
+    transformFns.map(_.apply(text)).filter{ str => (str != text) && (str != text.toLowerCase) }
   }
 
   /** Try to remove all of the suffixes in the given set from the given text. */

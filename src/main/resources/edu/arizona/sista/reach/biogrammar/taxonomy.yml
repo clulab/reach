@@ -12,7 +12,13 @@
   - ContextPossessive
 - Modification:
     - PTM
-    - Mutant
+    - Mutant:
+        - GenericMutant
+        - SubstitutionMutant
+        - DeletionMutant
+        - DuplicationMutant
+        - InsertionMutant
+        - FrameshiftMutant
     - EventSite
     - Negation
 - PossibleController:
@@ -58,3 +64,10 @@
                 - Gene_or_gene_product
                 - Complex
                 - GENE
+# a preliminary taxonomy for assembly (precedence relations)
+- Precedence:
+  # for pairs that are directly (immediately) connected
+  # difficult to know from odin rules alone, but not impossible
+  - DirectConnection
+  # for pairs that are indirectly (not immediately) connected
+  - IndirectConnection

@@ -205,25 +205,23 @@
     controlled:${ controlledType } = /poss/
 
 
-# FIXME do we really need a positive regulation without a trigger?
-#- name: Positive_${ ruleType }_syntax_relation
-#  priority: ${ priority }
-#  label: ${ label }
-#  action: ${ actionFlow }
-#  pattern: |
-#    controlled:${ controlledType }
-#    controller:${ controllerType } = prep_by
-
-
 - name: Positive_${ ruleType }_token_1_verb
   priority: ${ priority }
-  example: ""
   type: token
   label: ${ label }
   example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   action: ${ actionFlow }
   pattern: |
-    @controller:${ controllerType } (?<trigger> [word=/^mediat/ & !tag=/^JJ/]) @controlled:${ controlledType }
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType }
+
+- name: Positive_${ ruleType }_token_1b_verb
+  priority: ${ priority }
+  type: token
+  label: ${ label }
+  example: "Interacting proteins that facilitate FGFR3 mediated STAT1 activation could exist in cells."
+  action: ${ actionFlow }
+  pattern: |
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(mediat)/ & !tag=/^JJ/]) @controlled:${ controlledType } /(?i)^(activation)/
 
 
 - name: Positive_${ ruleType }_token_2_verb
@@ -233,7 +231,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+    (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
 
 
 - name: Positive_${ ruleType }_token_1_noun
@@ -255,3 +253,4 @@
   action: ${ actionFlow }
   pattern: |
     (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+

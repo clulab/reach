@@ -10,7 +10,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for separate bioresources project with all KBs gzipped.
+  *   Last Modified: Update for removal of lookup any.
   */
 class TestTsvKBs extends FlatSpec with Matchers {
 
@@ -24,14 +24,6 @@ class TestTsvKBs extends FlatSpec with Matchers {
     (imkb2.lookupAll("DENDRITE").isDefined) should be (false)  // uppercase
     (imkb2.lookupAll("dendrite").isDefined) should be (true)
     (imkb2.lookupAll("telomere").isDefined) should be (true)
-  }
-
-  "InMemoryKB COL-2" should "lookupAny on IMKB from COL-2 TSV file" in {
-    (imkb2.lookupAny("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (imkb2.lookupAny("not-in-kb").isDefined) should be (false) // not in KB
-    (imkb2.lookupAny("DENDRITE").isDefined) should be (false)  // uppercase
-    (imkb2.lookupAny("dendrite").isDefined) should be (true)
-    (imkb2.lookupAny("telomere").isDefined) should be (true)
   }
 
   "InMemoryKB COL-2" should "fail to lookupByASpecies on IMKB from COL-2 TSV file" in {
@@ -78,13 +70,6 @@ class TestTsvKBs extends FlatSpec with Matchers {
     (imkbPF.lookupAll("PTHR21244").isDefined) should be (false) // uppercase
     (imkbPF.lookupAll("pthr21244").isDefined) should be (true)
     (imkbPF.lookupAll("hk").isDefined) should be (true)
-  }
-
-  "InMemoryKB COL-3" should "lookupAny on IMKB from COL-3 gzipped TSV file" in {
-    (imkbPF.lookupAny("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (imkbPF.lookupAny("PTHR21244").isDefined) should be (false) // uppercase
-    (imkbPF.lookupAny("pthr21244").isDefined) should be (true)
-    (imkbPF.lookupAny("hk").isDefined) should be (true)
   }
 
   "InMemoryKB COL-3" should "lookupByASpecies on IMKB from COL-3 gzipped TSV file" in {
