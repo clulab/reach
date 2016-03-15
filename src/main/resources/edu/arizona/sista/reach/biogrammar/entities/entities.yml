@@ -13,9 +13,10 @@
     [word = /(?i)residue/]?
     [word = /\d{3}$/]?
 
+# this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins
 - name: site_1letter
   label: Site
-  priority: 1
+  priority: 5
   type: token
   action: mkBioMention
   pattern: |
