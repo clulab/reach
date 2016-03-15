@@ -1,7 +1,7 @@
 - name: alias_paren1_nil
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -13,7 +13,7 @@
 - name: alias_paren2_referredto
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -28,7 +28,7 @@
 - name: alias_paren3_knownas
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -43,7 +43,7 @@
 - name: alias_paren4_called
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -58,7 +58,7 @@
 - name: alias_paren5_alias
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -71,7 +71,7 @@
 - name: alias_comma1_referredto
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -86,7 +86,7 @@
 - name: alias_comma2_knownas
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
@@ -101,7 +101,7 @@
 - name: alias_comma2_called
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
     (@alias:Family | @alias:MacroMolecule)
