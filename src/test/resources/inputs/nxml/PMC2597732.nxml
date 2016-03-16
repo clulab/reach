@@ -200,6 +200,9 @@
       <copyright-year>2008</copyright-year>
       <abstract>
         <p>Activating mutations in FGFR3 tyrosine kinase cause several forms of human skeletal dysplasia. Although the mechanisms of FGFR3 action in cartilage are not completely understood, it is believed that the STAT1 transcription factor plays a central role in pathogenic FGFR3 signaling. Here, we analyzed STAT1 activation by the N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants associated with skeletal dysplasias. In a cell-free kinase assay, only K650M and K650E-FGFR3 caused activatory STAT1(Y701) phosphorylation. Similarly, in RCS chondrocytes, HeLa, and 293T cellular environments, only K650M and K650E-FGFR3 caused strong STAT1 activation. Other FGFR3 mutants caused weak (HeLa) or no activation (293T and RCS). This contrasted with ERK MAP kinase activation, which was strongly induced by all six mutants and correlated with the inhibition of proliferation in RCS chondrocytes. Thus the ability to activate STAT1 appears restricted to the K650M and K650E-FGFR3 mutants, which however account for only a small minority of the FGFR3-related skeletal dysplasia cases. Other pathways such as ERK should therefore be considered as central to pathological FGFR3 signaling in cartilage.</p>
+        <p>
+            This is an extra paragraph. This paragraph was added to test the fallback species. This is another sentence. The fourth sentence which is really nice. Now an event comes, Mek phosphorylates RAS. It should have context.
+        </p>
       </abstract>
       <counts>
         <page-count count="7"/>
