@@ -393,4 +393,28 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("Ras", "Src"), mentions) should be (false)
   }
 
+  val sent38 = "Only Smad3LC and Smad3C were able to bind APC10."
+  sent38 should "contain two bindings with APC10" in {
+    val mentions = getBioMentions(sent38)
+    mentions filter (_ matches "Binding") should have size (2)
+    hasEventWithArguments("Binding", List("Smad3LC", "APC10"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Smad3C", "APC10"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Smad3C", "Smad3LC"), mentions) should be (false)
+  }
+
+  val sent39 = "Only Smad3LC and Smad3C exhibited the ability to bind APC10."
+  sent39 should "contain two bindings with APC10" in {
+    val mentions = getBioMentions(sent39)
+    mentions filter (_ matches "Binding") should have size (2)
+    hasEventWithArguments("Binding", List("Smad3LC", "APC10"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Smad3C", "APC10"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Smad3C", "Smad3LC"), mentions) should be (false)
+  }
+
+  val sent40 = "Complex formation between Gab1 and the protein tyrosine phosphatase Shp2 negatively regulates Gab1 phosphorylation"
+  sent40 should "contain a binding event with Gab1 and Shp2" in {
+    val mentions = getBioMentions(sent40)
+    mentions filter (_ matches "Binding") should have size (1)
+    hasEventWithArguments("Binding", List("Gab1", "Shp2"), mentions) should be (true)    
+  }
 }

@@ -91,8 +91,10 @@ package object display {
         println(s"""$indent\t\tNegated by \"${evidence.text}\"""")
       case Hypothesis(evidence) =>
         println(s"""$indent\t\tHypothesis by \"${evidence.text}\"""")
-      case Mutant(evidence) =>
-        println(s"""$indent\t\tMutant by \"${evidence.text}\"""")
+      case Mutant(evidence, foundBy) =>
+        println(s"""$indent\t\t${evidence.label} by \"${evidence.text}\"\n"""
+          + s"""$indent\t\t\tMutation rule: ${evidence.foundBy}\n"""
+          + s"""$indent\t\t\tMutation attachment rule: $foundBy""")
       case PTM(mod, evidence, site) =>
         val siteText = if (site.nonEmpty) {s" @ ${site.get.text}"} else ""
         val evidenceText = if (evidence.nonEmpty) {s""" based on \"${evidence.get.text}\""""} else ""

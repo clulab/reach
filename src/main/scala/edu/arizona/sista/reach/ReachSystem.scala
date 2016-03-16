@@ -3,7 +3,7 @@ package edu.arizona.sista.reach
 import edu.arizona.sista.coref.Coref
 import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.grounding.{ReachEntityLookup, ReachKBUtils}
+import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.mentions._
 import RuleReader.{Rules, readResource}
 import edu.arizona.sista.processors.Document
@@ -28,11 +28,11 @@ class ReachSystem(
   val contextRules = if (rules.isEmpty) readResource(RuleReader.contextRelationsFile) else rules.get.context
   // initialize actions object
   val actions = new DarpaActions
-  // initialize entity lookup (find grounding candidates)
-  val entityLookup = new ReachEntityLookup
+  val entityLookup = new ReachEntityLookup // initialize entity lookup (find grounding candidates)
+  val grounder = new ReachGrounder
   // start entity extraction engine
-  // this engine extracts all physical entities of interest and grounds them
-  val entityEngine = ExtractorEngine(entityRules, actions, entityLookup.apply)
+  // this engine extracts all physical entities of interest
+  val entityEngine = ExtractorEngine(entityRules, actions)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
   val modificationEngine = ExtractorEngine(modificationRules, actions)
@@ -72,12 +72,20 @@ class ReachSystem(
     }
     contextEngine.update(eventsPerEntry.flatten)
     val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
-    // we can't send all mentions to resolve coref, so we group them by document first
-    val resolved = eventsWithContext.groupBy(_.document).values.map(resolve).flatten.toList
+    val grounded = grounder(eventsWithContext)
+    // Coref expects to get all mentions grouped by document
+    val resolved = resolveCoref(groupMentionsByDocument(grounded, documents))
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
+
     resolveDisplay(complete)
+  }
+
+  // this method groups the mentions by document
+  // the sequence of documents should be sorted in order of appearance in the paper
+  def groupMentionsByDocument(mentions: Seq[BioMention], documents: Seq[Document]): Seq[Seq[BioMention]] = {
+    for (doc <- documents) yield mentions.filter(_.document == doc)
   }
 
   // the extractFrom() methods are the main entry points to the reach system
@@ -95,29 +103,36 @@ class ReachSystem(
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
-    // extract entities and ground them
+    // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
     // attach modification features to entities
     val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
-    modifiedEntities flatMap {
-      case m: BioTextBoundMention =>
-        // if a mention has many mutations attached to it return a mention for each mutation
-        val mutations = m.modifications.filter(_.isInstanceOf[Mutant])
-        if (mutations.isEmpty || mutations.size == 1) Seq(m)
-        else {
-          mutations map { mut =>
-            val tbm = new BioTextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
-            // copy all attachments
-            BioMention.copyAttachments(m, tbm)
-            // remove all mutations
-            tbm.modifications = tbm.modifications diff mutations
-            // add desired mutation only
-            tbm.modifications += mut
-            tbm
-          }
-        }
-
+    val mutationAddedEntities = modifiedEntities flatMap {
+      case m: BioTextBoundMention => mutationsToMentions(m)
       case m => Seq(m)
+    }
+    // add grounding candidates to entities
+    entityLookup(mutationAddedEntities)
+  }
+
+  /** If the given mention has many mutations attached to it, return a mention for each mutation. */
+  def mutationsToMentions(mention: BioTextBoundMention): Seq[BioMention] = {
+    val mutations = mention.modifications.filter(_.isInstanceOf[Mutant])
+    if (mutations.isEmpty || mutations.size == 1)
+      Seq(mention)
+    else {
+      mutations.map { mut =>
+        val tbm = new BioTextBoundMention(mention.labels, mention.tokenInterval,
+                                          mention.sentence, mention.document,
+                                          mention.keep, mention.foundBy)
+        // copy all attachments
+        BioMention.copyAttachments(mention, tbm)
+        // remove all mutations
+        tbm.modifications = tbm.modifications diff mutations
+        // add desired mutation only
+        tbm.modifications += mut
+        tbm
+      }.toSeq
     }
   }
 
@@ -132,10 +147,13 @@ class ReachSystem(
     validMentions
   }
 
-  def resolve(events: Seq[BioMention]): Seq[CorefMention] = {
+  // this method gets sequence composed of sequences of mentions, one per doc.
+  // each doc corresponds to a chunk of the paper, and it expects them to be in order of appearance
+  def resolveCoref(eventsPerDocument: Seq[Seq[BioMention]]): Seq[CorefMention] = {
     val coref = new Coref()
-    coref(events)
+    coref(eventsPerDocument).flatten
   }
+
 }
 
 object ReachSystem {
@@ -169,7 +187,6 @@ object ReachSystem {
 
     // last resort: displayLabel is set to the default value
     ms.foreach(m => if(m.displayLabel == null) m.displayLabel = m.label)
-
     ms
   }
 

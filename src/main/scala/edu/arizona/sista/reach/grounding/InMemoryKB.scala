@@ -2,13 +2,13 @@ package edu.arizona.sista.reach.grounding
 
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
-import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBUtils._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Sort returned resolutions for results reproducibility.
+  *   Last Modified: Add default sort-by-human for resolutions returned from IMKB.
   */
 class InMemoryKB (
 
@@ -33,6 +33,9 @@ class InMemoryKB (
   /** Add the given entry to this KB, if it is unique. */
   def addEntry (entry:KBEntry) = theKB.addBinding(entry.key, entry)
 
+  /** Return an sequence over the entries in this KB. */
+  def entries: Seq[KBEntry] = theKB.values.flatten.toSeq
+
 
   /** Return resolutions for the set of all KB entries for the given key. */
   def lookupAll (key:String): Resolutions =
@@ -41,21 +44,6 @@ class InMemoryKB (
   /** Try lookups for all given keys until one succeeds or all fail. */
   def lookupsAll (allKeys:Seq[String]): Resolutions =
     applyLookupFn(lookupAll, allKeys)
-
-
-  /** Find any optional KB entry for the given key. Returns a resolution
-      for the first KB entry found or None. */
-  def lookupAny (key:String): Option[KBResolution] =
-    makeResolution(theKB.get(key).flatMap(eset => eset.headOption))
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsAny (allKeys:Seq[String]): Option[KBResolution] = {
-    allKeys.foreach { key =>
-      val entry = lookupAny(key)
-      if (entry.isDefined) return entry
-    }
-    return None                             // tried all keys: no success
-  }
 
 
   /** Find the set of KB entries, for the given key, which match the given single species.
@@ -110,7 +98,7 @@ class InMemoryKB (
       Returns resolutions for matching entries or None. */
   def lookupNoSpecies (key:String): Resolutions =
     newResolutions(theKB.get(key)
-                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies()))
+                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies))
                    .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
@@ -123,9 +111,12 @@ class InMemoryKB (
 
   /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
       this KB and the given KB entries. */
-  def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions =
-    entries.map(_.map(kbe => newResolution(kbe))).map(_.sortBy(kbe => (kbe.species, kbe.id)))
-
+  def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions = {
+    val resSeq = entries.map(_.map(kbe => newResolution(kbe)))
+    resSeq.map { resolutions =>
+      selectHuman(resolutions) ++ selectNoSpecies(resolutions) ++ selectNotHuman(resolutions)
+    }
+  }
 
   /** Wrap the given KB entry in a new singleton-sequence of resolutions formed from
       this KB and the given KB entry. */

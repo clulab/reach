@@ -13,13 +13,14 @@
     [word = /(?i)residue/]?
     [word = /\d{3}$/]?
 
+# this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
 - name: site_1letter
   label: Site
-  priority: 1
+  priority: 5
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/]
+    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Gene_or_gene_product|Simple_chemical)$/]
   # old alt. pattern /^P\d+$/
 
 - name: site_3letter
@@ -89,7 +90,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
     [word=")"]?
 
 ###################
@@ -99,7 +100,7 @@
 - name: ner-species
   label: Species
   action: mkNERMentions
-  priotity: 3
+  priority: 3
   type: token
   pattern: |
     [entity='B-Species'] [entity='I-Species']*
@@ -107,7 +108,7 @@
 - name: ner-cell-lines
   label: CellLine
   action: mkNERMentions
-  priotity: 3
+  priority: 3
   type: token
   pattern: |
     [entity='B-Cell_lines'] [entity='I-Cell_lines']*
@@ -115,7 +116,7 @@
 - name: ner-organ
   label: Organ
   action: mkNERMentions
-  priotity: 3
+  priority: 3
   type: token
   pattern: |
     [entity='B-Organ'] [entity='I-Organ']*
@@ -130,7 +131,7 @@
 
 # - name: ner-infered-cell-type
 #   label: [CellType]
-#   priotity: 4
+#   priority: 4
 #   type: token
 #   pattern: |
 #     @Organ [lemma=/^(cells?|tissue|fluids?)/]
@@ -141,7 +142,15 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Gene_or_gene_product' & !word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+[ACDEFGHIKLMNPQRSTVWY]?$/]+ [entity='I-Gene_or_gene_product']* (?! [lemma="substrate"])
+    [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+ [entity='I-Gene_or_gene_product']* (?! [lemma="substrate"])
+    [entity='I-Gene_or_gene_product']*
+    # we may see the word "protein"
+    # we can't always trust the crf.  Make sure it isn't an obvious family
+    (?!
+    [lemma=substrate | lemma=family]
+    |
+    [lemma=protein] [lemma=family]
+    )
 
 # TODO: verify this ontology
 - name: ner-family-entities
@@ -151,6 +160,10 @@
   type: token
   pattern: |
     [entity='B-Family']+ [entity='I-Family']* (?! [lemma="substrate"])
+    | # we can't always trust the crf.
+    [entity='B-Gene_or_gene_product']+ [entity='I-Gene_or_gene_product']*
+    # only allow the GGP ner label iff lemma of next tok is "family"
+    (?=  [lemma=protein]? [lemma="family"])
 
 # TODO: verify this ontology
 - name: ner-cellular_component-entities
@@ -176,6 +189,15 @@
   type: token
   pattern: |
     [entity='B-Site'] [entity='I-Site']*
+
+- name: ner-bioprocess-entities
+  label: BioProcess
+  action: mkNERMentions
+  example: "apoptosis"
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-BioProcess'] [entity='I-BioProcess']*
 
 # TODO: Ideally, this should somehow be added to the KB
 - name: missing-simple_chemical

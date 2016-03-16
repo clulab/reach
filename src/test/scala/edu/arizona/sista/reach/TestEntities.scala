@@ -95,4 +95,46 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.size should be (0)
   }
 
+  // test recognition of BioProcess entities
+  val sent7 = "In some cases, the presence of Ras inhibits autophagy."
+  sent7 should "contain 1 BioProcess entity (\"autophagy\")" in {
+    val mentions = getBioMentions(sent7)
+    mentions.count (_ matches "BioProcess") should be (1) 
+  }
+
+  // test lookahead assertions on ner rules for GGP and Family entities
+  val mekText = "the MEK family"
+  mekText should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
+    val doc = bioproc.annotate(mekText)
+    val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O")
+    // manipulate the document for this test
+    doc.id = Some("MEK-test")
+    doc.text = Some(mekText)
+    doc.sentences.head.entities = Some(ggpLabels)
+    val mentions = testReach.extractFrom(doc)
+    mentions should have size (1)
+    mentions.head matches "Family" should be (true)
+  }
+
+  // test lookahead assertions on ner rules for GGP and Family entities
+  val mekText2 = "the MEK protein family"
+  mekText2 should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
+    val doc = bioproc.annotate(mekText2)
+    val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O", "O")
+    // manipulate the document for this test
+    doc.id = Some("MEK-test")
+    doc.text = Some(mekText2)
+    doc.sentences.head.entities = Some(ggpLabels)
+    val mentions = testReach.extractFrom(doc)
+    mentions should have size (1)
+    mentions.head matches "Family" should be (true)
+  }
+
+  val sent8 = "Our model, in which E2-induced SRC-3 phosphorylation occurs in a complex with ER"
+  sent8 should "not contain any sites and it should have 1 simple chemical" in {
+    val mentions = getBioMentions(sent8)
+    mentions.count(_ matches "Site") should be (0)
+    mentions.count(_ matches "Simple_chemical") should be (1)
+  }
+
 }

@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding._
 /**
   * Trait which holds grounding information for a mention.
   *   Written by: Marco Valenzuela, Tom Hicks.
-  *   Last Modified: Redo to hold KB resolutions, define accessors.
+  *   Last Modified: Propagate ambiguity: comment out finalization methods.
   */
 trait Grounding {
   this: Mention =>
@@ -17,20 +17,33 @@ trait Grounding {
   /** List of candidate resolutions, derived from lookups in external KBs. */
   private var _candidates: Resolutions = None
 
-  /** Returns true if this mention is grounded. */
-  def isGrounded: Boolean = _grounding.isDefined
 
   /** Get the current candidate resolutions for this mention, if any. */
   def candidates (): Resolutions = _candidates
+
+  /** Copy the values from the given Grounding object into this Grounding object. */
+  def copyGroundingFrom (other: Grounding): Unit = {
+    _grounding = other.grounding
+    _candidates = other.candidates
+  }
 
   /** Get the current grounding for this mention, if any. */
   def grounding (): Option[KBResolution] = _grounding
 
   /** Set the final resolution for grounding. */
-  def ground (resolution: KBResolution): Unit = {
-    _grounding = Some(resolution)
-    _candidates = None
-  }
+  // def ground (resolution: KBResolution): Unit = {
+  //   _grounding = Some(resolution)
+  //   _candidates = None                      // final grounding done: remove candidates
+  // }
+
+  /** Returns true if this mention has more than one candidate grounding. */
+  def hasCandidates: Boolean = _candidates.isDefined
+
+  /** Returns true if this mention is grounded and has more than one candidate grounding. */
+  def hasMoreCandidates: Boolean = _candidates.isDefined && (_candidates.get.size > 1)
+
+  /** Returns true if this mention is grounded. */
+  def isGrounded: Boolean = _grounding.isDefined
 
   /** Set candidates for eventual final grounding resolution. Resets any grounding. */
   def nominate (resolutions: Resolutions): Unit = {
@@ -40,12 +53,14 @@ trait Grounding {
     }
   }
 
-  /** Copy the values from the given Grounding object into this Grounding object. */
-  def copyGroundingFrom (other: Grounding): Unit = {
-    _grounding = other.grounding
-    _candidates = other.candidates
-  }
-
   /** Return a formatted string containing the grounding namespace and ID. */
   def nsId (): String = if (_grounding.isDefined) _grounding.get.nsId else ""
+
+  /** Select the current grounding as the final grounding. */
+  // def selectCurrentGrounding (): Unit = {
+  //   assert(this.isGrounded,                 // MUST be grounded before calling this method
+  //          s"Mention '${this}' MUST be grounded before selecting current grounding.")
+  //   _candidates = None                      // final grounding done: remove candidates
+  // }
+
 }

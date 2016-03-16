@@ -14,7 +14,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Update for grounding changes.
+  *   Last Modified: Output grounding candidates.
   */
 class MentionManager {
 
@@ -128,8 +128,15 @@ class MentionManager {
 
     mention match {
       case tbm: TextBoundMention =>
-        if (tbm.toBioMention.isGrounded)
-          mStrings += s"${indent}grounding: ${tbm.toBioMention.grounding.get}"
+        val bioMen = mention.toBioMention
+        if (bioMen.isGrounded) {
+          if (bioMen.hasCandidates) {
+            val subdent = ("  " * (level+1))
+            mStrings += s"${indent}candidates:"
+            bioMen.candidates.get.foreach { c => mStrings += s"${subdent}${c}" }
+          }
+          mStrings += s"${indent}grounding: ${bioMen.grounding.get}"
+        }
 
       case evm: EventMention =>
         mStrings += s"${indent}trigger:"
@@ -207,7 +214,7 @@ class MentionManager {
           mStrings += s"${indent}event-site: ${site.text}"
         case Hypothesis(evidence) =>
           mStrings += s"${indent}hypothesis: ${evidence.text}"
-        case Mutant(evidence) =>
+        case Mutant(evidence, foundBy) =>
           mStrings += s"${indent}mutant: ${evidence.text}"
         case Negation(evidence) =>
           mStrings += s"${indent}negation: ${evidence.text}"

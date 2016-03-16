@@ -1,13 +1,13 @@
 package edu.arizona.sista.reach.grounding
 
 import scala.io.Source
-import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBUtils._
 
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Add another factory method signature.
+  *   Last Modified: Refactor tsv validate fields method to utils class.
   */
 class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
@@ -53,10 +53,10 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
     */
   private def loadFromKBDir (imkb:InMemoryKB, filename:String, namespace:String) = {
     if ((filename != null) && !filename.trim.isEmpty) { // skip loading if filename missing
-      val kbResourcePath = ReachKBUtils.makePathInKBDir(filename)
-      val source = ReachKBUtils.sourceFromResource(kbResourcePath)
+      val kbResourcePath = makePathInKBDir(filename)
+      val source = sourceFromResource(kbResourcePath)
       source.getLines.map(
-        ReachKBUtils.tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach {
+        tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach {
         fields =>
           val flds = parseFields(fields)    // extract and order fields
           var text = flds(0)                // assign fields in order
@@ -84,12 +84,6 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
     else                                    // should never happen if validation works
       throw new Exception(
         s"BAD INPUT: validation failed to remove row with missing required fields: ${fields}")
-  }
-
-  /** Check for required fields in one row of the TSV input file. */
-  private def tsvValidateFields (fields:Seq[String]): Boolean = {
-    ( ((fields.size == 3) && fields(0).nonEmpty && fields(1).nonEmpty && fields(2).nonEmpty) ||
-      ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty) )
   }
 
 }

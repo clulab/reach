@@ -3,12 +3,15 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Correct doc string on metabolite KB.
+  *   Last Modified: Add namespace:ID separator constant.
   */
 object ReachKBConstants {
 
   /** The default namespace string for KBs. */
   val DefaultNamespace: String = "uaz"
+
+  /** The string used to separate a namespace and an ID. */
+  val NamespaceIdSeparator: String = ":"
 
 
   /** The set of words to remove from all keys to create a lookup key. */
@@ -85,7 +88,7 @@ object ReachKBConstants {
   val StaticTissueTypeFilename = "tissue-type.tsv.gz"
 
 
- /** Filename of the context species file */
+  /** Filename of the context species file */
   val ContextSpeciesFilename = "Species.tsv.gz"
 
   /** Filename of the contenxt cell lines file */
@@ -96,5 +99,9 @@ object ReachKBConstants {
 
   /** Filename of the context organs file */
   val ContextOrganFilename = "Organ.tsv.gz"
+
+
+  /** Filename of a file containing just Protein Domain suffixes; one per line. */
+  val ProteinDomainSuffixesFilename = "proteinDomains-short.txt"
 
 }

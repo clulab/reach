@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Change to class, add IMKB ctor var argument.
+  *   Last Modified: Redo grounding step1 to propagate ambiguity.
   */
 class IMKBLookup (
 
@@ -11,6 +11,9 @@ class IMKBLookup (
   var memoryKB: InMemoryKB = new InMemoryKB()
 
 ) extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
+
+  /** Return a sequence over the entries in this KB. */
+  def entries = memoryKB.entries
 
   /** Tell whether this KB contains species information or not. */
   def hasSpeciesInfo: Boolean = memoryKB.hasSpeciesInfo
@@ -23,10 +26,8 @@ class IMKBLookup (
     * Return a resolution for the entry, if any found.
     */
   override def resolve (text:String): Resolutions = {
-    if (!hasSpeciesInfo)                    // if KB does not have species information
-      resolveNoSpecies(text)                // then try to resolve the text without species
-    else                                    // else prefer human resolution above others
-      resolveHuman(text) orElse memoryKB.lookupAll(makeCanonicalKey(text))
+    val key = makeCanonicalKey(text)        // make a lookup key from the given text
+    memoryKB.lookupAll(key)                 // find all matching entries in memory KB
   }
 
   /** Resolve the given text string to optional group of entries in a knowledge base,
@@ -73,13 +74,8 @@ class IMKBLookup (
     * Return a resolution for the entry, if any found.
     */
   override def resolveAlt (text:String, transforms:KeyTransforms): Resolutions = {
-    var entries: Resolutions = None
-    if (!hasSpeciesInfo)                    // if KB does not have species information
-      resolveNoSpeciesAlt(text, transforms) // then try to resolve the text without species
-    else {                                  // else prefer human resolution above others
-      val allKeys = reachAlternateKeys(text, transforms)
-      resolveHumanAlt(text, transforms) orElse memoryKB.lookupsAll(allKeys)
-    }
+    val allKeys = reachAlternateKeys(text, transforms)
+    memoryKB.lookupsAll(allKeys)
   }
 
   /** Resolve the given text string to an optional entry in a knowledge base,

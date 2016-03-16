@@ -86,6 +86,15 @@
     @mod:ModificationTrigger
     ((at | on) @site:Site)?
 
+# Tyrosine-phosphorylated ASPP1
+- name: PTMmodification_2
+  label: PTM
+  action: storePTM
+  priority: 2
+  type: token
+  pattern: |
+    @site:Site @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] )?
+
 - name: eventsite_1
   label: EventSite
   action: storeEventSite

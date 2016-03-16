@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/clulab/reach.svg?branch=master)](https://travis-ci.org/clulab/reach)
+
 Reach
 =====
 
@@ -55,7 +57,7 @@ This software requires Java 1.8, Scala 2.11, and CoreNLP 3.x or higher.
 The `jar` is available on Maven Central. To use, simply add the following dependency to your `pom.xml`:
 
     <dependency>
-       <groupId>clulab.org</groupId>
+       <groupId>org.clulab</groupId>
        <artifactId>reach_2.11</artifactId>
        <version>1.2.2</version>
     </dependency>
@@ -63,7 +65,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
  The equivalent SBT dependencies are:
 
     libraryDependencies ++= Seq(
-        "clulab.org" %% "reach" % "1.2.2"
+        "org.clulab" %% "reach" % "1.2.2"
     )
 
 # How to compile the source code

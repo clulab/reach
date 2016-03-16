@@ -55,6 +55,15 @@ class TestDeterministicPolicies extends FlatSpec with Matchers with Fixtures {
               }
         }
     }
+
+    it should "have fallback species" in {
+        mentions foreach {
+            m =>
+                val c = m.context.getOrElse(Map[String,Seq[String]]())
+                c.contains("Species") should be (true)
+                c("Species").length should equal (1)
+        }
+    }
   }
 
   def boundedPaddingBehavior(nxml:String){

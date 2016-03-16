@@ -2,7 +2,9 @@ package edu.arizona.sista.reach.utils
 
 import java.io.File
 
-import scala.collection.mutable.ArrayBuffer
+import edu.arizona.sista.reach.nxml.FriesEntry
+
+import scala.collection.mutable.{ListBuffer, ArrayBuffer}
 
 import CSVParser._
 
@@ -12,6 +14,39 @@ import CSVParser._
  * Date: 10/30/15
  */
 class CSVParser {
+  /**
+    * Converts a CSV file into a sequence of FriesEntry blocks, similar to NxmlReader.readNxml
+    *
+    * @param file input file in CSV format
+    * @param docIdColumn which column contains the doc id
+    * @param chunkIdColumn which column contains the unique id for the segment of text reported in each line
+    * @param sectionIdColumn which column contains the section id for this text; -1 if not present
+    * @param textColumn which column contains the actual text
+    * @param hasHeader true if this CSV file has a header row
+    */
+  def toFriesEntries(
+    file:File,
+    docIdColumn:Int = 0,
+    chunkIdColumn:Int = 1,
+    sectionIdColumn:Int = -1,
+    textColumn:Int = 2,
+    hasHeader:Boolean = true): Seq[FriesEntry] = {
+    val entries = new ListBuffer[FriesEntry]
+    for(line <- split(file, removeHeader = hasHeader)) {
+      val text = line(textColumn)
+      val docId = line(docIdColumn)
+      val chunkId = line(chunkIdColumn)
+      val sectionId = sectionIdColumn match {
+        case -1 => ""
+        case _ => line(sectionIdColumn)
+      }
+      val entry = FriesEntry(docId, chunkId, sectionId, "", isTitle = false, text)
+      entries += entry
+    }
+    entries.toSeq
+  }
+
+
   def split(file:File, removeHeader:Boolean):Array[Array[String]] = {
     val result = new ArrayBuffer[Array[String]]
     var lineCount = 0
