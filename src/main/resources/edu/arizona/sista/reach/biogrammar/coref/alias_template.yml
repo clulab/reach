@@ -1,4 +1,4 @@
-- name: aliasprot_paren1_nil
+- name: alias_${ label }_paren1_nil
   example: "Ras (H-Ras, K-Ras, N-Ras)"
   label: Alias
   action: mkBioMention
@@ -11,7 +11,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
-- name: aliasprot_paren2_referredto
+- name: alias_${ label }_paren2_referredto
   example: "Ras (also referred to as H-Ras, K-Ras, or N-Ras)"
   label: Alias
   action: mkBioMention
@@ -27,7 +27,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
-- name: aliasprot_paren3_knownas
+- name: alias_${ label }_paren3_knownas
   example: "Ras (also known as H-Ras, K-Ras, N-Ras)"
   label: Alias
   action: mkBioMention
@@ -43,7 +43,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
-- name: aliasprot_paren4_called
+- name: alias_${ label }_paren4_called
   example: "Ras (commonly called H-Ras, K-Ras or N-Ras)"
   label: Alias
   action: mkBioMention
@@ -59,7 +59,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
-- name: aliasprot_paren5_alias
+- name: alias_${ label }_paren5_alias
   example: "Ras (a.k.a. H-Ras/K-Ras/N-Ras)"
   label: Alias
   action: mkBioMention
@@ -73,7 +73,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
-- name: aliasprot_comma1_referredto
+- name: alias_${ label }_comma1_referredto
   example: "Ras, which is typically referred to as H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
@@ -89,7 +89,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*
     [tag=/^\.|,|:$/]
 
-- name: aliasprot_comma2_knownas
+- name: alias_${ label }_comma2_knownas
   example: "Ras, usually designated H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
@@ -105,7 +105,7 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*
     [tag=/^\.|,|:$/]
 
-- name: aliasprot_comma2_called
+- name: alias_${ label }_comma2_called
   example: "Ras, sometimes termed H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention

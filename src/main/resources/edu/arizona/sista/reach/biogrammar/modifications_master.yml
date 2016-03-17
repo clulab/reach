@@ -11,11 +11,11 @@ rules:
 
   - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
     vars:
-      label: "Aliasable" # TODO: better name
+      label: "Equivalable" # TODO: better name
       priority: "4"
 
   - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
     vars:
-      label: "Mutant" # TODO: better name
+      label: "Mutant"
       priority: "4"
 
