@@ -61,19 +61,6 @@
   pattern: |
     @site:Site @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] )?
 
-## WTX (when | if) it is phosphorylated at serine 286
-#- name: PTMmodification_3a
-#  label: PTM
-#  action: storePTM
-#  priority: 2
-#  type: token
-#  example: "WTX when it is phosphorylated at serine 286"
-#  pattern: |
-#    (@entity:BioChemicalEntity [tag=/,|CC/])*?
-#    @entity:BioChemicalEntity (when | if) (it | they) [lemma="be"]
-#    @mod:ModificationTrigger
-#    ((at | on) @site:Site)?
-
 # WTX (that|which) is phosphorylated at serine 286
 - name: PTMmodification_3b
   label: PTM
@@ -85,15 +72,6 @@
     @entity:BioChemicalEntity (that | which) [lemma="be"]
     @mod:ModificationTrigger
     ((at | on) @site:Site)?
-
-# Tyrosine-phosphorylated ASPP1
-- name: PTMmodification_2
-  label: PTM
-  action: storePTM
-  priority: 2
-  type: token
-  pattern: |
-    @site:Site @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] )?
 
 - name: eventsite_1
   label: EventSite
