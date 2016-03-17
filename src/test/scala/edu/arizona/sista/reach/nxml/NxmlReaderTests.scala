@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach.nxml
 
+import edu.arizona.sista.reach.TestUtils._
 import io.Source
 import org.scalatest.{Matchers, FlatSpec}
 
@@ -30,7 +31,7 @@ trait Fixtures {
     e => !e.sectionId.startsWith("supm-")
   }
 
-  def reader = new NxmlReader
+  def reader = testReader
 
   def filteredReader = new NxmlReader(Seq("materials|methods", "supplementary-material"))
 

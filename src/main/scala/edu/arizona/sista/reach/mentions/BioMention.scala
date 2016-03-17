@@ -73,7 +73,7 @@ class BioRelationMention(
 
 object BioMention{
     def copyAttachments(src:BioMention, dst:BioMention){
-        dst.xref = src.xref
+        dst.copyGroundingFrom(src)
         dst.context = src.context
         dst.modifications ++= src.modifications
     }

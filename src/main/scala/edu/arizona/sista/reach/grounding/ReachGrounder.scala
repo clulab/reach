@@ -1,110 +1,89 @@
 package edu.arizona.sista.reach.grounding
 
-import com.typesafe.config.ConfigFactory
-
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.grounding.ReachKBUtils._
+import edu.arizona.sista.reach.grounding.ReachRLKBLookups._
+import edu.arizona.sista.reach.extern.export.MentionManager
 
 /**
-  * Class which implements project internal methods to ground entities.
-  *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Add KBMLs for Context.
+  * Class which implements methods to select the best groundings for a sequence of mentions.
+  *   Written by Tom Hicks. 2/9/2016.
+  *   Last Modified: Walk biomentions, match species from context.
   */
-class ReachGrounder extends DarpaFlow {
+class ReachGrounder extends Speciated {
 
-  /** An exception in case we somehow fail to assign an ID during resolution. */
-  case class NoFailSafe(message:String) extends Exception(message)
+  val mentionMgr = new MentionManager
 
-  // Read config file to determine whether to include knowledge bases
-  val config = ConfigFactory.load()
-  val useAuxGrounding = config.getBoolean("useAuxGrounding")
-
-  /** Project local sequence for resolving entities: check local facade KBs in this order:
-    * 1. Auxiliary KBs, if specified by config parameter
-    * 2. Protein Families
-    * 3. Proteins
-    * 4. Small Molecules (metabolites and chemicals)
-    * 5. Subcellular Locations
-    * 6. AZ Failsafe KB (failsafe: always generates an ID in a non-official, local namespace)
-    */
-  protected val searchSequence =
-    if (!useAuxGrounding)
-      Seq(
-        new StaticProteinFamilyKBML,
-        new ManualProteinFamilyKBML,
-        new StaticProteinKBML,
-        new ManualProteinKBML,
-        // NB: generated protein families are included in the generated protein KB:
-        new GendProteinKBML,
-
-        new StaticChemicalKBML,
-        new StaticMetaboliteKBML,
-        new ManualChemicalKBML,
-        new GendChemicalKBML,
-
-        new StaticCellLocationKBML,
-        new ManualCellLocationKBML,
-        new GendCellLocationKBML,
-
-        new ContextCellTypeKBML,
-        new ContextSpeciesKBML,
-        new ContextCellLineKBML,
-        new ContextOrganKBML,
-        new StaticTissueTypeKBML,
-
-        new AzFailsafeKBML
-      )
-    else
-      Seq(
-        new AuxProteinKBML,
-        new AuxBioProcessKBML,
-        new AuxMetaboliteKBML,
-
-        new StaticProteinFamilyKBML,
-        new ManualProteinFamilyKBML,
-        new StaticProteinKBML,
-        new ManualProteinKBML,
-        // NB: generated protein families are included in the generated protein KB:
-        new GendProteinKBML,
-
-        new StaticChemicalKBML,
-        new StaticMetaboliteKBML,
-        new ManualChemicalKBML,
-        new GendChemicalKBML,
-
-        new StaticCellLocationKBML,
-        new ManualCellLocationKBML,
-        new GendCellLocationKBML,
-
-        new ContextCellTypeKBML,
-        new ContextSpeciesKBML,
-        new ContextCellLineKBML,
-        new ContextOrganKBML,
-        new StaticTissueTypeKBML,
-
-        new AzFailsafeKBML
-      )
-
-
-  /** Local implementation of darpa flow trait: use project specific KBs to ground
-      and augment given mentions. */
-  def apply (mentions: Seq[Mention], state: State): Seq[Mention] = mentions map {
-    case tm: BioTextBoundMention => resolveAndAugment(tm, state)
-    case m => m
+  /** Select and apply best grounding choice to a sequence of bio mentions. */
+  def apply (mentions: Seq[BioMention]): Seq[BioMention] = {
+    mentions.foreach { mention =>
+      if (mention.isInstanceOf[BioMention])
+        groundMention(mention, Seq.empty[String])
+    }
+    mentions                                // return the newly grounded sequence
   }
 
-  /** Search the KB accessors in sequence, use the first one which resolves the given mention. */
-  private def resolveAndAugment(mention: BioMention, state: State): Mention = {
-    searchSequence.foreach { kbml =>
-      val resolution = kbml.resolve(mention)
-      if (!resolution.isEmpty) {
-        mention.ground(resolution.get.metaInfo.namespace, resolution.get.id)
-        return mention
+  /** Dispatch the given bio mention for grounding, based on candidates and given species context. */
+  def groundMention (mention: BioMention, species: Seq[String]): Unit = {
+    mention match {
+      case bem: BioEventMention => groundArguments(bem)
+      case brm: BioRelationMention => groundArguments(brm)
+      case  bm: BioTextBoundMention =>
+        if (bm.hasMoreCandidates) {         // only redo grounding if more than one choice
+          if (species.isEmpty || containsHumanNsId(species)) // use nsId for now
+            groundAsHuman(bm)               // then prioritize human grounding
+          else                              // else context can influence this grounding
+            groundBySpecies(bm, species)
+        }
+      case _ =>                             // no action needed
+    }
+  }
+
+  /** Recursively process arguments of given event, possibly setting new context environment. */
+  def groundArguments (event: BioMention): Unit = {
+    val evargs = event.arguments.values.flatten.toSeq.map(_.toBioMention)
+    if (hasSpeciesContext(event)) {         // for now, only using species to help grounding
+      val species = event.context.get.get("Species").get
+      evargs.foreach(groundMention(_, species))
+    }
+    else
+      evargs.foreach(groundMention(_, Seq.empty[String]))
+  }
+
+  /** Prioritize the Grounding of the given mention as human.
+    * NB: Mention must be grounded and have more than one candidate. */
+  def groundAsHuman (mention: BioTextBoundMention): Unit = {
+    if (mention.hasMoreCandidates) {        // sanity check
+      val cands = mention.candidates.get
+      val ordered = selectHuman(cands) ++ selectNoSpecies(cands) ++ selectNotHuman(cands)
+      mention.nominate(Some(ordered))
+    }
+  }
+
+  /** Prioritize the grounding for one of the given species.
+    * NB: Mention must be grounded and have more than one candidate. */
+  def groundBySpecies (mention: BioTextBoundMention, mentionNsIds: Seq[String]): Unit = {
+    if (mention.hasMoreCandidates) {        // sanity check
+      val cands = mention.candidates.get    // get all candidates
+      val candSpecies: Set[String] = cands.map(_.species).toSet // all candidate species
+      val species = nsIdToSpeciesSet(mentionNsIds.head).map(_.intersect(candSpecies))
+      // if any species match then prefer candidates with those species
+      if (species.isDefined && !species.get.isEmpty) {
+        val ordered = selectBySpecies(cands, species.get) ++ selectByNotSpecies(cands, species.get)
+        mention.nominate(Some(ordered))     // reattach reordered grounding candidates
       }
     }
-    // we should never get here because our accessors include a failsafe ID assignment
-    throw NoFailSafe(s"ReachGrounder failed to assign an ID to ${mention.displayLabel} '${mention.text}' in S${mention.sentence}")
   }
+
+
+  /** Reverse lookup the give NsId string and return the species associated with it. */
+  private def nsIdToSpeciesSet (nsId: String): Option[Set[String]] =
+    ReverseSpeciesLookup.lookup(nsId)
+
+  private def printMention (mention:BioMention): Unit =
+    mentionMgr.mentionToStrings(mention).foreach { System.err.println(_) }
 
 }

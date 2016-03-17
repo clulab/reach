@@ -9,6 +9,7 @@ import scala.collection.mutable.ListBuffer
 
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.extern.export._
+import edu.arizona.sista.reach.grounding.KBResolution
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
@@ -16,10 +17,10 @@ import JsonOutputter._
 import IndexCardOutput._
 
 /**
- * Defines classes and methods used to build and output the index card format.
- *   Written by: Mihai Surdeanu. 8/27/2015.
- *   Last Modified: Add context output.
- */
+  * Defines classes and methods used to build and output the index card format.
+  *   Written by: Mihai Surdeanu. 8/27/2015.
+  *   Last Modified: Update for grounding changes.
+  */
 class IndexCardOutput extends JsonOutputter {
 
   /**
@@ -178,7 +179,7 @@ class IndexCardOutput extends JsonOutputter {
     if (!arg.isGrounded) {
       println(s"Failed to ground argument ${arg.text}!")
     }
-    if (arg.isGrounded) f("identifier") = mkIdentifier(arg.xref.get)
+    if (arg.isGrounded) f("identifier") = mkIdentifier(arg.grounding.get)
 
     if (MentionManager.hasFeatures(arg)) f("features") = mkFeatures(arg)
     // TODO: we do not compare against the model; assume everything exists, so the validation works
@@ -258,8 +259,8 @@ class IndexCardOutput extends JsonOutputter {
     fl
   }
 
-  def mkIdentifier(xref:Grounding.Xref):String = {
-    xref.namespace + ":" + xref.id
+  def mkIdentifier(grounding:KBResolution):String = {
+    grounding.namespace + ":" + grounding.id
   }
 
   def mkEventModification(mention:CorefMention):PropMap = {
@@ -421,7 +422,7 @@ class IndexCardOutput extends JsonOutputter {
 
 
   def addLocation(f:PropMap, prefix:String, loc:CorefMention): Unit = {
-    f(prefix + "_location_id") = mkIdentifier(loc.xref.get)
+    f(prefix + "_location_id") = mkIdentifier(loc.grounding.get)
     f(prefix + "_location_text") = loc.text
   }
 

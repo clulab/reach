@@ -28,6 +28,7 @@ object ReachCSV extends App {
   val outputDir = config.getString("output")
   val docIdColumn = config.getInt("docIdColumn")
   val chunkIdColumn = config.getInt("chunkIdColumn")
+  val sectionIdColumn = -1
   val textColumn = config.getInt("textColumn")
   val hasHeader = config.getBoolean("hasHeader")
 
@@ -35,13 +36,14 @@ object ReachCSV extends App {
   val csvParser = new CSVParser
 
   var count = 0
-  for(line <- csvParser.split(csvFile, removeHeader = hasHeader)) {
+  for(entry <- csvParser.toFriesEntries(csvFile,
+    docIdColumn = docIdColumn,
+    chunkIdColumn = chunkIdColumn,
+    sectionIdColumn = sectionIdColumn,
+    textColumn = textColumn,
+    hasHeader = hasHeader)) {
     //println(s"""Parsing line: ${line.mkString("; ")}""")
-    val text = line(textColumn)
-    val docId = line(docIdColumn)
-    val chunkId = line(chunkIdColumn)
-    println(s"Processing $docId, $chunkId...")
-    val entry = FriesEntry(docId, chunkId, "", "", isTitle = false, text) // we have no section information for this CSV data
+    println(s"Processing ${entry.name}, ${entry.chunkId}...")
 
     try {
       val startTime = now
@@ -50,11 +52,11 @@ object ReachCSV extends App {
 
       val outputtter = new IndexCardOutput
       outputtter.writeJSON(
-        docId + "_" + chunkId,
+        entry.name + "_" + entry.chunkId,
         mentions,
         List(entry),
         startTime, endTime,
-        outputDir + File.separator + docId + "_" + chunkId
+        outputDir + File.separator + entry.name + "_" + entry.chunkId
       )
 
     } catch {
@@ -64,7 +66,7 @@ object ReachCSV extends App {
                       |
                       | ¡¡¡ extraction error !!!
                       |
-                      |paper: $docId
+                      |paper: ${entry.name}
                       |chunk: ${entry.chunkId}
                       |section: ${entry.sectionId}
                       |

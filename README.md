@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/clulab/reach.svg?branch=master)](https://travis-ci.org/clulab/reach)
+
 Reach
 =====
 
@@ -13,22 +15,21 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
++ **1.2.2** - Added cellular locations to context. Context engine now can be configured by the user. Added a new deterministic context policy that extends context before and after a mention. Added support for Pandas output format. Bug fixes: context is now enabled by default; coref engine now matches the Hobbs antecedent search heuristic. 
 + **1.2.1** - Bug fix in the unboxing of controller events. New Year's Eve release!
 + **1.2.0** - First release of context extraction! Context includes: species, organs, cell lines and types. Improved coreference resolution with constraints on determiner type.
-+ **1.1.3** - Bug fixes in coreference resolution plus output formats
-+ **1.1.2** - Bug fixes in the index card output
 + [more...](CHANGES.md)
 
 # Authors  
 
 Reach was created by the following members of the [CLU lab at the University of Arizona](http://clulab.cs.arizona.edu/):
 
-+ Marco Valenzuela  
-+ Gus Hahn-Powell  
-+ Dane Bell  
-+ Tom Hicks  
-+ Enrique Noriega  
-+ [Mihai Surdeanu](Mihai Surdeanu)  
++ [Marco Valenzuela](https://github.com/marcovzla)  
++ [Gus Hahn-Powell](https://github.com/myedibleenso)  
++ [Dane Bell](https://github.com/danebell)  
++ [Tom Hicks](https://github.com/hickst)  
++ [Enrique Noriega](https://github.com/enoriega)  
++ [Mihai Surdeanu](https://github.com/MihaiSurdeanu)  
 
 # Citations
 
@@ -56,15 +57,15 @@ This software requires Java 1.8, Scala 2.11, and CoreNLP 3.x or higher.
 The `jar` is available on Maven Central. To use, simply add the following dependency to your `pom.xml`:
 
     <dependency>
-       <groupId>clulab.org</groupId>
+       <groupId>org.clulab</groupId>
        <artifactId>reach_2.11</artifactId>
-       <version>1.2.1</version>
+       <version>1.2.2</version>
     </dependency>
 
  The equivalent SBT dependencies are:
 
     libraryDependencies ++= Seq(
-        "clulab.org" %% "reach" % "1.2.1"
+        "org.clulab" %% "reach" % "1.2.2"
     )
 
 # How to compile the source code
@@ -89,7 +90,7 @@ will run the system using the `.conf` file under `src/main/resources/application
 
 ## Running the interactive Reach shell for rule debugging
 
-`sbt "runMain runMain edu.arizona.sista.reach.ReachShell"`
+`sbt "runMain edu.arizona.sista.reach.ReachShell"`
 
 enter `:help` to get a list of available commands.
 

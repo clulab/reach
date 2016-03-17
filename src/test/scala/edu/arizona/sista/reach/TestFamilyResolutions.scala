@@ -1,18 +1,35 @@
 package edu.arizona.sista.reach
 
+import scala.util.Try
+
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
+
+import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
 import edu.arizona.sista.reach.grounding.ReachKBConstants._
+import edu.arizona.sista.reach.grounding.ReachKBUtils._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for new/refactored resolves.
+  *   Last Modified: Comment out debugging output in TestFamilyResolutions.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
   val imkbPF = new TestProtFamKBL           // defined after this class (LOOK BELOW)
+
+  "FamilyKBL" should "should be marked as family grounded but not protein grounded" in {
+    val txtU = "PTHR21244 is cool."
+    val menU = getBioMentions(txtU).head
+    val txtL = "pthr21244 is also cool."
+    val menL = getBioMentions(txtL).head
+
+    (isFamilyGrounded(menU)) should be (true)
+    (isFamilyGrounded(menL)) should be (true)
+    (isProteinGrounded(menU)) should be (false)
+    (isProteinGrounded(menL)) should be (false)
+  }
 
   // this KB is a protein Family, therefore resolves using protein transforms should fail:
   "FamilyKBL resolve" should "fail despite alternate family lookups" in {
@@ -188,7 +205,8 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
 // Protein family KB using alternate protein resolutions
 class TestProtFamKBL extends IMKBFamilyLookup {
-  val memoryKB = new InMemoryKB(
-    new KBMetaInfo("http://identifiers.org/interpro/", "interpro", "MIR:00000011"),
-                   StaticProteinFamilyFilename, true)  // true = has species
+  val meta = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
+  meta.put("family", "true")                // mark as from a protein family KB
+  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true, meta)
+  // println(s"IMKB.metaInfo=${memoryKB.metaInfo}")
 }

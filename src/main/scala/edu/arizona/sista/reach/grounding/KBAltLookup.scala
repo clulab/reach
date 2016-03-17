@@ -4,7 +4,7 @@ package edu.arizona.sista.reach.grounding
   * Trait for simple and species-specific string lookup in local knowledge bases
   * using alternate key resolutions.
   *   Written by Tom Hicks. 11/15/2015.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Redo to return resolution sequences.
   */
 trait KBAltLookup extends Speciated with KBKeyTransforms {
 
@@ -14,7 +14,7 @@ trait KBAltLookup extends Speciated with KBKeyTransforms {
     * Return a resolution for the entry, if any found.
     * NB: This is an abstract method, to be overridden by each child class.
     */
-  def resolveAlt (text:String, transforms:KeyTransforms): Option[KBResolution]
+  def resolveAlt (text:String, transforms:KeyTransforms): Resolutions
 
   /** Resolve the given text string to an optional entry in a knowledge base,
     * for the single named species.
@@ -24,7 +24,7 @@ trait KBAltLookup extends Speciated with KBKeyTransforms {
     * NB: This is an abstract method, to be overridden by each child class.
     */
   def resolveByASpeciesAlt (text:String, species:String,
-                            transforms:KeyTransforms): Option[KBResolution]
+                            transforms:KeyTransforms): Resolutions
 
   /** Resolve the given text string to an optional group of entries in a knowledge base,
     * returning resolutions for all species entries found in the KB.
@@ -33,7 +33,7 @@ trait KBAltLookup extends Speciated with KBKeyTransforms {
     * NB: This is an abstract method, to be overridden by each child class.
     */
   def resolveBySpeciesAlt (text:String, speciesSet:SpeciesNameSet,
-                           transforms:KeyTransforms): Option[Iterable[KBResolution]]
+                           transforms:KeyTransforms): Resolutions
 
   /** Resolve the given text string to an optional entry in a knowledge base,
     * failing if the entry is not for humans.
@@ -42,7 +42,7 @@ trait KBAltLookup extends Speciated with KBKeyTransforms {
     * Return a resolution for a human entry, if any found.
     * NB: This is an abstract method, to be overridden by each child class.
     */
-  def resolveHumanAlt (text:String, transforms:KeyTransforms): Option[KBResolution]
+  def resolveHumanAlt (text:String, transforms:KeyTransforms): Resolutions
 
   /** Resolve the given text string to an optional entry in a knowledge base which
     * explicitly does not have an associated species. Fail if all entries have species.
@@ -51,5 +51,5 @@ trait KBAltLookup extends Speciated with KBKeyTransforms {
     * Return a resolution for the entry, if any found.
     * NB: This is an abstract method, to be overridden by each child class.
     */
-  def resolveNoSpeciesAlt (text:String, transforms:KeyTransforms): Option[KBResolution]
+  def resolveNoSpeciesAlt (text:String, transforms:KeyTransforms): Resolutions
 }

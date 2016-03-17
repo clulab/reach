@@ -12,6 +12,7 @@ class TestModifications extends FlatSpec with Matchers {
   val chunkId = "1"
 
   // Ubiquitinated
+  val ubiquitinationLabel = "Ubiquitination"
   val ubiqJJ = "The ubiquitinated Ras binds AKT and ASPP2."
   val ubiqJJWithSite = "The ubiquitinated Ras at Ser16 binds AKT and ASPP2."
   val ubiqJJIntercedingWithSite = "The ubiquitinated Ras protein at Ser16 binds AKT and ASPP2."
@@ -19,6 +20,7 @@ class TestModifications extends FlatSpec with Matchers {
   val ubiqVBNWithSite = "Ubiquitinated Ras at Ser16 binds AKT and ASPP2."
   val ubiqVBNIntercedingWithSite = "Ubiquitinated Ras proteins at Ser16 binds AKT and ASPP2."
   // Phosphorylated
+  val phosphorylationLabel = "Phosphorylation"
   val phosJJ = "The phosphorylated Ras binds AKT and ASPP2."
   val phosJJWithSite = "The phosphorylated Ras at Ser16 binds AKT and ASPP2."
   val phosJJIntercedingWithSite = "The phosphorylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -26,6 +28,7 @@ class TestModifications extends FlatSpec with Matchers {
   val phosVBNWithSite = "Phosphorylated Ras at Ser16 binds AKT and ASPP2."
   val phosVBNIntercedingWithSite = "Phosphorylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Farnesylated
+  val farnesylationLabel= "Farnesylation"
   val farneJJ = "The farnesylated Ras binds AKT and ASPP2."
   val farneJJWithSite = "The farnesylated Ras at Ser16 binds AKT and ASPP2."
   val farneJJIntercedingWithSite = "The farnesylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -33,6 +36,7 @@ class TestModifications extends FlatSpec with Matchers {
   val farneVBNWithSite = "Farnesylated Ras at Ser16 binds AKT and ASPP2."
   val farneVBNIntercedingWithSite = "Farnesylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Ribosylated
+  val ribosylationLabel = "Ribosylation"
   val riboJJ = "The ribosylated Ras binds AKT and ASPP2."
   val riboJJWithSite = "The ribosylated Ras at Ser16 binds AKT and ASPP2."
   val riboJJIntercedingWithSite = "The ribosylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -40,6 +44,7 @@ class TestModifications extends FlatSpec with Matchers {
   val riboVBNWithSite = "Ribosylated Ras at Ser16 binds AKT and ASPP2."
   val riboVBNIntercedingWithSite = "Ribosylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Hydroxylated
+  val hydroxylationLabel = "Hydroxylation"
   val hydroxJJ = "The hydroxylated Ras binds AKT and ASPP2."
   val hydroxJJWithSite = "The hydroxylated Ras at Ser16 binds AKT and ASPP2."
   val hydroxJJIntercedingWithSite = "The hydroxylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -47,6 +52,7 @@ class TestModifications extends FlatSpec with Matchers {
   val hydroxVBNWithSite = "Hydroxylated Ras at Ser16 binds AKT and ASPP2."
   val hydroxVBNIntercedingWithSite = "Hydroxylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Acetylated
+  val acetylationLabel = "Acetylation"
   val aceJJ = "The acetylated Ras binds AKT and ASPP2."
   val aceJJWithSite = "The acetylated Ras at Ser16 binds AKT and ASPP2."
   val aceJJIntercedingWithSite = "The acetylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -54,6 +60,7 @@ class TestModifications extends FlatSpec with Matchers {
   val aceVBNWithSite = "Acetylated Ras at Ser16 binds AKT and ASPP2."
   val aceVBNIntercedingWithSite = "Acetylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Glycosylated
+  val glycosylationLabel = "Glycosylation"
   val glycoJJ = "The glycosylated Ras binds AKT and ASPP2."
   val glycoJJWithSite = "The glycosylated Ras at Ser16 binds AKT and ASPP2."
   val glycoJJIntercedingWithSite = "The glycosylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -61,6 +68,7 @@ class TestModifications extends FlatSpec with Matchers {
   val glycoVBNWithSite = "Glycosylated Ras at Ser16 binds AKT and ASPP2."
   val glycoVBNIntercedingWithSite = "Glycosylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Methylated
+  val methylationLabel = "Methylation"
   val methJJ = "The methylated Ras binds AKT and ASPP2."
   val methJJWithSite = "The methylated Ras at Ser16 binds AKT and ASPP2."
   val methJJIntercedingWithSite = "The methylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -68,6 +76,7 @@ class TestModifications extends FlatSpec with Matchers {
   val methVBNWithSite = "Methylated Ras at Ser16 binds AKT and ASPP2."
   val methVBNIntercedingWithSite = "Methylated Ras proteins at Ser16 binds AKT and ASPP2."
   // Sumoylated
+  val sumosylationLabel = "Sumoylation"
   val sumoJJ = "The sumoylated Ras binds AKT and ASPP2."
   val sumoJJWithSite = "The sumoylated Ras at Ser16 binds AKT and ASPP2."
   val sumoJJIntercedingWithSite = "The sumoylated Ras protein at Ser16 binds AKT and ASPP2."
@@ -82,7 +91,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
   ubiqVBN should "contain a ubiq PTM" in {
     val doc = testReach.mkDoc(ubiqVBN, docId, chunkId)
@@ -91,7 +100,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
   ubiqJJWithSite should "contain a ubiq PTM with a site" in {
     val doc = testReach.mkDoc(ubiqJJWithSite, docId, chunkId)
@@ -100,7 +109,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
   ubiqJJIntercedingWithSite should "contain a ubiq PTM with a site" in {
     val doc = testReach.mkDoc(ubiqJJIntercedingWithSite, docId, chunkId)
@@ -109,7 +118,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
   ubiqVBNWithSite should "contain a ubiq PTM with a site" in {
     val doc = testReach.mkDoc(ubiqVBNWithSite, docId, chunkId)
@@ -118,7 +127,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
   ubiqVBNIntercedingWithSite should "contain a ubiq PTM with a site" in {
     val doc = testReach.mkDoc(ubiqVBNIntercedingWithSite, docId, chunkId)
@@ -127,7 +136,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
 
   phosJJ should "contain a phos PTM" in {
@@ -137,7 +146,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "phosphorylated" should be (true)
+    ptm.label == phosphorylationLabel should be (true)
   }
   phosVBN should "contain a phos PTM" in {
     val doc = testReach.mkDoc(phosVBN, docId, chunkId)
@@ -146,7 +155,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "phosphorylated" should be (true)
+    ptm.label == phosphorylationLabel should be (true)
   }
   phosJJWithSite should "contain a phos PTM with a site" in {
     val doc = testReach.mkDoc(phosJJWithSite, docId, chunkId)
@@ -155,7 +164,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "phosphorylated" should be (true)
+    ptm.label == phosphorylationLabel should be (true)
   }
   phosJJIntercedingWithSite should "contain a phos PTM with a site" in {
     val doc = testReach.mkDoc(phosJJIntercedingWithSite, docId, chunkId)
@@ -164,7 +173,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "phosphorylated" should be (true)
+    ptm.label == phosphorylationLabel should be (true)
   }
   phosVBNWithSite should "contain a phos PTM with a site" in {
     val doc = testReach.mkDoc(phosVBNWithSite, docId, chunkId)
@@ -173,7 +182,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "phosphorylated" should be (true)
+    ptm.label == phosphorylationLabel should be (true)
   }
   phosVBNIntercedingWithSite should "contain a phos PTM with a site" in {
     val doc = testReach.mkDoc(phosVBNIntercedingWithSite, docId, chunkId)
@@ -182,7 +191,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "phosphorylated" should be (true)
+    ptm.label == phosphorylationLabel should be (true)
   }
 
   farneJJ should "contain a farne PTM" in {
@@ -192,7 +201,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "farnesylated" should be (true)
+    ptm.label == farnesylationLabel should be (true)
   }
   farneVBN should "contain a farne PTM" in {
     val doc = testReach.mkDoc(farneVBN, docId, chunkId)
@@ -201,7 +210,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "farnesylated" should be (true)
+    ptm.label == farnesylationLabel should be (true)
   }
   farneJJWithSite should "contain a farne PTM with a site" in {
     val doc = testReach.mkDoc(farneJJWithSite, docId, chunkId)
@@ -210,7 +219,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "farnesylated" should be (true)
+    ptm.label == farnesylationLabel should be (true)
   }
   farneJJIntercedingWithSite should "contain a farne PTM with a site" in {
     val doc = testReach.mkDoc(farneJJIntercedingWithSite, docId, chunkId)
@@ -219,7 +228,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "farnesylated" should be (true)
+    ptm.label == farnesylationLabel should be (true)
   }
   farneVBNWithSite should "contain a farne PTM with a site" in {
     val doc = testReach.mkDoc(farneVBNWithSite, docId, chunkId)
@@ -228,7 +237,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "farnesylated" should be (true)
+    ptm.label == farnesylationLabel should be (true)
   }
   farneVBNIntercedingWithSite should "contain a farne PTM with a site" in {
     val doc = testReach.mkDoc(farneVBNIntercedingWithSite, docId, chunkId)
@@ -237,7 +246,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "farnesylated" should be (true)
+    ptm.label == farnesylationLabel should be (true)
   }
 
   riboJJ should "contain a ribo PTM" in {
@@ -247,7 +256,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ribosylated" should be (true)
+    ptm.label == ribosylationLabel should be (true)
   }
   riboVBN should "contain a ribo PTM" in {
     val doc = testReach.mkDoc(riboVBN, docId, chunkId)
@@ -256,7 +265,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ribosylated" should be (true)
+    ptm.label == ribosylationLabel should be (true)
   }
   riboJJWithSite should "contain a ribo PTM with a site" in {
     val doc = testReach.mkDoc(riboJJWithSite, docId, chunkId)
@@ -265,7 +274,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ribosylated" should be (true)
+    ptm.label == ribosylationLabel should be (true)
   }
   riboJJIntercedingWithSite should "contain a ribo PTM with a site" in {
     val doc = testReach.mkDoc(riboJJIntercedingWithSite, docId, chunkId)
@@ -274,7 +283,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ribosylated" should be (true)
+    ptm.label == ribosylationLabel should be (true)
   }
   riboVBNWithSite should "contain a ribo PTM with a site" in {
     val doc = testReach.mkDoc(riboVBNWithSite, docId, chunkId)
@@ -283,7 +292,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ribosylated" should be (true)
+    ptm.label == ribosylationLabel should be (true)
   }
   riboVBNIntercedingWithSite should "contain a ribo PTM with a site" in {
     val doc = testReach.mkDoc(riboVBNIntercedingWithSite, docId, chunkId)
@@ -292,7 +301,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ribosylated" should be (true)
+    ptm.label == ribosylationLabel should be (true)
   }
 
   hydroxJJ should "contain a hydrox PTM" in {
@@ -302,7 +311,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "hydroxylated" should be (true)
+    ptm.label == hydroxylationLabel should be (true)
   }
   hydroxVBN should "contain a hydrox PTM" in {
     val doc = testReach.mkDoc(hydroxVBN, docId, chunkId)
@@ -311,7 +320,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "hydroxylated" should be (true)
+    ptm.label == hydroxylationLabel should be (true)
   }
   hydroxJJWithSite should "contain a hydrox PTM with a site" in {
     val doc = testReach.mkDoc(hydroxJJWithSite, docId, chunkId)
@@ -320,7 +329,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "hydroxylated" should be (true)
+    ptm.label == hydroxylationLabel should be (true)
   }
   hydroxJJIntercedingWithSite should "contain a hydrox PTM with a site" in {
     val doc = testReach.mkDoc(hydroxJJIntercedingWithSite, docId, chunkId)
@@ -329,7 +338,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "hydroxylated" should be (true)
+    ptm.label == hydroxylationLabel should be (true)
   }
   hydroxVBNWithSite should "contain a hydrox PTM with a site" in {
     val doc = testReach.mkDoc(hydroxVBNWithSite, docId, chunkId)
@@ -338,7 +347,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "hydroxylated" should be (true)
+    ptm.label == hydroxylationLabel should be (true)
   }
   hydroxVBNIntercedingWithSite should "contain a hydrox PTM with a site" in {
     val doc = testReach.mkDoc(hydroxVBNIntercedingWithSite, docId, chunkId)
@@ -347,7 +356,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "hydroxylated" should be (true)
+    ptm.label == hydroxylationLabel should be (true)
   }
 
   aceJJ should "contain a ace PTM" in {
@@ -357,7 +366,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "acetylated" should be (true)
+    ptm.label == acetylationLabel should be (true)
   }
   aceVBN should "contain a ace PTM" in {
     val doc = testReach.mkDoc(aceVBN, docId, chunkId)
@@ -366,7 +375,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "acetylated" should be (true)
+    ptm.label == acetylationLabel should be (true)
   }
   aceJJWithSite should "contain a ace PTM with a site" in {
     val doc = testReach.mkDoc(aceJJWithSite, docId, chunkId)
@@ -375,7 +384,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "acetylated" should be (true)
+    ptm.label == acetylationLabel should be (true)
   }
   aceJJIntercedingWithSite should "contain a ace PTM with a site" in {
     val doc = testReach.mkDoc(aceJJIntercedingWithSite, docId, chunkId)
@@ -384,7 +393,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "acetylated" should be (true)
+    ptm.label == acetylationLabel should be (true)
   }
   aceVBNWithSite should "contain a ace PTM with a site" in {
     val doc = testReach.mkDoc(aceVBNWithSite, docId, chunkId)
@@ -393,7 +402,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "acetylated" should be (true)
+    ptm.label == acetylationLabel should be (true)
   }
   aceVBNIntercedingWithSite should "contain a ace PTM with a site" in {
     val doc = testReach.mkDoc(aceVBNIntercedingWithSite, docId, chunkId)
@@ -402,7 +411,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "acetylated" should be (true)
+    ptm.label == acetylationLabel should be (true)
   }
 
   glycoJJ should "contain a glyco PTM" in {
@@ -412,7 +421,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "glycosylated" should be (true)
+    ptm.label == glycosylationLabel should be (true)
   }
   glycoVBN should "contain a glyco PTM" in {
     val doc = testReach.mkDoc(glycoVBN, docId, chunkId)
@@ -421,7 +430,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "glycosylated" should be (true)
+    ptm.label == glycosylationLabel should be (true)
   }
   glycoJJWithSite should "contain a glyco PTM with a site" in {
     val doc = testReach.mkDoc(glycoJJWithSite, docId, chunkId)
@@ -430,7 +439,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "glycosylated" should be (true)
+    ptm.label == glycosylationLabel should be (true)
   }
   glycoJJIntercedingWithSite should "contain a glyco PTM with a site" in {
     val doc = testReach.mkDoc(glycoJJIntercedingWithSite, docId, chunkId)
@@ -439,7 +448,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "glycosylated" should be (true)
+    ptm.label == glycosylationLabel should be (true)
   }
   glycoVBNWithSite should "contain a glyco PTM with a site" in {
     val doc = testReach.mkDoc(glycoVBNWithSite, docId, chunkId)
@@ -448,7 +457,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "glycosylated" should be (true)
+    ptm.label == glycosylationLabel should be (true)
   }
   glycoVBNIntercedingWithSite should "contain a glyco PTM with a site" in {
     val doc = testReach.mkDoc(glycoVBNIntercedingWithSite, docId, chunkId)
@@ -457,7 +466,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "glycosylated" should be (true)
+    ptm.label == glycosylationLabel should be (true)
   }
 
   methJJ should "contain a meth PTM" in {
@@ -467,7 +476,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "methylated" should be (true)
+    ptm.label == methylationLabel should be (true)
   }
   methVBN should "contain a meth PTM" in {
     val doc = testReach.mkDoc(methVBN, docId, chunkId)
@@ -476,7 +485,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "methylated" should be (true)
+    ptm.label == methylationLabel should be (true)
   }
   methJJWithSite should "contain a meth PTM with a site" in {
     val doc = testReach.mkDoc(methJJWithSite, docId, chunkId)
@@ -485,7 +494,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "methylated" should be (true)
+    ptm.label == methylationLabel should be (true)
   }
   methJJIntercedingWithSite should "contain a meth PTM with a site" in {
     val doc = testReach.mkDoc(methJJIntercedingWithSite, docId, chunkId)
@@ -494,7 +503,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "methylated" should be (true)
+    ptm.label == methylationLabel should be (true)
   }
   methVBNWithSite should "contain a meth PTM with a site" in {
     val doc = testReach.mkDoc(methVBNWithSite, docId, chunkId)
@@ -503,7 +512,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "methylated" should be (true)
+    ptm.label == methylationLabel should be (true)
   }
   methVBNIntercedingWithSite should "contain a meth PTM with a site" in {
     val doc = testReach.mkDoc(methVBNIntercedingWithSite, docId, chunkId)
@@ -512,7 +521,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "methylated" should be (true)
+    ptm.label == methylationLabel should be (true)
   }
 
   sumoJJ should "contain a sumo PTM" in {
@@ -522,7 +531,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "sumoylated" should be (true)
+    ptm.label == sumosylationLabel should be (true)
   }
   sumoVBN should "contain a sumo PTM" in {
     val doc = testReach.mkDoc(sumoVBN, docId, chunkId)
@@ -531,7 +540,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "sumoylated" should be (true)
+    ptm.label == sumosylationLabel should be (true)
   }
   sumoJJWithSite should "contain a sumo PTM with a site" in {
     val doc = testReach.mkDoc(sumoJJWithSite, docId, chunkId)
@@ -540,7 +549,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "sumoylated" should be (true)
+    ptm.label == sumosylationLabel should be (true)
   }
   sumoJJIntercedingWithSite should "contain a sumo PTM with a site" in {
     val doc = testReach.mkDoc(sumoJJIntercedingWithSite, docId, chunkId)
@@ -549,7 +558,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "sumoylated" should be (true)
+    ptm.label == sumosylationLabel should be (true)
   }
   sumoVBNWithSite should "contain a sumo PTM with a site" in {
     val doc = testReach.mkDoc(sumoVBNWithSite, docId, chunkId)
@@ -558,7 +567,7 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "sumoylated" should be (true)
+    ptm.label == sumosylationLabel should be (true)
   }
   sumoVBNIntercedingWithSite should "contain a sumo PTM with a site" in {
     val doc = testReach.mkDoc(sumoVBNIntercedingWithSite, docId, chunkId)
@@ -567,20 +576,19 @@ class TestModifications extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "sumoylated" should be (true)
+    ptm.label == sumosylationLabel should be (true)
   }
 
   val sent1 = "The phosphorylated AKT binds to ASPP2."
   val sent1b = "The ubiquitinated AKT binds to ASPP2."
   "ReachSystem" should "not find a PTMs as events" in {
-    // TODO: Both fail! (DANE + MARCO)
-    var mentions = parseSentence(sent1)
-    val p = mentions.find(_ matches "Phosphorylation") // Dane: this is a PTM not an event!
+    var mentions = getBioMentions(sent1)
+    val p = mentions.find(_ matches "Phosphorylation")
     p.isDefined should be (false) // Dane
-    var b = mentions.find(_ matches "Binding") // Marco: why does this fail??
+    var b = mentions.find(_ matches "Binding")
     b.isDefined should be (true) // Marco
 
-    mentions = parseSentence(sent1b)
+    mentions = getBioMentions(sent1b)
     val u = mentions.find(_ matches "Ubiquitination")
     u.isDefined should be (false)
     b = mentions.find(_ matches "Binding")
@@ -649,7 +657,7 @@ class TestModifications extends FlatSpec with Matchers {
     // there is only one PTM in the example text
     ras.get.modifications.size == 1 should be (true)
     val ptm = ras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
 
   val sent8 = "Ras does not phosphorylate Mek"
@@ -669,7 +677,7 @@ class TestModifications extends FlatSpec with Matchers {
   val sent9 = "The phosphorylated p53 by ASPP2 is doing something..."
   // this is not a PTM! It is an event with a cause
   sent9 should "contain 1 phosphorylation and 1 regulation event" in {
-    val mentions = parseSentence(sent9)
+    val mentions = getBioMentions(sent9)
     hasEventWithArguments("Phosphorylation", List("p53"), mentions) should be (true)
     hasPositiveRegulationByEntity("ASPP2", "Phosphorylation", List("p53"), mentions) should be (true)
   }
@@ -679,7 +687,7 @@ class TestModifications extends FlatSpec with Matchers {
   //
   val sent10 = "Note that only K650M and K650E-FGFR3 mutants cause STAT1 phosphorylation"
   sent10 should "have 2 mutations for FGFR3" in {
-    val mentions = parseSentence(sent10)
+    val mentions = getBioMentions(sent10)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (2)
     fgfr(0).countMutations should be (1)
@@ -691,7 +699,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent11 = "Note that only FGFR3 K650M causes STAT1 phosphorylation"
   sent11 should "have 1 mutation for FGFR3" in {
-    val mentions = parseSentence(sent11)
+    val mentions = getBioMentions(sent11)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (1)
     fgfr.head.countMutations should be (1)
@@ -699,7 +707,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent12 = "Note that only the K650M-FGFR3 mutant causes STAT1 phosphorylation"
   sent12 should "have 1 mutation for FGFR3" in {
-    val mentions = parseSentence(sent12)
+    val mentions = getBioMentions(sent12)
     val fgfr = mentions.filter(m => (m.text contains "FGFR3") && m.isInstanceOf[BioTextBoundMention])
     fgfr should have size (1)
     fgfr.head.hasMutation("K650M") should be (true)
@@ -707,7 +715,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent13 = "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
   sent13 should "not contain a ubiquitination event (this is a PTM)" in {
-    val mentions = parseSentence(sent13)
+    val mentions = getBioMentions(sent13)
     mentions.count(_ matches "Ubiquitination") should be (0)
     hasEventWithArguments("Ubiquitination", List("K-Ras"), mentions) should be (false)
     val kras = mentions.find(_.text contains "K-Ras")
@@ -715,7 +723,7 @@ class TestModifications extends FlatSpec with Matchers {
     // there is only one PTM in the example text
     kras.get.modifications.size == 1 should be (true)
     val ptm = kras.get.modifications.head
-    ptm.label == "ubiquitinated" should be (true)
+    ptm.label == ubiquitinationLabel should be (true)
   }
 
   //
@@ -723,7 +731,7 @@ class TestModifications extends FlatSpec with Matchers {
   //
   val sent14 = "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   sent14 should "contain 2 phosphorylations (one for each ERK mutation) and 2 Positive Regulations" in {
-    val mentions = parseSentence(sent14)
+    val mentions = getBioMentions(sent14)
 
     // We have one phosphorylation per Site
     val phosphos = mentions.filter(_ matches "Phosphorylation")
@@ -742,7 +750,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent15 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
   sent15 should "contain 2 Positive Regulations NOT Activations (1 for each ERK mutation)" in {
-    val mentions = parseSentence(sent15)
+    val mentions = getBioMentions(sent15)
 
     // We have 1 Reg per ERK mutant
     val regs = mentions.filter(_ matches "Positive_regulation")
@@ -751,7 +759,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val sent16 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
   sent16 should "contain 2 Positive Regulations NOT Activations (1 for each ERK mutation)" in {
-    val mentions = parseSentence(sent16)
+    val mentions = getBioMentions(sent16)
 
     // We have 1 Reg per ERK mutant
     val regs = mentions.filter(_ matches "Positive_regulation")
@@ -761,7 +769,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val siteTest1 = "activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
   siteTest1 should "contain 2 sites (distinct phosphorylations)" in {
-    val mentions = parseSentence(siteTest1)
+    val mentions = getBioMentions(siteTest1)
 
     // We have one phosphorylation per Site
     val phosphos = mentions.filter(_ matches "Phosphorylation")
@@ -777,14 +785,14 @@ class TestModifications extends FlatSpec with Matchers {
 
   val siteTest2 = "Ser56 RAS"
   siteTest2 should "contain 2 entities (1 Site)" in {
-    val mentions = parseSentence(siteTest2)
+    val mentions = getBioMentions(siteTest2)
     mentions should have size (2)
     mentions.count(_ matches "Site") should be (1)
   }
 
   val mutantTest1 = "all six FGFR3 mutants induced activatory ERK(K156M/H204M) phosphorylation (Fig. 2)."
   mutantTest1 should "contain 2 mutations for ERK and 1 for FGFR3" in {
-    val mentions = parseSentence(mutantTest1)
+    val mentions = getBioMentions(mutantTest1)
 
     val fgfr = mentions filter(_.text == "FGFR3")
     fgfr should have size (1)
@@ -802,7 +810,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest2 = "all six FGFR3 mutants induced activatory ERK(K156M, H204M) phosphorylation (Fig. 2)."
   mutantTest2 should "contain 2 mutations for ERK and 1 for FGFR3" in {
-    val mentions = parseSentence(mutantTest2)
+    val mentions = getBioMentions(mutantTest2)
 
     val fgfr = mentions filter(_.text == "FGFR3")
     fgfr should have size (1)
@@ -820,7 +828,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest3 = "MEK R567Q"
   mutantTest3 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest3)
+    val mentions = getBioMentions(mutantTest3)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "R567Q" should be (true)
@@ -828,7 +836,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest4 = "MEK mutant R567Q"
   mutantTest4 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest4)
+    val mentions = getBioMentions(mutantTest4)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "R567Q" should be (true)
@@ -836,7 +844,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest5 = "MEK (R678Q, G890K)"
   mutantTest5 should "contain 1 entity with 2 Mutant modification" in {
-    val mentions = parseSentence(mutantTest5)
+    val mentions = getBioMentions(mutantTest5)
     mentions should have size (2)
     mentions(0).countMutations should be (1)
     mentions(1).countMutations should be (1)
@@ -847,7 +855,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest6 = "K111M and K112M ASPP1 mutants and ASPP2"
   mutantTest6 should "countain 2 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest6)
+    val mentions = getBioMentions(mutantTest6)
     mentions should have size (3)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (2)
@@ -864,7 +872,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest7 = "K111M, K112M, and K113M ASPP1 mutants and ASPP2"
   mutantTest7 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest7)
+    val mentions = getBioMentions(mutantTest7)
     mentions should have size (4)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -883,7 +891,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest8 = "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
   mutantTest8 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest8)
+    val mentions = getBioMentions(mutantTest8)
     mentions should have size (4)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -902,7 +910,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest9 = "Ser785His mutant RAS"
   mutantTest9 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest9)
+    val mentions = getBioMentions(mutantTest9)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -910,7 +918,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest10 = "Ser785His RAS"
   mutantTest10 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest10)
+    val mentions = getBioMentions(mutantTest10)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -918,7 +926,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest11 = "Ser785His mutant of RAS"
   mutantTest11 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest11)
+    val mentions = getBioMentions(mutantTest11)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -926,7 +934,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest12 = "K111M, K112M, and K113M mutants of ASPP1 and the RAS complex are phosphorylated."
   mutantTest12 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest12)
+    val mentions = getBioMentions(mutantTest12)
     mentions should have size (8)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -945,7 +953,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest13 = "Ser785His mutation of RAS"
   mutantTest13 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest13)
+    val mentions = getBioMentions(mutantTest13)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Ser785His" should be (true)
@@ -953,7 +961,7 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest14 = "K111M, K112M, and K113M mutations of ASPP1 and the RAS complex are phosphorylated."
   mutantTest14 should "countain 3 ASPP1 with 1 Mutant each and ASPP2 with 0 Mutant mods" in {
-    val mentions = parseSentence(mutantTest14)
+    val mentions = getBioMentions(mutantTest14)
     mentions should have size (8)
     val asppOne = mentions filter (_.text == "ASPP1")
     asppOne should have size (3)
@@ -972,17 +980,96 @@ class TestModifications extends FlatSpec with Matchers {
 
   val mutantTest15 = "Mutation of the PIK3CA gene"
   mutantTest15 should "contain 1 entity with 1 Mutant modification" in {
-    val mentions = parseSentence(mutantTest15)
+    val mentions = getBioMentions(mutantTest15)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
     mentions.head hasMutation "Mutation" should be (true)
   }
 
+  val mutantTest16 = "We used a substitution mutant of Raf (76A>T)"
+  mutantTest16 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest16)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("76A>T", "SubstitutionMutant") should be (true)
+  }
+
+  val mutantTest17 = "We used a deletion mutant of Raf (ΔF508)"
+  mutantTest17 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest17)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("DeltaF508", "DeletionMutant") should be (true)
+  }
+
+  val mutantTest18a = "We used a deletion mutant of Raf (K29del)"
+  val mutantTest18b = "We used a deletion mutant of Raf (29delK)"
+  val mutantTest18c = "We used a deletion mutant of Raf (M27_K29del)"
+  val mutantTest18d = "We used a deletion mutant of Raf (27_29del)"
+  mutantTest18a should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18a)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("K29del", "DeletionMutant") should be (true)
+  }
+  mutantTest18b should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18b)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("29delK", "DeletionMutant") should be (true)
+  }
+  mutantTest18c should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18c)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("M27_K29del", "DeletionMutant") should be (true)
+  }
+  mutantTest18d should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest18d)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("27_29del", "DeletionMutant") should be (true)
+  }
+
+  val mutantTest19 = "We used an insertion mutant of Raf (K29_M30insQSK)"
+  mutantTest19 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest19)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("K29_M30insQSK", "InsertionMutant") should be (true)
+  }
+
+  val mutantTest20 = "We used a duplication mutant of Raf (G31_Q33dup)"
+  mutantTest20 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest20)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("G31_Q33dup", "DuplicationMutant") should be (true)
+  }
+
+  val mutantTest21 = "We used a frameshift mutant of Raf (Arg83fs)"
+  mutantTest21 should "contain 1 entity with 1 Mutant modification" in {
+    val mentions = getBioMentions(mutantTest21)
+    mentions should have size (1)
+    mentions.head.countMutations should be (1)
+    mentions.head hasMutation ("Arg83fs", "FrameshiftMutant") should be (true)
+  }
+
   val siteTest3 = "Phosphorylation (p) of Akt (Ser-473), mTOR (Ser 2448) and Rictor (Ser 792) was quantified."
   siteTest2 should "contain 3 Sites" in {
-    val mentions = parseSentence(siteTest3)
+    val mentions = getBioMentions(siteTest3)
     val sites = mentions.filter(_ matches "Site")
     sites should have size (3)
     sites.exists(_.text contains "Ser-473") should be (true)
+  }
+
+  val siteTest4 = "Phosphorylation of Akt (S473M) was attenuated."
+  siteTest4 should "not contain any sites" in {
+    val mentions = getBioMentions(siteTest4)
+    val sites = mentions.filter(_ matches "Site")
+    sites should have size (0)
+    val akt = mentions filter (_.text == "Akt")
+    akt should have size (1)
+    akt.head.countMutations should be (1)
   }
 }

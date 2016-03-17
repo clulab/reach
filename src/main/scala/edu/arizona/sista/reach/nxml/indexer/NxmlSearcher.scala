@@ -33,32 +33,53 @@ class NxmlSearcher(val indexDir:String) {
 
   def close() = reader.close()
 
-  def docs(ids:Set[Int]):Set[Document] = {
-    val ds = new mutable.HashSet[Document]()
-    for(id <- ids) ds += searcher.doc(id)
+  def docs(ids:Set[(Int, Float)]):Set[(Document, Float)] = {
+    val ds = new mutable.HashSet[(Document, Float)]()
+    for(id <- ids) {
+      ds += new Tuple2(searcher.doc(id._1), id._2)
+    }
     ds.toSet
   }
 
-  def saveIds(docs:Set[Document]): Unit = {
+  def saveIds(docs:Set[(Document, Float)]): Unit = {
     val os = new PrintWriter(new FileWriter("ids.txt"))
     for(doc <- docs) {
-      val id = doc.get("id")
+      val id = doc._1.get("id")
       os.println(id)
     }
     os.close()
   }
 
-  def saveNxml(resultDir:String, docs:Set[Document]): Unit = {
-    for(doc <- docs) {
-      val id = doc.get("id")
-      val nxml = doc.get("nxml")
+  def saveNxml(resultDir:String, docs:Set[(Document, Float)], howManyToSave:Int = 0): Unit = {
+    val docSeq = if (howManyToSave > 0) {
+      docs.toSeq.sortBy(-_._2).take(howManyToSave)
+    } else {
+      docs.toSeq.sortBy(-_._2)
+    }
+    for(doc <- docSeq) {
+      val id = doc._1.get("id")
+      val nxml = doc._1.get("nxml")
       val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
       os.print(nxml)
       os.close()
     }
   }
 
-  def search(query:String, totalHits:Int = TOTAL_HITS):Set[Int] = {
+  def saveDocs(resultDir:String, docIds:Set[(Int, Float)]): Unit = {
+    val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
+    for(docId <- docIds) {
+      val doc = searcher.doc(docId._1)
+      val id = doc.get("id")
+      val nxml = doc.get("nxml")
+      val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
+      os.print(nxml)
+      os.close()
+      sos.println(s"$id\t${docId._2}")
+    }
+    sos.close()
+  }
+
+  def search(query:String, totalHits:Int = TOTAL_HITS):Set[(Int, Float)] = {
     searchByField(query, "text", new StandardAnalyzer(), totalHits)
   }
 
@@ -66,23 +87,36 @@ class NxmlSearcher(val indexDir:String) {
                     field:String,
                     analyzer:Analyzer,
                     totalHits:Int = TOTAL_HITS,
-                    verbose:Boolean = true):Set[Int] = {
+                    verbose:Boolean = true):Set[(Int, Float)] = {
     val q = new QueryParser(field, analyzer).parse(query)
     val collector = TopScoreDocCollector.create(totalHits)
     searcher.search(q, collector)
     val hits = collector.topDocs().scoreDocs
-    val results = new mutable.HashSet[Int]
+    val results = new mutable.HashSet[(Int, Float)]
     for(hit <- hits) {
       val docId = hit.doc
-      results += docId
+      val score = hit.score
+      results += new Tuple2(docId, score)
     }
     if(verbose) logger.debug(s"""Found ${results.size} results for query "$query"""")
     results.toSet
   }
 
-  def intersection(s1:Set[Int], s2:Set[Int]):Set[Int] = {
-    val result = new mutable.HashSet[Int]()
-    for(s <- s1) if(s2.contains(s)) result += s
+  def intersection(s1:Set[(Int, Float)], s2:Set[(Int, Float)]):Set[(Int, Float)] = {
+    val result = new mutable.HashSet[(Int, Float)]()
+    for(s <- s1) {
+      var found = false
+      var otherScore = 0.0.toFloat
+      for(o <- s2 if ! found) {
+        if(s._1 == o._1) {
+          found = true
+          otherScore = o._2
+        }
+      }
+      if(found) {
+        result += new Tuple2(s._1, s._2 + otherScore)
+      }
+    }
     result.toSet
   }
 
@@ -93,7 +127,7 @@ class NxmlSearcher(val indexDir:String) {
     result.toSet
   }
 
-  def countDocsContaining(eventDocs:Set[Int], token:String):Int = {
+  def countDocsContaining(eventDocs:Set[(Int, Float)], token:String):Int = {
     val query = "Ras AND " + token
     val result = intersection(eventDocs, search(query))
     result.size
@@ -104,12 +138,13 @@ class NxmlSearcher(val indexDir:String) {
     val result = intersection(eventDocs, search("Ras AND (ROS OR MAPK OR Raf/Mek/Erk OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR EGFR OR apoptosis OR autophagy OR proliferation OR p53 OR RB OR glycolysis OR exosomes OR RAGE OR HMGB1)"))
     logger.debug(s"The result contains ${result.size} documents.")
     val resultDocs = docs(result)
-    saveNxml(resultDir, resultDocs)
+    saveNxml(resultDir, resultDocs, 1000)
     saveIds(resultDocs)
 
     //
     // histogram of term distribution in docs
     //
+    /*
     logger.debug("Generating topic histogram...")
     val histoPoints = Array("ROS", "MAPK", "Raf/Mek/Erk", "Akt", "NfkB", "TGFb", "TGFbeta", "TGFb1", "TGFbeta1", "EGFR", "apoptosis", "autophagy", "proliferation", "p53", "RB", "glycolysis", "exosomes", "RAGE", "HMGB1")
     val histoValues = new ArrayBuffer[(String, Int)]()
@@ -121,11 +156,28 @@ class NxmlSearcher(val indexDir:String) {
       histoFile.println(s"${i._1}\t${i._2}")
     }
     histoFile.close()
+    */
+
+    logger.debug("Done.")
+  }
+
+  /** Finds all NXML that contain at least one biochemical interaction */
+  def useCase2(resultDir:String): Unit = {
+    val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
+    logger.debug("Done.")
+  }
+
+  def useCase3(resultDir:String): Unit = {
+    val eventDocs = search("children AND ((TNFAlpha AND nutrition) OR (inflammation AND stunting) OR (kcal AND inflammation) OR (protein AND inflammation) OR (nutrition AND inflammation))")
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
     logger.debug("Done.")
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
-    val result = new mutable.HashSet[Int]()
+    val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
       val docs = searchByField(id, "id", new WhitespaceAnalyzer, verbose = false)
       if(docs.isEmpty) {
@@ -145,7 +197,7 @@ class NxmlSearcher(val indexDir:String) {
 
 object NxmlSearcher {
   val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
-  val TOTAL_HITS = 200000
+  val TOTAL_HITS = 500000
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)

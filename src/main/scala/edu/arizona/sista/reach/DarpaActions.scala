@@ -2,7 +2,7 @@ package edu.arizona.sista.reach
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.struct.{ Interval, DirectedGraph }
+import edu.arizona.sista.struct.{ DirectedGraph }
 
 class DarpaActions extends Actions {
 
@@ -109,7 +109,7 @@ class DarpaActions extends Actions {
         val bioMention = m.arguments("entity").head.toBioMention
         val mutants = m.arguments("mutant")
         mutants foreach { mutant =>
-          bioMention.modifications += Mutant(evidence = mutant)
+          bioMention.modifications += Mutant(evidence = mutant, foundBy = m.foundBy)
         }
     }
     Nil
@@ -385,15 +385,15 @@ class DarpaActions extends Actions {
 
   /** retrieves the appropriate modification label */
   def getModificationLabel(text: String): String = text.toLowerCase match {
-    case string if string contains "acetylat" => "acetylated"
-    case string if string contains "farnesylat" => "farnesylated"
-    case string if string contains "glycosylat" => "glycosylated"
-    case string if string contains "hydroxylat" => "hydroxylated"
-    case string if string contains "methylat" => "methylated"
-    case string if string contains "phosphorylat" => "phosphorylated"
-    case string if string contains "ribosylat" => "ribosylated"
-    case string if string contains "sumoylat" => "sumoylated"
-    case string if string contains "ubiquitinat" => "ubiquitinated"
+    case string if string contains "acetylat" => "Acetylation"
+    case string if string contains "farnesylat" => "Farnesylation"
+    case string if string contains "glycosylat" => "Glycosylation"
+    case string if string contains "hydroxylat" => "Hydroxylation"
+    case string if string contains "methylat" => "Methylation"
+    case string if string contains "phosphorylat" => "Phosphorylation"
+    case string if string contains "ribosylat" => "Ribosylation"
+    case string if string contains "sumoylat" => "Sumoylation"
+    case string if string contains "ubiquitinat" => "Ubiquitination"
     case _ => "UNKNOWN"
   }
 
@@ -422,8 +422,10 @@ class DarpaActions extends Actions {
       val numNegatives = arguments.map(arg => countSemanticNegatives(trigger, arg, excluded)).sum
       if (numNegatives % 2 != 0) { // odd number of negatives
         val newLabels = flipLabel(m.labels.head) +: m.labels.tail
+        // trigger labels should match event labels
+        val newTrigger = m.trigger.copy(labels = newLabels)
         // return new mention with flipped label
-        new BioEventMention(newLabels, m.trigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
+        new BioEventMention(newLabels, newTrigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
       } else {
         m // return mention unmodified
       }
@@ -463,8 +465,6 @@ class DarpaActions extends Actions {
    * This is necessary so we can properly inspect the semantic negatives,
    *   which are often not in the path, but modify tokens in it,
    *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
-   * @param tokens
-   * @return
    */
   def addAdjectivalModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
     t <- tokens
@@ -486,9 +486,7 @@ class DarpaActions extends Actions {
 
 
   /** Test whether the given mention has a controller argument. */
-  def hasController(mention: Mention): Boolean = {
-    return mention.arguments.get("controlled").isDefined
-  }
+  def hasController(mention: Mention): Boolean = mention.arguments.get("controlled").isDefined
 
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
@@ -504,7 +502,7 @@ class DarpaActions extends Actions {
       val c1 = controlled.head.toBioMention
       val c2 = controller.head.toBioMention
       if (c1 == c2) false // they are the same mention
-      else (c1.xref, c2.xref) match {
+      else (c1.grounding, c2.grounding) match {
         // if they are grounded the grounding should be different
         case (Some(g1), Some(g2)) => g1 != g2
         case _ => true // seems like they are different
@@ -586,9 +584,9 @@ class DarpaActions extends Actions {
 
   /** Returns true if both mentions are grounded to the same entity */
   def sameEntityID(m1: BioMention, m2: BioMention): Boolean = {
-    require(m1.xref.isDefined, "mention must be grounded")
-    require(m2.xref.isDefined, "mention must be grounded")
-    m1.xref == m2.xref
+    require(m1.isGrounded, "mention must be grounded")
+    require(m2.isGrounded, "mention must be grounded")
+    m1.grounding == m2.grounding
   }
 
   def removeDummy(m: BioMention): BioMention = m match {
@@ -603,7 +601,7 @@ class DarpaActions extends Actions {
           em.keep,
           em.foundBy)
       } else em
-    case m => m
+    case _ => m
   }
 
   def validArguments(mention: Mention, state: State): Boolean = mention match {

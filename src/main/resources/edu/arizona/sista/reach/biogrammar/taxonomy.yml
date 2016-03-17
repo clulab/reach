@@ -1,17 +1,24 @@
-- Cellular_component
-- Site
+- Alias
 - ModificationTrigger
-- Species
-- CellLine
-- Organ
-- CellType
+- Site
 - Context:
+  - Species
+  - CellLine
+  - Organ
+  - CellType
+  - Cellular_component
   - ContextDirection
   - ContextLocation
   - ContextPossessive
 - Modification:
     - PTM
-    - Mutant
+    - Mutant:
+        - GenericMutant
+        - SubstitutionMutant
+        - DeletionMutant
+        - DuplicationMutant
+        - InsertionMutant
+        - FrameshiftMutant
     - EventSite
     - Negation
 - PossibleController:
@@ -38,6 +45,9 @@
                 - Positive_activation
                 - Negative_activation
     - Entity:
+      # Any BioEntity may appear as the controlled in an Activation
+      - BioEntity:
+        - BioProcess   # ex. "apoptosis"
         - BioChemicalEntity:
             - Generic_entity
             - Family
@@ -47,3 +57,10 @@
                 - Gene_or_gene_product
                 - Complex
                 - GENE
+# a preliminary taxonomy for assembly (precedence relations)
+- Precedence:
+  # for pairs that are directly (immediately) connected
+  # difficult to know from odin rules alone, but not impossible
+  - DirectConnection
+  # for pairs that are indirectly (not immediately) connected
+  - IndirectConnection

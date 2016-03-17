@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 /**
   * Class to output a field-separated text file to parse as a Pandas' Data Frame
   *   Written by Enrique Noriega. 27/7/2015.
-  *   Last Modified: Correct spelling of possessive.
+  *   Last Modified: Update for grounding changes.
   */
 class PandasOutput() {
   def toCSV(paperID:String,
@@ -61,8 +61,8 @@ class PandasOutput() {
               // paperID - sentence ix - ID - text - type
               sb ++= s"$paperID\t$absoluteIx\t"
               // Get the grounded id
-              tb.xref match {
-                case Some(xref) => sb ++= xref.printString
+              tb.grounding match {
+                case Some(grounding) => sb ++= grounding.nsId
                 case None => sb ++= "N/A"
               }
               sb ++= s"\t${tb.text}\t"
@@ -99,17 +99,17 @@ class PandasOutput() {
                 sb ++= s"$paperID\t$absoluteIx\t"
 
                 // Resolve the master participant
-                rel.arguments("master").head.asInstanceOf[BioTextBoundMention].xref match {
-                  case Some(xref) =>
-                    sb ++= xref.printString
+                rel.arguments("master").head.asInstanceOf[BioTextBoundMention].grounding match {
+                  case Some(grounding) =>
+                    sb ++= grounding.nsId
                     sb ++= "\t"
                   case None => sb ++= "N/A"
                 }
 
                 // Resolve the dependent participant
-                rel.arguments("dependent").head.asInstanceOf[BioTextBoundMention].xref match {
-                  case Some(xref) =>
-                    sb ++= xref.printString
+                rel.arguments("dependent").head.asInstanceOf[BioTextBoundMention].grounding match {
+                  case Some(grounding) =>
+                    sb ++= grounding.nsId
                   case None => sb ++= "N/A"
                 }
 
@@ -149,10 +149,11 @@ class PandasOutput() {
                 // Add arguments of the event
                 val args = ev.arguments flatMap {
                   case (k, v) => v map {
-                    case tb:BioTextBoundMention => tb.xref match {
-                      case Some(xref) => s"$k,${xref.printString}"
+                    case tb:BioTextBoundMention => tb.grounding match {
+                      case Some(grounding) => s"$k,${grounding.nsId}"
                       case None => s"$k,N/A"
                     }
+                    case _ => Unit // TODO: Make Coref aware!
                   }
                 }
 

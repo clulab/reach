@@ -59,7 +59,7 @@ class TestEntities extends FlatSpec with Matchers {
 
   val sent2 = "It has recently been shown that oncogenic RAS can enhance the apoptotic function of p53 via ASPP1 and ASPP2"
   sent2 should "contain 4 entities" in {
-    val mentions = parseSentence(sent2)
+    val mentions = getBioMentions(sent2)
     hasEntity("RAS", mentions) should be (true)
     hasEntity("p53", mentions) should be (true)
     hasEntity("ASPP1", mentions) should be (true)
@@ -68,7 +68,7 @@ class TestEntities extends FlatSpec with Matchers {
 
   val sent3 = "We hypothesized that MEK inhibition activates AKT by inhibiting ERK activity, which blocks an inhibitory threonine phosphorylation on the JM domains of EGFR and HER2, thereby increasing ERBB3 phosphorylation."
   sent3 should "contain at least 4 entities" in {
-    val mentions = parseSentence(sent3)
+    val mentions = getBioMentions(sent3)
     hasEntity("ERK", mentions) should be (true)
     hasEntity("EGFR", mentions) should be (true)
     hasEntity("HER2", mentions) should be (true)
@@ -77,7 +77,7 @@ class TestEntities extends FlatSpec with Matchers {
 
   val sent4 = "To test this hypothesis, we transiently transfected CHO-KI cells, which do not express ERBB receptors endogenously, with wildtype ERBB3 with either wild-type EGFR or EGFR T669A."
   sent4 should "contain at least 3 entities" in {
-    val mentions = parseSentence(sent4)
+    val mentions = getBioMentions(sent4)
     hasEntity("ERBB receptors", mentions) should be (true)
     hasEntity("ERBB3", mentions) should be (true)
     hasEntity("EGFR", mentions) should be (true)
@@ -85,14 +85,56 @@ class TestEntities extends FlatSpec with Matchers {
 
   val sent5 = "See Figure S31 and Table R15"
   sent5 should "not contain any sites" in {
-    val mentions = parseSentence(sent5)
+    val mentions = getBioMentions(sent5)
     mentions.count(_ matches "Site") should be (0)
   }
 
   val sent6 = "The K-Ras substrate and mTOR substrates shouldn't be found."
   sent6 should "not contain any entities (because of substrate constraint)" in {
-    val mentions = parseSentence(sent6)
+    val mentions = getBioMentions(sent6)
     mentions.size should be (0)
+  }
+
+  // test recognition of BioProcess entities
+  val sent7 = "In some cases, the presence of Ras inhibits autophagy."
+  sent7 should "contain 1 BioProcess entity (\"autophagy\")" in {
+    val mentions = getBioMentions(sent7)
+    mentions.count (_ matches "BioProcess") should be (1) 
+  }
+
+  // test lookahead assertions on ner rules for GGP and Family entities
+  val mekText = "the MEK family"
+  mekText should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
+    val doc = bioproc.annotate(mekText)
+    val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O")
+    // manipulate the document for this test
+    doc.id = Some("MEK-test")
+    doc.text = Some(mekText)
+    doc.sentences.head.entities = Some(ggpLabels)
+    val mentions = testReach.extractFrom(doc)
+    mentions should have size (1)
+    mentions.head matches "Family" should be (true)
+  }
+
+  // test lookahead assertions on ner rules for GGP and Family entities
+  val mekText2 = "the MEK protein family"
+  mekText2 should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
+    val doc = bioproc.annotate(mekText2)
+    val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O", "O")
+    // manipulate the document for this test
+    doc.id = Some("MEK-test")
+    doc.text = Some(mekText2)
+    doc.sentences.head.entities = Some(ggpLabels)
+    val mentions = testReach.extractFrom(doc)
+    mentions should have size (1)
+    mentions.head matches "Family" should be (true)
+  }
+
+  val sent8 = "Our model, in which E2-induced SRC-3 phosphorylation occurs in a complex with ER"
+  sent8 should "not contain any sites and it should have 1 simple chemical" in {
+    val mentions = getBioMentions(sent8)
+    mentions.count(_ matches "Site") should be (0)
+    mentions.count(_ matches "Simple_chemical") should be (1)
   }
 
 }

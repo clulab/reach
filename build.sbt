@@ -1,6 +1,6 @@
 name := "reach"
 
-version := "1.2.2-SNAPSHOT"
+version := "1.2.3-SNAPSHOT"
 
 organization := "org.clulab"
 
@@ -8,11 +8,9 @@ scalaVersion := "2.11.6"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
-// fork jvm to separate process
-fork := true
+testOptions in Test += Tests.Argument("-oD")
 
-// options for forked jvm
-javaOptions += "-Xmx8G"
+parallelExecution in Test := false
 
 // forward sbt's stdin to forked process
 connectInput in run := true
@@ -65,20 +63,26 @@ pomExtra := (
 // end publishing settings
 //
 
-resolvers ++= Seq(
-  "BioPAX Releases" at "http://biopax.sourceforge.net/m2repo/releases",
-  "BioPAX Snapshots" at "http://biopax.sourceforge.net/m2repo/snapshots"
-)
-
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "processors" % "5.7.3",
-  "org.clulab" %% "processors" % "5.7.3" classifier "models",
+  "org.clulab" % "bioresources" % "1.1.1",
+  "org.clulab" %% "processors" % "5.8.1",
+  "org.clulab" %% "processors" % "5.8.1" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
-  "org.biopax.paxtools" % "paxtools-core" % "4.3.0",
+  "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
   "jline" % "jline" % "2.12.1",
   "org.apache.lucene" % "lucene-core" % "5.3.1",
   "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
   "org.apache.lucene" % "lucene-queryparser" % "5.3.1"
 )
+
+// settings for building project website
+
+site.settings
+// include documentation
+site.includeScaladoc()
+
+ghpages.settings
+
+git.remoteRepo := "git@github.com:clulab/reach.git"
