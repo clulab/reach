@@ -51,7 +51,7 @@
         - BioChemicalEntity:
             - Generic_entity
             - Simple_chemical
-            - Aliasable: #TODO: Better name
+            - Equivalable: #TODO: Better name
                 - Family
                 - MacroMolecule:
                     - Protein
