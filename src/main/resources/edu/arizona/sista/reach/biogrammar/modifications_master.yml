@@ -6,5 +6,16 @@ rules:
 
   - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
     vars:
-      priority: "4"
       label: "Simple_chemical"
+      priority: "4"
+
+  - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
+    vars:
+      label: "Aliasable" # TODO: better name
+      priority: "4"
+
+  - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
+    vars:
+      label: "Mutant" # TODO: better name
+      priority: "4"
+

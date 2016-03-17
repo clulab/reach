@@ -2,245 +2,122 @@
   example: "Ras (H-Ras, K-Ras, N-Ras)"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     [tag="-LRB-"]
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
 - name: aliasprot_paren2_referredto
   example: "Ras (also referred to as H-Ras, K-Ras, or N-Ras)"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
     [tag="RB"]?
     "referred" "to" "as"
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
 - name: aliasprot_paren3_knownas
   example: "Ras (also known as H-Ras, K-Ras, N-Ras)"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
     [tag="RB"]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
 - name: aliasprot_paren4_called
   example: "Ras (commonly called H-Ras, K-Ras or N-Ras)"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
     [tag="RB"]?
     [lemma=/^call|term|name$/ & tag="VBN"]
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
 - name: aliasprot_paren5_alias
   example: "Ras (a.k.a. H-Ras/K-Ras/N-Ras)"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     [tag="-LRB-"]
     [word=/^alias|a\.k\.a\.$/]
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
     [tag="-RRB-"]
 
 - name: aliasprot_comma1_referredto
   example: "Ras, which is typically referred to as H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     ","
     ("which" [lemma="be"])?
     [tag="RB"]?
     "referred" "to" "as"
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*
     [tag=/^\.|,|:$/]
 
 - name: aliasprot_comma2_knownas
   example: "Ras, usually designated H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     ","
     ("which" [lemma="be"])?
     [tag="RB"]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*
     [tag=/^\.|,|:$/]
 
 - name: aliasprot_comma2_called
   example: "Ras, sometimes termed H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
-  priority: 4
+  priority: ${ priority }
   type: token
   pattern: |
-    (@alias:Family | @alias:MacroMolecule)
+    @alias:${ label }
     ","
     ("which" [lemma="be"])?
     [tag="RB"]?
     [lemma=/^call|term|name$/ & tag="VBN"]
-    (@alias:Family | @alias:MacroMolecule)
-    ([word=/^,|\/|or$/]+ (@alias:Family | @alias:MacroMolecule))*
-    [tag=/^\.|,|:$/]
-
-- name: aliaschemical_paren1_nil
-  example: "polyacrylamide (AMF, DALT, PAM)"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    [tag="-LRB-"]
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*?
-    [tag="-RRB-"]
-
-- name: aliaschemical_paren2_referredto
-  example: "polyacrylamide (also referred to as AMF, DALT, or PAM)"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    [tag="-LRB-"]
-    ("which" [lemma="be"])?
-    [tag="RB"]?
-    "referred" "to" "as"
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*?
-    [tag="-RRB-"]
-
-- name: aliaschemical_paren3_knownas
-  example: "polyacrylamide (which was previously known as AMF, DALT, or PAM)"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    [tag="-LRB-"]
-    ("which" [lemma="be"])?
-    [tag="RB"]?
-    [word=/^known|designated$/ & tag="VBN"] "as"?
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*?
-    [tag="-RRB-"]
-
-- name: aliaschemical_paren4_called
-  example: "polyacrylamide (frequently named AMF, DALT or PAM)"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    [tag="-LRB-"]
-    ("which" [lemma="be"])?
-    [tag="RB"]?
-    [lemma=/^call|term|name$/ & tag="VBN"]
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*?
-    [tag="-RRB-"]
-
-- name: aliaschemical_paren5_alias
-  example: "polyacrylamide (alias AMF/DALT/PAM)"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    [tag="-LRB-"]
-    [word=/^alias|a\.k\.a\.$/]
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*?
-    [tag="-RRB-"]
-
-- name: aliaschemical_comma1_referredto
-  example: "polyacrylamide, sometimes referred to as AMF, DALT, or PAM."
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    ","
-    ("which" [lemma="be"])?
-    [tag="RB"]?
-    "referred" "to" "as"
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*
-    [tag=/^\.|,|:$/]
-
-- name: aliaschemical_comma2_knownas
-  example: "polyacrylamide, typically designated AMF, DALT or PAM;"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    ","
-    ("which" [lemma="be"])?
-    [tag="RB"]?
-    [word=/^known|designated$/ & tag="VBN"] "as"?
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*
-    [tag=/^\.|,|:$/]
-
-- name: aliaschemical_comma2_called
-  example: "polyacrylamide, which was once called AMF, DALT or PAM,"
-  label: Alias
-  action: mkBioMention
-  priority: 4
-  type: token
-  pattern: |
-    @alias:Simple_chemical
-    ","
-    ("which" [lemma="be"])?
-    [tag="RB"]?
-    [lemma=/^call|term|name$/ & tag="VBN"]
-    @alias:Simple_chemical
-    ([word=/^,|\/|or$/]+ @alias:Simple_chemical)*
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*
     [tag=/^\.|,|:$/]
 
