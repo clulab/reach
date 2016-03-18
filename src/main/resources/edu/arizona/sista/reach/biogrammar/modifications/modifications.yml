@@ -20,10 +20,29 @@
   pattern: |
     (^[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
 
-#########
-# Modification rules
-#########
+#- name: modification_trigger_3a
+#  label: ModificationTrigger
+#  priority: 1
+#  type: token
+#  action: mkBioMention
+#  pattern: |
+#    (?<= [mention="BioChemicalEntity"] (when | if) (it | they)) [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+#
 
+- name: modification_trigger_3b
+  label: ModificationTrigger
+  priority: 1
+  type: token
+  action: mkBioMention
+  pattern: |
+    (?<= [mention="BioChemicalEntity"] [word=/^that|which$/] [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+
+
+
+##########
+## Modification rules
+##########
+#
 # Phosphorylated p53 on serine-15
 - name: PTMmodification_1
   label: PTM
@@ -31,7 +50,7 @@
   priority: 2
   type: token
   pattern: |
-    @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
+    (?<! [mention="Site"]) @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] @site:Site)?
 
 # Tyrosine-phosphorylated ASPP1
 - name: PTMmodification_2
@@ -41,6 +60,18 @@
   type: token
   pattern: |
     @site:Site @mod:ModificationTrigger @entity:BioChemicalEntity ([tag=/^N/ & !mention=/./]*? [tag=IN] )?
+
+# WTX (that|which) is phosphorylated at serine 286
+- name: PTMmodification_3b
+  label: PTM
+  action: storePTM
+  priority: 2
+  type: token
+  pattern: |
+    (@entity:BioChemicalEntity [tag=/,|CC/])*?
+    @entity:BioChemicalEntity (that | which) [lemma="be"]
+    @mod:ModificationTrigger
+    ((at | on) @site:Site)?
 
 - name: eventsite_1
   label: EventSite
@@ -58,16 +89,16 @@
   priority: 2
   type: token
   pattern: |
-    @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
+    @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumoyl|methyl/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
       |
     # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
     @site:Site ([word="," | tag=CC]* @site:Site)+ /^(of|on|for)/ []*? @entity:BioChemicalEntity
       |
     @entity:BioChemicalEntity /^(of|on)/ @site:Site+
       |
-    [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/]{,4} @site:Site
+    [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumoyl|methyl/]{,4} @site:Site
       | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
-    @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumosyl|methyl/ & tag=/^N/]
+    @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumoyl|methyl/ & tag=/^N/]
 
 
 
