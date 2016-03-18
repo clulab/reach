@@ -438,7 +438,6 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
-
   // Aliases must be of same type
   val sent38 = "Ras (hereafter referred to as S135) is phosphorylated."
   sent38 should "not apply Ras grounding to S135 or vice versa" in {
@@ -454,7 +453,6 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
-
   val sent40 = "K-Ras, sometimes called Ras, phosphorylates Akt."
   sent40 should "apply Ras grounding to H-Ras" in {
     val mentions = getBioMentions(sent40)
@@ -464,7 +462,6 @@ class TestCoreference extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     kras.get.grounding.get.equals(ras.get.grounding.get) should be (true)
   }
-
   val sent41 = "K-Ras (alias Ras) phosphorylates Akt."
   sent41 should "apply Ras grounding to H-Ras" in {
     val mentions = getBioMentions(sent41)
@@ -474,7 +471,6 @@ class TestCoreference extends FlatSpec with Matchers {
     ras.isDefined should be (true)
     kras.get.grounding.get.equals(ras.get.grounding.get) should be (true)
   }
-
   // Series should work with 'or'
   val sent42 = "Akt (a.k.a. Akt334, AktTR, or Akt4H) is phosphorylated."
   sent42 should "apply Akt grounding to 3 proteins" in {
@@ -512,7 +508,6 @@ class TestCoreference extends FlatSpec with Matchers {
     s2akt should have size (1)
     akt.head.grounding.get.equals(s2akt.head.grounding.get)
   }
-
   // Alias assignment works across sections of a document
   val sent45a = "Akt, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
   val sent45b = "AktTR is ubiquitinated."
@@ -529,5 +524,59 @@ class TestCoreference extends FlatSpec with Matchers {
     val fe = FriesEntry("anotherTest", "noMentions", "02", "end", false, sent46)
     val mentions = testReach.extractFrom(Seq(fe))
     mentions.isEmpty should be (true)
+  }
+
+  // Alias assignment works for Simple_chemicals
+  val sent47a = "Diacylglycerol (hereafter referred to as DAG) functions as a second messenger signaling lipid."
+  sent47a should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent47a)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
+  }
+  // Order shouldn't matter
+  val sent47b = "DAG (hereafter referred to as diacylglycerol) functions as a second messenger signaling lipid."
+  sent47b should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent47b)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
+  }
+  // Aliases must be of same type
+  val sent48 = "Akt (hereafter referred to as diacylglycerol) is phosphorylated."
+  sent48 should "not apply Akt grounding to diacylglycerol or vice versa" in {
+    val mentions = getBioMentions(sent48)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
+  }
+  val sent49 = "Diacylglycerol (hereafter referred to as S135) functions as a second messenger signaling lipid."
+  sent49 should "not apply S135 grounding to diacylglycerol or vice versa" in {
+    val mentions = getBioMentions(sent49)
+    val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
+  }
+  val sent50 = "Diacylglycerol, sometimes called DAG, functions as a second messenger signaling lipid."
+  sent50 should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent50)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
+  }
+  val sent51 = "Diacylglycerol (alias DAG) functions as a second messenger signaling lipid."
+  sent51 should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent51)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (2)
+    entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
+  }
+  // Series should work with 'or'
+  val sent52 = "Diacylglycerol (a.k.a. DAG, DAG, or DAG) functions as a second messenger signaling lipid."
+  sent52 should "apply diacylglycerol grounding to 3 chemicals" in {
+    val mentions = getBioMentions(sent52)
+    val entities = mentions filter (_ matches "Entity")
+    entities should have size (4)
+    entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)
   }
 }
