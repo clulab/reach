@@ -128,14 +128,15 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def countDocsContaining(eventDocs:Set[(Int, Float)], token:String):Int = {
-    val query = "Ras AND " + token
+    // token could be a phrase; make sure quotes are used
+    val query = s"""Ras AND "$token""""
     val result = intersection(eventDocs, search(query))
     result.size
   }
 
   def useCase(resultDir:String): Unit = {
     val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
-    val result = intersection(eventDocs, search("Ras AND (ROS OR MAPK OR Raf/Mek/Erk OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR EGFR OR apoptosis OR autophagy OR proliferation OR p53 OR RB OR glycolysis OR exosomes OR RAGE OR HMGB1)"))
+    val result = intersection(eventDocs, search("""Ras AND (ROS OR "antioxidant response element" OR Warburg OR MAPK OR "Raf/Mek/Erk" OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR integrins OR "ADAM/EGF/EGFR" OR RTK OR apoptosis OR autophagy OR proliferation OR "transcription factors" OR ATM OR p53 OR RB OR "tumor suppressors" OR glycolysis OR "pentose phosphate pathway" OR OXPHOS OR mitochondria OR "cell cycle" OR "energy balance" OR exosomes OR RAGE OR HMGB1)"""))
     logger.debug(s"The result contains ${result.size} documents.")
     val resultDocs = docs(result)
     saveNxml(resultDir, resultDocs, 1000)
@@ -144,19 +145,52 @@ class NxmlSearcher(val indexDir:String) {
     //
     // histogram of term distribution in docs
     //
-    /*
+
     logger.debug("Generating topic histogram...")
-    val histoPoints = Array("ROS", "MAPK", "Raf/Mek/Erk", "Akt", "NfkB", "TGFb", "TGFbeta", "TGFb1", "TGFbeta1", "EGFR", "apoptosis", "autophagy", "proliferation", "p53", "RB", "glycolysis", "exosomes", "RAGE", "HMGB1")
+    val histoPoints = Array(
+      "ROS",
+      "antioxidant response element",
+      "Warburg",
+      "MAPK",
+      "Raf/Mek/Erk",
+      "Akt",
+      "NfkB",
+      "TGFb",
+      "TGFbeta",
+      "TGFb1",
+      "TGFbeta1",
+      "integrins",
+      "ADAM/EGF/EGFR",
+      "EGFR",
+      "RTK",
+      "apoptosis",
+      "autophagy",
+      "proliferation",
+      "transcription factors",
+      "ATM",
+      "p53",
+      "RB",
+      "tumor suppressors",
+      "glycolysis",
+      "pentose phosphate pathway",
+      "exosomes",
+      "OXPHOS",
+      "mitochondria",
+      "cell cycle",
+      "energy balance",
+      "RAGE",
+      "HMGB1")
+
     val histoValues = new ArrayBuffer[(String, Int)]()
     for(point <- histoPoints) {
-      histoValues += new Tuple2(point, countDocsContaining(eventDocs, point))
+      histoValues += new Tuple2(point, countDocsContaining(result, point))
     }
     val histoFile = new PrintWriter(new FileWriter(resultDir + File.separator + "histo.txt"))
     for(i <- histoValues.sortBy(0 - _._2)) {
       histoFile.println(s"${i._1}\t${i._2}")
     }
     histoFile.close()
-    */
+
 
     logger.debug("Done.")
   }
