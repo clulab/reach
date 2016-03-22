@@ -525,56 +525,73 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = testReach.extractFrom(Seq(fe))
     mentions.isEmpty should be (true)
   }
+  // No error when some mentions have generic and some non-generic mutations
+  val sent47 = "We analyzed sporadic CRCs in Omani (of African origin, N = 61), Iranian (of Caucasian origin, " +
+    "N = 53) and African American (N = 95) patients for microsatellite instability, expression status of mismatched " +
+    "repair genes (hMLH1, hMSH2) and presence of the BRAF (V600E) mutation. In the Omani group, all tumors with " +
+    "BRAF mutations were located in the left side of the colon, and for African Americans, 88% of tumors with BRAF " +
+    "mutations were found in the right side of the colon."
+  sent47 should "not produce an error" in {
+    val mentions = getBioMentions(sent47)
+  }
+  // No error indicating CorefMentions that should have been split but weren't
+  val sent48 = "Since EGFR mutation is known to be associated with sensitivity to erlotinib, and KRAS mutations are " +
+    "associated with resistance, we focused on the group of wild-type EGFR/KRAS cell lines. We found that the half " +
+    "maximal inhibitory concentration (IC50) for erlotinib was significantly higher in cell lines that segregated to " +
+    "clusters with methylated SRAMs compared to those that segregated to clusters with unmethylated SRAMs"
+  sent48 should "not produce an error" in {
+    val mentions = getBioMentions(sent48)
+  }
 
   // Alias assignment works for Simple_chemicals
-  val sent47a = "Diacylglycerol (hereafter referred to as DAG) functions as a second messenger signaling lipid."
-  sent47a should "apply diacylglycerol grounding to DAG" in {
-    val mentions = getBioMentions(sent47a)
+  val sent49a = "Diacylglycerol (hereafter referred to as DAG) functions as a second messenger signaling lipid."
+  sent49a should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent49a)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Order shouldn't matter
-  val sent47b = "DAG (hereafter referred to as diacylglycerol) functions as a second messenger signaling lipid."
-  sent47b should "apply diacylglycerol grounding to DAG" in {
-    val mentions = getBioMentions(sent47b)
+  val sent49b = "DAG (hereafter referred to as diacylglycerol) functions as a second messenger signaling lipid."
+  sent49b should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent49b)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Aliases must be of same type
-  val sent48 = "Akt (hereafter referred to as diacylglycerol) is phosphorylated."
-  sent48 should "not apply Akt grounding to diacylglycerol or vice versa" in {
-    val mentions = getBioMentions(sent48)
+  val sent50 = "Akt (hereafter referred to as diacylglycerol) is phosphorylated."
+  sent50 should "not apply Akt grounding to diacylglycerol or vice versa" in {
+    val mentions = getBioMentions(sent50)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
-  val sent49 = "Diacylglycerol (hereafter referred to as S135) functions as a second messenger signaling lipid."
-  sent49 should "not apply S135 grounding to diacylglycerol or vice versa" in {
-    val mentions = getBioMentions(sent49)
+  val sent51 = "Diacylglycerol (hereafter referred to as S135) functions as a second messenger signaling lipid."
+  sent51 should "not apply S135 grounding to diacylglycerol or vice versa" in {
+    val mentions = getBioMentions(sent51)
     val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
-  val sent50 = "Diacylglycerol, sometimes called DAG, functions as a second messenger signaling lipid."
-  sent50 should "apply diacylglycerol grounding to DAG" in {
-    val mentions = getBioMentions(sent50)
+  val sent52 = "Diacylglycerol, sometimes called DAG, functions as a second messenger signaling lipid."
+  sent52 should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent52)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
-  val sent51 = "Diacylglycerol (alias DAG) functions as a second messenger signaling lipid."
-  sent51 should "apply diacylglycerol grounding to DAG" in {
-    val mentions = getBioMentions(sent51)
+  val sent53 = "Diacylglycerol (alias DAG) functions as a second messenger signaling lipid."
+  sent53 should "apply diacylglycerol grounding to DAG" in {
+    val mentions = getBioMentions(sent53)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Series should work with 'or'
-  val sent52 = "Diacylglycerol (a.k.a. DAG, DAG, or DAG) functions as a second messenger signaling lipid."
-  sent52 should "apply diacylglycerol grounding to 3 chemicals" in {
-    val mentions = getBioMentions(sent52)
+  val sent54 = "Diacylglycerol (a.k.a. DAG, DAG, or DAG) functions as a second messenger signaling lipid."
+  sent54 should "apply diacylglycerol grounding to 3 chemicals" in {
+    val mentions = getBioMentions(sent54)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (4)
     entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)

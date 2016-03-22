@@ -118,10 +118,11 @@ object CorefUtils {
   def compatibleGrounding(a: CorefMention, b: CorefMention): Boolean = {
     a.isInstanceOf[CorefTextBoundMention] && b.isInstanceOf[CorefTextBoundMention] &&
       a.label == b.label &&
-      !a.isGeneric && !b.isGeneric &&
+      a.nonGeneric && b.nonGeneric &&
       compatibleContext(a, b) &&
-      ((a.isGrounded && a.grounding().get.namespace == ReachKBConstants.DefaultNamespace) ^
-        (b.isGrounded && b.grounding().get.namespace == ReachKBConstants.DefaultNamespace))
+      a.isGrounded && b.isGrounded &&
+      ((a.grounding().get.namespace == ReachKBConstants.DefaultNamespace) ^
+        (b.grounding().get.namespace == ReachKBConstants.DefaultNamespace))
   }
 
   /**
