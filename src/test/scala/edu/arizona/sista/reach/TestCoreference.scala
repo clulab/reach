@@ -542,7 +542,7 @@ class TestCoreference extends FlatSpec with Matchers {
   sent48 should "not produce an error" in {
     val mentions = getBioMentions(sent48)
   }
-  
+
   // Alias assignment works for Simple_chemicals
   val sent49a = "Diacylglycerol (hereafter referred to as DAG) functions as a second messenger signaling lipid."
   sent49a should "apply diacylglycerol grounding to DAG" in {
