@@ -100,7 +100,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ nominalTriggerLemma }/ & !word=/(?i)^de/]
+    trigger = (?<! @protein @site?) [lemma=/${ nominalTriggerLemma }/ & !word=/(?i)^de/]
     cause:BioChemicalEntity? = (<dobj? (prep_by|agent)|nn|prep_of prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
     theme:BioChemicalEntity = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
     site:Site? = (/prep_/ nn{,2}){1,2}
