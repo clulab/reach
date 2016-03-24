@@ -33,7 +33,7 @@ object TestUtils {
       Annotation(friesEntries, documents, entitiesPerEntry, mentions)
     }
 
-    val paperAnnotations = Map(1 -> annotatePaper(nxml1), 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3))
+    val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
   }
 
   val testReach = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5")) // All tests should use this system!

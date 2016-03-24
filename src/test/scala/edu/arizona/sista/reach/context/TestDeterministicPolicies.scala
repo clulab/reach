@@ -148,16 +148,16 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
   it should behave like boundedPaddingBehavior(1)
   it should behave like bidirectionalPaddingBehavior(1)
 
-  behavior of "PMC3189917.nxml"
-
-  it should behave like contextAssignmentBehavior(2)
-  it should behave like boundedPaddingBehavior(2)
-  it should behave like bidirectionalPaddingBehavior(2)
-
-  behavior of "PMC1289294.nxml"
-
-  it should behave like contextAssignmentBehavior(3)
-  it should behave like boundedPaddingBehavior(3)
-  it should behave like bidirectionalPaddingBehavior(3)
+  // behavior of "PMC3189917.nxml"
+  //
+  // it should behave like contextAssignmentBehavior(2)
+  // it should behave like boundedPaddingBehavior(2)
+  // it should behave like bidirectionalPaddingBehavior(2)
+  //
+  // behavior of "PMC1289294.nxml"
+  //
+  // it should behave like contextAssignmentBehavior(3)
+  // it should behave like boundedPaddingBehavior(3)
+  // it should behave like bidirectionalPaddingBehavior(3)
 
 }
