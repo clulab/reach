@@ -41,7 +41,9 @@ object DependencyUtils {
     val outgoing = (for (h <- heads) yield followTrail(Seq(h), Nil)).flatten.distinct
 
     // outgoing may only have a single index
-    if (outgoing.length > 1) Some(Interval(outgoing.min, outgoing.max+1)) else Some(Interval(outgoing.min, outgoing.min + 1))
+    if (outgoing.isEmpty) Some(span) // no head found, so no expansion is possible
+    else if (outgoing.length == 1) Some(Interval(outgoing.head, outgoing.head + 1))
+    else Some(Interval(outgoing.min, outgoing.max+1))
   }
 
   /**
