@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import io.Source
 import edu.arizona.sista.reach.nxml.{NxmlReader, FriesEntry}
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export.MentionManager
@@ -14,6 +15,27 @@ import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
  * Utility methods for the tests in this directory
  */
 object TestUtils {
+
+  // Inner object that contains the annotations to test context
+  object Context{
+    def nxml1 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC2597732.nxml")).mkString
+    def nxml2 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC3189917.nxml")).mkString
+    def nxml3 = Source.fromURL(getClass.getResource("/inputs/nxml/PMC1289294.nxml")).mkString
+
+    case class Annotation(friesEntries:Seq[FriesEntry], documents:Seq[Document], entitiesPerEntry:Seq[Seq[BioMention]], mentions:Seq[BioMention])
+
+    def annotatePaper(nxml:String):Annotation = {
+      val friesEntries = testReader.readNxml(nxml, "")
+      val documents = friesEntries map (e => testReach.mkDoc(e.text, e.name, e.chunkId))
+      val entitiesPerEntry =  for (doc <- documents) yield testReach.extractEntitiesFrom(doc)
+      val mentions = testReach.extractFrom(friesEntries, documents)
+
+      Annotation(friesEntries, documents, entitiesPerEntry, mentions)
+    }
+
+    val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
+  }
+
   val testReach = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5")) // All tests should use this system!
   val testReader = new NxmlReader
   val bioproc = testReach.processor // quick access to a process, if needed.
