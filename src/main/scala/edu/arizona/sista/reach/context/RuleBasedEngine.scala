@@ -84,7 +84,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         // Return seq of (Seq[BioMention], FriesEntry) tuples. Each corresponds to each line
         for(i <- 0 until doc.sentences.size) yield {
           (groupedMentions.lift(i).getOrElse(Nil).filter{
-            mention => (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_) // This is a functional "Keep elements that have at least one of these"
+            mention => ContextEngine.isContextMention(mention)
           }, entry)
         }
     }
@@ -118,31 +118,29 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Implementation of the assign method of the ContextEngine trait
   def assign(mentions: Seq[BioMention]): Seq[BioMention] = {
     mentions.foreach{
-      case em:BioEventMention =>
+      em:BioMention =>
         // Reconstruct the line number of the mention relative to the document
-        val key = em.document.id.getOrElse("N/A")
+        // Only assing context to mentions that aren't actually a context mention
+        if(!ContextEngine.isContextMention(em)){
+          val key = em.document.id.getOrElse("N/A")
 
-        // if(!(docOffsets contains key)){
-        //   println(s"KNF: $key in ${docOffsets.keys.mkString(" ")}")
-        // }
+          val offset = docOffsets(key)
+          val relativeLine = em.sentence
 
-        val offset = docOffsets(key)
-        val relativeLine = em.sentence
+          val line = offset + relativeLine
 
-        val line = offset + relativeLine
+          // Query the context engine and assign it to the BioEventMention
+          val mentionContext = this.query(line)
+          val fallbackContext = if(mentionContext.contains("Species"))
+              mentionContext
+          else
+              fallbackSpecies match {
+                  case Some(s) => mentionContext + ("Species" -> Seq(s))
+                  case None => mentionContext
+              }
 
-        // Query the context engine and assign it to the BioEventMention
-        val mentionContext = this.query(line)
-        val fallbackContext = if(mentionContext.contains("Species"))
-            mentionContext
-        else
-            fallbackSpecies match {
-                case Some(s) => mentionContext + ("Species" -> Seq(s))
-                case None => mentionContext
-            }
-
-        em.context = Some(fallbackContext)
-      case _ => Unit
+          em.context = Some(fallbackContext)
+        }
     }
 
     mentions
@@ -167,9 +165,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   protected def featureMatrix:Seq[Seq[Double]] = {
     val categorical = densifyMatrix(observedSparseMatrix, ContextEngine.featureVocabulary)
     // TODO Implement this is extra features are added
-    //val numerical = densifyFeatures
-
-//    categorical /*zip numerical*/  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } /*++ n*/ }
+    //    categorical /*zip numerical*/  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } /*++ n*/ }
     categorical  map { c => c.map{ case false => 0.0; case true => 1.0 }  }
 
   }
