@@ -114,7 +114,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         val line = offset + relativeLine
 
         // Query the context engine and assign it to the BioEventMention
-        em.context = Some(this.query(line))
+        em.context = Some(this.query(line).toList.toMap)
       case _ => Unit
     }
 
