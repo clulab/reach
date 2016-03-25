@@ -132,7 +132,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         val line = offset + relativeLine
 
         // Query the context engine and assign it to the BioEventMention
-        val mentionContext = this.query(line)
+        val mentionContext = this.query(line).toList.toMap
         val fallbackContext = if(mentionContext.contains("Species"))
             mentionContext
         else
