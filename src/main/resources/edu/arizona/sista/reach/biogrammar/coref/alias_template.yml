@@ -1,0 +1,123 @@
+- name: alias_${ label }_paren1_nil
+  example: "Ras (H-Ras, K-Ras, N-Ras)"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    [tag="-LRB-"]
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    [tag="-RRB-"]
+
+- name: alias_${ label }_paren2_referredto
+  example: "Ras (also referred to as H-Ras, K-Ras, or N-Ras)"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    [tag="-LRB-"]
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    "referred" "to" "as"
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    [tag="-RRB-"]
+
+- name: alias_${ label }_paren3_knownas
+  example: "Ras (also known as H-Ras, K-Ras, N-Ras)"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    [tag="-LRB-"]
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    [word=/^known|designated$/ & tag="VBN"] "as"?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    [tag="-RRB-"]
+
+- name: alias_${ label }_paren4_called
+  example: "Ras (commonly called H-Ras, K-Ras or N-Ras)"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    [tag="-LRB-"]
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    [lemma=/^call|term|name$/ & tag="VBN"]
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    [tag="-RRB-"]
+
+- name: alias_${ label }_paren5_alias
+  example: "Ras (a.k.a. H-Ras/K-Ras/N-Ras)"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    [tag="-LRB-"]
+    [word=/^alias|a\.k\.a\.$/]
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    [tag="-RRB-"]
+
+- name: alias_${ label }_comma1_referredto
+  example: "Ras, which is typically referred to as H-Ras, K-Ras, or N-Ras,"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    ","
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    "referred" "to" "as"
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*
+    [tag=/^\.|,|:$/]
+
+- name: alias_${ label }_comma2_knownas
+  example: "Ras, usually designated H-Ras, K-Ras, or N-Ras,"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    ","
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    [word=/^known|designated$/ & tag="VBN"] "as"?
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*
+    [tag=/^\.|,|:$/]
+
+- name: alias_${ label }_comma2_called
+  example: "Ras, sometimes termed H-Ras, K-Ras, or N-Ras,"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    @alias:${ label }
+    ","
+    ("which" [lemma="be"])?
+    [tag="RB"]?
+    [lemma=/^call|term|name$/ & tag="VBN"]
+    @alias:${ label }
+    ([word=/^,|\/|or$/]+ @alias:${ label })*
+    [tag=/^\.|,|:$/]
+

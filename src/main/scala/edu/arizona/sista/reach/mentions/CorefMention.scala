@@ -19,19 +19,21 @@ class CorefTextBoundMention(
 
   def hasGenericMutation: Boolean = {
     this.mutants.exists(mut => mut.isGeneric) ||
-    (this.isGeneric && this.text.toLowerCase.take(6) == "mutant" && this.mutants.isEmpty)
+    (this.isGeneric && this.text.toLowerCase.take(6) == "mutant" && this.mutants.isEmpty) //FIXME: hack until mutant detection is better
   }
 
   def toSingletons: Seq[CorefTextBoundMention] = {
-    if (!this.isGeneric && !this.mutants.exists(mut => mut.isGeneric)) Seq(this)
+    if (this.nonGeneric && !this.hasGenericMutation) Seq(this)
     else {
       val ants = this.firstSpecific.filter(_.isComplete)
-        .filterNot(a => a == this || a.asInstanceOf[CorefMention].hasGenericMutation)
+        .filterNot(_ == this)
       if (ants.isEmpty) {
-        if (this.mutants.exists(mut => mut.isGeneric)) Seq(this)
+        if (this.hasGenericMutation) Seq(this)
         else Nil
       }
-      else if (ants.size == 1) Seq(this)
+      else if (ants.size == 1) {
+        Seq(this)
+      }
       else {
         for {
           ant <- ants
@@ -52,7 +54,10 @@ class CorefTextBoundMention(
     }
   }
 
-  def isComplete: Boolean = !this.isGeneric || (this.antecedent.nonEmpty && this.antecedent.get.isComplete)
+  def isComplete: Boolean = {
+    this.nonGeneric ||
+      (this.antecedent.nonEmpty && this.antecedent.get != this && this.antecedent.get.isComplete)
+  }
 
   def isClosedClass: Boolean = {
     if (!this.isGeneric || this.words.length > 1) false

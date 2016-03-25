@@ -50,10 +50,18 @@
         - BioProcess   # ex. "apoptosis"
         - BioChemicalEntity:
             - Generic_entity
-            - Family
             - Simple_chemical
-            - MacroMolecule:
-                - Protein
-                - Gene_or_gene_product
-                - Complex
-                - GENE
+            - Equivalable: #TODO: Better name
+                - Family
+                - MacroMolecule:
+                    - Protein
+                    - Gene_or_gene_product
+                    - Complex
+                    - GENE
+# a preliminary taxonomy for assembly (precedence relations)
+- Precedence:
+  # for pairs that are directly (immediately) connected
+  # difficult to know from odin rules alone, but not impossible
+  - DirectConnection
+  # for pairs that are indirectly (not immediately) connected
+  - IndirectConnection

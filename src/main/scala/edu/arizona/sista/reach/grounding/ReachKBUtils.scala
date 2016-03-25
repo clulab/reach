@@ -11,7 +11,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Add resolution filters.
+  *   Last Modified: Replace nsId selectors with species set selectors.
   */
 object ReachKBUtils extends Speciated {
 
@@ -24,15 +24,9 @@ object ReachKBUtils extends Speciated {
     mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("protein"))
 
 
-  /** Return a Scala Source object created from the given resource path string. If the
-    * resource path ends with ".gz" the source is created around a gzip input stream. */
-  def sourceFromResource (resourcePath:String): Source = {
-    val inStream = this.getClass.getResourceAsStream(resourcePath)
-    if (resourcePath.endsWith(".gz"))
-      Source.fromInputStream(new GZIPInputStream(new BufferedInputStream(inStream)), "utf8")
-    else
-      Source.fromInputStream(inStream, "utf8")
-  }
+  /** Return a formatted string containing this entry's namespace and ID. */
+  def makeNamespaceId (namespace:String, id:String): String =
+    s"${namespace}${NamespaceIdSeparator}${id}"
 
 
   /** Return a file for the given filename in the knowledge bases directory. */
@@ -64,9 +58,26 @@ object ReachKBUtils extends Speciated {
     lines
   }
 
+  /** Return a Scala Source object created from the given resource path string. If the
+    * resource path ends with ".gz" the source is created around a gzip input stream. */
+  def sourceFromResource (resourcePath:String): Source = {
+    val inStream = this.getClass.getResourceAsStream(resourcePath)
+    if (resourcePath.endsWith(".gz"))
+      Source.fromInputStream(new GZIPInputStream(new BufferedInputStream(inStream)), "utf8")
+    else
+      Source.fromInputStream(inStream, "utf8")
+  }
+
+
   /** Convert a single row string from a TSV file to a sequence of string fields. */
   def tsvRowToFields (row:String): Seq[String] = {
     return row.split("\t").map(_.trim)
+  }
+
+  /** Check for required fields in one row of a TSV input file. */
+  def tsvValidateFields (fields:Seq[String]): Boolean = {
+    ( ((fields.size == 3) && fields(0).nonEmpty && fields(1).nonEmpty && fields(2).nonEmpty) ||
+      ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty) )
   }
 
 
@@ -84,13 +95,21 @@ object ReachKBUtils extends Speciated {
               .sortBy(kbr => (kbr.species, kbr.id))
   }
 
-  /** Filter sequence to return only resolutions with the given species. */
+  /** Filter sequence to return only resolutions (sorted) with the given species. */
   def selectASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.species == species)
+    resolutions.filter(kbr => kbr.species == species).sortBy(_.id)
 
   /** Filter sequence to return only resolutions (sorted) without the given species. */
   def selectNotASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
     resolutions.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
+
+  /** Filter sequence to return only resolutions (sorted) with a species in the given set. */
+  def selectBySpecies (resolutions:Seq[KBResolution], species:Set[String]): Seq[KBResolution] =
+    resolutions.filter(kbr => species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+
+  /** Filter sequence to return only resolutions (sorted) without a species in the given set. */
+  def selectByNotSpecies (resolutions:Seq[KBResolution], species:Set[String]): Seq[KBResolution] =
+    resolutions.filter(kbr => !species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
 }
 

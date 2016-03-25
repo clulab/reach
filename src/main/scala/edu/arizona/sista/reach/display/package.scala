@@ -30,6 +30,7 @@ package object display {
   }
 
   def printSyntacticDependencies(s:Sentence): Unit = {
+    println(s.lemmas.get.mkString(" "))
     if(s.dependencies.isDefined) {
       println(s.dependencies.get.toString)
     }
