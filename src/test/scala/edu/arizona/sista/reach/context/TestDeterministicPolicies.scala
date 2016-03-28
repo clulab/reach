@@ -61,6 +61,47 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
     }
   }
 
+  def differentTypeOfMentionsWithContextBehavior(paperNum:Int) = {
+      val mentions = paperAnnotations(paperNum).mentions
+
+      val tbMentions = mentions.filter{
+        case m:BioTextBoundMention =>
+          if(m.hasContext)
+            true
+          else
+            false
+        case _ => false
+      }
+
+      val eventMentions = mentions.filter{
+        case m:BioEventMention =>
+          if(m.hasContext)
+            true
+          else
+            false
+        case _ => false
+      }
+
+      val relationMentions = mentions.filter{
+        case m:BioRelationMention => true
+        case _ => false
+      }
+
+      info(s"The number of text-bound mentions with context is: ${tbMentions.size}")
+      tbMentions.size should be > 0
+
+      info(s"The number of event mentions with context is: ${eventMentions.size}")
+      eventMentions.size should be > 0
+
+      // This is "optional" as I believe there's no BioRelationMention rule so far,
+      // but if there will be some, it should work as well
+      if(relationMentions.size > 0){
+        val rmWithContext = relationMentions.filter(_.hasContext)
+        info(s"The number of event mentions with context is: ${rmWithContext.size}")
+        rmWithContext.size should be > 0
+      }
+  }
+
   def boundedPaddingBehavior(paperNum:Int){
     info(s"Testing bounding padding context")
 
@@ -145,6 +186,7 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
   behavior of "PMC2597732.nxml"
 
   it should behave like contextAssignmentBehavior(1)
+  it should behave like differentTypeOfMentionsWithContextBehavior(1)
   it should behave like boundedPaddingBehavior(1)
   it should behave like bidirectionalPaddingBehavior(1)
 

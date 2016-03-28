@@ -32,6 +32,8 @@ object ContextEngine {
   // Seq of the labels we care about in context
   val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "ContextPossessive", "ContextLocation", "ContextDirection")
 
+  def isContextMention(mention:BioMention) = (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_)
+  
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.grounding match{
       case Some(grounding) => grounding.nsId
