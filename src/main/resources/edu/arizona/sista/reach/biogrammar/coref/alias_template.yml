@@ -121,3 +121,21 @@
     ([word=/^,|\/|or$/]+ @alias:${ label })*
     [tag=/^\.|,|:$/]
 
+- name: alias_${ label }_semicolon1
+  example: "Abbreviations used in this paper: GAP, GTPase activating protein; GST, glutathione S-transferase"
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    "used" "in" "this" "paper" ":" @alias:${ label } (","|":") @alias:${ label } ";"
+
+- name: alias_${ label }_semicolon2
+  example: "Abbreviations used in this paper: GAP, GTPase activating protein; GST, glutathione S-transferase"
+  label: Alias
+  action: mkBioMention
+  priority: ${ prioritylate }
+  type: token
+  pattern: |
+    "used" "in" "this" "paper" ":" /./+ ";" @alias:${ label } (","|":") @alias:${ label }
+

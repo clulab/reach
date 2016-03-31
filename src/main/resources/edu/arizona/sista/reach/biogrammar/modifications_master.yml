@@ -8,14 +8,17 @@ rules:
     vars:
       label: "Simple_chemical"
       priority: "4"
+      prioritylate: "5+"
 
   - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
     vars:
       label: "Equivalable" # TODO: better name
       priority: "4"
+      prioritylate: "5+"
 
   - import: edu/arizona/sista/reach/biogrammar/coref/alias_template.yml
     vars:
       label: "Mutant"
       priority: "4"
+      prioritylate: "5+"
 
