@@ -139,7 +139,7 @@ class NxmlSearcher(val indexDir:String) {
     val result = intersection(eventDocs, search("""Ras AND (ROS OR "antioxidant response element" OR Warburg OR MAPK OR "Raf/Mek/Erk" OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR integrins OR ADAM OR EGF OR EGFR OR RTK OR apoptosis OR autophagy OR proliferation OR "transcription factors" OR ATM OR p53 OR RB OR "tumor suppressors" OR glycolysis OR "pentose phosphate pathway" OR OXPHOS OR mitochondria OR "cell cycle" OR "energy balance" OR exosomes OR RAGE OR HMGB1)"""))
     logger.debug(s"The result contains ${result.size} documents.")
     val resultDocs = docs(result)
-    saveNxml(resultDir, resultDocs, 1000)
+    saveNxml(resultDir, resultDocs, 0)
     saveIds(resultDocs)
 
     //
