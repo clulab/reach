@@ -110,8 +110,8 @@ object ReadPapers extends App {
 
   val config = ConfigFactory.load()
 
-  val papersDir = config.getString("PaperReader.papersDir")
-  val outFile = config.getString("PaperReader.serializedPapers")
+  val papersDir = config.getString("ReadPapers.papersDir")
+  val outFile = config.getString("ReadPapers.serializedPapers")
 
   println("reading papers ...")
   val dataset = PaperReader.readPapers(papersDir)
