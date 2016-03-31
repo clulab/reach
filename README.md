@@ -80,7 +80,7 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 
 # How to use it
 
-## Running the system on a directory of NXML papers
+## Running the system on a directory of `.nxml` papers
 
 The most common usage of Reach is to parse a directory containing one or more papers in the NXML format.
 In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing NXML files should be specified using the `nxmlDir` variable.
@@ -104,6 +104,30 @@ sbt "runMain edu.arizona.sista.reach.ReachShell"
 ```
 
 enter `:help` to get a list of available commands.
+
+## Running the sieve-based assembly system
+Reach now provides a sieve-based system for assembly of event mentions.  While still under development, the system currently has support for (1) exact deduplication for both entity and event mentions, (2) unification of mentions through coreference resolution, and (3) the reporting of intra-sentence causal precedence relations (ex. A causally precedes B) using linguistics features.  Future versions will include additional sieves for inter-sentence precedence and improved approximate deduplication.  The sieve assembly system can be run over... 
+
+1. a directory of `.nxml` and/or `.csv` files   
+ ```scala
+ sbt "runMain edu.arizona.sista.assembly.RunAssembly"
+ ```
+2. a dataset comprised of serialized mentions  
+ ```scala
+ sbt "runMain edu.arizona.sista.assembly.AssembleFromDataset"
+ ```
+ 
+Be sure to specify the input source and output directory for assembly in the [`application.conf`](https://github.com/clulab/reach/blob/ea0b42c23a70d7dda1bc01b62bfc716129d24d9f/src/main/resources/application.conf#L63-L80).
+
+Currently, two `.csv` files are produced for assembly results **within** each paper:  
+
+1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/edu/arizona/sista/assembly/AssemblyExporter.scala#L337-L352)
+2. results without MITRE's constraints
+
+Two additional output files are produced for assembly results **across** all papers:  
+
+1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/edu/arizona/sista/assembly/AssemblyExporter.scala#L337-L352)  
+2. results without MITRE's constraints
 
 # Modifying the code
 Reach builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
