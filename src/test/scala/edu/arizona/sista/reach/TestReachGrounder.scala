@@ -24,7 +24,6 @@ class TestReachGrounder extends FlatSpec with Matchers {
   val resols: Resolutions = Some(Seq(kbrC, kbrH, kbrM, kbrR))
 
   text1 should "produce 7 entities mentions" in {
-    printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size (7)
   }
 
