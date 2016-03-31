@@ -1,9 +1,11 @@
 package edu.arizona.sista.reach.grounding
 
+import scala.Serializable
+
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Pass species tests to entry.
+  *   Last Modified: Make class serializable.
   */
 class KBResolution (
 

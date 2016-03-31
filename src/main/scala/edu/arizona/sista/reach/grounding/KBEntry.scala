@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach.grounding
 
+import scala.Serializable
 import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.reach.grounding.ReachKBConstants._

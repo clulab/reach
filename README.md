@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/clulab/reach.svg?branch=master)](https://travis-ci.org/clulab/reach)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11)
 
 Reach
 =====
@@ -56,17 +57,21 @@ This software requires Java 1.8, Scala 2.11, and CoreNLP 3.x or higher.
 
 The `jar` is available on Maven Central. To use, simply add the following dependency to your `pom.xml`:
 
-    <dependency>
-       <groupId>org.clulab</groupId>
-       <artifactId>reach_2.11</artifactId>
-       <version>1.2.2</version>
-    </dependency>
+```xml
+<dependency>
+   <groupId>org.clulab</groupId>
+   <artifactId>reach_2.11</artifactId>
+   <version>1.2.2</version>
+</dependency>
+```
 
  The equivalent SBT dependencies are:
 
-    libraryDependencies ++= Seq(
-        "org.clulab" %% "reach" % "1.2.2"
-    )
+```scala
+libraryDependencies ++= Seq(
+    "org.clulab" %% "reach" % "1.2.2"
+)
+```
 
 # How to compile the source code
 
@@ -80,17 +85,23 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 The most common usage of Reach is to parse a directory containing one or more papers in the NXML format.
 In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing NXML files should be specified using the `nxmlDir` variable.
 
-`sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"`
+```scala
+sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"
+```
 
 If the configuration file is omitted, Reach uses the default `.conf`. That is, the command:
 
-`sbt "runMain edu.arizona.sista.reach.ReachCLI"`
+```scala
+sbt "runMain edu.arizona.sista.reach.ReachCLI"
+```
 
 will run the system using the `.conf` file under `src/main/resources/application.conf`.
 
 ## Running the interactive Reach shell for rule debugging
 
-`sbt "runMain edu.arizona.sista.reach.ReachShell"`
+```scala
+sbt "runMain edu.arizona.sista.reach.ReachShell"
+```
 
 enter `:help` to get a list of available commands.
 
