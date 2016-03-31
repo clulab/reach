@@ -33,13 +33,6 @@ class BioEventMention(
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
     with Modifications with Grounding with Display with Context{
 
-  // FIXME
-  // sketchy code to mutate the mention's tokenInterval
-  // we need this because a mention solved by coreference
-  // may have arguments outside its sentence
-  var mutableTokenInterval: Interval = super.tokenInterval
-  override def tokenInterval: Interval = mutableTokenInterval
-
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
     super.hashCode() * 42 + mutations.hashCode()
@@ -56,13 +49,6 @@ class BioRelationMention(
   foundBy: String
 ) extends RelationMention(labels, arguments, sentence, document, keep, foundBy)
     with Modifications with Grounding with Display with Context {
-
-  // FIXME
-  // sketchy code to mutate the mention's tokenInterval
-  // we need this because a mention solved by coreference
-  // may have arguments outside its sentence
-  var mutableTokenInterval: Interval = super.tokenInterval
-  override def tokenInterval: Interval = mutableTokenInterval
 
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
