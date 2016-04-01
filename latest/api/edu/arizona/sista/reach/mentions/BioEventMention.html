@@ -448,18 +448,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../context/Context.html" class="extype" name="edu.arizona.sista.reach.context.Context">Context</a></dd></dl></div>
     </li><li name="edu.arizona.sista.odin.EventMention#copy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="copy(labels:Seq[String],trigger:edu.arizona.sista.odin.TextBoundMention,arguments:Map[String,Seq[edu.arizona.sista.odin.Mention]],paths:Map[String,Map[edu.arizona.sista.odin.Mention,edu.arizona.sista.odin.SynPath]],sentence:Int,document:edu.arizona.sista.processors.Document,keep:Boolean,foundBy:String):edu.arizona.sista.odin.EventMention"></a>
-      <a id="copy(Seq[String],TextBoundMention,Map[String,Seq[Mention]],Map[String,Map[Mention,SynPath]],Int,Document,Boolean,String):EventMention"></a>
+      <a id="copy(labels:Seq[String],tokenInterval:edu.arizona.sista.struct.Interval,trigger:edu.arizona.sista.odin.TextBoundMention,arguments:Map[String,Seq[edu.arizona.sista.odin.Mention]],paths:Map[String,Map[edu.arizona.sista.odin.Mention,edu.arizona.sista.odin.SynPath]],sentence:Int,document:edu.arizona.sista.processors.Document,keep:Boolean,foundBy:String):edu.arizona.sista.odin.EventMention"></a>
+      <a id="copy(Seq[String],Interval,TextBoundMention,Map[String,Seq[Mention]],Map[String,Map[Mention,SynPath]],Int,Document,Boolean,String):EventMention"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">copy</span><span class="params">(<span name="labels">labels: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="trigger">trigger: <span class="extype" name="edu.arizona.sista.odin.TextBoundMention">TextBoundMention</span></span>, <span name="arguments">arguments: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]]</span>, <span name="paths">paths: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>, <span class="extype" name="edu.arizona.sista.odin.SynPath">SynPath</span>]]</span>, <span name="sentence">sentence: <span class="extype" name="scala.Int">Int</span></span>, <span name="document">document: <span class="extype" name="edu.arizona.sista.processors.Document">Document</span></span>, <span name="keep">keep: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="foundBy">foundBy: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="edu.arizona.sista.odin.EventMention">EventMention</span></span>
+        <span class="name">copy</span><span class="params">(<span name="labels">labels: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="tokenInterval">tokenInterval: <span class="extype" name="edu.arizona.sista.struct.Interval">Interval</span></span>, <span name="trigger">trigger: <span class="extype" name="edu.arizona.sista.odin.TextBoundMention">TextBoundMention</span></span>, <span name="arguments">arguments: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]]</span>, <span name="paths">paths: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>, <span class="extype" name="edu.arizona.sista.odin.SynPath">SynPath</span>]]</span>, <span name="sentence">sentence: <span class="extype" name="scala.Int">Int</span></span>, <span name="document">document: <span class="extype" name="edu.arizona.sista.processors.Document">Document</span></span>, <span name="keep">keep: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="foundBy">foundBy: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="edu.arizona.sista.odin.EventMention">EventMention</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@copy(labels:Seq[String],trigger:edu.arizona.sista.odin.TextBoundMention,arguments:Map[String,Seq[edu.arizona.sista.odin.Mention]],paths:Map[String,Map[edu.arizona.sista.odin.Mention,edu.arizona.sista.odin.SynPath]],sentence:Int,document:edu.arizona.sista.processors.Document,keep:Boolean,foundBy:String):edu.arizona.sista.odin.EventMention" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@copy(labels:Seq[String],tokenInterval:edu.arizona.sista.struct.Interval,trigger:edu.arizona.sista.odin.TextBoundMention,arguments:Map[String,Seq[edu.arizona.sista.odin.Mention]],paths:Map[String,Map[edu.arizona.sista.odin.Mention,edu.arizona.sista.odin.SynPath]],sentence:Int,document:edu.arizona.sista.processors.Document,keep:Boolean,foundBy:String):edu.arizona.sista.odin.EventMention" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
@@ -997,23 +997,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Modifications.html" class="extype" name="edu.arizona.sista.reach.mentions.Modifications">Modifications</a></dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.mentions.BioEventMention#mutableTokenInterval" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="mutableTokenInterval:edu.arizona.sista.struct.Interval"></a>
-      <a id="mutableTokenInterval:Interval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">var</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mutableTokenInterval</span><span class="result">: <span class="extype" name="edu.arizona.sista.struct.Interval">Interval</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@mutableTokenInterval:edu.arizona.sista.struct.Interval" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="edu.arizona.sista.reach.mentions.Modifications#mutants" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="mutants:Set[edu.arizona.sista.reach.mentions.Mutant]"></a>
       <a id="mutants:Set[Mutant]"></a>
@@ -1167,6 +1150,91 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>EventMention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#semHead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="semHead:Option[Int]"></a>
+      <a id="semHead:Option[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semHead</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@semHead:Option[Int]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#semHeadLemma" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="semHeadLemma:Option[String]"></a>
+      <a id="semHeadLemma:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semHeadLemma</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@semHeadLemma:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#semHeadTag" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="semHeadTag:Option[String]"></a>
+      <a id="semHeadTag:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semHeadTag</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@semHeadTag:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#semHeadWord" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="semHeadWord:Option[String]"></a>
+      <a id="semHeadWord:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semHeadWord</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@semHeadWord:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#semHeads" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="semHeads:Seq[Int]"></a>
+      <a id="semHeads:Seq[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">semHeads</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@semHeads:Seq[Int]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
     </li><li name="edu.arizona.sista.odin.EventMention#sentence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sentence:Int"></a>
       <a id="sentence:Int"></a>
@@ -1231,6 +1299,91 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@startOffset:Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#synHead" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synHead:Option[Int]"></a>
+      <a id="synHead:Option[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synHead</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@synHead:Option[Int]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#synHeadLemma" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synHeadLemma:Option[String]"></a>
+      <a id="synHeadLemma:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synHeadLemma</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@synHeadLemma:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#synHeadTag" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synHeadTag:Option[String]"></a>
+      <a id="synHeadTag:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synHeadTag</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@synHeadTag:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#synHeadWord" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synHeadWord:Option[String]"></a>
+      <a id="synHeadWord:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synHeadWord</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@synHeadWord:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
+    </li><li name="edu.arizona.sista.odin.Mention#synHeads" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synHeads:Seq[Int]"></a>
+      <a id="synHeads:Seq[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synHeads</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.BioEventMention@synHeads:Seq[Int]" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
@@ -1320,13 +1473,13 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.mentions.BioEventMention#tokenInterval" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="edu.arizona.sista.odin.EventMention#tokenInterval" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="tokenInterval:edu.arizona.sista.struct.Interval"></a>
       <a id="tokenInterval:Interval"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
         <span class="name">tokenInterval</span><span class="result">: <span class="extype" name="edu.arizona.sista.struct.Interval">Interval</span></span>
@@ -1336,7 +1489,7 @@
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.mentions.BioEventMention">BioEventMention</a> → EventMention → Mention</dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>EventMention → Mention</dd></dl></div>
     </li><li name="edu.arizona.sista.odin.EventMention#trigger" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="trigger:edu.arizona.sista.odin.TextBoundMention"></a>
       <a id="trigger:TextBoundMention"></a>
