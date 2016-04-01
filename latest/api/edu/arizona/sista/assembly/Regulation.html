@@ -1,0 +1,909 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>Regulation - edu.arizona.sista.assembly.Regulation</title>
+          <meta name="description" content="Regulation - edu.arizona.sista.assembly.Regulation" />
+          <meta name="keywords" content="Regulation edu.arizona.sista.assembly.Regulation" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'edu.arizona.sista.assembly.Regulation';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="edu">edu</a>.<a href="../../package.html" class="extype" name="edu.arizona">arizona</a>.<a href="../package.html" class="extype" name="edu.arizona.sista">sista</a>.<a href="package.html" class="extype" name="edu.arizona.sista.assembly">assembly</a></p>
+        <h1>Regulation</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="edu.arizona.sista.assembly">package assembly</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Regulation</span><span class="result"> extends <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Representation of a Regulation.</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a>, <a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a>, <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="edu.arizona.sista.assembly.Regulation"><span>Regulation</span></li><li class="in" name="edu.arizona.sista.assembly.ComplexEvent"><span>ComplexEvent</span></li><li class="in" name="edu.arizona.sista.assembly.Event"><span>Event</span></li><li class="in" name="edu.arizona.sista.assembly.EntityEventRepresentation"><span>EntityEventRepresentation</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="edu.arizona.sista.assembly.Regulation#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(uniqueID:edu.arizona.sista.assembly.IDPointer,controllerPointers:Set[edu.arizona.sista.assembly.IDPointer],controlledPointers:Set[edu.arizona.sista.assembly.IDPointer],polarity:String,sourceMention:Option[edu.arizona.sista.odin.Mention],manager:edu.arizona.sista.assembly.AssemblyManager):edu.arizona.sista.assembly.Regulation"></a>
+      <a id="&lt;init&gt;:Regulation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Regulation</span><span class="params">(<span name="uniqueID">uniqueID: <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a></span>, <span name="controllerPointers">controllerPointers: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a>]</span>, <span name="controlledPointers">controlledPointers: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a>]</span>, <span name="polarity">polarity: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="sourceMention">sourceMention: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>, <span name="manager">manager: <a href="AssemblyManager.html" class="extype" name="edu.arizona.sista.assembly.AssemblyManager">AssemblyManager</a></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@&lt;init&gt;(uniqueID:edu.arizona.sista.assembly.IDPointer,controllerPointers:Set[edu.arizona.sista.assembly.IDPointer],controlledPointers:Set[edu.arizona.sista.assembly.IDPointer],polarity:String,sourceMention:Option[edu.arizona.sista.odin.Mention],manager:edu.arizona.sista.assembly.AssemblyManager):edu.arizona.sista.assembly.Regulation" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">uniqueID</dt><dd class="cmt"><p>the <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> assigned to this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a></p></dd><dt class="param">controllerPointers</dt><dd class="cmt"><p>a Set of <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> corresponding to the Mentions serving as controllers to the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+                          It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in <span class="extype" name="AssemblyManager.mentionToID">AssemblyManager.mentionToID</span> points to exactly one <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> which corresponds to exactly one <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> in <span class="extype" name="AssemblyManager.idToEER">AssemblyManager.idToEER</span></p></dd><dt class="param">controlledPointers</dt><dd class="cmt"><p>a Set of <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> corresponding to the Mentions serving as the controlled to the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+                          It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in <span class="extype" name="AssemblyManager.mentionToID">AssemblyManager.mentionToID</span> points to exactly one <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> which corresponds to exactly one <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> in <span class="extype" name="AssemblyManager.idToEER">AssemblyManager.idToEER</span></p></dd><dt class="param">polarity</dt><dd class="cmt"><p>whether the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> is <a href="AssemblyManager$.html#positive:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#positive">AssemblyManager.positive</a>, <a href="AssemblyManager$.html#negative:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#negative">AssemblyManager.negative</a>, or <a href="AssemblyManager$.html#unknown:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#unknown">AssemblyManager.unknown</a></p></dd><dt class="param">sourceMention</dt><dd class="cmt"><p>the Mention from which this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> was constructed</p></dd><dt class="param">manager</dt><dd class="cmt"><p>a pointer to the <a href="AssemblyManager.html" class="extype" name="edu.arizona.sista.assembly.AssemblyManager">AssemblyManager</a> instance that produced this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@##():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.ComplexEvent#containsID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsID(someID:edu.arizona.sista.assembly.IDPointer):Boolean"></a>
+      <a id="containsID(IDPointer):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsID</span><span class="params">(<span name="someID">someID: <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@containsID(someID:edu.arizona.sista.assembly.IDPointer):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Whether or not the <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> contains the provided <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Whether or not the <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> contains the provided <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a>.</p></div><dl class="paramcmts block"><dt class="param">someID</dt><dd class="cmt"><p>an <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> identifying some <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></p></dd><dt>returns</dt><dd class="cmt"><p>true or false
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> → <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.ComplexEvent#controlled" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="controlled:Set[edu.arizona.sista.assembly.EntityEventRepresentation]"></a>
+      <a id="controlled:Set[EntityEventRepresentation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">controlled</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@controlled:Set[edu.arizona.sista.assembly.EntityEventRepresentation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> Set corresponding to the referencing Regulation Mention's &quot;controlled&quot; argument (retrieved using using the <span class="extype" name="manager.idToEER">manager.idToEER</span> and the <a href="ComplexEvent.html#controlledPointers:Set[edu.arizona.sista.assembly.IDPointer]" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#controlledPointers">controlledPointers</a>).</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> Set corresponding to the referencing Regulation Mention's &quot;controlled&quot; argument (retrieved using using the <span class="extype" name="manager.idToEER">manager.idToEER</span> and the <a href="ComplexEvent.html#controlledPointers:Set[edu.arizona.sista.assembly.IDPointer]" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#controlledPointers">controlledPointers</a>).</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a Set of <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#controlledPointers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="controlledPointers:Set[edu.arizona.sista.assembly.IDPointer]"></a>
+      <a id="controlledPointers:Set[IDPointer]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">controlledPointers</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@controlledPointers:Set[edu.arizona.sista.assembly.IDPointer]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">a Set of <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> corresponding to the Mentions serving as the controlled to the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+                          It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in <span class="extype" name="AssemblyManager.mentionToID">AssemblyManager.mentionToID</span> points to exactly one <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> which corresponds to exactly one <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> in <span class="extype" name="AssemblyManager.idToEER">AssemblyManager.idToEER</span></p><div class="fullcomment"><div class="comment cmt"><p>a Set of <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> corresponding to the Mentions serving as the controlled to the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+                          It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in <span class="extype" name="AssemblyManager.mentionToID">AssemblyManager.mentionToID</span> points to exactly one <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> which corresponds to exactly one <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> in <span class="extype" name="AssemblyManager.idToEER">AssemblyManager.idToEER</span></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.ComplexEvent#controller" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="controller:Set[edu.arizona.sista.assembly.EntityEventRepresentation]"></a>
+      <a id="controller:Set[EntityEventRepresentation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">controller</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@controller:Set[edu.arizona.sista.assembly.EntityEventRepresentation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> Set corresponding to the referencing Regulation Mention's &quot;controller&quot; argument (retrieved using using the <span class="extype" name="manager.idToEER">manager.idToEER</span> and the <a href="ComplexEvent.html#controllerPointers:Set[edu.arizona.sista.assembly.IDPointer]" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#controllerPointers">controllerPointers</a>).</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> Set corresponding to the referencing Regulation Mention's &quot;controller&quot; argument (retrieved using using the <span class="extype" name="manager.idToEER">manager.idToEER</span> and the <a href="ComplexEvent.html#controllerPointers:Set[edu.arizona.sista.assembly.IDPointer]" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#controllerPointers">controllerPointers</a>).</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a Set of <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#controllerPointers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="controllerPointers:Set[edu.arizona.sista.assembly.IDPointer]"></a>
+      <a id="controllerPointers:Set[IDPointer]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">controllerPointers</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@controllerPointers:Set[edu.arizona.sista.assembly.IDPointer]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">a Set of <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> corresponding to the Mentions serving as controllers to the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+                          It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in <span class="extype" name="AssemblyManager.mentionToID">AssemblyManager.mentionToID</span> points to exactly one <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> which corresponds to exactly one <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> in <span class="extype" name="AssemblyManager.idToEER">AssemblyManager.idToEER</span></p><div class="fullcomment"><div class="comment cmt"><p>a Set of <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> corresponding to the Mentions serving as controllers to the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+                          It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in <span class="extype" name="AssemblyManager.mentionToID">AssemblyManager.mentionToID</span> points to exactly one <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> which corresponds to exactly one <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> in <span class="extype" name="AssemblyManager.idToEER">AssemblyManager.idToEER</span></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.EntityEventRepresentation#coref" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="coref:Boolean"></a>
+      <a id="coref:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">coref</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@coref:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Whether or not the <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> was produced by a Mention resolved through coref.</p><div class="fullcomment"><div class="comment cmt"><p>Whether or not the <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> was produced by a Mention resolved through coref.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>true or false
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Event#distinctPredecessors" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="distinctPredecessors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]"></a>
+      <a id="distinctPredecessors:Set[EntityEventRepresentation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">distinctPredecessors</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@distinctPredecessors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Distinct causal predecessors of this Event</p><div class="fullcomment"><div class="comment cmt"><p>Distinct causal predecessors of this Event</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Event#distinctSuccessors" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="distinctSuccessors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]"></a>
+      <a id="distinctSuccessors:Set[EntityEventRepresentation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">distinctSuccessors</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@distinctSuccessors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Distinct causal successors of this Event</p><div class="fullcomment"><div class="comment cmt"><p>Distinct causal successors of this Event</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#eerString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eerString:String"></a>
+      <a id="eerString:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eerString</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@eerString:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.ComplexEvent#equivalenceHash" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equivalenceHash:Int"></a>
+      <a id="equivalenceHash:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equivalenceHash</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@equivalenceHash:Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Used by <a href="ComplexEvent.html#isEquivalentTo(other:Any):Boolean" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#isEquivalentTo">isEquivalentTo</a> to compare against another <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Used by <a href="ComplexEvent.html#isEquivalentTo(other:Any):Boolean" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#isEquivalentTo">isEquivalentTo</a> to compare against another <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a>.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>an Int hash based on the <a href="ComplexEvent.html#polarity:String" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#polarity">polarity</a>, <span class="extype" name="controllerHash">controllerHash</span>, <span class="extype" name="controlledHash">controlledHash</span>, and <span class="extype" name="negated.hashCode">negated.hashCode</span>
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> → <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.EntityEventRepresentation#evidence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="evidence:Set[edu.arizona.sista.odin.Mention]"></a>
+      <a id="evidence:Set[Mention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">evidence</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@evidence:Set[edu.arizona.sista.odin.Mention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Set of Mentions serving as textual evidence for this <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The Set of Mentions serving as textual evidence for this <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>.</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Set[Mention]
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.EntityEventRepresentation#hasCorefResolution" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasCorefResolution(m:edu.arizona.sista.odin.Mention):Boolean"></a>
+      <a id="hasCorefResolution(Mention):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasCorefResolution</span><span class="params">(<span name="m">m: <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@hasCorefResolution(m:edu.arizona.sista.odin.Mention):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Checks to see if a coref mention has an antecedent.</p><div class="fullcomment"><div class="comment cmt"><p>Checks to see if a coref mention has an antecedent.</p><p>If the mentions made it through the coref component of reach,
+the only mentions that might have an antecedent should be those with a &quot;Generic_*&quot;
+this is just a broader, fail-safe check...</p></div><dl class="paramcmts block"><dt class="param">m</dt><dd class="cmt"><p>an Odin Mention</p></dd><dt>returns</dt><dd class="cmt"><p>true if cm has an antecedent; false otherwise
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.EntityEventRepresentation#hasNegation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasNegation(m:edu.arizona.sista.odin.Mention):Boolean"></a>
+      <a id="hasNegation(Mention):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasNegation</span><span class="params">(<span name="m">m: <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@hasNegation(m:edu.arizona.sista.odin.Mention):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Checks whether evidence contains a Negation modification</p><div class="fullcomment"><div class="comment cmt"><p>Checks whether evidence contains a Negation modification</p></div><dl class="paramcmts block"><dt class="param">m</dt><dd class="cmt"><p>an Odin Mention</p></dd><dt>returns</dt><dd class="cmt"><p>true or false
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.ComplexEvent#isEquivalentTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isEquivalentTo(other:Any):Boolean"></a>
+      <a id="isEquivalentTo(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isEquivalentTo</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@isEquivalentTo(other:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Used to compare against another <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Used to compare against another <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a>.
+Based on the equality of <a href="ComplexEvent.html#equivalenceHash:Int" class="extmbr" name="edu.arizona.sista.assembly.ComplexEvent#equivalenceHash">equivalenceHash</a> to that of another <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a>.</p></div><dl class="paramcmts block"><dt class="param">other</dt><dd class="cmt"><p>the thing to compare against</p></dd><dt>returns</dt><dd class="cmt"><p>true or false
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> → <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#manager" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="manager:edu.arizona.sista.assembly.AssemblyManager"></a>
+      <a id="manager:AssemblyManager"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">manager</span><span class="result">: <a href="AssemblyManager.html" class="extype" name="edu.arizona.sista.assembly.AssemblyManager">AssemblyManager</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@manager:edu.arizona.sista.assembly.AssemblyManager" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">a pointer to the <a href="AssemblyManager.html" class="extype" name="edu.arizona.sista.assembly.AssemblyManager">AssemblyManager</a> instance that produced this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>a pointer to the <a href="AssemblyManager.html" class="extype" name="edu.arizona.sista.assembly.AssemblyManager">AssemblyManager</a> instance that produced this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a>
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> → <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.EntityEventRepresentation#negated" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="negated:Boolean"></a>
+      <a id="negated:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">negated</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@negated:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Whether or not the <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> is negated by its evidence (i.e., whether or not the evidence gives a negative example for this <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>).</p><div class="fullcomment"><div class="comment cmt"><p>Whether or not the <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a> is negated by its evidence (i.e., whether or not the evidence gives a negative example for this <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>).</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>true or false
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#polarity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="polarity:String"></a>
+      <a id="polarity:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">polarity</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@polarity:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">whether the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> is <a href="AssemblyManager$.html#positive:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#positive">AssemblyManager.positive</a>, <a href="AssemblyManager$.html#negative:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#negative">AssemblyManager.negative</a>, or <a href="AssemblyManager$.html#unknown:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#unknown">AssemblyManager.unknown</a></p><div class="fullcomment"><div class="comment cmt"><p>whether the <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> is <a href="AssemblyManager$.html#positive:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#positive">AssemblyManager.positive</a>, <a href="AssemblyManager$.html#negative:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#negative">AssemblyManager.negative</a>, or <a href="AssemblyManager$.html#unknown:String" class="extmbr" name="edu.arizona.sista.assembly.AssemblyManager#unknown">AssemblyManager.unknown</a></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Event#precedenceRelations" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="precedenceRelations:Set[edu.arizona.sista.assembly.PrecedenceRelation]"></a>
+      <a id="precedenceRelations:Set[PrecedenceRelation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">precedenceRelations</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="PrecedenceRelation.html" class="extype" name="edu.arizona.sista.assembly.PrecedenceRelation">PrecedenceRelation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@precedenceRelations:Set[edu.arizona.sista.assembly.PrecedenceRelation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">PrecedenceRelations for this Event</p><div class="fullcomment"><div class="comment cmt"><p>PrecedenceRelations for this Event</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Event#predecessors" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predecessors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]"></a>
+      <a id="predecessors:Set[EntityEventRepresentation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predecessors</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@predecessors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Causal predecessors of this Event</p><div class="fullcomment"><div class="comment cmt"><p>Causal predecessors of this Event</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#sourceMention" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sourceMention:Option[edu.arizona.sista.odin.Mention]"></a>
+      <a id="sourceMention:Option[Mention]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sourceMention</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@sourceMention:Option[edu.arizona.sista.odin.Mention]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the Mention from which this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> was constructed</p><div class="fullcomment"><div class="comment cmt"><p>the Mention from which this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> was constructed</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> → <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Event#successors" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="successors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]"></a>
+      <a id="successors:Set[EntityEventRepresentation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">successors</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@successors:Set[edu.arizona.sista.assembly.EntityEventRepresentation]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Causal successors of this Event</p><div class="fullcomment"><div class="comment cmt"><p>Causal successors of this Event</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@toString():String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.assembly.Regulation#uniqueID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="uniqueID:edu.arizona.sista.assembly.IDPointer"></a>
+      <a id="uniqueID:IDPointer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">uniqueID</span><span class="result">: <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@uniqueID:edu.arizona.sista.assembly.IDPointer" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">the <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> assigned to this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a></p><div class="fullcomment"><div class="comment cmt"><p>the <a href="package.html#IDPointer=Int" class="extmbr" name="edu.arizona.sista.assembly.IDPointer">IDPointer</a> assigned to this <a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.assembly.Regulation">Regulation</a> → <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a> → <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.assembly.Regulation@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="edu.arizona.sista.assembly.ComplexEvent">
+              <h3>Inherited from <a href="ComplexEvent.html" class="extype" name="edu.arizona.sista.assembly.ComplexEvent">ComplexEvent</a></h3>
+            </div><div class="parent" name="edu.arizona.sista.assembly.Event">
+              <h3>Inherited from <a href="Event.html" class="extype" name="edu.arizona.sista.assembly.Event">Event</a></h3>
+            </div><div class="parent" name="edu.arizona.sista.assembly.EntityEventRepresentation">
+              <h3>Inherited from <a href="EntityEventRepresentation.html" class="extype" name="edu.arizona.sista.assembly.EntityEventRepresentation">EntityEventRepresentation</a></h3>
+            </div><div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

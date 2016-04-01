@@ -47,16 +47,16 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">KBEntry</span><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></span>
+        <span class="name">KBEntry</span><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class holding information about a specific entry from an external Knowledge Base.
   Written by: Tom Hicks. 10/25/2015.
-  Last Modified: Add nsId method.
+  Last Modified: Refactor namespace:ID method to utils class.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -74,7 +74,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="edu.arizona.sista.reach.grounding.KBEntry"><span>KBEntry</span></li><li class="in" name="edu.arizona.sista.reach.grounding.Speciated"><span>Speciated</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="edu.arizona.sista.reach.grounding.KBEntry"><span>KBEntry</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="edu.arizona.sista.reach.grounding.Speciated"><span>Speciated</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -191,23 +191,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.Speciated#HumanLabels" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="HumanLabels:Speciated.this.SpeciesNameSet"></a>
-      <a id="HumanLabels:SpeciesNameSet"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">HumanLabels</span><span class="result">: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.KBEntry.SpeciesNameSet">SpeciesNameSet</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBEntry@HumanLabels:Speciated.this.SpeciesNameSet" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">A set of label strings for humans, found in KBs.</p><div class="fullcomment"><div class="comment cmt"><p>A set of label strings for humans, found in KBs.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
       <a id="SpeciesNameSet(String*):Set[String]"></a>
@@ -282,6 +265,40 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanNsId(nsIdSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanNsId(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanNsId</span><span class="params">(<span name="nsIdSeq">nsIdSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBEntry@containsHumanNsId(nsIdSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of namespace/ID strings contains a human nsId.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of namespace/ID strings contains a human nsId.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanSpecies(speciesSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanSpecies(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanSpecies</span><span class="params">(<span name="speciesSeq">speciesSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBEntry@containsHumanSpecies(speciesSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of species strings contain a human species label.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of species strings contain a human species label.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -356,6 +373,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#hasHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasHumanNsId(nsId:String):Boolean"></a>
+      <a id="hasHumanNsId(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasHumanNsId</span><span class="params">(<span name="nsId">nsId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBEntry@hasHumanNsId(nsId:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given namespace/ID string is an ID for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given namespace/ID string is an ID for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.KBEntry#hasNoSpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="hasNoSpecies:Boolean"></a>
       <a id="hasNoSpecies:Boolean"></a>
@@ -723,7 +757,11 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="edu.arizona.sista.reach.grounding.Speciated">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="edu.arizona.sista.reach.grounding.Speciated">
               <h3>Inherited from <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>

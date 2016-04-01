@@ -51,7 +51,7 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Trait which holds grounding information for a mention.
   Written by: Marco Valenzuela, Tom Hicks.
-  Last Modified: Add candidate test methods and select current grounding method.
+  Last Modified: Propagate ambiguity: comment out finalization methods.
 </p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a> with <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
@@ -300,23 +300,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.mentions.Grounding#ground" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="ground(resolution:edu.arizona.sista.reach.grounding.KBResolution):Unit"></a>
-      <a id="ground(KBResolution):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ground</span><span class="params">(<span name="resolution">resolution: <a href="../grounding/KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.Grounding@ground(resolution:edu.arizona.sista.reach.grounding.KBResolution):Unit" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Set the final resolution for grounding.</p>
     </li><li name="edu.arizona.sista.reach.mentions.Grounding#grounding" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="grounding():Option[edu.arizona.sista.reach.grounding.KBResolution]"></a>
       <a id="grounding():Option[KBResolution]"></a>
@@ -367,7 +350,7 @@
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns true if this mention has more than one candidate grounding.</p>
+      <p class="shortcomment cmt">Returns true if this mention is grounded and has more than one candidate grounding.</p>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -504,23 +487,6 @@
       </a>
     </span>
       <p class="shortcomment cmt">Return a formatted string containing the grounding namespace and ID.</p>
-    </li><li name="edu.arizona.sista.reach.mentions.Grounding#selectCurrentGrounding" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="selectCurrentGrounding():Unit"></a>
-      <a id="selectCurrentGrounding():Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">selectCurrentGrounding</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.Grounding@selectCurrentGrounding():Unit" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Select the current grounding as the final grounding.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

@@ -328,6 +328,24 @@ this function handles the general case
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.coref.Coref#evtSieves" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="evtSieves(mentions:Seq[edu.arizona.sista.reach.mentions.CorefEventMention]):Map[edu.arizona.sista.reach.mentions.CorefEventMention,Set[String]]"></a>
+      <a id="evtSieves(Seq[CorefEventMention]):Map[CorefEventMention,Set[String]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">evtSieves</span><span class="params">(<span name="mentions">mentions: <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>, <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.coref.Coref@evtSieves(mentions:Seq[edu.arizona.sista.reach.mentions.CorefEventMention]):Map[edu.arizona.sista.reach.mentions.CorefEventMention,Set[String]]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Make a map from EventMentions to the sieves used to find their antecedents (if any)
+</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -495,36 +513,36 @@ necessary
 </p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>all the input mentions with their antecedents already chosen by the linking functions</p></dd><dt>returns</dt><dd class="cmt"><p>mentions with generic mentions replaced by their antecedents
 </p></dd></dl></div>
     </li><li name="edu.arizona.sista.coref.Coref#resolveComplexEvents" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="resolveComplexEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefMention],resolved:Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]):Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]"></a>
-      <a id="resolveComplexEvents(Seq[CorefMention],Map[CorefMention,Seq[CorefMention]]):Map[CorefMention,Seq[CorefMention]]"></a>
+      <a id="resolveComplexEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefMention],resolved:Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]],sieveMap:Map[edu.arizona.sista.reach.mentions.CorefMention,Set[String]]):Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]"></a>
+      <a id="resolveComplexEvents(Seq[CorefMention],Map[CorefMention,Seq[CorefMention]],Map[CorefMention,Set[String]]):Map[CorefMention,Seq[CorefMention]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">resolveComplexEvents</span><span class="params">(<span name="evts">evts: <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]</span>, <span name="resolved">resolved: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]]</span>
+        <span class="name">resolveComplexEvents</span><span class="params">(<span name="evts">evts: <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]</span>, <span name="resolved">resolved: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]]</span>, <span name="sieveMap">sieveMap: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>, <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.coref.Coref@resolveComplexEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefMention],resolved:Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]):Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.coref.Coref@resolveComplexEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefMention],resolved:Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]],sieveMap:Map[edu.arizona.sista.reach.mentions.CorefMention,Set[String]]):Map[edu.arizona.sista.reach.mentions.CorefMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">Make a map from the given ComplexEvent mentions (whether they are RelationMentions or EventMentions) to the same
 mentions but with any generic mentions (including in the arguments) replaced with their non-generic antecedents.</p>
     </li><li name="edu.arizona.sista.coref.Coref#resolveSimpleEvents" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="resolveSimpleEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefEventMention],resolvedTBMs:Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]):Map[edu.arizona.sista.reach.mentions.CorefEventMention,Seq[edu.arizona.sista.reach.mentions.CorefEventMention]]"></a>
-      <a id="resolveSimpleEvents(Seq[CorefEventMention],Map[CorefTextBoundMention,Seq[CorefMention]]):Map[CorefEventMention,Seq[CorefEventMention]]"></a>
+      <a id="resolveSimpleEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefEventMention],resolvedTBMs:Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]],sieveMap:Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Set[String]]):Map[edu.arizona.sista.reach.mentions.CorefEventMention,Seq[edu.arizona.sista.reach.mentions.CorefEventMention]]"></a>
+      <a id="resolveSimpleEvents(Seq[CorefEventMention],Map[CorefTextBoundMention,Seq[CorefMention]],Map[CorefTextBoundMention,Set[String]]):Map[CorefEventMention,Seq[CorefEventMention]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">resolveSimpleEvents</span><span class="params">(<span name="evts">evts: <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>]</span>, <span name="resolvedTBMs">resolvedTBMs: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefTextBoundMention">CorefTextBoundMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>]]</span>
+        <span class="name">resolveSimpleEvents</span><span class="params">(<span name="evts">evts: <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>]</span>, <span name="resolvedTBMs">resolvedTBMs: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefTextBoundMention">CorefTextBoundMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]]</span>, <span name="sieveMap">sieveMap: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefTextBoundMention">CorefTextBoundMention</a>, <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>, <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/CorefEventMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefEventMention">CorefEventMention</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.coref.Coref@resolveSimpleEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefEventMention],resolvedTBMs:Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]]):Map[edu.arizona.sista.reach.mentions.CorefEventMention,Seq[edu.arizona.sista.reach.mentions.CorefEventMention]]" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.coref.Coref@resolveSimpleEvents(evts:Seq[edu.arizona.sista.reach.mentions.CorefEventMention],resolvedTBMs:Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Seq[edu.arizona.sista.reach.mentions.CorefMention]],sieveMap:Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Set[String]]):Map[edu.arizona.sista.reach.mentions.CorefEventMention,Seq[edu.arizona.sista.reach.mentions.CorefEventMention]]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -565,6 +583,24 @@ in the arguments) replaced with their non-generic antecedents.</p>
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.coref.Coref#tbmSieves" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tbmSieves(mentions:Seq[edu.arizona.sista.reach.mentions.CorefTextBoundMention]):Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Set[String]]"></a>
+      <a id="tbmSieves(Seq[CorefTextBoundMention]):Map[CorefTextBoundMention,Set[String]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tbmSieves</span><span class="params">(<span name="mentions">mentions: <span class="extype" name="scala.Seq">Seq</span>[<a href="../reach/mentions/CorefTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefTextBoundMention">CorefTextBoundMention</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="../reach/mentions/CorefTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.CorefTextBoundMention">CorefTextBoundMention</a>, <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.coref.Coref@tbmSieves(mentions:Seq[edu.arizona.sista.reach.mentions.CorefTextBoundMention]):Map[edu.arizona.sista.reach.mentions.CorefTextBoundMention,Set[String]]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Make a map from TextBoundMentions to the sieves used to find their antecedents (if any)
+</p>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>

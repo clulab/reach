@@ -190,7 +190,7 @@
     </span>
       <p class="shortcomment cmt">Base class merging logic for local Knowledge Base lookups on top of in-memory KB.</p><div class="fullcomment"><div class="comment cmt"><p>Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   Written by Tom Hicks. 10/23/2015.
-  Last Modified: Add method to return sequence of KB entries.
+  Last Modified: Redo grounding step1 to propagate ambiguity.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.IMKBMentionLookup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="IMKBMentionLookupextendsIMKBLookupwithKBMentionLookupwithKBAltMentionLookup"></a>
@@ -334,7 +334,7 @@ from the organ name and specific contextual suffixes.
     </span>
       <p class="shortcomment cmt">Class implementing an in-memory knowledge base indexed by key and species.</p><div class="fullcomment"><div class="comment cmt"><p>Class implementing an in-memory knowledge base indexed by key and species.
   Written by: Tom Hicks. 10/25/2015.
-  Last Modified: Add method to return sequence of KB entries. Remove spurious imports.
+  Last Modified: Add default sort-by-human for resolutions returned from IMKB.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.IncrementingCounter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="IncrementingCounterextendsAnyRef"></a>
@@ -398,7 +398,7 @@ using alternate key lookups.
   Last Modified: Redo to return resolution sequences.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.KBEntry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="KBEntryextendsSpeciated"></a>
+      <a id="KBEntryextendsSpeciatedwithSerializable"></a>
       <a id="KBEntry:KBEntry"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -406,16 +406,16 @@ using alternate key lookups.
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="KBEntry.html"><span class="name">KBEntry</span></a><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></span>
+        <a href="KBEntry.html"><span class="name">KBEntry</span></a><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@KBEntryextendsSpeciated" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@KBEntryextendsSpeciatedwithSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">Class holding information about a specific entry from an external Knowledge Base.</p><div class="fullcomment"><div class="comment cmt"><p>Class holding information about a specific entry from an external Knowledge Base.
   Written by: Tom Hicks. 10/25/2015.
-  Last Modified: Add nsId method.
+  Last Modified: Refactor namespace:ID method to utils class.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="KBKeyTransformsextendsAnyRef"></a>
@@ -435,7 +435,7 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">Methods for transforming text strings into potential keys for lookup in KBs.</p><div class="fullcomment"><div class="comment cmt"><p>Methods for transforming text strings into potential keys for lookup in KBs.
   Written by Tom Hicks. 10/22/2015.
-  Last Modified: Enhance logic to strip multiple suffixes.
+  Last Modified: Update for case-insensitive transforms.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.KBLookup" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="KBLookupextendsSpeciated"></a>
@@ -495,7 +495,7 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">KB MetaInfo is, at minimum, a map of string keys/values.</p>
     </li><li name="edu.arizona.sista.reach.grounding.KBResolution" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="KBResolutionextendsAnyRef"></a>
+      <a id="KBResolutionextendsSerializable"></a>
       <a id="KBResolution:KBResolution"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -503,17 +503,34 @@ using alternate key lookups.
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="KBResolution.html"><span class="name">KBResolution</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="KBResolution.html"><span class="name">KBResolution</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@KBResolutionextendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@KBResolutionextendsSerializable" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">Class holding information about a specific resolution from the in-memory Knowledge Base.</p><div class="fullcomment"><div class="comment cmt"><p>Class holding information about a specific resolution from the in-memory Knowledge Base.
   Written by: Tom Hicks. 10/25/2015.
-  Last Modified: Pass nsId call to entry.
+  Last Modified: Make class serializable.
 </p></div></div>
+    </li><li name="edu.arizona.sista.reach.grounding.RLKBFactory" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RLKBFactoryextendsAnyRef"></a>
+      <a id="RLKBFactory:RLKBFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RLKBFactory.html"><span class="name">RLKBFactory</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@RLKBFactoryextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory class for creating and loading a ReverseLookupKB from a TSV file.</p>
     </li><li name="edu.arizona.sista.reach.grounding.ReachEntityLookup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ReachEntityLookupextendsAnyRef"></a>
       <a id="ReachEntityLookup:ReachEntityLookup"></a>
@@ -535,7 +552,7 @@ using alternate key lookups.
   Last Modified: Restrict to bio mentions. Remove unused state arguments. Fix: bioprocess label.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ReachGrounderextendsAnyRef"></a>
+      <a id="ReachGrounderextendsSpeciated"></a>
       <a id="ReachGrounder:ReachGrounder"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -543,16 +560,16 @@ using alternate key lookups.
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="ReachGrounder.html"><span class="name">ReachGrounder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <a href="ReachGrounder.html"><span class="name">ReachGrounder</span></a><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@ReachGrounderextendsAnyRef" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@ReachGrounderextendsSpeciated" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Class which implements methods to select the final groundings for a mention sequence.</p><div class="fullcomment"><div class="comment cmt"><p>Class which implements methods to select the final groundings for a mention sequence.
+      <p class="shortcomment cmt">Class which implements methods to select the best groundings for a sequence of mentions.</p><div class="fullcomment"><div class="comment cmt"><p>Class which implements methods to select the best groundings for a sequence of mentions.
   Written by Tom Hicks. 2/9/2016.
-  Last Modified: Cleanups: use bio mention, simplify print mention.
+  Last Modified: Walk biomentions, match species from context.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="ReachKBKeyTransformsextendsKBKeyTransforms"></a>
@@ -572,7 +589,7 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">REACH-related methods for transforming text strings into potential keys for lookup in KBs.</p><div class="fullcomment"><div class="comment cmt"><p>REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   Written by Tom Hicks. 11/10/2015.
-  Last Modified: Add logic to strip PTM-related prefixes from proteins.
+  Last Modified: Restrict PTM patterns per issue #90.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.Resolutions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Resolutions=Option[Seq[edu.arizona.sista.reach.grounding.KBResolution]]"></a>
@@ -591,6 +608,26 @@ using alternate key lookups.
       </a>
     </span>
       
+    </li><li name="edu.arizona.sista.reach.grounding.ReverseLookupKB" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReverseLookupKBextendsAnyRef"></a>
+      <a id="ReverseLookupKB:ReverseLookupKB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReverseLookupKB.html"><span class="name">ReverseLookupKB</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@ReverseLookupKBextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Class implementing an in-memory knowledge base indexed by key and species.</p><div class="fullcomment"><div class="comment cmt"><p>Class implementing an in-memory knowledge base indexed by key and species.
+  Written by: Tom Hicks. 3/10/2016
+  Last Modified: Return immutable sets from lookup.
+</p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
       <a id="SpeciatedextendsAnyRef"></a>
       <a id="Speciated:Speciated"></a>
@@ -609,7 +646,7 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">Trait for species features used in external knowledge bases.</p><div class="fullcomment"><div class="comment cmt"><p>Trait for species features used in external knowledge bases.
   Written by Tom Hicks. 10/23/2015.
-  Last Modified: Add human default value string.
+  Last Modified: Add constants and testers for human Namespace:IDs.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.TsvIMKBFactory" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="TsvIMKBFactoryextendsSpeciatedwithReachKBKeyTransforms"></a>
@@ -629,7 +666,7 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">Factory class for creating and loading an in-memory KB from a namespaced TSV file.</p><div class="fullcomment"><div class="comment cmt"><p>Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   Written by: Tom Hicks. 1/19/2016.
-  Last Modified: Remove spurious import.
+  Last Modified: Refactor tsv validate fields method to utils class.
 </p></div></div>
     </li></ol>
             </div>
@@ -684,7 +721,7 @@ using alternate key lookups.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="KBEntry$.html"><span class="name">KBEntry</span></a>
+        <a href="KBEntry$.html"><span class="name">KBEntry</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@KBEntry" title="Permalink" target="_top">
@@ -804,7 +841,7 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">Trait for defining constants used by grounding and entity checking code.</p><div class="fullcomment"><div class="comment cmt"><p>Trait for defining constants used by grounding and entity checking code.
   Written by Tom Hicks. 10/22/2015.
-  Last Modified: Add filename of protein domain suffixes.
+  Last Modified: Add namespace:ID separator constant.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ReachKBKeyTransforms"></a>
@@ -832,7 +869,7 @@ using alternate key lookups.
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <a href="ReachKBUtils$.html"><span class="name">ReachKBUtils</span></a>
+        <a href="ReachKBUtils$.html"><span class="name">ReachKBUtils</span></a><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></span>
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@ReachKBUtils" title="Permalink" target="_top">
@@ -841,7 +878,27 @@ using alternate key lookups.
     </span>
       <p class="shortcomment cmt">Support methods for writing local KB accessors.</p><div class="fullcomment"><div class="comment cmt"><p>Support methods for writing local KB accessors.
   Written by Tom Hicks. 10/23/2015.
-  Last Modified: Add method to read all lines from a file.
+  Last Modified: Replace nsId selectors with species set selectors.
+</p></div></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachRLKBLookups" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReachRLKBLookups"></a>
+      <a id="ReachRLKBLookups:ReachRLKBLookups"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReachRLKBLookups$.html"><span class="name">ReachRLKBLookups</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.package@ReachRLKBLookups" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Object implementing Reach specific reverse lookup tables.</p><div class="fullcomment"><div class="comment cmt"><p>Object implementing Reach specific reverse lookup tables.
+  Written by: Tom Hicks. 3/10/2016
+  Last Modified: Initial creation.
 </p></div></div>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="Speciated"></a>

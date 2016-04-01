@@ -479,7 +479,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../context/Context.html" class="extype" name="edu.arizona.sista.reach.context.Context">Context</a></dd></dl></div>
     </li><li name="edu.arizona.sista.odin.RelationMention#copy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="copy(labels:&lt;?&gt;,arguments:&lt;?&gt;,paths:&lt;?&gt;,sentence:&lt;?&gt;,document:&lt;?&gt;,keep:&lt;?&gt;,foundBy:&lt;?&gt;):edu.arizona.sista.odin.RelationMention"></a>
+      <a id="copy(labels:Seq[String],arguments:Map[String,Seq[edu.arizona.sista.odin.Mention]],paths:Map[String,Map[edu.arizona.sista.odin.Mention,edu.arizona.sista.odin.SynPath]],sentence:Int,document:edu.arizona.sista.processors.Document,keep:Boolean,foundBy:String):edu.arizona.sista.odin.RelationMention"></a>
       <a id="copy(Seq[String],Map[String,Seq[Mention]],Map[String,Map[Mention,SynPath]],Int,Document,Boolean,String):RelationMention"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -512,6 +512,42 @@
       </a>
     </span>
       <p class="shortcomment cmt">Copy the values from the given Grounding object into this Grounding object.</p><div class="fullcomment"><div class="comment cmt"><p>Copy the values from the given Grounding object into this Grounding object.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Grounding.html" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.Anaphoric#detCardinality" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="detCardinality(words:Seq[String],tags:Seq[String]):Int"></a>
+      <a id="detCardinality(Seq[String],Seq[String]):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">detCardinality</span><span class="params">(<span name="words">words: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="tags">tags: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@detCardinality(words:Seq[String],tags:Seq[String]):Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the cardinality of a phrase based on its determiners
+</p><div class="fullcomment"><div class="comment cmt"><p>Return the cardinality of a phrase based on its determiners
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.Anaphoric#detMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="detMap:scala.collection.immutable.Map[String,Int]"></a>
+      <a id="detMap:Map[String,Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">detMap</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@detMap:scala.collection.immutable.Map[String,Int]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.mentions.Display#displayLabel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="displayLabel:String"></a>
       <a id="displayLabel:String"></a>
@@ -722,23 +758,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Mention</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.mentions.Grounding#ground" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="ground(resolution:edu.arizona.sista.reach.grounding.KBResolution):Unit"></a>
-      <a id="ground(KBResolution):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">ground</span><span class="params">(<span name="resolution">resolution: <a href="../grounding/KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@ground(resolution:edu.arizona.sista.reach.grounding.KBResolution):Unit" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Set the final resolution for grounding.</p><div class="fullcomment"><div class="comment cmt"><p>Set the final resolution for grounding.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Grounding.html" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.mentions.Grounding#grounding" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="grounding():Option[edu.arizona.sista.reach.grounding.KBResolution]"></a>
       <a id="grounding():Option[KBResolution]"></a>
@@ -790,6 +809,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Tell whether context map exists and is non-empty or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether context map exists and is non-empty or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../context/Context.html" class="extype" name="edu.arizona.sista.reach.context.Context">Context</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.CorefRelationMention#hasGenericMutation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasGenericMutation:Boolean"></a>
+      <a id="hasGenericMutation:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasGenericMutation</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@hasGenericMutation:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.mentions.CorefRelationMention">CorefRelationMention</a> → <a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.mentions.Grounding#hasMoreCandidates" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hasMoreCandidates:Boolean"></a>
       <a id="hasMoreCandidates:Boolean"></a>
@@ -806,7 +842,7 @@
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Returns true if this mention has more than one candidate grounding.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if this mention has more than one candidate grounding.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Grounding.html" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a></dd></dl></div>
+      <p class="shortcomment cmt">Returns true if this mention is grounded and has more than one candidate grounding.</p><div class="fullcomment"><div class="comment cmt"><p>Returns true if this mention is grounded and has more than one candidate grounding.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Grounding.html" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.mentions.BioRelationMention#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -824,6 +860,42 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BioRelationMention.html" class="extype" name="edu.arizona.sista.reach.mentions.BioRelationMention">BioRelationMention</a> → Mention → AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.Anaphoric#headCardinality" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="headCardinality(somenum:String,tag:String):Int"></a>
+      <a id="headCardinality(String,String):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">headCardinality</span><span class="params">(<span name="somenum">somenum: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tag">tag: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@headCardinality(somenum:String,tag:String):Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the cardinality of a phrase based on its head -- is it plural?
+</p><div class="fullcomment"><div class="comment cmt"><p>Return the cardinality of a phrase based on its head -- is it plural?
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.Anaphoric#headMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="headMap:scala.collection.immutable.Map[String,Int]"></a>
+      <a id="headMap:Map[String,Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">headMap</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@headMap:scala.collection.immutable.Map[String,Int]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.mentions.CorefRelationMention#isClosedClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isClosedClass:Boolean"></a>
       <a id="isClosedClass:Boolean"></a>
@@ -871,6 +943,23 @@
       </span>
       </h4><span class="permalink">
       <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@isGeneric:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="edu.arizona.sista.reach.mentions.CorefRelationMention">CorefRelationMention</a> → <a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.CorefRelationMention#isGenericNounPhrase" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isGenericNounPhrase:Boolean"></a>
+      <a id="isGenericNounPhrase:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isGenericNounPhrase</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@isGenericNounPhrase:Boolean" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
@@ -1130,6 +1219,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BioRelationMention.html" class="extype" name="edu.arizona.sista.reach.mentions.BioRelationMention">BioRelationMention</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.Modifications#mutants" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mutants:Set[edu.arizona.sista.reach.mentions.Mutant]"></a>
+      <a id="mutants:Set[Mutant]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mutants</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="Mutant.html" class="extype" name="edu.arizona.sista.reach.mentions.Mutant">Mutant</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@mutants:Set[edu.arizona.sista.reach.mentions.Mutant]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Modifications.html" class="extype" name="edu.arizona.sista.reach.mentions.Modifications">Modifications</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -1164,6 +1270,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Set candidates for eventual final grounding resolution.</p><div class="fullcomment"><div class="comment cmt"><p>Set candidates for eventual final grounding resolution. Resets any grounding.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Grounding.html" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.mentions.Anaphoric#nonGeneric" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nonGeneric:Boolean"></a>
+      <a id="nonGeneric:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nonGeneric</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@nonGeneric:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Anaphoric.html" class="extype" name="edu.arizona.sista.reach.mentions.Anaphoric">Anaphoric</a></dd></dl></div>
     </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="notify():Unit"></a>
       <a id="notify():Unit"></a>
@@ -1283,23 +1406,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RelationMention</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.mentions.Grounding#selectCurrentGrounding" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="selectCurrentGrounding():Unit"></a>
-      <a id="selectCurrentGrounding():Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">selectCurrentGrounding</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.mentions.CorefRelationMention@selectCurrentGrounding():Unit" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Select the current grounding as the final grounding.</p><div class="fullcomment"><div class="comment cmt"><p>Select the current grounding as the final grounding.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Grounding.html" class="extype" name="edu.arizona.sista.reach.mentions.Grounding">Grounding</a></dd></dl></div>
     </li><li name="edu.arizona.sista.odin.RelationMention#sentence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sentence:Int"></a>
       <a id="sentence:Int"></a>

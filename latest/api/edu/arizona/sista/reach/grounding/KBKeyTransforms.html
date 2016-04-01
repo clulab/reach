@@ -51,13 +51,13 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Methods for transforming text strings into potential keys for lookup in KBs.
   Written by Tom Hicks. 10/22/2015.
-  Last Modified: Enhance logic to strip multiple suffixes.
+  Last Modified: Update for case-insensitive transforms.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="AdHocIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.AdHocIMKBFactory">AdHocIMKBFactory</a>, <a href="AzFailsafeKBML.html" class="extype" name="edu.arizona.sista.reach.grounding.AzFailsafeKBML">AzFailsafeKBML</a>, <a href="IMKBFamilyLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyLookup">IMKBFamilyLookup</a>, <a href="IMKBFamilyMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyMentionLookup">IMKBFamilyMentionLookup</a>, <a href="IMKBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a>, <a href="IMKBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBMentionLookup">IMKBMentionLookup</a>, <a href="IMKBOrganCellTypeLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup">IMKBOrganCellTypeLookup</a>, <a href="IMKBOrganCellTypeMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeMentionLookup">IMKBOrganCellTypeMentionLookup</a>, <a href="IMKBProteinLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinLookup">IMKBProteinLookup</a>, <a href="IMKBProteinMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinMentionLookup">IMKBProteinMentionLookup</a>, <a href="InMemoryKB.html" class="extype" name="edu.arizona.sista.reach.grounding.InMemoryKB">InMemoryKB</a>, <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a>, <a href="KBAltMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltMentionLookup">KBAltMentionLookup</a>, <a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a>, <a href="ReachKBKeyTransforms$.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a>, <a href="TsvIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.TsvIMKBFactory">TsvIMKBFactory</a></div>
+            <div class="subClasses hiddenContent"><a href="AdHocIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.AdHocIMKBFactory">AdHocIMKBFactory</a>, <a href="AzFailsafeKBML.html" class="extype" name="edu.arizona.sista.reach.grounding.AzFailsafeKBML">AzFailsafeKBML</a>, <a href="IMKBFamilyLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyLookup">IMKBFamilyLookup</a>, <a href="IMKBFamilyMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyMentionLookup">IMKBFamilyMentionLookup</a>, <a href="IMKBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a>, <a href="IMKBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBMentionLookup">IMKBMentionLookup</a>, <a href="IMKBOrganCellTypeLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup">IMKBOrganCellTypeLookup</a>, <a href="IMKBOrganCellTypeMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeMentionLookup">IMKBOrganCellTypeMentionLookup</a>, <a href="IMKBProteinLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinLookup">IMKBProteinLookup</a>, <a href="IMKBProteinMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinMentionLookup">IMKBProteinMentionLookup</a>, <a href="InMemoryKB.html" class="extype" name="edu.arizona.sista.reach.grounding.InMemoryKB">InMemoryKB</a>, <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a>, <a href="KBAltMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltMentionLookup">KBAltMentionLookup</a>, <a href="ReachKBKeyTransforms$.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a>, <a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a>, <a href="TsvIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.TsvIMKBFactory">TsvIMKBFactory</a></div>
           </div></div>
         
 
@@ -172,6 +172,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#applyTransforms" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="applyTransforms(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
+      <a id="applyTransforms(String,KeyTransforms):Seq[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">applyTransforms</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.KBKeyTransforms.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBKeyTransforms@applyTransforms(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -320,23 +337,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#makeAlternateKeys" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
-      <a id="makeAlternateKeys(String,KeyTransforms):Seq[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeAlternateKeys</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.KBKeyTransforms.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBKeyTransforms@makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>

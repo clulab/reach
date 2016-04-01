@@ -183,24 +183,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#cardinality" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="cardinality(m:edu.arizona.sista.odin.Mention):Int"></a>
-      <a id="cardinality(Mention):Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">cardinality</span><span class="params">(<span name="m">m: <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@cardinality(m:edu.arizona.sista.odin.Mention):Int" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Determine the cardinality of a mention -- how many real-world entities or events does it refer to?
-</p>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -275,41 +257,6 @@
       </a>
     </span>
       
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#detCardinality" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="detCardinality(words:Seq[String],tags:Seq[String]):Int"></a>
-      <a id="detCardinality(Seq[String],Seq[String]):Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">detCardinality</span><span class="params">(<span name="words">words: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="tags">tags: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@detCardinality(words:Seq[String],tags:Seq[String]):Int" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Return the cardinality of a phrase based on its determiners
-</p>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#detMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="detMap:scala.collection.immutable.Map[String,Int]"></a>
-      <a id="detMap:Map[String,Int]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">detMap</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@detMap:scala.collection.immutable.Map[String,Int]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -361,26 +308,9 @@
       </a>
     </span>
       <p class="shortcomment cmt">Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Link a mention to the closest prior mention with exactly the same string, excluding generic mentions (e.g. 'it'
-won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added
+won't match with 'it').
+</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions that might be linkable</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added
 </p></dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#expand" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="expand(mention:edu.arizona.sista.odin.Mention):edu.arizona.sista.struct.Interval"></a>
-      <a id="expand(Mention):Interval"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">expand</span><span class="params">(<span name="mention">mention: <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></span>)</span><span class="result">: <span class="extype" name="edu.arizona.sista.struct.Interval">Interval</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@expand(mention:edu.arizona.sista.odin.Mention):edu.arizona.sista.struct.Interval" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">From a mention, use the dependency graph to expand the interval to the noun phrase the mention is a part of
-</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -439,7 +369,8 @@ won't match with 'it'). This probably doesn't do anything to help event recall, 
     </span>
       <p class="shortcomment cmt">Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
 mentions (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Link a mention to the closest prior mention with exactly the same grounding ID, excluding potentially generic
-mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to help event recall, but it shouldn't hurt, either.</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added
+mentions (e.g. 'it' won't match with 'it').
+</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions that might be linkable</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added
 </p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -458,41 +389,6 @@ mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#headCardinality" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="headCardinality(somenum:String,tag:String):Int"></a>
-      <a id="headCardinality(String,String):Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">headCardinality</span><span class="params">(<span name="somenum">somenum: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="tag">tag: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@headCardinality(somenum:String,tag:String):Int" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Return the cardinality of a phrase based on its head -- is it plural?
-</p>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#headMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="headMap:scala.collection.immutable.Map[String,Int]"></a>
-      <a id="headMap:Map[String,Int]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">headMap</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@headMap:scala.collection.immutable.Map[String,Int]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="edu.arizona.sista.coref.Links#identityLink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="identityLink(orderedMentions:Seq[edu.arizona.sista.reach.mentions.CorefMention],selector:edu.arizona.sista.coref.AntecedentSelector):Seq[edu.arizona.sista.reach.mentions.CorefMention]"></a>
       <a id="identityLink(Seq[CorefMention],AntecedentSelector):Seq[CorefMention]"></a>
@@ -510,42 +406,6 @@ mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../coref/Links.html" class="extype" name="edu.arizona.sista.coref.Links">Links</a></dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#includes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="includes(subj:edu.arizona.sista.reach.mentions.CorefMention,obj:edu.arizona.sista.reach.mentions.CorefMention):Boolean"></a>
-      <a id="includes(CorefMention,CorefMention):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">includes</span><span class="params">(<span name="subj">subj: <a href="mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>, <span name="obj">obj: <a href="mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@includes(subj:edu.arizona.sista.reach.mentions.CorefMention,obj:edu.arizona.sista.reach.mentions.CorefMention):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Are all the words (minus stopwords) in the obj mention also in the subj mention?
-</p>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#isGenericNounPhrase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="isGenericNounPhrase(mention:edu.arizona.sista.odin.Mention):Boolean"></a>
-      <a id="isGenericNounPhrase(Mention):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">isGenericNounPhrase</span><span class="params">(<span name="mention">mention: <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@isGenericNounPhrase(mention:edu.arizona.sista.odin.Mention):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Is this mention a generic noun phrase that isn't a pronoun or other closed-class anaphor?
-</p>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -563,24 +423,23 @@ mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#isPronominal" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="isPronominal(mention:edu.arizona.sista.odin.Mention):Boolean"></a>
-      <a id="isPronominal(Mention):Boolean"></a>
+    </li><li name="edu.arizona.sista.reach.DarpaLinks#mutantProteinMatch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="mutantProteinMatch(mentions:Seq[edu.arizona.sista.reach.mentions.CorefMention],selector:edu.arizona.sista.coref.AntecedentSelector):Seq[edu.arizona.sista.reach.mentions.CorefMention]"></a>
+      <a id="mutantProteinMatch(Seq[CorefMention],AntecedentSelector):Seq[CorefMention]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">isPronominal</span><span class="params">(<span name="mention">mention: <span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">mutantProteinMatch</span><span class="params">(<span name="mentions">mentions: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]</span>, <span name="selector">selector: <a href="../coref/AntecedentSelector.html" class="extype" name="edu.arizona.sista.coref.AntecedentSelector">AntecedentSelector</a> = <span class="symbol"><span class="name"><a href="#defaultSelector:edu.arizona.sista.coref.AntecedentSelector">defaultSelector</a></span></span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="mentions/package.html#CorefMention=edu.arizona.sista.reach.mentions.package.BioMentionwithedu.arizona.sista.reach.mentions.Anaphoric" class="extmbr" name="edu.arizona.sista.reach.mentions.CorefMention">CorefMention</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@isPronominal(mention:edu.arizona.sista.odin.Mention):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@mutantProteinMatch(mentions:Seq[edu.arizona.sista.reach.mentions.CorefMention],selector:edu.arizona.sista.coref.AntecedentSelector):Seq[edu.arizona.sista.reach.mentions.CorefMention]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Is this mention a pronoun or other closed-class anaphor?
-</p>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -649,7 +508,8 @@ mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to
       </a>
     </span>
       <p class="shortcomment cmt">Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Match two mentions where the latter mention is one of a specific set of generic mentions with a known class, e.g.
-'this protein' is known to have the label 'Protein'</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
+'this protein' is known to have the label 'Protein'
+</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
 </p></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.DarpaLinks#pronominalMatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="pronominalMatch(mentions:Seq[edu.arizona.sista.reach.mentions.CorefMention],selector:edu.arizona.sista.coref.AntecedentSelector):Seq[edu.arizona.sista.reach.mentions.CorefMention]"></a>
@@ -667,25 +527,9 @@ mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Match two mentions where the latter mention is a closed-class anaphor, matching number</p><div class="fullcomment"><div class="comment cmt"><p>Match two mentions where the latter mention is a closed-class anaphor, matching number</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
-</p></dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#sameEntityID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="sameEntityID(mentions:Seq[edu.arizona.sista.odin.Mention]):Boolean"></a>
-      <a id="sameEntityID(Seq[Mention]):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">sameEntityID</span><span class="params">(<span name="mentions">mentions: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@sameEntityID(mentions:Seq[edu.arizona.sista.odin.Mention]):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Do we have exactly 1 unique grounding id for this Sequence of Mentions?</p><div class="fullcomment"><div class="comment cmt"><p>Do we have exactly 1 unique grounding id for this Sequence of Mentions?</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>A Sequence of mentions to compare</p></dd><dt>returns</dt><dd class="cmt"><p>boolean True if all mentions share a single grounding id
+      <p class="shortcomment cmt">Match two mentions where the latter mention is a closed-class anaphor, matching number
+</p><div class="fullcomment"><div class="comment cmt"><p>Match two mentions where the latter mention is a closed-class anaphor, matching number
+</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
 </p></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.DarpaLinks#simpleEventMatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="simpleEventMatch(mentions:Seq[edu.arizona.sista.reach.mentions.CorefMention],selector:edu.arizona.sista.coref.AntecedentSelector):Seq[edu.arizona.sista.reach.mentions.CorefMention]"></a>
@@ -705,7 +549,8 @@ mentions (e.g. 'it' won't match with 'it'). This probably doesn't do anything to
     </span>
       <p class="shortcomment cmt">Examine complex events with generic simple events as arguments, searching for the best match of the same label,
 e.g.</p><div class="fullcomment"><div class="comment cmt"><p>Examine complex events with generic simple events as arguments, searching for the best match of the same label,
-e.g. &quot;ASPP1 promotes this phosphorylation.&quot; will search for phosphorylations before this sentence.</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
+e.g. &quot;ASPP1 promotes this phosphorylation.&quot; will search for phosphorylations before this sentence.
+</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
 </p></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.DarpaLinks#strictHeadMatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="strictHeadMatch(mentions:Seq[edu.arizona.sista.reach.mentions.CorefMention],selector:edu.arizona.sista.coref.AntecedentSelector):Seq[edu.arizona.sista.reach.mentions.CorefMention]"></a>
@@ -725,7 +570,8 @@ e.g. &quot;ASPP1 promotes this phosphorylation.&quot; will search for phosphoryl
     </span>
       <p class="shortcomment cmt">Match two mentions, at least one generic, in which the later mention's head is in the earlier one and the later
 mention's words are a subset of the earlier one.</p><div class="fullcomment"><div class="comment cmt"><p>Match two mentions, at least one generic, in which the later mention's head is in the earlier one and the later
-mention's words are a subset of the earlier one.</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
+mention's words are a subset of the earlier one.
+</p></div><dl class="paramcmts block"><dt class="param">mentions</dt><dd class="cmt"><p>All mentions</p></dd><dt class="param">selector</dt><dd class="cmt"><p>Rule for selecting the best antecedent from candidates</p></dd><dt>returns</dt><dd class="cmt"><p>The same mentions but with new links (antecedents) added.
 </p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
@@ -744,40 +590,6 @@ mention's words are a subset of the earlier one.</p></div><dl class="paramcmts b
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#themeCardinality" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="themeCardinality(eventLemma:String):Int"></a>
-      <a id="themeCardinality(String):Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">themeCardinality</span><span class="params">(<span name="eventLemma">eventLemma: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@themeCardinality(eventLemma:String):Int" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="edu.arizona.sista.reach.DarpaLinks#themeMap" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="themeMap:scala.collection.immutable.Map[String,Int]"></a>
-      <a id="themeMap:Map[String,Int]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">final </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">themeMap</span><span class="result">: <span class="extype" name="scala.collection.immutable.Map">Map</span>[<span class="extype" name="java.lang.String">String</span>, <span class="extype" name="scala.Int">Int</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.DarpaLinks@themeMap:scala.collection.immutable.Map[String,Int]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>

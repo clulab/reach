@@ -45,16 +45,16 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">KBResolution</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">KBResolution</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class holding information about a specific resolution from the in-memory Knowledge Base.
   Written by: Tom Hicks. 10/25/2015.
-  Last Modified: Pass nsId call to entry.
+  Last Modified: Make class serializable.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="edu.arizona.sista.reach.grounding.KBResolution"><span>KBResolution</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="edu.arizona.sista.reach.grounding.KBResolution"><span>KBResolution</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -317,6 +317,40 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.KBResolution#hasNoSpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hasNoSpecies:Boolean"></a>
+      <a id="hasNoSpecies:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasNoSpecies</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBResolution@hasNoSpecies:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.grounding.KBResolution#hasSpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hasSpecies:Boolean"></a>
+      <a id="hasSpecies:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasSpecies</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBResolution@hasSpecies:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Facade functions: tell whether this resolution has an associated species or not.</p>
     </li><li name="edu.arizona.sista.reach.grounding.KBResolution#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -503,7 +537,7 @@
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Return a formatted string containing this resolution's namespace and ID.</p>
+      <p class="shortcomment cmt">Facade function: return a formatted string containing this resolution's namespace and ID.</p>
     </li><li name="edu.arizona.sista.reach.grounding.KBResolution#species" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="species:String"></a>
       <a id="species:String"></a>
@@ -650,7 +684,11 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

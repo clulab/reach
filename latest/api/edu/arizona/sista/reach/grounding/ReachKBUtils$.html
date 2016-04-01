@@ -45,16 +45,16 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">ReachKBUtils</span>
+        <span class="name">ReachKBUtils</span><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Support methods for writing local KB accessors.
   Written by Tom Hicks. 10/23/2015.
-  Last Modified: Add method to read all lines from a file.
+  Last Modified: Replace nsId selectors with species set selectors.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="edu.arizona.sista.reach.grounding.ReachKBUtils"><span>ReachKBUtils</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="edu.arizona.sista.reach.grounding.ReachKBUtils"><span>ReachKBUtils</span></li><li class="in" name="edu.arizona.sista.reach.grounding.Speciated"><span>Speciated</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -92,7 +92,27 @@
         <div id="allMembers">
         
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="edu.arizona.sista.reach.grounding.Speciated.SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpeciesNameSet=Set[String]"></a>
+      <a id="SpeciesNameSet:SpeciesNameSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SpeciesNameSet</span><span class="result"> = <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@SpeciesNameSet=Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Species name sets.</p><div class="fullcomment"><div class="comment cmt"><p>Species name sets.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
@@ -149,6 +169,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
+      <a id="SpeciesNameSet(String*):Set[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SpeciesNameSet</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@SpeciesNameSet(xs:String*):Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -189,6 +226,40 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanNsId(nsIdSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanNsId(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanNsId</span><span class="params">(<span name="nsIdSeq">nsIdSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@containsHumanNsId(nsIdSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of namespace/ID strings contains a human nsId.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of namespace/ID strings contains a human nsId.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanSpecies(speciesSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanSpecies(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanSpecies</span><span class="params">(<span name="speciesSeq">speciesSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@containsHumanSpecies(speciesSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of species strings contain a human species label.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of species strings contain a human species label.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -263,6 +334,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#hasHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasHumanNsId(nsId:String):Boolean"></a>
+      <a id="hasHumanNsId(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasHumanNsId</span><span class="params">(<span name="nsId">nsId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@hasHumanNsId(nsId:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given namespace/ID string is an ID for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given namespace/ID string is an ID for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -297,6 +385,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Tell whether the given mention is grounded from a protein family KB or not.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#isHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isHumanSpecies(species:String):Boolean"></a>
+      <a id="isHumanSpecies(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isHumanSpecies</span><span class="params">(<span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@isHumanSpecies(species:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given species string is label for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is label for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -314,6 +419,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#isMemberOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isMemberOf(species:String,speciesSet:Speciated.this.SpeciesNameSet):Boolean"></a>
+      <a id="isMemberOf(String,SpeciesNameSet):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isMemberOf</span><span class="params">(<span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="speciesSet">speciesSet: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.ReachKBUtils.SpeciesNameSet">SpeciesNameSet</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@isMemberOf(species:String,speciesSet:Speciated.this.SpeciesNameSet):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given species string is a member of the given set of species.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is a member of the given set of species.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#isProteinGrounded" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="isProteinGrounded(mention:edu.arizona.sista.reach.mentions.BioMention):Boolean"></a>
       <a id="isProteinGrounded(BioMention):Boolean"></a>
@@ -365,6 +487,23 @@
       </a>
     </span>
       <p class="shortcomment cmt">Return a file for the given filename in the current user working directory.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#makeNamespaceId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="makeNamespaceId(namespace:String,id:String):String"></a>
+      <a id="makeNamespaceId(String,String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">makeNamespaceId</span><span class="params">(<span name="namespace">namespace: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@makeNamespaceId(namespace:String,id:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a formatted string containing this entry's namespace and ID.</p>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#makePathInKBDir" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="makePathInKBDir(filename:String):String"></a>
       <a id="makePathInKBDir(String):String"></a>
@@ -467,6 +606,125 @@
       </a>
     </span>
       <p class="shortcomment cmt">Read and return all the lines from the specified file.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectASpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectASpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:String):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectASpecies(Seq[KBResolution],String):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectASpecies</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>, <span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectASpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:String):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return only resolutions (sorted) with the given species.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectByNotSpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectByNotSpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:Set[String]):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectByNotSpecies(Seq[KBResolution],Set[String]):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectByNotSpecies</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>, <span name="species">species: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectByNotSpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:Set[String]):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return only resolutions (sorted) without a species in the given set.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectBySpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectBySpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:Set[String]):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectBySpecies(Seq[KBResolution],Set[String]):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectBySpecies</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>, <span name="species">species: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectBySpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:Set[String]):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return only resolutions (sorted) with a species in the given set.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectHuman" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectHuman(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution]):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectHuman(Seq[KBResolution]):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectHuman</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectHuman(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution]):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return human resolutions (sorted).</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectNoSpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectNoSpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution]):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectNoSpecies(Seq[KBResolution]):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectNoSpecies</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectNoSpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution]):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return resolutions which have no species.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectNotASpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectNotASpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:String):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectNotASpecies(Seq[KBResolution],String):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectNotASpecies</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>, <span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectNotASpecies(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution],species:String):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return only resolutions (sorted) without the given species.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#selectNotHuman" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="selectNotHuman(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution]):Seq[edu.arizona.sista.reach.grounding.KBResolution]"></a>
+      <a id="selectNotHuman(Seq[KBResolution]):Seq[KBResolution]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">selectNotHuman</span><span class="params">(<span name="resolutions">resolutions: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="KBResolution.html" class="extype" name="edu.arizona.sista.reach.grounding.KBResolution">KBResolution</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@selectNotHuman(resolutions:Seq[edu.arizona.sista.reach.grounding.KBResolution]):Seq[edu.arizona.sista.reach.grounding.KBResolution]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Filter sequence to return only resolutions (sorted) with a non-human species.</p>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#sourceFromResource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sourceFromResource(resourcePath:String):scala.io.Source"></a>
       <a id="sourceFromResource(String):Source"></a>
@@ -536,6 +794,23 @@ resource path ends with &quot;.gz&quot; the source is created around a gzip inpu
       </a>
     </span>
       <p class="shortcomment cmt">Convert a single row string from a TSV file to a sequence of string fields.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachKBUtils#tsvValidateFields" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tsvValidateFields(fields:Seq[String]):Boolean"></a>
+      <a id="tsvValidateFields(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tsvValidateFields</span><span class="params">(<span name="fields">fields: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachKBUtils$@tsvValidateFields(fields:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Check for required fields in one row of a TSV input file.</p>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -614,7 +889,9 @@ resource path ends with &quot;.gz&quot; the source is created around a gzip inpu
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="edu.arizona.sista.reach.grounding.Speciated">
+              <h3>Inherited from <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

@@ -53,13 +53,13 @@
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Trait for species features used in external knowledge bases.
   Written by Tom Hicks. 10/23/2015.
-  Last Modified: Add human default value string.
+  Last Modified: Add constants and testers for human Namespace:IDs.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="AdHocIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.AdHocIMKBFactory">AdHocIMKBFactory</a>, <a href="AzFailsafeKBML.html" class="extype" name="edu.arizona.sista.reach.grounding.AzFailsafeKBML">AzFailsafeKBML</a>, <a href="IMKBFamilyLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyLookup">IMKBFamilyLookup</a>, <a href="IMKBFamilyMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyMentionLookup">IMKBFamilyMentionLookup</a>, <a href="IMKBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a>, <a href="IMKBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBMentionLookup">IMKBMentionLookup</a>, <a href="IMKBOrganCellTypeLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup">IMKBOrganCellTypeLookup</a>, <a href="IMKBOrganCellTypeMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeMentionLookup">IMKBOrganCellTypeMentionLookup</a>, <a href="IMKBProteinLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinLookup">IMKBProteinLookup</a>, <a href="IMKBProteinMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinMentionLookup">IMKBProteinMentionLookup</a>, <a href="InMemoryKB.html" class="extype" name="edu.arizona.sista.reach.grounding.InMemoryKB">InMemoryKB</a>, <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a>, <a href="KBAltMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltMentionLookup">KBAltMentionLookup</a>, <a href="KBEntry.html" class="extype" name="edu.arizona.sista.reach.grounding.KBEntry">KBEntry</a>, <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a>, <a href="KBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBMentionLookup">KBMentionLookup</a>, <a href="Speciated$.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <a href="TsvIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.TsvIMKBFactory">TsvIMKBFactory</a></div>
+            <div class="subClasses hiddenContent"><a href="AdHocIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.AdHocIMKBFactory">AdHocIMKBFactory</a>, <a href="AzFailsafeKBML.html" class="extype" name="edu.arizona.sista.reach.grounding.AzFailsafeKBML">AzFailsafeKBML</a>, <a href="IMKBFamilyLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyLookup">IMKBFamilyLookup</a>, <a href="IMKBFamilyMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBFamilyMentionLookup">IMKBFamilyMentionLookup</a>, <a href="IMKBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a>, <a href="IMKBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBMentionLookup">IMKBMentionLookup</a>, <a href="IMKBOrganCellTypeLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup">IMKBOrganCellTypeLookup</a>, <a href="IMKBOrganCellTypeMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeMentionLookup">IMKBOrganCellTypeMentionLookup</a>, <a href="IMKBProteinLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinLookup">IMKBProteinLookup</a>, <a href="IMKBProteinMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBProteinMentionLookup">IMKBProteinMentionLookup</a>, <a href="InMemoryKB.html" class="extype" name="edu.arizona.sista.reach.grounding.InMemoryKB">InMemoryKB</a>, <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a>, <a href="KBAltMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltMentionLookup">KBAltMentionLookup</a>, <a href="KBEntry.html" class="extype" name="edu.arizona.sista.reach.grounding.KBEntry">KBEntry</a>, <a href="KBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBLookup">KBLookup</a>, <a href="KBMentionLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBMentionLookup">KBMentionLookup</a>, <a href="ReachGrounder.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachGrounder">ReachGrounder</a>, <a href="ReachKBUtils$.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBUtils">ReachKBUtils</a>, <a href="Speciated$.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <a href="TsvIMKBFactory.html" class="extype" name="edu.arizona.sista.reach.grounding.TsvIMKBFactory">TsvIMKBFactory</a></div>
           </div></div>
         
 
@@ -174,23 +174,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.Speciated#HumanLabels" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="HumanLabels:Speciated.this.SpeciesNameSet"></a>
-      <a id="HumanLabels:SpeciesNameSet"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">HumanLabels</span><span class="result">: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.Speciated.SpeciesNameSet">SpeciesNameSet</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.Speciated@HumanLabels:Speciated.this.SpeciesNameSet" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">A set of label strings for humans, found in KBs.</p>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
       <a id="SpeciesNameSet(String*):Set[String]"></a>
@@ -248,6 +231,40 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanNsId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="containsHumanNsId(nsIdSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanNsId(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanNsId</span><span class="params">(<span name="nsIdSeq">nsIdSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.Speciated@containsHumanNsId(nsIdSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of namespace/ID strings contains a human nsId.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanSpecies" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="containsHumanSpecies(speciesSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanSpecies(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanSpecies</span><span class="params">(<span name="speciesSeq">speciesSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.Speciated@containsHumanSpecies(speciesSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of species strings contain a human species label.</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -322,6 +339,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#hasHumanNsId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hasHumanNsId(nsId:String):Boolean"></a>
+      <a id="hasHumanNsId(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasHumanNsId</span><span class="params">(<span name="nsId">nsId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.Speciated@hasHumanNsId(nsId:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given namespace/ID string is an ID for humans or not.</p>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>

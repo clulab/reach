@@ -207,23 +207,6 @@ from the organ name and specific contextual suffixes.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.Speciated#HumanLabels" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="HumanLabels:Speciated.this.SpeciesNameSet"></a>
-      <a id="HumanLabels:SpeciesNameSet"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">HumanLabels</span><span class="result">: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup.SpeciesNameSet">SpeciesNameSet</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@HumanLabels:Speciated.this.SpeciesNameSet" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">A set of label strings for humans, found in KBs.</p><div class="fullcomment"><div class="comment cmt"><p>A set of label strings for humans, found in KBs.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
       <a id="SpeciesNameSet(String*):Set[String]"></a>
@@ -241,6 +224,23 @@ from the organ name and specific contextual suffixes.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#applyTransforms" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="applyTransforms(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
+      <a id="applyTransforms(String,KeyTransforms):Seq[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">applyTransforms</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@applyTransforms(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p><div class="fullcomment"><div class="comment cmt"><p>Return a sequence of alternate keys, one for each of the given key transforms.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -281,6 +281,40 @@ from the organ name and specific contextual suffixes.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanNsId(nsIdSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanNsId(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanNsId</span><span class="params">(<span name="nsIdSeq">nsIdSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@containsHumanNsId(nsIdSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of namespace/ID strings contains a human nsId.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of namespace/ID strings contains a human nsId.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanSpecies(speciesSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanSpecies(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanSpecies</span><span class="params">(<span name="speciesSeq">speciesSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@containsHumanSpecies(speciesSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of species strings contain a human species label.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of species strings contain a human species label.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#entries" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="entries:Seq[edu.arizona.sista.reach.grounding.KBEntry]"></a>
       <a id="entries:Seq[KBEntry]"></a>
@@ -372,6 +406,23 @@ from the organ name and specific contextual suffixes.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#hasHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasHumanNsId(nsId:String):Boolean"></a>
+      <a id="hasHumanNsId(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasHumanNsId</span><span class="params">(<span name="nsId">nsId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@hasHumanNsId(nsId:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given namespace/ID string is an ID for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given namespace/ID string is an ID for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.IMKBLookup#hasSpeciesInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hasSpeciesInfo:Boolean"></a>
       <a id="hasSpeciesInfo:Boolean"></a>
@@ -407,7 +458,7 @@ from the organ name and specific contextual suffixes.
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#hyphenatedProteinKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hyphenatedProteinKey(key:String):String"></a>
+      <a id="hyphenatedProteinKey(text:String):String"></a>
       <a id="hyphenatedProteinKey(String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -415,16 +466,16 @@ from the organ name and specific contextual suffixes.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">hyphenatedProteinKey</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">hyphenatedProteinKey</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@hyphenatedProteinKey(key:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@hyphenatedProteinKey(text:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
       <p class="shortcomment cmt">Check for one of several types of hyphen-separated strings and, if found,
-extract and return the candidate key portion, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Check for one of several types of hyphen-separated strings and, if found,
-extract and return the candidate key portion, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+extract and return the candidate text portion, else return the text unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Check for one of several types of hyphen-separated strings and, if found,
+extract and return the candidate text portion, else return the text unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated#isHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isHumanSpecies(species:String):Boolean"></a>
       <a id="isHumanSpecies(String):Boolean"></a>
@@ -476,23 +527,6 @@ extract and return the candidate key portion, else return the key unchanged.</p>
       </a>
     </span>
       <p class="shortcomment cmt">Tell whether the given species string is a member of the given set of species.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is a member of the given set of species.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#makeAlternateKeys" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
-      <a id="makeAlternateKeys(String,KeyTransforms):Seq[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeAlternateKeys</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p><div class="fullcomment"><div class="comment cmt"><p>Return a sequence of alternate keys, one for each of the given key transforms.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#makeCanonicalKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="makeCanonicalKey(text:String):String"></a>
       <a id="makeCanonicalKey(String):String"></a>
@@ -827,7 +861,7 @@ and lookup alternate keys.
 Return a resolution for the entry, if any found.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="IMKBLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.IMKBLookup">IMKBLookup</a> → <a href="KBAltLookup.html" class="extype" name="edu.arizona.sista.reach.grounding.KBAltLookup">KBAltLookup</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripFamilySuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stripFamilySuffixes(key:String):String"></a>
+      <a id="stripFamilySuffixes(text:String):String"></a>
       <a id="stripFamilySuffixes(String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -835,18 +869,18 @@ Return a resolution for the entry, if any found.
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stripFamilySuffixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">stripFamilySuffixes</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripFamilySuffixes(key:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripFamilySuffixes(text:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Return the portion of the key string minus one of the protein family suffixes,
-if found in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus one of the protein family suffixes,
-if found in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+      <p class="shortcomment cmt">Return the portion of the text string minus one of the protein family suffixes,
+if found in the given text string, else return the text lowercased.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the text string minus one of the protein family suffixes,
+if found in the given text string, else return the text lowercased.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripMutantProtein" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stripMutantProtein(key:String):String"></a>
+      <a id="stripMutantProtein(text:String):String"></a>
       <a id="stripMutantProtein(String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -854,18 +888,18 @@ if found in the given key string, else return the key unchanged.</p></div><dl cl
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stripMutantProtein</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">stripMutantProtein</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripMutantProtein(key:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripMutantProtein(text:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Return the portion of the key string before a trailing mutation phrase,
-if found in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string before a trailing mutation phrase,
-if found in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+      <p class="shortcomment cmt">Return the portion of the text string before a trailing mutation phrase,
+if found in the given text string, else return the text unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the text string before a trailing mutation phrase,
+if found in the given text string, else return the text unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripOrganCellTypeSuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stripOrganCellTypeSuffixes(key:String):String"></a>
+      <a id="stripOrganCellTypeSuffixes(text:String):String"></a>
       <a id="stripOrganCellTypeSuffixes(String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -873,18 +907,18 @@ if found in the given key string, else return the key unchanged.</p></div><dl cl
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stripOrganCellTypeSuffixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">stripOrganCellTypeSuffixes</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripOrganCellTypeSuffixes(key:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripOrganCellTypeSuffixes(text:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Return the portion of the key string minus one of the organ-cell-type suffixes,
-if found in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus one of the organ-cell-type suffixes,
-if found in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+      <p class="shortcomment cmt">Return the portion of the text string minus one of the organ-cell-type suffixes,
+if found in the given text string, else return the text unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the text string minus one of the organ-cell-type suffixes,
+if found in the given text string, else return the text unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripPTMPrefixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stripPTMPrefixes(key:String):String"></a>
+      <a id="stripPTMPrefixes(text:String):String"></a>
       <a id="stripPTMPrefixes(String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -892,18 +926,18 @@ if found in the given key string, else return the key unchanged.</p></div><dl cl
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stripPTMPrefixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">stripPTMPrefixes</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripPTMPrefixes(key:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripPTMPrefixes(text:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Return the portion of the key string minus any of the PTM-related prefixes, if found
-in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus any of the PTM-related prefixes, if found
-in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+      <p class="shortcomment cmt">Return the portion of the text string minus any of the PTM-related prefixes, if found
+in the given text string, else return the text unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the text string minus any of the PTM-related prefixes, if found
+in the given text string, else return the text unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms#stripProteinSuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="stripProteinSuffixes(key:String):String"></a>
+      <a id="stripProteinSuffixes(text:String):String"></a>
       <a id="stripProteinSuffixes(String):String"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -911,16 +945,16 @@ in the given key string, else return the key unchanged.</p></div><dl class="attr
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">stripProteinSuffixes</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+        <span class="name">stripProteinSuffixes</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripProteinSuffixes(key:String):String" title="Permalink" target="_top">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.IMKBOrganCellTypeLookup@stripProteinSuffixes(text:String):String" title="Permalink" target="_top">
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Return the portion of the key string minus one of the protein suffixes, if found
-in the given key string, else return the key unchanged.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the key string minus one of the protein suffixes, if found
-in the given key string, else return the key unchanged.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
+      <p class="shortcomment cmt">Return the portion of the text string minus one of the protein suffixes, if found
+in the given text string, else return the text lowercased.</p><div class="fullcomment"><div class="comment cmt"><p>Return the portion of the text string minus one of the protein suffixes, if found
+in the given text string, else return the text lowercased.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ReachKBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.ReachKBKeyTransforms">ReachKBKeyTransforms</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#stripSuffixes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="stripSuffixes(suffixes:Seq[String],text:String):String"></a>
       <a id="stripSuffixes(Seq[String],String):String"></a>

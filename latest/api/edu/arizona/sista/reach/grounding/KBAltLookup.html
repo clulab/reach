@@ -310,23 +310,6 @@ NB: This is an abstract method, to be overridden by each child class.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.Speciated#HumanLabels" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="HumanLabels:Speciated.this.SpeciesNameSet"></a>
-      <a id="HumanLabels:SpeciesNameSet"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">HumanLabels</span><span class="result">: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.KBAltLookup.SpeciesNameSet">SpeciesNameSet</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBAltLookup@HumanLabels:Speciated.this.SpeciesNameSet" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">A set of label strings for humans, found in KBs.</p><div class="fullcomment"><div class="comment cmt"><p>A set of label strings for humans, found in KBs.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
       <a id="SpeciesNameSet(String*):Set[String]"></a>
@@ -344,6 +327,23 @@ NB: This is an abstract method, to be overridden by each child class.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#applyTransforms" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="applyTransforms(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
+      <a id="applyTransforms(String,KeyTransforms):Seq[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">applyTransforms</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.KBAltLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBAltLookup@applyTransforms(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p><div class="fullcomment"><div class="comment cmt"><p>Return a sequence of alternate keys, one for each of the given key transforms.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -384,6 +384,40 @@ NB: This is an abstract method, to be overridden by each child class.
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanNsId(nsIdSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanNsId(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanNsId</span><span class="params">(<span name="nsIdSeq">nsIdSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBAltLookup@containsHumanNsId(nsIdSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of namespace/ID strings contains a human nsId.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of namespace/ID strings contains a human nsId.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanSpecies(speciesSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanSpecies(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanSpecies</span><span class="params">(<span name="speciesSeq">speciesSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBAltLookup@containsHumanSpecies(speciesSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of species strings contain a human species label.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of species strings contain a human species label.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -458,6 +492,23 @@ NB: This is an abstract method, to be overridden by each child class.
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#hasHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasHumanNsId(nsId:String):Boolean"></a>
+      <a id="hasHumanNsId(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasHumanNsId</span><span class="params">(<span name="nsId">nsId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBAltLookup@hasHumanNsId(nsId:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given namespace/ID string is an ID for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given namespace/ID string is an ID for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -526,23 +577,6 @@ NB: This is an abstract method, to be overridden by each child class.
       </a>
     </span>
       <p class="shortcomment cmt">Tell whether the given species string is a member of the given set of species.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is a member of the given set of species.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.KBKeyTransforms#makeAlternateKeys" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]"></a>
-      <a id="makeAlternateKeys(String,KeyTransforms):Seq[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">makeAlternateKeys</span><span class="params">(<span name="text">text: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="transformFns">transformFns: <a href="#KeyTransforms=Seq[String=&gt;String]" class="extmbr" name="edu.arizona.sista.reach.grounding.KBAltLookup.KeyTransforms">KeyTransforms</a></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.KBAltLookup@makeAlternateKeys(text:String,transformFns:KBKeyTransforms.this.KeyTransforms):Seq[String]" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Return a sequence of alternate keys, one for each of the given key transforms.</p><div class="fullcomment"><div class="comment cmt"><p>Return a sequence of alternate keys, one for each of the given key transforms.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="KBKeyTransforms.html" class="extype" name="edu.arizona.sista.reach.grounding.KBKeyTransforms">KBKeyTransforms</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>

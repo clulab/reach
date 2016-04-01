@@ -506,6 +506,26 @@ Date: 10/30/15
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.utils.CSVParser#toFriesEntries" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toFriesEntries(file:java.io.File,docIdColumn:Int,chunkIdColumn:Int,sectionIdColumn:Int,textColumn:Int,hasHeader:Boolean):Seq[edu.arizona.sista.reach.nxml.FriesEntry]"></a>
+      <a id="toFriesEntries(File,Int,Int,Int,Int,Boolean):Seq[FriesEntry]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toFriesEntries</span><span class="params">(<span name="file">file: <span class="extype" name="java.io.File">File</span></span>, <span name="docIdColumn">docIdColumn: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>, <span name="chunkIdColumn">chunkIdColumn: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="sectionIdColumn">sectionIdColumn: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">1</span></span>, <span name="textColumn">textColumn: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">2</span></span>, <span name="hasHeader">hasHeader: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="../nxml/FriesEntry.html" class="extype" name="edu.arizona.sista.reach.nxml.FriesEntry">FriesEntry</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.utils.CSVParser@toFriesEntries(file:java.io.File,docIdColumn:Int,chunkIdColumn:Int,sectionIdColumn:Int,textColumn:Int,hasHeader:Boolean):Seq[edu.arizona.sista.reach.nxml.FriesEntry]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts a CSV file into a sequence of FriesEntry blocks, similar to NxmlReader.readNxml
+</p><div class="fullcomment"><div class="comment cmt"><p>Converts a CSV file into a sequence of FriesEntry blocks, similar to NxmlReader.readNxml
+</p></div><dl class="paramcmts block"><dt class="param">file</dt><dd class="cmt"><p>input file in CSV format</p></dd><dt class="param">docIdColumn</dt><dd class="cmt"><p>which column contains the doc id</p></dd><dt class="param">chunkIdColumn</dt><dd class="cmt"><p>which column contains the unique id for the segment of text reported in each line</p></dd><dt class="param">sectionIdColumn</dt><dd class="cmt"><p>which column contains the section id for this text; -1 if not present</p></dd><dt class="param">textColumn</dt><dd class="cmt"><p>which column contains the actual text</p></dd><dt class="param">hasHeader</dt><dd class="cmt"><p>true if this CSV file has a header row
+</p></dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>

@@ -45,16 +45,16 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">ReachGrounder</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">ReachGrounder</span><span class="result"> extends <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class which implements methods to select the final groundings for a mention sequence.
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class which implements methods to select the best groundings for a sequence of mentions.
   Written by Tom Hicks. 2/9/2016.
-  Last Modified: Cleanups: use bio mention, simplify print mention.
+  Last Modified: Walk biomentions, match species from context.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="edu.arizona.sista.reach.grounding.ReachGrounder"><span>ReachGrounder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="edu.arizona.sista.reach.grounding.ReachGrounder"><span>ReachGrounder</span></li><li class="in" name="edu.arizona.sista.reach.grounding.Speciated"><span>Speciated</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -112,7 +112,27 @@
     </li></ol>
             </div>
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="edu.arizona.sista.reach.grounding.Speciated.SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpeciesNameSet=Set[String]"></a>
+      <a id="SpeciesNameSet:SpeciesNameSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SpeciesNameSet</span><span class="result"> = <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@SpeciesNameSet=Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Species name sets.</p><div class="fullcomment"><div class="comment cmt"><p>Species name sets.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
@@ -169,6 +189,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#SpeciesNameSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpeciesNameSet(xs:String*):Set[String]"></a>
+      <a id="SpeciesNameSet(String*):Set[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SpeciesNameSet</span><span class="params">(<span name="xs">xs: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@SpeciesNameSet(xs:String*):Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#apply" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="apply(mentions:Seq[edu.arizona.sista.reach.mentions.BioMention]):Seq[edu.arizona.sista.reach.mentions.BioMention]"></a>
       <a id="apply(Seq[BioMention]):Seq[BioMention]"></a>
@@ -185,7 +222,7 @@
         <img src="../../../../../lib/permalink.png" />
       </a>
     </span>
-      <p class="shortcomment cmt">Use candidate resolutions to select and apply final grounding choice.</p>
+      <p class="shortcomment cmt">Select and apply best grounding choice to a sequence of bio mentions.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -226,6 +263,40 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanNsId(nsIdSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanNsId(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanNsId</span><span class="params">(<span name="nsIdSeq">nsIdSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@containsHumanNsId(nsIdSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of namespace/ID strings contains a human nsId.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of namespace/ID strings contains a human nsId.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#containsHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containsHumanSpecies(speciesSeq:Seq[String]):Boolean"></a>
+      <a id="containsHumanSpecies(Seq[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containsHumanSpecies</span><span class="params">(<span name="speciesSeq">speciesSeq: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@containsHumanSpecies(speciesSeq:Seq[String]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given sequence of species strings contain a human species label.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given sequence of species strings contain a human species label.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -300,6 +371,93 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#groundArguments" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="groundArguments(event:edu.arizona.sista.reach.mentions.BioMention):Unit"></a>
+      <a id="groundArguments(BioMention):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">groundArguments</span><span class="params">(<span name="event">event: <a href="../mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@groundArguments(event:edu.arizona.sista.reach.mentions.BioMention):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Recursively process arguments of given event, possibly setting new context environment.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#groundAsHuman" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="groundAsHuman(mention:edu.arizona.sista.reach.mentions.BioTextBoundMention):Unit"></a>
+      <a id="groundAsHuman(BioTextBoundMention):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">groundAsHuman</span><span class="params">(<span name="mention">mention: <a href="../mentions/BioTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.BioTextBoundMention">BioTextBoundMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@groundAsHuman(mention:edu.arizona.sista.reach.mentions.BioTextBoundMention):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Prioritize the Grounding of the given mention as human.</p><div class="fullcomment"><div class="comment cmt"><p>Prioritize the Grounding of the given mention as human.
+NB: Mention must be grounded and have more than one candidate.</p></div></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#groundBySpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="groundBySpecies(mention:edu.arizona.sista.reach.mentions.BioTextBoundMention,mentionNsIds:Seq[String]):Unit"></a>
+      <a id="groundBySpecies(BioTextBoundMention,Seq[String]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">groundBySpecies</span><span class="params">(<span name="mention">mention: <a href="../mentions/BioTextBoundMention.html" class="extype" name="edu.arizona.sista.reach.mentions.BioTextBoundMention">BioTextBoundMention</a></span>, <span name="mentionNsIds">mentionNsIds: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@groundBySpecies(mention:edu.arizona.sista.reach.mentions.BioTextBoundMention,mentionNsIds:Seq[String]):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Prioritize the grounding for one of the given species.</p><div class="fullcomment"><div class="comment cmt"><p>Prioritize the grounding for one of the given species.
+NB: Mention must be grounded and have more than one candidate.</p></div></div>
+    </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#groundMention" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="groundMention(mention:edu.arizona.sista.reach.mentions.BioMention,species:Seq[String]):Unit"></a>
+      <a id="groundMention(BioMention,Seq[String]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">groundMention</span><span class="params">(<span name="mention">mention: <a href="../mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a></span>, <span name="species">species: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@groundMention(mention:edu.arizona.sista.reach.mentions.BioMention,species:Seq[String]):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Dispatch the given bio mention for grounding, based on candidates and given species context.</p>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#hasHumanNsId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasHumanNsId(nsId:String):Boolean"></a>
+      <a id="hasHumanNsId(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasHumanNsId</span><span class="params">(<span name="nsId">nsId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@hasHumanNsId(nsId:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given namespace/ID string is an ID for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given namespace/ID string is an ID for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -317,6 +475,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#isHumanSpecies" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isHumanSpecies(species:String):Boolean"></a>
+      <a id="isHumanSpecies(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isHumanSpecies</span><span class="params">(<span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@isHumanSpecies(species:String):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given species string is label for humans or not.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is label for humans or not.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -334,6 +509,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.grounding.Speciated#isMemberOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isMemberOf(species:String,speciesSet:Speciated.this.SpeciesNameSet):Boolean"></a>
+      <a id="isMemberOf(String,SpeciesNameSet):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isMemberOf</span><span class="params">(<span name="species">species: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="speciesSet">speciesSet: <a href="#SpeciesNameSet=Set[String]" class="extmbr" name="edu.arizona.sista.reach.grounding.ReachGrounder.SpeciesNameSet">SpeciesNameSet</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@isMemberOf(species:String,speciesSet:Speciated.this.SpeciesNameSet):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Tell whether the given species string is a member of the given set of species.</p><div class="fullcomment"><div class="comment cmt"><p>Tell whether the given species string is a member of the given set of species.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></dd></dl></div>
     </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#mentionMgr" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="mentionMgr:edu.arizona.sista.reach.extern.export.MentionManager"></a>
       <a id="mentionMgr:MentionManager"></a>
@@ -402,40 +594,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#printMention" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="printMention(mention:edu.arizona.sista.reach.mentions.BioMention):Unit"></a>
-      <a id="printMention(BioMention):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">printMention</span><span class="params">(<span name="mention">mention: <a href="../mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@printMention(mention:edu.arizona.sista.reach.mentions.BioMention):Unit" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="edu.arizona.sista.reach.grounding.ReachGrounder#selectGrounding" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="selectGrounding(mention:edu.arizona.sista.reach.mentions.BioMention):edu.arizona.sista.reach.mentions.BioMention"></a>
-      <a id="selectGrounding(BioMention):BioMention"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">selectGrounding</span><span class="params">(<span name="mention">mention: <a href="../mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a></span>)</span><span class="result">: <a href="../mentions/package.html#BioMention=edu.arizona.sista.odin.Mentionwithedu.arizona.sista.reach.mentions.Modificationswithedu.arizona.sista.reach.mentions.Groundingwithedu.arizona.sista.reach.mentions.Displaywithedu.arizona.sista.reach.context.Context" class="extmbr" name="edu.arizona.sista.reach.mentions.BioMention">BioMention</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../index.html#edu.arizona.sista.reach.grounding.ReachGrounder@selectGrounding(mention:edu.arizona.sista.reach.mentions.BioMention):edu.arizona.sista.reach.mentions.BioMention" title="Permalink" target="_top">
-        <img src="../../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <p class="shortcomment cmt">Select the final grounding for the given mention.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -548,7 +706,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="edu.arizona.sista.reach.grounding.Speciated">
+              <h3>Inherited from <a href="Speciated.html" class="extype" name="edu.arizona.sista.reach.grounding.Speciated">Speciated</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

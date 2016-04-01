@@ -45,13 +45,13 @@
         <span class="kind">object</span>
       </span>
       <span class="symbol">
-        <span class="name">PaperReader</span><span class="result"> extends <span class="extype" name="scala.App">App</span></span>
+        <span class="name">PaperReader</span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.App">App</span>, <span class="extype" name="scala.DelayedInit">DelayedInit</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="edu.arizona.sista.reach.PaperReader"><span>PaperReader</span></li><li class="in" name="scala.App"><span>App</span></li><li class="in" name="scala.DelayedInit"><span>DelayedInit</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="edu.arizona.sista.reach.PaperReader"><span>PaperReader</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -183,32 +183,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.App#args" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="args:Array[String]"></a>
-      <a id="args:Array[String]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">args</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@args:Array[String]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd>App</dd><dt>Annotations</dt><dd>
-                <span class="name">@deprecatedOverriding</span><span class="args">(<span>
-      
-      <span class="symbol">&quot;args should not be overridden&quot;</span>
-    </span>, <span>
-      
-      <span class="symbol">&quot;2.11.0&quot;</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -266,19 +240,70 @@
       </a>
     </span>
       
-    </li><li name="edu.arizona.sista.reach.PaperReader#dataset" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="dataset:edu.arizona.sista.reach.PaperReader.Dataset"></a>
-      <a id="dataset:Dataset"></a>
+    </li><li name="edu.arizona.sista.reach.PaperReader#contextConfig" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contextConfig:com.typesafe.config.ConfigObject"></a>
+      <a id="contextConfig:ConfigObject"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">dataset</span><span class="result">: <a href="#Dataset=Map[edu.arizona.sista.reach.PaperReader.PaperId,Vector[edu.arizona.sista.odin.Mention]]" class="extmbr" name="edu.arizona.sista.reach.PaperReader.Dataset">Dataset</a></span>
+        <span class="name">contextConfig</span><span class="result">: <span class="extype" name="com.typesafe.config.ConfigObject">ConfigObject</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@dataset:edu.arizona.sista.reach.PaperReader.Dataset" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@contextConfig:com.typesafe.config.ConfigObject" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.PaperReader#contextEngineParams" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contextEngineParams:Map[String,String]"></a>
+      <a id="contextEngineParams:Map[String,String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contextEngineParams</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@contextEngineParams:Map[String,String]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.PaperReader#contextEngineType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="contextEngineType:edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Value"></a>
+      <a id="contextEngineType:context.ContextEngineFactory.Engine.Value"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">contextEngineType</span><span class="result">: <a href="context/ContextEngineFactory$$Engine$.html#ValueextendsOrdered[Enumeration.this.Value]withSerializable" class="extmbr" name="edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Value">context.ContextEngineFactory.Engine.Value</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@contextEngineType:edu.arizona.sista.reach.context.ContextEngineFactory.Engine.Value" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li><li name="edu.arizona.sista.reach.PaperReader#csvReader" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="csvReader:edu.arizona.sista.reach.utils.CSVParser"></a>
+      <a id="csvReader:CSVParser"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">csvReader</span><span class="result">: <a href="utils/CSVParser.html" class="extype" name="edu.arizona.sista.reach.utils.CSVParser">CSVParser</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@csvReader:edu.arizona.sista.reach.utils.CSVParser" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -317,23 +342,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.App#executionStart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="executionStart:Long"></a>
-      <a id="executionStart:Long"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">executionStart</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@executionStart:Long" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>App</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -425,49 +433,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="edu.arizona.sista.reach.PaperReader#load" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="load(path:String):edu.arizona.sista.reach.PaperReader.Dataset"></a>
-      <a id="load(String):Dataset"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">load</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="#Dataset=Map[edu.arizona.sista.reach.PaperReader.PaperId,Vector[edu.arizona.sista.odin.Mention]]" class="extmbr" name="edu.arizona.sista.reach.PaperReader.Dataset">Dataset</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@load(path:String):edu.arizona.sista.reach.PaperReader.Dataset" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="scala.App#main" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="main(args:Array[String]):Unit"></a>
-      <a id="main(Array[String]):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">main</span><span class="params">(<span name="args">args: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@main(args:Array[String]):Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>App</dd><dt>Annotations</dt><dd>
-                <span class="name">@deprecatedOverriding</span><span class="args">(<span>
-      
-      <span class="symbol">&quot;main should not be overridden&quot;</span>
-    </span>, <span>
-      
-      <span class="symbol">&quot;2.11.0&quot;</span>
-    </span>)</span>
-              
-        </dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -536,58 +501,43 @@
       </a>
     </span>
       
-    </li><li name="edu.arizona.sista.reach.PaperReader#outFile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="outFile:String"></a>
-      <a id="outFile:String"></a>
+    </li><li name="edu.arizona.sista.reach.PaperReader#readCSVPaper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readCSVPaper(file:java.io.File):(String,Vector[edu.arizona.sista.odin.Mention])"></a>
+      <a id="readCSVPaper(File):(String,Vector[Mention])"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">outFile</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">readCSVPaper</span><span class="params">(<span name="file">file: <span class="extype" name="java.io.File">File</span></span>)</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>])</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@outFile:String" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@readCSVPaper(file:java.io.File):(String,Vector[edu.arizona.sista.odin.Mention])" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="edu.arizona.sista.reach.PaperReader#papersDir" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="papersDir:String"></a>
-      <a id="papersDir:String"></a>
+      <p class="shortcomment cmt">Produces Mentions from .csv papers using <span class="extype" name="CSVParser">CSVParser</span> and <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></p><div class="fullcomment"><div class="comment cmt"><p>Produces Mentions from .csv papers using <span class="extype" name="CSVParser">CSVParser</span> and <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></p></div><dl class="paramcmts block"><dt class="param">file</dt><dd class="cmt"><p>a File with the .csv extension</p></dd><dt>returns</dt><dd class="cmt"><p>(PaperID, Mentions)
+</p></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.PaperReader#readNXMLPaper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="readNXMLPaper(file:java.io.File):(String,Vector[edu.arizona.sista.odin.Mention])"></a>
+      <a id="readNXMLPaper(File):(String,Vector[Mention])"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">val</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">papersDir</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">readNXMLPaper</span><span class="params">(<span name="file">file: <span class="extype" name="java.io.File">File</span></span>)</span><span class="result">: (<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Vector">Vector</span>[<span class="extype" name="edu.arizona.sista.odin.Mention">Mention</span>])</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@papersDir:String" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@readNXMLPaper(file:java.io.File):(String,Vector[edu.arizona.sista.odin.Mention])" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="edu.arizona.sista.reach.PaperReader#reach" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="reach:edu.arizona.sista.reach.ReachSystem"></a>
-      <a id="reach:ReachSystem"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">reach</span><span class="result">: <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@reach:edu.arizona.sista.reach.ReachSystem" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      
-    </li><li name="edu.arizona.sista.reach.PaperReader#readPaper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Produces Mentions from .nxml papers using <span class="extype" name="NxmlReader">NxmlReader</span> and <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></p><div class="fullcomment"><div class="comment cmt"><p>Produces Mentions from .nxml papers using <span class="extype" name="NxmlReader">NxmlReader</span> and <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></p></div><dl class="paramcmts block"><dt class="param">file</dt><dd class="cmt"><p>a File with the .csv extension</p></dd><dt>returns</dt><dd class="cmt"><p>(PaperID, Mentions)
+</p></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.PaperReader#readPaper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="readPaper(file:java.io.File):(String,Vector[edu.arizona.sista.odin.Mention])"></a>
       <a id="readPaper(File):(String,Vector[Mention])"></a>
       <h4 class="signature">
@@ -603,8 +553,9 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="edu.arizona.sista.reach.PaperReader#readPapers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Produces Mentions from either a .nxml or .csv paper using <span class="extype" name="NxmlReader">NxmlReader</span> or <span class="extype" name="CSVParser">CSVParser</span> and <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></p><div class="fullcomment"><div class="comment cmt"><p>Produces Mentions from either a .nxml or .csv paper using <span class="extype" name="NxmlReader">NxmlReader</span> or <span class="extype" name="CSVParser">CSVParser</span> and <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></p></div><dl class="paramcmts block"><dt class="param">file</dt><dd class="cmt"><p>a File with either the .csv or .nxml extension</p></dd><dt>returns</dt><dd class="cmt"><p>(PaperID, Mentions)
+</p></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.PaperReader#readPapers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="readPapers(dir:java.io.File):edu.arizona.sista.reach.PaperReader.Dataset"></a>
       <a id="readPapers(File):Dataset"></a>
       <h4 class="signature">
@@ -620,8 +571,9 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="edu.arizona.sista.reach.PaperReader#readPapers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Produces Dataset from a directory of nxml and csv papers.</p><div class="fullcomment"><div class="comment cmt"><p>Produces Dataset from a directory of nxml and csv papers.</p></div><dl class="paramcmts block"><dt class="param">dir</dt><dd class="cmt"><p>a File (directory) of nxml and csv papers</p></dd><dt>returns</dt><dd class="cmt"><p>a Dataset (PaperID -&gt; Mentions)
+</p></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.PaperReader#readPapers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="readPapers(path:String):edu.arizona.sista.reach.PaperReader.Dataset"></a>
       <a id="readPapers(String):Dataset"></a>
       <h4 class="signature">
@@ -637,20 +589,21 @@
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
-      
-    </li><li name="edu.arizona.sista.reach.PaperReader#save" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="save(data:edu.arizona.sista.reach.PaperReader.Dataset,path:String):Unit"></a>
-      <a id="save(Dataset,String):Unit"></a>
+      <p class="shortcomment cmt">Produces Dataset from a directory of nxml and csv papers</p><div class="fullcomment"><div class="comment cmt"><p>Produces Dataset from a directory of nxml and csv papers</p></div><dl class="paramcmts block"><dt class="param">path</dt><dd class="cmt"><p>a directory of nxml and csv papers</p></dd><dt>returns</dt><dd class="cmt"><p>a Dataset (PaperID -&gt; Mentions)
+</p></dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.PaperReader#rs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="rs:edu.arizona.sista.reach.ReachSystem"></a>
+      <a id="rs:ReachSystem"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">save</span><span class="params">(<span name="data">data: <a href="#Dataset=Map[edu.arizona.sista.reach.PaperReader.PaperId,Vector[edu.arizona.sista.odin.Mention]]" class="extmbr" name="edu.arizona.sista.reach.PaperReader.Dataset">Dataset</a></span>, <span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">rs</span><span class="result">: <a href="ReachSystem.html" class="extype" name="edu.arizona.sista.reach.ReachSystem">ReachSystem</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@save(data:edu.arizona.sista.reach.PaperReader.Dataset,path:String):Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@rs:edu.arizona.sista.reach.ReachSystem" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" />
       </a>
     </span>
@@ -672,6 +625,23 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="edu.arizona.sista.reach.PaperReader#threadLimit" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="threadLimit:Int"></a>
+      <a id="threadLimit:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">threadLimit</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@threadLimit:Int" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -763,38 +733,11 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Deprecated Value Members</h3>
-              <ol><li name="scala.App#delayedInit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="delayedInit(body:=&gt;Unit):Unit"></a>
-      <a id="delayedInit(⇒Unit):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name deprecated" title="Deprecated: (Since version 2.11.0) The delayedInit mechanism will disappear.">delayedInit</span><span class="params">(<span name="body">body: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#edu.arizona.sista.reach.PaperReader$@delayedInit(body:=&gt;Unit):Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>App → DelayedInit</dd><dt>Annotations</dt><dd>
-                <span class="name">@deprecated</span>
-              
-        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.11.0)</i> The delayedInit mechanism will disappear.</p></dd></dl></div>
-    </li></ol>
-            </div>
+        
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.App">
-              <h3>Inherited from <span class="extype" name="scala.App">App</span></h3>
-            </div><div class="parent" name="scala.DelayedInit">
-              <h3>Inherited from <span class="extype" name="scala.DelayedInit">DelayedInit</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
