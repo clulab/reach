@@ -247,6 +247,13 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  def useCase7(resultDir:String): Unit = {
+    val eventDocs = search("(obesity OR overweight OR adiposity OR NCD) AND (undernutrition OR malnutrition OR stunting OR wasting) AND (infant OR child OR childhood)")
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
+    logger.debug("Done.")
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
@@ -285,7 +292,8 @@ object NxmlSearcher {
       //searcher.useCase3(resultDir)
       //searcher.useCase4(resultDir)
       //searcher.useCase5(resultDir)
-      searcher.useCase6(resultDir)
+      //searcher.useCase6(resultDir)
+      searcher.useCase7(resultDir)
     }
 
     searcher.close()
