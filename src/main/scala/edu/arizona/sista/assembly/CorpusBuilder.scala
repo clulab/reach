@@ -181,8 +181,6 @@ object BuildCorpus extends App {
     j = i + 1
     // iterate over pairs of the mentions in each pair of sentences
     mentionsOfInterest = getValidMentionsForSentences(mns, Seq(i, j))
-    // TODO: should neither mention be a RelationMention?
-    // RelationMentions don't have triggers
     m1 <- mentionsOfInterest
     m2 <- mentionsOfInterest
     if m1 != m2
