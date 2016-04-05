@@ -517,8 +517,7 @@ class AssemblyManager(
     }
 
     // check for coref
-    val cm = m.toCorefMention
-    val e = getResolvedForm(cm)
+    val e = getResolvedForm(m)
 
     // mention should be an Entity or Cellular_component
     require((e matches "Entity") || (e matches "Cellular_component"), "createSimpleEntity requires an 'Entity' or 'Cellular_component' Mention")
@@ -587,8 +586,7 @@ class AssemblyManager(
   protected def createComplexWithID(m: Mention): (Complex, IDPointer) = {
 
     // check for coref
-    val cm = m.toCorefMention
-    val c = getResolvedForm(cm)
+    val c = getResolvedForm(m)
 
     require(c matches "Complex|Binding".r, "createComplex only handles Complex and Binding mentions.")
 
@@ -645,13 +643,12 @@ class AssemblyManager(
     def handleBinding(m: Mention): (SimpleEvent, IDPointer) = {
 
       // check for coref
-      val cm = m.toCorefMention
-      val e = getResolvedForm(cm)
+      val e = getResolvedForm(m)
 
       // mention should be a SimpleEvent, but not a Binding
-      require(cm matches "Binding", "handleBinding only accepts Binding mentions.")
+      require(e matches "Binding", "handleBinding only accepts Binding mentions.")
       // there should not be a cause among the arguments
-      require(!(cm.arguments contains "cause"), "Binding should not contain a cause!")
+      require(!(e.arguments contains "cause"), "Binding should not contain a cause!")
       // prepare input (roles -> repr. pointers)
 
       // construct inputs from themes
@@ -718,8 +715,7 @@ class AssemblyManager(
     def handleNBSimpleEvent(m: Mention): (SimpleEvent, IDPointer) = {
 
       // check for coref
-      val cm = m.toCorefMention
-      val e = getResolvedForm(cm)
+      val e = getResolvedForm(m)
 
       // mention should be a SimpleEvent, but not a Binding
       require((e matches "SimpleEvent") && !(e matches "Binding"), s"handleNBSimpleEvent recieved Mention of label '${e.label}', but method only accepts a SimpleEvent Mention that is NOT a Binding.")
@@ -776,7 +772,7 @@ class AssemblyManager(
     //
 
     val event = getResolvedForm(m.toCorefMention)
-    require(event matches "SimpleEvent", "createSimpleEventWithID requires Mention with the label SimpleEvent.")
+    require(event matches "SimpleEvent", s"createSimpleEventWithID requires Mention with the label SimpleEvent, but received Mention with label '${event.label}'")
     // there should not be a cause among the arguments
     require(!(event.arguments contains "cause"), "SimpleEvent should not contain a cause!")
     // SimpleEvent must have theme
@@ -806,8 +802,7 @@ class AssemblyManager(
   private def createRegulationWithID(m: Mention): (Regulation, IDPointer) = {
 
     // check for coref
-    val cm = m.toCorefMention
-    val reg = getResolvedForm(cm)
+    val reg = getResolvedForm(m)
 
     // get polarity
     val polarity = getPolarityLabel(reg)
@@ -879,8 +874,7 @@ class AssemblyManager(
   private def createActivationWithID(m: Mention): (Activation, IDPointer) = {
 
     // check for coref
-    val cm = m.toCorefMention
-    val act = getResolvedForm(cm)
+    val act = getResolvedForm(m)
 
     // get polarity
     val polarity = getPolarityLabel(act)
@@ -975,7 +969,7 @@ class AssemblyManager(
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
   private def createEERwithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
-     m.toBioMention match {
+    getResolvedForm(m) match {
       case complex if complex matches "Complex" => createComplexWithID(complex)
       case e if e matches "Entity" => createSimpleEntityWithID(e, None)
       case cc if cc matches "Cellular_component" => createSimpleEntityWithID(cc, None)
@@ -1554,6 +1548,11 @@ object AssemblyManager {
    * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
    */
   def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
+
+  def getResolvedForm(m: Mention): CorefMention = {
+    val cm = m.toCorefMention
+    cm.antecedentOrElse(cm)
+  }
 
   /**
    * Checks to see if the mention can be safely handled by the AssemblyManager
