@@ -1544,11 +1544,9 @@ object AssemblyManager {
    * Get antecedent if present.  Otherwise return the CorefMntion as-is.
    *
    * Used to retrieve the appropriate features of a mention's antecedent.
-   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
+   * @param m an Odin Mention
    * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
    */
-  def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
-
   def getResolvedForm(m: Mention): CorefMention = {
     val cm = m.toCorefMention
     cm.antecedentOrElse(cm)
