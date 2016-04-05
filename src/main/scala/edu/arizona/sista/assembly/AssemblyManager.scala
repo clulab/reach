@@ -722,7 +722,9 @@ class AssemblyManager(
       val e = getResolvedForm(cm)
 
       // mention should be a SimpleEvent, but not a Binding
-      require((cm matches "SimpleEvent") && !(cm matches "Binding"), "handleNBSimpleEvent only accepts a SimpleEvent Mention that is NOT a Binding.")
+      require((e matches "SimpleEvent") && !(e matches "Binding"), "handleNBSimpleEvent only accepts a SimpleEvent Mention that is NOT a Binding.")
+      // SimpleEvent must have theme
+      require(e.arguments contains "theme", s"'${e.label}' must have a theme.")
       // prepare input (roles -> repr. pointers)
 
       // filter out sites from input
@@ -1569,9 +1571,9 @@ object AssemblyManager {
       case entity if entity matches "Entity" => true
       // needed for Translocations
       case cc if cc matches "Cellular_component" => true
-      // simple events should not have a cause
+      // simple events must have a theme and should not have a cause
       case se if se matches "SimpleEvent" =>
-        !(se.arguments contains "cause")
+        (se.arguments contains "theme") && !(se.arguments contains "cause")
 
       // activations must have controlled and controller
       case act if act matches "ActivationEvent" =>
