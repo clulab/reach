@@ -158,6 +158,8 @@ object BuildCorpus extends App {
   val papersDir = config.getString("assembly.papers")
   val datasetSource = config.getString("ReadPapers.serializedPapers")
 
+  println(s"Loading dataset ...")
+
   def loadDataset(f: String): Try[Dataset] = Try(Serializer.load(datasetSource))
 
 //  // generate Dataset from papers
@@ -185,6 +187,9 @@ object BuildCorpus extends App {
     m2 <- mentionsOfInterest
     if m1 != m2
     // could be SimpleEvent, Reg, or Activation...
+    // make sure mentions can be handled by AssemblyManager
+    if AssemblyManager.isValidMention(m1) && AssemblyManager.isValidMention(m2)
+    _ = println(s"\t'${m1.label}' and '${m2.label}' mentions are valid...")
     r1 = am.getEER(m1).asInstanceOf[Event]
     r2 = am.getEER(m2).asInstanceOf[Event]
     if shareArg(r1, r2)
