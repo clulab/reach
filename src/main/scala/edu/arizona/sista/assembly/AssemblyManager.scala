@@ -1039,7 +1039,8 @@ class AssemblyManager(
    * @return an [[EntityEventRepresentation]]
    */
   def getEER(m: Mention): EntityEventRepresentation = {
-    val id = mentionToID(m)
+    require(isValidMention(m), s"Mention '${m.label}' is not valid")
+    val id = mentionToID.getOrElse(m, mentionToID(getResolvedForm(m)))
     idToEER(id)
   }
 
