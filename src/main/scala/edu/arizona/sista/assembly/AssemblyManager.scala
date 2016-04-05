@@ -969,13 +969,14 @@ class AssemblyManager(
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
   private def createEERwithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
+    // pass the unresolved form through according to a check against the resolved form
     getResolvedForm(m) match {
-      case complex if complex matches "Complex" => createComplexWithID(complex)
-      case e if e matches "Entity" => createSimpleEntityWithID(e, None)
-      case cc if cc matches "Cellular_component" => createSimpleEntityWithID(cc, None)
-      case se if se matches "SimpleEvent" => createSimpleEventWithID(se)
-      case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
-      case activation if activation matches "ActivationEvent" => createActivationWithID(activation)
+      case complex if complex matches "Complex" => createComplexWithID(m)
+      case e if e matches "Entity" => createSimpleEntityWithID(m, None)
+      case cc if cc matches "Cellular_component" => createSimpleEntityWithID(m, None)
+      case se if se matches "SimpleEvent" => createSimpleEventWithID(m)
+      case regulation if regulation matches "Regulation" => createRegulationWithID(m)
+      case activation if activation matches "ActivationEvent" => createActivationWithID(m)
       case other => throw new Exception(s"createEERwithID failed for ${other.label}")
     }
   }
@@ -1562,9 +1563,7 @@ object AssemblyManager {
    */
   def isValidMention(mention: Mention): Boolean = {
 
-    val m = getResolvedForm(mention.toCorefMention)
-
-    m match {
+    getResolvedForm(mention) match {
 
       // no generic event
       case gen if gen matches "Generic_event" => false
