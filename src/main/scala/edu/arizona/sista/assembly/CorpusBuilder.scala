@@ -36,9 +36,14 @@ object CorpusBuilder {
     mns: Seq[Mention],
     sentIndices: Seq[Int]
   ): Seq[Mention] = {
-    // event must be a "complete" event (ComplexEvent or Binding)
-    // must be an event and must be from a relevant sentence
-    mns.filter(m => ((m matches "ComplexEvent") || (m matches "Binding")) && (sentIndices contains m.sentence))
+    mns.filter { m =>
+      // event must be a "complete" event (ComplexEvent or Binding)
+      ((AssemblyManager.getResolvedForm(m) matches "ComplexEvent") || (AssemblyManager.getResolvedForm(m) matches "Binding")) &&
+        // must be an event and must be from a relevant sentence
+        (sentIndices contains m.sentence) &&
+        // the mentions must be valid in assembly
+        AssemblyManager.isValidMention(m)
+    }
   }
 
   /** Checks if two EERs share at least one SimpleEntity with the same grounding ID */
@@ -179,14 +184,13 @@ object BuildCorpus extends App {
     (doc, mns) <- mentions.groupBy(m => m.document)
     i <- -1 until doc.sentences.length
     j = i + 1
+    // could be SimpleEvent, Reg, or Activation...
+    // make sure mentions can be handled by AssemblyManager
     // iterate over pairs of the mentions in each pair of sentences
     mentionsOfInterest = getValidMentionsForSentences(mns, Seq(i, j))
     m1 <- mentionsOfInterest
     m2 <- mentionsOfInterest
     if m1 != m2
-    // could be SimpleEvent, Reg, or Activation...
-    // make sure mentions can be handled by AssemblyManager
-    if AssemblyManager.isValidMention(m1) && AssemblyManager.isValidMention(m2)
     _r1 = am.getEER(m1)
     _r2 = am.getEER(m2)
     if _r1.isInstanceOf[Event] && _r2.isInstanceOf[Event]
