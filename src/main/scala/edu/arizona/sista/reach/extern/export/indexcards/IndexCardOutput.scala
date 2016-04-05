@@ -19,7 +19,7 @@ import IndexCardOutput._
 /**
   * Defines classes and methods used to build and output the index card format.
   *   Written by: Mihai Surdeanu. 8/27/2015.
-  *   Last Modified: Add publication meta data.
+  *   Last Modified: Refactor away common metadata extractor function.
   */
 class IndexCardOutput extends JsonOutputter {
 
@@ -449,15 +449,6 @@ class IndexCardOutput extends JsonOutputter {
     f("evidence") = ev
     // TODO: we do not compare against the model; assume everything is new
     f("model_relation") = "extension"
-  }
-
-
-  /** Returns a map of metadata names to values, extracted from the give paper passages. */
-  private def extractOtherMetaData (paperPassages: Seq[FriesEntry]): Map[String, String] = {
-    val metaPassages = paperPassages.filter(_.sectionId == "meta-data")
-    val metaData = new mutable.HashMap[String, String]()
-    for(md <- metaPassages) metaData += md.sectionName -> md.text
-    metaData.toMap
   }
 
 }

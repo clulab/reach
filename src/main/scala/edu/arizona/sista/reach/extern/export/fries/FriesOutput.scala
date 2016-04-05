@@ -20,7 +20,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Add publication meta data.
+  *   Last Modified: Refactor away common metadata extractor function.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -101,14 +101,6 @@ class FriesOutput extends JsonOutputter {
   //
   // Private Methods
   //
-
-  /** Returns a map of metadata names to values, extracted from the give paper passages. */
-  private def extractOtherMetaData (paperPassages: Seq[FriesEntry]): Map[String, String] = {
-    val metaPassages = paperPassages.filter(_.sectionId == "meta-data")
-    val metaData = new mutable.HashMap[String, String]()
-    for(md <- metaPassages) metaData += md.sectionName -> md.text
-    metaData.toMap
-  }
 
   /** Creates a map of all FriesEntries, using chunkId as key */
   private def passagesToMap(paperPassages:Seq[FriesEntry]):Map[String, FriesEntry] = {
