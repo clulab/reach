@@ -588,7 +588,7 @@ class AssemblyManager(
     // check for coref
     val c = getResolvedForm(m)
 
-    require(c matches "Complex|Binding".r, "createComplex only handles Complex and Binding mentions.")
+    require(c matches "Complex", "createComplex only handles Mentions with the label 'Complex'.")
 
     // prepare id
     val id = getOrCreateID(m)
@@ -720,7 +720,7 @@ class AssemblyManager(
       val e = getResolvedForm(m)
 
       // mention should be a SimpleEvent, but not a Binding
-      require((e matches "SimpleEvent") && !(e matches "Binding"), s"handleNBSimpleEvent recieved Mention of label '${e.label}', but method only accepts a SimpleEvent Mention that is NOT a Binding.")
+      require((e matches "SimpleEvent") && !(e matches "Binding"), s"handleNBSimpleEvent received Mention of label '${e.label}', but method only accepts a SimpleEvent Mention that is NOT a Binding.")
       // prepare input (roles -> repr. pointers)
 
       // filter out sites from input
@@ -1080,7 +1080,7 @@ class AssemblyManager(
 
   /**
    * Returns a SimpleEvent for a Mention m with the appropriate labels.
-   * @param m an Odin Mention.  Must have the label "SimpleEvent" and not the label "Binding".
+   * @param m an Odin Mention.  Must have the label "SimpleEvent".
    */
   def getSimpleEvent(m: Mention): SimpleEvent = {
     require(m matches "SimpleEvent", "Mention is not a SimpleEvent")
