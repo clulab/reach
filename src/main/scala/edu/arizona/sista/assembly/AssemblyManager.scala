@@ -608,6 +608,7 @@ class AssemblyManager(
       )
 
     // update LUTs
+    // use original mention for later lookup
     updateLUTs(id, m, eer)
 
     (eer, id)
@@ -702,6 +703,7 @@ class AssemblyManager(
         )
 
       // update LUTs
+      // use original mention for later lookup
       updateLUTs(id, m, eer)
 
       (eer, id)
@@ -762,6 +764,7 @@ class AssemblyManager(
         )
 
       // update LUTs
+      // use original mention for later lookup
       updateLUTs(id, m, eer)
 
       (eer, id)
@@ -842,6 +845,7 @@ class AssemblyManager(
       )
 
     // update LUTs
+    // use original mention for later lookup
     updateLUTs(id, m, eer)
 
     // eer and id pair
@@ -912,6 +916,7 @@ class AssemblyManager(
       )
 
     // update LUTs
+    // use original mention for later lookup
     updateLUTs(id, m, eer)
 
     // eer and id pair
