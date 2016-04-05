@@ -520,8 +520,8 @@ class AssemblyManager(
     val cm = m.toCorefMention
     val e = getResolvedForm(cm)
 
-    // mention should be an Entity
-    require(cm matches "Entity")
+    // mention should be an Entity or Cellular_component
+    require((e matches "Entity") || (e matches "Cellular_component"), "createSimpleEntity requires an 'Entity' or 'Cellular_component' Mention")
 
     val modifications = mkAssemblyModifications(e)
 
@@ -726,8 +726,6 @@ class AssemblyManager(
       // prepare input (roles -> repr. pointers)
 
       // filter out sites from input
-      println(s"Processing args for ${e.label}")
-      // TODO: does "context" need to be removed?
       val siteLessArgs = e.arguments - "site"
       val input: Map[String, Set[IDPointer]] = siteLessArgs map {
         case (role: String, mns: Seq[Mention]) =>
@@ -977,6 +975,7 @@ class AssemblyManager(
      m.toBioMention match {
       case complex if complex matches "Complex" => createComplexWithID(complex)
       case e if e matches "Entity" => createSimpleEntityWithID(e, None)
+      case cc if cc matches "Cellular_component" => createSimpleEntityWithID(cc, None)
       case se if se matches "SimpleEvent" => createSimpleEventWithID(se)
       case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
       case activation if activation matches "ActivationEvent" => createActivationWithID(activation)
@@ -1568,7 +1567,8 @@ object AssemblyManager {
     m match {
 
       case entity if entity matches "Entity" => true
-
+      // needed for Translocations
+      case cc if cc matches "Cellular_component" => true
       // simple events should not have a cause
       case se if se matches "SimpleEvent" =>
         !(se.arguments contains "cause")
