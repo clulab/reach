@@ -977,6 +977,7 @@ class AssemblyManager(
       case se if se matches "SimpleEvent" => createSimpleEventWithID(se)
       case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
       case activation if activation matches "ActivationEvent" => createActivationWithID(activation)
+      case other => throw new Exception(s"createEERwithID failed for ${other.label}")
     }
   }
 
