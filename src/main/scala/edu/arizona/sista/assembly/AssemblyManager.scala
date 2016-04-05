@@ -1526,7 +1526,19 @@ object AssemblyManager {
   val positive = "Positive"
   val negative = "Negative"
   val unknown = "UNKNOWN"
+
   def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+
+  /**
+   * Instantiate [[AssemblyManager]] and track the provided Mentions
+   * @param mns a sequence of Odin Mentions
+   * @return an [[AssemblyManager]]
+   */
+  def apply(mns: Seq[Mention]): AssemblyManager = {
+    val am = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+    am.trackMentions(mns)
+    am
+  }
 
   /**
    * Get antecedent if present.  Otherwise return the CorefMntion as-is.
