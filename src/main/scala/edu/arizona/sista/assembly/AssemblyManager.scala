@@ -1571,6 +1571,8 @@ object AssemblyManager {
       case entity if entity matches "Entity" => true
       // needed for Translocations
       case cc if cc matches "Cellular_component" => true
+      // no generic event
+      case gen if gen matches "Generic_event" => false
       // simple events must have a theme and should not have a cause
       case se if se matches "SimpleEvent" =>
         (se.arguments contains "theme") && !(se.arguments contains "cause")
