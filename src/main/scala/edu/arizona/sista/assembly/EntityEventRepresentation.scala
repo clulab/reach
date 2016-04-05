@@ -307,6 +307,15 @@ class Complex(
   def containsID(someID: IDPointer): Boolean = {
     uniqueID == someID || (memberPointers contains someID)
   }
+
+  /** Recurse over members until SimpleEntities are revealed */
+  def flattenMembers: Set[SimpleEntity] = {
+    val ses = members flatMap {
+      case entity: SimpleEntity => Seq(entity)
+      case complex: Complex => Seq(complex.flattenMembers)
+    }
+    ses.map(_.asInstanceOf[SimpleEntity])
+  }
 }
 
 /**
@@ -451,12 +460,28 @@ class SimpleEvent(
   }
 
   /**
-   * Whether or not the [[SimpleEvent]] contains the provided [[IDPointer]].
+   * Whether or not the [[SimpleEvent]] contains the provided [[IDPointer]]. <br>
    * @param someID an [[IDPointer]] identifying some [[EntityEventRepresentation]]
    * @return true or false
    */
   def containsID(someID: IDPointer): Boolean = {
     uniqueID == someID || ((inputPointers.values.flatten.toSet ++ outputPointers) contains someID)
+  }
+
+  def I: Set[Entity] = input("theme")
+  def O: Set[Entity] = output
+
+  def hasExactArgument(arg: EntityEventRepresentation): Boolean = {
+    input.values.flatten exists ( _.isEquivalentTo(arg) )
+  }
+
+  def hasApproximateArgument(arg: SimpleEntity): Boolean = {
+    input.values.flatten exists {
+      case entity: SimpleEntity =>
+        entity.grounding == arg.grounding
+      case complex: Complex =>
+        complex.flattenMembers exists (_.grounding == arg.grounding)
+    }
   }
 }
 
