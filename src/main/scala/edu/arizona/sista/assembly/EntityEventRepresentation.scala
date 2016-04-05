@@ -36,8 +36,8 @@ trait EntityEventRepresentation extends Serializable {
   def evidence: Set[Mention] = manager.getEvidence(this)
 
   /**
-   * A custom equality that ignores [[IDPointer]] information.  Used to compared derived classes of [[EntityEventRepresentation]].
-   * Though not enforced, the implementation should make use of [[equivalenceHash]].
+   * A custom equality that ignores [[IDPointer]] information.  Used to compared derived classes of [[EntityEventRepresentation]]. <br>
+   * Though not enforced, the implementation should make use of [[equivalenceHash]]. <br>
    * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
    * @param other the thing to compare against
    * @return true or false
@@ -45,7 +45,7 @@ trait EntityEventRepresentation extends Serializable {
   def isEquivalentTo(other: Any): Boolean
 
   /**
-   * A hash used for equivalency comparisons of derived classes of [[EntityEventRepresentation]].
+   * A hash used for equivalency comparisons of derived classes of [[EntityEventRepresentation]]. <br>
    * Must be implemented by classes which include the [[EntityEventRepresentation]] trait.
    * @return a hash (Int) representing a derived instance of [[EntityEventRepresentation]]
    */
@@ -94,10 +94,10 @@ trait EntityEventRepresentation extends Serializable {
   }
 
   /**
-   * Checks to see if a coref mention has an antecedent.
+   * Checks to see if a coref mention has an antecedent. <br>
    *
    * If the mentions made it through the coref component of reach,
-   * the only mentions that might have an antecedent should be those with a "Generic_*"
+   * the only mentions that might have an antecedent should be those with a "Generic_*" <br>
    * this is just a broader, fail-safe check...
    * @param m an Odin Mention
    * @return true if cm has an antecedent; false otherwise
@@ -123,7 +123,7 @@ trait Entity extends EntityEventRepresentation {
  * A [[SimpleEntity]] representation of a Mention of a Protein, GGP, Simple_chemical, etc. (see the children of "Entity" in the taxonomy)
  * @param uniqueID [[IDPointer]] assigned to this [[SimpleEntity]] by the [[AssemblyManager]]
  * @param grounding [[GroundingID]] for the [[SimpleEntity]]
- * @param modifications a Set of [[AssemblyModification]], such as [[edu.arizona.sista.assembly.PTM]] and [[edu.arizona.sista.assembly.EntityLabel]].
+ * @param modifications a Set of [[AssemblyModification]], such as [[edu.arizona.sista.assembly.PTM]] and [[edu.arizona.sista.assembly.EntityLabel]]. <br>
  *                      These are relevant to the identity of the [[SimpleEntity]] and describe its state (ex. Phosphorylated @ Ser123).
  * @param sourceMention the Mention from which this [[SimpleEntity]] was constructed
  * @param manager a pointer to the [[AssemblyManager]] instance that produced this [[SimpleEntity]]
@@ -181,7 +181,7 @@ class SimpleEntity(
   }
 
   /**
-   * Hash representing the [[modifications]].
+   * Hash representing the [[modifications]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the hashcodes of the modifications
    */
@@ -193,7 +193,7 @@ class SimpleEntity(
   }
 
   /**
-   * Used to compare against another [[SimpleEntity]].
+   * Used to compare against another [[SimpleEntity]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[SimpleEntity]].
    * @param other the thing to compare against
    * @return true or false
@@ -262,7 +262,7 @@ class Complex(
   }
 
   /**
-   * Hash representing the [[members]].
+   * Hash representing the [[members]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each member
    */
@@ -289,7 +289,7 @@ class Complex(
   }
 
   /**
-   * Used to compare against another [[Complex]].
+   * Used to compare against another [[Complex]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[Complex]].
    * @param other the thing to compare against
    * @return true or false
@@ -334,13 +334,27 @@ trait Event extends EntityEventRepresentation {
   /** Distinct causal successors of this Event */
   def distinctSuccessors: Set[EntityEventRepresentation] =
     manager.distinctSuccessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+
+  /** Get the entities (patients) serving as input to the event */
+  def I: Set[Entity]
+
+  /** Get the entities (transformed patients) serving as output to the event */
+  def O: Set[Entity]
+
+  /** Checks if argument (including its mods) is contained in the event **/
+  def hasExactArgument(arg: EntityEventRepresentation): Boolean
+
+  /** Checks if SimpleEntity argument is contained in the event. <br>
+    * Only requires grounding id to match.
+    */
+  def hasApproximateArgument(arg: SimpleEntity): Boolean
 }
 
 /**
  * Representation for any Mention with the label SimpleEvent.  Note that a Binding is represented using a [[Complex]].
  * @param uniqueID the [[IDPointer]] assigned to this [[SimpleEvent]] by the [[AssemblyManager]]
  * @param inputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as input to the [[SimpleEvent]]
- * @param outputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as output to the [[SimpleEvent]]
+ * @param outputPointers a Set of [[IDPointer]] corresponding to the Mentions serving as output to the [[SimpleEvent]] <br>
  *                       In practice, this is a single [[Entity]] with at least one [[edu.arizona.sista.assembly.PTM]] (corresponding to [[SimpleEvent.label]].
  * @param label the label of the SimpleEvent (ex. Phosphorylation, Farnesylation, etc)
  * @param sourceMention the Mention from which this [[SimpleEvent]] was constructed
@@ -383,7 +397,7 @@ class SimpleEvent(
     outputPointers.map(id => manager.getEER(id).asInstanceOf[Entity])
 
   /**
-   * Hash representing the [[input]].
+   * Hash representing the [[input]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on hashes of the keys in the [[input]] and the [[Entity.equivalenceHash]] of each element contained in the corresponding value in the [[input]]
    */
@@ -395,7 +409,7 @@ class SimpleEvent(
   }
 
   /**
-   * Hash representing the [[output]].
+   * Hash representing the [[output]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each element in the [[output]]
    */
@@ -426,7 +440,7 @@ class SimpleEvent(
   }
 
   /**
-   * Used to compare against another [[SimpleEvent]].
+   * Used to compare against another [[SimpleEvent]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[SimpleEvent]].
    * @param other the thing to compare against
    * @return true or false
@@ -453,12 +467,12 @@ trait ComplexEvent extends Event {
   /** The [[IDPointer]] assigned to this [[ComplexEvent]] */
   val uniqueID: IDPointer
   /**
-    * A Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[ComplexEvent]]
+    * A Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[ComplexEvent]] <br>
     * It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
     * */
   val controllerPointers: Set[IDPointer]
   /**
-   * A Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[ComplexEvent]]
+   * A Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[ComplexEvent]] <br>
    * It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
    */
   val controlledPointers: Set[IDPointer]
@@ -486,7 +500,7 @@ trait ComplexEvent extends Event {
     controlledPointers.map(id => manager.getEER(id))
 
   /**
-   * Hash representing the [[controller]].
+   * Hash representing the [[controller]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controller]]
    */
@@ -498,7 +512,7 @@ trait ComplexEvent extends Event {
   }
 
   /**
-   * Hash representing the [[controlled]].
+   * Hash representing the [[controlled]]. <br>
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controlled]]
    */
@@ -529,7 +543,7 @@ trait ComplexEvent extends Event {
   }
 
   /**
-   * Used to compare against another [[ComplexEvent]].
+   * Used to compare against another [[ComplexEvent]]. <br>
    * Based on the equality of [[equivalenceHash]] to that of another [[ComplexEvent]].
    * @param other the thing to compare against
    * @return true or false
@@ -548,14 +562,41 @@ trait ComplexEvent extends Event {
   def containsID(someID: IDPointer): Boolean = {
     uniqueID == someID || ((controlledPointers ++ controllerPointers) contains someID)
   }
+
+  // NOTE: this is only using controlled
+  def I: Set[Entity] = controlled flatMap {
+      case entity: Entity =>
+        Set(entity)
+      case simpleEvent: SimpleEvent =>
+        simpleEvent.I
+      case complexEvent: ComplexEvent =>
+        complexEvent.I
+  }
+
+  // FIXME: should these include a modification (ex. Activated)?
+  def O: Set[Entity] = I
+
+  def hasExactArgument(arg: EntityEventRepresentation): Boolean = {
+    controller ++ controlled exists ( _.isEquivalentTo(arg) )
+  }
+
+  def hasApproximateArgument(arg: SimpleEntity): Boolean = I.exists {
+    // are the grounding ids the same?
+    case entity: SimpleEntity =>
+      entity.grounding == arg.grounding
+    // does at least one member of the complex
+    // share a grounding id with the provided arg?
+    case complex: Complex =>
+      complex.flattenMembers.exists(_.grounding == arg.grounding)
+  }
 }
 
 /**
  * Representation of a Regulation.
  * @param uniqueID the [[IDPointer]] assigned to this [[Regulation]]
- * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]]
+ * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Regulation]] <br>
  *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
- * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]]
+ * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Regulation]] <br>
  *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
  * @param polarity whether the [[Regulation]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
  * @param sourceMention the Mention from which this [[Regulation]] was constructed
@@ -577,9 +618,9 @@ class Regulation(
 /**
  * Representation of a Activation.
  * @param uniqueID the [[IDPointer]] assigned to this [[Activation]]
- * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Activation]]
+ * @param controllerPointers a Set of [[IDPointer]] corresponding to the Mentions serving as controllers to the [[Activation]] <br>
  *                           It is a set because each Mention of a Regulation may have more than one controller, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
- * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Activation]]
+ * @param controlledPointers a Set of [[IDPointer]] corresponding to the Mentions serving as the controlled to the [[Activation]] <br>
  *                           It is a set because each Mention of a Regulation may have more than one controlled, and each Mention contained in [[AssemblyManager.mentionToID]] points to exactly one [[IDPointer]] which corresponds to exactly one [[EntityEventRepresentation]] in [[AssemblyManager.idToEER]]
  * @param polarity whether the [[Activation]] is [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
  * @param sourceMention the Mention from which this [[Activation]] was constructed
