@@ -775,11 +775,12 @@ class AssemblyManager(
     // handle dispatch
     //
 
-    require(m matches "SimpleEvent", "createSimpleEventWithID requires Mention with the label SimpleEvent.")
+    val event = getResolvedForm(m.toCorefMention)
+    require(event matches "SimpleEvent", "createSimpleEventWithID requires Mention with the label SimpleEvent.")
     // there should not be a cause among the arguments
-    require(!(getResolvedForm(m.toCorefMention).arguments contains "cause"), "SimpleEvent should not contain a cause!")
+    require(!(event.arguments contains "cause"), "SimpleEvent should not contain a cause!")
     // SimpleEvent must have theme
-    require(m.arguments contains "theme", s"'${m.label}' must have a theme.")
+    require(event.arguments contains "theme", s"'${event.label}' must have a theme.")
     m match {
       case binding if binding matches "Binding" => handleBinding(binding)
       case other => handleNBSimpleEvent(other)
@@ -1568,11 +1569,12 @@ object AssemblyManager {
 
     m match {
 
+      // no generic event
+      case gen if gen matches "Generic_event" => false
+      // allow entities
       case entity if entity matches "Entity" => true
       // needed for Translocations
       case cc if cc matches "Cellular_component" => true
-      // no generic event
-      case gen if gen matches "Generic_event" => false
       // simple events must have a theme and should not have a cause
       case se if se matches "SimpleEvent" =>
         (se.arguments contains "theme") && !(se.arguments contains "cause")
