@@ -722,9 +722,7 @@ class AssemblyManager(
       val e = getResolvedForm(cm)
 
       // mention should be a SimpleEvent, but not a Binding
-      require((e matches "SimpleEvent") && !(e matches "Binding"), "handleNBSimpleEvent only accepts a SimpleEvent Mention that is NOT a Binding.")
-      // SimpleEvent must have theme
-      require(e.arguments contains "theme", s"'${e.label}' must have a theme.")
+      require((e matches "SimpleEvent") && !(e matches "Binding"), s"handleNBSimpleEvent recieved Mention of label '${e.label}', but method only accepts a SimpleEvent Mention that is NOT a Binding.")
       // prepare input (roles -> repr. pointers)
 
       // filter out sites from input
@@ -780,6 +778,8 @@ class AssemblyManager(
     require(m matches "SimpleEvent", "createSimpleEventWithID requires Mention with the label SimpleEvent.")
     // there should not be a cause among the arguments
     require(!(getResolvedForm(m.toCorefMention).arguments contains "cause"), "SimpleEvent should not contain a cause!")
+    // SimpleEvent must have theme
+    require(m.arguments contains "theme", s"'${m.label}' must have a theme.")
     m match {
       case binding if binding matches "Binding" => handleBinding(binding)
       case other => handleNBSimpleEvent(other)
