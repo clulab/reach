@@ -726,6 +726,8 @@ class AssemblyManager(
       // prepare input (roles -> repr. pointers)
 
       // filter out sites from input
+      println(s"Processing args for ${e.label}")
+      // TODO: does "context" need to be removed?
       val siteLessArgs = e.arguments - "site"
       val input: Map[String, Set[IDPointer]] = siteLessArgs map {
         case (role: String, mns: Seq[Mention]) =>
