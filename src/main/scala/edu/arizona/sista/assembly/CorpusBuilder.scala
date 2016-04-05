@@ -160,11 +160,12 @@ object BuildCorpus extends App {
 
   def loadDataset(f: String): Try[Dataset] = Try(Serializer.load(datasetSource))
 
-  // generate Dataset from papers
-  val dataset: Dataset = loadDataset(datasetSource) match {
-    case Success(ds) => ds
-    case Failure(f) => PaperReader.readPapers(papersDir)
-  }
+//  // generate Dataset from papers
+//  val dataset: Dataset = loadDataset(datasetSource) match {
+//    case Success(ds) => ds
+//    case Failure(f) => PaperReader.readPapers(papersDir)
+//  }
+  val dataset: Dataset = Serializer.load(datasetSource)
 
   println(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
