@@ -188,8 +188,11 @@ object BuildCorpus extends App {
     // make sure mentions can be handled by AssemblyManager
     if AssemblyManager.isValidMention(m1) && AssemblyManager.isValidMention(m2)
     _ = println(s"\t'${m1.label}' and '${m2.label}' mentions are valid...")
-    r1 = am.getEER(m1).asInstanceOf[Event]
-    r2 = am.getEER(m2).asInstanceOf[Event]
+    _r1 = am.getEER(m1).asInstanceOf[Event]
+    _r2 = am.getEER(m2).asInstanceOf[Event]
+    if _r1.isInstanceOf[Event] && _r2.isInstanceOf[Event]
+    r1 = _r1.asInstanceOf[Event]
+    r2 = _r2.asInstanceOf[Event]
     if shareArg(r1, r2)
     // create training instance
     ti = TrainingInstance(Set(m1, m2))
