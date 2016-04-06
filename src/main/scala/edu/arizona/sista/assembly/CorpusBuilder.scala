@@ -116,6 +116,7 @@ case class Corpus(instances: Seq[TrainingInstance]) {
       val isCrossSentence = ti.sentenceIndices.length > 1
       val pmid = getPMID(ti.e1.m)
       // build json
+      ("id" -> ti.hashCode) ~
       ("text" -> ti.text) ~
       // event 1
       ("e1-label" -> ti.e1.eventLabel) ~
@@ -193,10 +194,14 @@ object BuildCorpus extends App {
     if m1 != m2
     _r1 = am.getEER(m1)
     _r2 = am.getEER(m2)
+    // a Generic_event may link to a Complex...
     if _r1.isInstanceOf[Event] && _r2.isInstanceOf[Event]
     r1 = _r1.asInstanceOf[Event]
     r2 = _r2.asInstanceOf[Event]
+    // EERs must share at least one arg
     if shareArg(r1, r2)
+    // text spans should be unique
+    if m1.words != m2.words
     // create training instance
     ti = TrainingInstance(Set(m1, m2))
     // triggers should not be the same
