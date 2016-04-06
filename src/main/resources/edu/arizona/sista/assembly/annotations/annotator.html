@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Assemby Annotations</title>
+    <title>Assembly Annotations</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -22,6 +22,15 @@
       .big-margin {
         margin-top: 4em;
       }
+      .event-text {
+        color: grey;
+      }
+      .e1 {
+        color: dodgerblue;
+      }
+      .e2 {
+        color: red;
+      }
     </style>
     <!-- bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -39,13 +48,13 @@
       <script>
         $(document).ready(function() {
 
-          var annotations = []
-          var current = 0
+          var annotations = [];
+          var current = 0;
 
           // load json
           $.getJSON("annotations.json", function(json) {
               annotations = json;
-              console.log("annotations: " + annotations)
+              console.log("annotations: " + annotations);
               // update the displayed data
               updateTable();
               console.log("annotations: " + annotations.length);
@@ -62,28 +71,80 @@
             a.download = 'annotations-'+ annoID + '.json';
             // TODO: is there a way to open this in a new window client-side?
             window.location.href = a
-          })
+          });
 
           // update stored annotation
           function updateAnnotation() {
-            var anno = annotations[current]
-            var label = $("#relation").text()
-            var annoID = $("#annotator-id").val()
-            anno["relation"] = label
+            var anno = annotations[current];
+            var label = $("#relation").text();
+            var annoID = $("#annotator-id").val();
+            anno["relation"] = label;
             anno["annotator-id"] = annoID
           }
 
+          function getPaperLink(anno) {
+            var pmid = anno["paper-id"];
+            var url = "http://www.ncbi.nlm.nih.gov/pmc/articles/" + pmid;
+            return "<a href=\"" + url + "\" target=\"_blank\">" + pmid + "</a>"
+          }
+
+          function getSentences(anno) {
+            // e1
+            var e1Toks = anno["e1-tokens"];
+            var e1Start = anno["e1-start"];
+            var e1End = anno["e1-end"];
+            var e1TriggerStart = anno["e1-trigger-start"];
+            var e1TriggerEnd = anno["e1-trigger-end"] - 1;
+
+            // format trigger for e1
+            var e1tStart = e1Toks[e1TriggerStart];
+            e1Toks[e1TriggerStart] = "<strong>" + e1tStart;
+            var e1tEnd = e1Toks[e1TriggerEnd];
+            e1Toks[e1TriggerEnd] = e1tEnd + "</strong>";
+
+            // e2
+            var e2Toks = anno["e2-tokens"];
+            var e2Start = anno["e2-start"];
+            var e2End = anno["e2-end"];
+            var e2TriggerStart = anno["e2-trigger-start"];
+            var e2TriggerEnd = anno["e2-trigger-end"]  - 1;
+
+            // format trigger for e2
+            var e2tStart = e2Toks[e2TriggerStart];
+            e2Toks[e2TriggerStart] = "<strong>" + e2tStart;
+            var e2tEnd = e2Toks[e2TriggerEnd];
+            e2Toks[e2TriggerEnd] = e2tEnd + "</strong>";
+
+            // format the event text
+            var endTag = "</span> ";
+            var e1Text = "<span class='event-text'>" + e1Toks.slice(0, e1Start).join(" ") + " <span class ='e1'>" + e1Toks.slice(e1Start, e1End).join(" ") + endTag + e1Toks.slice(e1End, e1Toks.length).join(" ") + endTag;
+            var e2Text = "<span class='event-text'>" + e2Toks.slice(0, e2Start).join(" ") + " <span class ='e2'>" + e2Toks.slice(e2Start, e2End).join(" ") + endTag + e2Toks.slice(e2End, e2Toks.length).join(" ") + endTag;
+            return {
+              "e1Sent": e1Text,
+              "e2Sent": e2Text
+            }
+          }
           // update displayed information
           function updateTable() {
-            anno = annotations[current]
-            var e1Sent = anno["e1-sentence"]
-            var e2Sent = anno["e2-sentence"]
-            var label = anno["relation"]
+            var anno = annotations[current];
+            var text = getSentences(anno);
+            // get event labels
+            var e1Label = anno["e1-label"];
+            var e2Label = anno["e2-label"];
+            // relation label
+            var label = anno["relation"];
+            // paper link
+            var paperLink = getPaperLink(anno);
             // update displayed sentences
-            $("#e1-text").text(e1Sent);
-            $("#e2-text").text(e2Sent);
+            $("#e1-text").html(text.e1Sent);
+            $("#e2-text").html(text.e2Sent);
+            // update labels for events
+            $("#e1-label").html("<code>" + e1Label + "</code>");
+            $("#e2-label").html("<code>" + e2Label + "</code>");
             // update relation
             $("#relation").text(label);
+            // update paper link
+            $("#paper").html(paperLink);
             // update displayed information
             var total = annotations.length;
             $("#total").text(current + 1 + " / " + total);
@@ -91,7 +152,7 @@
 
           // reset displayed values
           function clearTable() {
-            console.log("\tClearing table!")
+            console.log("\tClearing table!");
             $("#e1-text").text("");
             $("#e2-text").text("");
             // clear relation and label
@@ -107,7 +168,7 @@
 
           // move to the next training instance
           function advanceCurrent() {
-            next = current + 1
+            var next = current + 1;
             if (next < annotations.length) {
               current = next
             } else current = 0
@@ -115,8 +176,8 @@
 
           // move to the previous training instance
           function retreatCurrent() {
-            prev = current - 1
-            last = annotations.length - 1
+            var prev = current - 1;
+            var last = annotations.length - 1;
             if ((prev >= 0) && (prev <= annotations.length)) {
               current = prev
             } else if (prev < 0) {
@@ -131,32 +192,32 @@
             if (tag != 'input' && tag != 'textarea') {
               // relations via number keys
               if (e.which == 49) {
-                v = 'None';
+                var v = 'None';
                 $("#relation").text(v);
                 updateAnnotation();
               }
               if (e.which == 50) {
-                v = 'E1 precedes E2';
+                var v = 'E1 precedes E2';
                 $("#relation").text(v);
                 updateAnnotation();
               }
               if (e.which == 51) {
-                v = 'E2 precedes E1';
+                var v = 'E2 precedes E1';
                 $("#relation").text(v);
                 updateAnnotation();
               }
               if (e.which == 52) {
-                v = 'Equivalent';
+                var v = 'Equivalent';
                 $("#relation").text(v);
                 updateAnnotation();
               }
               if (e.which == 53) {
-                v = 'E1 subsumes E2';
+                var v = 'E1 subsumes E2';
                 $("#relation").text(v);
                 updateAnnotation();
               }
               if (e.which == 54) {
-                v = 'E2 subsumes E1';
+                var v = 'E2 subsumes E1';
                 $("#relation").text(v);
                 updateAnnotation();
               }
@@ -177,11 +238,15 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th class="text-center h3">E1</th>
-            <th class="text-center h3">E2</th>
+            <th class="text-center h3"><span class="e1">E1</span></th>
+            <th class="text-center h3"><span class="e2">E2</span></th>
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td id="e1-label" class="text-center example"></td>
+            <td id="e2-label" class="text-center example"></td>
+          </tr>
           <tr>
             <td id="e1-text" class="text-center example"></td>
             <td id="e2-text" class="text-center example"></td>
@@ -202,6 +267,13 @@
           <label class="control-label col-sm-2 h4" for="relation">Relation:</label>
           <div class="col-sm-3">
             <div id="relation"></div>
+          </div>
+        </div>
+        <!-- paper -->
+        <div class="form-group row">
+          <label class="control-label col-sm-2 h4" for="relation">Paper:</label>
+          <div class="col-sm-3">
+            <div id="paper" class="h4"></div>
           </div>
         </div>
         <!-- count and annotation export -->
