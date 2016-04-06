@@ -72,6 +72,8 @@
 
           var annotations = [];
           var current = 0;
+          // for clearing the local cache
+          var clearConfirm = false;
 
           $("#load-annotations").on('change', function () {
             //Get first file in files Array
@@ -144,12 +146,12 @@
             modal: true,
             buttons: {
               "Delete all items": function() {
-                $( this ).dialog( "close" );
-                return true;
+                clearConfirm = true;
+                $(this).dialog("close");
               },
               "Cancel": function() {
-                $( this ).dialog( "close" );
-                return false;
+                clearConfirm = false;
+                $(this).dialog("close");
               }
             },
 //            // don't set this in the div's style; it won't scroll!
@@ -416,19 +418,21 @@
             console.log("\tstored annotator id: ", localStorage["annotator-id"])
           }
 
+          // empty local storage cache
           function clearLocalStorage() {
-            // TODO: figure out how to get this to return a value
-            //$("#clear-confirm").dialog("open");
-            var confirm = true;
-            if (confirm == true) {
-              console.log("clearing local storage...");
-              localStorage.removeItem('annotations');
-              localStorage.removeItem('current');
-              localStorage.removeItem('annotator-id')
-            } else {
-              console.log("clear was canceled");
-            }
-
+            // confirm clear
+            $("#clear-confirm").dialog("open");
+            $("#clear-confirm").on("dialogclose", function() {
+              if (clearConfirm == true) {
+                console.log("clearing local storage...");
+                localStorage.removeItem('annotations');
+                localStorage.removeItem('current');
+                localStorage.removeItem('annotator-id')
+              } else {
+                console.log("clear was canceled");
+              }
+              clearConfirm = false;
+            });
           }
 
           // Clear previous data
