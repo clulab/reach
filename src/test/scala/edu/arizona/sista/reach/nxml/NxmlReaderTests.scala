@@ -97,6 +97,8 @@ class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
         !_.sectionId.startsWith("fig-")
       } filter {
         !_.sectionId.startsWith("supm-")
+      } filter {
+        !_.sectionId.startsWith("meta-")
       }
 
       info(s"Number of relevant entries from the NxmlReader: ${entries.size}")
@@ -148,6 +150,7 @@ class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
       .filter(_.sectionId != "article-title")
       .filter(!_.sectionId.startsWith("fig-"))
       .filter(!_.sectionId.startsWith("supm-"))
+      .filter(!_.sectionId.startsWith("meta-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -164,6 +167,7 @@ class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
       .filter(_.sectionId != "article-title")
       .filter(!_.sectionId.startsWith("fig-"))
       .filter(!_.sectionId.startsWith("supm-"))
+      .filter(!_.sectionId.startsWith("meta-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -211,6 +215,7 @@ class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
       .filter(_.sectionId != "article-title")
       .filter(!_.sectionId.startsWith("fig-"))
       .filter(!_.sectionId.startsWith("supm-"))
+      .filter(!_.sectionId.startsWith("meta-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
@@ -227,6 +232,7 @@ class NxmlReaderTests extends FlatSpec with Matchers with Fixtures {
       .filter(_.sectionId != "article-title")
       .filter(!_.sectionId.startsWith("fig-"))
       .filter(!_.sectionId.startsWith("supm-"))
+      .filter(!_.sectionId.startsWith("meta-"))
 
     val sections = entries.map( e => e.sectionName ).toSet
 
