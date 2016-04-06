@@ -169,6 +169,9 @@ class ReachCLI(val nxmlDir:File,
           val ctxIsTitlesFile = new File(paperDir, "titles.txt")
           FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
 
+          val ctxCitationsFile = new File(paperDir, "citations.txt")
+          FileUtils.writeLines(ctxCitationsFile, outputter.citationLines.asJavaCollection)
+
           // These are the context plotfiles
             // Write obs.txt
           val contextEngine = reach.contextCache(paperId)

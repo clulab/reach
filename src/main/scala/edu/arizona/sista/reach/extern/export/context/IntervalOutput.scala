@@ -17,10 +17,26 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
   val sentences:Seq[String] = docs.flatMap(_.sentences.map(s => s.words.mkString(" ")))
   val ctxMentions = new mutable.ArrayBuffer[String]
   val evtIntervals = new mutable.ArrayBuffer[String]
-  val sections:Seq[String] = docs.zip(entries).flatMap(_ match {case (d, e) => List.fill(d.sentences.size)(e.sectionName)})
-  val titles:Seq[Boolean] = docs.zip(entries).flatMap(_ match { case (d, e) =>
-  List.fill(d.sentences.size)(e.isTitle)})
+  val sections:Seq[String] = docs.zip(entries).flatMap{case (d, e) => List.fill(d.sentences.size)(e.sectionName)}
+  val titles:Seq[Boolean] = docs.zip(entries).flatMap{ case (d, e) => List.fill(d.sentences.size)(e.isTitle)}
   val eventLines = new mutable.ArrayBuffer[String]
+  val citationLines = docs.zip(entries).flatMap{
+    case (d, e) =>
+      val citations = e.references.toSet
+      d.sentences.map{
+        s =>
+          val start:Int = s.startOffsets(0)
+          val end:Int = s.endOffsets.takeRight(1)(0)
+          citations.exists{
+            i:Int =>
+              println(s"S:$start E:$end I:$i")
+              if(i >= start && i <= end)
+                true
+              else
+                false
+          }
+      }
+  }
 
   val events = mentions filter {
       case ev:EventMention => true
