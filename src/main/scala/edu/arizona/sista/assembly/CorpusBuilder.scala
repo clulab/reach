@@ -212,7 +212,7 @@ object BuildCorpus extends App {
   val sortedTIs: Seq[TrainingInstance] =
     distinctTrainingInstances
       .toSeq
-      .sortWith((t1, t2) => (t1.doc.id.get < t2.doc.id.get) && (t1.sentenceIndices.head < t2.sentenceIndices.head))
+      .sortBy(t => (t.doc.id.get, t.sentenceIndices.head))
   val corpus = Corpus(sortedTIs)
   val content = corpus.toJSON
   FileUtils.writeStringToFile(outFile, content)
