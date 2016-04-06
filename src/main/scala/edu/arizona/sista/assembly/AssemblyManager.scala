@@ -727,7 +727,7 @@ class AssemblyManager(
       val siteLessArgs = e.arguments - "site"
       val input: Map[String, Set[IDPointer]] = siteLessArgs map {
         case (role: String, mns: Seq[Mention]) =>
-          println(s"\tprocessing mentions for '$role' role of '${e.label}'")
+          //println(s"\tprocessing mentions for '$role' role of '${e.label}'")
           (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
       }
 
