@@ -202,8 +202,17 @@ object BuildCorpus extends App {
     if ti.e1.trigger != ti.e2.trigger
   } yield ti
 
-  println(s"Found ${trainingInstances.size} examples for relation corpus ...")
-  val corpus = Corpus(trainingInstances)
+  val distinctTrainingInstances: Set[TrainingInstance] = trainingInstances
+    .groupBy(ti => (ti.e1.eventLabel, ti.e1.trigger, ti.e2.eventLabel, ti.e2.trigger))
+    .values.map(_.head)
+    .toSet
+
+  println(s"Found ${distinctTrainingInstances.size} examples for relation corpus ...")
+  val sortedTIs: Seq[TrainingInstance] =
+    distinctTrainingInstances
+      .toSeq
+      .sortBy(ti => (ti.doc.id.get, ti.sentenceIndices))
+  val corpus = Corpus(sortedTIs)
   val content = corpus.toJSON
   FileUtils.writeStringToFile(outFile, content)
   println(s"Wrote corpus to ${outFile.getAbsolutePath}")
