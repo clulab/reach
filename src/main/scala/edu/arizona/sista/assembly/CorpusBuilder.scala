@@ -160,19 +160,18 @@ object BuildCorpus extends App {
   val config = ConfigFactory.load()
   val outFile = new File(config.getString("assembly.corpusFile"))
 
-  val papersDir = config.getString("assembly.papers")
+  val papersDir = config.getString("ReadPapers.papersDir")
   val datasetSource = config.getString("ReadPapers.serializedPapers")
 
   println(s"Loading dataset ...")
 
   def loadDataset(f: String): Try[Dataset] = Try(Serializer.load(datasetSource))
 
-//  // generate Dataset from papers
-//  val dataset: Dataset = loadDataset(datasetSource) match {
-//    case Success(ds) => ds
-//    case Failure(f) => PaperReader.readPapers(papersDir)
-//  }
-  val dataset: Dataset = Serializer.load(datasetSource)
+  // generate Dataset from papers
+  val dataset: Dataset = loadDataset(datasetSource) match {
+    case Success(ds) => ds
+    case Failure(f) => PaperReader.readPapers(papersDir)
+  }
 
   println(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
@@ -194,7 +193,6 @@ object BuildCorpus extends App {
     _r1 = am.getEER(m1)
     _r2 = am.getEER(m2)
     if _r1.isInstanceOf[Event] && _r2.isInstanceOf[Event]
-    _ = println(s"\t'${m1.label}' and '${m2.label}' mentions are valid...")
     r1 = _r1.asInstanceOf[Event]
     r2 = _r2.asInstanceOf[Event]
     if shareArg(r1, r2)
