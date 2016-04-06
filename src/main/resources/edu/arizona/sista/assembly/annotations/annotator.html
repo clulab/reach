@@ -42,6 +42,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <!-- underscore -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <!-- jquery ui -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   </head>
   <body>
     <div class="container theme-showcase" role="main">
@@ -51,15 +54,32 @@
           var annotations = [];
           var current = 0;
 
+
           // load json
           $.getJSON("annotations.json", function(json) {
               annotations = json;
-              console.log("annotations: " + annotations);
               // update the displayed data
               updateTable();
               console.log("annotations: " + annotations.length);
               console.log("updated table!")
             });
+
+          // Prepare the modal
+          $("#dialog").dialog({
+            autoOpen: false,
+//            modal: true,
+//            // don't set this in the div's style; it won't scroll!
+//            height: 300,
+//            width: 200,
+            show: {
+              effect: "fade",
+              duration: 500
+            },
+            hide: {
+              effect: "fade",
+              duration: 500
+            }
+          });
 
           // handle data export
           $("#export").click(function() {
@@ -72,6 +92,13 @@
             // TODO: is there a way to open this in a new window client-side?
             window.location.href = a
           });
+
+          // check if annotator id is given
+          function annoIDisEmpty() {
+            var annoID = $("#annotator-id").val();
+            console.log("Annotator ID: " +annoID);
+            return (annoID.length == 0 || annoID == "Enter annotator id (email)")
+          }
 
           // update stored annotation
           function updateAnnotation() {
@@ -187,6 +214,14 @@
             }
           }
 
+          // register annotator id on <Enter>
+          $('#annotator-id').keyup(function(e) {
+            if(e.which == 13) {
+              // remove focus
+              $('#annotator-id').blur();
+            }
+          });
+
           // handle navigation
           $(document).keydown(function(e) {
             // only perform action if button is pressed outside of text area
@@ -225,18 +260,38 @@
               }
               // arrows
               if (e.which == 37) {
-                storeAndClearTable();
-                retreatCurrent();
+                // require annoID
+                if (annoIDisEmpty()) {
+                  $("#dialog").dialog("open");
+                }
+                // store annotation and display previous
+                else {
+                  storeAndClearTable();
+                  retreatCurrent();
+                }
               }
               if (e.which == 39) {
-                storeAndClearTable();
-                advanceCurrent();
+                // require annoID
+                if (annoIDisEmpty()) {
+                  $("#dialog").dialog("open");
+                }
+                // store annotation and display previous
+                else {
+                  storeAndClearTable();
+                  advanceCurrent();
+                }
               }
               updateTable()
             }
           });
         });
       </script>
+      <div id="dialog" title="Annotator ID required" hidden="hidden">
+        <p>
+          Please enter an Annotator ID.
+        </p>
+      </div>
+      <!-- training instance -->
       <table class="table table-hover">
         <thead>
           <tr>
