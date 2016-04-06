@@ -3,6 +3,8 @@ package edu.arizona.sista.reach.extern.export
 import java.io._
 import java.util.Date
 
+import scala.collection.mutable
+
 import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin.Mention
@@ -12,7 +14,7 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Update for context.
+  *   Last Modified: Add common metadata extractor function.
   */
 trait JsonOutputter {
 
@@ -61,6 +63,15 @@ object JsonOutputter {
   val RUN_ID = "r1"
   val COMPONENT = "Reach"
   val ORGANIZATION = "UAZ"
+  val METADATA_SECTION_NAME = "meta-data"
+
+  /** Returns a map of metadata names to values, extracted from the given paper passages. */
+  def extractOtherMetaData (paperPassages: Seq[FriesEntry]): Map[String, String] = {
+    val metaPassages = paperPassages.filter(_.sectionId == METADATA_SECTION_NAME)
+    val metaData = new mutable.HashMap[String, String]()
+    for(md <- metaPassages) metaData += md.sectionName -> md.text
+    metaData.toMap
+  }
 
   /** Select an argument-type output string for the given mention label. */
   def mkArgType (arg:Mention): String = {
