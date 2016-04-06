@@ -31,6 +31,25 @@
       .e2 {
         color: red;
       }
+      .btn-file {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+      }
     </style>
     <!-- bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -54,15 +73,36 @@
           var annotations = [];
           var current = 0;
 
+          $("#load-annotations").on('change', function () {
+            //Get first file in files Array
+            var annoFile = $("#load-annotations").prop('files')[0];
+            handleFileSelect(annoFile);
+          });
 
-          // load json
-          $.getJSON("annotations.json", function(json) {
-              annotations = json;
-              // update the displayed data
-              updateTable();
-              console.log("annotations: " + annotations.length);
-              console.log("updated table!")
-            });
+          function handleFileSelect(f) {
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function() {
+              return function(e) {
+                annotations = JSON.parse(e.target.result);
+                updateTable();
+                console.log("loaded " + annotations.length + "annotations from file");
+              };
+            })(f);
+
+            // Read in the json file as a data URL.
+            reader.readAsText(f);
+          }
+
+//          // load json
+//          $.getJSON("annotations.json", function(json) {
+//              annotations = json;
+//              // update the displayed data
+//              updateTable();
+//              console.log("annotations: " + annotations.length);
+//              console.log("updated table!")
+//            });
 
           // Prepare the modal
           $("#dialog").dialog({
@@ -80,6 +120,51 @@
               duration: 500
             }
           });
+
+          // Prepare warning modal
+          $("#missing-data").dialog({
+            autoOpen: false,
+//            modal: true,
+//            // don't set this in the div's style; it won't scroll!
+//            height: 300,
+//            width: 200,
+            show: {
+              effect: "fade",
+              duration: 500
+            },
+            hide: {
+              effect: "fade",
+              duration: 500
+            }
+          });
+
+          // Prepare the clear confirmation modal
+          $("#clear-confirm").dialog({
+            autoOpen: false,
+            modal: true,
+            buttons: {
+              "Delete all items": function() {
+                $( this ).dialog( "close" );
+                return true;
+              },
+              "Cancel": function() {
+                $( this ).dialog( "close" );
+                return false;
+              }
+            },
+//            // don't set this in the div's style; it won't scroll!
+//            height: 300,
+//            width: 200,
+            show: {
+              effect: "fade",
+              duration: 500
+            },
+            hide: {
+              effect: "fade",
+              duration: 500
+            }
+          });
+
 
           // handle data export
           $("#export").click(function() {
@@ -155,28 +240,31 @@
           }
           // update displayed information
           function updateTable() {
-            var anno = annotations[current];
-            var text = getSentences(anno);
-            // get event labels
-            var e1Label = anno["e1-label"];
-            var e2Label = anno["e2-label"];
-            // relation label
-            var label = anno["relation"];
-            // paper link
-            var paperLink = getPaperLink(anno);
-            // update displayed sentences
-            $("#e1-text").html(text.e1Sent);
-            $("#e2-text").html(text.e2Sent);
-            // update labels for events
-            $("#e1-label").html("<code>" + e1Label + "</code>");
-            $("#e2-label").html("<code>" + e2Label + "</code>");
-            // update relation
-            $("#relation").text(label);
-            // update paper link
-            $("#paper").html(paperLink);
-            // update displayed information
-            var total = annotations.length;
-            $("#total").text(current + 1 + " / " + total);
+            if (annotations != null && annotations.length > 0) {
+              console.log("# annotations: " + annotations.length);
+              var anno = annotations[current];
+              var text = getSentences(anno);
+              // get event labels
+              var e1Label = anno["e1-label"];
+              var e2Label = anno["e2-label"];
+              // relation label
+              var label = anno["relation"];
+              // paper link
+              var paperLink = getPaperLink(anno);
+              // update displayed sentences
+              $("#e1-text").html(text.e1Sent);
+              $("#e2-text").html(text.e2Sent);
+              // update labels for events
+              $("#e1-label").html("<code>" + e1Label + "</code>");
+              $("#e2-label").html("<code>" + e2Label + "</code>");
+              // update relation
+              $("#relation").text(label);
+              // update paper link
+              $("#paper").html(paperLink);
+              // update displayed information
+              var total = annotations.length;
+              $("#total").text(current + 1 + " / " + total);
+            }
           }
 
           // reset displayed values
@@ -281,14 +369,93 @@
                   advanceCurrent();
                 }
               }
-              updateTable()
-            }
+              updateTable();
+              if (annotations.length < 600) {
+                saveToLocalStorage();
+              } else {
+                console.log("too many annotations for LocalStorage!");
+              }
+             }
           });
+
+          // Load previous data
+          $("#load-prev-data").on('click', function() {
+            loadFromLocalStorage()
+          });
+
+
+          function loadFromLocalStorage() {
+            console.log("loading from local storage...");
+            var oldAnnotations = JSON.parse(localStorage.getItem('annotations'));
+            if (oldAnnotations != null && oldAnnotations.length > 0) {
+              var cur = parseInt(localStorage.getItem('current'));
+              console.log("curr: "+ cur);
+              // update annotations
+              annotations = oldAnnotations;
+              // update current
+              current = cur;
+              // update Anno ID
+              $("#annotator-id").val(localStorage.getItem('annotator-id'));
+              console.log(annotations.length + " annotations");
+              // update display
+              updateTable();
+            } else {
+              $("#missing-data").dialog("open");
+            }
+          }
+
+          function saveToLocalStorage() {
+            console.log("saving to local storage...");
+            // store current item index
+            localStorage.setItem("current", current);
+            console.log("\tstored current: ", localStorage["current"]);
+            // store annotations
+            localStorage.setItem("annotations", JSON.stringify(annotations));
+            // store Anno ID
+            localStorage.setItem("annotator-id", $("#annotator-id").val());
+            console.log("\tstored annotator id: ", localStorage["annotator-id"])
+          }
+
+          function clearLocalStorage() {
+            // TODO: figure out how to get this to return a value
+            //$("#clear-confirm").dialog("open");
+            var confirm = true;
+            if (confirm == true) {
+              console.log("clearing local storage...");
+              localStorage.removeItem('annotations');
+              localStorage.removeItem('current');
+              localStorage.removeItem('annotator-id')
+            } else {
+              console.log("clear was canceled");
+            }
+
+          }
+
+          // Clear previous data
+          $("#clear-prev-data").on('click', function() {
+            clearLocalStorage();
+          });
+
         });
       </script>
+      <!-- Missing Anno ID -->
       <div id="dialog" title="Annotator ID required" hidden="hidden">
         <p>
           Please enter an Annotator ID.
+        </p>
+      </div>
+      <!-- Missing Local Storage -->
+      <div id="missing-data" title="Missing" hidden="hidden">
+        <p>
+          <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+          There is no data to load.
+        </p>
+      </div>
+      <!-- Clear confirmation -->
+      <div id="clear-confirm" title="Warning" hidden="hidden">
+        <p>
+          <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+          These items will be permanently deleted and cannot be recovered. Are you sure?
         </p>
       </div>
       <!-- training instance -->
@@ -335,15 +502,43 @@
         </div>
         <!-- count and annotation export -->
         <div class="form-group row">
+          <!-- count -->
           <label id="total" class="control-label col-sm-2 h4" for="export"></label>
-          <div class="col-sm-3">
-            <button id="export"class="btn btn-primary"  data-toggle="tooltip" data-placement="right" title="Export annotations to .json">Export</button>
+          <!-- annotation export -->
+          <div class="col-sm-2">
+            <button id="export"class="btn btn-success"  data-toggle="tooltip" data-placement="right" title="Export annotations to .json">Export</button>
+          </div>
+        </div>
+        <hr>
+        <!-- load data -->
+        <div class="form-group row">
+          <!-- File load -->
+          <div class="col-sm-2">
+            <span class="btn btn-primary btn-file">
+              Select file<input type="file" id="load-annotations" accept="application/json"/>
+            </span>
+          </div>
+          <!-- load previous -->
+          <div class="col-sm-2">
+            <button id="load-prev-data" class="btn btn-primary">Load Previous</button>
+          </div>
+          <!-- clear previous -->
+          <div class="col-sm-2">
+            <button id="clear-prev-data" class="btn btn-danger">Clear Previous</button>
           </div>
         </div>
       </div>
       <hr>
-      <!-- Examples -->
-      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examples">Examples</button>
+      <!-- Buttons -->
+      <div class="form-group row">
+        <!-- Examples -->
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examples">Examples</button>
+        </div>
+        <div class="col-sm-3">
+          <a href="example-annotations.json" download="example-annotations.json">Download an example dataset</a>
+        </div>
+      </div>
       <div id="examples" class="collapse">
         <p class="more-margin">
           Choose the most appropriate relation that holds between the two events.  If the relation is unclear or nonexistent, choose <b>None</b>.
