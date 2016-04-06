@@ -54,6 +54,28 @@ object CorpusBuilder {
       complex.flattenMembers exists { ent => r2.hasApproximateArgument(ent) }
   }
 
+  /** Ensure that pair of event mentions meeting corpus constraints. <br>
+    * Requirements: <br>
+    * 1. the text of the two mentions should not be the same <br>
+    * 2. a regulation should not be paired with its controlled
+    * */
+  def isValidPair(mention1: Mention, mention2: Mention): Boolean = {
+    // resolve both event mentions
+    val m1 = AssemblyManager.getResolvedForm(mention1)
+    val m2 = AssemblyManager.getResolvedForm(mention2)
+    // a regulation should not be paired with its controlled
+    // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
+    val regConstraint: Boolean = (m1, m2) match {
+      case (m: Mention, reg: Mention) if (m matches "SimpleEvent") && (reg matches "Regulation") =>
+        m.text != reg.arguments("controlled").head.text
+      case (reg: Mention, m: Mention) if (m matches "SimpleEvent") && (reg matches "Regulation") =>
+        m.text != reg.arguments("controlled").head.text
+      case _ => true
+    }
+    // text spans should be unique
+    (m1.words != m2.words) && regConstraint
+  }
+
   /** Creates PubMed paper url for the source of an Odin Mention */
   def PMIDurlFromMention(m: Mention): String = {
     val pmid = getPMID(m)
@@ -200,8 +222,8 @@ object BuildCorpus extends App {
     r2 = _r2.asInstanceOf[Event]
     // EERs must share at least one arg
     if shareArg(r1, r2)
-    // text spans should be unique
-    if m1.words != m2.words
+    // check if mention pair is valid
+    if isValidPair(m1, m2)
     // create training instance
     ti = TrainingInstance(Set(m1, m2))
     // triggers should not be the same
