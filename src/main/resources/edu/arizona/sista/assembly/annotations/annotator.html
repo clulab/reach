@@ -90,7 +90,8 @@
 
           function getSentences(anno) {
             // e1
-            var e1Toks = anno["e1-tokens"];
+            // generate a copy of the tokens
+            var e1Toks = anno["e1-tokens"].slice(0);
             var e1Start = anno["e1-start"];
             var e1End = anno["e1-end"];
             var e1TriggerStart = anno["e1-trigger-start"];
@@ -103,7 +104,8 @@
             e1Toks[e1TriggerEnd] = e1tEnd + "</strong>";
 
             // e2
-            var e2Toks = anno["e2-tokens"];
+            // generate a copy of the tokens
+            var e2Toks = anno["e2-tokens"].slice(0);
             var e2Start = anno["e2-start"];
             var e2End = anno["e2-end"];
             var e2TriggerStart = anno["e2-trigger-start"];
