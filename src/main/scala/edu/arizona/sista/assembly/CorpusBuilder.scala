@@ -70,12 +70,17 @@ object CorpusBuilder {
         m.text != reg.arguments("controlled").head.text
       case (reg: Mention, m: Mention) if reg matches "Regulation" =>
         m.text != reg.arguments("controlled").head.text
+      // two complex events should not share their controlled (activation-specific check)
+      case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
+        // controlled arg for each Activation mention should not be identical (according to grounding id)
+        val c1 = AssemblyManager.getResolvedForm(a1.arguments("controlled").head)
+        val c2 = AssemblyManager.getResolvedForm(a2.arguments("controlled").head)
+        c1.nsId() != c2.nsId()
       // two complex events should not share their controlled
       case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
         val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
         val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
-        // controlled arg for each Activation mention should not be identical (according to grounding id)
-        c1.nsId() != c2.nsId()
+        c1.text != c2.text
       case _ => true
     }
     // text spans should be unique
