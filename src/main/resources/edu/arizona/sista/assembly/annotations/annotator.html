@@ -309,35 +309,48 @@
           $(document).keydown(function(e) {
             // only perform action if button is pressed outside of text area
             var tag = e.target.tagName.toLowerCase();
+            var v = "";
             if (tag != 'input' && tag != 'textarea') {
               // relations via number keys
+              // 0 key
+              if (e.which == 48) {
+                v = '';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 1 key
               if (e.which == 49) {
-                var v = 'None';
+                v = 'None';
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 2 key
               if (e.which == 50) {
-                var v = 'E1 precedes E2';
+                v = 'E1 precedes E2';
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 3 key
               if (e.which == 51) {
-                var v = 'E2 precedes E1';
+                v = 'E2 precedes E1';
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 4 key
               if (e.which == 52) {
-                var v = 'Equivalent';
+                v = 'Equivalent';
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 5 key
               if (e.which == 53) {
-                var v = 'E1 subsumes E2';
+                v = 'E1 subsumes E2';
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 6 key
               if (e.which == 54) {
-                var v = 'E2 subsumes E1';
+                v = 'E2 subsumes E1';
                 $("#relation").text(v);
                 updateAnnotation();
               }
@@ -585,6 +598,10 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <tr>
+                    <td class="col-md-2">0</td>
+                    <td class="col-md-2"></td>
+                  </tr>
                   <tr>
                     <td class="col-md-2">1</td>
                     <td class="col-md-2">None</td>
