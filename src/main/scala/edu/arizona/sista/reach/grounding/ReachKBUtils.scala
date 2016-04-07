@@ -11,7 +11,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Replace nsId selectors with species set selectors.
+  *   Last Modified: Change species selector functions to use sequences.
   */
 object ReachKBUtils extends Speciated {
 
@@ -104,11 +104,11 @@ object ReachKBUtils extends Speciated {
     resolutions.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return only resolutions (sorted) with a species in the given set. */
-  def selectBySpecies (resolutions:Seq[KBResolution], species:Set[String]): Seq[KBResolution] =
+  def selectBySpecies (resolutions:Seq[KBResolution], species:Seq[String]): Seq[KBResolution] =
     resolutions.filter(kbr => species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return only resolutions (sorted) without a species in the given set. */
-  def selectByNotSpecies (resolutions:Seq[KBResolution], species:Set[String]): Seq[KBResolution] =
+  def selectByNotSpecies (resolutions:Seq[KBResolution], species:Seq[String]): Seq[KBResolution] =
     resolutions.filter(kbr => !species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
 }
