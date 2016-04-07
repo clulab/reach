@@ -242,6 +242,9 @@
               // get event labels
               var e1Label = anno["e1-label"];
               var e2Label = anno["e2-label"];
+              // get sentences
+              var e1SentIdx = anno["e1-sentence-index"];
+              var e2SentIdx = anno["e2-sentence-index"];
               // relation label
               var label = anno["relation"];
               // paper link
@@ -249,6 +252,9 @@
               // update displayed sentences
               $("#e1-text").html(text.e1Sent);
               $("#e2-text").html(text.e2Sent);
+              // update displayed sentences indices
+              $("#e1-sentence-index").html("Sentence " + e1SentIdx);
+              $("#e2-sentence-index").html("Sentence " + e2SentIdx);
               // update labels for events
               $("#e1-label").html("<code>" + e1Label + "</code>");
               $("#e2-label").html("<code>" + e2Label + "</code>");
@@ -480,6 +486,10 @@
           <tr>
             <td id="e1-label" class="text-center example col-md-3"></td>
             <td id="e2-label" class="text-center example col-md-3"></td>
+          </tr>
+          <tr>
+            <td id="e1-sentence-index" class="text-center example col-md-3"></td>
+            <td id="e2-sentence-index" class="text-center example col-md-3"></td>
           </tr>
           <tr>
             <td id="e1-text" class="text-center example col-md-3"></td>
