@@ -66,9 +66,9 @@ object CorpusBuilder {
     // a regulation should not be paired with its controlled
     // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
     val ceConstraint: Boolean = (m1, m2) match {
-      case (m: Mention, reg: Mention) if (m matches "SimpleEvent") && (reg matches "Regulation") =>
+      case (m: Mention, reg: Mention) if reg matches "Regulation" =>
         m.text != reg.arguments("controlled").head.text
-      case (reg: Mention, m: Mention) if (m matches "SimpleEvent") && (reg matches "Regulation") =>
+      case (reg: Mention, m: Mention) if reg matches "Regulation" =>
         m.text != reg.arguments("controlled").head.text
       // two activations should not share their controlled
       case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
