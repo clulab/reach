@@ -54,6 +54,23 @@ object CorpusBuilder {
       complex.flattenMembers exists { ent => r2.hasApproximateArgument(ent) }
   }
 
+
+
+  /** Use this check to automatically label negative examples **/
+  def shareControlleds(mention1: Mention, mention2: Mention): Boolean = {
+    // resolve both event mentions
+    val m1 = AssemblyManager.getResolvedForm(mention1)
+    val m2 = AssemblyManager.getResolvedForm(mention2)
+    (m1, m2) match {
+      // are teh controlleds identical?
+      case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
+        val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
+        val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
+        c1.text == c2.text
+      case _ => false
+    }
+  }
+
   /** Ensure that pair of event mentions meeting corpus constraints. <br>
     * Requirements: <br>
     * 1. the text of the two mentions should not be the same <br>
@@ -149,6 +166,8 @@ case class Corpus(instances: Seq[TrainingInstance]) {
     val examples = instances.map { ti =>
       val isCrossSentence = ti.sentenceIndices.length > 1
       val pmid = getPMID(ti.e1.m)
+      // if the two event mentions have the same controlled, this is a negative example
+      val relationLabel = if (shareControlleds(ti.e1.m, ti.e2.m)) "None" else ""
       // build json
       ("id" -> ti.hashCode) ~
       ("text" -> ti.text) ~
@@ -176,7 +195,7 @@ case class Corpus(instances: Seq[TrainingInstance]) {
       ("e2-trigger-end" -> ti.e2.trigger.end) ~
       // these will be filled out during annotation
       ("annotator-id" -> "") ~
-      ("relation" -> "") ~
+      ("relation" -> relationLabel) ~
       ("cross-sentence" -> isCrossSentence) ~
       ("paper-id" -> pmid)
     }
