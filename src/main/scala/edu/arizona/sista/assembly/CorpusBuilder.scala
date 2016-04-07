@@ -76,11 +76,11 @@ object CorpusBuilder {
         val c1 = AssemblyManager.getResolvedForm(a1.arguments("controlled").head)
         val c2 = AssemblyManager.getResolvedForm(a2.arguments("controlled").head)
         c1.nsId() != c2.nsId()
-      // two complex events should not share their controlled
+      // neither of the two complex events should be the controlled of the other
       case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
         val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
         val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
-        c1.text != c2.text
+        c1.text != ce2.text && c2.text != ce1.text
       case _ => true
     }
     // text spans should be unique
