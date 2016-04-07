@@ -65,15 +65,21 @@ object CorpusBuilder {
     val m2 = AssemblyManager.getResolvedForm(mention2)
     // a regulation should not be paired with its controlled
     // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
-    val regConstraint: Boolean = (m1, m2) match {
+    val ceConstraint: Boolean = (m1, m2) match {
       case (m: Mention, reg: Mention) if (m matches "SimpleEvent") && (reg matches "Regulation") =>
         m.text != reg.arguments("controlled").head.text
       case (reg: Mention, m: Mention) if (m matches "SimpleEvent") && (reg matches "Regulation") =>
         m.text != reg.arguments("controlled").head.text
+      // two activations should not share their controlled
+      case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
+        val c1 = AssemblyManager.getResolvedForm(a1.arguments("controlled").head)
+        val c2 = AssemblyManager.getResolvedForm(a2.arguments("controlled").head)
+        // controlled arg for each Activation mention should not be identical (according to grounding id)
+        c1.nsId() != c2.nsId()
       case _ => true
     }
     // text spans should be unique
-    (m1.words != m2.words) && regConstraint
+    (m1.words != m2.words) && ceConstraint
   }
 
   /** Creates PubMed paper url for the source of an Odin Mention */
