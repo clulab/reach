@@ -71,7 +71,7 @@ object CorpusBuilder {
       case (reg: Mention, m: Mention) if reg matches "Regulation" =>
         m.text != reg.arguments("controlled").head.text
       // two complex events should not share their controlled
-      case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce1 matches "ComplexEvent") =>
+      case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
         val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
         val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
         // controlled arg for each Activation mention should not be identical (according to grounding id)
