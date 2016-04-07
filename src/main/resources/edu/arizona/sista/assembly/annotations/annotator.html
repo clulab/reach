@@ -360,6 +360,12 @@
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 7 key
+              if (e.which == 55) {
+                v = 'Bug';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
               // arrows
               if (e.which == 37) {
                 // require annoID
@@ -497,6 +503,84 @@
           </tr>
         </tbody>
       </table>
+      <!-- key legend -->
+      <div class="container col-sm-3">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#legends">Legend</button>
+      </div>
+      <div id="legends" class="legend collapse container big-margin">
+        <p class="more-margin"></p>
+        <div class="col-xs-3">
+          <h3 class="sub-header text-center">Relations</h3>
+          <div class="table-responsive">
+            <table class="table legend">
+              <thead>
+              <tr>
+                <th class="col-md-2">Key</th>
+                <th class="col-md-2">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="col-md-2">0</td>
+                <td class="col-md-2"></td>
+              </tr>
+              <tr>
+                <td class="col-md-2">1</td>
+                <td class="col-md-2">None</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">2</td>
+                <td class="col-md-2">E1 precedes E2</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">3</td>
+                <td class="col-md-2">E2 precedes E1</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">4</td>
+                <td class="col-md-2">Equivalent</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">5</td>
+                <td class="col-md-2">E1 subsumes E2</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">6</td>
+                <td class="col-md-2">E2 subsumes E1</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">7</td>
+                <td class="col-md-2">Bug</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <h3 class="sub-header text-center">Navigation</h3>
+          <div class="table-responsive">
+            <table class="table legend">
+              <thead>
+              <tr>
+                <th class="col-md-2">Key</th>
+                <th class="col-md-2">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="col-md-2">&larr;</td>
+                <td class="col-md-2">previous annotation</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">&rarr;</td>
+                <td class="col-md-2">next annotation</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- end of legend -->
       <!-- selection -->
       <div class="container big-margin">
         <!-- relation selector -->
@@ -523,7 +607,7 @@
         <!-- count and annotation export -->
         <div class="form-group row">
           <!-- count -->
-          <label id="total" class="control-label col-sm-2 h4" for="export"></label>
+          <label id="total" class="control-label col-sm-2 h4" for="export">0 / 0</label>
           <!-- annotation export -->
           <div class="col-sm-2">
             <button id="export"class="btn btn-success"  data-toggle="tooltip" data-placement="right" title="Export annotations to .json">Export</button>
@@ -574,7 +658,7 @@
           <tbody>
             <tr>
               <td class="text-center">Protein A is phosphorylated by Protein B.</td>
-              <td class="text-center">Following its phosphoyrlation, Protein A is bound to Protein C.</td>
+              <td class="text-center">Following its phosphorylation, Protein A is bound to Protein C.</td>
               <td class="text-center">E1 precedes E2</td>
             </tr>
             <tr>
@@ -584,87 +668,18 @@
             </tr>
             <tr>
               <td class="text-center">Protein A is phosphorylated at Site A by Protein B.</td>
-              <td class="text-center">The phosphoyrlation of Protein A by Protein B leads to ...</td>
+              <td class="text-center">The phosphorylation of Protein A by Protein B leads to ...</td>
               <td class="text-center">E1 subsumes E2</td>
             </tr>
             <tr>
               <td class="text-center">Protein A is phosphorylated by Protein B.</td>
-              <td class="text-center">The phosphoyrlation of Protein A by Protein B leads to ...</td>
+              <td class="text-center">The phosphorylation of Protein A by Protein B leads to ...</td>
               <td class="text-center">Equivalent</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <!-- key legend -->
-      <div class="legend">
-        <div class="col-xs-6">
-          <h3 class="sub-header text-center">Relations</h3>
-            <div class="table-responsive">
-              <table class="table legend">
-                <thead>
-                  <tr>
-                    <th class="col-md-2">Key</th>
-                    <th class="col-md-2">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="col-md-2">0</td>
-                    <td class="col-md-2"></td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-2">1</td>
-                    <td class="col-md-2">None</td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-2">2</td>
-                    <td class="col-md-2">E1 precedes E2</td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-2">3</td>
-                    <td class="col-md-2">E2 precedes E1</td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-2">4</td>
-                    <td class="col-md-2">Equivalent</td>
-                  </tr>
-                   <tr>
-                    <td class="col-md-2">5</td>
-                    <td class="col-md-2">E1 subsumes E2</td>
-                  </tr>
-                  <tr>
-                   <td class="col-md-2">6</td>
-                   <td class="col-md-2">E2 subsumes E1</td>
-                 </tr>
-                </tbody>
-              </table>
-            </div>
-        </div>
-        <div class="col-xs-6">
-          <h3 class="sub-header text-center">Navigation</h3>
-          <div class="table-responsive">
-            <table class="table legend">
-              <thead>
-                <tr>
-                  <th class="col-md-2">Key</th>
-                  <th class="col-md-2">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-md-2">&larr;</td>
-                  <td class="col-md-2">previous annotation</td>
-                </tr>
-                <tr>
-                  <td class="col-md-2">&rarr;</td>
-                  <td class="col-md-2">next annotation</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <!-- end of legend -->
+      <!-- end of examples -->
     </div>
   </body>
 </html>
