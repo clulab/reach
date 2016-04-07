@@ -149,6 +149,7 @@ case class Corpus(instances: Seq[TrainingInstance]) {
       // event 1
       ("e1-label" -> ti.e1.eventLabel) ~
       ("e1-sentence" -> ti.e1.text) ~
+      ("e1-sentence-index" -> ti.e1.m.sentence) ~
       ("e1-tokens" -> ti.e1.m.sentenceObj.words.toList) ~
       // can be used to highlight event span in annotation UI
       ("e1-start" -> ti.e1.m.start) ~
@@ -159,6 +160,7 @@ case class Corpus(instances: Seq[TrainingInstance]) {
       // event 2
       ("e2-label" -> ti.e2.eventLabel) ~
       ("e2-sentence" -> ti.e2.text) ~
+      ("e2-sentence-index" -> ti.e2.m.sentence) ~
       ("e2-tokens" -> ti.e2.m.sentenceObj.words.toList) ~
       // can be used to highlight event span in annotation UI
       ("e2-start" -> ti.e2.m.start) ~
