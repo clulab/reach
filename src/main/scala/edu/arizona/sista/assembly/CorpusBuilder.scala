@@ -77,6 +77,11 @@ object CorpusBuilder {
         val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
         val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
         c1.text != ce2.text && c2.text != ce1.text
+      // general checks for complex events (fall-through)
+      case (m: Mention, ce: Mention) if ce matches "ComplexEvent" =>
+        m.text != ce.arguments("controlled").head.text
+      case (ce: Mention, m: Mention) if ce matches "ComplexEvent" =>
+        m.text != ce.arguments("controlled").head.text
       case _ => true
     }
     // text spans should be unique
