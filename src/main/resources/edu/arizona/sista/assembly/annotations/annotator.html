@@ -126,6 +126,24 @@
             });
           }
 
+          // remind user to enter annotator id
+          function displayTextForCopy(txt) {
+            BootstrapDialog.show({
+              title: 'Copy to clipboard: Ctrl+C, Enter',
+              message: function(d) {
+                return txt
+              },
+              buttons: [{
+                cssClass: 'btn-primary',
+                hotkey: 13, // Enter.
+                label: 'Close',
+                action: function(d) {
+                  d.close();
+                }
+              }]
+            });
+          }
+
           // notify user that there isn't any saved data to load
           function missingDataNotice() {
             BootstrapDialog.show({
@@ -173,6 +191,7 @@
           }
 
           function copyText(txt) {
+            //displayTextForCopy(txt);
             window.prompt ("Copy to clipboard: Ctrl+C, Enter", txt);
 //            var clip = new ClipboardEvent('copy', { dataType: 'text/plain', data: txt});
 //            document.dispatchEvent(clip);

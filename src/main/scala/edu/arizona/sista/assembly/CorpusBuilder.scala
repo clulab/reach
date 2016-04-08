@@ -83,17 +83,21 @@ object CorpusBuilder {
     // a regulation should not be paired with its controlled
     // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
     val ceConstraint: Boolean = (m1, m2) match {
+
       // two complex events should not share their controlled (activation-specific check)
       case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
         // controlled arg for each Activation mention should not be identical (according to grounding id)
-        val c1 = AssemblyManager.getResolvedForm(a1.arguments("controlled").head)
-        val c2 = AssemblyManager.getResolvedForm(a2.arguments("controlled").head)
-        c1.nsId() != c2.nsId()
+        val controlled1 = AssemblyManager.getResolvedForm(a1.arguments("controlled").head)
+        val controlled2 = AssemblyManager.getResolvedForm(a2.arguments("controlled").head)
+        // grounding ids should be distinct
+        controlled1.nsId() != controlled2.nsId()
+
       // neither of the two complex events should be the controlled of the other
       case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
-        val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
-        val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
-        c1.text != ce2.text && c2.text != ce1.text
+        val controlled1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
+        val controlled2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
+        controlled1.text != ce2.text && controlled2.text != ce1.text
+
       // general checks for complex events (fall-through)
       case (m: Mention, ce: Mention) if ce matches "ComplexEvent" =>
         m.text != ce.arguments("controlled").head.text
