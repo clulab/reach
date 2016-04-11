@@ -424,6 +424,12 @@
                 $("#relation").text(v);
                 updateAnnotation();
               }
+              // 8 key
+              if (e.which == 56) {
+                v = 'Other';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
               // arrows
               if (e.which == 37) {
                 // require annoID
@@ -590,6 +596,10 @@
               <tr>
                 <td class="col-md-2">7</td>
                 <td class="col-md-2">Bug</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">8</td>
+                <td class="col-md-2">Other</td>
               </tr>
               </tbody>
             </table>
