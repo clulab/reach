@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add namespace:ID separator constant.
+  *   Last Modified: Update for a couple of context file renames.
   */
 object ReachKBConstants {
 
@@ -92,10 +92,10 @@ object ReachKBConstants {
   val ContextSpeciesFilename = "Species.tsv.gz"
 
   /** Filename of the contenxt cell lines file */
-  val ContextCellLineFilename = "Cell_Lines.tsv.gz"
+  val ContextCellLineFilename = "CellLine.tsv.gz"
 
   /** Filename of the context cell types file */
-  val ContextCellTypeFilename = "Cell_Type.tsv.gz"
+  val ContextCellTypeFilename = "CellType.tsv.gz"
 
   /** Filename of the context organs file */
   val ContextOrganFilename = "Organ.tsv.gz"
