@@ -4,6 +4,7 @@ import java.io.File
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.odin._
 import edu.arizona.sista.utils.Serializer
+import scala.util.hashing.MurmurHash3._
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
 import org.apache.commons.io.FileUtils
@@ -140,8 +141,11 @@ case class E(m: Mention) {
 
 /** Storage class for training instances (i.e., a single example for the relation corpus) */
 case class TrainingInstance(mentions: Set[Mention]) {
+  import CorpusBuilder._
   val sentenceIndices = mentions.map(_.sentence).toSeq.sorted
   val doc = mentions.head.document
+  val pmid = getPMID(doc.id.get)
+
   val text: String = {
     val sentences = for {
       i <- sentenceIndices
@@ -159,6 +163,42 @@ case class TrainingInstance(mentions: Set[Mention]) {
     val m = mentions.toSeq.sortBy(m => (m.sentence, m.tokenInterval)).last
     E(m)
   }
+
+  def isCrossSentence = sentenceIndices.length > 1
+
+  /** Create a unique hash to identify the event.
+    * Does not include information related to the event's args
+    * */
+  def eventHash(e: E): Int = {
+    // the seed (not counted in the length of finalizeHash)
+    val h0 = stringHash("edu.arizona.sista.assembly.E")
+    // get event label
+    val h1 = mix(h0, e.eventLabel.hashCode)
+    // get trigger text
+    val h2 = mix(h1, e.trigger.text.hashCode)
+    // get token span
+    val h3 = mix(h2, e.trigger.tokenInterval.start)
+    val h4 = mix(h3, e.trigger.tokenInterval.end)
+    // get sentence
+    val h5 = mix(h4, e.m.sentence)
+    finalizeHash(h5, 5)
+  }
+
+  /** Create a unique hash to identify this training instance */
+  def equivalenceHash: Int = {
+    // the seed (not counted in the length of finalizeHash)
+    val h0 = stringHash("edu.arizona.sista.assembly.TrainingInstance")
+    // get hashes for each event
+    val h1 = mix(h0, eventHash(e1))
+    val h2 = mix(h1, eventHash(e2))
+    // is it cross-sentence?
+    val h3 = mix(h2, isCrossSentence.hashCode)
+    // the text of the sentences containing the two event mentions
+    val h4 = mix(h3, text.hashCode)
+    // what paper did this come from?
+    val h5 = mixLast(h4, pmid.hashCode)
+    finalizeHash(h5, 5)
+  }
 }
 
 /** Corpus is a sequence of TrainingInstances */
@@ -168,12 +208,10 @@ case class Corpus(instances: Seq[TrainingInstance]) {
 
   def toJSON: String = {
     val examples = instances.map { ti =>
-      val isCrossSentence = ti.sentenceIndices.length > 1
-      val pmid = getPMID(ti.e1.m)
       // if the two event mentions have the same controlled, this is a negative example
       val relationLabel = if (shareControlleds(ti.e1.m, ti.e2.m)) "None" else ""
       // build json
-      ("id" -> ti.hashCode) ~
+      ("id" -> ti.equivalenceHash) ~
       ("text" -> ti.text) ~
       // event 1
       ("e1-label" -> ti.e1.eventLabel) ~
@@ -200,8 +238,8 @@ case class Corpus(instances: Seq[TrainingInstance]) {
       // these will be filled out during annotation
       ("annotator-id" -> "") ~
       ("relation" -> relationLabel) ~
-      ("cross-sentence" -> isCrossSentence) ~
-      ("paper-id" -> pmid)
+      ("cross-sentence" -> ti.isCrossSentence) ~
+      ("paper-id" -> ti.pmid)
     }
     // Dump to json
     val jValue = JArray(examples.toList)
