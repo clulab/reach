@@ -37,6 +37,17 @@
             - Hydrolysis
             - Translocation
             - Binding
+            - Devent:
+                - Deacetylation
+                - Defarnesylation
+                - Deglycosylation
+                - Dehydrolysis
+                - Dehydroxylation
+                - Demethylation
+                - Dephosphorylation
+                - Deribosylation
+                - Desumoylation
+                - Deubiquitination
         - ComplexEvent:
             - Regulation:
                 - Positive_regulation
