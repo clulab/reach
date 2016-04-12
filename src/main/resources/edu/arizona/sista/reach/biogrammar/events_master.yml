@@ -108,6 +108,101 @@ rules:
       nominalTriggerLemma: "methylation"
       priority: "5"
 
+
+  #
+  # "Reverse" Simple Events:
+
+  # Dephosphorylations
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+     eventName: "Dephosphorylation"
+     actionFlow: "mkBioMention"
+     label: "Dephosphorylation"
+     verbalTriggerLemma: "de-?phosphorylate"
+     nominalTriggerLemma: "de-?phosphorylation"
+     priority: "5"
+
+  # Deubiquitination
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Deubiquitination"
+      actionFlow: "mkDeubiquitination"
+      label: "Deubiquitination"
+      verbalTriggerLemma: "de-?ubiquitinate"
+      nominalTriggerLemma: "de-?ubiquitination"
+      priority: "5"
+
+  # Dehydroxylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Dehydroxylation"
+      actionFlow: "mkBioMention"
+      label: "Dehydroxylation"
+      verbalTriggerLemma: "de-?hydroxylate"
+      nominalTriggerLemma: "de-?hydroxylation"
+      priority: "5"
+
+  # Desumoylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Desumoylation"
+      actionFlow: "mkBioMention"
+      label: "Desumoylation"
+      verbalTriggerLemma: "de-?sumoylate"
+      nominalTriggerLemma: "de-?sumoylation"
+      priority: "5"
+
+  # Deglycosylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Deglycosylation"
+      actionFlow: "mkBioMention"
+      label: "Deglycosylation"
+      verbalTriggerLemma: "de-?glycosylate"
+      nominalTriggerLemma: "de-?glycosylation"
+      priority: "5"
+
+  # Deacetylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Deacetylation"
+      actionFlow: "mkBioMention"
+      label: "Deacetylation"
+      verbalTriggerLemma: "de-?acetylate"
+      nominalTriggerLemma: "de-?acetylation"
+      priority: "5"
+
+  # Defarnesylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Defarnesylation"
+      actionFlow: "mkBioMention"
+      label: "Defarnesylation"
+      verbalTriggerLemma: "de-?farnesylate"
+      nominalTriggerLemma: "de-?farnesylation"
+      priority: "5"
+
+  # Deribosylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Deribosylation"
+      actionFlow: "mkBioMention"
+      label: "Deribosylation"
+      verbalTriggerLemma: "de-?ribosylate"
+      nominalTriggerLemma: "de-?ribosylation"
+      priority: "5"
+
+  # Demethylation
+  - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
+    vars:
+      eventName: "Demethylation"
+      actionFlow: "mkBioMention"
+      label: "Demethylation"
+      verbalTriggerLemma: "de-?methylate"
+      nominalTriggerLemma: "de-?methylation"
+      priority: "5"
+
+
   # Generic (incomplete) events
   - import: edu/arizona/sista/reach/biogrammar/coref/generic_events.yml
     vars:
