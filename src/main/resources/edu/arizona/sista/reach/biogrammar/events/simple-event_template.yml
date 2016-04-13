@@ -1,8 +1,6 @@
 # SimpleEvent tempate covers:
-#   Phosphorylation, Hydroxylation, Ubiquitination, Ribosylation, Farnesylation,
-#   Acetylation, Glycosylation, Methylation, Sumoylation
-#   Dephosphorylation, Dehydroxylation, Deubiquitination, Deribosylation, Defarnesylation,
-#   Deacetylation, Deglycosylation, Demethylation, Desumoylation
+#   Phosphorylation, Hydroxylation, Ubiquitination, Ribosylation, Farnesylation, Acetylation, Glycosylation, Methylation, Sumoylation
+#   Dephosphorylation, Dehydroxylation, Deubiquitination, Deribosylation, Defarnesylation, Deacetylation, Deglycosylation, Demethylation, Desumoylation
 
 ######## variables (examples) ###################
 # priority (example) = 5
@@ -12,7 +10,6 @@
 # labels (example) = Phosphorylation
 # eventName (example) = Phosphorylation
 # actionFlow (example) = splitSimpleEvents
-
 #################################################
 
 - name: ${ eventName }_syntax_1_verb

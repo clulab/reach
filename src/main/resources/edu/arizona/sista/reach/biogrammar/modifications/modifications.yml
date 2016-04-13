@@ -2,6 +2,12 @@
 # Modification triggers
 #########
 
+vars:
+  modTriggerWords: "(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat|de-?phosphorylat|de-?ubiquitinat|de-?acetylat|de-?farnesylat|de-?glycosylat|de-?hydroxylat|de-?methylat|de-?ribosylat|de-?sumoylat"
+
+
+rules:
+
 # NOTE: This used to start with (?<! [lemma=/^have$/ & !tag="MD"]) but I don't think ODIN supports multiple lookarounds
 - name: modification_trigger_1
   label: ModificationTrigger
@@ -10,7 +16,7 @@
   action: mkBioMention
   pattern: |
     # note the use of nested lookaheads, muahaha!
-    [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
+    [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
 
 - name: modification_trigger_2
   label: ModificationTrigger
@@ -18,7 +24,7 @@
   action: mkBioMention
   type: token
   pattern: |
-    (^[!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
+    (^[!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
 
 #- name: modification_trigger_3a
 #  label: ModificationTrigger
@@ -26,7 +32,7 @@
 #  type: token
 #  action: mkBioMention
 #  pattern: |
-#    (?<= [mention="BioChemicalEntity"] (when | if) (it | they)) [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+#    (?<= [mention="BioChemicalEntity"] (when | if) (it | they)) [lemma="be"]) [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
 #
 
 - name: modification_trigger_3b
@@ -35,7 +41,7 @@
   type: token
   action: mkBioMention
   pattern: |
-    (?<= [mention="BioChemicalEntity"] [word=/^that|which$/] [lemma="be"]) [!lemma=/^(un|de|non)/ & lemma=/(?i)phosphorylat|ubiquitinat|acetylat|farnesylat|glycosylat|hydroxylat|methylat|ribosylat|sumoylat/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+    (?<= [mention="BioChemicalEntity"] [word=/^that|which$/] [lemma="be"]) [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
 
 
 
@@ -89,7 +95,7 @@
   priority: 2
   type: token
   pattern: |
-    @entity:BioChemicalEntity [lemma=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumoyl|methyl/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
+    @entity:BioChemicalEntity [lemma=/${modTriggerWords}/ & tag=/^N/] [tag="IN"] @site:Site ("," @site:Site)* ","? [tag=CC] @site:Site
       |
     # handles "Experiments revealed ubiquitination at Lys residues 117, 147, and 170 for H-Ras."
     @site:Site ([word="," | tag=CC]* @site:Site)+ /^(of|on|for)/ []*? @entity:BioChemicalEntity
@@ -98,7 +104,7 @@
       |
     [!mention=ModificationTrigger] @entity:BioChemicalEntity [lemma=/^(residue)/]? [!word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumoyl|methyl/]{,4} @site:Site
       | # "EGFR and ERBB3 tyrosine phosphorylation that ..."
-    @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/phosph|ubiq|farne|acetyl|glycosyl|hydroxyl|ribosyl|sumoyl|methyl/ & tag=/^N/]
+    @entity:BioChemicalEntity [!tag=/^V/ & !lemma="of"]{,4}? @site:Site [word=/${modTriggerWords}/ & tag=/^N/]
 
 
 
