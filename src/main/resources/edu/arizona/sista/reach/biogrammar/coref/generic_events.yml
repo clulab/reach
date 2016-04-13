@@ -76,7 +76,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/hydrolization|hydrolysis/ & tag=/^N/ & !mention=/./])
+    (?<trigger> [lemma=/hydrolyzation|hydrolysis/ & tag=/^N/ & !mention=/./])
 
 
 # "Reverse" Generic Events:
@@ -159,7 +159,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/de-?hydrolization|de-?hydrolysis/ & tag=/^N/ & !mention=/./])
+    (?<trigger> [lemma=/de-?hydrolyzation|de-?hydrolysis/ & tag=/^N/ & !mention=/./])
 
 - name: translocation_trigger
   label: [Generic_event, Translocation]
