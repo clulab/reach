@@ -386,15 +386,6 @@ class DarpaActions extends Actions {
 
   /** retrieves the appropriate modification label */
   def getModificationLabel(text: String): String = text.toLowerCase match {
-    case string if string contains "acetylat" => "Acetylation"
-    case string if string contains "farnesylat" => "Farnesylation"
-    case string if string contains "glycosylat" => "Glycosylation"
-    case string if string contains "hydroxylat" => "Hydroxylation"
-    case string if string contains "methylat" => "Methylation"
-    case string if string contains "phosphorylat" => "Phosphorylation"
-    case string if string contains "ribosylat" => "Ribosylation"
-    case string if string contains "sumoylat" => "Sumoylation"
-    case string if string contains "ubiquitinat" => "Ubiquitination"
     case string if deAcetylatPat.findPrefixOf(string).isDefined => "Deacetylation"
     case string if deFarnesylatPat.findPrefixOf(string).isDefined => "Defarnesylation"
     case string if deGlycosylatPat.findPrefixOf(string).isDefined => "Deglycosylation"
@@ -404,6 +395,15 @@ class DarpaActions extends Actions {
     case string if deRibosylatPat.findPrefixOf(string).isDefined => "Deribosylation"
     case string if deSumoylatPat.findPrefixOf(string).isDefined => "Desumoylation"
     case string if deUbiquitinatPat.findPrefixOf(string).isDefined => "Deubiquitination"
+    case string if string contains "acetylat" => "Acetylation"
+    case string if string contains "farnesylat" => "Farnesylation"
+    case string if string contains "glycosylat" => "Glycosylation"
+    case string if string contains "hydroxylat" => "Hydroxylation"
+    case string if string contains "methylat" => "Methylation"
+    case string if string contains "phosphorylat" => "Phosphorylation"
+    case string if string contains "ribosylat" => "Ribosylation"
+    case string if string contains "sumoylat" => "Sumoylation"
+    case string if string contains "ubiquitinat" => "Ubiquitination"
     case _ => "UNKNOWN"
   }
 
@@ -681,14 +681,15 @@ object DarpaActions {
 
   val MODIFIER_LABELS = "amod".r
 
-  val deAcetylatPat = "/de-?acetylat/".r
-  val deFarnesylatPat = "/de-?farnesylat/".r
-  val deGlycosylatPat = "/de-?glycosylat/".r
-  val deHydroxylatPat = "/de-?hydroxylat/".r
-  val deMethylatPat = "/de-?methylat/".r
-  val dePhosphorylatPat = "/de-?phosphorylat/".r
-  val deRibosylatPat = "/de-?ribosylat/".r
-  val deSumoylatPat = "/de-?sumoylat/".r
-  val deUbiquitinatPat = "/de-?ubiquitinat/".r
+  // patterns for "reverse" modifications
+  val deAcetylatPat     = "(?i)de-?acetylat".r
+  val deFarnesylatPat   = "(?i)de-?farnesylat".r
+  val deGlycosylatPat   = "(?i)de-?glycosylat".r
+  val deHydroxylatPat   = "(?i)de-?hydroxylat".r
+  val deMethylatPat     = "(?i)de-?methylat".r
+  val dePhosphorylatPat = "(?i)de-?phosphorylat".r
+  val deRibosylatPat    = "(?i)de-?ribosylat".r
+  val deSumoylatPat     = "(?i)de-?sumoylat".r
+  val deUbiquitinatPat  = "(?i)de-?ubiquitinat".r
 
 }
