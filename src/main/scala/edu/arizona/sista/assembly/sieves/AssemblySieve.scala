@@ -1,5 +1,7 @@
-package edu.arizona.sista.assembly
+package edu.arizona.sista.assembly.sieves
 
+import edu.arizona.sista.assembly._
+import edu.arizona.sista.assembly.representations.EntityEventRepresentation
 import edu.arizona.sista.odin.Mention
 
 trait AssemblySieve {

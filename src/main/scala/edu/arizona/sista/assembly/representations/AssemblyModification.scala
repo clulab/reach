@@ -1,4 +1,4 @@
-package edu.arizona.sista.assembly
+package edu.arizona.sista.assembly.representations
 
 /**
  * Trait for modifications/features associated with an [[edu.arizona.sista.assembly.Entity]].
