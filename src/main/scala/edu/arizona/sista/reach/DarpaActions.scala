@@ -131,6 +131,7 @@ class DarpaActions extends Actions {
     filteredMentions.map(_.toBioMention)
   }
 
+
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // iterate over mentions giving preference to mentions that have an event controller
     mention <- sortMentionsByController(mentions)
@@ -394,6 +395,15 @@ class DarpaActions extends Actions {
     case string if string contains "ribosylat" => "Ribosylation"
     case string if string contains "sumoylat" => "Sumoylation"
     case string if string contains "ubiquitinat" => "Ubiquitination"
+    case string if deAcetylatPat.findPrefixOf(string).isDefined => "Deacetylation"
+    case string if deFarnesylatPat.findPrefixOf(string).isDefined => "Defarnesylation"
+    case string if deGlycosylatPat.findPrefixOf(string).isDefined => "Deglycosylation"
+    case string if deHydroxylatPat.findPrefixOf(string).isDefined => "Dehydroxylation"
+    case string if deMethylatPat.findPrefixOf(string).isDefined => "Demethylation"
+    case string if dePhosphorylatPat.findPrefixOf(string).isDefined => "Dephosphorylation"
+    case string if deRibosylatPat.findPrefixOf(string).isDefined => "Deribosylation"
+    case string if deSumoylatPat.findPrefixOf(string).isDefined => "Desumoylation"
+    case string if deUbiquitinatPat.findPrefixOf(string).isDefined => "Deubiquitination"
     case _ => "UNKNOWN"
   }
 
@@ -670,5 +680,15 @@ object DarpaActions {
   val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
 
   val MODIFIER_LABELS = "amod".r
+
+  val deAcetylatPat = "/de-?acetylat/".r
+  val deFarnesylatPat = "/de-?farnesylat/".r
+  val deGlycosylatPat = "/de-?glycosylat/".r
+  val deHydroxylatPat = "/de-?hydroxylat/".r
+  val deMethylatPat = "/de-?methylat/".r
+  val dePhosphorylatPat = "/de-?phosphorylat/".r
+  val deRibosylatPat = "/de-?ribosylat/".r
+  val deSumoylatPat = "/de-?sumoylat/".r
+  val deUbiquitinatPat = "/de-?ubiquitinat/".r
 
 }
