@@ -14,6 +14,10 @@ rules:
     vars:
       priority: "5"
 
+  - import: edu/arizona/sista/reach/biogrammar/events/dehydrolysis_events.yml
+    vars:
+      priority: "5"
+
   - import: edu/arizona/sista/reach/biogrammar/events/translocation_events.yml
     vars:
       priority: "5"
