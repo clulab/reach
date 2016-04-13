@@ -1,5 +1,6 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.assembly.representations._
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.grounding.ReachKBConstants
 import edu.arizona.sista.reach.mentions._
@@ -100,7 +101,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
       .toSeq.mkString(":")
 
     // find PTMs
-    val ptms: Set[PTM] = other.filter(_.isInstanceOf[PTM])map(_.asInstanceOf[PTM])
+    val ptms: Set[representations.PTM] = other.filter(_.isInstanceOf[representations.PTM])map(_.asInstanceOf[representations.PTM])
     val features: String = ptms
       .map(getPTMrepresentation)
       .mkString(".")
@@ -242,8 +243,8 @@ class AssemblyExporter(val manager: AssemblyManager) {
     case reg: Regulation => "Regulation"
     case act: Activation => "Activation"
     case se: SimpleEvent => se.label
-    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[PTM]) =>
-      ptm.modifications.find(_.isInstanceOf[PTM]).get.asInstanceOf[PTM].label
+    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
+      ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
     //case comp: Complex => "entity"
     // filter these out later
     case entity => "entity"
@@ -286,7 +287,7 @@ object AssemblyExporter {
     getResolvedForm(m.toCorefMention)
   }
 
-  def getPTMrepresentation(ptm: PTM): String = {
+  def getPTMrepresentation(ptm: representations.PTM): String = {
     // attempt to retrieve the abbreviated form of the label
     // if the key is missing from the LUT,
     // return the lowercase form of the first letter of the PTM's label

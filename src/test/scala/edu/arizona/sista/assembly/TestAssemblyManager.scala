@@ -1,5 +1,6 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.assembly.representations.SimpleEntity
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}

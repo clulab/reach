@@ -1,13 +1,12 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.assembly.representations._
 import collection.Map
 import collection.immutable
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions.{MentionOps, CorefMention}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import edu.arizona.sista.reach.mentions
-import edu.arizona.sista.assembly
-
 
 
 /**
@@ -472,7 +471,7 @@ class AssemblyManager(
    * PTM
    * Mutant
    *
-   * Additionally, a Mention corresponding to an Entity will include an [[assembly.EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
+   * Additionally, a Mention corresponding to an Entity will include an [[EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
    * @param m an Odin Mention
    * @return Set[AssemblyModification]
    */
@@ -481,9 +480,9 @@ class AssemblyManager(
     val mods: Set[AssemblyModification] =
       m.toBioMention.modifications flatMap {
         // TODO: is site part of label?
-        case mut: mentions.Mutant => Set(assembly.MutantEntity(mut.label))
+        case mut: mentions.Mutant => Set(MutantEntity(mut.label))
         // TODO: should site be handled differently?
-        case ptm: mentions.PTM => Set(assembly.PTM(ptm.toString, None))
+        case ptm: mentions.PTM => Set(PTM(ptm.toString, None))
         case _ => Nil
       }
     if (m matches "Entity") Set(EntityLabel(m.label)) ++ mods else mods
@@ -500,13 +499,13 @@ class AssemblyManager(
    * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
    * @param mods an optional set of [[AssemblyModification]].
-   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[assembly.PTM]] comes from the [[SimpleEvent]]
+   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
    * @return a tuple of ([[IDPointer]], [[SimpleEntity]])
    */
   protected def createSimpleEntityWithID(
     m: Mention,
-    mods: Option[Set[assembly.AssemblyModification]]
+    mods: Option[Set[AssemblyModification]]
   ): (SimpleEntity, IDPointer) = {
 
     /** Used to create "new" mention whenever mods are provided **/
@@ -564,13 +563,13 @@ class AssemblyManager(
    * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
    * @param mods an optional set of [[AssemblyModification]].
-   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[assembly.PTM]] comes from the [[SimpleEvent]]
+   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
    * @return a [[SimpleEntity]]
    */
   protected def createSimpleEntity(
     m: Mention,
-    mods: Option[Set[assembly.AssemblyModification]]
+    mods: Option[Set[AssemblyModification]]
   ): SimpleEntity = createSimpleEntityWithID(m, mods)._1
 
 
@@ -737,9 +736,9 @@ class AssemblyManager(
         val ptms: Set[AssemblyModification] = e match {
           case hasSites if hasSites.arguments contains "site" =>
             // create a PTM for each site
-            for (site <- hasSites.arguments("site").toSet[Mention]) yield assembly.PTM(e.label, Some(site.text))
+            for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(e.label, Some(site.text))
           // create a PTM without a site
-          case noSites => Set(assembly.PTM(e.label, None))
+          case noSites => Set(representations.PTM(e.label, None))
         }
 
         // NOTE: we need to be careful if we use something other than theme
@@ -1563,7 +1562,7 @@ object AssemblyManager {
    * Checks to see if the mention can be safely handled by the AssemblyManager
    * Currently Sites are not stored in the LUTs,
    * though they can appear as part of a modification
-   * (see the [[assembly.PTM]] [[AssemblyModification]] for an example)
+   * (see the [[PTM]] [[AssemblyModification]] for an example)
    * @param mention an Odin Mention
    * @return true if the mention can be safely handled by the manager; false otherwise
    */

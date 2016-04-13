@@ -1,6 +1,7 @@
 package edu.arizona.sista.assembly
 
 import com.typesafe.config.ConfigFactory
+import edu.arizona.sista.assembly.sieves.{AssemblySieve, Sieves}
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
