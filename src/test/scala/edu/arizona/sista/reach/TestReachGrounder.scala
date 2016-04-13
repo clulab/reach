@@ -18,7 +18,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
   val mentions1 = getBioMentions(text1)
 
   text1 should "produce 4 mentions" in {
-    printMentions(Try(mentions1), true)      // DEBUGGING
+    // printMentions(Try(mentions1), true)      // DEBUGGING
     mentions1 should have size (4)
   }
 
