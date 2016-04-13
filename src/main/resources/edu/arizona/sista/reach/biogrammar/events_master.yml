@@ -21,12 +21,13 @@ rules:
   # Phosphorylations
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
-     eventName: "Phosphorylation"
-     actionFlow: "mkBioMention"
-     label: "Phosphorylation"
-     verbalTriggerLemma: "phosphorylate"
-     nominalTriggerLemma: "phosphorylation"
-     priority: "5"
+      eventName: "Phosphorylation"
+      actionFlow: "mkBioMention"
+      label: "Phosphorylation"
+      verbalTriggerLemma: "phosphorylate"
+      nominalTriggerLemma: "phosphorylation"
+      deventPrefix: "!word=/(?i)^de/"
+      priority: "5"
 
   # Ubiquitination
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
@@ -36,6 +37,7 @@ rules:
       label: "Ubiquitination"
       verbalTriggerLemma: "ubiquitinate"
       nominalTriggerLemma: "ubiquitination"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Hydroxylation
@@ -46,6 +48,7 @@ rules:
       label: "Hydroxylation"
       verbalTriggerLemma: "hydroxylate"
       nominalTriggerLemma: "hydroxylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Sumoylation
@@ -56,6 +59,7 @@ rules:
       label: "Sumoylation"
       verbalTriggerLemma: "sumoylate"
       nominalTriggerLemma: "sumoylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Glycosylation
@@ -66,6 +70,7 @@ rules:
       label: "Glycosylation"
       verbalTriggerLemma: "glycosylate"
       nominalTriggerLemma: "glycosylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Acetylation
@@ -76,6 +81,7 @@ rules:
       label: "Acetylation"
       verbalTriggerLemma: "acetylate"
       nominalTriggerLemma: "acetylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Farnesylation
@@ -86,6 +92,7 @@ rules:
       label: "Farnesylation"
       verbalTriggerLemma: "farnesylate"
       nominalTriggerLemma: "farnesylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Ribosylation
@@ -96,6 +103,7 @@ rules:
       label: "Ribosylation"
       verbalTriggerLemma: "ribosylate"
       nominalTriggerLemma: "ribosylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
   # Methylation
@@ -106,6 +114,7 @@ rules:
       label: "Methylation"
       verbalTriggerLemma: "methylate"
       nominalTriggerLemma: "methylation"
+      deventPrefix: "!word=/(?i)^de/"
       priority: "5"
 
 
@@ -115,21 +124,23 @@ rules:
   # Dephosphorylations
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
-     eventName: "Dephosphorylation"
-     actionFlow: "mkBioMention"
-     label: "Dephosphorylation"
-     verbalTriggerLemma: "de-?phosphorylate"
-     nominalTriggerLemma: "de-?phosphorylation"
-     priority: "5"
+      eventName: "Dephosphorylation"
+      actionFlow: "mkBioMention"
+      label: "Dephosphorylation"
+      verbalTriggerLemma: "de-?phosphorylate"
+      nominalTriggerLemma: "de-?phosphorylation"
+      deventPrefix: "word=/(?i)^de/"
+      priority: "5"
 
   # Deubiquitination
   - import: edu/arizona/sista/reach/biogrammar/events/simple-event_template.yml
     vars:
       eventName: "Deubiquitination"
-      actionFlow: "mkDeubiquitination"
+      actionFlow: "mkUbiquitination"
       label: "Deubiquitination"
       verbalTriggerLemma: "de-?ubiquitinate"
       nominalTriggerLemma: "de-?ubiquitination"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Dehydroxylation
@@ -140,6 +151,7 @@ rules:
       label: "Dehydroxylation"
       verbalTriggerLemma: "de-?hydroxylate"
       nominalTriggerLemma: "de-?hydroxylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Desumoylation
@@ -150,6 +162,7 @@ rules:
       label: "Desumoylation"
       verbalTriggerLemma: "de-?sumoylate"
       nominalTriggerLemma: "de-?sumoylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Deglycosylation
@@ -160,6 +173,7 @@ rules:
       label: "Deglycosylation"
       verbalTriggerLemma: "de-?glycosylate"
       nominalTriggerLemma: "de-?glycosylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Deacetylation
@@ -170,6 +184,7 @@ rules:
       label: "Deacetylation"
       verbalTriggerLemma: "de-?acetylate"
       nominalTriggerLemma: "de-?acetylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Defarnesylation
@@ -180,6 +195,7 @@ rules:
       label: "Defarnesylation"
       verbalTriggerLemma: "de-?farnesylate"
       nominalTriggerLemma: "de-?farnesylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Deribosylation
@@ -190,6 +206,7 @@ rules:
       label: "Deribosylation"
       verbalTriggerLemma: "de-?ribosylate"
       nominalTriggerLemma: "de-?ribosylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
   # Demethylation
@@ -200,6 +217,7 @@ rules:
       label: "Demethylation"
       verbalTriggerLemma: "de-?methylate"
       nominalTriggerLemma: "de-?methylation"
+      deventPrefix: "word=/(?i)^de/"
       priority: "5"
 
 
