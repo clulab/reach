@@ -24,20 +24,21 @@
 - PossibleController:
     - Event:
         - SimpleEvent:
-            - Generic_event
-            - Phosphorylation
-            - Ubiquitination
-            - Hydroxylation
-            - Sumoylation
-            - Glycosylation
-            - Acetylation
-            - Farnesylation
-            - Ribosylation
-            - Methylation
-            - Hydrolysis
-            - Translocation
             - Binding
-            - Devent:
+            - Generic_event
+            - Translocation
+            - AdditionEvent:
+                - Acetylation
+                - Farnesylation
+                - Glycosylation
+                - Hydrolysis
+                - Hydroxylation
+                - Methylation
+                - Phosphorylation
+                - Ribosylation
+                - Sumoylation
+                - Ubiquitination
+            - RemovalEvent:
                 - Deacetylation
                 - Defarnesylation
                 - Deglycosylation
