@@ -20,7 +20,7 @@
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Gene_or_gene_product|Simple_chemical)$/]
+    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
   # old alt. pattern /^P\d+$/
 
 - name: site_3letter
