@@ -8,13 +8,14 @@ import scala.collection.mutable
 import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Add common metadata extractor function.
+  *   Last Modified: Update to use Reach constants object.
   */
 trait JsonOutputter {
 
@@ -90,7 +91,7 @@ object JsonOutputter {
   /** Select an event-type output string for the given mention label. */
   def mkEventType (mention:Mention): String = {
     val label = mention.label
-    if (MentionManager.MODIFICATION_EVENTS.contains(label))
+    if (MODIFICATION_EVENTS.contains(label))
       return "protein-modification"
 
     if (label == "Binding")
@@ -105,10 +106,10 @@ object JsonOutputter {
     if (label == "Complex")
       return "complex-assembly"
 
-    if (MentionManager.REGULATION_EVENTS.contains(label))
+    if (REGULATION_EVENTS.contains(label))
       return "regulation"
 
-    if (MentionManager.ACTIVATION_EVENTS.contains(label))
+    if (ACTIVATION_EVENTS.contains(label))
       return "activation"
 
     throw new RuntimeException("ERROR: unknown event type: " + label + " in event:\n" + mention.json(pretty = true))

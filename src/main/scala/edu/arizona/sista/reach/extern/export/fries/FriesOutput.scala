@@ -6,6 +6,7 @@ import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.grounding.KBResolution
@@ -20,7 +21,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Refactor away common metadata extractor function.
+  *   Last Modified: Update to use Reach constants object.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -201,7 +202,7 @@ class FriesOutput extends JsonOutputter {
 
     // first, print all non regulation events
     for (mention <- eventMentions) {
-      if (!MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+      if (!REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -211,7 +212,7 @@ class FriesOutput extends JsonOutputter {
 
     // now, print all regulation events, which control the above events
     for (mention <- eventMentions) {
-      if (MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+      if (REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
