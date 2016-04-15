@@ -103,6 +103,13 @@ case class PrecedenceAnnotation(
 
 object CorpusReader {
 
+  // default label for negative class
+  val NEG = "None"
+
+  val precedenceRelations =  Set("E1 precedes E2", "E2 precedes E1")
+  val subsumptionRelations = Set("E1 subsumes E2", "E2 subsumes E1")
+  val equivalenceRelations = Set("Equivalent")
+
   // needed for .extract
   implicit val formats = DefaultFormats
 
@@ -114,5 +121,19 @@ object CorpusReader {
     //      }
     //    updatedJson.extract[Seq[PrecedenceAnnotation]]
     json.extract[Seq[PrecedenceAnnotation]]
+  }
+
+  /** set all labels not in the set of positive labels to NEG */
+  def filterRelations(
+    annotations: Seq[PrecedenceAnnotation],
+    positiveLabels: Set[String]
+  ): Seq[PrecedenceAnnotation] = annotations flatMap {
+    // keep subsumption annotations
+    case valid if positiveLabels contains valid.relation => Seq(valid)
+    // ignore bugs
+    case bug if bug.relation == "Bug" => Nil
+    // set relation to NEG
+    case other =>
+      Seq(other.copy(rel = NEG))
   }
 }
