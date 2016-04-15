@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Refactor singleton instances of KBMLs here.
+  *   Last Modified: Update for addition of PFAM protein family KB.
   */
 object ReachIMKBMentionLookups {
 
@@ -30,6 +30,7 @@ object ReachIMKBMentionLookups {
   val StaticMetabolite = staticMetaboliteKBML
   val StaticProtein = staticProteinKBML
   val StaticProteinFamily = staticProteinFamilyKBML
+  val StaticProteinFamily2 = staticProteinFamily2KBML
   // val StaticTissueType = staticTissueTypeKBML()   // CURRENTLY UNUSED
 
   val ManualCellLocation = manualCellLocationKBML
@@ -169,11 +170,19 @@ object ReachIMKBMentionLookups {
 
   /** KB accessor to resolve protein family names via static KB. */
   def staticProteinFamilyKBML: IMKBFamilyMentionLookup = {
-    val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/pfam/", "MIR:00000028")
     metaInfo.put("file", StaticProteinFamilyFilename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
+    new IMKBFamilyMentionLookup(TsvIMKBFactory.make("pfam", StaticProteinFamilyFilename, metaInfo))
+  }
+
+  /** KB accessor to resolve protein family names via static KB. */
+  def staticProteinFamily2KBML: IMKBFamilyMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
+    metaInfo.put("file", StaticProteinFamily2Filename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyMentionLookup(TsvIMKBFactory.make("interpro",
-                                                    StaticProteinFamilyFilename, true, metaInfo))
+                                                    StaticProteinFamily2Filename, true, metaInfo))
   }
 
   //

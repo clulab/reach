@@ -60,7 +60,7 @@ class TestTsvKBs extends FlatSpec with Matchers {
 
 
   // Tests of speciated (3-column) knowledge base
-  val imkbPF = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true,
+  val imkbPF = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, true,
     new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
 
   // test lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)

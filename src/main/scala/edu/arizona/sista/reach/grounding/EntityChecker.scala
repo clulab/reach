@@ -14,7 +14,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Update for singleton KBL creator.
+  *   Last Modified: Update for addition of PFAM protein family KB.
   */
 object EntityChecker extends App {
 
@@ -22,6 +22,7 @@ object EntityChecker extends App {
 
   /** Search sequence for resolving proteins. */
   protected val proteinSearcher = Seq( staticProteinFamilyKBLookup,
+                                       staticProteinFamily2KBLookup,
                                        staticProteinKBLookup )
 
   /** Search sequence for small molecules. */
