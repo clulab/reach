@@ -2,7 +2,7 @@ package edu.arizona.sista.assembly.relations
 
 import java.io._
 import edu.arizona.sista.learning._
-import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.struct.Counter
 
@@ -64,13 +64,24 @@ object AssemblyRelationClassifier {
   def mkRVFDatum(anno: PrecedenceAnnotation): RVFDatum[String, String] = {
     val mentions = rs.extractFrom(anno.`e1-sentence`, anno.`paper-id`, "")
 
-    def findMention(mns: Seq[Mention], label: String, start: Int, end: Int): Mention = {
+    def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
       mns.filter{ m =>
-        (m matches anno.`e1-label`) && (m.start == anno.`e1-start`) && (m.end == anno.`e1-end`)
+        // label and trigger text should match
+        (m matches label) && (findTrigger(m).text == triggerText)
       }.head
     }
-    val e1 = findMention(mentions, anno.`e1-label`, anno.`e1-start`, anno.`e1-end`)
-    val e2 = findMention(mentions, anno.`e2-label`, anno.`e2-start`, anno.`e2-end`)
+
+    /** Retrieve trigger from Mention */
+    def findTrigger(m: Mention): TextBoundMention = m match {
+      case event: EventMention =>
+        event.trigger
+      case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
+        // could be nested ...
+        findTrigger(rel.arguments("controlled").head)
+    }
+    // prepare datum
+    val e1 = findMention(mentions, anno.`e1-label`, anno.`e1-trigger`)
+    val e2 = findMention(mentions, anno.`e2-label`, anno.`e2-trigger`)
     val relation = anno.relation
     FeatureExtractor.mkRVFDatum(e1, e2, relation)
   }
