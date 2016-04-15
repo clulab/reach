@@ -61,7 +61,7 @@ object AssemblyRelationClassifier {
   }
 
   /** extract training pair from json annotation and return its features */
-  def mkDatum(anno: PrecedenceAnnotation): RVFDatum[String, String] = {
+  def mkRVFDatum(anno: PrecedenceAnnotation): RVFDatum[String, String] = {
     val mentions = rs.extractFrom(anno.`e1-sentence`, anno.`paper-id`, "")
 
     def findMention(mns: Seq[Mention], label: String, start: Int, end: Int): Mention = {
@@ -75,9 +75,14 @@ object AssemblyRelationClassifier {
     FeatureExtractor.mkRVFDatum(e1, e2, relation)
   }
 
-  def mkDatum(label: String, e1: Mention, e2: Mention): RVFDatum[String, String] =
+  def mkRVFDatum(label: String, e1: Mention, e2: Mention): RVFDatum[String, String] =
     FeatureExtractor.mkRVFDatum(e1, e2, label)
 
+  def mkRVFDataset(annotations: Seq[PrecedenceAnnotation]): RVFDataset[String, String] = {
+    val dataset = new RVFDataset[String, String]
+    annotations.map(mkRVFDatum).foreach(d => dataset += d)
+    dataset
+  }
 }
 
 
