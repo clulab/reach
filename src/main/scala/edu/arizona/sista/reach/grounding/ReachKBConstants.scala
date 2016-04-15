@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for a couple of context file renames.
+  *   Last Modified: Update for addition of PFAM protein family KB.
   */
 object ReachKBConstants {
 
@@ -82,7 +82,10 @@ object ReachKBConstants {
   val StaticProteinFilename = "uniprot-proteins.tsv.gz"
 
   /** Filename of the static protein family file. */
-  val StaticProteinFamilyFilename = "ProteinFamilies.tsv.gz"
+  val StaticProteinFamilyFilename = "PFAM-families.tsv.gz"
+
+  /** Filename of the secondary static protein family file. */
+  val StaticProteinFamily2Filename = "ProteinFamilies.tsv.gz"
 
   /** Filename of the static tissue type file. */
   val StaticTissueTypeFilename = "tissue-type.tsv.gz"

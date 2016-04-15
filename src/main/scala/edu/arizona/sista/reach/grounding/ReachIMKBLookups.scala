@@ -5,7 +5,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Add family and protein meta info to appropriate KBs.
+  *   Last Modified: Update for addition of PFAM protein family KB.
   */
 object ReachIMKBLookups {
 
@@ -44,10 +44,18 @@ object ReachIMKBLookups {
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
   def staticProteinFamilyKBLookup: IMKBFamilyLookup = {
-    val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/pfam/", "MIR:00000028")
     metaInfo.put("file", StaticProteinFamilyFilename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
-    new IMKBFamilyLookup(tsvIMKBFactory.make("interpro", StaticProteinFamilyFilename, true, metaInfo))
+    new IMKBFamilyLookup(tsvIMKBFactory.make("pfam", StaticProteinFamilyFilename, metaInfo))
+  }
+
+  /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
+  def staticProteinFamily2KBLookup: IMKBFamilyLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
+    metaInfo.put("file", StaticProteinFamily2Filename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
+    new IMKBFamilyLookup(tsvIMKBFactory.make("interpro", StaticProteinFamily2Filename, true, metaInfo))
   }
 
   /** KB lookup to resolve tissue type names via static KB. */
