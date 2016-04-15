@@ -389,6 +389,7 @@ class DarpaActions extends Actions {
     case string if deAcetylatPat.findPrefixOf(string).isDefined => "Deacetylation"
     case string if deFarnesylatPat.findPrefixOf(string).isDefined => "Defarnesylation"
     case string if deGlycosylatPat.findPrefixOf(string).isDefined => "Deglycosylation"
+    case string if deHydrolyPat.findPrefixOf(string).isDefined => "Dehydrolysis"
     case string if deHydroxylatPat.findPrefixOf(string).isDefined => "Dehydroxylation"
     case string if deMethylatPat.findPrefixOf(string).isDefined => "Demethylation"
     case string if dePhosphorylatPat.findPrefixOf(string).isDefined => "Dephosphorylation"
@@ -398,6 +399,7 @@ class DarpaActions extends Actions {
     case string if string contains "acetylat" => "Acetylation"
     case string if string contains "farnesylat" => "Farnesylation"
     case string if string contains "glycosylat" => "Glycosylation"
+    case string if string contains "hydroly" => "Hydrolysis"
     case string if string contains "hydroxylat" => "Hydroxylation"
     case string if string contains "methylat" => "Methylation"
     case string if string contains "phosphorylat" => "Phosphorylation"
@@ -685,6 +687,7 @@ object DarpaActions {
   val deAcetylatPat     = "(?i)de-?acetylat".r
   val deFarnesylatPat   = "(?i)de-?farnesylat".r
   val deGlycosylatPat   = "(?i)de-?glycosylat".r
+  val deHydrolyPat      = "(?i)de-?hydroly".r
   val deHydroxylatPat   = "(?i)de-?hydroxylat".r
   val deMethylatPat     = "(?i)de-?methylat".r
   val dePhosphorylatPat = "(?i)de-?phosphorylat".r
