@@ -17,7 +17,7 @@ class AssemblyRelationClassifier(
 
   /** pick the label with the most likely score */
   def classify(datum: RVFDatum[String, String]): String = getLabelScores(datum).argMax._1
-  def classify(e1: Mention, e2: Mention): String = classify(mkDatum(UNKNOWN, e1, e2))
+  def classify(e1: Mention, e2: Mention): String = classify(mkRVFDatum(UNKNOWN, e1, e2))
 
   /** get the scores for each possible label */
   def getLabelScores(datum: RVFDatum[String, String]): Counter[String] =
