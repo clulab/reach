@@ -63,6 +63,7 @@ object DumpIndex extends App {
       }
       // write to disk...
       val gzipOutFile = GzipUtils.getCompressedFilename(outFile.getAbsolutePath)
+      println(s"writing $gzipOutFile ...")
       writeToCompressedFile(sanitizedLines.mkString("\n"), gzipOutFile)
       //GzipCompressorOutputStream
       //FileUtils.writeLines(outFile, sanitizedLines)
