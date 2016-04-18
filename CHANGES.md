@@ -1,5 +1,7 @@
 #Changes
 =======
++ **1.2.3** - Add "reverse" PTM events (e.g., dephosphorylation, deubiquitination, etc).
++ **1.2.3** - User PFAM protein family KB for NER and grounding.
 + **1.2.3** - Context is assigned to all type of mentions, not just event mentions.
 + **1.2.3** - Improvements to event extraction grammars.
 + **1.2.2** - Added cellular locations to context. Context engine now can be configured by the user. Added a new deterministic context policy that extends context before and after a mention. Added support for Pandas output format. Bug fixes: context is now enabled by default; coref engine now matches the Hobbs antecedent search heuristic.
