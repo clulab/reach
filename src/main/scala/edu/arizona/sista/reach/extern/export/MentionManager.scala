@@ -8,13 +8,14 @@ import scala.util.hashing.MurmurHash3._
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Output grounding candidates.
+  *   Last Modified: Update to use Reach constants object.
   */
 class MentionManager {
 
@@ -234,28 +235,6 @@ class MentionManager {
 
 /** Companion object defining constant vals and read-only functions. */
 object MentionManager {
-  val ACTIVATION_EVENTS = Set(
-    "Negative_activation",
-    "Positive_activation"
-  )
-
-  val MODIFICATION_EVENTS = Set(
-    "Acetylation",
-    "Farnesylation",
-    "Glycosylation",
-    "Hydrolysis",
-    "Hydroxylation",
-    "Methylation",
-    "Phosphorylation",
-    "Ribosylation",
-    "Sumoylation",
-    "Ubiquitination"
-  )
-
-  val REGULATION_EVENTS = Set(
-    "Negative_regulation",
-    "Positive_regulation"
-  )
 
   def hasFeatures(mention:BioMention):Boolean = {
     mention.modifications.foreach(feat => {

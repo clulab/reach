@@ -5,6 +5,7 @@ import edu.arizona.sista.coref.CorefUtils._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.utils.DependencyUtils._
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.struct.Interval
 
@@ -352,19 +353,7 @@ class DarpaLinks extends Links {
     if (mentions.isEmpty) return Nil
     if (debug) println("\n=====Simple event matching=====\n")
 
-    val seLabels = Set(
-      "Phosphorylation",
-      "Ubiquitination",
-      "Hydroxylation",
-      "Sumoylation",
-      "Glycosylation",
-      "Acetylation",
-      "Farnesylation",
-      "Ribosylation",
-      "Methylation",
-      "Hydrolysis",
-      "Translocation",
-      "Binding")
+    val seLabels = SIMPLE_EVENTS - "Generic_event"
 
     // We're only looking for generic simple events that are arguments of complex events
     val (complex, others) = mentions.partition(m => m matches "ComplexEvent")

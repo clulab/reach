@@ -76,7 +76,90 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/hydrolization|hydrolysis/ & tag=/^N/ & !mention=/./])
+    (?<trigger> [lemma=/hydrolyzation|hydrolysis/ & tag=/^N/ & !mention=/./])
+
+
+# "Reverse" Generic Events:
+
+- name: dephospho_trigger
+  label: [Generic_event, Dephosphorylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/^(auto)?de-?phosphorylation/ & tag=/^N/ & !mention=/./])
+
+- name: deubiq_trigger
+  label: [Generic_event, Deubiquitination]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?ubiquitination/ & tag=/^N/ & !mention=/./])
+
+- name: dehydrox_trigger
+  label: [Generic_event, Dehydroxylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?hydroxylation/ & tag=/^N/ & !mention=/./])
+
+- name: desumo_trigger
+  label: [Generic_event, Desumoylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?sumoylation/ & tag=/^N/ & !mention=/./])
+
+- name: deglycos_trigger
+  label: [Generic_event, Deglycosylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?glycosylation/ & tag=/^N/ & !mention=/./])
+
+- name: deacet_trigger
+  label: [Generic_event, Deacetylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?acetylation/ & tag=/^N/ & !mention=/./])
+
+- name: defarnes_trigger
+  label: [Generic_event, Defarnesylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?farnesylation/ & tag=/^N/ & !mention=/./])
+
+- name: deribos_trigger
+  label: [Generic_event, Deribosylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?ribosylation/ & tag=/^N/ & !mention=/./])
+
+- name: demeth_trigger
+  label: [Generic_event, Demethylation]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?methylation/ & tag=/^N/ & !mention=/./])
+
+- name: dehydrolysis_trigger
+  label: [Generic_event, Dehydrolysis]
+  action: ${ actionFlow }
+  priority: ${ priority }
+  type: token
+  pattern: |
+    (?<trigger> [lemma=/de-?hydrolyzation|de-?hydrolysis/ & tag=/^N/ & !mention=/./])
 
 - name: translocation_trigger
   label: [Generic_event, Translocation]
