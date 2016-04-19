@@ -63,7 +63,7 @@ object AssemblyRelationClassifier {
 
   /** extract training pair from json annotation and return its features */
   def mkRVFDatum(anno: PrecedenceAnnotation): RVFDatum[String, String] = {
-    val mentions = rs.extractFrom(anno.`e1-sentence`, anno.`paper-id`, "")
+    val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
 
     def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
       mns.filter{ m =>
