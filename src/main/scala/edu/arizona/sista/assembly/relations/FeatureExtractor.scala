@@ -19,6 +19,11 @@ object FeatureExtractor {
 
     new RVFDatum[String, String](label, df)
   }
+
+  def addFeaturePrefix(prefix: String, features: Seq[String]): Seq[String] = {
+    for (f <- features) yield s"$prefix: $f"
+  }
+
   /**
    * Takes Event 1 and Event 2 and produces features
    * @param e1 Event 1 (mention)
@@ -28,10 +33,12 @@ object FeatureExtractor {
   def mkFeatures(e1: Mention, e2: Mention): Seq[String] = {
     val sameSent = sameSentence(e1, e2)
     // get basic features for each event
-    // TODO: add Daume-y domain adaptation prefix and another set without the prefix
     val basicE1 = mkBasicFeatures(e1)
     val basicE2 = mkBasicFeatures(e2)
-    var basicFeatures: Seq[String] = basicE1 ++ basicE2
+    // add Daume-y domain adaptation prefix
+    val adaptedE1 = addFeaturePrefix("e1", basicE1)
+    val adaptedE2 = addFeaturePrefix("e2", basicE2)
+    var basicFeatures: Seq[String] = basicE1 ++ basicE2 ++ adaptedE1 ++ adaptedE2
     // add inter-sentence v. intra sentence feature
     basicFeatures = basicFeatures ++ Seq(s"cross-sent:${! sameSent}")
     // check if events in same sentence
@@ -45,7 +52,7 @@ object FeatureExtractor {
             val paths = getShortestPaths(startTok, endTok, pathFinder)
             // add event-specific info to paths, if needed
             val ruleFeats = paths.map(path => mkFeat(path, e1.label, e2.label))
-            basicFeatures ++ ruleFeats
+            basicFeatures ++ addFeaturePrefix("path", ruleFeats)
           case other => basicFeatures
         }
       case false => Nil
