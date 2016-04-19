@@ -38,12 +38,16 @@ object ClassifyAssemblyRelations extends App {
   import CorpusReader._
 
   val config = ConfigFactory.load()
-
   val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(config.getString("assembly.annotations"))
 
   // gather precedence relations corpus
   val precedenceAnnotations = filterRelations(annotations, precedenceRelations)
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
+  val pcf = AssemblyRelationClassifier.train(precedenceDataset)
+  // get cross validation accuracy
+  val scores = Evaluator.crossValidate(precedenceDataset)
+  val accuracy = Evaluator.calculateAccuracy(scores.toSeq)
+  println(f"Precedence relation accuracy (using ${pcf.classifierType} with 5-fold cross validation):\t$accuracy%1.3f")
 
   // gather subsumption relations corpus
   val subsumptionAnnotations = filterRelations(annotations, subsumptionRelations)
