@@ -56,6 +56,37 @@ object ClassifyAssemblyRelations extends App {
   // gather equivalence relations corpus
   val equivalenceAnnotations = filterRelations(annotations, subsumptionRelations)
   val equivalenceDataset = AssemblyRelationClassifier.mkRVFDataset(equivalenceAnnotations)
+}
 
-  
+/** *
+  * Train and evaluate precedence relation classifier
+  */
+object TrainAssemblyRelationClassifier extends App {
+
+  val config = ConfigFactory.load()
+  val annotationsPath = config.getString("assembly.annotations")
+  val classifierPath = config.getString("assembly.classifier.model")
+  val results = config.getString("assembly.classifier.results")
+  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(config.getString("assembly.annotations"))
+
+  // gather precedence relations corpus
+  val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
+  // train
+  println(s"Training classifier using ${precedenceAnnotations.size}")
+  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
+  val pcf = AssemblyRelationClassifier.train(precedenceDataset)
+  // results
+
+  // save model
+  println(s"saving trained classifier to ${} . . .")
+  pcf.saveTo(classifierPath)
+
+  // evaluate
+  // get cross validation accuracy
+  println(s"Running cross validation . . .")
+  val scores = Evaluator.crossValidate(precedenceDataset)
+  val accuracy = Evaluator.calculateAccuracy(scores)
+  println(f"Accuracy: $accuracy%1.5f")
+  println(s"Writing results to $results . . .")
+  Evaluator.writeScoresToTSV(scores, results)
 }
