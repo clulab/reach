@@ -57,6 +57,23 @@ object CorpusBuilder {
   /** Retrieves PubMed ID from Document.id of an Odin Mention */
   def getPMID(docid: String): String = docid.split("_")(0)
 
+  /**
+   * Get the shortest sentential span of text that includes any sources for coref resolution in the two mentions
+   */
+  def getSententialSpan(m1: Mention, m2: Mention): String = {
+    // get sentence index of resolution
+    val s1 = AssemblyManager.getResolvedForm(m1).sentence
+    val s2 = AssemblyManager.getResolvedForm(m2).sentence
+    val doc = m1.document
+
+    val start: Int = if (s1 <= s2) s1 else s2
+    val end: Int = if (s1 >= s2) s1 else s2
+    val sentences = for {
+      i <- start to end
+    } yield doc.sentences(i).getSentenceText()
+
+    sentences.mkString("  ")
+  }
 }
 
 
@@ -113,7 +130,8 @@ object BuildCorpus extends App {
     // check if mention pair is valid
     if Constraints.isValidRelationPair(m1, m2)
     // create training instance
-    ti = TrainingInstance(Set(m1, m2))
+    text = getSententialSpan(m1, m2)
+    ti = TrainingInstance(text, Set(m1, m2))
     // triggers should not be the same
     if ti.e1.trigger != ti.e2.trigger
   } yield ti

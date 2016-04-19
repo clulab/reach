@@ -25,19 +25,11 @@ case class E(m: Mention) {
 }
 
 /** Storage class for training instances (i.e., a single example for the relation corpus) */
-case class TrainingInstance(mentions: Set[Mention]) {
+case class TrainingInstance(text: String, mentions: Set[Mention]) {
   import CorpusBuilder._
   val sentenceIndices = mentions.map(_.sentence).toSeq.sorted
   val doc = mentions.head.document
   val pmid = getPMID(doc.id.get)
-
-  val text: String = {
-    val sentences = for {
-      i <- sentenceIndices
-    } yield doc.sentences(i).getSentenceText()
-
-    sentences.mkString("  ")
-  }
 
   val e1: E = {
     val m = mentions.toSeq.sortBy(m => (m.sentence, m.tokenInterval)).head
