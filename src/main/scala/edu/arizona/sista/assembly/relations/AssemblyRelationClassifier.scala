@@ -96,9 +96,3 @@ object AssemblyRelationClassifier {
     dataset
   }
 }
-
-
-//object ClassifyMentionPairs extends App {
-//  val extractor = AssemblyRelationClassifier.loadFrom("assembly.extractor.clf")
-//  //FileUtils.writeStringToFile(new File(outDir, "results.txt"), output)
-//}
