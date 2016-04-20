@@ -41,6 +41,9 @@ case class TrainingInstance(text: String, mentions: Set[Mention]) {
     E(m)
   }
 
+  /** whether or not the annotation requires coref */
+  val coref = CorpusBuilder.requiresCoref(e1.m, e2.m)
+
   def isCrossSentence = sentenceIndices.length > 1
 
   /** Create a unique hash to identify the event.
@@ -88,6 +91,7 @@ case class Corpus(instances: Seq[TrainingInstance]) {
       // build json
       ("id" -> ti.equivalenceHash) ~
         ("text" -> ti.text) ~
+        ("coref" -> ti.coref) ~
         // event 1
         ("e1-label" -> ti.e1.eventLabel) ~
         ("e1-sentence" -> ti.e1.text) ~

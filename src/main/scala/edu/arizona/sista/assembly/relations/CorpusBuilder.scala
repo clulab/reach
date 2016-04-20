@@ -74,6 +74,13 @@ object CorpusBuilder {
 
     sentences.mkString("  ")
   }
+
+  /** whether or not either mention in the pair involves coref */
+  def requiresCoref(m1: Mention, m2: Mention): Boolean = {
+    val resolved1 = AssemblyManager.getResolvedForm(m1)
+    val resolved2 = AssemblyManager.getResolvedForm(m2)
+    (resolved1 != m1) || (resolved2 != m2)
+  }
 }
 
 
