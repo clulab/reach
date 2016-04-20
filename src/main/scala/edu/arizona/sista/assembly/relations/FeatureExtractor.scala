@@ -61,8 +61,21 @@ object FeatureExtractor {
     features
   }
 
+  /**
+   * Features used to represent all mentions
+   */
   def mkBasicFeatures(m: Mention): Seq[String] = {
-  Nil
+    // syntactic features
+    getIncomingDependencyRelations(m) ++ getOutgoingDependencyRelations(m) ++
+      // number of args of each type
+      getArgStats(m) ++
+      // most-specific label + all labels
+      getMentionLabel(m) ++ getMentionLabels(m)
+      // start and end of mention
+      terminalsConstraint(m) ++
+      // sequence features
+      // TODO: add n-grams?
+      getLemmaTagSequence(m) ++ m.words
   }
 
   /** Check if two mentions are in the same doc and sentence */
