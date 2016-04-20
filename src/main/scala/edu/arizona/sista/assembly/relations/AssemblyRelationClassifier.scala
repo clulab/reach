@@ -92,7 +92,22 @@ object AssemblyRelationClassifier {
 
   def mkRVFDataset(annotations: Seq[PrecedenceAnnotation]): RVFDataset[String, String] = {
     val dataset = new RVFDataset[String, String]
-    annotations.map(mkRVFDatum).foreach(d => dataset += d)
+    val ds: Seq[Option[RVFDatum[String, String]]] = for {
+      a <- annotations
+    } yield {
+        // in training, some examples rely on text outside of the context (ex. ``this interaction'')
+        try {
+          Some(mkRVFDatum(a))
+        } catch {
+          case e: Exception =>
+            //println(s"problem with example ${a.text}")
+            None
+        }
+    }
+    ds.foreach{
+      case Some(datum) => dataset += datum
+      case _ => ()
+    }
     dataset
   }
 }
