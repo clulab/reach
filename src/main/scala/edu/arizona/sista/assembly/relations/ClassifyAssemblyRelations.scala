@@ -38,7 +38,8 @@ object ClassifyAssemblyRelations extends App {
   import CorpusReader._
 
   val config = ConfigFactory.load()
-  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(config.getString("assembly.annotations"))
+  val annotationsPath = config.getString("assembly.corpusFile")
+  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
 
   // gather precedence relations corpus
   val precedenceAnnotations = filterRelations(annotations, precedenceRelations)
@@ -64,10 +65,10 @@ object ClassifyAssemblyRelations extends App {
 object TrainAssemblyRelationClassifier extends App {
 
   val config = ConfigFactory.load()
-  val annotationsPath = config.getString("assembly.annotations")
+  val annotationsPath = config.getString("assembly.corpusFile")
   val classifierPath = config.getString("assembly.classifier.model")
   val results = config.getString("assembly.classifier.results")
-  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(config.getString("assembly.annotations"))
+  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
 
   // gather precedence relations corpus
   val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
