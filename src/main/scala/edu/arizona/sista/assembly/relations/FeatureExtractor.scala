@@ -73,6 +73,19 @@ object FeatureExtractor {
 
   def parseFeat(f: String): Seq[String] = f.split(sep)
 
+  def getArgStats(m: Mention): Seq[String] = {
+    for {
+      a <- m.arguments.keys.toSeq
+    } yield s"arg-$a-count: ${m.arguments(a).size}"
+  }
+
+  def getMentionLabel(m: Mention): Seq[String] = {
+    Seq(s"label: ${m.label}")
+  }
+  def getMentionLabels(m: Mention): Seq[String] = {
+    m.labels.map(label => s"all-labels: $label")
+  }
+
   /** Find the two tokens that anchor the shortest syntactic path between two mentions */
   def findClosestConnectedTokens(src: Mention, dst: Mention): (Int, Int, Int) = {
     val graph = src.sentenceObj.dependencies.get
@@ -147,6 +160,10 @@ object FeatureExtractor {
     depFeats.flatten
   }
 
+  def getOutgoingDependencyRelations(m: Mention): Seq[String] = {
+    getOutgoingDependencyRelations(m.start, m.end, m.sentenceObj)
+  }
+
   /** get incoming dependency relations for the given span */
   def getIncomingDependencyRelations(start: Int, end: Int, s: Sentence): Seq[String] = {
     val pathFinder = new PathFinder(s)
@@ -158,4 +175,7 @@ object FeatureExtractor {
     depFeats.flatten
   }
 
+  def getIncomingDependencyRelations(m: Mention): Seq[String] = {
+    getIncomingDependencyRelations(m.start, m.end, m.sentenceObj)
+  }
 }
