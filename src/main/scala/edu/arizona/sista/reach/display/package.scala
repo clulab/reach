@@ -51,15 +51,18 @@ package object display {
         println(s"\t${tb.asInstanceOf[Display].displayLabel}|${tb.labels} => ${tb.text}")
         if (tb.isGrounded) println(s"\tgrounding: ${tb.grounding.get}")
         displayModifications(tb)
+        if (tb.hasContext()) displayContext(tb)
       case em: BioEventMention =>
         displayModifications(em)
         println(boundary)
         println(s"\ttrigger => ${em.trigger.text}")
         displayArguments(em)
+        if (em.hasContext()) displayContext(em)
       case rel: BioRelationMention =>
         displayModifications(rel)
         println(boundary)
         displayArguments(rel)
+        if (rel.hasContext()) displayContext(rel)
       case _ => ()
     }
     println(s"$boundary\n")
@@ -74,6 +77,13 @@ package object display {
           println(s"\t$k (${vm.labels}) => ${vm.text}")
           displayModifications(vm)
         }
+    }
+  }
+
+  def displayContext(b: BioMention): Unit = {
+    b.context.get foreach {
+      case (k, vs) =>
+        println(s"\tcontext: ${k} => ${vs}")
     }
   }
 
