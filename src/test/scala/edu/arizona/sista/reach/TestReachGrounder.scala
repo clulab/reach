@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
 
@@ -10,13 +11,14 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 3/7/2016
-  *   Last Modified: Minor cleanups.
+  *   Last Modified: Add tests for grounding by species context.
   */
 class TestReachGrounder extends FlatSpec with Matchers {
 
   val text1 = "AKT1 phosphorylates PTHR2."
   val mentions1 = getBioMentions(text1)
 
+  // Test human-by-default grounding:
   text1 should "produce 4 mentions" in {
     // printMentions(Try(mentions1), true)      // DEBUGGING
     mentions1 should have size (4)
@@ -37,12 +39,13 @@ class TestReachGrounder extends FlatSpec with Matchers {
   }
 
 
-  // val text2 = "Rat ITSN1 is different from human ITSN1."
+  // Test scope of species and associated grounding:
   val text2 = "Mouse AKT1 is different from rice AKT1."
+  // val text2 = "Rat ITSN1 is different from human ITSN1."
   val mentions2 = getBioMentions(text2)
 
   text2 should "produce 4 mentions" in {
-  // printMentions(Try(mentions2), true)       // DEBUGGING
+    // printMentions(Try(mentions2), true)       // DEBUGGING
     mentions2 should have size (4)
   }
 
@@ -54,21 +57,87 @@ class TestReachGrounder extends FlatSpec with Matchers {
     mentions2.filter(_.isInstanceOf[BioTextBoundMention]).forall(_.grounding.isDefined) should be (true)
   }
 
+  "Text2 mentions" should "not have all rice groundings" in {
+    // This will no longer be true when Reach issue #152 is implemented:
+    mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (true)
+    // This will only pass when Reach issue #152 is implemented:
+    // mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (false)
+  }
 
-  val text3 = "Mouse AKT1 phosphorylates PTHR2 in chicken adenoids."
+  "Text2 mentions" should "have mouse and rice groundings" in {
+    val spms = mentions2.filter(m => hasSpeciesContext(m))
+    (!spms.isEmpty) should be (true)
+    // This will only pass when Reach issue #152 is implemented:
+    // (spms(0).isGrounded && spms(0).grounding.get.species == "mouse") should be (true)
+    (spms(1).isGrounded && spms(1).grounding.get.species == "rice") should be (true)
+  }
+
+
+  // Test proteins in mouse context:
+  val text3 = "Bcdin3 and Bcp and CK-4 and Zzz3 are found in the mouse."
   val mentions3 = getBioMentions(text3)
 
-  text3 should "produce 7 mentions" in {
+  text3 should "produce mentions" in {
     // printMentions(Try(mentions3), true)      // DEBUGGING
-    mentions3 should have size (7)
+    mentions3.isEmpty should be(false)
   }
 
-  "Text3 non-BioTextBound mentions" should "not have groundings" in {
-    mentions3.filter(!_.isInstanceOf[BioTextBoundMention]).forall(_.grounding.isEmpty) should be (true)
+  "Text3 mentions" should "have mouse groundings" in {
+    mentions3.isEmpty should be (false)
+    val spms = mentions3.filter(m => hasSpeciesContext(m))
+    (!spms.isEmpty) should be (true)
+    spms.forall(m => m.isGrounded && m.grounding.get.species == "mouse") should be (true)
   }
 
-  "Text3 BioTextBound mentions" should "have groundings" in {
-    mentions3.filter(_.isInstanceOf[BioTextBoundMention]).forall(_.grounding.isDefined) should be (true)
+  // Test same proteins in human context:
+  val text4 = "BCDIN3 and BCP and CK-4 and ZZZ3 are found in the human."
+  val mentions4 = getBioMentions(text4)
+
+  text4 should "produce mentions" in {
+    // printMentions(Try(mentions4), true)      // DEBUGGING
+    mentions4.isEmpty should be(false)
+  }
+
+  "Text4 mentions" should "have human groundings" in {
+    mentions4.isEmpty should be (false)
+    val spms = mentions4.filter(m => hasSpeciesContext(m))
+    (!spms.isEmpty) should be (true)
+    spms.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
+  }
+
+  // Test same proteins in African clawed frog context (where they are not found):
+  val text5 = "BCDIN3 and BCP and CK-4 and ZZZ3 are found in the african clawed frog."
+  val mentions5 = getBioMentions(text5)
+
+  text5 should "produce mentions" in {
+    // printMentions(Try(mentions5), true)      // DEBUGGING
+    mentions5.isEmpty should be(false)
+  }
+
+  "Text5 mentions" should "have human groundings" in {
+    mentions5.isEmpty should be (false)
+    val spms = mentions5.filter(m => hasSpeciesContext(m))
+    (!spms.isEmpty) should be (true)
+    spms.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
+  }
+
+  // Test species/grounding boundaries across sentences.
+  val text6 = "ATRX and B2GPI and Zonulin are found in rats. ATRX and B2GPI and Zonulin are also found in humans."
+  val mentions6 = getBioMentions(text6)
+
+  text6 should "produce mentions" in {
+    // printMentions(Try(mentions6), true)      // DEBUGGING
+    mentions6.isEmpty should be(false)
+  }
+
+  "Text6 mentions" should "have sentence bounded species context and groundings" in {
+    mentions6.isEmpty should be (false)
+    val spms0 = mentions6.filter(m => hasSpeciesContext(m) && (m.sentence == 0))
+    (!spms0.isEmpty) should be (true)
+    val spms1 = mentions6.filter(m => hasSpeciesContext(m) && (m.sentence == 1))
+    (!spms1.isEmpty) should be (true)
+    spms0.forall(m => m.isGrounded && m.grounding.get.species == "rat") should be (true)
+    spms1.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
   }
 
 }
