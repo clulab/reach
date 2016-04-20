@@ -5,12 +5,15 @@ import scala.collection.immutable.ListMap
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.reach.display._
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 import RuleReader._
 
 object ReachShell extends App {
 
   println("Loading ReachSystem ...")
-  var reach = new ReachSystem
+  var reach = new ReachSystem(contextEngineType = Engine.withName("Policy4"),
+                              contextParams = Map("bound" -> "5"))
   val proc = reach.processor
 
   val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))
