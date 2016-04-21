@@ -65,13 +65,6 @@ object AssemblyRelationClassifier {
   def mkRVFDatum(anno: PrecedenceAnnotation): RVFDatum[String, String] = {
     val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
 
-    def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
-      mns.filter{ m =>
-        // label and trigger text should match
-        (m matches label) && (findTrigger(m).text == triggerText)
-      }.head
-    }
-
     /** Retrieve trigger from Mention */
     def findTrigger(m: Mention): TextBoundMention = m match {
       case event: EventMention =>
@@ -80,6 +73,14 @@ object AssemblyRelationClassifier {
         // could be nested ...
         findTrigger(rel.arguments("controlled").head)
     }
+
+    def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
+      mns.filter{ m =>
+        // label and trigger text should match
+        (m matches label) && (findTrigger(m).text == triggerText)
+      }.head
+    }
+
     // prepare datum
     val e1 = findMention(mentions, anno.`e1-label`, anno.`e1-trigger`)
     val e2 = findMention(mentions, anno.`e2-label`, anno.`e2-trigger`)
