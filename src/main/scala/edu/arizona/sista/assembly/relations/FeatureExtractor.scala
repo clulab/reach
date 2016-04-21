@@ -72,17 +72,20 @@ object FeatureExtractor {
       i <- before.sentence to after.sentence
       s = doc.sentences(i)
     } yield {
-        i match {
+        s match {
+          // if both mentions are in this sentence, go from "before" end to "after" start
+          case endToStart if before.sentence == i && after.sentence == i =>
+            endToStart.words.slice(before.end, after.start)
           // "before" mention in this sentence, but not "after" mention
           case endToEnd if before.sentence == i && after.sentence != i =>
             // get words from end of "before" to EoS
-            s.words.slice(before.end, s.words.length)
+            endToEnd.words.slice(before.end, s.words.length)
           // "after" mention in this sentence, but not "before" mention
           case startToStart if after.sentence == i && before.sentence != i =>
-            s.words.slice(0, after.start)
+            startToStart.words.slice(0, after.start)
           // if neither mention is in the sentence, get full text
           case fullText if before.sentence != i && after.sentence != i =>
-            s.words
+            fullText.words
         }
       }
     // add feature prefix
