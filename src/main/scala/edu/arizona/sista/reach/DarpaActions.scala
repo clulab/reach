@@ -344,7 +344,6 @@ class DarpaActions extends Actions {
         val evArgs = m.arguments - "cause"
         val ev = new BioEventMention(
           m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy, true)
-        println(s"BEVM: ${ev.toString()}")  // REMOVE LATER
         // make sure the regulation is valid
         val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
         // controller of an event should not be an arg in the controlled

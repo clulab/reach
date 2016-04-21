@@ -20,7 +20,7 @@ import IndexCardOutput._
 /**
   * Defines classes and methods used to build and output the index card format.
   *   Written by: Mihai Surdeanu. 8/27/2015.
-  *   Last Modified: Output new isDirect event field.
+  *   Last Modified: Correct location of isDirect flag output.
   */
 class IndexCardOutput extends JsonOutputter {
 
@@ -289,6 +289,9 @@ class IndexCardOutput extends JsonOutputter {
     else
       f("interaction_type") = "inhibits_modification"
 
+    if (mention.isInstanceOf[BioEventMention])
+      f("is_direct") = mention.asInstanceOf[BioEventMention].isDirect
+
     val mods = new FrameList
     mods += mkEventModification(mention)
     f("modifications") = mods
@@ -443,10 +446,8 @@ class IndexCardOutput extends JsonOutputter {
     f("reading_started") = startTime
     f("reading_complete") = endTime
     otherMetaData.foreach { case(k, v) => f(k) = v } // add other meta data key/value pairs
-    if (mention.isInstanceOf[BioEventMention]) {
+    if (mention.isInstanceOf[BioEventMention])
       f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
-      f("is-direct") = mention.asInstanceOf[BioEventMention].isDirect
-    }
     val ev = new StringList
     ev += mention.text
     f("evidence") = ev
