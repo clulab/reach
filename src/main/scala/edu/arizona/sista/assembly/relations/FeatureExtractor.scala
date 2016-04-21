@@ -11,7 +11,6 @@ object FeatureExtractor {
 
   val sep = ";;;"
 
-
   def mkRVFDatum(e1: Mention, e2: Mention, label: String): RVFDatum[String, String] = {
     val df = new Counter[String]()
     val features = mkFeatures(e1, e2)
@@ -40,6 +39,8 @@ object FeatureExtractor {
     val adaptedE1 = addFeaturePrefix("e1", basicE1)
     val adaptedE2 = addFeaturePrefix("e2", basicE2)
     var basicFeatures: Seq[String] = basicE1 ++ basicE2 ++ adaptedE1 ++ adaptedE2
+    // add tokens in between the two mentions
+    basicFeatures = basicFeatures ++ tokensLinkingMentions(e1, e2)
     // add inter-sentence v. intra sentence feature
     basicFeatures = basicFeatures ++ Seq(s"cross-sent:${! sameSent}")
     // check if events in same sentence
