@@ -61,15 +61,16 @@ object CorpusBuilder {
    * Get the shortest sentential span of text that includes any sources for coref resolution in the two mentions
    */
   def getSententialSpan(m1: Mention, m2: Mention): String = {
-    // get sentence index of resolution
-    val s1 = AssemblyManager.getResolvedForm(m1).sentence
-    val s2 = AssemblyManager.getResolvedForm(m2).sentence
     val doc = m1.document
+    // get resolved forms
+    val r1 = AssemblyManager.getResolvedForm(m1)
+    val r2 = AssemblyManager.getResolvedForm(m2)
+    // get "before" and "after" mentions
+    val before = if (r1 precedes r2) r1 else r2
+    val after = if (r1 precedes r2) r2 else r1
 
-    val start: Int = if (s1 <= s2) s1 else s2
-    val end: Int = if (s1 >= s2) s1 else s2
     val sentences = for {
-      i <- start to end
+      i <- before.start to after.end
     } yield doc.sentences(i).getSentenceText()
 
     sentences.mkString("  ")
