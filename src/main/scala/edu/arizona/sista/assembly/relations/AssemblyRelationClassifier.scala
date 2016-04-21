@@ -101,7 +101,7 @@ object AssemblyRelationClassifier {
           Some(mkRVFDatum(a))
         } catch {
           case e: Exception =>
-            //println(s"problem with example ${a.text}")
+            println(s"problem with example ${a.id}")
             None
         }
     }
