@@ -108,7 +108,8 @@ object MentionFilter {
                       eventReg.sentence,
                       eventReg.document,
                       eventReg.keep,
-                      eventReg.foundBy)
+                      eventReg.foundBy,
+                      eventReg.isDirect)
                   // Move Negation modifications from controlled to Reg.
                   //promoteNegationModifications(eventReg, r)
                   // return the new Regulation

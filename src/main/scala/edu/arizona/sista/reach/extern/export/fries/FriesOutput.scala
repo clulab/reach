@@ -21,7 +21,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update to use Reach constants object.
+  *   Last Modified: Output new isDirect event field.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -243,8 +243,10 @@ class FriesOutput extends JsonOutputter {
     f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
-    if (mention.isInstanceOf[BioEventMention])
+    if (mention.isInstanceOf[BioEventMention]) {
       f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
+      f("is-direct") = mention.asInstanceOf[BioEventMention].isDirect
+    }
     f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 

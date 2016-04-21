@@ -65,7 +65,8 @@ package object mentions {
           m.sentence,
           m.document,
           m.keep,
-          m.foundBy
+          m.foundBy,
+          m.isDirect
         )
         CorefMention.copyAttachments(m, ev)
         ev
