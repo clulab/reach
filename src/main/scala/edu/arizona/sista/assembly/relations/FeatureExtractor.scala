@@ -1,5 +1,6 @@
 package edu.arizona.sista.assembly.relations
 
+import edu.arizona.sista.assembly.AssemblyManager
 import edu.arizona.sista.learning.RVFDatum
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Sentence
@@ -61,27 +62,100 @@ object FeatureExtractor {
     features
   }
 
+  /** get the words between two mentions */
+  def tokensLinkingMentions(m1: Mention, m2: Mention): Seq[String] = {
+    val doc = m1.document
+    val before = if (m1 precedes m2) m1 else m2
+    val after = if (m1 precedes m2) m2 else m1
+    val connectingSpan = for {
+      i <- before.sentence to after.sentence
+      s = doc.sentences(i)
+    } yield {
+        i match {
+          // "before" mention in this sentence, but not "after" mention
+          case endToEnd if before.sentence == i && after.sentence != i =>
+            // get words from end of "before" to EoS
+            s.words.slice(before.end, s.words.length)
+          // "after" mention in this sentence, but not "before" mention
+          case startToStart if after.sentence == i && before.sentence != i =>
+            s.words.slice(0, after.start)
+          // if neither mention is in the sentence, get full text
+          case fullText if before.sentence != i && after.sentence != i =>
+            s.words
+        }
+      }
+    // add feature prefix
+    addFeaturePrefix("interceding-tokens:", connectingSpan.flatten)
+  }
+
   /**
    * Features used to represent all mentions
    */
   def mkBasicFeatures(m: Mention): Seq[String] = {
     // syntactic features
-    getIncomingDependencyRelations(m) ++ getOutgoingDependencyRelations(m) ++
+    getDependencyRelations(m) ++
       // number of args of each type
       getArgStats(m) ++
       // most-specific label + all labels
-      getMentionLabel(m) ++ getMentionLabels(m)
+      getLabelFeatures(m)
       // start and end of mention
       terminalsConstraint(m) ++
       // sequence features
-      // TODO: add n-grams?
-      getLemmaTagSequence(m) ++ m.words
+      getShallowFeatures(m)
+      // get coref features
+      getCorefFeatures(m)
+  }
+
+  def getDependencyRelations(m: Mention): Seq[String] = {
+    getIncomingDependencyRelations(m) ++ getOutgoingDependencyRelations(m)
+  }
+
+  def getLabelFeatures(m: Mention): Seq[String] = {
+    getMentionLabel(m) ++ getMentionLabels(m)
+  }
+
+  // TODO: add n-grams?
+  def getShallowFeatures(m: Mention): Seq[String] = {
+    getLemmaTagSequence(m) ++ m.words
+  }
+
+  // make coref features
+  def getCorefFeatures(m: Mention): Seq[String] = {
+    hasResolution(m) match {
+      case false => Seq(s"resolved: false")
+      case true => {
+        val resolvedForm = AssemblyManager.getResolvedForm(m)
+        var anteFeats = mkBasicFeatures(resolvedForm)
+        anteFeats = addFeaturePrefix("antecedent-basic", anteFeats)
+        anteFeats ++ locationOfAntecedent(m) ++ Seq(s"resolved: true")
+      }
+    }
+  }
+
+  // is the antecedent in a previous sentence, the same sentence, or a later sentence?
+  def locationOfAntecedent(m: Mention): Seq[String] = {
+    val ante = AssemblyManager.getResolvedForm(m)
+    (m.sentence, ante.sentence) match {
+      case noAnte if m == ante => Seq(s"ante: none")
+      case same if same._1 == same._2 => Seq(s"ante: same-sent")
+      case precedes if precedes._2 < precedes._1 => Seq(s"ante: prev")
+      case follows if follows._2 > follows._1 => Seq(s"ante: follows")
+    }
+  }
+
+  def hasResolution(m: Mention): Boolean = {
+    val resolvedForm = AssemblyManager.getResolvedForm(m)
+    resolvedForm match {
+      case resolved if resolved != m => true
+      case _ => false
+    }
   }
 
   /** Check if two mentions are in the same doc and sentence */
   def sameSentence(e1: Mention, e2: Mention): Boolean = {
     (e1.document == e2.document) && (e1.sentence == e2.sentence)
   }
+
   def mkFeat(ss: String*): String = ss.mkString(sep)
 
   def parseFeat(f: String): Seq[String] = f.split(sep)
