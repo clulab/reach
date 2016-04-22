@@ -20,7 +20,7 @@ import IndexCardOutput._
 /**
   * Defines classes and methods used to build and output the index card format.
   *   Written by: Mihai Surdeanu. 8/27/2015.
-  *   Last Modified: Update to use Reach constants object.
+  *   Last Modified: Correct location of isDirect flag output.
   */
 class IndexCardOutput extends JsonOutputter {
 
@@ -288,6 +288,9 @@ class IndexCardOutput extends JsonOutputter {
       f("interaction_type") = "adds_modification"
     else
       f("interaction_type") = "inhibits_modification"
+
+    if (mention.isInstanceOf[BioEventMention])
+      f("is_direct") = mention.asInstanceOf[BioEventMention].isDirect
 
     val mods = new FrameList
     mods += mkEventModification(mention)

@@ -29,9 +29,11 @@ class BioEventMention(
   sentence: Int,
   document: Document,
   keep: Boolean,
-  foundBy: String
+  foundBy: String,
+  val isDirect: Boolean = false
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
     with Modifications with Grounding with Display with Context{
+
 
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])

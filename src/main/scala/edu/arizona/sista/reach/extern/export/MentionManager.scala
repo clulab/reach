@@ -15,7 +15,7 @@ import edu.arizona.sista.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Update to use Reach constants object.
+  *   Last Modified: Output new isDirect event field.
   */
 class MentionManager {
 
@@ -140,6 +140,8 @@ class MentionManager {
         }
 
       case evm: EventMention =>
+        if (evm.isInstanceOf[BioEventMention])
+          mStrings += s"${indent}is-direct: ${evm.asInstanceOf[BioEventMention].isDirect}"
         mStrings += s"${indent}trigger:"
         mStrings ++= mentionToStrings(evm.trigger, level+1)
         evm.arguments foreach {
