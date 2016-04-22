@@ -1559,6 +1559,18 @@ object AssemblyManager {
   }
 
   /**
+   * Checks whether a mention involves a corefence resolution
+   * @param m an Odin Mention
+   * @return
+   */
+  def involvesCoreference(m: Mention): Boolean = getResolvedForm(m) match {
+    // if the resolved form differs from m, this is a case of coref
+    case resolved if resolved != m => true
+    // ... otherwise check if any arg involves coref
+    case checkArgs => checkArgs.arguments.values.flatten.exists(involvesCoreference)
+  }
+
+  /**
    * Checks to see if the mention can be safely handled by the AssemblyManager
    * Currently Sites are not stored in the LUTs,
    * though they can appear as part of a modification
