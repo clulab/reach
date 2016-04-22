@@ -66,7 +66,7 @@ object CorpusBuilder {
     val sentenceIndices = getResolvedSentenceIndices(m1) ++ getResolvedSentenceIndices(m2)
     // get first and last sentence
     val start = sentenceIndices.min
-    val end = sentenceIndices.min
+    val end = sentenceIndices.max
 
     val sentences = for {
       i <- start to end
