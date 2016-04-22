@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.2.3** - Add isDirect flag to BioEventMentions to track if a regulation is direct or not.
 + **1.2.3** - Add "reverse" PTM events (e.g., dephosphorylation, deubiquitination, etc).
 + **1.2.3** - User PFAM protein family KB for NER and grounding.
 + **1.2.3** - Context is assigned to all type of mentions, not just event mentions.
