@@ -62,25 +62,30 @@ object CorpusBuilder {
    */
   def getSententialSpan(m1: Mention, m2: Mention): String = {
     val doc = m1.document
-    // get resolved forms
-    val r1 = AssemblyManager.getResolvedForm(m1)
-    val r2 = AssemblyManager.getResolvedForm(m2)
-    // get "before" and "after" mentions
-    val before = if (r1 precedes r2) r1 else r2
-    val after = if (r1 precedes r2) r2 else r1
+    // get sentences of resolved form of arguments (NOTE: arguments may involve coref)
+    val sentenceIndices = getResolvedSentenceIndices(m1) ++ getResolvedSentenceIndices(m2)
+    // get first and last sentence
+    val start = sentenceIndices.min
+    val end = sentenceIndices.min
 
     val sentences = for {
-      i <- before.start to after.end
+      i <- start to end
     } yield doc.sentences(i).getSentenceText()
 
     sentences.mkString("  ")
   }
 
+  /** get sentence indices of resolved forms of arguments (NOTE: arguments may involve coref */
+  def getResolvedSentenceIndices(m: Mention): Set[Int] = {
+    AssemblyManager.getResolvedForm(m)
+      .arguments.values.flatten
+      .map(a => AssemblyManager.getResolvedForm(a).sentence)
+      .toSet
+  }
+
   /** whether or not either mention in the pair involves coref */
   def requiresCoref(m1: Mention, m2: Mention): Boolean = {
-    val resolved1 = AssemblyManager.getResolvedForm(m1)
-    val resolved2 = AssemblyManager.getResolvedForm(m2)
-    (resolved1 != m1) || (resolved2 != m2)
+    AssemblyManager.involvesCoreference(m1) || AssemblyManager.involvesCoreference(m2)
   }
 }
 
