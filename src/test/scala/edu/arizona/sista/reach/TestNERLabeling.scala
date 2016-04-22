@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Complete tests for NER labels.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -23,10 +23,10 @@ class TestNERLabeling extends FlatSpec with Matchers {
   // this tests from PFAM AND InterPro protein family KBs:
   val Family = "CDC73_N, RcsD-ABL domain, zinc-ribbon domain, Rho_RNA_bind, RasGAP_C, zwf, PTHR10856:SF10, GLHYDRLASE27, Ras guanyl-releasing protein 1, and Jiraiya cause cancer."
   val Gene_or_gene_product = "CK-40, ZZANK2, MCH-1R, RAS1, and hemAT cause cancer."
-  val Organ = ""
-  val Simple_chemical = ""
-  val Site = ""
-  val Species = ""
+  val Organ = "Acetabulum, Visceral Pericardium, Malleola, Vena cavas, and Pancreas cause cancer"
+  val Simple_chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and Monic acid cause cancer"
+  val Site = "ALOG domain, AMIN domain, KIP1-like, GOLD, and HAS subgroup cause cancer"
+  val Species = "Potato, wheat, Yerba-mate, Danio rerio, zebrafish, Rats, Gallus gallus, and chickens cause cancer"
 
   "BioProcess entities" should "have BioProcess label" in {
     val mentions = getBioMentions(BioProcess)
@@ -34,16 +34,6 @@ class TestNERLabeling extends FlatSpec with Matchers {
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (5)
     mentions.count(_ matches "BioProcess") should be (5)
-
-    // mentions.count(_ matches "CellLine") should be (0)
-    // mentions.count(_ matches "CellType") should be (0)
-    // mentions.count(_ matches "Cellular_component") should be (0)
-    // mentions.count(_ matches "Family") should be (0)
-    // mentions.count(_ matches "Gene_or_gene_product") should be (0)
-    // mentions.count(_ matches "Organ") should be (0)
-    // mentions.count(_ matches "Simple_chemical") should be (0)
-    // mentions.count(_ matches "Site") should be (0)
-    // mentions.count(_ matches "Species") should be (0)
   }
 
   "CellLine entities" should "have CellLine label" in {
@@ -91,7 +81,7 @@ class TestNERLabeling extends FlatSpec with Matchers {
   "Organ entities" should "have Organ label" in {
     val mentions = getBioMentions(Organ)
     mentions.isEmpty should be (false)
-    printMentions(Try(mentions), true)      // DEBUGGING
+    // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (5)
     mentions.count(_ matches "Organ") should be (5)
   }
@@ -116,8 +106,8 @@ class TestNERLabeling extends FlatSpec with Matchers {
     val mentions = getBioMentions(Species)
     mentions.isEmpty should be (false)
     // printMentions(Try(mentions), true)      // DEBUGGING
-    mentions.size should be (5)
-    mentions.count(_ matches "Species") should be (5)
+    mentions.size should be (8)
+    mentions.count(_ matches "Species") should be (8)
   }
 
 }
