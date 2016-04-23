@@ -32,13 +32,13 @@ case class TrainingInstance(text: String, mentions: Set[Mention]) {
   val pmid = getPMID(doc.id.get)
 
   val e1: E = {
-    val m = mentions.toSeq.sortBy(m => (m.sentence, m.tokenInterval)).head
-    E(m)
+    val before = mentions.toSeq.sortWith( (m1, m2) => m1 precedes m2).head
+    E(before)
   }
 
   val e2: E = {
-    val m = mentions.toSeq.sortBy(m => (m.sentence, m.tokenInterval)).last
-    E(m)
+    val after = mentions.toSeq.sortWith( (m1, m2) => m1 precedes m2).last
+    E(after)
   }
 
   /** whether or not the annotation requires coref */
