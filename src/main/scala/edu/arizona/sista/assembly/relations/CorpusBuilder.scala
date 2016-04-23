@@ -63,7 +63,11 @@ object CorpusBuilder {
   def getSententialSpan(m1: Mention, m2: Mention): String = {
     val doc = m1.document
     // get sentences of resolved form of arguments (NOTE: arguments may involve coref)
-    val sentenceIndices = getResolvedSentenceIndices(m1) ++ getResolvedSentenceIndices(m2)
+    val sentenceIndices = getResolvedSentenceIndices(m1) ++ getResolvedSentenceIndices(m2) ++
+      // get sentence indices of resolved forms of mentions
+      Set(AssemblyManager.getResolvedForm(m1).sentence, AssemblyManager.getResolvedForm(m2).sentence) ++
+      // include unresolved indices
+      Set(m1.sentence, m2.sentence)
     // get first and last sentence
     val start = sentenceIndices.min
     val end = sentenceIndices.max
