@@ -1,22 +1,34 @@
 package edu.arizona.sista.assembly
 
 import java.io.File
+import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.assembly
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 
 import scala.collection.immutable.ListMap
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import edu.arizona.sista.reach.display._
-import edu.arizona.sista.reach.ReachSystem
+import edu.arizona.sista.reach.{context, ReachSystem}
 import edu.arizona.sista.assembly.display._
 
 object AssemblyShell extends App {
-
   println("Loading ReachSystem ...")
-  var reach = new ReachSystem
+
+  val config = ConfigFactory.load()
+
+  // read configuration parameters to create a context engine
+  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
+  val contextConfig = config.getConfig("contextEngine.params").root
+  val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
+
+  // initialize ReachSystem with appropriate context engine
+  var reach = new ReachSystem(contextEngineType = contextEngineType,
+    contextParams = contextEngineParams)
+
   val proc = reach.processor
 
-  val history = new FileHistory(new File(System.getProperty("user.home"), ".assemblyshellhistory"))
+  val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))
   sys addShutdownHook {
     history.flush() // we must flush the file before exiting
   }
