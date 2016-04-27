@@ -39,10 +39,10 @@ case class Row(
 
   def toShellRow: String = {
     val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
-    s"""$eventID:\t${if(negated) "! " else ""}$input""" +
-       s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==>""" +
+    s"""$eventID:\t${if(negated) "! " else ""}$input """ +
+       s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==> """ +
        s"""$output""" +
-       s"""${if (precedingEvents.nonEmpty) s"\n\tpreceding events: $precedingEvents" else ""}\n\n"""
+       s"""${if (precedingEvents.nonEmpty) s"\n\tPreceding => $precedingEvents" else ""}\n\n"""
   }
 }
 
