@@ -28,7 +28,7 @@ object AssemblyShell extends App {
 
   val proc = reach.processor
 
-  val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))
+  val history = new FileHistory(new File(System.getProperty("user.home"), ".assemblyshellhistory"))
   sys addShutdownHook {
     history.flush() // we must flush the file before exiting
   }
