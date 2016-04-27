@@ -7,8 +7,7 @@ import edu.arizona.sista.reach.RuleReader
 
 /**
  * Contains all sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
-  *
-  * @param mentions a Seq of Odin Mentions
+ * @param mentions a Seq of Odin Mentions
  */
 class Sieves(mentions: Seq[Mention]) {
 
@@ -19,8 +18,7 @@ class Sieves(mentions: Seq[Mention]) {
 
   /**
    * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
-    *
-    * @param mentions a sequence of Odin Mentions
+   * @param mentions a sequence of Odin Mentions
    * @param manager an AssemblyManager
    * @return an AssemblyManager
    */
@@ -32,8 +30,7 @@ class Sieves(mentions: Seq[Mention]) {
 
   /**
    * Rule-based method for detecting precedence relations
-    *
-    * @param mentions a sequence of Odin Mentions
+   * @param mentions a sequence of Odin Mentions
    * @param manager an AssemblyManager
    * @return an AssemblyManager
    */
@@ -60,86 +57,6 @@ class Sieves(mentions: Seq[Mention]) {
 
     manager
   }
-
-  def tamPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
-
-    def getTam(ev: Mention, tams: Seq[Mention]): Option[Mention] = {
-      val relevant: Set[Mention] = tams.filter(_.arguments.getOrElse("event", Nil).contains(ev)).toSet
-      // rules should produce at most one tense or aspect mention
-      // TODO: This is debugging, so only log when debugging
-      if (relevant.size > 1 ) {
-        println(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")} for ${ev.text}""")
-      }
-      relevant.headOption
-    }
-
-    def tamLabel(tam: Option[Mention]): String = {
-      tam match {
-        case None => "none"
-        case _ => tam.get.label
-      }
-    }
-
-    def getReichenbach(e1t: String, e1a: String, e2t: String, e2a: String): String = {
-      (e1t, e1a, e2t, e2a) match {
-        case ("PastTense", "none", "PastTense", "Perfective") => "after"
-        case ("PastTense", "none", "FutureTense", "none") => "before"
-        case ("PastTense", "none", "FutureTense", "Perfective") => "before"
-        //
-        case ("PastTense", "Perfective", "PastTense", "none") => "before"
-        case ("PastTense", "Perfective", "PresentTense", "none") => "before"
-        case ("PastTense", "Perfective", "PresentTense", "Perfective") => "before"
-        case ("PastTense", "Perfective", "FutureTense", "none") => "before"
-        case ("PastTense", "Perfective", "FutureTense", "Perfective") => "before"
-        //
-        case ("PresentTense", "none", "PastTense", "Perfective") => "after"
-        case ("PresentTense", "none", "FutureTense", "none") => "before"
-        //
-        case ("PresentTense", "Perfective", "PastTense", "Perfective") => "after"
-        case ("PresentTense", "Perfective", "FutureTense", "none") => "before"
-        case ("PresentTense", "Perfective", "FutureTense", "Perfective") => "before"
-        //
-        case ("FutureTense", "none", "PastTense", "none") => "after"
-        case ("FutureTense", "none", "PastTense", "Perfective") => "after"
-        case ("FutureTense", "none", "PresentTense", "none") => "after"
-        case ("FutureTense", "none", "PresentTense", "Perfective") => "after"
-        //
-        case ("FutureTense", "Perfective", "PastTense", "none") => "after"
-        case ("FutureTense", "Perfective", "PastTense", "Perfective") => "after"
-        case ("FutureTense", "Perfective", "PresentTense", "Perfective") => "after"
-        case _ => "none"
-      }
-    }
-
-    val name = "ruleBasedPrecedence"
-    val tam_rules = "/edu/arizona/sista/assembly/grammars/tense_aspect.yml"
-
-    // TODO: only look at events with verbal triggers
-    val evs = mentions.filter(m => m.matches("Event") && !m.isInstanceOf[TextBoundMention])
-    val tams = assemblyViaRules(tam_rules, mentions)
-    val tenseMentions = tams.filter(_ matches "Tense")
-    val aspectMentions = tams.filter(_ matches "Aspect")
-
-    for {
-      e1 <- evs
-      e2 <- evs
-      if isValidRelationPair(e1, e2)
-
-      e1tense = getTam(e1, tenseMentions)
-      e1aspect = getTam(e1, aspectMentions)
-      e2tense = getTam(e2, tenseMentions)
-      e2aspect = getTam(e2, aspectMentions)
-      pr = getReichenbach(tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect))
-    } {
-      pr match {
-        case "before" => manager.storePrecedenceRelation(e1, e2, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
-        case "after" => manager.storePrecedenceRelation(e2, e1, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
-        case _ => ()
-      }
-    }
-
-    manager
-  }
 }
 
 /**
@@ -154,8 +71,7 @@ object SieveUtils {
   /**
    * Applies a set of assembly rules to provide mentions (existingMentions).
    * Care is taken to apply the rules to each set of mentions from the same Document.
-    *
-    * @param rulesPath a path to a rule file (under resources)
+   * @param rulesPath a path to a rule file (under resources)
    * @param existingMentions a Seq of Odin Mentions
    * @return a Seq of RelationMentions
    */

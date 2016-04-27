@@ -24,8 +24,7 @@ object AssemblyRunner {
     // track relevant mentions
       AssemblySieve(sieves.trackMentions) andThen
         // find precedence relations using rules
-        AssemblySieve(sieves.ruleBasedPrecedence) andThen
-        AssemblySieve(sieves.tamPrecedence)
+        AssemblySieve(sieves.ruleBasedPrecedence)
 
     // apply the sieves and return the manager
     val am: AssemblyManager = orderedSieves.apply(mentions)

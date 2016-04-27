@@ -36,14 +36,6 @@ case class Row(
     val examples = getTextualEvidence.mkString(" ++++ ")
     s"$input\t$output\t$controller\t$eventID\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
   }
-
-  def toShellRow: String = {
-    val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
-    s"""$eventID: ${if(negated) "! " else ""}$input""" +
-       s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==>""" +
-       s"""$output""" +
-       s"""${if (precedingEvents.nonEmpty) s"\n\tpreceding events: $precedingEvents" else ""}\n\n"""
-  }
 }
 
 class AssemblyExporter(val manager: AssemblyManager) {
@@ -245,22 +237,6 @@ class AssemblyExporter(val manager: AssemblyManager) {
         .mkString("\n")
     // write the output to disk
     FileUtils.writeStringToFile(f, header + text)
-  }
-
-  def shellOutput(rowFilter: Set[Row] => Set[Row]): String = {
-    val rowsForOutput = rowFilter(getEventRows)
-
-    // validate output
-    validateOutput(rowsForOutput)
-
-    val text =
-    // only events
-      rowsForOutput
-        .toSeq
-        .sortBy(r => (r.eventID))
-        .map(_.toShellRow)
-        .mkString
-    text + "=" * 50
   }
 
   def getEventLabel(e: EntityEventRepresentation): String = e match {

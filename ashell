@@ -1,2 +1,0 @@
-#!/bin/bash
-sbt 'run-main edu.arizona.sista.assembly.AssemblyShell'
