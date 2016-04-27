@@ -4,6 +4,7 @@ import edu.arizona.sista.assembly.AssemblyManager
 import edu.arizona.sista.assembly.representations.{Complex, Event, SimpleEntity}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.RuleReader
+import edu.arizona.sista.reach.display._
 
 /**
  * Contains all sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
@@ -63,8 +64,8 @@ class Sieves(mentions: Seq[Mention]) {
 
   def tamPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
-    def getTam(ev: Mention, tams: Seq[Mention]): Option[Mention] = {
-      val relevant: Set[Mention] = tams.filter(_.arguments.getOrElse("event", Nil).contains(ev)).toSet
+    def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
+      val relevant: Set[Mention] = tams.filter(tam => (tam matches label) && (tam.tokenInterval overlaps ev.tokenInterval)).toSet
       // rules should produce at most one tense or aspect mention
       // TODO: This is debugging, so only log when debugging
       if (relevant.size > 1 ) {
@@ -125,15 +126,17 @@ class Sieves(mentions: Seq[Mention]) {
       e2 <- evs
       if isValidRelationPair(e1, e2)
 
-      e1tense = getTam(e1, tenseMentions)
-      e1aspect = getTam(e1, aspectMentions)
-      e2tense = getTam(e2, tenseMentions)
-      e2aspect = getTam(e2, aspectMentions)
+      e1tense = getTam(e1, tenseMentions, "Tense")
+      e1aspect = getTam(e1, aspectMentions, "Aspect")
+      e2tense = getTam(e2, tenseMentions, "Tense")
+      e2aspect = getTam(e2, aspectMentions, "Aspect")
       pr = getReichenbach(tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect))
     } {
       pr match {
-        case "before" => manager.storePrecedenceRelation(e1, e2, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
-        case "after" => manager.storePrecedenceRelation(e2, e1, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
+        case "before" =>
+          manager.storePrecedenceRelation(e1, e2, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
+        case "after" =>
+          manager.storePrecedenceRelation(e2, e1, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
         case _ => ()
       }
     }
@@ -180,6 +183,7 @@ object SieveUtils {
         m <- ee.extractFrom(doc, oldState)
         // ensure that mention is one related to Assembly
         // we don't want to return things from the old state
+        _ = if (m matches precedenceMentionLabel) displayMention(m)
         if m matches precedenceMentionLabel
       } yield m
 
