@@ -1,5 +1,6 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.assembly.AssemblyRunner._
 import edu.arizona.sista.assembly.representations.SimpleEntity
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.TestUtils._
@@ -318,6 +319,63 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     am.removeEntriesContainingIDofMention(m)
 
     am.EERs.size should be(0)
+  }
+
+
+  // Sieve tests
+
+  val tamSent1 = "Once BEF had been phosphorylated, AFT was ubiquitinated"
+
+  tamSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(tamSent1, "tam1-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
+  }
+
+  val tamSent2 = "AFT will be ubiquitinated only if BEF is first phosphorylated"
+
+  tamSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(tamSent2, "tam2-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
+  }
+
+  val tamSent3 = "AFT was ubiquitinated when BEF had been phosphorylated"
+
+  tamSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(tamSent3, "tam3-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
   }
 
 }
