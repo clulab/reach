@@ -58,6 +58,15 @@
                     - Gene_or_gene_product
                     - Complex
                     - GENE
+- TAM:
+  - Aux
+  - Tense:
+    - PastTense
+    - PresentTense
+    - FutureTense
+  - Aspect:
+    - Perfective
+    - Progressive
 # a preliminary taxonomy for assembly (precedence relations)
 - Precedence:
   # for pairs that are directly (immediately) connected
