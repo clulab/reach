@@ -1,7 +1,7 @@
 package edu.arizona.sista.assembly.sieves
 
 import edu.arizona.sista.assembly.AssemblyManager
-import edu.arizona.sista.assembly.representations.{Complex, SimpleEntity, Event}
+import edu.arizona.sista.assembly.representations.{EntityEventRepresentation, Complex, SimpleEntity, Event}
 import edu.arizona.sista.odin.Mention
 
 /**
@@ -21,6 +21,17 @@ object Constraints {
     val argsOfAfter: Set[Mention] = after.arguments.values.flatten.toSet
 
     !(argsOfBefore contains after) && !(argsOfAfter contains before)
+  }
+
+  // It's neither the case that x is a predecessor of y nor vice versa
+  def noExistingPrecedence(x: Mention, y: Mention, am:AssemblyManager): Boolean = {
+    noExistingPrecedence(am.getEER(x), am.getEER(y))
+  }
+
+  // It's neither the case that x is a predecessor of y nor vice versa
+  def noExistingPrecedence(x: EntityEventRepresentation, y: EntityEventRepresentation): Boolean = {
+    !(x.manager.distinctPredecessorsOf(x).map(_.equivalenceHash) contains y.equivalenceHash) &&
+      !(y.manager.distinctPredecessorsOf(y).map(_.equivalenceHash) contains x.equivalenceHash)
   }
 
   //

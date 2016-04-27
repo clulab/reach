@@ -124,7 +124,7 @@ class Sieves(mentions: Seq[Mention]) {
     for {
       e1 <- evs
       e2 <- evs
-      if isValidRelationPair(e1, e2)
+      if isValidRelationPair(e1, e2) && noExistingPrecedence(e1, e2, manager)
 
       e1tense = getTam(e1, tenseMentions, "Tense")
       e1aspect = getTam(e1, aspectMentions, "Aspect")
