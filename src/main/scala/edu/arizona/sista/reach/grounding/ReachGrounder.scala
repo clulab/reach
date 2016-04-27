@@ -11,7 +11,7 @@ import edu.arizona.sista.reach.extern.export.MentionManager
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Walk biomentions, match species from context.
+  *   Last Modified: Redo ground by species logic.
   */
 class ReachGrounder extends Speciated {
 
@@ -21,36 +21,39 @@ class ReachGrounder extends Speciated {
   def apply (mentions: Seq[BioMention]): Seq[BioMention] = {
     mentions.foreach { mention =>
       if (mention.isInstanceOf[BioMention])
-        groundMention(mention, Seq.empty[String])
+        groundMention(mention, getSpeciesContext(mention))
     }
     mentions                                // return the newly grounded sequence
   }
 
+  /** Return a possibly empty sequence of NS/ID strings for the given mentions. */
+  def getSpeciesContext (mention: BioMention): Seq[String] = {
+    if (hasSpeciesContext(mention))         // for now, only using species to help grounding
+      mention.context.get.get("Species").get
+    else
+      Seq.empty[String]
+  }
+
   /** Dispatch the given bio mention for grounding, based on candidates and given species context. */
-  def groundMention (mention: BioMention, species: Seq[String]): Unit = {
+  def groundMention (mention: BioMention, context: Seq[String]): Unit = {
     mention match {
       case bem: BioEventMention => groundArguments(bem)
       case brm: BioRelationMention => groundArguments(brm)
       case  bm: BioTextBoundMention =>
         if (bm.hasMoreCandidates) {         // only redo grounding if more than one choice
-          if (species.isEmpty || containsHumanNsId(species)) // use nsId for now
+          if (context.isEmpty || containsHumanNsId(context)) // use nsId for now
             groundAsHuman(bm)               // then prioritize human grounding
           else                              // else context can influence this grounding
-            groundBySpecies(bm, species)
+            groundBySpecies(bm, context)
         }
       case _ =>                             // no action needed
     }
   }
 
-  /** Recursively process arguments of given event, possibly setting new context environment. */
-  def groundArguments (event: BioMention): Unit = {
-    val evargs = event.arguments.values.flatten.toSeq.map(_.toBioMention)
-    if (hasSpeciesContext(event)) {         // for now, only using species to help grounding
-      val species = event.context.get.get("Species").get
-      evargs.foreach(groundMention(_, species))
-    }
-    else
-      evargs.foreach(groundMention(_, Seq.empty[String]))
+  /** Recursively process arguments of given parent mention, possibly setting new context environment. */
+  def groundArguments (parent: BioMention): Unit = {
+    val children = parent.arguments.values.flatten.toSeq.map(_.toBioMention)
+    children.foreach(bm => groundMention(bm, getSpeciesContext(bm)))
   }
 
   /** Prioritize the Grounding of the given mention as human.
@@ -63,25 +66,32 @@ class ReachGrounder extends Speciated {
     }
   }
 
-  /** Prioritize the grounding for one of the given species.
+  /** Prioritize the grounding for one of the given species NS/IDs strings.
     * NB: Mention must be grounded and have more than one candidate. */
-  def groundBySpecies (mention: BioTextBoundMention, mentionNsIds: Seq[String]): Unit = {
+  def groundBySpecies (mention: BioTextBoundMention, context: Seq[String]): Unit = {
     if (mention.hasMoreCandidates) {        // sanity check
       val cands = mention.candidates.get    // get all candidates
-      val candSpecies: Set[String] = cands.map(_.species).toSet // all candidate species
-      val species = nsIdToSpeciesSet(mentionNsIds.head).map(_.intersect(candSpecies))
+      val candNames: Seq[String] = cands.map(_.species) // all candidate species names
+
+      // reverse map set of NS/IDs to set of species name strings:
+      val contextNames = ContextToSpeciesNameSet(context)
+
+      // intersect candidate species names with context species names:
+      val species = contextNames.intersect(candNames)
+
       // if any species match then prefer candidates with those species
-      if (species.isDefined && !species.get.isEmpty) {
-        val ordered = selectBySpecies(cands, species.get) ++ selectByNotSpecies(cands, species.get)
+      if (!species.isEmpty) {
+        val ordered = selectBySpecies(cands, species) ++ selectByNotSpecies(cands, species)
         mention.nominate(Some(ordered))     // reattach reordered grounding candidates
       }
     }
   }
 
 
-  /** Reverse lookup the give NsId string and return the species associated with it. */
-  private def nsIdToSpeciesSet (nsId: String): Option[Set[String]] =
-    ReverseSpeciesLookup.lookup(nsId)
+  /** Reverse lookup the given NS/ID strings to return an optional set of species names. */
+  private def ContextToSpeciesNameSet (context: Seq[String]): Seq[String] = {
+    context.flatMap(nsId => ReverseSpeciesLookup.lookup(nsId)).flatten.map(_.toLowerCase)
+  }
 
   private def printMention (mention:BioMention): Unit =
     mentionMgr.mentionToStrings(mention).foreach { System.err.println(_) }

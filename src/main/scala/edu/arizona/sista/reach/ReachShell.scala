@@ -1,16 +1,28 @@
 package edu.arizona.sista.reach
 
 import java.io.File
-import scala.collection.immutable.ListMap
+import com.typesafe.config.ConfigFactory
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
+import scala.collection.immutable.ListMap
 import edu.arizona.sista.reach.display._
+import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import RuleReader._
 
 object ReachShell extends App {
-
   println("Loading ReachSystem ...")
-  var reach = new ReachSystem
+
+  val config = ConfigFactory.load()
+
+  // read configuration parameters to create a context engine
+  val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
+  val contextConfig = config.getConfig("contextEngine.params").root
+  val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
+
+  // initialize ReachSystem with appropriate context engine
+  var reach = new ReachSystem(contextEngineType = contextEngineType,
+                              contextParams = contextEngineParams)
+
   val proc = reach.processor
 
   val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))

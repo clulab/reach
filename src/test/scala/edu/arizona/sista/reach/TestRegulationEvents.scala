@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import scala.util.Try
 import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.reach.mentions._
 import TestUtils._
@@ -26,6 +27,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments.contains("controlled") should be (true)
     reg.get.arguments.contains("controller") should be (true)
     reg.get.arguments("controlled").head.label == "Phosphorylation" should be (true)
+    reg.get.arguments("controlled").head.asInstanceOf[BioEventMention].isDirect should be (true)
     reg.get.arguments("controller").head.text.contains("Ras") should be (true)
   }
 
@@ -165,6 +167,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controller.modifications should have size (1)
     controller.modifications.head.label should be ("Phosphorylation")
     controlled.labels should contain ("Ubiquitination")
+    controlled.asInstanceOf[BioEventMention].isDirect should be (false)
     controlled.arguments should contain key ("theme")
     controlled.arguments should not contain key ("cause")
     controlled.arguments("theme").head.text should be ("ASPP2")
@@ -187,6 +190,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controlled.arguments should contain key ("theme")
     controlled.arguments should not contain key ("cause")
     controlled.arguments("theme").head.text should be ("MEK")
+    controlled.asInstanceOf[BioEventMention].isDirect should be (false)
   }
 
   val sent21 = "Human deoxycytidine kinase is phosphorylated by ASPP2 on serine 128."
@@ -206,6 +210,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controlled.arguments("theme").head.text should be ("deoxycytidine kinase")
     controlled.arguments should contain key ("site")
     controlled.arguments("site").head.text should be ("serine 128")
+    controlled.asInstanceOf[BioEventMention].isDirect should be (true)
   }
 
   val sent22 = "Human deoxycytidine kinase is phosphorylated on serine 128 by ASPP2."
@@ -225,6 +230,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     controlled.arguments("theme").head.text should be("deoxycytidine kinase")
     controlled.arguments should contain key ("site")
     controlled.arguments("site").head.text should be("serine 128")
+    controlled.asInstanceOf[BioEventMention].isDirect should be (true)
   }
 
   // a weird text from the PMC384* where we used to overmatch
@@ -244,10 +250,11 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     posReg.head.arguments should contain key ("controlled")
     posReg.head.arguments("controller") should have size (1)
     posReg.head.arguments("controlled") should have size (1)
-    val controller = posReg.head.arguments("controller").head
-    val controlled = posReg.head.arguments("controlled").head
+    val controller = posReg.head.arguments("controller").head.toBioMention
+    val controlled = posReg.head.arguments("controlled").head.toBioMention
     controller.matches("Complex") should be (true)
     controlled.matches("Phosphorylation") should be (true)
+    controlled.asInstanceOf[BioEventMention].isDirect should be (false)
   }
 
   val sent25 = "ASPP1 aids in the translocation of Kras to the membrane"

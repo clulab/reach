@@ -6,6 +6,7 @@ import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.grounding.KBResolution
@@ -20,7 +21,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update for grounding changes.
+  *   Last Modified: Output new isDirect event field.
   */
 class FriesOutput extends JsonOutputter {
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -48,13 +49,16 @@ class FriesOutput extends JsonOutputter {
                        endTime:Date,
                        outFilePrefix:String): String = {
 
+    val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
+    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+                                     startTime, endTime, otherMetaData)
     val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
-                                                   startTime, endTime)
+                                                   startTime, endTime, otherMetaData)
     // entityMap: map from entity pointers to unique ids
-    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap, startTime, endTime)
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap,
+                                   startTime, endTime, otherMetaData)
 
     val uniModel:PropMap = new PropMap      // combine models into one
     uniModel("sentences") = sentModel
@@ -77,17 +81,20 @@ class FriesOutput extends JsonOutputter {
                           endTime:Date,
                           outFilePrefix:String): Unit = {
 
+    val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap, startTime, endTime)
+    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+                                     startTime, endTime, otherMetaData)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
     val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
-                                                   startTime, endTime)
+                                                   startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
-    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap, startTime, endTime)
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap,
+                                   startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
   }
 
@@ -108,9 +115,10 @@ class FriesOutput extends JsonOutputter {
                                 allMentions:Seq[Mention],
                                 paperPassages:Map[String, FriesEntry],
                                 startTime:Date,
-                                endTime:Date): PropMap = {
+                                endTime:Date,
+                                otherMetaData:Map[String, String]): PropMap = {
     val model:PropMap = new PropMap
-    addMetaInfo(model, paperId, startTime, endTime)
+    addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
     // keeps track of all documents created for each entry
     val passageDocs = new mutable.HashMap[String, Document]()
@@ -141,9 +149,10 @@ class FriesOutput extends JsonOutputter {
                                allMentions:Seq[Mention],
                                paperPassages:Map[String, FriesEntry],
                                startTime:Date,
-                               endTime:Date): (PropMap, IDed) = {
+                                endTime:Date,
+                                otherMetaData:Map[String, String]): (PropMap, IDed) = {
     val model:PropMap = new PropMap
-    addMetaInfo(model, paperId, startTime, endTime)
+    addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
     val entityMap = new IDed
 
     // this stores all frames in this output
@@ -173,9 +182,10 @@ class FriesOutput extends JsonOutputter {
                              paperPassages:Map[String, FriesEntry],
                              entityMap:IDed,
                              startTime:Date,
-                             endTime:Date): PropMap = {
+                             endTime:Date,
+                             otherMetaData:Map[String, String]): PropMap = {
     val model:PropMap = new PropMap
-    addMetaInfo(model, paperId, startTime, endTime)
+    addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
     // this stores all frames in this output
     val frames = new FrameList
@@ -192,7 +202,7 @@ class FriesOutput extends JsonOutputter {
 
     // first, print all non regulation events
     for (mention <- eventMentions) {
-      if (!MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+      if (!REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -202,7 +212,7 @@ class FriesOutput extends JsonOutputter {
 
     // now, print all regulation events, which control the above events
     for (mention <- eventMentions) {
-      if (MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+      if (REGULATION_EVENTS.contains(mention.label)) {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
@@ -233,8 +243,10 @@ class FriesOutput extends JsonOutputter {
     f("start-pos") = mkRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = mkRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
-    if (mention.isInstanceOf[BioEventMention])
+    if (mention.isInstanceOf[BioEventMention]) {
       f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
+      f("is-direct") = mention.asInstanceOf[BioEventMention].isDirect
+    }
     f("verbose-text") = cleanVerbose(mention.sentenceObj.getSentenceText)
     f("found-by") = mention.foundBy
 
@@ -473,7 +485,8 @@ class FriesOutput extends JsonOutputter {
     passage
   }
 
-  def addMetaInfo(model:PropMap, paperId:String, startTime:Date, endTime:Date): Unit = {
+  def addMetaInfo(model:PropMap, paperId:String, startTime:Date, endTime:Date,
+                  otherMetaData:Map[String, String]): Unit = {
     model("object-type") = "frame-collection"
 
     val meta = new PropMap
@@ -484,6 +497,7 @@ class FriesOutput extends JsonOutputter {
     meta("doc-id") = paperId
     meta("processing-start") = startTime
     meta("processing-end") = endTime
+    otherMetaData.foreach { case(k, v) => meta(k) = v } // add other meta data key/value pairs
     model("object-meta") = meta
   }
 

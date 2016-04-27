@@ -126,15 +126,14 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
     val body = doc \\ "body"
     val back = doc \\ "back"
     val floats = doc \\"floats-group"
+
     // Get the article title
     val title = front \\ "article-title"
+    val titleEntry = if (title.size > 0)
+        List(FriesEntry(docName, "0", "article-title", "article-title", true, title.head.text))
+      else Nil
 
-    val titleEntry = if(title.size > 0){
-      List(FriesEntry(docName, "0", "article-title", "article-title", true, title.head.text))
-    }
-    else{
-      Nil
-    }
+    val metaData = getPublicationMetaData(docName, front)
 
     bodyEntries ++= body flatMap (parseSubTree(_, docName, "", ""))
 
@@ -154,7 +153,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       }
     }
 
-    val preProcessed = titleEntry ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList ::: floatsEntries.toList
+    val preProcessed = titleEntry ::: metaData.toList ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList ::: floatsEntries.toList
 
     // Do postprocessing to remove any empty entries and set correcly the chunk id
     val postProcessed = preProcessed filter (e => !e.text.trim.isEmpty)
@@ -194,4 +193,22 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
   }
 
   def readNxml(file:File):Seq[FriesEntry] = this.readNxml(file.getPath)
+
+
+  /** Create sections for metadata related to a publication. */
+  private def getPublicationMetaData (docName:String, front: Seq[Node]): ListBuffer[FriesEntry] = {
+    val metaData = new ListBuffer[FriesEntry]
+
+    val pubYear = front \\ "pub-date" \ "year"
+    if (pubYear.size > 0)
+      metaData.append(FriesEntry(docName, "0", "meta-data", "publication-year",
+                                 true, pubYear.head.text))
+
+    val pubMonth = front \\ "pub-date" \ "month"
+    if (pubMonth.size > 0)
+      metaData.append(FriesEntry(docName, "0", "meta-data", "publication-month",
+                                 true, pubMonth.head.text))
+    metaData
+  }
+
 }

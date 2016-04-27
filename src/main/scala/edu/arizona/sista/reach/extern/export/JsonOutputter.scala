@@ -3,16 +3,19 @@ package edu.arizona.sista.reach.extern.export
 import java.io._
 import java.util.Date
 
+import scala.collection.mutable
+
 import org.json4s.native.Serialization
 
 import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.nxml.FriesEntry
 
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Update for context.
+  *   Last Modified: Update to use Reach constants object.
   */
 trait JsonOutputter {
 
@@ -61,6 +64,15 @@ object JsonOutputter {
   val RUN_ID = "r1"
   val COMPONENT = "Reach"
   val ORGANIZATION = "UAZ"
+  val METADATA_SECTION_NAME = "meta-data"
+
+  /** Returns a map of metadata names to values, extracted from the given paper passages. */
+  def extractOtherMetaData (paperPassages: Seq[FriesEntry]): Map[String, String] = {
+    val metaPassages = paperPassages.filter(_.sectionId == METADATA_SECTION_NAME)
+    val metaData = new mutable.HashMap[String, String]()
+    for(md <- metaPassages) metaData += md.sectionName -> md.text
+    metaData.toMap
+  }
 
   /** Select an argument-type output string for the given mention label. */
   def mkArgType (arg:Mention): String = {
@@ -79,7 +91,7 @@ object JsonOutputter {
   /** Select an event-type output string for the given mention label. */
   def mkEventType (mention:Mention): String = {
     val label = mention.label
-    if (MentionManager.MODIFICATION_EVENTS.contains(label))
+    if (MODIFICATION_EVENTS.contains(label))
       return "protein-modification"
 
     if (label == "Binding")
@@ -94,10 +106,10 @@ object JsonOutputter {
     if (label == "Complex")
       return "complex-assembly"
 
-    if (MentionManager.REGULATION_EVENTS.contains(label))
+    if (REGULATION_EVENTS.contains(label))
       return "regulation"
 
-    if (MentionManager.ACTIVATION_EVENTS.contains(label))
+    if (ACTIVATION_EVENTS.contains(label))
       return "activation"
 
     throw new RuntimeException("ERROR: unknown event type: " + label + " in event:\n" + mention.json(pretty = true))

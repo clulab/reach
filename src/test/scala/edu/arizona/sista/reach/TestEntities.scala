@@ -134,7 +134,7 @@ class TestEntities extends FlatSpec with Matchers {
   sent8 should "not contain any sites and it should have 1 simple chemical" in {
     val mentions = getBioMentions(sent8)
     mentions.count(_ matches "Site") should be (0)
-    mentions.count(_ matches "Simple_chemical") should be (1)
+    mentions.count(_ matches "Family") should be (1)
   }
 
 }

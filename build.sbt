@@ -65,9 +65,9 @@ pomExtra := (
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.2",
-  "org.clulab" %% "processors" % "5.8.2",
-  "org.clulab" %% "processors" % "5.8.2" classifier "models",
+  "org.clulab" % "bioresources" % "1.1.4",
+  "org.clulab" %% "processors" % "5.8.3",
+  "org.clulab" %% "processors" % "5.8.3" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.apache.commons" % "commons-compress" % "1.5",

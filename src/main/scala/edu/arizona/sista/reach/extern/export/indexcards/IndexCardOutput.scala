@@ -8,6 +8,7 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.reach.ReachConstants._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.grounding.KBResolution
 import edu.arizona.sista.reach.mentions._
@@ -19,7 +20,7 @@ import IndexCardOutput._
 /**
   * Defines classes and methods used to build and output the index card format.
   *   Written by: Mihai Surdeanu. 8/27/2015.
-  *   Last Modified: Update for grounding changes.
+  *   Last Modified: Correct location of isDirect flag output.
   */
 class IndexCardOutput extends JsonOutputter {
 
@@ -33,15 +34,15 @@ class IndexCardOutput extends JsonOutputter {
                        startTime:Date,
                        endTime:Date,
                        outFilePrefix:String): String = {
-    // index cards are generated here
-    val cards = mkCards(paperId, allMentions, startTime, endTime)
+    val otherMetaData = extractOtherMetaData(paperPassages)
+    val cards = mkCards(paperId, allMentions, startTime, endTime, otherMetaData)
     val uniModel:PropMap = new PropMap
     uniModel("cards") = cards
     writeJsonToString(uniModel)
   }
 
   /**
-   * Writes the given mentions to output files in Fries JSON format.
+   * Writes the given mentions to output files in IndexCard JSON format.
    * Separate output files are written for sentences, entities, and events.
    * Each output file is prefixed with the given prefix string.
    */
@@ -63,8 +64,10 @@ class IndexCardOutput extends JsonOutputter {
       for(file <- files) file.delete()
     }
 
+    val otherMetaData = extractOtherMetaData(paperPassages)
+
     // index cards are generated here
-    val cards = mkCards(paperId, allMentions, startTime, endTime)
+    val cards = mkCards(paperId, allMentions, startTime, endTime, otherMetaData)
 
     // save one index card per file
     var count = 1
@@ -89,7 +92,8 @@ class IndexCardOutput extends JsonOutputter {
   def mkCards(paperId:String,
               allMentions:Seq[Mention],
               startTime:Date,
-              endTime:Date):Iterable[PropMap] = {
+              endTime:Date,
+              otherMetaData:Map[String, String]): Iterable[PropMap] = {
     val cards = new ListBuffer[PropMap]
 
     // dereference all coreference mentions:
@@ -103,10 +107,10 @@ class IndexCardOutput extends JsonOutputter {
 
     // first, print all regulation events
     for(mention <- eventMentions) {
-      if (MentionManager.REGULATION_EVENTS.contains(mention.label)) {
+      if (REGULATION_EVENTS.contains(mention.label)) {
         val card = mkRegulationIndexCard(mention, simpleEventsInRegs)
         card.foreach(c => {
-          addMeta(c, mention, paperId, startTime, endTime)
+          addMeta(c, mention, paperId, startTime, endTime, otherMetaData)
           cards += c
         })
       }
@@ -114,12 +118,12 @@ class IndexCardOutput extends JsonOutputter {
 
     // now, print everything else that wasn't printed already
     for(mention <- eventMentions) {
-      if (! MentionManager.REGULATION_EVENTS.contains(mention.label) &&
+      if (! REGULATION_EVENTS.contains(mention.label) &&
           ! simpleEventsInRegs.contains(mention))
       {
         val card = mkIndexCard(mention)
         card.foreach(c => {
-          addMeta(c, mention, paperId, startTime, endTime)
+          addMeta(c, mention, paperId, startTime, endTime, otherMetaData)
           cards += c
         })
       }
@@ -285,6 +289,9 @@ class IndexCardOutput extends JsonOutputter {
     else
       f("interaction_type") = "inhibits_modification"
 
+    if (mention.isInstanceOf[BioEventMention])
+      f("is_direct") = mention.asInstanceOf[BioEventMention].isDirect
+
     val mods = new FrameList
     mods += mkEventModification(mention)
     f("modifications") = mods
@@ -430,13 +437,15 @@ class IndexCardOutput extends JsonOutputter {
               mention:CorefMention,
               paperId:String,
               startTime:Date,
-              endTime:Date): Unit = {
+              endTime:Date,
+              otherMetaData:Map[String, String]): Unit = {
     f("submitter") = COMPONENT
     f("score") = 0
     f("pmc_id") = if(paperId.startsWith("PMC")) paperId.substring(3) else paperId
     f("reader_type") = "machine"
     f("reading_started") = startTime
     f("reading_complete") = endTime
+    otherMetaData.foreach { case(k, v) => f(k) = v } // add other meta data key/value pairs
     if (mention.isInstanceOf[BioEventMention])
       f("trigger") = mention.asInstanceOf[BioEventMention].trigger.text
     val ev = new StringList

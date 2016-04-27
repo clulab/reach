@@ -207,6 +207,6 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 class TestProtFamKBL extends IMKBFamilyLookup {
   val meta = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
   meta.put("family", "true")                // mark as from a protein family KB
-  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamilyFilename, true, meta)
+  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, true, meta)
   // println(s"IMKB.metaInfo=${memoryKB.metaInfo}")
 }

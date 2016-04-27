@@ -56,13 +56,16 @@ class NxmlSearcher(val indexDir:String) {
     } else {
       docs.toSeq.sortBy(-_._2)
     }
+    val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
     for(doc <- docSeq) {
       val id = doc._1.get("id")
       val nxml = doc._1.get("nxml")
       val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
       os.print(nxml)
       os.close()
+      sos.println(s"$id\t${doc._2}")
     }
+    sos.close()
   }
 
   def saveDocs(resultDir:String, docIds:Set[(Int, Float)]): Unit = {

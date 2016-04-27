@@ -131,6 +131,7 @@ class DarpaActions extends Actions {
     filteredMentions.map(_.toBioMention)
   }
 
+
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // iterate over mentions giving preference to mentions that have an event controller
     mention <- sortMentionsByController(mentions)
@@ -342,7 +343,7 @@ class DarpaActions extends Actions {
         val cause: Seq[Mention] = m.arguments("cause")
         val evArgs = m.arguments - "cause"
         val ev = new BioEventMention(
-          m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy)
+          m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy, true)
         // make sure the regulation is valid
         val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
         // controller of an event should not be an arg in the controlled
@@ -385,9 +386,20 @@ class DarpaActions extends Actions {
 
   /** retrieves the appropriate modification label */
   def getModificationLabel(text: String): String = text.toLowerCase match {
+    case string if deAcetylatPat.findPrefixOf(string).isDefined => "Deacetylation"
+    case string if deFarnesylatPat.findPrefixOf(string).isDefined => "Defarnesylation"
+    case string if deGlycosylatPat.findPrefixOf(string).isDefined => "Deglycosylation"
+    case string if deHydrolyPat.findPrefixOf(string).isDefined => "Dehydrolysis"
+    case string if deHydroxylatPat.findPrefixOf(string).isDefined => "Dehydroxylation"
+    case string if deMethylatPat.findPrefixOf(string).isDefined => "Demethylation"
+    case string if dePhosphorylatPat.findPrefixOf(string).isDefined => "Dephosphorylation"
+    case string if deRibosylatPat.findPrefixOf(string).isDefined => "Deribosylation"
+    case string if deSumoylatPat.findPrefixOf(string).isDefined => "Desumoylation"
+    case string if deUbiquitinatPat.findPrefixOf(string).isDefined => "Deubiquitination"
     case string if string contains "acetylat" => "Acetylation"
     case string if string contains "farnesylat" => "Farnesylation"
     case string if string contains "glycosylat" => "Glycosylation"
+    case string if string contains "hydroly" => "Hydrolysis"
     case string if string contains "hydroxylat" => "Hydroxylation"
     case string if string contains "methylat" => "Methylation"
     case string if string contains "phosphorylat" => "Phosphorylation"
@@ -670,5 +682,17 @@ object DarpaActions {
   val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
 
   val MODIFIER_LABELS = "amod".r
+
+  // patterns for "reverse" modifications
+  val deAcetylatPat     = "(?i)de-?acetylat".r
+  val deFarnesylatPat   = "(?i)de-?farnesylat".r
+  val deGlycosylatPat   = "(?i)de-?glycosylat".r
+  val deHydrolyPat      = "(?i)de-?hydroly".r
+  val deHydroxylatPat   = "(?i)de-?hydroxylat".r
+  val deMethylatPat     = "(?i)de-?methylat".r
+  val dePhosphorylatPat = "(?i)de-?phosphorylat".r
+  val deRibosylatPat    = "(?i)de-?ribosylat".r
+  val deSumoylatPat     = "(?i)de-?sumoylat".r
+  val deUbiquitinatPat  = "(?i)de-?ubiquitinat".r
 
 }

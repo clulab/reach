@@ -52,6 +52,8 @@ class ReachCLI(
       val startTime = ReachCLI.now // start measuring time here
       val startNS = System.nanoTime
 
+      FileUtils.writeStringToFile(logFile, s"Starting $paperId (${startTime})\n", true)
+
       // Process individual sections and collect all mentions
       val entries = Try(nxmlReader.readNxml(file)) match {
         case Success(v) => v

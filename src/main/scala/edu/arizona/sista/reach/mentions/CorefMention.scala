@@ -118,8 +118,9 @@ class CorefEventMention(
   sentence: Int,
   document: Document,
   keep: Boolean,
-  foundBy: String
-) extends BioEventMention(labels, trigger, arguments, sentence, document, keep, foundBy) with Anaphoric {
+  foundBy: String,
+  isDirect: Boolean = false
+) extends BioEventMention(labels, trigger, arguments, sentence, document, keep, foundBy, isDirect) with Anaphoric {
 
   def isGeneric: Boolean = labels contains "Generic_event"
 
