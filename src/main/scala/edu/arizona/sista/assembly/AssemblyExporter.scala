@@ -42,7 +42,7 @@ case class Row(
     s"""$eventID:\t${if(negated) "! " else ""}$input """ +
        s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==> """ +
        s"""$output""" +
-       s"""${if (precedingEvents.nonEmpty) s"\n\tPreceding => $precedingEvents" else ""}\n\n"""
+       s"""${if (precedingEvents.nonEmpty) s"\n\t\tPreceding => $precedingEvents" else ""}\n\n"""
   }
 }
 
