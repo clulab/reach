@@ -144,7 +144,7 @@ object BuildCorpus extends App {
     r2 = _r2.asInstanceOf[Event]
     // EERs must share at least one arg
     if Constraints.shareArg(r1, r2)
-    // check if mention pair is valid
+    // check if mention pair meets corpus constraints
     if Constraints.isValidRelationPair(m1, m2)
     // create training instance
     text = getSententialSpan(m1, m2)

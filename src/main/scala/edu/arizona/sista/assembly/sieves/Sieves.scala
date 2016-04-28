@@ -8,8 +8,7 @@ import edu.arizona.sista.reach.display._
 
 /**
  * Contains all sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
-  *
-  * @param mentions a Seq of Odin Mentions
+ * @param mentions a Seq of Odin Mentions
  */
 class Sieves(mentions: Seq[Mention]) {
 
@@ -203,8 +202,7 @@ object SieveUtils {
   /**
    * Applies a set of assembly rules to provide mentions (existingMentions).
    * Care is taken to apply the rules to each set of mentions from the same Document.
-    *
-    * @param rulesPath a path to a rule file (under resources)
+   * @param rulesPath a path to a rule file (under resources)
    * @param existingMentions a Seq of Odin Mentions
    * @return a Seq of RelationMentions
    */

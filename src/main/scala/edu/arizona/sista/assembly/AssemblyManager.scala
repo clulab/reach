@@ -190,6 +190,16 @@ class AssemblyManager(
   }
 
   /**
+   * Retrieves the (distinct) Set of PrecedenceRelations for all Events
+   */
+  def getPrecedenceRelations: Set[PrecedenceRelation] = {
+   for {
+     e <- getEvents
+     pr <- getPrecedenceRelations(e)
+   } yield pr
+  }
+
+  /**
    * Retrieves the distinct Set of EER predecessors for the provided equivalenceHash (eh).
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return the Set of distinct EntityEventRepresentations known to causally precede any EER corresponding to eh
@@ -1220,6 +1230,18 @@ class AssemblyManager(
 
   // Event
 
+  /**
+   * Retrieves all Events from the manager.
+   * Note that these are non-distinct (Events may differ in terms of their IDPointers).
+   */
+  def getEvents: Set[Event] = {
+    for {
+      e: EntityEventRepresentation <- getEERs
+      if e.isInstanceOf[Event]
+      event = e.asInstanceOf[Event]
+    } yield event
+  }
+  
   /**
    * Returns "distinct" Set of Events. Ignores multiple instances of the same Entity.
    * @return a Set of Event
