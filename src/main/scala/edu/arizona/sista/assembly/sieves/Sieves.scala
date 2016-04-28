@@ -19,12 +19,12 @@ class Sieves(mentions: Seq[Mention]) {
   val reachMentions = mentions
 
   /**
-   * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
+    * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
     *
     * @param mentions a sequence of Odin Mentions
-   * @param manager an AssemblyManager
-   * @return an AssemblyManager
-   */
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
   def trackMentions(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
     val am = AssemblyManager()
     am.trackMentions(mentions)
@@ -32,12 +32,12 @@ class Sieves(mentions: Seq[Mention]) {
   }
 
   /**
-   * Rule-based method for detecting precedence relations
+    * Rule-based method for detecting precedence relations
     *
     * @param mentions a sequence of Odin Mentions
-   * @param manager an AssemblyManager
-   * @return an AssemblyManager
-   */
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
   def ruleBasedPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     val p = "/edu/arizona/sista/assembly/grammars/precedence.yml"
@@ -62,15 +62,23 @@ class Sieves(mentions: Seq[Mention]) {
     manager
   }
 
+  /**
+    * Rule-based method using grammatical tense and aspect to establish precedence
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
   def tamPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
-      val relevant: Set[Mention] = tams.filter(tam => (tam matches label) && (tam.tokenInterval overlaps ev.tokenInterval)).toSet
+      val relevant: Set[Mention] = tams.filter(tam =>
+        (tam matches label) && (tam.tokenInterval overlaps ev.tokenInterval)).toSet
       // rules should produce at most one tense or aspect mention
       // TODO: This is debugging, so only log when debugging
-      if (relevant.size > 1 ) {
-        println(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")} for ${ev.text}""")
-      }
+      // if (relevant.size > 1 ) {
+      //   println(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")} for ${ev.text}""")
+      // }
       relevant.headOption
     }
 
@@ -112,7 +120,7 @@ class Sieves(mentions: Seq[Mention]) {
       }
     }
 
-    val name = "ruleBasedPrecedence"
+    val name = "tamPrecedence"
     val tam_rules = "/edu/arizona/sista/assembly/grammars/tense_aspect.yml"
 
     // TODO: only look at events with verbal triggers
