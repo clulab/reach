@@ -2,20 +2,25 @@ package edu.arizona.sista.assembly
 
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.assembly.sieves.{AssemblySieve, Sieves}
-import edu.arizona.sista.odin.Mention
+import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
 import edu.arizona.sista.utils.Serializer
+import edu.arizona.sista.assembly.relations.{CorpusReader, PrecedenceAnnotation}
+
+import scala.annotation.tailrec
+
 
 /**
- * Utilities for running assembly sieves on a Dataset and writing their output.
- */
+  * Utilities for running assembly sieves on a Dataset and writing their output.
+  */
 object AssemblyRunner {
   /**
-   * Applies Assembly Sieves to mentions and returns and updated AssemblyManager.
-   * @param mentions a Seq of Odin Mentions
-   * @return an AssemblyManager
-   */
+    * Applies Assembly Sieves to mentions and returns and updated AssemblyManager.
+    *
+    * @param mentions a Seq of Odin Mentions
+    * @return an AssemblyManager
+    */
   def applySieves(mentions: Seq[Mention]): AssemblyManager = {
 
     val sieves = new Sieves(mentions)
@@ -35,10 +40,11 @@ object AssemblyRunner {
   }
 
   /**
-   * Produces sieve-based assembly output from a serialized dataset.
-   * @param serMentions a serialized [[Dataset]]
-   * @param outFolder the folder where output is written
-   */
+    * Produces sieve-based assembly output from a serialized dataset.
+    *
+    * @param serMentions a serialized [[Dataset]]
+    * @param outFolder the folder where output is written
+    */
   def writeOutputFromSerializedMentions(
     serMentions: String,
     outFolder: String
@@ -50,10 +56,11 @@ object AssemblyRunner {
   }
 
   /**
-   * Produces sieve-based assembly output from a [[Dataset]]
-   * @param dataset a [[Dataset]]
-   * @param outFolder the folder where output is written
-   */
+    * Produces sieve-based assembly output from a [[Dataset]]
+    *
+    * @param dataset a [[Dataset]]
+    * @param outFolder the folder where output is written
+    */
   def writeOutputFromDataset(dataset: Dataset, outFolder: String): Unit = {
     // write output for each paper
     println(s"Beginning assembly of ${dataset.size} papers ...")
@@ -94,8 +101,8 @@ object AssemblyRunner {
 }
 
 /**
- * Runnable for producing sieve-based assembly output from a directory of papers (.csv or .nxml files)
- */
+  * Runnable for producing sieve-based assembly output from a directory of papers (.csv or .nxml files)
+  */
 object RunAssembly extends App {
 
   import AssemblyRunner._
@@ -112,8 +119,8 @@ object RunAssembly extends App {
 }
 
 /**
- * Runnable for producing sieve-based assembly output from a serialized [[Dataset]].
- */
+  * Runnable for producing sieve-based assembly output from a serialized [[Dataset]].
+  */
 object AssembleFromDataset extends App {
 
   import AssemblyRunner._
@@ -123,4 +130,70 @@ object AssembleFromDataset extends App {
   val serMentionsPath = config.getString("assembly.serializedDataset")
 
   writeOutputFromSerializedMentions(serMentionsPath, outFolder)
+}
+
+object RunAnnotationEval extends App {
+
+  import edu.arizona.sista.assembly.relations.CorpusReader._
+  import edu.arizona.sista.assembly.AssemblyRunner._
+
+  /** Retrieve trigger from Mention */
+  @tailrec
+  def findTrigger(m: Mention): TextBoundMention = m match {
+    case event: EventMention =>
+      event.trigger
+    case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
+      // could be nested ...
+      findTrigger(rel.arguments("controlled").head)
+  }
+
+  def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
+    mns.filter{ m =>
+      // label and trigger text should match
+      (m matches label) && (findTrigger(m).text == triggerText)
+    }.head
+  }
+
+  val config = ConfigFactory.load()
+  val annotationsPath = config.getString("assembly.corpusFile")
+  val annotations: Seq[PrecedenceAnnotation] = annotationsFromFile(annotationsPath)
+  // gather precedence relations corpus
+  val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
+  val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations)
+
+  val posGold: Set[PrecedenceRelation] = (for {
+    anno <- precedenceAnnotations
+    e1e2 = getE1E2(anno)
+    if e1e2.nonEmpty
+  } yield {
+    val (e1, e2) = e1e2.get
+    // short-term assembly manager to get at mentions easier
+    val am = AssemblyManager()
+    am.trackMentions(Seq(e1, e2))
+    val goldRel = anno.relation match {
+      case "E1 precedes E2" =>
+        Seq(PrecedenceRelation(am.getEER(e1).equivalenceHash, am.getEER(e2).equivalenceHash, Set.empty[Mention], "gold"))
+      case "E2 precedes E1" =>
+        Seq(PrecedenceRelation(am.getEER(e2).equivalenceHash, am.getEER(e1).equivalenceHash, Set.empty[Mention], "gold"))
+      case _ => Nil
+    }
+    goldRel
+  }).flatten.toSet
+
+  val testMentions = (for {
+    anno <- precedenceAnnotations ++ noneAnnotations
+    e1e2 = getE1E2(anno)
+    if e1e2.nonEmpty
+    (e1, e2) = e1e2.get
+  } yield Seq(e1, e2)).flatten
+
+  val predicted = applySieves(testMentions).getPrecedenceRelations
+
+  val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p)))
+  val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p)))
+  val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g)))
+  val tn = noneAnnotations.length - predicted.size
+
+  println(s"tp: $tp\nfp: $fp\ntn: $tn\nfn: $fn")
+
 }

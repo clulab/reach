@@ -112,6 +112,7 @@ object CorpusReader {
   val precedenceRelations =  Set("E1 precedes E2", "E2 precedes E1")
   val subsumptionRelations = Set("E1 subsumes E2", "E2 subsumes E1")
   val equivalenceRelations = Set("Equivalent")
+  val noRelations = Set("None")
   val rs = PaperReader.rs
 
   // needed for .extract
