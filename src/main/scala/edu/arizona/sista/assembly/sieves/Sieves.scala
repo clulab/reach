@@ -53,7 +53,7 @@ class Sieves(mentions: Seq[Mention]) {
       b = before.head
       a = after.head
       // cannot be an existing regulation
-      if notAnExistingComplexEvent(rel)
+      if notAnExistingComplexEvent(rel) && noExistingPrecedence(a, b, manager)
     } {
       // store the precedence relation
       manager.storePrecedenceRelation(b, a, Set(rel), name)
