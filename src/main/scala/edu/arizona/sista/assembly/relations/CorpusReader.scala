@@ -1,8 +1,11 @@
 package edu.arizona.sista.assembly.relations
 
 import java.io.File
+import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
+import edu.arizona.sista.reach.PaperReader
 import org.json4s.DefaultFormats
 import org.json4s.native.JsonMethods
+import scala.annotation.tailrec
 
 
 case class PrecedenceAnnotation(
@@ -109,6 +112,7 @@ object CorpusReader {
   val precedenceRelations =  Set("E1 precedes E2", "E2 precedes E1")
   val subsumptionRelations = Set("E1 subsumes E2", "E2 subsumes E1")
   val equivalenceRelations = Set("Equivalent")
+  val rs = PaperReader.rs
 
   // needed for .extract
   implicit val formats = DefaultFormats
@@ -135,5 +139,38 @@ object CorpusReader {
     // set relation to NEG
     case other =>
       Seq(other.copy(rel = NEG))
+  }
+
+  def getE1E2(anno: PrecedenceAnnotation): Option[(Mention, Mention)] = {
+    val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
+
+    /** Retrieve trigger from Mention */
+    @tailrec
+    def findTrigger(m: Mention): TextBoundMention = m match {
+      case event: EventMention =>
+        event.trigger
+      case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
+        // could be nested ...
+        findTrigger(rel.arguments("controlled").head)
+    }
+
+    def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
+      mns.filter{ m =>
+        // label and trigger text should match
+        (m matches label) && (findTrigger(m).text == triggerText)
+      }.head
+    }
+
+    val pair: Option[(Mention, Mention)] = try {
+      // prepare datum
+      val e1 = findMention(mentions, anno.`e1-label`, anno.`e1-trigger`)
+      val e2 = findMention(mentions, anno.`e2-label`, anno.`e2-trigger`)
+      Some((e1, e2))
+    } catch {
+      case e: Exception =>
+        println(s"problem with annotation ${anno.id}")
+        None
+    }
+    pair
   }
 }

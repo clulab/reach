@@ -62,54 +62,22 @@ object AssemblyRelationClassifier {
     clf
   }
 
-  /** extract training pair from json annotation and return its features */
-  def mkRVFDatum(anno: PrecedenceAnnotation): RVFDatum[String, String] = {
-    val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
-
-    /** Retrieve trigger from Mention */
-    @tailrec
-    def findTrigger(m: Mention): TextBoundMention = m match {
-      case event: EventMention =>
-        event.trigger
-      case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
-        // could be nested ...
-        findTrigger(rel.arguments("controlled").head)
-    }
-
-    def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
-      mns.filter{ m =>
-        // label and trigger text should match
-        (m matches label) && (findTrigger(m).text == triggerText)
-      }.head
-    }
-
-    // prepare datum
-    val e1 = findMention(mentions, anno.`e1-label`, anno.`e1-trigger`)
-    val e2 = findMention(mentions, anno.`e2-label`, anno.`e2-trigger`)
-    val relation = anno.relation
-    FeatureExtractor.mkRVFDatum(e1, e2, relation)
-  }
-
+  /** get features for an assembly label corresponding to a pair of mentions */
   def mkRVFDatum(label: String, e1: Mention, e2: Mention): RVFDatum[String, String] =
     FeatureExtractor.mkRVFDatum(e1, e2, label)
 
   def mkRVFDataset(annotations: Seq[PrecedenceAnnotation]): RVFDataset[String, String] = {
     val dataset = new RVFDataset[String, String]
-    val ds: Seq[Option[RVFDatum[String, String]]] = for {
+    // add each valid annotation to dataset
+    for {
       a <- annotations
-    } yield {
-        // in training, some examples rely on text outside of the context (ex. ``this interaction'')
-        try {
-          Some(mkRVFDatum(a))
-        } catch {
-          case e: Exception =>
-            println(s"problem with annotation ${a.id}")
-            None
-        }
-    }
-    ds.foreach{
-      case Some(datum) => dataset += datum
-      case _ => ()
+      pair = CorpusReader.getE1E2(a)
+      if pair.nonEmpty
+    } {
+      val (e1, e2) = pair.get
+      val relation = a.relation
+      val datum = FeatureExtractor.mkRVFDatum(e1, e2, relation)
+      dataset += datum
     }
     dataset
   }
