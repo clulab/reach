@@ -247,6 +247,22 @@ class AssemblyExporter(val manager: AssemblyManager) {
     FileUtils.writeStringToFile(f, header + text)
   }
 
+  def shellOutput(rowFilter: Set[Row] => Set[Row]): String = {
+    val rowsForOutput = rowFilter(getEventRows)
+
+    // validate output
+    validateOutput(rowsForOutput)
+
+    val text =
+    // only events
+      rowsForOutput
+        .toSeq
+        .sortBy(r => (r.eventID))
+        .map(_.toShellRow)
+        .mkString
+    text + "=" * 50
+  }
+
   def getEventLabel(e: EntityEventRepresentation): String = e match {
     case reg: Regulation => "Regulation"
     case act: Activation => "Activation"
