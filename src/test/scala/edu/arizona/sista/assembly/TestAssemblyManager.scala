@@ -328,9 +328,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   tamSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val doc = createDoc(tamSent1, "tam1-test")
-
     val mentions = testReach.extractFrom(doc)
-
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -346,9 +344,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   tamSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val doc = createDoc(tamSent2, "tam2-test")
-
     val mentions = testReach.extractFrom(doc)
-
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -364,9 +360,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   tamSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val doc = createDoc(tamSent3, "tam3-test")
-
     val mentions = testReach.extractFrom(doc)
-
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -376,6 +370,85 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val pr = am.getPrecedenceRelations(uRep).head
     pr.before == pRep.equivalenceHash should be (true)
     pr.after == uRep.equivalenceHash should be (true)
+  }
+
+  val interSent1 = "BEF was phosphorylated. Then, AFT was ubiquitinated."
+
+  interSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(interSent1, "inter1-test")
+    val mentions = testReach.extractFrom(doc)
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
+  }
+
+  val interSent2 = "BEF was phosphorylated. Subsequently AFT was ubiquitinated."
+
+  interSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(interSent2, "inter2-test")
+    val mentions = testReach.extractFrom(doc)
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
+  }
+
+  val interSent3 = "AFT was ubiquitinated. Prior to this, BEF was phosphorylated."
+
+  interSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(interSent3, "inter3-test")
+    val mentions = testReach.extractFrom(doc)
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
+  }
+
+  val interSent4 = "AFT was ubiquitinated. Previously, BEF was phosphorylated."
+
+  interSent4 should "be annotated with the phosphorylation preceding the ubiquitination" in {
+    val doc = createDoc(interSent4, "inter4-test")
+    val mentions = testReach.extractFrom(doc)
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(1)
+    val pr = am.getPrecedenceRelations(uRep).head
+    pr.before == pRep.equivalenceHash should be (true)
+    pr.after == uRep.equivalenceHash should be (true)
+  }
+
+
+  // Play it safe by ignoring cues not at the beginning of the sentence.
+  val interSent5 = "AFT was ubiquitinated. There is intervening material and, previously, BEF was phosphorylated."
+
+  interSent5 should "have no precedence relations" in {
+    val doc = createDoc(interSent5, "inter5-test")
+    val mentions = testReach.extractFrom(doc)
+    val am = applySieves(mentions)
+
+    val uRep = am.distinctSimpleEvents("Ubiquitination").head
+    val pRep = am.distinctSimpleEvents("Phosphorylation").head
+
+    am.distinctPredecessorsOf(uRep).size should be(0)
   }
 
 }
