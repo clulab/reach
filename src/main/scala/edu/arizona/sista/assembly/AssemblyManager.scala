@@ -1302,6 +1302,32 @@ class AssemblyManager(
       .map( comp => (comp, getEvidence(comp)))
   }
 
+  // Events
+
+  /**
+   * Retrieves all Events from the manager.
+   * Note that these are non-distinct (Events may differ in terms of their IDPointers).
+   */
+  def getEvents: Set[Event] = {
+    for {
+      e: EntityEventRepresentation <- getEERs
+      if e.isInstanceOf[Event]
+      event = e.asInstanceOf[Event]
+    } yield event
+  }
+
+  /**
+   * Returns "distinct" Set of Events. Ignores differences in IDPointers.
+   * @return a Set of Events
+   */
+  def distinctEvents: Set[Event] = {
+    for {
+      e: EntityEventRepresentation <- distinctEERs
+      if e.isInstanceOf[Event]
+      event = e.asInstanceOf[Event]
+    } yield event
+  }
+
   // SimpleEvents
 
   /**
