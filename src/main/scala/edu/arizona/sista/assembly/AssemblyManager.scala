@@ -173,7 +173,7 @@ class AssemblyManager(
    */
   def getPrecedenceRelations: Set[PrecedenceRelation] = {
    for {
-     e <- getEvents
+     e <- distinctEvents
      pr <- getPrecedenceRelations(e)
    } yield pr
   }
@@ -1220,7 +1220,7 @@ class AssemblyManager(
       event = e.asInstanceOf[Event]
     } yield event
   }
-  
+
   /**
    * Returns "distinct" Set of Events. Ignores multiple instances of the same Entity.
    * @return a Set of Event
