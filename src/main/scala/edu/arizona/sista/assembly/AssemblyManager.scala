@@ -21,7 +21,28 @@ case class PrecedenceRelation(
   after: Int,
   var evidence: Set[Mention],
   foundBy: String
-)
+) {
+
+  /**
+    * Returns true if the input argument is a [[PrecedenceRelation]] with identical before and after [[EntityEventRepresentation]]s
+    * @param other Any comparison object
+    * @return a Boolean
+    */
+  def strictlyEquivalent(other: Any): Boolean = other match {
+    case pr: PrecedenceRelation => this.before == pr.before && this.after == pr.after
+    case _ => false
+  }
+
+  /**
+    * Returns true if the input argument is a [[PrecedenceRelation]] with either the same before or after [[EntityEventRepresentation]]s
+    * @param other Any comparison object
+    * @return a Boolean
+    */
+  def isEquivalentTo(other: Any): Boolean = other match {
+    case pr: PrecedenceRelation => this.before == pr.before || this.after == pr.after
+    case _ => false
+  }
+}
 
 /**
  * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
