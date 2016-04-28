@@ -124,7 +124,7 @@ class Sieves(mentions: Seq[Mention]) {
     val tam_rules = "/edu/arizona/sista/assembly/grammars/tense_aspect.yml"
 
     // TODO: only look at events with verbal triggers
-    val evs = mentions.filter(m => m.matches("Event") && !m.isInstanceOf[TextBoundMention])
+    val evs = mentions.filter(isEvent)
     val tams = assemblyViaRules(tam_rules, mentions)
     val tenseMentions = tams.filter(_ matches "Tense")
     val aspectMentions = tams.filter(_ matches "Aspect")
@@ -236,4 +236,11 @@ object SieveUtils {
     assembledMentions
       .toSeq
   }
+
+  /**
+    * Returns true if the mention is an Event and therefore a candidate for precedence
+    * @param m an Odin Mention
+    * @return a Boolean
+    */
+  def isEvent(m:Mention) = m.matches("Event") && !m.isInstanceOf[TextBoundMention]
 }
