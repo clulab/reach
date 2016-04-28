@@ -151,7 +151,45 @@ class Sieves(mentions: Seq[Mention]) {
 
     manager
   }
+
+
+  /**
+    * Rule-based method for detecting inter-sentence precedence relations
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
+  def intersententialPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val p = "/edu/arizona/sista/assembly/grammars/intersentential.yml"
+
+    val name = "intersententialPrecedence"
+    // find rule-based inter-sentence PrecedenceRelations
+    for {
+      rel <- assemblyViaRules(p, mentions)
+      // TODO: Decide whether to restrict matches more, e.g. to last of prior sentence
+      other <- mentions.filter(m => isEvent(m) && m.document == rel.document && m.sentence == rel.sentence - 1)
+      (before, after) = rel.label match {
+        case "InterAfter" => (Seq(other), rel.arguments("after"))
+        case "InterBefore" => (rel.arguments("before"), Seq(other))
+      }
+      if before.nonEmpty && after.nonEmpty
+      b = before.head
+      a = after.head
+
+      if isValidRelationPair(a, b) && noExistingPrecedence(a, b, manager)
+    } {
+      // store the precedence relation
+      manager.storePrecedenceRelation(b, a, Set(rel), name)
+    }
+
+    manager
+  }
+
 }
+
+
 
 /**
  * Utilities commonly used by Sieves
