@@ -68,21 +68,16 @@ object AssemblyRelationClassifier {
 
   def mkRVFDataset(annotations: Seq[PrecedenceAnnotation]): RVFDataset[String, String] = {
     val dataset = new RVFDataset[String, String]
-    val ds: Seq[Option[RVFDatum[String, String]]] = for {
+    // add each valid annotation to dataset
+    for {
       a <- annotations
-    } yield {
-        // in training, some examples rely on text outside of the context (ex. ``this interaction'')
-        try {
-          Some(mkRVFDatum(a))
-        } catch {
-          case e: Exception =>
-            println(s"problem with annotation ${a.id}")
-            None
-        }
-    }
-    ds.foreach{
-      case Some(datum) => dataset += datum
-      case _ => ()
+      pair = CorpusReader.getE1E2(a)
+      if pair.nonEmpty
+    } {
+      val (e1, e2) = pair.get
+      val relation = a.relation
+      val datum = FeatureExtractor.mkRVFDatum(e1, e2, relation)
+      dataset += datum
     }
     dataset
   }
