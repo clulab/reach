@@ -14,7 +14,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Update for addition of PFAM protein family KB.
+  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
   */
 object EntityChecker extends App {
 
@@ -26,8 +26,7 @@ object EntityChecker extends App {
                                        staticProteinKBLookup )
 
   /** Search sequence for small molecules. */
-  protected val chemSearcher = Seq( staticChemicalKBLookup,
-                                    staticMetaboliteKBLookup )
+  protected val chemSearcher = Seq( staticChemicalKBLookup )
 
   /** Search sequence for sub cellular locations terms. */
   protected val cellLocationSearcher = Seq( staticCellLocationKBLookup )

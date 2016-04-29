@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for addition of PFAM protein family KB.
+  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
   */
 object ReachKBConstants {
 
@@ -73,7 +73,7 @@ object ReachKBConstants {
   val StaticCellLocation2Filename = "uniprot-subcellular-locations.tsv.gz"
 
   /** Filename of the static small molecule (chemical) file. */
-  val StaticChemicalFilename = "chebi.tsv.gz"
+  val StaticChemicalFilename = "PubChem.tsv.gz"
 
   /** Filename of the static small molecule (metabolite) file. */
   val StaticMetaboliteFilename = "hmdb.tsv.gz"

@@ -15,7 +15,7 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Update for addition of PFAM protein family KB.
+  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
   */
 class ReachEntityLookup {
 
@@ -94,7 +94,7 @@ class ReachEntityLookup {
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
     StaticChemical,
-    StaticMetabolite,
+    // StaticMetabolite,                    // REPLACED by PubChem
     ManualChemical,
     ModelGendChemical
   )
