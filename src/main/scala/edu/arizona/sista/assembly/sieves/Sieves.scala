@@ -129,8 +129,9 @@ class Sieves(mentions: Seq[Mention]) {
     val aspectMentions = tams.filter(_ matches "Aspect")
 
     for {
-      e1 <- evs
-      e2 <- evs
+      events <- evs.groupBy(_.document).values
+      e1 <- events
+      e2 <- events
       if isValidRelationPair(e1, e2) && noExistingPrecedence(e1, e2, manager)
 
       e1tense = getTam(e1, tenseMentions, "Tense")
@@ -225,9 +226,9 @@ object SieveUtils {
         // initialize a state with the subset of mentions
         // belonging to the same doc.
         m <- ee.extractFrom(doc, oldState)
+        // _ = if (m matches precedenceMentionLabel) displayMention(m)
         // ensure that mention is one related to Assembly
         // we don't want to return things from the old state
-        _ = if (m matches precedenceMentionLabel) displayMention(m)
         if m matches precedenceMentionLabel
       } yield m
 
