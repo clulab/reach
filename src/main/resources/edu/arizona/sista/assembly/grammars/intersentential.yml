@@ -15,7 +15,7 @@ rules:
     label: InterAfter
     type: token
     pattern: |
-      (?<! [word=/.+/])
+      ^
       (?<trigger>
       "As" "a" "downstream" "effect" |
       "Later" |
@@ -34,7 +34,7 @@ rules:
     label: InterBefore
     type: token
     pattern: |
-      (?<! [word=/.+/])
+      ^
       (?<trigger>
       "Prior" "to" ("this" | "that") |
       "Previously" |
