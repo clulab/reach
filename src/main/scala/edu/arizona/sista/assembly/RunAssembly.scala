@@ -1,14 +1,12 @@
 package edu.arizona.sista.assembly
 
 import com.typesafe.config.ConfigFactory
+import edu.arizona.sista.assembly.relations.{CorpusReader, PrecedenceAnnotation}
 import edu.arizona.sista.assembly.sieves.{AssemblySieve, Sieves}
-import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
 import edu.arizona.sista.utils.Serializer
-import edu.arizona.sista.assembly.relations.{CorpusReader, PrecedenceAnnotation}
-
-import scala.annotation.tailrec
 
 
 /**
@@ -37,6 +35,30 @@ object AssemblyRunner {
     val am: AssemblyManager = orderedSieves.apply(mentions)
 
     am
+  }
+
+  /**
+    * Applies each Assembly Sieve to mentions and returns and updated AssemblyManager for each.
+    *
+    * @param mentions a Seq of Odin Mentions
+    * @return an AssemblyManager
+    */
+  def applyEachSieve(mentions: Seq[Mention]): Map[String, AssemblyManager] = {
+
+    val sieves = new Sieves(mentions)
+
+    val availableSieves = Map(
+      "ruleBasedPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.ruleBasedPrecedence)),
+      "tamPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.tamPrecedence)),
+      "intersententialPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.intersententialPrecedence))
+    )
+
+    val ams = for {
+      (lbl, s) <- availableSieves.par
+      am = s.apply(mentions)
+    } yield lbl -> am
+
+    ams.toMap.seq //++ Map("all" -> applySieves(mentions))
   }
 
   /**
@@ -134,24 +156,12 @@ object AssembleFromDataset extends App {
 
 object RunAnnotationEval extends App {
 
-  import edu.arizona.sista.assembly.relations.CorpusReader._
   import edu.arizona.sista.assembly.AssemblyRunner._
+  import edu.arizona.sista.assembly.relations.CorpusReader._
+  import edu.arizona.sista.reach.display._
 
-  /** Retrieve trigger from Mention */
-  @tailrec
-  def findTrigger(m: Mention): TextBoundMention = m match {
-    case event: EventMention =>
-      event.trigger
-    case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
-      // could be nested ...
-      findTrigger(rel.arguments("controlled").head)
-  }
-
-  def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
-    mns.filter{ m =>
-      // label and trigger text should match
-      (m matches label) && (findTrigger(m).text == triggerText)
-    }.head
+  case class Performance (sieve: String, rule: String, p: Double, r: Double, f1: Double, tp: Int, fp: Int, fn: Int) {
+    def mkRow = f"$sieve\t$rule\t$p%1.3f\t$r%1.3f\t$f1%1.3f\t$tp\t$fp\t$fn"
   }
 
   val config = ConfigFactory.load()
@@ -159,10 +169,10 @@ object RunAnnotationEval extends App {
   val annotations: Seq[PrecedenceAnnotation] = annotationsFromFile(annotationsPath)
   // gather precedence relations corpus
   val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
-  val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations)
+  val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations ++ subsumptionRelations ++ equivalenceRelations)
 
-  val posGold: Set[PrecedenceRelation] = (for {
-    anno <- precedenceAnnotations
+  val (posGoldNested, testMentionsNested) = (for {
+    anno <- precedenceAnnotations.par
     e1e2 = getE1E2(anno)
     if e1e2.nonEmpty
   } yield {
@@ -177,23 +187,62 @@ object RunAnnotationEval extends App {
         Seq(PrecedenceRelation(am.getEER(e2).equivalenceHash, am.getEER(e1).equivalenceHash, Set.empty[Mention], "gold"))
       case _ => Nil
     }
-    goldRel
-  }).flatten.toSet
+    (goldRel, Seq(e1, e2))
+  }).unzip
 
-  val testMentions = (for {
-    anno <- precedenceAnnotations ++ noneAnnotations
-    e1e2 = getE1E2(anno)
-    if e1e2.nonEmpty
-    (e1, e2) = e1e2.get
-  } yield Seq(e1, e2)).flatten
+  val posGold = posGoldNested.flatten.seq
+  val testMentions = testMentionsNested.flatten.distinct.seq
 
-  val predicted = applySieves(testMentions).getPrecedenceRelations
+  println("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
 
-  val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p)))
-  val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p)))
-  val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g)))
-  val tn = noneAnnotations.length - predicted.size
+  for {
+    (lbl, sieveResult) <- applyEachSieve(testMentions)
+  } {
+    val predicted = sieveResult.getPrecedenceRelations
+    val smoothing = 0.00001
+    val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p)))
+    val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p)))
+    val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g)))
+    //val tn = precedenceAnnotations.count(_.relation == NEG)
+    val p = tp / (tp + fp + smoothing)
+    val r = tp / (tp + fn + smoothing)
+    val f1 = (2 * tp) / (2 * tp + fp + fn + smoothing)
 
-  println(s"tp: $tp\nfp: $fp\ntn: $tn\nfn: $fn")
+    val sievePerformance = Performance(lbl, "**ALL**", p, r, f1, tp, fp, fn)
 
+    val rulePerformance: Seq[Performance] = {
+      val rulePs = predicted.groupBy(pr => (pr.foundBy, pr.evidence.head.foundBy))
+      val allRtp = rulePs.mapValues(_.count(p => posGold exists(g => g.isEquivalentTo(p))))
+      val allRfp = rulePs.mapValues{_.count{p =>
+        val isFP = ! posGold.exists(g => g.isEquivalentTo(p))
+        //if(isFP) displayMention(p.evidence.head)
+        isFP
+      }
+      }
+      val allRfn = {
+        val res = for {
+          (foundBy, group) <- rulePs
+          gold = posGold.count(g => ! group.exists(p => p.isEquivalentTo(g)))
+        } yield (foundBy, gold)
+        res.toMap
+      }
+
+      val rp = for {
+        foundBy <- rulePs.keys
+      } yield {
+        val tp = allRtp.getOrElse(foundBy, 0)
+        val fp = allRfp.getOrElse(foundBy, 0)
+        val fn = allRfn.getOrElse(foundBy, 0)
+
+        //val tn = precedenceAnnotations.count(_.relation == NEG)
+        val p = tp / (tp + fp + smoothing)
+        val r = tp / (tp + fn + smoothing)
+        val f1 = (2 * tp) / (2 * tp + fp + fn + smoothing)
+        Performance (foundBy._1, foundBy._2, p, r, f1, tp, fp, fn)
+      }
+      rp.toSeq
+    }
+
+    (rulePerformance :+ sievePerformance).sortBy(_.p).foreach(perf => println(perf.mkRow))
+  }
 }
