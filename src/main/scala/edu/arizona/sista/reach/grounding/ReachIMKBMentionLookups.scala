@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for addition of PFAM protein family KB.
+  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
   */
 object ReachIMKBMentionLookups {
 
@@ -27,11 +27,11 @@ object ReachIMKBMentionLookups {
   val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
   val StaticCellLocation2 = staticCellLocationKBML2 // Uniprot subcellular KB
   val StaticChemical = staticChemicalKBML
-  val StaticMetabolite = staticMetaboliteKBML
+  // val StaticMetabolite = staticMetaboliteKBML    // REPLACED by PubChem
   val StaticProtein = staticProteinKBML
   val StaticProteinFamily = staticProteinFamilyKBML
   val StaticProteinFamily2 = staticProteinFamily2KBML
-  // val StaticTissueType = staticTissueTypeKBML()   // CURRENTLY UNUSED
+  // val StaticTissueType = staticTissueTypeKBML    // CURRENTLY UNUSED
 
   val ManualCellLocation = manualCellLocationKBML
   val ManualChemical = manualChemicalKBML
@@ -113,10 +113,18 @@ object ReachIMKBMentionLookups {
 
   /** KB accessor to resolve small molecule (chemical) names via static KB. */
   def staticChemicalKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009")
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/pubchem.compound/", "MIR:00000034")
     metaInfo.put("file", StaticChemicalFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make("chebi", StaticChemicalFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("PubChem", StaticChemicalFilename, metaInfo))
   }
+
+  /** KB accessor to resolve small molecule (chemical) names via static KB. */
+  // def staticChemicalKBML: IMKBMentionLookup = {
+  //   val metaInfo = new IMKBMetaInfo("http://identifiers.org/chebi/", "MIR:00100009")
+  //   metaInfo.put("file", StaticChemicalFilename)
+  //   new IMKBMentionLookup(TsvIMKBFactory.make("chebi", StaticChemicalFilename, metaInfo))
+  // }
+
 
   //
   // Protein Accessors
