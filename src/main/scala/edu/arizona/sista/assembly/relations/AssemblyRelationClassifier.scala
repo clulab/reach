@@ -2,10 +2,9 @@ package edu.arizona.sista.assembly.relations
 
 import java.io._
 import edu.arizona.sista.learning._
-import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.struct.Counter
-import scala.annotation.tailrec
 
 
 class AssemblyRelationClassifier(
