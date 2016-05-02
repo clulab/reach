@@ -142,25 +142,26 @@ object CorpusReader {
       Seq(other.copy(rel = NEG))
   }
 
+  /** Retrieve trigger from Mention */
+  @tailrec
+  def findTrigger(m: Mention): TextBoundMention = m match {
+    case event: EventMention =>
+      event.trigger
+    case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
+      // could be nested ...
+      findTrigger(rel.arguments("controlled").head)
+  }
+
+  /** Finds mention matching label and trigger text */
+  def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
+    mns.filter{ m =>
+      // label and trigger text should match
+      (m matches label) && (findTrigger(m).text == triggerText)
+    }.head
+  }
+
   def getE1E2(anno: PrecedenceAnnotation): Option[(Mention, Mention)] = {
     val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
-
-    /** Retrieve trigger from Mention */
-    @tailrec
-    def findTrigger(m: Mention): TextBoundMention = m match {
-      case event: EventMention =>
-        event.trigger
-      case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
-        // could be nested ...
-        findTrigger(rel.arguments("controlled").head)
-    }
-
-    def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
-      mns.filter{ m =>
-        // label and trigger text should match
-        (m matches label) && (findTrigger(m).text == triggerText)
-      }.head
-    }
 
     val pair: Option[(Mention, Mention)] = try {
       // prepare datum
