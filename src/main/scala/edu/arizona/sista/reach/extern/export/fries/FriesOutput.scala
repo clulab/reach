@@ -22,15 +22,19 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Write stub assembly file. Begin linked context infrastructure.
+  *   Last Modified: Cache contexts. Change contexts to lists of IDs. Stub context frame generation.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
   type IDed = scala.collection.mutable.HashMap[Mention, String]
   type CtxIDed = scala.collection.mutable.HashMap[ContextMap, String]
 
+  // incrementing ID for numbering context frames
+  protected val contextIdCntr = new IncrementingId()
+
   // incrementing ID for numbering entity mentions
   protected val entityIdCntr = new IncrementingId()
+
   // incrementing ID for numbering event mentions
   protected val eventIdCntr = new IncrementingId()
 
@@ -58,14 +62,14 @@ class FriesOutput extends JsonOutputter {
     val assemblyModel:PropMap = new PropMap
     addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
 
-    val contextMap = new CtxIDed
+    val contextIdMap = new CtxIDed
 
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
                                                    startTime, endTime, otherMetaData)
     // entityMap: map from entity pointers to unique ids
-    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextMap, entityMap,
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextIdMap, entityMap,
                                    startTime, endTime, otherMetaData)
 
     val uniModel:PropMap = new PropMap      // combine models into one
@@ -96,7 +100,7 @@ class FriesOutput extends JsonOutputter {
     val assemblyModel:PropMap = new PropMap
     addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
 
-    val contextMap = new CtxIDed
+    val contextIdMap = new CtxIDed
 
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
                                      startTime, endTime, otherMetaData)
@@ -107,7 +111,7 @@ class FriesOutput extends JsonOutputter {
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
-    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextMap, entityMap,
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextIdMap, entityMap,
                                    startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
@@ -196,7 +200,7 @@ class FriesOutput extends JsonOutputter {
   private def eventsToModel (paperId:String,
                              allMentions:Seq[Mention],
                              paperPassages:Map[String, FriesEntry],
-                             contextMap:CtxIDed,
+                             contextIdMap:CtxIDed,
                              entityMap:IDed,
                              startTime:Date,
                              endTime:Date,
@@ -223,7 +227,7 @@ class FriesOutput extends JsonOutputter {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
-        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextMap, entityMap, eventMap)
+        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }
     }
 
@@ -233,7 +237,7 @@ class FriesOutput extends JsonOutputter {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
-        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextMap, entityMap, eventMap)
+        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }
     }
     model
@@ -242,7 +246,7 @@ class FriesOutput extends JsonOutputter {
   private def mkEventMention(paperId:String,
                              passageMeta:FriesEntry,
                              mention:BioMention,
-                             contextMap: CtxIDed,
+                             contextIdMap: CtxIDed,
                              entityMap: IDed,
                              eventMap:IDed): PropMap = {
     currEvent = mention.text
@@ -300,7 +304,7 @@ class FriesOutput extends JsonOutputter {
 
     // context features
     if (mention.hasContext())
-      f("context") = mkContext(paperId, passageMeta, mention, contextMap, entityMap, eventMap)
+      f("context") = doContext(paperId, passageMeta, mention, contextIdMap)
 
     // TODO (optional): add "index", i.e., the sentence-local number for this mention
     //                  from this component.
@@ -408,14 +412,31 @@ class FriesOutput extends JsonOutputter {
     f
   }
 
-  private def mkContext (paperId:String,
+  private def doContext (paperId:String,
                          passageMeta:FriesEntry,
                          mention:BioMention,
-                         contextMap: CtxIDed,
-                         entityMap: IDed,
-                         eventMap:IDed): ContextMap = {
-    // TODO: IMPLEMENT LATER: for now just return the context map, as is
-    return mention.context.get
+                         contextIdMap:CtxIDed): List[String] = {
+
+    val context:ContextMap = mention.context.getOrElse(new scala.collection.immutable.HashMap())
+    var ctxId: String = ""
+    val ctxIdOpt = contextIdMap.get(context) // get the context ID for the context
+    if (!ctxIdOpt.isDefined) {               // if this is a new context
+      ctxId = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
+      contextIdMap.put(context, ctxId)        // save the new context ID keyed by the context
+      mkContextFrame(paperId, passageMeta, mention, ctxId, context)
+    }
+    else
+      ctxId = ctxIdOpt.get
+
+    return List(ctxId)
+  }
+
+  private def mkContextFrame (paperId:String,
+                              passageMeta:FriesEntry,
+                              mention:BioMention,
+                              contextId:String,
+                              context:ContextMap): Unit = {
+    // TODO: IMPLEMENT LATER: generate a Context frame
   }
 
 
@@ -484,12 +505,18 @@ class FriesOutput extends JsonOutputter {
 
   private def mkPassageId(paperId:String, passageMeta:FriesEntry):String =
     s"pass-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}"
+
   private def mkSentenceId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
     s"sent-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset"
+
   private def mkEntityId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
     s"ment-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset-${entityIdCntr.genNextId()}"
+
   private def mkEventId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
     s"evem-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset-${eventIdCntr.genNextId()}"
+
+  private def mkContextId(paperId:String, passageMeta:FriesEntry, offset:Int):String =
+    s"cntx-$paperId-$ORGANIZATION-$RUN_ID-${passageMeta.chunkId}-$offset-${contextIdCntr.genNextId()}"
 
   private def mkGrounding(grounding:KBResolution):PropMap = {
     val m = new PropMap
