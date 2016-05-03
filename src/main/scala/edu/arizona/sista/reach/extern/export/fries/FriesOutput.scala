@@ -7,6 +7,7 @@ import org.json4s.native.Serialization
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.ReachConstants._
+import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.grounding.KBResolution
@@ -21,10 +22,12 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Output new isDirect event field.
+  *   Last Modified: Write stub assembly file. Begin linked context infrastructure.
   */
 class FriesOutput extends JsonOutputter {
+  // local type definitions:
   type IDed = scala.collection.mutable.HashMap[Mention, String]
+  type CtxIDed = scala.collection.mutable.HashMap[ContextMap, String]
 
   // incrementing ID for numbering entity mentions
   protected val entityIdCntr = new IncrementingId()
@@ -52,18 +55,24 @@ class FriesOutput extends JsonOutputter {
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
+    val assemblyModel:PropMap = new PropMap
+    addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
+
+    val contextMap = new CtxIDed
+
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
                                                    startTime, endTime, otherMetaData)
     // entityMap: map from entity pointers to unique ids
-    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap,
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextMap, entityMap,
                                    startTime, endTime, otherMetaData)
 
     val uniModel:PropMap = new PropMap      // combine models into one
     uniModel("sentences") = sentModel
     uniModel("entities") = entityModel
     uniModel("events") = eventModel
+    uniModel("assembly") = assemblyModel
 
     writeJsonToString(uniModel)
   }
@@ -84,6 +93,11 @@ class FriesOutput extends JsonOutputter {
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
+    val assemblyModel:PropMap = new PropMap
+    addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
+
+    val contextMap = new CtxIDed
+
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
@@ -93,9 +107,11 @@ class FriesOutput extends JsonOutputter {
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
-    val eventModel = eventsToModel(paperId, allMentions, passageMap, entityMap,
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextMap, entityMap,
                                    startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
+
+    writeJsonToFile(assemblyModel, new File(outFilePrefix + ".uaz.assembly.json"))
   }
 
 
@@ -149,8 +165,8 @@ class FriesOutput extends JsonOutputter {
                                allMentions:Seq[Mention],
                                paperPassages:Map[String, FriesEntry],
                                startTime:Date,
-                                endTime:Date,
-                                otherMetaData:Map[String, String]): (PropMap, IDed) = {
+                               endTime:Date,
+                               otherMetaData:Map[String, String]): (PropMap, IDed) = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
     val entityMap = new IDed
@@ -180,6 +196,7 @@ class FriesOutput extends JsonOutputter {
   private def eventsToModel (paperId:String,
                              allMentions:Seq[Mention],
                              paperPassages:Map[String, FriesEntry],
+                             contextMap:CtxIDed,
                              entityMap:IDed,
                              startTime:Date,
                              endTime:Date,
@@ -206,7 +223,7 @@ class FriesOutput extends JsonOutputter {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
-        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
+        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextMap, entityMap, eventMap)
       }
     }
 
@@ -216,7 +233,7 @@ class FriesOutput extends JsonOutputter {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
-        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, entityMap, eventMap)
+        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextMap, entityMap, eventMap)
       }
     }
     model
@@ -225,6 +242,7 @@ class FriesOutput extends JsonOutputter {
   private def mkEventMention(paperId:String,
                              passageMeta:FriesEntry,
                              mention:BioMention,
+                             contextMap: CtxIDed,
                              entityMap: IDed,
                              eventMap:IDed): PropMap = {
     currEvent = mention.text
@@ -281,10 +299,11 @@ class FriesOutput extends JsonOutputter {
       f("is-hypothesis") = true
 
     // context features
-    if (mention.context.exists(! _.isEmpty))
-      f("context") = mention.context.get
+    if (mention.hasContext())
+      f("context") = mkContext(paperId, passageMeta, mention, contextMap, entityMap, eventMap)
 
-    // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
+    // TODO (optional): add "index", i.e., the sentence-local number for this mention
+    //                  from this component.
     f
   }
 
@@ -388,6 +407,17 @@ class FriesOutput extends JsonOutputter {
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
   }
+
+  private def mkContext (paperId:String,
+                         passageMeta:FriesEntry,
+                         mention:BioMention,
+                         contextMap: CtxIDed,
+                         entityMap: IDed,
+                         eventMap:IDed): ContextMap = {
+    // TODO: IMPLEMENT LATER: for now just return the context map, as is
+    return mention.context.get
+  }
+
 
   private def mkPTM(ptm:PTM):PropMap = {
     val m = new PropMap
