@@ -33,8 +33,9 @@ object FeatureExtractor {
   def mkFeatures(e1: Mention, e2: Mention): Seq[String] = {
     // get basic features for each event
     var features = Seq.empty[String]
-    val basicE1 = addFeaturePrefix("e1", mkBasicFeatures(e1))
-    val basicE2 = addFeaturePrefix("e2", mkBasicFeatures(e2))
+    // NOTE: in order to find shared args b/w the two mentions, replaceEntitiesWithLabel needs e2
+    val basicE1 = addFeaturePrefix("e1", mkBasicFeatures(e1, Seq(e2)))
+    val basicE2 = addFeaturePrefix("e2", mkBasicFeatures(e2, Seq(e2)))
     features ++= (basicE1 ++ basicE2)
     // get pair of labels
     features ++= getLabelPair(e1, e2)
@@ -87,10 +88,11 @@ object FeatureExtractor {
 
   /**
    * Features used to represent all mentions
+   * @param support a sequence of related mentions used to find shared arguments
    */
-  def mkBasicFeatures(m: Mention): Seq[String] = {
+  def mkBasicFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
 
-    val ents2Label = replaceEntitiesWithLabel(m)
+    val ents2Label = replaceEntitiesWithLabel(m, support)
     val args2Role = replaceArgsWithRole(m)
     // syntactic features
     getDependencyRelations(m) ++
@@ -109,7 +111,7 @@ object FeatureExtractor {
       //Seq(s"args2role: ${args2Role.mkString(" ")}") ++
       // get coref features
       // TODO: replace basic with these?
-      getCorefFeatures(m)
+      getCorefFeatures(m, support)
   }
 
   def ngrams(toks: Seq[String], n: Int): Seq[String] = n match {
@@ -216,27 +218,38 @@ object FeatureExtractor {
    * Replaces entities in a mention with their label <br>
    * Array(the, Ras, protein, phosphorylates, Mek-32, at, 123) => <br>
    * Vector(FAMILY, protein, phosphorylates, GENE_OR_GENE_PRODUCT)
+   * @param support a sequence of related mentions used to find shared arguments
    */
-  def replaceEntitiesWithLabel(m: Mention): Seq[String] = {
+  def replaceEntitiesWithLabel(e1: Mention, support: Seq[Mention]): Seq[String] = {
 
-    val entities = findEntities(m)
+    val SHARED = "SHARED"
+    val entities = findEntities(e1)
     // get final tokens of each entity
-    val end2label: Map[Int, String] = {
+    val end2entity: Map[Int, Mention] = {
       val pairs = for {
-        entity <- findEntities(m)
-      } yield (entity.end - 1, entity.label)
+        entity <- findEntities(e1)
+      } yield (entity.end - 1, entity)
       pairs.toMap
     }
-    val toks = m.sentenceObj.words
+    // find the entities for each Mention in support
+    val supportEntities: Seq[Mention] =
+      support.foldLeft(Seq.empty[Mention])((mns, e) => mns ++ findEntities(e))
+    val supportManager = AssemblyManager(supportEntities)
+    val toks = e1.sentenceObj.words
     // check each index in the sentence
     val processed = for {
-      i <- 0 until m.sentenceObj.size
+      i <- 0 until e1.sentenceObj.size
       // does the index overlap with the mention?
-      if m.tokenInterval contains i
+      if e1.tokenInterval contains i
     } yield {
         i match {
           // if this is the final token in an entity, emit the entity's role
-          case end if end2label contains end => end2label(end).toUpperCase
+          case end if end2entity contains end =>
+            // check if equiv to one of e2's entities
+            val entity = end2entity(i)
+            val eer = AssemblyManager(Seq(entity)).getEER(entity)
+            val sharedArgs = supportManager.getEquivalentEERs(eer.equivalenceHash)
+            if (sharedArgs.nonEmpty) SHARED else end2entity(end).label.toUpperCase
           // fall-through. emit the word if it isn't part of an entity
           case w if ! entities.exists(_.tokenInterval.contains(i)) => toks(w)
           // emit nothing
@@ -272,16 +285,28 @@ object FeatureExtractor {
 
   // make coref features
   // TODO: coref feature on args (has resolution?, etc)
-  def getCorefFeatures(m: Mention): Seq[String] = {
+  def getCorefFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
     hasResolution(m) match {
       case false => Seq(s"resolved: false")
       case true => {
         val resolvedForm = AssemblyManager.getResolvedForm(m)
-        var anteFeats = mkBasicFeatures(resolvedForm)
-        anteFeats = addFeaturePrefix("antecedent-basic", anteFeats)
-        anteFeats ++ locationOfAntecedent(m) ++ Seq(s"resolved: true")
+        // get basic features of antecedent
+        var anteFeats: Seq[String] = addFeaturePrefix("antecedent-basic", mkBasicFeatures(resolvedForm, support))
+        anteFeats ++= locationOfAntecedent(m) ++ Seq(s"resolved: true")
+        // check if each has a resolved form
+        anteFeats ++= checkArgumentsForResolutions(m)
+        anteFeats
       }
     }
+  }
+
+  // Check each arg role to see if it is resolved
+  def checkArgumentsForResolutions(m: Mention): Seq[String] = {
+    for {
+      (role: String, args: Seq[Mention]) <- m.arguments.toSeq
+      // does any of the mentions for this arg have a resolution?
+      isResolved = args.exists(a => AssemblyManager.involvesCoreference(a))
+    } yield s"${role.toUpperCase} hasResolution? $isResolved"
   }
 
   // is the antecedent in a previous sentence, the same sentence, or a later sentence?
