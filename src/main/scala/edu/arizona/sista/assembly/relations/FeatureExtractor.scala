@@ -33,8 +33,9 @@ object FeatureExtractor {
   def mkFeatures(e1: Mention, e2: Mention): Seq[String] = {
     // get basic features for each event
     var features = Seq.empty[String]
-    val basicE1 = addFeaturePrefix("e1", mkBasicFeatures(e1))
-    val basicE2 = addFeaturePrefix("e2", mkBasicFeatures(e2))
+    // NOTE: in order to find shared args b/w the two mentions, replaceEntitiesWithLabel needs e2
+    val basicE1 = addFeaturePrefix("e1", mkBasicFeatures(e1, Seq(e2)))
+    val basicE2 = addFeaturePrefix("e2", mkBasicFeatures(e2, Seq(e2)))
     features ++= (basicE1 ++ basicE2)
     // get pair of labels
     features ++= getLabelPair(e1, e2)
@@ -68,32 +69,81 @@ object FeatureExtractor {
     require(e1.sentence == e2.sentence && e1.document == e2.document, "Mentions passed to mkSameSentenceFeatures should come from the same sentence!")
     var features = Seq.empty[String]
     // get verbs in path
-    for {
-      v <- getVerbsInPath(e1, e2)
-      verb: String = s"verb in path: $v"
-    } {
-      features ++= Seq(verb)
-    }
+    features ++= addFeaturePrefix("verb-in-path", getVerbsInPath(e1, e2))
     // get shortest paths
-    for {
-      p <- getShortestPaths(e1, e2)
-      if p.nonEmpty
-      path = s"shortest path: $p"
-    } {
-      features ++= Seq(path)
-    }
+    features ++= addFeaturePrefix("shortest-path", getShortestPathVariants(e1, e2))
+    // get paths from trigger to trigger
+    features ++= addFeaturePrefix("trigger-to-trigger-path", getTriggerToTriggerPath(e1, e2))
     features
   }
 
   /**
-   * Features used to represent all mentions
+   * Generate variations of trigger -> arg syntactic paths
+   * @param m
+   * @return
    */
-  def mkBasicFeatures(m: Mention): Seq[String] = {
+  def getTriggerArgPaths(m: Mention): Seq[String] = {
+    val trigger = CorpusReader.findTrigger(m)
+    val paths = for {
+      // for each role
+      (role, args) <- m.arguments.toSeq
+      // for each arg belonging to a role
+      a <- args
+      // with or without lemmas
+      useLemmas <- Seq(true, false)
+      p <- getShortestPaths(trigger, a, withLemmas = useLemmas)
+      if p.nonEmpty
+      // consider multiple trigger representations
+      lemmatizedTrigger = s"lemmatizedTrigger=${trigger.lemmas.get.mkString(" ")}"
+      t <- Seq(trigger.text, s"${trigger.text}:${m.label}", lemmatizedTrigger, s"$lemmatizedTrigger:${m.label}", s"${m.label}")
+      // consider multiple arg representations
+      argRepresentation <- Seq(a.label, role, s"$role:${a.label}")
+      path = s"$t $p $argRepresentation"
+    } yield path
+    paths.distinct
+  }
 
-    val ents2Label = replaceEntitiesWithLabel(m)
+  /**
+   * Get paths from e1 to e2 <br>
+   */
+  def getShortestPathVariants(e1: Mention, e2: Mention): Seq[String] = {
+    val paths = for {
+      useLemmas <- Seq(true, false)
+      p <- getShortestPaths(e1, e2, withLemmas = useLemmas)
+      if p.nonEmpty
+    } yield p
+    paths.distinct
+  }
+
+  /**
+   * Get paths from trigger to trigger <br>
+   * (ex. e1:phosphorylation:Phosphorylation rcmod e2:decreases:Positive_Regulation)
+   */
+  def getTriggerToTriggerPath(e1: Mention, e2: Mention): Seq[String] = {
+    val t1 = CorpusReader.findTrigger(e1)
+    val t2 = CorpusReader.findTrigger(e2)
+    val paths = for {
+      useLemmas <- Seq(true, false)
+      p <- getShortestPaths(t1, t2, withLemmas = useLemmas)
+      if p.nonEmpty
+      t1Label = s"${t1.text}:${e1.label}"
+      t2Label = s"${t2.text}:${e2.label}"
+    } yield s"e1:$t1Label $p e2:$t2Label"
+    paths.distinct
+  }
+
+  /**
+   * Features used to represent all mentions
+   * @param support a sequence of related mentions used to find shared arguments
+   */
+  def mkBasicFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
+
+    val ents2Label = replaceEntitiesWithLabel(m, support)
     val args2Role = replaceArgsWithRole(m)
     // syntactic features
     getDependencyRelations(m) ++
+      // get syntactic paths from trigger to each arg
+      getTriggerArgPaths(m) ++
       // number of args of each type
       //getArgStats(m) ++
       // get event trigger
@@ -101,15 +151,15 @@ object FeatureExtractor {
       // most-specific label + all labels
       getLabelFeatures(m) ++
       // get tokens in mention, but replace entities with their labels (MEK -> Protein)
-      addFeaturePrefix("ents2Label mention ngram", ngrams(ents2Label, 1, 3)) ++
+      addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3)) ++
       // use normalized mention span as single feature
       //Seq(s"ents2Label: ${ents2Label.mkString(" ")}") ++
       // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
-      addFeaturePrefix("args2Role mention ngram", ngrams(args2Role, 1, 3)) ++
+      addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3)) ++
       //Seq(s"args2role: ${args2Role.mkString(" ")}") ++
       // get coref features
       // TODO: replace basic with these?
-      getCorefFeatures(m)
+      getCorefFeatures(m, support)
   }
 
   def ngrams(toks: Seq[String], n: Int): Seq[String] = n match {
@@ -186,7 +236,6 @@ object FeatureExtractor {
       i <- 0 until m.sentenceObj.size
       // does the index overlap with the mention?
       if m.tokenInterval contains i
-    //_ = println(s"$i in mention")
     } yield {
         i match {
           // if this is the final token in an arg, emit the arg's role
@@ -216,27 +265,38 @@ object FeatureExtractor {
    * Replaces entities in a mention with their label <br>
    * Array(the, Ras, protein, phosphorylates, Mek-32, at, 123) => <br>
    * Vector(FAMILY, protein, phosphorylates, GENE_OR_GENE_PRODUCT)
+   * @param support a sequence of related mentions used to find shared arguments
    */
-  def replaceEntitiesWithLabel(m: Mention): Seq[String] = {
+  def replaceEntitiesWithLabel(e1: Mention, support: Seq[Mention]): Seq[String] = {
 
-    val entities = findEntities(m)
+    val SHARED = "SHARED"
+    val entities = findEntities(e1)
     // get final tokens of each entity
-    val end2label: Map[Int, String] = {
+    val end2entity: Map[Int, Mention] = {
       val pairs = for {
-        entity <- findEntities(m)
-      } yield (entity.end - 1, entity.label)
+        entity <- findEntities(e1)
+      } yield (entity.end - 1, entity)
       pairs.toMap
     }
-    val toks = m.sentenceObj.words
+    // find the entities for each Mention in support
+    val supportEntities: Seq[Mention] =
+      support.foldLeft(Seq.empty[Mention])((mns, e) => mns ++ findEntities(e))
+    val supportManager = AssemblyManager(supportEntities)
+    val toks = e1.sentenceObj.words
     // check each index in the sentence
     val processed = for {
-      i <- 0 until m.sentenceObj.size
+      i <- 0 until e1.sentenceObj.size
       // does the index overlap with the mention?
-      if m.tokenInterval contains i
+      if e1.tokenInterval contains i
     } yield {
         i match {
           // if this is the final token in an entity, emit the entity's role
-          case end if end2label contains end => end2label(end).toUpperCase
+          case end if end2entity contains end =>
+            // check if equiv to one of e2's entities
+            val entity = end2entity(i)
+            val eer = AssemblyManager(Seq(entity)).getEER(entity)
+            val sharedArgs = supportManager.getEquivalentEERs(eer.equivalenceHash)
+            if (sharedArgs.nonEmpty) SHARED else end2entity(end).label.toUpperCase
           // fall-through. emit the word if it isn't part of an entity
           case w if ! entities.exists(_.tokenInterval.contains(i)) => toks(w)
           // emit nothing
@@ -272,16 +332,28 @@ object FeatureExtractor {
 
   // make coref features
   // TODO: coref feature on args (has resolution?, etc)
-  def getCorefFeatures(m: Mention): Seq[String] = {
+  def getCorefFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
     hasResolution(m) match {
       case false => Seq(s"resolved: false")
       case true => {
         val resolvedForm = AssemblyManager.getResolvedForm(m)
-        var anteFeats = mkBasicFeatures(resolvedForm)
-        anteFeats = addFeaturePrefix("antecedent-basic", anteFeats)
-        anteFeats ++ locationOfAntecedent(m) ++ Seq(s"resolved: true")
+        // get basic features of antecedent
+        var anteFeats: Seq[String] = addFeaturePrefix("antecedent-basic", mkBasicFeatures(resolvedForm, support))
+        anteFeats ++= locationOfAntecedent(m) ++ Seq(s"resolved: true")
+        // check if each has a resolved form
+        anteFeats ++= checkArgumentsForResolutions(m)
+        anteFeats
       }
     }
+  }
+
+  // Check each arg role to see if it is resolved
+  def checkArgumentsForResolutions(m: Mention): Seq[String] = {
+    for {
+      (role: String, args: Seq[Mention]) <- m.arguments.toSeq
+      // does any of the mentions for this arg have a resolution?
+      isResolved = args.exists(a => AssemblyManager.involvesCoreference(a))
+    } yield s"${role.toUpperCase} hasResolution? $isResolved"
   }
 
   // is the antecedent in a previous sentence, the same sentence, or a later sentence?
@@ -342,7 +414,7 @@ object FeatureExtractor {
 
     for {
       p <- getShortestPaths(rootMention, trigger)
-      path = (Seq("ROOT") ++ p).mkString(" ")
+      path = (Seq("ROOT") :+ p).mkString(" ")
     } yield path
   }
 
