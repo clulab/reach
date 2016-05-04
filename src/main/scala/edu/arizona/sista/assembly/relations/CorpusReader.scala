@@ -11,6 +11,7 @@ import scala.annotation.tailrec
 case class PrecedenceAnnotation(
   id: Int,
   text: String,
+  coref: Boolean,
   // event 1
   `e1-label`: String,
   `e1-sentence`: String,
@@ -43,6 +44,7 @@ case class PrecedenceAnnotation(
   def copy(
     annotationID: Int = id,
     annoText: String = text,
+    involvesCoref: Boolean = coref,
     // event 1
     e1Label: String = `e1-label`,
     e1Sentence: String = `e1-sentence`,
@@ -74,6 +76,7 @@ case class PrecedenceAnnotation(
     PrecedenceAnnotation(
       annotationID,
       annoText,
+      involvesCoref,
       // event 1
       e1Label,
       e1Sentence,
