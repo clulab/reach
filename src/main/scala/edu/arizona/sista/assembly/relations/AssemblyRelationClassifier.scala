@@ -43,7 +43,13 @@ object AssemblyRelationClassifier {
     case "lr-l1" => new L1LogisticRegressionClassifier[String, String]
     case "lin-svm-l2" => new LinearSVMClassifier[String, String]
     case "lin-svm-l1" => new L1LinearSVMClassifier[String, String]
-    case "rf" => new RFClassifier[String, String]
+    case "rf" =>
+      def featuresPerNode(total:Int):Int = (total.toDouble * 0.66 ).toInt
+      new RFClassifier[String, String](
+        numTrees = 10,
+        maxTreeDepth = 100,
+        howManyFeaturesPerNode = featuresPerNode
+      )
     case other => new LogisticRegressionClassifier[String, String]
   }
 
