@@ -225,11 +225,13 @@ object RunAnnotationEval extends App {
     val tp = predicted.count(p => posGold exists(g => g.isEquivalentTo(p)))
     val fp = predicted.count(p => ! posGold.exists(g => g.isEquivalentTo(p)))
     val fn = posGold.count(g => ! predicted.exists(p => p.isEquivalentTo(g)))
-    //val tn = precedenceAnnotations.count(_.relation == NEG)
+
+    // micro performance
     val p = tp / (tp + fp + smoothing)
     val r = tp / (tp + fn + smoothing)
-    val f1 = (2 * tp) / (2 * tp + fp + fn + smoothing)
+    val f1 = (2 * p * r) / (p + r + smoothing)
 
+    // for the whole sieve
     val sievePerformance = Performance(lbl, "**ALL**", p, r, f1, tp, fp, fn)
 
     val rulePerformance: Seq[Performance] = {
@@ -256,10 +258,12 @@ object RunAnnotationEval extends App {
         val fp = allRfp.getOrElse(foundBy, 0)
         val fn = allRfn.getOrElse(foundBy, 0)
 
-        //val tn = precedenceAnnotations.count(_.relation == NEG)
+        // micro performance
         val p = tp / (tp + fp + smoothing)
         val r = tp / (tp + fn + smoothing)
-        val f1 = (2 * tp) / (2 * tp + fp + fn + smoothing)
+        val f1 = (2 * p * r) / (p + r + smoothing)
+
+        // for the rule
         Performance (foundBy._1, foundBy._2, p, r, f1, tp, fp, fn)
       }
       rp.toSeq
