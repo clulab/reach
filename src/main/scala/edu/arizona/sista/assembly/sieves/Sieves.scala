@@ -160,11 +160,20 @@ class Sieves(mentions: Seq[Mention]) {
     * @param manager  an AssemblyManager
     * @return an AssemblyManager
     */
-  def intersententialPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+  def betweenRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    // If the full Event is nested within another mention, pull it out
+    def correctScope(m: Mention): Mention = {
+      m match {
+        // arguments will have at most one "event" argument
+        case nested if nested.arguments contains "event" => nested.arguments("event").head
+        case flat => flat
+      }
+    }
 
     val p = "/edu/arizona/sista/assembly/grammars/intersentential.yml"
 
-    val name = "intersententialPrecedence"
+    val name = "betweenRbPrecedence"
     // find rule-based inter-sentence PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
@@ -173,10 +182,11 @@ class Sieves(mentions: Seq[Mention]) {
       (before, after) = rel.label match {
         case "InterAfter" => (Seq(other), rel.arguments("after"))
         case "InterBefore" => (rel.arguments("before"), Seq(other))
+        case _ => (Nil, Nil)
       }
       if before.nonEmpty && after.nonEmpty
-      b = before.head
-      a = after.head
+      b = correctScope(before.head)
+      a = correctScope(after.head)
 
       if isValidRelationPair(a, b) && noExistingPrecedence(a, b, manager)
     } {

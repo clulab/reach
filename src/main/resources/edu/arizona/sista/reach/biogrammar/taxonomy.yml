@@ -78,11 +78,15 @@
   # for pairs that are indirectly (not immediately) connected
   - IndirectConnection
   # Between-sentence precedence
-  - InterAfter
-  - InterBefore
+  - BetweenSentence:
+    - TimexAfter
+    - TimexBefore
+    - SentenceInitialEvent
+    - InterAfter
+    - InterBefore
   # tense and aspect detection
-  - Aux
   - TAM:
+    - Aux
     - Tense:
       - PastTense
       - PresentTense
