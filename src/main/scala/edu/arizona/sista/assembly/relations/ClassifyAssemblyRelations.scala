@@ -11,7 +11,11 @@ import org.apache.commons.io.{FileUtils, FilenameUtils}
 object Evaluator {
 
   def crossValidate(dataset: RVFDataset[String, String], clfType: String): Seq[(String, String)] = {
-    Datasets.crossValidate[String, String](dataset, () => AssemblyRelationClassifier.getModel(clfType)).toSeq
+    Datasets.crossValidate[String, String](
+      dataset,
+      () => AssemblyRelationClassifier.getModel(clfType),
+      numFolds = 20
+    ).toSeq
   }
 
   def calculateAccuracy(scores: Seq[(String, String)]): Float = {
@@ -85,7 +89,7 @@ object TrainAssemblyRelationClassifier extends App {
   // evaluate
   // get cross validation accuracy
   println(s"Running cross validation . . .")
-  val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1", "rf")
+  val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1")//, "rf")
   for {
     model <- models
   } {
