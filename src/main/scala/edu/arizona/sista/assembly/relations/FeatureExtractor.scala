@@ -69,21 +69,67 @@ object FeatureExtractor {
     require(e1.sentence == e2.sentence && e1.document == e2.document, "Mentions passed to mkSameSentenceFeatures should come from the same sentence!")
     var features = Seq.empty[String]
     // get verbs in path
-    for {
-      v <- getVerbsInPath(e1, e2)
-      verb: String = s"verb in path: $v"
-    } {
-      features ++= Seq(verb)
-    }
+    features ++= addFeaturePrefix("verb-in-path", getVerbsInPath(e1, e2))
     // get shortest paths
-    for {
-      p <- getShortestPaths(e1, e2)
-      if p.nonEmpty
-      path = s"shortest path: $p"
-    } {
-      features ++= Seq(path)
-    }
+    features ++= addFeaturePrefix("shortest-path", getShortestPathVariants(e1, e2))
+    // get paths from trigger to trigger
+    features ++= addFeaturePrefix("trigger-to-trigger-path", getTriggerToTriggerPath(e1, e2))
     features
+  }
+
+  /**
+   * Generate variations of trigger -> arg syntactic paths
+   * @param m
+   * @return
+   */
+  def getTriggerArgPaths(m: Mention): Seq[String] = {
+    val trigger = CorpusReader.findTrigger(m)
+    val paths = for {
+      // for each role
+      (role, args) <- m.arguments.toSeq
+      // for each arg belonging to a role
+      a <- args
+      // with or without lemmas
+      useLemmas <- Seq(true, false)
+      p <- getShortestPaths(trigger, a, withLemmas = useLemmas)
+      if p.nonEmpty
+      // consider multiple trigger representations
+      lemmatizedTrigger = s"lemmatizedTrigger=${trigger.lemmas.get.mkString(" ")}"
+      t <- Seq(trigger.text, s"${trigger.text}:${m.label}", lemmatizedTrigger, s"$lemmatizedTrigger:${m.label}", s"${m.label}")
+      // consider multiple arg representations
+      argRepresentation <- Seq(a.label, role, s"$role:${a.label}")
+      path = s"$t $p $argRepresentation"
+    } yield path
+    paths.distinct
+  }
+
+  /**
+   * Get paths from e1 to e2 <br>
+   */
+  def getShortestPathVariants(e1: Mention, e2: Mention): Seq[String] = {
+    val paths = for {
+      useLemmas <- Seq(true, false)
+      p <- getShortestPaths(e1, e2, withLemmas = useLemmas)
+      if p.nonEmpty
+    } yield p
+    paths.distinct
+  }
+
+  /**
+   * Get paths from trigger to trigger <br>
+   * (ex. e1:phosphorylation:Phosphorylation rcmod e2:decreases:Positive_Regulation)
+   */
+  def getTriggerToTriggerPath(e1: Mention, e2: Mention): Seq[String] = {
+    val t1 = CorpusReader.findTrigger(e1)
+    val t2 = CorpusReader.findTrigger(e2)
+    val paths = for {
+      useLemmas <- Seq(true, false)
+      p <- getShortestPaths(t1, t2, withLemmas = useLemmas)
+      if p.nonEmpty
+      t1Label = s"${t1.text}:${e1.label}"
+      t2Label = s"${t2.text}:${e2.label}"
+    } yield s"e1:$t1Label $p e2:$t2Label"
+    paths.distinct
   }
 
   /**
@@ -96,6 +142,8 @@ object FeatureExtractor {
     val args2Role = replaceArgsWithRole(m)
     // syntactic features
     getDependencyRelations(m) ++
+      // get syntactic paths from trigger to each arg
+      getTriggerArgPaths(m) ++
       // number of args of each type
       //getArgStats(m) ++
       // get event trigger
@@ -103,11 +151,11 @@ object FeatureExtractor {
       // most-specific label + all labels
       getLabelFeatures(m) ++
       // get tokens in mention, but replace entities with their labels (MEK -> Protein)
-      addFeaturePrefix("ents2Label mention ngram", ngrams(ents2Label, 1, 3)) ++
+      addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3)) ++
       // use normalized mention span as single feature
       //Seq(s"ents2Label: ${ents2Label.mkString(" ")}") ++
       // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
-      addFeaturePrefix("args2Role mention ngram", ngrams(args2Role, 1, 3)) ++
+      addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3)) ++
       //Seq(s"args2role: ${args2Role.mkString(" ")}") ++
       // get coref features
       // TODO: replace basic with these?
@@ -188,7 +236,6 @@ object FeatureExtractor {
       i <- 0 until m.sentenceObj.size
       // does the index overlap with the mention?
       if m.tokenInterval contains i
-    //_ = println(s"$i in mention")
     } yield {
         i match {
           // if this is the final token in an arg, emit the arg's role
@@ -367,7 +414,7 @@ object FeatureExtractor {
 
     for {
       p <- getShortestPaths(rootMention, trigger)
-      path = (Seq("ROOT") ++ p).mkString(" ")
+      path = (Seq("ROOT") :+ p).mkString(" ")
     } yield path
   }
 
