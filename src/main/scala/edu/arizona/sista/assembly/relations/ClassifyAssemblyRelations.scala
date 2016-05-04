@@ -5,13 +5,13 @@ import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.assembly.relations.CorpusReader._
 import edu.arizona.sista.learning.Datasets
 import edu.arizona.sista.learning.RVFDataset
-import org.apache.commons.io.FileUtils
+import org.apache.commons.io.{FileUtils, FilenameUtils}
 
 
 object Evaluator {
 
-  def crossValidate(dataset: RVFDataset[String, String]): Seq[(String, String)] = {
-    Datasets.crossValidate[String, String](dataset, () => AssemblyRelationClassifier.getModel("lr")).toSeq
+  def crossValidate(dataset: RVFDataset[String, String], clfType: String): Seq[(String, String)] = {
+    Datasets.crossValidate[String, String](dataset, () => AssemblyRelationClassifier.getModel(clfType)).toSeq
   }
 
   def calculateAccuracy(scores: Seq[(String, String)]): Float = {
@@ -46,7 +46,7 @@ object ClassifyAssemblyRelations extends App {
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
   val pcf = AssemblyRelationClassifier.train(precedenceDataset)
   // get cross validation accuracy
-  val scores = Evaluator.crossValidate(precedenceDataset)
+  val scores = Evaluator.crossValidate(precedenceDataset, "lr-l2")
   val accuracy = Evaluator.calculateAccuracy(scores.toSeq)
   println(f"Precedence relation accuracy (using ${pcf.classifierType} with 5-fold cross validation):\t$accuracy%1.3f")
 
@@ -85,9 +85,15 @@ object TrainAssemblyRelationClassifier extends App {
   // evaluate
   // get cross validation accuracy
   println(s"Running cross validation . . .")
-  val scores = Evaluator.crossValidate(precedenceDataset)
-  val accuracy = Evaluator.calculateAccuracy(scores)
-  println(f"Accuracy: $accuracy%1.5f")
-  println(s"Writing results to $results . . .")
-  Evaluator.writeScoresToTSV(scores, results)
+  val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1", "rf")
+  for {
+    model <- models
+  } {
+    val scores = Evaluator.crossValidate(precedenceDataset, model)
+    val accuracy = Evaluator.calculateAccuracy(scores)
+    val outFile = s"${FilenameUtils.removeExtension(results)}-$model.${FilenameUtils.getExtension(results)}"
+    println(f"Accuracy: $accuracy%1.5f")
+    println(s"Writing results to $outFile . . .")
+    Evaluator.writeScoresToTSV(scores, outFile)
+  }
 }

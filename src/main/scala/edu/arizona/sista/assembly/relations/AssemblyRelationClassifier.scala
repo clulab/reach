@@ -39,15 +39,18 @@ object AssemblyRelationClassifier {
 
   // convenience map for plugging in different classifiers
   def getModel(txt: String): Classifier[String, String] = txt match {
-    case "lr" => new LogisticRegressionClassifier[String, String]
-    case "lin-svm" => new LinearSVMClassifier[String, String]
+    case "lr-l2" => new LogisticRegressionClassifier[String, String]
+    case "lr-l1" => new L1LogisticRegressionClassifier[String, String]
+    case "lin-svm-l2" => new LinearSVMClassifier[String, String]
+    case "lin-svm-l1" => new L1LinearSVMClassifier[String, String]
+    case "rf" => new RFClassifier[String, String]
     case other => new LogisticRegressionClassifier[String, String]
   }
 
   /** Takes an RVFDataset and a Classifier[String, String] */
   def train(
     dataset: RVFDataset[String, String],
-    clf: Classifier[String, String] = getModel("lin-svm")
+    clf: Classifier[String, String] = getModel("lin-svm-l2")
   ): AssemblyRelationClassifier = {
     // val clf = new LogisticRegressionClassifier[String, String]
     clf.train(dataset)
