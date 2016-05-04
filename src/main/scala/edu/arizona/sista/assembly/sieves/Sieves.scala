@@ -31,17 +31,17 @@ class Sieves(mentions: Seq[Mention]) {
   }
 
   /**
-    * Rule-based method for detecting precedence relations
+    * Rule-based method for detecting precedence relations within sentences
     *
     * @param mentions a sequence of Odin Mentions
     * @param manager  an AssemblyManager
     * @return an AssemblyManager
     */
-  def ruleBasedPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+  def withinRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     val p = "/edu/arizona/sista/assembly/grammars/precedence.yml"
 
-    val name = "ruleBasedPrecedence"
+    val name = "withinRbPrecedence"
     // find rule-based PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
@@ -206,14 +206,14 @@ class Sieves(mentions: Seq[Mention]) {
  */
 object SieveUtils {
 
-
   // the label used to identify Mentions modelling precedence relations
   val precedenceMentionLabel = "Precedence"
 
   /**
    * Applies a set of assembly rules to provide mentions (existingMentions).
    * Care is taken to apply the rules to each set of mentions from the same Document.
-   * @param rulesPath a path to a rule file (under resources)
+    *
+    * @param rulesPath a path to a rule file (under resources)
    * @param existingMentions a Seq of Odin Mentions
    * @return a Seq of RelationMentions
    */
@@ -248,6 +248,7 @@ object SieveUtils {
 
   /**
     * Returns true if the mention is an Event and therefore a candidate for precedence
+    *
     * @param m an Odin Mention
     * @return a Boolean
     */

@@ -6,7 +6,10 @@ import edu.arizona.sista.assembly.sieves.{AssemblySieve, Sieves}
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
+import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.utils.Serializer
+
+import scala.reflect.io.File
 
 
 /**
@@ -27,9 +30,9 @@ object AssemblyRunner {
     // track relevant mentions
       AssemblySieve(sieves.trackMentions) andThen
         // find precedence relations using rules
-        AssemblySieve(sieves.ruleBasedPrecedence) andThen
-        AssemblySieve(sieves.tamPrecedence) andThen
-        AssemblySieve(sieves.intersententialPrecedence)
+        AssemblySieve(sieves.withinRbPrecedence) andThen
+        AssemblySieve(sieves.reichenbachPrecedence) andThen
+        AssemblySieve(sieves.betweenRbPrecedence)
 
     // apply the sieves and return the manager
     val am: AssemblyManager = orderedSieves.apply(mentions)
@@ -48,9 +51,9 @@ object AssemblyRunner {
     val sieves = new Sieves(mentions)
 
     val availableSieves = Map(
-      "ruleBasedPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.ruleBasedPrecedence)),
-      "tamPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.tamPrecedence)),
-      "intersententialPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.intersententialPrecedence))
+      "withinRbPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.withinRbPrecedence)),
+      "reichenbachPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.reichenbachPrecedence)),
+      "betweenRbPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.betweenRbPrecedence))
     )
 
     val ams = for {
