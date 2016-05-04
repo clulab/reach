@@ -72,8 +72,12 @@ object FeatureExtractor {
     features ++= addFeaturePrefix("verb-in-path", getVerbsInPath(e1, e2))
     // get shortest paths
     features ++= addFeaturePrefix("shortest-path", getShortestPathVariants(e1, e2))
+    // get shortest path distances
+    features ++= getShortestPathDistances(e1, e2)
     // get paths from trigger to trigger
     features ++= addFeaturePrefix("trigger-to-trigger-path", getTriggerToTriggerPath(e1, e2))
+    // get distances from trigger to trigger
+    features ++= getTriggerToTriggerPathDistances(e1, e2)
     features
   }
 
@@ -86,7 +90,7 @@ object FeatureExtractor {
     val trigger = CorpusReader.findTrigger(m)
     val paths = for {
       // for each role
-      (role, args) <- m.arguments.toSeq
+      (role, args) <- m.arguments
       // for each arg belonging to a role
       a <- args
       // with or without lemmas
@@ -100,7 +104,21 @@ object FeatureExtractor {
       argRepresentation <- Seq(a.label, role, s"$role:${a.label}")
       path = s"$t $p $argRepresentation"
     } yield path
-    paths.distinct
+    paths.toSeq.distinct
+  }
+
+  def getTriggerArgPathDistances(m: Mention): Seq[String] = {
+    val trigger = CorpusReader.findTrigger(m)
+    val distances = for {
+    // for each role
+      (role, args) <- m.arguments.toSeq
+      // for each arg belonging to a role
+      a <- args
+      p <- getShortestPaths(trigger, a)
+      if p.nonEmpty
+      dist = p.split(" ").size
+    } yield s"${role.toUpperCase}: $dist"
+    distances.distinct
   }
 
   /**
@@ -115,6 +133,14 @@ object FeatureExtractor {
     paths.distinct
   }
 
+  def getShortestPathDistances(e1: Mention, e2: Mention): Seq[String] = {
+    val distances = for {
+      p <- getShortestPaths(e1, e2)
+      if p.nonEmpty
+      dist = p.split(" ").size
+    } yield s"sortest-path-dist: $dist"
+    distances.distinct
+  }
   /**
    * Get paths from trigger to trigger <br>
    * (ex. e1:phosphorylation:Phosphorylation rcmod e2:decreases:Positive_Regulation)
