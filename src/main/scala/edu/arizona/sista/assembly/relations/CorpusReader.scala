@@ -113,7 +113,7 @@ object CorpusReader {
   val subsumptionRelations = Set("E1 subsumes E2", "E2 subsumes E1")
   val equivalenceRelations = Set("Equivalent")
   val noRelations = Set("None")
-  val rs = PaperReader.rs
+  lazy val rs = PaperReader.rs
 
   // needed for .extract
   implicit val formats = DefaultFormats
