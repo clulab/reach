@@ -1,14 +1,17 @@
 package edu.arizona.sista.assembly.sieves
 
 import edu.arizona.sista.assembly.AssemblyManager
+import edu.arizona.sista.assembly.relations.CorpusReader
 import edu.arizona.sista.assembly.representations.{Complex, Event, SimpleEntity}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.RuleReader
 import edu.arizona.sista.reach.display._
+import org.apache.commons.lang.mutable.Mutable
 
 /**
  * Contains all sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
- * @param mentions a Seq of Odin Mentions
+  *
+  * @param mentions a Seq of Odin Mentions
  */
 class Sieves(mentions: Seq[Mention]) {
 
@@ -68,15 +71,19 @@ class Sieves(mentions: Seq[Mention]) {
     * @param manager  an AssemblyManager
     * @return an AssemblyManager
     */
-  def tamPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+  def reichenbachPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
-      val relevant: Set[Mention] = tams.filter(tam =>
-        (tam matches label) && (tam.tokenInterval overlaps ev.tokenInterval)).toSet
+      val relevant: Set[Mention] = tams.filter{tam =>
+        val triggerInterval = CorpusReader.findTrigger(ev).tokenInterval
+        (tam.document == ev.document) &&
+          (tam.sentence == ev.sentence) &&
+          (tam matches label) &&
+          (tam.tokenInterval overlaps triggerInterval)}.toSet
       // rules should produce at most one tense or aspect mention
       // TODO: This is debugging, so only log when debugging
       // if (relevant.size > 1 ) {
-      //   println(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")} for ${ev.text}""")
+      //   println(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")}\nEvent text:'${ev.text}'\nEvent sentence: '${ev.sentenceObj.getSentenceText}'\nTam span: ${relevant.map(_.text).mkString("'", "', '", "'")}\n=================""")
       // }
       relevant.headOption
     }
@@ -84,7 +91,7 @@ class Sieves(mentions: Seq[Mention]) {
     def tamLabel(tam: Option[Mention]): String = {
       tam match {
         case None => "none"
-        case _ => tam.get.label
+        case Some(hasLabel) => hasLabel.label
       }
     }
 
@@ -119,27 +126,37 @@ class Sieves(mentions: Seq[Mention]) {
       }
     }
 
-    val name = "tamPrecedence"
+    val name = "reichenbachPrecedence"
     val tam_rules = "/edu/arizona/sista/assembly/grammars/tense_aspect.yml"
 
     // TODO: only look at events with verbal triggers
     val evs = mentions.filter(isEvent)
-    val tams = assemblyViaRules(tam_rules, mentions)
+    val eventTriggers = evs.map(CorpusReader.findTrigger)
+    val tams = assemblyViaRules(tam_rules, eventTriggers)
     val tenseMentions = tams.filter(_ matches "Tense")
     val aspectMentions = tams.filter(_ matches "Aspect")
+
+    // for keeping track of counts of TAM relations
+    // val relCounts = scala.collection.mutable.Map[(String, String, String, String), Int]()
 
     for {
       events <- evs.groupBy(_.document).values
       e1 <- events
       e2 <- events
-      if isValidRelationPair(e1, e2) && noExistingPrecedence(e1, e2, manager)
+      if e1.precedes(e2) && isValidRelationPair(e1, e2) && noExistingPrecedence(e1, e2, manager)
 
       e1tense = getTam(e1, tenseMentions, "Tense")
       e1aspect = getTam(e1, aspectMentions, "Aspect")
       e2tense = getTam(e2, tenseMentions, "Tense")
       e2aspect = getTam(e2, aspectMentions, "Aspect")
+
       pr = getReichenbach(tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect))
     } {
+      // record e1 and e2 TAMs
+      // if (e1.precedes(e2)) {
+      //   relCounts((tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect))) = relCounts.getOrElseUpdate((tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect)), 0) + 1
+      // }
+
       pr match {
         case "before" =>
           manager.storePrecedenceRelation(e1, e2, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
@@ -148,6 +165,9 @@ class Sieves(mentions: Seq[Mention]) {
         case _ => ()
       }
     }
+
+    // print the counts of the tam relations
+    // relCounts.foreach(tam => println(s"${tam._1}\t${tam._2}"))
 
     manager
   }
