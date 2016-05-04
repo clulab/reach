@@ -22,7 +22,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Implement context frame, map context item names.
+  *   Last Modified: Insert context frame in event stream.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -237,7 +237,7 @@ class FriesOutput extends JsonOutputter {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
-        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextIdMap, entityMap, eventMap)
+        frames ++= mkEventMention(paperId, passageMeta, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }
     }
 
@@ -247,7 +247,7 @@ class FriesOutput extends JsonOutputter {
         val cid = getChunkId(mention)
         assert(paperPassages.contains(cid))
         val passageMeta = paperPassages.get(cid).get
-        frames += mkEventMention(paperId, passageMeta, mention.toBioMention, contextIdMap, entityMap, eventMap)
+        frames ++= mkEventMention(paperId, passageMeta, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }
     }
     model
@@ -258,7 +258,7 @@ class FriesOutput extends JsonOutputter {
                              mention:BioMention,
                              contextIdMap: CtxIDed,
                              entityMap: IDed,
-                             eventMap:IDed): PropMap = {
+                             eventMap:IDed): List[PropMap] = {
     currEvent = mention.text
 
     val f = startFrame()
@@ -312,13 +312,32 @@ class FriesOutput extends JsonOutputter {
     if (MentionManager.isHypothesized(mention))
       f("is-hypothesis") = true
 
-    // context features
-    if (mention.hasContext())
-      f("context") = doContext(paperId, passageMeta, mention, contextIdMap)
-
     // TODO (optional): add "index", i.e., the sentence-local number for this mention
     //                  from this component.
-    f
+
+    // handle context features
+    var contextFrame: Option[PropMap] = None
+    if (mention.hasContext()) {
+      val context = mention.context.get
+      val ctxIdOpt = contextIdMap.get(context) // get the context ID for the context
+      val ctxId =
+        if (ctxIdOpt.isDefined)             // if this context is already mapped
+          ctxIdOpt.get                      // get the context ID found
+        else {                              // else this is a new context
+          val cid = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
+          contextIdMap.put(context, cid)    // save the new context ID keyed by the context
+          contextFrame = Some(mkContextFrame(paperId, passageMeta, mention, cid, context))
+          cid                               // return the new context ID
+        }
+
+      // the context for a frame is a list of context frame refs (currently a singleton list)
+      f("context") = List(ctxId)
+    }
+
+    if (contextFrame.isDefined)             // return 1 or more frames:
+      List(contextFrame.get, f)             // context and event frames
+    else
+      List(f)                               // else just event frame
   }
 
 
@@ -419,25 +438,6 @@ class FriesOutput extends JsonOutputter {
     }
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
     f
-  }
-
-  private def doContext (paperId:String,
-                         passageMeta:FriesEntry,
-                         mention:BioMention,
-                         contextIdMap:CtxIDed): List[String] = {
-
-    val context:ContextMap = mention.context.getOrElse(new scala.collection.immutable.HashMap())
-    var ctxId: String = ""
-    val ctxIdOpt = contextIdMap.get(context) // get the context ID for the context
-    if (!ctxIdOpt.isDefined) {               // if this is a new context
-      ctxId = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
-      contextIdMap.put(context, ctxId)        // save the new context ID keyed by the context
-      mkContextFrame(paperId, passageMeta, mention, ctxId, context)
-    }
-    else
-      ctxId = ctxIdOpt.get
-
-    return List(ctxId)
   }
 
   private def mkContextFrame (paperId:String,
