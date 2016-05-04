@@ -165,33 +165,52 @@ object RunAnnotationEval extends App {
   }
 
   val config = ConfigFactory.load()
-  val annotationsPath = config.getString("assembly.corpusFile")
-  val annotations: Seq[PrecedenceAnnotation] = annotationsFromFile(annotationsPath)
-  // gather precedence relations corpus
-  val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
-  val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations ++ subsumptionRelations ++ equivalenceRelations)
+  val evalGoldPath = config.getString("assembly.evalGold")
+  val evalMentionsPath = config.getString("assembly.evalMentions")
 
-  val (posGoldNested, testMentionsNested) = (for {
-    anno <- precedenceAnnotations.par
-    e1e2 = getE1E2(anno)
-    if e1e2.nonEmpty
-  } yield {
-    val (e1, e2) = e1e2.get
-    // short-term assembly manager to get at mentions easier
-    val am = AssemblyManager()
-    am.trackMentions(Seq(e1, e2))
-    val goldRel = anno.relation match {
-      case "E1 precedes E2" =>
-        Seq(PrecedenceRelation(am.getEER(e1).equivalenceHash, am.getEER(e2).equivalenceHash, Set.empty[Mention], "gold"))
-      case "E2 precedes E1" =>
-        Seq(PrecedenceRelation(am.getEER(e2).equivalenceHash, am.getEER(e1).equivalenceHash, Set.empty[Mention], "gold"))
-      case _ => Nil
+  val (posGold, testMentions) = {
+
+    if(File(evalGoldPath).exists & File(evalMentionsPath).exists) {
+      println("Serialized files exist")
+      val pg = Serializer.load[Seq[PrecedenceRelation]](evalGoldPath)
+      val tm = Serializer.load[Seq[Mention]](evalMentionsPath)
+      (pg, tm)
+    } else {
+      println("Serialized files not found")
+      val annotationsPath = config.getString("assembly.corpusFile")
+      val annotations: Seq[PrecedenceAnnotation] = annotationsFromFile(annotationsPath)
+      // gather precedence relations corpus
+      val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
+      val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations ++ subsumptionRelations ++ equivalenceRelations)
+
+      val (posGoldNested, testMentionsNested) = (for {
+        anno <- precedenceAnnotations.par
+        e1e2 = getE1E2(anno)
+        if e1e2.nonEmpty
+      } yield {
+        val (e1, e2) = e1e2.get
+        // short-term assembly manager to get at mentions easier
+        val am = AssemblyManager()
+        am.trackMentions(Seq(e1, e2))
+        val goldRel = anno.relation match {
+          case "E1 precedes E2" =>
+            Seq(PrecedenceRelation(am.getEER(e1).equivalenceHash, am.getEER(e2).equivalenceHash, Set.empty[Mention], "gold"))
+          case "E2 precedes E1" =>
+            Seq(PrecedenceRelation(am.getEER(e2).equivalenceHash, am.getEER(e1).equivalenceHash, Set.empty[Mention], "gold"))
+          case _ => Nil
+        }
+        (goldRel, Seq(e1, e2))
+      }).unzip
+
+      val pg = posGoldNested.flatten.seq
+      val tm = testMentionsNested.flatten.distinct.seq
+
+      Serializer.save[Seq[PrecedenceRelation]](pg, evalGoldPath)
+      Serializer.save[Seq[Mention]](tm, evalMentionsPath)
+
+      (pg, tm)
     }
-    (goldRel, Seq(e1, e2))
-  }).unzip
-
-  val posGold = posGoldNested.flatten.seq
-  val testMentions = testMentionsNested.flatten.distinct.seq
+  }
 
   println("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
 
