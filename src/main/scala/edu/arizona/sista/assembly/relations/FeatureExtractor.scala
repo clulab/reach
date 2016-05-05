@@ -72,8 +72,12 @@ object FeatureExtractor {
     features ++= addFeaturePrefix("verb-in-path", getVerbsInPath(e1, e2))
     // get shortest paths
     features ++= addFeaturePrefix("shortest-path", getShortestPathVariants(e1, e2))
+    // get shortest path distances
+    features ++= getShortestPathDistances(e1, e2)
     // get paths from trigger to trigger
     features ++= addFeaturePrefix("trigger-to-trigger-path", getTriggerToTriggerPath(e1, e2))
+    // get distances from trigger to trigger
+    features ++= getTriggerToTriggerPathDistances(e1, e2)
     features
   }
 
@@ -86,7 +90,7 @@ object FeatureExtractor {
     val trigger = CorpusReader.findTrigger(m)
     val paths = for {
       // for each role
-      (role, args) <- m.arguments.toSeq
+      (role, args) <- m.arguments
       // for each arg belonging to a role
       a <- args
       // with or without lemmas
@@ -100,7 +104,21 @@ object FeatureExtractor {
       argRepresentation <- Seq(a.label, role, s"$role:${a.label}")
       path = s"$t $p $argRepresentation"
     } yield path
-    paths.distinct
+    paths.toSeq.distinct
+  }
+
+  def getTriggerArgPathDistances(m: Mention): Seq[String] = {
+    val trigger = CorpusReader.findTrigger(m)
+    val distances = for {
+    // for each role
+      (role, args) <- m.arguments.toSeq
+      // for each arg belonging to a role
+      a <- args
+      p <- getShortestPaths(trigger, a)
+      if p.nonEmpty
+      dist = p.split(" ").size
+    } yield s"${role.toUpperCase}: $dist"
+    distances.distinct
   }
 
   /**
@@ -115,6 +133,14 @@ object FeatureExtractor {
     paths.distinct
   }
 
+  def getShortestPathDistances(e1: Mention, e2: Mention): Seq[String] = {
+    val distances = for {
+      p <- getShortestPaths(e1, e2)
+      if p.nonEmpty
+      dist = p.split(" ").size
+    } yield s"sortest-path-dist: $dist"
+    distances.distinct
+  }
   /**
    * Get paths from trigger to trigger <br>
    * (ex. e1:phosphorylation:Phosphorylation rcmod e2:decreases:Positive_Regulation)
@@ -132,34 +158,54 @@ object FeatureExtractor {
     paths.distinct
   }
 
+  def getTriggerToTriggerPathDistances(e1: Mention, e2: Mention): Seq[String] = {
+    val t1 = CorpusReader.findTrigger(e1)
+    val t2 = CorpusReader.findTrigger(e2)
+    val distances = for {
+      p <- getShortestPaths(t1, t2)
+      if p.nonEmpty
+      dist = p.split(" ").size
+    } yield s"trigger-dist: $dist"
+    distances.distinct
+  }
+
   /**
    * Features used to represent all mentions
    * @param support a sequence of related mentions used to find shared arguments
    */
   def mkBasicFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
+    // use resolved form
+    val antecedent = AssemblyManager.getResolvedForm(m)
+    var basicFeatures = Seq.empty[String]
+    basicFeatures ++= mkCoreFeatures(antecedent, support)
+    //Seq(s"args2role: ${args2Role.mkString(" ")}") ++
+    // get coref features of ANAPHOR
+    basicFeatures ++= getCorefFeatures(m, support)
+    basicFeatures
+  }
 
+  def mkCoreFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
     val ents2Label = replaceEntitiesWithLabel(m, support)
     val args2Role = replaceArgsWithRole(m)
+    var coreFeatures = Seq.empty[String]
     // syntactic features
-    getDependencyRelations(m) ++
-      // get syntactic paths from trigger to each arg
-      getTriggerArgPaths(m) ++
-      // number of args of each type
-      //getArgStats(m) ++
-      // get event trigger
-      Seq(s"trigger: ${getTrigger(m)}") ++
-      // most-specific label + all labels
-      getLabelFeatures(m) ++
-      // get tokens in mention, but replace entities with their labels (MEK -> Protein)
-      addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3)) ++
-      // use normalized mention span as single feature
-      //Seq(s"ents2Label: ${ents2Label.mkString(" ")}") ++
-      // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
-      addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3)) ++
-      //Seq(s"args2role: ${args2Role.mkString(" ")}") ++
-      // get coref features
-      // TODO: replace basic with these?
-      getCorefFeatures(m, support)
+    coreFeatures ++= getDependencyRelations(m)
+    // get syntactic paths from trigger to each arg
+    coreFeatures ++= addFeaturePrefix("trigger-arg-path", getTriggerArgPaths(m))
+    // get distances from trigger to each arg
+    coreFeatures ++= getTriggerArgPathDistances(m)
+    // number of args of each type
+    //getArgStats(m) ++
+    // get event trigger
+    coreFeatures ++= Seq(s"trigger: ${getTrigger(m)}")
+    // most-specific label + all labels
+    coreFeatures ++= getLabelFeatures(m)
+    // get tokens in mention, but replace entities with their labels (MEK -> Protein)
+    coreFeatures ++= addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3))
+    // use normalized mention span as single feature
+    // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
+    coreFeatures ++= addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3))
+    coreFeatures
   }
 
   def ngrams(toks: Seq[String], n: Int): Seq[String] = n match {
@@ -336,13 +382,12 @@ object FeatureExtractor {
     hasResolution(m) match {
       case false => Seq(s"resolved: false")
       case true => {
-        val resolvedForm = AssemblyManager.getResolvedForm(m)
         // get basic features of antecedent
-        var anteFeats: Seq[String] = addFeaturePrefix("antecedent-basic", mkBasicFeatures(resolvedForm, support))
-        anteFeats ++= locationOfAntecedent(m) ++ Seq(s"resolved: true")
+        var corefFeatures: Seq[String] = addFeaturePrefix("anaphor-basic", mkCoreFeatures(m, support))
+        corefFeatures ++= locationOfAntecedent(m) ++ Seq(s"resolved: true")
         // check if each has a resolved form
-        anteFeats ++= checkArgumentsForResolutions(m)
-        anteFeats
+        corefFeatures ++= checkArgumentsForResolutions(m)
+        corefFeatures
       }
     }
   }

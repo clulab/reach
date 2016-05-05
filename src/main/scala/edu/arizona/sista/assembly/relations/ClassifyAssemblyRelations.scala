@@ -22,7 +22,11 @@ case class Performance[L] (lbl: L, p: Double, r: Double, f1: Double, tp: Int, fp
 object Evaluator {
 
   def crossValidate(dataset: RVFDataset[String, String], clfType: String): Seq[(String, String)] = {
-    Datasets.crossValidate[String, String](dataset, () => AssemblyRelationClassifier.getModel(clfType)).toSeq
+    Datasets.crossValidate[String, String](
+      dataset,
+      () => AssemblyRelationClassifier.getModel(clfType),
+      numFolds = 20
+    ).toSeq
   }
 
   /** Creates dataset folds to be used for cross validation */
