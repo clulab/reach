@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
+  *   Last Modified: Activate context tissue type KB.
   */
 object ReachIMKBMentionLookups {
 
@@ -22,6 +22,7 @@ object ReachIMKBMentionLookups {
   val ContextCellType = contextCellTypeKBML
   val ContextOrgan = contextOrganKBML
   val ContextSpecies = contextSpeciesKBML
+  val ContextTissueType = contextTissueTypeKBML
 
   val StaticBioProcess = staticBioProcessKBML
   val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
@@ -31,7 +32,6 @@ object ReachIMKBMentionLookups {
   val StaticProtein = staticProteinKBML
   val StaticProteinFamily = staticProteinFamilyKBML
   val StaticProteinFamily2 = staticProteinFamily2KBML
-  // val StaticTissueType = staticTissueTypeKBML    // CURRENTLY UNUSED
 
   val ManualCellLocation = manualCellLocationKBML
   val ManualChemical = manualChemicalKBML
@@ -194,17 +194,6 @@ object ReachIMKBMentionLookups {
   }
 
   //
-  // Tissue Type Accessor
-  //
-
-  /** KB accessor to resolve tissue type names via static KB. */
-  def staticTissueTypeKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")
-    metaInfo.put("file", StaticTissueTypeFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make("uniprot", StaticTissueTypeFilename, metaInfo))
-  }
-
-  //
   // Context-related Accessors
   //
 
@@ -235,6 +224,13 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/taxonomy/", "MIR:00000006")
     metaInfo.put("file", ContextSpeciesFilename)
     new IMKBMentionLookup(TsvIMKBFactory.make("taxonomy", ContextSpeciesFilename, metaInfo))
+  }
+
+  /** KB accessor to resolve tissue type names via context KB. */
+  def contextTissueTypeKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/tissuelist/", "MIR:00000360")
+    metaInfo.put("file", ContextTissueTypeFilename)
+    new IMKBMentionLookup(TsvIMKBFactory.make("tissuelist", ContextTissueTypeFilename, metaInfo))
   }
 
 }
