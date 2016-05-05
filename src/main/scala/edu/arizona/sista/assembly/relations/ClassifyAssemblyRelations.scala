@@ -3,10 +3,21 @@ package edu.arizona.sista.assembly.relations
 import java.io.File
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.assembly.relations.CorpusReader._
-import edu.arizona.sista.learning.Datasets
-import edu.arizona.sista.learning.RVFDataset
+import edu.arizona.sista.learning._
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+import scala.util.Random
+
+case class DatasetStratifiedFold(test: Seq[Int], train: Seq[Int]) {
+  def merge(other: DatasetStratifiedFold): DatasetStratifiedFold = {
+    new DatasetStratifiedFold(this.test ++ other.test, this.train ++ other.train)
+  }
+}
+
+case class Performance[L] (lbl: L, p: Double, r: Double, f1: Double, tp: Int, fp: Int, fn: Int) {
+  def mkRow = f"$lbl\t$p%1.3f\t$r%1.3f\t$f1%1.3f\t$tp\t$fp\t$fn"
+}
 
 object Evaluator {
 
@@ -14,8 +25,93 @@ object Evaluator {
     Datasets.crossValidate[String, String](dataset, () => AssemblyRelationClassifier.getModel(clfType)).toSeq
   }
 
-  def calculateAccuracy(scores: Seq[(String, String)]): Float = {
+  /** Creates dataset folds to be used for cross validation */
+  def mkStratifiedFolds[L, F](numFolds:Int,
+                              dataset:Dataset[L, F],
+                              seed:Int):Iterable[DatasetStratifiedFold] = {
+    val r = new Random(seed)
+
+    val byClass: Map[Int, Seq[Int]] = r.shuffle[Int, IndexedSeq](dataset.indices).toSeq.groupBy(idx => dataset.labels(idx))
+    val folds = (for (i <- 0 until numFolds) yield (i, new ArrayBuffer[DatasetStratifiedFold])).toMap
+
+    for {
+      c <- 0 until dataset.numLabels
+      i <- 0 until numFolds
+    } {
+      val cds = byClass(c)
+      val classSize = cds.length
+      val foldSize = classSize / numFolds
+      val startTest = i * foldSize
+      val endTest = if (i == numFolds - 1) math.max(classSize, (i + 1) * foldSize) else (i + 1) * foldSize
+
+      val trainFolds = new ArrayBuffer[Int]
+      if(startTest > 0)
+        trainFolds ++= cds.slice(0, startTest)
+      if(endTest < classSize)
+        trainFolds ++= cds.slice(endTest, classSize)
+
+      folds(i) += new DatasetStratifiedFold(cds.slice(startTest, endTest), trainFolds)
+    }
+    folds.map{dsfSet =>
+      dsfSet._2.foldLeft(new DatasetStratifiedFold(Nil, Nil))(_ merge _)}
+  }
+
+  /**
+    * Implements stratified cross validation; producing pairs of gold/predicted labels across the training dataset.
+    * Each fold is as balanced as possible by label L.
+    */
+  def stratifiedCrossValidate[L, F](
+                           dataset:Dataset[L, F],
+                           classifierFactory: () => Classifier[L, F],
+                           numFolds:Int = 5,
+                           seed:Int = 73): Seq[(L, L)] = {
+
+    val folds = mkStratifiedFolds(numFolds, dataset, seed)
+    val output = new ListBuffer[(L, L)]
+
+    for(fold <- folds) {
+      val classifier = classifierFactory()
+      classifier.train(dataset, fold.train.toArray)
+      for(i <- fold.test) {
+        val sys = classifier.classOf(dataset.mkDatum(i))
+        val gold = dataset.labels(i)
+        output += new Tuple2(dataset.labelLexicon.get(gold), sys)
+      }
+    }
+
+    output.toSeq
+  }
+
+  def calculateAccuracy[L](scores: Seq[(L, L)]): Float = {
     scores.count(pair => pair._1 == pair._2).toFloat / scores.size.toFloat
+  }
+
+  /**
+    * Calculate precision, recall, and f1 for each label base on scores of form (gold, predicted)
+    *
+    * @param scores
+    * @tparam L
+    * @return [[Map]] from label to [[Performance]]
+    */
+  def calculatePerformance[L](scores: Seq[(L, L)]): Seq[Performance[L]] = {
+
+    val smoothing = 0.00001
+
+    for {
+      lbl <- scores.map(_._1).distinct
+    } yield {
+      val tp = scores.count(score => score._1 == lbl && score._2 == lbl)
+      val fp = scores.count(score => score._1 != lbl && score._2 == lbl)
+      val fn = scores.count(score => score._1 == lbl && score._2 != lbl)
+
+      // micro performance
+      val p = tp / (tp + fp + smoothing)
+      val r = tp / (tp + fn + smoothing)
+      val f1 = (2 * p * r) / (p + r + smoothing)
+
+      // for the rule
+      Performance[L] (lbl, p, r, f1, tp, fp, fn)
+    }
   }
 
   def writeScoresToTSV(scores: Seq[(String, String)], outFile: String): Unit = {
@@ -86,14 +182,26 @@ object TrainAssemblyRelationClassifier extends App {
   // get cross validation accuracy
   println(s"Running cross validation . . .")
   val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1", "rf")
-  for {
+  val res = for {
     model <- models
-  } {
-    val scores = Evaluator.crossValidate(precedenceDataset, model)
-    val accuracy = Evaluator.calculateAccuracy(scores)
+  } yield {
+    val scores = Evaluator.stratifiedCrossValidate(
+      dataset = precedenceDataset,
+      classifierFactory = () => AssemblyRelationClassifier.getModel(model),
+      numFolds = 20
+    )
+    val performance = Evaluator.calculatePerformance(scores)
     val outFile = s"${FilenameUtils.removeExtension(results)}-$model.${FilenameUtils.getExtension(results)}"
-    println(f"Accuracy: $accuracy%1.5f")
     println(s"Writing results to $outFile . . .")
     Evaluator.writeScoresToTSV(scores, outFile)
+    (model, performance)
+  }
+
+  println(s"model\tlabel\tp\tr\tf1\ttp\tfp\tfn")
+  for {
+    (model, performance) <- res
+    lbl <- performance
+  } {
+    println(s"$model\t${lbl.mkRow}")
   }
 }
