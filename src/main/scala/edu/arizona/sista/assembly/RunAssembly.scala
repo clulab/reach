@@ -1,12 +1,11 @@
 package edu.arizona.sista.assembly
 
 import com.typesafe.config.ConfigFactory
-import edu.arizona.sista.assembly.relations.{CorpusReader, PrecedenceAnnotation}
+import edu.arizona.sista.assembly.relations.{AssemblyAnnotation, CorpusReader}
 import edu.arizona.sista.assembly.sieves.{AssemblySieve, Sieves}
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
-import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.utils.Serializer
 
 import scala.reflect.io.File
@@ -181,7 +180,7 @@ object RunAnnotationEval extends App {
     } else {
       println("Serialized files not found")
       val annotationsPath = config.getString("assembly.corpusFile")
-      val annotations: Seq[PrecedenceAnnotation] = annotationsFromFile(annotationsPath)
+      val annotations: Seq[AssemblyAnnotation] = annotationsFromFile(annotationsPath)
       // gather precedence relations corpus
       val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
       val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations ++ subsumptionRelations ++ equivalenceRelations)

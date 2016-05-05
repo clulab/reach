@@ -8,7 +8,7 @@ import org.json4s.native.JsonMethods
 import scala.annotation.tailrec
 
 
-case class PrecedenceAnnotation(
+case class AssemblyAnnotation(
   id: Int,
   text: String,
   coref: Boolean,
@@ -72,8 +72,8 @@ case class PrecedenceAnnotation(
     rel: String = relation,
     crossSentence: Boolean = `cross-sentence`,
     paperID: String = `paper-id`
-  ): PrecedenceAnnotation =
-    PrecedenceAnnotation(
+  ): AssemblyAnnotation =
+    AssemblyAnnotation(
       annotationID,
       annoText,
       involvesCoref,
@@ -113,7 +113,7 @@ object CorpusReader {
   val NEG = "None"
 
   val precedenceRelations =  Set("E1 precedes E2", "E2 precedes E1")
-  val subsumptionRelations = Set("E1 subsumes E2", "E2 subsumes E1")
+  val subsumptionRelations = Set("E1 specifies E2", "E2 specifies E1")
   val equivalenceRelations = Set("Equivalent")
   val noRelations = Set("None")
   lazy val rs = PaperReader.rs
@@ -121,21 +121,21 @@ object CorpusReader {
   // needed for .extract
   implicit val formats = DefaultFormats
 
-  def annotationsFromFile(jsonFile: String): Seq[PrecedenceAnnotation] = {
+  def annotationsFromFile(jsonFile: String): Seq[AssemblyAnnotation] = {
     val json = JsonMethods.parse(new File(jsonFile))
     //    val updatedJson = json transformField {
     //      case ("e1-label", x) => ("e1Label", x)
     //      case ("e1-sentence", x) => ("e1Sentence", x)
     //      }
     //    updatedJson.extract[Seq[PrecedenceAnnotation]]
-    json.extract[Seq[PrecedenceAnnotation]]
+    json.extract[Seq[AssemblyAnnotation]]
   }
 
   /** set all labels not in the set of positive labels to NEG */
   def filterRelations(
-    annotations: Seq[PrecedenceAnnotation],
+    annotations: Seq[AssemblyAnnotation],
     positiveLabels: Set[String]
-  ): Seq[PrecedenceAnnotation] = annotations flatMap {
+  ): Seq[AssemblyAnnotation] = annotations flatMap {
     // keep subsumption annotations
     case valid if positiveLabels contains valid.relation => Seq(valid)
     // ignore bugs
@@ -163,7 +163,7 @@ object CorpusReader {
     }.head
   }
 
-  def getE1E2(anno: PrecedenceAnnotation): Option[(Mention, Mention)] = {
+  def getE1E2(anno: AssemblyAnnotation): Option[(Mention, Mention)] = {
     val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
 
     val pair: Option[(Mention, Mention)] = try {

@@ -74,7 +74,7 @@ object AssemblyRelationClassifier {
   def mkRVFDatum(label: String, e1: Mention, e2: Mention): RVFDatum[String, String] =
     FeatureExtractor.mkRVFDatum(e1, e2, label)
 
-  def mkRVFDataset(annotations: Seq[PrecedenceAnnotation]): RVFDataset[String, String] = {
+  def mkRVFDataset(annotations: Seq[AssemblyAnnotation]): RVFDataset[String, String] = {
     val dataset = new RVFDataset[String, String]
     // add each valid annotation to dataset
     for {

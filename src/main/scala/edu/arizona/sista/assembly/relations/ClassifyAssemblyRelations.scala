@@ -5,10 +5,11 @@ import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.assembly.relations.CorpusReader._
 import edu.arizona.sista.learning._
 import org.apache.commons.io.{FileUtils, FilenameUtils}
-
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Random
 
+
+/** Used by Stratified K-fold CV */
 case class DatasetStratifiedFold(test: Seq[Int], train: Seq[Int]) {
   def merge(other: DatasetStratifiedFold): DatasetStratifiedFold = {
     new DatasetStratifiedFold(this.test ++ other.test, this.train ++ other.train)
@@ -30,9 +31,11 @@ object Evaluator {
   }
 
   /** Creates dataset folds to be used for cross validation */
-  def mkStratifiedFolds[L, F](numFolds:Int,
-                              dataset:Dataset[L, F],
-                              seed:Int):Iterable[DatasetStratifiedFold] = {
+  def mkStratifiedFolds[L, F](
+    numFolds:Int,
+    dataset:Dataset[L, F],
+    seed:Int
+  ):Iterable[DatasetStratifiedFold] = {
     val r = new Random(seed)
 
     val byClass: Map[Int, Seq[Int]] = r.shuffle[Int, IndexedSeq](dataset.indices).toSeq.groupBy(idx => dataset.labels(idx))
@@ -65,10 +68,11 @@ object Evaluator {
     * Each fold is as balanced as possible by label L.
     */
   def stratifiedCrossValidate[L, F](
-                           dataset:Dataset[L, F],
-                           classifierFactory: () => Classifier[L, F],
-                           numFolds:Int = 5,
-                           seed:Int = 73): Seq[(L, L)] = {
+    dataset:Dataset[L, F],
+    classifierFactory: () => Classifier[L, F],
+    numFolds:Int = 5,
+    seed:Int = 73
+  ): Seq[(L, L)] = {
 
     val folds = mkStratifiedFolds(numFolds, dataset, seed)
     val output = new ListBuffer[(L, L)]
@@ -142,7 +146,7 @@ object ClassifyAssemblyRelations extends App {
 
   val config = ConfigFactory.load()
   val annotationsPath = config.getString("assembly.corpusFile")
-  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
+  val annotations: Seq[AssemblyAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
 
   // gather precedence relations corpus
   val precedenceAnnotations = filterRelations(annotations, precedenceRelations)
@@ -171,7 +175,7 @@ object TrainAssemblyRelationClassifier extends App {
   val annotationsPath = config.getString("assembly.corpusFile")
   val classifierPath = config.getString("assembly.classifier.model")
   val results = config.getString("assembly.classifier.results")
-  val annotations: Seq[PrecedenceAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
+  val annotations: Seq[AssemblyAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
 
   // gather precedence relations corpus
   val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
