@@ -74,6 +74,9 @@ object Evaluator {
     val output = new ListBuffer[(L, L)]
 
     for(fold <- folds) {
+      // Uncomment to confirm the size of each class in each fold
+      // val balance = fold.test.map(dataset.labels(_)).groupBy(identity).mapValues(_.size)
+      // println(s"fold: ${balance.mkString(", ")}")
       val classifier = classifierFactory()
       classifier.train(dataset, fold.train.toArray)
       for(i <- fold.test) {
