@@ -1,5 +1,8 @@
 #Changes
 =======
++ **1.2.3** - Updated to Bioresources 1.1.6, Processors 5.8.4. Add/use Uniprot Tissue type KB.
++ **1.2.3** - Add new context frames and pointers to FRIES output event stream.
++ **1.2.3** - Replace ChEBI and HMDB KBs with PubChem KB.
 + **1.2.3** - Add isDirect flag to BioEventMentions to track if a regulation is direct or not.
 + **1.2.3** - Add "reverse" PTM events (e.g., dephosphorylation, deubiquitination, etc).
 + **1.2.3** - User PFAM protein family KB for NER and grounding.
