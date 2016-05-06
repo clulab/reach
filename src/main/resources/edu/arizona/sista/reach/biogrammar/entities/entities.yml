@@ -129,6 +129,14 @@
   pattern: |
     [entity='B-CellType'] [entity='I-CellType']*
 
+- name: ner-tissue-type
+  label: TissueType
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-TissueType'] [entity='I-TissueType']*
+
 # - name: ner-infered-cell-type
 #   label: [CellType]
 #   priority: 4
