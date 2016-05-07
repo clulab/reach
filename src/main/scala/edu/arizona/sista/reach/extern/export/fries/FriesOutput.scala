@@ -22,7 +22,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Rename assembly output file for Hans.
+  *   Last Modified: Refactor context lookup & frame creation.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -293,6 +293,7 @@ class FriesOutput extends JsonOutputter {
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
 
+    // handle event arguments
     if (arguments.isDefined) {
       val argList = new FrameList
       for (key <- arguments.get.keys) {
@@ -315,29 +316,42 @@ class FriesOutput extends JsonOutputter {
     // TODO (optional): add "index", i.e., the sentence-local number for this mention
     //                  from this component.
 
-    // handle context features
+    // handle context features:
+    val (contextId, contextFrame) = lookupContext(paperId, passageMeta, mention, contextIdMap)
+
+    // the context for a frame is a list of context frame refs (currently a singleton list)
+    if (contextId.isDefined)
+      f("context") = List(contextId.get)
+
+    // return 1 or more frames: both context and event frames or just an event frame:
+    if (contextFrame.isDefined)
+      List(contextFrame.get, f)
+    else
+      List(f)
+  }
+
+  /** Lookup the context for the given mention. Return a newly created context ID and frame;
+      or an existing context ID,=; or neither, if the mention has no context. */
+  private def lookupContext (paperId: String,
+                             passageMeta: FriesEntry,
+                             mention: BioMention,
+                             contextIdMap: CtxIDed): Tuple2[Option[String], Option[PropMap]] =
+  {
+    var contextId: Option[String] = None
     var contextFrame: Option[PropMap] = None
+
     if (mention.hasContext()) {
       val context = mention.context.get
-      val ctxIdOpt = contextIdMap.get(context) // get the context ID for the context
-      val ctxId =
-        if (ctxIdOpt.isDefined)             // if this context is already mapped
-          ctxIdOpt.get                      // get the context ID found
-        else {                              // else this is a new context
-          val cid = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
-          contextIdMap.put(context, cid)    // save the new context ID keyed by the context
-          contextFrame = Some(mkContextFrame(paperId, passageMeta, mention, cid, context))
-          cid                               // return the new context ID
-        }
-
-      // the context for a frame is a list of context frame refs (currently a singleton list)
-      f("context") = List(ctxId)
+      contextId = contextIdMap.get(context) // get the context ID for the context
+      if (!contextId.isDefined) {           // if this is a new context
+        val cid = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
+        contextIdMap.put(context, cid)      // save the new context ID keyed by the context
+        contextFrame = Some(mkContextFrame(paperId, passageMeta, mention, cid, context))
+        contextId = Some(cid)               // save the new context ID
+      }
     }
 
-    if (contextFrame.isDefined)             // return 1 or more frames:
-      List(contextFrame.get, f)             // context and event frames
-    else
-      List(f)                               // else just event frame
+    return (contextId, contextFrame)
   }
 
 
