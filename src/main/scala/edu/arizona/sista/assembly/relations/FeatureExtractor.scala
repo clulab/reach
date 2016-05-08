@@ -31,18 +31,39 @@ object FeatureExtractor {
    * @return
    */
   def mkFeatures(e1: Mention, e2: Mention): Seq[String] = {
-    // get basic features for each event
+
     var features = Seq.empty[String]
+    // get basic features for each event
     // NOTE: in order to find shared args b/w the two mentions, replaceEntitiesWithLabel needs e2
     val basicE1 = addFeaturePrefix("e1", mkBasicFeatures(e1, Seq(e2)))
-    val basicE2 = addFeaturePrefix("e2", mkBasicFeatures(e2, Seq(e2)))
+    val basicE2 = addFeaturePrefix("e2", mkBasicFeatures(e2, Seq(e1)))
     features ++= (basicE1 ++ basicE2)
+
+    // get coref features of ANAPHOR
+    val corefE1 = getCorefFeatures(e1, Seq(e2))
+    val corefE2 = getCorefFeatures(e2, Seq(e1))
+    features ++= (corefE1 ++ corefE2)
+
     // get pair of labels
     features ++= getLabelPair(e1, e2)
+    // get e-e surface features
+    features ++= mkSurfaceFeatures(e1, e2)
+    // get e-e syntax features
+    features ++= mkSyntaxFeatures(e1, e2)
+    features
+  }
+
+  def mkSurfaceFeatures(e1: Mention, e2: Mention): Seq[String] = {
+    var features = Seq.empty[String]
     // add tokens in between the two mentions
     val intercedingTokens = tokensLinkingMentions(e1, e2)
     features ++= addFeaturePrefix("interceding-token ngrams", ngrams(intercedingTokens, 1, 3))
     features ++= Seq(s"interceding-tokens-full-span: ${intercedingTokens.mkString(" ")}")
+    features
+  }
+
+  def mkSyntaxFeatures(e1: Mention, e2: Mention): Seq[String] = {
+    var features = Seq.empty[String]
     // add inter-sentence v. intra-sentence feature
     val sameSent = sameSentence(e1, e2)
     features ++= Seq(s"cross-sent:${! sameSent}")
@@ -176,12 +197,7 @@ object FeatureExtractor {
   def mkBasicFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
     // use resolved form
     val antecedent = AssemblyManager.getResolvedForm(m)
-    var basicFeatures = Seq.empty[String]
-    basicFeatures ++= mkCoreFeatures(antecedent, support)
-    //Seq(s"args2role: ${args2Role.mkString(" ")}") ++
-    // get coref features of ANAPHOR
-    basicFeatures ++= getCorefFeatures(m, support)
-    basicFeatures
+    mkCoreFeatures(antecedent, support)
   }
 
   def mkCoreFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
@@ -194,15 +210,13 @@ object FeatureExtractor {
     coreFeatures ++= addFeaturePrefix("trigger-arg-path", getTriggerArgPaths(m))
     // get distances from trigger to each arg
     coreFeatures ++= getTriggerArgPathDistances(m)
-    // number of args of each type
-    //getArgStats(m) ++
     // get event trigger
     coreFeatures ++= Seq(s"trigger: ${getTrigger(m)}")
     // most-specific label + all labels
     coreFeatures ++= getLabelFeatures(m)
     // get tokens in mention, but replace entities with their labels (MEK -> Protein)
     coreFeatures ++= addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3))
-    // use normalized mention span as single feature
+    // use normalized mention span as single feature:
     // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
     coreFeatures ++= addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3))
     coreFeatures
