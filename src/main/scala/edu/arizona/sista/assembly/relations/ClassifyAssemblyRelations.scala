@@ -192,14 +192,14 @@ object TrainAssemblyRelationClassifier extends App {
   // evaluate
   // get cross validation accuracy
   println(s"Running cross validation . . .")
-  val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1", "rf")
+  val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1")//, "rf")
   val res = for {
     model <- models
   } yield {
     val scores = Evaluator.stratifiedCrossValidate(
       dataset = precedenceDataset,
       classifierFactory = () => AssemblyRelationClassifier.getModel(model),
-      numFolds = 20
+      numFolds = 10
     )
     val performance = Evaluator.calculatePerformance(scores)
     val outFile = s"${FilenameUtils.removeExtension(results)}-$model.${FilenameUtils.getExtension(results)}"
