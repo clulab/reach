@@ -5,7 +5,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
+  *   Last Modified: Update for context tissue types KB.
   */
 object ReachIMKBLookups {
 
@@ -63,13 +63,6 @@ object ReachIMKBLookups {
     metaInfo.put("file", StaticProteinFamily2Filename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyLookup(tsvIMKBFactory.make("interpro", StaticProteinFamily2Filename, true, metaInfo))
-  }
-
-  /** KB lookup to resolve tissue type names via static KB. */
-  def staticTissueTypeKBLookup: IMKBLookup = {
-    val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")
-    metaInfo.put("file", StaticTissueTypeFilename)
-    new IMKBLookup(tsvIMKBFactory.make("uniprot", StaticTissueTypeFilename, metaInfo))
   }
 
 }

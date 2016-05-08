@@ -15,7 +15,7 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
+  *   Last Modified: Use Uniprot Tissue List and Organs as tissue types.
   */
 class ReachEntityLookup {
 
@@ -48,6 +48,7 @@ class ReachEntityLookup {
       case "Organ" => augmentMention(mention, organSeq)
       case "Simple_chemical" => augmentMention(mention, chemicalSeq)
       case "Species" => augmentMention(mention, speciesSeq)
+      case "TissueType" => augmentMention(mention, tissueSeq)
       case _ =>  augmentMention(mention, azFailsafeSeq)
     }
   }
@@ -115,6 +116,11 @@ class ReachEntityLookup {
   )
 
   val speciesSeq: KBSearchSequence = extraKBs ++ Seq( ContextSpecies )
+
+  val tissueSeq: KBSearchSequence = extraKBs ++ Seq(
+    ContextTissueType,
+    ContextOrgan                            // Summer 2016 Eval: use organs as tissue types
+  )
 }
 
 

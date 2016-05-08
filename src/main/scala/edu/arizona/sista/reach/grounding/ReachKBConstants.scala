@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
+  *   Last Modified: Rename tissue type KB filename constant.
   */
 object ReachKBConstants {
 
@@ -87,9 +87,6 @@ object ReachKBConstants {
   /** Filename of the secondary static protein family file. */
   val StaticProteinFamily2Filename = "ProteinFamilies.tsv.gz"
 
-  /** Filename of the static tissue type file. */
-  val StaticTissueTypeFilename = "tissue-type.tsv.gz"
-
 
   /** Filename of the context species file */
   val ContextSpeciesFilename = "Species.tsv.gz"
@@ -102,6 +99,9 @@ object ReachKBConstants {
 
   /** Filename of the context organs file */
   val ContextOrganFilename = "Organ.tsv.gz"
+
+  /** Filename of the static tissue type file. */
+  val ContextTissueTypeFilename = "tissue-type.tsv.gz"
 
 
   /** Filename of a file containing just Protein Domain suffixes; one per line. */

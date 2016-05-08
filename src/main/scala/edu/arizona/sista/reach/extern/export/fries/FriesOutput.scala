@@ -22,7 +22,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Insert context frame in event stream.
+  *   Last Modified: Rename assembly output file for Hans.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -125,7 +125,7 @@ class FriesOutput extends JsonOutputter {
                                    startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
-    writeJsonToFile(assemblyModel, new File(outFilePrefix + ".uaz.assembly.json"))
+    writeJsonToFile(assemblyModel, new File(outFilePrefix + ".uaz.links.json"))
   }
 
 

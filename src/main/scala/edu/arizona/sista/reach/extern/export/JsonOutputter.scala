@@ -15,7 +15,7 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Update to use Reach constants object.
+  *   Last Modified: Update for tissue types.
   */
 trait JsonOutputter {
 
@@ -84,6 +84,7 @@ object JsonOutputter {
     else if (arg matches "CellType") "entity"
     else if (arg matches "Organ") "entity"
     else if (arg matches "Species") "entity"
+    else if (arg matches "TissueType") "entity"
     else if (arg matches "Event") "event"
     else throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
   }

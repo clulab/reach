@@ -23,9 +23,9 @@ class TestNERLabeling extends FlatSpec with Matchers {
   // this tests from PFAM AND InterPro protein family KBs:
   val Family = "CDC73_N, RcsD-ABL domain, zinc-ribbon domain, Rho_RNA_bind, RasGAP_C, zwf, PTHR10856:SF10, GLHYDRLASE27, Ras guanyl-releasing protein 1, and Jiraiya cause cancer."
   val Gene_or_gene_product = "CK-40, ZZANK2, MCH-1R, RAS1, and hemAT cause cancer."
-  val Organ = "Acetabulum, Visceral Pericardium, Malleola, Vena cavas, and Pancreas cause cancer"
+  val Organ = "Acetabulum, Visceral Pericardium, Malleola, Vena cavas, and Acetabulum cause cancer"
   val Simple_chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and Monic acid cause cancer"
-  val Site = "ALOG domain, AMIN domain, KIP1-like, GOLD, and HAS subgroup cause cancer"
+  val Site = "ALOG domain, AMIN domain, KIP1-like, KEN domain, and HAS subgroup cause cancer"
   val Species = "Potato, wheat, Yerba-mate, Danio rerio, zebrafish, Rats, Gallus gallus, and chickens cause cancer"
 
   "BioProcess entities" should "have BioProcess label" in {

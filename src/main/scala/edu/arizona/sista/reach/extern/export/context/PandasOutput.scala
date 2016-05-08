@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 /**
   * Class to output a field-separated text file to parse as a Pandas' Data Frame
   *   Written by Enrique Noriega. 27/7/2015.
-  *   Last Modified: Update for grounding changes.
+  *   Last Modified: Update for tissue types.
   */
 class PandasOutput() {
   def toCSV(paperID:String,
@@ -81,6 +81,10 @@ class PandasOutput() {
               }
               else if (tb.labels contains "CellLine"){
                 sb ++= "CellLine"
+                entities += sb.toString
+              }
+              else if (tb.labels contains "TissueType"){
+                sb ++= "TissueType"
                 entities += sb.toString
               }
               else if (tb.labels contains "Gene_or_gene_product"){

@@ -6,52 +6,25 @@ rules:
 ###############
 
   ## Possessive rules #########################################
-  - name: context_possessive_a_1
-    example: "lung of a human"
-    label: [ContextPossessive]
-    priority: 4
-    pattern: |
-      dependent:Organ
-      master:Species = prep_of
 
-  - name: context_possessive_a_8
-    label: [ContextPossessive]
-    priority: 4
-    pattern: |
-      dependent:Gene_or_gene_product
-      master:Species = prep_of
-
-  - name: context_possessive_a_9
+  ####### A: X of CellType #######
+  - name: context_possessive_a_g_ct
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:CellType = prep_of
 
-  - name: context_possessive_a_2
-    example: "macrophages of the blood"
-    label: [ContextPossessive]
-    priority: 4
-    pattern: |
-      dependent:CellType
-      master:Organ = prep_of
-
-  - name: context_possessive_a_3
-    example: "macrophages of the blood"
+  ####### A: X of Species #######
+  - name: context_possessive_a_cl_s
+    example: "mast cells of a human"
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Organ = prep_of
+      master:Species = prep_of
 
-  - name: context_possessive_a_7
-    label: [ContextPossessive]
-    priority: 4
-    pattern: |
-      dependent:Gene_or_gene_product
-      master:Organ = prep_of
-
-  - name: context_possessive_a_4
+  - name: context_possessive_a_ct_s
     example: "sperm of a patient"
     label: [ContextPossessive]
     priority: 4
@@ -59,177 +32,377 @@ rules:
       dependent:CellType
       master:Species = prep_of
 
-  - name: context_possessive_a_5
+  - name: context_possessive_a_g_s
     label: [ContextPossessive]
     priority: 4
     pattern: |
-      dependent:CellLine
+      dependent:Gene_or_gene_product
       master:Species = prep_of
 
-  - name: context_possessive_a_6
+  - name: context_possessive_a_o_s
+    example: "lung of a human"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:Organ
+      master:Species = prep_of
+
+  - name: context_possessive_a_t_s
+    example: "smooth muscle of a human"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:TissueType
+      master:Species = prep_of
+
+  ####### A: X of Organ #######
+  - name: context_possessive_a_cl_o
+    example: "macrophages of the blood"
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:CellLine
       master:Organ = prep_of
 
-  - name: context_possessive_b_6
-    label: [ContextPossessive]
-    priority: 4
-    pattern: |
-      dependent:Organ
-      master:Species = poss
-
-  - name: context_possessive_b_7
+  - name: context_possessive_a_ct_o
+    example: "astrocytes of the brain"
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:CellType
-      master:Organ = poss
+      master:Organ = prep_of
 
-  - name: context_possessive_b_8
-    label: [ContextPossessive]
-    priority: 4
-    pattern: |
-      dependent:CellLine
-      master:Organ = poss
-
-  - name: context_possessive_b_9
+  - name: context_possessive_a_g_o
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Species = poss
+      master:Organ = prep_of
 
-  - name: context_possessive_b_10
+  - name: context_possessive_a_t_o
+    example: "smooth muscle of the abdomen"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:TissueType
+      master:Organ = prep_of
+
+  ####### A: X of TissueType #######
+  - name: context_possessive_a_cl_t
+    example: "macrophages of the blood"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:TissueType = prep_of
+
+  - name: context_possessive_a_ct_t
+    example: "astrocytes of the grey matter"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:TissueType = prep_of
+
+  - name: context_possessive_a_g_t
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:Gene_or_gene_product
+      master:TissueType = prep_of
+
+
+  ####### B: CellType's X #######
+  - name: context_possessive_b_cl_g
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:CellType = poss
 
-  - name: context_possessive_b_11
+  ####### B: Organ's X #######
+  - name: context_possessive_b_o_cl
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:Organ = poss
+
+  - name: context_possessive_b_o_ct
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:Organ = poss
+
+  - name: context_possessive_b_o_g
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:Organ = poss
-  #######################################################
 
-  ## Location rules #####################################
-  - name: context_location_1
-    example: "lung at a human"
-    label: [ContextLocation]
+  - name: context_possessive_b_o_t
+    label: [ContextPossessive]
     priority: 4
     pattern: |
-      dependent:Organ
-      master:Species = /prep_in|prep_on|prep_at/
+      dependent:TissueType
+      master:Organ = poss
 
-  - name: context_location_2
-    label: [ContextLocation]
-    priority: 4
-    pattern: |
-      dependent:CellType
-      master:Organ = /prep_in|prep_on|prep_at/
-
-  - name: context_location_3
-    label: [ContextLocation]
-    priority: 4
-    pattern: |
-      dependent:CellLine
-      master:Organ = /prep_in|prep_on|prep_at/
-
-  - name: context_location_4
-    label: [ContextLocation]
-    priority: 4
-    pattern: |
-      dependent:CellType
-      master:Species = /prep_in|prep_on|prep_at/
-
-  - name: context_location_5
-    label: [ContextLocation]
-    priority: 4
-    pattern: |
-      dependent:CellLine
-      master:Species = /prep_in|prep_on|prep_at/
-
-  - name: context_location_6
-    label: [ContextLocation]
+  ####### B: Specie's X #######
+  - name: context_possessive_b_s_g
+    label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Species = /prep_in|prep_on|prep_at/
+      master:Species = poss
 
-  - name: context_location_7
+  - name: context_possessive_b_s_o
+    example: "rat's liver"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:Organ
+      master:Species = poss
+
+  - name: context_possessive_b_s_t
+    example: "mouse's adrenal cortex"
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:TissueType
+      master:Species = poss
+
+  ####### B: TissueType's X #######
+  - name: context_possessive_b_t_cl
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:TissueType = poss
+
+  - name: context_possessive_b_t_ct
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:TissueType = poss
+
+  - name: context_possessive_b_t_g
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:Gene_or_gene_product
+      master:TissueType = poss
+
+  - name: context_possessive_b_t_o
+    label: [ContextPossessive]
+    priority: 4
+    pattern: |
+      dependent:Organ
+      master:TissueType = poss
+  #######################################################
+
+
+  ## Location rules #####################################
+
+  ####### X in CellType #######
+  - name: context_location_g_ct
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:CellType = /prep_in|prep_on|prep_at/
 
-  - name: context_location_8
+  ####### X in Species #######
+  - name: context_location_cl_s
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:Species = /prep_in|prep_on|prep_at/
+
+  - name: context_location_ct_s
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:Species = /prep_in|prep_on|prep_at/
+
+  - name: context_location_g_s
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:Gene_or_gene_product
+      master:Species = /prep_in|prep_on|prep_at/
+
+  - name: context_location_o_s
+    example: "lung in a human"
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:Organ
+      master:Species = /prep_in|prep_on|prep_at/
+
+  - name: context_location_o_t
+    example: "adrenal cortex in a human"
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:TissueType
+      master:Species = /prep_in|prep_on|prep_at/
+
+  ####### X in Organ #######
+  - name: context_location_ct_o
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:Organ = /prep_in|prep_on|prep_at/
+
+  - name: context_location_cl_o
+    label: [ContextLocation]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:Organ = /prep_in|prep_on|prep_at/
+
+  - name: context_location_g_o
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:Organ = /prep_in|prep_on|prep_at/
-  #######################################################
 
-  ## Direction rules #####################################
-  - name: context_direction_1
-    example: "lung at a human"
-    label: [ContextDirection]
+  - name: context_location_t_o
+    example: "astrocytoma in the brain"
+    label: [ContextLocation]
     priority: 4
     pattern: |
-      dependent:Organ
-      master:Species = /prep_to|prep_from/
+      dependent:TissueType
+      master:Organ = /prep_in|prep_on|prep_at/
 
-  - name: context_direction_2
-    label: [ContextDirection]
-    priority: 4
-    pattern: |
-      dependent:CellType
-      master:Organ = /prep_to|prep_from/
-
-  - name: context_direction_3
-    label: [ContextDirection]
-    priority: 4
-    pattern: |
-      dependent:CellLine
-      master:Organ = /prep_to|prep_from/
-
-  - name: context_direction_4
-    label: [ContextDirection]
+  ####### X in TissueType #######
+  - name: context_location_ct_t
+    label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:CellType
-      master:Species = /prep_to|prep_from/
+      master:TissueType = /prep_in|prep_on|prep_at/
 
-  - name: context_direction_5
-    label: [ContextDirection]
+  - name: context_location_cl_t
+    label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Species = /prep_to|prep_from/
+      master:TissueType = /prep_in|prep_on|prep_at/
 
-  - name: context_direction_6
-    label: [ContextDirection]
+  - name: context_location_g_t
+    label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Species = /prep_to|prep_from/
+      master:TissueType = /prep_in|prep_on|prep_at/
+  #######################################################
 
-  - name: context_direction_7
+
+  ## Direction rules #####################################
+
+  ####### X to/from CellType #######
+  - name: context_direction_g_ct
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:CellType = /prep_to|prep_from/
 
-  - name: context_direction_8
+  ####### X to/from Species #######
+  - name: context_direction_cl_s
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:Species = /prep_to|prep_from/
+
+  - name: context_direction_ct_s
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:Species = /prep_to|prep_from/
+
+  - name: context_direction_o_s
+    example: "lung from a human"
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:Organ
+      master:Species = /prep_to|prep_from/
+
+  - name: context_direction_g_s
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:Gene_or_gene_product
+      master:Species = /prep_to|prep_from/
+
+  - name: context_direction_t_s
+    example: "adrenal cortex from a human"
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:TissueType
+      master:Species = /prep_to|prep_from/
+
+  ####### X to/from Organ #######
+  - name: context_direction_cl_o
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:Organ = /prep_to|prep_from/
+
+  - name: context_direction_ct_o
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:Organ = /prep_to|prep_from/
+
+  - name: context_direction_g_o
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
       master:Organ = /prep_to|prep_from/
+
+  - name: context_direction_t_o
+    example: "astrocytoma from the brain"
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:TissueType
+      master:Organ = /prep_to|prep_from/
+
+  ####### X to/from TissueType #######
+  - name: context_direction_cl_t
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:CellLine
+      master:TissueType = /prep_to|prep_from/
+
+  - name: context_direction_ct_t
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:CellType
+      master:TissueType = /prep_to|prep_from/
+
+  - name: context_direction_g_t
+    label: [ContextDirection]
+    priority: 4
+    pattern: |
+      dependent:Gene_or_gene_product
+      master:TissueType = /prep_to|prep_from/
   #######################################################
