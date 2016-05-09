@@ -13,6 +13,4 @@ package object assembly {
   // a sieve is a function that takes a Seq[Mention] and an AssemblyManager as input and produces an AssemblyManager
   type Sieve = (Seq[Mention], AssemblyManager) => AssemblyManager
 
-
-
 }

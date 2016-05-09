@@ -32,8 +32,8 @@ trait Anaphoric {
   def antecedent: Option[Anaphoric] = {
     val allAnts = this.antecedents.toSeq.map(_.asInstanceOf[CorefMention]).sorted[Mention]
     val ant = if(this.isGeneric || this.hasGenericMutation) {
-      require(this.antecedents.size < 2,
-        s"Multiple (${this.antecedents.size}) antecedents found for ${this.text}: ${this.antecedents.toSeq.map(_.text).mkString(", ")}!")
+//      require(this.antecedents.size < 2,
+//        s"Multiple (${this.antecedents.size}) antecedents found for ${this.text}: ${this.antecedents.toSeq.map(_.text).mkString(", ")}!")
       this.firstSpecific.filterNot(_ == this)
     } else Nil
     ant.headOption
