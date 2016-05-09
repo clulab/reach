@@ -1,10 +1,13 @@
-package edu.arizona.sista.assembly.relations
+package edu.arizona.sista.assembly.relations.classifier
 
 import java.io.File
+
 import com.typesafe.config.ConfigFactory
-import edu.arizona.sista.assembly.relations.CorpusReader._
+import edu.arizona.sista.assembly.relations.corpus.CorpusReader._
+import edu.arizona.sista.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
 import edu.arizona.sista.learning._
 import org.apache.commons.io.{FileUtils, FilenameUtils}
+
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Random
 
@@ -169,7 +172,7 @@ object ClassifyAssemblyRelations extends App {
 /** *
   * Train and evaluate precedence relation classifier
   */
-object TrainAssemblyRelationClassifier extends App {
+object CrossValidateAssemblyRelationClassifier extends App {
 
   val config = ConfigFactory.load()
   val annotationsPath = config.getString("assembly.corpusFile")
@@ -182,17 +185,18 @@ object TrainAssemblyRelationClassifier extends App {
   // train
   println(s"Training classifier using ${precedenceAnnotations.size}")
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
-  val pcf = AssemblyRelationClassifier.train(precedenceDataset)
-  // results
-
-  // save model
-  println(s"saving trained classifier to ${} . . .")
-  pcf.saveTo(classifierPath)
+//  val pcf = AssemblyRelationClassifier.train(precedenceDataset)
+//  // results
+//
+//  // save model
+//  println(s"saving trained classifier to ${} . . .")
+//  pcf.saveTo(classifierPath)
 
   // evaluate
   // get cross validation accuracy
   println(s"Running cross validation . . .")
   val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1")//, "rf")
+  // evaluate each model
   val res = for {
     model <- models
   } yield {

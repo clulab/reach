@@ -1,11 +1,11 @@
-package edu.arizona.sista.assembly.relations
+package edu.arizona.sista.assembly.relations.corpus
 
 import java.io.File
-import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
+import edu.arizona.sista.assembly.sieves.SieveUtils
+import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import org.json4s.DefaultFormats
 import org.json4s.native.JsonMethods
-import scala.annotation.tailrec
 
 
 case class AssemblyAnnotation(
@@ -145,21 +145,11 @@ object CorpusReader {
       Seq(other.copy(rel = NEG))
   }
 
-  /** Retrieve trigger from Mention */
-  @tailrec
-  def findTrigger(m: Mention): TextBoundMention = m match {
-    case event: EventMention =>
-      event.trigger
-    case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
-      // could be nested ...
-      findTrigger(rel.arguments("controlled").head)
-  }
-
   /** Finds mention matching label and trigger text */
   def findMention(mns: Seq[Mention], label: String, triggerText: String): Mention = {
     mns.filter{ m =>
       // label and trigger text should match
-      (m matches label) && (findTrigger(m).text == triggerText)
+      (m matches label) && (SieveUtils.findTrigger(m).text == triggerText)
     }.head
   }
 

@@ -1,11 +1,13 @@
-package edu.arizona.sista.assembly
+package edu.arizona.sista.assembly.export
 
+import java.io.File
+import edu.arizona.sista.assembly._
 import edu.arizona.sista.assembly.representations._
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.grounding.ReachKBConstants
 import edu.arizona.sista.reach.mentions._
-import java.io.File
 import org.apache.commons.io.FileUtils
+
 
 case class Row(
   input: String,
@@ -40,12 +42,17 @@ case class Row(
   def toShellRow: String = {
     val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
     s"""$eventID:\t${if(negated) "! " else ""}$input """ +
-       s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==> """ +
-       s"""$output""" +
-       s"""${if (precedingEvents.nonEmpty) s"\n\t\tPreceding => $precedingEvents" else ""}\n\n"""
+      s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==> """ +
+      s"""$output""" +
+      s"""${if (precedingEvents.nonEmpty) s"\n\t\tPreceding => $precedingEvents" else ""}\n\n"""
   }
 }
 
+/**
+ * UA assembly exporter <br>
+ * Used to produce a tsv file
+ * @param manager
+ */
 class AssemblyExporter(val manager: AssemblyManager) {
 
   import AssemblyExporter._

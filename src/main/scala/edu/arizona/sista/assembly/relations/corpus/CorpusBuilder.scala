@@ -1,16 +1,17 @@
-package edu.arizona.sista.assembly
+package edu.arizona.sista.assembly.relations.corpus
 
 import java.io.File
+
 import com.typesafe.config.ConfigFactory
-import edu.arizona.sista.assembly.relations.{Corpus, TrainingInstance}
+import edu.arizona.sista.assembly.AssemblyManager
 import edu.arizona.sista.assembly.representations.Event
 import edu.arizona.sista.assembly.sieves.Constraints
 import edu.arizona.sista.odin._
-import org.apache.commons.io.FileUtils
-import edu.arizona.sista.utils.Serializer
-import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
-import scala.util.{Try,Success,Failure}
+import edu.arizona.sista.utils.Serializer
+import org.apache.commons.io.FileUtils
+
+import scala.util.Try
 
 /**
  * RELATION CORPUS REQUIREMENTS:

@@ -1,11 +1,11 @@
-package edu.arizona.sista.assembly.relations
+package edu.arizona.sista.assembly.relations.corpus
 
 import edu.arizona.sista.assembly.sieves.Constraints
-import edu.arizona.sista.assembly.CorpusBuilder
-import edu.arizona.sista.odin.{RelationMention, EventMention, TextBoundMention, Mention}
-import org.json4s._
+import edu.arizona.sista.odin.{EventMention, Mention, RelationMention, TextBoundMention}
 import org.json4s.JsonDSL._
+import org.json4s._
 import org.json4s.native._
+
 import scala.util.hashing.MurmurHash3._
 
 /** Storage class for Event */

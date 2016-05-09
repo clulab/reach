@@ -1,7 +1,7 @@
-package edu.arizona.sista.assembly.relations
+package edu.arizona.sista.assembly.relations.classifier
 
-import edu.arizona.sista.struct.Interval
 import edu.arizona.sista.processors.Sentence
+import edu.arizona.sista.struct.Interval
 
 class PathFinder(val sentence: Sentence) {
 

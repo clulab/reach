@@ -1,5 +1,6 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.assembly.export.{Row, AssemblyExporter}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.assembly.AssemblyRunner._
 

@@ -1,13 +1,13 @@
 package edu.arizona.sista.assembly
 
 import com.typesafe.config.ConfigFactory
-import edu.arizona.sista.assembly.relations.{AssemblyAnnotation, CorpusReader}
-import edu.arizona.sista.assembly.sieves.{AssemblySieve, Sieves}
+import edu.arizona.sista.assembly.export.{Row, AssemblyExporter}
+import edu.arizona.sista.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
+import edu.arizona.sista.assembly.sieves._
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader
 import edu.arizona.sista.reach.PaperReader.Dataset
 import edu.arizona.sista.utils.Serializer
-
 import scala.reflect.io.File
 
 
@@ -23,15 +23,16 @@ object AssemblyRunner {
     */
   def applySieves(mentions: Seq[Mention]): AssemblyManager = {
 
-    val sieves = new Sieves(mentions)
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
 
     val orderedSieves =
     // track relevant mentions
-      AssemblySieve(sieves.trackMentions) andThen
+      AssemblySieve(dedup.trackMentions) andThen
         // find precedence relations using rules
-        AssemblySieve(sieves.withinRbPrecedence) andThen
-        AssemblySieve(sieves.reichenbachPrecedence) andThen
-        AssemblySieve(sieves.betweenRbPrecedence)
+        AssemblySieve(precedence.withinRbPrecedence) andThen
+        AssemblySieve(precedence.reichenbachPrecedence) andThen
+        AssemblySieve(precedence.betweenRbPrecedence)
 
     // apply the sieves and return the manager
     val am: AssemblyManager = orderedSieves.apply(mentions)
@@ -47,12 +48,13 @@ object AssemblyRunner {
     */
   def applyEachSieve(mentions: Seq[Mention]): Map[String, AssemblyManager] = {
 
-    val sieves = new Sieves(mentions)
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
 
     val availableSieves = Map(
-      "withinRbPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.withinRbPrecedence)),
-      "reichenbachPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.reichenbachPrecedence)),
-      "betweenRbPrecedence" -> (AssemblySieve(sieves.trackMentions) andThen AssemblySieve(sieves.betweenRbPrecedence))
+      "withinRbPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.withinRbPrecedence)),
+      "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
+      "betweenRbPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.betweenRbPrecedence))
     )
 
     val ams = for {
@@ -159,7 +161,7 @@ object AssembleFromDataset extends App {
 object RunAnnotationEval extends App {
 
   import edu.arizona.sista.assembly.AssemblyRunner._
-  import edu.arizona.sista.assembly.relations.CorpusReader._
+  import CorpusReader._
   import edu.arizona.sista.reach.display._
 
   case class Performance (sieve: String, rule: String, p: Double, r: Double, f1: Double, tp: Int, fp: Int, fn: Int) {

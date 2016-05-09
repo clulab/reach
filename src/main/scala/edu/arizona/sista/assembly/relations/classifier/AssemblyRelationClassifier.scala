@@ -1,6 +1,8 @@
-package edu.arizona.sista.assembly.relations
+package edu.arizona.sista.assembly.relations.classifier
 
 import java.io._
+
+import edu.arizona.sista.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
 import edu.arizona.sista.learning._
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.PaperReader

@@ -1,10 +1,11 @@
-package edu.arizona.sista.assembly.relations
+package edu.arizona.sista.assembly.relations.classifier
 
 import edu.arizona.sista.assembly.AssemblyManager
+import edu.arizona.sista.assembly.sieves.SieveUtils
 import edu.arizona.sista.learning.RVFDatum
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Sentence
-import edu.arizona.sista.struct.{Interval, Counter}
+import edu.arizona.sista.struct.{Counter, Interval}
 
 
 object FeatureExtractor {
@@ -108,7 +109,7 @@ object FeatureExtractor {
    * @return
    */
   def getTriggerArgPaths(m: Mention): Seq[String] = {
-    val trigger = CorpusReader.findTrigger(m)
+    val trigger = SieveUtils.findTrigger(m)
     val paths = for {
       // for each role
       (role, args) <- m.arguments
@@ -129,7 +130,7 @@ object FeatureExtractor {
   }
 
   def getTriggerArgPathDistances(m: Mention): Seq[String] = {
-    val trigger = CorpusReader.findTrigger(m)
+    val trigger = SieveUtils.findTrigger(m)
     val distances = for {
     // for each role
       (role, args) <- m.arguments.toSeq
@@ -167,8 +168,8 @@ object FeatureExtractor {
    * (ex. e1:phosphorylation:Phosphorylation rcmod e2:decreases:Positive_Regulation)
    */
   def getTriggerToTriggerPath(e1: Mention, e2: Mention): Seq[String] = {
-    val t1 = CorpusReader.findTrigger(e1)
-    val t2 = CorpusReader.findTrigger(e2)
+    val t1 = SieveUtils.findTrigger(e1)
+    val t2 = SieveUtils.findTrigger(e2)
     val paths = for {
       useLemmas <- Seq(true, false)
       p <- getShortestPaths(t1, t2, withLemmas = useLemmas)
@@ -180,8 +181,8 @@ object FeatureExtractor {
   }
 
   def getTriggerToTriggerPathDistances(e1: Mention, e2: Mention): Seq[String] = {
-    val t1 = CorpusReader.findTrigger(e1)
-    val t2 = CorpusReader.findTrigger(e2)
+    val t1 = SieveUtils.findTrigger(e1)
+    val t2 = SieveUtils.findTrigger(e2)
     val distances = for {
       p <- getShortestPaths(t1, t2)
       if p.nonEmpty
@@ -242,7 +243,7 @@ object FeatureExtractor {
 
   /** get trigger for a mention */
   def getTrigger(m: Mention): String = {
-    CorpusReader.findTrigger(m).text
+    SieveUtils.findTrigger(m).text
   }
 
   /** get the words between two mentions */
@@ -469,7 +470,7 @@ object FeatureExtractor {
       foundBy = "getRootPath"
     )
 
-    val trigger = CorpusReader.findTrigger(m)
+    val trigger = SieveUtils.findTrigger(m)
 
     for {
       p <- getShortestPaths(rootMention, trigger)

@@ -1,37 +1,40 @@
 package edu.arizona.sista.assembly.sieves
 
 import edu.arizona.sista.assembly.AssemblyManager
-import edu.arizona.sista.assembly.relations.CorpusReader
-import edu.arizona.sista.assembly.representations.{Complex, Event, SimpleEntity}
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.RuleReader
-import edu.arizona.sista.reach.display._
-import org.apache.commons.lang.mutable.Mutable
+import scala.annotation.tailrec
+
+
+class Sieves {
+
+}
 
 /**
- * Contains all sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
-  *
-  * @param mentions a Seq of Odin Mentions
+ * Contains all deduplication sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
  */
-class Sieves(mentions: Seq[Mention]) {
-
-  import Constraints._
-  import SieveUtils._
-
-  val reachMentions = mentions
-
+class DeduplicationSieves extends Sieves {
   /**
-    * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
-    *
-    * @param mentions a sequence of Odin Mentions
-    * @param manager  an AssemblyManager
-    * @return an AssemblyManager
-    */
+   * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
+   *
+   * @param mentions a sequence of Odin Mentions
+   * @param manager  an AssemblyManager
+   * @return an AssemblyManager
+   */
   def trackMentions(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
     val am = AssemblyManager()
     am.trackMentions(mentions)
     am
   }
+}
+
+/**
+ * Contains all precedence sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
+ */
+class PrecedenceSieves extends Sieves {
+
+  import Constraints._
+  import SieveUtils._
 
   /**
     * Rule-based method for detecting precedence relations within sentences
@@ -75,7 +78,7 @@ class Sieves(mentions: Seq[Mention]) {
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
       val relevant: Set[Mention] = tams.filter{tam =>
-        val triggerInterval = CorpusReader.findTrigger(ev).tokenInterval
+        val triggerInterval = SieveUtils.findTrigger(ev).tokenInterval
         (tam.document == ev.document) &&
           (tam.sentence == ev.sentence) &&
           (tam matches label) &&
@@ -131,7 +134,7 @@ class Sieves(mentions: Seq[Mention]) {
 
     // TODO: only look at events with verbal triggers
     val evs = mentions.filter(isEvent)
-    val eventTriggers = evs.map(CorpusReader.findTrigger)
+    val eventTriggers = evs.map(SieveUtils.findTrigger)
     val tams = assemblyViaRules(tam_rules, eventTriggers)
     val tenseMentions = tams.filter(_ matches "Tense")
     val aspectMentions = tams.filter(_ matches "Aspect")
@@ -273,4 +276,14 @@ object SieveUtils {
     * @return a Boolean
     */
   def isEvent(m:Mention) = m.matches("Event") && !m.isInstanceOf[TextBoundMention]
+
+  /** Retrieve trigger from Mention */
+  @tailrec
+  def findTrigger(m: Mention): TextBoundMention = m match {
+    case event: EventMention =>
+      event.trigger
+    case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
+      // could be nested ...
+      findTrigger(rel.arguments("controlled").head)
+  }
 }
