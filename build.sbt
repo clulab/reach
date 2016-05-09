@@ -70,7 +70,6 @@ libraryDependencies ++= Seq(
   "org.clulab" %% "processors" % "5.8.4" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
-  "org.apache.commons" % "commons-compress" % "1.5",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
   "jline" % "jline" % "2.12.1",
   "org.apache.lucene" % "lucene-core" % "5.3.1",
