@@ -1,10 +1,13 @@
-package edu.arizona.sista.assembly
+package edu.arizona.sista.assembly.export
 
+import java.io.File
+import edu.arizona.sista.assembly._
+import edu.arizona.sista.assembly.representations._
 import edu.arizona.sista.odin.Mention
 import edu.arizona.sista.reach.grounding.ReachKBConstants
 import edu.arizona.sista.reach.mentions._
-import java.io.File
 import org.apache.commons.io.FileUtils
+
 
 case class Row(
   input: String,
@@ -35,8 +38,21 @@ case class Row(
     val examples = getTextualEvidence.mkString(" ++++ ")
     s"$input\t$output\t$controller\t$eventID\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
   }
+
+  def toShellRow: String = {
+    val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
+    s"""$eventID:\t${if(negated) "! " else ""}$input """ +
+      s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==> """ +
+      s"""$output""" +
+      s"""${if (precedingEvents.nonEmpty) s"\n\t\tPreceding => $precedingEvents" else ""}\n\n"""
+  }
 }
 
+/**
+ * UA assembly exporter <br>
+ * Used to produce a tsv file
+ * @param manager
+ */
 class AssemblyExporter(val manager: AssemblyManager) {
 
   import AssemblyExporter._
@@ -100,7 +116,7 @@ class AssemblyExporter(val manager: AssemblyManager) {
       .toSeq.mkString(":")
 
     // find PTMs
-    val ptms: Set[PTM] = other.filter(_.isInstanceOf[PTM])map(_.asInstanceOf[PTM])
+    val ptms: Set[representations.PTM] = other.filter(_.isInstanceOf[representations.PTM])map(_.asInstanceOf[representations.PTM])
     val features: String = ptms
       .map(getPTMrepresentation)
       .mkString(".")
@@ -238,12 +254,28 @@ class AssemblyExporter(val manager: AssemblyManager) {
     FileUtils.writeStringToFile(f, header + text)
   }
 
+  def shellOutput(rowFilter: Set[Row] => Set[Row]): String = {
+    val rowsForOutput = rowFilter(getEventRows)
+
+    // validate output
+    validateOutput(rowsForOutput)
+
+    val text =
+    // only events
+      rowsForOutput
+        .toSeq
+        .sortBy(r => (r.eventID))
+        .map(_.toShellRow)
+        .mkString
+    text + "=" * 50
+  }
+
   def getEventLabel(e: EntityEventRepresentation): String = e match {
     case reg: Regulation => "Regulation"
     case act: Activation => "Activation"
     case se: SimpleEvent => se.label
-    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[PTM]) =>
-      ptm.modifications.find(_.isInstanceOf[PTM]).get.asInstanceOf[PTM].label
+    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
+      ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
     //case comp: Complex => "entity"
     // filter these out later
     case entity => "entity"
@@ -286,7 +318,7 @@ object AssemblyExporter {
     getResolvedForm(m.toCorefMention)
   }
 
-  def getPTMrepresentation(ptm: PTM): String = {
+  def getPTMrepresentation(ptm: representations.PTM): String = {
     // attempt to retrieve the abbreviated form of the label
     // if the key is missing from the LUT,
     // return the lowercase form of the first letter of the PTM's label

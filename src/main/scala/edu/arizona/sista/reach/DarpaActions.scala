@@ -564,7 +564,7 @@ class DarpaActions extends Actions {
     } else {
       // get the theme of the event (assume only one theme)
       val entity = event.arguments("theme").head.toBioMention
-      // get an optional site (assumen only one site)
+      // get an optional site (assume only one site)
       val siteOption = event.arguments.get("site").map(_.head)
       // create new mention for the entity
       val modifiedEntity = new BioTextBoundMention(
