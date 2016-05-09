@@ -25,7 +25,16 @@ rules:
     pattern: |
       before:${before_type}
       # before the AFT
-      after:${after_type} = /^prep_(before|prior_to)$/
+      # TODO: Write surface rule for prior_to relations
+      after:${after_type} = prep_before
+
+  - name: assembly-prep-surface-1
+    label: ${mylabel}
+    priority: ${deprulepriority}
+    example: "BEF is ubiquitinated before the phosphorylation of AFT."
+    type: "token"
+    pattern: |
+      (?<before> ${before_type}) (before | prior to) [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
 
   - name: assembly-prep-syntax-2
     label: ${mylabel}
@@ -36,6 +45,14 @@ rules:
       # after BEF
       before:${before_type} = /^prep_(after|following)$/
 
+  - name: assembly-prep-surface-2
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT is ubiquitinated following the phosphorylation of BEF."
+    type: "token"
+    pattern: |
+      (?<after> ${after_type}) (after | [lemma=follow]) [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
   - name: assembly-prep-syntax-3
     label: DirectConnection
     priority: ${deprulepriority}
@@ -45,14 +62,22 @@ rules:
       # due to BEF
       before:${before_type} = prep_due_to | prep_because_of
 
-  - name: assembly-verb-syntax-1
-    label: DirectConnection
-    priority: ${deprulepriority}
-    example: "the ubiquitination of BEF leads to the phosphorylation of AFT."
+  - name: assembly-prep-surface-3
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT is ubiquitinated due to the phosphorylation of BEF."
+    type: "token"
     pattern: |
-      before:${before_type}
-      # ... leads to AFT
-      after:${after_type} = <nsubj [lemma=/^(lead)$/] prep_to
+      (?<after> ${after_type}) (due to | because of) [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
+#  - name: assembly-verb-syntax-1
+#    label: DirectConnection
+#    priority: ${deprulepriority}
+#    example: "the ubiquitination of BEF leads to the phosphorylation of AFT."
+#    pattern: |
+#      before:${before_type}
+#      # ... leads to AFT
+#      after:${after_type} = <nsubj [lemma=/^(lead)$/] prep_to
 
   - name: assembly-verb-syntax-2a
     label: DirectConnection
@@ -61,7 +86,7 @@ rules:
     pattern: |
       before:${after_type}
       # AFT follows ...
-      after:${before_type} =  <dobj [lemma=/^follow$/] nsubj
+      after:${before_type} =  <dobj [lemma=follow] nsubj
 
   - name: assembly-verb-syntax-2b
     label: DirectConnection
@@ -72,6 +97,14 @@ rules:
       # BEF precedes ...
       before:${before_type} =  <dobj [lemma=/^(precede|precipitat)/] nsubj
 
+  - name: assembly-verb-surface-2b
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "The ubiquitination of BEF precedes the phosphorylation of AFT. The ubiquitination of BEF precipitates the phosphorylation of AFT."
+    type: "token"
+    pattern: |
+      (?<before> ${before_type}) [lemma=/^(precede|precipitat)/] [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
+
   - name: assembly-verb-syntax-3
     example: "AFT ubiquitination is a result of BEF phosphorylation.  AFT ubiquitination results from BEF phosphorylation."
     label: ${mylabel}
@@ -81,6 +114,22 @@ rules:
      # AFT results from BEF
      after:${before_type} = </(prepc?_of|prep_from)/ [lemma=result] nsubj
 
+  - name: assembly-verb-surface-3a
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT ubiquitination is a result of BEF phosphorylation."
+    type: "token"
+    pattern: |
+      (?<after> ${after_type}) [lemma=be] [tag=/^(DT|CD|JJ)$/] [lemma=result] of [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
+  - name: assembly-verb-surface-3b
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "AFT ubiquitination results from BEF phosphorylation."
+    type: "token"
+    pattern: |
+      (?<after> ${after_type}) ","? [tag=RB]? [lemma=result & tag=/^VB/] from [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
+
   - name: assembly-verb-syntax-4
     example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
     label: ${mylabel}
@@ -89,6 +138,14 @@ rules:
      after:${after_type}
      # BEF ..., resulting from ...
      before:${before_type} = <prep_in [lemma=result & tag=VBG] >xcomp nsubjpass
+
+  - name: assembly-verb-surface-4and6
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
+    type: "token"
+    pattern: |
+      (?<before> ${before_type}) ","? [tag=RB]? [lemma=result & tag=/^VB/] in [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
 
   - name: assembly-verb-syntax-5
     example: "As a result of BEF phosphorylation, AFT is ubiquitinated. AFT is phosphorylated as a result of BEF ubiqutination."
@@ -115,6 +172,14 @@ rules:
      # ..., when BEF
      # use lookaround assertion to check if WH word present
      before:${before_type} = dobj rcmod (?= advmod [tag=WRB])
+
+  - name: assembly-verb-surface-7
+    label: ${mylabel}
+    priority: ${surfacerulepriority}
+    example: "The RBD of PI3KC2B binds HRAS , when HRAS is not bound to GTP . AFT binds HRAS, when BEF in not bound to GTP"
+    type: "token"
+    pattern: |
+      (?<before> ${before_type}) ","? when (?<after> ${after_type})
 
   # Passives
   - name: assembly-syntax-pass-1
@@ -155,10 +220,10 @@ rules:
     priority: ${surfacerulepriority}
     pattern: |
       # "BEF precedes AFT" pattern
-      @before:${after_type} [lemma=be]? [lemma=/^immediate|direct$/] ${beforesurface} [tag=IN]? [tag=DT]? @after:${before_type}
+      @before:${before_type} [lemma=be]? [lemma=/^immediate|direct$/] ${beforesurface} [tag=IN]? [tag=DT]? @after:${after_type}
       |
       # "AFT follows BEF" pattern
-      @before:${after_type} [lemma=be]? [lemma=/^immediate|direct$/] ${aftersurface} [tag=IN]? [tag=DT]? @after:${before_type}
+      @before:${before_type} [lemma=be]? [lemma=/^immediate|direct$/] ${aftersurface} [tag=IN]? [tag=DT]? @after:${after_type}
 
   # finds a direct connection
   - name: assembly-surface-2
@@ -168,10 +233,10 @@ rules:
     priority: ${surfacerulepriority}
     pattern: |
       # "BEF precedes AFT" pattern
-      @before:${after_type} [lemma=be]? ${aftersurface} [tag=IN]? [tag=DT]? @after:${before_type}
+      @before:${before_type} [lemma=be]? ${aftersurface} [tag=IN]? [tag=DT]? @after:${after_type}
       |
       # "AFT follows BEF" pattern
-      @before:${after_type} [lemma=be]? ${beforesurface} [tag=IN]? [tag=DT]? @after:${before_type}
+      @before:${before_type} [lemma=be]? ${beforesurface} [tag=IN]? [tag=DT]? @after:${after_type}
 
   - name: assembly-surface-3
     example: "AFT is ubiquitinated in response to the phosphorylation of BEF."
@@ -179,7 +244,7 @@ rules:
     type: token
     priority: ${surfacerulepriority}
     pattern: |
-     @after:${before_type} in response to []{,2} @before:${after_type}
+     @after:${after_type} in response to []{,2} @before:${before_type}
 
   - name: assembly-surface-4
     example: "BEF ubiquitination has downstream effects on the phosphorylation of AFT."
@@ -188,7 +253,7 @@ rules:
     priority: ${surfacerulepriority}
     pattern: |
      # NOTE: event "A has no effect on B" implies A before B
-     @before:${after_type} [lemma=have] []{,2} [lemma=effect] on []{,2} @after:${before_type}
+     @before:${before_type} [lemma=have] []{,2} [lemma=effect] on []{,2} @after:${after_type}
 
   - name: assembly-surface-5
     example: "AFT ubiquitination is a result of BEF phosphorylation."
@@ -196,7 +261,7 @@ rules:
     type: token
     priority: ${surfacerulepriority}
     pattern: |
-     @after:${before_type} [lemma=be] result of []{,2} @before:${after_type}
+     @after:${after_type} [lemma=be] result of []{,2} @before:${before_type}
 
   - name: assembly-surface-6
     example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
@@ -204,7 +269,7 @@ rules:
     type: token
     priority: ${surfacerulepriority}
     pattern: |
-     @before:${after_type} []{,2} [lemma=result] in []{,2} @after:${before_type}
+     @before:${before_type} []{,2} [lemma=result] in []{,2} @after:${after_type}
 
   - name: assembly-surface-7
     example: "BEF is ubiquitinated, thereby increasing the phosphorylation of AFT."
@@ -212,4 +277,4 @@ rules:
     type: token
     priority: ${surfacerulepriority}
     pattern: |
-     @before:${after_type} []{,2} [lemma=thereby] []{,3} @after:${before_type}
+     @before:${before_type} []{,2} [lemma=thereby] []{,3} @after:${after_type}

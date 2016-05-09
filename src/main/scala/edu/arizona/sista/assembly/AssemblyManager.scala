@@ -1,13 +1,12 @@
 package edu.arizona.sista.assembly
 
+import edu.arizona.sista.assembly.representations._
 import collection.Map
 import collection.immutable
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions.{MentionOps, CorefMention}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import edu.arizona.sista.reach.mentions
-import edu.arizona.sista.assembly
-
 
 
 /**
@@ -22,7 +21,28 @@ case class PrecedenceRelation(
   after: Int,
   var evidence: Set[Mention],
   foundBy: String
-)
+) {
+
+  /**
+    * Returns true if the input argument is a [[PrecedenceRelation]] with identical before and after [[EntityEventRepresentation]]s
+    * @param other Any comparison object
+    * @return a Boolean
+    */
+  def strictlyEquivalent(other: Any): Boolean = other match {
+    case pr: PrecedenceRelation => this.before == pr.before && this.after == pr.after
+    case _ => false
+  }
+
+  /**
+    * Returns true if the input argument is a [[PrecedenceRelation]] with either the same before or after [[EntityEventRepresentation]]s
+    * @param other Any comparison object
+    * @return a Boolean
+    */
+  def isEquivalentTo(other: Any): Boolean = other match {
+    case pr: PrecedenceRelation => this.before == pr.before || this.after == pr.after
+    case _ => false
+  }
+}
 
 /**
  * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
@@ -167,6 +187,16 @@ class AssemblyManager(
    */
   def getPrecedenceRelations(m: Mention): Set[PrecedenceRelation] = {
     getPrecedenceRelations(getOrCreateEER(m))
+  }
+
+  /**
+   * Retrieves the (distinct) Set of PrecedenceRelations for all Events
+   */
+  def getPrecedenceRelations: Set[PrecedenceRelation] = {
+   for {
+     e <- distinctEvents
+     pr <- getPrecedenceRelations(e)
+   } yield pr
   }
 
   /**
@@ -472,7 +502,7 @@ class AssemblyManager(
    * PTM
    * Mutant
    *
-   * Additionally, a Mention corresponding to an Entity will include an [[assembly.EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
+   * Additionally, a Mention corresponding to an Entity will include an [[EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
    * @param m an Odin Mention
    * @return Set[AssemblyModification]
    */
@@ -481,9 +511,9 @@ class AssemblyManager(
     val mods: Set[AssemblyModification] =
       m.toBioMention.modifications flatMap {
         // TODO: is site part of label?
-        case mut: mentions.Mutant => Set(assembly.MutantEntity(mut.label))
+        case mut: mentions.Mutant => Set(MutantEntity(mut.label))
         // TODO: should site be handled differently?
-        case ptm: mentions.PTM => Set(assembly.PTM(ptm.toString, None))
+        case ptm: mentions.PTM => Set(PTM(ptm.toString, None))
         case _ => Nil
       }
     if (m matches "Entity") Set(EntityLabel(m.label)) ++ mods else mods
@@ -500,13 +530,13 @@ class AssemblyManager(
    * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
    * @param mods an optional set of [[AssemblyModification]].
-   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[assembly.PTM]] comes from the [[SimpleEvent]]
+   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
    * @return a tuple of ([[IDPointer]], [[SimpleEntity]])
    */
   protected def createSimpleEntityWithID(
     m: Mention,
-    mods: Option[Set[assembly.AssemblyModification]]
+    mods: Option[Set[AssemblyModification]]
   ): (SimpleEntity, IDPointer) = {
 
     /** Used to create "new" mention whenever mods are provided **/
@@ -517,11 +547,10 @@ class AssemblyManager(
     }
 
     // check for coref
-    val cm = m.toCorefMention
-    val e = getResolvedForm(cm)
+    val e = getResolvedForm(m)
 
-    // mention should be an Entity
-    require(cm matches "Entity")
+    // mention should be an Entity or Cellular_component
+    require((e matches "Entity") || (e matches "Cellular_component"), "createSimpleEntity requires an 'Entity' or 'Cellular_component' Mention")
 
     val modifications = mkAssemblyModifications(e)
 
@@ -565,13 +594,13 @@ class AssemblyManager(
    * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
    * @param mods an optional set of [[AssemblyModification]].
-   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[assembly.PTM]] comes from the [[SimpleEvent]]
+   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
    * @return a [[SimpleEntity]]
    */
   protected def createSimpleEntity(
     m: Mention,
-    mods: Option[Set[assembly.AssemblyModification]]
+    mods: Option[Set[AssemblyModification]]
   ): SimpleEntity = createSimpleEntityWithID(m, mods)._1
 
 
@@ -587,10 +616,9 @@ class AssemblyManager(
   protected def createComplexWithID(m: Mention): (Complex, IDPointer) = {
 
     // check for coref
-    val cm = m.toCorefMention
-    val c = getResolvedForm(cm)
+    val c = getResolvedForm(m)
 
-    require(c matches "Complex|Binding".r, "createComplex only handles Complex and Binding mentions.")
+    require(c matches "Complex", "createComplex only handles Mentions with the label 'Complex'.")
 
     // prepare id
     val id = getOrCreateID(m)
@@ -610,6 +638,7 @@ class AssemblyManager(
       )
 
     // update LUTs
+    // use original mention for later lookup
     updateLUTs(id, m, eer)
 
     (eer, id)
@@ -645,13 +674,12 @@ class AssemblyManager(
     def handleBinding(m: Mention): (SimpleEvent, IDPointer) = {
 
       // check for coref
-      val cm = m.toCorefMention
-      val e = getResolvedForm(cm)
+      val e = getResolvedForm(m)
 
       // mention should be a SimpleEvent, but not a Binding
-      require(cm matches "Binding", "handleBinding only accepts Binding mentions.")
+      require(e matches "Binding", "handleBinding only accepts Binding mentions.")
       // there should not be a cause among the arguments
-      require(!(cm.arguments contains "cause"), "Binding should not contain a cause!")
+      require(!(e.arguments contains "cause"), "Binding should not contain a cause!")
       // prepare input (roles -> repr. pointers)
 
       // construct inputs from themes
@@ -705,6 +733,7 @@ class AssemblyManager(
         )
 
       // update LUTs
+      // use original mention for later lookup
       updateLUTs(id, m, eer)
 
       (eer, id)
@@ -718,17 +747,17 @@ class AssemblyManager(
     def handleNBSimpleEvent(m: Mention): (SimpleEvent, IDPointer) = {
 
       // check for coref
-      val cm = m.toCorefMention
-      val e = getResolvedForm(cm)
+      val e = getResolvedForm(m)
 
       // mention should be a SimpleEvent, but not a Binding
-      require((cm matches "SimpleEvent") && !(cm matches "Binding"), "handleNBSimpleEvent only accepts a SimpleEvent Mention that is NOT a Binding.")
+      require((e matches "SimpleEvent") && !(e matches "Binding"), s"handleNBSimpleEvent received Mention of label '${e.label}', but method only accepts a SimpleEvent Mention that is NOT a Binding.")
       // prepare input (roles -> repr. pointers)
 
       // filter out sites from input
       val siteLessArgs = e.arguments - "site"
       val input: Map[String, Set[IDPointer]] = siteLessArgs map {
         case (role: String, mns: Seq[Mention]) =>
+          //println(s"\tprocessing mentions for '$role' role of '${e.label}'")
           (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
       }
 
@@ -738,9 +767,9 @@ class AssemblyManager(
         val ptms: Set[AssemblyModification] = e match {
           case hasSites if hasSites.arguments contains "site" =>
             // create a PTM for each site
-            for (site <- hasSites.arguments("site").toSet[Mention]) yield assembly.PTM(e.label, Some(site.text))
+            for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(e.label, Some(site.text))
           // create a PTM without a site
-          case noSites => Set(assembly.PTM(e.label, None))
+          case noSites => Set(representations.PTM(e.label, None))
         }
 
         // NOTE: we need to be careful if we use something other than theme
@@ -765,6 +794,7 @@ class AssemblyManager(
         )
 
       // update LUTs
+      // use original mention for later lookup
       updateLUTs(id, m, eer)
 
       (eer, id)
@@ -774,9 +804,12 @@ class AssemblyManager(
     // handle dispatch
     //
 
-    require(m matches "SimpleEvent", "createSimpleEventWithID requires Mention with the label SimpleEvent.")
+    val event = getResolvedForm(m.toCorefMention)
+    require(event matches "SimpleEvent", s"createSimpleEventWithID requires Mention with the label SimpleEvent, but received Mention with label '${event.label}'")
     // there should not be a cause among the arguments
-    require(!(getResolvedForm(m.toCorefMention).arguments contains "cause"), "SimpleEvent should not contain a cause!")
+    require(!(event.arguments contains "cause"), "SimpleEvent should not contain a cause!")
+    // SimpleEvent must have theme
+    require(event.arguments contains "theme", s"'${event.label}' must have a theme.")
     m match {
       case binding if binding matches "Binding" => handleBinding(binding)
       case other => handleNBSimpleEvent(other)
@@ -802,8 +835,7 @@ class AssemblyManager(
   private def createRegulationWithID(m: Mention): (Regulation, IDPointer) = {
 
     // check for coref
-    val cm = m.toCorefMention
-    val reg = getResolvedForm(cm)
+    val reg = getResolvedForm(m)
 
     // get polarity
     val polarity = getPolarityLabel(reg)
@@ -843,6 +875,7 @@ class AssemblyManager(
       )
 
     // update LUTs
+    // use original mention for later lookup
     updateLUTs(id, m, eer)
 
     // eer and id pair
@@ -875,8 +908,7 @@ class AssemblyManager(
   private def createActivationWithID(m: Mention): (Activation, IDPointer) = {
 
     // check for coref
-    val cm = m.toCorefMention
-    val act = getResolvedForm(cm)
+    val act = getResolvedForm(m)
 
     // get polarity
     val polarity = getPolarityLabel(act)
@@ -914,6 +946,7 @@ class AssemblyManager(
       )
 
     // update LUTs
+    // use original mention for later lookup
     updateLUTs(id, m, eer)
 
     // eer and id pair
@@ -971,12 +1004,15 @@ class AssemblyManager(
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
   private def createEERwithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
-     m.toBioMention match {
-      case complex if complex matches "Complex" => createComplexWithID(complex)
-      case e if e matches "Entity" => createSimpleEntityWithID(e, None)
-      case se if se matches "SimpleEvent" => createSimpleEventWithID(se)
-      case regulation if regulation matches "Regulation" => createRegulationWithID(regulation)
-      case activation if activation matches "ActivationEvent" => createActivationWithID(activation)
+    // pass the unresolved form through according to a check against the resolved form
+    getResolvedForm(m) match {
+      case complex if complex matches "Complex" => createComplexWithID(m)
+      case e if e matches "Entity" => createSimpleEntityWithID(m, None)
+      case cc if cc matches "Cellular_component" => createSimpleEntityWithID(m, None)
+      case se if se matches "SimpleEvent" => createSimpleEventWithID(m)
+      case regulation if regulation matches "Regulation" => createRegulationWithID(m)
+      case activation if activation matches "ActivationEvent" => createActivationWithID(m)
+      case other => throw new Exception(s"createEERwithID failed for ${other.label}")
     }
   }
 
@@ -1033,7 +1069,8 @@ class AssemblyManager(
    * @return an [[EntityEventRepresentation]]
    */
   def getEER(m: Mention): EntityEventRepresentation = {
-    val id = mentionToID(m)
+    require(isValidMention(m), s"Mention '${m.label}' is not valid")
+    val id = mentionToID.getOrElse(m, mentionToID(getResolvedForm(m)))
     idToEER(id)
   }
 
@@ -1073,7 +1110,7 @@ class AssemblyManager(
 
   /**
    * Returns a SimpleEvent for a Mention m with the appropriate labels.
-   * @param m an Odin Mention.  Must have the label "SimpleEvent" and not the label "Binding".
+   * @param m an Odin Mention.  Must have the label "SimpleEvent".
    */
   def getSimpleEvent(m: Mention): SimpleEvent = {
     require(m matches "SimpleEvent", "Mention is not a SimpleEvent")
@@ -1192,6 +1229,18 @@ class AssemblyManager(
   }
 
   // Event
+
+  /**
+   * Retrieves all Events from the manager.
+   * Note that these are non-distinct (Events may differ in terms of their IDPointers).
+   */
+  def getEvents: Set[Event] = {
+    for {
+      e: EntityEventRepresentation <- getEERs
+      if e.isInstanceOf[Event]
+      event = e.asInstanceOf[Event]
+    } yield event
+  }
 
   /**
    * Returns "distinct" Set of Events. Ignores multiple instances of the same Entity.
@@ -1526,36 +1575,65 @@ object AssemblyManager {
   val positive = "Positive"
   val negative = "Negative"
   val unknown = "UNKNOWN"
+
   def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+
+  /**
+   * Instantiate [[AssemblyManager]] and track the provided Mentions
+   * @param mns a sequence of Odin Mentions
+   * @return an [[AssemblyManager]]
+   */
+  def apply(mns: Seq[Mention]): AssemblyManager = {
+    val am = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+    am.trackMentions(mns)
+    am
+  }
 
   /**
    * Get antecedent if present.  Otherwise return the CorefMntion as-is.
    *
    * Used to retrieve the appropriate features of a mention's antecedent.
-   * @param cm an [[edu.arizona.sista.reach.mentions.CorefMention]]
+   * @param m an Odin Mention
    * @return a [[edu.arizona.sista.reach.mentions.CorefMention]] (possibly cm)
    */
-  def getResolvedForm(cm: CorefMention): CorefMention = cm.antecedentOrElse(cm)
+  def getResolvedForm(m: Mention): CorefMention = {
+    val cm = m.toCorefMention
+    cm.antecedentOrElse(cm)
+  }
+
+  /**
+   * Checks whether a mention involves a corefence resolution
+   * @param m an Odin Mention
+   * @return
+   */
+  def involvesCoreference(m: Mention): Boolean = getResolvedForm(m) match {
+    // if the resolved form differs from m, this is a case of coref
+    case resolved if resolved != m => true
+    // ... otherwise check if any arg involves coref
+    case checkArgs => checkArgs.arguments.values.flatten.exists(involvesCoreference)
+  }
 
   /**
    * Checks to see if the mention can be safely handled by the AssemblyManager
    * Currently Sites are not stored in the LUTs,
    * though they can appear as part of a modification
-   * (see the [[assembly.PTM]] [[AssemblyModification]] for an example)
+   * (see the [[PTM]] [[AssemblyModification]] for an example)
    * @param mention an Odin Mention
    * @return true if the mention can be safely handled by the manager; false otherwise
    */
   def isValidMention(mention: Mention): Boolean = {
 
-    val m = getResolvedForm(mention.toCorefMention)
+    getResolvedForm(mention) match {
 
-    m match {
-
+      // no generic event
+      case gen if gen matches "Generic_event" => false
+      // allow entities
       case entity if entity matches "Entity" => true
-
-      // simple events should not have a cause
+      // needed for Translocations
+      case cc if cc matches "Cellular_component" => true
+      // simple events must have a theme and should not have a cause
       case se if se matches "SimpleEvent" =>
-        !(se.arguments contains "cause")
+        (se.arguments contains "theme") && !(se.arguments contains "cause")
 
       // activations must have controlled and controller
       case act if act matches "ActivationEvent" =>

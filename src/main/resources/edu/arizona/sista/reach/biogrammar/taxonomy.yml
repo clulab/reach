@@ -78,3 +78,20 @@
   - DirectConnection
   # for pairs that are indirectly (not immediately) connected
   - IndirectConnection
+  # Between-sentence precedence
+  - BetweenSentence:
+    - TimexAfter
+    - TimexBefore
+    - SentenceInitialEvent
+    - InterAfter
+    - InterBefore
+  # tense and aspect detection
+  - TAM:
+    - Aux
+    - Tense:
+      - PastTense
+      - PresentTense
+      - FutureTense
+    - Aspect:
+      - Perfective
+      - Progressive
