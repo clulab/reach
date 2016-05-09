@@ -22,7 +22,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Rename assembly output file for Hans.
+  *   Last Modified: Add context to entity mentions.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -76,7 +76,8 @@ class FriesOutput extends JsonOutputter {
 
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
                                      startTime, endTime, otherMetaData)
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
+
+    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
     // entityMap: map from entity pointers to unique ids
     val eventModel = eventsToModel(paperId, allMentions, passageMap, contextIdMap, entityMap,
@@ -117,7 +118,7 @@ class FriesOutput extends JsonOutputter {
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
@@ -178,6 +179,7 @@ class FriesOutput extends JsonOutputter {
   private def entitiesToModel (paperId:String,
                                allMentions:Seq[Mention],
                                paperPassages:Map[String, FriesEntry],
+                               contextIdMap:CtxIDed,
                                startTime:Date,
                                endTime:Date,
                                otherMetaData:Map[String, String]): (PropMap, IDed) = {
@@ -198,7 +200,7 @@ class FriesOutput extends JsonOutputter {
           val cid = getChunkId(em)
           assert(paperPassages.contains(cid))
           val passageMeta = paperPassages.get(cid).get
-          frames += mkEntityMention(paperId, passageMeta, em.toBioMention.asInstanceOf[BioTextBoundMention], entityMap)
+          frames ++= mkEntityMention(paperId, passageMeta, em.toBioMention.asInstanceOf[BioTextBoundMention], contextIdMap, entityMap)
         case _ => // these are events; we will export them later
       }
     }
@@ -293,6 +295,7 @@ class FriesOutput extends JsonOutputter {
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
 
+    // handle event arguments
     if (arguments.isDefined) {
       val argList = new FrameList
       for (key <- arguments.get.keys) {
@@ -315,29 +318,42 @@ class FriesOutput extends JsonOutputter {
     // TODO (optional): add "index", i.e., the sentence-local number for this mention
     //                  from this component.
 
-    // handle context features
+    // handle context features:
+    val (contextId, contextFrame) = lookupContext(paperId, passageMeta, mention, contextIdMap)
+
+    // the context for a frame is a list of context frame refs (currently a singleton list)
+    if (contextId.isDefined)
+      f("context") = List(contextId.get)
+
+    // return 1 or more frames: both context and event frames or just an event frame:
+    if (contextFrame.isDefined)
+      List(contextFrame.get, f)
+    else
+      List(f)
+  }
+
+  /** Lookup the context for the given mention. Return a newly created context ID and frame;
+      or an existing context ID,=; or neither, if the mention has no context. */
+  private def lookupContext (paperId: String,
+                             passageMeta: FriesEntry,
+                             mention: BioMention,
+                             contextIdMap: CtxIDed): Tuple2[Option[String], Option[PropMap]] =
+  {
+    var contextId: Option[String] = None
     var contextFrame: Option[PropMap] = None
+
     if (mention.hasContext()) {
       val context = mention.context.get
-      val ctxIdOpt = contextIdMap.get(context) // get the context ID for the context
-      val ctxId =
-        if (ctxIdOpt.isDefined)             // if this context is already mapped
-          ctxIdOpt.get                      // get the context ID found
-        else {                              // else this is a new context
-          val cid = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
-          contextIdMap.put(context, cid)    // save the new context ID keyed by the context
-          contextFrame = Some(mkContextFrame(paperId, passageMeta, mention, cid, context))
-          cid                               // return the new context ID
-        }
-
-      // the context for a frame is a list of context frame refs (currently a singleton list)
-      f("context") = List(ctxId)
+      contextId = contextIdMap.get(context) // get the context ID for the context
+      if (!contextId.isDefined) {           // if this is a new context
+        val cid = mkContextId(paperId, passageMeta, mention.sentence) // generate new context ID
+        contextIdMap.put(context, cid)      // save the new context ID keyed by the context
+        contextFrame = Some(mkContextFrame(paperId, passageMeta, mention, cid, context))
+        contextId = Some(cid)               // save the new context ID
+      }
     }
 
-    if (contextFrame.isDefined)             // return 1 or more frames:
-      List(contextFrame.get, f)             // context and event frames
-    else
-      List(f)                               // else just event frame
+    return (contextId, contextFrame)
   }
 
 
@@ -369,6 +385,7 @@ class FriesOutput extends JsonOutputter {
           }
         }
         m("args") = participants
+
       case "entity" =>
         // this is an entity: fetch its id from the entity map
         if(! entityMap.contains(arg)) {
@@ -382,12 +399,11 @@ class FriesOutput extends JsonOutputter {
             println(s"\t${e.text} with labels ${e.labels.mkString(", ")}")
           }
           */
-
           throw new RuntimeException(s"Found entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
-
         }
         // assert(entityMap.contains(arg))
         m("arg") = entityMap.get(arg).get
+
       case "event" =>
         // this is an event, which we MUST have seen before
         // if (! eventMap.contains(arg)) {
@@ -399,6 +415,7 @@ class FriesOutput extends JsonOutputter {
           throw new Exception(msg)
         }
         m("arg") = eventMap.get(arg).get
+
       case _ =>
         // we should never be here!
         throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
@@ -410,7 +427,8 @@ class FriesOutput extends JsonOutputter {
   private def mkEntityMention(paperId:String,
                               passageMeta:FriesEntry,
                               mention:BioTextBoundMention,
-                              entityMap: IDed): PropMap = {
+                              contextIdMap:CtxIDed,
+                              entityMap: IDed): List[PropMap] = {
     val f = startFrame()
     f("frame-type") = "entity-mention"
     val eid = mkEntityId(paperId, passageMeta, mention.sentence)
@@ -436,8 +454,21 @@ class FriesOutput extends JsonOutputter {
       if (ms.nonEmpty)
         f("modifications") = ms
     }
+
     // TODO (optional): add "index", i.e., the sentence-local number for this mention from this component
-    f
+
+    // handle context features:
+    val (contextId, contextFrame) = lookupContext(paperId, passageMeta, mention, contextIdMap)
+
+    // the context for a frame is a list of context frame refs (currently a singleton list)
+    if (contextId.isDefined)
+      f("context") = List(contextId.get)
+
+    // return 1 or more frames: both context and event frames or just an event frame:
+    if (contextFrame.isDefined)
+      List(contextFrame.get, f)
+    else
+      List(f)
   }
 
   private def mkContextFrame (paperId:String,
