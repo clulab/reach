@@ -1100,6 +1100,13 @@ class AssemblyManager(
   }
 
   /**
+   * Returns an Event for a Mention with the appropriate labels.
+   * @param m an Odin Mention.
+   */
+  // TODO: add label check?
+  def getEvent(m: Mention): Event = getOrCreateEER(m).asInstanceOf[Event]
+
+  /**
    * Returns a Regulation for a Mention m with the appropriate label.
    * @param m an Odin Mention.  Must have the label "Complex".
    */
