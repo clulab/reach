@@ -218,8 +218,10 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return the Set of distinct EntityEventRepresentations known to causally precede the EER corresponding to M
    */
-  def distinctPredecessorsOf(m: Mention): Set[EntityEventRepresentation] = {
-    distinctPredecessorsOf(getOrCreateEER(m))
+  def distinctPredecessorsOf(m: Mention): Set[EER] = m match {
+    case isValid if AssemblyManager.isValidMention(m) =>
+        distinctPredecessorsOf(getOrCreateEER(m))
+    case _ => Set.empty[EER]
   }
 
   /**
@@ -248,8 +250,11 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return the Set of non-distinct EntityEventRepresentations known to causally precede the EER corresponding to m
    */
-  def predecessorsOf(m: Mention): Set[EntityEventRepresentation] = {
-    predecessorsOf(getOrCreateEER(m))
+  def predecessorsOf(m: Mention): Set[EER] = m match {
+    // check if valid mention
+    case isValid if AssemblyManager.isValidMention(isValid) =>
+      predecessorsOf(getOrCreateEER(isValid))
+    case _ => Set.empty[EER]
   }
 
   /**
@@ -276,8 +281,11 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
    */
-  def distinctSuccessorsOf(m: Mention): Set[EntityEventRepresentation] = {
-    distinctSuccessorsOf(getOrCreateEER(m))
+  def distinctSuccessorsOf(m: Mention): Set[EER] = m match {
+    // check if Mention is valid
+    case isValid if AssemblyManager.isValidMention(isValid) =>
+      distinctSuccessorsOf(getOrCreateEER(isValid))
+    case _ => Set.empty[EER]
   }
 
   /**
@@ -306,8 +314,11 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return the Set of non-distinct EntityEventRepresentations known to causally succeed the EER corresponding to m
    */
-  def successorsOf(m: Mention): Set[EntityEventRepresentation] = {
-    successorsOf(getOrCreateEER(m))
+  def successorsOf(m: Mention): Set[EER] = m match {
+    // check if Mention is valid
+    case isValid if AssemblyManager.isValidMention(isValid) =>
+      successorsOf(getOrCreateEER(isValid))
+    case _ => Set.empty[EER]
   }
 
   //
@@ -983,17 +994,15 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
-  private def getOrCreateEERwithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
-    m match {
-      case alreadyExists if mentionToID contains alreadyExists =>
-        val id = mentionToID(alreadyExists)
-        val eer = getEER(id)
-        (eer, id)
-      case missing =>
-        val eer = createEER(m)
-        val id = eer.uniqueID
-        (eer, id)
-    }
+  private def getOrCreateEERwithID(m: Mention): (EER, IDPointer) = m match {
+    case alreadyExists if mentionToID contains alreadyExists =>
+      val id = mentionToID(alreadyExists)
+      val eer = getEER(id)
+      (eer, id)
+    case missing =>
+      val eer = createEER(m)
+      val id = eer.uniqueID
+      (eer, id)
   }
 
   /**

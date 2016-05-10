@@ -7,7 +7,7 @@ import edu.arizona.sista.odin.Mention
  * Assembler for reach output
  * @param mentions a sequence of Odin-style Mentions
  */
-class Assembler(mentions: Seq[Mention]) {
+class Assembler(val mentions: Seq[Mention]) {
 
   val am = AssemblyRunner.applySieves(mentions)
 
@@ -34,6 +34,7 @@ class Assembler(mentions: Seq[Mention]) {
   val equivalentMentions: Map[Mention, Set[Mention]] = {
     val links = for {
       m <- mentions
+      if AssemblyManager.isValidMention(m)
       eer = am.getEER(m)
       eers = am.getEquivalentEERs(eer.equivalenceHash)
       equivMentions = eers.flatMap(_.evidence)
