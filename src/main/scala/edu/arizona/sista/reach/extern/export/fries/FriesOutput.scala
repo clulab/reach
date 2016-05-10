@@ -23,7 +23,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Add stub for assembly version of writeJSON method.
+  *   Last Modified: Refactor assembly stub.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -138,9 +138,6 @@ class FriesOutput extends JsonOutputter {
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
-    val assemblyModel:PropMap = new PropMap
-    addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
-
     val contextIdMap = new CtxIDed
 
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
@@ -156,7 +153,21 @@ class FriesOutput extends JsonOutputter {
                                    startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
+    val assemblyModel:PropMap = mkAssemblyModel(paperId, allMentions, startTime, endTime,
+                                                otherMetaData, assemblyAPI)
     writeJsonToFile(assemblyModel, new File(outFilePrefix + ".uaz.links.json"))
+  }
+
+  private def mkAssemblyModel (paperId:String,
+                               allMentions:Seq[Mention],
+                               startTime:Date,
+                               endTime:Date,
+                               otherMetaData:Map[String, String],
+                               assemblyAPI: Assembler) : PropMap = {
+    val assemblyModel:PropMap = new PropMap
+    addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
+    // TODO: IMPLEMENT LATER
+    assemblyModel
   }
 
 
