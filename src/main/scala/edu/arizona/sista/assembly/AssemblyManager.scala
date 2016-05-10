@@ -65,6 +65,14 @@ class AssemblyManager(
 
   private var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
   private var idToEER: immutable.Map[IDPointer, EER] = id2eer.toMap
+  // faster lookup of equivalent events
+  private var ehToEERs: immutable.Map[Int, Set[EER]] = {
+    // group by EH
+    id2eer.toSeq.groupBy(_._2.equivalenceHash)
+      // get EERs
+      .mapValues(_.map(_._2).toSet)
+  }
+
   private var idToMention: immutable.Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
   // PrecedenceRelations associated with a distinct EER (key is equivalenceHash)
   private var idToPrecedenceRelations: immutable.Map[Int, Set[PrecedenceRelation]] =
@@ -398,6 +406,18 @@ class AssemblyManager(
     updateIDtoMentionTable(m, id)
     // update LUT #2
     updateIDtoEERTable(id, eer)
+    // update LUT #3
+    updateEHtoEERsTable(eer.equivalenceHash, eer)
+  }
+
+  /**
+   * Updates the [[ehToEERs]] LUT
+   * @param eh an equivalenceHash
+   * @param eer an [[EER]]
+   */
+  private def updateEHtoEERsTable(eh: Int, eer: EER): Unit = {
+    val idsForEH = ehToEERs.getOrElse(eh, Set.empty[EER]) ++ Set(eer)
+    ehToEERs = ehToEERs + (eh -> idsForEH)
   }
 
   /**
@@ -425,6 +445,8 @@ class AssemblyManager(
    */
   private def updateIDtoEERTable(id: IDPointer, eer: EER): Unit = {
     idToEER = idToEER + (id -> eer)
+    // update the ehToEERs table
+    updateEHtoEERsTable(eer.equivalenceHash, eer)
   }
 
   //
@@ -1148,13 +1170,11 @@ class AssemblyManager(
    * @return a sequence of Mention serving as textual evidence of the given representation
    */
   def getEvidence(eer: EER): Set[Mention] = {
-    val ids = idToEER.filter {
-      // which IDs point to EEReprs that are identical to the one given?
-      case (id, r2) => r2 isEquivalentTo eer }.keys
-
+    val equivEERs: Set[EER] = ehToEERs.getOrElse(eer.equivalenceHash, Set.empty[EER])
     // retrieve the mention by id
     val evidence = for {
-      id <- ids
+      equivEER <- equivEERs
+      id = equivEER.uniqueID
       // check is needed, because output of a SimpleEvent has no Mention
       if idToMention contains id
       e = idToMention(id)
@@ -1171,26 +1191,14 @@ class AssemblyManager(
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return
    */
-  def getEquivalentEERs(eh: Int): Set[EER] = {
-    for {
-      eer <- getEERs
-      if eer.equivalenceHash == eh
-    } yield eer
-  }
+  def getEquivalentEERs(eh: Int): Set[EER] = ehToEERs.getOrElse(eh, Set.empty[EER])
 
   /**
    * Returns groups of equivalent [[EntityEventRepresentation]], ignoring differences due to [[IDPointer]] references.
    *
    * Mentions may point to (essentially) the same [[EntityEventRepresentation]], which would only differ in terms of the [[IDPointer]], which link an [[EntityEventRepresentation]] to a particular Mention
    */
-  def groupedEERs: Seq[Seq[EER]] = {
-    idToEER.values
-      // ignore IDPointers for grouping purposes
-      .groupBy(_.equivalenceHash)
-      .mapValues(_.toSeq)
-      .values
-      .toSeq
-  }
+  def groupedEERs: Seq[Set[EER]] = ehToEERs.values.toSeq
 
   /**
    * Gets distinct members of eers after grouping by [[EntityEventRepresentation.equivalenceHash]].
