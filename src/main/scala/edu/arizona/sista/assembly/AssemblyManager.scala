@@ -58,13 +58,13 @@ case class PrecedenceRelation(
  */
 class AssemblyManager(
   m2id: Map[Mention, IDPointer],
-  id2eer: Map[IDPointer, EntityEventRepresentation]
+  id2eer: Map[IDPointer, EER]
 ) extends Serializable {
 
   import AssemblyManager._
 
   private var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
-  private var idToEER: immutable.Map[IDPointer, EntityEventRepresentation] = id2eer.toMap
+  private var idToEER: immutable.Map[IDPointer, EER] = id2eer.toMap
   private var idToMention: immutable.Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
   // PrecedenceRelations associated with a distinct EER (key is equivalenceHash)
   private var idToPrecedenceRelations: immutable.Map[Int, Set[PrecedenceRelation]] =
@@ -128,8 +128,8 @@ class AssemblyManager(
    * @param foundBy the name of the sieve or procedure that discovered this precedence relation
    */
   def storePrecedenceRelation(
-    before: EntityEventRepresentation,
-    after: EntityEventRepresentation,
+    before: EER,
+    after: EER,
     foundBy: String
   ): Unit = {
 
@@ -177,7 +177,7 @@ class AssemblyManager(
    * Retrieves the Set of PrecedenceRelations corresponding to the provided [[EntityEventRepresentation]] (eer)
    * @param eer an [[EntityEventRepresentation]]
    */
-  def getPrecedenceRelations(eer: EntityEventRepresentation): Set[PrecedenceRelation] = {
+  def getPrecedenceRelations(eer: EER): Set[PrecedenceRelation] = {
     idToPrecedenceRelations(eer.equivalenceHash)
   }
 
@@ -204,12 +204,12 @@ class AssemblyManager(
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return the Set of distinct EntityEventRepresentations known to causally precede any EER corresponding to eh
    */
-  def distinctPredecessorsOf(eh: Int): Set[EntityEventRepresentation] = {
+  def distinctPredecessorsOf(eh: Int): Set[EER] = {
    val predecessors = predecessorsOf(eh)
     distinctEERsFromSet(predecessors)
   }
 
-  def distinctPredecessorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+  def distinctPredecessorsOf(eer: EER): Set[EER] = {
     distinctPredecessorsOf(eer.equivalenceHash)
   }
 
@@ -229,7 +229,7 @@ class AssemblyManager(
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return the Set of non-distinct EntityEventRepresentations known to causally precede any EER corresponding to eh
    */
-  def predecessorsOf(eh: Int): Set[EntityEventRepresentation] = for {
+  def predecessorsOf(eh: Int): Set[EER] = for {
     pr <- getPrecedenceRelations(eh)
     before = pr.before
     if before != eh
@@ -241,7 +241,7 @@ class AssemblyManager(
    * @param eer an [[EntityEventRepresentation]]
    * @return the Set of non-distinct EntityEventRepresentations known to causally precede eer
    */
-  def predecessorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+  def predecessorsOf(eer: EER): Set[EER] = {
     predecessorsOf(eer.equivalenceHash)
   }
 
@@ -262,7 +262,7 @@ class AssemblyManager(
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
    */
-  def distinctSuccessorsOf(eh: Int): Set[EntityEventRepresentation] = {
+  def distinctSuccessorsOf(eh: Int): Set[EER] = {
     val successors = successorsOf(eh)
     distinctEERsFromSet(successors)
   }
@@ -272,7 +272,7 @@ class AssemblyManager(
    * @param eer an [[EntityEventRepresentation]]
    * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
    */
-  def distinctSuccessorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+  def distinctSuccessorsOf(eer: EER): Set[EER] = {
     distinctSuccessorsOf(eer.equivalenceHash)
   }
 
@@ -293,7 +293,7 @@ class AssemblyManager(
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return the Set of non-distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
    */
-  def successorsOf(eh: Int): Set[EntityEventRepresentation] = for {
+  def successorsOf(eh: Int): Set[EER] = for {
     pr <- getPrecedenceRelations(eh)
     after = pr.after
     if after != eh
@@ -305,7 +305,7 @@ class AssemblyManager(
    * @param eer an [[EntityEventRepresentation]]
    * @return the Set of non-distinct EntityEventRepresentations known to causally succeed eer
    */
-  def successorsOf(eer: EntityEventRepresentation): Set[EntityEventRepresentation] = {
+  def successorsOf(eer: EER): Set[EER] = {
     successorsOf(eer.equivalenceHash)
   }
 
@@ -391,7 +391,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @param eer the [[EntityEventRepresentation]] corresponding to m
    */
-  private def updateLUTs(id: IDPointer, m: Mention, eer: EntityEventRepresentation): Unit = {
+  private def updateLUTs(id: IDPointer, m: Mention, eer: EER): Unit = {
     // update LUT #1a
     updateMentionToIDTable(m, id)
     // update LUT #1b
@@ -423,7 +423,7 @@ class AssemblyManager(
    * @param id a unique [[IDPointer]] pointing to eer
    * @param eer an [[EntityEventRepresentation]] associated with the provided id
    */
-  private def updateIDtoEERTable(id: IDPointer, eer: EntityEventRepresentation): Unit = {
+  private def updateIDtoEERTable(id: IDPointer, eer: EER): Unit = {
     idToEER = idToEER + (id -> eer)
   }
 
@@ -465,7 +465,7 @@ class AssemblyManager(
    * Removes entries referencing the given [[EntityEventRepresentation]].
    * @param eer an [[EntityEventRepresentation]] used to identify mentions and EntityEventRepresentations for removal
    */
-  def removeEntriesContainingIDofEER(eer: EntityEventRepresentation): Unit = {
+  def removeEntriesContainingIDofEER(eer: EER): Unit = {
 
     // get ids of EERepresentations containing the id of the given EERepresentation
     val idsForRemoval: Seq[IDPointer] = for {
@@ -976,7 +976,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return the [[EntityEventRepresentation]] corresponding to m
    */
-  private def getOrCreateEER(m: Mention): EntityEventRepresentation = {
+  private def getOrCreateEER(m: Mention): EER = {
     // ensure this mention should be stored in LUT 1
     require(isValidMention(m), s"mention with the label ${m.label} cannot be tracked by the AssemblyManager")
 
@@ -1012,7 +1012,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
-  private def createEERwithID(m: Mention): (EntityEventRepresentation, IDPointer) = {
+  private def createEERwithID(m: Mention): (EER, IDPointer) = {
     // pass the unresolved form through according to a check against the resolved form
     getResolvedForm(m) match {
       case complex if complex matches "Complex" => createComplexWithID(m)
@@ -1031,7 +1031,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return an [[EntityEventRepresentation]]
    */
-  private def createEER(m: Mention): EntityEventRepresentation = createEERwithID(m)._1
+  private def createEER(m: Mention): EER = createEERwithID(m)._1
 
   //
   // Utils for summarization
@@ -1062,14 +1062,14 @@ class AssemblyManager(
    * Retrieves all EntityEventRepresentations found in [[AssemblyManager.idToEER]]
    * @return the Set of Odin Mentions tracked by this AssemblyManager
    */
-  def EERs: Set[EntityEventRepresentation] = idToEER.values.toSet
+  def EERs: Set[EER] = idToEER.values.toSet
 
   /**
    * Retrieves ID from an [[EntityEventRepresentation.uniqueID]]
    * @param eer an EntityEventRepresentation
    * @return the IDPointer for the repr
    */
-  def getID(eer: EntityEventRepresentation): IDPointer = eer.uniqueID
+  def getID(eer: EER): IDPointer = eer.uniqueID
 
   /**
    * Retrieves an [[EntityEventRepresentation]] for a Mention.
@@ -1077,7 +1077,7 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return an [[EntityEventRepresentation]]
    */
-  def getEER(m: Mention): EntityEventRepresentation = {
+  def getEER(m: Mention): EER = {
     require(isValidMention(m), s"Mention '${m.label}' is not valid")
     val id = mentionToID.getOrElse(m, mentionToID(getResolvedForm(m)))
     idToEER(id)
@@ -1089,14 +1089,14 @@ class AssemblyManager(
    * @param id an [[IDPointer]]
    * @return an [[EntityEventRepresentation]]
    */
-  def getEER(id: IDPointer): EntityEventRepresentation =
+  def getEER(id: IDPointer): EER =
     idToEER(id)
 
   /**
    * Retrieves the Set of [[EntityEventRepresentation]] tracked by the manager.
    * @return Set[EntityEventRepresentation]
    */
-  def getEERs: Set[EntityEventRepresentation] = idToEER.values.toSet
+  def getEERs: Set[EER] = idToEER.values.toSet
 
   /**
    * Returns a SimpleEntity for a Mention with the appropriate labels.
@@ -1147,7 +1147,7 @@ class AssemblyManager(
    * @param eer an [[EntityEventRepresentation]]
    * @return a sequence of Mention serving as textual evidence of the given representation
    */
-  def getEvidence(eer: EntityEventRepresentation): Set[Mention] = {
+  def getEvidence(eer: EER): Set[Mention] = {
     val ids = idToEER.filter {
       // which IDs point to EEReprs that are identical to the one given?
       case (id, r2) => r2 isEquivalentTo eer }.keys
@@ -1171,7 +1171,7 @@ class AssemblyManager(
    * @param eh an [[EntityEventRepresentation.equivalenceHash]]
    * @return
    */
-  def getEquivalentEERs(eh: Int): Set[EntityEventRepresentation] = {
+  def getEquivalentEERs(eh: Int): Set[EER] = {
     for {
       eer <- getEERs
       if eer.equivalenceHash == eh
@@ -1183,7 +1183,7 @@ class AssemblyManager(
    *
    * Mentions may point to (essentially) the same [[EntityEventRepresentation]], which would only differ in terms of the [[IDPointer]], which link an [[EntityEventRepresentation]] to a particular Mention
    */
-  def groupedEERs: Seq[Seq[EntityEventRepresentation]] = {
+  def groupedEERs: Seq[Seq[EER]] = {
     idToEER.values
       // ignore IDPointers for grouping purposes
       .groupBy(_.equivalenceHash)
@@ -1197,7 +1197,7 @@ class AssemblyManager(
    * @param eers an [[EntityEventRepresentation]] Set
    * @return
    */
-  def distinctEERsFromSet(eers: Set[EntityEventRepresentation]): Set[EntityEventRepresentation] = {
+  def distinctEERsFromSet(eers: Set[EER]): Set[EER] = {
     eers.groupBy(_.equivalenceHash)
       .mapValues(_.head)
       .values
@@ -1209,7 +1209,7 @@ class AssemblyManager(
    *
    * @return a Set of [[EntityEventRepresentation]]
    */
-  def distinctEERs: Set[EntityEventRepresentation] = {
+  def distinctEERs: Set[EER] = {
     groupedEERs.map(_.head)
       .toSet
   }
@@ -1217,7 +1217,7 @@ class AssemblyManager(
   /**
    * Returns Set of "distinct" [[EntityEventRepresentation]] with corresponding evidence.
    */
-  def distinctEERsWithEvidence: Set[(EntityEventRepresentation, Set[Mention])] = {
+  def distinctEERsWithEvidence: Set[(EER, Set[Mention])] = {
     distinctEERs.map(eer => (eer, getEvidence(eer)))
   }
 
@@ -1229,7 +1229,7 @@ class AssemblyManager(
    */
   def distinctEntities: Set[Entity] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Entity]
       entity = e.asInstanceOf[Entity]
     } yield entity
@@ -1252,7 +1252,7 @@ class AssemblyManager(
    */
   def getEvents: Set[Event] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[Event]
       event = e.asInstanceOf[Event]
     } yield event
@@ -1264,7 +1264,7 @@ class AssemblyManager(
    */
   def distinctEvents: Set[Event] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Event]
       event = e.asInstanceOf[Event]
     } yield event
@@ -1287,7 +1287,7 @@ class AssemblyManager(
    */
   def getSimpleEntities: Set[SimpleEntity] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[SimpleEntity]
       entity = e.asInstanceOf[SimpleEntity]
     } yield entity
@@ -1311,7 +1311,7 @@ class AssemblyManager(
    */
   def distinctSimpleEntities: Set[SimpleEntity] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[SimpleEntity]
       entity = e.asInstanceOf[SimpleEntity]
     } yield entity
@@ -1334,7 +1334,7 @@ class AssemblyManager(
    */
   def getComplexes: Set[Complex] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[Complex]
       complex = e.asInstanceOf[Complex]
     } yield complex
@@ -1346,7 +1346,7 @@ class AssemblyManager(
    */
   def distinctComplexes: Set[Complex] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Complex]
       complex = e.asInstanceOf[Complex]
     } yield complex
@@ -1369,7 +1369,7 @@ class AssemblyManager(
    */
   def getSimpleEvents: Set[SimpleEvent] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[SimpleEvent]
       se = e.asInstanceOf[SimpleEvent]
     } yield se
@@ -1382,7 +1382,7 @@ class AssemblyManager(
    */
   def getSimpleEvents(label: String): Set[SimpleEvent] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[SimpleEvent]
       se = e.asInstanceOf[SimpleEvent]
       if se.label == label
@@ -1395,7 +1395,7 @@ class AssemblyManager(
    */
   def distinctSimpleEvents: Set[SimpleEvent] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[SimpleEvent]
       se = e.asInstanceOf[SimpleEvent]
     } yield se
@@ -1408,7 +1408,7 @@ class AssemblyManager(
    */
   def distinctSimpleEvents(label: String): Set[SimpleEvent] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[SimpleEvent]
       se = e.asInstanceOf[SimpleEvent]
       if se.label == label
@@ -1433,7 +1433,7 @@ class AssemblyManager(
    */
   def getRegulations: Set[Regulation] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[Regulation]
       reg = e.asInstanceOf[Regulation]
     } yield reg
@@ -1446,7 +1446,7 @@ class AssemblyManager(
    */
   def getRegulations(polarity: String): Set[Regulation] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[Regulation]
       reg = e.asInstanceOf[Regulation]
       if reg.polarity == polarity
@@ -1459,7 +1459,7 @@ class AssemblyManager(
    */
   def distinctRegulations: Set[Regulation] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Regulation]
       reg = e.asInstanceOf[Regulation]
     } yield reg
@@ -1472,7 +1472,7 @@ class AssemblyManager(
    */
   def distinctRegulations(polarity: String): Set[Regulation] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Regulation]
       reg = e.asInstanceOf[Regulation]
       if reg.polarity == polarity
@@ -1506,7 +1506,7 @@ class AssemblyManager(
    */
   def getActivations: Set[Activation] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[Activation]
       act = e.asInstanceOf[Activation]
     } yield act
@@ -1519,7 +1519,7 @@ class AssemblyManager(
    */
   def getActivations(polarity: String): Set[Activation] = {
     for {
-      e: EntityEventRepresentation <- getEERs
+      e: EER <- getEERs
       if e.isInstanceOf[Activation]
       act = e.asInstanceOf[Activation]
       if act.polarity == polarity
@@ -1532,7 +1532,7 @@ class AssemblyManager(
    */
   def distinctActivations: Set[Activation] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Activation]
       act = e.asInstanceOf[Activation]
     } yield act
@@ -1545,7 +1545,7 @@ class AssemblyManager(
    */
   def distinctActivations(polarity: String): Set[Activation] = {
     for {
-      e: EntityEventRepresentation <- distinctEERs
+      e: EER <- distinctEERs
       if e.isInstanceOf[Activation]
       act = e.asInstanceOf[Activation]
       if act.polarity == polarity
@@ -1592,7 +1592,7 @@ object AssemblyManager {
   val negative = "Negative"
   val unknown = "UNKNOWN"
 
-  def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+  def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EER])
 
   /**
    * Instantiate [[AssemblyManager]] and track the provided Mentions
@@ -1600,7 +1600,7 @@ object AssemblyManager {
    * @return an [[AssemblyManager]]
    */
   def apply(mns: Seq[Mention]): AssemblyManager = {
-    val am = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EntityEventRepresentation])
+    val am = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EER])
     am.trackMentions(mns)
     am
   }
