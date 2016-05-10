@@ -10,6 +10,7 @@ import edu.arizona.sista.odin.Mention
 class Assembler(val mentions: Seq[Mention]) {
 
   val am = AssemblyRunner.applySieves(mentions)
+  println("finished assembly!")
 
   val causalPredecessors: Map[Mention, Set[Mention]] = {
     val links = for {
@@ -17,6 +18,7 @@ class Assembler(val mentions: Seq[Mention]) {
     } yield (m, am.distinctPredecessorsOf(m).flatMap(_.evidence))
     links.toMap
   }
+  println("Built causalPredecedessors map")
 
   def getCausalPredecessors(m: Mention): Set[Mention] =
     causalPredecessors.getOrElse(m, Set.empty[Mention])
@@ -27,6 +29,7 @@ class Assembler(val mentions: Seq[Mention]) {
     } yield (m, am.distinctSuccessorsOf(m).flatMap(_.evidence))
     links.toMap
   }
+  println("Built causalSuccessors map")
 
   def getCausalSuccessors(m: Mention): Set[Mention] =
     causalSuccessors.getOrElse(m, Set.empty[Mention])
@@ -36,11 +39,12 @@ class Assembler(val mentions: Seq[Mention]) {
       m <- mentions
       if AssemblyManager.isValidMention(m)
       eer = am.getEER(m)
-      eers = am.getEquivalentEERs(eer.equivalenceHash)
-      equivMentions = eers.flatMap(_.evidence)
-    } yield (m, equivMentions)
+      equivMentions = am.getEvidence(eer)
+      // remove m from equiv.
+    } yield (m, equivMentions - m)
     links.toMap
   }
+  println("Built equivalentMentions map")
 
   def getEquivalentMentions(m: Mention): Set[Mention] =
     equivalentMentions.getOrElse(m, Set.empty[Mention])
