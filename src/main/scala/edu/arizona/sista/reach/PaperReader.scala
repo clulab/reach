@@ -6,7 +6,7 @@ import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.nxml.NxmlReader
+import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
 import edu.arizona.sista.reach.utils.CSVParser
 import edu.arizona.sista.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
@@ -69,40 +69,46 @@ object PaperReader {
    * @param file a File with either the .csv or .nxml extension
    * @return (PaperID, Mentions)
    */
-  def readPaper(file: File): (String, Vector[Mention]) = file match {
-    case nxml if nxml.getName.endsWith(".nxml") => readNXMLPaper(nxml)
-    case csv if csv.getName.endsWith(".csv") => readCSVPaper(csv)
-  }
-
-  /**
-   * Produces Mentions from .csv papers using [[CSVParser]] and [[ReachSystem]]
-   * @param file a File with the .csv extension
-   * @return (PaperID, Mentions)
-   */
-  def readCSVPaper(file: File): (String, Vector[Mention]) = {
-    require(file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readCSVPaper only handles .csv files!")
-    val paperID: String = file.getName.replace(".csv", "")
-    println(s"reading paper $paperID ...")
-    val mentions: Seq[Mention] =
-      rs.extractFrom(csvReader.toFriesEntries(file))
-    paperID -> mentions.toVector
-  }
-
-  /**
-   * Produces Mentions from .nxml papers using [[NxmlReader]] and [[ReachSystem]]
-   * @param file a File with the .csv extension
-   * @return (PaperID, Mentions)
-   */
-  def readNXMLPaper(file: File): (String, Vector[Mention]) = {
+  def readPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
-    println(s"reading paper $paperID ...")
-    val mentions = for {
-      entry <- nxmlReader.readNxml(file)
-      mention <- rs.extractFrom(entry)
-    } yield mention
-    paperID -> mentions.toVector
+    println(s"reading paper $paperID . . .")
+    paperID -> getMentionsFromFriesEntries(getEntriesFromPaper(file)).toVector
   }
+
+  /**
+   * Produces FriesEntries from .nxml paper using [[NxmlReader]] and [[ReachSystem]]
+   * @param file a File with the .nxml extension
+   * @return Seq[FriesEntry]
+   */
+  def getEntriesFromNXMLPaper(file: File): Seq[FriesEntry] = {
+    require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
+    for {
+      entry <- nxmlReader.readNxml(file)
+    } yield entry
+  }
+
+  /**
+   * Produces FriesEntries from .csv papers using [[CSVParser]] and [[ReachSystem]]
+   * @param file a File with the .csv extension
+   * @return Seq[FriesEntry]
+   */
+  def getEntriesFromCSVPaper(file: File): Seq[FriesEntry] = {
+    require(file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readCSVPaper only handles .csv files!")
+    csvReader.toFriesEntries(file)
+  }
+
+  def getEntriesFromPaper(file: File): Seq[FriesEntry] = file match {
+    case nxml if nxml.getName.endsWith(".nxml") => getEntriesFromNXMLPaper(nxml)
+    case csv if csv.getName.endsWith(".csv") => getEntriesFromCSVPaper(csv)
+    case _ =>
+      val extension = FilenameUtils.getExtension(file.getAbsolutePath)
+      println(s"Reading of paper ${file.getName} failed!")
+      println(s"extension '$extension' not supported")
+      Nil
+  }
+
+  def getMentionsFromFriesEntries(entries: Seq[FriesEntry]): Seq[Mention] = rs.extractFrom(entries)
 }
 
 
