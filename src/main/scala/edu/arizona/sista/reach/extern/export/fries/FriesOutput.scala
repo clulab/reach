@@ -4,6 +4,7 @@ import java.io._
 import java.util.Date
 import org.json4s.native.Serialization
 
+import edu.arizona.sista.assembly._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.ReachConstants._
@@ -22,7 +23,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Add context to entity mentions.
+  *   Last Modified: Add stub for assembly version of writeJSON method.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -69,9 +70,6 @@ class FriesOutput extends JsonOutputter {
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
-    val assemblyModel:PropMap = new PropMap
-    addMetaInfo(assemblyModel, paperId, startTime, endTime, otherMetaData)
-
     val contextIdMap = new CtxIDed
 
     val sentModel = sentencesToModel(paperId, allMentions, passageMap,
@@ -87,7 +85,6 @@ class FriesOutput extends JsonOutputter {
     uniModel("sentences") = sentModel
     uniModel("entities") = entityModel
     uniModel("events") = eventModel
-    uniModel("assembly") = assemblyModel
 
     writeJsonToString(uniModel)
   }
@@ -104,6 +101,39 @@ class FriesOutput extends JsonOutputter {
                           startTime:Date,
                           endTime:Date,
                           outFilePrefix:String): Unit = {
+
+    val otherMetaData = extractOtherMetaData(paperPassages)
+    val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
+
+    val contextIdMap = new CtxIDed
+
+    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+                                     startTime, endTime, otherMetaData)
+    writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
+
+    // entityMap: map from entity pointers to unique ids
+    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+                                                   startTime, endTime, otherMetaData)
+    writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
+
+    val eventModel = eventsToModel(paperId, allMentions, passageMap, contextIdMap, entityMap,
+                                   startTime, endTime, otherMetaData)
+    writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
+  }
+
+
+  /**
+    * Writes the given mentions to output files in Fries JSON format.
+    * Separate output files are written for sentences, links, entities, and events.
+    * Each output file is prefixed with the given prefix string.
+    */
+  def writeJSON (paperId:String,
+                 allMentions:Seq[Mention],
+                 paperPassages:Seq[FriesEntry],
+                 startTime:Date,
+                 endTime:Date,
+                 outFilePrefix:String,
+                 assemblyAPI: Assembler): Unit = {
 
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
