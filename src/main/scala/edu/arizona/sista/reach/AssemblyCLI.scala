@@ -9,21 +9,25 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import scala.util.{ Try,Success,Failure }
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
+import edu.arizona.sista.assembly._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
-import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
+/**
+  * Class to run Reach reading and assembly then produce FRIES format output
+  * from a group of input files.
+  *   Created by modification of ReachCLI by Tom Hicks on 5/9/2016.
+  *   Last Modified: Initial version to call assembly and FRIES formatter.
+  */
 class AssemblyCLI(
   val nxmlDir:File,
   val outputDir:File,
   val encoding:String,
-  val outputType:String,
   val ignoreSections:Seq[String],
   val contextEngineType: Engine,
   val contextEngineParams: Map[String, String],
@@ -135,23 +139,14 @@ class AssemblyCLI(
          FileUtils.writeStringToFile(logFile, report, true)
        }
 
-
-      // done processing
+      // done processing: mark time
       val endTime = AssemblyCLI.now
       val endNS = System.nanoTime
 
-      try outputType match {
-        case "text" =>
-          val mentionMgr = new MentionManager()
-          val lines = mentionMgr.sortMentionsToStrings(paperMentions)
-          val outFile = new File(outputDir, s"$paperId.txt")
-          println(s"writing ${outFile.getName} ...")
-          FileUtils.writeLines(outFile, lines.asJavaCollection)
-          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
-        // Anything that is not text (including Fries-style output)
-        case _ =>
-          outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, outputDir)
-          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+      try {
+        val assemblyAPI = new Assembler(paperMentions)
+        outputMentions(paperMentions, entries, paperId, startTime, endTime, outputDir, assemblyAPI)
+        FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
       } catch {
         case e: Throwable =>
           this.synchronized { errorCount += 1}
@@ -174,28 +169,21 @@ class AssemblyCLI(
           FileUtils.writeStringToFile(logFile, report, true)
       }
     }
-
-    errorCount // should be 0 :)
+    errorCount                              // should be 0 :)
   }
 
   def outputMentions(
-    mentions:Seq[Mention],
-    paperPassages:Seq[FriesEntry],
-    outputType:String,
-    paperId:String,
-    startTime:Date,
-    endTime:Date,
-    outputDir:File
+    mentions: Seq[Mention],
+    paperPassages: Seq[FriesEntry],
+    paperId: String,
+    startTime: Date,
+    endTime: Date,
+    outputDir: File,
+    assemblyAPI: Assembler
   ) = {
     val outFile = outputDir + File.separator + paperId
-    // println(s"Outputting to $outFile using $outputType")
-
-    val outputter:JsonOutputter = outputType.toLowerCase match {
-      case "fries" => new FriesOutput()
-      case "indexcard" => new IndexCardOutput()
-      case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
-    }
-    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
+    val outputter:FriesOutput = new FriesOutput()
+    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile, assemblyAPI)
   }
 
 }
@@ -209,7 +197,6 @@ object AssemblyCLI extends App {
   val nxmlDir = new File(config.getString("nxmlDir"))
   val friesDir = new File(config.getString("friesDir"))
   val encoding = config.getString("encoding")
-  val outputType = config.getString("outputType")
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
   val logFile = new File(config.getString("logFile"))
 
@@ -243,8 +230,8 @@ object AssemblyCLI extends App {
     sys.error(s"${friesDir.getCanonicalPath} is not a directory")
   }
 
-  val cli = new AssemblyCLI(nxmlDir, friesDir, encoding, outputType,
-       ignoreSections, contextEngineType, contextEngineParams, logFile)
+  val cli = new AssemblyCLI(nxmlDir, friesDir, encoding, ignoreSections,
+                            contextEngineType, contextEngineParams, logFile)
 
   cli.processPapers(Some(threadLimit))
 
