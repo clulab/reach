@@ -4,13 +4,15 @@ import edu.arizona.sista.odin.Mention
 
 
 /**
- * Assembler for reach output
- * @param mentions a sequence of Odin-style Mentions
- */
+  * Assembler for reach output
+  * @param mentions a sequence of Odin-style Mentions
+  *   Written by: Gus Hahn-Powell. 5/9/2016.
+  *   Last Modified: Comment out extraneous outputs and anticipated methods.
+  */
 class Assembler(val mentions: Seq[Mention]) {
 
   val am = AssemblyRunner.applySieves(mentions)
-  println("finished assembly!")
+  // println("finished assembly!")
 
   val causalPredecessors: Map[Mention, Set[Mention]] = {
     val links = for {
@@ -18,21 +20,21 @@ class Assembler(val mentions: Seq[Mention]) {
     } yield (m, am.distinctPredecessorsOf(m).flatMap(_.evidence))
     links.toMap
   }
-  println("Built causalPredecedessors map")
+  // println("Built causalPredecedessors map")
 
   def getCausalPredecessors(m: Mention): Set[Mention] =
     causalPredecessors.getOrElse(m, Set.empty[Mention])
 
-  val causalSuccessors: Map[Mention, Set[Mention]] = {
-    val links = for {
-      m <- mentions
-    } yield (m, am.distinctSuccessorsOf(m).flatMap(_.evidence))
-    links.toMap
-  }
-  println("Built causalSuccessors map")
+  // val causalSuccessors: Map[Mention, Set[Mention]] = {
+  //   val links = for {
+  //     m <- mentions
+  //   } yield (m, am.distinctSuccessorsOf(m).flatMap(_.evidence))
+  //   links.toMap
+  // }
+  // println("Built causalSuccessors map")
 
-  def getCausalSuccessors(m: Mention): Set[Mention] =
-    causalSuccessors.getOrElse(m, Set.empty[Mention])
+  // def getCausalSuccessors(m: Mention): Set[Mention] =
+  //   causalSuccessors.getOrElse(m, Set.empty[Mention])
 
   val equivalentMentions: Map[Mention, Set[Mention]] = {
     val links = for {
@@ -40,11 +42,11 @@ class Assembler(val mentions: Seq[Mention]) {
       if AssemblyManager.isValidMention(m)
       eer = am.getEER(m)
       equivMentions = am.getEvidence(eer)
-      // remove m from equiv.
+      // remove m from its own equivalence set
     } yield (m, equivMentions - m)
     links.toMap
   }
-  println("Built equivalentMentions map")
+  // println("Built equivalentMentions map")
 
   def getEquivalentMentions(m: Mention): Set[Mention] =
     equivalentMentions.getOrElse(m, Set.empty[Mention])
