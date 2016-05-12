@@ -23,7 +23,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Refactor to produce assembly link dumps. Sort private methods alphabetically.
+  *   Last Modified: Send only event mentions to assembly.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -411,7 +411,7 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     assemblyModel("frames") = frames
 
-    for (mention <- allMentions.sortBy(m => (m.sentence, m.tokenInterval.start))) {
+    for (mention <- eventMap.keys.toList.sortBy(m => (m.sentence, m.tokenInterval.start))) {
       val fromId = lookupMentionId(mention, entityMap, eventMap)
       if (fromId.isDefined) {
         frames ++= mkLinkFrames(paperId, mention, fromId.get,
