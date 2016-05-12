@@ -12,9 +12,10 @@ import edu.arizona.sista.reach.nxml._
 
 
 /**
- * Class to run Reach reading and assembly then produce FRIES format output
- * from a group of input files.
- */
+  * Class to run Reach reading and assembly then produce FRIES format output
+  * from a group of input files.
+  *   Last Modified: Remove serial processing.
+  */
 class SimpleAssemblyCLI(
   val papersDir: File,
   val outputDir: File,
@@ -33,7 +34,7 @@ class SimpleAssemblyCLI(
         new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit.get))
     }
     for {
-      f <- files.seq
+      f <- files
       paperID = FilenameUtils.removeExtension(f.getName)
       startTime = SimpleAssemblyCLI.now
       entries = PaperReader.getEntriesFromPaper(f)
