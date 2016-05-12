@@ -2,7 +2,6 @@ package edu.arizona.sista.reach
 
 import java.io.File
 import java.util.Date
-
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.collection.parallel.ForkJoinTaskSupport
