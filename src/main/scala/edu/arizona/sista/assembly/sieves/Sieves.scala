@@ -1,6 +1,8 @@
 package edu.arizona.sista.assembly.sieves
 
+import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.assembly.AssemblyManager
+import edu.arizona.sista.assembly.relations.classifier.AssemblyRelationClassifier
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.RuleReader
 import scala.annotation.tailrec
@@ -77,7 +79,7 @@ class PrecedenceSieves extends Sieves {
   def reichenbachPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
-      val relevant: Set[Mention] = tams.filter{tam =>
+      val relevant: Set[Mention] = tams.filter{ tam =>
         val triggerInterval = SieveUtils.findTrigger(ev).tokenInterval
         (tam.document == ev.document) &&
           (tam.sentence == ev.sentence) &&
@@ -220,6 +222,46 @@ class PrecedenceSieves extends Sieves {
     manager
   }
 
+  def featureBasedClassifier(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val sieveName = "featureBasedClassifier"
+    val validMentions = mentions.filter(validPrecedenceCandidate)
+    for {
+      e1 <- validMentions
+      e2 <- validMentions
+      if isValidRelationPair(e1, e2)
+      // needed because of .precedes check in FeatureExtractor
+      if e1.document == e2.document
+      label = clf.classify(e1, e2)
+      if label != AssemblyRelationClassifier.NEG
+      // make sure the prediction is not a contradiction
+      if noExistingPrecedence(e1, e2, manager)
+    } {
+      label match{
+        case E1PrecedesE2 =>
+          val rel = new RelationMention(
+            arguments = Map("before" -> Seq(e1), "after"-> Seq(e2)),
+            sentence = e1.sentence,
+            document = e1.document,
+            keep = true,
+            foundBy = sieveName,
+            label = precedenceMentionLabel
+          )
+          manager.storePrecedenceRelation(e1, e2, Set(rel), sieveName)
+        case E2PrecedesE1 =>
+          val rel = new RelationMention(
+            arguments = Map("before" -> Seq(e2), "after"-> Seq(e1)),
+            sentence = e2.sentence,
+            document = e2.document,
+            keep = true,
+            foundBy = sieveName,
+            label = precedenceMentionLabel
+          )
+          manager.storePrecedenceRelation(e2, e1, Set(rel), sieveName)
+      }
+    }
+    manager
+  }
 }
 
 
@@ -229,9 +271,27 @@ class PrecedenceSieves extends Sieves {
  */
 object SieveUtils {
 
+  // load feature-based classifier
+  val config = ConfigFactory.load()
+  val classifierPath = config.getString("assembly.classifier.model")
+  val clf = AssemblyRelationClassifier.loadFrom(classifierPath)
+
+  val E1PrecedesE2 = "E1 precedes E2"
+  val E2PrecedesE1 = "E2 precedes E1"
+
   // the label used to identify Mentions modelling precedence relations
   val precedenceMentionLabel = "Precedence"
 
+  /**
+   * Check if mention is a causal precedence candidate
+   * @param m an Odin-style Mention
+   * @return true or false
+   */
+  def validPrecedenceCandidate(m: Mention): Boolean = m match {
+    case event if event matches "Event" => true
+    case validEntity if validEntity matches "/^(Complex|Bioprocess)$".r => true
+    case _ => false
+  }
   /**
    * Applies a set of assembly rules to provide mentions (existingMentions).
    * Care is taken to apply the rules to each set of mentions from the same Document.
@@ -280,6 +340,10 @@ object SieveUtils {
   /** Retrieve trigger from Mention */
   @tailrec
   def findTrigger(m: Mention): TextBoundMention = m match {
+    // if mention is TB, just use the mention
+    case tb: TextBoundMention =>
+      println(s"no trigger for mention '${tb.text}' with label '${m.label}'")
+      tb
     case event: EventMention =>
       event.trigger
     case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
