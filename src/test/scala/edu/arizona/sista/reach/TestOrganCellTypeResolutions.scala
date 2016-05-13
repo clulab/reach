@@ -8,7 +8,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 12/20/2015.
-  *   Last Modified: Update for tsv factory.
+  *   Last Modified: Correct to use Organ KB for testing.
   */
 class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
 
@@ -26,33 +26,36 @@ class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
     (imkbOCT.resolve("notinkb fluids").isDefined) should be (false)
   }
 
-  "OctKBL resolve" should "work without using alternate lookups" in {
+  "OctKBL resolve" should "work" in {
     (imkbOCT.resolve("plasma cell").isDefined) should be (true)
     (imkbOCT.resolve("Plasma cell").isDefined) should be (true)
     (imkbOCT.resolve("Plasma cells").isDefined) should be (true)
-    (imkbOCT.resolve("band cell").isDefined) should be (true)
-    (imkbOCT.resolve("Band Cells").isDefined) should be (true)
+    (imkbOCT.resolve("liver cell").isDefined) should be (true)
+    (imkbOCT.resolve("Liver Cells").isDefined) should be (true)
+    (imkbOCT.resolve("Muscle Cell").isDefined) should be (true)
+    (imkbOCT.resolve("muscle cells").isDefined) should be (true)
     (imkbOCT.resolve("muscle tissue").isDefined) should be (true)
     (imkbOCT.resolve("Muscle tissues").isDefined) should be (true)
     (imkbOCT.resolve("MUSCLE TISSUES").isDefined) should be (true)
-    (imkbOCT.resolve("Pericardial fluid").isDefined) should be (true)
-    (imkbOCT.resolve("pericardial fluids").isDefined) should be (true)
-    (imkbOCT.resolve("Cerebral Spinal Fluid").isDefined) should be (true)
-    (imkbOCT.resolve("cerebral spinal fluids").isDefined) should be (true)
+    (imkbOCT.resolve("Spinal Cord").isDefined) should be (true)
+    (imkbOCT.resolve("spinal Cords").isDefined) should be (true)
+    (imkbOCT.resolve("Lymphatic").isDefined) should be (true)
+    (imkbOCT.resolve("Lymphatics").isDefined) should be (true)
+    (imkbOCT.resolve("Nerve").isDefined) should be (true)
+    (imkbOCT.resolve("nerves").isDefined) should be (true)
+    (imkbOCT.resolve("Lymphatic Cell").isDefined) should be (true)
+    (imkbOCT.resolve("lymphatic cells").isDefined) should be (true)
+    (imkbOCT.resolve("synovial joint fluid").isDefined) should be (true)
+    (imkbOCT.resolve("synovial joint fluids").isDefined) should be (true)
+    (imkbOCT.resolve("Spinal Cord Fluid").isDefined) should be (true)
+    (imkbOCT.resolve("spinal Cord fluids").isDefined) should be (true)
+    (imkbOCT.resolve("Nerve Cell").isDefined) should be (true)
+    (imkbOCT.resolve("nerve cells").isDefined) should be (true)
+    (imkbOCT.resolve("Breast Tissue").isDefined) should be (true)
+    (imkbOCT.resolve("breast tissue").isDefined) should be (true)
   }
 
   "OctKBL resolve" should "work with alternate lookups" in {
-    (imkbOCT.resolve("HAIR").isDefined) should be (true)
-    (imkbOCT.resolve("hair").isDefined) should be (true)
-    (imkbOCT.resolve("hair cell").isDefined) should be (true)
-    (imkbOCT.resolve("hair cells").isDefined) should be (true)
-    (imkbOCT.resolve("hair tissue").isDefined) should be (true)
-    (imkbOCT.resolve("hair tissues").isDefined) should be (true)
-    (imkbOCT.resolve("hair fluid").isDefined) should be (true)
-    (imkbOCT.resolve("hair fluids").isDefined) should be (true)
-    (imkbOCT.resolve("thrombocyte cell").isDefined) should be (true)
-    (imkbOCT.resolve("macrophage cell").isDefined) should be (true)
-    (imkbOCT.resolve("muscle tissue cells").isDefined) should be (true)
   }
 
 }
@@ -60,5 +63,5 @@ class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
 
 // Protein family KB using alternate protein resolutions
 class TestOctKBL extends IMKBOrganCellTypeLookup {
-  memoryKB = (new TsvIMKBFactory).make(ContextCellTypeFilename)
+  memoryKB = (new TsvIMKBFactory).make(ContextOrganFilename)
 }

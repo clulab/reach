@@ -8,6 +8,7 @@ import TestUtils._
 
 /**
  * Unit tests of the Context KBs lister object.
+ *   Last Modified: Update tests for use of cell ontology.
  */
 class TestReachContextKBLister extends FlatSpec with Matchers {
 
@@ -31,12 +32,12 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
   }
 
   "Context KBs list" should "have cell type entries" in {
-    val ctypes = ctxList.filter(cg => cg.id.contains("CT"))
+    val ctypes = ctxList.filter(cg => cg.id.contains("CL:"))
     // System.err.println(s"CELL-TYPES.size=${ctypes.size}")
     (ctypes.size > 0) should be (true)
-    (ctypes.count(cg => hasText(cg, "granulocytes"))) should be (2)
-    (ctypes.count(cg => hasId(cg, "UA-CT-200001"))) should be (1)
-    (ctypes.count(cg => hasText(cg, "hair"))) should be (4)
+    (ctypes.count(cg => hasText(cg, "granulocyte"))) should be (11)
+    (ctypes.count(cg => hasId(cg, "CL:0000557"))) should be (7)
+    (ctypes.count(cg => hasText(cg, "hair"))) should be (25)
     // ctypes.filter(cg => hasText(cg, "")).foreach(System.err.println(_))
   }
 

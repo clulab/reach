@@ -10,12 +10,12 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Comment out tests for commented out methods.
+  *   Last Modified: Update tests for use of cell ontology.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
 //  val g1 = "Mast cells and lymphocytes are not found in bullfrog adenoids."
-  val text1 = "AKT1 and lymphocytes are not found in bullfrog adenoids."
+  val text1 = "AKT1 and amniocyte are not found in bullfrog adenoids."
   val mentions = getBioMentions(text1)
   val mentions2 = getBioMentions(text1)        // another copy
   val kbr1 = new KBResolution(new KBEntry("test-1", "test1", "UAZtest", "ID1"))
@@ -38,6 +38,7 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   }
 
   "First mention" should "have more candidates" in {
+    mentions should have size (4)
     (mentions(0).hasMoreCandidates) should be (true)
     (mentions(1).hasMoreCandidates) should be (false)
     (mentions(2).hasMoreCandidates) should be (false)
