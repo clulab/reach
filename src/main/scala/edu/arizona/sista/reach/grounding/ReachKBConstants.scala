@@ -3,7 +3,7 @@ package edu.arizona.sista.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Rename tissue type KB filename constant.
+  *   Last Modified: Update for use of Cell Ontology cell types.
   */
 object ReachKBConstants {
 
@@ -95,7 +95,7 @@ object ReachKBConstants {
   val ContextCellLineFilename = "CellLine.tsv.gz"
 
   /** Filename of the context cell types file */
-  val ContextCellTypeFilename = "CellType.tsv.gz"
+  val ContextCellTypeFilename = "CellOntology.tsv.gz"
 
   /** Filename of the context organs file */
   val ContextOrganFilename = "Organ.tsv.gz"
