@@ -32,7 +32,6 @@ class SimpleEntity(
     s"SimpleEntity(grounding=${this.grounding}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager}, sourceMention=$src})"
   }
 
-
   /**
    * Returns the Set of [[representations.PTM]] contained in [[modifications]].
    */
@@ -52,6 +51,14 @@ class SimpleEntity(
     ptm = m.asInstanceOf[representations.PTM]
     if ptm.label == label
   } yield ptm
+
+  /**
+   * Check if SimpleEvent is negated
+   * @return true or false
+   */
+  override def negated: Boolean = {
+    getPTMs.exists(_.negated == true)
+  }
 
   /**
    * Used by [[isEquivalentTo]] to compare against another [[SimpleEntity]].
