@@ -46,7 +46,7 @@ case class PrecedenceRelation(
 
 /**
  * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
- *             These LUTs are used to populate the mentionToID and idToEERepresentation LUTs containing the same information.
+ *             These LUTs are used to populate the mentionStateToID and idToEERepresentation LUTs containing the same information.
  *             Subsequent updates to these LUTs create new LUTs.
  *             The motivation for the LUTs was to allow for changes in the mapping of a Mention -...-> [[EntityEventRepresentation]]
  *             to easily propagate in nested cases.
@@ -57,13 +57,15 @@ case class PrecedenceRelation(
  *                Keys ([[IDPointer]]) may point to the same value (EntityEventRepresentation)
  */
 class AssemblyManager(
-  m2id: Map[Mention, IDPointer],
+  m2id: Map[MentionState, IDPointer],
   id2eer: Map[IDPointer, EER]
 ) extends Serializable {
 
   import AssemblyManager._
 
-  private var mentionToID: immutable.Map[Mention, IDPointer] = m2id.toMap
+  // Because modifications don't feature into the hashcode,
+  // a mention's identify at assembly consists of both the mention and its mods (i.e., the "state" of the mention)
+  private var mentionStateToID: immutable.Map[MentionState, IDPointer] = m2id.toMap
   private var idToEER: immutable.Map[IDPointer, EER] = id2eer.toMap
   // faster lookup of equivalent events
   private var ehToEERs: immutable.Map[Int, Set[EER]] = {
@@ -73,7 +75,7 @@ class AssemblyManager(
       .mapValues(_.map(_._2).toSet)
   }
 
-  private var idToMention: immutable.Map[IDPointer, Mention] = mentionToID.map{ case (k, v) => (v, k)}
+  private var idToMentionState: immutable.Map[IDPointer, MentionState] = mentionStateToID.map{ case (k, v) => (v, k)}
   // PrecedenceRelations associated with a distinct EER (key is equivalenceHash)
   private var idToPrecedenceRelations: immutable.Map[Int, Set[PrecedenceRelation]] =
     Map.empty
@@ -372,7 +374,7 @@ class AssemblyManager(
 
   /**
    * Creates a unique [[IDPointer]].
-   * This implementation does not rely on updates to either the [[mentionToID]] or [[idToEER]] LUT to determine a unique [[IDPointer]].
+   * This implementation does not rely on updates to either the [[mentionStateToID]] or [[idToEER]] LUT to determine a unique [[IDPointer]].
    * @return a unique [[IDPointer]]
    */
   // use the size of LUT 2 to create a new ID
@@ -387,23 +389,25 @@ class AssemblyManager(
    * @param m an Odin Mention
    * @return an [[IDPointer]] unique to m
    */
-  private def getOrCreateID(m: Mention): IDPointer = mentionToID.getOrElse(m, createID)
+  private def getOrCreateID(m: Mention): IDPointer = {
+    mentionStateToID.getOrElse(getMentionState(m), createID)
+  }
 
   //
   // Utils for modifying storage tables
   //
 
   /**
-   * Updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param id a unique [[IDPointer]] for m
    * @param m an Odin Mention
    * @param eer the [[EntityEventRepresentation]] corresponding to m
    */
   private def updateLUTs(id: IDPointer, m: Mention, eer: EER): Unit = {
     // update LUT #1a
-    updateMentionToIDTable(m, id)
+    updateMentionStateToIDTable(m, id)
     // update LUT #1b
-    updateIDtoMentionTable(m, id)
+    updateIDtoMentionStateTable(m, id)
     // update LUT #2
     updateIDtoEERTable(id, eer)
     // update LUT #3
@@ -421,21 +425,21 @@ class AssemblyManager(
   }
 
   /**
-   * Updates the [[mentionToID]] LUT
+   * Updates the [[mentionStateToID]] LUT
    * @param m an Odin Mention
    * @param id an [[IDPointer]] unique to m
    */
-  private def updateMentionToIDTable(m: Mention, id: IDPointer): Unit = {
-    mentionToID  = mentionToID + (m -> id)
+  private def updateMentionStateToIDTable(m: Mention, id: IDPointer): Unit = {
+    mentionStateToID = mentionStateToID + (getMentionState(m) -> id)
   }
 
   /**
-   * Updates the [[idToMention]] LUT
+   * Updates the [[idToMentionState]] LUT
    * @param m an Odin Mention
    * @param id an [[IDPointer]] unique to m
    */
-  private def updateIDtoMentionTable(m: Mention, id: IDPointer): Unit = {
-    idToMention  = idToMention + (id -> m)
+  private def updateIDtoMentionStateTable(m: Mention, id: IDPointer): Unit = {
+    idToMentionState = idToMentionState + (id -> getMentionState(m))
   }
 
   /**
@@ -506,14 +510,14 @@ class AssemblyManager(
 
     // remove mentions associated with the IDs
 
-    val id2m = idToMention
+    val id2m = idToMentionState
 
     for {
       id <- ids
       if id2m contains id
       m = id2m(id)
     } {
-      mentionToID = mentionToID - m
+      mentionStateToID = mentionStateToID - m
     }
 
     // remove EEReprs containing the given id
@@ -560,7 +564,7 @@ class AssemblyManager(
    * Create a [[SimpleEntity]] representation from a Mention
    * and an optional set of optional modifications (useful for building output of SimpleEvent)
    *
-   * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
+   * Whenever modifications are provided, the [[mentionStateToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
    * @param mods an optional set of [[AssemblyModification]].
    *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
@@ -593,6 +597,7 @@ class AssemblyManager(
     // for a sentence like "Ras is phosphorylated", the Mention for "Ras" should only point to the PTM-less form;
     // however, when createSimpleEvent calls this method to construct an output representation,
     // it gives it the PTMs to associate with this mention
+    // TODO: should this use m or e?
     val id = if (mods.nonEmpty) createID else getOrCreateID(e)
 
     // only use if mods are nonEmpty
@@ -612,7 +617,6 @@ class AssemblyManager(
         if (mods.isEmpty) Some(m) else Some(newEvidence),
         this
       )
-
     // Only update table 1 if no additional mods were provided
     if (mods.isEmpty) updateLUTs(id, m, eer) else  updateIDtoEERTable(id, eer) // updateLUTs(id, newEvidence, repr)
 
@@ -624,7 +628,7 @@ class AssemblyManager(
    * Create a [[SimpleEntity]] representation from a Mention
    * and an optional set of optional modifications (useful for building output of SimpleEvent)
    *
-   * Whenever modifications are provided, the [[mentionToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
+   * Whenever modifications are provided, the [[mentionStateToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
    * @param m an Odin Mention
    * @param mods an optional set of [[AssemblyModification]].
    *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
@@ -642,7 +646,7 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a tuple of ([[Complex]], [[IDPointer]])
    */
@@ -678,7 +682,7 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a [[Complex]]
    */
@@ -689,7 +693,7 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
    */
@@ -700,7 +704,7 @@ class AssemblyManager(
     //
 
     /**
-     * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+     * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
      * @param m an Odin Mention
      * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
      */
@@ -773,7 +777,7 @@ class AssemblyManager(
     }
 
     /**
-     * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[mentionToID]] and [[idToEER]] LUTs
+     * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[MentionStateToID]] and [[idToEER]] LUTs
      * @param m an Odin Mention
      * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
      */
@@ -850,7 +854,7 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a [[SimpleEvent]]
    */
@@ -861,7 +865,7 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a tuple of ([[Regulation]], [[IDPointer]])
    */
@@ -916,14 +920,14 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a [[Regulation]]
    */
   private def createRegulation(m: Mention): Regulation = createRegulationWithID(m)._1
 
   /**
-   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a [[Activation]]
    */
@@ -934,7 +938,7 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionToID]] and [[idToEER]] LUTs
+   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
    * @param m an Odin Mention
    * @return a tuple of ([[Activation]], [[IDPointer]])
    */
@@ -950,7 +954,6 @@ class AssemblyManager(
     require(act matches "ActivationEvent", "createActivation only handles Activations")
     // mention's polarity should be either positive or negative
     require(polarity == AssemblyManager.positive || polarity == AssemblyManager.negative, "Polarity of ComplexEvent must be positive or negative")
-
     val controllers: Set[IDPointer] = {
       act.arguments("controller")
         .toSet[Mention]
@@ -994,34 +997,35 @@ class AssemblyManager(
    * Attempts to retrieve an [[EntityEventRepresentation]] for m.
    * If a representation cannot be retrieved, a new one is created.
    * Whenever a new representation is created,
-   * the [[mentionToID]] and [[idToEER]] LUTs will be updated (see [[createEER]] for details)
+   * the [[mentionStateToID]] and [[idToEER]] LUTs will be updated (see [[createEER]] for details)
    * @param m an Odin Mention
    * @return the [[EntityEventRepresentation]] corresponding to m
    */
   private def getOrCreateEER(m: Mention): EER = {
     // ensure this mention should be stored in LUT 1
     require(isValidMention(m), s"mention with the label ${m.label} cannot be tracked by the AssemblyManager")
-
-    mentionToID.getOrElse(m, None) match {
+    hasMention(m) match {
       // if an ID already exists, retrieve the associated representation
-      case id: IDPointer => idToEER(id)
+      case true =>
+        val id = mentionStateToID(getMentionState(m))
+        idToEER(id)
       // create new representation
-      case None => createEER(m)
+      case false => createEER(m)
     }
   }
 
   /**
    * Attempts to retrieve a ([[EntityEventRepresentation]], [[IDPointer]]) tuple given a Mention m.
-   * The tuple will be created if the Mention m is not already present in the [[mentionToID]] LUT
+   * The tuple will be created if the Mention m is not already present in the [[mentionStateToID]] LUT
    * @param m an Odin Mention
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
-  private def getOrCreateEERwithID(m: Mention): (EER, IDPointer) = m match {
-    case alreadyExists if mentionToID contains alreadyExists =>
-      val id = mentionToID(alreadyExists)
+  private def getOrCreateEERwithID(m: Mention): (EER, IDPointer) = hasMention(m) match {
+    case true =>
+      val id = mentionStateToID(getMentionState(m))
       val eer = getEER(id)
       (eer, id)
-    case missing =>
+    case false =>
       val eer = createEER(m)
       val id = eer.uniqueID
       (eer, id)
@@ -1029,8 +1033,8 @@ class AssemblyManager(
 
   /**
    * Creates a ([[EntityEventRepresentation]], [[IDPointer]]) tuple from a Mention m.
-   * Assumes the Mention m is not already present in the [[mentionToID]] LUT
-   * Updates to [[mentionToID]] and [[idToEER]] in the relevant create* call
+   * Assumes the Mention m is not already present in the [[mentionStateToID]] LUT
+   * Updates to [[mentionStateToID]] and [[idToEER]] in the relevant create* call
    * @param m an Odin Mention
    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
    */
@@ -1049,7 +1053,7 @@ class AssemblyManager(
 
   /**
    * Creates an ([[EntityEventRepresentation]], [[IDPointer]]) tuple given a Mention m.
-   * The tuple will be created if the Mention m is not already present in the [[mentionToID]] LUT
+   * The tuple will be created if the Mention m is not already present in the [[mentionStateToID]] LUT
    * @param m an Odin Mention
    * @return an [[EntityEventRepresentation]]
    */
@@ -1060,14 +1064,12 @@ class AssemblyManager(
   //
 
   /**
-   * A (mostly) human readable printout of the (key, value) pairs in the [[mentionToID]]] LUT
+   * A (mostly) human readable printout of the (key, value) pairs in the [[mentionStateToID]]] LUT
    */
-  def mentionIndexSummary: Unit = {
-    mentionToID.foreach{ pair =>
-      val m = pair._1
-      val id = pair._2
-      println(s"${mentionSummary(m)} => $id")
-    }
+  def mentionIndexSummary: Seq[String] = {
+    for {
+      (k, id) <- mentionStateToID.toSeq
+    } yield s"${mentionSummary(k._1)} => $id"
   }
 
   //
@@ -1075,10 +1077,10 @@ class AssemblyManager(
   //
 
   /**
-   * Retrieves all tracked Mentions from [[AssemblyManager.mentionToID]]
+   * Retrieves all tracked Mentions from [[AssemblyManager.mentionStateToID]]
    * @return the Set of Odin Mentions tracked by this AssemblyManager
    */
-  def trackedMentions: Set[Mention] = mentionToID.keys.toSet
+  def trackedMentions: Set[Mention] = mentionStateToID.keys.map(_._1).toSet
 
   /**
    * Retrieves all EntityEventRepresentations found in [[AssemblyManager.idToEER]]
@@ -1101,7 +1103,10 @@ class AssemblyManager(
    */
   def getEER(m: Mention): EER = {
     require(isValidMention(m), s"Mention '${m.label}' is not valid")
-    val id = mentionToID.getOrElse(m, mentionToID(getResolvedForm(m)))
+    val k1 = getMentionState(m)
+    // backoff: attempt to use resolved form
+    val k2 = getMentionState(getResolvedForm(m))
+    val id = mentionStateToID.getOrElse(k1, mentionStateToID(k2))
     idToEER(id)
   }
 
@@ -1176,8 +1181,8 @@ class AssemblyManager(
       equivEER <- equivEERs
       id = equivEER.uniqueID
       // check is needed, because output of a SimpleEvent has no Mention
-      if idToMention contains id
-      e = idToMention(id)
+      if idToMentionState contains id
+      (e, mods) = idToMentionState(id)
     } yield e
     evidence.toSet
   }
@@ -1230,6 +1235,18 @@ class AssemblyManager(
   }
 
   // Entity
+
+  /**
+   * Retrieves all Entities from the manager.
+   * Note that these are non-distinct.
+   */
+  def getEntities: Set[Entity] = {
+    for {
+      e: EER <- getEERs
+      if e.isInstanceOf[Entity]
+      entity = e.asInstanceOf[Entity]
+    } yield entity
+  }
 
   /**
    * Returns "distinct" Set of Entities. Ignores multiple instances of the same Entity.
@@ -1623,7 +1640,7 @@ object AssemblyManager {
   val negative = "Negative"
   val unknown = "UNKNOWN"
 
-  def apply(): AssemblyManager = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EER])
+  def apply(): AssemblyManager = new AssemblyManager(Map.empty[MentionState, IDPointer], Map.empty[IDPointer, EER])
 
   /**
    * Instantiate [[AssemblyManager]] and track the provided Mentions
@@ -1631,13 +1648,13 @@ object AssemblyManager {
    * @return an [[AssemblyManager]]
    */
   def apply(mns: Seq[Mention]): AssemblyManager = {
-    val am = new AssemblyManager(Map.empty[Mention, IDPointer], Map.empty[IDPointer, EER])
+    val am = new AssemblyManager(Map.empty[MentionState, IDPointer], Map.empty[IDPointer, EER])
     am.trackMentions(mns)
     am
   }
 
   /**
-   * Get antecedent if present.  Otherwise return the CorefMntion as-is.
+   * Get antecedent if present.  Otherwise return the CorefMntion as-is. <br>
    *
    * Used to retrieve the appropriate features of a mention's antecedent.
    * @param m an Odin Mention
