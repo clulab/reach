@@ -1740,4 +1740,12 @@ object AssemblyManager {
       .flatten
       .toSeq
   }
+
+  /**
+   * Check if mention is negated
+   */
+  def hasNegation(m: Mention): Boolean = m.toBioMention.modifications exists {
+    case mentions.Negation(_) => true
+    case _ => false
+  }
 }
