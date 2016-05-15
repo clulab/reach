@@ -27,8 +27,11 @@ class SimpleEntity(
    * Summary making use of [[grounding]], [[modifications]], [[coref]], and [[manager]].
    * @return a String summary of the [[SimpleEntity]]
    */
-  def summarize: String =
-    s"SimpleEntity(grounding=${this.grounding}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager})"
+  def summarize: String = {
+    val src = if (sourceMention.nonEmpty) s"${sourceMention.get} w/ text '${sourceMention.get.text}'" else "??"
+    s"SimpleEntity(grounding=${this.grounding}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager}, sourceMention=$src})"
+  }
+
 
   /**
    * Returns the Set of [[representations.PTM]] contained in [[modifications]].
