@@ -2,6 +2,7 @@ package edu.arizona.sista.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
+import edu.arizona.sista.assembly.export.{CausalPrecedence, Equivalence, AssemblyLink}
 import org.json4s.native.Serialization
 
 import edu.arizona.sista.assembly._
@@ -415,7 +416,7 @@ class FriesOutput extends JsonOutputter {
       val fromId = lookupMentionId(mention, entityMap, eventMap)
       if (fromId.isDefined) {
         frames ++= mkLinkFrames(paperId, mention, fromId.get,
-                                assemblyAPI.getEquivalentMentions(mention), "equivalent-to",
+                                assemblyAPI.getEquivalenceLinks(mention), "equivalent-to",
                                 passageMap, entityMap, eventMap)
         frames ++= mkLinkFrames(paperId, mention, fromId.get,
                                 assemblyAPI.getCausalPredecessors(mention), "precedes",
@@ -594,11 +595,18 @@ class FriesOutput extends JsonOutputter {
   }
 
   /** Create and return a new binary Link frame. */
-  private def mkLinkFrame (linkId:String, fromId:String, frameType:String, toId:String): PropMap = {
+  private def mkLinkFrame(
+    linkId: String,
+    fromId: String,
+    frameType: String,
+    toId: String,
+    foundBy: String
+  ): PropMap = {
     val f = startFrame()
     f("frame-id") = linkId
     f("frame-type") = "link"
     f("type") = frameType
+    f("found-by") = foundBy
     f("arguments") = List(mkLinkArgumentFrame(fromId, "from"), mkLinkArgumentFrame(toId, "to"))
     // f("is-negated") = false                 // optional: in schema for future use
     // f("score") = 0.0                        // optional: in schema for future use
@@ -606,24 +614,36 @@ class FriesOutput extends JsonOutputter {
   }
 
   /** Return a list of link frames made from the given FROM mention and list of TO mentions. */
-  private def mkLinkFrames (paperId: String,
-                            from: Mention,
-                            fromId: String,
-                            toMentions: Set[Mention],
-                            frameType: String,
-                            passageMap: Map[String, FriesEntry],
-                            entityMap: IDed,
-                            eventMap: IDed): List[PropMap] = {
-    var frames: ListBuffer[PropMap] = new ListBuffer()
-    if (!toMentions.isEmpty) {
-      val passage = getPassageForMention(passageMap, from)
-      toMentions.foreach { m2 =>
-        val linkId = mkLinkId(paperId, passage, from.sentence)
+  private def mkLinkFrames[L <: AssemblyLink](
+    paperId: String,
+    from: Mention,
+    fromId: String,
+    links: Set[L],
+    frameType: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed
+  ): List[PropMap] = {
+    val frames: ListBuffer[PropMap] = new ListBuffer()
+    val passage = getPassageForMention(passageMap, from)
+    val linkId = mkLinkId(paperId, passage, from.sentence)
+    links foreach {
+      // a link representing mention equivalence
+      case Equivalence(mention1, m2, foundBy) =>
         val m2Id = lookupMentionId(m2, entityMap, eventMap)
         if (m2Id.isDefined) {
-          frames += mkLinkFrame(linkId, fromId, frameType, m2Id.get)
+          frames += mkLinkFrame(linkId, fromId, frameType, m2Id.get, foundBy)
         }
-      }
+      // a link representing causal precedence
+      case CausalPrecedence(before, after, foundBy) =>
+        //require(from == after, "link should represent predecessors of 'from' Mention")
+        val m2Id = lookupMentionId(before, entityMap, eventMap)
+        if (m2Id.isDefined) {
+          frames += mkLinkFrame(linkId, fromId, frameType, m2Id.get, foundBy)
+        }
+      // an unknown link
+      case unknown =>
+        println(s"Cannot create link for type '${unknown.getClass}'")
     }
     frames.toList
   }
