@@ -109,6 +109,19 @@ object PaperReader {
   }
 
   def getMentionsFromFriesEntries(entries: Seq[FriesEntry]): Seq[Mention] = rs.extractFrom(entries)
+
+  /**
+   * Get mentions from a single paper (.csv or .nxml)
+   * @param file a [[java.io.File]] object
+   * @return a Seq of Odin-style Mentions
+   */
+  def getMentionsFromPaper(file: File): Seq[Mention] = {
+    val entries = file match {
+      case nxml if nxml.getName.endsWith(".nxml") => getEntriesFromNXMLPaper(nxml)
+      case csv if csv.getName.endsWith(".csv") => getEntriesFromCSVPaper(csv)
+    }
+    getMentionsFromFriesEntries(entries)
+  }
 }
 
 
