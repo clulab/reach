@@ -1,5 +1,7 @@
 #Changes
 =======
++ **1.2.3** - Sieve-based assembly system that includes a feature-based classifier and rule-based sieves for detecting causal precedence.
++ **1.2.3** - Bug fix and optimizations to the `AssemblyManager`.
 + **1.2.3** - Updated to Bioresources 1.1.6, Processors 5.8.4. Add/use Uniprot Tissue type KB.
 + **1.2.3** - Add new context frames and pointers to FRIES output event stream.
 + **1.2.3** - Replace ChEBI and HMDB KBs with PubChem KB.
