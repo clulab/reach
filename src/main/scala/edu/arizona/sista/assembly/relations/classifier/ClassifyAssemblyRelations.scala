@@ -169,6 +169,24 @@ object ClassifyAssemblyRelations extends App {
   val equivalenceDataset = AssemblyRelationClassifier.mkRVFDataset(equivalenceAnnotations)
 }
 
+object TrainAssemblyRelationClassifier extends App {
+  val config = ConfigFactory.load()
+  val annotationsPath = config.getString("assembly.corpusFile")
+  val classifierType = config.getString("assembly.classifier.classifier")
+  val classifierPath = config.getString("assembly.classifier.model")
+  val annotations: Seq[AssemblyAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
+
+  // gather precedence relations corpus
+  val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
+  // train
+  println(s"Training classifier using ${precedenceAnnotations.size}")
+  val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
+  val pcf = AssemblyRelationClassifier.train(precedenceDataset, AssemblyRelationClassifier.getModel(classifierType))
+  // save model
+  println(s"saving trained classifier to $classifierPath . . .")
+  pcf.saveTo(classifierPath)
+}
+
 /** *
   * Train and evaluate precedence relation classifier
   */

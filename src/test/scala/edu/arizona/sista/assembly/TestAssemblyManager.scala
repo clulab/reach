@@ -6,6 +6,7 @@ import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
 
+
 class TestAssemblyManager extends FlatSpec with Matchers {
 
   def createDoc(text: String, id: String): Document = {
@@ -321,6 +322,35 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     am.EERs.size should be(0)
   }
 
+  it should "safely handle mentions in any order" in {
+    val text = "EHT1864 inhibited AKT phosphorylation induced by LPA and S1P, but not EGF or PDGF"
+    val doc = createDoc(text, "mention-order-test")
+    val mentions = testReach.extractFrom(doc)
+
+    val am1 = AssemblyManager(mentions)
+    val am2 = AssemblyManager(mentions.sortBy(_.label))
+    val am3 = AssemblyManager(mentions.sortBy(_.label).reverse)
+
+    def hasEquivalentEERs(manager1: AssemblyManager, manager2: AssemblyManager): Boolean = {
+      val eers1 = manager1.distinctEERs.map(_.equivalenceHash)
+      val eers2 = manager2.distinctEERs.map(_.equivalenceHash)
+      val entities1 = manager1.distinctEntities.map(_.equivalenceHash)
+      val entities2 = manager2.distinctEntities.map(_.equivalenceHash)
+      val events1 = manager1.distinctEvents.map(_.equivalenceHash)
+      val events2 = manager2.distinctEvents.map(_.equivalenceHash)
+
+      ((eers1 intersect eers2).size == (eers1 union eers2).size) &&
+        ((entities1 intersect entities2).size == (entities1 union entities2).size) &&
+        ((events1 intersect events2).size == (events1 union events2).size)
+    }
+
+    hasEquivalentEERs(am1, am1) should be(true)
+    hasEquivalentEERs(am2, am2) should be(true)
+    hasEquivalentEERs(am3, am3) should be(true)
+    hasEquivalentEERs(am1, am2) should be(true)
+    hasEquivalentEERs(am1, am3) should be(true)
+    hasEquivalentEERs(am2, am3) should be(true)
+  }
 
   // Sieve tests
 

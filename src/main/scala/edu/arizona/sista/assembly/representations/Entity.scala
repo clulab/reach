@@ -9,4 +9,6 @@ trait Entity extends EntityEventRepresentation {
    * @return a String summary of the [[Entity]]
    */
   def summarize: String
+
+  override val eerString = "assembly.Entity"
 }

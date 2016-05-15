@@ -7,6 +7,8 @@ import edu.arizona.sista.assembly.PrecedenceRelation
  */
 trait Event extends EntityEventRepresentation {
 
+  override val eerString = "assembly.Event"
+
   /** PrecedenceRelations for this Event */
   def precedenceRelations: Set[PrecedenceRelation] = {
     manager.getPrecedenceRelations(equivalenceHash)

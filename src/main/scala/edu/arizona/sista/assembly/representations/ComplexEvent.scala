@@ -28,7 +28,7 @@ trait ComplexEvent extends Event {
   /** a pointer to the [[AssemblyManager]] instance that produced this [[ComplexEvent]] */
   val manager: AssemblyManager
 
-  val eerString = "edu.arizona.sista.assembly.ComplexEvent"
+  override val eerString = "assembly.ComplexEvent"
 
   /**
    * The [[EntityEventRepresentation]] Set corresponding to the referencing Regulation Mention's "controller" argument (retrieved using using the [[manager.idToEER]] and the [[controllerPointers]]).
@@ -49,7 +49,7 @@ trait ComplexEvent extends Event {
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controller]]
    */
-  private def controllerHash: Int = {
+  def controllerHash: Int = {
     val h0 = stringHash(s"$eerString.controller")
     val hs = controller.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))
@@ -61,7 +61,7 @@ trait ComplexEvent extends Event {
    * Used by [[equivalenceHash]] for [[isEquivalentTo]] comparisons.
    * @return an Int hash based on the [[EntityEventRepresentation.equivalenceHash]] of each element in the [[controlled]]
    */
-  private def controlledHash: Int = {
+  def controlledHash: Int = {
     val h0 = stringHash(s"$eerString.controlled")
     val hs = controlled.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))

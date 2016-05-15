@@ -22,12 +22,16 @@ class SimpleEntity(
   val manager: AssemblyManager
 ) extends Entity {
 
+  override val eerString = "assembly.SimpleEntity"
   /**
    * Summary making use of [[grounding]], [[modifications]], [[coref]], and [[manager]].
    * @return a String summary of the [[SimpleEntity]]
    */
-  def summarize: String =
-    s"SimpleEntity(grounding=${this.grounding}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager})"
+  def summarize: String = {
+    val src = if (sourceMention.nonEmpty) s"${sourceMention.get} w/ text '${sourceMention.get.text}'" else "??"
+    s"SimpleEntity(grounding=${this.grounding}, modifications=${this.modifications}, coref=${this.coref}, mngr=${this.manager}, sourceMention=$src})"
+  }
+
 
   /**
    * Returns the Set of [[representations.PTM]] contained in [[modifications]].
@@ -56,7 +60,7 @@ class SimpleEntity(
   def equivalenceHash: Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
-    val h0 = stringHash("edu.arizona.sista.assembly.SimpleEntity")
+    val h0 = stringHash(eerString)
     // a representation of the ID
     val h1 = mix(h0, grounding.hashCode)
     // a representation of the set of modifications
@@ -72,7 +76,7 @@ class SimpleEntity(
    * @return an Int hash based on the hashcodes of the modifications
    */
   def modsHash: Int = {
-    val h0 = stringHash("SimpleEntity.modifications")
+    val h0 = stringHash(s"$eerString.modifications")
     val hs = modifications.map(_.hashCode)
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, modifications.size)

@@ -23,7 +23,7 @@ class Activation(
   val manager: AssemblyManager
 )  extends ComplexEvent {
 
-  override val eerString = "edu.arizona.sista.assembly.Activation"
+  override val eerString = "assembly.Activation"
 
   require(controller.forall(_.isInstanceOf[Entity]), "Controllers of an Activation must be Entities!")
 

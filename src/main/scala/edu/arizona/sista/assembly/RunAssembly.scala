@@ -32,7 +32,8 @@ object AssemblyRunner {
         // find precedence relations using rules
         AssemblySieve(precedence.withinRbPrecedence) andThen
         AssemblySieve(precedence.reichenbachPrecedence) andThen
-        AssemblySieve(precedence.betweenRbPrecedence)
+        AssemblySieve(precedence.betweenRbPrecedence) andThen
+        AssemblySieve(precedence.featureBasedClassifier)
 
     // apply the sieves and return the manager
     val am: AssemblyManager = orderedSieves.apply(mentions)

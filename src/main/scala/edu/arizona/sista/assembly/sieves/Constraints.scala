@@ -75,7 +75,8 @@ object Constraints {
     // a regulation should not be paired with its controlled
     // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
     val ceConstraint: Boolean = (m1, m2) match {
-
+      // make sure both mentions can be handled by the AssemblyManager
+      case (p1: Mention, p2: Mention) if !AssemblyManager.isValidMention(p1) || !AssemblyManager.isValidMention(p2) => false
       // two complex events should not share their controlled (activation-specific check)
       case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
         // controlled arg for each Activation mention should not be identical (according to grounding id)
