@@ -237,7 +237,7 @@ class PrecedenceSieves extends Sieves {
       // make sure the prediction is not a contradiction
       if noExistingPrecedence(e1, e2, manager)
     } {
-      label match{
+      label match {
         case E1PrecedesE2 =>
           val rel = new RelationMention(
             arguments = Map("before" -> Seq(e1), "after"-> Seq(e2)),
