@@ -25,6 +25,8 @@ class SimpleEvent(
   val manager: AssemblyManager
 ) extends Event {
 
+  override val eerString = "assembly.SimpleEvent"
+
   // all elements of input must be Entities
   require(input.values.flatten.forall(_.isInstanceOf[Entity]), s"not all input elements of $label are entities")
 
@@ -58,7 +60,7 @@ class SimpleEvent(
    * @return an Int hash based on hashes of the keys in the [[input]] and the [[Entity.equivalenceHash]] of each element contained in the corresponding value in the [[input]]
    */
   def inputHash: Int = {
-    val h0 = stringHash("SimpleEvent.input")
+    val h0 = stringHash(s"$eerString.input")
     val hs = output.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, input.size)
@@ -70,7 +72,7 @@ class SimpleEvent(
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each element in the [[output]]
    */
   def outputHash: Int = {
-    val h0 = stringHash("SimpleEvent.output")
+    val h0 = stringHash(s"$eerString.output")
     val hs = output.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, output.size)
@@ -83,7 +85,7 @@ class SimpleEvent(
   def equivalenceHash: Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
-    val h0 = stringHash("edu.arizona.sista.assembly.SimpleEvent")
+    val h0 = stringHash(eerString)
     // the label of the SimpleEvent
     val h1 = mix(h0, label.hashCode)
     // the input of the SimpleEvent

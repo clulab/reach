@@ -9,7 +9,7 @@ import edu.arizona.sista.reach.mentions._
  */
 trait EntityEventRepresentation extends Serializable {
 
-
+  val eerString = "assembly.EER"
   /**
    * The evidence from which this [[EntityEventRepresentation]] was constructed.
    */
