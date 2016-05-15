@@ -1589,10 +1589,33 @@ class AssemblyManager(
    * @return a high-level String representation of m
    */
   def mentionSummary(m: Mention): String = {
+    val bio = m.toBioMention
     val docRepr = s"DOC:${m.document.id.get} (sent. ${m.sentence})"
-    s"Mention(label=${m.label}, text='${m.text}', doc=$docRepr)"
+    s"Mention(label=${m.label}, text='${m.text}', modifications=${bio.modifications}, doc=$docRepr)"
   }
 
+  def summarizeMentionIndex: Unit = println(mentionIndexSummary.sorted.mkString("\n"))
+
+  def summarizeEntities: Unit = println(getSimpleEntities.map(_.summarize).toSeq.sorted.mkString("\n"))
+
+
+  //
+  // LUT utils
+  //
+
+  def hasMention(m: Mention): Boolean = mentionStateToID contains getMentionState(m)
+
+  //
+  // Set diff
+  //
+
+  def EERdiff(eers1: Set[EER], eers2: Set[EER]): Set[EER] = {
+    eers1.filterNot(eer => eers2.exists(_.isEquivalentTo(eer)))
+  }
+
+  def EERintersection(eers1: Set[EER], eers2: Set[EER]): Set[EER] = {
+    eers1.filter(eer => eers2.exists(_.isEquivalentTo(eer)))
+  }
 }
 
 object AssemblyManager {
