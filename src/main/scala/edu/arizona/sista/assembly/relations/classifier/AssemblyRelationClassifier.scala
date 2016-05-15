@@ -35,6 +35,7 @@ class AssemblyRelationClassifier(
 
 object AssemblyRelationClassifier {
 
+  val NEG = "None"
   val UNKNOWN = "unknown"
   // reach system (makes use of context parameters specified in config)
   val rs = PaperReader.rs
@@ -65,8 +66,10 @@ object AssemblyRelationClassifier {
     new AssemblyRelationClassifier(clf)
   }
 
-  def loadFrom(s: String): AssemblyRelationClassifier = {
-    val ois = new ObjectInputStream(new FileInputStream(s))
+  def loadFrom(p: String): AssemblyRelationClassifier = {
+    val path = p.replaceAll("src/main/resources", "")
+    // load from resources
+    val ois = new ObjectInputStream(getClass.getResourceAsStream(path))
     val clf = ois.readObject.asInstanceOf[AssemblyRelationClassifier]
     ois.close()
     clf

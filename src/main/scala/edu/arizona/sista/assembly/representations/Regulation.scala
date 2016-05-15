@@ -23,6 +23,6 @@ class Regulation(
   val manager: AssemblyManager
 )  extends ComplexEvent {
 
-  override val eerString = "edu.arizona.sista.assembly.Regulation"
+  override val eerString = "assembly.Regulation"
 
 }

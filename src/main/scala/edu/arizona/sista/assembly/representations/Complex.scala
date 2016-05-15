@@ -20,6 +20,8 @@ class Complex(
   val manager: AssemblyManager
 ) extends Entity {
 
+  override val eerString = "assembly.Complex"
+
   /**
    * The [[Entity]] Set of members, retrieved from [[manager.idToEER]] using the [[memberPointers]].
    * @return the [[Entity]] Set of [[Complex]] members
@@ -49,7 +51,7 @@ class Complex(
    * @return an Int hash based on the [[Entity.equivalenceHash]] of each member
    */
   def membersHash: Int = {
-    val h0 = stringHash("Complex.members")
+    val h0 = stringHash(s"$eerString.members")
     val hs = members.map(_.equivalenceHash)
     val h = mixLast(h0, unorderedHash(hs))
     finalizeHash(h, members.size)
@@ -62,7 +64,7 @@ class Complex(
   def equivalenceHash: Int = {
     // the seed (not counted in the length of finalizeHash)
     // decided to use the class name
-    val h0 = stringHash("edu.arizona.sista.assembly.Complex")
+    val h0 = stringHash(eerString)
     // comprised of the equiv. hash of members
     val h1 = mix(h0, membersHash)
     // whether or not the representation is negated
