@@ -156,6 +156,45 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   //
+  // RemovalEvent tests
+  //
+
+  val dePhos = "Mek was dephosphorylated."
+  dePhos should "produce a Dephosphorylation event with a Phosphorylation on the input" in {
+
+    val doc = createDoc(dePhos, "assembly-test")
+
+    val mentions = testReach.extractFrom(doc)
+
+    val am = AssemblyManager(mentions)
+
+    val m = mentions.filter(_ matches "Dephosphorylation").head
+
+    val rem = am.getSimpleEvent(m)
+
+    val themes = rem.input("theme")
+    themes.size should be(1)
+
+    val theme = themes.head.asInstanceOf[SimpleEntity]
+
+    val inputPTMs = theme.getPTMs
+    inputPTMs.size should be(1)
+
+    val phosInputPTMs = theme.getPTMs("Phosphorylation")
+    phosInputPTMs.size should be(1)
+
+    val output = rem.output
+    output.size should be(1)
+
+    val outputTheme = output.head.asInstanceOf[SimpleEntity]
+    val outputPTMs = outputTheme.getPTMs
+    outputPTMs.size should be(0)
+
+    val phosOutputPTMs = outputTheme.getPTMs("Phosphorylation")
+    phosOutputPTMs.size should be(0)
+  }
+
+  //
   // Negation tests
   //
 
@@ -166,9 +205,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     val mentions = testReach.extractFrom(doc)
 
-    val am = AssemblyManager()
-
-    am.trackMentions(mentions)
+    val am = AssemblyManager(mentions)
 
     val m = mentions.filter(_ matches "Phosphorylation").head
 

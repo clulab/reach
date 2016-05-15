@@ -11,7 +11,7 @@ trait AssemblyModification
  * @param site an Option[String] representing the Site of the PTM
  */
 // for keeping track of post-translational modifications and any associated site
-case class PTM(label: String, site: Option[String]) extends AssemblyModification {
+case class PTM(label: String, site: Option[String], negated: Boolean = false) extends AssemblyModification {
   def this(label: String) = this(label, None)
 }
 
