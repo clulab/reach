@@ -643,7 +643,7 @@ class FriesOutput extends JsonOutputter {
         }
       // an unknown link
       case unknown =>
-        println(s"Cannot create link for type '${unknown.getClass}'")
+        System.err.println(s"Cannot create link for type '${unknown.getClass}'")
     }
     frames.toList
   }
