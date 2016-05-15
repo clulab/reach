@@ -776,12 +776,88 @@ class AssemblyManager(
       (eer, id)
     }
 
-    /**
-     * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[MentionStateToID]] and [[idToEER]] LUTs
+     /**
+     * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
      * @param m an Odin Mention
      * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
      */
     def handleNBSimpleEvent(m: Mention): (SimpleEvent, IDPointer) = {
+
+       /**
+        * Create input Map for removal event
+        */
+       def createInputForRemovalEvent(m: Mention): Map[String, Set[IDPointer]] = {
+
+         val isNegated = hasNegation(m)
+
+         // get input PTM for removal event
+         val ptm: String = m.label.replaceAll("^De", "").capitalize
+
+         // handle sites
+         val ptms: Set[AssemblyModification] = m match {
+           case hasSites if hasSites.arguments contains "site" =>
+             // create a PTM for each site
+             for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(ptm, Some(site.text), isNegated)
+           // create a PTM without a site
+           case noSites => Set(representations.PTM(ptm, None, isNegated))
+         }
+
+         // filter out sites from input
+         val siteLessArgs = m.arguments - "site"
+         val input: Map[String, Set[IDPointer]] = siteLessArgs map {
+           case ("theme", mns: Seq[Mention]) =>
+             ("theme", mns.map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2).toSet)
+           case (role: String, mns: Seq[Mention]) =>
+             (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
+         }
+         input
+       }
+
+       /**
+        * Create input Map for addition event
+        */
+       def createInputForAdditionEvent(m: Mention): Map[String, Set[IDPointer]] = {
+         // filter out sites from input
+         val siteLessArgs = m.arguments - "site"
+         val input: Map[String, Set[IDPointer]] = siteLessArgs map {
+           case (role: String, mns: Seq[Mention]) =>
+             //println(s"\tprocessing mentions for '$role' role of '${e.label}'")
+             (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
+         }
+         input
+       }
+
+       /**
+        * Create output Set for addition event
+        */
+       def createOutputForRemovalEvent(m: Mention): Set[IDPointer] = {
+         // NOTE: we need to be careful if we use something other than theme
+         m.arguments("theme")
+           .map(getOrCreateEERwithID).map(_._2)
+           .toSet
+       }
+
+       /**
+        * Create output Set for addition event
+        */
+       def createOutputForAdditionEvent(m: Mention): Set[IDPointer] = {
+
+         val isNegated = hasNegation(m)
+
+         // handle sites
+         val ptms: Set[AssemblyModification] = m match {
+           case hasSites if hasSites.arguments contains "site" =>
+             // create a PTM for each site
+             for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(m.label, Some(site.text), isNegated)
+           // create a PTM without a site
+           case noSites => Set(representations.PTM(m.label, None, isNegated))
+         }
+
+         // NOTE: we need to be careful if we use something other than theme
+         m.arguments("theme")
+           .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2)
+           .toSet
+       }
 
       // check for coref
       val e = getResolvedForm(m)
@@ -790,30 +866,20 @@ class AssemblyManager(
       require((e matches "SimpleEvent") && !(e matches "Binding"), s"handleNBSimpleEvent received Mention of label '${e.label}', but method only accepts a SimpleEvent Mention that is NOT a Binding.")
       // prepare input (roles -> repr. pointers)
 
-      // filter out sites from input
-      val siteLessArgs = e.arguments - "site"
-      val input: Map[String, Set[IDPointer]] = siteLessArgs map {
-        case (role: String, mns: Seq[Mention]) =>
-          //println(s"\tprocessing mentions for '$role' role of '${e.label}'")
-          (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
+      // create input
+      val input: Map[String, Set[IDPointer]] = e match {
+        case removalEvent if removalEvent matches "RemovalEvent" =>
+          createInputForRemovalEvent(removalEvent)
+        case additionEvent if additionEvent matches "AdditionEvent" =>
+          createInputForAdditionEvent(additionEvent)
       }
 
       // prepare output
-      val output: Set[IDPointer] = {
-        // handle sites
-        val ptms: Set[AssemblyModification] = e match {
-          case hasSites if hasSites.arguments contains "site" =>
-            // create a PTM for each site
-            for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(e.label, Some(site.text))
-          // create a PTM without a site
-          case noSites => Set(representations.PTM(e.label, None))
-        }
-
-        // NOTE: we need to be careful if we use something other than theme
-        e.arguments("theme")
-          // TODO: should this be one PTM per entity?
-          .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2)
-          .toSet
+      val output: Set[IDPointer] = e match {
+        case removalEvent if removalEvent matches "RemovalEvent" =>
+          createOutputForRemovalEvent(removalEvent)
+        case additionEvent if additionEvent matches "AdditionEvent" =>
+          createOutputForAdditionEvent(additionEvent)
       }
 
       // prepare id
@@ -1739,5 +1805,13 @@ object AssemblyManager {
       .values
       .flatten
       .toSeq
+  }
+
+  /**
+   * Check if mention is negated
+   */
+  def hasNegation(m: Mention): Boolean = m.toBioMention.modifications exists {
+    case mentions.Negation(_) => true
+    case _ => false
   }
 }
