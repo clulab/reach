@@ -6,6 +6,7 @@ import scala.collection.mutable.SortedSet
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.context.ContextEngine.contextMatching
 import edu.arizona.sista.reach.nxml._
+import edu.arizona.sista.reach.mentions._
 
 /**
   * Class to output files used by python to generate an HTML file
@@ -19,6 +20,7 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
   val evtIntervals = new mutable.ArrayBuffer[String]
   val sections:Seq[String] = docs.zip(entries).flatMap{case (d, e) => List.fill(d.sentences.size)(e.sectionName)}
   val titles:Seq[Boolean] = docs.zip(entries).flatMap{ case (d, e) => List.fill(d.sentences.size)(e.isTitle)}
+  val docNums:Seq[Int] = docs.zipWithIndex.flatMap{ case (d, i) => List.fill(d.sentences.size)(i)}
   val eventLines = new mutable.ArrayBuffer[String]
   val citationLines = docs.zip(entries).flatMap{
     case (d, e) =>
@@ -64,17 +66,19 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
     }
 
     // Store context mentions
-    val cts = mentions filter {
-        case tb:TextBoundMention => tb.labels.map(contextMatching.contains(_)).exists(x => x)
+    val ctsG = mentions filter {
+        case tb:BioTextBoundMention => tb.labels.map(contextMatching.contains(_)).exists(x => x)
         case _ => false
     }
+
+    val cts:Seq[BioTextBoundMention] = ctsG.map(_.asInstanceOf[BioTextBoundMention])
 
 
     for(i <- 0 to doc.sentences.size){
         val its = cts.filter(e => e.document.id == doc.id && e.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
             tb =>
             val ti = tb.tokenInterval
-            s"${ti.start}-${ti.end-1}"
+            s"${ti.start}-${ti.end-1}-${tb.text.replace(' ', '_')}-${tb.nsId}"
         }
         val itsStr = s"${x+i} " + (if(its.size > 0) its.mkString(" ") else "")
         ctxMentions += itsStr
