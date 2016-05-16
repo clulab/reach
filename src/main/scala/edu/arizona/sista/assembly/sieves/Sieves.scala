@@ -162,11 +162,48 @@ class PrecedenceSieves extends Sieves {
       //   relCounts((tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect))) = relCounts.getOrElseUpdate((tamLabel(e1tense), tamLabel(e1aspect), tamLabel(e2tense), tamLabel(e2aspect)), 0) + 1
       // }
 
+      val e1tenseMentions: Seq[Mention] = if (e1tense.nonEmpty) Seq(e1tense.get) else Seq.empty[Mention]
+      val e1aspectMentions: Seq[Mention] = if (e1aspect.nonEmpty) Seq(e1aspect.get) else Seq.empty[Mention]
+      val e2tenseMentions: Seq[Mention] = if (e2tense.nonEmpty) Seq(e2tense.get) else Seq.empty[Mention]
+      val e2aspectMentions: Seq[Mention] = if (e2aspect.nonEmpty) Seq(e2aspect.get) else Seq.empty[Mention]
+
       pr match {
         case "before" =>
-          manager.storePrecedenceRelation(e1, e2, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
+          // create evidence mention
+          val evidence = new RelationMention(
+            SieveUtils.precedenceMentionLabel,
+            Map(
+              "before" -> Seq(e1),
+              "after" -> Seq(e2),
+              "e1tense" -> e1tenseMentions,
+              "e1aspect" -> e1aspectMentions,
+              "e2tense" -> e2tenseMentions,
+              "e2aspect" -> e2aspectMentions
+            ),
+            e1.sentence,
+            e1.document,
+            true,
+            name
+          )
+          manager.storePrecedenceRelation(e1, e2, Set(evidence), name)
         case "after" =>
-          manager.storePrecedenceRelation(e2, e1, Seq(e1tense, e1aspect, e2tense, e2aspect).flatten.toSet, name)
+          // create evidence mention
+          val evidence = new RelationMention(
+            SieveUtils.precedenceMentionLabel,
+            Map(
+              "before" -> Seq(e2),
+              "after" -> Seq(e1),
+              "e1tense" -> e1tenseMentions,
+              "e1aspect" -> e1aspectMentions,
+              "e2tense" -> e2tenseMentions,
+              "e2aspect" -> e2aspectMentions
+            ),
+            e1.sentence,
+            e1.document,
+            true,
+            name
+          )
+          manager.storePrecedenceRelation(e2, e1, Set(evidence), name)
         case _ => ()
       }
     }
@@ -239,25 +276,11 @@ class PrecedenceSieves extends Sieves {
     } {
       label match {
         case E1PrecedesE2 =>
-          val rel = new RelationMention(
-            arguments = Map("before" -> Seq(e1), "after"-> Seq(e2)),
-            sentence = e1.sentence,
-            document = e1.document,
-            keep = true,
-            foundBy = sieveName,
-            label = precedenceMentionLabel
-          )
-          manager.storePrecedenceRelation(e1, e2, Set(rel), sieveName)
+          val evidence = createEvidenceForCPR(e1, e2, sieveName)
+          manager.storePrecedenceRelation(e1, e2, evidence, sieveName)
         case E2PrecedesE1 =>
-          val rel = new RelationMention(
-            arguments = Map("before" -> Seq(e2), "after"-> Seq(e1)),
-            sentence = e2.sentence,
-            document = e2.document,
-            keep = true,
-            foundBy = sieveName,
-            label = precedenceMentionLabel
-          )
-          manager.storePrecedenceRelation(e2, e1, Set(rel), sieveName)
+          val evidence = createEvidenceForCPR(e2, e1, sieveName)
+          manager.storePrecedenceRelation(e2, e1, evidence, sieveName)
       }
     }
     manager
@@ -349,5 +372,28 @@ object SieveUtils {
     case rel: RelationMention if (rel matches "ComplexEvent") && rel.arguments("controlled").nonEmpty =>
       // could be nested ...
       findTrigger(rel.arguments("controlled").head)
+  }
+
+  /**
+   * Create evidence from Causal Precedence relation
+   * @param before an Odin-style Mention preceding 'after'
+   * @param after an Odin-style Mention following 'before'
+   * @param foundBy the name of the sieve that found the relation
+   * @return a set of Mention
+   */
+  def createEvidenceForCPR(
+    before: Mention,
+    after: Mention,
+    foundBy: String
+  ): Set[Mention] = {
+    val evidence = new RelationMention(
+      SieveUtils.precedenceMentionLabel,
+      Map("before" -> Seq(before), "after" -> Seq(after)),
+      before.sentence,
+      before.document,
+      true,
+      foundBy
+    )
+    Set(evidence)
   }
 }

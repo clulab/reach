@@ -2,6 +2,7 @@ package edu.arizona.sista.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
+import edu.arizona.sista.assembly.export.{CausalPrecedence, Equivalence, AssemblyLink}
 import org.json4s.native.Serialization
 
 import edu.arizona.sista.assembly._
@@ -23,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Send only event mentions to assembly.
+  *   Last Modified: Separate links into 1-1 and 1-M. Change equivalences to 1-M.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -414,12 +415,12 @@ class FriesOutput extends JsonOutputter {
     for (mention <- eventMap.keys.toList.sortBy(m => (m.sentence, m.tokenInterval.start))) {
       val fromId = lookupMentionId(mention, entityMap, eventMap)
       if (fromId.isDefined) {
-        frames ++= mkLinkFrames(paperId, mention, fromId.get,
-                                assemblyAPI.getEquivalentMentions(mention), "equivalent-to",
-                                passageMap, entityMap, eventMap)
-        frames ++= mkLinkFrames(paperId, mention, fromId.get,
-                                assemblyAPI.getCausalPredecessors(mention), "precedes",
-                                passageMap, entityMap, eventMap)
+        frames ++= mk1toMLinkFrames(paperId, mention, fromId.get,
+                                    assemblyAPI.getEquivalenceLinks(mention), "equivalent-to",
+                                    passageMap, entityMap, eventMap)
+        frames ++= mk1to1LinkFrames(paperId, mention, fromId.get,
+                                    assemblyAPI.getCausalPredecessors(mention), "preceded-by",
+                                    passageMap, entityMap, eventMap)
       }
     }
 
@@ -583,7 +584,9 @@ class FriesOutput extends JsonOutputter {
   }
 
 
-  private def mkLinkArgumentFrame (arg:String, argType:String, index:Option[Integer]=None): PropMap = {
+  private def mkLinkArgumentFrame (arg:String,
+                                   argType:String,
+                                   index:Option[Integer]=None): PropMap = {
     val m = new PropMap
     m("object-type") = "argument"
     m("type") = argType
@@ -594,35 +597,83 @@ class FriesOutput extends JsonOutputter {
   }
 
   /** Create and return a new binary Link frame. */
-  private def mkLinkFrame (linkId:String, fromId:String, frameType:String, toId:String): PropMap = {
+  private def mkLinkFrame (linkId: String,
+                           frameType: String,
+                           foundBy: String,
+                           args: List[PropMap]): PropMap = {
     val f = startFrame()
     f("frame-id") = linkId
     f("frame-type") = "link"
     f("type") = frameType
-    f("arguments") = List(mkLinkArgumentFrame(fromId, "from"), mkLinkArgumentFrame(toId, "to"))
+    f("found-by") = foundBy
+    if (!args.isEmpty)
+      f("arguments") = args
     // f("is-negated") = false                 // optional: in schema for future use
     // f("score") = 0.0                        // optional: in schema for future use
     f
   }
 
-  /** Return a list of link frames made from the given FROM mention and list of TO mentions. */
-  private def mkLinkFrames (paperId: String,
-                            from: Mention,
-                            fromId: String,
-                            toMentions: Set[Mention],
-                            frameType: String,
-                            passageMap: Map[String, FriesEntry],
-                            entityMap: IDed,
-                            eventMap: IDed): List[PropMap] = {
-    var frames: ListBuffer[PropMap] = new ListBuffer()
-    if (!toMentions.isEmpty) {
+  /** Return a list of link frames made from the given mention and set of assembly links. */
+  private def mk1to1LinkFrames [L <: AssemblyLink] (
+    paperId: String,
+    from: Mention,
+    fromId: String,
+    links: Set[L],
+    frameType: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed
+  ): List[PropMap] = {
+    val frames: ListBuffer[PropMap] = new ListBuffer()
+    val passage = getPassageForMention(passageMap, from)
+    links foreach { link =>
+      val linkId = mkLinkId(paperId, passage, from.sentence) // generate next link ID
+      link match {
+        case CausalPrecedence(before, after, foundBy) =>
+          // validate: from == after, "link should represent predecessors of 'from' Mention"
+          val m2Id = lookupMentionId(before, entityMap, eventMap)
+          if (m2Id.isDefined) {
+            val args = List(mkLinkArgumentFrame(fromId, "after"),
+                            mkLinkArgumentFrame(m2Id.get, "before"))
+            frames += mkLinkFrame(linkId, frameType, foundBy, args)
+          }
+        case unknown =>
+          System.err.println(s"Cannot create 1-to-1 links for type '${unknown.getClass}'")
+      }
+    }
+    frames.toList
+  }
+
+  /** Return a singleton list of link frame made from the given mention and set of assembly links. */
+  private def mk1toMLinkFrames [L <: AssemblyLink] (
+    paperId: String,
+    from: Mention,
+    fromId: String,
+    links: Set[L],
+    frameType: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed
+  ): List[PropMap] = {
+    val frames: ListBuffer[PropMap] = new ListBuffer()
+    if (links.size > 0) {               // ignore empty maps
       val passage = getPassageForMention(passageMap, from)
-      toMentions.foreach { m2 =>
-        val linkId = mkLinkId(paperId, passage, from.sentence)
-        val m2Id = lookupMentionId(m2, entityMap, eventMap)
-        if (m2Id.isDefined) {
-          frames += mkLinkFrame(linkId, fromId, frameType, m2Id.get)
-        }
+      val linkId = mkLinkId(paperId, passage, from.sentence) // generate single link ID
+
+      val foundBy = links.head.foundBy  // get foundBy from arbitrary element
+      links.head match {
+        case Equivalence(mention1, m2, foundBy) =>
+          val args: ListBuffer[PropMap] = new ListBuffer()
+          args += mkLinkArgumentFrame(fromId, "from") // add FROM as argument zero
+          args ++= links.zipWithIndex.flatMap { case(link:Equivalence, ndx:Int) =>
+            lookupMentionId(link.m2, entityMap, eventMap).map(m2Id =>
+              mkLinkArgumentFrame(m2Id, s"to${ndx}"))
+          }
+          if (args.size > 1)                  // must have at least one TO argument
+            frames += mkLinkFrame(linkId, frameType, foundBy, args.toList)
+
+        case unknown =>
+          System.err.println(s"Cannot create 1-to-M links for type '${unknown.getClass}'")
       }
     }
     frames.toList

@@ -129,7 +129,10 @@ class AssemblyManager(
     before: Mention,
     after: Mention,
     foundBy: String
-  ): Unit = storePrecedenceRelation(before, after, Set.empty[Mention], foundBy)
+  ): Unit = {
+    val evidence = sieves.SieveUtils.createEvidenceForCPR(before, after, foundBy)
+    storePrecedenceRelation(before, after, evidence, foundBy)
+  }
 
   /**
    * Stores a PrecedenceRelation in [[idToPrecedenceRelations]] for the EERs corresponding to "before" and "after"
