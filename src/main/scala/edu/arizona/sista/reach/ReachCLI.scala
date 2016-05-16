@@ -16,21 +16,21 @@ import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.extern.export.fries._
 import edu.arizona.sista.reach.extern.export.indexcards._
 import edu.arizona.sista.reach.nxml._
+import edu.arizona.sista.reach.context._
+import edu.arizona.sista.reach.context.rulebased._
+import edu.arizona.sista.reach.extern.export.context._
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
 
-class ReachCLI(
-  val nxmlDir:File,
-  val outputDir:File,
-  val encoding:String,
-  val outputType:String,
-  val ignoreSections:Seq[String],
-  val contextEngineType: Engine,
-  val contextEngineParams: Map[String, String],
-  val logFile:File
-) {
+class ReachCLI(val nxmlDir:File,
+               val outputDir:File,
+               val encoding:String,
+               val outputType:String,
+               val ignoreSections:Seq[String],
+               val contextEngineType: Engine,
+               val contextEngineParams: Map[String, String],
+               val logFile:File) {
 
-  /** Process papers with optional limits on parallelization **/
   def processPapers(threadLimit: Option[Int]): Int = {
     println("initializing reach ...")
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
@@ -141,6 +141,77 @@ class ReachCLI(
       val endNS = System.nanoTime
 
       try outputType match {
+        case "context-output" =>
+
+          // Create paper directory
+          val paperDir = new File(outputDir, paperId)
+
+          if(!paperDir.exists){
+            paperDir.mkdir
+          }
+
+          // These are the intervals for generating HTML files
+          val outputter = new IntervalOutput(documents, entries, paperMentions)
+          // Write the context stuff
+          val ctxSentencesFile = new File(paperDir, "sentences.txt")
+          FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
+
+          val ctxEventsFile = new File(paperDir, "event_intervals.txt")
+          FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
+
+          val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
+          FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
+
+          val ctxSectionsFile = new File(paperDir, "sections.txt")
+          FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
+
+          val ctxReachEventsFile = new File(paperDir, "reach_events.txt")
+          FileUtils.writeLines(ctxReachEventsFile, outputter.eventLines.asJavaCollection)
+
+          val ctxIsTitlesFile = new File(paperDir, "titles.txt")
+          FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
+
+          val ctxCitationsFile = new File(paperDir, "citations.txt")
+          FileUtils.writeLines(ctxCitationsFile, outputter.citationLines.asJavaCollection)
+
+          // These are the context plotfiles
+            // Write obs.txt
+          val contextEngine = reach.contextCache(paperId)
+
+          contextEngine match {
+            case ce:RuleBasedContextEngine =>
+              val obs = ce.getObservationsMatrixStrings
+              FileUtils.writeLines(new File(paperDir, "obs.txt"), obs.asJavaCollection)
+              val states = ce.getStatesMatrixStrings
+              FileUtils.writeLines(new File(paperDir, "states.txt"), states.asJavaCollection)
+            case _ =>
+              // So far, these only makes sense if we use a rule based context engine
+              Unit
+          }
+
+          // Context_events.txt created by python!!!
+
+          // Observation (features) vocabulary. These are descriptions
+          val obsLabelsFile = new File(outputDir, "obs_labels.txt")
+          if(!obsLabelsFile.exists){
+            val obs_labels = ContextEngine.featureVocabulary.values.toList
+            FileUtils.writeLines(obsLabelsFile, obs_labels.asJavaCollection)
+          }
+
+          // Context (states) vocabulary. These are descriptions
+          val statesLabelsFile = new File(outputDir, "states_labels.txt")
+          if(!statesLabelsFile.exists){
+            val states_labels = ContextEngine.latentVocabulary.values.toList
+            FileUtils.writeLines(statesLabelsFile, states_labels.asJavaCollection)
+          }
+
+          val statesIdsFile = new File(outputDir, "states_keys.txt")
+          if(!statesIdsFile.exists){
+            val statesIds = ContextEngine.latentVocabulary.keys.map( x => x._2)
+            FileUtils.writeLines(statesIdsFile, statesIds.asJavaCollection)
+          }
+          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+
         case "text" =>
           val mentionMgr = new MentionManager()
           val lines = mentionMgr.sortMentionsToStrings(paperMentions)

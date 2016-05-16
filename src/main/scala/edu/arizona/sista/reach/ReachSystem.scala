@@ -43,6 +43,9 @@ class ReachSystem(
   val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
   processor.annotate("something")
 
+  // ContextEngine cache to store the context engines of any particular document
+  val contextCache = new mutable.HashMap[String, ContextEngine]
+
   /** returns string with all rules used by the system */
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
@@ -78,6 +81,12 @@ class ReachSystem(
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
+
+    // Store the context engine in the cache
+    if(entries.size > 0){
+      val key = entries.head.name
+      contextCache += (key -> contextEngine)
+    }
 
     resolveDisplay(complete)
   }

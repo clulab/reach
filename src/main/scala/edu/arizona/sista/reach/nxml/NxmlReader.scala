@@ -6,6 +6,7 @@ import javax.xml.parsers.{SAXParser,SAXParserFactory}
 import scala.xml.transform.RewriteRule
 import scala.collection.mutable.ListBuffer
 import java.io.File
+import scala.collection.mutable
 
 // This singleton is necessary to avoid loading NXML's DTD
 object MyXML extends XMLLoader[Elem] {
@@ -57,11 +58,18 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
 
               // Merge all elements into a single FriesEntry
               var sb = new StringBuilder()
+              val references = new mutable.ArrayBuffer[Int]
+              var position = 0
               for(entry <- components){
-                sb ++= entry.text
+                if(entry.sectionName != "xref"){
+                  sb ++= entry.text
+                  position += entry.text.length
+                }
+                else
+                  references += position
               }
 
-              val textEntry = Seq(FriesEntry(name, "0", sectionId, sectionName, false, sb.toString))
+              val textEntry = Seq(FriesEntry(name, "0", sectionId, sectionName, false, sb.toString, references.toSeq))
 
               val figs = el.child filter (_.label == "fig") flatMap(parseSubTree(_, name, sectionName, sectionId))
 
@@ -108,7 +116,8 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
             // Ommit the references if specified, but keeping the blank characters
             case "xref" =>
               val text = " " * el.text.length
-              Seq(FriesEntry(name, "0", "xref", "xref", false, text))
+              val e = FriesEntry(name, "0", "xref", "xref", false, text)
+              Seq(e)
             // The following tags will be ignored
             case "table" | "table-wrap" | "td" | "ack" | "glossary" | "ref-list" | "fn-group" =>  Nil
             // Other tags will be treated recursively
@@ -156,13 +165,13 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
     val preProcessed = titleEntry ::: metaData.toList ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList ::: floatsEntries.toList
 
     // Do postprocessing to remove any empty entries and set correcly the chunk id
-    val postProcessed = preProcessed filter (e => !e.text.trim.isEmpty)
+    val postProcessed = preProcessed filter (e => e.sectionName == "xref" || !e.text.trim.isEmpty)
 
     // Do some more postprocessing before returning
     postProcessed.zipWithIndex map {
       // Assign the chunkId correctly
       case (e, ix) =>
-        FriesEntry(e.name, s"$ix", e.sectionId, e.sectionName, e.isTitle, e.text.replace('\n', ' '))
+        FriesEntry(e.name, s"$ix", e.sectionId, e.sectionName, e.isTitle, e.text.replace('\n', ' '), e.references)
     } filter {
       // Remove the entries in the ignoreSections list
       entry => !(this.ignoreSections contains entry.sectionId)
@@ -170,12 +179,12 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       // Remove artifacts of citation removal
       e => FriesEntry(e.name, e.chunkId, e.sectionId,
          e.sectionName, e.isTitle,
-        citationArtifact.replaceAllIn(e.text, ""))
+        citationArtifact.replaceAllIn(e.text, ""), e.references)
     } map {
       // Remove unwanted new lines and tabs
       e => FriesEntry(e.name, e.chunkId, e.sectionId,
         e.sectionName, e.isTitle,
-        e.text.replace('\n', ' ').replace('\t', ' '))
+        e.text.replace('\n', ' ').replace('\t', ' '), e.references)
     }
   }
 
