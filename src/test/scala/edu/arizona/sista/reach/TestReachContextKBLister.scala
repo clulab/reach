@@ -23,12 +23,12 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
   }
 
   "Context KBs list" should "have cell line entries" in {
-    val clines = ctxList.filter(cg => cg.id.contains("CLine"))
+    val clines = ctxList.filter(cg => cg.id.contains("CVCL"))
     // System.err.println(s"CELL-LINES.size=${clines.size}")
     (clines.size > 0) should be (true)
-    (clines.count(cg => hasId(cg, "UA-CLine-100060"))) should be (1)
+    (clines.count(cg => hasId(cg, "CVCL_E548"))) should be (3)
     // clines.filter(cg => hasText(cg, "Rat1")).foreach(System.err.println(_))
-    (clines.count(cg => hasText(cg, "Rat1"))) should be (4)
+    (clines.count(cg => hasText(cg, "RATV-NRK"))) should be (1)
   }
 
   "Context KBs list" should "have cell type entries" in {

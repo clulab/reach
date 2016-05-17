@@ -11,12 +11,12 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Update tests for plurals in cell ontology.
+  *   Last Modified: Update for use of Cellosaurus cell lines.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
   val BioProcess = "apoptosis, autophagic cell death, quiescence, hematopoiesis, or complex assembly cause cancer."
-  val CellLine = "MP 9 cell, mast cells, CHO cells, CEM, and 162 cellline cause cancer."
+  val CellLine = "MPanc-96, mast, CHO, CEM/TART, and ZR75-1 cause cancer."
   val CellType = "apud cell, AV nodal myocyte, An1 B Cell, xanthoblast, and zygote cause cancer"
   val CellTypes = "apud cells, AV nodal myocytes, An1 B Cells, xanthoblasts, and zygotes cause cancer"
   // this tests from Uniprot subcellular location AND GO subcellular location KBs:
@@ -40,7 +40,7 @@ class TestNERLabeling extends FlatSpec with Matchers {
   "CellLine entities" should "have CellLine label" in {
     val mentions = getBioMentions(CellLine)
     mentions.isEmpty should be (false)
-    // printMentions(Try(mentions), true)      // DEBUGGING
+    printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (5)
     mentions.count(_ matches "CellLine") should be (5)
   }

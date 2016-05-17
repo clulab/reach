@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for use of Cell Ontology cell types.
+  *   Last Modified: Update for use of Cellosaurus cell lines.
   */
 object ReachIMKBMentionLookups {
 
@@ -201,7 +201,7 @@ object ReachIMKBMentionLookups {
   def contextCellLineKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ContextCellLineFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ContextCellLineFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, true, metaInfo))
   }
 
   /** KB accessor to resolve cell types via a context KB. */
