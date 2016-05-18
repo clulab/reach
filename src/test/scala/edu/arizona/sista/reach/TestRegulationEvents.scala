@@ -1,6 +1,5 @@
 package edu.arizona.sista.reach
 
-import scala.util.Try
 import org.scalatest.{Matchers, FlatSpec}
 import edu.arizona.sista.reach.mentions._
 import TestUtils._
@@ -386,4 +385,29 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "Phosphorylation") should have size (1)
     hasPositiveRegulationByEntity("E2", "Phosphorylation", List("SRC-3"), mentions) should be (true)
   }
+
+  val sent42 = "Cells expressing ErbB3 show tyrosine phosphorylation in response to treatment with RAS"
+  sent42 should "contain 1 positive regulation and 1 phosphorylation" in {
+    val mentions = getBioMentions(sent42)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("RAS", "Phosphorylation", List("ErbB3"), mentions) should be (true)
+  }
+
+  val sent43 = "Cells expressing ErbB3 show tyrosine phosphorylation in response to RAS treatment"
+  sent43 should "contain 1 positive regulation and 1 phosphorylation" in {
+    val mentions = getBioMentions(sent43)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("RAS", "Phosphorylation", List("ErbB3"), mentions) should be (true)
+  }
+
+  val sent44 = "Cells expressing ErbB3 show tyrosine phosphorylation in response to RAS inhibition"
+  sent44 should "contain 1 negative regulation and 1 phosphorylation" in {
+    val mentions = getBioMentions(sent44)
+    mentions.filter(_ matches "Negative_regulation") should have size (1)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasNegativeRegulationByEntity("RAS", "Phosphorylation", List("ErbB3"), mentions) should be (true)
+  }
+
 }

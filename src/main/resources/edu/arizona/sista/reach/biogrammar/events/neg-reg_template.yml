@@ -197,3 +197,19 @@
     trigger = [lemma=/${ negnouns }/ & tag=/^N/]
     controller:${ controllerType } = /prep_by|agent/
     controlled:${ controlledType } = /poss/
+
+#
+# The rules below apply ONLY to regulations (not activations)
+#
+
+# this should only be used for regulations (not activations!); we use explicit types for the @controlled for this
+- name: Negative_${ ruleType }_in_response_to
+  priority: ${ priority }
+  type: token
+  label: ${ label }
+  example: "Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF inhibition"
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } [lemma=/${ negnouns}/]
+
+
