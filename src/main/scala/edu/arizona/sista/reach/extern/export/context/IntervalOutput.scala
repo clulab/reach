@@ -1,6 +1,7 @@
 package edu.arizona.sista.reach.extern.export.context
 
 import edu.arizona.sista.processors.Document
+import edu.arizona.sista.reach.context.ContextEngine
 import scala.collection.mutable
 import scala.collection.mutable.SortedSet
 import edu.arizona.sista.odin._
@@ -18,6 +19,7 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
   val sentences:Seq[String] = docs.flatMap(_.sentences.map(s => s.words.mkString(" ")))
   val ctxMentions = new mutable.ArrayBuffer[String]
   val evtIntervals = new mutable.ArrayBuffer[String]
+  val evtCtxIndicence = new mutable.ArrayBuffer[String]
   val sections:Seq[String] = docs.zip(entries).flatMap{case (d, e) => List.fill(d.sentences.size)(e.sectionName)}
   val titles:Seq[Boolean] = docs.zip(entries).flatMap{ case (d, e) => List.fill(d.sentences.size)(e.isTitle)}
   val docNums:Seq[Int] = docs.zipWithIndex.flatMap{ case (d, i) => List.fill(d.sentences.size)(i)}
@@ -51,7 +53,9 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
   for (doc <- docs) {
 
     for(i <- 0 to doc.sentences.size){
-        val its = events.filter(e => e.document.id == doc.id && e.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
+        val localEvents = events.filter(e => e.document.id == doc.id && e.sentence == i)
+
+        val its = localEvents.sortWith(_.tokenInterval <= _.tokenInterval) map {
             ev =>
               eventLines += s"${ev.labels.head}\t${x + i}"
 
@@ -61,6 +65,28 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
         if(its.size > 0){
           val itsStr = s"${x+i} " + its.mkString(" ")
           evtIntervals += itsStr
+        }
+
+        evtCtxIndicence ++= localEvents.map(_.asInstanceOf[BioEventMention]) flatMap {
+           evt =>
+             val contexts = evt.context match {
+               case Some(ctx) => ctx
+               case None => Nil
+             }
+
+             val label = evt.label
+             val sentenceIx = x + i
+
+             contexts flatMap {
+               case (ctxType: String, ctxIds: Seq[String]) =>
+                 ctxIds flatMap {
+                   ctxId =>
+                     val ctxIdx = ContextEngine.getIndex((ctxType, ctxId), ContextEngine.latentVocabulary)
+                     Seq(s"$label\t$sentenceIx\t$ctxType\t$ctxIdx")
+                 }
+
+             }
+
         }
     }
 

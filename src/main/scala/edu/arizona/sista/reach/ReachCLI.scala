@@ -159,6 +159,9 @@ class ReachCLI(val nxmlDir:File,
           val ctxEventsFile = new File(paperDir, "event_intervals.txt")
           FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
 
+          val evtCtxFile = new File(paperDir, "reach_event_context.txt")
+          FileUtils.writeLines(evtCtxFile, outputter.evtCtxIndicence.asJavaCollection)
+
           val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
           FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
 
