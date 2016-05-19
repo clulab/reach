@@ -31,7 +31,6 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
           val end:Int = s.endOffsets.takeRight(1)(0)
           citations.exists{
             i:Int =>
-              println(s"S:$start E:$end I:$i")
               if(i >= start && i <= end)
                 true
               else

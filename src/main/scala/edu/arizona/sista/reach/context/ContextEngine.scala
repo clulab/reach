@@ -51,30 +51,32 @@ object ContextEngine {
   // Build a map of Cxt Key -> Text description
 
   // Sort the context entries and removes redundant entries
-  val sortedContextEntries:Seq[ReachContextKBLister.ContextGrounding] = ReachContextKBLister.listContextKBs.sortWith{
-    (a, b) =>
-      if(a.ctxType != b.ctxType){
-        a.ctxType < b.ctxType
-      }
-      else{
-        val s = s"${a.namespace}:${a.id}"
-        val t = s"${b.namespace}:${b.id}"
-
-        s < t
-      }
-  }.groupBy{ // Group by namespace and id
+  val sortedContextEntries:Seq[ReachContextKBLister.ContextGrounding] = ReachContextKBLister.listContextKBs.groupBy{ // Group by namespace and id
     e => (e.namespace, e.id)
-  }.values.map(_(0)).toSeq // Select the first element of each group
+  }.values.map(_(0)).toSeq.sortWith{
+    (a, b) =>
+      val s = s"${a.namespace}:${a.id}"
+      val t = s"${b.namespace}:${b.id}"
+      s < t
+  } // Select the first element of each group
 
 
-  val latentVocabulary:Map[(String, String), String] = sortedContextEntries.map{
-    entry => ((entry.ctxType, s"${entry.namespace}:${entry.id}") -> entry.text)
+  val latentVocabulary:Map[(String, String), (Int, String)] = sortedContextEntries.zipWithIndex.map{
+    case (entry, ix) => (entry.ctxType, s"${entry.namespace}:${entry.id}") -> (ix, entry.text)
   }.toMap
 
-  // Same here but for the observed features
-  val featureVocabulary:Map[(String, String), String] = latentVocabulary // Now add any new stuff that may show up as a feature
+  val reversedLatentVocabulary:Map[Int, (String, String)] = {for((key, value) <- latentVocabulary) yield {
+    (value._1 -> key)
+  }}.toMap
 
-  def getDescription(mention:BioMention, voc:Map[(String, String), String]):String = {
+  // Same here but for the observed features
+  val featureVocabulary:Map[(String, String), (Int, String)] = latentVocabulary // Now add any new stuff that may show up as a feature
+
+  val reversedFeatureVocabulary:Map[Int, (String, String)] = {for((key, value) <- featureVocabulary) yield {
+    (value._1 -> key)
+  }}.toMap
+
+  def getDescription(mention:BioMention, voc:Map[(String, String), (Int, String)]):String = {
     val key = getContextKey(mention)
     if(key._2.startsWith("uaz:")){
       println(s"Warning: ${mention.text}")
@@ -82,14 +84,14 @@ object ContextEngine {
     getDescription(key, voc)
   }
 
-  def getDescription(key:(String, String), voc:Map[(String, String), String]):String = voc.lift(key) match {
-    case Some(desc) => desc
+  def getDescription(key:(String, String), voc:Map[(String, String), (Int, String)]):String = voc.lift(key) match {
+    case Some((ix, desc)) => desc
     case None =>
       println(s"WARNING: key $key not found in the context vocabulary")
       "MISSING"
   }
 
-  def getIndex(mention:BioMention, voc:Map[(String, String), String]):Int = {
+  def getIndex(mention:BioMention, voc:Map[(String, String), (Int, String)]):Int = {
     val key = getContextKey(mention)
     if(key._2.startsWith("uaz:")){
       println(s"Warning: ${mention.text}")
@@ -98,12 +100,12 @@ object ContextEngine {
   }
 
   // index 0 is "Missing", the rest of the entries get shifted 1 position
-  def getIndex(key:(String, String), voc:Map[(String, String), String]):Int = voc.keys.toList.indexOf(key) match{
-    case -1 =>
-      println(s"WARNING: key $key not found in the context vocabulary")
-      0
-    case ix:Int => ix + 1
+  def getIndex(key:(String, String), voc:Map[(String, String), (Int, String)]):Int = {
+    val (ix, description) = voc(key)
+    return ix
   }
 
-  def getKey(ix:Int, voc:Map[(String, String), String]):(String, String) = if(ix>0) voc.keys.toList(ix - 1) else ("MISSING", "MISSING")
+  def getKey(ix:Int, voc:Map[Int, (String, String)]):(String, String) = {
+    voc(ix)
+  }//if(ix>0) voc.keys.toList(ix - 1) else ("MISSING", "MISSING")
 }

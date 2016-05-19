@@ -154,7 +154,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
    * Queries the context of the specified line line. Returns a sequence of tuples
    * where the first element is the type of context and the second element a grounded id
    */
-  protected def query(line:Int):Map[String, Seq[String]] = inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
+  protected def query(line:Int):Map[String, Seq[String]] = inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
 
   protected def densifyFeatures:Seq[Seq[Double]] = entryFeatures map { _.map(_._2).toSeq }
 
@@ -174,7 +174,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   protected def observationVocavulary = ContextEngine.featureVocabulary.keys.map( k => k._1 + "||" + ContextEngine.getDescription(k, ContextEngine.featureVocabulary)) ++ entryFeaturesNames
 
-  private def densifyMatrix(matrix:Seq[Seq[Int]], voc:Map[(String, String), String]):Seq[Seq[Boolean]] = {
+  private def densifyMatrix(matrix:Seq[Seq[Int]], voc:Map[(String, String), (Int, String)]):Seq[Seq[Boolean]] = {
     // Recursive function to fill the "matrix"
     @tailrec
     def _helper(num:Int, bound:Int, segment:List[Int], acc:List[Boolean]):List[Boolean] = {

@@ -196,20 +196,21 @@ class ReachCLI(val nxmlDir:File,
           // Observation (features) vocabulary. These are descriptions
           val obsLabelsFile = new File(outputDir, "obs_labels.txt")
           if(!obsLabelsFile.exists){
-            val obs_labels = ContextEngine.featureVocabulary.values.toList
+
+            val obs_labels = ContextEngine.featureVocabulary.values.toList.sortBy(_._1).map(_._2)
             FileUtils.writeLines(obsLabelsFile, obs_labels.asJavaCollection)
           }
 
           // Context (states) vocabulary. These are descriptions
           val statesLabelsFile = new File(outputDir, "states_labels.txt")
           if(!statesLabelsFile.exists){
-            val states_labels = ContextEngine.latentVocabulary.values.toList
+            val states_labels = ContextEngine.latentVocabulary.values.toList.sortBy(_._1).map(_._2)
             FileUtils.writeLines(statesLabelsFile, states_labels.asJavaCollection)
           }
 
           val statesIdsFile = new File(outputDir, "states_keys.txt")
           if(!statesIdsFile.exists){
-            val statesIds = ContextEngine.latentVocabulary.keys.map( x => x._2)
+            val statesIds = ContextEngine.reversedLatentVocabulary.keys.toSeq.sorted.map(x => ContextEngine.reversedLatentVocabulary(x)).map(_._2)
             FileUtils.writeLines(statesIdsFile, statesIds.asJavaCollection)
           }
           FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
