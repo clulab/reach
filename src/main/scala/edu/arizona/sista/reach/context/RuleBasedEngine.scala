@@ -162,11 +162,11 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   def preprocessedLatentStateMatrix:Seq[Seq[Boolean]] = densifyMatrix(latentSparseMatrix, ContextEngine.latentVocabulary)
 
-  protected def featureMatrix:Seq[Seq[Double]] = {
+  protected def featureMatrix:Seq[Seq[Boolean]] = {
     val categorical = densifyMatrix(observedSparseMatrix, ContextEngine.featureVocabulary)
     // TODO Implement this is extra features are added
     //    categorical /*zip numerical*/  map { case (c, n) => c.map{ case false => 0.0; case true => 1.0 } /*++ n*/ }
-    categorical  map { c => c.map{ case false => 0.0; case true => 1.0 }  }
+    categorical  //map { c => c.map{ case false => 0.0; case true => 1.0 }  }
 
   }
 
@@ -201,14 +201,15 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     matrix map {
       row => {
         val sortedRow = row.sorted.toList
-        _helper(0, voc.size, sortedRow, Nil)
+        _helper(0, voc.size, sortedRow, Nil).reverse
       }
     }
   }
   //////////////////////////////////////////////////////////////////////////////////////////
 
   def getObservationsMatrixStrings:Seq[String] = featureMatrix map {
-    step => step map ( x => f"$x%1.0f") mkString (" ")
+    //step => step map ( x => f"$x%1.0f") mkString (" ")
+    step => step map (if(_) 1 else 0) mkString(" ")
   }
 
   def getStatesMatrixStrings:Seq[String] = latentStateMatrix map {
