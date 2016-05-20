@@ -6,8 +6,13 @@ from collections import defaultdict
 def main(path, vocabularyPath, statesPath):
     ''' Parses a TSV file and outputs the context_events file '''
 
+    # Set this variable to true to overwrite the states file to inject the manual annotations
+    inject_annotations = False
+
+
     # Load the states matrix
-    states = np.loadtxt(statesPath).astype(int)
+    if inject_annotations:
+        states = np.loadtxt(statesPath).astype(int)
 
     with open(vocabularyPath) as f:
         vocabulary = [l[:-1] for l in f]
@@ -83,13 +88,15 @@ def main(path, vocabularyPath, statesPath):
                     print "#WARNING %s not present in the dictonaries" % ctxIds[c].split(':')[-1]
 
                 # update the states matrix with a 1
-                states[ctxIx, ctxId] = 1
+                if inject_annotations:
+                    states[ctxIx, ctxId] = 1
 
                 print 'Event\t%i\t%s\t%i\t%s' % (eventIndex, ctxType, ctxId, ctxIx)
 
 
     # Save the states matrix
-    np.savetxt(statesPath, states, fmt="%i")
+    if inject_annotations:
+        np.savetxt(statesPath, states, fmt="%i")
 
 
 
