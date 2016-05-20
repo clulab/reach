@@ -81,4 +81,28 @@ class TestFriesOutput extends FlatSpec with Matchers {
     (subtypeList(1) == "positive-regulation") should be (true)
   }
 
+  "text1" should "mark regulation as direct" in {
+    val isDirect = ((json \ "events" \ "frames")(0) \ "is-direct") \\ classOf[JBool]
+    (isDirect(0)) should be (true)
+  }
+
+  "text1" should "have phosphorylation trigger" in {
+    val trigger = ((json \ "events" \ "frames")(0) \ "trigger").values
+    (trigger == "phosphorylates") should be (true)
+  }
+
+  "text1" should "have 2 protein entities" in {
+    val ents = (json \ "entities" \ "frames") \\ "type" \\ classOf[JString]
+    ents.isEmpty should be (false)
+    (ents.size == 2) should be (true)
+    ents.forall(_ == "protein") should be (true)
+  }
+
+  "text1 entities" should "have the given protein names" in {
+    val aVal = ((json \ "entities" \ "frames")(0) \ "text").values
+    (aVal == "AKT1") should be (true)
+    val pVal = ((json \ "entities" \ "frames")(1) \ "text").values
+    (pVal == "PTHR2") should be (true)
+  }
+
 }
