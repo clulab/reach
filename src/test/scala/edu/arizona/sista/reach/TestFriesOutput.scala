@@ -18,7 +18,7 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Initial creation.
+  *   Last Modified: Add more tests.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -81,6 +81,19 @@ class TestFriesOutput extends FlatSpec with Matchers {
     (subtypeList(1) == "positive-regulation") should be (true)
   }
 
+  "text1 regulation" should "have the expected arguments" in {
+    val args = (json \ "events" \ "frames")(1) \ "arguments" \\ classOf[JObject]
+    (args.size == 2) should be (true)
+    val args0 = args(0)
+    (args0.getOrElse("object-type", "") == "argument") should be (true)
+    (args0.getOrElse("argument-type", "") == "event") should be (true)
+    (args0.getOrElse("argument-label", "") == "controlled") should be (true)
+    val args1 = args(1)
+    (args1.getOrElse("object-type", "") == "argument") should be (true)
+    (args1.getOrElse("argument-type", "") == "entity") should be (true)
+    (args1.getOrElse("argument-label", "") == "controller") should be (true)
+  }
+
   "text1" should "mark regulation as direct" in {
     val isDirect = ((json \ "events" \ "frames")(0) \ "is-direct") \\ classOf[JBool]
     (isDirect(0)) should be (true)
@@ -103,6 +116,19 @@ class TestFriesOutput extends FlatSpec with Matchers {
     (aVal == "AKT1") should be (true)
     val pVal = ((json \ "entities" \ "frames")(1) \ "text").values
     (pVal == "PTHR2") should be (true)
+  }
+
+  "text1 xrefs" should "have the expected properties" in {
+    val xrefs = json \ "entities" \ "frames" \ "xrefs" \\ classOf[JObject]
+    (xrefs.size == 2) should be (true)
+    val xrefs0 = xrefs(0)
+    (xrefs0.getOrElse("namespace", "") == "uniprot") should be (true)
+    (xrefs0.getOrElse("object-type", "") == "db-reference") should be (true)
+    (xrefs0.getOrElse("id", "") == "P31749") should be (true)
+    val xrefs1 = xrefs(1)
+    (xrefs1.getOrElse("namespace", "") == "uniprot") should be (true)
+    (xrefs1.getOrElse("object-type", "") == "db-reference") should be (true)
+    (xrefs1.getOrElse("id", "") == "P49190") should be (true)
   }
 
 }
