@@ -15,14 +15,14 @@ import edu.arizona.sista.reach.nxml.FriesEntry
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Update for tissue types.
+  *   Last Modified: Fix doc header for toJSON.
   */
 trait JsonOutputter {
 
   /**
     * Returns the given mentions in some JSON-based format, as one big string.
     * The processing start and stop date/times are given.
-    * The input filename prefix is provided for use by the generator routines, as needed.
+    * The output filename prefix is provided for use by the generator routines, as needed.
     * Default method to be overridden by each JSON output formatter.
     */
   def toJSON (paperId:String,
