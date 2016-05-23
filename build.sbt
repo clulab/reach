@@ -4,7 +4,7 @@ version := "1.2.3"
 
 organization := "org.clulab"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
@@ -64,17 +64,17 @@ pomExtra := (
 //
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+  "org.scalatest" %% "scalatest" % "2.2.6" % Test,
   "org.clulab" % "bioresources" % "1.1.6",
   "org.clulab" %% "processors" % "5.8.4",
   "org.clulab" %% "processors" % "5.8.4" classifier "models",
-  "com.typesafe" % "config" % "1.2.1",
-  "commons-io" % "commons-io" % "2.4",
+  "com.typesafe" % "config" % "1.3.0",
+  "commons-io" % "commons-io" % "2.5",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
-  "jline" % "jline" % "2.12.1",
-  "org.apache.lucene" % "lucene-core" % "5.3.1",
-  "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
-  "org.apache.lucene" % "lucene-queryparser" % "5.3.1"
+  "jline" % "jline" % "2.14.1",
+  "org.apache.lucene" % "lucene-core" % "5.5.1",
+  "org.apache.lucene" % "lucene-analyzers-common" % "5.5.1",
+  "org.apache.lucene" % "lucene-queryparser" % "5.5.1"
 )
 
 // settings for building project website
