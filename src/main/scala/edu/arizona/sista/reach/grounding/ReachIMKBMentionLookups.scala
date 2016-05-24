@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Activate context tissue type KB.
+  *   Last Modified: Update for use of Uberon as organ KB.
   */
 object ReachIMKBMentionLookups {
 
@@ -201,22 +201,22 @@ object ReachIMKBMentionLookups {
   def contextCellLineKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ContextCellLineFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ContextCellLineFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, true, metaInfo))
   }
 
-  /** KB accessor to resolve cell types via a context KB.
-    Uses alternate key lookups for organ to cell type inference. */
-  def contextCellTypeKBML: IMKBOrganCellTypeMentionLookup = {
-    val metaInfo = new IMKBMetaInfo()
+  /** KB accessor to resolve cell types via a context KB. */
+  def contextCellTypeKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/cl/", "MIR:00000110")
     metaInfo.put("file", ContextCellTypeFilename)
-    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make(ContextCellTypeFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("cl", ContextCellTypeFilename, metaInfo))
   }
 
-  /** KB accessor to resolve organ names via a context KB. */
-  def contextOrganKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo()
+  /** KB accessor to resolve organ names via a context KB.
+      Uses alternate key lookups for organ to cell type inference. */
+  def contextOrganKBML: IMKBOrganCellTypeMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/uberon/", "MIR:00000446")
     metaInfo.put("file", ContextOrganFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ContextOrganFilename, metaInfo))
+    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make("uberon", ContextOrganFilename, metaInfo))
   }
 
   /** KB accessor to resolve species names via a context KB. */

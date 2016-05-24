@@ -8,6 +8,7 @@ import TestUtils._
 
 /**
  * Unit tests of the Context KBs lister object.
+ *   Last Modified: Update for use of Uberon organ KB.
  */
 class TestReachContextKBLister extends FlatSpec with Matchers {
 
@@ -22,31 +23,31 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
   }
 
   "Context KBs list" should "have cell line entries" in {
-    val clines = ctxList.filter(cg => cg.id.contains("CLine"))
+    val clines = ctxList.filter(cg => cg.id.contains("CVCL"))
     // System.err.println(s"CELL-LINES.size=${clines.size}")
     (clines.size > 0) should be (true)
-    (clines.count(cg => hasId(cg, "UA-CLine-100060"))) should be (1)
+    (clines.count(cg => hasId(cg, "CVCL_E548"))) should be (3)
     // clines.filter(cg => hasText(cg, "Rat1")).foreach(System.err.println(_))
-    (clines.count(cg => hasText(cg, "Rat1"))) should be (4)
+    (clines.count(cg => hasText(cg, "RATV-NRK"))) should be (1)
   }
 
   "Context KBs list" should "have cell type entries" in {
-    val ctypes = ctxList.filter(cg => cg.id.contains("CT"))
+    val ctypes = ctxList.filter(cg => cg.id.contains("CL:"))
     // System.err.println(s"CELL-TYPES.size=${ctypes.size}")
     (ctypes.size > 0) should be (true)
-    (ctypes.count(cg => hasText(cg, "granulocytes"))) should be (2)
-    (ctypes.count(cg => hasId(cg, "UA-CT-200001"))) should be (1)
-    (ctypes.count(cg => hasText(cg, "hair"))) should be (4)
+    (ctypes.count(cg => hasText(cg, "granulocyte"))) should be (22)
+    (ctypes.count(cg => hasId(cg, "CL:0000557"))) should be (14)
+    (ctypes.count(cg => hasText(cg, "hair"))) should be (50)
     // ctypes.filter(cg => hasText(cg, "")).foreach(System.err.println(_))
   }
 
   "Context KBs list" should "have organ entries" in {
-    val organs = ctxList.filter(cg => cg.id.contains("ORG"))
+    val organs = ctxList.filter(cg => cg.id.contains("UBERON:"))
     // System.err.println(s"ORGANS.size=${organs.size}")
     (organs.size > 0) should be (true)
-    (organs.count(cg => hasText(cg, "Abducens Nerve"))) should be (2)
-    (organs.count(cg => hasText(cg, "Male"))) should be (4)
-    (organs.count(cg => hasId(cg, "ORG-1092"))) should be (2)
+    (organs.count(cg => hasText(cg, "abducens nerve"))) should be (12)
+    (organs.count(cg => hasText(cg, "zygomaticus"))) should be (12)
+    (organs.count(cg => hasId(cg, "UBERON:0008960"))) should be (1)
     // organs.filter(cg => hasText(cg, "Abducens Nerve")).foreach(System.err.println(_))
   }
 
