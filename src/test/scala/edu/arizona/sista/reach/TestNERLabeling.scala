@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Update for use of Cellosaurus cell lines.
+  *   Last Modified: Update for use of Uberon as organ KB.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -24,7 +24,7 @@ class TestNERLabeling extends FlatSpec with Matchers {
   // this tests from PFAM AND InterPro protein family KBs:
   val Family = "CDC73_N, RcsD-ABL domain, zinc-ribbon domain, Rho_RNA_bind, RasGAP_C, zwf, PTHR10856:SF10, GLHYDRLASE27, Ras guanyl-releasing protein 1, and Jiraiya cause cancer."
   val Gene_or_gene_product = "CK-40, ZZANK2, MCH-1R, RAS1, and hemAT cause cancer."
-  val Organ = "Acetabulum, Visceral Pericardium, Malleola, Vena cavas, and Acetabulum cause cancer"
+  val Organ = "Acetabulum, Visceral Pericardium, malleolar bone, Vena cava sinus, and zygopodium cause cancer"
   val Simple_chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and Monic acid cause cancer"
   val Site = "ALOG domain, AMIN domain, KIP1-like, KEN domain, and HAS subgroup cause cancer"
   val Species = "Potato, wheat, Yerba-mate, Danio rerio, zebrafish, Rats, Gallus gallus, and chickens cause cancer"
@@ -40,7 +40,7 @@ class TestNERLabeling extends FlatSpec with Matchers {
   "CellLine entities" should "have CellLine label" in {
     val mentions = getBioMentions(CellLine)
     mentions.isEmpty should be (false)
-    printMentions(Try(mentions), true)      // DEBUGGING
+    // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (5)
     mentions.count(_ matches "CellLine") should be (5)
   }

@@ -10,12 +10,12 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Update tests for use of cell ontology.
+  *   Last Modified: Update for use of Uberon as organ KB.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
-//  val g1 = "Mast cells and lymphocytes are not found in bullfrog adenoids."
-  val text1 = "AKT1 and amniocyte are not found in bullfrog adenoids."
+//  val g1 = "Mast cells and lymphocytes are not found in bullfrog adenoid."
+  val text1 = "AKT1 and amniocyte are not found in bullfrog adenoid."
   val mentions = getBioMentions(text1)
   val mentions2 = getBioMentions(text1)        // another copy
   val kbr1 = new KBResolution(new KBEntry("test-1", "test1", "UAZtest", "ID1"))

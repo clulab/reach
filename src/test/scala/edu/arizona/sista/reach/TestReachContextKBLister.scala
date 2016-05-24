@@ -8,7 +8,7 @@ import TestUtils._
 
 /**
  * Unit tests of the Context KBs lister object.
- *   Last Modified: Update tests for plurals in cell ontology.
+ *   Last Modified: Update for use of Uberon organ KB.
  */
 class TestReachContextKBLister extends FlatSpec with Matchers {
 
@@ -42,12 +42,12 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
   }
 
   "Context KBs list" should "have organ entries" in {
-    val organs = ctxList.filter(cg => cg.id.contains("ORG"))
+    val organs = ctxList.filter(cg => cg.id.contains("UBERON:"))
     // System.err.println(s"ORGANS.size=${organs.size}")
     (organs.size > 0) should be (true)
-    (organs.count(cg => hasText(cg, "Abducens Nerve"))) should be (2)
-    (organs.count(cg => hasText(cg, "Male"))) should be (4)
-    (organs.count(cg => hasId(cg, "ORG-1092"))) should be (2)
+    (organs.count(cg => hasText(cg, "abducens nerve"))) should be (12)
+    (organs.count(cg => hasText(cg, "zygomaticus"))) should be (12)
+    (organs.count(cg => hasId(cg, "UBERON:0008960"))) should be (1)
     // organs.filter(cg => hasText(cg, "Abducens Nerve")).foreach(System.err.println(_))
   }
 
