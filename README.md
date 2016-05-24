@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/clulab/reach.svg?branch=master)](https://travis-ci.org/clulab/reach)
+[![Gitter](https://badges.gitter.im/clulab/reach.svg)](https://gitter.im/clulab/reach?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach_2.11)
 
 Reach
