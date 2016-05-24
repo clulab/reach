@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.2.3** - Update code and tests to replace homemade KBs, in conjunction with Bioresources version 1.1.7.
 + **1.2.3** - Sieve-based assembly system that includes a feature-based classifier and rule-based sieves for detecting causal precedence.
 + **1.2.3** - Bug fix and optimizations to the `AssemblyManager`.
 + **1.2.3** - Updated to Bioresources 1.1.6, Processors 5.8.4. Add/use Uniprot Tissue type KB.
