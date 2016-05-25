@@ -162,7 +162,7 @@ class NxmlReader(ignoreSections:Seq[String] = Nil) {
       }
     }
 
-    val preProcessed = titleEntry ::: metaData.toList ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList ::: floatsEntries.toList
+    val preProcessed = titleEntry /*::: metaData.toList*/ ::: absEntries.toList ::: bodyEntries.toList ::: backEntries.toList ::: floatsEntries.toList
 
     // Do postprocessing to remove any empty entries and set correcly the chunk id
     val postProcessed = preProcessed filter (e => e.sectionName == "xref" || !e.text.trim.isEmpty)
