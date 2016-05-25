@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the serialization of mention sequences.
   *   Written by: Tom Hicks. 3/8/2016
-  *   Last Modified: Update with tests that use and dont use context.
+  *   Last Modified: Update for use of Uberon as organ KB.
   */
 class TestMentionSerialization extends FlatSpec with Matchers {
 
@@ -34,7 +34,7 @@ class TestMentionSerialization extends FlatSpec with Matchers {
   }
 
 
-  val text2 = "Mouse AKT2 phosphorylates PTHR2 in chicken adenoids." // DOES NOT SERIALIZE
+  val text2 = "Mouse AKT2 phosphorylates PTHR2 in chicken adenoid."
   val mentions2 = testReach.extractFrom(text2, "serialization-test", "2")
   val tempFile2 = java.io.File.createTempFile("TestMention2", ".ser")
   val serfile2 = tempFile2.getPath
