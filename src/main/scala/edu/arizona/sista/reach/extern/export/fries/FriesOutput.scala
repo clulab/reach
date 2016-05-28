@@ -24,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Separate links into 1-1 and 1-M. Change equivalences to 1-M.
+  *   Last Modified: Change argument-label tag to type per Hans schema.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -339,7 +339,7 @@ class FriesOutput extends JsonOutputter {
                          eventMap:IDed):PropMap = {
     val m = new PropMap
     m("object-type") = "argument"
-    m("argument-label") = prettifyLabel(name)
+    m("type") = prettifyLabel(name)
     val argType = mkArgType(arg)
     m("argument-type") = argType
     m("index") = argIndex

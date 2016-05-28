@@ -18,7 +18,7 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Add more tests.
+  *   Last Modified: Update for rename of argument label to type.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -87,11 +87,11 @@ class TestFriesOutput extends FlatSpec with Matchers {
     val args0 = args(0)
     (args0.getOrElse("object-type", "") == "argument") should be (true)
     (args0.getOrElse("argument-type", "") == "event") should be (true)
-    (args0.getOrElse("argument-label", "") == "controlled") should be (true)
+    (args0.getOrElse("type", "") == "controlled") should be (true)
     val args1 = args(1)
     (args1.getOrElse("object-type", "") == "argument") should be (true)
     (args1.getOrElse("argument-type", "") == "entity") should be (true)
-    (args1.getOrElse("argument-label", "") == "controller") should be (true)
+    (args1.getOrElse("type", "") == "controller") should be (true)
   }
 
   "text1" should "mark regulation as direct" in {
