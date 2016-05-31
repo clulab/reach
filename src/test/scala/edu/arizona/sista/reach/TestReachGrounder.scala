@@ -19,7 +19,6 @@ class TestReachGrounder extends FlatSpec with Matchers {
 
   val config = ConfigFactory.load()
   val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
-  println(s"overrideSpeceis=${overrideSpecies}") // REMOVE LATER
 
   val text1 = "AKT1 phosphorylates PTHR2."
   val mentions1 = getBioMentions(text1)
