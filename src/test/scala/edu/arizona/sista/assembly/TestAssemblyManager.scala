@@ -22,6 +22,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val text4 = "Ras is phosphorylated by MEK at Ser123."
   val text5 = "Mek binds with Ras."
   val text6 = "Ras binds with MEK."
+  // translocations
+  val text7 = "ASPP2 is transported from the membrane to the nucleus and cytosol"
 
   // the assembly manager is not intimidated by multiple documents
   val doc1 = createDoc(text1, "assembly-test1")
@@ -30,6 +32,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val doc4 = createDoc(text4, "assembly-test4")
   val doc5 = createDoc(text5, "assembly-test5")
   val doc6 = createDoc(text6, "assembly-test6")
+  // translocations
+  val doc7 = createDoc(text7, "assembly-test7")
 
   val mentions1 = testReach.extractFrom(doc1)
   val mentions2 = testReach.extractFrom(doc2)
@@ -37,6 +41,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val mentions4 = testReach.extractFrom(doc4)
   val mentions5 = testReach.extractFrom(doc5)
   val mentions6 = testReach.extractFrom(doc6)
+  // translocations
+  val mentions7 = testReach.extractFrom(doc7)
 
   //
   // SimpleEntity tests
@@ -114,6 +120,33 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     ptm.site.isDefined should be(true)
   }
+
+  // test Translocations
+  s"$text7" should "contain 2 Translocation events" in {
+    val am = AssemblyManager(mentions7)
+
+    val translocationMentions = mentions7 filter( _ matches "Translocation" )
+
+    // there should only be two translocations
+    am.distinctSimpleEvents count ( _.label == "Translocation" ) should be(2)
+
+    val t1 = am.getSimpleEvent(translocationMentions.head)
+    // the input and output of the translocations should differ in terms of modifications
+    t1.I != t1.O should be(true)
+    // however, the grounding ids of both entities should be the same
+    t1.I.size should be(1)
+    t1.I.head.asInstanceOf[SimpleEntity].grounding == t1.O.head.asInstanceOf[SimpleEntity].grounding should be(true)
+    t1.I.head.asInstanceOf[SimpleEntity].withSameGrounding contains t1.O.head.asInstanceOf[SimpleEntity] should be(true)
+
+    val t2 = am.getSimpleEvent(translocationMentions.last)
+    // the input and output of the translocations should differ in terms of modifications
+    t2.I != t2.O should be(true)
+    // however, the grounding ids of both entities should be the same
+    t2.I.size should be(1)
+    t2.I.head.asInstanceOf[SimpleEntity].grounding == t2.O.head.asInstanceOf[SimpleEntity].grounding should be(true)
+    t2.I.head.asInstanceOf[SimpleEntity].withSameGrounding contains t2.O.head.asInstanceOf[SimpleEntity] should be(true)
+  }
+
 
   //
   // Complex tests
