@@ -1,5 +1,7 @@
 package edu.arizona.sista.assembly.representations
 
+import edu.arizona.sista.assembly.GroundingID
+
 /**
  * Trait for modifications/features associated with an [[edu.arizona.sista.assembly.representations.Entity]].
  */
@@ -27,3 +29,9 @@ case class MutantEntity(mutantType: String) extends AssemblyModification
  * @param label the label associated with an [[Entity]]
  */
 case class EntityLabel(label: String) extends AssemblyModification
+
+/**
+ * A location used in a Translocation
+ * @param groundedLoc the grounding ID associated with an [[Location]]
+ */
+case class Location(groundedLoc: GroundingID) extends AssemblyModification

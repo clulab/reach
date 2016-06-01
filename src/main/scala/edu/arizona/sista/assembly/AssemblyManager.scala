@@ -716,7 +716,7 @@ class AssemblyManager(
       // check for coref
       val e = getResolvedForm(m)
 
-      // mention should be a SimpleEvent, but not a Binding
+      // mention should be a Binding
       require(e matches "Binding", "handleBinding only accepts Binding mentions.")
       // there should not be a cause among the arguments
       require(!(e.arguments contains "cause"), "Binding should not contain a cause!")
@@ -767,6 +767,110 @@ class AssemblyManager(
           id,
           input,
           Set(complexPointer),
+          e.label,
+          Some(m),
+          this
+        )
+
+      // update LUTs
+      // use original mention for later lookup
+      updateLUTs(id, m, eer)
+
+      (eer, id)
+    }
+
+    /**
+     * Creates a [[SimpleEvent]] from a Translocation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
+     * @param m an Odin Mention
+     * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+     */
+    def handleTranslocation(m: Mention): (SimpleEvent, IDPointer) = {
+
+      /**
+       * Create input Map for Translocation event
+       */
+      def createInputForTranslocation(m: Mention): Map[String, Set[IDPointer]] = {
+
+        val isNegated = hasNegation(m)
+
+        // handle source Location
+        val src = "source"
+        val mods: Set[AssemblyModification] = m match {
+          case hasSource if hasSource.arguments contains src =>
+            // create a PTM for each source
+            for (
+              src <- hasSource.arguments(src).toSet[Mention]
+            ) yield {
+              val gid = src.toBioMention.nsId
+              representations.Location(gid).asInstanceOf[AssemblyModification]
+            }
+          // no mods
+          case _ => Set.empty[AssemblyModification]
+        }
+
+        val correctedThemes = m.arguments
+          .filter(_._1.toLowerCase.startsWith("theme"))
+          .values
+          .flatten
+          .toSeq
+        val themeMap: Map[String, Seq[Mention]] = Map("theme" -> correctedThemes)
+        val input: Map[String, Set[IDPointer]] = themeMap map {
+          case ("theme", mns: Seq[Mention]) =>
+            ("theme", mns.map(m => createSimpleEntityWithID(m, Some(mods))).map(_._2).toSet)
+        }
+        input
+      }
+
+      /**
+       * Create output Set for addition event
+       */
+      def createOutputForTranslocation(m: Mention): Set[IDPointer] = {
+
+        val isNegated = hasNegation(m)
+
+        // handle dest Location
+        val dest = "destination"
+        val mods: Set[AssemblyModification] = m match {
+          case hasSource if hasSource.arguments contains dest =>
+            // create a PTM for each source
+            for (
+              d <- hasSource.arguments(dest).toSet[Mention]
+            ) yield {
+              val gid = d.toBioMention.nsId
+              representations.Location(gid)
+            }
+          // no mods
+          case _ => Set.empty[AssemblyModification]
+        }
+
+        // NOTE: we need to be careful if we use something other than theme
+        m.arguments("theme")
+          .map(m => createSimpleEntityWithID(m, Some(mods))).map(_._2)
+          .toSet
+      }
+
+      // check for coref
+      val e = getResolvedForm(m)
+
+      // only accept Translocation mention
+      require(e matches "Translocation", s"handleTranslocation received Mention of label '${e.label}', but method only accepts a Translocation Mention.")
+      // prepare input (roles -> repr. pointers)
+
+      // create input
+      val input = createInputForTranslocation(e)
+
+      // prepare output
+      val output: Set[IDPointer] = createOutputForTranslocation(e)
+
+      // prepare id
+      val id = getOrCreateID(m)
+
+      // prepare SimpleEvent
+      val eer =
+        new SimpleEvent(
+          id,
+          input,
+          output,
           e.label,
           Some(m),
           this
@@ -918,6 +1022,7 @@ class AssemblyManager(
     require(event.arguments contains "theme", s"'${event.label}' must have a theme.")
     m match {
       case binding if binding matches "Binding" => handleBinding(binding)
+      case translocation if translocation matches "Translocation" => handleTranslocation(translocation)
       case other => handleNBSimpleEvent(other)
     }
   }
