@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach.grounding
 
+import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.context._
@@ -11,9 +12,12 @@ import edu.arizona.sista.reach.extern.export.MentionManager
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Redo ground by species logic.
+  *   Last Modified: Add flag to allow grounding to ignore species and use human default.
   */
 class ReachGrounder extends Speciated {
+
+  val config = ConfigFactory.load()
+  val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
 
   val mentionMgr = new MentionManager
 
@@ -28,7 +32,8 @@ class ReachGrounder extends Speciated {
 
   /** Return a possibly empty sequence of NS/ID strings for the given mentions. */
   def getSpeciesContext (mention: BioMention): Seq[String] = {
-    if (hasSpeciesContext(mention))         // for now, only using species to help grounding
+    // for now, we are using only species to help grounding:
+    if (!overrideSpecies && hasSpeciesContext(mention))
       mention.context.get.get("Species").get
     else
       Seq.empty[String]
