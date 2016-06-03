@@ -415,6 +415,14 @@ class TestBindingEvents extends FlatSpec with Matchers {
   sent40 should "contain a binding event with Gab1 and Shp2" in {
     val mentions = getBioMentions(sent40)
     mentions filter (_ matches "Binding") should have size (1)
-    hasEventWithArguments("Binding", List("Gab1", "Shp2"), mentions) should be (true)    
+    hasEventWithArguments("Binding", List("Gab1", "Shp2"), mentions) should be (true)
   }
+
+  val sent41 = "These responses are mediated by complex formation between p85, the regulatory subunit of PI-3 kinase, and three canonical tyrosine phosphorylation sites on Gab1."
+  sent41 should "contain a binding event with p85 and Gab1" in {
+    val mentions = getBioMentions(sent41)
+    mentions filter (_ matches "Binding") should have size (1)
+    hasEventWithArguments("Binding", List("p85", "Gab1"), mentions) should be (true)
+  }
+
 }
