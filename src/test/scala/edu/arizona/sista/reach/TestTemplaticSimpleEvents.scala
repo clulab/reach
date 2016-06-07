@@ -505,4 +505,25 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     // TODO: this fails because the *_token_8_noun rule over matches. Please fix
     hasEventWithArguments("Phosphorylation", List("p35"), mentions) should be (false)
   }
+
+  val sent35a = "E3 ubiquitin ligase ubiquitinates beta-catenin."
+  sent35a should "contain a ubiquitination with cause" in {
+    val mentions = getBioMentions(sent35a)
+    hasPositiveRegulationByEntity("E3 ubiquitin ligase", "Ubiquitination", List("beta-catenin"), mentions) should be (true)
+  }
+  val sent35b = "Beta-catenin ubiquitinates E3 ubiquitin ligase."
+  sent35b should "contain a ubiquitination with cause" in {
+    val mentions = getBioMentions(sent35b)
+    hasPositiveRegulationByEntity("Beta-catenin", "Ubiquitination", List("E3 ubiquitin ligase"), mentions) should be (true)
+  }
+  val sent35c = "Ubiquitin ubiquitinates beta-catenin."
+  sent35c should "not contain a ubiquitination" in {
+    val mentions = getBioMentions(sent35c)
+    hasPositiveRegulationByEntity("E3 ubiquitin ligase", "Ubiquitination", List("beta-catenin"), mentions) should be (false)
+  }
+  val sent35d = "Beta-catenin ubiquitinates ubiquitin."
+  sent35d should "not contain a ubiquitination" in {
+    val mentions = getBioMentions(sent35d)
+    hasPositiveRegulationByEntity("Beta-catenin", "Ubiquitination", List("E3 ubiquitin ligase"), mentions) should be (false)
+  }
 }
