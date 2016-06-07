@@ -123,9 +123,9 @@ class DarpaActions extends Actions {
   def mkUbiquitination(mentions: Seq[Mention], state: State): Seq[Mention] = {
     val filteredMentions = mentions.filterNot { ev =>
       // Only keep mentions that don't have ubiquitin as a theme
-      ev.arguments("theme").exists(_.text.toLowerCase.contains("ubiq")) ||
+      ev.arguments("theme").exists(_.text.toLowerCase == "ubiquitin") ||
       // mention shouldn't have ubiquitin as a cause either, if there is a cause
-      ev.arguments.get("cause").map(_.exists(_.text.toLowerCase.contains("ubiq"))).getOrElse(false)
+      ev.arguments.get("cause").exists(_.exists(_.text.toLowerCase == "ubiquitin"))
     }
     // return biomentions
     filteredMentions.map(_.toBioMention)
