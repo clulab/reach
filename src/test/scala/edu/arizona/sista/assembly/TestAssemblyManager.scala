@@ -17,23 +17,14 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val text7 = "ASPP2 is transported from the membrane to the nucleus and cytosol"
 
   // the assembly manager is not intimidated by multiple documents
-  val doc1 = createDoc(text1, "assembly-test1")
-  val doc2 = createDoc(text2, "assembly-test2")
-  val doc3 = createDoc(text3, "assembly-test3")
-  val doc4 = createDoc(text4, "assembly-test4")
-  val doc5 = createDoc(text5, "assembly-test5")
-  val doc6 = createDoc(text6, "assembly-test6")
+  val mentions1 = getMentionsFromText(text1)
+  val mentions2 = getMentionsFromText(text2)
+  val mentions3 = getMentionsFromText(text3)
+  val mentions4 = getMentionsFromText(text4)
+  val mentions5 = getMentionsFromText(text5)
+  val mentions6 = getMentionsFromText(text6)
   // translocations
-  val doc7 = createDoc(text7, "assembly-test7")
-
-  val mentions1 = testReach.extractFrom(doc1)
-  val mentions2 = testReach.extractFrom(doc2)
-  val mentions3 = testReach.extractFrom(doc3)
-  val mentions4 = testReach.extractFrom(doc4)
-  val mentions5 = testReach.extractFrom(doc5)
-  val mentions6 = testReach.extractFrom(doc6)
-  // translocations
-  val mentions7 = testReach.extractFrom(doc7)
+  val mentions7 = getMentionsFromText(text7)
 
   //
   // SimpleEntity tests
@@ -189,9 +180,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val dePhos = "Mek was dephosphorylated."
   dePhos should "produce a Dephosphorylation event with a Phosphorylation on the input" in {
 
-    val doc = createDoc(dePhos, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(dePhos)
 
     val am = AssemblyManager(mentions)
 
@@ -251,8 +240,6 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     regs.count(r => r.controlled.head.isInstanceOf[Regulation]) should be(1)
   }
 
-
-
   //
   // Negation tests
   //
@@ -260,9 +247,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val negPhos = "Mek was not phosphorylated."
   negPhos should "have a negated SimpleEvent representation for the Phosphorylation mention" in {
 
-    val doc = createDoc(negPhos, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(negPhos)
 
     val am = AssemblyManager(mentions)
 
@@ -276,9 +261,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val negReg = "Mek was not phosphorylated by Ras."
   negReg should "have a negated Regulation representation" in {
 
-    val doc = createDoc(negReg, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(negReg)
 
     val am = AssemblyManager()
 
@@ -292,9 +275,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   it should "not have a negated SimpleEvent representation for the Phosphorylation" in {
-    val doc = createDoc(negReg, "assembly-test")
 
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(negReg)
 
     val am = AssemblyManager()
 
@@ -310,9 +292,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   // test PrecedenceRelations
 
   it should "not have any precedence relations for the phosphorylation" in {
-    val doc = createDoc(negPhos, "assembly-test")
 
-    val mentions = testReach.extractFrom(doc)
+    val mentions =  getMentionsFromText(negReg)
 
     val am = AssemblyManager()
 
@@ -339,9 +320,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   precedenceText should "have a PrecedenceRelation showing the Phosphorylation following the Binding" in {
 
-    val doc = createDoc(precedenceText, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions =  getMentionsFromText(precedenceText)
 
     val am = AssemblyManager()
 
@@ -403,9 +382,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   "AssemblyManager" should s"not contain any EERs for '$negPhos' if all EERs referencing Mek are removed" in {
-    val doc = createDoc(negPhos, "assembly-test")
 
-    val mentions = testReach.extractFrom(doc)
+    val mentions =  getMentionsFromText(negPhos)
 
     val am = AssemblyManager()
 
@@ -420,8 +398,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   it should "safely handle mentions in any order" in {
     val text = "EHT1864 inhibited AKT phosphorylation induced by LPA and S1P, but not EGF or PDGF"
-    val doc = createDoc(text, "mention-order-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(text)
 
     val am1 = AssemblyManager(mentions)
     val am2 = AssemblyManager(mentions.sortBy(_.label))
