@@ -44,7 +44,7 @@ object TestUtils {
   val mentionManager = new MentionManager()
 
   def getMentionsFromText(text: String): Seq[Mention] = PaperReader.getMentionsFromText(text)
-
+  
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = Try(testReach.extractFrom(entry))

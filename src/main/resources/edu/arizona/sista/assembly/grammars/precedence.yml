@@ -32,7 +32,7 @@ rules:
     label: ${mylabel}
     priority: ${deprulepriority}
     example: "BEF is ubiquitinated before the phosphorylation of AFT."
-    type: "token"
+    type: token
     pattern: |
       (?<before> ${before_type}) (before | prior to) [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
 
@@ -49,7 +49,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "AFT is ubiquitinated following the phosphorylation of BEF."
-    type: "token"
+    type: token
     pattern: |
       (?<after> ${after_type}) (after | [lemma=follow]) [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
 
@@ -66,7 +66,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "AFT is ubiquitinated due to the phosphorylation of BEF."
-    type: "token"
+    type: token
     pattern: |
       (?<after> ${after_type}) (due to | because of) [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
 
@@ -101,7 +101,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "The ubiquitination of BEF precedes the phosphorylation of AFT. The ubiquitination of BEF precipitates the phosphorylation of AFT."
-    type: "token"
+    type: token
     pattern: |
       (?<before> ${before_type}) [lemma=/^(precede|precipitat)/] [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
 
@@ -118,7 +118,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "AFT ubiquitination is a result of BEF phosphorylation."
-    type: "token"
+    type: token
     pattern: |
       (?<after> ${after_type}) [lemma=be] [tag=/^(DT|CD|JJ)$/] [lemma=result] of [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
 
@@ -126,7 +126,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "AFT ubiquitination results from BEF phosphorylation."
-    type: "token"
+    type: token
     pattern: |
       (?<after> ${after_type}) ","? [tag=RB]? [lemma=result & tag=/^VB/] from [tag=/^(DT|CD|JJ)$/]* (?<before> ${before_type})
 
@@ -143,7 +143,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "BEF is ubiquitinated, resulting in the phosphorylation of AFT."
-    type: "token"
+    type: token
     pattern: |
       (?<before> ${before_type}) ","? [tag=RB]? [lemma=result & tag=/^VB/] in [tag=/^(DT|CD|JJ)$/]* (?<after> ${after_type})
 
@@ -177,7 +177,7 @@ rules:
     label: ${mylabel}
     priority: ${surfacerulepriority}
     example: "The RBD of PI3KC2B binds HRAS , when HRAS is not bound to GTP . AFT binds HRAS, when BEF in not bound to GTP"
-    type: "token"
+    type: token
     pattern: |
       (?<before> ${before_type}) ","? when (?<after> ${after_type})
 
@@ -203,10 +203,26 @@ rules:
     priority: ${deprulepriority}
     example: "the ubiquitination of BEF is required for the phosphorylation of AFT.  The binding of p85 and Gab1 is required for Gab1 mediated activation of PI-3 kinase."
     pattern: |
-      before:${after_type}
+      before:${before_type}
       # describes a precondition
       # ... is required for AFT
-      after:${before_type} = <nsubjpass [lemma=require] prep_for
+      after:${after_type} = <nsubjpass [lemma=require] prep_for
+
+  - name: assembly-syntax-dependent-on
+    label: DirectConnection
+    priority: ${deprulepriority}
+    example: "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct interaction between SRC-3 and ERα and can occur outside of the nucleus."
+    pattern: |
+      after:${after_type}
+      before:${before_type} = <nsubj dependent prep_on
+
+  - name: assembly-surface-dependent-on
+    label: DirectConnection
+    priority: ${surfacerulepriority}
+    example: "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct interaction between SRC-3 and ERα and can occur outside of the nucleus."
+    type: token
+    pattern: |
+      @after:${after_type} [lemma=be] dependent on [tag=/^(DT|CD|JJ)/]* @before:${before_type}
 
   ############################
   # Surface rules
