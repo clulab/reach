@@ -1,7 +1,7 @@
 package edu.arizona.sista.assembly
 
 import edu.arizona.sista.assembly.AssemblyRunner._
-import edu.arizona.sista.assembly.representations.SimpleEntity
+import edu.arizona.sista.assembly.representations.{Regulation, SimpleEntity}
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
@@ -121,7 +121,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     ptm.site.isDefined should be(true)
   }
 
-  // test Translocations
+  //
+  // Translocation tests
+  //
+
   s"$text7" should "contain 2 Translocation events" in {
     val am = AssemblyManager(mentions7)
 
@@ -226,6 +229,38 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val phosOutputPTMs = outputTheme.getPTMs("Phosphorylation")
     phosOutputPTMs.size should be(0)
   }
+
+  //
+  // Regulation tests
+  //
+
+  val regText1 = "AFT is phosphorylated by BEF."
+  regText1 should "produce one Regulation representation" in {
+
+    val mentions = getMentionsFromText(regText1)
+
+    val am = AssemblyManager(mentions)
+
+    am.getRegulations.size should be(1)
+    am.distinctRegulations.size should be(1)
+  }
+
+  val regText2 = "Akt inhibits the phosphorylation of AFT by BEF."
+  regText2 should "produce two Regulation representations (one with nesting)" in {
+
+    val mentions = getMentionsFromText(regText2)
+
+    val am = AssemblyManager(mentions)
+
+    val regs: Set[Regulation] = am.distinctRegulations
+
+    am.getRegulations.size should be(2)
+    regs.size should be(2)
+
+    regs.count(r => r.controlled.head.isInstanceOf[Regulation]) should be(1)
+  }
+
+
 
   //
   // Negation tests
