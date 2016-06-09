@@ -13,8 +13,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     "interaction between SRC-3 and ERα and can occur outside of the nucleus."
 
   intraSent1 should "be annotated with the binding preceding the phosphorylation" in {
-    val doc = createDoc(intraSent1, "intra1-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(intraSent1)
     val am = applySieves(mentions)
 
     val bRep = am.distinctSimpleEvents("Binding").head
@@ -32,8 +31,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val tamSent1 = "Once BEF had been phosphorylated, AFT was ubiquitinated"
 
   tamSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(tamSent1, "tam1-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(tamSent1)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -48,8 +46,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val tamSent2 = "AFT will be ubiquitinated only if BEF is first phosphorylated"
 
   tamSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(tamSent2, "tam2-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(tamSent2)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -64,8 +61,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val tamSent3 = "AFT was ubiquitinated when BEF had been phosphorylated"
 
   tamSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(tamSent3, "tam3-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(tamSent3)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -80,8 +76,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val interSent1 = "BEF was phosphorylated. Then, AFT was ubiquitinated."
 
   interSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent1, "inter1-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(interSent1)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -96,8 +91,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val interSent2 = "BEF was phosphorylated. Subsequently AFT was ubiquitinated."
 
   interSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent2, "inter2-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(interSent2)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -112,8 +106,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val interSent3 = "AFT was ubiquitinated. Prior to this, BEF was phosphorylated."
 
   interSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent3, "inter3-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(interSent3)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -128,8 +121,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val interSent4 = "AFT was ubiquitinated. Previously, BEF was phosphorylated."
 
   interSent4 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent4, "inter4-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(interSent4)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
@@ -146,8 +138,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
   val interSent5 = "AFT was ubiquitinated. There is intervening material and, previously, BEF was phosphorylated."
 
   interSent5 should "have no precedence relations" in {
-    val doc = createDoc(interSent5, "inter5-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(interSent5)
     val am = applySieves(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
