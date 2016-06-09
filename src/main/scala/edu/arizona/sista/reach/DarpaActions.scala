@@ -371,8 +371,9 @@ class DarpaActions extends Actions {
 
   /** global action for EventEngine */
   def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    val r0 = filterEventsWithExtraRecursion(mentions, state)
-    val r1 = siteSniffer(r0, state)
+    // Regulations of regulations now allowed.
+    // val r0 = filterEventsWithExtraRecursion(mentions, state)
+    val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
     val r4 = HypothesisHandler.detectHypotheses(r3, state)
@@ -585,11 +586,16 @@ class DarpaActions extends Actions {
   /** sorts a sequence of Mentions so that mentions with event controllers appear first */
   def sortMentionsByController(mentions: Seq[Mention]): Seq[Mention] = mentions sortWith { (m1, m2) =>
     // get the controller of the first mention
-    val ctrl1 = m1.arguments.get("controller")
-    val ctrl2 = m2.arguments.get("controller")
-    (ctrl1, ctrl2) match {
-      case (Some(Seq(c1)), Some(Seq(c2))) if c1.matches("Event") && !c2.matches("Event") => true
-      case (Some(Seq(c1)), None) => true
+    val ctrlr1 = m1.arguments.get("controller")
+    val ctrlr2 = m2.arguments.get("controller")
+    val ctrld1 = m1.arguments.get("controlled").get.head
+    val ctrld2 = m2.arguments.get("controlled").get.head
+    (ctrlr1, ctrlr2, ctrld1, ctrld2) match {
+      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
+        if cr1.matches("Event") && !cr2.matches("Event") => true
+      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
+        if !(!cr1.matches("Event") && cr2.matches("Event")) && cd1.matches("Regulation") && !cd2.matches("Regulation") => true
+      case (Some(Seq(cr1)), None, cd1, cd2) => true
       case _ => false
     }
   }
