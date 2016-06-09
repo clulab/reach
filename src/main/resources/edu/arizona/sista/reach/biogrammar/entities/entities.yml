@@ -150,14 +150,16 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+ [entity='I-Gene_or_gene_product']* (?! [lemma="substrate"])
-    [entity='I-Gene_or_gene_product']*
+    [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
+    [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]*
     # we may see the word "protein"
     # we can't always trust the crf.  Make sure it isn't an obvious family
     (?!
     [lemma=substrate | lemma=family]
     |
     [lemma=protein] [lemma=family]
+    |
+    [lemma=inhibitor & !entity=/Gene_or_gene_product/]
     )
 
 # TODO: verify this ontology
@@ -167,7 +169,7 @@
   priority: 3
   type: token
   pattern: |
-    [entity='B-Family']+ [entity='I-Family']* (?! [lemma="substrate"])
+    [entity='B-Family']+ [entity='I-Family']* (?! [lemma=substrate] | [lemma=inhibitor & entity=/Family/])
     | # we can't always trust the crf.
     [entity='B-Gene_or_gene_product']+ [entity='I-Gene_or_gene_product']*
     # only allow the GGP ner label iff lemma of next tok is "family"
@@ -224,3 +226,18 @@
   type: token
   pattern: |
     @BioChemicalEntity /(?i)receptor/ # there must be other relevant terms.  This rule comes from us finding "ERBB", but missing "ERBB receptors"
+
+- name: protein-inhibitor
+  label: Simple_chemical
+  action: mkBioMention
+  priority: 2
+  type: token
+  pattern: |
+    (
+    [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
+    [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]*
+    |
+    [entity='B-Family']+
+    [entity='I-Family']*
+    )
+    [lemma=inhibitor & !entity=/^(B|I)/]
