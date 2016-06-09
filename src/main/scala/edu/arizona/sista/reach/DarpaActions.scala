@@ -498,7 +498,7 @@ class DarpaActions extends Actions {
 
 
   /** Test whether the given mention has a controller argument. */
-  def hasController(mention: Mention): Boolean = mention.arguments.get("controlled").isDefined
+  def hasController(mention: Mention): Boolean = mention.arguments.get("controller").isDefined
 
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
