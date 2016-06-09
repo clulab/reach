@@ -43,6 +43,14 @@ object TestUtils {
   val chunkId = "1"
   val mentionManager = new MentionManager()
 
+  // For use in Assembly tests.
+  def createDoc(text: String, id: String): Document = {
+    val doc = bioproc.annotate(text)
+    doc.id = Some(id)
+    doc.text = Some(text)
+    doc
+  }
+
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = Try(testReach.extractFrom(entry))
