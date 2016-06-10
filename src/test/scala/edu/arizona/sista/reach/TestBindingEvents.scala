@@ -425,4 +425,10 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p85", "Gab1"), mentions) should be (true)
   }
 
+  val sent42 = "Point mutations made are listed along with their impact on binding to RAC1 and CDC42"
+  sent42 should "not contain a binding between RAC1 and CDC42" in {
+    val mentions = getBioMentions(sent42)
+    mentions filter (_ matches "Binding") should have size (0)
+  }
+
 }
