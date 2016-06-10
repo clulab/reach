@@ -37,7 +37,7 @@ object TestUtils {
   }
 
   val testReach = PaperReader.rs // All tests should use this system!
-  val testReader = PaperReader.nxmlReader
+  val testReader = new NxmlReader
   val bioproc = testReach.processor // quick access to a processor, if needed.
   val docId = "testdoc"
   val chunkId = "1"
