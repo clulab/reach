@@ -87,7 +87,7 @@
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site"])
+      trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment|interaction/] (?! [lemma="site" | lemma=to])
       theme1:BioChemicalEntity* = nn conj_and?
       theme2:BioChemicalEntity+ = prep_to conj_and?
 
