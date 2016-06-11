@@ -18,7 +18,7 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Update for rename of argument label to type.
+  *   Last Modified: Add tests for regulation of regulation.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -129,6 +129,38 @@ class TestFriesOutput extends FlatSpec with Matchers {
     (xrefs1.getOrElse("namespace", "") == "uniprot") should be (true)
     (xrefs1.getOrElse("object-type", "") == "db-reference") should be (true)
     (xrefs1.getOrElse("id", "") == "P49190") should be (true)
+  }
+
+
+  // Test output for regulation of regulation:
+  val text2 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
+  val mentions2 = getBioMentions(text2)
+  val entry2 = FriesEntry("text2", "1", "test", "test", false, text2)
+  val jStr2 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), s"${paperId}")
+  val json2 = parse(jStr2)
+
+  "text2" should "produce valid JSON string" in {
+    // println(s"JSON=$jStr2")                  // DEBUGGING
+    (jStr2.isEmpty) should be (false)
+    (jStr2.contains("\"events\":")) should be (true)
+    (jStr2.contains("\"entities\":")) should be (true)
+    (jStr2.contains("\"sentences\":")) should be (true)
+  }
+
+  "text2" should "produce parseable JSON with 3 top-level sections" in {
+    ((json2 \ "events" \ "object-type").values == "frame-collection") should be (true)
+    ((json2 \ "entities" \ "object-type").values == "frame-collection") should be (true)
+    ((json2 \ "sentences" \ "object-type").values == "frame-collection") should be (true)
+  }
+
+  "text2" should "have 5 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
+    val subtypeList = json2 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
+    subtypeList.isEmpty should be (false)
+    (subtypeList.size == 5) should be (true)
+    (subtypeList.filter(_ == "phosphorylation").size == 1) should be (true)
+    (subtypeList.filter(_ == "ubiquitination").size == 1) should be (true)
+    (subtypeList.filter(_ == "negative-regulation").size == 1) should be (true)
+    (subtypeList.filter(_ == "positive-regulation").size == 2) should be (true)
   }
 
 }
