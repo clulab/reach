@@ -258,7 +258,9 @@ class FriesOutput extends JsonOutputter {
     for (mention <- eventMentions) {
       if (REGULATION_EVENTS.contains(mention.label)) {
         // "reach down" to process any child regulations first, before processing current regulation
-        val regulations = mention.arguments.getOrElse("controlled", Nil).filter(_.matches("Regulation"))
+        val controlledRegulations = mention.arguments.getOrElse("controlled", Nil).filter(_.matches("Regulation"))
+        val controllerRegulations = mention.arguments.getOrElse("controller", Nil).filter(_.matches("Regulation"))
+        val regulations = controlledRegulations ++ controllerRegulations
         for (reg <- regulations) {
           val passage = getPassageForMention(passageMap, reg)
           frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap)
