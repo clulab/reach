@@ -157,43 +157,42 @@ class TestFriesOutput extends FlatSpec with Matchers {
     val subtypeList = json2 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
     subtypeList.isEmpty should be (false)
     (subtypeList.size == 5) should be (true)
-    (subtypeList.filter(_ == "phosphorylation").size == 1) should be (true)
-    (subtypeList.filter(_ == "ubiquitination").size == 1) should be (true)
-    (subtypeList.filter(_ == "negative-regulation").size == 1) should be (true)
-    (subtypeList.filter(_ == "positive-regulation").size == 2) should be (true)
+    subtypeList.count(_ == "phosphorylation") should be (1)
+    subtypeList.count(_ == "ubiquitination") should be (1)
+    subtypeList.count(_ == "negative-regulation") should be (1)
+    subtypeList.count(_ == "positive-regulation") should be (2)
   }
 
-  // Test output for regulation by a regulation:
-  val text3 = "In the present study , we have further shown that ERK induced RhoA phosphorylation enhances the " +
-    "formation of actin stress fibers , which is consistent with the increased RhoA activity induced by ERK mediated " +
-    "RhoA phosphorylation ."
+  // Test output for regulation *by* a regulation:
+  val text3 = "The phosphorylation of AFT by BEF inhibits the ubiquitination of Akt."
   val mentions3 = getBioMentions(text3)
   val entry3 = FriesEntry("text3", "1", "test", "test", false, text3)
   val jStr3 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), s"${paperId}")
-  val json3 = parse(jStr2)
+  val json3 = parse(jStr3)
 
-  "text3" should "produce valid JSON string" in {
+  text3 should "produce valid JSON string" in {
     // println(s"JSON=$jStr2")                  // DEBUGGING
-    (jStr2.isEmpty) should be (false)
-    (jStr2.contains("\"events\":")) should be (true)
-    (jStr2.contains("\"entities\":")) should be (true)
-    (jStr2.contains("\"sentences\":")) should be (true)
+    (jStr3.isEmpty) should be (false)
+    (jStr3.contains("\"events\":")) should be (true)
+    (jStr3.contains("\"entities\":")) should be (true)
+    (jStr3.contains("\"sentences\":")) should be (true)
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
-    ((json2 \ "events" \ "object-type").values == "frame-collection") should be (true)
-    ((json2 \ "entities" \ "object-type").values == "frame-collection") should be (true)
-    ((json2 \ "sentences" \ "object-type").values == "frame-collection") should be (true)
+    ((json3 \ "events" \ "object-type").values == "frame-collection") should be (true)
+    ((json3 \ "entities" \ "object-type").values == "frame-collection") should be (true)
+    ((json3 \ "sentences" \ "object-type").values == "frame-collection") should be (true)
   }
-  
-  it should "have 5 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
-    val subtypeList = json2 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
+
+  it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
+    val subtypeList = json3 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
+    print(subtypeList)
     subtypeList.isEmpty should be (false)
-    (subtypeList.size == 5) should be (true)
-    (subtypeList.filter(_ == "phosphorylation").size == 1) should be (true)
-    (subtypeList.filter(_ == "ubiquitination").size == 1) should be (true)
-    (subtypeList.filter(_ == "negative-regulation").size == 1) should be (true)
-    (subtypeList.filter(_ == "positive-regulation").size == 2) should be (true)
+    subtypeList.size should be (5)
+    subtypeList.count(_ == "phosphorylation") should be (1)
+    subtypeList.count(_ == "ubiquitination") should be (1)
+    subtypeList.count(_ == "negative-regulation") should be (1)
+    subtypeList.count(_ == "positive-regulation") should be (2)
   }
 
 }
