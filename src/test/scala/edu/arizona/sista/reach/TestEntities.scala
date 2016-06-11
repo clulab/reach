@@ -137,4 +137,29 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.count(_ matches "Family") should be (1)
   }
 
+  // "X
+  val sent9a = "Ras inhibitor was added to the solution." // family + inhibitor
+  val sent9b = "Akt inhibitor was added to the solution." // protein + inhibitor
+  val sent9c = "Adenylate cyclase inhibitor was added to the solution." // multi-word protein + inhibitor
+  val sent9d = "Vascular endothelial cell growth inhibitor was added to solution." // protein (not a simple chemical)
+  sent9a should "contain a Simple_chemical and nothing else" in {
+    val mentions = getBioMentions(sent9a)
+    mentions.length should be (1)
+    mentions.head matches "Simple_chemical" should be (true)
+  }
+  sent9b should "contain a Simple_chemical and nothing else" in {
+    val mentions = getBioMentions(sent9b)
+    mentions.length should be (1)
+    mentions.head matches "Simple_chemical" should be (true)
+  }
+  sent9c should "contain a Simple_chemical and nothing else" in {
+    val mentions = getBioMentions(sent9c)
+    mentions.length should be (1)
+    mentions.head matches "Simple_chemical" should be (true)
+  }
+  sent9d should "contain a Gene_or_gene_product and nothing else" in {
+    val mentions = getBioMentions(sent9d)
+    mentions.length should be (1)
+    mentions.head matches "Gene_or_gene_product" should be (true)
+  }
 }

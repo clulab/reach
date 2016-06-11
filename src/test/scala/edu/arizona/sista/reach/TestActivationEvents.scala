@@ -112,11 +112,11 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("Positive_activation")) should have size (0)
   }
 
-  val sent12 = "mTOR inhibitor Rapamycin"
-  sent12 should "contain a negative activation" in {
-    val mentions = getBioMentions(sent12)
-    hasNegativeActivation("Rapamycin", "mTOR", mentions) should be(true)
-  }
+//  val sent12 = "mTOR inhibitor Rapamycin"
+//  sent12 should "contain a negative activation" in {
+//    val mentions = getBioMentions(sent12)
+//    hasNegativeActivation("Rapamycin", "mTOR", mentions) should be(true)
+//  }
 
   val sent13 = "mTOR activator Rapamycin"
   sent13 should "contain a positive activation" in {
@@ -238,12 +238,12 @@ class TestActivationEvents extends FlatSpec with Matchers {
     activations should be ('empty)
   }
 
-  val sent29 = "HDAC inhibitors including trichostatin A completely restored RECK"
-  sent29 should "contain 1 negative activations" in {
-    val mentions = getBioMentions(sent29)
-    mentions.filter(_.label.contains("Negative_activation")) should have size (1)
-    hasNegativeActivation("HDAC", "RECK", mentions) should be(true)
-  }
+//  val sent29 = "HDAC inhibitors including trichostatin A completely restored RECK"
+//  sent29 should "contain 1 negative activations" in {
+//    val mentions = getBioMentions(sent29)
+//    mentions.filter(_.label.contains("Negative_activation")) should have size (1)
+//    hasNegativeActivation("HDAC", "RECK", mentions) should be(true)
+//  }
 
   // Test Activations where the controlled is a BioProcess
   val sent30 = "In some cases, the presence of Ras inhibits autophagy."
