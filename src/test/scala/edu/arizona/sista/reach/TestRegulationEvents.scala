@@ -419,4 +419,26 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("E2", "Phosphorylation", List("SRC-3"), mentions) should be (true)
     hasEventWithArguments("Binding", List("SRC-3", "ERalpha"), mentions) should be (true)
   }
+
+  val sent46 = "Akt inhibits the phosphorylation of AFT by BEF."
+  sent46 should "contain a regulation of a regulation" in {
+    val mentions = getBioMentions(sent46)
+    val inner = mentions.filter(_ matches "Positive_regulation")
+    val outer = mentions.filter(_ matches "Negative_regulation")
+    inner should have size (1)
+    outer should have size (1)
+    hasPositiveRegulationByEntity("BEF", "Phosphorylation", List("AFT"), mentions) should be (true)
+    outer.head.arguments("controlled").head == inner.head should be (true)
+  }
+
+  val sent47 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
+  sent47 should "contain a regulation of a regulation" in {
+    val mentions = getBioMentions(sent47)
+    val inner = mentions.filter(_ matches "Positive_regulation")
+    val outer = mentions.filter(_ matches "Negative_regulation")
+    inner should have size (1)
+    outer should have size (1)
+    hasPositiveRegulationByEntity("BEF", "Phosphorylation", List("AFT"), mentions) should be (true)
+    outer.head.arguments("controlled").head == inner.head should be (true)
+  }
 }

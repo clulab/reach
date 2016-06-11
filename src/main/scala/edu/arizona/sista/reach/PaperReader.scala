@@ -89,6 +89,11 @@ object PaperReader {
   }
 
   /**
+   * Get mentions from text
+   */
+  def getMentionsFromText(text: String): Seq[Mention] = rs.extractFrom(text, "", "")
+
+  /**
    * Produces FriesEntries from .csv papers using [[CSVParser]] and [[ReachSystem]]
    * @param file a File with the .csv extension
    * @return Seq[FriesEntry]
