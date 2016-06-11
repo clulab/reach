@@ -592,6 +592,8 @@ class DarpaActions extends Actions {
     val ctrld2 = m2.arguments.get("controlled").get.head
     (ctrlr1, ctrlr2, ctrld1, ctrld2) match {
       case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
+        if cr1.matches("Regulation") && !cr2.matches("Regulation") => true
+      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
         if cr1.matches("Event") && !cr2.matches("Event") => true
       case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
         if !(!cr1.matches("Event") && cr2.matches("Event")) && cd1.matches("Regulation") && !cd2.matches("Regulation") => true
