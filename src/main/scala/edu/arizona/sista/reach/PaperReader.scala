@@ -7,10 +7,11 @@ import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
-import edu.arizona.sista.reach.utils.CSVParser
+import edu.arizona.sista.reach.utils.DSVParser
 import edu.arizona.sista.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
+
 
 object PaperReader {
 
@@ -25,7 +26,7 @@ object PaperReader {
 
   // systems for reading papers
   val nxmlReader = new NxmlReader(ignoreSections)
-  val csvReader = new CSVParser()
+  val dsvReader = new DSVParser()
 
   // for context engine
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
@@ -65,7 +66,7 @@ object PaperReader {
   }
 
   /**
-   * Produces Mentions from either a .nxml or .csv paper using [[NxmlReader]] or [[CSVParser]] and [[ReachSystem]]
+   * Produces Mentions from either a .nxml or .csv paper using [[NxmlReader]] or [[DSVParser]] and [[ReachSystem]]
    * @param file a File with either the .csv or .nxml extension
    * @return (PaperID, Mentions)
    */
@@ -94,18 +95,19 @@ object PaperReader {
   def getMentionsFromText(text: String): Seq[Mention] = rs.extractFrom(text, "", "")
 
   /**
-   * Produces FriesEntries from .csv papers using [[CSVParser]] and [[ReachSystem]]
+   * Produces FriesEntries from .csv or .tsv papers using [[DSVParser]] and [[ReachSystem]]
    * @param file a File with the .csv extension
    * @return Seq[FriesEntry]
    */
-  def getEntriesFromCSVPaper(file: File): Seq[FriesEntry] = {
-    require(file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readCSVPaper only handles .csv files!")
-    csvReader.toFriesEntries(file)
+  def getEntriesFromDSVPaper(file: File): Seq[FriesEntry] = {
+    require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .csv and .tsv files!")
+    dsvReader.toFriesEntries(file)
   }
 
-  def getEntriesFromPaper(file: File): Seq[FriesEntry] = file match {
-    case nxml if nxml.getName.endsWith(".nxml") => getEntriesFromNXMLPaper(nxml)
-    case csv if csv.getName.endsWith(".csv") => getEntriesFromCSVPaper(csv)
+  def getEntriesFromPaper(file: File): Seq[FriesEntry] = FilenameUtils.getExtension(file.getAbsolutePath) match {
+    case "nxml" => getEntriesFromNXMLPaper(file)
+    case "csv" => getEntriesFromDSVPaper(file)
+    case "tsv" => getEntriesFromDSVPaper(file)
     case _ =>
       val extension = FilenameUtils.getExtension(file.getAbsolutePath)
       println(s"Reading of paper ${file.getName} failed!")
@@ -116,14 +118,15 @@ object PaperReader {
   def getMentionsFromFriesEntries(entries: Seq[FriesEntry]): Seq[Mention] = rs.extractFrom(entries)
 
   /**
-   * Get mentions from a single paper (.csv or .nxml)
+   * Get mentions from a single paper (.csv, .tsv, or .nxml)
    * @param file a [[java.io.File]] object
    * @return a Seq of Odin-style Mentions
    */
   def getMentionsFromPaper(file: File): Seq[Mention] = {
-    val entries = file match {
-      case nxml if nxml.getName.endsWith(".nxml") => getEntriesFromNXMLPaper(nxml)
-      case csv if csv.getName.endsWith(".csv") => getEntriesFromCSVPaper(csv)
+    val entries =  FilenameUtils.getExtension(file.getAbsolutePath) match {
+      case "nxml" => getEntriesFromNXMLPaper(file)
+      case "csv" =>  getEntriesFromDSVPaper(file)
+      case "tsv" => getEntriesFromDSVPaper(file)
     }
     getMentionsFromFriesEntries(entries)
   }

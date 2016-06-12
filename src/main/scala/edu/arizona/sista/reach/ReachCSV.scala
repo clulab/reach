@@ -2,11 +2,10 @@ package edu.arizona.sista.reach
 
 import java.io.File
 import java.util.Date
-
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach.extern.export.indexcards.IndexCardOutput
-import edu.arizona.sista.reach.nxml.FriesEntry
-import edu.arizona.sista.reach.utils.CSVParser
+import edu.arizona.sista.reach.utils.DSVParser
+
 
 /**
  * Parses a CSV file with custom sentences and/or paragraphs
@@ -24,6 +23,7 @@ object ReachCSV extends App {
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
   // arguments
+  // NOTE: we could also read .tsv files
   val csvFile = new File(config.getString("csv"))
   val outputDir = config.getString("output")
   val docIdColumn = config.getInt("docIdColumn")
@@ -33,7 +33,7 @@ object ReachCSV extends App {
   val hasHeader = config.getBoolean("hasHeader")
 
   val reach = new ReachSystem
-  val csvParser = new CSVParser
+  val csvParser = new DSVParser
 
   var count = 0
   for(entry <- csvParser.toFriesEntries(csvFile,
