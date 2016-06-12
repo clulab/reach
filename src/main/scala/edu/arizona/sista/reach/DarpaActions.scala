@@ -586,18 +586,11 @@ class DarpaActions extends Actions {
   /** sorts a sequence of Mentions so that mentions with event controllers appear first */
   def sortMentionsByController(mentions: Seq[Mention]): Seq[Mention] = mentions sortWith { (m1, m2) =>
     // get the controller of the first mention
-    val ctrlr1 = m1.arguments.get("controller")
-    val ctrlr2 = m2.arguments.get("controller")
-    val ctrld1 = m1.arguments.get("controlled").get.head
-    val ctrld2 = m2.arguments.get("controlled").get.head
-    (ctrlr1, ctrlr2, ctrld1, ctrld2) match {
-      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
-        if cr1.matches("Regulation") && !cr2.matches("Regulation") => true
-      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
-        if cr1.matches("Event") && !cr2.matches("Event") => true
-      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
-        if !(!cr1.matches("Event") && cr2.matches("Event")) && cd1.matches("Regulation") && !cd2.matches("Regulation") => true
-      case (Some(Seq(cr1)), None, cd1, cd2) => true
+    val ctrl1 = m1.arguments.get("controller")
+    val ctrl2 = m2.arguments.get("controller")
+    (ctrl1, ctrl2) match {
+      case (Some(Seq(c1)), Some(Seq(c2))) if c1.matches("Event") && !c2.matches("Event") => true
+      case (Some(Seq(c1)), None) => true
       case _ => false
     }
   }
