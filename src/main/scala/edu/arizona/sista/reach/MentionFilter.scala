@@ -3,6 +3,7 @@ package edu.arizona.sista.reach
 import edu.arizona.sista.coref.CorefUtils._
 import edu.arizona.sista.odin._
 import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.DarpaActions._
 
 import scala.collection.mutable
 
@@ -148,14 +149,14 @@ object MentionFilter {
       regulationsWithComplexController ++ remainingRegulations
     }
 
-    def filterByControlled(regulations: Seq[BioMention]): Seq[CorefMention] = {
-      val highestOrder = for {
+    def preferRegulations(regulations: Seq[BioMention]): Seq[CorefMention] = {
+      val highestOrderControlled = for {
         r <- regulations.map(_.toCorefMention)
       } yield {
         val isRedundant = regulations.exists{ m =>
           val mctrld = m.arguments("controlled").head
-          ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) || (
-            m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
+          ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
+            (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
             m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)) &&
             m.arguments("controller") == r.arguments("controller") &&
             mctrld.matches("Regulation") &&
@@ -163,11 +164,42 @@ object MentionFilter {
         }
         if (isRedundant) None else Some(r)
       }
+      val highestOrder = for {
+        r <- highestOrderControlled.flatten
+      } yield {
+        val isRedundant = regulations.filter(_.arguments.get("controller").isDefined).exists{ m =>
+          val mctrlr = m.arguments("controller").head
+          ( // Both are events w/ same trigger
+            ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
+                (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
+                  m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)
+              ) &&
+              m.arguments("controlled") == r.arguments("controlled") &&
+              mctrlr.matches("Regulation") &&
+              mctrlr.arguments("controller") == r.arguments("controlled")
+            ) ||
+            // One is a TextBoundMention
+            (m.arguments("controlled") == r.arguments("controlled") &&
+              mctrlr.matches("Regulation") &&
+              // This is specifically for event controllers converted to PTMs
+              ptmEquivalent(mctrlr.arguments("controlled").head.toCorefMention, r.arguments("controller").head.toCorefMention))
+        }
+        if (isRedundant) None else Some(r)
+      }
       highestOrder.flatten
     }
 
+    def ptmEquivalent(a: CorefMention, b: CorefMention): Boolean = {
+      val da = new DarpaActions
+      (a,b) match {
+        case (exactA, exactB) if exactA == exactB => true
+        case (ent: CorefTextBoundMention, ev: CorefEventMention) => da.convertEventToEntity(ev).getOrElse(ev) == ent
+        case (ev: CorefEventMention, ent: CorefTextBoundMention) => da.convertEventToEntity(ev).getOrElse(ev) == ent
+        case different => false
+      }
+    }
 
-    val correctedRegs = filterByControlled(correctedRegulations
+    val correctedRegs = preferRegulations(correctedRegulations
       .flatten)
       .groupBy(_.arguments("controlled"))
       .values
