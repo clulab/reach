@@ -133,8 +133,7 @@ class DarpaActions extends Actions {
 
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    // iterate over mentions giving preference to mentions that have an event controller
-    mention <- sortMentionsByController(mentions)
+    mention <- mentions
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
     if !hasSynPathOverlap(mention)
@@ -580,23 +579,6 @@ class DarpaActions extends Actions {
       BioMention.copyAttachments(entity, modifiedEntity)
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = siteOption)
       Some(modifiedEntity)
-    }
-  }
-
-  /** sorts a sequence of Mentions so that mentions with event controllers appear first */
-  def sortMentionsByController(mentions: Seq[Mention]): Seq[Mention] = mentions sortWith { (m1, m2) =>
-    // get the controller of the first mention
-    val ctrlr1 = m1.arguments.get("controller")
-    val ctrlr2 = m2.arguments.get("controller")
-    val ctrld1 = m1.arguments.get("controlled").get.head
-    val ctrld2 = m2.arguments.get("controlled").get.head
-    (ctrlr1, ctrlr2, ctrld1, ctrld2) match {
-      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
-        if cr1.matches("Event") && !cr2.matches("Event") => true
-      case (Some(Seq(cr1)), Some(Seq(cr2)), cd1, cd2)
-        if !(!cr1.matches("Event") && cr2.matches("Event")) && cd1.matches("Regulation") && !cd2.matches("Regulation") => true
-      case (Some(Seq(cr1)), None, cd1, cd2) => true
-      case _ => false
     }
   }
 
