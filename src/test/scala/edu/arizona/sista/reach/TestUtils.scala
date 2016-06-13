@@ -36,13 +36,15 @@ object TestUtils {
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
   }
 
-  val testReach = new ReachSystem(contextEngineType = Engine.withName("Policy4"), contextParams = Map("bound" -> "5")) // All tests should use this system!
+  val testReach = PaperReader.rs // All tests should use this system!
   val testReader = new NxmlReader
-  val bioproc = testReach.processor // quick access to a process, if needed.
+  val bioproc = testReach.processor // quick access to a processor, if needed.
   val docId = "testdoc"
   val chunkId = "1"
   val mentionManager = new MentionManager()
 
+  def getMentionsFromText(text: String): Seq[Mention] = PaperReader.getMentionsFromText(text)
+  
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = Try(testReach.extractFrom(entry))
