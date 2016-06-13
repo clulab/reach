@@ -131,7 +131,6 @@ class TestFriesOutput extends FlatSpec with Matchers {
     (xrefs1.getOrElse("id", "") == "P49190") should be (true)
   }
 
-
   // Test output for regulation of regulation:
   val text2 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
   val mentions2 = getBioMentions(text2)
