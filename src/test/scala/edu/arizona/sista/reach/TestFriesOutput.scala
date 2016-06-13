@@ -186,7 +186,6 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
     val subtypeList = json3 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
-    print(subtypeList)
     subtypeList.isEmpty should be (false)
     subtypeList.size should be (5)
     subtypeList.count(_ == "phosphorylation") should be (1)
