@@ -1,20 +1,11 @@
 package edu.arizona.sista.assembly
 
-import edu.arizona.sista.assembly.AssemblyRunner._
-import edu.arizona.sista.assembly.representations.SimpleEntity
-import edu.arizona.sista.processors.Document
+import edu.arizona.sista.assembly.representations.{SimpleEntity, Regulation}
 import edu.arizona.sista.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
 
 
 class TestAssemblyManager extends FlatSpec with Matchers {
-
-  def createDoc(text: String, id: String): Document = {
-    val doc = bioproc.annotate(text)
-    doc.id = Some(id)
-    doc.text = Some(text)
-    doc
-  }
 
   val text1 = "Ras is phosphorylated."
   val text2 = "Ras was phosphorylated."
@@ -26,23 +17,14 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val text7 = "ASPP2 is transported from the membrane to the nucleus and cytosol"
 
   // the assembly manager is not intimidated by multiple documents
-  val doc1 = createDoc(text1, "assembly-test1")
-  val doc2 = createDoc(text2, "assembly-test2")
-  val doc3 = createDoc(text3, "assembly-test3")
-  val doc4 = createDoc(text4, "assembly-test4")
-  val doc5 = createDoc(text5, "assembly-test5")
-  val doc6 = createDoc(text6, "assembly-test6")
+  val mentions1 = getMentionsFromText(text1)
+  val mentions2 = getMentionsFromText(text2)
+  val mentions3 = getMentionsFromText(text3)
+  val mentions4 = getMentionsFromText(text4)
+  val mentions5 = getMentionsFromText(text5)
+  val mentions6 = getMentionsFromText(text6)
   // translocations
-  val doc7 = createDoc(text7, "assembly-test7")
-
-  val mentions1 = testReach.extractFrom(doc1)
-  val mentions2 = testReach.extractFrom(doc2)
-  val mentions3 = testReach.extractFrom(doc3)
-  val mentions4 = testReach.extractFrom(doc4)
-  val mentions5 = testReach.extractFrom(doc5)
-  val mentions6 = testReach.extractFrom(doc6)
-  // translocations
-  val mentions7 = testReach.extractFrom(doc7)
+  val mentions7 = getMentionsFromText(text7)
 
   //
   // SimpleEntity tests
@@ -121,7 +103,10 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     ptm.site.isDefined should be(true)
   }
 
-  // test Translocations
+  //
+  // Translocation tests
+  //
+
   s"$text7" should "contain 2 Translocation events" in {
     val am = AssemblyManager(mentions7)
 
@@ -195,9 +180,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val dePhos = "Mek was dephosphorylated."
   dePhos should "produce a Dephosphorylation event with a Phosphorylation on the input" in {
 
-    val doc = createDoc(dePhos, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(dePhos)
 
     val am = AssemblyManager(mentions)
 
@@ -228,15 +211,43 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   //
+  // Regulation tests
+  //
+
+  val regText1 = "AFT is phosphorylated by BEF."
+  regText1 should "produce one Regulation representation" in {
+
+    val mentions = getMentionsFromText(regText1)
+
+    val am = AssemblyManager(mentions)
+
+    am.getRegulations.size should be(1)
+    am.distinctRegulations.size should be(1)
+  }
+
+  val regText2 = "Akt inhibits the phosphorylation of AFT by BEF."
+  regText2 should "produce two Regulation representations (one with nesting)" in {
+
+    val mentions = getMentionsFromText(regText2)
+
+    val am = AssemblyManager(mentions)
+
+    val regs: Set[Regulation] = am.distinctRegulations
+
+    am.getRegulations.size should be(2)
+    regs.size should be(2)
+
+    regs.count(r => r.controlled.head.isInstanceOf[Regulation]) should be(1)
+  }
+
+  //
   // Negation tests
   //
 
   val negPhos = "Mek was not phosphorylated."
   negPhos should "have a negated SimpleEvent representation for the Phosphorylation mention" in {
 
-    val doc = createDoc(negPhos, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(negPhos)
 
     val am = AssemblyManager(mentions)
 
@@ -250,9 +261,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   val negReg = "Mek was not phosphorylated by Ras."
   negReg should "have a negated Regulation representation" in {
 
-    val doc = createDoc(negReg, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(negReg)
 
     val am = AssemblyManager()
 
@@ -266,9 +275,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   it should "not have a negated SimpleEvent representation for the Phosphorylation" in {
-    val doc = createDoc(negReg, "assembly-test")
 
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(negReg)
 
     val am = AssemblyManager()
 
@@ -284,9 +292,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   // test PrecedenceRelations
 
   it should "not have any precedence relations for the phosphorylation" in {
-    val doc = createDoc(negPhos, "assembly-test")
 
-    val mentions = testReach.extractFrom(doc)
+    val mentions =  getMentionsFromText(negReg)
 
     val am = AssemblyManager()
 
@@ -313,9 +320,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   precedenceText should "have a PrecedenceRelation showing the Phosphorylation following the Binding" in {
 
-    val doc = createDoc(precedenceText, "assembly-test")
-
-    val mentions = testReach.extractFrom(doc)
+    val mentions =  getMentionsFromText(precedenceText)
 
     val am = AssemblyManager()
 
@@ -377,9 +382,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
   }
 
   "AssemblyManager" should s"not contain any EERs for '$negPhos' if all EERs referencing Mek are removed" in {
-    val doc = createDoc(negPhos, "assembly-test")
 
-    val mentions = testReach.extractFrom(doc)
+    val mentions =  getMentionsFromText(negPhos)
 
     val am = AssemblyManager()
 
@@ -394,8 +398,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
   it should "safely handle mentions in any order" in {
     val text = "EHT1864 inhibited AKT phosphorylation induced by LPA and S1P, but not EGF or PDGF"
-    val doc = createDoc(text, "mention-order-test")
-    val mentions = testReach.extractFrom(doc)
+    val mentions = getMentionsFromText(text)
 
     val am1 = AssemblyManager(mentions)
     val am2 = AssemblyManager(mentions.sortBy(_.label))
@@ -421,134 +424,4 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     hasEquivalentEERs(am1, am3) should be(true)
     hasEquivalentEERs(am2, am3) should be(true)
   }
-
-  // Sieve tests
-
-  val tamSent1 = "Once BEF had been phosphorylated, AFT was ubiquitinated"
-
-  tamSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(tamSent1, "tam1-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-  val tamSent2 = "AFT will be ubiquitinated only if BEF is first phosphorylated"
-
-  tamSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(tamSent2, "tam2-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-  val tamSent3 = "AFT was ubiquitinated when BEF had been phosphorylated"
-
-  tamSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(tamSent3, "tam3-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-  val interSent1 = "BEF was phosphorylated. Then, AFT was ubiquitinated."
-
-  interSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent1, "inter1-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-  val interSent2 = "BEF was phosphorylated. Subsequently AFT was ubiquitinated."
-
-  interSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent2, "inter2-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-  val interSent3 = "AFT was ubiquitinated. Prior to this, BEF was phosphorylated."
-
-  interSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent3, "inter3-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-  val interSent4 = "AFT was ubiquitinated. Previously, BEF was phosphorylated."
-
-  interSent4 should "be annotated with the phosphorylation preceding the ubiquitination" in {
-    val doc = createDoc(interSent4, "inter4-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
-  }
-
-
-  // Play it safe by ignoring cues not at the beginning of the sentence.
-  val interSent5 = "AFT was ubiquitinated. There is intervening material and, previously, BEF was phosphorylated."
-
-  interSent5 should "have no precedence relations" in {
-    val doc = createDoc(interSent5, "inter5-test")
-    val mentions = testReach.extractFrom(doc)
-    val am = applySieves(mentions)
-
-    val uRep = am.distinctSimpleEvents("Ubiquitination").head
-    val pRep = am.distinctSimpleEvents("Phosphorylation").head
-
-    am.distinctPredecessorsOf(uRep).size should be(0)
-  }
-
 }

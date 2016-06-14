@@ -24,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Change argument-label tag to type per Hans schema.
+  *   Last Modified: Update to allow regulations of regulations, 2-deep.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -257,6 +257,15 @@ class FriesOutput extends JsonOutputter {
     // now, print all regulation events, which control the above events
     for (mention <- eventMentions) {
       if (REGULATION_EVENTS.contains(mention.label)) {
+        // "reach down" to process any child regulations first, before processing current regulation
+        val controlledRegulations = mention.arguments.getOrElse("controlled", Nil).filter(_.matches("Regulation"))
+        val controllerRegulations = mention.arguments.getOrElse("controller", Nil).filter(_.matches("Regulation"))
+        val regulations = controlledRegulations ++ controllerRegulations
+        for (reg <- regulations) {
+          val passage = getPassageForMention(passageMap, reg)
+          frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap)
+        }
+        // process current regulation
         val passage = getPassageForMention(passageMap, mention)
         frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }

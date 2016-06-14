@@ -1056,7 +1056,7 @@ class AssemblyManager(
     // mention's polarity should be either positive or negative
     require(polarity == AssemblyManager.positive || polarity == AssemblyManager.negative, "Polarity of Regulation must be positive or negative")
     // all controlled args must be simple events
-    require(reg.arguments("controlled").forall(_ matches "SimpleEvent"), "The 'controlled' of any Regulation must be a SimpleEvent")
+    require(reg.arguments("controlled").forall(_ matches "Event"), "The 'controlled' of any Regulation must be an Event")
 
     val controllers: Set[IDPointer] = {
       reg.arguments("controller")
