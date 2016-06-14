@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for use of Uberon as organ KB.
+  *   Last Modified: Change manual KBs to be ad hoc KBs.
   */
 object ReachIMKBMentionLookups {
 
@@ -65,11 +65,11 @@ object ReachIMKBMentionLookups {
     new IMKBMentionLookup(TsvIMKBFactory.make(GendCellLocationFilename, metaInfo))
   }
 
-  /** KB accessor to resolve subcellular location names via manually maintained KBs. */
+  /** KB accessor to resolve subcellular location names via a manually prioritized KB. */
   def manualCellLocationKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualCellLocationFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ManualCellLocationFilename, metaInfo))
+    new IMKBMentionLookup(AdHocIMKBFactory.make(ManualCellLocationFilename, metaInfo))
   }
 
   /** KB accessor to resolve subcellular location names via static KB. */
@@ -97,11 +97,11 @@ object ReachIMKBMentionLookups {
     new IMKBMentionLookup(TsvIMKBFactory.make(GendChemicalFilename, metaInfo))
   }
 
-  /** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
+  /** KB accessor to resolve small molecule (chemical) names via a manually maintained KB. */
   def manualChemicalKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualChemicalFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ManualChemicalFilename, metaInfo))
+    new IMKBMentionLookup(AdHocIMKBFactory.make(ManualChemicalFilename, metaInfo))
   }
 
   /** KB accessor to resolve small molecule (metabolite) names via static KB. */
@@ -138,12 +138,12 @@ object ReachIMKBMentionLookups {
     new IMKBProteinMentionLookup(TsvIMKBFactory.make(GendProteinFilename, metaInfo))
   }
 
-  /** KB accessor to resolve protein names via manually maintained KBs. */
+  /** KB accessor to resolve protein names via a manually maintained KB. */
   def manualProteinKBML: IMKBProteinMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualProteinFilename)
     metaInfo.put("protein", "true")         // mark as from a protein KB
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make(ManualProteinFilename, metaInfo))
+    new IMKBProteinMentionLookup(AdHocIMKBFactory.make(ManualProteinFilename, metaInfo))
   }
 
   /** KB accessor to resolve protein names via static KB. */
@@ -168,12 +168,12 @@ object ReachIMKBMentionLookups {
     new IMKBFamilyMentionLookup(TsvIMKBFactory.make(GendProteinFilename, metaInfo))
   }
 
-  /** KB accessor to resolve protein names via manually maintained KBs. */
+  /** KB accessor to resolve protein names via a manually maintained KB. */
   def manualProteinFamilyKBML: IMKBFamilyMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualProteinFilename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make(ManualProteinFilename, metaInfo))
+    new IMKBFamilyMentionLookup(AdHocIMKBFactory.make(ManualProteinFilename, metaInfo))
   }
 
   /** KB accessor to resolve protein family names via static KB. */

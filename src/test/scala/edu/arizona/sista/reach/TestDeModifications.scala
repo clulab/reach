@@ -701,7 +701,7 @@ class TestDeModifications extends FlatSpec with Matchers {
   val sent3a = "Experiments revealed deubiquitination at Lys residues 104 and 147 of K-Ras"
   s"""K-Ras in "$sent3a"""" should "have 2 EventSites after the modificationEngine" in {
     val mentions =  getEntities(sent3a)
-    val p = mentions.filter(_ matches "Family")
+    val p = mentions.filter(_ matches "Gene_or_gene_product")
     p should have size (1)
     // This tests whether the modification is present
     getEventSites(p.head) should have size (2)
@@ -711,7 +711,7 @@ class TestDeModifications extends FlatSpec with Matchers {
   val sent3b = "Experiments revealed deubiquitination at Lys residues 117, 147, and 170 for H-Ras."
   s""""H-Ras in "$sent3b"s""" should "have 3 EventSites after the modificationEngine" in {
     val mentions =  getEntities(sent3b)
-    val p = mentions.filter(_ matches "Family")
+    val p = mentions.filter(_ matches "Gene_or_gene_product")
     p should have size (1)
     // This tests whether the modification is present
     getEventSites(p.head) should have size (3)

@@ -18,7 +18,7 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Add tests for regulation of regulation.
+  *   Last Modified: Update for confusing GPP/protein schism.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -108,7 +108,8 @@ class TestFriesOutput extends FlatSpec with Matchers {
     val ents = (json \ "entities" \ "frames") \\ "type" \\ classOf[JString]
     ents.isEmpty should be (false)
     (ents.size == 2) should be (true)
-    ents.forall(_ == "protein") should be (true)
+    ents.forall(_ == "protein") should be (false)
+    ents.forall(_ == "gene-or-gene-product") should be (false)
   }
 
   it should "have the given protein names" in {
@@ -186,7 +187,7 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
     val subtypeList = json3 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
-    print(subtypeList)
+    // print(subtypeList)
     subtypeList.isEmpty should be (false)
     subtypeList.size should be (5)
     subtypeList.count(_ == "phosphorylation") should be (1)
