@@ -6,7 +6,7 @@ import edu.arizona.sista.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Activate context tissue type KB.
+  *   Last Modified: Change manual KBs to be ad hoc KBs.
   */
 object ReachIMKBMentionLookups {
 
@@ -65,11 +65,11 @@ object ReachIMKBMentionLookups {
     new IMKBMentionLookup(TsvIMKBFactory.make(GendCellLocationFilename, metaInfo))
   }
 
-  /** KB accessor to resolve subcellular location names via manually maintained KBs. */
+  /** KB accessor to resolve subcellular location names via a manually prioritized KB. */
   def manualCellLocationKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualCellLocationFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ManualCellLocationFilename, metaInfo))
+    new IMKBMentionLookup(AdHocIMKBFactory.make(ManualCellLocationFilename, metaInfo))
   }
 
   /** KB accessor to resolve subcellular location names via static KB. */
@@ -97,11 +97,11 @@ object ReachIMKBMentionLookups {
     new IMKBMentionLookup(TsvIMKBFactory.make(GendChemicalFilename, metaInfo))
   }
 
-  /** KB accessor to resolve small molecule (chemical) names via manually maintained KBs. */
+  /** KB accessor to resolve small molecule (chemical) names via a manually maintained KB. */
   def manualChemicalKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualChemicalFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ManualChemicalFilename, metaInfo))
+    new IMKBMentionLookup(AdHocIMKBFactory.make(ManualChemicalFilename, metaInfo))
   }
 
   /** KB accessor to resolve small molecule (metabolite) names via static KB. */
@@ -138,12 +138,12 @@ object ReachIMKBMentionLookups {
     new IMKBProteinMentionLookup(TsvIMKBFactory.make(GendProteinFilename, metaInfo))
   }
 
-  /** KB accessor to resolve protein names via manually maintained KBs. */
+  /** KB accessor to resolve protein names via a manually maintained KB. */
   def manualProteinKBML: IMKBProteinMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualProteinFilename)
     metaInfo.put("protein", "true")         // mark as from a protein KB
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make(ManualProteinFilename, metaInfo))
+    new IMKBProteinMentionLookup(AdHocIMKBFactory.make(ManualProteinFilename, metaInfo))
   }
 
   /** KB accessor to resolve protein names via static KB. */
@@ -168,12 +168,12 @@ object ReachIMKBMentionLookups {
     new IMKBFamilyMentionLookup(TsvIMKBFactory.make(GendProteinFilename, metaInfo))
   }
 
-  /** KB accessor to resolve protein names via manually maintained KBs. */
+  /** KB accessor to resolve protein names via a manually maintained KB. */
   def manualProteinFamilyKBML: IMKBFamilyMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ManualProteinFilename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make(ManualProteinFilename, metaInfo))
+    new IMKBFamilyMentionLookup(AdHocIMKBFactory.make(ManualProteinFilename, metaInfo))
   }
 
   /** KB accessor to resolve protein family names via static KB. */
@@ -201,22 +201,22 @@ object ReachIMKBMentionLookups {
   def contextCellLineKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ContextCellLineFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ContextCellLineFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, true, metaInfo))
   }
 
-  /** KB accessor to resolve cell types via a context KB.
-    Uses alternate key lookups for organ to cell type inference. */
-  def contextCellTypeKBML: IMKBOrganCellTypeMentionLookup = {
-    val metaInfo = new IMKBMetaInfo()
+  /** KB accessor to resolve cell types via a context KB. */
+  def contextCellTypeKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/cl/", "MIR:00000110")
     metaInfo.put("file", ContextCellTypeFilename)
-    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make(ContextCellTypeFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("cl", ContextCellTypeFilename, metaInfo))
   }
 
-  /** KB accessor to resolve organ names via a context KB. */
-  def contextOrganKBML: IMKBMentionLookup = {
-    val metaInfo = new IMKBMetaInfo()
+  /** KB accessor to resolve organ names via a context KB.
+      Uses alternate key lookups for organ to cell type inference. */
+  def contextOrganKBML: IMKBOrganCellTypeMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/uberon/", "MIR:00000446")
     metaInfo.put("file", ContextOrganFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make(ContextOrganFilename, metaInfo))
+    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make("uberon", ContextOrganFilename, metaInfo))
   }
 
   /** KB accessor to resolve species names via a context KB. */

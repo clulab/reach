@@ -1,5 +1,6 @@
 package edu.arizona.sista.reach
 
+import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.reach.grounding._
@@ -11,9 +12,12 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 3/7/2016
-  *   Last Modified: Add tests for grounding by species context.
+  *   Last Modified: Fix: do not test for human constant strings directly.
   */
 class TestReachGrounder extends FlatSpec with Matchers {
+
+  val config = ConfigFactory.load()
+  val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
 
   val text1 = "AKT1 phosphorylates PTHR2."
   val mentions1 = getBioMentions(text1)
@@ -35,7 +39,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
   "Text1 mentions" should "be grounded as human" in {
     mentions1.filter(_.isInstanceOf[BioTextBoundMention])
              .forall(m => m.grounding.isDefined &&
-                     m.grounding.get.species == "homo sapiens") should be (true)
+                     Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
   }
 
 
@@ -57,9 +61,11 @@ class TestReachGrounder extends FlatSpec with Matchers {
     mentions2.filter(_.isInstanceOf[BioTextBoundMention]).forall(_.grounding.isDefined) should be (true)
   }
 
-  "Text2 mentions" should "not have all rice groundings" in {
-    // This will no longer be true when Reach issue #152 is implemented:
-    mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (true)
+  "Text2 mentions" should "may or may not have all rice groundings" in {
+    // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
+    mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (!overrideSpecies)
+    // Using species, this will no longer be true when Reach issue #152 is implemented:
+    // mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (true)
     // This will only pass when Reach issue #152 is implemented:
     // mentions2.filter(m => hasSpeciesContext(m)).forall(m => m.isGrounded && m.grounding.get.species == "rice") should be (false)
   }
@@ -69,7 +75,8 @@ class TestReachGrounder extends FlatSpec with Matchers {
     (!spms.isEmpty) should be (true)
     // This will only pass when Reach issue #152 is implemented:
     // (spms(0).isGrounded && spms(0).grounding.get.species == "mouse") should be (true)
-    (spms(1).isGrounded && spms(1).grounding.get.species == "rice") should be (true)
+    // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
+    (spms(1).isGrounded && spms(1).grounding.get.species == "rice") should be (!overrideSpecies)
   }
 
 
@@ -86,7 +93,8 @@ class TestReachGrounder extends FlatSpec with Matchers {
     mentions3.isEmpty should be (false)
     val spms = mentions3.filter(m => hasSpeciesContext(m))
     (!spms.isEmpty) should be (true)
-    spms.forall(m => m.isGrounded && m.grounding.get.species == "mouse") should be (true)
+    // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
+    spms.forall(m => m.isGrounded && m.grounding.get.species == "mouse") should be (!overrideSpecies)
   }
 
   // Test same proteins in human context:
@@ -136,7 +144,8 @@ class TestReachGrounder extends FlatSpec with Matchers {
     (!spms0.isEmpty) should be (true)
     val spms1 = mentions6.filter(m => hasSpeciesContext(m) && (m.sentence == 1))
     (!spms1.isEmpty) should be (true)
-    spms0.forall(m => m.isGrounded && m.grounding.get.species == "rat") should be (true)
+    // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
+    spms0.forall(m => m.isGrounded && m.grounding.get.species == "rat") should be (!overrideSpecies)
     spms1.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
   }
 

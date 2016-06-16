@@ -10,67 +10,67 @@ import edu.arizona.sista.reach.mentions._
   * Date: 5/22/15
   */
 class TestCoreference extends FlatSpec with Matchers {
-  val sent1 = "ASPP2 is even more common than Ras, and it is often ubiquitinated."
+  val sent1 = "ASPP2 is even more common than BEF, and it is often ubiquitinated."
   sent1 should "not produce a ubiquitination of ASPP2" in {
     val mentions = getBioMentions(sent1)
     TestUtils.hasEventWithArguments("Ubiquitination", List("ASPP2"), mentions) should be (true)
   }
-  it should "produce a ubiquitination of Ras" in {
+  it should "produce a ubiquitination of BEF" in {
     val mentions = getBioMentions(sent1)
-    TestUtils.hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (false)
+    TestUtils.hasEventWithArguments("Ubiquitination", List("BEF"), mentions) should be (false)
   }
 
-  val sent2 = "Even more than Ras, ASPP2 is common, as is their phosphorylation."
-  sent2 should "produce two phosphorylations, one of ASPP2 and one of Ras" in {
+  val sent2 = "Even more than BEF, ASPP2 is common, as is their phosphorylation."
+  sent2 should "produce two phosphorylations, one of ASPP2 and one of BEF" in {
     val mentions = getBioMentions(sent2)
-    TestUtils.hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
+    TestUtils.hasEventWithArguments("Phosphorylation", List("BEF"), mentions) should be (true)
     TestUtils.hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
     mentions.filter(_.label == "Phosphorylation") should have size 2
   }
 
-  val sent3 = "Even more than Ras, ASPP2 is common, as is their binding."
-  sent3 should "produce one binding of Ras and ASPP2" in {
+  val sent3 = "Even more than BEF, ASPP2 is common, as is their binding."
+  sent3 should "produce one binding of BEF and ASPP2" in {
     val mentions = getBioMentions(sent3)
-    TestUtils.hasEventWithArguments("Binding", List("Ras", "ASPP2"), mentions) should be (true)
+    TestUtils.hasEventWithArguments("Binding", List("BEF", "ASPP2"), mentions) should be (true)
     mentions.filter(_.label == "Binding") should have size 1
   }
 
-  val sent4 = "ASPP2 is common, even more than Ras and Mek, and so is its binding to them."
-  sent4 should "produce two bindings: (Ras, ASPP2), (Mek, ASPP2)" in {
+  val sent4 = "ASPP2 is common, even more than BEF and Mek, and so is its binding to them."
+  sent4 should "produce two bindings: (BEF, ASPP2), (Mek, ASPP2)" in {
     val mentions = getBioMentions(sent4)
-    TestUtils.hasEventWithArguments("Binding", List("Ras", "ASPP2"), mentions) should be (true)
+    TestUtils.hasEventWithArguments("Binding", List("BEF", "ASPP2"), mentions) should be (true)
     TestUtils.hasEventWithArguments("Binding", List("Mek", "ASPP2"), mentions) should be (true)
-    TestUtils.hasEventWithArguments("Binding", List("Mek", "Ras"), mentions) should be (false)
+    TestUtils.hasEventWithArguments("Binding", List("Mek", "BEF"), mentions) should be (false)
     mentions.filter(_.label == "Binding") should have size 2
   }
 
-  val sent5 = "To address the effect of Ras ubiquitination on its binding to PI3K and Raf family members, either " +
-    "total G12V-K-Ras or the ubiquitinated subfraction of G12V-K-Ras was immunoprecipitated and the immunoprecipitates " +
-    "were probed with antibodies to detect associated Ras effector molecules."
+  val sent5 = "To address the effect of BEF ubiquitination on its binding to PI3K and Raf family members, either " +
+    "total G12V-K-BEF or the ubiquitinated subfraction of G12V-K-BEF was immunoprecipitated and the immunoprecipitates " +
+    "were probed with antibodies to detect associated BEF effector molecules."
   sent5 should "contain 2 binding events" in {
     val mentions = getBioMentions(sent5)
-    hasEventWithArguments("Ubiquitination", List("Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("Ras", "Raf"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
+    hasEventWithArguments("Ubiquitination", List("BEF"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("BEF", "Raf"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("PI3K", "BEF"), mentions) should be (true)
   }
 
   // Ensure that regulation is removed if no resolved controller is found.
-  val sent6 = "It phosphorylates Ras."
+  val sent6 = "It phosphorylates BEF."
   sent6 should "contain no positive regulation" in {
     val mentions = getBioMentions(sent6)
     mentions.filter(_ matches "Positive_regulation") should have size (0)
-    hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("BEF"), mentions) should be (true)
   }
 
   // Ensure that controller cannot be antecedent to controlled's arguments
-  val sent7 = "Ras phosphorylates it."
+  val sent7 = "BEF phosphorylates it."
   sent7 should "produce no events" in {
     val mentions = getBioMentions(sent7)
     mentions.filter(_.isInstanceOf[BioEventMention]) should have size (0)
     mentions should have size (1)
   }
 
-  val sent8 = "ASPP2 is common, it is well known, and Ras sumoylates it."
+  val sent8 = "ASPP2 is common, it is well known, and BEF sumoylates it."
   sent8 should "contain one sumoylation and one regulation" in {
     val mentions = getBioMentions(sent8)
     TestUtils.hasEventWithArguments("Sumoylation", List("ASPP2"), mentions) should be (true)
@@ -81,54 +81,54 @@ class TestCoreference extends FlatSpec with Matchers {
     reg.get.arguments("controller") should have size (1)
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
-    controller.text should be ("Ras")
+    controller.text should be ("BEF")
   }
 
   // Works across sentences; ignores irrelevant pronouns.
-  val sent9 = "Much work has been done on ASPP2. It is known that Ras binds it."
+  val sent9 = "Much work has been done on ASPP2. It is known that BEF binds it."
   sent9 should "contain one binding and no other events" in {
     val mentions = getBioMentions(sent9)
     mentions.find(_ matches "ComplexEvent") should not be ('defined)
-    hasEventWithArguments("Binding", List("Ras", "ASPP2"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("BEF", "ASPP2"), mentions) should be (true)
     mentions.filter(_.isInstanceOf[BioEventMention]) should have size (1)
   }
 
   // Number-sensitive search works with cause controllers but not triggered regulation plurals
-  val sent10 = "Ras and Mek are in proximity, and they phosphorylate ASPP2."
-  val sent10a = "Ras and Mek are in proximity, and they upregulate the phosphorylation of ASPP2."
+  val sent10 = "BEF and Mek are in proximity, and they phosphorylate ASPP2."
+  val sent10a = "BEF and Mek are in proximity, and they upregulate the phosphorylation of ASPP2."
   sent10 should "contain one phosphorylation and two regulations" in {
     val mentions = getBioMentions(sent10)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions)
     mentions.filter(_ matches "Positive_regulation") should have size (2)
-    hasPositiveRegulationByEntity("Ras","BioChemicalEntity",Seq("ASPP2"),mentions)
+    hasPositiveRegulationByEntity("BEF","BioChemicalEntity",Seq("ASPP2"),mentions)
     hasPositiveRegulationByEntity("Mek","BioChemicalEntity",Seq("ASPP2"),mentions)
   }
   sent10a should "contain one phosphorylation and two regulations" in {
     val mentions = getBioMentions(sent10a)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions)
     mentions.filter(_ matches "Positive_regulation") should have size (2)
-    hasPositiveRegulationByEntity("Ras","BioChemicalEntity",Seq("ASPP2"),mentions)
+    hasPositiveRegulationByEntity("BEF","BioChemicalEntity",Seq("ASPP2"),mentions)
     hasPositiveRegulationByEntity("Mek","BioChemicalEntity",Seq("ASPP2"),mentions)
   }
 
   // Number-sensitive search works with cause controlleds but not triggered regulation plurals
-  val sent11 = "Ras and Mek are in proximity, and ASPP2 phosphorylates them."
+  val sent11 = "BEF and Mek are in proximity, and ASPP2 phosphorylates them."
   sent11 should "contain two phosphorylation and two regulations" in {
     val mentions = getBioMentions(sent11)
     mentions.filter(_ matches "Phosphorylation") should have size (2)
-    hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("BEF"), mentions) should be (true)
     hasEventWithArguments("Phosphorylation", List("Mek"), mentions) should be (true)
     mentions.filter(_ matches "Positive_regulation") should have size (2)
-    hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("Ras"),mentions)
+    hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("BEF"),mentions)
     hasPositiveRegulationByEntity("ASPP2","Phosphorylation",Seq("Mek"),mentions)
   }
 
   // Number-sensitive search works with activation controllers, but plurals are forbidden.
-  val sent12 = "Ras is in proximity, and it activates ASPP2."
+  val sent12 = "BEF is in proximity, and it activates ASPP2."
   sent12 should "contain a Positive_activation" in {
     val mentions = getBioMentions(sent12)
     mentions.filter(_ matches "ActivationEvent") should have size (1)
-    hasEventWithArguments("Positive_activation", List("Ras", "ASPP2"), mentions) should be (true)
+    hasEventWithArguments("Positive_activation", List("BEF", "ASPP2"), mentions) should be (true)
   }
 
   // Number-sensitive search works with activation controlleds, but plurals are forbidden.
@@ -139,7 +139,7 @@ class TestCoreference extends FlatSpec with Matchers {
     hasEventWithArguments("Positive_activation", List("ASPP2", "Mek"), mentions) should be (true)
   }
 
-  // Sane noun phrases should be matched
+  // Sane noun phBEFes should be matched
   val sent14 = "ASPP1 is common, and this protein binds GTP."
   sent14 should "contain one binding event only" in {
     val mentions = getBioMentions(sent14)
@@ -155,8 +155,8 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions should have size (1)
   }
 
-  // Ignore noun phrases that can't have BioChemicalEntity antecedents
-  val sent15 = "Ras is common, and a mouse binds GTP."
+  // Ignore noun phBEFes that can't have BioChemicalEntity antecedents
+  val sent15 = "BEF is common, and a mouse binds GTP."
   sent15 should "not contain any events" in {
     val mentions = getBioMentions(sent15)
     mentions filter (_ matches "Event") should have size (0)
@@ -164,25 +164,25 @@ class TestCoreference extends FlatSpec with Matchers {
   }
 
   // Ignore anything two sentences prior when searching for antecedents.
-  val sent16 = "Ras is common. This is an intervening sentence. It binds Mek."
+  val sent16 = "BEF is common. This is an intervening sentence. It binds Mek."
   sent16 should "not contain any events" in {
     val mentions = getBioMentions(sent16)
     mentions filter (_ matches "Event") should have size (0)
   }
 
   // Can find an antecedent mention between start of event mention and start of text bound mention
-  val sent17 = "ASPP2 is common, and Ras binds the Mek protein."
-  sent17 should "contain a single binding between Mek and Ras" in {
+  val sent17 = "ASPP2 is common, and BEF binds the Mek protein."
+  sent17 should "contain a single binding between Mek and BEF" in {
     val mentions = getBioMentions(sent17)
-    hasEventWithArguments("Binding", List("Ras", "Mek"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("Ras", "ASPP2"), mentions) should be (false)
+    hasEventWithArguments("Binding", List("BEF", "Mek"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("BEF", "ASPP2"), mentions) should be (false)
     hasEventWithArguments("Binding", List("Mek", "ASPP2"), mentions) should be (false)
   }
 
   // Events with invalid numbers of antecedents are ignored
-  val sent18 = "ASPP2 and Ras are common, as is its binding."
-  val sent18a = "ASPP2 and Ras are common, as is their activation."
-  val sent18b = "The phosphorylation of ASPP2 and Ras is common, as is their upregulation."
+  val sent18 = "ASPP2 and BEF are common, as is its binding."
+  val sent18a = "ASPP2 and BEF are common, as is their activation."
+  val sent18b = "The phosphorylation of ASPP2 and BEF is common, as is their upregulation."
   sent18 should "not contain any events" in {
     val mentions = getBioMentions(sent18)
     mentions filter (_ matches "Event") should have size (0)
@@ -199,16 +199,16 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions filter (_ matches "ActivationEvent") should have size (0)
     mentions filter (_ matches "Phosphorylation") should have size (2)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
-    hasEventWithArguments("Phosphorylation", List("Ras"), mentions) should be (true)
+    hasEventWithArguments("Phosphorylation", List("BEF"), mentions) should be (true)
   }
 
-  val sent19 = "ASPP1 is common, and it binds Mek and Ras"
-  sent19 should "contain two bindings, (ASPP1,Mek) and (ASPP1,Ras)" in {
+  val sent19 = "ASPP1 is common, and it binds Mek and BEF"
+  sent19 should "contain two bindings, (ASPP1,Mek) and (ASPP1,BEF)" in {
     val mentions = getBioMentions(sent19)
     mentions filter (_ matches "Binding") should have size (2)
     mentions filter (_ matches "Event") should have size (2)
     hasEventWithArguments("Binding", List("ASPP1", "Mek"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("ASPP1", "Ras"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("ASPP1", "BEF"), mentions) should be (true)
   }
 
   val sent20 = "We also monitored how siRNA-induced loss of LMTK2 influenced phosphorylation of PP1Cthr320. Four " +
@@ -419,20 +419,20 @@ class TestCoreference extends FlatSpec with Matchers {
 //  "(TD) and K650M (SADDAN and TD) mutants were expressed in CHO cells. It is possible that N540K, G380R, R248C and " +
 //  "Y373C mutants still activate STAT1 in cells, despite the lack of this capacity in a kinase assay"
 //
-//  val sent36 = "GST-N343 was phosphorylated. In contrast, its Ala mutant at Ser34 (S34A) was not phosphorylated. The " +
+//  val sent36 = "GST-N343 was phosphorylated. In contBEFt, its Ala mutant at Ser34 (S34A) was not phosphorylated. The " +
 //    "Ala mutant at Thr149 was phosphorylated by Cdk5/p35, similarly to the unmutated fragment."
 
-  // Spread grounding from Ras to ungrounded alias H-Ras.
-  val sent37a = "H-Ras (hereafter referred to as Ras) is phosphorylated."
-  sent37a should "apply Ras grounding to H-Ras" in {
+  // Spread grounding from BEF to ungrounded alias BEF4H.
+  val sent37a = "BEF4H protein (hereafter referred to as BEF) is phosphorylated."
+  sent37a should "apply BEF grounding to BEF4H" in {
     val mentions = getBioMentions(sent37a)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Order shouldn't matter
-  val sent37b = "Ras (hereafter referred to as K-Ras) is phosphorylated."
-  sent37b should "apply Ras grounding to K-Ras" in {
+  val sent37b = "BEF (hereafter referred to as BEF4H) is phosphorylated."
+  sent37b should "apply BEF grounding to BEF4H" in {
     val mentions = getBioMentions(sent37b)
     val entities = mentions filter (_ matches "Entity")
     entities should have size (2)
@@ -446,30 +446,30 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
-  val sent39 = "K-Ras (hereafter referred to as S135) is phosphorylated."
-  sent39 should "not apply S135 grounding to H-Ras or vice versa" in {
+  val sent39 = "BEF (hereafter referred to as S135) is phosphorylated."
+  sent39 should "not apply S135 grounding to H-BEF or vice versa" in {
     val mentions = getBioMentions(sent39)
     val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
     entities should have size (2)
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
-  val sent40 = "K-Ras, sometimes called Ras, phosphorylates Akt."
-  sent40 should "apply Ras grounding to H-Ras" in {
+  val sent40 = "BEF4H, sometimes called BEF, phosphorylates Akt."
+  sent40 should "apply BEF grounding to BEF4H" in {
     val mentions = getBioMentions(sent40)
-    val kras = mentions.find(_.text == "K-Ras")
-    val ras = mentions.find(_.text == "Ras")
-    kras.isDefined should be (true)
-    ras.isDefined should be (true)
-    kras.get.grounding.get.equals(ras.get.grounding.get) should be (true)
+    val ungrounded = mentions.find(_.text == "BEF4H")
+    val grounded = mentions.find(_.text == "BEF")
+    ungrounded.isDefined should be (true)
+    grounded.isDefined should be (true)
+    ungrounded.get.grounding.get.equals(grounded.get.grounding.get) should be (true)
   }
-  val sent41 = "K-Ras (alias Ras) phosphorylates Akt."
-  sent41 should "apply Ras grounding to H-Ras" in {
+  val sent41 = "BEF4H (alias BEF) phosphorylates Akt."
+  sent41 should "apply BEF grounding to BEF4H" in {
     val mentions = getBioMentions(sent41)
-    val kras = mentions.find(_.text == "K-Ras")
-    val ras = mentions.find(_.text == "Ras")
-    kras.isDefined should be (true)
-    ras.isDefined should be (true)
-    kras.get.grounding.get.equals(ras.get.grounding.get) should be (true)
+    val ungrounded = mentions.find(_.text == "BEF4H")
+    val grounded = mentions.find(_.text == "BEF")
+    ungrounded.isDefined should be (true)
+    grounded.isDefined should be (true)
+    ungrounded.get.grounding.get.equals(grounded.get.grounding.get) should be (true)
   }
   // Series should work with 'or'
   val sent42 = "Akt (a.k.a. Akt334, AktTR, or Akt4H) is phosphorylated."
@@ -479,7 +479,7 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (4)
     entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)
   }
-  // Series should not work with 'and' (because we could have "Ras and Akt (a.k.a. Ras334 and Akt4H)"),
+  // Series should not work with 'and' (because we could have "BEF and Akt (a.k.a. BEF334 and Akt4H)"),
   // which isn't handled yet.
   val sent43 = "Akt (a.k.a. Akt334 and Akt4H) is phosphorylated."
   sent43 should "not apply Akt grounding to other proteins" in {
@@ -535,8 +535,8 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent47)
   }
   // No error indicating CorefMentions that should have been split but weren't
-  val sent48 = "Since EGFR mutation is known to be associated with sensitivity to erlotinib, and KRAS mutations are " +
-    "associated with resistance, we focused on the group of wild-type EGFR/KRAS cell lines. We found that the half " +
+  val sent48 = "Since EGFR mutation is known to be associated with sensitivity to erlotinib, and KRas mutations are " +
+    "associated with resistance, we focused on the group of wild-type EGFR/KRas cell lines. We found that the half " +
     "maximal inhibitory concentration (IC50) for erlotinib was significantly higher in cell lines that segregated to " +
     "clusters with methylated SRAMs compared to those that segregated to clusters with unmethylated SRAMs"
   sent48 should "not produce an error" in {

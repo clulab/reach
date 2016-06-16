@@ -42,7 +42,7 @@ object CorefUtils {
 
   /**
    * Is the mention generic, e.g. "it", or does it have an argument containing a generic mention,
-   * e.g. "It is phophorylated"?
+   * e.g. "It is phosphorylated"?
    */
   def genericInside (m: CorefMention): Boolean = {
     @tailrec def genericInsideRec(ms: Seq[CorefMention]): Boolean = {
@@ -57,7 +57,7 @@ object CorefUtils {
   }
 
   /**
-   * Are the arguments for this mention complete? Phophorylations require a theme, etc.
+   * Are the arguments for this mention complete? Phosphorylations require a theme, etc.
    */
   def argsComplete(args: Map[String,Seq[CorefMention]], lbls: Seq[String]): Boolean = {
     lbls match {

@@ -360,6 +360,18 @@
     theme1:BioChemicalEntity+ = (<rcmod | <vmod)
     theme2:BioChemicalEntity+ = (<rcmod | <vmod) (<rcmod | rcmod)
 
+# rules for "Complex formation"
+- name: binding_complex_formation_1
+  label: Binding
+  action: mkBinding
+  priority: ${priority}
+  # sentence from PMC534114
+  example: "These responses are mediated by complex formation between p85, the regulatory subunit of PI-3 kinase, and three canonical tyrosine phosphorylation sites on Gab1."
+  pattern: |
+    trigger = [lemma=complex] [lemma=formation]
+    theme1:BioChemicalEntity+ = >prep_between /nn|conj_|cc/{,2}
+    theme2:BioChemicalEntity+ = >conj_and >prep_on? /nn|conj_|cc/{,2}
+
 # Token pattern rule for [complex/heterodimer A and B] is
 - name: binding_complex_A_B
   label: Binding

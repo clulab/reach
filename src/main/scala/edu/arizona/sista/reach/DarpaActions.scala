@@ -123,9 +123,9 @@ class DarpaActions extends Actions {
   def mkUbiquitination(mentions: Seq[Mention], state: State): Seq[Mention] = {
     val filteredMentions = mentions.filterNot { ev =>
       // Only keep mentions that don't have ubiquitin as a theme
-      ev.arguments("theme").exists(_.text.toLowerCase.contains("ubiq")) ||
+      ev.arguments("theme").exists(_.text.toLowerCase == "ubiquitin") ||
       // mention shouldn't have ubiquitin as a cause either, if there is a cause
-      ev.arguments.get("cause").map(_.exists(_.text.toLowerCase.contains("ubiq"))).getOrElse(false)
+      ev.arguments.get("cause").exists(_.exists(_.text.toLowerCase == "ubiquitin"))
     }
     // return biomentions
     filteredMentions.map(_.toBioMention)
@@ -133,8 +133,7 @@ class DarpaActions extends Actions {
 
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    // iterate over mentions giving preference to mentions that have an event controller
-    mention <- sortMentionsByController(mentions)
+    mention <- mentions
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
     if !hasSynPathOverlap(mention)
@@ -371,8 +370,9 @@ class DarpaActions extends Actions {
 
   /** global action for EventEngine */
   def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    val r0 = filterEventsWithExtraRecursion(mentions, state)
-    val r1 = siteSniffer(r0, state)
+    // Regulations of regulations now allowed.
+    // val r0 = filterEventsWithExtraRecursion(mentions, state)
+    val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
     val r4 = HypothesisHandler.detectHypotheses(r3, state)
@@ -498,7 +498,7 @@ class DarpaActions extends Actions {
 
 
   /** Test whether the given mention has a controller argument. */
-  def hasController(mention: Mention): Boolean = mention.arguments.get("controlled").isDefined
+  def hasController(mention: Mention): Boolean = mention.arguments.get("controller").isDefined
 
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
@@ -579,18 +579,6 @@ class DarpaActions extends Actions {
       BioMention.copyAttachments(entity, modifiedEntity)
       modifiedEntity.modifications += PTM(label, evidence = Some(event.trigger), site = siteOption)
       Some(modifiedEntity)
-    }
-  }
-
-  /** sorts a sequence of Mentions so that mentions with event controllers appear first */
-  def sortMentionsByController(mentions: Seq[Mention]): Seq[Mention] = mentions sortWith { (m1, m2) =>
-    // get the controller of the first mention
-    val ctrl1 = m1.arguments.get("controller")
-    val ctrl2 = m2.arguments.get("controller")
-    (ctrl1, ctrl2) match {
-      case (Some(Seq(c1)), Some(Seq(c2))) if c1.matches("Event") && !c2.matches("Event") => true
-      case (Some(Seq(c1)), None) => true
-      case _ => false
     }
   }
 
