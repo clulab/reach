@@ -158,40 +158,28 @@ class ReachSystem(
 
 object ReachSystem {
 
-  // This function should set the right displayMention for each mention.
-  // By default the displayMention is set to the main label of the mention,
-  // so sometimes it may not require modification
-  def resolveDisplay(ms: Seq[CorefMention]): Seq[CorefMention] = {
-    // let's do a first attempt, using only preliminary grounding info
-    // this is useful for entities that do not participate in events
-    for(m <- ms) {
+  /** This function should set the right displayMention for each mention.
+    * NB: By default the displayMention is set to the main label of the mention,
+    *     so, after extraction, it should never be null.
+    */
+  def resolveDisplay (ms: Seq[CorefMention]): Seq[CorefMention] = {
+    for (m <- ms) {
       m match {
         case em:TextBoundMention with Display with Grounding =>
-          if (m.isGrounded) {
-            if (ReachKBUtils.isFamilyGrounded(m))
-              m.displayLabel = "Family"
-            else if (ReachKBUtils.isProteinGrounded(m))
-              m.displayLabel = "Protein"
-          }
-        case _ => // nothing to do
+          resolveDisplayForEntity(m)
+        case rm:RelationMention with Display with Grounding =>
+          resolveDisplayForArguments(m, new HashSet[String])
+        case vm:EventMention with Display with Grounding =>
+          resolveDisplayForArguments(m, new HashSet[String])
+        case _ =>                           // nothing to do
       }
     }
-
-    // now let's try to disambiguate Gene_or_gene_product that participate in events
-    for(m <- ms) {
-      if(m.labels.contains("Event")) {
-        val parents = new HashSet[String]
-        resolveDisplayForArguments(m, parents)
-      }
-    }
-
-    // last resort: displayLabel is set to the default value
-    ms.foreach(m => if(m.displayLabel == null) m.displayLabel = m.label)
     ms
   }
 
-  def resolveDisplayForArguments(em:CorefMention, parents:Set[String]) {
-    if(em.labels.contains("Event")) { // recursively traverse the arguments of events
+  /** Recursively traverse the arguments of events and handle GPP entities. */
+  def resolveDisplayForArguments (em: CorefMention, parents: Set[String]) {
+    if (em.labels.contains("Event")) {      // recursively traverse the arguments of events
       val newParents = new mutable.HashSet[String]()
       newParents ++= parents
       newParents += em.label
@@ -199,12 +187,19 @@ object ReachSystem {
         val crm = m.asInstanceOf[CorefMention]
         resolveDisplayForArguments(crm.antecedentOrElse(crm), newParents.toSet)
       }))
-    } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
-      if (ReachKBUtils.isFamilyGrounded(em)) {
-        // found a Family incorrectly labeled as protein
+    }
+    else if (em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
+      resolveDisplayForEntity(em, Some(parents))
+    }
+  }
+
+  /** Set the displayLabel for a single mention, using optional parent label set information. */
+  def resolveDisplayForEntity (em: CorefMention, parents: Option[Set[String]] = None) {
+    if (em.labels.contains("Gene_or_gene_product")) {
+      if (em.isGrounded && ReachKBUtils.isFamilyGrounded(em)) {
         em.displayLabel = "Family"
-      } else if(parents.contains("Transcription")) {
-        // found a Gene
+      }
+      else if (parents.exists(_.contains("Transcription"))) {
         em.displayLabel = "Gene"
       } else {
         em.displayLabel = "Protein"
