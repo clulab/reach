@@ -201,14 +201,14 @@ object ReachIMKBMentionLookups {
   def contextCellLineKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ContextCellLineFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, true, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("uaz", ContextCellLineFilename, true, metaInfo))
   }
 
   /** KB accessor to resolve cell types via a context KB. */
   def contextCellTypeKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/cl/", "MIR:00000110")
     metaInfo.put("file", ContextCellTypeFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make("cl", ContextCellTypeFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("uaz", ContextCellTypeFilename, metaInfo))
   }
 
   /** KB accessor to resolve organ names via a context KB.
@@ -216,7 +216,7 @@ object ReachIMKBMentionLookups {
   def contextOrganKBML: IMKBOrganCellTypeMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uberon/", "MIR:00000446")
     metaInfo.put("file", ContextOrganFilename)
-    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make("uberon", ContextOrganFilename, metaInfo))
+    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make("uaz", ContextOrganFilename, metaInfo))
   }
 
   /** KB accessor to resolve species names via a context KB. */
