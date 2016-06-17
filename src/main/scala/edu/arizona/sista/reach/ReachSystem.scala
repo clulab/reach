@@ -49,7 +49,7 @@ class ReachSystem(
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
-    val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
+    val id = if (chunkId.isEmpty) docId else s"${docId}_$chunkId"
     doc.id = Some(id)
     doc
   }
@@ -79,7 +79,7 @@ class ReachSystem(
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
 
-    resolveDisplay(complete)
+    resolveDisplayLabelForEntities(complete)
   }
 
   // this method groups the mentions by document
@@ -99,7 +99,7 @@ class ReachSystem(
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", false, doc.text.get)), Seq(doc))
+    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", isTitle = false, doc.text.get)), Seq(doc))
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -159,56 +159,49 @@ class ReachSystem(
 object ReachSystem {
 
   // This function should set the right displayMention for each mention.
-  // By default the displayMention is set to the main label of the mention,
-  // so sometimes it may not require modification
-  def resolveDisplay(ms: Seq[CorefMention]): Seq[CorefMention] = {
-    // let's do a first attempt, using only preliminary grounding info
-    // this is useful for entities that do not participate in events
+  def resolveDisplayLabelForEntities(ms:Seq[CorefMention]): Seq[CorefMention] = {
+    // 1. change GGP to Gene if the entity participates in a Transcription event
     for(m <- ms) {
+      if(m.labels.contains("Event")) {
+        val parents = new HashSet[String]
+        resolveDisplayLabelForGenes(m, parents)
+      }
+    }
+
+    // 2. disambiguate between Protein and Family based on grounding
+    for(m <- ms if m.displayLabel == null) {
       m match {
         case em:TextBoundMention with Display with Grounding =>
-          if (m.isGrounded) {
-            if (ReachKBUtils.isFamilyGrounded(m))
+          if(m.labels.contains("Gene_or_gene_product")) {
+            if (m.isGrounded && ReachKBUtils.isFamilyGrounded(m)) {
+              // found a Family incorrectly labeled as protein
               m.displayLabel = "Family"
-            else if (ReachKBUtils.isProteinGrounded(m))
+            } else {
               m.displayLabel = "Protein"
+            }
           }
         case _ => // nothing to do
       }
     }
 
-    // now let's try to disambiguate Gene_or_gene_product that participate in events
-    for(m <- ms) {
-      if(m.labels.contains("Event")) {
-        val parents = new HashSet[String]
-        resolveDisplayForArguments(m, parents)
-      }
-    }
-
-    // last resort: displayLabel is set to the default value
+    // 3. last resort, should not be needed: displayLabel is set to the default value
     ms.foreach(m => if(m.displayLabel == null) m.displayLabel = m.label)
+
     ms
   }
 
-  def resolveDisplayForArguments(em:CorefMention, parents:Set[String]) {
+  def resolveDisplayLabelForGenes(em:CorefMention, parents:Set[String]) {
     if(em.labels.contains("Event")) { // recursively traverse the arguments of events
       val newParents = new mutable.HashSet[String]()
       newParents ++= parents
       newParents += em.label
       em.arguments.values.foreach(ms => ms.foreach( m => {
         val crm = m.asInstanceOf[CorefMention]
-        resolveDisplayForArguments(crm.antecedentOrElse(crm), newParents.toSet)
+        resolveDisplayLabelForGenes(crm.antecedentOrElse(crm), newParents.toSet)
       }))
-    } else if(em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
-      if (ReachKBUtils.isFamilyGrounded(em)) {
-        // found a Family incorrectly labeled as protein
-        em.displayLabel = "Family"
-      } else if(parents.contains("Transcription")) {
-        // found a Gene
-        em.displayLabel = "Gene"
-      } else {
-        em.displayLabel = "Protein"
-      }
+    } else if(em.labels.contains("Gene_or_gene_product") && parents.contains("Transcription")) {
+      // found a Gene
+      em.displayLabel = "Gene"
     }
   }
 
