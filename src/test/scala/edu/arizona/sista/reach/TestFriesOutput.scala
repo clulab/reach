@@ -18,7 +18,7 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Update for confusing GPP/protein schism.
+  *   Last Modified: Update for fix of issue #236.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -108,8 +108,7 @@ class TestFriesOutput extends FlatSpec with Matchers {
     val ents = (json \ "entities" \ "frames") \\ "type" \\ classOf[JString]
     ents.isEmpty should be (false)
     (ents.size == 2) should be (true)
-    ents.forall(_ == "protein") should be (false)
-    ents.forall(_ == "gene-or-gene-product") should be (false)
+    ents.forall(_ == "protein") should be (true)
   }
 
   it should "have the given protein names" in {
