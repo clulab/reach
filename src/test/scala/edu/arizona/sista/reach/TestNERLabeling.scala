@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Update for use of Uberon as organ KB.
+  *   Last Modified: Update for use of manual simple chemical overrides.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -24,6 +24,8 @@ class TestNERLabeling extends FlatSpec with Matchers {
   // this tests from PFAM AND InterPro protein family KBs:
   val Family = "CDC73_N, RcsD-ABL domain, zinc-ribbon domain, Rho_RNA_bind, RasGAP_C, zwf, PTHR10856:SF10, GLHYDRLASE27, Ras guanyl-releasing protein 1, and Jiraiya cause cancer."
   val Gene_or_gene_product = "CK-40, ZZANK2, MCH-1R, RAS1, and hemAT cause cancer."
+  // this tests overrides of simple chemical identifications:
+  val manual_chemicals = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
   val Organ = "Acetabulum, Visceral Pericardium, malleolar bone, Vena cava sinus, and zygopodium cause cancer"
   val Simple_chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and Monic acid cause cancer"
   val Site = "ALOG domain, AMIN domain, KIP1-like, KEN domain, and HAS subgroup cause cancer"
@@ -117,6 +119,14 @@ class TestNERLabeling extends FlatSpec with Matchers {
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (8)
     mentions.count(_ matches "Species") should be (8)
+  }
+
+  "Manual Chemical entities" should "have override labels" in {
+    val mentions = getBioMentions(manual_chemicals)
+    mentions.isEmpty should be (false)
+    // printMentions(Try(mentions), true)      // DEBUGGING
+    mentions.size should be (6)
+    mentions.count(_ matches "Simple_chemical") should be (6)
   }
 
 }
