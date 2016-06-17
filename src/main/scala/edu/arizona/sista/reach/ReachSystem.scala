@@ -49,7 +49,7 @@ class ReachSystem(
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = processor.annotate(text, keepText = true)
-    val id = if (chunkId.isEmpty) docId else s"${docId}_$chunkId"
+    val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
     doc
   }
@@ -79,7 +79,7 @@ class ReachSystem(
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
     // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
 
-    resolveDisplayLabelForEntities(complete)
+    resolveDisplay(complete)
   }
 
   // this method groups the mentions by document
@@ -99,7 +99,7 @@ class ReachSystem(
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", isTitle = false, doc.text.get)), Seq(doc))
+    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", false, doc.text.get)), Seq(doc))
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
@@ -158,50 +158,52 @@ class ReachSystem(
 
 object ReachSystem {
 
-  // This function should set the right displayMention for each mention.
-  def resolveDisplayLabelForEntities(ms:Seq[CorefMention]): Seq[CorefMention] = {
-    // 1. change GGP to Gene if the entity participates in a Transcription event
-    for(m <- ms) {
-      if(m.labels.contains("Event")) {
-        val parents = new HashSet[String]
-        resolveDisplayLabelForGenes(m, parents)
-      }
-    }
-
-    // 2. disambiguate between Protein and Family based on grounding
-    for(m <- ms if m.displayLabel == null) {
+  /** This function should set the right displayMention for each mention.
+    * NB: By default the displayMention is set to the main label of the mention,
+    *     so, after extraction, it should never be null.
+    */
+  def resolveDisplay (ms: Seq[CorefMention]): Seq[CorefMention] = {
+    for (m <- ms) {
       m match {
         case em:TextBoundMention with Display with Grounding =>
-          if(m.labels.contains("Gene_or_gene_product")) {
-            if (m.isGrounded && ReachKBUtils.isFamilyGrounded(m)) {
-              // found a Family incorrectly labeled as protein
-              m.displayLabel = "Family"
-            } else {
-              m.displayLabel = "Protein"
-            }
-          }
-        case _ => // nothing to do
+          resolveDisplayForEntity(m)
+        case rm:RelationMention with Display with Grounding =>
+          resolveDisplayForArguments(m, new HashSet[String])
+        case vm:EventMention with Display with Grounding =>
+          resolveDisplayForArguments(m, new HashSet[String])
+        case _ =>                           // nothing to do
       }
     }
-
-    // 3. last resort, should not be needed: displayLabel is set to the default value
-    ms.foreach(m => if(m.displayLabel == null) m.displayLabel = m.label)
-
     ms
   }
 
-  def resolveDisplayLabelForGenes(em:CorefMention, parents:Set[String]) {
-    if(em.labels.contains("Event")) { // recursively traverse the arguments of events
+  /** Recursively traverse the arguments of events and handle GPP entities. */
+  def resolveDisplayForArguments (em: CorefMention, parents: Set[String]) {
+    if (em.labels.contains("Event")) {      // recursively traverse the arguments of events
       val newParents = new mutable.HashSet[String]()
       newParents ++= parents
       newParents += em.label
       em.arguments.values.foreach(ms => ms.foreach( m => {
         val crm = m.asInstanceOf[CorefMention]
-        resolveDisplayLabelForGenes(crm.antecedentOrElse(crm), newParents.toSet)
+        resolveDisplayForArguments(crm.antecedentOrElse(crm), newParents.toSet)
       }))
-    } else if(em.labels.contains("Gene_or_gene_product") && parents.contains("Transcription")) {
-      // found a Gene
-      em.displayLabel = "Gene"
+    }
+    else if (em.labels.contains("Gene_or_gene_product")) { // we only need to disambiguate these
+      resolveDisplayForEntity(em, Some(parents))
+    }
+  }
+
+  /** Set the displayLabel for a single mention, using optional parent label set information. */
+  def resolveDisplayForEntity (em: CorefMention, parents: Option[Set[String]] = None) {
+    if (em.labels.contains("Gene_or_gene_product")) {
+      if (em.isGrounded && ReachKBUtils.isFamilyGrounded(em)) {
+        em.displayLabel = "Family"
+      }
+      else if (parents.exists(_.contains("Transcription"))) {
+        em.displayLabel = "Gene"
+      } else {
+        em.displayLabel = "Protein"
+      }
     }
   }
 
