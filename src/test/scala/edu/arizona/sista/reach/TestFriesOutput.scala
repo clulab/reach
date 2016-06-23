@@ -106,9 +106,9 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "have 2 protein entities" in {
     val ents = (json \ "entities" \ "frames") \\ "type" \\ classOf[JString]
-    ents.isEmpty should be (false)
-    (ents.size == 2) should be (true)
-    ents.forall(_ == "protein") should be (true)
+    ents should not be empty
+    ents should have size 2
+    all (ents) should be ("protein")
   }
 
   it should "have the given protein names" in {
@@ -120,15 +120,15 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "have the expected xref properties" in {
     val xrefs = json \ "entities" \ "frames" \ "xrefs" \\ classOf[JObject]
-    (xrefs.size == 2) should be (true)
+    xrefs should have size 2
     val xrefs0 = xrefs(0)
-    (xrefs0.getOrElse("namespace", "") == "uniprot") should be (true)
-    (xrefs0.getOrElse("object-type", "") == "db-reference") should be (true)
-    (xrefs0.getOrElse("id", "") == "P31749") should be (true)
+    xrefs0 should contain ("namespace" -> "uniprot")
+    xrefs0 should contain ("object-type" -> "db-reference")
+    xrefs0 should contain ("id" -> "P31749")
     val xrefs1 = xrefs(1)
-    (xrefs1.getOrElse("namespace", "") == "uniprot") should be (true)
-    (xrefs1.getOrElse("object-type", "") == "db-reference") should be (true)
-    (xrefs1.getOrElse("id", "") == "P49190") should be (true)
+    xrefs1 should contain ("namespace" -> "uniprot")
+    xrefs1 should contain ("object-type" -> "db-reference")
+    xrefs1 should contain ("id" -> "P49190")
   }
 
 
