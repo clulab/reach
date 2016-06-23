@@ -209,16 +209,7 @@ class FriesOutput extends JsonOutputter {
     // dereference all coreference mentions:
     val derefedMentions = allMentions.map(m => m.antecedentOrElse(m))
 
-    // FIXME this is a hack to process the arguments of nested regulations
-    val childMentions = for {
-      m <- derefedMentions
-      if MentionManager.isEventMention(m)
-      if m matches "Regulation"
-      args <- m.arguments.values
-      a <- args
-    } yield a
-
-    for(mention <- derefedMentions ++ childMentions) {
+    for(mention <- derefedMentions) {
       mention match {
         case em:BioTextBoundMention =>
           val passage = getPassageForMention(passageMap, em)
