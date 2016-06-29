@@ -12,8 +12,7 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 3/7/2016
-  *   Last Modified: Make test results depend on setting of grounding.overrideSpecies flag
-  *                  because tests cannot override global config file.
+  *   Last Modified: Fix: do not test for human constant strings directly.
   */
 class TestReachGrounder extends FlatSpec with Matchers {
 
@@ -40,7 +39,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
   "Text1 mentions" should "be grounded as human" in {
     mentions1.filter(_.isInstanceOf[BioTextBoundMention])
              .forall(m => m.grounding.isDefined &&
-                     m.grounding.get.species == "homo sapiens") should be (true)
+                     Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
   }
 
 

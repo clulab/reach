@@ -15,7 +15,7 @@ import edu.arizona.sista.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Use Uniprot Tissue List and Organs as tissue types.
+  *   Last Modified: Repurpose manual KBs to 2nd highest priority.
   */
 class ReachEntityLookup {
 
@@ -87,31 +87,31 @@ class ReachEntityLookup {
   val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
 
   val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
+    ManualCellLocation,
     StaticCellLocation,                 // GO subcellular KB
     StaticCellLocation2,                // Uniprot subcellular KB
-    ManualCellLocation,
     ModelGendCellLocation
   )
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
+    ManualChemical,
     StaticChemical,
     // StaticMetabolite,                    // REPLACED by PubChem
-    ManualChemical,
     ModelGendChemical
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
+    ManualProteinFamily,
     StaticProteinFamily,
     StaticProteinFamily2,
-    ManualProteinFamily,
     ModelGendProteinAndFamily
   )
 
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProtein,
     ManualProtein,
+    StaticProtein,
     ModelGendProteinAndFamily
   )
 

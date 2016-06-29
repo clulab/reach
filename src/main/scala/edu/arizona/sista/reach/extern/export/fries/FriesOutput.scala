@@ -248,7 +248,7 @@ class FriesOutput extends JsonOutputter {
 
     // first, print all non regulation events
     for (mention <- eventMentions) {
-      if (!REGULATION_EVENTS.contains(mention.label)) {
+      if (!mention.matches("Regulation")) {
         val passage = getPassageForMention(passageMap, mention)
         frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }
@@ -256,12 +256,14 @@ class FriesOutput extends JsonOutputter {
 
     // now, print all regulation events, which control the above events
     for (mention <- eventMentions) {
-      if (REGULATION_EVENTS.contains(mention.label)) {
+      if (mention.matches("Regulation")) {
         // "reach down" to process any child regulations first, before processing current regulation
         val controlledRegulations = mention.arguments.getOrElse("controlled", Nil).filter(_.matches("Regulation"))
         val controllerRegulations = mention.arguments.getOrElse("controller", Nil).filter(_.matches("Regulation"))
         val regulations = controlledRegulations ++ controllerRegulations
-        for (reg <- regulations) {
+        // FIXME this is a hack to process the arguments of nested regulations
+        val childrenRegulations = regulations.flatMap(_.arguments.values.flatten).filter(_.matches("Regulation"))
+        for (reg <- childrenRegulations ++ regulations) {
           val passage = getPassageForMention(passageMap, reg)
           frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap)
         }

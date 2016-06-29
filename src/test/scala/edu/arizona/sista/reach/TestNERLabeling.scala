@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Update for use of Uberon as organ KB.
+  *   Last Modified: Update for fix of issue #236.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -85,6 +85,14 @@ class TestNERLabeling extends FlatSpec with Matchers {
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (5)
     mentions.count(_ matches "Gene_or_gene_product") should be (5)
+  }
+
+  "Gene_or_gene_product entities" should "have Protein displayLabel" in {
+    val mentions = getBioMentions(Gene_or_gene_product)
+    mentions.isEmpty should be (false)
+    // printMentions(Try(mentions), true)      // DEBUGGING
+    mentions.size should be (5)
+    mentions.count(_.displayLabel == "Protein") should be (5)
   }
 
   "Organ entities" should "have Organ label" in {

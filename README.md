@@ -17,9 +17,7 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
-+ **1.2.2** - Added cellular locations to context. Context engine now can be configured by the user. Added a new deterministic context policy that extends context before and after a mention. Added support for Pandas output format. Bug fixes: context is now enabled by default; coref engine now matches the Hobbs antecedent search heuristic. 
-+ **1.2.1** - Bug fix in the unboxing of controller events. New Year's Eve release!
-+ **1.2.0** - First release of context extraction! Context includes: species, organs, cell lines and types. Improved coreference resolution with constraints on determiner type.
++ **1.3.0** - Use Bioresources 1.1.9, Processors 5.8.5. Allow regulations of regulations. Identify X inhibitors as chemicals. Use MITRE model for NER/grounding. Add NER stop list. Add Translocation mention support to Assembly. Various rule fixes and enhancements. Allow PaperReader to read .csv files.
 + [more...](CHANGES.md)
 
 # Authors  
@@ -62,7 +60,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 <dependency>
    <groupId>org.clulab</groupId>
    <artifactId>reach_2.11</artifactId>
-   <version>1.2.2</version>
+   <version>1.3.0</version>
 </dependency>
 ```
 
@@ -70,13 +68,13 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 
 ```scala
 libraryDependencies ++= Seq(
-    "org.clulab" %% "reach" % "1.2.2"
+    "org.clulab" %% "reach" % "1.3.0"
 )
 ```
 
 # How to compile the source code
 
-This is a standard sbt project, so use the usual commands (i.e. `sbt compile`, `sbt assembly`, etc) to compile.
+This is a standard sbt project, so use the usual commands (i.e. `sbt compile`, `sbt assembly`, etc.) to compile.
 Add the generated jar files under `target/` to your `$CLASSPATH`, along with the other necessary dependency jars. Take a look at `build.sbt` to see which dependencies are necessary at runtime.
 
 # How to use it
