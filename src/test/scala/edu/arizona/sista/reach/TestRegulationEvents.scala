@@ -280,7 +280,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasNegativeRegulationByEntity("rapamycin", "Phosphorylation", List("ERK"), mentions) should be (true)
   }
 
-  val sent29 = "B-Raf phosphorylates MEK1 and MEK2 on Ser217 and Ser221"
+  val sent29 = "B-Raf phosphorylates MEK2 and MEK1 on Ser221 and Ser217"
   sent29 should "contain 4 phosphorylations and 4 regulations (GUS)" in {
     val mentions = getBioMentions(sent29)
     mentions.filter(_.label == "Positive_regulation") should have size (4)
