@@ -1,6 +1,6 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.reach.utils.DSVParser
+import org.clulab.reach.utils.DSVParser
 import org.scalatest.{Matchers, FlatSpec}
 import java.io.File
 

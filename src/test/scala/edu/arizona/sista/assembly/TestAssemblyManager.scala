@@ -1,7 +1,7 @@
-package edu.arizona.sista.assembly
+package org.clulab.assembly
 
-import edu.arizona.sista.assembly.representations.{SimpleEntity, Regulation}
-import edu.arizona.sista.reach.TestUtils._
+import org.clulab.assembly.representations.{SimpleEntity, Regulation}
+import org.clulab.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
 
 

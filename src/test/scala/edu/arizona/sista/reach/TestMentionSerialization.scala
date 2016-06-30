@@ -1,8 +1,8 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.utils.Serializer
+import org.clulab.odin._
+import org.clulab.reach.mentions._
+import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try

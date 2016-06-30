@@ -1,10 +1,10 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import java.io.File
 
-import edu.arizona.sista.utils.Files
-import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
-import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
+import org.clulab.utils.Files
+import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.context.ContextEngineFactory.Engine._
 import org.scalatest.{Matchers, FlatSpec}
 
 /**

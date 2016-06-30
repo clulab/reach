@@ -1,6 +1,6 @@
-package edu.arizona.sista.reach.nxml
+package org.clulab.reach.nxml
 
-import edu.arizona.sista.reach.TestUtils._
+import org.clulab.reach.TestUtils._
 import io.Source
 import org.scalatest.{Matchers, FlatSpec}
 

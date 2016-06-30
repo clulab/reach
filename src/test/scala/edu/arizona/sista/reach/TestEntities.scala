@@ -1,6 +1,6 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.reach.nxml.FriesEntry
+import org.clulab.reach.nxml.FriesEntry
 
 import scala.util.Try
 import org.scalatest._

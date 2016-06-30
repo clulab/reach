@@ -1,9 +1,9 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import com.typesafe.config.ConfigFactory
-import edu.arizona.sista.reach.context._
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.grounding._
+import org.clulab.reach.context._
+import org.clulab.reach.mentions._
+import org.clulab.reach.grounding._
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try

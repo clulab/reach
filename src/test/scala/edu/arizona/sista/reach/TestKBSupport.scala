@@ -1,10 +1,10 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 
-import edu.arizona.sista.reach.grounding._
-import edu.arizona.sista.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 /**
   * Unit tests to ensure grounding is working properly

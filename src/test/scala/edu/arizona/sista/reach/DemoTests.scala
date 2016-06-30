@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest.FunSuite
 import org.scalatest.BeforeAndAfter

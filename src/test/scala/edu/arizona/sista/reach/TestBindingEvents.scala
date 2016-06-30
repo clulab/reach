@@ -1,9 +1,9 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.odin.State
-import edu.arizona.sista.struct.Interval
-import edu.arizona.sista.reach.mentions._
+import org.clulab.odin.State
+import org.clulab.struct.Interval
+import org.clulab.reach.mentions._
 import TestUtils._
 
 /**

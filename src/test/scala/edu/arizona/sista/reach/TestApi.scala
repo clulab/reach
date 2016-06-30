@@ -1,7 +1,7 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.reach.nxml._
-import edu.arizona.sista.reach.apis.Api
+import org.clulab.reach.nxml._
+import org.clulab.reach.apis.Api
 
 import scala.util.Try
 import org.scalatest._

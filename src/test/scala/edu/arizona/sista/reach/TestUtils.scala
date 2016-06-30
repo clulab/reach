@@ -1,15 +1,15 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import io.Source
-import edu.arizona.sista.reach.nxml.{NxmlReader, FriesEntry}
-import edu.arizona.sista.reach.display._
-import edu.arizona.sista.reach.extern.export.MentionManager
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.odin._
-import edu.arizona.sista.processors.Document
+import org.clulab.reach.nxml.{NxmlReader, FriesEntry}
+import org.clulab.reach.display._
+import org.clulab.reach.extern.export.MentionManager
+import org.clulab.reach.mentions._
+import org.clulab.odin._
+import org.clulab.processors.Document
 import scala.util.Try
-import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
-import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
+import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.context.ContextEngineFactory.Engine._
 
 /**
  * Utility methods for the tests in this directory

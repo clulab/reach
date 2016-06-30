@@ -1,4 +1,4 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest._
 import TestUtils._

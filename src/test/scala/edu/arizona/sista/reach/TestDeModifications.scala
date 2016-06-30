@@ -1,6 +1,6 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.reach.mentions._
+import org.clulab.reach.mentions._
 import org.scalatest._
 import scala.util.Try
 import TestUtils._

@@ -1,7 +1,7 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.reach.utils.DependencyUtils._
-import edu.arizona.sista.struct.Interval
+import org.clulab.reach.utils.DependencyUtils._
+import org.clulab.struct.Interval
 import org.scalatest._
 
 /**

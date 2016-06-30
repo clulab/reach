@@ -1,8 +1,8 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest.{Matchers, FlatSpec}
-import edu.arizona.sista.reach.grounding.ReachContextKBLister
-import edu.arizona.sista.reach.grounding.ReachContextKBLister._
+import org.clulab.reach.grounding.ReachContextKBLister
+import org.clulab.reach.grounding.ReachContextKBLister._
 
 import TestUtils._
 

@@ -1,10 +1,10 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest._
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import edu.arizona.sista.struct.Interval
-import edu.arizona.sista.odin.impl.TokenPattern
-import edu.arizona.sista.odin._
+import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.struct.Interval
+import org.clulab.odin.impl.TokenPattern
+import org.clulab.odin._
 import TestUtils._
 
 class TestTokenPatterns extends FlatSpec with Matchers {

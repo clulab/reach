@@ -1,9 +1,9 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
-import edu.arizona.sista.reach.grounding._
-import edu.arizona.sista.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding._
+import org.clulab.reach.grounding.ReachKBConstants._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.

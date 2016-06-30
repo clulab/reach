@@ -1,10 +1,10 @@
-package edu.arizona.sista.reach.context
+package org.clulab.reach.context
 
 import io.Source
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.ReachSystem
-import edu.arizona.sista.reach.TestUtils._
-import edu.arizona.sista.reach.TestUtils.Context._
+import org.clulab.reach.mentions._
+import org.clulab.reach.ReachSystem
+import org.clulab.reach.TestUtils._
+import org.clulab.reach.TestUtils.Context._
 import org.scalatest.{Matchers, FlatSpec}
 
 

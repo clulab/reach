@@ -1,9 +1,9 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
-import edu.arizona.sista.reach.nxml.FriesEntry
+import org.clulab.reach.nxml.FriesEntry
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
-import edu.arizona.sista.reach.mentions._
+import org.clulab.reach.mentions._
 
 /**
   * Tests coreference-based events

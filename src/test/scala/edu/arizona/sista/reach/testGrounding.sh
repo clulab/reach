@@ -1,13 +1,13 @@
 #!/bin/sh
 #  Run all tests related to Grounding.
 #
-sbt 'test-only edu.arizona.sista.reach.TestKBSupport \
-edu.arizona.sista.reach.TestAzFailsafeKB.scala \
-edu.arizona.sista.reach.TestTsvKBs \
-edu.arizona.sista.reach.TestAdHocIMKBs \
-edu.arizona.sista.reach.TestGroundingTrait \
-edu.arizona.sista.reach.TestProteinResolutions \
-edu.arizona.sista.reach.TestFamilyResolutions \
-edu.arizona.sista.reach.TestOrganCellTypeResolutions \
-edu.arizona.sista.reach.TestReachContextKBLister.scala \
-edu.arizona.sista.reach.TestGrounding'
+sbt 'test-only org.clulab.reach.TestKBSupport \
+org.clulab.reach.TestAzFailsafeKB.scala \
+org.clulab.reach.TestTsvKBs \
+org.clulab.reach.TestAdHocIMKBs \
+org.clulab.reach.TestGroundingTrait \
+org.clulab.reach.TestProteinResolutions \
+org.clulab.reach.TestFamilyResolutions \
+org.clulab.reach.TestOrganCellTypeResolutions \
+org.clulab.reach.TestReachContextKBLister.scala \
+org.clulab.reach.TestGrounding'

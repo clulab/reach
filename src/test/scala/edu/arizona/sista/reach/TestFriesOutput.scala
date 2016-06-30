@@ -1,12 +1,12 @@
-package edu.arizona.sista.reach
+package org.clulab.reach
 
 import java.util.Date
 
-import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.extern.export.fries._
-import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.nxml.FriesEntry
-import edu.arizona.sista.utils.Serializer
+import org.clulab.odin._
+import org.clulab.reach.extern.export.fries._
+import org.clulab.reach.mentions._
+import org.clulab.reach.nxml.FriesEntry
+import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
