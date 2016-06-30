@@ -92,9 +92,10 @@ object ParsingExporter extends App {
     def discourseString(d:DiscourseTree):String = {
         val direction = d.relationDirection.toString
 
-        if(d.isTerminal)
-            s"{'start':(${d.firstToken.sentence}, ${d.firstToken.token}), 'end':(${d.lastToken.sentence}, ${d.lastToken.token}), 'text':'${d.rawText}'}"
-
+        if(d.isTerminal){
+            val text = d.rawText.replace("'", "\\'")
+            s"{'start':(${d.firstToken.sentence}, ${d.firstToken.token}), 'end':(${d.lastToken.sentence}, ${d.lastToken.token}), 'text':'$text'}"
+        }
         else{
             val left = discourseString(d.children(0))
             val right = discourseString(d.children(1))
