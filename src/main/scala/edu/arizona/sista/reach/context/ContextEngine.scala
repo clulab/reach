@@ -5,7 +5,6 @@ import java.io._
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
 import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.context.rulebased._
 import edu.arizona.sista.reach.utils.FileReader
 import edu.arizona.sista.reach.grounding.ReachKBUtils
@@ -14,11 +13,7 @@ import edu.arizona.sista.reach.grounding.ReachContextKBLister
 trait ContextEngine {
 
   /** initializes any data structure that needs to be initialized */
-  def infer(
-      entries: Seq[FriesEntry],
-      documents: Seq[Document],
-      mentionsPerEntry: Seq[Seq[BioMention]]
-  ): Unit
+  def infer(mentions: Seq[BioMention]): Unit
 
   /** updates those data structures with any new info */
   def update(mentions: Seq[BioMention]): Unit

@@ -2,7 +2,6 @@ package edu.arizona.sista.reach.context
 
 import scala.annotation.tailrec
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.context.rulebased._
 
 
@@ -82,7 +81,6 @@ class BoundedPaddingContext(
   // Apply the policy
   protected override def inferContext = padContext(Seq(), latentSparseMatrix, Seq.fill(this.contextTypes.size)(1), bound)
 
-  protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
 

@@ -6,7 +6,6 @@ import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
 import edu.arizona.sista.reach.utils.DSVParser
 import edu.arizona.sista.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport

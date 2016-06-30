@@ -1,6 +1,6 @@
 package edu.arizona.sista.coref
 
-import edu.arizona.sista.odin.{Mention, _}
+import edu.arizona.sista.odin._
 import edu.arizona.sista.processors.Document
 import edu.arizona.sista.reach.grounding.{ReachKBConstants, KBEntry}
 import edu.arizona.sista.reach.{mentions, DarpaActions, DarpaLinks}
