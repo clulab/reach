@@ -1,13 +1,11 @@
 package org.clulab.assembly.relations.classifier
 
 import java.io.File
-
 import com.typesafe.config.ConfigFactory
 import org.clulab.assembly.relations.corpus.CorpusReader._
 import org.clulab.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
 import org.clulab.learning._
 import org.apache.commons.io.{FileUtils, FilenameUtils}
-
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Random
 

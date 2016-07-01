@@ -1,7 +1,6 @@
 package org.clulab.assembly.relations.classifier
 
 import java.io._
-
 import org.clulab.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
 import org.clulab.learning._
 import org.clulab.odin.Mention
