@@ -85,13 +85,13 @@ The most common usage of Reach is to parse a directory containing one or more pa
 In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing NXML files should be specified using the `nxmlDir` variable.
 
 ```scala
-sbt "runMain edu.arizona.sista.reach.ReachCLI /path/to/yourapplication.conf"
+sbt "runMain org.clulab.reach.ReachCLI /path/to/yourapplication.conf"
 ```
 
 If the configuration file is omitted, Reach uses the default `.conf`. That is, the command:
 
 ```scala
-sbt "runMain edu.arizona.sista.reach.ReachCLI"
+sbt "runMain org.clulab.reach.ReachCLI"
 ```
 
 will run the system using the `.conf` file under `src/main/resources/application.conf`.
@@ -99,7 +99,7 @@ will run the system using the `.conf` file under `src/main/resources/application
 ## Running the interactive Reach shell for rule debugging
 
 ```scala
-sbt "runMain edu.arizona.sista.reach.ReachShell"
+sbt "runMain org.clulab.reach.ReachShell"
 ```
 
 enter `:help` to get a list of available commands.
@@ -109,23 +109,23 @@ Reach now provides a sieve-based system for assembly of event mentions.  While s
 
 1. a directory of `.nxml` and/or `.csv` files   
  ```scala
- sbt "runMain edu.arizona.sista.assembly.RunAssembly"
+ sbt "runMain org.clulab.assembly.RunAssembly"
  ```
 2. a dataset comprised of serialized mentions  
  ```scala
- sbt "runMain edu.arizona.sista.assembly.AssembleFromDataset"
+ sbt "runMain org.clulab.assembly.AssembleFromDataset"
  ```
  
 Be sure to specify the input source and output directory for assembly in the [`application.conf`](https://github.com/clulab/reach/blob/ea0b42c23a70d7dda1bc01b62bfc716129d24d9f/src/main/resources/application.conf#L63-L80).
 
 Currently, two `.csv` files are produced for assembly results **within** each paper:  
 
-1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/edu/arizona/sista/assembly/AssemblyExporter.scala#L337-L352)
+1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)
 2. results without MITRE's constraints
 
 Two additional output files are produced for assembly results **across** all papers:  
 
-1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/edu/arizona/sista/assembly/AssemblyExporter.scala#L337-L352)  
+1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)  
 2. results without MITRE's constraints
 
 # Modifying the code
