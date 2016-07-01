@@ -297,7 +297,7 @@ object SieveUtils {
   // load feature-based classifier
   val config = ConfigFactory.load()
   val classifierPath = config.getString("assembly.classifier.model")
-  val clf = AssemblyRelationClassifier.loadFrom(classifierPath)
+  lazy val clf = AssemblyRelationClassifier.loadFrom(classifierPath)
 
   val E1PrecedesE2 = "E1 precedes E2"
   val E2PrecedesE1 = "E2 precedes E1"
