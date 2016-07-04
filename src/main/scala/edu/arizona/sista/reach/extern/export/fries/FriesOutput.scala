@@ -14,7 +14,6 @@ import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export._
 import edu.arizona.sista.reach.grounding.KBResolution
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.nxml.FriesEntry
 
 import JsonOutputter._
 

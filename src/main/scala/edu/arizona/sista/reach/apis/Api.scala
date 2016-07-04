@@ -5,7 +5,7 @@ import java.util.{List => JList}
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
-import edu.arizona.sista.reach.nxml.{FriesEntry, NxmlReader}
+import ai.lum.nxmlreader.NxmlReader
 
 import scala.collection.JavaConverters._
 
@@ -32,7 +32,7 @@ object Api {
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toList
   val encoding = config.getString("encoding")
 
-  val reader = new NxmlReader(ignoreSections)
+  val reader = NxmlReader// FIXME (ignoreSections)
 
   val reach = new ReachSystem               // start reach system
 
@@ -42,22 +42,14 @@ object Api {
 
   /** Extracts raw text from given nxml string and returns Reach results. */
   def runOnNxml (nxml: String): ReachResults = {
-    val entries = reader.readNxml(nxml, Prefix)
-    entries flatMap extractMentions
+    val nxmlDoc = reader.parse(nxml)
+    reach.extractFrom(nxmlDoc)
   }
 
-  /** Annotates text by converting it to a FriesEntry and calling runOnFriesEntry().
-      Uses fake document ID and chunk ID. */
-  def runOnText (text: String): ReachResults =
-    runOnFriesEntry(FriesEntry(Prefix, Suffix, NoSec, NoSec, false, text))
-
   /** Annotates text by converting it to a FriesEntry and calling runOnFriesEntry(). */
-  def runOnText (text: String, docId: String=Prefix, chunkId: String=Suffix): ReachResults =
-    runOnFriesEntry(FriesEntry(docId, chunkId, NoSec, NoSec, false, text))
-
-  /** Annotates a single FriesEntry and returns Reach results. */
-  def runOnFriesEntry (entry: FriesEntry): ReachResults =
-    extractMentions(entry)
+  def runOnText (text: String, docId: String=Prefix, chunkId: String=Suffix): ReachResults = {
+    reach.extractFrom(text, docId, chunkId)
+  }
 
 
   //
@@ -66,26 +58,25 @@ object Api {
 
   /** Extracts raw text from given nxml string and returns Java Reach results. */
   def runOnNxmlToJava (nxml: String): JReachResults = {
-    val entries = reader.readNxml(nxml, Prefix)
-    (entries flatMap extractMentions).asJava
+    runOnNxml(nxml).asJava
   }
 
   /** Annotates text by converting it to a FriesEntry and calling
       runOnFriesEntryToJava(). Uses fake document ID and chunk ID. */
-  def runOnTextToJava (text: String): JReachResults =
-    runOnFriesEntryToJava(FriesEntry(Prefix, Suffix, NoSec, NoSec, false, text))
+  def runOnTextToJava (text: String): JReachResults = {
+    runOnText(text).asJava
+  }
 
   /** Annotates text by converting it to a FriesEntry and calling
       runOnFriesEntryToJava(). */
-  def runOnTextToJava (text: String, docId: String=Prefix, chunkId: String=Suffix): JReachResults =
-    runOnFriesEntryToJava(FriesEntry(docId, chunkId, NoSec, NoSec, false, text))
+  def runOnTextToJava (text: String, docId: String): JReachResults = {
+    runOnText(text, docId).asJava
+  }
 
-  /** Annotates a single FriesEntry and returns Reach results. */
-  def runOnFriesEntryToJava (entry: FriesEntry): JReachResults =
-    extractMentions(entry).asJava
-
-
-  /** Extracts the mentions from a FriesEntry to Reach results. */
-  private def extractMentions(entry: FriesEntry): ReachResults = reach.extractFrom(entry)
+  /** Annotates text by converting it to a FriesEntry and calling
+      runOnFriesEntryToJava(). */
+  def runOnTextToJava (text: String, docId: String, chunkId: String): JReachResults = {
+    runOnText(text, docId, chunkId).asJava
+  }
 
 }
