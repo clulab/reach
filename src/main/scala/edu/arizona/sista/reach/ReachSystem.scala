@@ -87,7 +87,7 @@ class ReachSystem(
 
   /** group mentions according to their position in the nxml standoff */
   def groupMentionsByStandoff(mentions: Seq[BioMention], nxml: NxmlDocument): Seq[Seq[BioMention]] = {
-    mentions.groupBy(m => nxml.getOverlappingSections(m.startOffset, m.endOffset)).values.toVector
+    mentions.groupBy(m => nxml.standoff.getTerminals(m.startOffset, m.endOffset)).values.toVector
   }
 
   def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
