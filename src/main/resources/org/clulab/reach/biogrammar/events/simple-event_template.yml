@@ -139,7 +139,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=/prep_(by|of)/]
-    theme:BioChemicalEntity = </conj_(and|or|nor)/? /conj_(and|or|nor)|cc|nn|prep_of/{,2}
+    theme:BioChemicalEntity = </conj_(and|or|nor)/? /conj_(and|or|nor)/? /cc|nn|prep_of/{1,2}
     site:Site? = nn | prep_at
 
 
