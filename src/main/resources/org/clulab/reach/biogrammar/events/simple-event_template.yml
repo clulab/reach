@@ -284,6 +284,22 @@
     @theme:BioChemicalEntity "(" [!tag=/^V/]{,4} @site:Site? ")" (?<trigger>[lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (?! "of" @BioChemicalEntity)
 
 
+- name: ${ eventName }_token_9_noun
+  priority: ${ priority }
+  example: "$There was evidence for EGFR and ERBB3 tyrosine { nominalTriggerLemma }."
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (?<theme> [mention="BioChemicalEntity" & !incoming=/prep_of|dobj/])
+    ("," @BioChemicalEntity)*
+    "and"
+    @BioChemicalEntity
+    @site:Site?
+    (?<trigger> [lemma=/${ nominalTriggerLemma }/])
+    (?! "of" @BioChemicalEntity)
+
+
 - name: ${ eventName }_token_4_verb
   priority: ${ priority }
   example: "Under the same conditions, ASPP2 (693-1128) fragment ${ verbalTriggerLemma }d by p38 SAPK had very low levels of incorporated 32P."
@@ -316,3 +332,4 @@
   action: ${ actionFlow }
   pattern: |
     (@cause:BioChemicalEntity)? (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]) [!tag=/^(V|JJ)/ & !word=by]{,2}? @theme:BioChemicalEntity []{1,10} @site:Site
+
