@@ -1,2 +1,2 @@
 #!/bin/bash
-sbt 'run-main edu.arizona.sista.reach.ReachShell'
+sbt 'run-main org.clulab.reach.ReachShell'
