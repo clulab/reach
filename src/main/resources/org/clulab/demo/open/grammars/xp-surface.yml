@@ -1,0 +1,88 @@
+- name: "noun-phrase-1"
+  label: [NounPhrase, XP]
+  priority: 1
+  type: token
+  unit: "tag"
+  pattern: |
+   /^(DT|N|JJ)/* /^N|PRP|JJ/ /^(DT|N|JJ)/*
+
+- name: "prep-phrase"
+  label: [PrepPhrase, XP]
+  priority: 2
+  type: token
+  unit: "tag"
+  pattern: |
+   "IN"* /^(IN|TO)/ @NounPhrase
+
+- name: "prep-phrase2"
+  label: [PrepPhrase, XP]
+  priority: 2+
+  type: token
+  unit: "tag"
+  pattern: |
+   "IN"+ @VerbPhrase+
+
+- name: "prep-phrase-recurs"
+  label: [PrepPhrase, XP]
+  priority: 3
+  type: token
+  unit: "tag"
+  pattern: |
+   @PrepPhrase{2,}
+
+- name: "noun-phrase-2"
+  label: [NounPhrase, XP]
+  priority: 4
+  type: token
+  unit: "tag"
+  pattern: |
+   @NounPhrase @PrepPhrase
+
+- name: "noun-phrase-3"
+  label: [NounPhrase, XP]
+  priority: 5
+  type: token
+  unit: "tag"
+  pattern: |
+   @NounPhrase "CC" @PrepPhrase
+
+- name: "verb-phrase-1"
+  label: [VerbPhrase, XP]
+  priority: 6
+  type: token
+  unit: "tag"
+  pattern: |
+   /^(TO|RB|VB|MD)/+ @PrepPhrase? @NounPhrase+ ("CC" @NounPhrase)* @PrepPhrase*
+
+
+- name: "verb-phrase-2"
+  label: [VerbPhrase, XP]
+  priority: 6+
+  type: token
+  unit: "tag"
+  pattern: |
+   /^(TO|RB|VB|MD)/+ @PrepPhrase
+
+- name: "wh-phrase-1"
+  label: [WhPhrase, XP]
+  priority: 7
+  type: token
+  unit: "tag"
+  pattern: |
+   /^W/ @VerbPhrase
+
+- name: "verb-phrase-3"
+  label: [VerbPhrase, XP]
+  priority: 8
+  type: token
+  unit: "tag"
+  pattern: |
+   @VerbPhrase (@WhPhrase | @VerbPhrase)+
+
+- name: "sentence-1"
+  label: [Sentence, XP]
+  priority: 9
+  type: token
+  unit: "tag"
+  pattern: |
+   @NounPhrase @VerbPhrase+
