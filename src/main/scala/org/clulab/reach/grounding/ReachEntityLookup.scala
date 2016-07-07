@@ -15,7 +15,7 @@ import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Repurpose manual KBs to 2nd highest priority.
+  *   Last Modified: Replace use of manual files.
   */
 class ReachEntityLookup {
 
@@ -87,21 +87,18 @@ class ReachEntityLookup {
   val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
 
   val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualCellLocation,
     StaticCellLocation,                 // GO subcellular KB
     StaticCellLocation2,                // Uniprot subcellular KB
     ModelGendCellLocation
   )
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualChemical,
     StaticChemical,
     // StaticMetabolite,                    // REPLACED by PubChem
     ModelGendChemical
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualProteinFamily,
     StaticProteinFamily,
     StaticProteinFamily2,
     ModelGendProteinAndFamily
@@ -110,7 +107,6 @@ class ReachEntityLookup {
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualProtein,
     StaticProtein,
     ModelGendProteinAndFamily
   )
