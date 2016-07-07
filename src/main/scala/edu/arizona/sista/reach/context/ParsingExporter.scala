@@ -58,7 +58,7 @@ object ParsingExporter extends App {
     val disc = rstTrees map {
         case (s, e, t) => s"$s\t$e\t${discourseString(t)}"
     }
-    val disc = rstTrees map {
+    val discJson = rstTrees map {
         case (s, e, t) => s"$s\t$e\t${discourseJson(t)}"
     }
 
