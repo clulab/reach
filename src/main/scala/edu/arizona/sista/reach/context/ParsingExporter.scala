@@ -58,6 +58,9 @@ object ParsingExporter extends App {
     val disc = rstTrees map {
         case (s, e, t) => s"$s\t$e\t${discourseString(t)}"
     }
+    val disc = rstTrees map {
+        case (s, e, t) => s"$s\t$e\t${discourseJson(t)}"
+    }
 
     // Fetch POS tags
     val posTags = doc.sentences.zipWithIndex map {
@@ -73,6 +76,7 @@ object ParsingExporter extends App {
     FileUtils.writeLines(new File("deps.txt"), deps.toList.asJavaCollection)
     FileUtils.writeLines(new File("pos.txt"), posTags.toList.asJavaCollection)
     FileUtils.writeLines(new File("disc.txt"), disc.toList.asJavaCollection)
+    FileUtils.writeLines(new File("disc.json"), discJson.toList.asJavaCollection)
 
     // Returns triples (Starting sentence offset, finishing sentence offset +1, Discourse tree)
     def createDiscourseTrees(sentences:Seq[String], titles:Seq[String]
@@ -102,4 +106,6 @@ object ParsingExporter extends App {
             s"{'label':'${d.relationLabel}', 'direction':'$direction', 'children':[$left, $right]}"
         }
     }
+
+    def discourseJson(d:DiscourseTree):String = d.visualizerJSON
 }
