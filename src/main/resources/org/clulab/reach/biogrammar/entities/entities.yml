@@ -8,7 +8,7 @@
   type: token
   action: mkBioMention
   pattern: |
-    [word = /(?i)^(glycine|phenylalanine|leucine|serine|tyrosine|cysteine|tryptophan|proline|histidine|arginine|soleucine|methionine|threonine|asparagine|lysine|serine|arginine|valine|alanine|aspartate|glutamate|glycine)$/]
+    [word = /(?i)^(alanine|arginine|asparagine|aspartic|aspartate|cysteine|glutamic|glutamate|glutamine|glycine|histidine|isoleucine|leucine|lysine|methionine|phenylalanine|proline|serine|threonine|tryptophan|tyrosine|valine)$/]
     [word = /acid/]?
     [word = /(?i)residue/]?
     [word = /\d{3}$/]?
