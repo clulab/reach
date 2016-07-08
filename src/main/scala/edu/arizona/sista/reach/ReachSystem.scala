@@ -11,6 +11,7 @@ import scala.collection.immutable.HashSet
 import scala.collection.mutable
 import edu.arizona.sista.reach.context._
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
+import edu.arizona.sista.reach.nxml.FriesEntry
 import ai.lum.nxmlreader.NxmlDocument
 
 class ReachSystem(
@@ -53,6 +54,9 @@ class ReachSystem(
     doc.id = Some(id)
     doc
   }
+
+  def extractFrom(entry: FriesEntry): Seq[BioMention] =
+    extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     extractFrom(mkDoc(nxml.text, nxml.pmc), Some(nxml))

@@ -78,6 +78,10 @@ object PaperReader {
     paperID -> rs.extractFrom(nxmlReader.read(file)).toVector
   }
 
+  def getMentionsFromPaper(file: File): Vector[Mention] = {
+    readPaper(file)._2
+  }
+
   /**
    * Get mentions from text
    */
