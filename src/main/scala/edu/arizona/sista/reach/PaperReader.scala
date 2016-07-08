@@ -26,7 +26,7 @@ object PaperReader {
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
 
   // systems for reading papers
-  val nxmlReader = NxmlReader//FIXME(ignoreSections)
+  val nxmlReader = new NxmlReader(ignoreSections.toSet)
   val dsvReader = new DSVParser()
 
   // for context engine

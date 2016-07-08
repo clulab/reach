@@ -38,7 +38,7 @@ class ReachCLI(
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
     println("initializing NxmlReader ...")
-    val nxmlReader = NxmlReader//FIXME(ignoreSections)
+    val nxmlReader = new NxmlReader(ignoreSections.toSet)
 
     var errorCount = 0
 

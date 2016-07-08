@@ -60,7 +60,7 @@ class AssemblyCLI(
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished initializing Assembler")
 
       val procTime = AssemblyCLI.now
-      val nxmldoc = NxmlReader.read(file)
+      val nxmldoc = PaperReader.nxmlReader.read(file)
       outputMentions(mentions, nxmldoc, paperId, startTime, procTime, outputDir, assemblyAPI)
 
       val endTime = AssemblyCLI.now

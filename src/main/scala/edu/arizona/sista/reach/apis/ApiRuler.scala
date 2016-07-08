@@ -34,7 +34,7 @@ object ApiRuler {
   val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toList
   val encoding = config.getString("encoding")
 
-  val reader = NxmlReader//FIXME(ignoreSections)
+  val reader = new NxmlReader(ignoreSections.toSet)
 
   val reach = new ReachSystem               // start reach system
 

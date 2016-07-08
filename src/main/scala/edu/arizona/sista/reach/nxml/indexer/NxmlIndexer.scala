@@ -24,7 +24,7 @@ class NxmlIndexer {
   def index(docsDir:String, mapFile:String, indexDir:String): Unit = {
     val files = Files.findFiles(docsDir, "nxml")
     logger.debug(s"Preparing to index ${files.length} files...")
-    val nxmlReader = NxmlReader//FIXME(IGNORE_SECTIONS)
+    val nxmlReader = new NxmlReader(IGNORE_SECTIONS.toSet)
     val fileToPmc = readMapFile(mapFile)
 
     // check that all files exist in the map
