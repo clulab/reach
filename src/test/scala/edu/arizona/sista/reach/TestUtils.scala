@@ -1,7 +1,7 @@
 package edu.arizona.sista.reach
 
 import io.Source
-import edu.arizona.sista.reach.nxml.{NxmlReader, FriesEntry}
+import edu.arizona.sista.reach.nxml.FriesEntry
 import edu.arizona.sista.reach.display._
 import edu.arizona.sista.reach.extern.export.MentionManager
 import edu.arizona.sista.reach.mentions._
@@ -10,6 +10,7 @@ import edu.arizona.sista.processors.Document
 import scala.util.Try
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine
 import edu.arizona.sista.reach.context.ContextEngineFactory.Engine._
+import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
 
 /**
  * Utility methods for the tests in this directory
@@ -25,12 +26,23 @@ object TestUtils {
     case class Annotation(friesEntries:Seq[FriesEntry], documents:Seq[Document], entitiesPerEntry:Seq[Seq[BioMention]], mentions:Seq[BioMention])
 
     def annotatePaper(nxml:String):Annotation = {
-      val friesEntries = testReader.readNxml(nxml, "")
+      val friesEntries = mkEntries(testReader.read(nxml))
       val documents = friesEntries map (e => testReach.mkDoc(e.text, e.name, e.chunkId))
       val entitiesPerEntry =  for (doc <- documents) yield testReach.extractEntitiesFrom(doc)
       val mentions = testReach.extractFrom(friesEntries, documents)
 
       Annotation(friesEntries, documents, entitiesPerEntry, mentions)
+    }
+
+    def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
+      val paperId = nxmldoc.pmc
+      for (t <- nxmldoc.standoff.getTerminals()) yield new FriesEntry(
+         name = paperId,
+         chunkId = t.hashCode.toString,
+         sectionId = t.path,
+         sectionName = "",
+         isTitle = false,
+         text = t.text)
     }
 
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
@@ -47,11 +59,12 @@ object TestUtils {
   
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
-    val result = Try(testReach.extractFrom(entry))
-    if(! result.isSuccess)
-      throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)
-    val mentions = printMentions(result, verbose)
-    mentions
+    val result = testReach.extractFrom(entry)
+    //if(! result.isSuccess)
+      //throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)
+    //val mentions = printMentions(result, verbose)
+    //mentions
+    result
   }
 
   def getEntities(sentence: String, verbose:Boolean = false):Seq[BioMention] = {

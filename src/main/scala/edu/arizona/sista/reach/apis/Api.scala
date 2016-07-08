@@ -5,6 +5,7 @@ import java.util.{List => JList}
 import com.typesafe.config.ConfigFactory
 import edu.arizona.sista.reach._
 import edu.arizona.sista.reach.mentions._
+import edu.arizona.sista.reach.nxml._
 import ai.lum.nxmlreader.NxmlReader
 
 import scala.collection.JavaConverters._
@@ -50,6 +51,10 @@ object Api {
   def runOnText (text: String, docId: String=Prefix, chunkId: String=Suffix): ReachResults = {
     reach.extractFrom(text, docId, chunkId)
   }
+
+  /** Annotates a single FriesEntry and returns Reach results. */
+  def runOnFriesEntry (entry: FriesEntry): ReachResults =
+    reach.extractFrom(entry)
 
 
   //

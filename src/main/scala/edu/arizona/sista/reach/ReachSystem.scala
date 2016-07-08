@@ -89,6 +89,40 @@ class ReachSystem(
     resolveDisplay(complete)
   }
 
+  def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
+    extractFrom(entries, entries.map{
+        e => mkDoc(e.text, e.name, e.chunkId)
+    })
+
+  def extractFrom(entries: Seq[FriesEntry], documents: Seq[Document]): Seq[BioMention] = {
+    // initialize the context engine
+    val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
+
+    val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
+    contextEngine.infer(entitiesPerEntry.flatten)
+    val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
+    val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield {
+        val events = extractEventsFrom(doc, es)
+        MentionFilter.keepMostCompleteMentions(events, State(events))
+    }
+    contextEngine.update(eventsPerEntry.flatten)
+    val eventsWithContext = contextEngine.assign(eventsPerEntry.flatten)
+    val grounded = grounder(eventsWithContext)
+    // Coref expects to get all mentions grouped by document
+    val resolved = resolveCoref(groupMentionsByDocument(grounded, documents))
+    // Coref introduced incomplete Mentions that now need to be pruned
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+    // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
+
+    resolveDisplay(complete)
+  }
+
+  // this method groups the mentions by document
+  // the sequence of documents should be sorted in order of appearance in the paper
+  def groupMentionsByDocument(mentions: Seq[BioMention], documents: Seq[Document]): Seq[Seq[BioMention]] = {
+    for (doc <- documents) yield mentions.filter(_.document == doc)
+  }
+
   /** group mentions according to their position in the nxml standoff */
   def groupMentionsByStandoff(mentions: Seq[BioMention], nxml: NxmlDocument): Seq[Seq[BioMention]] = {
     mentions.groupBy(m => nxml.standoff.getTerminals(m.startOffset, m.endOffset)).values.toVector

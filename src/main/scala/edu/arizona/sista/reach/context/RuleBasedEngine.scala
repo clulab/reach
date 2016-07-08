@@ -41,6 +41,10 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Implementation of the infer method of the ContextEngine trait
   def infer(biomentions: Seq[BioMention]): Unit = {
 
+    if (biomentions.isEmpty) return
+    // all mentions belong to the same doc
+    val doc = biomentions.head.document
+
     // Compute the fallback species
     val speciesId: Seq[String] = biomentions.filter {
       case tb: BioTextBoundMention => tb.matches("Species")
@@ -60,7 +64,8 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
     // Build sparse matrices
     // First, the observed value matrices
-    mentions = biomentions.groupBy(_.sentence).values.toVector
+    val myMentions = biomentions.filter(ContextEngine.isContextMention).groupBy(_.sentence).withDefaultValue(Nil)
+    mentions = doc.sentences.indices.map(myMentions).toVector
     // FIXME what are the entry features???
     //val entryFeatures = lines map (_._2) map extractEntryFeatures
 
@@ -94,10 +99,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         if(!ContextEngine.isContextMention(em)){
           val key = em.document.id.getOrElse("N/A")
 
-          val offset = docOffsets(key)
-          val relativeLine = em.sentence
-
-          val line = offset + relativeLine
+          val line = em.sentence
 
           // Query the context engine and assign it to the BioEventMention
           val mentionContext = this.query(line).toList.toMap
