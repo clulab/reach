@@ -12,7 +12,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Cleanup.
+  *   Last Modified: Add tests for H/K/NRAS.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -33,6 +33,9 @@ class TestOverrides extends FlatSpec with Matchers {
 
   val dr2f = "p53, RAC1, RhoA, ROCK1, SAF-1, VEGF are GGPs. "
   val dr2f_ids = Seq("P04637", "P63000", "P61586", "Q13464", "P56270", "P15692")
+
+  val dr2g = "HRAS, H-RAS, KRAS, K-RAS, NRAS, N-RAS are GGPs. "
+  val dr2g_ids = Seq("P01112", "P01112", "P01116", "P01116", "P01111", "P01111")
 
   val estros = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
 
@@ -200,6 +203,34 @@ class TestOverrides extends FlatSpec with Matchers {
   it should "match expected grounding IDs" in {
     for ((m, ndx) <- dr2f_mentions.zipWithIndex) {
       m.grounding.isDefined && (m.grounding.get.id == dr2f_ids(ndx)) should be (true)
+    }
+  }
+
+
+  // Dry Run 2 - group G
+  val dr2g_mentions = getBioMentions(dr2g)
+  dr2g should "have expected number of results" in {
+    dr2g_mentions.isEmpty should be (false)
+    // printMentions(Try(dr2g_mentions), true)      // DEBUGGING
+    dr2g_mentions.size should be (dr2g_ids.size)
+  }
+
+  it should "have labeled all mentions as GGP" in {
+    dr2g_mentions.count(_ matches "Gene_or_gene_product") should be (dr2g_ids.size)
+  }
+
+  it should "have display labeled all mentions as Proteins" in {
+    dr2g_mentions.count(_.displayLabel == "Protein") should be (dr2g_ids.size)
+  }
+
+  it should "have grounded all mentions as Human" in {
+    dr2g_mentions.forall(m => m.grounding.isDefined &&
+                         Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
+  }
+
+  it should "match expected grounding IDs" in {
+    for ((m, ndx) <- dr2g_mentions.zipWithIndex) {
+      m.grounding.isDefined && (m.grounding.get.id == dr2g_ids(ndx)) should be (true)
     }
   }
 
