@@ -11,6 +11,7 @@ org.clulab.reach.TestKBSupport \
 org.clulab.reach.TestModelEntities.scala \
 org.clulab.reach.TestNERLabeling.scala \
 org.clulab.reach.TestOrganCellTypeResolutions \
+org.clulab.reach.TestOverrides \
 org.clulab.reach.TestProteinResolutions \
 org.clulab.reach.TestReachContextKBLister.scala \
 org.clulab.reach.TestReachGrounder.scala \

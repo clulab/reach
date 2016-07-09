@@ -12,7 +12,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Cleanup.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -152,7 +152,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val dr2e_mentions = getBioMentions(dr2e)
   dr2e should "have expected number of results" in {
     dr2e_mentions.isEmpty should be (false)
-    printMentions(Try(dr2e_mentions), true)      // DEBUGGING
+    // printMentions(Try(dr2e_mentions), true)      // DEBUGGING
     dr2e_mentions.size should be (dr2e_ids.size)
   }
 
@@ -180,7 +180,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val dr2f_mentions = getBioMentions(dr2f)
   dr2f should "have expected number of results" in {
     dr2f_mentions.isEmpty should be (false)
-    printMentions(Try(dr2f_mentions), true)      // DEBUGGING
+    // printMentions(Try(dr2f_mentions), true)      // DEBUGGING
     dr2f_mentions.size should be (dr2f_ids.size)
   }
 
