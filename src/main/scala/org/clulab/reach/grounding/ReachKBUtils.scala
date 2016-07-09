@@ -11,7 +11,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Change species selector functions to use sequences.
+  *   Last Modified: Move TSV validation to individual KB factories.
   */
 object ReachKBUtils extends Speciated {
 
@@ -68,18 +68,10 @@ object ReachKBUtils extends Speciated {
       Source.fromInputStream(inStream, "utf8")
   }
 
-
   /** Convert a single row string from a TSV file to a sequence of string fields. */
   def tsvRowToFields (row:String): Seq[String] = {
     return row.split("\t").map(_.trim)
   }
-
-  /** Check for required fields in one row of a TSV input file. */
-  def tsvValidateFields (fields:Seq[String]): Boolean = {
-    ( ((fields.size == 3) && fields(0).nonEmpty && fields(1).nonEmpty && fields(2).nonEmpty) ||
-      ((fields.size == 2) && fields(0).nonEmpty && fields(1).nonEmpty) )
-  }
-
 
   /** Filter sequence to return human resolutions (sorted). */
   def selectHuman (resolutions:Seq[KBResolution]): Seq[KBResolution] =

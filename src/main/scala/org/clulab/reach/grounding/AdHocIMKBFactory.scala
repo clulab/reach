@@ -2,11 +2,12 @@ package org.clulab.reach.grounding
 
 import scala.io.Source
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBUtils._
 
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Remove spurious import.
+  *   Last Modified: Refactor for standardized 2-5 column KB format.
   */
 class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
@@ -27,36 +28,38 @@ class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
 
   /**
-    * Load this KB from the given 3 or 4-column, tab-separated-value (TSV) text file.
-    *   1st column is the text string,
-    *   2nd column is the namespace string,
-    *   3rd column is the ID string,
-    *   4th column is the (optional) species string (assumed human if not given).
+    * Load this KB from the given 4-5 column, tab-separated-value (TSV) text file.
+    *   1st column (0) is the text string,
+    *   2nd column (1) is the ID string,
+    *   3rd column (2) is the Species string (optional content),
+    *   4th column (3) is the Namespace string (required),
+    *   5th column (4) is the Type string (ignored).
     * If filename argument is null or the empty string, skip file loading.
     */
   private def loadFromKBDir (imkb:InMemoryKB, filename:String) = {
     if ((filename != null) && !filename.trim.isEmpty) { // skip loading if filename missing
-      val kbResourcePath = ReachKBUtils.makePathInKBDir(filename)
-      val source = ReachKBUtils.sourceFromResource(kbResourcePath)
-      source.getLines.map(ReachKBUtils.tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { flds =>
-        val species = if (flds.size > 3) flds(3) else Speciated.Human
-        imkb.addEntry(makeEntry(flds(0), flds(1), flds(2), species)) // store new entry
+      val kbResourcePath = makePathInKBDir(filename)
+      val source = sourceFromResource(kbResourcePath)
+      source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
+        processFields(imkb, fields)
       }
       source.close()
     }
   }
 
-  /** Make and return a KB entry from the given fields. */
-  private def makeEntry (text:String, namespace:String,
-                         refId:String, species:String): KBEntry = {
-    val key = makeCanonicalKey(text)        // make canonical storage key
-    return new KBEntry(text, key, namespace.toLowerCase, refId, species.toLowerCase)
+  /** Extract particular fields and process them as needed. */
+  private def processFields (imkb:InMemoryKB, fields: Seq[String]): Unit = {
+    val text = fields(0)
+    val refId = fields(1)
+    val species = if (fields(2) != "") fields(2) else Speciated.Human
+    val namespace = fields(3)
+    imkb.addCanonicalEntry(text, namespace, refId, species) // store new entry
   }
 
   /** Check for required fields in one row of the TSV input file. */
   private def tsvValidateFields (fields:Seq[String]): Boolean = {
-    if (fields.size < 3) return false       // sanity check
-    return fields(0).nonEmpty && fields(1).nonEmpty && fields(2).nonEmpty
+    if (fields.size < 4) return false       // sanity check
+    return fields(0).nonEmpty && fields(1).nonEmpty && fields(3).nonEmpty
   }
 
 }

@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 3/10/2016
-  *   Last Modified: Return immutable sets from lookup.
+  *   Last Modified: Refactor for standardized 2-5 column KB format.
   */
 class ReverseLookupKB (
   /** The namespace for all IDs read from the KB data file. */
@@ -52,15 +52,37 @@ class RLKBFactory {
     return rlkb
   }
 
+  /**
+    * Load this KB from the given 2-5 column, tab-separated-value (TSV) text file.
+    *   1st column (0) is the text string,
+    *   2nd column (1) is the ID string,
+    *   3rd column (2) is the Species string (ignored),
+    *   4th column (3) is the Namespace string (ignored),
+    *   5th column (4) is the Type string (ignored).
+    * If filename argument is null or the empty string, skip file loading.
+    * The namespace for each entry is given as argument and any namespace column values are ignored.
+    */
   private def loadFromKBDir (rlkb:ReverseLookupKB, filename:String, namespace:String) = {
     if ((filename != null) && !filename.trim.isEmpty) { // skip loading if filename missing
       val kbResourcePath = makePathInKBDir(filename)
       val source = sourceFromResource(kbResourcePath)
-      source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { flds =>
-        rlkb.addEntry(makeNamespaceId(namespace, flds(1)), flds(0)) // store new entry
+      source.getLines.map(tsvRowToFields(_)).filter(tsvValidateFields(_)).foreach { fields =>
+        processFields(rlkb, fields, namespace)
       }
       source.close()
     }
+  }
+
+  /** Extract particular fields and process them as needed. */
+  private def processFields (rlkb:ReverseLookupKB, fields:Seq[String], namespace:String): Unit = {
+    val text = fields(0)
+    val refId = fields(1)
+    rlkb.addEntry(makeNamespaceId(namespace, refId), text) // store new entry w/ reversed key/value
+  }
+
+  /** Check for required fields in one row of a TSV input file. */
+  private def tsvValidateFields (fields:Seq[String]): Boolean = {
+    ((fields.size >= 2) && fields(0).nonEmpty && fields(1).nonEmpty)
   }
 
 }
