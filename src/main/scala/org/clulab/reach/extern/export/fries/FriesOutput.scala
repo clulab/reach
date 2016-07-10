@@ -24,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update to allow regulations of regulations, 2-deep.
+  *   Last Modified: Issue 199 redux: prevent ComplexEvents from controlling other ComplexEvents.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -248,32 +248,44 @@ class FriesOutput extends JsonOutputter {
 
     // first, print all non regulation events
     for (mention <- eventMentions) {
-      if (!mention.matches("Regulation")) {
+      if (!mention.matches("ComplexEvent")) {
         val passage = getPassageForMention(passageMap, mention)
         frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
       }
     }
 
-    // now, print all regulation events, which control the above events
-    for (mention <- eventMentions) {
-      if (mention.matches("Regulation")) {
-        // "reach down" to process any child regulations first, before processing current regulation
-        val controlledRegulations = mention.arguments.getOrElse("controlled", Nil).filter(_.matches("Regulation"))
-        val controllerRegulations = mention.arguments.getOrElse("controller", Nil).filter(_.matches("Regulation"))
-        val regulations = controlledRegulations ++ controllerRegulations
-        // FIXME this is a hack to process the arguments of nested regulations
-        val childrenRegulations = regulations.flatMap(_.arguments.values.flatten).filter(_.matches("Regulation"))
-        for (reg <- childrenRegulations ++ regulations) {
-          val passage = getPassageForMention(passageMap, reg)
-          frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap)
-        }
-        // process current regulation
+    // val mentionManager = new MentionManager()   // DEBUGGING
+
+    // now, print all allowed ComplexEvents, which control the above events:
+    for (mention <- eventMentions.filterNot(disallowedEvent(_))) {
+      if (mention.matches("ComplexEvent")) {
+
+        // println("++++++++++++++++++++++++++++++++++++++++")  // DEBUGGING
+        // println("PARENT CE:")
+        // mentionManager.mentionToStrings(mention).foreach(println(_))
+        // val controlledCEs = mention.arguments.getOrElse("controlled", Nil).filter(_.matches("ComplexEvent"))
+        // println("Child CEs:")
+        // for (m <- controlledCEs) {
+        //   mentionManager.mentionToStrings(m).foreach(println(_))
+        //   println()
+        // }
+
+        // process current complex event
         val passage = getPassageForMention(passageMap, mention)
         frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
+
+        // println("----------------------------------------")
       }
     }
     (model, eventMap)
   }
+
+  /** Disallow any ComplexEvent with a ComplexEvent as a controlled argument. */
+  private def disallowedEvent (mention: Mention): Boolean = {
+    mention.matches("ComplexEvent") &&
+    mention.arguments.getOrElse("controlled", Nil).exists(_.matches("ComplexEvent"))
+  }
+
 
   private def getChunkId(m:Mention):String = {
     assert(m.document.id.isDefined)
