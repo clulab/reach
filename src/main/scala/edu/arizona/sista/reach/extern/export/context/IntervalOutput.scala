@@ -103,7 +103,7 @@ class IntervalOutput(docs:Seq[Document], entries:Seq[FriesEntry], mentions:Seq[M
         val its = cts.filter(e => e.document.id == doc.id && e.sentence == i).sortWith(_.tokenInterval <= _.tokenInterval) map {
             tb =>
             val ti = tb.tokenInterval
-            s"${ti.start}-${ti.end-1}-${tb.text.replace(' ', '_')}-${tb.nsId}"
+            s"${ti.start}%${ti.end-1}%${tb.text.replace(' ', '_')}%${tb.nsId}"
         }
         val itsStr = s"${x+i} " + (if(its.size > 0) its.mkString(" ") else "")
         ctxMentions += itsStr
