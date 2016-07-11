@@ -69,6 +69,15 @@
     controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
     controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc|prep_of|prep_in$/{,2}
 
+- name: Negative_${ ruleType }_syntax_7_verb
+  priority: ${ priority }
+  example: "Cells were additionally inhibited with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
+    controlled:${ controlledType } = dep prep_for
+    controller:${ controllerType } = prep_with
 
 - name: Negative_${ ruleType }_syntax_1_noun
   priority: ${ priority }
