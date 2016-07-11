@@ -12,7 +12,7 @@ import org.clulab.reach.extern.export.MentionManager
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Add flag to allow grounding to ignore species and use human default.
+  *   Last Modified: Rename badly cased method name.
   */
 class ReachGrounder extends Speciated {
 
@@ -79,7 +79,7 @@ class ReachGrounder extends Speciated {
       val candNames: Seq[String] = cands.map(_.species) // all candidate species names
 
       // reverse map set of NS/IDs to set of species name strings:
-      val contextNames = ContextToSpeciesNameSet(context)
+      val contextNames = contextToSpeciesNameSet(context)
 
       // intersect candidate species names with context species names:
       val species = contextNames.intersect(candNames)
@@ -94,7 +94,7 @@ class ReachGrounder extends Speciated {
 
 
   /** Reverse lookup the given NS/ID strings to return an optional set of species names. */
-  private def ContextToSpeciesNameSet (context: Seq[String]): Seq[String] = {
+  private def contextToSpeciesNameSet (context: Seq[String]): Seq[String] = {
     context.flatMap(nsId => ReverseSpeciesLookup.lookup(nsId)).flatten.map(_.toLowerCase)
   }
 
