@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachMiscLookups._
 /**
   * Unit tests of additional lookup tables and knowledge bases.
   *   Written by: Tom Hicks. 7/10/2016.
-  *   Last Modified: Rename/redo for expanded test scope.
+  *   Last Modified: Add is-a tests for protein kinase and protein domains.
   */
 class TestMiscLookups extends FlatSpec with Matchers {
 
@@ -37,6 +37,27 @@ class TestMiscLookups extends FlatSpec with Matchers {
     (pkl.contains("Q3UHJ0")) should be (true)     // middle of SP list
   }
 
+  "Protein Kinases" should "test that isProteinKinase method works" in {
+    (isProteinKinase("NOT-IN-KB")) should be (false) // not in KB
+    (isProteinKinase("not-in-kb")) should be (false) // not in KB
+    (isProteinKinase("P00000")) should be (false)    // not in KB
+    (isProteinKinase("Q00000")) should be (false)    // not in KB
+    (isProteinKinase("Q1")) should be (false)        // not in KB
+    (isProteinKinase("QPQPQP")) should be (false)    // not in KB
+    (isProteinKinase("Q99999")) should be (false)    // not a kinase
+    (isProteinKinase("Q99998")) should be (false)    // not a kinase
+    (isProteinKinase("O08560")) should be (true)     // first entry in UP list
+    (isProteinKinase("o08560")) should be (false)    // entries are uppercase
+    (isProteinKinase("P31749")) should be (true)     // AKT1_HUMAN
+    (isProteinKinase("p31749")) should be (false)    // entries are uppercase
+    (isProteinKinase("P31750")) should be (true)     // AKT1_MOUSE
+    (isProteinKinase("Q13882")) should be (true)     // PTK6_HUMAN
+    (isProteinKinase("Q8AYK6")) should be (true)     // last entry in UP list
+    (isProteinKinase("Q2M2I8")) should be (true)     // first in SP list
+    (isProteinKinase("P43404")) should be (true)     // last in SP list
+    (isProteinKinase("Q3UHJ0")) should be (true)     // middle of SP list
+  }
+
 
   // Tests of the singleton Protein Domains Short Names set:
   val pds = ProteinDomainShortNames
@@ -59,6 +80,26 @@ class TestMiscLookups extends FlatSpec with Matchers {
     (pds.contains("zu5")) should be (true)        // last entry in list
     (pds.contains("Germane")) should be (false)    // entries are lowercase
     (pds.contains("germane")) should be (true)    // odd but true
+  }
+
+  "Protein Domain Short Names" should "test that isProteinDomain method works" in {
+    (isProteinDomain("NOT-IN-KB")) should be (false) // not in KB
+    (isProteinDomain("not-in-kb")) should be (false) // not in KB
+    (isProteinDomain("P00000")) should be (false)    // not in KB
+    (isProteinDomain("Q00000")) should be (false)    // not in KB
+    (isProteinDomain("Q1")) should be (false)        // not in KB
+    (isProteinDomain("P31749")) should be (false)    // not in KB
+    (isProteinDomain("14_3_3")) should be (true)     // first entry in list
+    (isProteinDomain("AAA")) should be (true)        // case should not matter
+    (isProteinDomain("aaa")) should be (true)
+    (isProteinDomain("AICARFT_IMPCHas")) should be (true)
+    (isProteinDomain("aicarft_impchas")) should be (true)
+    (isProteinDomain("HAT")) should be (true)
+    (isProteinDomain("hat")) should be (true)
+    (isProteinDomain("ZU5")) should be (true)
+    (isProteinDomain("zu5")) should be (true)        // last entry in list
+    (isProteinDomain("Germane")) should be (true)
+    (isProteinDomain("germane")) should be (true)    // odd but true
   }
 
 }
