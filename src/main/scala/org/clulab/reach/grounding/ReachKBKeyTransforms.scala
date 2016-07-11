@@ -6,13 +6,9 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Refactor protein domain suffix checking.
+  *   Last Modified: Refactor protein domain suffix testing method.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
-
-  /** Tell whether the given string names a protein domain or not. */
-  def isProteinDomain (domain: String): Boolean =
-    ProteinDomainShortNames.contains(makeCanonicalKey(domain))
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
@@ -115,4 +111,9 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val ProteinDomainShortNames: Set[String] =
     ReachKBUtils.readLines(ProteinDomainShortNamesFilename)
                 .map(suffix => makeCanonicalKey(suffix.trim)).toSet
+
+  /** Tell whether the given string names a protein domain or not. */
+  def isProteinDomain (domain: String): Boolean =
+    ProteinDomainShortNames.contains(makeCanonicalKey(domain))
+
 }
