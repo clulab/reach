@@ -5,9 +5,9 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object implementing Reach specific reverse lookup tables.
   *   Written by: Tom Hicks. 3/10/2016
-  *   Last Modified: Define protein kinases lookup table.
+  *   Last Modified: Rename class. Add kinase lookup.
   */
-object ReachRLKBLookups {
+object ReachMiscLookups extends ReachKBKeyTransforms {
 
   /** Single factory instance to generate Tsv RLKB classes. */
   val tsvRLKBFactory = new RLKBFactory
@@ -15,7 +15,10 @@ object ReachRLKBLookups {
   /** Singleton grounding lookup table mapping species nsIds to species name strings. */
   val ReverseSpeciesLookup = tsvRLKBFactory.make("taxonomy", ContextSpeciesFilename)
 
-  /** Singleton lookup table mapping kinase IDs to name strings. */
-  val ProteinKinasesLookup = tsvRLKBFactory.make("uniprot", ProteinKinasesFilename)
+  /** Set of short protein domain strings. */
+  val ProteinKinaseIds: Set[String] = ReachKBUtils.readLines(ProteinKinasesFilename).toSet
+
+  /** Tell whether the given ID string names a protein kinase or not. */
+  def isProteinKinase (id: String): Boolean = ProteinKinaseIds.contains(id)
 
 }

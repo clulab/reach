@@ -6,9 +6,13 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Restrict PTM patterns per issue #90.
+  *   Last Modified: Refactor protein domain suffix checking.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
+
+  /** Tell whether the given string names a protein domain or not. */
+  def isProteinDomain (domain: String): Boolean =
+    ProteinDomainShortNames.contains(makeCanonicalKey(domain))
 
   /** Canonicalize the given text string into a key for both storage and lookup. */
   def makeCanonicalKey (text:String): String = {
@@ -18,13 +22,11 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     return stripSuffixes(AllKeysStopSuffixes, key)
   }
 
-
   /** Return alternate lookup keys created from the given text string and transform functions. */
   def reachAlternateKeys (text:String, transformFns:KeyTransforms): Seq[String] = {
     val allTexts = text +: applyTransforms(text, transformFns)
     return allTexts.map(makeCanonicalKey(_))
   }
-
 
   /** Return the portion of the text string minus one of the protein family suffixes,
     * if found in the given text string, else return the text lowercased. */
@@ -109,10 +111,8 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
                                   hyphenatedProteinKey _,
                                   stripPTMPrefixes _ )
 
-  /** Set of protein domain suffixes. */
-  val proteinDomainSuffixes: Set[String] = ReachKBUtils.readLines(ProteinDomainSuffixesFilename).map(suffix => makeCanonicalKey(suffix.trim)).toSet
-
-  def isProteinDomain (domain: String): Boolean =
-    proteinDomainSuffixes.contains(makeCanonicalKey(domain))
-
+  /** Set of short protein domain strings. */
+  val ProteinDomainShortNames: Set[String] =
+    ReachKBUtils.readLines(ProteinDomainShortNamesFilename)
+                .map(suffix => makeCanonicalKey(suffix.trim)).toSet
 }

@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add protein kinases lookup table file.
+  *   Last Modified: Rename protein kinases and protein domains file.
   */
 object ReachKBConstants {
 
@@ -92,9 +92,9 @@ object ReachKBConstants {
 
 
   /** Filename of the protein kinases lookup table. */
-  val ProteinKinasesFilename = "uniprot-kinases.tsv.gz"
+  val ProteinKinasesFilename = "uniprot-kinases.txt.gz"
 
   /** Filename of a file containing just Protein Domain suffixes; one per line. */
-  val ProteinDomainSuffixesFilename = "proteinDomains-short.txt"
+  val ProteinDomainShortNamesFilename = "proteinDomains-short.txt.gz"
 
 }

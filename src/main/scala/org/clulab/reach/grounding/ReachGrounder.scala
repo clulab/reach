@@ -6,13 +6,13 @@ import org.clulab.reach._
 import org.clulab.reach.context._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBUtils._
-import org.clulab.reach.grounding.ReachRLKBLookups._
+import org.clulab.reach.grounding.ReachMiscLookups._
 import org.clulab.reach.extern.export.MentionManager
 
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Rename badly cased method name.
+  *   Last Modified: Update import for class rename.
   */
 class ReachGrounder extends Speciated {
 
