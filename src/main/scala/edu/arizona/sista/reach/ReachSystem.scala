@@ -59,7 +59,8 @@ class ReachSystem(
     extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
-    extractFrom(mkDoc(nxml.text, nxml.pmc), Some(nxml))
+    // use standoff hashcode as the chunkId
+    extractFrom(mkDoc(nxml.text, nxml.pmc, nxml.standoff.hashCode.toString), Some(nxml))
   }
 
   def extractFrom(doc: Document, nxml: Option[NxmlDocument]): Seq[BioMention] = {
