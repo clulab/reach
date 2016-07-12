@@ -11,7 +11,9 @@ import org.scalatest.{Matchers, FlatSpec}
 class TestFeedback2 extends FlatSpec with Matchers {
   val s1 = "EGFR activated Ack1 which in turn Tyr phosphorylated and activated AKT"
   s1 should "NOT have AKT as a Controller in any event" in {
-    // TODO: DANE
+    val mentions = getBioMentions(s1)
+    hasEntity("AKT", mentions) should be (true)
+    hasPositiveRegulationByEntity("AKT", "Event", Nil, mentions) should be (false)
   }
 
   s1 should "NOT have Tyr labeled as a GGP" in {
