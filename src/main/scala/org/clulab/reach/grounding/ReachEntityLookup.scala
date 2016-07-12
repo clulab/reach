@@ -15,7 +15,7 @@ import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Replace use of manual files.
+  *   Last Modified: Fix: allow overrides to work on Sites.
   */
 class ReachEntityLookup {
 
@@ -47,6 +47,7 @@ class ReachEntityLookup {
       case "Family" =>  augmentMention(mention, familySeq)
       case "Organ" => augmentMention(mention, organSeq)
       case "Simple_chemical" => augmentMention(mention, chemicalSeq)
+      case "Site" => augmentMention(mention, siteSeq)
       case "Species" => augmentMention(mention, speciesSeq)
       case "TissueType" => augmentMention(mention, tissueSeq)
       case _ =>  augmentMention(mention, azFailsafeSeq)
@@ -110,6 +111,8 @@ class ReachEntityLookup {
     StaticProtein,
     ModelGendProteinAndFamily
   )
+
+  val siteSeq: KBSearchSequence = extraKBs ++ Seq() // nothing to add the extras to
 
   val speciesSeq: KBSearchSequence = extraKBs ++ Seq( ContextSpecies )
 
