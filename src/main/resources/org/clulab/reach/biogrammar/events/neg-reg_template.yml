@@ -222,3 +222,22 @@
     @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } [lemma=/${ negnouns}/]
 
 
+# a rule written to catch an example from MITRE
+# unlikely to be very common, and
+# unsure if this should also be applied to activations...
+- name: Negative_${ ruleType }_token_experimental_results_1
+  priority: ${ priority }
+  type: token
+  example: "Cells were additionally inhibited with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    # passive verb ("inhibited" in the example)
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=VBN])
+    # "leptin" in our example
+    with /./{,2} @controlled:${ controlledType }
+    # analyzed, examined, etc.
+    # hopefully this isn't too noisy...
+    and /./{,3} [tag=/^V/] for
+    # the phosphorylation in our example
+    @controller:${ controllerType }
