@@ -36,13 +36,14 @@ object TestUtils {
 
     def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
       val paperId = nxmldoc.pmc
-      for (t <- nxmldoc.standoff.getTerminals()) yield new FriesEntry(
+      val standoff = nxmldoc.standoff
+      Seq(new FriesEntry(
          name = paperId,
-         chunkId = t.hashCode.toString,
-         sectionId = t.path,
+         chunkId = standoff.hashCode.toString,
+         sectionId = standoff.path,
          sectionName = "",
          isTitle = false,
-         text = t.text)
+         text = standoff.text))
     }
 
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
