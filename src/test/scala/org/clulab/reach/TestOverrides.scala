@@ -12,7 +12,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add tests for H/K/NRAS.
+  *   Last Modified: Add tests of amino acids and their abbreviations.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -38,6 +38,18 @@ class TestOverrides extends FlatSpec with Matchers {
   val dr2g_ids = Seq("P01112", "P01112", "P01116", "P01116", "P01111", "P01111")
 
   val estros = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
+
+  val aminos = "Alanine arginine asparagine aspartic aspartate cysteine glutamic glutamate glutamine glycine histidine isoleucine leucine lysine methionine phenylalanine proline serine threonine tryptophan tyrosine valine"
+
+  val aa_short ="Ala, Arg, Asn, Asp, Cys, Gln, Glu, Gly, His, Ile, Leu, Lys, Met, Phe, Pro, Ser, Thr, Trp, Tyr, and Val are now labeled as Sites."
+
+  val aa_ids = Seq(
+    "UAZ-S-001", "UAZ-S-002", "UAZ-S-003", "UAZ-S-004", "UAZ-S-004",
+    "UAZ-S-005", "UAZ-S-006", "UAZ-S-006", "UAZ-S-007", "UAZ-S-009",
+    "UAZ-S-009", "UAZ-S-010", "UAZ-S-011", "UAZ-S-012", "UAZ-S-013",
+    "UAZ-S-014", "UAZ-S-015", "UAZ-S-016", "UAZ-S-017", "UAZ-S-018",
+    "UAZ-S-019", "UAZ-S-020"
+  )
 
   // Dry Run 2 - group A
   val dr2a_mentions = getBioMentions(dr2a)
@@ -241,6 +253,45 @@ class TestOverrides extends FlatSpec with Matchers {
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (6)
     mentions.count(_ matches "Simple_chemical") should be (6)
+  }
+
+
+
+  // Amino Acids relabeled as Sites:
+  val aa_mentions = getBioMentions(aminos)
+  aminos should "have expected number of results" in {
+    aa_mentions.isEmpty should be (false)
+    // printMentions(Try(aa_mentions), true)      // DEBUGGING
+    aa_mentions.size should be (aa_ids.size)
+  }
+
+  it should "have labeled all mentions as Site" in {
+    aa_mentions.count(_ matches "Site") should be (aa_ids.size)
+  }
+
+  it should "have display labeled all mentions as Proteins" in {
+    aa_mentions.count(_.displayLabel == "Site") should be (aa_ids.size)
+  }
+
+  // wont pass yet: processors issue #77
+  // it should "match expected grounding IDs" in {
+  //   for ((m, ndx) <- aa_mentions.zipWithIndex) {
+  //     m.grounding.isDefined && (m.grounding.get.id == aa_ids(ndx)) should be (true)
+  //   }
+  // }
+
+
+  // Amino Acid abbreviations relabeled as Sites:
+  val aas_mentions =  getBioMentions(aa_short)
+
+  aa_short should "have Site labels" in {
+    aas_mentions.isEmpty should be (false)
+    // printMentions(Try(aas_mentions), true)      // DEBUGGING
+    // the counts will be wrong until processors issue #77 is fixed:
+    // aas_mentions.size should be (20)
+    // aas_mentions.count(_ matches "Site") should be (20)
+    aas_mentions.size should be (18)                    // wrong: workaround issue #77
+    aas_mentions.count(_ matches "Site") should be (18) // wrong: workaround issue #77
   }
 
 }
