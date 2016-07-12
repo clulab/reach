@@ -113,7 +113,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
-    controlled:${ controlledType } = dep prep_for
+    controlled:${ controlledType } = prep_with vmod prep_for
     controller:${ controllerType } = prep_with
 
 - name: Positive_${ ruleType }_syntax_1_noun
