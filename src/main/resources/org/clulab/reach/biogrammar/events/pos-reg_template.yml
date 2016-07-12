@@ -1,0 +1,281 @@
+
+#
+# Template for positive regulation|activation
+#
+
+#
+# Global notes (applying to both pos-reg and neg-reg rules):
+# use prep_in$ instead of prep_in, to avoid matching prep_including, which has different semantics
+#
+
+- name: Positive_${ ruleType }_syntax_1_verb
+  priority: ${ priority }
+  example: "X activates Y"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_1b_verb
+  priority: ${ priority }
+  example: "X positively regulates Y"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/^positive/] [lemma="regulate" & !tag=/^JJ/] # moved "constraint: advmod [word=/^positive/]" here
+    controlled:${ controlledType } = dobj /nn|amod/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent) nn{,2}
+
+
+# Handles occurrence of prep_by when NOT passive voice
+- name: Positive_${ ruleType }_syntax_1c_verb
+  priority: ${ priority }
+  example: "X promotes pathway by Y"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
+    controlled:${ controlledType } = prep_by /conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
+
+
+# Note: Captures passive voice; thus verb must be VBD|VBN
+- name: Positive_${ ruleType }_syntax_2_verb
+  priority: ${ priority }
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (>/^nsubj/|<vmod) /conj_|nn|cc|dep|amod/{,2}
+    controller:${ controllerType } = (agent|prep_by) /conj_|nn|cc|dep|amod|prep_of|prep_in$/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_3_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = ( (/pobj|prep_[^b]|conj_|nn|amod/{,2}) | (< /pobj|prep_|conj_|nn|amod/{1,2}) )
+    controller:${ controllerType } = <nn{,2} | (prep_by) /nn|conj_|cc|amod/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_4_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (nsubjpass /conj_|nn|amod/{,2})
+    controller:${ controllerType } = (/prep_/ /conj_|nn|amod/{,2})? /prep_/{,2} /prep_by|agent/ /conj_|nn|amod/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_5_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = dobj /nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_6_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
+    controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc/{,2}
+
+- name: Positive_${ ruleType }_syntax_7_verb
+  priority: ${ priority }
+  example: "ASPP1 aids in the translocation of Kras to the membrane."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
+    controlled:${ controlledType } = prep_in$ | prep_to
+    controller:${ controllerType } = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
+
+- name: Positive_${ ruleType }_syntax_8_verb
+  priority: ${ priority }
+  example: "Cells were additionally stimulated with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
+    controlled:${ controlledType } = dep prep_for
+    controller:${ controllerType } = prep_with
+
+- name: Positive_${ ruleType }_syntax_1_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
+    controlled:${ controlledType } = /prep_of|prep_in$/ /nn|amod|conj_|cc/{,2}
+    controller:${ controllerType } = /prep_of/? prep_by (<dobj|prep_by|agent|nn|amod|prep_of|prep_in$){1,2} /nn|amod|conj_|cc/{,2} # the prep_of may appear due to bad syntax
+
+
+- name: Positive_${ ruleType }_syntax_2_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /prep_of|prep_in$/? /conj_|cc|nn|amod/{1,2}
+    controller:${ controllerType } = /prep_of/? /prep_by|agent/ /conj|cc|nn|amod/{,2} # the prep_of may appear due to bad syntax
+
+
+- name: Positive_${ ruleType }_syntax_3_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /prep_of|prep_in$/ /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = /cc|nn|amod/{1,2} | conj_or prep_by nn?
+
+
+- name: Positive_${ ruleType }_syntax_5_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = < /nn|amod/ > /prep_/ /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = < /nn|amod/ /conj_|cc|nn|amod/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_6_noun
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = (/prep_of|prep_in$/ /nn|amod|conj_|cc/{,2}){1,2}
+    controller:${ controllerType } = <prep_via (agent|prep_by) /nn|amod|conj_|cc/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_7_noun
+  priority: ${ priority }
+  example: "Rapamycin, an activator of the mTOR kinase,"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = <dep /nn|amod|conj_|cc/{,2}
+    controlled:${ controlledType } = (/prep_of|prep_in$/ /nn|amod|conj_|cc/{,2}){1,2}
+
+# Captures common Hearst patterns: hypernym such as hyponym
+- name: Positive_${ ruleType }_syntax_noun_Hearst
+  priority: ${ priority }
+  example: "HDAC activators including trichostatin A"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controlled:${ controlledType } = /conj_|cc|nn|amod/{,2}
+    controller:${ controllerType } = /prep_such_as|prep_including|prep_like/ (nn|appos)?
+
+
+- name: Positive_${ ruleType }_copula_1
+  priority: ${ priority }
+  example: "A is an activator of B"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ posnouns }/ & tag=/^N/]
+    controller:${ controllerType } = nsubj
+    controlled:${ controlledType } = /prep_of|prep_in$/
+
+
+- name: Positive_${ ruleType }_possessive_noun
+  priority: ${ priority }
+  example: "ASPP1 is common, as is its activation by ASPP2."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ posnouns }/ & tag=/^N/]
+    controller:${ controllerType } = /prep_by|agent/
+    controlled:${ controlledType } = /poss/
+
+
+- name: Positive_${ ruleType }_token_1_verb
+  priority: ${ priority }
+  type: token
+  label: ${ label }
+  example: "monoubiquitinated K-Ras is less sensitive than the unmodified protein to GAP-mediated GTP hydrolysis"
+  action: ${ actionFlow }
+  pattern: |
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType }
+
+- name: Positive_${ ruleType }_token_1b_verb
+  priority: ${ priority }
+  type: token
+  label: ${ label }
+  example: "Interacting proteins that facilitate FGFR3 mediated STAT1 activation could exist in cells."
+  action: ${ actionFlow }
+  pattern: |
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(mediat)/ & !tag=/^JJ/]) @controlled:${ controlledType } /(?i)^(activation)/
+
+
+- name: Positive_${ ruleType }_token_2_verb
+  priority: ${ priority }
+  example: ""
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+
+
+- name: Positive_${ ruleType }_token_1_noun
+  priority: ${ priority }
+  example: "mTOR activator Rapamycin"
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:${ controlledType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) @controller:${ controllerType }
+
+
+# this rule is needed because PP attachment of "by" is often wrong
+- name: Positive_${ ruleType }_token_2_noun
+  priority: ${ priority }
+  example: "Activation of mTOR by rapamycin has been standard treatment "
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+
+
+#
+# The rules below apply ONLY to regulations (not activations)
+#
+
+# this should only be used for regulations (not activations!); we use explicit types for the @controlled for this
+- name: Positive_${ ruleType }_in_response_to
+  priority: ${ priority }
+  type: token
+  label: ${ label }
+  example: "Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF treatment"
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+
