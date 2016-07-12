@@ -20,9 +20,15 @@ class TestFeedback2 extends FlatSpec with Matchers {
     // TODO (for all major sites aminoacids): TOM, GUS please double check the site rules
   }
 
-  val s2 = "Cells were additionally stimulated with 10 ng/ml NRG and cell extracts analyzed for ErbB3 tyrosine phosphorylation"
-  s2 should "contain a regulation with NRG as controller" in {
-    // TODO: capture controllers when they appear in "stimulated with" constructs - GUS
+  val s2 = "Cells were additionally stimulated with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation"
+  s2 should "contain a regulation with leptin as controller" in {
+    val mentions = getMentionsFromText(s2)
+    val regs = mentions.filter(_ matches "Regulation")
+    regs should not be empty
+    regs should have size 1
+    regs.head.arguments("controller").head.text should equal ("leptin")
+    regs.head.arguments("controlled").head.label should equal ("Phosphorylation")
+    regs.head.arguments("controlled").head.text should equal ("ErbB3 tyrosine phosphorylation")
   }
 
   val s3 = "Gab1 mutant protein deficient in Shp2 binding enhances EGF-induced activation of the PI-3"
