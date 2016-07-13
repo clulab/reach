@@ -19,19 +19,22 @@ class TestFeedback2 extends FlatSpec with Matchers {
   }
 
   s1 should "NOT have Tyr labeled as a GGP" in {
-    // TODO (for all major sites aminoacids): TOM, GUS please double check the site rules
+    val mentions = getBioMentions(s1)
+    val tyr = mentions.filter(_.text == "Tyr")
+    tyr.head.label should equal ("Site")
+    tyr.head.label should not equal ("Gene_or_gene_product")
   }
 
-   val s2 = "Cells were additionally stimulated with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
-   s2 should "contain a regulation with leptin as controller" in {
-     val mentions = getMentionsFromText(s2)
-     val regs = mentions.filter(_ matches "Regulation")
-     regs should not be empty
-     regs should have size 1
-     regs.head.arguments("controller").head.text should equal ("leptin")
-     regs.head.arguments("controlled").head.label should equal ("Phosphorylation")
-     regs.head.arguments("controlled").head.text should equal ("ErbB3 tyrosine phosphorylation")
-   }
+  val s2 = "Cells were additionally stimulated with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
+  s2 should "contain a regulation with leptin as controller" in {
+    val mentions = getMentionsFromText(s2)
+    val regs = mentions.filter(_ matches "Regulation")
+    regs should not be empty
+    regs should have size 1
+    regs.head.arguments("controller").head.text should equal ("leptin")
+    regs.head.arguments("controlled").head.label should equal ("Phosphorylation")
+    regs.head.arguments("controlled").head.text should equal ("ErbB3 tyrosine phosphorylation")
+  }
 
   val s3 = "Gab1 mutant protein deficient in Shp2 binding enhances EGF-induced activation of the PI-3"
   s3 should "NOT contain Activation(Gab1, EGF)" in {
