@@ -11,6 +11,7 @@ import org.clulab.reach.mentions._
   */
 class TestFeedback2 extends FlatSpec with Matchers {
   val s1 = "EGFR activated Ack1, which in turn Tyr phosphorylated and activated AKT"
+  // val s1 = "EGFR activated Ack1 which in turn Tyr phosphorylated and activated AKT" NB: This parses horribly.
   s1 should "NOT have AKT as a Controller in any event" in {
     val mentions = getBioMentions(s1)
     mentions.filter(m => m.text == "AKT") should have size (1)
