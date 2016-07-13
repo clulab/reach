@@ -472,8 +472,8 @@ class TestCoreference extends FlatSpec with Matchers {
     ungrounded.get.grounding.get.equals(grounded.get.grounding.get) should be (true)
   }
   // Series should work with 'or'
-  val sent42 = "Akt (a.k.a. Akt334, AktTR, or Akt4H) is phosphorylated."
-  sent42 should "apply Akt grounding to 3 proteins" in {
+  val sent42 = "Akt1 (a.k.a. Akt334, AktTR, or Akt4H) is phosphorylated."
+  sent42 should "apply Akt1 grounding to 3 made-up proteins" in {
     val mentions = getBioMentions(sent42)
     val entities = mentions filter (m => m matches "Entity")
     entities should have size (4)
@@ -481,8 +481,8 @@ class TestCoreference extends FlatSpec with Matchers {
   }
   // Series should not work with 'and' (because we could have "BEF and Akt (a.k.a. BEF334 and Akt4H)"),
   // which isn't handled yet.
-  val sent43 = "Akt (a.k.a. Akt334 and Akt4H) is phosphorylated."
-  sent43 should "not apply Akt grounding to other proteins" in {
+  val sent43 = "Akt1 (a.k.a. Akt334 and Akt4H) is phosphorylated."
+  sent43 should "not apply Akt1 grounding to other proteins" in {
     val mentions = getBioMentions(sent43)
     val entities = mentions filter (m => m matches "Entity")
     entities should have size (3)
@@ -509,13 +509,13 @@ class TestCoreference extends FlatSpec with Matchers {
     akt.head.grounding.get.equals(s2akt.head.grounding.get)
   }
   // Alias assignment works across sections of a document
-  val sent45a = "Akt, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
+  val sent45a = "Akt1, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
   val sent45b = "AktTR is ubiquitinated."
-  "Intra-document alias" should "share Akt grounding across sections" in {
+  "Intra-document alias" should "share Akt1 grounding across sections" in {
     val fe1 = FriesEntry("test", "aliasDoc", "01", "start", false, sent45a)
     val fe2 = FriesEntry("test", "aliasDoc", "01", "start", false, sent45b)
     val mentions = testReach.extractFrom(Seq(fe1, fe2))
-    val akt = mentions.find(_.text == "Akt").get
+    val akt = mentions.find(_.text == "Akt1").get
     mentions.filter(_.text == "AktTR").forall(m => m.grounding.get == akt.grounding.get) should be (true)
   }
   // No problem if no mentions in a document.
