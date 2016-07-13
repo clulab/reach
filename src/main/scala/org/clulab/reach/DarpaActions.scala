@@ -131,6 +131,41 @@ class DarpaActions extends Actions {
     filteredMentions.map(_.toBioMention)
   }
 
+  /**
+    * 1. Checks that the cause and theme of an "auto" event (ex. autophosphorylation) are the same <br>
+    * 2. Splits valid event into BioEventMention (sans cause) and a BioRelationMention for a Regulation where
+    * the original cause serves as the controller. <br>
+    * NOTE: we cannot call splitSimpleEvent, as it requires that the controlled and controller do not overlap
+    */
+  def handleAutoEvent(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
+    // only events with a theme and a cause are valid
+    case e: EventMention if (e.arguments contains "cause") && (e.arguments contains "theme") =>
+      //display.displayMention(e.toBioMention)
+      val pairs = for {
+        c <- e.arguments("cause")
+        t <- e.arguments("theme")
+        // remove cause from SimpleEvent
+        ev = new BioEventMention(
+          e.labels,
+          e.trigger,
+          e.arguments - "cause" ++ Map("theme" -> Seq(t)),
+          e.sentence, e.document, e.keep, e.foundBy, true)
+        // use cause of SimpleEvent to create a Regulation
+        reg = new BioRelationMention(
+          DarpaActions.REG_LABELS,
+          Map("controller" -> Seq(c), "controlled" -> Seq(ev)),
+          e.sentence, e.document, e.keep, e.foundBy
+        )
+        // negations should be propagated to the newly created Positive_regulation
+        (negMods, otherMods) = e.toBioMention.modifications.partition(_.isInstanceOf[Negation])
+      } yield {
+        reg.modifications = negMods
+        ev.modifications = otherMods
+        Seq(reg, ev)
+      }
+      pairs.flatten
+    case _  => Nil
+  }
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions
@@ -334,6 +369,10 @@ class DarpaActions extends Actions {
   def keepIfValidArgs(mentions: Seq[Mention], state: State): Seq[Mention] =
     mentions.filter(validArguments(_, state))
 
+  /**
+    * Splits a SimpleEvent with a theme and a cause into a ComplexEvent.
+    * Requires that the controlled and controller do not overlap
+    */
   def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m matches "SimpleEvent" =>
       // Do we have a regulation?
@@ -348,9 +387,7 @@ class DarpaActions extends Actions {
         // controller of an event should not be an arg in the controlled
         if (cause.forall(c => !controlledArgs.contains(c))) {
           val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
-          val reg = new BioRelationMention(
-            Seq("Positive_regulation", "Regulation", "ComplexEvent", "Event", "PossibleController"),
-            regArgs, m.sentence, m.document, m.keep, m.foundBy)
+          val reg = new BioRelationMention(DarpaActions.REG_LABELS, regArgs, m.sentence, m.document, m.keep, m.foundBy)
           // negations should be propagated to the newly created Positive_regulation
           val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
           reg.modifications = negMods
@@ -665,6 +702,9 @@ class DarpaActions extends Actions {
 }
 
 object DarpaActions {
+
+  // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
+  val REG_LABELS = Seq("Positive_regulation", "Regulation", "ComplexEvent", "Event", "PossibleController")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
   val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r

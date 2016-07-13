@@ -1,0 +1,53 @@
+
+- name: ${ eventName }_syntax_1_noun
+  priority: ${ priority }
+  example: "EGFR autophosphorylation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & tag=/^N/ & !mention=ModificationTrigger]
+    # these two should be the same
+    cause:BioChemicalEntity = nn
+    theme:BioChemicalEntity = nn
+    site:Site? = /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+
+
+- name: ${ eventName }_syntax_2_noun
+  priority: ${ priority }
+  example: "The autophosphorylation of EGFR."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & tag=/^N/ & !mention=ModificationTrigger]
+    # these two should be the same
+    cause:BioChemicalEntity = prep_of
+    theme:BioChemicalEntity = prep_of
+    site:Site? = prep_of? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+
+
+- name: ${ eventName }_syntax_1_verb
+  priority: ${ priority }
+  example: "EGFR is autophosphorylated."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & !mention=ModificationTrigger]
+    # these two should be the same
+    cause:BioChemicalEntity = /^nsubj/
+    theme:BioChemicalEntity = /^nsubj/
+    site:Site? = prep_on
+
+
+- name: ${ eventName }_syntax_2_verb
+  priority: ${ priority }
+  example: "EGFR phosphorylates itself."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ baseVerbalTriggerLemma }/ & !word=/(?i)^(de|auto)/ & !mention=ModificationTrigger]
+    # these two should be the same
+    # assertion on syntactic context of trigger
+    # direct object of predicate must be the word "itself"
+    cause:BioChemicalEntity = (?= (dobj|agent|prep_by) [word=itself]) /^nsubj/
+    theme:BioChemicalEntity = (?= (dobj|agent|prep_by) [word=itself]) /^nsubj/
+    site:Site? = /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
