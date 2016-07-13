@@ -2,6 +2,7 @@ package org.clulab.reach
 
 import org.clulab.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
+import org.clulab.reach.mentions._
 
 /**
   * Unit tests based on the second round of feedback from MITRE
@@ -9,7 +10,7 @@ import org.scalatest.{Matchers, FlatSpec}
   * Date: 7/5/16
   */
 class TestFeedback2 extends FlatSpec with Matchers {
-  val s1 = "EGFR activated Ack1 which in turn Tyr phosphorylated and activated AKT"
+  val s1 = "EGFR activated Ack1, which in turn Tyr phosphorylated and activated AKT"
   s1 should "NOT have AKT as a Controller in any event" in {
     val mentions = getBioMentions(s1)
     mentions.filter(m => m.text == "AKT") should have size (1)
@@ -161,7 +162,6 @@ class TestFeedback2 extends FlatSpec with Matchers {
 
   val s18 = "EGF treatment did not affect ROCK1 protein expression level; however, it increased MYPT1 phosphorylation on site 853."
   s18 should "contain 1 reg and 1 phospho at site 853" in {
-    // TODO: we get both reg and phospho but miss the site - GUS, DANE
     val mentions = getBioMentions(s18)
     val phos = mentions.filter(_ matches "Phosphorylation")
     phos should have size (1)
@@ -171,7 +171,7 @@ class TestFeedback2 extends FlatSpec with Matchers {
     val regs = mentions.filter(_ matches "Positive_regulation")
     regs should have size (1)
     val reg = regs.head
-    reg.arguments.getOrElse("controller", Nil).map(_.text) should contain ("EGF")
+    reg.arguments.getOrElse("controller", Nil).map(m => m.toCorefMention.antecedentOrElse(m).text) should contain ("EGF")
     reg.arguments.getOrElse("controlled", Nil) should contain (mphos)
   }
 }

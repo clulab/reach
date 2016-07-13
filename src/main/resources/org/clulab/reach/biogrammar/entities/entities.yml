@@ -14,7 +14,7 @@
     [word = /\d{3}$/]?
 
 # this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
-- name: site_1letter
+- name: site_1letter_a
   label: Site
   priority: 5
   type: token
@@ -22,6 +22,15 @@
   pattern: |
     (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
   # old alt. pattern /^P\d+$/
+
+# this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
+- name: site_1letter_b
+  label: Site
+  priority: 5
+  type: token
+  action: mkBioMention
+  pattern: |
+    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
 
 - name: site_3letter
   label: Site
@@ -80,6 +89,15 @@
   type: token
   pattern: |
     "RBD"
+
+- name: site_number
+  label: Site
+  priority: 1
+  type: token
+  action: mkBioMention
+  example: "EGF treatment did not affect ROCK1 protein expression level; however, it increased MYPT1 phosphorylation on site 853."
+  pattern: |
+    (?<= (?<! [mention="Site"]) [word=/(?i)^site$/]) [word=/^\d+$/]
 
 # The negative lookaround used in this rule is incomplete and will need to be improved as more false positives are identified
 - name: multi-site
