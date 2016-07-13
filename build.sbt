@@ -75,7 +75,7 @@ libraryDependencies ++= Seq(
   "org.apache.lucene" % "lucene-core" % "5.3.1",
   "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
   "org.apache.lucene" % "lucene-queryparser" % "5.3.1",
-  "ai.lum" %% "nxmlreader" % "0.1-SNAPSHOT"
+  "ai.lum" %% "nxmlreader" % "0.0.1"
 )
 
 // settings for building project website
