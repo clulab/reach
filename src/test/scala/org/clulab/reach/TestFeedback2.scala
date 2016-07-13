@@ -12,8 +12,8 @@ class TestFeedback2 extends FlatSpec with Matchers {
   val s1 = "EGFR activated Ack1 which in turn Tyr phosphorylated and activated AKT"
   s1 should "NOT have AKT as a Controller in any event" in {
     val mentions = getBioMentions(s1)
-    hasEntity("AKT", mentions) should be (true)
-    hasPositiveRegulationByEntity("AKT", "Event", Nil, mentions) should be (false)
+    mentions.filter(m => m.text == "AKT") should have size (1)
+    mentions.filter(m => m.arguments.getOrElse("controller", Nil).map(_.text) contains "AKT") should have size (0)
   }
 
   s1 should "NOT have Tyr labeled as a GGP" in {
@@ -78,17 +78,39 @@ class TestFeedback2 extends FlatSpec with Matchers {
 
   val s10 = "Akt phosphorylates Ser487 on AMPK-alpha1"
   s10 should "contain 1 phosphorylation event" in {
-    // TODO: missing phospho - GUS, DANE
+    val mentions = getBioMentions(s10)
+    hasEventWithArguments("Phosphorylation", Seq("AMPK-alpha1", "Ser487"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Akt", "Phosphorylation", Seq("AMPK-alpha1", "Ser487"), mentions) should be (true)
   }
 
   val s11 = "Prior phosphorylation of AMPK-alpha1 by Akt at Ser487"
   s11 should "contain 1 positive regulation" in {
-    // TODO: we have the phospho, but miss the reg - GUS, DANE
+    val mentions = getBioMentions(s11)
+    val phos = mentions.filter(_ matches "Phosphorylation")
+    phos should have size (1)
+    val aphos = phos.head
+    aphos.arguments.getOrElse("theme", Nil).map(_.text) should contain ("AMPK-alpha1")
+    aphos.arguments.getOrElse("site", Nil).map(_.text) should contain ("Ser487")
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (1)
+    val reg = regs.head
+    reg.arguments.getOrElse("controller", Nil).map(_.text) should contain ("Akt")
+    reg.arguments.getOrElse("controlled", Nil) should contain (aphos)
   }
 
   val s12 = "Phosphorylation of Ser487 on AMPK-alpha1 by Akt in HEK-293 cells inhibits subsequent phosphorylation of Thr172"
   s12 should "contain at least 1 phosphorylation" in {
-    // TODO: we miss both phosphos; we should get at least the 1st, which doesn't need coref - GUS, DANE
+    val mentions = getBioMentions(s12)
+    val phos = mentions.filter(_ matches "Phosphorylation")
+    phos should have size (1) // TODO: Phosphorylation of Thr172 is on AMPK-alpha1
+    val aphos = phos.head
+    aphos.arguments.getOrElse("theme", Nil).map(_.text) should contain ("AMPK-alpha1")
+    aphos.arguments.getOrElse("site", Nil).map(_.text) should contain ("Ser487")
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (1)
+    val reg = regs.head
+    reg.arguments.getOrElse("controller", Nil).map(_.text) should contain ("Akt")
+    reg.arguments.getOrElse("controlled", Nil) should contain (aphos)
   }
 
   val s13 = "SAF-1 acts as a transcriptional inducer of H-Ras and K-Ras"
@@ -124,11 +146,32 @@ class TestFeedback2 extends FlatSpec with Matchers {
 
   val s17 = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88S and 100T"
   s17 should "contain phosphorylation at 2 sites" in {
-    // TODO: we get the phospho but miss the sites - GUS, DANE
+    val mentions = getBioMentions(s17)
+    val phos = mentions.filter(_ matches "Phosphorylation")
+    phos should have size (2)
+    val themes = phos.flatMap(_.arguments.getOrElse("theme", Nil)).map(_.text)
+    themes should be (Seq("RhoA", "RhoA"))
+    val sites = phos.flatMap(_.arguments.getOrElse("site", Nil)).map(_.text)
+    sites should contain ("100T")
+    sites should contain ("88S")
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (2)
+    regs.flatMap(_.arguments.getOrElse("controller", Nil)).map(_.text) should be (Seq("ERK", "ERK"))
   }
 
   val s18 = "EGF treatment did not affect ROCK1 protein expression level; however, it increased MYPT1 phosphorylation on site 853."
   s18 should "contain 1 reg and 1 phospho at site 853" in {
     // TODO: we get both reg and phospho but miss the site - GUS, DANE
+    val mentions = getBioMentions(s18)
+    val phos = mentions.filter(_ matches "Phosphorylation")
+    phos should have size (1)
+    val mphos = phos.head
+    mphos.arguments.getOrElse("theme", Nil).map(_.text) should contain ("MYPT1")
+    mphos.arguments.getOrElse("site", Nil).map(_.text) should contain ("853")
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (1)
+    val reg = regs.head
+    reg.arguments.getOrElse("controller", Nil).map(_.text) should contain ("EGF")
+    reg.arguments.getOrElse("controlled", Nil) should contain (mphos)
   }
 }
