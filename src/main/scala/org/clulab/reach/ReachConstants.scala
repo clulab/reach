@@ -4,7 +4,7 @@ package org.clulab.reach
   * Object defining constants used across Reach.
   * This is not a package object because its constants are not needed by all Reach classes.
   *   Written by Tom Hicks. 4/14/2016.
-  *   Last Modified: Initial creation with event taxonomy sets.
+  *   Last Modified: Add autophosphorylation event to addition events.
   */
 object ReachConstants {
 
@@ -22,6 +22,7 @@ object ReachConstants {
 
   val ADDITION_EVENTS = Set(
     "Acetylation",
+    "AutoPhosphorylation",
     "Farnesylation",
     "Glycosylation",
     "Hydrolysis",
