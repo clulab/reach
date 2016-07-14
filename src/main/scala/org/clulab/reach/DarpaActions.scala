@@ -703,8 +703,10 @@ class DarpaActions extends Actions {
 
 object DarpaActions {
 
+  import ReachConstants.taxonomy
+
   // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
-  val REG_LABELS = Seq("Positive_regulation", "Regulation", "ComplexEvent", "Event", "PossibleController")
+  val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
   val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
