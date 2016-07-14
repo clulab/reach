@@ -105,7 +105,7 @@
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity? = (<dobj? (prep_by|agent)|nn|prep_of prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
     theme:BioChemicalEntity = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
-    site:Site? = (/prep_/ nn{,2}){1,2}
+    site:Site? = (/prep_/? nn{,2}){1,2}
 
 
 - name: ${ eventName }_syntax_2_noun
@@ -130,6 +130,7 @@
     cause:BioChemicalEntity = /conj_(and|or|nor)|cc|nn/{1,2}
     theme:BioChemicalEntity = prep_of appos? /conj_(and|or|nor)|cc|nn/{1,2}
     site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+
 
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
 - name: ${ eventName }_syntax_4_noun
@@ -174,6 +175,7 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=prep_of]
     theme:BioChemicalEntity = < nsubj dobj prep_of appos? /nn|cc|conj/{,2}
+
 
 - name: ${ eventName }_syntax_8_noun
   priority: ${ priority }
