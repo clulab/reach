@@ -97,7 +97,7 @@
   action: mkBioMention
   example: "EGF treatment did not affect ROCK1 protein expression level; however, it increased MYPT1 phosphorylation on site 853."
   pattern: |
-    (?<= (?<! [mention="Site"]) [word=/(?i)^site$/]) [word=/^\d+$/]
+    (?<= (?<! [mention="Site"]) [word=/(?i)^site$/]) [word=/^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]$/]?
 
 # The negative lookaround used in this rule is incomplete and will need to be improved as more false positives are identified
 - name: multi-site
