@@ -151,7 +151,7 @@ class TestFeedback2 extends FlatSpec with Matchers {
 
   val s17a = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88S and 100T"
   s17a should "contain phosphorylation at 2 sites" in {
-    val mentions = getBioMentions(s17)
+    val mentions = getBioMentions(s17a)
     val phos = mentions.filter(_ matches "Phosphorylation")
     phos should have size (2)
     val themes = phos.flatMap(_.arguments.getOrElse("theme", Nil)).map(_.text)
@@ -167,7 +167,7 @@ class TestFeedback2 extends FlatSpec with Matchers {
   // See Issue 258
   val s17b = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88 S and 100 T."
   s17b should "contain phosphorylation at 2 sites" in {
-    val mentions = getBioMentions(s17)
+    val mentions = getBioMentions(s17b)
     val phos = mentions.filter(_ matches "Phosphorylation")
     phos should have size (2)
     val themes = phos.flatMap(_.arguments.getOrElse("theme", Nil)).map(_.text)
