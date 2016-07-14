@@ -149,8 +149,24 @@ class TestFeedback2 extends FlatSpec with Matchers {
     // TODO: needs global NER - MARCO
   }
 
-  val s17 = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88S and 100T"
-  s17 should "contain phosphorylation at 2 sites" in {
+  val s17a = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88S and 100T"
+  s17a should "contain phosphorylation at 2 sites" in {
+    val mentions = getBioMentions(s17)
+    val phos = mentions.filter(_ matches "Phosphorylation")
+    phos should have size (2)
+    val themes = phos.flatMap(_.arguments.getOrElse("theme", Nil)).map(_.text)
+    themes should be (Seq("RhoA", "RhoA"))
+    val sites = phos.flatMap(_.arguments.getOrElse("site", Nil)).map(_.text)
+    sites should contain ("100T")
+    sites should contain ("88S")
+    val regs = mentions.filter(_ matches "Positive_regulation")
+    regs should have size (2)
+    regs.flatMap(_.arguments.getOrElse("controller", Nil)).map(_.text) should be (Seq("ERK", "ERK"))
+  }
+
+  // See Issue 258
+  val s17b = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88 S and 100 T."
+  s17b should "contain phosphorylation at 2 sites" in {
     val mentions = getBioMentions(s17)
     val phos = mentions.filter(_ matches "Phosphorylation")
     phos should have size (2)

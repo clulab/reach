@@ -32,6 +32,14 @@
   pattern: |
     (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
 
+- name: site_1letter_c
+  label: Site
+  priority: 5
+  type: token
+  action: mkBioMention
+  pattern: |
+    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]$/]
+
 - name: site_3letter
   label: Site
   priority: 1
