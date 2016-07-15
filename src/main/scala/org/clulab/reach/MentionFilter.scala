@@ -193,8 +193,8 @@ object MentionFilter {
       val da = new DarpaActions
       (a,b) match {
         case (exactA, exactB) if exactA == exactB => true
-        case (ent: CorefTextBoundMention, ev: CorefEventMention) => da.convertEventToEntity(ev).getOrElse(ev) == ent
-        case (ev: CorefEventMention, ent: CorefTextBoundMention) => da.convertEventToEntity(ev).getOrElse(ev) == ent
+        case (ent: CorefTextBoundMention, ev: CorefEventMention) => da.convertEventToEntity(ev) == ent
+        case (ev: CorefEventMention, ent: CorefTextBoundMention) => da.convertEventToEntity(ev) == ent
         case different => false
       }
     }

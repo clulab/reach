@@ -234,7 +234,7 @@ class Coref {
         })
         argsAsEntities = argMs.map(ms => ms.map(m =>
           if (lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
-            val ant = da.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).get.toCorefMention
+            val ant = da.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).toCorefMention
             createdComplexes = createdComplexes :+ ant
             val copy = new CorefEventMention(
               m.labels,
