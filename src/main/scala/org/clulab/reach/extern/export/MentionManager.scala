@@ -221,8 +221,9 @@ class MentionManager {
           mStrings += s"${indent}mutant: ${evidence.text}"
         case Negation(evidence) =>
           mStrings += s"${indent}negation: ${evidence.text}"
-        case PTM(modLabel, evidence, site) =>
+        case PTM(modLabel, evidence, site, negated) =>
           val evText = if (evidence.isDefined) evidence.get.text else ""
+          // FIXME: how should value of "negated" be displayed?
           mStrings += s"${indent}PTM: ${evText}"
           if (site.isDefined)
             mStrings ++= mentionToStrings(site.get, level+1)

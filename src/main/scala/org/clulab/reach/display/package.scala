@@ -105,10 +105,10 @@ package object display {
         println(s"""$indent\t\t${evidence.label} by \"${evidence.text}\"\n"""
           + s"""$indent\t\t\tMutation rule: ${evidence.foundBy}\n"""
           + s"""$indent\t\t\tMutation attachment rule: $foundBy""")
-      case PTM(mod, evidence, site) =>
+      case PTM(mod, evidence, site, negated) =>
         val siteText = if (site.nonEmpty) {s" @ ${site.get.text}"} else ""
         val evidenceText = if (evidence.nonEmpty) {s""" based on \"${evidence.get.text}\""""} else ""
-        println(s"""$indent\t\t$PTM = \"$mod\"$siteText$evidenceText""")
+        println(s"""$indent\t\t$PTM (negated=$negated)= \"$mod\"$siteText$evidenceText""")
       case EventSite(site) =>
         println(s"""$indent\t\twith Site \"${site.text}\"""")
       case _ => ()
