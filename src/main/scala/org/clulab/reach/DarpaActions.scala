@@ -3,8 +3,8 @@ package org.clulab.reach
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
-
 import scala.annotation.tailrec
+
 
 class DarpaActions extends Actions {
 
@@ -61,7 +61,7 @@ class DarpaActions extends Actions {
         // retrieve optional first relation("site")
         val site = ptm.arguments.get("site").map(_.head)
         // retrieves first relation("mod")
-        // this is the TextBoundMention for the ModifcationTrigger
+        // this is the TextBoundMention for the ModificationTrigger
         val evidence = ptm.arguments("mod").head
         // assigns label from mod
         val label = getModificationLabel(evidence.text)
@@ -142,16 +142,11 @@ class DarpaActions extends Actions {
   def handleAutoEvent(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     // only events with a theme and a cause are valid
     case e: EventMention if (e.arguments contains "cause") && (e.arguments contains "theme") =>
-      //display.displayMention(e.toBioMention)
       val pairs = for {
         c <- e.arguments("cause")
         t <- e.arguments("theme")
         // remove cause from SimpleEvent
-        ev = new BioEventMention(
-          e.labels,
-          e.trigger,
-          e.arguments - "cause" ++ Map("theme" -> Seq(t)),
-          e.sentence, e.document, e.keep, e.foundBy, true)
+        ev = new BioEventMention(e - "cause" + ("theme" -> Seq(t)))
         // use cause of SimpleEvent to create a Regulation
         reg = new BioRelationMention(
           DarpaActions.REG_LABELS,
@@ -197,6 +192,10 @@ class DarpaActions extends Actions {
     }
   }
 
+  /**
+    * Flatten nested controllers of an activation.  Identical to mkRegulation, except
+    * mkActivation will only allow activations where no overlapping regulation is present
+    */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // Prefer Activations with SimpleEvents as the controller
     mention <- preferSimpleEventControllers(mentions)
@@ -212,21 +211,20 @@ class DarpaActions extends Actions {
     // or if it's controller and controlled are not distinct
     if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
   } yield activation.arguments.get("controller") match {
+    // no controller
+    case None => activation
     // activation has a single controller
     case Some(Seq(controller)) =>
-      val trigger = activation.asInstanceOf[BioEventMention].trigger
-      val bioEventController = controller.toBioMention.asInstanceOf[BioEventMention]
-      val flattenedController = convertEventToEntity(bioEventController)
+      val flattenedController = convertEventToEntity(controller)
+      val updatedArguments = activation.arguments.updated("controller", Seq(flattenedController))
       // TODO: should we flatten the controlled as well?
       // return new activation with the event controller replaced by the entity controller
-      new BioEventMention(
-        activation.labels,
-        trigger,
-        activation.arguments.updated("controller", Seq(flattenedController)),
-        activation.sentence,
-        activation.document,
-        activation.keep,
-        activation.foundBy)
+      activation match {
+        case e: EventMention =>
+          e.copy(arguments = updatedArguments)
+        case rel: RelationMention =>
+          rel.copy(arguments = updatedArguments)
+      }
   }
 
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
@@ -239,25 +237,9 @@ class DarpaActions extends Actions {
         case (t1s, Nil) if t1s.length > 1 => mkBindingsFromPairs(t1s.combinations(2).toList, m)
         case (Nil, t2s) if t2s.length > 1 => mkBindingsFromPairs(t2s.combinations(2).toList, m)
         case (gen1, Nil) if gen1.exists(t => t matches "Generic_entity") =>
-          Seq(new BioEventMention(
-          Seq("Binding", "SimpleEvent", "Event", "PossibleController"),
-          m.trigger,
-          m.arguments - "theme1" - "theme2" + ("theme" -> gen1),
-          m.sentence,
-          m.document,
-          m.keep,
-          m.foundBy
-          ))
+          Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> gen1)))
         case (Nil, gen2) if gen2.exists(t => t matches "Generic_entity") =>
-          Seq(new BioEventMention(
-            Seq("Binding", "SimpleEvent", "Event", "PossibleController"),
-            m.trigger,
-            m.arguments - "theme1" - "theme2" + ("theme" -> gen2),
-            m.sentence,
-            m.document,
-            m.keep,
-            m.foundBy
-          ))
+          Seq(new BioEventMention(m - "theme1" - "theme2" + ("theme" -> gen2)))
         case (t1s, t2s) =>
           val pairs = for {
             t1 <- t1s
@@ -275,34 +257,13 @@ class DarpaActions extends Actions {
   } yield {
     if (theme1.text.toLowerCase == "ubiquitin") {
       val arguments = Map("theme" -> Seq(theme2))
-      new BioEventMention(
-        Seq("Ubiquitination", "SimpleEvent", "Event", "PossibleController"),
-        original.trigger,
-        arguments,
-        original.sentence,
-        original.document,
-        original.keep,
-        original.foundBy)
+      new BioEventMention(original.copy(labels = taxonomy.hypernymsFor("Ubiquitination"), arguments = arguments))
     } else if (theme2.text.toLowerCase == "ubiquitin") {
       val arguments = Map("theme" -> Seq(theme1))
-      new BioEventMention(
-        Seq("Ubiquitination", "SimpleEvent", "Event", "PossibleController"),
-        original.trigger,
-        arguments,
-        original.sentence,
-        original.document,
-        original.keep,
-        original.foundBy)
+      new BioEventMention(original.copy(labels = taxonomy.hypernymsFor("Ubiquitination"), arguments = arguments))
     } else {
       val arguments = Map("theme" -> Seq(theme1, theme2))
-      new BioEventMention(
-        original.labels,
-        original.trigger,
-        arguments,
-        original.sentence,
-        original.document,
-        original.keep,
-        original.foundBy)
+      new BioEventMention(original.copy(arguments = arguments))
     }
   }
 
@@ -329,21 +290,12 @@ class DarpaActions extends Actions {
       // Do we have any sites?
       if (allSites.isEmpty) Seq(m)
       else {
-        val allButSite = m.arguments - "site"
         // Create a separate EventMention for each Site
         // FIXME this splitting seems arbitrary
         // why do each SimpleEvent has a single site?
         // if it is the theme's site, then why are we extracting sites for all args?
         for (site <- allSites.distinct) yield {
-          val updatedArgs = allButSite + ("site" -> Seq(site))
-          new BioEventMention(
-            m.labels,
-            m.trigger,
-            updatedArgs,
-            m.sentence,
-            m.document,
-            m.keep,
-            m.foundBy)
+          new BioEventMention(m + ("site" -> Seq(site)))
         }
       }
 
@@ -365,14 +317,13 @@ class DarpaActions extends Actions {
         // FIXME There could be more than one cause...
         val cause: Seq[Mention] = m.arguments("cause")
         val evArgs = m.arguments - "cause"
-        val ev = new BioEventMention(
-          m.labels, m.trigger, evArgs, m.sentence, m.document, m.keep, m.foundBy, true)
+        val ev = new BioEventMention(m.copy(arguments = evArgs))
         // make sure the regulation is valid
         val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
         // controller of an event should not be an arg in the controlled
         if (cause.forall(c => !controlledArgs.contains(c))) {
           val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
-          val reg = new BioRelationMention(DarpaActions.REG_LABELS, regArgs, m.sentence, m.document, m.keep, m.foundBy)
+          val reg = new BioRelationMention(m.copy(labels = DarpaActions.REG_LABELS, arguments = regArgs).toRelationMention)
           // negations should be propagated to the newly created Positive_regulation
           val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
           reg.modifications = negMods
@@ -459,7 +410,7 @@ class DarpaActions extends Actions {
         // trigger labels should match event labels
         val newTrigger = m.trigger.copy(labels = newLabels)
         // return new mention with flipped label
-        new BioEventMention(newLabels, newTrigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
+        new BioEventMention(m.copy(labels = newLabels, trigger = newTrigger))
       } else {
         m // return mention unmodified
       }
@@ -580,12 +531,13 @@ class DarpaActions extends Actions {
     // convert a binding into a Complex so that it is treated as an entity
     case binding if binding matches "Binding" =>
       new BioRelationMention(
-        DarpaActions.taxonomy.hypernymsFor("Complex"),
+        taxonomy.hypernymsFor("Complex"),
         binding.arguments,
         binding.sentence,
         binding.document,
         binding.keep,
-        binding.foundBy)
+        binding.foundBy
+      )
 
     // convert event to PTM on its theme.
     // negate PTM according to current value of "negated"
@@ -596,15 +548,9 @@ class DarpaActions extends Actions {
       // get an optional site (assume only one site)
       val siteOption = se.arguments.get("site").map(_.head)
       // create new mention for the entity
-      val modifiedEntity = new BioTextBoundMention(
-        entity.labels,
-        entity.tokenInterval,
-        entity.sentence,
-        entity.document,
-        entity.keep,
-        entity.foundBy)
+      val modifiedEntity = new BioTextBoundMention(entity)
       // attach a modification based on the event trigger
-      val label = getModificationLabel(se.trigger.text)
+      val label = getModificationLabel(se.label)
       BioMention.copyAttachments(entity, modifiedEntity)
       modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
       modifiedEntity
@@ -634,21 +580,12 @@ class DarpaActions extends Actions {
   }
 
   def removeDummy(m: BioMention): BioMention = m match {
-    case em: BioEventMention => // we only need to do this for events
-      if (em.arguments contains "dummy") {
-        new BioEventMention(
-          em.labels,
-          em.trigger,
-          em.arguments - "dummy",
-          em.sentence,
-          em.document,
-          em.keep,
-          em.foundBy)
-      } else em
+    // we only need to do this for events
+    case em: BioEventMention => new BioEventMention(em - "dummy")
     case _ => m
   }
 
-  def validArguments(mention: Mention, state: State): Boolean = mention match {
+  def validArguments(mention: Mention, state: State): Boolean = mention.toBioMention match {
     // TextBoundMentions don't have arguments
     case _: BioTextBoundMention => true
     // RelationMentions don't have triggers, so we can't inspect the path
@@ -683,6 +620,7 @@ class DarpaActions extends Actions {
         tok2 <- arg.tokenInterval
         path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
         node <- path
+        // FIXME: Why is this Gene_or_gene_product?  What about Protein, GENE, etc.?
         if state.mentionsFor(trigger.sentence, node, "Gene_or_gene_product").nonEmpty
         if !consecutivePreps(path, deps)
       } return true
@@ -709,8 +647,6 @@ class DarpaActions extends Actions {
 }
 
 object DarpaActions {
-
-  val taxonomy = ReachConstants.taxonomy
 
   def hasNegativePolarity(m: Mention): Boolean = if (m.label.toLowerCase startsWith "negative") true else false
   // These labels are given to the Regulation created when splitting a SimpleEvent with a cause

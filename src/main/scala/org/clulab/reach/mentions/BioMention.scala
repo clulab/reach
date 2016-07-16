@@ -20,6 +20,7 @@ class BioTextBoundMention(
     super.hashCode() * 42 + mutations.hashCode()
   }
 
+  def this(m: Mention) = this(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
 }
 
 class BioEventMention(
@@ -34,12 +35,13 @@ class BioEventMention(
 ) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
     with Modifications with Grounding with Display with Context{
 
-
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
     super.hashCode() * 42 + mutations.hashCode()
   }
 
+  def this(m: EventMention) =
+    this(m.labels, m.trigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
 }
 
 class BioRelationMention(
@@ -57,6 +59,8 @@ class BioRelationMention(
     super.hashCode() * 42 + mutations.hashCode()
   }
 
+  def this(m: RelationMention) =
+    this(m.labels, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
 }
 
 object BioMention{
