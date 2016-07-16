@@ -12,7 +12,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add tests of amino acids and their abbreviations.
+  *   Last Modified: Correct tests for fix of issue #77.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -286,12 +286,9 @@ class TestOverrides extends FlatSpec with Matchers {
 
   aa_short should "have Site labels" in {
     aas_mentions.isEmpty should be (false)
-    // printMentions(Try(aas_mentions), true)      // DEBUGGING
-    // the counts will be wrong until processors issue #77 is fixed:
-    // aas_mentions.size should be (20)
-    // aas_mentions.count(_ matches "Site") should be (20)
-    aas_mentions.size should be (18)                    // wrong: workaround issue #77
-    aas_mentions.count(_ matches "Site") should be (18) // wrong: workaround issue #77
+    printMentions(Try(aas_mentions), true)      // DEBUGGING
+    aas_mentions.size should be (20)
+    aas_mentions.count(_ matches "Site") should be (20)
   }
 
 }
