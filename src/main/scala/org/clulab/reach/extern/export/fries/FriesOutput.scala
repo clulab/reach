@@ -24,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update to allow regulations of regulations, 2-deep.
+  *   Last Modified: Update for negation flag within a PTM.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -720,7 +720,8 @@ class FriesOutput extends JsonOutputter {
     val m = new PropMap
     m("object-type") = "modification"
     m("type") = ptm.label
-    if(ptm.site.isDefined) {
+    m("negated") = ptm.negated
+    if (ptm.site.isDefined) {
       m("site") = ptm.site.get.text
     }
     m
