@@ -2,15 +2,15 @@
 - ModificationTrigger
 - Site
 - Context:
-  - Species
-  - CellLine
-  - Organ
-  - CellType
-  - Cellular_component
-  - TissueType
-  - ContextDirection
-  - ContextLocation
-  - ContextPossessive
+    - Species
+    - CellLine
+    - Organ
+    - CellType
+    - Cellular_component
+    - TissueType
+    - ContextDirection
+    - ContextLocation
+    - ContextPossessive
 - Modification:
     - PTM
     - Mutant:
@@ -36,7 +36,7 @@
                 - Hydroxylation
                 - Methylation
                 - Phosphorylation:
-                  - AutoPhosphorylation
+                    - AutoPhosphorylation
                 - Ribosylation
                 - Sumoylation
                 - Ubiquitination
@@ -61,38 +61,38 @@
     - Entity:
       # Any BioEntity may appear as the controlled in an Activation
       - BioEntity:
-        - BioProcess   # ex. "apoptosis"
-        - BioChemicalEntity:
-            - Generic_entity
-            - Simple_chemical
-            - Equivalable: #TODO: Better name
-                - Family
-                - MacroMolecule:
-                    - Protein
-                    - Gene_or_gene_product
-                    - Complex
-                    - GENE
+          - BioProcess   # ex. "apoptosis"
+          - BioChemicalEntity:
+              - Generic_entity
+              - Simple_chemical
+              - Equivalable: #TODO: Better name
+                  - Family
+                  - MacroMolecule:
+                      - Protein
+                      - Gene_or_gene_product
+                      - Complex
+                      - GENE
 # a preliminary taxonomy for assembly (precedence relations)
 - Precedence:
-  # for pairs that are directly (immediately) connected
-  # difficult to know from odin rules alone, but not impossible
-  - DirectConnection
-  # for pairs that are indirectly (not immediately) connected
-  - IndirectConnection
-  # Between-sentence precedence
-  - BetweenSentence:
-    - TimexAfter
-    - TimexBefore
-    - SentenceInitialEvent
-    - InterAfter
-    - InterBefore
-  # tense and aspect detection
-  - TAM:
-    - Aux
-    - Tense:
-      - PastTense
-      - PresentTense
-      - FutureTense
-    - Aspect:
-      - Perfective
-      - Progressive
+    # for pairs that are directly (immediately) connected
+    # difficult to know from odin rules alone, but not impossible
+    - DirectConnection
+    # for pairs that are indirectly (not immediately) connected
+    - IndirectConnection
+    # Between-sentence precedence
+    - BetweenSentence:
+        - TimexAfter
+        - TimexBefore
+        - SentenceInitialEvent
+        - InterAfter
+        - InterBefore
+    # tense and aspect detection
+    - TAM:
+        - Aux
+        - Tense:
+            - PastTense
+            - PresentTense
+            - FutureTense
+        - Aspect:
+            - Perfective
+            - Progressive
