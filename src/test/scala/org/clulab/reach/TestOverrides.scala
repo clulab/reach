@@ -286,7 +286,7 @@ class TestOverrides extends FlatSpec with Matchers {
 
   aa_short should "have Site labels" in {
     aas_mentions.isEmpty should be (false)
-    printMentions(Try(aas_mentions), true)      // DEBUGGING
+    // printMentions(Try(aas_mentions), true)      // DEBUGGING
     aas_mentions.size should be (20)
     aas_mentions.count(_ matches "Site") should be (20)
   }
