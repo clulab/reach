@@ -528,6 +528,10 @@ class DarpaActions extends Actions {
     // or add a PTM with the label "UNKNOWN" and negate it (depending on value of negated)
     case tb: BioTextBoundMention => tb
 
+    // These are event triggers used by coref (a SimpleEvent without a theme)
+    // FIXME: should these be handled differently?
+    case generic if generic matches "Generic_event" => generic
+
     // convert a binding into a Complex so that it is treated as an entity
     case binding if binding matches "Binding" =>
       new BioRelationMention(
