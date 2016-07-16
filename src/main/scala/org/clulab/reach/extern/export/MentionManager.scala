@@ -15,7 +15,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Refactor PTM output for negation flag and correct the indent.
+  *   Last Modified: Redo PTM header/evidence output for consistency.
   */
 class MentionManager {
 
@@ -235,8 +235,9 @@ class MentionManager {
     val mStrings:MutableList[String] = MutableList[String]()
     val headIndent = ("  " * level)
     val indent = ("  " * (level+1))
-    val evText = if (ptm.evidence.isDefined) ptm.evidence.get.text else ""
-    mStrings += s"${headIndent}PTM: ${evText}"
+    mStrings += s"${headIndent}PTM: ${ptm.label}"
+    if (ptm.evidence.isDefined)
+      mStrings += s"${indent}evidence: ${ptm.evidence.get.text}"
     mStrings += s"${indent}negated: ${ptm.negated}"
     if (ptm.site.isDefined)
       mStrings ++= mentionToStrings(ptm.site.get, level+2)
