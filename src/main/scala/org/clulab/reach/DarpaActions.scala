@@ -173,28 +173,11 @@ class DarpaActions extends Actions {
     regulation = removeDummy(switchLabel(mention.toBioMention))
     // If the Mention has both a controller and controlled, they should be distinct
     if hasDistinctControllerControlled(regulation)
-  } yield {
-    regulation.arguments.get("controller") match {
-      // no controller
-      case None => regulation
-      // a single controller
-      case Some(Seq(controller)) =>
-        val flattenedController = convertEventToEntity(controller)
-        val updatedArguments = regulation.arguments.updated("controller", Seq(flattenedController))
-        // TODO: should we flatten the controlled as well?
-        val flattenedRepresentation = regulation match {
-          case rel: RelationMention =>
-            rel.copy(arguments = updatedArguments)
-          case em: EventMention =>
-            em.copy(arguments = updatedArguments)
-        }
-        flattenedRepresentation
-    }
-  }
+  } yield regulation
 
   /**
-    * Flatten nested controllers of an activation.  Identical to mkRegulation, except
-    * mkActivation will only allow activations where no overlapping regulation is present
+    * Identical to mkRegulation, except mkActivation
+    * will only allow activations where no overlapping regulation is present
     */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // Prefer Activations with SimpleEvents as the controller
@@ -210,22 +193,7 @@ class DarpaActions extends Actions {
     // or if the Activation has no controller
     // or if it's controller and controlled are not distinct
     if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
-  } yield activation.arguments.get("controller") match {
-    // no controller
-    case None => activation
-    // activation has a single controller
-    case Some(Seq(controller)) =>
-      val flattenedController = convertEventToEntity(controller)
-      val updatedArguments = activation.arguments.updated("controller", Seq(flattenedController))
-      // TODO: should we flatten the controlled as well?
-      // return new activation with the event controller replaced by the entity controller
-      activation match {
-        case e: EventMention =>
-          e.copy(arguments = updatedArguments)
-        case rel: RelationMention =>
-          rel.copy(arguments = updatedArguments)
-      }
-  }
+  } yield activation
 
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Binding") =>
@@ -397,22 +365,27 @@ class DarpaActions extends Actions {
   /** Gets a mention. If it is an EventMention with a polarized label
     * and it is negated an odd number of times, returns a new mention
     * with the label flipped. Or else it returns the mention unmodified */
-  def switchLabel(mention: BioMention): BioMention = mention match {
-    case m: BioEventMention =>
-      val trigger = m.trigger
-      val arguments = m.arguments.values.flatten
+  def switchLabel(mention: Mention): BioMention = mention.toBioMention match {
+    // We can only attempt to flip the polarity of ComplexEvents with a trigger
+    case ce: BioEventMention if ce matches "ComplexEvent" =>
+      val trigger = ce.trigger
+      val arguments = ce.arguments.values.flatten
       // get token indices to exclude in the negation search
-      val excluded = trigger.tokenInterval.toSet ++ arguments.flatMap(_.tokenInterval)
+      // do not exclude args as they may involve regulations
+      val excluded = trigger.tokenInterval.toSet
       // count total number of negatives between trigger and each argument
       val numNegatives = arguments.map(arg => countSemanticNegatives(trigger, arg, excluded)).sum
-      if (numNegatives % 2 != 0) { // odd number of negatives
-        val newLabels = flipLabel(m.labels.head) +: m.labels.tail
-        // trigger labels should match event labels
-        val newTrigger = m.trigger.copy(labels = newLabels)
-        // return new mention with flipped label
-        new BioEventMention(m.copy(labels = newLabels, trigger = newTrigger))
-      } else {
-        m // return mention unmodified
+      // does the label need to be flipped?
+      numNegatives % 2 != 0 match {
+        // odd number of negatives
+         case true =>
+          val newLabels = flipLabel(ce.label) +: ce.labels.tail
+          // trigger labels should match event labels
+          val newTrigger = ce.trigger.copy(labels = newLabels)
+          // return new mention with flipped label
+          new BioEventMention(ce.copy(labels = newLabels, trigger = newTrigger))
+        // return mention unmodified
+        case false => ce
       }
     case m => m
   }
