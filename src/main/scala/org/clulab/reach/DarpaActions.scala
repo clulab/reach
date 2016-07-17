@@ -285,7 +285,7 @@ class DarpaActions extends Actions {
         // FIXME There could be more than one cause...
         val cause: Seq[Mention] = m.arguments("cause")
         val evArgs = m.arguments - "cause"
-        val ev = new BioEventMention(m.copy(arguments = evArgs))
+        val ev = new BioEventMention(m.copy(arguments = evArgs), direct = true)
         // make sure the regulation is valid
         val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
         // controller of an event should not be an arg in the controlled
