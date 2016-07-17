@@ -514,68 +514,6 @@ class DarpaActions extends Actions {
     }
   }
 
-  /** Recursively converts an Event to an Entity with the appropriate modifications representing its state.
-    * SimpleEvent -> theme + PTM <br>
-    * Binding -> Complex (treated as an Entity) <br>
-    * ComplexEvent -> recursive call on controlled (the event's "output") <br>
-    */
-  @tailrec
-  final def convertEventToEntity(m: Mention, negated: Boolean = false): BioMention = m.toBioMention match {
-
-    // no conversion needed
-    // FIXME: consider case of "activated RAS".
-    // We may want to add a Negation mod to this entity conditionally
-    // or add a PTM with the label "UNKNOWN" and negate it (depending on value of negated)
-    case tb: BioTextBoundMention => tb
-
-    // These are event triggers used by coref (a SimpleEvent without a theme)
-    // FIXME: should these be handled differently?
-    case generic if generic matches "Generic_event" => generic
-
-    // convert a binding into a Complex so that it is treated as an entity
-    case binding if binding matches "Binding" =>
-      new BioRelationMention(
-        taxonomy.hypernymsFor("Complex"),
-        binding.arguments,
-        binding.sentence,
-        binding.document,
-        binding.keep,
-        binding.foundBy
-      )
-
-    // convert event to PTM on its theme.
-    // negate PTM according to current value of "negated"
-    // (this SimpleEvent may have been the controlled to some negative ComplexEvent)
-    case se: BioEventMention if se matches "SimpleEvent" =>
-      // get the theme of the event (assume only one theme)
-      val entity = se.arguments("theme").head.toBioMention
-      // get an optional site (assume only one site)
-      val siteOption = se.arguments.get("site").map(_.head)
-      // create new mention for the entity
-      val modifiedEntity = new BioTextBoundMention(entity)
-      // attach a modification based on the event trigger
-      val label = getModificationLabel(se.label)
-      BioMention.copyAttachments(entity, modifiedEntity)
-      modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
-      modifiedEntity
-
-    // dig into the controlled (event's "output" or the part that is altered in some way)
-    case posEvent if (posEvent matches "ComplexEvent") && (!hasNegativePolarity(posEvent)) =>
-      // get the controlled of the event (assume only one controlled)
-      val controlled = posEvent.arguments("controlled").head.toBioMention
-      convertEventToEntity(controlled, negated)
-
-    // dig into the controlled (event's "output" or the part that is altered in some way)
-    // ComplexEvents with negative polarity "negate" the ptm of the contained entity
-    // (see https://github.com/clulab/reach/issues/184)
-    case negEvent if (negEvent matches "ComplexEvent") && hasNegativePolarity(negEvent) =>
-      // get the controlled of the event (assume only one controlled)
-      val controlled = negEvent.arguments("controlled").head.toBioMention
-      // negate the underlying PTM
-      // if received event has negative polarity (see issue #184)
-      convertEventToEntity(controlled, negated=true)
-  }
-
   /** Returns true if both mentions are grounded to the same entity */
   def sameEntityID(m1: BioMention, m2: BioMention): Boolean = {
     require(m1.isGrounded, "mention must be grounded")
@@ -648,29 +586,65 @@ class DarpaActions extends Actions {
     false
   }
 
-}
+  /** Recursively converts an Event to an Entity with the appropriate modifications representing its state.
+    * SimpleEvent -> theme + PTM <br>
+    * Binding -> Complex (treated as an Entity) <br>
+    * ComplexEvent -> recursive call on controlled (the event's "output") <br>
+    */
+  @tailrec
+  final def convertEventToEntity(m: Mention, negated: Boolean = false): BioMention = m.toBioMention match {
 
-object DarpaActions {
+    // no conversion needed
+    // FIXME: consider case of "activated RAS".
+    // We may want to add a Negation mod to this entity conditionally
+    // or add a PTM with the label "UNKNOWN" and negate it (depending on value of negated)
+    case entity if entity matches "Entity" => entity
 
-  def hasNegativePolarity(m: Mention): Boolean = if (m.label.toLowerCase startsWith "negative") true else false
-  // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
-  val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
+    // These are event triggers used by coref (a SimpleEvent without a theme)
+    // FIXME: should these be handled differently?
+    case generic if generic matches "Generic_event" => generic
 
-  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+    // convert a binding into a Complex so that it is treated as an entity
+    case binding if binding matches "Binding" =>
+      new BioRelationMention(
+        taxonomy.hypernymsFor("Complex"),
+        binding.arguments,
+        binding.sentence,
+        binding.document,
+        binding.keep,
+        binding.foundBy
+      )
 
-  val MODIFIER_LABELS = "amod".r
+    // convert event to PTM on its theme.
+    // negate PTM according to current value of "negated"
+    // (this SimpleEvent may have been the controlled to some negative ComplexEvent)
+    case se: BioEventMention if se matches "SimpleEvent" =>
+      // get the theme of the event (assume only one theme)
+      val entity = se.arguments("theme").head.toBioMention
+      // get an optional site (assume only one site)
+      val siteOption = se.arguments.get("site").map(_.head)
+      // create new mention for the entity
+      val modifiedEntity = new BioTextBoundMention(entity)
+      // attach a modification based on the event trigger
+      val label = DarpaActions.getModificationLabel(se.label)
+      BioMention.copyAttachments(entity, modifiedEntity)
+      modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
+      modifiedEntity
 
-  // patterns for "reverse" modifications
-  val deAcetylatPat     = "(?i)de-?acetylat".r
-  val deFarnesylatPat   = "(?i)de-?farnesylat".r
-  val deGlycosylatPat   = "(?i)de-?glycosylat".r
-  val deHydrolyPat      = "(?i)de-?hydroly".r
-  val deHydroxylatPat   = "(?i)de-?hydroxylat".r
-  val deMethylatPat     = "(?i)de-?methylat".r
-  val dePhosphorylatPat = "(?i)de-?phosphorylat".r
-  val deRibosylatPat    = "(?i)de-?ribosylat".r
-  val deSumoylatPat     = "(?i)de-?sumoylat".r
-  val deUbiquitinatPat  = "(?i)de-?ubiquitinat".r
+    // dig into the controlled (event's "output" or the part that is altered in some way)
+    case posEvent if (posEvent matches "ComplexEvent") && (!DarpaActions.hasNegativePolarity(posEvent)) =>
+      // get the controlled of the event (assume only one controlled)
+      val controlled = posEvent.arguments("controlled").head.toBioMention
+      convertEventToEntity(controlled, negated)
 
+    // dig into the controlled (event's "output" or the part that is altered in some way)
+    // ComplexEvents with negative polarity "negate" the ptm of the contained entity
+    // (see https://github.com/clulab/reach/issues/184)
+    case negEvent if (negEvent matches "ComplexEvent") && DarpaActions.hasNegativePolarity(negEvent) =>
+      // get the controlled of the event (assume only one controlled)
+      val controlled = negEvent.arguments("controlled").head.toBioMention
+      // negate the underlying PTM
+      // if received event has negative polarity (see issue #184)
+      convertEventToEntity(controlled, negated=true)
+  }
 }

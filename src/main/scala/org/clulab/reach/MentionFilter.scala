@@ -190,11 +190,10 @@ object MentionFilter {
     }
 
     def ptmEquivalent(a: CorefMention, b: CorefMention): Boolean = {
-      val da = new DarpaActions
       (a,b) match {
         case (exactA, exactB) if exactA == exactB => true
-        case (ent: CorefTextBoundMention, ev: CorefEventMention) => da.convertEventToEntity(ev) == ent
-        case (ev: CorefEventMention, ent: CorefTextBoundMention) => da.convertEventToEntity(ev) == ent
+        case (ent: CorefTextBoundMention, ev: CorefEventMention) => convertEventToEntity(ev) == ent
+        case (ev: CorefEventMention, ent: CorefTextBoundMention) => convertEventToEntity(ev) == ent
         case different => false
       }
     }
