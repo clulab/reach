@@ -52,7 +52,6 @@ object MentionFilter {
         .arguments("controlled")
         .head
         // treat it as a CorefEventMention to simplify filtering
-        //.toCorefMention.asInstanceOf[CorefEventMention]
         .toCorefMention
       // how many args does the controlled Mention have?
       argCount = controlled.antecedentOrElse(controlled).arguments.size
@@ -60,10 +59,9 @@ object MentionFilter {
       // Are there any "more complete" SimpleEvents in the State
       // that are candidates to replace the current "controlled" arg?
       val replacementCandidates: Seq[CorefMention] = controlled match {
-        case rel if rel.isInstanceOf[CorefRelationMention] => Nil
-        case ev => state.mentionsFor(reg.sentence, controlled.tokenInterval, controlled.label)
+        case rel: CorefRelationMention => Nil
+        case ev: CorefEventMention => state.mentionsFor(reg.sentence, controlled.tokenInterval, controlled.label)
             // If the label is the same, these MUST be CorefEventMentions (i.e SimpleEvents)
-            //.map(_.toCorefMention.asInstanceOf[CorefEventMention])
             .map(_.toCorefMention)
             .filter(m =>
               m.isInstanceOf[CorefEventMention] &&
@@ -126,27 +124,27 @@ object MentionFilter {
     }
 
     def filterByController(regulations: Seq[CorefMention]): Seq[CorefMention] = {
-      // collect all regulation events with a Complex controller
-      val regulationsWithComplexController = regulations.filter { m =>
+      // collect all regulation events with a Complex as the controller
+      val regulationsWithComplexAsController = regulations.filter { m =>
         m.arguments.contains("controller") && m.arguments("controller").head.matches("Complex")
       }
       // collect the rest of the regulations
-      val remainingRegulations = regulationsWithComplexController match {
+      val remainingRegulations = regulationsWithComplexAsController match {
         // if there where no regulations with complex controllers
         // then all the regulations are remaining
         case Nil => regulations
         // get all mentions that have no complex controller
         // and also have no controller included in a complex
-        case events => regulations diff regulationsWithComplexController filter { m =>
+        case events => regulations diff regulationsWithComplexAsController filter { m =>
           m.arguments.contains("controller") && // maybe m doesn't even have a controller
-          !regulationsWithComplexController.exists { reg =>
+          !regulationsWithComplexAsController.exists { reg =>
             // m's controller shouldn't be included in a complex
             val participants = reg.arguments("controller").head.arguments.get("theme")
             participants.isDefined && participants.get.contains(m.arguments("controller").head)
           }
         }
       }
-      regulationsWithComplexController ++ remainingRegulations
+      regulationsWithComplexAsController ++ remainingRegulations
     }
 
     def preferRegulations(regulations: Seq[BioMention]): Seq[CorefMention] = {
