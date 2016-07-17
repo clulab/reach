@@ -302,17 +302,8 @@ class DarpaActions extends Actions {
     case m => Seq(m.toBioMention)
   }
 
-  // Reach currently doesn't support recursive events whose participants are also recursive events.
-  // This method filters them out so that we don't encounter them during serialization.
-  def filterEventsWithExtraRecursion(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    m <- mentions
-    if !m.arguments.values.flatten.toSeq.exists((arg:Mention) => arg matches "Regulation")
-  } yield m
-
   /** global action for EventEngine */
   def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
-    // Regulations of regulations now allowed.
-    // val r0 = filterEventsWithExtraRecursion(mentions, state)
     val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
@@ -320,6 +311,30 @@ class DarpaActions extends Actions {
     val r5 = splitSimpleEvents(r4, state)
     r5
   }
+}
+
+object DarpaActions {
+
+  def hasNegativePolarity(m: Mention): Boolean = if (m.label.toLowerCase startsWith "negative") true else false
+  // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
+  val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
+
+  // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+
+  val MODIFIER_LABELS = "amod".r
+
+  // patterns for "reverse" modifications
+  val deAcetylatPat     = "(?i)de-?acetylat".r
+  val deFarnesylatPat   = "(?i)de-?farnesylat".r
+  val deGlycosylatPat   = "(?i)de-?glycosylat".r
+  val deHydrolyPat      = "(?i)de-?hydroly".r
+  val deHydroxylatPat   = "(?i)de-?hydroxylat".r
+  val deMethylatPat     = "(?i)de-?methylat".r
+  val dePhosphorylatPat = "(?i)de-?phosphorylat".r
+  val deRibosylatPat    = "(?i)de-?ribosylat".r
+  val deSumoylatPat     = "(?i)de-?sumoylat".r
+  val deUbiquitinatPat  = "(?i)de-?ubiquitinat".r
 
 
   // HELPER FUNCTIONS
@@ -419,11 +434,11 @@ class DarpaActions extends Actions {
   }
 
   /**
-   * Adds adjectival modifiers to all elements in the given path
-   * This is necessary so we can properly inspect the semantic negatives,
-   *   which are often not in the path, but modify tokens in it,
-   *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
-   */
+    * Adds adjectival modifiers to all elements in the given path
+    * This is necessary so we can properly inspect the semantic negatives,
+    *   which are often not in the path, but modify tokens in it,
+    *   "*decreased* PTPN13 expression increases phosphorylation of EphrinB1"
+    */
   def addAdjectivalModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
     t <- tokens
     token <- t +: getModifiers(t, deps)

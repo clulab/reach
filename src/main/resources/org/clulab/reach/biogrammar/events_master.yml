@@ -243,6 +243,7 @@ rules:
       actionFlow: "mkBioMention"
       priority: "6"
 
+
   # Positive Regulation
   - import: org/clulab/reach/biogrammar/events/pos-reg_template.yml
     vars:
