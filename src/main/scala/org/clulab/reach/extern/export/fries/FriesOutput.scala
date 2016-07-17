@@ -2,9 +2,9 @@ package org.clulab.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-import org.clulab.assembly.export.{CausalPrecedence, Equivalence, AssemblyLink}
-import org.json4s.native.Serialization
 
+import org.clulab.assembly.export.{AssemblyLink, CausalPrecedence, Equivalence}
+import org.json4s.native.Serialization
 import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.processors.Document
@@ -15,8 +15,8 @@ import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.reach.nxml.FriesEntry
-
 import JsonOutputter._
+import org.clulab.reach.OutputDegrader
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
@@ -71,20 +71,23 @@ class FriesOutput extends JsonOutputter {
                        endTime:Date,
                        outFilePrefix:String): String = {
 
+    // Flatten mentions, per MITRE requirements
+    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val contextIdMap = new CtxIDed
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+    val sentModel = sentencesToModel(paperId, sanitizedMentions, passageMap,
                                      startTime, endTime, otherMetaData)
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                entityMap, startTime, endTime, otherMetaData)
 
     val uniModel:PropMap = new PropMap      // combine models into one
@@ -108,22 +111,25 @@ class FriesOutput extends JsonOutputter {
                           endTime:Date,
                           outFilePrefix:String): Unit = {
 
+    // Flatten mentions, per MITRE requirements
+    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val contextIdMap = new CtxIDed
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+    val sentModel = sentencesToModel(paperId, sanitizedMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                entityMap, startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
   }
@@ -142,30 +148,32 @@ class FriesOutput extends JsonOutputter {
                  outFilePrefix:String,
                  assemblyAPI: Assembler): Unit = {
 
+    // Flatten mentions, per MITRE requirements
+    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val contextIdMap = new CtxIDed
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+    val sentModel = sentencesToModel(paperId, sanitizedMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                entityMap, startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
-    val assemblyModel:PropMap = mkAssemblyModel(paperId, allMentions, passageMap, entityMap, eventMap,
+    val assemblyModel:PropMap = mkAssemblyModel(paperId, sanitizedMentions, passageMap, entityMap, eventMap,
                                                 startTime, endTime, otherMetaData, assemblyAPI)
     writeJsonToFile(assemblyModel, new File(outFilePrefix + ".uaz.links.json"))
   }
-
 
   //
   // Private Methods
