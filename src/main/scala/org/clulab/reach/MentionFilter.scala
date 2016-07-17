@@ -239,10 +239,52 @@ object MentionFilter {
     val (regulations, other) = ms.partition(_ matches "Regulation")
     regulations match {
       case someRegs if someRegs.nonEmpty =>
-        filterRegulations(someRegs, other, state)
+        val moreComplete = filterRegulations(someRegs, other, state)
+        // filter by controller
+        moreComplete.filter(m => keepMention(m, State(moreComplete)))
+          .map(_.toCorefMention)
       case Nil =>
         pruneMentions(other.map(_.toCorefMention))
     }
   }
 
+  /** Does the mention have a controller? */
+  def hasController(m: Mention): Boolean = m.arguments.keySet contains "controller"
+
+  /** Does the mention have a Entity as its controller? */
+  def hasEntityAsController(m: Mention): Boolean = m.arguments.get("controller") match {
+    case Some(Seq(entity)) if entity matches "Entity" => true
+    case _ => false
+  }
+
+  /** Does the mention have an Event as its controller? */
+  def hasEventAsController(m: Mention): Boolean = m.arguments.get("controller") match {
+    case Some(Seq(event)) if event matches "Event" => true
+    case _ => false
+  }
+
+  /** Determine whether or not a mention should be dropped **/
+  def keepMention(m: Mention, state: State): Boolean = m match {
+    // inspect any reg with an entity as its controller
+    // to see if an overlapping reg with an Event controller exists
+    case rec if (rec matches "Regulation") && hasEntityAsController(m) =>
+      val controlled = rec.arguments("controlled").head
+      val hasValidAlternate: Boolean = state.mentionsFor(rec.sentence, rec.tokenInterval, rec.label)
+        .exists(c =>
+          // don't consider the rec as an alternate
+          (c != rec) &&
+            // only consider matches if the controlleds are equivalent
+            (c.arguments("controlled") == controlled) &&
+            // candidates for replacement should have a
+            hasEventAsController(c)
+        )
+      hasValidAlternate match {
+        // there are better options, so drop this guy
+        case true => false
+        // no replacement candidates exist, so mention is valid
+        case false => true
+      }
+    // assume valid otherwise
+    case other => true
+  }
 }
