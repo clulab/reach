@@ -44,6 +44,9 @@ object OutputDegrader {
       }
       flattenedRepresentation.toBioMention
       }
+
+    // Site, Cellular_component, CellLine, TissueType, Species, etc.
+    case other => other
   }
 
   /** Recursively converts an Event to an Entity with the appropriate modifications representing its state.
