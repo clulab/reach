@@ -274,7 +274,7 @@ object MentionFilter {
           // don't consider the rec as an alternate
           (c != rec) &&
             // only consider matches if the controlleds are equivalent
-            (c.arguments("controlled") == controlled) &&
+            (c.arguments("controlled").head == controlled) &&
             // candidates for replacement should have a
             hasEventAsController(c)
         )
