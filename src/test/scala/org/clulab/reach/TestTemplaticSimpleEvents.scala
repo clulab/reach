@@ -511,19 +511,39 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent35a)
     hasPositiveRegulationByEntity("E3 ubiquitin ligase", "Ubiquitination", List("beta-catenin"), mentions) should be (true)
   }
+
   val sent35b = "Beta-catenin ubiquitinates E3 ubiquitin ligase."
   sent35b should "contain a ubiquitination with cause" in {
     val mentions = getBioMentions(sent35b)
     hasPositiveRegulationByEntity("Beta-catenin", "Ubiquitination", List("E3 ubiquitin ligase"), mentions) should be (true)
   }
+
   val sent35c = "Ubiquitin ubiquitinates beta-catenin."
   sent35c should "not contain a ubiquitination" in {
     val mentions = getBioMentions(sent35c)
     hasPositiveRegulationByEntity("E3 ubiquitin ligase", "Ubiquitination", List("beta-catenin"), mentions) should be (false)
   }
+
   val sent35d = "Beta-catenin ubiquitinates ubiquitin."
   sent35d should "not contain a ubiquitination" in {
     val mentions = getBioMentions(sent35d)
     hasPositiveRegulationByEntity("Beta-catenin", "Ubiquitination", List("E3 ubiquitin ligase"), mentions) should be (false)
+  }
+
+  // Ensure we capture sites that are nominal modifiers of a nominal trigger
+  val sent36 = "We did not detect a change in the tyrosine phosphorylation of EGFR in cells expressing Gab1 proteins that are deficient in recruitment of Shp2."
+  sent36 should "contain a phosphorylation with a Site" in {
+    val mentions = getMentionsFromText(sent36)
+    val phosphos = mentions filter(_ matches "Phosphorylation")
+
+    phosphos should have size (1)
+
+    phosphos.head.arguments.keySet should contain ("theme")
+    phosphos.head.arguments("theme") should have size (1)
+    phosphos.head.arguments("theme").head.text should equal ("EGFR")
+
+    phosphos.head.arguments.keySet should contain ("site")
+    phosphos.head.arguments("site") should have size (1)
+    phosphos.head.arguments("site").head.text should equal ("tyrosine")
   }
 }

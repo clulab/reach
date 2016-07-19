@@ -162,9 +162,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
     val controlled = reg.get.arguments("controlled").head.toBioMention
-    controller.text should be ("ASPP1")
-    controller.modifications should have size (1)
-    controller.modifications.head.label should be ("Phosphorylation")
+    controller.label should equal ("Phosphorylation")
     controlled.labels should contain ("Ubiquitination")
     controlled.asInstanceOf[BioEventMention].isDirect should be (false)
     controlled.arguments should contain key ("theme")
@@ -183,8 +181,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
     val controlled = reg.get.arguments("controlled").head.toBioMention
-    controller.text should be ("ASPP1 and ASPP2")
-    controller.labels should contain ("Complex")
+    controller.label should equal ("Binding")
     controlled.labels should contain ("Phosphorylation")
     controlled.arguments should contain key ("theme")
     controlled.arguments should not contain key ("cause")
@@ -251,7 +248,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     posReg.head.arguments("controlled") should have size (1)
     val controller = posReg.head.arguments("controller").head.toBioMention
     val controlled = posReg.head.arguments("controlled").head.toBioMention
-    controller.matches("Complex") should be (true)
+    controller.matches("Binding") should be (true)
     controlled.matches("Phosphorylation") should be (true)
     controlled.asInstanceOf[BioEventMention].isDirect should be (false)
   }

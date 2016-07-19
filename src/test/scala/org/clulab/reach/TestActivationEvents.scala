@@ -172,8 +172,7 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent21)
     val activations = mentions.filter(_ matches "Positive_activation")
     activations should have size (1)
-    val mods = activations.head.arguments("controller").head.toBioMention.modifications.map(_.label)
-    mods should contain ("Phosphorylation")
+    activations.head.arguments("controller").head.label should equal ("Phosphorylation")
   }
 
   val sent22 = "The phosphorylation of MEK deactivates K-Ras."
@@ -181,10 +180,9 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent22)
     val negActs = mentions.filter(_ matches "Negative_activation")
     negActs.length should be (1)
-    val mods = negActs.head.arguments("controller").head.toBioMention.modifications.map(_.label)
-    mods should contain ("Phosphorylation")
+    negActs.head.arguments("controller").head.label should equal ("Phosphorylation")
     // We shouldn't pick up any Positive Activations
-    mentions.count(_ matches "Positve_activation") should be(0)
+    mentions.count(_ matches "Positive_activation") should be (0)
   }
 
   // Relies on COREF

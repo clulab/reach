@@ -30,6 +30,18 @@ rules:
       label: "Phosphorylation"
       verbalTriggerLemma: "phosphorylate"
       nominalTriggerLemma: "phosphorylation"
+      triggerPrefix: "!word=/(?i)^(de|auto)/"
+      priority: "5"
+
+  # AutoPhosphorylations
+  - import: org/clulab/reach/biogrammar/events/simple-event-auto_template.yml
+    vars:
+      eventName: "AutoPhosphorylation"
+      actionFlow: "handleAutoEvent"
+      label: "AutoPhosphorylation"
+      verbalTriggerLemma: "auto-?phosphorylate"
+      baseVerbalTriggerLemma: "phosphorylate"
+      nominalTriggerLemma: "auto-?phosphorylation"
       triggerPrefix: "!word=/(?i)^de/"
       priority: "5"
 
@@ -230,6 +242,7 @@ rules:
     vars:
       actionFlow: "mkBioMention"
       priority: "6"
+
 
   # Positive Regulation
   - import: org/clulab/reach/biogrammar/events/pos-reg_template.yml

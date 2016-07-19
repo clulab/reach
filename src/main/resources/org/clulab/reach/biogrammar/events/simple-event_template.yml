@@ -118,7 +118,7 @@
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity? = ((<dobj | <pobj)? (prep_by|agent) | nn | prep_of prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
     theme:BioChemicalEntity = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
-    site:Site? = (/prep_/ nn{,2}){1,2}
+    site:Site? = (/prep_/? nn{,2}){1,2}
 
 
 - name: ${ eventName }_syntax_1b_noun
@@ -200,6 +200,7 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=prep_of]
     theme:BioChemicalEntity = < nsubj dobj prep_of appos? /nn|cc|conj/{,2}
+
 
 - name: ${ eventName }_syntax_8_noun
   priority: ${ priority }

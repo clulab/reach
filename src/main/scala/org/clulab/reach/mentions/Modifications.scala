@@ -23,7 +23,8 @@ sealed trait Modification {
 case class PTM(
   label: String,
   evidence: Option[Mention] = None,
-  site: Option[Mention] = None
+  site: Option[Mention] = None,
+  negated: Boolean = false
 ) extends Modification {
   override def toString: String = {
     val b = new StringBuilder()

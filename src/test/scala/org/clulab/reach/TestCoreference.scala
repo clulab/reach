@@ -256,12 +256,12 @@ class TestCoreference extends FlatSpec with Matchers {
     "have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation " +
     "sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the " +
     "PI-3 kinase pathway"
-  sent24 should "have a complex controller if it produces an ActivationEvent" in {
+  sent24 should "have a Binding as a controller if it produces an ActivationEvent" in {
     val mentions = getBioMentions(sent24)
     val act = mentions.find(_ matches "ActivationEvent")
     if (act.nonEmpty) {
       val controller = act.get.arguments("controller").head
-      (controller.antecedentOrElse(controller) matches "Complex") should be (true)
+      (controller.antecedentOrElse(controller) matches "Binding") should be (true)
     }
   }
 
