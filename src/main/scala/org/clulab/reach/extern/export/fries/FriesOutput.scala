@@ -221,7 +221,7 @@ class FriesOutput extends JsonOutputter {
       mention match {
         case em:BioTextBoundMention =>
           val passage = getPassageForMention(passageMap, em)
-          frames ++= mkEntityMention(paperId, passage, em.toBioMention.asInstanceOf[BioTextBoundMention], contextIdMap, entityMap)
+          frames ++= mkEntityMention(paperId, passage, em, contextIdMap, entityMap)
         case _ => // these are events; we will export them later
       }
     }
