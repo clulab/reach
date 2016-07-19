@@ -553,7 +553,7 @@ class AssemblyManager(
         // TODO: is site part of label?
         case mut: mentions.Mutant => Set(MutantEntity(mut.label))
         // TODO: should site be handled differently?
-        case ptm: mentions.PTM => Set(PTM(ptm.toString, None))
+        case ptm: mentions.PTM => Set(PTM(ptm.toString, None, ptm.negated))
         case _ => Nil
       }
     if (m matches "Entity") Set(EntityLabel(m.label)) ++ mods else mods
