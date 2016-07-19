@@ -24,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update for negation flag within a PTM.
+  *   Last Modified: Cleanup up uninformative asserts.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -284,7 +284,8 @@ class FriesOutput extends JsonOutputter {
   }
 
   private def getChunkId(m:Mention):String = {
-    assert(m.document.id.isDefined)
+    assert(m.document.id.isDefined, { println(s"ASSERT-ERROR: object ${m} has no document ID") })
+
     val did = m.document.id.get
     // the chunk id is the string following the underscore in the document ids
     val chunkId = did.substring(did.lastIndexOf("_") + 1)
@@ -295,7 +296,8 @@ class FriesOutput extends JsonOutputter {
   private def getPassageForMention (passageMap:Map[String, FriesEntry],
                                     mention:Mention): FriesEntry = {
     val chunkId = getChunkId(mention)
-    assert(passageMap.contains(chunkId))
+    assert(passageMap.contains(chunkId), {
+      println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
     passageMap.get(chunkId).get
   }
 
@@ -367,14 +369,19 @@ class FriesOutput extends JsonOutputter {
     argType match {
       case "complex" =>
         // this is a complex: print the participants
-        assert(arg.isInstanceOf[RelationMention])
+        assert(arg.isInstanceOf[RelationMention], {
+          println("ASSERT-ERROR: complex 'arg' is not an instance of RelationMention") })
         val participants = new PropMap
         val complexParticipants = arg.asInstanceOf[RelationMention].arguments
         for(key <- complexParticipants.keySet) {
           val ms: Seq[Mention] = complexParticipants.get(key).get
           for ((p, i) <- ms.zipWithIndex) {
-            assert(p.isInstanceOf[TextBoundMention])
-            assert(entityMap.contains(p))
+            assert(p.isInstanceOf[TextBoundMention], {
+              println(s"ASSERT-ERROR: complex participant is not an instance of TextBoundMention: ${p}")
+            })
+            if (!entityMap.contains(p)) {
+              throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
+            }
             participants(s"$key${i + 1}") = entityMap.get(p).get
           }
         }
@@ -393,9 +400,8 @@ class FriesOutput extends JsonOutputter {
             println(s"\t${e.text} with labels ${e.labels.mkString(", ")}")
           }
           */
-          throw new RuntimeException(s"Found entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
+          throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
         }
-        // assert(entityMap.contains(arg))
         m("arg") = entityMap.get(arg).get
 
       case "event" =>
@@ -719,7 +725,7 @@ class FriesOutput extends JsonOutputter {
     f("section-id") = passage.sectionId
     f("section-name") = passage.sectionName
     f("is-title") = passage.isTitle
-    assert(passageDoc.text.isDefined)
+    assert(passageDoc.text.isDefined, { println(s"ASSERT-ERROR: passageDoc has no text") })
     f("text") = passageDoc.text.get.replaceAll("\\n", " ")
     f
   }
@@ -804,7 +810,8 @@ class FriesOutput extends JsonOutputter {
 
     // now output all passages as individual frames
     for(chunkId <- passageDocs.keySet) {
-      assert(passageMap.contains(chunkId))
+      assert(passageMap.contains(chunkId), {
+        println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
       frames += mkPassage(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
       frames ++= mkSentences(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
     }
