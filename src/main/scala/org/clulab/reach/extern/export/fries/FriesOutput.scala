@@ -374,7 +374,8 @@ class FriesOutput extends JsonOutputter {
         val participants = new PropMap
         val complexParticipants = arg.asInstanceOf[RelationMention].arguments
         for(key <- complexParticipants.keySet) {
-          val ms: Seq[Mention] = complexParticipants.get(key).get
+          // FIXME: resolve each participant.  Should this be done elsewhere?
+          val ms: Seq[Mention] = complexParticipants.get(key).get.map(m => m.antecedentOrElse(m))
           for ((p, i) <- ms.zipWithIndex) {
             assert(p.isInstanceOf[TextBoundMention], {
               println(s"ASSERT-ERROR: complex participant is not an instance of TextBoundMention: ${p}")
