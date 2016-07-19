@@ -3,17 +3,15 @@ package org.clulab.reach.extern.export.indexcards
 import java.io.File
 import java.util.Date
 import java.util.regex.Pattern
-
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
-
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.reach.nxml.FriesEntry
-
+import org.clulab.reach.OutputDegrader
 import JsonOutputter._
 import IndexCardOutput._
 
@@ -101,12 +99,13 @@ class IndexCardOutput extends JsonOutputter {
 
     // keeps just events:
     val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
-
+    // flatten mentions
+    val flattenedMentions = OutputDegrader.flattenMentions(eventMentions).map(_.toCorefMention)
     // keeps track of simple events that participate in regulations
     val simpleEventsInRegs = new mutable.HashSet[Mention]()
 
     // first, print all regulation events
-    for(mention <- eventMentions) {
+    for (mention <- flattenedMentions) {
       if (REGULATION_EVENTS.contains(mention.label)) {
         val card = mkRegulationIndexCard(mention, simpleEventsInRegs)
         card.foreach(c => {
@@ -117,7 +116,7 @@ class IndexCardOutput extends JsonOutputter {
     }
 
     // now, print everything else that wasn't printed already
-    for(mention <- eventMentions) {
+    for (mention <- flattenedMentions) {
       if (! REGULATION_EVENTS.contains(mention.label) &&
           ! simpleEventsInRegs.contains(mention))
       {
