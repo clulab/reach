@@ -12,7 +12,7 @@
 # actionFlow (example) = splitSimpleEvents
 #################################################
 
-- name: ${ eventName }_syntax_1_verb
+- name: ${ eventName }_syntax_1a_verb
   priority: ${ priority }
   example: "We further showed, in a combined enzymatic assay, that human deoxycytidine kinase and UMP-CMP kinase together ${ verbalTriggerLemma }d araC, dFdC, and 2',3'-dideoxycytidine to their diphosphate forms."
   label: ${ label }
@@ -22,6 +22,18 @@
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|nn|prep_of/{,2} (>> [word=by]){,2}
     site:Site? = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+
+
+- name: ${ eventName }_syntax_1b_verb
+  priority: ${ priority }
+  example: "Akt ${ verbalTriggerLemma }s Ser487 on AMPK-alpha1"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
+    cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_(and|or|nor)|cc/{,2}
+    site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|nn|prep_of/{,2} (>> [word=by]){,2}
+    theme:BioChemicalEntity = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_2_verb
@@ -44,7 +56,8 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
     cause:BioChemicalEntity? = <nn{,2} | (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
-    theme:BioChemicalEntity = ( (/pobj|prep_[^b]|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2}) )
+    theme:BioChemicalEntity = (/pobj|prep_[^b]|conj_(and|or|nor)|nn/{1,2}) |
+      (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2})
     site:Site? = (/pobj|prep_|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2})
 
 
@@ -96,16 +109,28 @@
     site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
 
 
-- name: ${ eventName }_syntax_1_noun
+- name: ${ eventName }_syntax_1a_noun
   priority: ${ priority }
   example: "... which includes ${ nominalTriggerLemma } of PKC isozymes by phosphoinositide-dependent protein kinases.  Ras ${ nominalTriggerLemma } of ASPP2 increased."
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = (<dobj? (prep_by|agent)|nn|prep_of prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
+    cause:BioChemicalEntity? = ((<dobj | <pobj)? (prep_by|agent) | nn | prep_of prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
     theme:BioChemicalEntity = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
     site:Site? = (/prep_/? nn{,2}){1,2}
+
+
+- name: ${ eventName }_syntax_1b_noun
+  priority: ${ priority }
+  example: "... which includes ${ nominalTriggerLemma } of PKC isozymes by phosphoinositide-dependent protein kinases.  Ras ${ nominalTriggerLemma } of ASPP2 increased."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
+    cause:BioChemicalEntity? = ((<dobj | <pobj)? (prep_by|agent) | nn | /^prep_o[nf]$/{1,2} prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
+    site:Site = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = (/prep_/ nn{,2}){1,2}
 
 
 - name: ${ eventName }_syntax_2_noun
@@ -141,7 +166,7 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=/prep_(by|of)/]
     theme:BioChemicalEntity = </conj_(and|or|nor)/? /conj_(and|or|nor)|cc|nn|prep_of/{,2}
-    site:Site? = nn | prep_at
+    site:Site? = nn | <dobj? /prep_(at|on)/ num?
 
 
 - name: ${ eventName }_syntax_5_noun
@@ -255,7 +280,7 @@
     (?<trigger> [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) on [!tag=/^(V|JJ)/]{,2}? @site:Site []{,2}? of []{,2}? and @theme:BioChemicalEntity
 
 # effects of patterns
-- name: ${ eventName }_token_7_noun
+- name: ${ eventName }_token_7a_noun
   priority: ${ priority }
   example: "The effects of ${ nominalTriggerLemma } on Ras are not isoform-specific."
   type: token
@@ -310,7 +335,7 @@
 
 
 # relies on EventSite modifications
-- name: ${ eventName }_token_7_verb
+- name: ${ eventName }_token_6_verb
   priority: ${ priority }
   example: "JAK3 ${ verbalTriggerLemma }s three HuR residues (Y63, Y68, Y200)"
   type: token
