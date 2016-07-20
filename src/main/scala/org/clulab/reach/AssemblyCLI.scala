@@ -9,6 +9,8 @@ import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
 import org.clulab.reach.nxml._
+import ai.lum.nxmlreader.NxmlReader
+import ai.lum.nxmlreader.NxmlDocument
 
 
 /**
@@ -47,8 +49,7 @@ class AssemblyCLI(
       if (verbose)
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
-      val entries = PaperReader.getEntriesFromPaper(file)
-      val mentions = PaperReader.getMentionsFromFriesEntries(entries)
+      val mentions = PaperReader.getMentionsFromPaper(file)
 
       if (verbose)
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
@@ -59,7 +60,8 @@ class AssemblyCLI(
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished initializing Assembler")
 
       val procTime = AssemblyCLI.now
-      outputMentions(mentions, entries, paperId, startTime, procTime, outputDir, assemblyAPI)
+      val nxmldoc = PaperReader.nxmlReader.read(file)
+      outputMentions(mentions, nxmldoc, paperId, startTime, procTime, outputDir, assemblyAPI)
 
       val endTime = AssemblyCLI.now
       val endNS = System.nanoTime
@@ -72,7 +74,7 @@ class AssemblyCLI(
 
   def outputMentions(
     mentions: Seq[Mention],
-    paperPassages: Seq[FriesEntry],
+    nxmldoc: NxmlDocument,
     paperId: String,
     startTime: Date,
     endTime: Date,
@@ -81,7 +83,8 @@ class AssemblyCLI(
   ) = {
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
     val outputter:FriesOutput = new FriesOutput()
-    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile, assemblyAPI)
+    val entry = new FriesEntry(nxmldoc.pmc, "", "", "", false, nxmldoc.standoff.text)
+    outputter.writeJSON(paperId, mentions, Seq(entry), startTime, endTime, outFile, assemblyAPI)
   }
 
   private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
