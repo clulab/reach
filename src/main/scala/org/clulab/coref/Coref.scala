@@ -1,6 +1,6 @@
 package org.clulab.coref
 
-import org.clulab.odin.{Mention, _}
+import org.clulab.odin._
 import org.clulab.reach.grounding.{ReachKBConstants, KBEntry}
 import org.clulab.reach.DarpaLinks
 import org.clulab.reach.DarpaActions.convertEventToEntity

@@ -82,7 +82,6 @@ class BoundedPaddingContext(
   // Apply the policy
   protected override def inferContext = padContext(Seq(), latentSparseMatrix, Seq.fill(this.contextTypes.size)(1), bound)
 
-  protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
 

@@ -12,6 +12,7 @@ import scala.collection.immutable.HashSet
 import scala.collection.mutable
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
+import ai.lum.nxmlreader.NxmlDocument
 
 class ReachSystem(
     rules: Option[Rules] = None,
@@ -54,6 +55,41 @@ class ReachSystem(
     doc
   }
 
+  def extractFrom(entry: FriesEntry): Seq[BioMention] =
+    extractFrom(entry.text, entry.name, entry.chunkId)
+
+  def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
+    // use standoff hashcode as the chunkId
+    extractFrom(mkDoc(nxml.text, nxml.pmc, nxml.standoff.hashCode.toString), Some(nxml))
+  }
+
+  def extractFrom(doc: Document, nxml: Option[NxmlDocument]): Seq[BioMention] = {
+    // initialize the context engine
+    val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
+
+    val entities = extractEntitiesFrom(doc)
+    contextEngine.infer(entities)
+    val entitiesWithContext = contextEngine.assign(entities)
+    val unfilteredEvents = extractEventsFrom(doc, entitiesWithContext)
+    val events = MentionFilter.keepMostCompleteMentions(unfilteredEvents, State(unfilteredEvents))
+    contextEngine.update(events)
+    val eventsWithContext = contextEngine.assign(events)
+    val grounded = grounder(eventsWithContext)
+    // Coref expects to get all mentions grouped
+    // we group according to the standoff, if there is one
+    // else we just make one group with all the mentions
+    val groundedAndGrouped = nxml match {
+      case Some(nxml) => groupMentionsByStandoff(grounded, nxml)
+      case None => Seq(grounded)
+    }
+    val resolved = resolveCoref(groundedAndGrouped)
+    // Coref introduced incomplete Mentions that now need to be pruned
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+    // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
+
+    resolveDisplay(complete)
+  }
+
   def extractFrom(entries: Seq[FriesEntry]): Seq[BioMention] =
     extractFrom(entries, entries.map{
         e => mkDoc(e.text, e.name, e.chunkId)
@@ -64,7 +100,7 @@ class ReachSystem(
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
     val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
-    contextEngine.infer(entries, documents, entitiesPerEntry)
+    contextEngine.infer(entitiesPerEntry.flatten)
     val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
     // get events
     val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield {
@@ -88,9 +124,10 @@ class ReachSystem(
     for (doc <- documents) yield mentions.filter(_.document == doc)
   }
 
-  // the extractFrom() methods are the main entry points to the reach system
-  def extractFrom(entry: FriesEntry): Seq[BioMention] =
-    extractFrom(entry.text, entry.name, entry.chunkId)
+  /** group mentions according to their position in the nxml standoff */
+  def groupMentionsByStandoff(mentions: Seq[BioMention], nxml: NxmlDocument): Seq[Seq[BioMention]] = {
+    mentions.groupBy(m => nxml.standoff.getTerminals(m.startOffset, m.endOffset)).values.toVector
+  }
 
   def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
     extractFrom(mkDoc(text, docId, chunkId))
@@ -99,7 +136,7 @@ class ReachSystem(
   def extractFrom(doc: Document): Seq[BioMention] = {
     require(doc.id.isDefined, "document must have an id")
     require(doc.text.isDefined, "document should keep original text")
-    extractFrom(Seq(FriesEntry(doc.id.get, "NoChunk", "NoSection", "NoSection", false, doc.text.get)), Seq(doc))
+    extractFrom(doc, None) // no nxml
   }
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
