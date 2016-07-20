@@ -106,16 +106,6 @@
     controlled:${ controlledType } = prep_in$ | prep_to
     controller:${ controllerType } = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
 
-- name: Positive_${ ruleType }_syntax_8_verb
-  priority: ${ priority }
-  example: "Cells were additionally stimulated with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
-    controlled:${ controlledType } = dep prep_for
-    controller:${ controllerType } = prep_with
-
 - name: Positive_${ ruleType }_syntax_1_noun
   priority: ${ priority }
   example: ""
@@ -265,6 +255,26 @@
     (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
 
 
+# a rule written to catch an example from MITRE
+# currently unclear how common this pattern may be...
+- name: Positive_${ ruleType }_token_experimental_results_1
+  priority: ${ priority }
+  example: "Cells were additionally stimulated with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    # passive verb ("stimulated" in the example)
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=VBN])
+    # "leptin" in our example
+    with /./{,2} @controller:${ controllerType }
+    # analyzed, examined, etc.
+    # hopefully this isn't too noisy...
+    and /./{,3} [tag=/^V/] for
+    # the phosphorylation in our example
+    @controlled:${ controlledType }
+
+
 #
 # The rules below apply ONLY to regulations (not activations)
 #
@@ -278,4 +288,3 @@
   action: ${ actionFlow }
   pattern: |
     @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
-

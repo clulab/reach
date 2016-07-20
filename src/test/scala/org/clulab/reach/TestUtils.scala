@@ -57,7 +57,15 @@ object TestUtils {
   val mentionManager = new MentionManager()
 
   def getMentionsFromText(text: String): Seq[Mention] = PaperReader.getMentionsFromText(text)
-  
+
+  def getBioMentionsFromText(text: String): Seq[BioMention] = for {
+    m <- getMentionsFromText(text)
+  } yield m.toBioMention
+
+  def getFlattenedBioMentionsFromText(text: String): Seq[BioMention] = for {
+    m <- getMentionsFromText(text)
+  } yield OutputDegrader.flattenMention(m).toBioMention
+
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = testReach.extractFrom(entry)

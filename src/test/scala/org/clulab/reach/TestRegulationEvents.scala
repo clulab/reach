@@ -162,9 +162,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
     val controlled = reg.get.arguments("controlled").head.toBioMention
-    controller.text should be ("ASPP1")
-    controller.modifications should have size (1)
-    controller.modifications.head.label should be ("Phosphorylation")
+    controller.label should equal ("Phosphorylation")
     controlled.labels should contain ("Ubiquitination")
     controlled.asInstanceOf[BioEventMention].isDirect should be (false)
     controlled.arguments should contain key ("theme")
@@ -183,8 +181,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
     val controlled = reg.get.arguments("controlled").head.toBioMention
-    controller.text should be ("ASPP1 and ASPP2")
-    controller.labels should contain ("Complex")
+    controller.label should equal ("Binding")
     controlled.labels should contain ("Phosphorylation")
     controlled.arguments should contain key ("theme")
     controlled.arguments should not contain key ("cause")
@@ -251,7 +248,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     posReg.head.arguments("controlled") should have size (1)
     val controller = posReg.head.arguments("controller").head.toBioMention
     val controlled = posReg.head.arguments("controlled").head.toBioMention
-    controller.matches("Complex") should be (true)
+    controller.matches("Binding") should be (true)
     controlled.matches("Phosphorylation") should be (true)
     controlled.asInstanceOf[BioEventMention].isDirect should be (false)
   }
@@ -280,7 +277,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasNegativeRegulationByEntity("rapamycin", "Phosphorylation", List("ERK"), mentions) should be (true)
   }
 
-  val sent29 = "B-Raf phosphorylates MEK1 and MEK2 on Ser217 and Ser221"
+  val sent29 = "B-Raf phosphorylates MEK2 and MEK1 on Ser221 and Ser217"
   sent29 should "contain 4 phosphorylations and 4 regulations (GUS)" in {
     val mentions = getBioMentions(sent29)
     mentions.filter(_.label == "Positive_regulation") should have size (4)

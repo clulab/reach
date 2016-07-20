@@ -102,6 +102,7 @@ class ReachSystem(
     val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
     contextEngine.infer(entitiesPerEntry.flatten)
     val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
+    // get events
     val eventsPerEntry = for ((doc, es) <- documents zip entitiesWithContextPerEntry) yield {
         val events = extractEventsFrom(doc, es)
         MentionFilter.keepMostCompleteMentions(events, State(events))
@@ -113,7 +114,6 @@ class ReachSystem(
     val resolved = resolveCoref(groupMentionsByDocument(grounded, documents))
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
-    // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
 
     resolveDisplay(complete)
   }

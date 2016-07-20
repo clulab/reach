@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add default sort-by-human for resolutions returned from IMKB.
+  *   Last Modified: Add methods to make and add entries with canonical keys.
   */
 class InMemoryKB (
 
@@ -32,6 +32,12 @@ class InMemoryKB (
 
   /** Add the given entry to this KB, if it is unique. */
   def addEntry (entry:KBEntry) = theKB.addBinding(entry.key, entry)
+
+  /** Make a canonically keyed entry and add it to this KB. */
+  def addCanonicalEntry (text:String, namespace:String, refId:String, species:String) = {
+    addEntry(makeCanonicalEntry(text, namespace, refId, species))
+  }
+
 
   /** Return an sequence over the entries in this KB. */
   def entries: Seq[KBEntry] = theKB.values.flatten.toSeq
@@ -104,6 +110,13 @@ class InMemoryKB (
   /** Try lookups for all given keys until one succeeds or all fail. */
   def lookupsNoSpecies (allKeys:Seq[String]): Resolutions =
     applyLookupFn(lookupNoSpecies, allKeys)
+
+
+  /** Make and return an entry, with a canonical key, from the given fields. */
+  def makeCanonicalEntry (text:String, namespace:String, refId:String, species:String): KBEntry = {
+    val key = makeCanonicalKey(text)        // make canonical storage key
+    return new KBEntry(text, key, namespace.toLowerCase, refId, species.toLowerCase)
+  }
 
 
   /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
