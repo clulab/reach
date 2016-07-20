@@ -49,9 +49,10 @@ class DemoTests2 extends FunSuite with BeforeAndAfter {
     assert(hasEventWithArguments("Hydroxylation", List("Pkh1"), mentions), summarizeError(text, "Hydroxylation", assignedParty))
   }
 
-  test("there should be an up-regulation of the hydroxylation of Pkh1 by S6K1") {
-    assert(hasPositiveRegulationByEntity("S6K1", "Hydroxylation", List("Pkh1"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
-  }
+  // Because we now prefer events over entities as controllers, the controller is now a phosphorylation.
+//  test("there should be an up-regulation of the hydroxylation of Pkh1 by S6K1") {
+//    assert(hasPositiveRegulationByEntity("S6K1", "Hydroxylation", List("Pkh1"), mentions), summarizeError(text, "Positive_regulation", assignedParty))
+//  }
 
   //test("In the future")(pending)
 }

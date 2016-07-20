@@ -15,7 +15,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Output new isDirect event field.
+  *   Last Modified: Redo PTM header/evidence output for consistency.
   */
 class MentionManager {
 
@@ -221,14 +221,26 @@ class MentionManager {
           mStrings += s"${indent}mutant: ${evidence.text}"
         case Negation(evidence) =>
           mStrings += s"${indent}negation: ${evidence.text}"
-        case PTM(modLabel, evidence, site) =>
-          val evText = if (evidence.isDefined) evidence.get.text else ""
-          mStrings += s"${indent}PTM: ${evText}"
-          if (site.isDefined)
-            mStrings ++= mentionToStrings(site.get, level+1)
+        case ptm:PTM =>
+          mStrings ++= ptmToStrings(ptm, level+1)
         case _ => ()
       }
     }
+    return mStrings.toList
+  }
+
+  /** Return a list of strings representing the PTM case class (part of the modifications),
+    * indented at the given indentation level. */
+  private def ptmToStrings (ptm:PTM, level:Integer): List[String] = {
+    val mStrings:MutableList[String] = MutableList[String]()
+    val headIndent = ("  " * level)
+    val indent = ("  " * (level+1))
+    mStrings += s"${headIndent}PTM: ${ptm.label}"
+    if (ptm.evidence.isDefined)
+      mStrings += s"${indent}evidence: ${ptm.evidence.get.text}"
+    mStrings += s"${indent}negated: ${ptm.negated}"
+    if (ptm.site.isDefined)
+      mStrings ++= mentionToStrings(ptm.site.get, level+2)
     return mStrings.toList
   }
 

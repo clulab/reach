@@ -63,8 +63,6 @@ class TestReachCLI extends FlatSpec with Matchers {
 
   def dumpLog(logFile:File): Unit = {
     println("LOG FILE:")
-    for(line <- io.Source.fromFile(logFile)) {
-      println(line)
-    }
+    println(io.Source.fromFile(logFile).mkString)
   }
 }

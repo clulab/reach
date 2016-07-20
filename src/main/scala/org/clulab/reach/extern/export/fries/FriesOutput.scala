@@ -2,9 +2,9 @@ package org.clulab.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-import org.clulab.assembly.export.{CausalPrecedence, Equivalence, AssemblyLink}
-import org.json4s.native.Serialization
 
+import org.clulab.assembly.export.{AssemblyLink, CausalPrecedence, Equivalence}
+import org.json4s.native.Serialization
 import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.processors.Document
@@ -15,8 +15,8 @@ import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.reach.nxml.FriesEntry
-
 import JsonOutputter._
+import org.clulab.reach.OutputDegrader
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
@@ -24,7 +24,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Update to allow regulations of regulations, 2-deep.
+  *   Last Modified: Cleanup up uninformative asserts.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -71,20 +71,23 @@ class FriesOutput extends JsonOutputter {
                        endTime:Date,
                        outFilePrefix:String): String = {
 
+    // Flatten mentions, per MITRE requirements
+    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val contextIdMap = new CtxIDed
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+    val sentModel = sentencesToModel(paperId, sanitizedMentions, passageMap,
                                      startTime, endTime, otherMetaData)
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                entityMap, startTime, endTime, otherMetaData)
 
     val uniModel:PropMap = new PropMap      // combine models into one
@@ -108,22 +111,25 @@ class FriesOutput extends JsonOutputter {
                           endTime:Date,
                           outFilePrefix:String): Unit = {
 
+    // Flatten mentions, per MITRE requirements
+    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val contextIdMap = new CtxIDed
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+    val sentModel = sentencesToModel(paperId, sanitizedMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                entityMap, startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
   }
@@ -142,30 +148,32 @@ class FriesOutput extends JsonOutputter {
                  outFilePrefix:String,
                  assemblyAPI: Assembler): Unit = {
 
+    // Flatten mentions, per MITRE requirements
+    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
 
     val contextIdMap = new CtxIDed
 
-    val sentModel = sentencesToModel(paperId, allMentions, passageMap,
+    val sentModel = sentencesToModel(paperId, sanitizedMentions, passageMap,
                                      startTime, endTime, otherMetaData)
     writeJsonToFile(sentModel, new File(outFilePrefix + ".uaz.sentences.json"))
 
     // entityMap: map from entity pointers to unique ids
-    val (entityModel, entityMap) = entitiesToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (entityModel, entityMap) = entitiesToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                    startTime, endTime, otherMetaData)
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, allMentions, passageMap, contextIdMap,
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
                                                entityMap, startTime, endTime, otherMetaData)
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
-    val assemblyModel:PropMap = mkAssemblyModel(paperId, allMentions, passageMap, entityMap, eventMap,
+    val assemblyModel:PropMap = mkAssemblyModel(paperId, sanitizedMentions, passageMap, entityMap, eventMap,
                                                 startTime, endTime, otherMetaData, assemblyAPI)
     writeJsonToFile(assemblyModel, new File(outFilePrefix + ".uaz.links.json"))
   }
-
 
   //
   // Private Methods
@@ -213,7 +221,7 @@ class FriesOutput extends JsonOutputter {
       mention match {
         case em:BioTextBoundMention =>
           val passage = getPassageForMention(passageMap, em)
-          frames ++= mkEntityMention(paperId, passage, em.toBioMention.asInstanceOf[BioTextBoundMention], contextIdMap, entityMap)
+          frames ++= mkEntityMention(paperId, passage, em, contextIdMap, entityMap)
         case _ => // these are events; we will export them later
       }
     }
@@ -276,7 +284,8 @@ class FriesOutput extends JsonOutputter {
   }
 
   private def getChunkId(m:Mention):String = {
-    assert(m.document.id.isDefined)
+    assert(m.document.id.isDefined, { println(s"ASSERT-ERROR: object ${m} has no document ID") })
+
     val did = m.document.id.get
     // the chunk id is the string following the underscore in the document ids
     val chunkId = did.substring(did.lastIndexOf("_") + 1)
@@ -287,7 +296,8 @@ class FriesOutput extends JsonOutputter {
   private def getPassageForMention (passageMap:Map[String, FriesEntry],
                                     mention:Mention): FriesEntry = {
     val chunkId = getChunkId(mention)
-    assert(passageMap.contains(chunkId))
+    assert(passageMap.contains(chunkId), {
+      println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
     passageMap.get(chunkId).get
   }
 
@@ -359,14 +369,20 @@ class FriesOutput extends JsonOutputter {
     argType match {
       case "complex" =>
         // this is a complex: print the participants
-        assert(arg.isInstanceOf[RelationMention])
+        assert(arg.isInstanceOf[RelationMention], {
+          println("ASSERT-ERROR: complex 'arg' is not an instance of RelationMention") })
         val participants = new PropMap
         val complexParticipants = arg.asInstanceOf[RelationMention].arguments
         for(key <- complexParticipants.keySet) {
-          val ms: Seq[Mention] = complexParticipants.get(key).get
+          // FIXME: resolve each participant.  Should this be done elsewhere?
+          val ms: Seq[Mention] = complexParticipants.get(key).get.map(m => m.antecedentOrElse(m))
           for ((p, i) <- ms.zipWithIndex) {
-            assert(p.isInstanceOf[TextBoundMention])
-            assert(entityMap.contains(p))
+            assert(p.isInstanceOf[TextBoundMention], {
+              println(s"ASSERT-ERROR: complex participant is not an instance of TextBoundMention: ${p}")
+            })
+            if (!entityMap.contains(p)) {
+              throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
+            }
             participants(s"$key${i + 1}") = entityMap.get(p).get
           }
         }
@@ -385,9 +401,8 @@ class FriesOutput extends JsonOutputter {
             println(s"\t${e.text} with labels ${e.labels.mkString(", ")}")
           }
           */
-          throw new RuntimeException(s"Found entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
+          throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
         }
-        // assert(entityMap.contains(arg))
         m("arg") = entityMap.get(arg).get
 
       case "event" =>
@@ -711,7 +726,7 @@ class FriesOutput extends JsonOutputter {
     f("section-id") = passage.sectionId
     f("section-name") = passage.sectionName
     f("is-title") = passage.isTitle
-    assert(passageDoc.text.isDefined)
+    assert(passageDoc.text.isDefined, { println(s"ASSERT-ERROR: passageDoc has no text") })
     f("text") = passageDoc.text.get.replaceAll("\\n", " ")
     f
   }
@@ -720,7 +735,8 @@ class FriesOutput extends JsonOutputter {
     val m = new PropMap
     m("object-type") = "modification"
     m("type") = ptm.label
-    if(ptm.site.isDefined) {
+    m("negated") = ptm.negated
+    if (ptm.site.isDefined) {
       m("site") = ptm.site.get.text
     }
     m
@@ -795,7 +811,8 @@ class FriesOutput extends JsonOutputter {
 
     // now output all passages as individual frames
     for(chunkId <- passageDocs.keySet) {
-      assert(passageMap.contains(chunkId))
+      assert(passageMap.contains(chunkId), {
+        println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
       frames += mkPassage(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
       frames ++= mkSentences(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
     }
