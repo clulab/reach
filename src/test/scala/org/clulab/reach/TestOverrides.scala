@@ -12,7 +12,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add tests for new KB families. Update for fix of issue #77.
+  *   Last Modified: Update for more informative size tests.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -62,7 +62,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2a should "have expected number of results" in {
     dr2a_mentions.isEmpty should be (false)
     // printMentions(Try(dr2a_mentions), true)      // DEBUGGING
-    dr2a_mentions.size should be (dr2a_ids.size)
+    dr2a_mentions should have size (dr2a_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -90,7 +90,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2b should "have expected number of results" in {
     dr2b_mentions.isEmpty should be (false)
     // printMentions(Try(dr2b_mentions), true)      // DEBUGGING
-    dr2b_mentions.size should be (dr2b_ids.size)
+    dr2b_mentions should have size (dr2b_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -118,7 +118,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2c should "have expected number of results" in {
     dr2c_mentions.isEmpty should be (false)
     // printMentions(Try(dr2c_mentions), true)      // DEBUGGING
-    dr2c_mentions.size should be (dr2c_ids.size)
+    dr2c_mentions should have size (dr2c_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -146,7 +146,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2d should "have expected number of results" in {
     dr2d_mentions.isEmpty should be (false)
     // printMentions(Try(dr2d_mentions), true)      // DEBUGGING
-    dr2d_mentions.size should be (dr2d_ids.size)
+    dr2d_mentions should have size (dr2d_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -174,7 +174,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2e should "have expected number of results" in {
     dr2e_mentions.isEmpty should be (false)
     // printMentions(Try(dr2e_mentions), true)      // DEBUGGING
-    dr2e_mentions.size should be (dr2e_ids.size)
+    dr2e_mentions should have size (dr2e_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -202,7 +202,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2f should "have expected number of results" in {
     dr2f_mentions.isEmpty should be (false)
     // printMentions(Try(dr2f_mentions), true)      // DEBUGGING
-    dr2f_mentions.size should be (dr2f_ids.size)
+    dr2f_mentions should have size (dr2f_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -230,7 +230,7 @@ class TestOverrides extends FlatSpec with Matchers {
   dr2g should "have expected number of results" in {
     dr2g_mentions.isEmpty should be (false)
     // printMentions(Try(dr2g_mentions), true)      // DEBUGGING
-    dr2g_mentions.size should be (dr2g_ids.size)
+    dr2g_mentions should have size (dr2f_ids.size)
   }
 
   it should "have labeled all mentions as GGP" in {
@@ -258,7 +258,7 @@ class TestOverrides extends FlatSpec with Matchers {
   fam1 should "have expected number of results" in {
     fam1_mentions.isEmpty should be (false)
     // printMentions(Try(fam1_mentions), true)      // DEBUGGING
-    fam1_mentions.size should be (fam1_ids.size)
+    fam1_mentions should have size (fam1_ids.size)
   }
 
   it should "have labeled all mentions as Family" in {
@@ -286,7 +286,7 @@ class TestOverrides extends FlatSpec with Matchers {
   fam2 should "have expected number of results" in {
     fam2_mentions.isEmpty should be (false)
     // printMentions(Try(fam2_mentions), true)      // DEBUGGING
-    fam2_mentions.size should be (fam2_ids.size)
+    fam2_mentions should have size (fam2_ids.size)
   }
 
   it should "have labeled all mentions as Family" in {
@@ -324,7 +324,7 @@ class TestOverrides extends FlatSpec with Matchers {
   aminos should "have expected number of results" in {
     aa_mentions.isEmpty should be (false)
     printMentions(Try(aa_mentions), true)      // DEBUGGING
-    aa_mentions.size should be (aa_ids.size)
+    aa_mentions should have size (aa_ids.size)
   }
 
   it should "have labeled all mentions as Site" in {
@@ -348,7 +348,7 @@ class TestOverrides extends FlatSpec with Matchers {
   aa_short should "have Site labels" in {
     aas_mentions.isEmpty should be (false)
     // printMentions(Try(aas_mentions), true)      // DEBUGGING
-    aas_mentions.size should be (20)
+    aas_mentions should have size (20)
     aas_mentions.count(_ matches "Site") should be (20)
   }
 
