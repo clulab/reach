@@ -4,7 +4,7 @@ version := "1.3.2-SNAPSHOT"
 
 organization := "org.clulab"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
@@ -65,9 +65,9 @@ pomExtra := (
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.12",
-  "org.clulab" %% "processors" % "5.9.2-SNAPSHOT",
-  "org.clulab" %% "processors" % "5.9.2-SNAPSHOT" classifier "models",
+  "org.clulab" % "bioresources" % "1.1.13",
+  "org.clulab" %% "processors" % "5.9.2",
+  "org.clulab" %% "processors" % "5.9.2" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
