@@ -578,9 +578,14 @@ object DarpaActions {
     * SimpleEvent -> theme + PTM <br>
     * Binding -> Complex (treated as an Entity) <br>
     * ComplexEvent -> recursive call on controlled (the event's "output") <br>
+    * @param asOutput value of true to generate a Mention's output (ex. theme or controlled)
     */
   @tailrec
-  final def convertEventToEntity(m: Mention, negated: Boolean = false): BioMention = m.toBioMention match {
+  final def convertEventToEntity(m: Mention, asOutput: Boolean = true, negated: Boolean = false): BioMention = m.toBioMention match {
+
+    //
+    // cases appropriate to either output (ex. theme/controlled) or other (ex. controller)
+    //
 
     // no conversion needed
     // FIXME: consider case of "activated RAS".
@@ -619,20 +624,42 @@ object DarpaActions {
       modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
       modifiedEntity
 
+    //
+    // cases for the generation of output
+    //
+
     // dig into the controlled (event's "output" or the part that is altered in some way)
-    case posEvent if (posEvent matches "ComplexEvent") && (!DarpaActions.hasNegativePolarity(posEvent)) =>
+    case posEvent if asOutput && (posEvent matches "ComplexEvent") && (!DarpaActions.hasNegativePolarity(posEvent)) =>
       // get the controlled of the event (assume only one controlled)
       val controlled = posEvent.arguments("controlled").head.toBioMention
-      convertEventToEntity(controlled, negated)
+      convertEventToEntity(controlled, asOutput, negated)
 
     // dig into the controlled (event's "output" or the part that is altered in some way)
     // ComplexEvents with negative polarity "negate" the ptm of the contained entity
     // (see https://github.com/clulab/reach/issues/184)
-    case negEvent if (negEvent matches "ComplexEvent") && DarpaActions.hasNegativePolarity(negEvent) =>
+    case negEvent if asOutput && (negEvent matches "ComplexEvent") && DarpaActions.hasNegativePolarity(negEvent) =>
       // get the controlled of the event (assume only one controlled)
       val controlled = negEvent.arguments("controlled").head.toBioMention
       // negate the underlying PTM
       // if received event has negative polarity (see issue #184)
-      convertEventToEntity(controlled, negated=true)
+      convertEventToEntity(controlled, asOutput, negated=true)
+
+    //
+    // cases for the uncovering of controllers (i.e., asOutput == false)
+    //
+
+    // dig into the controller
+    case posEvent if (posEvent matches "ComplexEvent") && (!DarpaActions.hasNegativePolarity(posEvent)) =>
+      // get the controller of the event (assume only one controller)
+      val controller = posEvent.arguments("controller").head.toBioMention
+      convertEventToEntity(controller, asOutput = false, negated)
+
+    // dig into the controller
+    case negEvent if (negEvent matches "ComplexEvent") && DarpaActions.hasNegativePolarity(negEvent) =>
+      // get the controller of the event (assume only one controller)
+      val controller = negEvent.arguments("controller").head.toBioMention
+      // negate the underlying PTM
+      // if received event has negative polarity (see issue #184)
+      convertEventToEntity(controller, asOutput = false, negated=true)
   }
 }

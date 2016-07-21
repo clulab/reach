@@ -113,7 +113,7 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
 
     val bound = 5
     val boundedPaddingEngine = new BoundedPaddingContext(bound)
-    boundedPaddingEngine.infer(friesEntries, documents, entitiesPerEntry)
+    boundedPaddingEngine.infer(entitiesPerEntry.flatten)
 
     // No more than $bound repetitions of the same context
 
@@ -153,7 +153,7 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
     val paperMentions = annotation.mentions
 
     val boundedPaddingEngine = new BidirectionalPaddingContext(bound=5)
-    boundedPaddingEngine.infer(friesEntries, documents, entitiesPerEntry)
+    boundedPaddingEngine.infer(entitiesPerEntry.flatten)
 
     // No more than $bound repetitions of the same context
     val bound = 10
