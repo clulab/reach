@@ -30,7 +30,9 @@
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
+    (?<! [word=/(?i)^(table|figure)/])
+    [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
+    (?! ">")
 
 - name: site_1letter_c
   label: Site
@@ -116,7 +118,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! "mM"))))+ # note that (?! "mM") is to avoid capturing measurements
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQRSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements
     [word=")"]?
 
 ###################
