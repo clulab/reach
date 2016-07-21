@@ -56,8 +56,13 @@ class TestFeedback2 extends FlatSpec with Matchers {
   }
 
   val s7 = "We observed that endogenous ASPP2 translocates from cell/cell junctions to the cytosol/nucleus following RAS activation"
-  s7 should "contain 1 or more translocation events" in {
-    // TODO: we should pick 4 translocation events here - ENRIQUE
+  s7 should "contain 2 translocation events" in {
+    // TODO: we should pick 2 translocation events here - ENRIQUE
+    // ENRIQUE: Cell is in the black list of the NER, so there will be only two events
+    val mentions = getBioMentions(s7)
+
+    hasEventWithArguments("Translocation", List("ASPP2", "cell junctions", "cytosol"), mentions) should be (true)
+    hasEventWithArguments("Translocation", List("ASPP2", "cell junctions", "nucleus"), mentions) should be (true)
   }
 
   s7 should "contain 1 positive regulation" in {
