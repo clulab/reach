@@ -152,4 +152,24 @@
     source:Cellular_component = <prep_in? prep_of? prep_to? prep_from
     destination:Cellular_component? = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
 
+- name: translocation_8a_verb_active_no_cause
+  priotity: ${ priotity }
+  action: mkBioMention
+  example: "We observed that endogenous ASPP2 translocates from cell junctions to the cytosol/nucleus following RAS activation"
+  label: Translocation
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
+    theme:BioChemicalEntity = nsubj
+    source:Cellular_component = <prep_in? prep_of? prep_to? prep_from
+    destination:Cellular_component? = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
 
+- name: translocation_8b_verb_active_no_cause
+  priotity: ${ priotity }
+  action: mkBioMention
+  example: "FOXO3a translocates to the nucleus"
+  label: Translocation
+  pattern: |
+    trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/^V/]
+    theme:BioChemicalEntity = nsubj
+    source:Cellular_component? = <prep_in? prep_of? prep_to? prep_from
+    destination:Cellular_component = <prep_in? prep_of? prep_from? prep_to /conj|cc|dep/{,2}
