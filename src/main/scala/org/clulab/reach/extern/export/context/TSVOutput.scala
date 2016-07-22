@@ -11,7 +11,7 @@ import org.clulab.reach.nxml.FriesEntry
   *   Written by Enrique Noriega. 27/7/2015.
   *   Last Modified: Update for tissue types.
   */
-class PandasOutput() {
+class TSVOutput() {
   def toCSV(paperID:String,
             allMentions:Seq[BioMention],
             paperPassages:Map[BioMention, FriesEntry]): (Seq[String], Seq[String], Seq[String], Seq[String]) = {
