@@ -79,13 +79,13 @@ object ReachKBConstants {
   val ContextSpeciesFilename = "Species.tsv.gz"
 
   /** Filename of the context cell lines file */
-  val ContextCellLineFilename = "CellLine.tsv.gz"
+  val ContextCellLineFilename = "Cellosaurus.tsv.gz"
 
   /** Filename of the context cell types file */
-  val ContextCellTypeFilename = "CellType.tsv.gz"
+  val ContextCellTypeFilename = "CellOntology.tsv.gz"
 
   /** Filename of the context organs file */
-  val ContextOrganFilename = "Organ.tsv.gz"
+  val ContextOrganFilename = "Uberon.tsv.gz"
 
   /** Filename of the static tissue type file. */
   val ContextTissueTypeFilename = "tissue-type.tsv.gz"
