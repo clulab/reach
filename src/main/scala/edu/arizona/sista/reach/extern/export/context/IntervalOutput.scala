@@ -1,13 +1,13 @@
-package edu.arizona.sista.reach.extern.export.context
+package org.clulab.reach.extern.export.context
 
-import edu.arizona.sista.processors.Document
-import edu.arizona.sista.reach.context.ContextEngine
+import org.clulab.processors.Document
+import org.clulab.reach.context.ContextEngine
 import scala.collection.mutable
 import scala.collection.mutable.SortedSet
-import edu.arizona.sista.odin._
-import edu.arizona.sista.reach.context.ContextEngine.contextMatching
-import edu.arizona.sista.reach.nxml._
-import edu.arizona.sista.reach.mentions._
+import org.clulab.odin._
+import org.clulab.reach.context.ContextEngine.contextMatching
+import org.clulab.reach.nxml._
+import org.clulab.reach.mentions._
 
 /**
   * Class to output files used by python to generate an HTML file

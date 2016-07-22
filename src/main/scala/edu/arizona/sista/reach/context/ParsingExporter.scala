@@ -1,11 +1,11 @@
-package edu.arizona.sista.reach.context
+package org.clulab.reach.context
 
 import java.io.File
 import io.Source
-import edu.arizona.sista.processors.Document
-import edu.arizona.sista.processors.bionlp.BioNLPProcessor
-import edu.arizona.sista.discourse.rstparser.DiscourseTree
-import edu.arizona.sista.struct.{Tree, DirectedGraph, DirectedGraphEdgeIterator}
+import org.clulab.processors.Document
+import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.discourse.rstparser.DiscourseTree
+import org.clulab.struct.{Tree, DirectedGraph, DirectedGraphEdgeIterator}
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import scala.collection.JavaConverters._
 

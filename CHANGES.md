@@ -1,5 +1,11 @@
 #Changes
 =======
++ **1.3.1** - Update of all edu.arizona.sista packages to org.clulab
++ **1.3.1** - Updated rules for parsing changes. Add rules for "VBN with" regulations. Correct amino acid rule. Add syntax -> surface rule. Several changes to activation/regulations rules.
++ **1.3.1** - Refactor protein domain table. Add protein kinase lookup table.
++ **1.3.1** - Fix bugs in grounding. Add ID overrides from collaborators. Add tests.
++ **1.3.1** - Replace use of manual KB files with NER/grounding override file. Add tests.
++ **1.3.1** - Refactor grounding tables to a standardized 2-5 column format. Update KB tests.
 + **1.3.0** - Use Bioresources 1.1.9, Processors 5.8.5. Allow regulations of regulations. Identify X inhibitors as chemicals. Use MITRE model for NER/grounding. Add NER stop list. Add Translocation mention support to Assembly. Various rule fixes and enhancements. Allow PaperReader to read .csv files.
 + **1.3.0** - Update to use Bioresources version 1.1.8, which includes NER stop list.
 + **1.3.0** - Update code and tests to replace homemade KBs, in conjunction with Bioresources version 1.1.7.
