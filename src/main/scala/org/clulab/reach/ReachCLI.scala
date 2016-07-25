@@ -59,8 +59,11 @@ class ReachCLI(val nxmlDir:File,
       // Process individual sections and collect all mentions
       val docWithMentions = try {
         val nxmlDoc = nxmlReader.read(file)
-        val mentions = reach.extractFrom(nxmlDoc)
-        Some((nxmlDoc, mentions))
+        // ENRIQUE: I need access to the processors document
+        val processorsDoc = reach.mkDoc(nxmlDoc.text, nxmlDoc.pmc, nxmlDoc.standoff.hashCode.toString)
+        val mentions = reach.extractFrom(processorsDoc, Some(nxmlDoc))
+        ////////////////////////////////////////////////////
+        Some((nxmlDoc, mentions, processorsDoc))
       } catch {
         case e: Exception =>
           this.synchronized { errorCount += 1}
@@ -90,7 +93,7 @@ class ReachCLI(val nxmlDir:File,
 
       docWithMentions match {
         case None => ()
-        case Some((nxmlDoc, mentions)) =>
+        case Some((nxmlDoc, mentions, processorsDoc)) =>
           try outputType match {
             case "context-output" =>
 
@@ -102,20 +105,20 @@ class ReachCLI(val nxmlDir:File,
               }
 
               ////// Commented while reimplementing IntervalOutput
-              // // These are the intervals for generating HTML files
-              // val outputter = new IntervalOutput(documents, entries, paperMentions)
-              // // Write the context stuff
-              // val ctxSentencesFile = new File(paperDir, "sentences.txt")
-              // FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
-              //
-              // val ctxEventsFile = new File(paperDir, "event_intervals.txt")
-              // FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
-              //
-              // val evtCtxFile = new File(paperDir, "reach_event_context.txt")
-              // FileUtils.writeLines(evtCtxFile, outputter.evtCtxIndicence.asJavaCollection)
-              //
-              // val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
-              // FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
+              // These are the intervals for generating HTML files
+              val outputter = new IntervalOutput(processorsDoc, nxmlDoc, mentions)
+              // Write the context stuff
+              val ctxSentencesFile = new File(paperDir, "sentences.txt")
+              FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
+
+              val ctxEventsFile = new File(paperDir, "event_intervals.txt")
+              FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
+
+              val evtCtxFile = new File(paperDir, "reach_event_context.txt")
+              FileUtils.writeLines(evtCtxFile, outputter.evtCtxIndicence.asJavaCollection)
+
+              val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
+              FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
               //
               // val ctxSectionsFile = new File(paperDir, "sections.txt")
               // FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
