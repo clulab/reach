@@ -2,7 +2,7 @@ package org.clulab.reach
 
 import org.clulab.odin._
 import org.clulab.reach.mentions._
-import org.clulab.utils.Serializer
+import org.clulab.reach.grounding._
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Update tests for override KB.
+  *   Last Modified: Add tests for Reach issue #274.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -135,6 +135,62 @@ class TestNERLabeling extends FlatSpec with Matchers {
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions.size should be (6)
     mentions.count(_ matches "Simple_chemical") should be (6)
+  }
+
+
+  // Tests from Reach issue #274
+  val mentions274a = getBioMentions("Smad 2 is doing something.")
+  "Smad 2 is doing something" should "have expected number of results" in {
+    mentions274a.isEmpty should be (false)
+    printMentions(Try(mentions274a), true)      // DEBUGGING
+    mentions274a.size should be (1)
+  }
+
+  it should "have labeled all mentions as GGP" in {
+    mentions274a.count(_ matches "Gene_or_gene_product") should be (1)
+  }
+
+  it should "have Protein displayLabel" in {
+    mentions274a.count(_.displayLabel == "Protein") should be (1)
+  }
+
+  it should "have grounded all mentions as Human" in {
+    mentions274a.forall(m => m.grounding.isDefined &&
+                        Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
+  }
+
+  // The following test fails (Reach issue #274).
+  // So far this appears to be because the main grounding routine in ReachEntityLookup
+  // is being called with 'smad' as text (not 'smad 2') even though label is correctly GGP.
+  it should "match expected grounding IDs" in {
+    val m = mentions274a(0)
+    (m.grounding.isDefined && (m.grounding.get.id == "Q15796")) should be (true)
+  }
+
+
+  val mentions274f = getBioMentions("Smad is doing something.")
+  "Smad is doing something" should "have expected number of results" in {
+    mentions274f.isEmpty should be (false)
+    // printMentions(Try(mentions274f), true)      // DEBUGGING
+    mentions274f.size should be (1)
+  }
+
+  it should "have labeled all mentions as Family" in {
+    mentions274f.count(_ matches "Family") should be (1)
+  }
+
+  it should "have Protein displayLabel" in {
+    mentions274f.count(_.displayLabel == "Family") should be (1)
+  }
+
+  it should "have grounded all mentions as Human" in {
+    mentions274f.forall(m => m.grounding.isDefined &&
+                        Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
+  }
+
+  it should "match expected grounding IDs" in {
+    val m = mentions274f(0)
+    (m.grounding.isDefined && (m.grounding.get.id == "UAZ-PF-214")) should be (true)
   }
 
 }
