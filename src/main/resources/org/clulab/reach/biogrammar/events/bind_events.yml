@@ -330,7 +330,10 @@
   priority: ${ priority }
   type: token
   pattern: |
-    [tag=DT] @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> complex)
+    [tag=DT] @theme1:BioChemicalEntity       # get the first entity
+    (("," @theme1:BioChemicalEntity)+ ","?)? # get the next n entities (n may be zero)
+    and @theme1:BioChemicalEntity            # get the last entity
+    (?<trigger> complex)                     # get the trigger
 
 - name: binding_coexist
   label: Binding
