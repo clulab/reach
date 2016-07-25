@@ -138,18 +138,18 @@ class ReachCLI(val nxmlDir:File,
               ////////////////////////////////////////////////////
 
               // Write obs.txt
-              val contextEngine = reach.contextCache(paperId)
-
-              contextEngine match {
-                case ce:RuleBasedContextEngine =>
-                  val obs = ce.getObservationsMatrixStrings
-                  FileUtils.writeLines(new File(paperDir, "obs.txt"), obs.asJavaCollection)
-                  val states = ce.getStatesMatrixStrings
-                  FileUtils.writeLines(new File(paperDir, "states.txt"), states.asJavaCollection)
-                case _ =>
-                  // So far, these only makes sense if we use a rule based context engine
-                  Unit
-              }
+              // val contextEngine = reach.contextCache(paperId)
+              //
+              // contextEngine match {
+              //   case ce:RuleBasedContextEngine =>
+              //     val obs = ce.getObservationsMatrixStrings
+              //     FileUtils.writeLines(new File(paperDir, "obs.txt"), obs.asJavaCollection)
+              //     val states = ce.getStatesMatrixStrings
+              //     FileUtils.writeLines(new File(paperDir, "states.txt"), states.asJavaCollection)
+              //   case _ =>
+              //     // So far, these only makes sense if we use a rule based context engine
+              //     Unit
+              // }
 
               // Context_events.txt created by python!!!
 
