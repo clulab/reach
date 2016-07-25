@@ -96,6 +96,15 @@
     controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
     controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc/{,2}
 
+- name: Positive_${ ruleType }_syntax_7_verb
+  priority: ${ priority }
+  example: "ASPP1 aids in the translocation of Kras to the membrane."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
+    controlled:${ controlledType } = prep_in$ | prep_to
+    controller:${ controllerType } = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
 
 - name: Positive_${ ruleType }_syntax_1_noun
   priority: ${ priority }
@@ -265,29 +274,34 @@
     # the phosphorylation in our example
     @controlled:${ controlledType }
 
-
-# patterns for (deeply) nested events
+#
+# Rules for (deeply) nested events that cross into causal precedence
+#
 # TODO: is there a good way to check assure the proper polarity in these patterns?
-- name: nestedevent_syntax_1_verb
+- name: Positive_${ ruleType }_nested_syntax_1_verb
+  priority: ${ priority }
+  example: "These results imply that Ack1 mediated Ras phosphorylation results in subsequent AKT activation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=result] in # TODO: expand lemma pattern for trigger
+    # xcomp for "A, resulting in B" pattern
+    controller:${ controllerType } = nsubj|xcomp
+    controlled:${ controlledType } = prep_in (nn|appos)?
+
+- name: Positive_${ ruleType }_nested_syntax_2_verb
   priority: ${ priority }
   example: "We also demonstrate that tyrosine phosphorylation of ErbB3 may lead to recruitment and activation of PI-3 kinase."
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=results] in
-    # xcomp for "A, resulting in B" pattern
-    controller:${ controlledType } = nsubj|xcomp
-    controlled:${ controllerType } = prep_in
+    # TODO: expand lemma pattern for trigger
+    trigger = [lemma=lead] to
+    # xcomp for "A, leading to B" pattern
+    controller:${ controllerType } = nsubj|xcomp
+    # "leading to activation"
+    controlled:${ controlledType } = (?= prep_to [word=/(?i)^(${ triggers })/]) prep_to prep_of
 
-- name: nestedevent_syntax_2_verb
-  priority: ${ priority }
-  example: "ASPP1 aids in the translocation of Kras to the membrane."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
-    controlled:${ controlledType } = prep_in$ | prep_to
-    controller:${ controllerType } = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
 
 #
 # The rules below apply ONLY to regulations (not activations)
