@@ -1,6 +1,6 @@
-name := "reach"
+import ReleaseTransformations._
 
-version := "1.3.2-SNAPSHOT"
+name := "reach"
 
 organization := "org.clulab"
 
@@ -21,6 +21,22 @@ outputStrategy := Some(StdoutOutput)
 //
 // publishing settings
 //
+
+// these are the steps to be performed during release
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  ReleaseStep(action = Command.process("publishSigned", _)),
+  setNextVersion,
+  commitNextVersion,
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+  pushChanges
+)
 
 // publish to a maven repo
 publishMavenStyle := true
