@@ -187,9 +187,10 @@ class DarpaActions extends Actions {
     if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     activation = removeDummy(switchLabel(mention.toBioMention))
-    // retrieve regulations that overlap this mention
-    regs = state.mentionsFor(activation.sentence, activation.tokenInterval, "Regulation")
-    // Don't report an Activation if an intersecting Regulation has been detected
+    // retrieve regulations that overlap this mention's controlled (Controller may be nested)
+    controlleds = activation.arguments("controlled")
+    regs = controlleds.flatMap(c => state.mentionsFor(activation.sentence, c.tokenInterval, "Regulation"))
+    // Don't report an Activation if an Regulation intersects with one of the activation's controlleds
     // or if the Activation has no controller
     // or if it's controller and controlled are not distinct
     if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
