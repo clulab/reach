@@ -250,4 +250,16 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("Negative_activation")) should have size (1)
     hasNegativeActivation("Ras", "autophagy", mentions) should be (true)
   }
+
+  // From MITRE's feedback2, 2016 summer eval
+  val s6a = "AKT1 expression results in subsequent activation of MEK"
+  s6a should "contain 1 activation event" in {
+    val mentions = getBioMentions(s6a)
+    hasPositiveActivation("AKT1", "MEK", mentions) should be(true)
+  }
+  val s6b = "AKT1 expression results in subsequent MEK activation"
+  s6b should "contain 1 activation event" in {
+    val mentions = getBioMentions(s6b)
+    hasPositiveActivation("AKT1", "MEK", mentions) should be(true)
+  }
 }

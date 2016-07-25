@@ -59,21 +59,11 @@ class TestFeedback2 extends FlatSpec with Matchers {
   s6 should "contain an activation with a PosReg(Phosphorylation) event serving as Controller" in {
     // TODO: we should allow regulation events to serve as controllers in activations;
     //   then convert them to modified entities, e.g., Ras_p - MARCO, GUS
-    // TOOD: this also needs a new activation pattern: "A results in B activation", "A results in activation of B" - MIHAI
   }
 
   val s7 = "We observed that endogenous ASPP2 translocates from cell/cell junctions to the cytosol/nucleus following RAS activation"
   s7 should "contain 1 or more translocation events" in {
     // TODO: we should pick 4 translocation events here - ENRIQUE
-  }
-
-  s7 should "contain 1 positive regulation" in {
-    // TODO: need new reg pattern: "A following B activation", "A following activation by B" - MIHAI
-  }
-
-  val s8 = "p53–ASPP2 complex in these cells following RAS activation"
-  s8 should "contain 1 binding and 1 positive regulation event" in {
-    // TODO: matches the binding, but needs the above reg patterns - MIHAI
   }
 
   val s9 = "Moreover, an interaction was also observed between endogenous ASPP2 and HRASV12 in a human colon cancer cell line"

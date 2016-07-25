@@ -171,6 +171,7 @@
     controller:${ controllerType } = <dep /nn|amod|conj_|cc/{,2}
     controlled:${ controlledType } = (/prep_of|prep_in$/ /nn|amod|conj_|cc/{,2}){1,2}
 
+
 # Captures common Hearst patterns: hypernym such as hyponym
 - name: Positive_${ ruleType }_syntax_noun_Hearst
   priority: ${ priority }
@@ -224,6 +225,7 @@
     @controller:${ controllerType } (?<trigger> [word=/(?i)^(mediat)/ & !tag=/^JJ/]) @controlled:${ controlledType } /(?i)^(activation)/
 
 
+# TODO: ms - I don't think this ever matches. Remove?
 - name: Positive_${ ruleType }_token_2_verb
   priority: ${ priority }
   example: ""
@@ -277,9 +279,9 @@
 
 #
 # The rules below apply ONLY to regulations (not activations)
+# We use explicit types for the @controlled for this
 #
 
-# this should only be used for regulations (not activations!); we use explicit types for the @controlled for this
 - name: Positive_${ ruleType }_in_response_to
   priority: ${ priority }
   type: token
@@ -288,3 +290,50 @@
   action: ${ actionFlow }
   pattern: |
     @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+
+
+- name: Positive_${ ruleType }_following_Controller_activation
+  priority: ${ priority }
+  type: token
+  example: "The phosphorylation of AKT1 following MEK activation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent following @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/])
+
+
+- name: Positive_${ ruleType }_following_activation_of_Controller
+  priority: ${ priority }
+  type: token
+  example: "The phosphorylation of AKT1 following activation of MEK."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent following (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) [word=/of|by/] @controller:${ controllerType }
+
+
+- name: Positive_${ ruleType }_syntax_following_activation
+  priority: ${ priority }
+  example: "The phosphorylation of AKT1 following MEK activation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:BioEntity = /nn|prep_of|prep_by/
+    controlled:SimpleEvent = <prep_following
+
+
+#
+# The rules below apply ONLY to activations (not regulations)
+# We use explicit types for the @controlled for this
+#
+
+- name: Positive_${ ruleType }_syntax_results_in
+  priority: ${ priority }
+  example: "AKT1 results in subsequent MEK activation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:${ controllerType } = <prep_in [lemma=result] nsubj /nn|amod|conj_|cc/{,2}
+    controlled:BioEntity = /nn|prep_of/

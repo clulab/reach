@@ -143,6 +143,7 @@
     controller:${ controllerType } = <dep /nn|amod|conj_|cc/{,2}
     controlled:${ controlledType } = (/prep_of|prep_in$/ /nn|amod|conj_|cc/{,2}){1,2}
 
+
 # Captures common Hearst patterns: hypernym such as hyponym
 - name: Negative_${ ruleType }_syntax_noun_Hearst
   priority: ${ priority }
@@ -155,14 +156,17 @@
     controller:${ controllerType } = /prep_such_as|prep_including|prep_like/ (nn|appos)?
 
 
-- name: Negative_${ ruleType }_token_2_verb
-  priority: ${ priority }
-  example: ""
-  type: token
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy>[lemma=/${ negnouns }/])
+#
+# Replaced by the _following_Controller_inhibition rule
+#
+#- name: Negative_${ ruleType }_token_2_verb
+#  priority: ${ priority }
+#  example: ""
+#  type: token
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy>[lemma=/${ negnouns }/])
 
 
 - name: Negative_${ ruleType }_token_1_noun
@@ -230,9 +234,9 @@
 
 #
 # The rules below apply ONLY to regulations (not activations)
+# We use explicit types for the @controlled for this
 #
 
-# this should only be used for regulations (not activations!); we use explicit types for the @controlled for this
 - name: Negative_${ ruleType }_in_response_to
   priority: ${ priority }
   type: token
@@ -241,3 +245,35 @@
   action: ${ actionFlow }
   pattern: |
     @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } [lemma=/${ negnouns}/]
+
+
+- name: Negative_${ ruleType }_following_Controller_inhibition
+  priority: ${ priority }
+  type: token
+  example: "The phosphorylation of AKT1 following MEK inhibition."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent following @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/])
+
+
+- name: Negative_${ ruleType }_following_inhibition_of_Controller
+  priority: ${ priority }
+  type: token
+  example: "The phosphorylation of AKT1 following inhibition of MEK."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent following (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) [word=/of|by/] @controller:${ controllerType }
+
+
+- name: Negative_${ ruleType }_syntax_following_inhibition
+  priority: ${ priority }
+  example: "The phosphorylation of AKT1 following MEK inhibition."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:BioEntity = /nn|prep_of|prep_by/
+    controlled:SimpleEvent = <prep_following
+
