@@ -76,7 +76,9 @@ class TestFeedback2 extends FlatSpec with Matchers {
 
   val s9 = "Moreover, an interaction was also observed between endogenous ASPP2 and HRASV12 in a human colon cancer cell line"
   s9 should "contain 1 binding event" in {
-    // TODO: missing binding - MARCO
+    val mentions = getBioMentions(s9)
+    mentions.filter(_ matches "Binding") should have size (1)
+    hasEventWithArguments("Binding", List("ASPP2", "HRASV12"), mentions) should be (true)
   }
 
   val s10 = "Akt phosphorylates Ser487 on AMPK-alpha1"
