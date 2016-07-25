@@ -180,8 +180,8 @@ class DarpaActions extends Actions {
     * will only allow activations where no overlapping regulation is present
     */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    // Prefer Activations with SimpleEvents as the controller
-    mention <- preferSimpleEventControllers(mentions)
+    // Prefer Activations with Events as the controller
+    mention <- preferEventControllers(mentions)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
     if !hasSynPathOverlap(mention)
@@ -366,13 +366,13 @@ object DarpaActions {
   }
 
   /** Gets a sequence of mentions and returns only the ones that have
-    * SimpleEvent controllers. If none is found, returns all mentions.
+    * Event controllers. If none is found, returns all mentions.
     */
-  def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
+  def preferEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
     // get events that have a SimpleEvent as a controller
     // assuming that events can only have one controller
     val eventsWithSimpleController = mentions.filter { m =>
-      m.arguments.contains("controller") && m.arguments("controller").head.matches("SimpleEvent")
+      m.arguments.contains("controller") && m.arguments("controller").head.matches("Event")
     }
     if (eventsWithSimpleController.nonEmpty) eventsWithSimpleController else mentions
   }
