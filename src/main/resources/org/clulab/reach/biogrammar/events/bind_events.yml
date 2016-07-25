@@ -401,3 +401,11 @@
     trigger = /(?i)complex/ formation
     theme1:BioChemicalEntity+ = prep_between
 
+- name: binding_observed
+  label: Binding
+  example: "Moreover, an interaction was also observed between endogenous ASPP2 and HRASV12 in a human colon cancer cell line"
+  action: mkBinding
+  priority: ${priority}
+  pattern: |
+    trigger = interaction
+    theme1:BioChemicalEntity+ = <nsubjpass [word=observed] >prep_between
