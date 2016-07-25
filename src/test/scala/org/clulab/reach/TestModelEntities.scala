@@ -2,7 +2,6 @@ package org.clulab.reach
 
 import org.clulab.odin._
 import org.clulab.reach.mentions._
-import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
@@ -11,7 +10,7 @@ import TestUtils._
 /**
   * Test the labeling of entities from the MITRE RAS model.
   *   Written by: Tom Hicks. 6/9/2016.
-  *   Last Modified: Reactivate test after fix of Processors issue #61.
+  *   Last Modified: Remove unused import.
   */
 class TestModelEntities extends FlatSpec with Matchers {
 

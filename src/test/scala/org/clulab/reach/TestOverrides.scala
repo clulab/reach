@@ -3,7 +3,6 @@ package org.clulab.reach
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
-// import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
@@ -12,7 +11,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Update for more informative size tests.
+  *   Last Modified: Remove unused import.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
