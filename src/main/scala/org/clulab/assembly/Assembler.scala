@@ -45,9 +45,9 @@ class Assembler(mns: Seq[Mention]) {
   def getInputFeaturesForParticipants(parent: Mention): Seq[RoleWithFeatures] = {
     val rwfs = for {
       (role, mns) <- parent.arguments
-      m <- mns
-      ptms = participantFeatureTracker.getInputFeatures(m, parent)
-    } yield RoleWithFeatures(role, m, ptms)
+      participant <- mns
+      ptms = participantFeatureTracker.getInputFeatures(participant, parent)
+    } yield RoleWithFeatures(role, participant, parent, ptms)
     rwfs.toSeq
   }
 

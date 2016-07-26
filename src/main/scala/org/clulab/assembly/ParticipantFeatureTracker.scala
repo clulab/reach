@@ -7,10 +7,11 @@ import org.clulab.odin.Mention
 /**
   * Storage class for an event's participant (+ the input features for the participant)
   * @param role the participant's role (theme, controlled, etc.)
-  * @param mention the mention associated with the participant
+  * @param participant the [[Mention]] associated with the participant
+  * @param parent the [[Mention]] (an event) serving as the participant's parent
   * @param features Set[[PTM]] defining the state of the participant upon event input (pulled from causal predecessors)
   */
-case class RoleWithFeatures(role: String, mention: Mention, features: Set[representations.PTM])
+case class RoleWithFeatures(role: String, participant: Mention, parent: Mention, features: Set[representations.PTM])
 
 class ParticipantFeatureTracker(am: AssemblyManager) {
 
