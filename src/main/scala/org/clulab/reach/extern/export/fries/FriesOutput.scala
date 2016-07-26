@@ -71,8 +71,8 @@ class FriesOutput extends JsonOutputter {
                        endTime:Date,
                        outFilePrefix:String): String = {
 
-    // Flatten mentions, per MITRE requirements
-    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+    // Flatten mentions (per MITRE requirements), deduplicate, etc.
+    val sanitizedMentions = OutputDegrader.prepareForOutput(allMentions)
 
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
@@ -111,8 +111,8 @@ class FriesOutput extends JsonOutputter {
                           endTime:Date,
                           outFilePrefix:String): Unit = {
 
-    // Flatten mentions, per MITRE requirements
-    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+    // Flatten mentions (per MITRE requirements), deduplicate, etc.
+    val sanitizedMentions = OutputDegrader.prepareForOutput(allMentions)
 
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
@@ -148,8 +148,8 @@ class FriesOutput extends JsonOutputter {
                  outFilePrefix:String,
                  assemblyAPI: Assembler): Unit = {
 
-    // Flatten mentions, per MITRE requirements
-    val sanitizedMentions = OutputDegrader.flattenMentions(allMentions)
+    // Flatten mentions (per MITRE requirements), deduplicate, etc.
+    val sanitizedMentions = OutputDegrader.prepareForOutput(allMentions)
 
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key

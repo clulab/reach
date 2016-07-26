@@ -323,7 +323,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val aa_mentions = getBioMentions(aminos)
   aminos should "have expected number of results" in {
     aa_mentions.isEmpty should be (false)
-    printMentions(Try(aa_mentions), true)      // DEBUGGING
+    //printMentions(Try(aa_mentions), true)      // DEBUGGING
     aa_mentions should have size (aa_ids.size)
   }
 
