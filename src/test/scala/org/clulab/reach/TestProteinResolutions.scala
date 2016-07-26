@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Add tests for PTM-related protein prefixes.
+  *   Last Modified: Add tests for Reach issue #274.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -59,6 +59,15 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("stat1").isDefined) should be (true)
     (imkbP.resolve("STBA").isDefined) should be (true)
     (imkbP.resolve("stba").isDefined) should be (true)
+    (imkbP.resolve("SMAD2").isDefined) should be (true)
+    (imkbP.resolve("Smad2").isDefined) should be (true)
+    (imkbP.resolve("smad2").isDefined) should be (true)
+    (imkbP.resolve("SMAD 2").isDefined) should be (true)
+    (imkbP.resolve("Smad 2").isDefined) should be (true)
+    (imkbP.resolve("smad 2").isDefined) should be (true)
+    (imkbP.resolve("SMAD-2").isDefined) should be (true)
+    (imkbP.resolve("Smad-2").isDefined) should be (true)
+    (imkbP.resolve("smad-2").isDefined) should be (true)
   }
 
   "ProteinKBL resolve" should "work via protein domain lookup" in {
@@ -157,6 +166,17 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("pi3kdelta-dss1_sem1", "rat").isDefined) should be (false)
   }
 
+  "ProteinKBL resolveByASpecies" should "work in straightforward tests" in {
+    (imkbP.resolveByASpecies("SMAD2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("Smad2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("smad2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("SMAD 2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("Smad 2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("smad 2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("SMAD-2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("Smad-2", "human").isDefined) should be (true)
+    (imkbP.resolveByASpecies("smad-2", "human").isDefined) should be (true)
+  }
 
 
   val setA =   Set("aardvark")
@@ -293,6 +313,18 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     // pre-key text fails pattern match:
     (imkbP.resolveHuman("zyx-1-rbd").isDefined) should be (false)
     (imkbP.resolveHuman("PI3K-C2-alpha-RBD").isDefined) should be (false)
+  }
+
+  "ProteinKBL resolveHuman" should "work in straightforward tests" in {
+    (imkbP.resolveHuman("SMAD2").isDefined) should be (true)
+    (imkbP.resolveHuman("Smad2").isDefined) should be (true)
+    (imkbP.resolveHuman("smad2").isDefined) should be (true)
+    (imkbP.resolveHuman("SMAD 2").isDefined) should be (true)
+    (imkbP.resolveHuman("Smad 2").isDefined) should be (true)
+    (imkbP.resolveHuman("smad 2").isDefined) should be (true)
+    (imkbP.resolveHuman("SMAD-2").isDefined) should be (true)
+    (imkbP.resolveHuman("Smad-2").isDefined) should be (true)
+    (imkbP.resolveHuman("smad-2").isDefined) should be (true)
   }
 
 

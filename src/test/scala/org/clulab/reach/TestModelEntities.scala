@@ -2,7 +2,6 @@ package org.clulab.reach
 
 import org.clulab.odin._
 import org.clulab.reach.mentions._
-import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
@@ -11,7 +10,7 @@ import TestUtils._
 /**
   * Test the labeling of entities from the MITRE RAS model.
   *   Written by: Tom Hicks. 6/9/2016.
-  *   Last Modified: Comment out more protein tests because of NER failures.
+  *   Last Modified: Remove unused import.
   */
 class TestModelEntities extends FlatSpec with Matchers {
 
@@ -40,15 +39,13 @@ class TestModelEntities extends FlatSpec with Matchers {
     mentions.count(_ matches "Gene_or_gene_product") should be (4)
   }
 
-  // The following tests fail because of incorrect NER CRF identification as families
-  // See Processors issue #61
-  // "s2a entities" should "have GPP label" in {
-  //   val mentions = getBioMentions(s2a)
-  //   mentions.isEmpty should be (false)
-  //   printMentions(Try(mentions), true)      // DEBUGGING
-  //   mentions.size should be (4)
-  //   mentions.count(_ matches "Gene_or_gene_product") should be (4)
-  // }
+  "s2a entities" should "have GPP label" in {
+    val mentions = getBioMentions(s2a)
+    mentions.isEmpty should be (false)
+    // printMentions(Try(mentions), true)      // DEBUGGING
+    mentions.size should be (4)
+    mentions.count(_ matches "Gene_or_gene_product") should be (4)
+  }
 
   "s3 entities" should "have GPP label" in {
     val mentions = getBioMentions(s3)
