@@ -96,6 +96,7 @@
     controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
     controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc/{,2}
 
+
 - name: Positive_${ ruleType }_syntax_7_verb
   priority: ${ priority }
   example: "ASPP1 aids in the translocation of Kras to the membrane."
@@ -105,6 +106,18 @@
     trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
     controlled:${ controlledType } = prep_in$ | prep_to
     controller:${ controllerType } = (nsubj | <rcmod) /appos|nn|amod|conj_|cc/{,2}
+
+
+- name: Positive_${ ruleType }_syntax_8_verb
+  priority: ${ priority }
+  example: "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=result] in [word=/(?i)^(${ triggers })/]
+    controlled:${ controlledType } = prep_of nn?
+    controller:${ controllerType } = nsubj /appos|nn|prep_of|amod|conj_|cc/{,2}
+
 
 - name: Positive_${ ruleType }_syntax_1_noun
   priority: ${ priority }
@@ -226,14 +239,14 @@
 
 
 # TODO: ms - I don't think this ever matches. Remove?
-- name: Positive_${ ruleType }_token_2_verb
-  priority: ${ priority }
-  example: ""
-  type: token
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+#- name: Positive_${ ruleType }_token_2_verb
+#  priority: ${ priority }
+#  example: ""
+#  type: token
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
 
 
 - name: Positive_${ ruleType }_token_1_noun
@@ -277,63 +290,3 @@
     @controlled:${ controlledType }
 
 
-#
-# The rules below apply ONLY to regulations (not activations)
-# We use explicit types for the @controlled for this
-#
-
-- name: Positive_${ ruleType }_in_response_to
-  priority: ${ priority }
-  type: token
-  label: ${ label }
-  example: "Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF treatment"
-  action: ${ actionFlow }
-  pattern: |
-    @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
-
-
-- name: Positive_${ ruleType }_following_Controller_activation
-  priority: ${ priority }
-  type: token
-  example: "The phosphorylation of AKT1 following MEK activation."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    @controlled:SimpleEvent following @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/])
-
-
-- name: Positive_${ ruleType }_following_activation_of_Controller
-  priority: ${ priority }
-  type: token
-  example: "The phosphorylation of AKT1 following activation of MEK."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    @controlled:SimpleEvent following (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) [word=/of|by/] @controller:${ controllerType }
-
-
-- name: Positive_${ ruleType }_syntax_following_activation
-  priority: ${ priority }
-  example: "The phosphorylation of AKT1 following MEK activation."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:BioEntity = /nn|prep_of|prep_by/
-    controlled:SimpleEvent = <prep_following
-
-
-#
-# The rules below apply ONLY to activations (not regulations)
-# We use explicit types for the @controlled for this
-#
-
-- name: Positive_${ ruleType }_syntax_results_in
-  priority: ${ priority }
-  example: "AKT1 results in subsequent MEK activation."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = <prep_in [lemma=result] nsubj /nn|amod|conj_|cc/{,2}
-    controlled:BioEntity = /nn|prep_of/

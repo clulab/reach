@@ -443,12 +443,12 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent48 = "The phosphorylation of AKT1 following MEK activation."
   sent48 should "contain 1 positive regulation" in {
     val mentions = getBioMentions(sent48)
-    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)   // fails
   }
-  val sent48b = "The phosphorylation of AKT1 following activation of MEK."
+  val sent48b = "We observed the phosphorylation of AKT1 following activation by MEK."
   sent48b should "contain 1 positive regulation" in {
     val mentions = getBioMentions(sent48b)
-    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)  // fails
   }
   val sent48c = "The phosphorylation of AKT1 following inhibition of MEK."
   sent48c should "contain 1 negative regulation" in {
@@ -458,7 +458,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   val sent48d = "p53–ASPP2 complex in these cells following RAS activation"
   sent48d should "contain 1 binding and 1 positive regulation event" in {
     val mentions = getBioMentions(sent48d)
-    hasPositiveRegulationByEntity("MEK", "Binding", List("p53", "ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("RAS", "Binding", List("p53", "ASPP2"), mentions) should be (true)    // fails
   }
 
 
