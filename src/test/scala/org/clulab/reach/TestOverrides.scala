@@ -3,7 +3,6 @@ package org.clulab.reach
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
-// import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
@@ -12,7 +11,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Update for more informative size tests.
+  *   Last Modified: Comment out debugging statement.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -323,7 +322,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val aa_mentions = getBioMentions(aminos)
   aminos should "have expected number of results" in {
     aa_mentions.isEmpty should be (false)
-    //printMentions(Try(aa_mentions), true)      // DEBUGGING
+    // printMentions(Try(aa_mentions), true)      // DEBUGGING
     aa_mentions should have size (aa_ids.size)
   }
 
