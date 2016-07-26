@@ -151,7 +151,10 @@
   type: token
   pattern: |
     [entity='B-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]+
-    [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/]*
+    # digits are fine
+    ([entity='I-Gene_or_gene_product' & word=/^\d+$/] |
+    # avoid likely mutants, etc.
+    [entity='I-Gene_or_gene_product' & !word=/(?i)^([ACDEFGHIKLMNQRSTVWY]?\d+_|Delta)?[ACDEFGHIKLMNQRSTVWY]?\d+(del|ins|dup|fs)?[ACDEFGHIKLMNPQRSTVWY]*$/])*
     # we may see the word "protein"
     # we can't always trust the crf.  Make sure it isn't an obvious family
     (?!
