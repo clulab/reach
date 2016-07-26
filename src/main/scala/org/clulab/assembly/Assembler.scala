@@ -15,6 +15,8 @@ class Assembler(mns: Seq[Mention]) {
   val mentions = mns.filter(AssemblyManager.isValidMention)
   val am = AssemblyRunner.applySieves(mentions)
 
+  private val participantFeatureTracker = new ParticipantFeatureTracker(am)
+
   val causalPredecessors: Map[Mention, Set[CausalPrecedence]] = {
     val links = for {
       m <- mentions
@@ -32,6 +34,21 @@ class Assembler(mns: Seq[Mention]) {
     } yield CausalPrecedence(before = b, after = a, pr.foundBy)
     // build map from pairs
     links.groupBy(_.after).mapValues(_.toSet)
+  }
+
+  /**
+    * For each participant of an event, retrieve the set union of relevant PTMs (i.e., those specific to the participant) <br>
+    * from the event's causal predecessors.
+    * @param parent an event mention
+    * @return a Seq[[RoleWithFeatures]]
+    */
+  def getInputFeaturesForParticipants(parent: Mention): Seq[RoleWithFeatures] = {
+    val rwfs = for {
+      (role, mns) <- parent.arguments
+      m <- mns
+      ptms = participantFeatureTracker.getInputFeatures(m, parent)
+    } yield RoleWithFeatures(role, m, ptms)
+    rwfs.toSeq
   }
 
   /**
