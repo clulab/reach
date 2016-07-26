@@ -1,10 +1,10 @@
-name := "reach"
+import ReleaseTransformations._
 
-version := "1.3.2-SNAPSHOT"
+name := "reach"
 
 organization := "org.clulab"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
 
@@ -21,6 +21,22 @@ outputStrategy := Some(StdoutOutput)
 //
 // publishing settings
 //
+
+// these are the steps to be performed during release
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,
+  tagRelease,
+  ReleaseStep(action = Command.process("publishSigned", _)),
+  setNextVersion,
+  commitNextVersion,
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+  pushChanges
+)
 
 // publish to a maven repo
 publishMavenStyle := true
@@ -65,7 +81,7 @@ pomExtra := (
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.12",
+  "org.clulab" % "bioresources" % "1.1.13",
   "org.clulab" %% "processors" % "5.9.3-SNAPSHOT",
   "org.clulab" %% "processors" % "5.9.3-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
@@ -74,7 +90,8 @@ libraryDependencies ++= Seq(
   "jline" % "jline" % "2.12.1",
   "org.apache.lucene" % "lucene-core" % "5.3.1",
   "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
-  "org.apache.lucene" % "lucene-queryparser" % "5.3.1"
+  "org.apache.lucene" % "lucene-queryparser" % "5.3.1",
+  "ai.lum" %% "nxmlreader" % "0.0.1"
 )
 
 // settings for building project website

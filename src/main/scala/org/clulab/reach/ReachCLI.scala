@@ -18,6 +18,8 @@ import org.clulab.reach.extern.export.indexcards._
 import org.clulab.reach.nxml._
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.context.ContextEngineFactory.Engine._
+import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
+import ai.lum.nxmlreader.standoff.{ Tree => NxmlStandoff }
 
 class ReachCLI(
   val nxmlDir:File,
@@ -36,7 +38,7 @@ class ReachCLI(
     val reach = new ReachSystem(contextEngineType=contextEngineType, contextParams=contextEngineParams)
 
     println("initializing NxmlReader ...")
-    val nxmlReader = new NxmlReader(ignoreSections)
+    val nxmlReader = new NxmlReader(ignoreSections.toSet)
 
     var errorCount = 0
 
@@ -55,9 +57,12 @@ class ReachCLI(
       FileUtils.writeStringToFile(logFile, s"Starting $paperId (${startTime})\n", true)
 
       // Process individual sections and collect all mentions
-      val entries = Try(nxmlReader.readNxml(file)) match {
-        case Success(v) => v
-        case Failure(e) =>
+      val docWithMentions = try {
+        val nxmlDoc = nxmlReader.read(file)
+        val mentions = reach.extractFrom(nxmlDoc)
+        Some((nxmlDoc, mentions))
+      } catch {
+        case e: Exception =>
           this.synchronized { errorCount += 1}
           val report =
             s"""
@@ -76,102 +81,49 @@ class ReachCLI(
             |==========
             |""".stripMargin
           FileUtils.writeStringToFile(logFile, report, true)
-          Nil
+          None
       }
-
-      // These documents are sorted
-      val documents = new mutable.ArrayBuffer[Document]
-      val paperMentions = new mutable.ArrayBuffer[BioMention]
-      //val mentionsEntriesMap = new mutable.HashMap[BioMention, FriesEntry]()
-      for (entry <- entries) {
-        try {
-          // Create a document instance per entry and add it to the cache
-          documents += reach.mkDoc(entry.text, entry.sectionId, entry.chunkId)
-        } catch {
-          case e: Throwable =>
-            this.synchronized { errorCount += 1}
-            val report = s"""
-              |==========
-              |
-              | ¡¡¡ extraction error !!!
-              |
-              |paper: $paperId
-              |chunk: ${entry.chunkId}
-              |section: ${entry.sectionId}
-              |section name: ${entry.sectionName}
-              |
-              |error:
-              |${e.toString}
-              |
-              |stack trace:
-              |${e.getStackTrace.mkString("\n")}
-              |
-              |==========
-              |""".stripMargin
-            FileUtils.writeStringToFile(logFile, report, true)
-        }
-      }
-
-      try{
-        val mentions:Seq[BioMention] = reach.extractFrom(entries, documents)
-        paperMentions ++= mentions
-      } catch {
-        case e: Exception =>
-         val report = s"""
-             |==========
-             |
-             | ¡¡¡ extraction error !!!
-             |
-             |paper: $paperId
-             |
-             |error:
-             |${e.toString}
-             |
-             |stack trace:
-             |${e.getStackTrace.mkString("\n")}
-             |
-             |==========
-             |""".stripMargin
-         FileUtils.writeStringToFile(logFile, report, true)
-       }
-
 
       // done processing
       val endTime = ReachCLI.now
       val endNS = System.nanoTime
 
-      try outputType match {
-        case "text" =>
-          val mentionMgr = new MentionManager()
-          val lines = mentionMgr.sortMentionsToStrings(paperMentions)
-          val outFile = new File(outputDir, s"$paperId.txt")
-          println(s"writing ${outFile.getName} ...")
-          FileUtils.writeLines(outFile, lines.asJavaCollection)
-          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
-        // Anything that is not text (including Fries-style output)
-        case _ =>
-          outputMentions(paperMentions, entries, outputType, paperId, startTime, endTime, outputDir)
-          FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
-      } catch {
-        case e: Throwable =>
-          this.synchronized { errorCount += 1}
-          val report =
-            s"""
-               |==========
-               |
-               | ¡¡¡ serialization error !!!
-               |
-               |paper: $paperId
-               |
-               |error:
-               |${e.toString}
-               |
-               |stack trace:
-               |${e.getStackTrace.mkString("\n")}
-               |
-               |==========
-            """.stripMargin
-          FileUtils.writeStringToFile(logFile, report, true)
+      docWithMentions match {
+        case None => ()
+        case Some((nxmlDoc, mentions)) =>
+          try outputType match {
+            case "text" =>
+              val mentionMgr = new MentionManager()
+              val lines = mentionMgr.sortMentionsToStrings(mentions)
+              val outFile = new File(outputDir, s"$paperId.txt")
+              println(s"writing ${outFile.getName} ...")
+              FileUtils.writeLines(outFile, lines.asJavaCollection)
+              FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+            // Anything that is not text (including Fries-style output)
+            case _ =>
+              outputMentions(mentions, nxmlDoc.standoff, outputType, paperId, startTime, endTime, outputDir)
+              FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
+          } catch {
+            case e: Throwable =>
+              this.synchronized { errorCount += 1}
+              val report =
+                s"""
+                   |==========
+                   |
+                   | ¡¡¡ serialization error !!!
+                   |
+                   |paper: $paperId
+                   |
+                   |error:
+                   |${e.toString}
+                   |
+                   |stack trace:
+                   |${e.getStackTrace.mkString("\n")}
+                   |
+                   |==========
+                """.stripMargin
+              FileUtils.writeStringToFile(logFile, report, true)
+          }
       }
     }
 
@@ -180,7 +132,7 @@ class ReachCLI(
 
   def outputMentions(
     mentions:Seq[Mention],
-    paperPassages:Seq[FriesEntry],
+    standoff:NxmlStandoff,
     outputType:String,
     paperId:String,
     startTime:Date,
@@ -195,7 +147,7 @@ class ReachCLI(
       case "indexcard" => new IndexCardOutput()
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
-    outputter.writeJSON(paperId, mentions, paperPassages, startTime, endTime, outFile)
+    outputter.writeJSON(paperId, mentions, standoff, startTime, endTime, outFile)
   }
 
 }

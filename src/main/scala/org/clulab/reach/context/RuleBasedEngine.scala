@@ -13,7 +13,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Fields
   // To be overriden in the implementations. Returns a sequence of (Type, Val) features
   // Feature order should be kept consisting for all return values
-  protected def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)]
+  // protected def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)]
 
   // Name of the entry features
   protected def entryFeaturesNames:Seq[String] = Seq()
@@ -28,7 +28,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   // Build sparse matrices
   // First, the observed value matrices
-  protected var entries:Seq[FriesEntry] = _
+  // protected var entries:Seq[FriesEntry] = _
   protected var entryFeatures:Seq[Array[(String, Double)]] = _
   protected var observedSparseMatrix:Seq[Seq[Int]] = _
 
@@ -40,59 +40,35 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   //////////////////////////////////////////////////////////////////////////////////////////
 
   // Implementation of the infer method of the ContextEngine trait
-  def infer(
-      entries: Seq[FriesEntry],
-      documents: Seq[Document],
-      mentionsPerEntry: Seq[Seq[BioMention]]
-  ) {
+  def infer(biomentions: Seq[BioMention]): Unit = {
+
+    if (biomentions.isEmpty) return
+    // all mentions belong to the same doc
+    val doc = biomentions.head.document
 
     // Compute the fallback species
-    val speciesId:Seq[String] = mentionsPerEntry.flatten.filter{
-        case tb:BioTextBoundMention =>
-            if(tb.labels.contains("Species"))
-                true
-            else
-                false
-        case _ => false
+    val speciesId: Seq[String] = biomentions.filter {
+      case tb: BioTextBoundMention => tb.matches("Species")
+      case _ => false
     }.map(ContextEngine.getContextKey(_)._2)
 
-    val speciesIdCounts:Seq[String] = speciesId.groupBy(l => l).mapValues(_.length).toList.sortBy(_._2).map(_._1)
+    // sort species ids by count in descending order
+    val speciesIdSorted: Seq[String] = speciesId
+      .groupBy(identity)
+      .mapValues(_.length)
+      .toList
+      .sortBy(-_._2)
+      .map(_._1)
 
     // Assign the fallback species, if any
-    fallbackSpecies = if(speciesIdCounts.length > 0) Some(speciesIdCounts(0)) else None
-
-    // Build the document offsets
-    val docLengths = documents.map(_.sentences.size)
-    val docCumLengths:Seq[Int] = docLengths.scanLeft(0)((a, b) => a+b).dropRight(1)
-
-    assert(docCumLengths.size == documents.size, "Something is wrong with context document offsets")
-
-    docOffsets = documents.map(_.id.getOrElse("N/A")).zip(docCumLengths).toMap
-
-    val lines:Seq[(Seq[BioMention], FriesEntry)] =  (0 until entries.size).flatMap{
-      ix =>
-        val entry = entries(ix)
-        val doc = documents(ix)
-        val men = mentionsPerEntry(ix)
-
-        // Cast mentions as TextBound and sort by sentence index
-        val sortedMentions = men.sortWith(_.sentence < _.sentence)
-
-        // Group mentions by sentence index and attach the fries entry
-        val groupedMentions:Map[Int, Seq[BioMention]] = sortedMentions.groupBy(_.sentence)
-
-        // Return seq of (Seq[BioMention], FriesEntry) tuples. Each corresponds to each line
-        for(i <- 0 until doc.sentences.size) yield {
-          (groupedMentions.lift(i).getOrElse(Nil).filter{
-            mention => ContextEngine.isContextMention(mention)
-          }, entry)
-        }
-    }
+    fallbackSpecies = speciesIdSorted.headOption
 
     // Build sparse matrices
     // First, the observed value matrices
-    mentions = lines map (_._1)
-    val entryFeatures = lines map (_._2) map extractEntryFeatures
+    val myMentions = biomentions.filter(ContextEngine.isContextMention).groupBy(_.sentence).withDefaultValue(Nil)
+    mentions = doc.sentences.indices.map(myMentions).toVector
+    // FIXME what are the entry features???
+    //val entryFeatures = lines map (_._2) map extractEntryFeatures
 
     observedSparseMatrix = mentions.map{
       _.map {
@@ -124,10 +100,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
         if(!ContextEngine.isContextMention(em)){
           val key = em.document.id.getOrElse("N/A")
 
-          val offset = docOffsets(key)
-          val relativeLine = em.sentence
-
-          val line = offset + relativeLine
+          val line = em.sentence
 
           // Query the context engine and assign it to the BioEventMention
           val mentionContext = this.query(line).toList.toMap

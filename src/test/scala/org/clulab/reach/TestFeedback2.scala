@@ -51,19 +51,72 @@ class TestFeedback2 extends FlatSpec with Matchers {
 
   val s5 = "We also demonstrate that tyrosine phosphorylation of ErbB3 may lead to recruitment and activation of PI-3 kinase"
   s5 should "contain an activation with a Phosphorylation event serving as Controller" in {
-    // TODO: we should allow events to serve as controllers in activations;
-    //   then convert them to modified entities, e.g., ErbB3_p here - MARCO, GUS
+    // we should allow events to serve as controllers in activations
+    val mentions = getMentionsFromText(s5)
+    val acts = mentions.filter(_ matches "Positive_activation")
+    acts should have size 2 // one for ComplexEvent controller and another for SimpleEvent controller
+    acts.forall{
+      act =>
+        val controller = act.arguments("controller").head
+        controller.label == "Phosphorylation"
+    } should be (true)
+    // text for controlled should be AKT in all cases
+    acts.forall(act => act.arguments("controlled").head.text == "PI-3") should be (true)
+    // test controller flattening ( e.g., Ras_p) for output
+    val flattenedMentions: Seq[BioMention] = getMentionsForFriesOutput(s5)
+    val flattenedActs = flattenedMentions.filter(_ matches "Positive_activation")
+    flattenedActs should have size 1
+    val fa = flattenedActs.head
+    fa.arguments("controller") should have size 1
+    val faController = fa.arguments("controller").head
+    faController.text should equal ("ErbB3")
+    // check for Phosphorylation PTM
+    val ptms = faController.ptms
+    ptms should have size 1
+    ptms.head.label should equal ("Phosphorylation")
   }
 
   val s6 = "These results imply that Ack1 mediated Ras phosphorylation results in subsequent AKT activation."
   s6 should "contain an activation with a PosReg(Phosphorylation) event serving as Controller" in {
-    // TODO: we should allow regulation events to serve as controllers in activations;
-    //   then convert them to modified entities, e.g., Ras_p - MARCO, GUS
+    val mentions = getMentionsFromText(s6)
+    // we should allow regulation events to serve as controllers in activations
+    val acts = mentions.filter(_ matches "Positive_activation")
+    acts should have size 2 // one for ComplexEvent controller and another for SimpleEvent controller
+    acts.exists{
+      act =>
+        val controller = act.arguments("controller").head
+        controller.text == "Ack1 mediated Ras phosphorylation" && controller.label == "Positive_regulation"
+    } should be (true)
+
+    acts.exists{
+      act =>
+        val controller = act.arguments("controller").head
+        controller.text == "Ras phosphorylation" && controller.label == "Phosphorylation"
+    } should be (true)
+    // text for controlled should be AKT in all cases
+    acts.forall(act => act.arguments("controlled").head.text == "AKT") should be (true)
+    // test controller flattening ( e.g., Ras_p) for output
+    val flattenedMentions: Seq[BioMention] = getMentionsForFriesOutput(s6)
+    val flattenedActs = flattenedMentions.filter(_ matches "Positive_activation")
+    flattenedActs should have size 1 // Flattening controllers (and filtering again) treats the previous two activations as the same
+    val fa = flattenedActs.head
+    fa.arguments("controller") should have size 1
+    val faController = fa.arguments("controller").head
+    faController.text should equal ("Ras")
+    // check for Phosphorylation PTM
+    val ptms = faController.ptms
+    ptms should have size 1
+    ptms.head.label should equal ("Phosphorylation")
   }
 
   val s7 = "We observed that endogenous ASPP2 translocates from cell/cell junctions to the cytosol/nucleus following RAS activation"
-  s7 should "contain 1 or more translocation events" in {
-    // TODO: we should pick 4 translocation events here - ENRIQUE
+  s7 should "contain 2 translocation events" in {
+    // TODO: we should pick 2 translocation events here - ENRIQUE
+    // ENRIQUE: Cell is in the black list of the NER, so there will be only two events
+    val mentions = getBioMentions(s7)
+
+    hasEventWithArguments("Translocation", List("ASPP2", "cell junctions", "cytosol"), mentions) should be (true)
+    hasEventWithArguments("Translocation", List("ASPP2", "cell junctions", "nucleus"), mentions) should be (true)
   }
 
   val s9 = "Moreover, an interaction was also observed between endogenous ASPP2 and HRASV12 in a human colon cancer cell line"

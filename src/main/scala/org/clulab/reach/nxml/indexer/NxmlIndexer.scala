@@ -3,12 +3,13 @@ package org.clulab.reach.nxml.indexer
 import java.io.File
 import java.nio.file.Paths
 
-import org.clulab.reach.nxml.{FriesEntry, NxmlReader}
+import org.clulab.reach.nxml.FriesEntry
 import org.clulab.utils.{Files, StringUtils}
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.{StringField, Field, TextField, Document, StoredField}
 import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
+import ai.lum.nxmlreader.NxmlReader
 import org.slf4j.LoggerFactory
 import NxmlIndexer._
 
@@ -24,7 +25,7 @@ class NxmlIndexer {
   def index(docsDir:String, mapFile:String, indexDir:String): Unit = {
     val files = Files.findFiles(docsDir, "nxml")
     logger.debug(s"Preparing to index ${files.length} files...")
-    val nxmlReader = new NxmlReader(IGNORE_SECTIONS)
+    val nxmlReader = new NxmlReader(IGNORE_SECTIONS.toSet)
     val fileToPmc = readMapFile(mapFile)
 
     // check that all files exist in the map
@@ -49,18 +50,11 @@ class NxmlIndexer {
     val writer = new IndexWriter(index, config)
     count = 0
     for (file <- files) {
-      val entries = Try(nxmlReader.readNxml(file)) match {
-        case Success(v) => v
-        case Failure(e) =>
-          logger.debug(s"NxmlReader failed on file $file")
-          Nil
-      }
-      if(entries != Nil && fileToPmc.contains(getFileName(file, "nxml"))) {
-        val id = fileToPmc.get(getFileName(file, "nxml")).get
-        val text = mergeEntries(entries)
-        val nxml = readNxml(file)
-        addDoc(writer, id, text, nxml)
-      }
+      val nxmlDoc = nxmlReader.read(file)
+      val id = fileToPmc.get(getFileName(file, "nxml")).get
+      val text = nxmlDoc.text
+      val nxml = readNxml(file)
+      addDoc(writer, id, text, nxml)
       count += 1
       if(count % 100 == 0)
         logger.debug(s"Indexed ${count}/${files.size} files.")
@@ -77,12 +71,6 @@ class NxmlIndexer {
     d.add(new StringField("id", id, Field.Store.YES))
     d.add(new StoredField("nxml", nxml))
     writer.addDocument(d)
-  }
-
-  def mergeEntries(entries:Seq[FriesEntry]):String = {
-    val os = new StringBuilder()
-    entries.foreach(e => os.append(e.text + "\n"))
-    os.toString()
   }
 
   def readNxml(file:File):String = {

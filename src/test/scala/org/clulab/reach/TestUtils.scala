@@ -1,7 +1,7 @@
 package org.clulab.reach
 
 import io.Source
-import org.clulab.reach.nxml.{NxmlReader, FriesEntry}
+import org.clulab.reach.nxml.FriesEntry
 import org.clulab.reach.display._
 import org.clulab.reach.extern.export.MentionManager
 import org.clulab.reach.mentions._
@@ -10,6 +10,7 @@ import org.clulab.processors.Document
 import scala.util.Try
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.context.ContextEngineFactory.Engine._
+import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
 
 /**
  * Utility methods for the tests in this directory
@@ -25,12 +26,24 @@ object TestUtils {
     case class Annotation(friesEntries:Seq[FriesEntry], documents:Seq[Document], entitiesPerEntry:Seq[Seq[BioMention]], mentions:Seq[BioMention])
 
     def annotatePaper(nxml:String):Annotation = {
-      val friesEntries = testReader.readNxml(nxml, "")
+      val friesEntries = mkEntries(testReader.parse(nxml))
       val documents = friesEntries map (e => testReach.mkDoc(e.text, e.name, e.chunkId))
       val entitiesPerEntry =  for (doc <- documents) yield testReach.extractEntitiesFrom(doc)
       val mentions = testReach.extractFrom(friesEntries, documents)
 
       Annotation(friesEntries, documents, entitiesPerEntry, mentions)
+    }
+
+    def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
+      val paperId = nxmldoc.pmc
+      val standoff = nxmldoc.standoff
+      Seq(new FriesEntry(
+         name = paperId,
+         chunkId = standoff.hashCode.toString,
+         sectionId = standoff.path,
+         sectionName = "",
+         isTitle = false,
+         text = standoff.text))
     }
 
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
@@ -53,13 +66,21 @@ object TestUtils {
     m <- getMentionsFromText(text)
   } yield OutputDegrader.flattenMention(m).toBioMention
 
+  def getMentionsForFriesOutput(text: String): Seq[BioMention] = {
+    val mentions = getMentionsFromText(text)
+    OutputDegrader.prepareForOutput(mentions)
+  }
+
+  def getMentionsForFriesOutput(mns: Seq[Mention]): Seq[BioMention] = OutputDegrader.prepareForOutput(mns)
+
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
-    val result = Try(testReach.extractFrom(entry))
-    if(! result.isSuccess)
-      throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)
-    val mentions = printMentions(result, verbose)
-    mentions
+    val result = testReach.extractFrom(entry)
+    //if(! result.isSuccess)
+      //throw new RuntimeException("ERROR: getBioMentions failed on sentence: " + text)
+    //val mentions = printMentions(result, verbose)
+    //mentions
+    result
   }
 
   def getEntities(sentence: String, verbose:Boolean = false):Seq[BioMention] = {
@@ -231,18 +252,19 @@ object TestUtils {
     println(s"\n${":" * 20}$name${":" * 20}\n")
   }
 
-  def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
-    val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
-    for ((s, i) <- doc.sentences.zipWithIndex) {
-      println(s"sentence #$i")
-      println(s.getSentenceText)
-      println
-      mentionsBySentence(i).sortBy(_.label) foreach displayMention
-      println("=" * 50)
+  def displayMentions(mentions: Seq[Mention], doc: Document): Unit = display.displayMentions(mentions, doc)
+
+  implicit class MentionTestUtils(mention: Mention) {
+
+    def modifications: Set[Modification] = mention.toBioMention.modifications
+
+    // FIXME: this is nasty.  How can I pattern match on something that extends a trait?
+    def ptms: Set[PTM] = modifications.map {
+      case ptm if ptm.isInstanceOf[PTM] => ptm.asInstanceOf[PTM]
     }
   }
 
-  implicit class MentionTestUtils(mention: BioMention) {
+  implicit class BioMentionTestUtils(mention: BioMention) {
 
     def hasMutation(mutant: String, subType: String): Boolean = mention match {
       case empty if mention.modifications.isEmpty => false

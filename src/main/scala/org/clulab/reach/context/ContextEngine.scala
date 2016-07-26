@@ -14,11 +14,7 @@ import org.clulab.reach.grounding.ReachContextKBLister
 trait ContextEngine {
 
   /** initializes any data structure that needs to be initialized */
-  def infer(
-      entries: Seq[FriesEntry],
-      documents: Seq[Document],
-      mentionsPerEntry: Seq[Seq[BioMention]]
-  ): Unit
+  def infer(mentions: Seq[BioMention]): Unit
 
   /** updates those data structures with any new info */
   def update(mentions: Seq[BioMention]): Unit
