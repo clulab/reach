@@ -1,7 +1,7 @@
 package org.clulab.reach
 
 import org.clulab.reach.TestUtils._
-import org.clulab.reach.mentions.BioMention
+import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
