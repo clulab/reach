@@ -492,7 +492,4 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "Phosphorylation") should have size (1)
     hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("Gab1"), mentions) should be (true)
   }
-
-
-
 }

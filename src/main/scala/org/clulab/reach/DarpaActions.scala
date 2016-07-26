@@ -126,8 +126,8 @@ class DarpaActions extends Actions {
     val filteredMentions = mentions.filterNot { ev =>
       // Only keep mentions that don't have ubiquitin as a theme
       ev.arguments("theme").exists(_.text.toLowerCase == "ubiquitin") ||
-      // mention shouldn't have ubiquitin as a cause either, if there is a cause
-      ev.arguments.get("cause").exists(_.exists(_.text.toLowerCase == "ubiquitin"))
+        // mention shouldn't have ubiquitin as a cause either, if there is a cause
+        ev.arguments.get("cause").exists(_.exists(_.text.toLowerCase == "ubiquitin"))
     }
     // return biomentions
     filteredMentions.map(_.toBioMention)
@@ -180,7 +180,7 @@ class DarpaActions extends Actions {
     * will only allow activations where no overlapping regulation is present
     */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    // Prefer Activations with SimpleEvents as the controller
+  // Prefer Activations with SimpleEvents as the controller
     mention <- preferSimpleEventControllers(mentions)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
@@ -236,8 +236,8 @@ class DarpaActions extends Actions {
   }
 
   /**
-   * Promote any Sites in the Modifications of a SimpleEvent argument to an event argument "site"
-   */
+    * Promote any Sites in the Modifications of a SimpleEvent argument to an event argument "site"
+    */
   def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: BioEventMention if m matches "SimpleEvent" =>
       val additionalSites: Seq[Mention] = m.arguments.values.flatten.toSeq.flatMap { case m: BioMention =>
@@ -279,26 +279,38 @@ class DarpaActions extends Actions {
     * Requires that the controlled and controller do not overlap
     */
   def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
-    case m: EventMention if m matches "SimpleEvent" =>
+    case m: EventMention if (m matches "SimpleEvent") & (m.arguments.keySet contains "cause") =>
       // Do we have a regulation?
-      if (m.arguments.keySet contains "cause") {
-        // FIXME There could be more than one cause...
-        val cause: Seq[Mention] = m.arguments("cause")
-        val evArgs = m.arguments - "cause"
+      val causes: Seq[Mention] = m.arguments("cause")
+      val themes: Seq[Mention] = m.arguments("theme")
+      val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
+      val nonCauseArgs = m.arguments - "cause"
+      val controlledArgs = nonCauseArgs.values.flatten.toSet
+
+      val splitEvs = for {
+        theme <- themes
+      } yield {
+        val evArgs = m.arguments - "cause" - "theme" ++ Map("theme" -> Seq(theme))
         val ev = new BioEventMention(m.copy(arguments = evArgs), direct = true)
-        // make sure the regulation is valid
-        val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
-        // controller of an event should not be an arg in the controlled
-        if (cause.forall(c => !controlledArgs.contains(c))) {
-          val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
-          val reg = new BioRelationMention(m.copy(labels = DarpaActions.REG_LABELS, arguments = regArgs).toRelationMention)
-          // negations should be propagated to the newly created Positive_regulation
-          val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
-          reg.modifications = negMods
-          ev.modifications = otherMods
-          Seq(reg, ev)
-        } else  Nil
-      } else Seq(m.toBioMention)
+        // modifications other than negations belong to the SimpleEvent
+        ev.modifications = otherMods
+        ev
+      }
+
+      val splitRegs = for {
+        ev <- splitEvs
+        cause <- causes
+        // controller shouldn't overlap with controlled arguments
+        if !controlledArgs.contains(cause)
+      } yield {
+        val regArgs = Map("controlled" -> Seq(ev), "controller" -> Seq(cause))
+        val reg = new BioRelationMention(m.copy(labels = DarpaActions.REG_LABELS, arguments = regArgs).toRelationMention)
+        // negations should be propagated to the newly created Positive_regulation
+        reg.modifications = negMods
+        reg
+      }
+
+      splitEvs ++ splitRegs
     case m => Seq(m.toBioMention)
   }
 
@@ -393,7 +405,7 @@ object DarpaActions {
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
-         case true =>
+        case true =>
           val newLabels = flipLabel(ce.label) +: ce.labels.tail
           // trigger labels should match event labels
           val newTrigger = ce.trigger.copy(labels = newLabels)
@@ -466,21 +478,9 @@ object DarpaActions {
     * or if they are both present and are distinct.
     */
   def hasDistinctControllerControlled(m: Mention): Boolean = {
-    val controlled = m.arguments.getOrElse("controlled", Nil)
-    val controller = m.arguments.getOrElse("controller", Nil)
-    // if no controller or no controlled then we are good
-    if (controlled.isEmpty || controller.isEmpty) true
-    else {
-      // we are only concerned with the first controlled and controller
-      val c1 = controlled.head.toBioMention
-      val c2 = controller.head.toBioMention
-      if (c1 == c2) false // they are the same mention
-      else (c1.grounding, c2.grounding) match {
-        // if they are grounded the grounding should be different
-        case (Some(g1), Some(g2)) => g1 != g2
-        case _ => true // seems like they are different
-      }
-    }
+    val controlled = m.arguments.getOrElse("controlled", Nil).flatMap(_.toBioMention.grounding).toSet
+    val controller = m.arguments.getOrElse("controller", Nil).flatMap(_.toBioMention.grounding).toSet
+    controlled.intersect(controller).isEmpty
   }
 
   /** checks if a mention has a controller/controlled
@@ -578,6 +578,7 @@ object DarpaActions {
     * SimpleEvent -> theme + PTM <br>
     * Binding -> Complex (treated as an Entity) <br>
     * ComplexEvent -> recursive call on controlled (the event's "output") <br>
+    *
     * @param asOutput value of true to generate a Mention's output (ex. theme or controlled)
     */
   @tailrec

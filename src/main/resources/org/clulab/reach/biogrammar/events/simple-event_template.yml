@@ -438,3 +438,17 @@
   action: ${ actionFlow }
   pattern: |
     (@cause:BioChemicalEntity)? (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]) [!tag=/^(V|JJ)/ & !word=by]{,2}? @theme:BioChemicalEntity []{1,10} @site:Site
+
+
+# This is the only way to get this, due to horrible misparsing.
+- name: ${ eventName }_token_inresponseto
+  priority: ${ priority }
+  example: "the ability of the exogenous ErbB3 receptor to be tyrosine phosphorylated in response to stimulation with either EGF or neuregulin (NRG)"
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (/(?i)^the$/ ability of the?)? [tag=JJ | word=mutant | mention=Mutant]{,2} @theme:BioChemicalEntity /proteins?/?
+    to (become | be) @site:Site? (?<trigger> "${ verbalTriggerLemma }d")
+    in response to (stimulation with either?)? @cause:BioChemicalEntity
+    ((","|[tag=CC]) @cause:BioChemicalEntity)*
