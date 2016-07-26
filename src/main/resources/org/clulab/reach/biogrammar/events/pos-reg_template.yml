@@ -301,7 +301,7 @@
     # xcomp for "A, leading to B" pattern
     controller:${ controllerType } = nsubj|xcomp
     # "leading to activation"
-    controlled:${ controlledType } = (?= prep_to [word=/(?i)^(${ triggers })/]) prep_to prep_of?
+    controlled:${ controlledType } = (?= prep_to [word=/(?i)^(${ triggers })/]) prep_to prep_of? nn?
 
 
 #
