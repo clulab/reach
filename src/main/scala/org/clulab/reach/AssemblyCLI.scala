@@ -9,7 +9,6 @@ import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
 import org.clulab.reach.nxml._
-import ai.lum.nxmlreader.NxmlReader
 import ai.lum.nxmlreader.NxmlDocument
 
 
@@ -50,18 +49,20 @@ class AssemblyCLI(
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
       val mentions = PaperReader.getMentionsFromPaper(file)
-
+      // NOTE: We're already doing this in the exporter, but the mentions given to the Assembler probably
+      // need to match since flattening results in a loss of information
+      val mentionsForOutput = OutputDegrader.prepareForOutput(mentions)
       if (verbose)
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
 
-      val assemblyAPI = new Assembler(mentions) // do assembly
+      val assemblyAPI = new Assembler(mentionsForOutput) // do assembly
 
       if (verbose)
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished initializing Assembler")
 
       val procTime = AssemblyCLI.now
       val nxmldoc = PaperReader.nxmlReader.read(file)
-      outputMentions(mentions, nxmldoc, paperId, startTime, procTime, outputDir, assemblyAPI)
+      outputMentions(mentionsForOutput, nxmldoc, paperId, startTime, procTime, outputDir, assemblyAPI)
 
       val endTime = AssemblyCLI.now
       val endNS = System.nanoTime
