@@ -441,6 +441,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("Mek", "Ras"), bindings) should be (true)
     hasEventWithArguments("Binding", List("Mek", "Akt1"), bindings) should be (true)
     hasEventWithArguments("Binding", List("Ras", "Akt1"), bindings) should be (true)
+  }
 
   val sent43 = "We provide evidence and a model illustrating how oncogenic, activated Ras can increase the DNA binding and transcription function of SAF-1 / MAZ transcription factor, a transcriptional regulator of VEGF."
   sent43 should "not contain binding events" in {
