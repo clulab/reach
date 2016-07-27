@@ -34,17 +34,7 @@ object TestUtils {
       Annotation(friesEntries, documents, entitiesPerEntry, mentions)
     }
 
-    def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
-      val paperId = nxmldoc.pmc
-      val standoff = nxmldoc.standoff
-      Seq(new FriesEntry(
-         name = paperId,
-         chunkId = standoff.hashCode.toString,
-         sectionId = standoff.path,
-         sectionName = "",
-         isTitle = false,
-         text = standoff.text))
-    }
+    def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = Seq(new FriesEntry(nxmldoc))
 
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
   }
@@ -65,6 +55,13 @@ object TestUtils {
   def getFlattenedBioMentionsFromText(text: String): Seq[BioMention] = for {
     m <- getMentionsFromText(text)
   } yield OutputDegrader.flattenMention(m).toBioMention
+
+  def getMentionsForFriesOutput(text: String): Seq[BioMention] = {
+    val mentions = getMentionsFromText(text)
+    OutputDegrader.prepareForOutput(mentions)
+  }
+
+  def getMentionsForFriesOutput(mns: Seq[Mention]): Seq[BioMention] = OutputDegrader.prepareForOutput(mns)
 
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
@@ -245,18 +242,19 @@ object TestUtils {
     println(s"\n${":" * 20}$name${":" * 20}\n")
   }
 
-  def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
-    val mentionsBySentence = mentions groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
-    for ((s, i) <- doc.sentences.zipWithIndex) {
-      println(s"sentence #$i")
-      println(s.getSentenceText)
-      println
-      mentionsBySentence(i).sortBy(_.label) foreach displayMention
-      println("=" * 50)
+  def displayMentions(mentions: Seq[Mention], doc: Document): Unit = display.displayMentions(mentions, doc)
+
+  implicit class MentionTestUtils(mention: Mention) {
+
+    def modifications: Set[Modification] = mention.toBioMention.modifications
+
+    // FIXME: this is nasty.  How can I pattern match on something that extends a trait?
+    def ptms: Set[PTM] = modifications.map {
+      case ptm if ptm.isInstanceOf[PTM] => ptm.asInstanceOf[PTM]
     }
   }
 
-  implicit class MentionTestUtils(mention: BioMention) {
+  implicit class BioMentionTestUtils(mention: BioMention) {
 
     def hasMutation(mutant: String, subType: String): Boolean = mention match {
       case empty if mention.modifications.isEmpty => false

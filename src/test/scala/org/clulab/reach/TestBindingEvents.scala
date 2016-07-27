@@ -3,10 +3,9 @@ package org.clulab.reach
 import org.clulab.odin.State
 import org.clulab.struct.Interval
 import org.clulab.reach.mentions._
-
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
+
 
 /**
   * Unit tests to ensure Binding rules are matching correctly
@@ -433,14 +432,19 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p85", "Gab1"), mentions) should be (true)
   }
 
-  val sent42 = "We analyze the Mek-Ras-Akt1 complex."
-  sent42 should "contain three binary binding events" in {
+  val sent42 = "We provide evidence and a model illustrating how oncogenic, activated Ras can increase the DNA binding and transcription function of SAF-1 / MAZ transcription factor, a transcriptional regulator of VEGF."
+  sent42 should "not contain binding events" in {
     val mentions = getBioMentions(sent42)
-    val bindings = mentions.filter(_ matches "Binding")
-    bindings should have size (3)
-    hasEventWithArguments("Binding", List("Mek", "Ras"), bindings) should be (true)
-    hasEventWithArguments("Binding", List("Mek", "Akt1"), bindings) should be (true)
-    hasEventWithArguments("Binding", List("Ras", "Akt1"), bindings) should be (true)
+    mentions filter (_ matches "Binding") shouldBe empty
   }
 
+  val sent43 = "We analyze the Mek-Ras-Akt1 complex."
+  sent43 should "contain three binary binding events" in {
+    val mentions = getBioMentions(sent43)
+    val bindings = mentions.filter(_ matches "Binding")
+    bindings should have size (3)
+    hasEventWithArguments("Binding", List("Mek", "Ras"), bindings) should be(true)
+    hasEventWithArguments("Binding", List("Mek", "Akt1"), bindings) should be(true)
+    hasEventWithArguments("Binding", List("Ras", "Akt1"), bindings) should be(true)
+  }
 }

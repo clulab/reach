@@ -9,7 +9,6 @@ import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
 import org.clulab.reach.nxml._
-import ai.lum.nxmlreader.NxmlReader
 import ai.lum.nxmlreader.NxmlDocument
 
 
@@ -83,7 +82,8 @@ class AssemblyCLI(
   ) = {
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
     val outputter:FriesOutput = new FriesOutput()
-    val entry = new FriesEntry(nxmldoc.pmc, "", "", "", false, nxmldoc.standoff.text)
+    // we produce only a single FriesEntry
+    val entry = new FriesEntry(nxmldoc)
     outputter.writeJSON(paperId, mentions, Seq(entry), startTime, endTime, outFile, assemblyAPI)
   }
 
