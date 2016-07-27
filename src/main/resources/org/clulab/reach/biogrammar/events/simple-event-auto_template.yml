@@ -51,3 +51,17 @@
     cause:BioChemicalEntity = (?= (dobj|agent|prep_by) [word=itself]) /^nsubj/
     theme:BioChemicalEntity = (?= (dobj|agent|prep_by) [word=itself]) /^nsubj/
     site:Site? = /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+
+
+# This is the only way to get this, due to horrible misparsing.
+- name: ${ eventName }_token_inresponseto
+  priority: ${ priority }
+  example: "The ability of the ability of the exogenous ErbB3 receptor to be tyrosine phosphorylated in response to stimulation with either EGF or neuregulin (NRG)"
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    /(?i)^the$/ ability of the? [tag=JJ | word=mutant | mention=Mutant]{,2} @theme:BioChemicalEntity /proteins?/?
+    to (become | be) @site:Site? (?<trigger> /${ verbalTriggerLemma }d/)
+    in response to (stimulation with either?)? @cause:BioChemicalEntity
+    ((","|[tag=CC]) @cause:BioChemicalEntity)*
