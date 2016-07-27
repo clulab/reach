@@ -55,12 +55,18 @@ class ReachSystem(
     doc
   }
 
+  def mkDoc(nxml: NxmlDocument): Document = {
+    // we are using the PMC as the chunk-id because we now read
+    // the whole paper in a single chunk
+    mkDoc(nxml.text, nxml.pmc, nxml.pmc)
+  }
+
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
     extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     // use standoff hashcode as the chunkId
-    extractFrom(mkDoc(nxml.text, nxml.pmc, nxml.standoff.hashCode.toString), Some(nxml))
+    extractFrom(mkDoc(nxml), Some(nxml))
   }
 
   def extractFrom(doc: Document, nxml: Option[NxmlDocument]): Seq[BioMention] = {

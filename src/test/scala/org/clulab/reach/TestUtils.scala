@@ -34,17 +34,7 @@ object TestUtils {
       Annotation(friesEntries, documents, entitiesPerEntry, mentions)
     }
 
-    def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
-      val paperId = nxmldoc.pmc
-      val standoff = nxmldoc.standoff
-      Seq(new FriesEntry(
-         name = paperId,
-         chunkId = standoff.hashCode.toString,
-         sectionId = standoff.path,
-         sectionName = "",
-         isTitle = false,
-         text = standoff.text))
-    }
+    def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = Seq(new FriesEntry(nxmldoc))
 
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
   }

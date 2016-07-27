@@ -9,7 +9,6 @@ import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
 import org.clulab.reach.nxml._
-import ai.lum.nxmlreader.NxmlReader
 import ai.lum.nxmlreader.NxmlDocument
 
 
@@ -66,7 +65,7 @@ class AssemblyCLI(
       val endTime = AssemblyCLI.now
       val endNS = System.nanoTime
       if (verbose)
-        println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON")
+        println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath()}")
       FileUtils.writeStringToFile(
         logFile, s"${endTime}: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n", true)
     }
@@ -83,7 +82,8 @@ class AssemblyCLI(
   ) = {
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
     val outputter:FriesOutput = new FriesOutput()
-    val entry = new FriesEntry(nxmldoc.pmc, "", "", "", false, nxmldoc.standoff.text)
+    // we produce only a single FriesEntry
+    val entry = new FriesEntry(nxmldoc)
     outputter.writeJSON(paperId, mentions, Seq(entry), startTime, endTime, outFile, assemblyAPI)
   }
 

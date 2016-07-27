@@ -19,7 +19,6 @@ import org.clulab.reach.nxml._
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
-import ai.lum.nxmlreader.standoff.{ Tree => NxmlStandoff }
 
 class ReachCLI(
   val nxmlDir:File,
@@ -101,7 +100,7 @@ class ReachCLI(
               FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
             // Anything that is not text (including Fries-style output)
             case _ =>
-              outputMentions(mentions, nxmlDoc.standoff, outputType, paperId, startTime, endTime, outputDir)
+              outputMentions(mentions, nxmlDoc, outputType, paperId, startTime, endTime, outputDir)
               FileUtils.writeStringToFile(logFile, s"Finished $paperId successfully (${(endNS - startNS)/ 1000000000.0} seconds)\n", true)
           } catch {
             case e: Throwable =>
@@ -132,7 +131,7 @@ class ReachCLI(
 
   def outputMentions(
     mentions:Seq[Mention],
-    standoff:NxmlStandoff,
+    nxmldoc:NxmlDocument,
     outputType:String,
     paperId:String,
     startTime:Date,
@@ -147,7 +146,7 @@ class ReachCLI(
       case "indexcard" => new IndexCardOutput()
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
-    outputter.writeJSON(paperId, mentions, standoff, startTime, endTime, outFile)
+    outputter.writeJSON(paperId, mentions, nxmldoc, startTime, endTime, outFile)
   }
 
 }

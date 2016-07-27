@@ -284,7 +284,7 @@ class FriesOutput extends JsonOutputter {
   }
 
   private def getChunkId(m:Mention):String = {
-    assert(m.document.id.isDefined, { println(s"ASSERT-ERROR: object ${m} has no document ID") })
+    assert(m.document.id.isDefined, s"object ${m} has no document ID")
 
     val did = m.document.id.get
     // the chunk id is the string following the underscore in the document ids
@@ -296,8 +296,7 @@ class FriesOutput extends JsonOutputter {
   private def getPassageForMention (passageMap:Map[String, FriesEntry],
                                     mention:Mention): FriesEntry = {
     val chunkId = getChunkId(mention)
-    assert(passageMap.contains(chunkId), {
-      println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
+    assert(passageMap.contains(chunkId), s"passageMap missing chunkId ${chunkId}")
     passageMap.get(chunkId).get
   }
 
@@ -369,17 +368,14 @@ class FriesOutput extends JsonOutputter {
     argType match {
       case "complex" =>
         // this is a complex: print the participants
-        assert(arg.isInstanceOf[RelationMention], {
-          println("ASSERT-ERROR: complex 'arg' is not an instance of RelationMention") })
+        assert(arg.isInstanceOf[RelationMention], "complex 'arg' is not an instance of RelationMention")
         val participants = new PropMap
         val complexParticipants = arg.asInstanceOf[RelationMention].arguments
         for(key <- complexParticipants.keySet) {
           // FIXME: resolve each participant.  Should this be done elsewhere?
           val ms: Seq[Mention] = complexParticipants.get(key).get.map(m => m.antecedentOrElse(m))
           for ((p, i) <- ms.zipWithIndex) {
-            assert(p.isInstanceOf[TextBoundMention], {
-              println(s"ASSERT-ERROR: complex participant is not an instance of TextBoundMention: ${p}")
-            })
+            assert(p.isInstanceOf[TextBoundMention], s"complex participant is not an instance of TextBoundMention: ${p}")
             if (!entityMap.contains(p)) {
               throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
             }
@@ -726,7 +722,7 @@ class FriesOutput extends JsonOutputter {
     f("section-id") = passage.sectionId
     f("section-name") = passage.sectionName
     f("is-title") = passage.isTitle
-    assert(passageDoc.text.isDefined, { println(s"ASSERT-ERROR: passageDoc has no text") })
+    assert(passageDoc.text.isDefined, s"passageDoc has no text")
     f("text") = passageDoc.text.get.replaceAll("\\n", " ")
     f
   }
@@ -811,8 +807,7 @@ class FriesOutput extends JsonOutputter {
 
     // now output all passages as individual frames
     for(chunkId <- passageDocs.keySet) {
-      assert(passageMap.contains(chunkId), {
-        println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
+      assert(passageMap.contains(chunkId), s"passageMap missing chunkId ${chunkId}")
       frames += mkPassage(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
       frames ++= mkSentences(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
     }
