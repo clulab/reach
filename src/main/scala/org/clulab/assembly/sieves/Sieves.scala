@@ -365,7 +365,7 @@ object SieveUtils {
   def findTrigger(m: Mention): TextBoundMention = m match {
     // if mention is TB, just use the mention
     case tb: TextBoundMention =>
-      println(s"no trigger for mention '${tb.text}' with label '${m.label}'")
+      // println(s"no trigger for mention '${tb.text}' with label '${m.label}'")
       tb
     case event: EventMention =>
       event.trigger
