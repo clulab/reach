@@ -65,7 +65,7 @@ class AssemblyCLI(
       val endTime = AssemblyCLI.now
       val endNS = System.nanoTime
       if (verbose)
-        println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON")
+        println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath()}")
       FileUtils.writeStringToFile(
         logFile, s"${endTime}: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n", true)
     }

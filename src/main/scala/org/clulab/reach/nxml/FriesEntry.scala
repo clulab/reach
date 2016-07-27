@@ -1,7 +1,6 @@
 package org.clulab.reach.nxml
 
 import ai.lum.nxmlreader.NxmlDocument
-import ai.lum.nxmlreader.standoff.{ Tree => NxmlStandoff }
 
 
 case class FriesEntry(
@@ -17,20 +16,23 @@ case class FriesEntry(
 
   def this(nxmldoc: NxmlDocument) = this(
     name = nxmldoc.pmc,
-    // use standoff hashcode as the chunkId
-    chunkId = nxmldoc.standoff.hashCode.toString,
+    // we are using the PMC as the chunk-id because we now read
+    // the whole paper in a single chunk
+    chunkId = nxmldoc.pmc,
     sectionId = nxmldoc.standoff.path,
     sectionName = "",
     false,
     nxmldoc.standoff.text
   )
 
-  def this(paperId: String, standoff: NxmlStandoff) = this(
+  def this(paperId: String, nxmldoc: NxmlDocument) = this(
     name = paperId,
-    chunkId = standoff.hashCode.toString,
-    sectionId = standoff.path,
+    // we are using the PMC as the chunk-id because we now read
+    // the whole paper in a single chunk
+    chunkId = nxmldoc.pmc,
+    sectionId = nxmldoc.standoff.path,
     sectionName = "",
     isTitle = false,
-    text = standoff.text
+    text = nxmldoc.standoff.text
   )
 }
