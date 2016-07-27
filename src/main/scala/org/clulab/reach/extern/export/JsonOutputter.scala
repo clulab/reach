@@ -70,13 +70,7 @@ trait JsonOutputter {
   }
 
   private def standoffToEntries(paperId: String, standoff: NxmlStandoff): Seq[FriesEntry] = {
-    Seq(new FriesEntry(
-      name = paperId,
-      chunkId = standoff.hashCode.toString,
-      sectionId = standoff.path,
-      sectionName = "",
-      isTitle = false,
-      text = standoff.text))
+    Seq(new FriesEntry(paperId, standoff))
   }
 
 }
