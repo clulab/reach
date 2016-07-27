@@ -5,7 +5,9 @@ import java.util.Date
 
 import org.clulab.assembly.export.{AssemblyLink, CausalPrecedence, Equivalence}
 import org.json4s.native.Serialization
-import org.clulab.assembly._
+import org.clulab.assembly.{Assembler, RoleWithFeatures}
+import org.clulab.assembly.export.AssemblyLink
+import org.clulab.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.ReachConstants._
@@ -24,7 +26,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Cleanup up uninformative asserts.
+  *   Last Modified: First cut at adding participant features.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -166,8 +168,9 @@ class FriesOutput extends JsonOutputter {
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
-                                               entityMap, startTime, endTime, otherMetaData)
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap,
+                                               contextIdMap, entityMap, startTime, endTime,
+                                               otherMetaData, Some(assemblyAPI))
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
     val assemblyModel:PropMap = mkAssemblyModel(paperId, sanitizedMentions, passageMap, entityMap, eventMap,
@@ -230,14 +233,17 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Returns a model object representing all event mentions extracted from this paper. */
-  private def eventsToModel (paperId:String,
-                             allMentions:Seq[Mention],
-                             passageMap:Map[String, FriesEntry],
-                             contextIdMap:CtxIDed,
-                             entityMap:IDed,
-                             startTime:Date,
-                             endTime:Date,
-                             otherMetaData:Map[String, String]): (PropMap, IDed) = {
+  private def eventsToModel (
+    paperId:String,
+    allMentions:Seq[Mention],
+    passageMap:Map[String, FriesEntry],
+    contextIdMap:CtxIDed,
+    entityMap:IDed,
+    startTime:Date,
+    endTime:Date,
+    otherMetaData:Map[String, String],
+    assemblyAPI: Option[Assembler] = None): (PropMap, IDed) =
+  {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
@@ -258,7 +264,7 @@ class FriesOutput extends JsonOutputter {
     for (mention <- eventMentions) {
       if (!mention.matches("Regulation")) {
         val passage = getPassageForMention(passageMap, mention)
-        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
+        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap, assemblyAPI)
       }
     }
 
@@ -273,11 +279,11 @@ class FriesOutput extends JsonOutputter {
         val childrenRegulations = regulations.flatMap(_.arguments.values.flatten).filter(_.matches("Regulation"))
         for (reg <- childrenRegulations ++ regulations) {
           val passage = getPassageForMention(passageMap, reg)
-          frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap)
+          frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap, assemblyAPI)
         }
         // process current regulation
         val passage = getPassageForMention(passageMap, mention)
-        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
+        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap, assemblyAPI)
       }
     }
     (model, eventMap)
@@ -353,11 +359,13 @@ class FriesOutput extends JsonOutputter {
     s"sent-$paperId-$ORGANIZATION-$RUN_ID-${passage.chunkId}-$offset"
 
 
-  private def mkArgument(name:String,
-                         arg:Mention,
-                         argIndex:Int,
-                         entityMap: IDed,
-                         eventMap:IDed):PropMap = {
+  private def mkArgument(
+    name:String,
+    arg:Mention,
+    argIndex:Int,
+    entityMap: IDed,
+    eventMap:IDed): PropMap =
+  {
     val m = new PropMap
     m("object-type") = "argument"
     m("type") = prettifyLabel(name)
@@ -524,12 +532,15 @@ class FriesOutput extends JsonOutputter {
       List(f)
   }
 
-  private def mkEventMention(paperId:String,
-                             passageMeta:FriesEntry,
-                             mention:BioMention,
-                             contextIdMap: CtxIDed,
-                             entityMap: IDed,
-                             eventMap:IDed): List[PropMap] = {
+  private def mkEventMention(
+    paperId:String,
+    passageMeta:FriesEntry,
+    mention:BioMention,
+    contextIdMap: CtxIDed,
+    entityMap: IDed,
+    eventMap:IDed,
+    assemblyAPI: Option[Assembler] = None): List[PropMap] =
+  {
     currEvent = mention.text
 
     val f = startFrame()
@@ -564,9 +575,23 @@ class FriesOutput extends JsonOutputter {
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
 
+    // if using the Assembly subsystem, get the participant features for this event
+    if (assemblyAPI.isDefined) {
+      val inputFeatures = assemblyAPI.get.getInputFeaturesForParticipants(mention)
+      if (!inputFeatures.isEmpty) {
+        val pfList = new FrameList
+          inputFeatures.foreach { rwfs =>
+            pfList += mkFeaturesForRole(rwfs)
+          }
+        f("participant-features") = pfList
+      }
+    }
+
     // handle event arguments
     if (arguments.isDefined) {
       val argList = new FrameList
+
+      // process the arguments:
       for (key <- arguments.get.keys) {
         arguments.get.get(key).foreach { argSeq =>
           for (i <- argSeq.indices) {
@@ -599,6 +624,21 @@ class FriesOutput extends JsonOutputter {
       List(contextFrame.get, f)
     else
       List(f)
+  }
+
+  private def mkFeaturesForRole (rwfs: RoleWithFeatures): PropMap = {
+    val m = new PropMap
+    m("object-type") = "participant-features"
+    // m("participant") = LOOKUP(rwfs.participant)
+    m("argument-role") = rwfs.role
+    // m("parent") = LOOKUP(rwfs.parent)
+    val pfList = new FrameList
+    rwfs.features.foreach { f:AssemblyPTM =>
+      pfList += mkParticipantFeatures(f)
+    }
+    if (!pfList.isEmpty)
+      m("participant-features") = pfList
+    m
   }
 
   private def mkGrounding (grounding:KBResolution): PropMap = {
@@ -731,7 +771,17 @@ class FriesOutput extends JsonOutputter {
     f
   }
 
-  private def mkPTM(ptm:PTM):PropMap = {
+  private def mkParticipantFeatures (ptm: AssemblyPTM): PropMap = {
+    val m = new PropMap
+    m("object-type") = "participant-feature"
+    m("type") = ptm.label
+    m("negated") = ptm.negated
+    if (ptm.site.isDefined)
+      m("site") = ptm.site.get
+    m
+  }
+
+  private def mkPTM (ptm: PTM): PropMap = {
     val m = new PropMap
     m("object-type") = "modification"
     m("type") = ptm.label
