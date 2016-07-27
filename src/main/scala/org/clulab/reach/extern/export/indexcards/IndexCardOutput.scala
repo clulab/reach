@@ -99,8 +99,8 @@ class IndexCardOutput extends JsonOutputter {
 
     // keeps just events:
     val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
-    // flatten mentions
-    val flattenedMentions = OutputDegrader.flattenMentions(eventMentions).map(_.toCorefMention)
+    // flatten mentions, deduplicate, etc.
+    val flattenedMentions = OutputDegrader.prepareForOutput(eventMentions).map(_.toCorefMention)
     // keeps track of simple events that participate in regulations
     val simpleEventsInRegs = new mutable.HashSet[Mention]()
 

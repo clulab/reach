@@ -233,6 +233,10 @@ object MentionFilter {
     corefDistinct(cleanRegulations ++ remainingNonRegs)
   }
 
+  def keepMostCompleteMentions(ms: Seq[BioMention]): Seq[CorefMention] = {
+     keepMostCompleteMentions(ms, State(ms))
+  }
+
   // Filter out "incomplete" events
   def keepMostCompleteMentions(ms: Seq[BioMention], state: State): Seq[CorefMention] = {
     // Regulations require special attention
