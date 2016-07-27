@@ -560,13 +560,6 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     phosphos.head.arguments.keySet should contain ("site")
     phosphos.head.arguments("site") should have size (1)
     phosphos.head.arguments("site").head.text should equal ("tyrosine")
-
-    val regs = mentions filter(_ matches "Positive_regulation")
-
-    regs should have size (1)
-    regs.head.arguments.keySet should contain ("controller")
-    regs.head.arguments("controller") should have size (1)
-    regs.head.arguments("controller").head.text should equal ("EGF")
   }
 
   val sent38 = "Both Gab1 and Gab1 F446/472/589 are tyrosine phosphorylated in response to EGF treatment"
@@ -582,12 +575,5 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     phosphos.foreach(phos => phos.arguments.keySet should contain ("site"))
     phosphos.foreach(phos => phos.arguments("site") should have size (1))
     phosphos.foreach(phos => phos.arguments("site").head.text should equal ("tyrosine"))
-
-    val regs = mentions filter(_ matches "Positive_regulation")
-
-    regs should have size (1)
-    regs.foreach(reg => reg.arguments.keySet should contain ("controller"))
-    regs.foreach(reg => reg.arguments("controller") should have size (1))
-    regs.foreach(reg => reg.arguments("controller").head.text should equal ("EGF"))
   }
 }

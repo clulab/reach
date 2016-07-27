@@ -34,13 +34,14 @@
     [word=/(?i)^\d+[ACDEFGHIKLMNQRSTVWY]$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
     (?! ">")
 
+# NB: the period is only there to handle errorful tokenization by processors at sentence endings.
 - name: site_1letter_c
   label: Site
   priority: 5
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]$/]
+    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^\d+$/] [word=/^[ACDEFGHIKLMNQRSTVWY]\.?$/]
 
 - name: site_3letter
   label: Site

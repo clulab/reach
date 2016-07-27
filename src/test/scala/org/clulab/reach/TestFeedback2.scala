@@ -225,7 +225,7 @@ class TestFeedback2 extends FlatSpec with Matchers {
     val themes = phos.flatMap(_.arguments.getOrElse("theme", Nil)).map(_.text)
     themes should be (Seq("RhoA", "RhoA"))
     val sites = phos.flatMap(_.arguments.getOrElse("site", Nil)).map(_.text)
-    sites should contain ("100 T")
+    sites should contain ("100 T.")
     sites should contain ("88 S")
     val regs = mentions.filter(_ matches "Positive_regulation")
     regs should have size (2)
