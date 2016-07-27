@@ -3,7 +3,6 @@ package org.clulab.reach
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
-// import org.clulab.utils.Serializer
 
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
@@ -12,7 +11,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Update for more informative size tests.
+  *   Last Modified: Cleanup scalatest syntax.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -60,7 +59,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group A
   val dr2a_mentions = getBioMentions(dr2a)
   dr2a should "have expected number of results" in {
-    dr2a_mentions.isEmpty should be (false)
+    dr2a_mentions should not be (empty)
     // printMentions(Try(dr2a_mentions), true)      // DEBUGGING
     dr2a_mentions should have size (dr2a_ids.size)
   }
@@ -88,7 +87,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group B
   val dr2b_mentions = getBioMentions(dr2b)
   dr2b should "have expected number of results" in {
-    dr2b_mentions.isEmpty should be (false)
+    dr2b_mentions should not be (empty)
     // printMentions(Try(dr2b_mentions), true)      // DEBUGGING
     dr2b_mentions should have size (dr2b_ids.size)
   }
@@ -116,7 +115,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group C
   val dr2c_mentions = getBioMentions(dr2c)
   dr2c should "have expected number of results" in {
-    dr2c_mentions.isEmpty should be (false)
+    dr2c_mentions should not be (empty)
     // printMentions(Try(dr2c_mentions), true)      // DEBUGGING
     dr2c_mentions should have size (dr2c_ids.size)
   }
@@ -144,7 +143,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group D
   val dr2d_mentions = getBioMentions(dr2d)
   dr2d should "have expected number of results" in {
-    dr2d_mentions.isEmpty should be (false)
+    dr2d_mentions should not be (empty)
     // printMentions(Try(dr2d_mentions), true)      // DEBUGGING
     dr2d_mentions should have size (dr2d_ids.size)
   }
@@ -172,7 +171,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group E
   val dr2e_mentions = getBioMentions(dr2e)
   dr2e should "have expected number of results" in {
-    dr2e_mentions.isEmpty should be (false)
+    dr2e_mentions should not be (empty)
     // printMentions(Try(dr2e_mentions), true)      // DEBUGGING
     dr2e_mentions should have size (dr2e_ids.size)
   }
@@ -200,7 +199,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group F
   val dr2f_mentions = getBioMentions(dr2f)
   dr2f should "have expected number of results" in {
-    dr2f_mentions.isEmpty should be (false)
+    dr2f_mentions should not be (empty)
     // printMentions(Try(dr2f_mentions), true)      // DEBUGGING
     dr2f_mentions should have size (dr2f_ids.size)
   }
@@ -228,7 +227,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Dry Run 2 - group G
   val dr2g_mentions = getBioMentions(dr2g)
   dr2g should "have expected number of results" in {
-    dr2g_mentions.isEmpty should be (false)
+    dr2g_mentions should not be (empty)
     // printMentions(Try(dr2g_mentions), true)      // DEBUGGING
     dr2g_mentions should have size (dr2f_ids.size)
   }
@@ -256,7 +255,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Family Tests 1
   val fam1_mentions = getBioMentions(fam1)
   fam1 should "have expected number of results" in {
-    fam1_mentions.isEmpty should be (false)
+    fam1_mentions should not be (empty)
     // printMentions(Try(fam1_mentions), true)      // DEBUGGING
     fam1_mentions should have size (fam1_ids.size)
   }
@@ -284,7 +283,7 @@ class TestOverrides extends FlatSpec with Matchers {
   // Family Tests 2
   val fam2_mentions = getBioMentions(fam2)
   fam2 should "have expected number of results" in {
-    fam2_mentions.isEmpty should be (false)
+    fam2_mentions should not be (empty)
     // printMentions(Try(fam2_mentions), true)      // DEBUGGING
     fam2_mentions should have size (fam2_ids.size)
   }
@@ -311,9 +310,9 @@ class TestOverrides extends FlatSpec with Matchers {
 
   estros should "have Simple_chemical labels" in {
     val mentions = getBioMentions(estros)
-    mentions.isEmpty should be (false)
+    mentions should not be (empty)
     // printMentions(Try(mentions), true)      // DEBUGGING
-    mentions.size should be (6)
+    mentions should have size 6
     mentions.count(_ matches "Simple_chemical") should be (6)
   }
 
@@ -322,8 +321,8 @@ class TestOverrides extends FlatSpec with Matchers {
   // Amino Acids relabeled as Sites:
   val aa_mentions = getBioMentions(aminos)
   aminos should "have expected number of results" in {
-    aa_mentions.isEmpty should be (false)
-    //printMentions(Try(aa_mentions), true)      // DEBUGGING
+    aa_mentions should not be (empty)
+    // printMentions(Try(aa_mentions), true)      // DEBUGGING
     aa_mentions should have size (aa_ids.size)
   }
 
@@ -346,7 +345,7 @@ class TestOverrides extends FlatSpec with Matchers {
   val aas_mentions =  getBioMentions(aa_short)
 
   aa_short should "have Site labels" in {
-    aas_mentions.isEmpty should be (false)
+    aas_mentions should not be (empty)
     // printMentions(Try(aas_mentions), true)      // DEBUGGING
     aas_mentions should have size (20)
     aas_mentions.count(_ matches "Site") should be (20)

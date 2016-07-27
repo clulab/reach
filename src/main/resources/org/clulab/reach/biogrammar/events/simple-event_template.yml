@@ -48,17 +48,100 @@
     site:Site? = (agent|prep_by /conj_(and|or|nor)|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/{1,2}
 
 
-- name: ${ eventName }_syntax_3_verb
+- name: ${ eventName }_syntax_3a_verb
   priority: ${ priority }
   example: ""
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = <nn{,2} | (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
-    theme:BioChemicalEntity = (/pobj|prep_[^b]|conj_(and|or|nor)|nn/{1,2}) |
-      (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2})
-    site:Site? = (/pobj|prep_|conj_(and|or|nor)|nn/{1,2}) | (< /pobj|prep_|conj_(and|or|nor)|nn/{1,2})
+    cause:BioChemicalEntity? = <nn{,2}
+    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
+    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+
+
+- name: ${ eventName }_syntax_3b_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
+    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
+    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+
+
+- name: ${ eventName }_syntax_3c_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = <nn{,2}
+    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+
+
+- name: ${ eventName }_syntax_3d_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
+    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+
+
+- name: ${ eventName }_syntax_3e_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = <nn{,2}
+    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
+    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+
+
+- name: ${ eventName }_syntax_3f_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
+    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
+    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+
+
+- name: ${ eventName }_syntax_3g_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = <nn{,2}
+    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+
+
+- name: ${ eventName }_syntax_3h_verb
+  priority: ${ priority }
+  example: ""
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
+    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
+    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
 
 
 - name: ${ eventName }_syntax_4_verb
@@ -107,6 +190,17 @@
     cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = nsubj /appos|nn|conj_(and|or|nor)|cc/{,2}
     site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
+
+
+- name: ${ eventName }_syntax_7_verb_wrong
+  priority: ${ priority }
+  example: "EGF is tyronsine ${ verbalTriggerLemma }ed."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma}/ & word=/ed$/]
+    theme:BioChemicalEntity = <amod nsubj nn?
+    site:Site = <amod
 
 
 - name: ${ eventName }_syntax_1a_noun
@@ -212,6 +306,7 @@
     cause:BioChemicalEntity = <prep_in <dobj? nsubj /nn|cc|conj/{,2}
     theme:BioChemicalEntity = prep_of appos? /nn|cc|conj/{,2} [!outgoing="prep_by"]
     site:Site? = <prep_in <dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+
 
 ##################
 # surface patterns
@@ -343,3 +438,17 @@
   action: ${ actionFlow }
   pattern: |
     (@cause:BioChemicalEntity)? (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]) [!tag=/^(V|JJ)/ & !word=by]{,2}? @theme:BioChemicalEntity []{1,10} @site:Site
+
+
+# This is the only way to get this, due to horrible misparsing.
+- name: ${ eventName }_token_inresponseto
+  priority: ${ priority }
+  example: "the ability of the exogenous ErbB3 receptor to be tyrosine phosphorylated in response to stimulation with either EGF or neuregulin (NRG)"
+  type: token
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    (/(?i)^the$/ ability of the?)? [tag=JJ | word=mutant | mention=Mutant]{,2} @theme:BioChemicalEntity /proteins?/?
+    to (become | be) @site:Site? (?<trigger> "${ verbalTriggerLemma }d")
+    in response to (stimulation with either?)? @cause:BioChemicalEntity
+    ((","|[tag=CC]) @cause:BioChemicalEntity)*
