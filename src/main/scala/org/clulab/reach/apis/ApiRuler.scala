@@ -76,9 +76,9 @@ object ApiRuler {
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
       val json = if (outFormat == "indexcard")
-        indexCardOutputter.toJSON(requestId, mentions, nxmlDoc.standoff, startTime, endTime, prefix)
+        indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
       else
-        friesOutputter.toJSON(requestId, mentions, nxmlDoc.standoff, startTime, endTime, prefix)
+        friesOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
       Map("resultJson" -> json, "hasError" -> false).asJava
     } catch {
       case e: Exception => Map("resultJson" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava

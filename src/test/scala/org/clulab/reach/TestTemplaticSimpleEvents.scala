@@ -546,4 +546,34 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     phosphos.head.arguments("site") should have size (1)
     phosphos.head.arguments("site").head.text should equal ("tyrosine")
   }
+
+  val sent37 = "The endogenous EGFR is tyrosine phosphorylated in response to EGF in all cell lines."
+  sent37 should "contain only a phosphorylation of EGFR by EGF" in {
+    val mentions = getBioMentions(sent37)
+    val phosphos = mentions filter(_ matches "Phosphorylation")
+
+    phosphos should have size (1)
+    phosphos.head.arguments.keySet should contain ("theme")
+    phosphos.head.arguments("theme") should have size (1)
+    phosphos.head.arguments("theme").head.text should equal ("EGFR")
+
+    phosphos.head.arguments.keySet should contain ("site")
+    phosphos.head.arguments("site") should have size (1)
+    phosphos.head.arguments("site").head.text should equal ("tyrosine")
+  }
+
+  val sent38 = "Both Gab1 and Gab1 F446/472/589 are tyrosine phosphorylated in response to EGF treatment"
+  sent38 should "contain only a phosphorylation of EGFR by EGF" in {
+    val mentions = getBioMentions(sent38)
+    val phosphos = mentions filter(_ matches "Phosphorylation")
+
+    phosphos should have size (2)
+    phosphos.foreach(phos => phos.arguments.keySet should contain ("theme"))
+    phosphos.foreach(phos => phos.arguments("theme") should have size (1))
+    phosphos.foreach(phos => phos.arguments("theme").head.text should equal ("Gab1"))
+
+    phosphos.foreach(phos => phos.arguments.keySet should contain ("site"))
+    phosphos.foreach(phos => phos.arguments("site") should have size (1))
+    phosphos.foreach(phos => phos.arguments("site").head.text should equal ("tyrosine"))
+  }
 }

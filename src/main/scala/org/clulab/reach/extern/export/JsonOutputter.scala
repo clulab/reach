@@ -11,7 +11,7 @@ import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import org.clulab.reach.context._
 import org.clulab.reach.nxml.FriesEntry
-import ai.lum.nxmlreader.standoff.{ Tree => NxmlStandoff }
+import ai.lum.nxmlreader.NxmlDocument
 
 /**
   * Trait for output formatters which output JSON formats.
@@ -36,12 +36,12 @@ trait JsonOutputter {
   def toJSON(
       paperId: String,
       allMentions: Seq[Mention],
-      standoff: NxmlStandoff,
+      nxmldoc: NxmlDocument,
       startTime: Date,
       endTime: Date,
       outFilePrefix: String
   ): String = {
-    toJSON(paperId, allMentions, standoffToEntries(paperId, standoff), startTime, endTime, outFilePrefix)
+    toJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
 
   /**
@@ -61,22 +61,16 @@ trait JsonOutputter {
   def writeJSON(
       paperId: String,
       allMentions: Seq[Mention],
-      standoff: NxmlStandoff,
+      nxmldoc: NxmlDocument,
       startTime: Date,
       endTime: Date,
       outFilePrefix: String
   ): Unit = {
-    writeJSON(paperId, allMentions, standoffToEntries(paperId, standoff), startTime, endTime, outFilePrefix)
+    writeJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
 
-  private def standoffToEntries(paperId: String, standoff: NxmlStandoff): Seq[FriesEntry] = {
-    Seq(new FriesEntry(
-      name = paperId,
-      chunkId = standoff.hashCode.toString,
-      sectionId = standoff.path,
-      sectionName = "",
-      isTitle = false,
-      text = standoff.text))
+  private def nxmlToEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
+    Seq(new FriesEntry(nxmldoc))
   }
 
 }
