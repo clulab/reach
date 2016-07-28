@@ -28,7 +28,7 @@ class ParticipantFeatureTracker(am: AssemblyManager) {
     case entity: SimpleEntity if entity.grounding == gid => entity.getPTMs
     case diffEntity: SimpleEntity if diffEntity.grounding != gid => Set.empty[PTM]
     case complex: Complex => complex.members.flatMap(e => getOutputFeatures(gid, e))
-    case event: SimpleEvent => event.O.flatMap(entity => getOutputFeatures(gid, entity))
+    case event: Event => event.O.flatMap(entity => getOutputFeatures(gid, entity))
   }
 
   /**
