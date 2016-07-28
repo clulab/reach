@@ -8,7 +8,7 @@ import org.clulab.odin.Mention
   * Assembler for reach output
   * @param mns a sequence of Odin-style Mentions
   *   Written by: Gus Hahn-Powell. 5/9/2016.
-  *   Last Modified: Comment out extraneous outputs and anticipated methods.
+  *   Last Modified: Add method to get input features by participants.
   */
 class Assembler(mns: Seq[Mention]) {
   // keep only the valid mentions
@@ -34,6 +34,16 @@ class Assembler(mns: Seq[Mention]) {
     } yield CausalPrecedence(before = b, after = a, pr.foundBy)
     // build map from pairs
     links.groupBy(_.after).mapValues(_.toSet)
+  }
+
+
+  /**
+    * For the given parent event mention, find the features for the event's participants
+    * and return them in a map, keyed by each participant of the given parent event.
+    */
+  def getInputFeaturesByParticipants (parent: Mention): Map[Mention,RoleWithFeatures] = {
+    val features = getInputFeaturesForParticipants(parent)
+    features.map(rwfs => rwfs.participant -> rwfs).toMap
   }
 
   /**
