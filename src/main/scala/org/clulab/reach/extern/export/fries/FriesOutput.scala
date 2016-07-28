@@ -26,7 +26,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: First cut at adding participant features.
+  *   Last Modified: Move participant features to arguments, cleanup.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -363,7 +363,9 @@ class FriesOutput extends JsonOutputter {
     arg:Mention,
     argIndex:Int,
     entityMap: IDed,
-    eventMap:IDed): PropMap =
+    eventMap:IDed,
+    argFeatures:Option[RoleWithFeatures] = None
+  ): PropMap =
   {
     val m = new PropMap
     m("object-type") = "argument"
@@ -408,6 +410,13 @@ class FriesOutput extends JsonOutputter {
           throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
         }
         m("arg") = entityMap.get(arg).get
+
+        // output any participant features associated with this entity by assembly:
+        if (argFeatures.isDefined) {
+          val features = mkParticipantFeatures(argFeatures.get)
+          if (!features.isEmpty)
+            m("participant-features") = features
+        }
 
       case "event" =>
         // this is an event, which we MUST have seen before
@@ -571,17 +580,8 @@ class FriesOutput extends JsonOutputter {
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
 
-    // if using the Assembly subsystem, get the participant features for this event
-    if (assemblyAPI.isDefined) {
-      val inputFeatures = assemblyAPI.get.getInputFeaturesForParticipants(mention)
-      if (!inputFeatures.isEmpty) {
-        val pfList = new FrameList
-          inputFeatures.foreach { rwfs =>
-            pfList += mkFeaturesForRole(rwfs)
-          }
-        f("participant-features") = pfList
-      }
-    }
+    // if using the Assembly subsystem, get all input participant features for this event
+    val inputFeatures = assemblyAPI.map(_.getInputFeaturesByParticipants(mention))
 
     // handle event arguments
     if (arguments.isDefined) {
@@ -592,7 +592,8 @@ class FriesOutput extends JsonOutputter {
         arguments.get.get(key).foreach { argSeq =>
           for (i <- argSeq.indices) {
             val derefedArg = argSeq(i).antecedentOrElse(argSeq(i).toCorefMention)
-            argList += mkArgument(key, derefedArg, i, entityMap, eventMap)
+            val argFeatures = inputFeatures.flatMap(_.get(derefedArg))
+            argList += mkArgument(key, derefedArg, i, entityMap, eventMap, argFeatures)
           }
         }
       }
@@ -622,20 +623,6 @@ class FriesOutput extends JsonOutputter {
       List(f)
   }
 
-  private def mkFeaturesForRole (rwfs: RoleWithFeatures): PropMap = {
-    val m = new PropMap
-    m("object-type") = "participant-features"
-    // m("participant") = LOOKUP(rwfs.participant)
-    m("argument-role") = rwfs.role
-    // m("parent") = LOOKUP(rwfs.parent)
-    val pfList = new FrameList
-    rwfs.features.foreach { f:AssemblyPTM =>
-      pfList += mkParticipantFeatures(f)
-    }
-    if (!pfList.isEmpty)
-      m("participant-features") = pfList
-    m
-  }
 
   private def mkGrounding (grounding:KBResolution): PropMap = {
     val m = new PropMap
@@ -750,6 +737,24 @@ class FriesOutput extends JsonOutputter {
     m
   }
 
+
+  /** Return a list of participant features for the given role/argument features object. */
+  private def mkParticipantFeatures (rwfs: RoleWithFeatures): FrameList = {
+    (new FrameList) ++= rwfs.features.map{ f:AssemblyPTM => mkParticipantFeature(f) }
+  }
+
+  /** Return a participant feature map for the given modification object. */
+  private def mkParticipantFeature (ptm: AssemblyPTM): PropMap = {
+    val m = new PropMap
+    m("object-type") = "feature"
+    m("type") = ptm.label
+    m("negated") = ptm.negated
+    if (ptm.site.isDefined)
+      m("site") = ptm.site.get
+    m
+  }
+
+
   /** Create and return a new Passage frame. */
   private def mkPassage(model:PropMap,
                         paperId:String,
@@ -765,16 +770,6 @@ class FriesOutput extends JsonOutputter {
     assert(passageDoc.text.isDefined, s"passageDoc has no text")
     f("text") = passageDoc.text.get.replaceAll("\\n", " ")
     f
-  }
-
-  private def mkParticipantFeatures (ptm: AssemblyPTM): PropMap = {
-    val m = new PropMap
-    m("object-type") = "participant-feature"
-    m("type") = ptm.label
-    m("negated") = ptm.negated
-    if (ptm.site.isDefined)
-      m("site") = ptm.site.get
-    m
   }
 
   private def mkPTM (ptm: PTM): PropMap = {
