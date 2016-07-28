@@ -9,7 +9,6 @@ import org.clulab.assembly._
 import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
 import org.clulab.reach.nxml._
-import ai.lum.nxmlreader.NxmlDocument
 
 
 /**
@@ -48,7 +47,10 @@ class AssemblyCLI(
       if (verbose)
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
-      val mentions = PaperReader.getMentionsFromPaper(file)
+      // entry must be kept around for outputter
+      val entry = PaperReader.getEntryFromPaper(file)
+      val mentions = PaperReader.getMentionsFromEntry(entry)
+
       // NOTE: We're already doing this in the exporter, but the mentions given to the Assembler probably
       // need to match since flattening results in a loss of information
       val mentionsForOutput = OutputDegrader.prepareForOutput(mentions)
@@ -61,8 +63,9 @@ class AssemblyCLI(
         println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished initializing Assembler")
 
       val procTime = AssemblyCLI.now
-      val nxmldoc = PaperReader.nxmlReader.read(file)
-      outputMentions(mentionsForOutput, nxmldoc, paperId, startTime, procTime, outputDir, assemblyAPI)
+
+      // generate output
+      outputMentions(mentionsForOutput, entry, paperId, startTime, procTime, outputDir, assemblyAPI)
 
       val endTime = AssemblyCLI.now
       val endNS = System.nanoTime
@@ -73,9 +76,12 @@ class AssemblyCLI(
     }
   }
 
+  /**
+    * Write output for mentions originating from a single FriesEntry
+    */
   def outputMentions(
     mentions: Seq[Mention],
-    nxmldoc: NxmlDocument,
+    entry: FriesEntry,
     paperId: String,
     startTime: Date,
     endTime: Date,
@@ -84,8 +90,6 @@ class AssemblyCLI(
   ) = {
     val outFile = s"${outputDir.getAbsolutePath}${File.separator}$paperId"
     val outputter:FriesOutput = new FriesOutput()
-    // we produce only a single FriesEntry
-    val entry = new FriesEntry(nxmldoc)
     outputter.writeJSON(paperId, mentions, Seq(entry), startTime, endTime, outFile, assemblyAPI)
   }
 
