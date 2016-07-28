@@ -228,6 +228,7 @@ class PrecedenceSieves extends Sieves {
     def correctScope(m: Mention): Mention = {
       m match {
         // arguments will have at most one "event" argument
+        // FIXME: the nesting is no longer limited
         case nested if nested.arguments contains "event" => nested.arguments("event").head
         case flat => flat
       }
@@ -277,10 +278,10 @@ class PrecedenceSieves extends Sieves {
       label match {
         case E1PrecedesE2 =>
           val evidence = createEvidenceForCPR(e1, e2, sieveName)
-          manager.storePrecedenceRelation(e1, e2, evidence, sieveName)
+          manager.storePrecedenceRelation(before = e1, after = e2, evidence, sieveName)
         case E2PrecedesE1 =>
           val evidence = createEvidenceForCPR(e2, e1, sieveName)
-          manager.storePrecedenceRelation(e2, e1, evidence, sieveName)
+          manager.storePrecedenceRelation(before = e2, after = e1, evidence, sieveName)
       }
     }
     manager
