@@ -287,7 +287,7 @@ object FeatureExtractor {
         (role, args) <- m.arguments
         a <- args
       } yield (a.end - 1, role)
-      pairs.toMap
+      pairs
     }
     val toks = m.sentenceObj.words
     // get args

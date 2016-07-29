@@ -143,8 +143,8 @@ class Coref {
 
     ms.foldLeft[Seq[Seq[CorefMention]]](Nil)((args, thm) => args ++ (for {
       ant <- thm
-      nxt <- if (size - 1 > 0) group(ms.span(ms.indexOf(_) <= ms.indexOf(thm))._2.flatten.toList, size - 1).toSeq else Seq(Nil)
-    } yield Seq(Seq(ant), nxt.toSeq).flatten))
+      nxt <- if (size - 1 > 0) group(ms.span(ms.indexOf(_) <= ms.indexOf(thm))._2.flatten.toList, size - 1) else Seq(Nil)
+    } yield Seq(Seq(ant), nxt).flatten))
   }
 
   /**

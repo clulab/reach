@@ -88,14 +88,14 @@ object Ruler {
           s.endOffsets(i))
       }
     }
-    allTokens.toArray
+    allTokens
   }
 
   private def synTrees(doc: Document): Array[String] = {
     val allTrees = doc.sentences map { s =>
       s.syntacticTree.map(_.toString).getOrElse("()")
     }
-    allTrees.toArray
+    allTrees
   }
 
   /** removes commented lines */

@@ -29,7 +29,7 @@ class DarpaLinks extends Links {
         !x.asInstanceOf[CorefTextBoundMention].isGeneric &&
         !x.asInstanceOf[CorefTextBoundMention].hasGenericMutation)
       .groupBy(m => m.text.toLowerCase + "(" + m.mutants.map(_.text).mkString("/") + ")")
-      .filter(_._2.toSeq.length > 1)
+      .filter(_._2.length > 1)
     sameText.foreach {
       case (ent, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {

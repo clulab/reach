@@ -250,7 +250,7 @@ object RunAnnotationEval extends App {
           (foundBy, group) <- rulePs
           gold = posGold.count(g => ! group.exists(p => p.isEquivalentTo(g)))
         } yield (foundBy, gold)
-        res.toMap
+        res
       }
 
       val rp = for {

@@ -26,7 +26,7 @@ object NegationHandler {
           }
 
           for{
-            tok <- event.tokenInterval.toSeq
+            tok <- event.tokenInterval
             out <- outgoing.lift(tok)
             (ix, label) <- out
             if label == "neg"
@@ -49,14 +49,14 @@ object NegationHandler {
           val interval = event.trigger.tokenInterval
 
           //val pairs = for (lemma <- event.lemmas) yield (1, lemma)
-          val pairs = event.tokenInterval.toSeq zip event.lemmas.get
+          val pairs = event.tokenInterval zip event.lemmas.get
 
           val pairsL = pairs takeWhile (_._1 < interval.start)
           val pairsR = pairs dropWhile (_._1 <= interval.end)
 
           // Get the evidence for the existing negations to avoid duplicates
           val evidence:Set[Int] = event.modifications flatMap {
-                  case mod:Negation => mod.evidence.tokenInterval.toSeq
+                  case mod:Negation => mod.evidence.tokenInterval
                   case _ => Nil
               }
 

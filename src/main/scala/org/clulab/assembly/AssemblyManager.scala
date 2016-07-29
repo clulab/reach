@@ -1358,7 +1358,7 @@ class AssemblyManager(
       if idToMentionState contains id
       (e, mods) = idToMentionState(id)
     } yield e
-    evidence.toSet
+    evidence
   }
 
   //

@@ -79,7 +79,7 @@ object HypothesisHandler {
         // Get the dependencies of the sentence
         val dependencies = event.sentenceObj.dependencies.getOrElse(new DirectedGraph[String](Nil, Set[Int]()))
 
-        val eventInterval:Seq[Int] = event.tokenInterval.toSeq
+        val eventInterval:Seq[Int] = event.tokenInterval
 
         // Get the index of the word outside the event up to "degree" degrees
         val spannedIndexes:Seq[Int] = eventInterval flatMap (getSpannedIndexes(_, degree, dependencies))
