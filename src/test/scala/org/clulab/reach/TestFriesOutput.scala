@@ -21,8 +21,8 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   val text1 = "AKT1 phosphorylates PTHR2"
   val mentions1 = getBioMentions(text1)
-  val entry = FriesEntry("text1", "1", "test", "test", false, text1)
-  val jStr = outputter.toJSON(paperId, mentions1, Seq(entry), startTime, new Date(), s"${paperId}")
+  val entry = FriesEntry("text1", "1", "test", "test", isTitle = false, text1)
+  val jStr = outputter.toJSON(paperId, mentions1, Seq(entry), startTime, new Date(), paperId)
   val json = parse(jStr)
 
   text1 should "produce 4 mentions" in {
@@ -32,10 +32,10 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "produce valid JSON string" in {
     // println(s"JSON=$jStr")                  // DEBUGGING
-    (jStr.isEmpty) should be (false)
-    (jStr.contains("\"events\":")) should be (true)
-    (jStr.contains("\"entities\":")) should be (true)
-    (jStr.contains("\"sentences\":")) should be (true)
+    jStr should not be empty
+    jStr should include ("\"events\":")
+    jStr should include ("\"entities\":")
+    jStr should include ("\"sentences\":")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -89,7 +89,7 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "mark regulation as direct" in {
     val isDirect = ((json \ "events" \ "frames")(0) \ "is-direct") \\ classOf[JBool]
-    (isDirect(0)) should be (true)
+    isDirect(0) should be (true)
   }
 
   it should "have phosphorylation trigger" in {
@@ -128,16 +128,16 @@ class TestFriesOutput extends FlatSpec with Matchers {
   // Test output for regulation of regulation:
   val text2 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
   val mentions2 = getBioMentions(text2)
-  val entry2 = FriesEntry("text2", "1", "test", "test", false, text2)
-  val jStr2 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), s"${paperId}")
+  val entry2 = FriesEntry("text2", "1", "test", "test", isTitle = false, text2)
+  val jStr2 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), paperId)
   val json2 = parse(jStr2)
 
   "text2" should "produce valid JSON string" in {
     // println(s"JSON=$jStr2")                  // DEBUGGING
-    (jStr2.isEmpty) should be (false)
-    (jStr2.contains("\"events\":")) should be (true)
-    (jStr2.contains("\"entities\":")) should be (true)
-    (jStr2.contains("\"sentences\":")) should be (true)
+    jStr2 should not be empty
+    jStr2 should include ("\"events\":")
+    jStr2 should include ("\"entities\":")
+    jStr2 should include ("\"sentences\":")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -159,16 +159,16 @@ class TestFriesOutput extends FlatSpec with Matchers {
   // Test output for regulation *by* a regulation:
   val text3 = "The phosphorylation of AFT by BEF inhibits the ubiquitination of Akt."
   val mentions3 = getBioMentions(text3)
-  val entry3 = FriesEntry("text3", "1", "test", "test", false, text3)
-  val jStr3 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), s"${paperId}")
+  val entry3 = FriesEntry("text3", "1", "test", "test", isTitle = false, text3)
+  val jStr3 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), paperId)
   val json3 = parse(jStr3)
 
   text3 should "produce valid JSON string" in {
     // println(s"JSON=$jStr2")                  // DEBUGGING
-    (jStr3.isEmpty) should be (false)
-    (jStr3.contains("\"events\":")) should be (true)
-    (jStr3.contains("\"entities\":")) should be (true)
-    (jStr3.contains("\"sentences\":")) should be (true)
+    jStr3 should not be empty
+    jStr3 should include ("\"events\":")
+    jStr3 should include ("\"entities\":")
+    jStr3 should include ("\"sentences\":")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {

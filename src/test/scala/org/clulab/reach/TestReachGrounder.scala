@@ -4,10 +4,9 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.reach.context._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
-
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
+
 
 /**
   * Unit tests of the grounding trait.
@@ -72,7 +71,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
 
   "Text2 mentions" should "have mouse and rice groundings" in {
     val spms = mentions2.filter(m => hasSpeciesContext(m))
-    (!spms.isEmpty) should be (true)
+    spms should not be empty
     // This will only pass when Reach issue #152 is implemented:
     // (spms(0).isGrounded && spms(0).grounding.get.species == "mouse") should be (true)
     // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
@@ -92,7 +91,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
   "Text3 mentions" should "have mouse groundings" in {
     mentions3.isEmpty should be (false)
     val spms = mentions3.filter(m => hasSpeciesContext(m))
-    (!spms.isEmpty) should be (true)
+    spms should not be empty
     // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
     spms.forall(m => m.isGrounded && m.grounding.get.species == "mouse") should be (!overrideSpecies)
   }
@@ -109,7 +108,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
   "Text4 mentions" should "have human groundings" in {
     mentions4.isEmpty should be (false)
     val spms = mentions4.filter(m => hasSpeciesContext(m))
-    (!spms.isEmpty) should be (true)
+    spms should not be empty
     spms.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
   }
 
@@ -125,7 +124,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
   "Text5 mentions" should "have human groundings" in {
     mentions5.isEmpty should be (false)
     val spms = mentions5.filter(m => hasSpeciesContext(m))
-    (!spms.isEmpty) should be (true)
+    spms should not be empty
     spms.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
   }
 
@@ -141,9 +140,9 @@ class TestReachGrounder extends FlatSpec with Matchers {
   "Text6 mentions" should "have sentence bounded species context and groundings" in {
     mentions6.isEmpty should be (false)
     val spms0 = mentions6.filter(m => hasSpeciesContext(m) && (m.sentence == 0))
-    (!spms0.isEmpty) should be (true)
+    spms0 should not be empty
     val spms1 = mentions6.filter(m => hasSpeciesContext(m) && (m.sentence == 1))
-    (!spms1.isEmpty) should be (true)
+    spms1 should not be empty
     // This test depends on the setting of grounding.overrideSpecies flag in application.conf:
     spms0.forall(m => m.isGrounded && m.grounding.get.species == "rat") should be (!overrideSpecies)
     spms1.forall(m => m.isGrounded && Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)

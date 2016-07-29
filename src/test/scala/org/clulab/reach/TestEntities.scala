@@ -11,7 +11,7 @@ class TestEntities extends FlatSpec with Matchers {
   val text = "The ubiquitinated Ras protein phosphorylates AKT."
 
   "ReachSystem" should "extract mentions from FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", false, text)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val result = Try(testReach.extractFrom(entry))
     result.isSuccess should be (true)
   }
