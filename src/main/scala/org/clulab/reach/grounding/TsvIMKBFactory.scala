@@ -34,14 +34,14 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
   /** Additional factory method to default unused arguments. */
   def make (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(namespace, kbFilename, false, Some(metaInfo))
+    make(namespace, kbFilename, hasSpeciesInfo = false, Some(metaInfo))
 
   /** Additional factory method to default unused arguments. */
   def make (kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(DefaultNamespace, kbFilename, false, Some(metaInfo))
+    make(DefaultNamespace, kbFilename, hasSpeciesInfo = false, Some(metaInfo))
 
   /** Additional factory method to default unused arguments. */
-  def make (kbFilename: String): InMemoryKB = make(DefaultNamespace, kbFilename, false, None)
+  def make (kbFilename: String): InMemoryKB = make(DefaultNamespace, kbFilename, hasSpeciesInfo = false, None)
 
 
   /**

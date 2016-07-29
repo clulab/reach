@@ -123,7 +123,7 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
     metaInfo.put("file", StaticProteinFilename)
     metaInfo.put("protein", "true")         // mark as from a protein KB
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make("uniprot", StaticProteinFilename, true, metaInfo))
+    new IMKBProteinMentionLookup(TsvIMKBFactory.make("uniprot", StaticProteinFilename, hasSpeciesInfo = true, metaInfo))
   }
 
   //
@@ -154,7 +154,7 @@ object ReachIMKBMentionLookups {
     metaInfo.put("file", StaticProteinFamily2Filename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyMentionLookup(TsvIMKBFactory.make("interpro",
-                                                    StaticProteinFamily2Filename, true, metaInfo))
+                                                    StaticProteinFamily2Filename, hasSpeciesInfo = true, metaInfo))
   }
 
   //
@@ -165,7 +165,7 @@ object ReachIMKBMentionLookups {
   def contextCellLineKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ContextCellLineFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, true, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, hasSpeciesInfo = true, metaInfo))
   }
 
   /** KB accessor to resolve cell types via a context KB. */
