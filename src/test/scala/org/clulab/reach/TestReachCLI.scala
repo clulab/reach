@@ -40,7 +40,7 @@ class TestReachCLI extends FlatSpec with Matchers {
     val outputType = "text"
     val cli = new ReachCLI(papersDir = nxmlDir, outputDir = txtDir, outputFormat = outputType, logFile = txtLogFile, verbose = false)
     val errorCount = cli.processPapers(threadLimit = None, withAssembly = false)
-    if(errorCount > 0) dumpLog(friesLogFile)
+    if(errorCount > 0) dumpLog(txtLogFile)
     errorCount should be (0)
   }
 
@@ -54,11 +54,11 @@ class TestReachCLI extends FlatSpec with Matchers {
   }
 
   it should "output FRIES correctly on NXML papers with Assembly" in {
-    println(s"Will output FRIES output in directory ${friesDir.getAbsolutePath}")
+    println(s"Will output FRIES output in directory ${friesWithAssemblyDir.getAbsolutePath}")
     val outputType = "fries"
     val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesWithAssemblyDir, outputFormat = outputType, logFile = friesWithAssemblyLogFile, verbose = false)
     val errorCount = cli.processPapers(threadLimit = None, withAssembly = true)
-    if(errorCount > 0) dumpLog(friesLogFile)
+    if(errorCount > 0) dumpLog(friesWithAssemblyLogFile)
     errorCount should be (0)
   }
 
@@ -67,7 +67,7 @@ class TestReachCLI extends FlatSpec with Matchers {
     val outputType = "indexcard"
     val cli = new ReachCLI(papersDir = nxmlDir, outputDir = icDir, outputFormat = outputType, logFile = icLogFile, verbose = false)
     val errorCount = cli.processPapers(threadLimit = None, withAssembly = false)
-    if(errorCount > 0) dumpLog(friesLogFile)
+    if(errorCount > 0) dumpLog(icLogFile)
     errorCount should be (0)
   }
 
