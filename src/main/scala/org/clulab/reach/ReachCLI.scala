@@ -2,7 +2,6 @@ package org.clulab.reach
 
 import java.io.File
 import java.util.Date
-
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
