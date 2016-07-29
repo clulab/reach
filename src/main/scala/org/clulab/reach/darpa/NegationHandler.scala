@@ -91,7 +91,7 @@ object NegationHandler {
 
             for{
               (interval, bigram) <- bigrams
-              if (verbs contains bigram) && !((evidence intersect (interval._1 to interval._2+1).toSet).size > 0)
+              if (verbs contains bigram) && (evidence intersect (interval._1 to interval._2+1).toSet).isEmpty
             }
               {
                 event.modifications += Negation(new BioTextBoundMention(

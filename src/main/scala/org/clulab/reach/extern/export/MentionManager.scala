@@ -191,7 +191,7 @@ class MentionManager {
     val mStrings:MutableList[String] = MutableList[String]()
     val headIndent = ("  " * level)
     val indent = ("  " * (level+1))
-    if (!ctxMap.isEmpty) {
+    if (ctxMap.nonEmpty) {
       mStrings += s"${headIndent}context:"
       ctxMap foreach { ctxEntry =>
         mStrings += s"${indent}${ctxEntry._1}: ${ctxEntry._2}"

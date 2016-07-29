@@ -158,7 +158,7 @@ class IndexCardOutput extends JsonOutputter {
 
   /** Add the properties of the given context map to the given property map. */
   def mkContext (f:PropMap, mention:CorefMention): Unit = {
-    if (mention.context.exists(! _.isEmpty))
+    if (mention.context.exists(_.nonEmpty))
       f("context") = mention.context.get
   }
 

@@ -318,7 +318,7 @@ class FriesOutput extends JsonOutputter {
     if (mention.hasContext()) {
       val context = mention.context.get
       contextId = contextIdMap.get(context) // get the context ID for the context
-      if (!contextId.isDefined) {           // if this is a new context
+      if (contextId.isEmpty) {           // if this is a new context
         val ctxid = mkContextId(paperId, passage, mention.sentence) // generate new context ID
         contextIdMap.put(context, ctxid)      // save the new context ID keyed by the context
         contextFrame = Some(mkContextFrame(paperId, passage, mention, ctxid, context))
@@ -412,7 +412,7 @@ class FriesOutput extends JsonOutputter {
         // output any participant features associated with this entity by assembly:
         if (argFeatures.isDefined) {
           val features = mkParticipantFeatures(argFeatures.get)
-          if (!features.isEmpty)
+          if (features.nonEmpty)
             m("participant-features") = features
         }
 
@@ -653,7 +653,7 @@ class FriesOutput extends JsonOutputter {
     f("frame-type") = "link"
     f("type") = frameType
     f("found-by") = foundBy
-    if (!args.isEmpty)
+    if (args.nonEmpty)
       f("arguments") = args
     // f("is-negated") = false                 // optional: in schema for future use
     // f("score") = 0.0                        // optional: in schema for future use
@@ -703,7 +703,7 @@ class FriesOutput extends JsonOutputter {
     eventMap: IDed
   ): List[PropMap] = {
     val frames: ListBuffer[PropMap] = new ListBuffer()
-    if (links.size > 0) {               // ignore empty maps
+    if (links.nonEmpty) {               // ignore empty maps
       val passage = getPassageForMention(passageMap, from)
       val linkId = mkLinkId(paperId, passage, from.sentence) // generate single link ID
 
