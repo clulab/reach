@@ -1,9 +1,9 @@
 package org.clulab.reach
 
-import org.clulab.reach.nxml.FriesEntry
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 import org.clulab.reach.mentions._
+
 
 /**
   * Tests coreference-based events

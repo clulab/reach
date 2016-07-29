@@ -1,4 +1,4 @@
-package org.clulab.reach.nxml
+package org.clulab.reach
 
 import ai.lum.nxmlreader.NxmlDocument
 

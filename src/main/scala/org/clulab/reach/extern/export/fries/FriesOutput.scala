@@ -2,26 +2,24 @@ package org.clulab.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-
-import org.clulab.assembly.export.{AssemblyLink, CausalPrecedence, Equivalence}
+import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
 import org.json4s.native.Serialization
 import org.clulab.assembly.{Assembler, RoleWithFeatures}
 import org.clulab.assembly.export.AssemblyLink
 import org.clulab.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.ReachConstants._
 import org.clulab.reach.context._
 import org.clulab.reach.display._
 import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
 import JsonOutputter._
-import org.clulab.reach.OutputDegrader
-
+import org.clulab.reach.FriesEntry
+import org.clulab.reach.darpa.OutputDegrader
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+
 
 /**
   * Defines classes and methods used to build and output the FRIES format.
@@ -142,7 +140,7 @@ class FriesOutput extends JsonOutputter {
     * Separate output files are written for sentences, links, entities, and events.
     * Each output file is prefixed with the given prefix string.
     */
-  def writeJSON (paperId:String,
+  override def writeJSON (paperId:String,
                  allMentions:Seq[Mention],
                  paperPassages:Seq[FriesEntry],
                  startTime:Date,

@@ -11,7 +11,6 @@ import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
-import org.clulab.reach.nxml.FriesEntry
 
 
 object PaperReader {
@@ -23,7 +22,7 @@ object PaperReader {
   val config = ConfigFactory.load()
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
-  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
+  val ignoreSections = config.getStringList("ignoreSections").asScala
 
   // systems for reading papers
   val nxmlReader = new NxmlReader(ignoreSections.toSet)
@@ -91,7 +90,9 @@ object PaperReader {
     require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .tsv and .dsv files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
     //info(s"reading paper $paperID . . .")
-    paperID -> rs.extractFrom(dsvReader.toFriesEntry(file)).toVector
+    // get a single entry for the valid sections
+    val entry = getEntryFromPaper(file)
+    paperID -> rs.extractFrom(entry).toVector
   }
 
   /**

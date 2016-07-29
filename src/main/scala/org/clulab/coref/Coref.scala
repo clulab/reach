@@ -1,13 +1,12 @@
 package org.clulab.coref
 
 import org.clulab.odin._
-import org.clulab.reach.grounding.{ReachKBConstants, KBEntry}
-import org.clulab.reach.DarpaLinks
-import org.clulab.reach.DarpaActions.convertEventToEntity
+import org.clulab.reach.grounding.{KBEntry, ReachKBConstants}
 import org.clulab.reach.utils.DependencyUtils._
 import org.clulab.reach.display._
 import org.clulab.reach.mentions._
 import org.clulab.coref.CorefUtils._
+import org.clulab.reach.darpa.{DarpaActions, DarpaLinks}
 import scala.annotation.tailrec
 
 
@@ -233,7 +232,7 @@ class Coref {
         })
         argsAsEntities = argMs.map(ms => ms.map(m =>
           if (lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
-            val ant = convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).toCorefMention
+            val ant = DarpaActions.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).toCorefMention
             createdComplexes = createdComplexes :+ ant
             val copy = new CorefEventMention(
               m.labels,

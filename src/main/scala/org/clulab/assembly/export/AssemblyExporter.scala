@@ -234,14 +234,11 @@ class AssemblyExporter(val manager: AssemblyManager) {
     require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation's input ID not found in EventIDs for rows!")
   }
 
-  def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
+  def writeTSV(f: File, rowFilter: Set[Row] => Set[Row]): Unit = {
     val rowsForOutput = rowFilter(getEventRows)
-
     // validate output
     validateOutput(rowsForOutput)
-
     // prepare output
-    val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
     val text =
     // only events

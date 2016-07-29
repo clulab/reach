@@ -1,12 +1,11 @@
 package org.clulab.reach
 
-import org.clulab.reach.nxml._
 import org.clulab.reach.apis.Api
-
 import scala.util.Try
 import org.scalatest._
 import io.Source
 import TestUtils._
+
 
 class TestApi extends FlatSpec with Matchers {
 

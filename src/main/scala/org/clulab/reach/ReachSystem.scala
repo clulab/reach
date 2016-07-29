@@ -1,7 +1,6 @@
 package org.clulab.reach
 
 import org.clulab.coref.Coref
-import org.clulab.reach.nxml.FriesEntry
 import org.clulab.odin._
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
@@ -13,6 +12,8 @@ import scala.collection.mutable
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import ai.lum.nxmlreader.NxmlDocument
+import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
+
 
 class ReachSystem(
     rules: Option[Rules] = None,

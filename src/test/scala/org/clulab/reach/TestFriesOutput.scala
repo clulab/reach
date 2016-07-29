@@ -1,19 +1,12 @@
 package org.clulab.reach
 
 import java.util.Date
-
-import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
-import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.utils.Serializer
-
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
-
 import org.json4s._
 import org.json4s.native.JsonMethods._
+
 
 /**
   * Test the JSON output by the FRIES output formatter program.

@@ -1,13 +1,11 @@
-package org.clulab.reach
+package org.clulab.reach.darpa
 
-import org.clulab.coref.{AntecedentSelector, LinearSelector, Links}
 import org.clulab.coref.CorefUtils._
+import org.clulab.coref.{AntecedentSelector, LinearSelector, Links}
 import org.clulab.odin._
-import org.clulab.reach.utils.DependencyUtils._
-import org.clulab.processors.Document
 import org.clulab.reach.ReachConstants._
 import org.clulab.reach.mentions._
-import org.clulab.struct.Interval
+import org.clulab.reach.utils.DependencyUtils._
 
 class DarpaLinks extends Links {
 

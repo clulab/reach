@@ -1,10 +1,9 @@
 package org.clulab.reach
 
-import org.clulab.reach.nxml.FriesEntry
-
 import scala.util.Try
 import org.scalatest._
 import TestUtils._
+
 
 class TestEntities extends FlatSpec with Matchers {
 

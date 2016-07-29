@@ -1,8 +1,9 @@
-package org.clulab.reach
+package org.clulab.reach.darpa
 
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.struct.Interval
+
 
 object NegationHandler {
 

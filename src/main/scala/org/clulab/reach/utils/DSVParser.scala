@@ -1,9 +1,11 @@
 package org.clulab.reach.utils
 
 import java.io.File
+
 import org.apache.commons.io.FilenameUtils
+import org.clulab.reach.FriesEntry
+
 import scala.util.matching.Regex
-import org.clulab.reach.nxml.FriesEntry
 
 
 class DSVParser {

@@ -1,17 +1,15 @@
 package org.clulab.reach.apis
 
 import java.util.{Date, Map => JMap}
-
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.Mention
 import org.clulab.reach._
 import org.clulab.reach.extern.export.fries.FriesOutput
 import org.clulab.reach.extern.export.indexcards.IndexCardOutput
-import org.clulab.reach.nxml.FriesEntry
 import org.clulab.reach.extern.export.IncrementingId
 import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
-
 import scala.collection.JavaConverters._
+
 
 /**
   * External interface class to accept and process text strings and NXML documents,
@@ -31,7 +29,7 @@ object ApiRuler {
 
   // read configuration to determine processing parameters
   val config = ConfigFactory.load()
-  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toList
+  val ignoreSections = config.getStringList("ignoreSections").asScala.toList
   val encoding = config.getString("encoding")
 
   val reader = new NxmlReader(ignoreSections.toSet)

@@ -1,16 +1,13 @@
 package org.clulab.reach.extern.export
 
 import java.io._
-
 import scala.collection.mutable.MutableList
-
 import scala.util.hashing.MurmurHash3._
-
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.ReachConstants._
 import org.clulab.reach.context._
 import org.clulab.reach.mentions._
+
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
