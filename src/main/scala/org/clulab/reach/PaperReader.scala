@@ -105,7 +105,7 @@ object PaperReader {
       val nxmlDoc: NxmlDocument = nxmlReader.read(nxml)
       new FriesEntry(nxmlDoc)
     case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith("tsv") =>
-      dsvReader.toFriesEntry(dsv)
+      dsvReader.toFriesEntry(dsv, sectionsToIgnore = ignoreSections.toSet)
   }
 
   def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = rs.extractFrom(entry).toVector
