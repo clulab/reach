@@ -32,15 +32,17 @@ class ParticipantFeatureTracker(am: AssemblyManager) {
   }
 
   /**
-    * Recursively collect the causal predecessors of an [[EER]]
+    * Recursively collect the causal predecessors of an [[EER]], <br>
+    * keeping track of <br> which EERs have been seen (to avoid loops).
     * @param eer an [[EER]]
     * @return the set of causal predecessors (and their causal predecessors, etc.)
     */
-  private def getPredecessors(eer: EER): Set[EER] = eer match {
-    case noPredecessors: EER if manager.distinctPredecessorsOf(noPredecessors).isEmpty => Set.empty[EER]
-    case hasPredecessors: EER =>
-      val predecessors: Set[EER] = manager.distinctPredecessorsOf(hasPredecessors)
-      predecessors ++ predecessors.flatMap(getPredecessors)
+  private def getPredecessors(eer: EER, seen: Set[EER] = Set.empty[EER]): Set[EER] = {
+    val unseenPredecessors = for {
+      p <- manager.distinctPredecessorsOf(eer)
+      if !(seen contains p)
+    } yield getPredecessors(p, seen ++ Set(eer))
+    unseenPredecessors.flatten ++ seen
   }
 
   private def getPredecessors(m: Mention): Set[EER] = getPredecessors(manager.getEER(m))
