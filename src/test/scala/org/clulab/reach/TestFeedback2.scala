@@ -36,11 +36,13 @@ class TestFeedback2 extends FlatSpec with Matchers {
     regs.head.arguments("controlled").head.text should equal ("ErbB3 tyrosine phosphorylation")
   }
 
+  /* // ms: skipping this; it's fine
   val s3 = "Gab1 mutant protein deficient in Shp2 binding enhances EGF-induced activation of the PI-3"
   s3 should "NOT contain Activation(Gab1, EGF)" in {
     // TODO: disable activations when the Controlled dep path goes through the trigger of another event (e.g., "activation") - DANE, GUS
     // ms: maybe this not too bad? MITRE seems to prefer this!
   }
+  */
 
   val s4 = "ASPP1 and ASPP2 cooperate with RAS to enhance the transcriptional activity of p53"
   s4 should "contain two activations with p53 as Controlled" in {
@@ -119,15 +121,6 @@ class TestFeedback2 extends FlatSpec with Matchers {
     hasEventWithArguments("Translocation", List("ASPP2", "cell junctions", "nucleus"), mentions) should be (true)
   }
 
-  s7 should "contain 1 positive regulation" in {
-    // TODO: need new reg pattern: "A following B activation", "A following activation by B" - MIHAI
-  }
-
-  val s8 = "p53–ASPP2 complex in these cells following RAS activation"
-  s8 should "contain 1 binding and 1 positive regulation event" in {
-    // TODO: matches the binding, but needs the above reg patterns - MIHAI
-  }
-
   val s9 = "Moreover, an interaction was also observed between endogenous ASPP2 and HRASV12 in a human colon cancer cell line"
   s9 should "contain 1 binding event" in {
     // TODO: missing binding - MARCO
@@ -170,6 +163,7 @@ class TestFeedback2 extends FlatSpec with Matchers {
     reg.arguments.getOrElse("controlled", Nil) should contain (aphos)
   }
 
+  /* // ms: skipping these for now
   val s13 = "SAF-1 acts as a transcriptional inducer of H-Ras and K-Ras"
   s13 should "contain activations of genes not proteins" in {
     // TODO: we correctly get 2 activations, but H-Ras and K-Ras are labeled as proteins;
@@ -178,28 +172,15 @@ class TestFeedback2 extends FlatSpec with Matchers {
   }
 
   val s14 = "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene via the PI3K/Akt pathway."
-  s14 should "contain 1 activation of MKP3" in {
-    // TODO: need new activation pattern: "A results in up-regulation of B" - MIHAI
-  }
-
   s14 should "contain MKP3 marked as Gene" in {
     // TODO: needs global NER - MARCO
   }
 
-  val s15 = "Up-regulation of MKP3 expression by active Ras expression"
-  s15 should "contain 1 activation" in {
-    // TODO: needs new activation pattern: "up-regulation of A by B" - MIHAI
-
-  }
-
-  val s16 = "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene via the PI3K/Akt pathway."
-  s16 should "contain 1 activation pattern" in {
-    // TODO: needs above activation pattern: "A results in up-regulation of B" - MIHAI
-  }
-
+  val s16 = "Up-regulation of MKP3 expression by active Ras expression"
   s16 should "contain MKP3 as a Gene" in {
     // TODO: needs global NER - MARCO
   }
+  */
 
   val s17a = "Here, we provide evidence that RhoA is phosphorylated by ERK on 88S and 100T"
   s17a should "contain phosphorylation at 2 sites" in {

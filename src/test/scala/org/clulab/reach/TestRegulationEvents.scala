@@ -440,7 +440,6 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   // the next 6 tests cover the "in response to" regulation rules
-  //
   val sent48 = "We first assayed the ability of the endogenous EGFR to be tyrosine autophosphorylated in response to EGF"
   sent48 should "contain 1 PosReg of a phosphorylation" in {
     val mentions = getBioMentions(sent48)
@@ -489,4 +488,28 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     // mentions.filter(_ matches "Phosphorylation") should have size (1)
     hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("Gab1"), mentions) should be (true)
   }
+
+  // From MITRE's feedback2, 2016 summer eval
+  // These 4 tests cover "A following B activation" patterns
+  val sent54 = "The phosphorylation of AKT1 following MEK activation."
+  sent54 should "contain 1 positive regulation" in {
+    val mentions = getBioMentions(sent54)
+    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)   // fails
+  }
+  val sent54b = "We observed the phosphorylation of AKT1 following activation by MEK."
+  sent54b should "contain 1 positive regulation" in {
+    val mentions = getBioMentions(sent54b)
+    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)  // fails
+  }
+  val sent54c = "The phosphorylation of AKT1 following inhibition of MEK."
+  sent54c should "contain 1 negative regulation" in {
+    val mentions = getBioMentions(sent54c)
+    hasNegativeRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)
+  }
+  val sent54d = "p53–ASPP2 complex in these cells following RAS activation"
+  sent54d should "contain 1 binding and 1 positive regulation event" in {
+    val mentions = getBioMentions(sent54d)
+    hasPositiveRegulationByEntity("RAS", "Binding", List("p53", "ASPP2"), mentions) should be (true)    // fails
+  }
+
 }
