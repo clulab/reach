@@ -47,7 +47,7 @@ trait Grounding {
 
   /** Set candidates for eventual final grounding resolution. Resets any grounding. */
   def nominate (resolutions: Resolutions): Unit = {
-    if (resolutions.isDefined && !resolutions.get.isEmpty) {  // if at least one candidate
+    if (resolutions.isDefined && resolutions.get.nonEmpty) {  // if at least one candidate
       _candidates = resolutions
       _grounding = Some(resolutions.get.head)
     }

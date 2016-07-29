@@ -120,7 +120,7 @@ object Brat {
 
     val mentionRepresentations = mentions.flatMap(m => m match {
       case event:EventMention => Seq(dumpStandoff(event.trigger, doc, idTracker), dumpStandoff(event, doc, idTracker))
-      case m => Seq(dumpStandoff(m, doc, idTracker))
+      case mention => Seq(dumpStandoff(mention, doc, idTracker))
     })
       .distinct // just to be safe...
       .groupBy(_.head.toString) // first character
@@ -186,7 +186,7 @@ object Brat {
     val rels = doc.sentences.zipWithIndex flatMap {
       case (s, i) =>
         val outgoing = s.dependencies.get.outgoingEdges
-        0 until outgoing.size flatMap {
+        outgoing.indices flatMap {
           j => outgoing(j) map {
             case (k, dep) =>
               id += 1

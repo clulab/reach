@@ -1,16 +1,13 @@
 package org.clulab.reach.extern.export
 
 import java.io._
-
 import scala.collection.mutable.MutableList
-
 import scala.util.hashing.MurmurHash3._
-
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.ReachConstants._
 import org.clulab.reach.context._
 import org.clulab.reach.mentions._
+
 
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
@@ -69,9 +66,9 @@ class MentionManager {
   }
 
   /** Return the preferred label string for display. */
-  def preferredLabel (mention:Mention): String = {
-    return if (mention.isInstanceOf[Display]) mention.asInstanceOf[Display].displayLabel
-           else mention.label
+  def preferredLabel (mention:Mention): String = mention match {
+    case d: Display => d.displayLabel
+    case other => other.label
   }
 
   /** Sort the given mentions and return a sequence of string representations for them. */
@@ -194,7 +191,7 @@ class MentionManager {
     val mStrings:MutableList[String] = MutableList[String]()
     val headIndent = ("  " * level)
     val indent = ("  " * (level+1))
-    if (!ctxMap.isEmpty) {
+    if (ctxMap.nonEmpty) {
       mStrings += s"${headIndent}context:"
       ctxMap foreach { ctxEntry =>
         mStrings += s"${indent}${ctxEntry._1}: ${ctxEntry._2}"

@@ -234,14 +234,11 @@ class AssemblyExporter(val manager: AssemblyManager) {
     require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation's input ID not found in EventIDs for rows!")
   }
 
-  def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
+  def writeTSV(f: File, rowFilter: Set[Row] => Set[Row]): Unit = {
     val rowsForOutput = rowFilter(getEventRows)
-
     // validate output
     validateOutput(rowsForOutput)
-
     // prepare output
-    val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
     val text =
     // only events
@@ -370,7 +367,7 @@ object AssemblyExporter {
     // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
     val filteredRows = rows.filter(_.seen >= 3)
       // 1b. Evidence come from at least 2 different sections.
-      .filter(_.docIDs.toSet.size >= 2)
+      .filter(_.docIDs.size >= 2)
       // 2a. No Activations, etc.
       .filter(r => r.evidence.forall(isValidMITREMention))
       // 2b. Findings cannot include protein families.

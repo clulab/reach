@@ -8,12 +8,14 @@ import org.clulab.odin.Mention
   * Assembler for reach output
   * @param mns a sequence of Odin-style Mentions
   *   Written by: Gus Hahn-Powell. 5/9/2016.
-  *   Last Modified: Comment out extraneous outputs and anticipated methods.
+  *   Last Modified: Add method to get input features by participants.
   */
 class Assembler(mns: Seq[Mention]) {
   // keep only the valid mentions
   val mentions = mns.filter(AssemblyManager.isValidMention)
   val am = AssemblyRunner.applySieves(mentions)
+
+  private val participantFeatureTracker = new ParticipantFeatureTracker(am)
 
   val causalPredecessors: Map[Mention, Set[CausalPrecedence]] = {
     val links = for {
@@ -32,6 +34,31 @@ class Assembler(mns: Seq[Mention]) {
     } yield CausalPrecedence(before = b, after = a, pr.foundBy)
     // build map from pairs
     links.groupBy(_.after).mapValues(_.toSet)
+  }
+
+
+  /**
+    * For the given parent event mention, find the features for the event's participants
+    * and return them in a map, keyed by each participant of the given parent event.
+    */
+  def getInputFeaturesByParticipants (parent: Mention): Map[Mention,RoleWithFeatures] = {
+    val features = getInputFeaturesForParticipants(parent)
+    features.map(rwfs => rwfs.participant -> rwfs).toMap
+  }
+
+  /**
+    * For each participant of an event, retrieve the set union of relevant PTMs (i.e., those specific to the participant) <br>
+    * from the event's causal predecessors.
+    * @param parent an event mention
+    * @return a Seq[[RoleWithFeatures]]
+    */
+  def getInputFeaturesForParticipants(parent: Mention): Seq[RoleWithFeatures] = {
+    val rwfs = for {
+      (role, mns) <- parent.arguments
+      participant <- mns
+      ptms = participantFeatureTracker.getInputFeatures(participant, parent)
+    } yield RoleWithFeatures(role, participant, parent, ptms)
+    rwfs.toSeq
   }
 
   /**

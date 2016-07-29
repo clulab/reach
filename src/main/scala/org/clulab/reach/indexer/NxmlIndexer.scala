@@ -1,20 +1,17 @@
-package org.clulab.reach.nxml.indexer
+package org.clulab.reach.indexer
 
 import java.io.File
 import java.nio.file.Paths
-
-import org.clulab.reach.nxml.FriesEntry
 import org.clulab.utils.{Files, StringUtils}
 import org.apache.lucene.analysis.standard.StandardAnalyzer
-import org.apache.lucene.document.{StringField, Field, TextField, Document, StoredField}
+import org.apache.lucene.document.{Document, Field, StoredField, StringField, TextField}
 import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
 import ai.lum.nxmlreader.NxmlReader
 import org.slf4j.LoggerFactory
 import NxmlIndexer._
-
 import scala.collection.mutable
-import scala.util.{Failure, Success, Try}
+
 
 /**
  * Indexes a bunch of NXML files so we can run quick searches wo/ grep :)

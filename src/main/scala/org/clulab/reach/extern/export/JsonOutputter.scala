@@ -2,16 +2,14 @@ package org.clulab.reach.extern.export
 
 import java.io._
 import java.util.Date
-
 import scala.collection.mutable
-
 import org.json4s.native.Serialization
-
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
-import org.clulab.reach.context._
-import org.clulab.reach.nxml.FriesEntry
-import ai.lum.nxmlreader.standoff.{ Tree => NxmlStandoff }
+import ai.lum.nxmlreader.NxmlDocument
+import org.clulab.assembly.Assembler
+import org.clulab.reach.FriesEntry
+
 
 /**
   * Trait for output formatters which output JSON formats.
@@ -36,13 +34,23 @@ trait JsonOutputter {
   def toJSON(
       paperId: String,
       allMentions: Seq[Mention],
-      standoff: NxmlStandoff,
+      nxmldoc: NxmlDocument,
       startTime: Date,
       endTime: Date,
       outFilePrefix: String
   ): String = {
-    toJSON(paperId, allMentions, standoffToEntries(paperId, standoff), startTime, endTime, outFilePrefix)
+    toJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
+
+  def writeJSON(
+    paperId:String,
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String,
+    assemblyAPI: Assembler
+  ): Unit = writeJSON(paperId, allMentions, paperPassages, startTime, endTime, outFilePrefix)
 
   /**
     * Outputs the given mentions to the given output file in some JSON-based format.
@@ -61,22 +69,16 @@ trait JsonOutputter {
   def writeJSON(
       paperId: String,
       allMentions: Seq[Mention],
-      standoff: NxmlStandoff,
+      nxmldoc: NxmlDocument,
       startTime: Date,
       endTime: Date,
       outFilePrefix: String
   ): Unit = {
-    writeJSON(paperId, allMentions, standoffToEntries(paperId, standoff), startTime, endTime, outFilePrefix)
+    writeJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
 
-  private def standoffToEntries(paperId: String, standoff: NxmlStandoff): Seq[FriesEntry] = {
-    Seq(new FriesEntry(
-      name = paperId,
-      chunkId = standoff.hashCode.toString,
-      sectionId = standoff.path,
-      sectionName = "",
-      isTitle = false,
-      text = standoff.text))
+  private def nxmlToEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
+    Seq(new FriesEntry(nxmldoc))
   }
 
 }

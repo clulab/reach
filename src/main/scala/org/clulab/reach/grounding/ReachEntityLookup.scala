@@ -76,7 +76,7 @@ class ReachEntityLookup {
   val config = ConfigFactory.load()
   if (config.hasPath("grounding.adHocFiles")) {
     val moreKBs = config.getConfigList("grounding.adHocFiles").asScala.flatMap(addAdHocFile(_))
-    if (!moreKBs.isEmpty) extraKBs = moreKBs
+    if (moreKBs.nonEmpty) extraKBs = moreKBs
   }
 
   /** KB search sequence to use for Fallback grounding: when all others fail. */

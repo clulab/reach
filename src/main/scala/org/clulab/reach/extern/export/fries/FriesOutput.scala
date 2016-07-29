@@ -2,29 +2,29 @@ package org.clulab.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-
-import org.clulab.assembly.export.{AssemblyLink, CausalPrecedence, Equivalence}
+import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
 import org.json4s.native.Serialization
-import org.clulab.assembly._
+import org.clulab.assembly.{Assembler, RoleWithFeatures}
+import org.clulab.assembly.export.AssemblyLink
+import org.clulab.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.ReachConstants._
 import org.clulab.reach.context._
 import org.clulab.reach.display._
 import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
 import JsonOutputter._
-import org.clulab.reach.OutputDegrader
-
+import org.clulab.reach.FriesEntry
+import org.clulab.reach.darpa.OutputDegrader
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+
 
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by Mihai Surdeanu. 5/22/2015.
-  *   Last Modified: Cleanup up uninformative asserts.
+  *   Last Modified: Move participant features to arguments, cleanup.
   */
 class FriesOutput extends JsonOutputter {
   // local type definitions:
@@ -140,7 +140,7 @@ class FriesOutput extends JsonOutputter {
     * Separate output files are written for sentences, links, entities, and events.
     * Each output file is prefixed with the given prefix string.
     */
-  def writeJSON (paperId:String,
+  override def writeJSON (paperId:String,
                  allMentions:Seq[Mention],
                  paperPassages:Seq[FriesEntry],
                  startTime:Date,
@@ -166,8 +166,9 @@ class FriesOutput extends JsonOutputter {
     writeJsonToFile(entityModel, new File(outFilePrefix + ".uaz.entities.json"))
 
     // eventMap: map from entity pointers to unique ids
-    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap, contextIdMap,
-                                               entityMap, startTime, endTime, otherMetaData)
+    val (eventModel, eventMap) = eventsToModel(paperId, sanitizedMentions, passageMap,
+                                               contextIdMap, entityMap, startTime, endTime,
+                                               otherMetaData, Some(assemblyAPI))
     writeJsonToFile(eventModel, new File(outFilePrefix + ".uaz.events.json"))
 
     val assemblyModel:PropMap = mkAssemblyModel(paperId, sanitizedMentions, passageMap, entityMap, eventMap,
@@ -230,14 +231,17 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Returns a model object representing all event mentions extracted from this paper. */
-  private def eventsToModel (paperId:String,
-                             allMentions:Seq[Mention],
-                             passageMap:Map[String, FriesEntry],
-                             contextIdMap:CtxIDed,
-                             entityMap:IDed,
-                             startTime:Date,
-                             endTime:Date,
-                             otherMetaData:Map[String, String]): (PropMap, IDed) = {
+  private def eventsToModel (
+    paperId:String,
+    allMentions:Seq[Mention],
+    passageMap:Map[String, FriesEntry],
+    contextIdMap:CtxIDed,
+    entityMap:IDed,
+    startTime:Date,
+    endTime:Date,
+    otherMetaData:Map[String, String],
+    assemblyAPI: Option[Assembler] = None): (PropMap, IDed) =
+  {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
@@ -258,7 +262,7 @@ class FriesOutput extends JsonOutputter {
     for (mention <- eventMentions) {
       if (!mention.matches("Regulation")) {
         val passage = getPassageForMention(passageMap, mention)
-        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
+        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap, assemblyAPI)
       }
     }
 
@@ -273,18 +277,18 @@ class FriesOutput extends JsonOutputter {
         val childrenRegulations = regulations.flatMap(_.arguments.values.flatten).filter(_.matches("Regulation"))
         for (reg <- childrenRegulations ++ regulations) {
           val passage = getPassageForMention(passageMap, reg)
-          frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap)
+          frames ++= mkEventMention(paperId, passage, reg.toBioMention, contextIdMap, entityMap, eventMap, assemblyAPI)
         }
         // process current regulation
         val passage = getPassageForMention(passageMap, mention)
-        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap)
+        frames ++= mkEventMention(paperId, passage, mention.toBioMention, contextIdMap, entityMap, eventMap, assemblyAPI)
       }
     }
     (model, eventMap)
   }
 
   private def getChunkId(m:Mention):String = {
-    assert(m.document.id.isDefined, { println(s"ASSERT-ERROR: object ${m} has no document ID") })
+    assert(m.document.id.isDefined, s"object ${m} has no document ID")
 
     val did = m.document.id.get
     // the chunk id is the string following the underscore in the document ids
@@ -296,8 +300,7 @@ class FriesOutput extends JsonOutputter {
   private def getPassageForMention (passageMap:Map[String, FriesEntry],
                                     mention:Mention): FriesEntry = {
     val chunkId = getChunkId(mention)
-    assert(passageMap.contains(chunkId), {
-      println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
+    assert(passageMap.contains(chunkId), s"passageMap missing chunkId ${chunkId}")
     passageMap.get(chunkId).get
   }
 
@@ -315,7 +318,7 @@ class FriesOutput extends JsonOutputter {
     if (mention.hasContext()) {
       val context = mention.context.get
       contextId = contextIdMap.get(context) // get the context ID for the context
-      if (!contextId.isDefined) {           // if this is a new context
+      if (contextId.isEmpty) {           // if this is a new context
         val ctxid = mkContextId(paperId, passage, mention.sentence) // generate new context ID
         contextIdMap.put(context, ctxid)      // save the new context ID keyed by the context
         contextFrame = Some(mkContextFrame(paperId, passage, mention, ctxid, context))
@@ -323,7 +326,7 @@ class FriesOutput extends JsonOutputter {
       }
     }
 
-    return (contextId, contextFrame)
+    (contextId, contextFrame)
   }
 
   private def lookupMentionId (mention: Mention,
@@ -353,11 +356,15 @@ class FriesOutput extends JsonOutputter {
     s"sent-$paperId-$ORGANIZATION-$RUN_ID-${passage.chunkId}-$offset"
 
 
-  private def mkArgument(name:String,
-                         arg:Mention,
-                         argIndex:Int,
-                         entityMap: IDed,
-                         eventMap:IDed):PropMap = {
+  private def mkArgument(
+    name:String,
+    arg:Mention,
+    argIndex:Int,
+    entityMap: IDed,
+    eventMap:IDed,
+    argFeatures:Option[RoleWithFeatures] = None
+  ): PropMap =
+  {
     val m = new PropMap
     m("object-type") = "argument"
     m("type") = prettifyLabel(name)
@@ -369,17 +376,14 @@ class FriesOutput extends JsonOutputter {
     argType match {
       case "complex" =>
         // this is a complex: print the participants
-        assert(arg.isInstanceOf[RelationMention], {
-          println("ASSERT-ERROR: complex 'arg' is not an instance of RelationMention") })
+        assert(arg.isInstanceOf[RelationMention], "complex 'arg' is not an instance of RelationMention")
         val participants = new PropMap
         val complexParticipants = arg.asInstanceOf[RelationMention].arguments
         for(key <- complexParticipants.keySet) {
           // FIXME: resolve each participant.  Should this be done elsewhere?
           val ms: Seq[Mention] = complexParticipants.get(key).get.map(m => m.antecedentOrElse(m))
           for ((p, i) <- ms.zipWithIndex) {
-            assert(p.isInstanceOf[TextBoundMention], {
-              println(s"ASSERT-ERROR: complex participant is not an instance of TextBoundMention: ${p}")
-            })
+            assert(p.isInstanceOf[TextBoundMention], s"complex participant is not an instance of TextBoundMention: ${p}")
             if (!entityMap.contains(p)) {
               throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
             }
@@ -404,6 +408,13 @@ class FriesOutput extends JsonOutputter {
           throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
         }
         m("arg") = entityMap.get(arg).get
+
+        // output any participant features associated with this entity by assembly:
+        if (argFeatures.isDefined) {
+          val features = mkParticipantFeatures(argFeatures.get)
+          if (features.nonEmpty)
+            m("participant-features") = features
+        }
 
       case "event" =>
         // this is an event, which we MUST have seen before
@@ -524,12 +535,15 @@ class FriesOutput extends JsonOutputter {
       List(f)
   }
 
-  private def mkEventMention(paperId:String,
-                             passageMeta:FriesEntry,
-                             mention:BioMention,
-                             contextIdMap: CtxIDed,
-                             entityMap: IDed,
-                             eventMap:IDed): List[PropMap] = {
+  private def mkEventMention(
+    paperId:String,
+    passageMeta:FriesEntry,
+    mention:BioMention,
+    contextIdMap: CtxIDed,
+    entityMap: IDed,
+    eventMap:IDed,
+    assemblyAPI: Option[Assembler] = None): List[PropMap] =
+  {
     currEvent = mention.text
 
     val f = startFrame()
@@ -564,14 +578,20 @@ class FriesOutput extends JsonOutputter {
       case rm:BioRelationMention => arguments = Some(rm.arguments)
     }
 
+    // if using the Assembly subsystem, get all input participant features for this event
+    val inputFeatures = assemblyAPI.map(_.getInputFeaturesByParticipants(mention))
+
     // handle event arguments
     if (arguments.isDefined) {
       val argList = new FrameList
+
+      // process the arguments:
       for (key <- arguments.get.keys) {
         arguments.get.get(key).foreach { argSeq =>
           for (i <- argSeq.indices) {
             val derefedArg = argSeq(i).antecedentOrElse(argSeq(i).toCorefMention)
-            argList += mkArgument(key, derefedArg, i, entityMap, eventMap)
+            val argFeatures = inputFeatures.flatMap(_.get(derefedArg))
+            argList += mkArgument(key, derefedArg, i, entityMap, eventMap, argFeatures)
           }
         }
       }
@@ -600,6 +620,7 @@ class FriesOutput extends JsonOutputter {
     else
       List(f)
   }
+
 
   private def mkGrounding (grounding:KBResolution): PropMap = {
     val m = new PropMap
@@ -632,7 +653,7 @@ class FriesOutput extends JsonOutputter {
     f("frame-type") = "link"
     f("type") = frameType
     f("found-by") = foundBy
-    if (!args.isEmpty)
+    if (args.nonEmpty)
       f("arguments") = args
     // f("is-negated") = false                 // optional: in schema for future use
     // f("score") = 0.0                        // optional: in schema for future use
@@ -682,13 +703,13 @@ class FriesOutput extends JsonOutputter {
     eventMap: IDed
   ): List[PropMap] = {
     val frames: ListBuffer[PropMap] = new ListBuffer()
-    if (links.size > 0) {               // ignore empty maps
+    if (links.nonEmpty) {               // ignore empty maps
       val passage = getPassageForMention(passageMap, from)
       val linkId = mkLinkId(paperId, passage, from.sentence) // generate single link ID
 
       val foundBy = links.head.foundBy  // get foundBy from arbitrary element
       links.head match {
-        case Equivalence(mention1, m2, foundBy) =>
+        case Equivalence(_, m2, _) =>
           val args: ListBuffer[PropMap] = new ListBuffer()
           args += mkLinkArgumentFrame(fromId, "from") // add FROM as argument zero
           args ++= links.zipWithIndex.flatMap { case(link:Equivalence, ndx:Int) =>
@@ -714,6 +735,24 @@ class FriesOutput extends JsonOutputter {
     m
   }
 
+
+  /** Return a list of participant features for the given role/argument features object. */
+  private def mkParticipantFeatures (rwfs: RoleWithFeatures): FrameList = {
+    (new FrameList) ++= rwfs.features.map{ f:AssemblyPTM => mkParticipantFeature(f) }
+  }
+
+  /** Return a participant feature map for the given modification object. */
+  private def mkParticipantFeature (ptm: AssemblyPTM): PropMap = {
+    val m = new PropMap
+    m("object-type") = "feature"
+    m("type") = ptm.label
+    m("negated") = ptm.negated
+    if (ptm.site.isDefined)
+      m("site") = ptm.site.get
+    m
+  }
+
+
   /** Create and return a new Passage frame. */
   private def mkPassage(model:PropMap,
                         paperId:String,
@@ -726,12 +765,12 @@ class FriesOutput extends JsonOutputter {
     f("section-id") = passage.sectionId
     f("section-name") = passage.sectionName
     f("is-title") = passage.isTitle
-    assert(passageDoc.text.isDefined, { println(s"ASSERT-ERROR: passageDoc has no text") })
+    assert(passageDoc.text.isDefined, s"passageDoc has no text")
     f("text") = passageDoc.text.get.replaceAll("\\n", " ")
     f
   }
 
-  private def mkPTM(ptm:PTM):PropMap = {
+  private def mkPTM (ptm: PTM): PropMap = {
     val m = new PropMap
     m("object-type") = "modification"
     m("type") = ptm.label
@@ -811,8 +850,7 @@ class FriesOutput extends JsonOutputter {
 
     // now output all passages as individual frames
     for(chunkId <- passageDocs.keySet) {
-      assert(passageMap.contains(chunkId), {
-        println(s"ASSERT-ERROR: passageMap missing chunkId ${chunkId}") })
+      assert(passageMap.contains(chunkId), s"passageMap missing chunkId ${chunkId}")
       frames += mkPassage(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
       frames ++= mkSentences(model, paperId, passageMap.get(chunkId).get, passageDocs.get(chunkId).get)
     }

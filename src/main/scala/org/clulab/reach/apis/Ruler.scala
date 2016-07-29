@@ -6,9 +6,9 @@ import org.clulab.processors.corenlp.CoreNLPProcessor
 import org.clulab.reach._
 import org.clulab.reach.brat.Brat
 import org.clulab.reach.apis.open.OpenSystem
-
 import scala.collection.JavaConverters._
 import scala.util.{Failure, Success, Try}
+
 
 object Ruler {
 
@@ -88,14 +88,14 @@ object Ruler {
           s.endOffsets(i))
       }
     }
-    allTokens.toArray
+    allTokens
   }
 
   private def synTrees(doc: Document): Array[String] = {
     val allTrees = doc.sentences map { s =>
       s.syntacticTree.map(_.toString).getOrElse("()")
     }
-    allTrees.toArray
+    allTrees
   }
 
   /** removes commented lines */

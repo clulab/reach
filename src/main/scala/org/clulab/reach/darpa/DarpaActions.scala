@@ -1,6 +1,7 @@
-package org.clulab.reach
+package org.clulab.reach.darpa
 
 import org.clulab.odin._
+import org.clulab.reach._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
 import scala.annotation.tailrec
@@ -41,7 +42,7 @@ class DarpaActions extends Actions {
     */
   def mkNERMentions(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions flatMap { m =>
-      val candidates = state.mentionsFor(m.sentence, m.tokenInterval.toSeq)
+      val candidates = state.mentionsFor(m.sentence, m.tokenInterval)
       // do any candidates overlap the mention?
       val overlap = candidates.exists(_.tokenInterval.overlaps(m.tokenInterval))
       if (overlap) None else Some(m.toBioMention)
