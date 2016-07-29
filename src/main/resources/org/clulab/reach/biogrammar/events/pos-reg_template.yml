@@ -293,16 +293,16 @@
 # Rules for (deeply) nested events that cross into causal precedence
 #
 # TODO: is there a good way to check assure the proper polarity in these patterns?
-- name: Positive_${ ruleType }_nested_syntax_1_verb
-  priority: ${ priority }
-  example: "These results imply that Ack1 mediated Ras phosphorylation results in subsequent AKT activation."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=result] in # TODO: expand lemma pattern for trigger
-    # xcomp for "A, resulting in B" pattern
-    controller:${ controllerType } = nsubj|xcomp
-    controlled:${ controlledType } = prep_in (nn|appos)?
+#- name: Positive_${ ruleType }_nested_syntax_1_verb
+#  priority: ${ priority }
+#  example: "These results imply that Ack1 mediated Ras phosphorylation results in subsequent AKT activation."
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    trigger = [lemma=result] in # TODO: expand lemma pattern for trigger
+#    # xcomp for "A, resulting in B" pattern
+#    controller:${ controllerType } = nsubj|xcomp
+#    controlled:${ controlledType } = prep_in (nn|appos)?
 
 
 - name: Positive_${ ruleType }_nested_syntax_2_verb
