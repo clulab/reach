@@ -1,15 +1,8 @@
 package org.clulab.reach.context
 
-
-import java.io._
-import org.clulab.reach._
 import org.clulab.reach.mentions._
-import org.clulab.processors.Document
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.reach.context.rulebased._
-import org.clulab.reach.utils.FileReader
-import org.clulab.reach.grounding.ReachKBUtils
 import org.clulab.reach.grounding.ReachContextKBLister
+
 
 trait ContextEngine {
 

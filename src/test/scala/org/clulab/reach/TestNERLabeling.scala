@@ -3,10 +3,10 @@ package org.clulab.reach
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
-
 import org.scalatest.{Matchers, FlatSpec}
 import scala.util.Try
 import TestUtils._
+
 
 /**
   * Test the labeling of various types of mentions identified by the NER.
@@ -142,7 +142,7 @@ class TestNERLabeling extends FlatSpec with Matchers {
   val mentions274a = getBioMentions("Smad 2 is doing something.")
   "Smad 2 is doing something" should "have expected number of results" in {
     mentions274a should not be (empty)
-    printMentions(Try(mentions274a), true)      // DEBUGGING
+    // printMentions(Try(mentions274a), verbose = true)      // DEBUGGING
     mentions274a should have size 1
   }
 

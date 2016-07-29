@@ -1,17 +1,15 @@
 package org.clulab.reach.apis
 
 import java.util.{Date, Map => JMap}
-
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.Mention
 import org.clulab.reach._
 import org.clulab.reach.extern.export.fries.FriesOutput
 import org.clulab.reach.extern.export.indexcards.IndexCardOutput
-import org.clulab.reach.nxml.FriesEntry
 import org.clulab.reach.extern.export.IncrementingId
 import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
-
 import scala.collection.JavaConverters._
+
 
 /**
   * External interface class to accept and process text strings and NXML documents,
@@ -31,7 +29,7 @@ object ApiRuler {
 
   // read configuration to determine processing parameters
   val config = ConfigFactory.load()
-  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toList
+  val ignoreSections = config.getStringList("ignoreSections").asScala.toList
   val encoding = config.getString("encoding")
 
   val reader = new NxmlReader(ignoreSections.toSet)
@@ -50,14 +48,14 @@ object ApiRuler {
   /** Annotates some text by converting it to a FriesEntry and calling annotateEntry().
       Uses fake document ID and chunk ID. */
   def annotateText(text: String, outFormat: String): Response = {
-    annotateEntry(FriesEntry(prefix, suffix, "NoSection", "NoSection", false, text), outFormat)
+    annotateEntry(FriesEntry(prefix, suffix, "NoSection", "NoSection", isTitle = false, text), outFormat)
   }
 
   /** annotates some text by converting it to a FriesEntry and calling annotateEntry(). */
   def annotateText(text: String, docId: String=prefix, chunkId: String=suffix,
                    outFormat: String="fries"): Response =
   {
-    annotateEntry(FriesEntry(docId, chunkId, "NoSection", "NoSection", false, text), outFormat)
+    annotateEntry(FriesEntry(docId, chunkId, "NoSection", "NoSection", isTitle = false, text), outFormat)
   }
 
 

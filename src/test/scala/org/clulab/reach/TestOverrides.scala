@@ -1,12 +1,9 @@
 package org.clulab.reach
 
-import org.clulab.odin._
-import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
-
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
+
 
 /**
   * Test that our override KB works properly for NER and grounding.

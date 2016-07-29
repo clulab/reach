@@ -43,17 +43,17 @@ object Labeler {
 
   def isPhosphorylation(conversion: Conversion) = {
     val phosphoFeats = conversion.featureDiff.values flatMap (_("added")) map (_.toString) filter (_ contains "phospho")
-    !phosphoFeats.isEmpty
+    phosphoFeats.nonEmpty
   }
 
   def isDephosphorylation(conversion: Conversion) = {
     val dephosphoFeats = conversion.featureDiff.values flatMap (_("removed")) map (_.toString) filter (_ contains "phospho")
-    !dephosphoFeats.isEmpty
+    dephosphoFeats.nonEmpty
   }
 
   def isTransport(conversion: Conversion) = {
-    val locFeats = conversion.locationDiff.values filter (v => !v("added").isEmpty && !v("removed").isEmpty)
-    !locFeats.isEmpty
+    val locFeats = conversion.locationDiff.values filter (v => v("added").nonEmpty && v("removed").nonEmpty)
+    locFeats.nonEmpty
   }
 
   def isBinding(conversion: Conversion) = {

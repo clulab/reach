@@ -1,11 +1,10 @@
-package org.clulab.reach
+package org.clulab.reach.darpa
 
 import org.clulab.coref.CorefUtils._
 import org.clulab.odin._
 import org.clulab.reach.mentions._
-import org.clulab.reach.DarpaActions._
-
 import scala.collection.mutable
+
 
 object MentionFilter {
 
@@ -190,8 +189,8 @@ object MentionFilter {
     def ptmEquivalent(a: CorefMention, b: CorefMention): Boolean = {
       (a,b) match {
         case (exactA, exactB) if exactA == exactB => true
-        case (ent: CorefTextBoundMention, ev: CorefEventMention) => convertEventToEntity(ev) == ent
-        case (ev: CorefEventMention, ent: CorefTextBoundMention) => convertEventToEntity(ev) == ent
+        case (ent: CorefTextBoundMention, ev: CorefEventMention) => DarpaActions.convertEventToEntity(ev) == ent
+        case (ev: CorefEventMention, ent: CorefTextBoundMention) => DarpaActions.convertEventToEntity(ev) == ent
         case different => false
       }
     }

@@ -1,14 +1,12 @@
 package org.clulab.reach.apis
 
 import java.util.{List => JList}
-
 import com.typesafe.config.ConfigFactory
 import org.clulab.reach._
 import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
 import ai.lum.nxmlreader.NxmlReader
-
 import scala.collection.JavaConverters._
+
 
 /**
   * External interface class to accept and process text strings and NXML documents,
@@ -30,7 +28,7 @@ object Api {
 
   // read configuration to determine processing parameters
   val config = ConfigFactory.load()
-  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala.toList
+  val ignoreSections = config.getStringList("ignoreSections").asScala.toList
   val encoding = config.getString("encoding")
 
   val reader = new NxmlReader(ignoreSections.toSet)

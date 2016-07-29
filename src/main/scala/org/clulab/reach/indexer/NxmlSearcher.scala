@@ -1,8 +1,7 @@
-package org.clulab.reach.nxml.indexer
+package org.clulab.reach.indexer
 
 import java.io.{FileWriter, PrintWriter, File}
 import java.nio.file.Paths
-
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.utils.StringUtils
 import org.apache.lucene.analysis.Analyzer
@@ -14,12 +13,10 @@ import org.apache.lucene.queryparser.classic.QueryParser
 import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
-
 import scala.collection.mutable
-
 import NxmlSearcher._
-
 import scala.collection.mutable.ArrayBuffer
+
 
 /**
  * Searches the NXML index created by NXML indexer

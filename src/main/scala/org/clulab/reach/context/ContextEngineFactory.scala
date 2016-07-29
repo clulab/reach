@@ -1,6 +1,5 @@
 package org.clulab.reach.context
 
-import org.clulab.reach.context.rulebased._
 
 object ContextEngineFactory {
 

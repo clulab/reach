@@ -1,16 +1,14 @@
 package org.clulab.reach
 
 import io.Source
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.reach.display._
 import org.clulab.reach.extern.export.MentionManager
 import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.processors.Document
 import scala.util.Try
-import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.context.ContextEngineFactory.Engine._
-import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
+import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
+import org.clulab.reach.darpa.OutputDegrader
+
 
 /**
  * Utility methods for the tests in this directory

@@ -39,7 +39,7 @@ object Evaluator {
   ):Iterable[DatasetStratifiedFold] = {
     val r = new Random(seed)
 
-    val byClass: Map[Int, Seq[Int]] = r.shuffle[Int, IndexedSeq](dataset.indices).toSeq.groupBy(idx => dataset.labels(idx))
+    val byClass: Map[Int, Seq[Int]] = r.shuffle[Int, IndexedSeq](dataset.indices).groupBy(idx => dataset.labels(idx))
     val folds = (for (i <- 0 until numFolds) yield (i, new ArrayBuffer[DatasetStratifiedFold])).toMap
 
     for {
@@ -91,7 +91,7 @@ object Evaluator {
       }
     }
 
-    output.toSeq
+    output
   }
 
   def calculateAccuracy[L](scores: Seq[(L, L)]): Float = {
@@ -155,7 +155,7 @@ object ClassifyAssemblyRelations extends App {
   val pcf = AssemblyRelationClassifier.train(precedenceDataset)
   // get cross validation accuracy
   val scores = Evaluator.crossValidate(precedenceDataset, "lr-l2")
-  val accuracy = Evaluator.calculateAccuracy(scores.toSeq)
+  val accuracy = Evaluator.calculateAccuracy(scores)
   println(f"Precedence relation accuracy (using ${pcf.classifierType} with 5-fold cross validation):\t$accuracy%1.3f")
 
   // gather subsumption relations corpus

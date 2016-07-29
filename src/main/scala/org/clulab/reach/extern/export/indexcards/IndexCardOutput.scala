@@ -10,10 +10,11 @@ import org.clulab.reach.ReachConstants._
 import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.reach.OutputDegrader
 import JsonOutputter._
 import IndexCardOutput._
+import org.clulab.reach.FriesEntry
+import org.clulab.reach.darpa.OutputDegrader
+
 
 /**
   * Defines classes and methods used to build and output the index card format.
@@ -49,7 +50,8 @@ class IndexCardOutput extends JsonOutputter {
                           paperPassages:Seq[FriesEntry],
                           startTime:Date,
                           endTime:Date,
-                          outFilePrefix:String): Unit = {
+                          outFilePrefix:String
+  ): Unit = {
     // we create a separate directory for each paper, and store each index card as a separate file
     val dir = new File(outFilePrefix)
     if(! dir.exists()) {
@@ -156,7 +158,7 @@ class IndexCardOutput extends JsonOutputter {
 
   /** Add the properties of the given context map to the given property map. */
   def mkContext (f:PropMap, mention:CorefMention): Unit = {
-    if (mention.context.exists(! _.isEmpty))
+    if (mention.context.exists(_.nonEmpty))
       f("context") = mention.context.get
   }
 

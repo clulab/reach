@@ -1,9 +1,11 @@
 package org.clulab.reach.utils
 
 import java.io.File
+
 import org.apache.commons.io.FilenameUtils
+import org.clulab.reach.FriesEntry
+
 import scala.util.matching.Regex
-import org.clulab.reach.nxml.FriesEntry
 
 
 class DSVParser {
@@ -18,14 +20,15 @@ class DSVParser {
     * @param textColumn which column contains the actual text
     * @param hasHeader true if this DSV file has a header row
     */
-  @deprecated(message = "Use .toFriesEntry to produce a single FriesEntry for the entire paper.", since = "Issue #210 (https://github.com/clulab/reach/issues/210)")
   def toFriesEntries(
     file: File,
     docIdColumn: Int = 0,
     chunkIdColumn: Int = 1,
     sectionIdColumn: Int = -1,
     textColumn: Int = 2,
-    hasHeader: Boolean = true): Seq[FriesEntry] = {
+    hasHeader: Boolean = true,
+    sectionsToIgnore: Set[String] = Set.empty[String]
+  ): Seq[FriesEntry] = {
     // Sniff out the delimiter based on the file's extension
     val delimiter: String = getDelimiter(file)
 
@@ -36,7 +39,8 @@ class DSVParser {
       case true => scala.io.Source.fromFile(file).getLines.drop(1)
       case false => scala.io.Source.fromFile(file).getLines
     }
-    for (line <- lines.toSeq) yield {
+
+    val entries = for (line <- lines.toSeq) yield {
 
       val columns: Seq[String] = line.split(delimiter, numCols)
       val docID = columns(docIdColumn)
@@ -53,6 +57,9 @@ class DSVParser {
         text = trim(text)
       )
     }
+
+    // remove sections that should be ignored
+    entries.filterNot(entry => sectionsToIgnore contains entry.sectionId)
   }
 
   def toFriesEntry(
@@ -61,35 +68,22 @@ class DSVParser {
     chunkIdColumn: Int = 1,
     sectionIdColumn: Int = -1,
     textColumn: Int = 2,
-    hasHeader: Boolean = true
+    hasHeader: Boolean = true,
+    sectionsToIgnore: Set[String] = Set.empty[String]
   ): FriesEntry = {
-    // Sniff out the delimiter based on the file's extension
-    val delimiter: String = getDelimiter(file)
+    val entries = toFriesEntries(file, docIdColumn, chunkIdColumn, sectionIdColumn, textColumn, hasHeader, sectionsToIgnore)
 
-    val numCols = if (sectionIdColumn != -1) 4 else 3
-
-    // remove header if present
-    val lines = hasHeader match {
-      case true => scala.io.Source.fromFile(file).getLines.drop(1)
-      case false => scala.io.Source.fromFile(file).getLines
-    }
-
-    val docID = lines.toSeq.head.split(delimiter, numCols)(docIdColumn)
-
-    val text = for (line <- lines.toSeq) yield {
-      val columns: Seq[String] = line.split(delimiter, numCols)
-      trim(columns(textColumn))
-    }
-
-    // We now produce a single FriesEntry for the entire paper
+    val docID = entries.head.name
+    val allText = entries.map(_.text).mkString("\n")
+    // Create a single FriesEntry
     FriesEntry(
-      name = trim(docID),
-      // we'll use the docID for the chunk
-      chunkId = trim(docID),
+      name = docID,
+      // we'll use the docID as the chunk-id
+      chunkId = docID,
       sectionId = "",
       sectionName = "",
       isTitle = false,
-      text = text.mkString("\n")
+      text = allText
     )
   }
 

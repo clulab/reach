@@ -1,9 +1,9 @@
 package org.clulab.reach
 
-import org.clulab.reach.nxml.FriesEntry
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 import org.clulab.reach.mentions._
+
 
 /**
   * Tests coreference-based events
@@ -270,7 +270,7 @@ class TestCoreference extends FlatSpec with Matchers {
     "in p53 greatly increase the otherwise short half life of this protein and cause it to accumulate in tumor cells."
   sent25 should "not produce an error due to multiple antecedents" in {
     val mentions = getBioMentions(sent25)
-    mentions.find(_.text == "p53").nonEmpty should be (true)
+    mentions.exists(_.text == "p53") should be (true)
   }
 
   val sent26 = "Many RTKs interact directly with Grb2, some rely on Shc family adaptors to recruit Grb2, and others " +
@@ -278,7 +278,7 @@ class TestCoreference extends FlatSpec with Matchers {
     "proteins interact with RTKs primarily through the binding of their N-terminal PTB domain to NPXpY motifs."
   sent26 should "not produce an error due to multiple antecedents" in {
     val mentions = getBioMentions(sent26)
-    mentions.find(_.text == "Grb2").nonEmpty should be (true)
+    mentions.exists(_.text == "Grb2") should be (true)
   }
 
   val simpleEventTypes = Seq(
@@ -512,8 +512,8 @@ class TestCoreference extends FlatSpec with Matchers {
   val sent45a = "Akt1, previously known as Akt334, AktTR, or Akt4H, is also phosphorylated."
   val sent45b = "AktTR is ubiquitinated."
   "Intra-document alias" should "share Akt1 grounding across sections" in {
-    val fe1 = FriesEntry("test", "aliasDoc", "01", "start", false, sent45a)
-    val fe2 = FriesEntry("test", "aliasDoc", "01", "start", false, sent45b)
+    val fe1 = FriesEntry("test", "aliasDoc", "01", "start", isTitle = false, sent45a)
+    val fe2 = FriesEntry("test", "aliasDoc", "01", "start", isTitle = false, sent45b)
     val mentions = testReach.extractFrom(Seq(fe1, fe2))
     val akt = mentions.find(_.text == "Akt1").get
     mentions.filter(_.text == "AktTR").forall(m => m.grounding.get == akt.grounding.get) should be (true)
@@ -521,7 +521,7 @@ class TestCoreference extends FlatSpec with Matchers {
   // No problem if no mentions in a document.
   val sent46 = "This sentence has no mentions."
   "Empty document: coref" should "share Akt grounding across sections" in {
-    val fe = FriesEntry("anotherTest", "noMentions", "02", "end", false, sent46)
+    val fe = FriesEntry("anotherTest", "noMentions", "02", "end", isTitle = false, sent46)
     val mentions = testReach.extractFrom(Seq(fe))
     mentions.isEmpty should be (true)
   }

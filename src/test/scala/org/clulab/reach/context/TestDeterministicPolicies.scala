@@ -95,7 +95,7 @@ class TestDeterministicPolicies extends FlatSpec with Matchers {
 
       // This is "optional" as I believe there's no BioRelationMention rule so far,
       // but if there will be some, it should work as well
-      if(relationMentions.size > 0){
+      if(relationMentions.nonEmpty) {
         val rmWithContext = relationMentions.filter(_.hasContext)
         info(s"The number of event mentions with context is: ${rmWithContext.size}")
         rmWithContext.size should be > 0
