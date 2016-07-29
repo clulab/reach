@@ -3,8 +3,8 @@ package org.clulab.reach.apis.open
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.processors.corenlp.CoreNLPProcessor
-
 import scala.util.Try
+
 
 class OpenSystem(p: Option[CoreNLPProcessor] = None) {
 

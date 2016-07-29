@@ -66,9 +66,9 @@ class MentionManager {
   }
 
   /** Return the preferred label string for display. */
-  def preferredLabel (mention:Mention): String = {
-    return if (mention.isInstanceOf[Display]) mention.asInstanceOf[Display].displayLabel
-           else mention.label
+  def preferredLabel (mention:Mention): String = mention match {
+    case d: Display => d.displayLabel
+    case other => other.label
   }
 
   /** Sort the given mentions and return a sequence of string representations for them. */

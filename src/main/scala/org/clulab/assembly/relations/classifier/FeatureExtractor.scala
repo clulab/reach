@@ -138,7 +138,7 @@ object FeatureExtractor {
       a <- args
       p <- getShortestPaths(trigger, a)
       if p.nonEmpty
-      dist = p.split(" ").size
+      dist = p.split(" ").length
     } yield s"${role.toUpperCase}: $dist"
     distances.distinct
   }
@@ -159,7 +159,7 @@ object FeatureExtractor {
     val distances = for {
       p <- getShortestPaths(e1, e2)
       if p.nonEmpty
-      dist = p.split(" ").size
+      dist = p.split(" ").length
     } yield s"sortest-path-dist: $dist"
     distances.distinct
   }
@@ -186,7 +186,7 @@ object FeatureExtractor {
     val distances = for {
       p <- getShortestPaths(t1, t2)
       if p.nonEmpty
-      dist = p.split(" ").size
+      dist = p.split(" ").length
     } yield s"trigger-dist: $dist"
     distances.distinct
   }

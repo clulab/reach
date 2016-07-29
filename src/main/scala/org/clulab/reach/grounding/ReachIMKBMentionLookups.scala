@@ -1,6 +1,5 @@
 package org.clulab.reach.grounding
 
-import org.clulab.odin._
 import org.clulab.reach.grounding.ReachKBConstants._
 
 /**

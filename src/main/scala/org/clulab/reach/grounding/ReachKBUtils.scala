@@ -2,11 +2,10 @@ package org.clulab.reach.grounding
 
 import java.io._
 import java.util.zip.GZIPInputStream
-
 import scala.io.Source
-
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBConstants._
+
 
 /**
   * Support methods for writing local KB accessors.

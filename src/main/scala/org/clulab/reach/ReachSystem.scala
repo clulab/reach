@@ -70,7 +70,7 @@ class ReachSystem(
     extractFrom(mkDoc(nxml), Some(nxml))
   }
 
-  def extractFrom(doc: Document, nxml: Option[NxmlDocument]): Seq[BioMention] = {
+  def extractFrom(doc: Document, nxmlDoc: Option[NxmlDocument]): Seq[BioMention] = {
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
@@ -85,7 +85,7 @@ class ReachSystem(
     // Coref expects to get all mentions grouped
     // we group according to the standoff, if there is one
     // else we just make one group with all the mentions
-    val groundedAndGrouped = nxml match {
+    val groundedAndGrouped = nxmlDoc match {
       case Some(nxml) => groupMentionsByStandoff(grounded, nxml)
       case None => Seq(grounded)
     }

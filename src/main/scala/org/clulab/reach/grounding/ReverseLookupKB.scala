@@ -1,7 +1,6 @@
 package org.clulab.reach.grounding
 
-import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
-
+import collection.mutable.{ HashMap, MultiMap, Set }
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBUtils._
 

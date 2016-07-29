@@ -24,7 +24,7 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
       loadFromKBDir(imkb, kbFilename, namespace)     // load new in-memory KB
     // imkb.imkb.foreach { case (k, entries) =>   // for DEBUGGING
     //   entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING
-    return imkb
+    imkb
   }
 
   /** Additional factory method to workaround option. */
@@ -76,7 +76,7 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
   /** Check for required fields in one row of a TSV input file. */
   private def tsvValidateFields (fields:Seq[String]): Boolean = {
-    ((fields.size >= 2) && fields(0).nonEmpty && fields(1).nonEmpty)
+    (fields.size >= 2) && fields(0).nonEmpty && fields(1).nonEmpty
   }
 
 }

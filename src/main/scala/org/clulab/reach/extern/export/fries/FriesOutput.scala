@@ -326,7 +326,7 @@ class FriesOutput extends JsonOutputter {
       }
     }
 
-    return (contextId, contextFrame)
+    (contextId, contextFrame)
   }
 
   private def lookupMentionId (mention: Mention,
@@ -709,7 +709,7 @@ class FriesOutput extends JsonOutputter {
 
       val foundBy = links.head.foundBy  // get foundBy from arbitrary element
       links.head match {
-        case Equivalence(mention1, m2, foundBy) =>
+        case Equivalence(_, m2, _) =>
           val args: ListBuffer[PropMap] = new ListBuffer()
           args += mkLinkArgumentFrame(fromId, "from") // add FROM as argument zero
           args ++= links.zipWithIndex.flatMap { case(link:Equivalence, ndx:Int) =>

@@ -6,9 +6,9 @@ import org.clulab.processors.corenlp.CoreNLPProcessor
 import org.clulab.reach._
 import org.clulab.reach.brat.Brat
 import org.clulab.reach.apis.open.OpenSystem
-
 import scala.collection.JavaConverters._
 import scala.util.{Failure, Success, Try}
+
 
 object Ruler {
 

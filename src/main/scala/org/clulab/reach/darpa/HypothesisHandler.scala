@@ -4,6 +4,7 @@ import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.struct.{DirectedGraph, Interval}
 
+
 object HypothesisHandler {
 
   def detectHypotheses(mentions: Seq[Mention], state:State): Seq[Mention] = {

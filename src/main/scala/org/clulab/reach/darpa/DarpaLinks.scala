@@ -7,6 +7,7 @@ import org.clulab.reach.ReachConstants._
 import org.clulab.reach.mentions._
 import org.clulab.reach.utils.DependencyUtils._
 
+
 class DarpaLinks extends Links {
 
   val debug: Boolean = false
