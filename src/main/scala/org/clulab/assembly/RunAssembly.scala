@@ -107,9 +107,9 @@ object RunAnnotationEval extends App {
         am.trackMentions(Seq(e1, e2))
         val goldRel = anno.relation match {
           case "E1 precedes E2" =>
-            Seq(PrecedenceRelation(am.getEER(e1).equivalenceHash, am.getEER(e2).equivalenceHash, Set.empty[Mention], "gold"))
+            Seq(PrecedenceRelation(am.getEER(e1), am.getEER(e2), Set.empty[Mention], "gold"))
           case "E2 precedes E1" =>
-            Seq(PrecedenceRelation(am.getEER(e2).equivalenceHash, am.getEER(e1).equivalenceHash, Set.empty[Mention], "gold"))
+            Seq(PrecedenceRelation(am.getEER(e2), am.getEER(e1), Set.empty[Mention], "gold"))
           case _ => Nil
         }
         (goldRel, Seq(e1, e2))

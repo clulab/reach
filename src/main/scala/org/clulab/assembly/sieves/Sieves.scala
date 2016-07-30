@@ -5,6 +5,7 @@ import org.clulab.assembly.AssemblyManager
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.odin._
 import org.clulab.reach.RuleReader
+
 import scala.annotation.tailrec
 
 
@@ -185,7 +186,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
-          manager.storePrecedenceRelation(e1, e2, Set(evidence), name)
+          manager.storePrecedenceRelation(before = e1, after = e2, Set[Mention](evidence), name)
         case "after" =>
           // create evidence mention
           val evidence = new RelationMention(
@@ -203,7 +204,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
-          manager.storePrecedenceRelation(e2, e1, Set(evidence), name)
+          manager.storePrecedenceRelation(before = e2, after = e1, Set[Mention](evidence), name)
         case _ => ()
       }
     }
