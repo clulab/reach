@@ -29,6 +29,9 @@ class DeduplicationSieves extends Sieves {
     am.trackMentions(mentions)
     am
   }
+
+  // TODO: add approximate deduplication sieve
+  def approximateDeduplication(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 }
 
 /**
@@ -287,6 +290,22 @@ class PrecedenceSieves extends Sieves {
     }
     manager
   }
+
+  // TODO: (selectively?) establish causal predecessors between controller and controlled of regulations
+  // ex. A is required for B
+  def regulationsToCausalPredecessors(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Propagate input features from causal predecessors
+  // Extend ParticipantFeatureTracker.getInputFeatures to handle events
+  //   - right now it assumes things are flattened
+  def propagateInputFeatures(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Keep only the "most complete" input features (ex Phos vs. Phos @ B)
+  def keepMostCompleteInputFeatures(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Write sieve to extend causal predecessors to equivalent EERs
+  // Could be selective via voting, textual proximity, etc.
+  def extendPredecessorsToEquivalentEERs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 }
 
 
