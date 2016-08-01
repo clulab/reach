@@ -21,11 +21,10 @@ class Assembler(mns: Seq[Mention]) {
     val links = for {
       m <- mentions
       eer = am.getEER(m)
-      eh = eer.equivalenceHash
-      pr <- am.getPrecedenceRelations(eh)
+      pr <- am.getPrecedenceRelationsFor(eer)
       after = pr.after
       // current mention should be the successor
-      if after == eh
+      if after.equivalenceHash == eer.equivalenceHash
       e <- pr.evidence
       // only consider links with well-formed evidence
       if e.arguments.contains("before") && e.arguments.contains("after")

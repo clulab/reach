@@ -9,7 +9,7 @@ import org.scalatest.{Matchers, FlatSpec}
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
   * User: mihais
   * Date: 12/4/15
-  * Last Modified: Change test input directory.
+  * Last Modified: GHP rewrite for consolidated ReachCLI, cleanups, and changed config file.
   */
 class TestReachCLI extends FlatSpec with Matchers {
   val nxmlDir = new File("src/test/resources/inputs/test-nxml")
@@ -52,7 +52,7 @@ class TestReachCLI extends FlatSpec with Matchers {
   }
 
   it should "output FRIES correctly on NXML papers with Assembly" in {
-    println(s"Will output FRIES output in directory ${friesWithAssemblyDir.getAbsolutePath}")
+    println(s"Will output FRIES with Assembly output in directory ${friesWithAssemblyDir.getAbsolutePath}")
     val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesWithAssemblyDir, outputFormat = "fries", logFile = friesWithAssemblyLogFile, verbose = false)
     val errorCount = cli.processPapers(threadLimit = None, withAssembly = true)
     if(errorCount > 0) dumpLog(friesWithAssemblyLogFile)

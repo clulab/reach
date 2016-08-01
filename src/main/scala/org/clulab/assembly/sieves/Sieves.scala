@@ -5,6 +5,7 @@ import org.clulab.assembly.AssemblyManager
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.odin._
 import org.clulab.reach.RuleReader
+
 import scala.annotation.tailrec
 
 
@@ -28,6 +29,9 @@ class DeduplicationSieves extends Sieves {
     am.trackMentions(mentions)
     am
   }
+
+  // TODO: add approximate deduplication sieve
+  def approximateDeduplication(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 }
 
 /**
@@ -185,7 +189,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
-          manager.storePrecedenceRelation(e1, e2, Set(evidence), name)
+          manager.storePrecedenceRelation(before = e1, after = e2, Set[Mention](evidence), name)
         case "after" =>
           // create evidence mention
           val evidence = new RelationMention(
@@ -203,7 +207,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
-          manager.storePrecedenceRelation(e2, e1, Set(evidence), name)
+          manager.storePrecedenceRelation(before = e2, after = e1, Set[Mention](evidence), name)
         case _ => ()
       }
     }
@@ -286,6 +290,22 @@ class PrecedenceSieves extends Sieves {
     }
     manager
   }
+
+  // TODO: (selectively?) establish causal predecessors between controller and controlled of regulations
+  // ex. A is required for B
+  def regulationsToCausalPredecessors(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Propagate input features from causal predecessors
+  // Extend ParticipantFeatureTracker.getInputFeatures to handle events
+  //   - right now it assumes things are flattened
+  def propagateInputFeatures(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Keep only the "most complete" input features (ex Phos vs. Phos @ B)
+  def keepMostCompleteInputFeatures(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Write sieve to extend causal predecessors to equivalent EERs
+  // Could be selective via voting, textual proximity, etc.
+  def extendPredecessorsToEquivalentEERs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 }
 
 

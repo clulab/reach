@@ -45,7 +45,10 @@ class ParticipantFeatureTracker(am: AssemblyManager) {
     unseenPredecessors.flatten ++ seen
   }
 
-  private def getPredecessors(m: Mention): Set[EER] = getPredecessors(manager.getEER(m))
+  private def getPredecessors(m: Mention): Set[EER] = {
+    val eer = manager.getEER(m)
+    getPredecessors(eer) - eer
+  }
 
   final def getInputFeatures(m: Mention, parent: Mention): Set[representations.PTM] = m match {
     // we only retrieve PTMs from an entity that is not a complex
@@ -53,7 +56,7 @@ class ParticipantFeatureTracker(am: AssemblyManager) {
       // can only retrieve features on an entity that is not a complex
       // TODO: should this be changed to get or create?
       // TODO: Check that an SimpleEntity with a PTM would be equivalent to a SimpleEvent without a cause
-      manager.getEER(m) match {
+      manager.getEER(entity) match {
         case ent: SimpleEntity =>
           // Check for predecessors of parent
           val predecessors = getPredecessors(parent)
