@@ -167,6 +167,8 @@ class DarpaActions extends Actions {
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions
+    // bioprocesses can't be controllers of regulations
+    if bioprocessValid(mention)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
     //if !hasSynPathOverlap(mention)
@@ -183,6 +185,8 @@ class DarpaActions extends Actions {
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     // Prefer Activations with Events as the controller
     mention <- preferEventControllers(mentions)
+    // bioprocesses can't activate biochemical entities
+    if bioprocessValid(mention)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
     if !hasSynPathOverlap(mention)
@@ -474,6 +478,15 @@ object DarpaActions {
 
   /** Test whether the given mention has a controller argument. */
   def hasController(mention: Mention): Boolean = mention.arguments.get("controller").isDefined
+
+  def bioprocessValid(m: Mention): Boolean = {
+    (m.arguments.getOrElse("controller", Nil).map(_.label), m.arguments.getOrElse("controlled", Nil).map(_.label)) match {
+      case (irrelevant, _) if !irrelevant.exists("BioProcess" ==) => true
+      case (procController, procControlled)
+        if procController.exists("BioProcess" ==) & procControlled.exists("BioProcess" ==) => true
+      case other => false // e.g. BioProcess controller but BioChemical controlled
+    }
+  }
 
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
