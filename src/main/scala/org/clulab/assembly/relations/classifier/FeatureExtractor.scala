@@ -12,6 +12,10 @@ object FeatureExtractor {
 
   val sep = ";;;"
 
+  // limits for n-grams
+  val minN = 1
+  val maxN = 2
+
   def mkRVFDatum(e1: Mention, e2: Mention, label: String): RVFDatum[String, String] = {
     val df = new Counter[String]()
     val features = mkFeatures(e1, e2)
@@ -58,7 +62,7 @@ object FeatureExtractor {
     var features = Seq.empty[String]
     // add tokens in between the two mentions
     val intercedingTokens = tokensLinkingMentions(e1, e2)
-    features ++= addFeaturePrefix("interceding-token ngrams", ngrams(intercedingTokens, 1, 3))
+    features ++= addFeaturePrefix("interceding-token ngrams", ngrams(intercedingTokens, minN, maxN))
     features ++= Seq(s"interceding-tokens-full-span: ${intercedingTokens.mkString(" ")}")
     features
   }
@@ -216,10 +220,10 @@ object FeatureExtractor {
     // most-specific label + all labels
     coreFeatures ++= getLabelFeatures(m)
     // get tokens in mention, but replace entities with their labels (MEK -> Protein)
-    coreFeatures ++= addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3))
+    coreFeatures ++= addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, minN, maxN))
     // use normalized mention span as single feature:
     // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
-    coreFeatures ++= addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3))
+    coreFeatures ++= addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, minN, maxN))
     coreFeatures
   }
 
