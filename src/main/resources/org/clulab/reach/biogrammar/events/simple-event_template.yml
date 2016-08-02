@@ -18,7 +18,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/]
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|nn|prep_of/{,2} (>> [word=by]){,2}
     site:Site? = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
@@ -30,7 +30,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/]
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_(and|or|nor)|cc/{,2}
     site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|nn|prep_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
