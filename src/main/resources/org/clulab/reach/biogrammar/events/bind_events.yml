@@ -328,7 +328,7 @@
 
 - name: binding_token_5
   label: Binding
-  action: mkBinding
+  action: mkNaryBinding
   priority: ${ priority }
   type: token
   pattern: |

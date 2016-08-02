@@ -512,4 +512,10 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("RAS", "Binding", List("p53", "ASPP2"), mentions) should be (true)    // fails
   }
 
+  val sent55 = "Apoptosis promotes the phosphorylation of p53."
+  sent55 should "contain no regulations" in {
+    val mentions = getBioMentions(sent55)
+    hasPositiveRegulationByEntity("Apoptosis", "Phosphorylation", List("p53"), mentions) should be (false)
+  }
+
 }

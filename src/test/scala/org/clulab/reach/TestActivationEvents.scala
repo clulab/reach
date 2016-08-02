@@ -277,4 +277,14 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent35)
     hasPositiveActivation("Ras", "MKP3", mentions) should be(true)
   }
+  val sent36 = "Apoptosis activated p53."
+  sent36 should "contain no activations" in {
+    val mentions = getBioMentions(sent36)
+    hasPositiveActivation("Apoptosis", "p53", mentions) should be (false)
+  }
+  val sent37 = "Cell aging increases apoptosis"
+  sent37 should "contain 1 activation" in {
+    val mentions = getBioMentions(sent37)
+    hasPositiveActivation("Cell aging", "apoptosis", mentions) should be (true)
+  }
 }
