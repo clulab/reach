@@ -201,6 +201,16 @@ class DarpaActions extends Actions {
     if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
   } yield activation
 
+  /** For bindings that should not be split into pairs */
+  def mkNaryBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions map {
+    case m: EventMention if m matches "Binding" =>
+      // get the binding event participants
+      // note that they could be called either "theme1" or "theme2"
+      val themes = m.arguments.getOrElse("theme1", Nil) ++ m.arguments.getOrElse("theme2", Nil)
+      val arguments = Map("theme" -> themes)
+      m.copy(arguments = arguments)
+  }
+
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Binding") =>
       // themes in a subject position
