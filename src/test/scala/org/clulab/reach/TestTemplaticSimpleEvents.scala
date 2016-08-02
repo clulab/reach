@@ -576,4 +576,21 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     phosphos.foreach(phos => phos.arguments("site") should have size (1))
     phosphos.foreach(phos => phos.arguments("site").head.text should equal ("tyrosine"))
   }
+
+  val sent39 = "However, while MEK5D phosphorylated a kinase dead mutant of ERK5 (ERK5-KD) at its TEY site"
+  sent39 should "not contain a phosphorylation of MEK5D" in {
+    val mentions = getBioMentions(sent39)
+    hasEventWithArguments("Phosphorylation", Seq("MEK5D"), mentions) should be (false)
+  }
+  val sent40 = "MEK5D phosphorylated ERK5."
+  sent40 should "contain a phosphorylation of ERK5 by MEK5D" in {
+    val mentions = getBioMentions(sent40)
+    hasEventWithArguments("Phosphorylation", Seq("ERK5"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MEK5D", "Phosphorylation", Seq("ERK5"), mentions) should be (true)
+  }
+  val sent41 = "However, while MEK5D phosphorylated a kinase dead ERK5."
+  sent41 should "not contain a phosphorylation of MEK5D" in {
+    val mentions = getBioMentions(sent41)
+    hasEventWithArguments("Phosphorylation", Seq("MEK5D"), mentions) should be (false)
+  }
 }
