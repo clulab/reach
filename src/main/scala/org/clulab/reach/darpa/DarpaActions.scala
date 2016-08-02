@@ -489,11 +489,12 @@ object DarpaActions {
   /** Test whether the given mention has a controller argument. */
   def hasController(mention: Mention): Boolean = mention.arguments.get("controller").isDefined
 
+  /** Test whether the mention has a bioprocess controller and, if so, if its use is legitimate */
   def bioprocessValid(m: Mention): Boolean = {
     (m.arguments.getOrElse("controller", Nil).map(_.label), m.arguments.getOrElse("controlled", Nil).map(_.label)) match {
-      case (irrelevant, _) if !irrelevant.exists("BioProcess" ==) => true
+      case (irrelevant, _) if !irrelevant.contains("BioProcess") => true
       case (procController, procControlled)
-        if procController.exists("BioProcess" ==) & procControlled.exists("BioProcess" ==) => true
+        if procController.contains("BioProcess") & procControlled.contains("BioProcess") => true
       case other => false // e.g. BioProcess controller but BioChemical controlled
     }
   }
