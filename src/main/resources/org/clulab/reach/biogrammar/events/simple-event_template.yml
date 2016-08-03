@@ -36,7 +36,7 @@
     theme:BioChemicalEntity = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
 
 
-- name: ${ eventName }_syntax_2_verb
+- name: ${ eventName }_syntax_2a_verb
   priority: ${ priority }
   example: "Human deoxycytidine kinase is ${ verbalTriggerLemma }d by ASPP2 on serine 128. The BRCT1 domain of XRCC1 is ${ verbalTriggerLemma }d in vitro by DNA-PK. ... reveals that XRCC1 is ${ verbalTriggerLemma }d by the co-immunoprecipitated DNA-PK"
   label: ${ label }
@@ -44,7 +44,19 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = (agent|prep_by) (vmod dobj)? /conj_(and|or|nor)|nn|cc|prep_of/{,2}
-    theme:BioChemicalEntity = (>nsubjpass prep_of?|<vmod) /conj_(and|or|nor)|nn|cc/{,2}
+    theme:BioChemicalEntity = >nsubjpass prep_of? /conj_(and|or|nor)|nn|cc/{,2}
+    site:Site? = (agent|prep_by /conj_(and|or|nor)|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/{1,2}
+
+
+- name: ${ eventName }_syntax_2b_verb
+  priority: ${ priority }
+  example: "Human deoxycytidine kinase is ${ verbalTriggerLemma }d by ASPP2 on serine 128. The BRCT1 domain of XRCC1 is ${ verbalTriggerLemma }d in vitro by DNA-PK. ... reveals that XRCC1 is ${ verbalTriggerLemma }d by the co-immunoprecipitated DNA-PK"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
+    cause:BioChemicalEntity = (agent|prep_by) (vmod dobj)? /conj_(and|or|nor)|nn|cc|prep_of/{,2}
+    theme:BioChemicalEntity = <vmod /conj_(and|or|nor)|nn|cc/{,2}
     site:Site? = (agent|prep_by /conj_(and|or|nor)|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/{1,2}
 
 
@@ -413,7 +425,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag="VBN" & !mention=ModificationTrigger]) (by @cause:BioChemicalEntity)? (/^(on|at)$/ @site:Site)?
+    @theme:BioChemicalEntity (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag="VBN" & !mention=ModificationTrigger]) (by @cause:BioChemicalEntity)? (/^(on|at)$/ @site:Site)? (?! [tag="DT" | mention="BioEntity"])
 
 
 - name: ${ eventName }_token_5_verb

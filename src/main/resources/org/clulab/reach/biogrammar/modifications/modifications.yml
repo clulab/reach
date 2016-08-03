@@ -16,7 +16,7 @@ rules:
   action: mkBioMention
   pattern: |
     # note the use of nested lookaheads, muahaha!
-    [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
+    [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent|vmod|nsubj/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
 
 - name: modification_trigger_2
   label: ModificationTrigger
