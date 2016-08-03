@@ -99,7 +99,7 @@ class TestOutputDegrader extends FlatSpec with Matchers {
     posActs.head.arguments("controller") should have size 1
     val controller = posActs.head.arguments("controller").head
     // should've been converted to a Complex
-    controller.label should be "Complex"
+    controller.label should equal ("Complex")
     // only the arg "theme"
     controller.arguments should contain key "theme"
     controller.arguments.keySet should have size 1
@@ -116,20 +116,20 @@ class TestOutputDegrader extends FlatSpec with Matchers {
     posActs.head.arguments("controller") should have size 1
     val controller = posActs.head.arguments("controller").head
     // should've been converted to a Complex
-    controller.label should be "Complex"
+    controller.label should equal ("Complex")
     // only the arg "theme"
     controller.arguments should contain key "theme"
     controller.arguments.keySet should have size 1
     // there should be 3 themes
-    controller.arguments("theme") should have size 3
+    controller.arguments("theme") should have size 2
   }
 
   // No conversion should happen here
   val sent8 = "The Mek-Ras-Akt1 complex is not well-studied"
   sent8 should "contain a BINDING" in {
     val mentions = getFlattenedBioMentionsFromText(sent8)
-    mentions.count(_ matches "Event") should have size 1
+    mentions.count(_ matches "Event") should be (1)
     // binding should NOT have been converted to a Complex
-    mentions.count(_ matches "Binding") should have size 1
+    mentions.count(_ matches "Binding") should be (1)
   }
 }
