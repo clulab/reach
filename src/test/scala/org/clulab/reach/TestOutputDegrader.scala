@@ -90,5 +90,46 @@ class TestOutputDegrader extends FlatSpec with Matchers {
     mentions.count(_ matches "Positve_activation") should be (0)
   }
 
-  // TODO: Add more tests to check the flattening of nested events
+  // Test Binding -> Complex conversion for controllers of activations
+  val sent6 = "The Mek-Ras-Akt1 complex activates ASPP1"
+  sent6 should "contain 1 Positive Activation with a COMPLEX as its controller" in {
+    val mentions = getFlattenedBioMentionsFromText(sent6)
+    val posActs = mentions.filter(_ matches "Positive_activation")
+    posActs.length should be (1)
+    posActs.head.arguments("controller") should have size 1
+    val controller = posActs.head.arguments("controller").head
+    // should've been converted to a Complex
+    controller.label should equal ("Complex")
+    // only the arg "theme"
+    controller.arguments should contain key "theme"
+    controller.arguments.keySet should have size 1
+    // there should be 3 themes
+    controller.arguments("theme") should have size 3
+  }
+
+  // Test Binding -> Complex conversion for controllers of activations
+  val sent7 = "the binding of MEK and RAS activates ASPP1"
+  sent7 should "contain 1 Positive Activation with a COMPLEX as its controller" in {
+    val mentions = getFlattenedBioMentionsFromText(sent7)
+    val posActs = mentions.filter(_ matches "Positive_activation")
+    posActs.length should be (1)
+    posActs.head.arguments("controller") should have size 1
+    val controller = posActs.head.arguments("controller").head
+    // should've been converted to a Complex
+    controller.label should equal ("Complex")
+    // only the arg "theme"
+    controller.arguments should contain key "theme"
+    controller.arguments.keySet should have size 1
+    // there should be 3 themes
+    controller.arguments("theme") should have size 2
+  }
+
+  // No conversion should happen here
+  val sent8 = "The Mek-Ras-Akt1 complex is not well-studied"
+  sent8 should "contain a BINDING" in {
+    val mentions = getFlattenedBioMentionsFromText(sent8)
+    mentions.count(_ matches "Event") should be (1)
+    // binding should NOT have been converted to a Complex
+    mentions.count(_ matches "Binding") should be (1)
+  }
 }
