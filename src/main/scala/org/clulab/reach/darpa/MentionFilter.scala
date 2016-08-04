@@ -167,6 +167,8 @@ object MentionFilter {
       }
       val highestOrder = for {
         r <- highestOrderControlled.flatten
+        // ensure there is a controller
+        if r.arguments.keySet contains "controller"
       } yield {
         val isRedundant = regulations.filter(_.arguments.get("controller").isDefined).exists{ m =>
           val mctrlr = m.arguments("controller").head
