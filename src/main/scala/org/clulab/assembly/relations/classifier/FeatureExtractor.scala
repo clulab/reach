@@ -31,7 +31,8 @@ object FeatureExtractor {
 
   /**
    * Takes Event 1 and Event 2 and produces features
-   * @param e1 Event 1 (mention)
+    *
+    * @param e1 Event 1 (mention)
    * @param e2 Event 1 (mention)
    * @return
    */
@@ -109,7 +110,8 @@ object FeatureExtractor {
 
   /**
    * Generate variations of trigger -> arg syntactic paths
-   * @param m
+    *
+    * @param m
    * @return
    */
   def getTriggerArgPaths(m: Mention): Seq[String] = {
@@ -197,7 +199,8 @@ object FeatureExtractor {
 
   /**
    * Features used to represent all mentions
-   * @param support a sequence of related mentions used to find shared arguments
+    *
+    * @param support a sequence of related mentions used to find shared arguments
    */
   def mkBasicFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
     // use resolved form
@@ -330,7 +333,8 @@ object FeatureExtractor {
    * Replaces entities in a mention with their label <br>
    * Array(the, Ras, protein, phosphorylates, Mek-32, at, 123) => <br>
    * Vector(FAMILY, protein, phosphorylates, GENE_OR_GENE_PRODUCT)
-   * @param support a sequence of related mentions used to find shared arguments
+    *
+    * @param support a sequence of related mentions used to find shared arguments
    */
   def replaceEntitiesWithLabel(e1: Mention, support: Seq[Mention]): Seq[String] = {
 
@@ -462,24 +466,35 @@ object FeatureExtractor {
   }
 
   /** find paths from sentence root to mention's trigger */
-  def getRootPaths(m: Mention): Seq[String] = {
+  def getRootPaths(m: Mention): Seq[String] = m.sentenceObj.dependencies match {
+    // no dependencies
+    case None => Nil
     // find root
-    val root = m.sentenceObj.dependencies.get.roots.head
-    val rootMention = new TextBoundMention(
-      label = "ROOT",
-      tokenInterval = Interval(root, root + 1),
-      sentence = m.sentence,
-      document = m.document,
-      keep = true,
-      foundBy = "getRootPath"
-    )
+    case Some(deps) => deps match {
+      // rare, but apparently possible
+      case noRoots if noRoots.roots.isEmpty => Nil
+      // at least one root
+      case hasRoots if deps.roots.nonEmpty =>
 
-    val trigger = SieveUtils.findTrigger(m)
+        val trigger = SieveUtils.findTrigger(m)
 
-    for {
-      p <- getShortestPaths(rootMention, trigger)
-      path = (Seq("ROOT") :+ p).mkString(" ")
-    } yield path
+        val rootMentions = for {
+          root <- hasRoots.roots
+        } yield new TextBoundMention(
+          label = "ROOT",
+          tokenInterval = Interval(root, root + 1),
+          sentence = m.sentence,
+          document = m.document,
+          keep = true,
+          foundBy = "getRootPath"
+        )
+        // find paths connecting each root to the trigger
+        for {
+          rootMention <- rootMentions.toSeq
+          p <- getShortestPaths(rootMention, trigger)
+          path = (Seq("ROOT") :+ p).mkString(" ")
+        } yield path
+    }
   }
 
   /** get token indices of shortest path between two mentions */
