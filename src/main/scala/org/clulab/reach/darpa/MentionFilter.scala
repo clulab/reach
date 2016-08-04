@@ -147,6 +147,8 @@ object MentionFilter {
     }
 
     def preferRegulations(regulations: Seq[BioMention]): Seq[CorefMention] = {
+      // the purpose of this method *seems* to be to filter out duplicates. Is that the case?
+      // we can do that pretty easily in assembly...maybe this could be retired/rewritten?
       val highestOrderControlled = for {
         r <- regulations.map(_.toCorefMention)
       } yield {
@@ -155,6 +157,8 @@ object MentionFilter {
           ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
             (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
             m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)) &&
+            // ensure both mentions have a controller
+            m.arguments.get("controller").isDefined && r.arguments.get("controller").isDefined &&
             m.arguments("controller") == r.arguments("controller") &&
             mctrld.matches("Regulation") &&
             mctrld.arguments("controlled") == r.arguments("controlled")
