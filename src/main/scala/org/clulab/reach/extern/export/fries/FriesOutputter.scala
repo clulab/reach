@@ -12,6 +12,7 @@ import org.clulab.processors.Document
 import org.clulab.reach.context._
 import org.clulab.reach.display._
 import org.clulab.reach.extern.export._
+import org.clulab.reach.extern.export.MentionManager._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import JsonOutputter._
@@ -24,7 +25,7 @@ import scala.collection.mutable.ListBuffer
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Revamp event argument processing. Continue cleaning.
+  *   Last Modified: Revamp make argument method. More cleanups.
   */
 class FriesOutputter extends JsonOutputter {
 
@@ -43,8 +44,6 @@ class FriesOutputter extends JsonOutputter {
 
   // incrementing ID for numbering links
   protected val linkIdCntr = new IncrementingId()
-
-  var currEvent = ""
 
   // map incoming Reach context type names to FRIES-spec context type names
   val contextNameMap = Map (
@@ -274,7 +273,7 @@ class FriesOutputter extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    val eventMentions = mentions.filter(MentionManager.isEventMention) // only process events
+    val eventMentions = mentions.filter(isEventMention) // only process events
     for (mention <- eventMentions) {
       val passage = getPassageForMention(passageMap, mention)
       frames ++= makeEventMention(paperId, passage, mention.toBioMention, entityMap,
@@ -349,78 +348,62 @@ class FriesOutputter extends JsonOutputter {
   private def makeArgument (name: String,
                             arg: Mention,
                             argIndex: Int,
+                            parent: Mention,
                             entityMap: IDed,
                             eventMap: IDed,
                             argFeatures:Option[RoleWithFeatures] = None): PropMap = {
-    val m = new PropMap
-    m("object-type") = "argument"
-    m("type") = prettifyLabel(name)
+    val pm = new PropMap
+    pm("object-type") = "argument"
+    pm("type") = prettifyLabel(name)
     val argType = mkArgType(arg)
-    m("argument-type") = argType
-    m("index") = argIndex
-    m("text") = arg.text
+    pm("argument-type") = argType
+    pm("index") = argIndex
+    pm("text") = arg.text
 
     argType match {
-      case "complex" =>
-        // this is a complex: print the participants
-        assert(MentionManager.isRelationMention(arg),
-          "Complex 'arg' is not an instance of RelationMention")
+
+      case "complex" =>                     // a Protein Complex: print the participants
+        if (!isRelationMention(arg))
+          throw new RuntimeException(s"Complex argument [${arg.text}] is not an instance of RelationMention")
         val participants = new PropMap
-        val complexParticipants = arg.asInstanceOf[RelationMention].arguments
-        for (key <- complexParticipants.keySet) {
-          // FIXME: resolve each participant.  Should this be done elsewhere?
-          val ms: Seq[Mention] = complexParticipants.get(key).get.map(m => m.antecedentOrElse(m))
-          for ((p, i) <- ms.zipWithIndex) {
-            assert(p.isInstanceOf[TextBoundMention], s"complex participant is not an instance of TextBoundMention: ${p}")
-            if (!entityMap.contains(p)) {
-              throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
-            }
+        val complexArgs = arg.asInstanceOf[RelationMention].arguments
+        for (key <- complexArgs.keys.toList.sorted) {
+          val argSeq = complexArgs.get(key).get
+          for ((p, i) <- argSeq.zipWithIndex) {
+            if (!isTextBoundMention(p))
+              throw new RuntimeException(s"Complex participant [${p}] is not an instance of TextBoundMention")
+            if (!entityMap.contains(p))
+              throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$parent.text] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
+            // participant checks have passed
             participants(s"$key${i + 1}") = entityMap.get(p).get
           }
         }
-        m("args") = participants
+        pm("args") = participants
 
-      case "entity" =>
-        // this is an entity: fetch its id from the entity map
+      case "entity" =>                      // an Entity: fetch its ID from the entity map
         if (!entityMap.contains(arg)) {
-          /*
-          println("Document:")
-          for (i <- arg.document.sentences.indices) {
-            println(s"Sentence #$i: ${arg.document.sentences(i).words.mkString(" ")}")
-          }
-          println("entityMap:")
-          for (e <- entityMap.keySet) {
-            println(s"\t${e.text} with labels ${e.labels.mkString(", ")}")
-          }
-          */
-          throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$currEvent] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
+          throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}]] not in entityMap \nin event [$parent.text] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
         }
-        m("arg") = entityMap.get(arg).get
+        pm("arg") = entityMap.get(arg).get
 
         // output any participant features associated with this entity by assembly:
         if (argFeatures.isDefined) {
           val features = makeParticipantFeatures(argFeatures.get)
           if (features.nonEmpty)
-            m("participant-features") = features
+            pm("participant-features") = features
         }
 
-      case "event" =>
-        // this is an event, which we MUST have seen before
-        // if (!eventMap.contains(arg)) {
-        //   println("CANNOT FIND ARG: " + arg + " with HASH CODE: " + arg.hashCode())
-        //   displayMention(arg)
-        // }
+      case "event" =>                       // an Event: fetch its ID from the event map
         if (!eventMap.contains(arg)) {
-          val msg = s"$arg with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap"
-          throw new Exception(msg)
+          throw new RuntimeException(s"Event argument [${arg}] with labels (${arg.labels}) found by ${arg.foundBy} is missing from the eventMap")
         }
-        m("arg") = eventMap.get(arg).get
+        pm("arg") = eventMap.get(arg).get
 
+      // default: should never happen!
       case _ =>
-        // we should never be here!
-        throw new RuntimeException("ERROR: unknown event type: " + arg.labels)
+        throw new RuntimeException("ERROR: unknown argument type in makeArgument: " + arg.labels)
     }
-    m
+    pm
   }
 
 
@@ -440,13 +423,13 @@ class FriesOutputter extends JsonOutputter {
 
   /** Create and return a new map containing the context facets from the given context info. */
   private def makeContextFacets (context: ContextMap): PropMap = {
-    val m = new PropMap
-    m("object-type") = "facet-set"
+    val pm = new PropMap
+    pm("object-type") = "facet-set"
     context.foreach { case(k, v) =>
       val friesFacetName = contextNameMap.getOrElse(k, k)
-      m(friesFacetName) = v
+      pm(friesFacetName) = v
     }
-    m
+    pm
   }
 
 
@@ -543,8 +526,7 @@ class FriesOutputter extends JsonOutputter {
         f("modifications") = ms
     }
 
-    // TODO (optional): add "index", i.e., the sentence-local number for this mention
-    //                  from this component.
+    // OPTIONAL TODO: add "index": the sentence-local number for this mention from this component.
 
     // handle context features:
     val (contextId, contextFrame) = lookupContext(paperId, passageMeta, mention, contextIdMap)
@@ -570,8 +552,6 @@ class FriesOutputter extends JsonOutputter {
                                 eventMap: IDed,
                                 contextIdMap: CtxIDed,
                                 assemblyApi: Option[Assembler] = None): List[PropMap] = {
-    currEvent = mention.text
-
     val f = startFrame()
     f("frame-type") = "event-mention"
     f("frame-id") = getUniqueId(eventMap, mention)
@@ -596,7 +576,7 @@ class FriesOutputter extends JsonOutputter {
 
     // process the arguments if present:
     var arguments: Option[Map[String, Seq[Mention]]] =
-      if (MentionManager.isEventMention(mention)) Some(mention.arguments) else None
+      if (isEventMention(mention)) Some(mention.arguments) else None
 
     if (arguments.isDefined) {
       val argList = new FrameList
@@ -606,7 +586,7 @@ class FriesOutputter extends JsonOutputter {
           for (i <- argSeq.indices) {
             val ithArg = argSeq(i)
             val argFeatures = inputFeatures.flatMap(_.get(ithArg))
-            argList += makeArgument(key, ithArg, i, entityMap, eventMap, argFeatures)
+            argList += makeArgument(key, ithArg, i, mention, entityMap, eventMap, argFeatures)
           }
         }
       }
@@ -614,9 +594,9 @@ class FriesOutputter extends JsonOutputter {
     }
 
     // event modifications
-    if (MentionManager.isNegated(mention))
+    if (isNegated(mention))
       f("is-negated") = true
-    if (MentionManager.isHypothesized(mention))
+    if (isHypothesized(mention))
       f("is-hypothesis") = true
 
     // OPTIONAL TODO: add "index": the sentence-local number for this mention from this component.
@@ -638,24 +618,24 @@ class FriesOutputter extends JsonOutputter {
 
   /** Create and return a single grounding map. */
   private def makeGrounding (grounding:KBResolution): PropMap = {
-    val m = new PropMap
-    m("object-type") = "db-reference"
-    m("namespace") = grounding.namespace
-    m("id") = grounding.id
-    m
+    val pm = new PropMap
+    pm("object-type") = "db-reference"
+    pm("namespace") = grounding.namespace
+    pm("id") = grounding.id
+    pm
   }
 
   /** Create and return a single assembly link argument map. */
   private def makeLinkArgumentFrame (arg: String,
                                      argType: String,
                                      index: Option[Integer] = None): PropMap = {
-    val m = new PropMap
-    m("object-type") = "argument"
-    m("type") = argType
-    m("arg") = arg
+    val pm = new PropMap
+    pm("object-type") = "argument"
+    pm("type") = argType
+    pm("arg") = arg
     if (index.isDefined)
-      m("index") = index.get
-    m
+      pm("index") = index.get
+    pm
   }
 
   /** Create and return a new binary Link frame. */
@@ -744,11 +724,11 @@ class FriesOutputter extends JsonOutputter {
 
   /** Create and return a single mutant modification map. */
   private def makeMutant (mutant: Mutant): PropMap = {
-    val m = new PropMap
-    m("object-type") = "modification"
-    m("type") = "mutation"
-    m("evidence") = mutant.evidence.text
-    m
+    val pm = new PropMap
+    pm("object-type") = "modification"
+    pm("type") = "mutation"
+    pm("evidence") = mutant.evidence.text
+    pm
   }
 
 
@@ -759,13 +739,13 @@ class FriesOutputter extends JsonOutputter {
 
   /** Return a participant feature map for the given modification object. */
   private def makeParticipantFeature (ptm: AssemblyPTM): PropMap = {
-    val m = new PropMap
-    m("object-type") = "feature"
-    m("type") = ptm.label
-    m("negated") = ptm.negated
+    val pm = new PropMap
+    pm("object-type") = "feature"
+    pm("type") = ptm.label
+    pm("negated") = ptm.negated
     if (ptm.site.isDefined)
-      m("site") = ptm.site.get
-    m
+      pm("site") = ptm.site.get
+    pm
   }
 
 
@@ -788,25 +768,25 @@ class FriesOutputter extends JsonOutputter {
 
   /** Create and return a single PTM modification map. */
   private def makePTM (ptm: PTM): PropMap = {
-    val m = new PropMap
-    m("object-type") = "modification"
-    m("type") = ptm.label
-    m("negated") = ptm.negated
+    val pm = new PropMap
+    pm("object-type") = "modification"
+    pm("type") = ptm.label
+    pm("negated") = ptm.negated
     if (ptm.site.isDefined) {
-      m("site") = ptm.site.get.text
+      pm("site") = ptm.site.get.text
     }
-    m
+    pm
   }
 
   /** Create and return a single relative position map. */
   private def makeRelativePosition (paperId: String,
                                   passageMeta: FriesEntry,
                                   characterOffset: Int): PropMap = {
-    val pos = new PropMap
-    pos("object-type") = "relative-pos"
-    pos("reference") = mkPassageId(paperId, passageMeta)
-    pos("offset") = characterOffset
-    pos
+    val pm = new PropMap
+    pm("object-type") = "relative-pos"
+    pm("reference") = mkPassageId(paperId, passageMeta)
+    pm("offset") = characterOffset
+    pm
   }
 
   /** Create and return a sentence frame. */
@@ -819,8 +799,8 @@ class FriesOutputter extends JsonOutputter {
     f("frame-type") = "sentence"
     f("frame-id") = mkSentenceId(paperId, passageMeta, offset)
     f("passage") = mkPassageId(paperId, passageMeta)
-    f("start-pos") = makeRelativePosition(paperId, passageMeta, MentionManager.sentenceStartCharacterOffset(passageDoc, offset))
-    f("end-pos") = makeRelativePosition(paperId, passageMeta, MentionManager.sentenceEndCharacterOffset(passageDoc, offset))
+    f("start-pos") = makeRelativePosition(paperId, passageMeta, sentenceStartCharacterOffset(passageDoc, offset))
+    f("end-pos") = makeRelativePosition(paperId, passageMeta, sentenceEndCharacterOffset(passageDoc, offset))
     f("text") = passageDoc.sentences(offset).getSentenceText
     f
   }

@@ -12,7 +12,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines methods used to manipulate, cache, and output Mentions.
   *   Written by Tom Hicks. 4/3/2015.
-  *   Last Modified: Add test for relation mention.
+  *   Last Modified: Add test for text bound mention.
   */
 class MentionManager {
 
@@ -262,6 +262,7 @@ object MentionManager {
 
   def isRelationMention (mention:Mention): Boolean = mention.isInstanceOf[RelationMention]
 
+  def isTextBoundMention (mention:Mention): Boolean = mention.isInstanceOf[TextBoundMention]
 
   def isEventSite (mention:BioMention): Boolean =
     mention.modifications.exists(mod => mod.isInstanceOf[EventSite])
