@@ -60,7 +60,7 @@ class ReachCLI(val nxmlDir:File,
       // Process individual sections and collect all mentions
       val docWithMentions = try {
         // FIXME: I had to preprocess the text before building the Tree
-        val preProcessedText = io.Source.fromFile(file).getLines.mkString("\n")
+        val preProcessedText = reach.processor.preprocessText(io.Source.fromFile(file).getLines.mkString("\n"))
         val nxmlDoc = nxmlReader.parse(preProcessedText)
         // ENRIQUE: I need access to the processors document
         val processorsDoc = reach.mkDoc(nxmlDoc.text, nxmlDoc.pmc, nxmlDoc.standoff.hashCode.toString)
