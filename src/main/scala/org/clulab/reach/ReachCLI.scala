@@ -23,6 +23,7 @@ import org.clulab.reach.extern.export.context.IntervalOutput
 import org.clulab.reach.context.rulebased._
 import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
 import ai.lum.nxmlreader.standoff.{ Tree => NxmlStandoff }
+import ai.lum.common.Interval
 
 class ReachCLI(val nxmlDir:File,
                val outputDir:File,
@@ -58,7 +59,9 @@ class ReachCLI(val nxmlDir:File,
 
       // Process individual sections and collect all mentions
       val docWithMentions = try {
-        val nxmlDoc = nxmlReader.read(file)
+        // FIXME: I had to preprocess the text before building the Tree
+        val preProcessedText = io.Source.fromFile(file).getLines.mkString("\n")
+        val nxmlDoc = nxmlReader.parse(preProcessedText)
         // ENRIQUE: I need access to the processors document
         val processorsDoc = reach.mkDoc(nxmlDoc.text, nxmlDoc.pmc, nxmlDoc.standoff.hashCode.toString)
         val mentions = reach.extractFrom(processorsDoc, Some(nxmlDoc))
@@ -119,15 +122,15 @@ class ReachCLI(val nxmlDir:File,
 
               val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
               FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
-              //
-              // val ctxSectionsFile = new File(paperDir, "sections.txt")
-              // FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
+
+              val ctxSectionsFile = new File(paperDir, "sections.txt")
+              FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
               //
               // val ctxReachEventsFile = new File(paperDir, "reach_events.txt")
               // FileUtils.writeLines(ctxReachEventsFile, outputter.eventLines.asJavaCollection)
-              //
-              // val ctxIsTitlesFile = new File(paperDir, "titles.txt")
-              // FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
+
+              val ctxIsTitlesFile = new File(paperDir, "titles.txt")
+              FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
               //
               // val ctxCitationsFile = new File(paperDir, "citations.txt")
               // FileUtils.writeLines(ctxCitationsFile, outputter.citationLines.asJavaCollection)

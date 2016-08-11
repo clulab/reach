@@ -1,6 +1,6 @@
 package org.clulab.reach.extern.export.context
 
-import org.clulab.processors.Document
+import org.clulab.processors.{Document, Sentence}
 import org.clulab.reach.context.ContextEngine
 import scala.collection.mutable
 import scala.collection.mutable.SortedSet
@@ -8,6 +8,8 @@ import org.clulab.odin._
 import org.clulab.reach.context.ContextEngine.contextMatching
 import org.clulab.reach.mentions._
 import ai.lum.nxmlreader.NxmlDocument
+import ai.lum.nxmlreader.standoff.Tree
+import ai.lum.common.Interval
 
 /**
   * Class to output files used by python to generate an HTML file
@@ -16,12 +18,78 @@ import ai.lum.nxmlreader.NxmlDocument
   */
 class IntervalOutput(doc:Document, nxmlDoc:NxmlDocument, mentions:Seq[Mention]){
 
-  val sentences:Seq[String] = doc.sentences.map(s => s.words.mkString(" "))
+  // Used to figure out the tags
+  def getStanoffPath(sen:Sentence, nxmlDoc:NxmlDocument) = {
+    // Build the sentence interval
+    val interval = Interval.open(sen.startOffsets(0), sen.endOffsets.last)
+    // Find the corresponding leaves
+    val standoff = nxmlDoc.standoff
+    val leaves = standoff.getTerminals.filter(i => interval.intersects(i.interval)).toSeq
+
+    leaves.flatMap(l => l.path.split(' ') ++ Seq(l.label)).toSet
+  }
+
+  def getSentenceSection(sen:Sentence, nxmlDoc:NxmlDocument):List[String] = {
+    // Build the sentence interval
+    val interval = Interval.open(sen.startOffsets(0), sen.endOffsets.last)
+    // Find the corresponding leaves
+    val standoff = nxmlDoc.standoff
+
+    def navigate(n:Tree, i:Interval, counter:Int, buff:List[String]):(Int, List[String]) ={
+      var ix = counter
+      val nBuff = if(n.label == "sec"){
+        val b = if(i.subset(n.interval)){
+          val name = if(n.attributes.contains("sec-type")) n.attributes("sec-type") else s"sec$ix"
+          name :: buff
+        }
+        else{
+          buff
+        }
+
+        ix += 1
+        b
+      }
+      else
+        buff
+
+
+      val mBuff = new mutable.ArrayBuffer[String]
+      for(child <- n.children){
+        val x = navigate(child, i, ix, Nil)
+        ix = x._1
+        mBuff ++= x._2
+      }
+
+      (ix, nBuff ++ mBuff.toList)
+    }
+
+    // See if it is in the abstract
+    val path = getStanoffPath(sen, nxmlDoc)
+
+    if(path.contains("abstract"))
+      return List("abstract")
+    else if(path.contains("article-title")){
+      return List("article-title")
+    }
+    else{
+      navigate(standoff, interval, 1, Nil)._2
+    }
+  }
+
+  val sentences:Seq[String] = doc.sentences.map(s => s.getSentenceText)
   val ctxMentions = new mutable.ArrayBuffer[String]
   val evtIntervals = new mutable.ArrayBuffer[String]
   val evtCtxIndicence = new mutable.ArrayBuffer[String]
-  // val sections:Seq[String] = docs.zip(entries).flatMap{case (d, e) => List.fill(d.sentences.size)(e.sectionName)}
-  // val titles:Seq[Boolean] = docs.zip(entries).flatMap{ case (d, e) => List.fill(d.sentences.size)(e.isTitle)}
+
+  val sections:Seq[String] = doc.sentences.map{
+    s =>
+      val secs = getSentenceSection(s, nxmlDoc)
+      secs match {
+        case head::tail => head
+        case Nil => "UNDEF"
+      }
+  }
+  val titles:Seq[Boolean] = doc.sentences.map(getStanoffPath(_, nxmlDoc)).map(s => if(s.contains("article-title") || s.contains("title")) true else false)
   val eventLines = new mutable.ArrayBuffer[String]
   // val citationLines = docs.zip(entries).flatMap{
   //   case (d, e) =>
