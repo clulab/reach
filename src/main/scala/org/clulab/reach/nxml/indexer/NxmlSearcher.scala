@@ -225,12 +225,12 @@ class NxmlSearcher(val indexDir:String) {
 
   def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String){
     val reactionTerms = resolveReaction(action).mkString(" ")
-    val pATerms = resolveParticipant(participantA)
-    val pBTerms = resolveParticipant(participantB)
+    // val pATerms = resolveParticipant(participantA)
+    // val pBTerms = resolveParticipant(participantB)
 
     val eventDocs = search(reactionTerms)
-    val pADocs = search(pATerms)
-    val pBDocs = search(pBTerms)
+    val pADocs = search(participantA)
+    val pBDocs = search(participantB)
 
     val resultSet = intersection(intersection(eventDocs, pADocs), pBDocs)
     logger.debug(s"The result contains ${resultSet.size} documents.")
@@ -261,9 +261,9 @@ class NxmlSearcher(val indexDir:String) {
 object ClusteringSearcher extends App{
   val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
 
-  val indexDir = args(1)
-  val csvFile = args(2)
-  val outputDir = args(3)
+  val indexDir = args(0)
+  val csvFile = args(1)
+  val outputDir = args(2)
 
 
   val searcher = new NxmlSearcher(indexDir)
