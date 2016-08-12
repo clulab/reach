@@ -228,7 +228,7 @@ class NxmlSearcher(val indexDir:String) {
     "MEK"
   }
 
-  def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String){
+  def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String) = {
     val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
     // val pATerms = resolveParticipant(participantA)
     // val pBTerms = resolveParticipant(participantB)
@@ -241,6 +241,9 @@ class NxmlSearcher(val indexDir:String) {
     val resultDocs = docs(resultSet)
     saveNxml(resultDir, resultDocs, 0)
     logger.debug("Done.")
+
+    // Get the PMCIDs that match with the query
+    resultDocs map { _._1.get("id") }
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -275,6 +278,7 @@ object ClusteringSearcher extends App{
 
   // Parsing the CSV file
   val lines = io.Source.fromFile(csvFile).getLines.drop(1) // Don't forget to drop the header
+  val sos = new PrintWriter(outputDir + File.separator + "hits.txt")
   for(line <- lines){
     // Parse the line
     val tokens = line.split(',')
@@ -283,8 +287,11 @@ object ClusteringSearcher extends App{
     val reaction = tokens(6)
 
     // Search lucene
-    searcher.useCaseClustering(pA, pB, reaction, outputDir)
+    val hits = searcher.useCaseClustering(pA, pB, reaction, outputDir)
+    sos.println(s"$pA $reaction $pB:\t${hits.mkString(",")}")
+
   }
+  sos.close
 }
 
 object NxmlSearcher {
