@@ -216,7 +216,12 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   val resolveReaction = Map(
-    "adds_modification_phosphorylation" -> Seq("phosphorylation", "phosphorylates")
+    "adds_modification_phosphorylation" -> Seq("phosphorylation", "phosphorylates"),
+    "increases_activity" -> Seq("activates", "activation"),
+    "decreases_activity" -> Seq("inhibits", "inhibition"),
+    "binds" -> Seq("binds", "binding"),
+    "inhibits_modification_phosphorylation" -> Seq("phosphorylation", "phosphorylates")
+
   )
 
   def resolveParticipant(term:String) = {
@@ -224,15 +229,14 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String){
-    val reactionTerms = resolveReaction(action).mkString(" ")
+    val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
     // val pATerms = resolveParticipant(participantA)
     // val pBTerms = resolveParticipant(participantB)
 
-    val eventDocs = search(reactionTerms)
-    val pADocs = search(participantA)
-    val pBDocs = search(participantB)
+    val pADocs = search("\"" + participantA + " " + reactionTerms + "\"~10")
+    val pBDocs = search("\"" + reactionTerms + " " + participantB + "\"~10")
 
-    val resultSet = intersection(intersection(eventDocs, pADocs), pBDocs)
+    val resultSet = intersection(pADocs, pBDocs)
     logger.debug(s"The result contains ${resultSet.size} documents.")
     val resultDocs = docs(resultSet)
     saveNxml(resultDir, resultDocs, 0)
@@ -271,7 +275,7 @@ object ClusteringSearcher extends App{
 
   // Parsing the CSV file
   val lines = io.Source.fromFile(csvFile).getLines.drop(1) // Don't forget to drop the header
-  for(line <- lines.take(1)){
+  for(line <- lines){
     // Parse the line
     val tokens = line.split(',')
     val pA = tokens(2)
