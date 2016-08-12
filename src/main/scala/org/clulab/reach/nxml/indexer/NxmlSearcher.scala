@@ -274,9 +274,9 @@ object ClusteringSearcher extends App{
   for(line <- lines.take(1)){
     // Parse the line
     val tokens = line.split(',')
-    val pA = tokens(1)
-    val pB = tokens(2)
-    val reaction = tokens(4)
+    val pA = tokens(2)
+    val pB = tokens(4)
+    val reaction = tokens(6)
 
     // Search lucene
     searcher.useCaseClustering(pA, pB, reaction, outputDir)
