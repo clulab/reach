@@ -11,14 +11,15 @@ import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
+import com.typesafe.scalalogging.LazyLogging
 
 
-object PaperReader {
+object PaperReader extends LazyLogging {
 
   type PaperId = String
   type Dataset = Map[PaperId, Vector[Mention]]
 
-  println("loading ...")
+  logger.debug("loading ...")
   val config = ConfigFactory.load()
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
@@ -35,7 +36,7 @@ object PaperReader {
     context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem with appropriate context engine
-  val rs = new ReachSystem(contextEngineType = contextEngineType, contextParams = contextEngineParams)
+  lazy val rs = new ReachSystem(contextEngineType = contextEngineType, contextParams = contextEngineParams)
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
@@ -50,6 +51,7 @@ object PaperReader {
    * @return a Dataset (PaperID -> Mentions)
    */
   def readPapers(dir: File): Dataset = {
+    //val _ = rs.processor.annotate("blah")
     require(dir.isDirectory, s"'${dir.getCanonicalPath}' is not a directory")
     // read papers in parallel
     val files = dir.listFiles.par
