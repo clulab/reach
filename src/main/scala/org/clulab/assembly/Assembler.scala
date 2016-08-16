@@ -1,23 +1,23 @@
 package org.clulab.assembly
 
+import java.io.File
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
+import org.clulab.assembly.sieves.{AssemblySieve, DeduplicationSieves, PrecedenceSieves}
 import org.clulab.odin.Mention
+import scala.collection.Map
 
 
 /**
   * Assembler for reach output
-  * @param mns a sequence of Odin-style Mentions
+  * @param am an AssemblyManager instance
   *   Written by: Gus Hahn-Powell. 5/9/2016.
   *   Last Modified: Add method to get input features by participants.
   */
-class Assembler(mns: Seq[Mention]) extends LazyLogging {
-  // keep only the valid mentions
-  logger.debug(s"Finding valid mentions...")
-  val mentions = mns.filter(AssemblyManager.isValidMention)
+case class Assembler(am: AssemblyManager) extends LazyLogging {
 
-  logger.debug(s"Applying sieves...")
-  val am = AssemblyRunner.applySieves(mentions)
+  def mentions = am.getMentions
+
   private val participantFeatureTracker = new ParticipantFeatureTracker(am)
 
   val causalPredecessors: Map[Mention, Set[CausalPrecedence]] = {
@@ -90,11 +90,41 @@ class Assembler(mns: Seq[Mention]) extends LazyLogging {
   def getEquivalenceLinks(m: Mention): Set[Equivalence] =
     equivalenceLinks.getOrElse(m, Set.empty[Equivalence])
 
+  //
+  // Serialization
+  //
+
+  def saveTo(f: File): Unit = saveTo(f.getAbsolutePath)
+
+  def saveTo(fileName: String): Unit = {
+    org.clulab.utils.Serializer.save[Assembler](this, fileName)
+  }
 }
 
 
 object Assembler extends LazyLogging {
 
+  def apply(mns: Seq[Mention]): Assembler = {
+    // keep only the valid mentions
+    logger.debug(s"Finding valid mentions...")
+    val mentions = mns.filter(AssemblyManager.isValidMention)
+
+    logger.debug(s"Applying sieves...")
+    val am = applySieves(mentions)
+
+    new Assembler(am)
+  }
+
+  //
+  // Serialization
+  //
+
+  def loadFrom(f: File): Assembler = loadFrom(f.getAbsolutePath)
+
+  def loadFrom(fileName: String): Assembler = {
+    org.clulab.utils.Serializer.load[Assembler](fileName)
+  }
+  
   /**
     * Applies Assembly Sieves to mentions and returns and updated AssemblyManager.
     *
