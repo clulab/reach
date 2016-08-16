@@ -11,67 +11,9 @@ import org.clulab.utils.Serializer
 import scala.reflect.io.File
 
 
-/**
-  * Utilities for running assembly sieves on a Dataset and writing their output.
-  */
-object AssemblyRunner {
-  /**
-    * Applies Assembly Sieves to mentions and returns and updated AssemblyManager.
-    *
-    * @param mentions a Seq of Odin Mentions
-    * @return an AssemblyManager
-    */
-  def applySieves(mentions: Seq[Mention]): AssemblyManager = {
-
-    val dedup = new DeduplicationSieves()
-    val precedence = new PrecedenceSieves()
-
-    val orderedSieves =
-    // track relevant mentions
-      AssemblySieve(dedup.trackMentions) andThen
-        // find precedence relations using rules
-        AssemblySieve(precedence.withinRbPrecedence) andThen
-        AssemblySieve(precedence.reichenbachPrecedence) andThen
-        AssemblySieve(precedence.betweenRbPrecedence) andThen
-        AssemblySieve(precedence.featureBasedClassifier)
-
-    // apply the sieves and return the manager
-    val am: AssemblyManager = orderedSieves.apply(mentions)
-
-    am
-  }
-
-  /**
-    * Applies each Assembly Sieve to mentions and returns and updated AssemblyManager for each.
-    *
-    * @param mentions a Seq of Odin Mentions
-    * @return an AssemblyManager
-    */
-  def applyEachSieve(mentions: Seq[Mention]): Map[String, AssemblyManager] = {
-
-    val dedup = new DeduplicationSieves()
-    val precedence = new PrecedenceSieves()
-
-    val availableSieves = Map(
-      "withinRbPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.withinRbPrecedence)),
-      "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
-      "betweenRbPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.betweenRbPrecedence))
-    )
-
-    val ams = for {
-      (lbl, s) <- availableSieves.par
-      am = s.apply(mentions)
-    } yield lbl -> am
-
-    ams.seq //++ Map("all" -> applySieves(mentions))
-  }
-}
-
 object RunAnnotationEval extends App {
 
-  import org.clulab.assembly.AssemblyRunner._
   import CorpusReader._
-  import org.clulab.reach.display._
 
   case class Performance (sieve: String, rule: String, p: Double, r: Double, f1: Double, tp: Int, fp: Int, fn: Int) {
     def mkRow = f"$sieve\t$rule\t$p%1.3f\t$r%1.3f\t$f1%1.3f\t$tp\t$fp\t$fn"
@@ -128,7 +70,7 @@ object RunAnnotationEval extends App {
   println("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
 
   for {
-    (lbl, sieveResult) <- applyEachSieve(testMentions)
+    (lbl, sieveResult) <- Assembler.applyEachSieve(testMentions)
   } {
     val predicted = sieveResult.getPrecedenceRelations
     val smoothing = 0.00001
