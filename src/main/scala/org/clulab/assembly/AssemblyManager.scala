@@ -1,5 +1,6 @@
 package org.clulab.assembly
 
+import java.io.File
 import org.clulab.assembly.representations._
 import collection.Map
 import collection.immutable
@@ -84,6 +85,11 @@ class AssemblyManager(
       .withDefaultValue(Set.empty[PrecedenceRelation])
   // initialize to size of LUT 2
   private var nextID: IDPointer = idToEER.size
+
+  /**
+    * Retrieve the set of mentions currently tracked by the manager
+    */
+  def getMentions: Set[Mention] = mentionStateToID.keys.map(_._1).toSet
 
   //
   // Handle PrecedenceRelations
@@ -1744,6 +1750,16 @@ class AssemblyManager(
   def EERintersection(eers1: Set[EER], eers2: Set[EER]): Set[EER] = {
     eers1.filter(eer => eers2.exists(_.isEquivalentTo(eer)))
   }
+
+  //
+  // Serialization methods
+  //
+
+  def saveTo(f: File): Unit = saveTo(f.getAbsolutePath)
+
+  def saveTo(fileName: String): Unit = {
+    org.clulab.utils.Serializer.save[AssemblyManager](this, fileName)
+  }
 }
 
 object AssemblyManager {
@@ -1762,6 +1778,12 @@ object AssemblyManager {
     val am = new AssemblyManager(Map.empty[MentionState, IDPointer], Map.empty[IDPointer, EER])
     am.trackMentions(mns)
     am
+  }
+
+  def loadFrom(f: File): AssemblyManager = loadFrom(f.getAbsolutePath)
+
+  def loadFrom(fileName: String): AssemblyManager = {
+    org.clulab.utils.Serializer.load[AssemblyManager](fileName)
   }
 
   /**

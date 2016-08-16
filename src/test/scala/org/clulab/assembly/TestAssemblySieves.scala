@@ -1,6 +1,6 @@
 package org.clulab.assembly
 
-import org.clulab.assembly.AssemblyRunner._
+import org.clulab.assembly.Assembler._
 import org.clulab.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
 

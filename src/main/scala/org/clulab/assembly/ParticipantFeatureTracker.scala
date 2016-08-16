@@ -1,5 +1,6 @@
 package org.clulab.assembly
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly.representations._
 import org.clulab.odin.Mention
 
@@ -13,7 +14,7 @@ import org.clulab.odin.Mention
   */
 case class RoleWithFeatures(role: String, participant: Mention, parent: Mention, features: Set[representations.PTM])
 
-class ParticipantFeatureTracker(am: AssemblyManager) {
+class ParticipantFeatureTracker(am: AssemblyManager) extends LazyLogging {
 
   private val manager = am
 
@@ -31,6 +32,22 @@ class ParticipantFeatureTracker(am: AssemblyManager) {
     case event: Event => event.O.flatMap(entity => getOutputFeatures(gid, entity))
   }
 
+  // Speed up calculation of precedence-linked input features via memoization
+  var predecessorsCache = Map[EER, Set[EER]]()
+
+  private def cache(eer: EER, seen: Set[EER]): Set[EER] = {
+    predecessorsCache.get(eer) match {
+      case Some(predecessors) =>
+        //logger.debug(s"hit predecessorsCache for $eer")
+        predecessors
+      // update if unseen
+      case None =>
+        val predecessors = getPredecessors(eer, seen)
+        predecessorsCache = predecessorsCache + (eer -> predecessors)
+        predecessors
+    }
+  }
+
   /**
     * Recursively collect the causal predecessors of an [[EER]], <br>
     * keeping track of <br> which EERs have been seen (to avoid loops).
@@ -41,7 +58,7 @@ class ParticipantFeatureTracker(am: AssemblyManager) {
     val unseenPredecessors = for {
       p <- manager.distinctPredecessorsOf(eer)
       if !(seen contains p)
-    } yield getPredecessors(p, seen ++ Set(eer))
+    } yield cache(p, seen ++ Set(eer))
     unseenPredecessors.flatten ++ seen
   }
 
