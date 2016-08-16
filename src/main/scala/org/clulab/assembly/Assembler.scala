@@ -1,6 +1,7 @@
 package org.clulab.assembly
 
-import org.clulab.assembly.export.{Equivalence, CausalPrecedence}
+import com.typesafe.scalalogging.LazyLogging
+import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
 import org.clulab.odin.Mention
 
 
@@ -10,14 +11,18 @@ import org.clulab.odin.Mention
   *   Written by: Gus Hahn-Powell. 5/9/2016.
   *   Last Modified: Add method to get input features by participants.
   */
-class Assembler(mns: Seq[Mention]) {
+class Assembler(mns: Seq[Mention]) extends LazyLogging {
   // keep only the valid mentions
+  logger.debug(s"Finding valid mentions...")
   val mentions = mns.filter(AssemblyManager.isValidMention)
-  val am = AssemblyRunner.applySieves(mentions)
 
+  logger.debug(s"Applying sieves...")
+  val am = AssemblyRunner.applySieves(mentions)
   private val participantFeatureTracker = new ParticipantFeatureTracker(am)
 
   val causalPredecessors: Map[Mention, Set[CausalPrecedence]] = {
+
+    logger.debug(s"Building Map of Causal Predecessors...")
     val links = for {
       m <- mentions
       eer = am.getEER(m)
@@ -68,6 +73,8 @@ class Assembler(mns: Seq[Mention]) {
     causalPredecessors.getOrElse(m, Set.empty[CausalPrecedence])
 
   val equivalenceLinks: Map[Mention, Set[Equivalence]] = {
+
+    logger.debug(s"Building Map of Equivalence links...")
     val links = for {
       m <- mentions
       if AssemblyManager.isValidMention(m)
