@@ -86,6 +86,11 @@ class AssemblyManager(
   // initialize to size of LUT 2
   private var nextID: IDPointer = idToEER.size
 
+  /**
+    * Retrieve the set of mentions currently tracked by the manager
+    */
+  def getMentions: Set[Mention] = mentionStateToID.keys.map(_._1).toSet
+
   //
   // Handle PrecedenceRelations
   //
