@@ -110,6 +110,8 @@ object PaperReader extends LazyLogging {
       dsvReader.toFriesEntry(dsv, sectionsToIgnore = ignoreSections.toSet)
   }
 
+  def getEntryFromPaper(fileName: String): FriesEntry = getEntryFromPaper(new File(fileName))
+
   def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = rs.extractFrom(entry).toVector
 
   def getMentionsFromPaper(file: File): Vector[Mention] = {
