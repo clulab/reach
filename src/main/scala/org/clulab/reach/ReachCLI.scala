@@ -5,6 +5,7 @@ import java.util.Date
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 import org.clulab.assembly._
 import org.clulab.assembly.export.{AssemblyExporter, Row}
@@ -28,7 +29,7 @@ class ReachCLI(
   val outputFormat: String,
   val logFile: File,
   val verbose: Boolean = false
-) {
+) extends LazyLogging {
 
   /** Process papers **/
   def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
@@ -85,7 +86,7 @@ class ReachCLI(
   }
 
 
-  def doAssembly(mns: Seq[Mention]): Assembler = new Assembler(mns)
+  def doAssembly(mns: Seq[Mention]): Assembler = Assembler(mns)
 
   def processPaper(file: File, withAssembly: Boolean): Unit = {
     val paperId = FilenameUtils.removeExtension(file.getName)
