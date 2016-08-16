@@ -1,15 +1,15 @@
 package org.clulab.assembly.sieves
 
+import com.typesafe.scalalogging.LazyLogging
 import com.typesafe.config.ConfigFactory
 import org.clulab.assembly.AssemblyManager
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.odin._
 import org.clulab.reach.RuleReader
-
 import scala.annotation.tailrec
 
 
-class Sieves {
+class Sieves extends LazyLogging {
 
 }
 
@@ -25,6 +25,7 @@ class DeduplicationSieves extends Sieves {
    * @return an AssemblyManager
    */
   def trackMentions(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+    logger.debug(s"\tapplying trackMentions sieve...")
     val am = AssemblyManager()
     am.trackMentions(mentions)
     am
@@ -51,9 +52,12 @@ class PrecedenceSieves extends Sieves {
     */
   def withinRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
+    val name = "withinRbPrecedence"
+
+    logger.debug(s"\tapplying $name sieve...")
+
     val p = "/org/clulab/assembly/grammars/precedence.yml"
 
-    val name = "withinRbPrecedence"
     // find rule-based PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
@@ -81,6 +85,12 @@ class PrecedenceSieves extends Sieves {
     * @return an AssemblyManager
     */
   def reichenbachPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "reichenbachPrecedence"
+
+    logger.debug(s"\tapplying $name sieve...")
+
+    val tam_rules = "/org/clulab/assembly/grammars/tense_aspect.yml"
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
       val relevant: Set[Mention] = tams.filter{ tam =>
@@ -134,9 +144,6 @@ class PrecedenceSieves extends Sieves {
         case _ => "none"
       }
     }
-
-    val name = "reichenbachPrecedence"
-    val tam_rules = "/org/clulab/assembly/grammars/tense_aspect.yml"
 
     // TODO: only look at events with verbal triggers
     val evs = mentions.filter(isEvent)
@@ -228,6 +235,12 @@ class PrecedenceSieves extends Sieves {
     */
   def betweenRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
+    val name = "betweenRbPrecedence"
+
+    logger.debug(s"\tapplying $name sieve...")
+
+    val p = "/org/clulab/assembly/grammars/intersentential.yml"
+
     // If the full Event is nested within another mention, pull it out
     def correctScope(m: Mention): Mention = {
       m match {
@@ -238,9 +251,6 @@ class PrecedenceSieves extends Sieves {
       }
     }
 
-    val p = "/org/clulab/assembly/grammars/intersentential.yml"
-
-    val name = "betweenRbPrecedence"
     // find rule-based inter-sentence PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
@@ -267,6 +277,9 @@ class PrecedenceSieves extends Sieves {
   def featureBasedClassifier(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     val sieveName = "featureBasedClassifier"
+
+    logger.debug(s"\tapplying $sieveName sieve...")
+
     val validMentions = mentions.filter(validPrecedenceCandidate)
     for {
       e1 <- validMentions
