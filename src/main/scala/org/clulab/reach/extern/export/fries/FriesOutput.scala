@@ -125,7 +125,6 @@ class FriesOutput extends JsonOutputter {
       writeJsonToFile(assemblyModel.get, new File(outFilePrefix + ".uaz.links.json"))
   }
 
-
   /** Make and return the Sentence, Entity, Event, and (optionally) Assembly data models. */
   def makeModels (paperId:String,
                   allMentions:Seq[Mention],
@@ -137,8 +136,11 @@ class FriesOutput extends JsonOutputter {
     // flatten mentions (per MITRE requirements), deduplicate, etc.
     val sanitizedMentions = OutputDegrader.prepareForOutput(allMentions)
 
+    // simplify the work of the outputter by recursively regurgitating all event args (bleh)
+    val unpackedMentions = OutputDegrader.unpackMentions(sanitizedMentions.toSet).toSeq
+
     // dereference all coreference mentions:
-    val derefedMentions = sanitizedMentions.map(m => m.antecedentOrElse(m))
+    val derefedMentions = unpackedMentions.map(m => m.antecedentOrElse(m))
 
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
