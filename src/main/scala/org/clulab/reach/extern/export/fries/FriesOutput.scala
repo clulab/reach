@@ -24,7 +24,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Minor cleanups.
+  *   Last Modified: Better argument processing loop in makeEventMention.
   */
 class FriesOutput extends JsonOutputter {
 
@@ -351,7 +351,7 @@ class FriesOutput extends JsonOutputter {
                             entityMap: IDed,
                             eventMap: IDed,
                             argFeatures:Option[RoleWithFeatures] = None): PropMap = {
-    val pm = new PropMap
+    val pm = new PropMap                    // create new argument frame
     pm("object-type") = "argument"
     pm("type") = prettifyLabel(name)
     val argType = mkArgType(arg)
@@ -366,7 +366,7 @@ class FriesOutput extends JsonOutputter {
           throw new RuntimeException(s"Complex argument [${arg.text}] is not an instance of RelationMention")
         val participants = new PropMap
         val complexArgs = arg.asInstanceOf[RelationMention].arguments
-        for (key <- complexArgs.keys.toList.sorted) {
+        for (key <- complexArgs.keys.toList) {
           val argSeq = complexArgs.get(key).get
           for ((p, i) <- argSeq.zipWithIndex) {
             if (!isTextBoundMention(p))
@@ -573,23 +573,25 @@ class FriesOutput extends JsonOutputter {
     // if using the Assembly subsystem, get all input participant features for this event
     val inputFeatures = assemblyApi.map(_.getInputFeaturesByParticipants(mention))
 
-    // process the arguments if present:
-    var arguments: Option[Map[String, Seq[Mention]]] =
-      if (isEventMention(mention)) Some(mention.arguments) else None
+    // process the arguments if present
+    mention match {
+      case em if isEventMention(em) =>
+        val arguments = em.arguments        // get the mention arguments Map
+        val argList = new FrameList         // start new arugment frame list
 
-    if (arguments.isDefined) {
-      val argList = new FrameList
-
-      for (key <- arguments.get.keys.toList.sorted) {
-        arguments.get.get(key).foreach { argSeq =>
-          for (i <- argSeq.indices) {
-            val ithArg = argSeq(i)
-            val argFeatures = inputFeatures.flatMap(_.get(ithArg))
-            argList += makeArgument(key, ithArg, i, mention, entityMap, eventMap, argFeatures)
+        for {
+          role <- arguments.keys.toList
+          (ithArg: Mention, i: Int) <- arguments(role).zipWithIndex
+        } {
+          val argFeatures = inputFeatures match {
+            case Some(features) => Some(features(ithArg))
+            case None => None
           }
+          argList += makeArgument(role, ithArg, i, mention, entityMap, eventMap, argFeatures)
         }
-      }
-      f("arguments") = argList
+        f("arguments") = argList
+
+      case _ => ()
     }
 
     // event modifications
