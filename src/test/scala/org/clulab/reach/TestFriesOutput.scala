@@ -11,7 +11,7 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Update for flattened controllers.
+  *   Last Modified: Fix first failing test as a test of fix.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -70,11 +70,12 @@ class TestFriesOutput extends FlatSpec with Matchers {
   }
 
   it should "have 2 event mentions: 1 phospho and 1 pos-reg" in {
-    val subtypeList = json \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
+    // val subtypeList = json \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
+    val subtypeList = (json \ "events" \ "frames" \\ "subtype").values.asInstanceOf[List[String]]
     subtypeList.isEmpty should be (false)
     subtypeList.size should be (2)
-    (subtypeList(REG_FRAME) == "positive-regulation") should be (true)
-    (subtypeList(PHOS_FRAME) == "phosphorylation") should be (true)
+    (subtypeList.contains("positive-regulation")) should be (true)
+    (subtypeList.contains("phosphorylation")) should be (true)
   }
 
   it should "have the expected regulation arguments" in {
