@@ -120,11 +120,11 @@ class TestFriesOutput extends FlatSpec with Matchers {
     val xrefs0 = xrefs(0)
     xrefs0 should contain ("namespace" -> "uniprot")
     xrefs0 should contain ("object-type" -> "db-reference")
-    xrefs0 should contain ("id" -> "P31749")
+    xrefs0 should contain ("id" -> "P49190")
     val xrefs1 = xrefs(1)
     xrefs1 should contain ("namespace" -> "uniprot")
     xrefs1 should contain ("object-type" -> "db-reference")
-    xrefs1 should contain ("id" -> "P49190")
+    xrefs1 should contain ("id" -> "P31749")
   }
 
 
@@ -149,14 +149,18 @@ class TestFriesOutput extends FlatSpec with Matchers {
     ((json2 \ "sentences" \ "object-type").values == "frame-collection") should be (true)
   }
 
-  it should "have 5 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
+  it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 1 pos-reg" in {
+    mentions2.count(_ matches "Positive_regulation") should be (1)
+    mentions2.count(_ matches "Negative_regulation") should be (1)
+    mentions2.count(_ matches "Ubiquitination") should be (1)
+    mentions2.count(_ matches "Phosphorylation") should be (1)
     val subtypeList = json2 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
     subtypeList.isEmpty should be (false)
-    subtypeList.size should be (4)
     subtypeList.count(_ == "phosphorylation") should be (1)
     subtypeList.count(_ == "ubiquitination") should be (1)
     subtypeList.count(_ == "negative-regulation") should be (1)
     subtypeList.count(_ == "positive-regulation") should be (1)
+    subtypeList.size should be (4)
   }
 
   // Test output for regulation *by* a regulation:
@@ -180,14 +184,18 @@ class TestFriesOutput extends FlatSpec with Matchers {
     ((json3 \ "sentences" \ "object-type").values == "frame-collection") should be (true)
   }
 
-  it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
+  it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 1 pos-reg" in {
+    mentions3.count(_ matches "Positive_regulation") should be (1)
+    mentions3.count(_ matches "Negative_regulation") should be (1)
+    mentions3.count(_ matches "Ubiquitination") should be (1)
+    mentions3.count(_ matches "Phosphorylation") should be (1)
     val subtypeList = json3 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
     subtypeList.isEmpty should be (false)
-    subtypeList.size should be (4)
     subtypeList.count(_ == "phosphorylation") should be (1)
     subtypeList.count(_ == "ubiquitination") should be (1)
     subtypeList.count(_ == "negative-regulation") should be (1)
     subtypeList.count(_ == "positive-regulation") should be (1)
+    subtypeList.size should be (4)
   }
 
 }
