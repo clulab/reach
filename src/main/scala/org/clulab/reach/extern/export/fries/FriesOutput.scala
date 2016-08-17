@@ -24,7 +24,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Recursively process arguments of nested events.
+  *   Last Modified: Recursively process relation mention arguments of nested events.
   */
 class FriesOutput extends JsonOutputter {
 
@@ -567,8 +567,7 @@ class FriesOutput extends JsonOutputter {
 
     // recursively process arguments of nested events first:
     mention match {
-      // case em if isEventMention(em) =>
-      case em:BioEventMention =>
+      case em if isEventMention(em) =>
         val arguments = em.arguments
         for {
           role <- arguments.keys.toList
