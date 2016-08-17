@@ -19,6 +19,7 @@ import org.clulab.reach.extern.export.JsonOutputter._
 import org.clulab.reach.extern.export.MentionManager._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
+import scala.collection.Map
 
 
 /**
@@ -477,27 +478,23 @@ class FriesOutput extends JsonOutputter {
                                  eventMap: IDed): Unit = {
     val passage = getPassageForMention(passageMap, mention)
     eventMap += mention -> mkEventId(paperId, passage, mention.sentence)
-    mention.arguments.foreach {
-      case (_, argMentions) => argMentions.foreach { argMention =>
-        argMention match {
-          case evm:BioEventMention =>
-            makeEventMapEntry(paperId, evm, passageMap, entityMap, eventMap)
+    mention.arguments.values.flatten.foreach {
+      case evm:BioEventMention =>
+        makeEventMapEntry(paperId, evm, passageMap, entityMap, eventMap)
 
-          case rem:BioRelationMention =>
-            makeEventMapEntry(paperId, rem, passageMap, entityMap, eventMap)
+      case rem:BioRelationMention =>
+        makeEventMapEntry(paperId, rem, passageMap, entityMap, eventMap)
 
-          case em:BioTextBoundMention =>
-            makeEntityMapEntry(paperId, em, passageMap, entityMap)
+      case em:BioTextBoundMention =>
+        makeEntityMapEntry(paperId, em, passageMap, entityMap)
 
-          case _ => println(s"Argument Mention UNTYPED=${argMention.toString()}")
-        }
-      }
+      case other => println(s"Argument Mention UNTYPED=${other.toString}")
     }
   }
 
 
   /** Create and return a new entity mention frame for the given entity mention
-      and, possibly, a related context frame. */
+    * and, possibly, a related context frame. */
   private def makeEntityMention (paperId: String,
                                  passageMeta: FriesEntry,
                                  mention: BioTextBoundMention,
@@ -575,24 +572,28 @@ class FriesOutput extends JsonOutputter {
     // if using the Assembly subsystem, get all input participant features for this event
     val inputFeatures = assemblyApi.map(_.getInputFeaturesByParticipants(mention))
 
-    // process the arguments if present:
-    var arguments: Option[Map[String, Seq[Mention]]] =
-      if (isEventMention(mention)) Some(mention.arguments) else None
+    // process the arguments if present
+    mention match {
+      case em if isEventMention(em) =>
+        val arguments = em.arguments
+        val argList = new FrameList
 
-    if (arguments.isDefined) {
-      val argList = new FrameList
-
-      for (key <- arguments.get.keys.toList.sorted) {
-        arguments.get.get(key).foreach { argSeq =>
-          for (i <- argSeq.indices) {
-            val ithArg = argSeq(i)
-            val argFeatures = inputFeatures.flatMap(_.get(ithArg))
-            argList += makeArgument(key, ithArg, i, mention, entityMap, eventMap, argFeatures)
+        for {
+          role <- arguments.keys.toList.sorted
+          (arg: Mention, i: Int) <- arguments(role).zipWithIndex
+        } {
+          // check for participant features
+          val participantFeatures = inputFeatures match {
+            case Some(pf) => Some(pf(arg))
+            case None => None
           }
+          argList += makeArgument(role, arg, i, mention, entityMap, eventMap, participantFeatures)
         }
-      }
-      f("arguments") = argList
+        f("arguments") = argList
+
+      case _ => ()
     }
+
 
     // event modifications
     if (isNegated(mention))
