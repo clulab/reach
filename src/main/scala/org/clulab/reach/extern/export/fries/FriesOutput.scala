@@ -2,7 +2,7 @@ package org.clulab.reach.extern.export.fries
 
 import java.io._
 import java.util.Date
-import scala.collection.mutable.{HashMap, ListBuffer}
+import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.native.Serialization
 import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
 import org.clulab.assembly.{Assembler, RoleWithFeatures}
@@ -24,7 +24,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Better argument processing loop in makeEventMention.
+  *   Last Modified: Recursively process arguments of nested events.
   */
 class FriesOutput extends JsonOutputter {
 
@@ -53,6 +53,10 @@ class FriesOutput extends JsonOutputter {
     "Species" -> "organism",
     "Organ" -> "organ"
   )
+
+  // track which events have already been output
+  val eventsDone: MSet[Mention] = MSet[Mention]()
+
 
   //
   // Public API:
@@ -133,6 +137,8 @@ class FriesOutput extends JsonOutputter {
                   startTime:Date,
                   endTime:Date,
                   assemblyApi: Option[Assembler] = None): (PropMap, PropMap, PropMap, Option[PropMap]) = {
+    // reset the set of events already output
+    eventsDone.clear()
 
     // flatten mentions (per MITRE requirements), deduplicate, etc.
     val sanitizedMentions = OutputDegrader.prepareForOutput(allMentions)
@@ -274,9 +280,11 @@ class FriesOutput extends JsonOutputter {
 
     val eventMentions = mentions.filter(isEventMention) // only process events
     for (mention <- eventMentions) {
-      val passage = getPassageForMention(passageMap, mention)
-      frames ++= makeEventMention(paperId, passage, mention.toBioMention, entityMap,
-                                  eventMap, contextIdMap, assemblyApi)
+      if (!eventsDone.contains(mention)) {  // ignore already output mentions
+        val passage = getPassageForMention(passageMap, mention)
+        frames ++= makeEventMention(paperId, passage, mention.toBioMention, entityMap,
+                                    eventMap, contextIdMap, assemblyApi)
+      }
     }
     model
   }
@@ -344,13 +352,13 @@ class FriesOutput extends JsonOutputter {
   }
 
 
-  private def makeArgument (name: String,
-                            arg: Mention,
-                            argIndex: Int,
-                            parent: Mention,
-                            entityMap: IDed,
-                            eventMap: IDed,
-                            argFeatures:Option[RoleWithFeatures] = None): PropMap = {
+  private def makeArgumentFrame (name: String,
+                                 arg: Mention,
+                                 argIndex: Int,
+                                 parent: Mention,
+                                 entityMap: IDed,
+                                 eventMap: IDed,
+                                 argFeatures:Option[RoleWithFeatures] = None): PropMap = {
     val pm = new PropMap                    // create new argument frame
     pm("object-type") = "argument"
     pm("type") = prettifyLabel(name)
@@ -400,8 +408,9 @@ class FriesOutput extends JsonOutputter {
 
       // default: should never happen!
       case _ =>
-        throw new RuntimeException("ERROR: unknown argument type in makeArgument: " + arg.labels)
+        throw new RuntimeException("ERROR: unknown argument type in makeArgumentFrame: " + arg.labels)
     }
+
     pm
   }
 
@@ -500,7 +509,9 @@ class FriesOutput extends JsonOutputter {
                                  passageMeta: FriesEntry,
                                  mention: BioTextBoundMention,
                                  entityMap: IDed,
-                                 contextIdMap: CtxIDed): List[PropMap] = {
+                                 contextIdMap: CtxIDed): FrameList = {
+    val entityList = new FrameList
+
     val f = startFrame()
     f("frame-type") = "entity-mention"
     f("frame-id") = getUniqueId(entityMap, mention)
@@ -534,11 +545,11 @@ class FriesOutput extends JsonOutputter {
     if (contextId.isDefined)
       f("context") = List(contextId.get)
 
-    // return 1 or more frames: both context and event frames or just an event frame:
+    // return 1 or more frames: both context and event frames or just an entity frame:
     if (contextFrame.isDefined)
-      List(contextFrame.get, f)
-    else
-      List(f)
+      entityList += contextFrame.get
+
+    entityList += f
   }
 
 
@@ -550,7 +561,26 @@ class FriesOutput extends JsonOutputter {
                                 entityMap: IDed,
                                 eventMap: IDed,
                                 contextIdMap: CtxIDed,
-                                assemblyApi: Option[Assembler] = None): List[PropMap] = {
+                                assemblyApi: Option[Assembler] = None): FrameList = {
+
+    val eventList = new FrameList
+
+    // recursively process arguments of nested events first:
+    mention match {
+      // case em if isEventMention(em) =>
+      case em:BioEventMention =>
+        val arguments = em.arguments
+        for {
+          role <- arguments.keys.toList
+          ithArg <- arguments(role)
+        } {
+          if (isEventMention(ithArg) && !eventsDone.contains(ithArg))
+            eventList ++= makeEventMention(paperId, passageMeta, ithArg.toBioMention, entityMap,
+                                           eventMap, contextIdMap, assemblyApi)
+        }
+      case _ => ()
+    }
+
     val f = startFrame()
     f("frame-type") = "event-mention"
     f("frame-id") = getUniqueId(eventMap, mention)
@@ -573,7 +603,7 @@ class FriesOutput extends JsonOutputter {
     // if using the Assembly subsystem, get all input participant features for this event
     val inputFeatures = assemblyApi.map(_.getInputFeaturesByParticipants(mention))
 
-    // process the arguments if present
+    // add the argument frames for (already processed) arguments
     mention match {
       case em if isEventMention(em) =>
         val arguments = em.arguments        // get the mention arguments Map
@@ -587,7 +617,7 @@ class FriesOutput extends JsonOutputter {
             case Some(features) => Some(features(ithArg))
             case None => None
           }
-          argList += makeArgument(role, ithArg, i, mention, entityMap, eventMap, argFeatures)
+          argList += makeArgumentFrame(role, ithArg, i, mention, entityMap, eventMap, argFeatures)
         }
         f("arguments") = argList
 
@@ -609,11 +639,12 @@ class FriesOutput extends JsonOutputter {
     if (contextId.isDefined)
       f("context") = List(contextId.get)
 
-    // return 1 or more frames: both context and event frames or just an event frame:
+    // return 1 or more frames: context and/or event frame(s)
     if (contextFrame.isDefined)
-      List(contextFrame.get, f)
-    else
-      List(f)
+      eventList += contextFrame.get
+
+    eventsDone += mention                   // remember this mention has been output
+    eventList += f                          // add new frame to returned list
   }
 
 
