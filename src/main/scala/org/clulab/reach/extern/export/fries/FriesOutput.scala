@@ -134,14 +134,20 @@ class FriesOutput extends JsonOutputter {
                   endTime:Date,
                   assemblyApi: Option[Assembler] = None): (PropMap, PropMap, PropMap, Option[PropMap]) = {
 
-    // flatten mentions (per MITRE requirements), deduplicate, etc.
-    val sanitizedMentions = OutputDegrader.prepareForOutput(allMentions)
-
     // simplify the work of the outputter by recursively regurgitating all event args (bleh)
-    val unpackedMentions = OutputDegrader.unpackMentions(sanitizedMentions.toSet).toSeq
+    val unpackedMentions = OutputDegrader.unpackMentions(allMentions.toSet).toSeq
+    println("Regurgitated:")
+    unpackedMentions.filter(_ matches "Event").foreach(displayMention)
+
+    // flatten mentions (per MITRE requirements), deduplicate, etc.
+    val sanitizedMentions = OutputDegrader.prepareForOutput(unpackedMentions)
+    println("Regurgitated & Sanitized:")
+    sanitizedMentions.filter(_ matches "Event").foreach(displayMention)
 
     // dereference all coreference mentions:
-    val derefedMentions = unpackedMentions.map(m => m.antecedentOrElse(m))
+    val derefedMentions = sanitizedMentions.map(m => m.antecedentOrElse(m))
+    println("Regurgitated, Sanitized, & Derefed:")
+    derefedMentions.filter(_ matches "Event").foreach(displayMention)
 
     val otherMetaData = extractOtherMetaData(paperPassages)
     val passageMap = passagesToMap(paperPassages) // map of FriesEntry, chunkId as key
