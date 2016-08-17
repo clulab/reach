@@ -16,12 +16,45 @@ object OutputDegrader {
     mention <- mentions
   } yield flattenMention(mention)
 
+
+  /**
+    * Recursively unpack contents of mention so that all mentions are available at top level
+    * @param mns a Set[[Mention]]
+    * @return a Set[[Mention]]
+    */
+  def unpackMentions(mns: Set[Mention]): Set[Mention] = {
+
+    var m2mns = Map[Mention, Set[Mention]]()
+
+    // memoize results of unpacking
+    def cache(m: Mention, seen: Set[Mention] = Set.empty[Mention]): Set[Mention] = m2mns.get(m) match {
+      case Some(contents) => contents
+      // update if unseen
+      case None =>
+        val innards = unpackMention(m, seen)
+        m2mns = m2mns + (m -> innards)
+        innards
+    }
+
+    def unpackMention(m: Mention, seen: Set[Mention] = Set.empty[Mention]): Set[Mention] = {
+      val unpacked = for {
+        a: Mention <- m.arguments.values.flatten
+        if !seen.contains(a)
+      } yield cache(a, seen + m + a)
+      unpacked.flatten.toSet ++ seen
+    }
+
+    val unpackedMentions = for (m <- mns) yield unpackMention(m)
+    unpackedMentions.flatten
+  }
+  def unpackMention(m: Mention): Set[Mention] = unpackMentions(Set(m))
+
   /**
     * Prepare mentions for output
     * 1. "Flatten" mentions (flatten nested controllers)
     * 2. Remove duplicates
     * 3. validate
-    * @param mentions
+    * @param mentions a Seq[[Mention]]
     * @return
     */
   def prepareForOutput(mentions: Seq[Mention]): Seq[CorefMention] = {
