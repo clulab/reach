@@ -24,7 +24,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Recursively process relation mention arguments of nested events.
+  *   Last Modified: Handle args of Complexes. Simpler methods for populating ID maps.
   */
 class FriesOutput extends JsonOutputter {
 
@@ -278,7 +278,7 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    val eventMentions = mentions.filter(isEventMention) // only process events
+    val eventMentions = mentions.filter(isEventOrRelationMention) // only process events
     for (mention <- eventMentions) {
       if (!eventsDone.contains(mention)) {  // ignore already output mentions
         val passage = getPassageForMention(passageMap, mention)
@@ -457,7 +457,7 @@ class FriesOutput extends JsonOutputter {
 
   /** Add an entry to the entity and event Maps for the given mention. Then,
     * recursively add the event's arguments to the appropriate maps. */
-  private def makeMapEntries(
+  private def makeMapEntries (
     paperID: String,
     mentions: Seq[Mention],
     passageMap: Map[String, FriesEntry],
@@ -473,20 +473,20 @@ class FriesOutput extends JsonOutputter {
     val passage = getPassageForMention(passageMap, m)
     m match {
 
-      case event if event matches "Event" =>
+      // NOTE: this treats a Complex as an event for the purposes of id creation
+      case event if isEventOrRelationMention(event) =>
         // if the key (mention) does not already exist, add mention to the event map
         if (!eventMap.contains(event)) eventMap += event -> mkEventId(paperID, passage, event.sentence)
 
       // handles sites, entities, and other tbs
-      // TODO: this will also handle context mentions, but should it?
       case tb: TextBoundMention =>
         // if the key (mention) does not already exist, add mention to the entity map
         if (!entityMap.contains(tb)) entityMap += tb -> mkEntityId(paperID, passage, tb.sentence)
 
-      // TODO: perhaps we should throw an exception here?
       case other =>
-        println(s"Unrecognized mention with label '${other.label}'")
+        throw new RuntimeException(s"Unrecognized mention with label '${other.label}'")
     }
+
     // recurse on arguments, while avoiding processing same mention again
     makeMapEntries(paperID, Seq(m), passageMap, entityMap, eventMap, seen + m)
   }
@@ -556,13 +556,13 @@ class FriesOutput extends JsonOutputter {
 
     // recursively process arguments of nested events first:
     mention match {
-      case em if isEventMention(em) =>
+      case em if isEventOrRelationMention(em) =>
         val arguments = em.arguments
         for {
           role <- arguments.keys.toList
           ithArg <- arguments(role)
         } {
-          if (isEventMention(ithArg) && !eventsDone.contains(ithArg))
+          if (isEventOrRelationMention(ithArg) && !eventsDone.contains(ithArg))
             eventList ++= makeEventMention(paperId, passageMeta, ithArg.toBioMention, entityMap,
                                            eventMap, contextIdMap, assemblyApi)
         }
@@ -593,7 +593,7 @@ class FriesOutput extends JsonOutputter {
 
     // add the argument frames for (already processed) arguments
     mention match {
-      case em if isEventMention(em) =>
+      case em if isEventOrRelationMention(em) =>
         val arguments = em.arguments        // get the mention arguments Map
         val argList = new FrameList         // start new arugment frame list
 
