@@ -158,11 +158,11 @@ class FriesOutput extends JsonOutputter {
 
     // make Entity Model
     val contextIdMap = new CtxIDed
-    val entityModel = entitiesToModel(paperId, derefedMentions, passageMap, entityMap,
+    val entityModel = entitiesToModel(paperId, passageMap, entityMap,
                                       contextIdMap, startTime, endTime, otherMetaData)
 
     // make Event Model
-    val eventModel = eventsToModel(paperId, derefedMentions, passageMap, entityMap,
+    val eventModel = eventsToModel(paperId, passageMap, entityMap,
                                    eventMap, contextIdMap, startTime, endTime,
                                    otherMetaData, assemblyApi)
 
@@ -235,57 +235,57 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Return an Entity Model, representing all entity mentions extracted from this paper. */
-  private def entitiesToModel (paperId: String,
-                               mentions: Seq[Mention],
-                               passageMap: Map[String, FriesEntry],
-                               entityMap: IDed,
-                               contextIdMap: CtxIDed,
-                               startTime: Date,
-                               endTime: Date,
-                               otherMetaData: Map[String, String]): PropMap = {
+  private def entitiesToModel (
+    paperId: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    contextIdMap: CtxIDed,
+    startTime: Date,
+    endTime: Date,
+    otherMetaData: Map[String, String]): PropMap = {
+
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
     val frames = new FrameList
     model("frames") = frames
 
-    for (mention <- mentions) {
-      mention match {
-        case em:BioTextBoundMention =>
-          val passage = getPassageForMention(passageMap, em)
-          frames ++= makeEntityMention(paperId, passage, em, entityMap, contextIdMap)
-        case _ =>                           // these are events or relations
-      }
+    entityMap.foreach{ pair =>
+      val entry = pair._1.toBioMention.asInstanceOf[BioTextBoundMention]
+      val id = pair._2
+      val passage = getPassageForMention(passageMap, entry)
+      frames ++= makeEntityMention(paperId, passage, entry, id, contextIdMap)
     }
+
     model
   }
 
 
   /** Returns a model object representing all event mentions extracted from this paper. */
-  private def eventsToModel (paperId: String,
-                             mentions: Seq[Mention],
-                             passageMap: Map[String, FriesEntry],
-                             entityMap: IDed,
-                             eventMap: IDed,
-                             contextIdMap: CtxIDed,
-                             startTime: Date,
-                             endTime: Date,
-                             otherMetaData: Map[String, String],
-                             assemblyApi: Option[Assembler] = None): PropMap = {
+  private def eventsToModel (
+    paperId: String,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed,
+    contextIdMap: CtxIDed,
+    startTime: Date,
+    endTime: Date,
+    otherMetaData: Map[String, String],
+    assemblyApi: Option[Assembler] = None): PropMap = {
+
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
     val frames = new FrameList
     model("frames") = frames
 
-    val eventMentions = mentions.filter(isEventOrRelationMention) // only process events
-    for (mention <- eventMentions) {
-      if (!eventsDone.contains(mention)) {  // ignore already output mentions
-        val passage = getPassageForMention(passageMap, mention)
-        frames ++= makeEventMention(paperId, passage, mention.toBioMention, entityMap,
-                                    eventMap, contextIdMap, assemblyApi)
-      }
+    eventMap.foreach{ pair =>
+      val entry = pair._1
+      val passage = getPassageForMention(passageMap, entry)
+      frames ++= makeEventMention(paperId, passage, entry.toBioMention, entityMap,
+        eventMap, contextIdMap, assemblyApi)
     }
+
     model
   }
 
@@ -494,16 +494,18 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a new entity mention frame for the given entity mention
       and, possibly, a related context frame. */
-  private def makeEntityMention (paperId: String,
-                                 passageMeta: FriesEntry,
-                                 mention: BioTextBoundMention,
-                                 entityMap: IDed,
-                                 contextIdMap: CtxIDed): FrameList = {
+  private def makeEntityMention (
+    paperId: String,
+    passageMeta: FriesEntry,
+    mention: BioTextBoundMention,
+    entityID: String,
+    contextIdMap: CtxIDed): FrameList = {
+
     val entityList = new FrameList
 
     val f = startFrame()
     f("frame-type") = "entity-mention"
-    f("frame-id") = getUniqueId(entityMap, mention)
+    f("frame-id") = entityID
     f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
     f("start-pos") = makeRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = makeRelativePosition(paperId, passageMeta, mention.endOffset)
