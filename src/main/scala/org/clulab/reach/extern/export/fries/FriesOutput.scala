@@ -442,31 +442,7 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Return a tuple of maps mapping entities to unique IDs and events to unique IDs. */
-  private def makeEMaps (paperId: String,
-                         mentions: Seq[Mention],
-                         passageMap: Map[String, FriesEntry]): (IDed, IDed) = {
-    val entityMap = new IDed
-    val eventMap = new IDed
-
-    for (mention <- mentions) {
-      mention match {
-        case em:BioTextBoundMention =>
-          makeEntityMapEntry(paperId, em, passageMap, entityMap)
-
-        case evm:BioEventMention =>
-          makeEventMapEntry(paperId, evm, passageMap, entityMap, eventMap)
-
-        case rem:BioRelationMention =>
-          makeEventMapEntry(paperId, rem, passageMap, entityMap, eventMap)
-
-        case _ => println(s"(makeEMaps): UNTYPED=${mention.toString()}") // DEBUGGING
-      }
-    }
-
-    (entityMap, eventMap)
-  }
-
-  private def makeEMaps2(
+  private def makeEMaps(
     paperID: String,
     mentions: Seq[Mention],
     passageMap: Map[String, FriesEntry]): (IDed, IDed) = {
@@ -480,29 +456,6 @@ class FriesOutput extends JsonOutputter {
     (entityMap, eventMap)
   }
 
-  /** Add an entry to the given Entity Map for the given entity mention. */
-  // TODO: makeEntityMapEntry and makeEventMapEntry could be generalized
-  // While there is no logical reason for an entity to have an event as an arg,
-  // we could get away with a single method here
-  private def makeEntityMapEntry (paperId: String,
-                                  mention: BioTextBoundMention,
-                                  passageMap: Map[String, FriesEntry],
-                                  entityMap: IDed): Unit = {
-    val passage = getPassageForMention(passageMap, mention)
-    entityMap += mention -> mkEntityId(paperId, passage, mention.sentence)
-    // Are we dealing with a Complex, etc?
-    if (mention.arguments.nonEmpty) {
-      for {
-        m <- mention.arguments.values.flatten
-      } {
-        m match {
-          case tb: BioTextBoundMention =>
-            makeEntityMapEntry(paperId, tb, passageMap, entityMap)
-          case other => throw new Exception(s"Entity arg with label '${other.label}' is not an Entity!")
-        }
-      }
-    }
-  }
 
   /** Add an entry to the entity and event Maps for the given mention. Then,
     * recursively add the event's arguments to the appropriate maps. */
@@ -537,33 +490,6 @@ class FriesOutput extends JsonOutputter {
     }
     // recurse on arguments, while avoiding processing same mention again
     makeMapEntries(paperID, Seq(m), passageMap, entityMap, eventMap, seen + m)
-  }
-
-  /** Add an entry to the given Event Map for the given event mention. Then,
-      recursively add the event's arguments to the appropriate maps. */
-  private def makeEventMapEntry (paperId: String,
-                                 mention: BioMention,
-                                 passageMap: Map[String, FriesEntry],
-                                 entityMap: IDed,
-                                 eventMap: IDed): Unit = {
-    val passage = getPassageForMention(passageMap, mention)
-    eventMap += mention -> mkEventId(paperId, passage, mention.sentence)
-    mention.arguments.foreach {
-      case (_, argMentions) => argMentions.foreach { argMention =>
-        argMention match {
-          case evm:BioEventMention =>
-            makeEventMapEntry(paperId, evm, passageMap, entityMap, eventMap)
-
-          case rem:BioRelationMention =>
-            makeEventMapEntry(paperId, rem, passageMap, entityMap, eventMap)
-
-          case em:BioTextBoundMention =>
-            makeEntityMapEntry(paperId, em, passageMap, entityMap)
-
-          case _ => println(s"Argument Mention UNTYPED=${argMention.toString()}")
-        }
-      }
-    }
   }
 
 
