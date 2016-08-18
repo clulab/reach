@@ -514,7 +514,7 @@ class FriesOutput extends JsonOutputter {
       // TODO: can this be restricted to entities, or does it need to handle context mentions, Sites, etc.?
       case tb: TextBoundMention =>
         // if the key (mention) does not already exist, add mention to the entity map
-        if (!entityMap.contains(tb)) entityMap += tb -> mkEventId(paperID, passage, tb.sentence)
+        if (!entityMap.contains(tb)) entityMap += tb -> mkEntityId(paperID, passage, tb.sentence)
 
       // TODO: perhaps we should throw an exception here?
       case other =>
