@@ -466,6 +466,20 @@ class FriesOutput extends JsonOutputter {
     (entityMap, eventMap)
   }
 
+  private def makeEMaps2(
+    paperID: String,
+    mentions: Seq[Mention],
+    passageMap: Map[String, FriesEntry]): (IDed, IDed) = {
+
+    val entityMap = new IDed
+    val eventMap = new IDed
+    // convert to bioMentions
+    val biomentions = mentions.map(_.toBioMention)
+
+    makeMapEntries(paperID, biomentions, passageMap, entityMap, eventMap)
+    (entityMap, eventMap)
+  }
+
   /** Add an entry to the given Entity Map for the given entity mention. */
   // TODO: makeEntityMapEntry and makeEventMapEntry could be generalized
   // While there is no logical reason for an entity to have an event as an arg,
@@ -492,15 +506,16 @@ class FriesOutput extends JsonOutputter {
 
   /** Add an entry to the entity and event Maps for the given mention. Then,
     * recursively add the event's arguments to the appropriate maps. */
-  private def mkMapEntries(
+  private def makeMapEntries(
     paperID: String,
-    mention: BioMention,
+    mentions: Seq[BioMention],
     passageMap: Map[String, FriesEntry],
     entityMap: IDed,
     eventMap: IDed,
     // keep track of mentions that have already been processed
     seen: Set[BioMention] = Set.empty[BioMention]): Unit = for {
       // inspect mention and its arguments
+      mention <- mentions
       m <- Seq(mention) ++ mention.arguments.flatten
       if !seen.contains(m)
   } {
@@ -521,7 +536,7 @@ class FriesOutput extends JsonOutputter {
         println(s"Unrecognized mention with label '${other.label}'")
     }
     // recurse on arguments, while avoiding processing same mention again
-    mkMapEntries(paperID, m, passageMap, entityMap, eventMap, seen + m)
+    makeMapEntries(paperID, Seq(m), passageMap, entityMap, eventMap, seen + m)
   }
 
   /** Add an entry to the given Event Map for the given event mention. Then,
