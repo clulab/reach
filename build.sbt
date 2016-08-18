@@ -93,8 +93,8 @@ libraryDependencies ++= Seq(
   "org.apache.lucene" % "lucene-queryparser" % "5.3.1",
   "ai.lum" %% "nxmlreader" % "0.0.5",
   // logging
-  "ch.qos.logback"                      %  "logback-classic"                       % "1.1.7",
-  "com.typesafe.scala-logging"         %%  "scala-logging"                         % "3.4.0"
+  "ch.qos.logback" %  "logback-classic" % "1.1.7",
+  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0"
 )
 
 // settings for building project website
