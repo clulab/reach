@@ -467,12 +467,29 @@ class FriesOutput extends JsonOutputter {
   }
 
   /** Add an entry to the given Entity Map for the given entity mention. */
+  // TODO: makeEntityMapEntry and makeEventMapEntry could be generalized
+  // While there is no logical reason for an entity to have an event as an arg,
+  // we could get away with a single method here
   private def makeEntityMapEntry (paperId: String,
                                   mention: BioTextBoundMention,
                                   passageMap: Map[String, FriesEntry],
                                   entityMap: IDed): Unit = {
     val passage = getPassageForMention(passageMap, mention)
     entityMap += mention -> mkEntityId(paperId, passage, mention.sentence)
+    // Are we dealing with a Complex, etc?
+    if (mention.arguments.nonEmpty) {
+      for {
+        m <- mention.arguments.values.flatten
+      } {
+        m match {
+          case tb: BioTextBoundMention =>
+            makeEntityMapEntry(paperId, tb, passageMap, entityMap)
+          case other => throw new Exception(s"Entity arg with label '${other.label}' is not an Entity!")
+        }
+      }
+    }
+  }
+
   }
 
   /** Add an entry to the given Event Map for the given event mention. Then,
