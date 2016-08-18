@@ -24,7 +24,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Handle args of Complexes. Simpler methods for populating ID maps.
+  *   Last Modified: Cleanups.
   */
 class FriesOutput extends JsonOutputter {
 
@@ -250,11 +250,11 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    entityMap.foreach{ pair =>
-      val entry = pair._1.toBioMention.asInstanceOf[BioTextBoundMention]
-      val id = pair._2
-      val passage = getPassageForMention(passageMap, entry)
-      frames ++= makeEntityMention(paperId, passage, entry, id, contextIdMap)
+    entityMap.foreach{ entry =>
+      val entity = entry._1.toBioMention.asInstanceOf[BioTextBoundMention]
+      val id = entry._2
+      val passage = getPassageForMention(passageMap, entity)
+      frames ++= makeEntityMention(paperId, passage, entity, id, contextIdMap)
     }
 
     model
@@ -279,11 +279,12 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    eventMap.foreach{ pair =>
-      val entry = pair._1
-      val passage = getPassageForMention(passageMap, entry)
-      frames ++= makeEventMention(paperId, passage, entry.toBioMention, entityMap,
-        eventMap, contextIdMap, assemblyApi)
+    eventMap.foreach{ entry =>
+      val event = entry._1
+      val id = entry._2
+      val passage = getPassageForMention(passageMap, event)
+      frames ++= makeEventMention(paperId, passage, event.toBioMention, id,
+                                  entityMap, eventMap, contextIdMap, assemblyApi)
     }
 
     model
@@ -443,14 +444,14 @@ class FriesOutput extends JsonOutputter {
 
   /** Return a tuple of maps mapping entities to unique IDs and events to unique IDs. */
   private def makeEMaps(
-    paperID: String,
+    paperId: String,
     mentions: Seq[Mention],
     passageMap: Map[String, FriesEntry]): (IDed, IDed) = {
 
     val entityMap = new IDed
     val eventMap = new IDed
 
-    makeMapEntries(paperID, mentions, passageMap, entityMap, eventMap)
+    makeMapEntries(paperId, mentions, passageMap, entityMap, eventMap)
     (entityMap, eventMap)
   }
 
@@ -458,7 +459,7 @@ class FriesOutput extends JsonOutputter {
   /** Add an entry to the entity and event Maps for the given mention. Then,
     * recursively add the event's arguments to the appropriate maps. */
   private def makeMapEntries (
-    paperID: String,
+    paperId: String,
     mentions: Seq[Mention],
     passageMap: Map[String, FriesEntry],
     entityMap: IDed,
@@ -473,22 +474,21 @@ class FriesOutput extends JsonOutputter {
     val passage = getPassageForMention(passageMap, m)
     m match {
 
-      // NOTE: this treats a Complex as an event for the purposes of id creation
       case event if isEventOrRelationMention(event) =>
         // if the key (mention) does not already exist, add mention to the event map
-        if (!eventMap.contains(event)) eventMap += event -> mkEventId(paperID, passage, event.sentence)
+        if (!eventMap.contains(event)) eventMap += event -> mkEventId(paperId, passage, event.sentence)
 
       // handles sites, entities, and other tbs
       case tb: TextBoundMention =>
         // if the key (mention) does not already exist, add mention to the entity map
-        if (!entityMap.contains(tb)) entityMap += tb -> mkEntityId(paperID, passage, tb.sentence)
+        if (!entityMap.contains(tb)) entityMap += tb -> mkEntityId(paperId, passage, tb.sentence)
 
       case other =>
         throw new RuntimeException(s"Unrecognized mention with label '${other.label}'")
     }
 
     // recurse on arguments, while avoiding processing same mention again
-    makeMapEntries(paperID, Seq(m), passageMap, entityMap, eventMap, seen + m)
+    makeMapEntries(paperId, Seq(m), passageMap, entityMap, eventMap, seen + m)
   }
 
 
@@ -498,14 +498,14 @@ class FriesOutput extends JsonOutputter {
     paperId: String,
     passageMeta: FriesEntry,
     mention: BioTextBoundMention,
-    entityID: String,
+    entityId: String,
     contextIdMap: CtxIDed): FrameList = {
 
     val entityList = new FrameList
 
     val f = startFrame()
     f("frame-type") = "entity-mention"
-    f("frame-id") = entityID
+    f("frame-id") = entityId
     f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
     f("start-pos") = makeRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = makeRelativePosition(paperId, passageMeta, mention.endOffset)
@@ -546,13 +546,15 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a new event mention frame for the given event mention
       and, possibly, a related context frame. */
-  private def makeEventMention (paperId: String,
-                                passageMeta: FriesEntry,
-                                mention: BioMention,
-                                entityMap: IDed,
-                                eventMap: IDed,
-                                contextIdMap: CtxIDed,
-                                assemblyApi: Option[Assembler] = None): FrameList = {
+  private def makeEventMention (
+    paperId: String,
+    passageMeta: FriesEntry,
+    mention: BioMention,
+    eventId: String,
+    entityMap: IDed,
+    eventMap: IDed,
+    contextIdMap: CtxIDed,
+    assemblyApi: Option[Assembler] = None): FrameList = {
 
     val eventList = new FrameList
 
@@ -573,7 +575,7 @@ class FriesOutput extends JsonOutputter {
 
     val f = startFrame()
     f("frame-type") = "event-mention"
-    f("frame-id") = getUniqueId(eventMap, mention)
+    f("frame-id") = eventId
     f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
     f("start-pos") = makeRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = makeRelativePosition(paperId, passageMeta, mention.endOffset)
