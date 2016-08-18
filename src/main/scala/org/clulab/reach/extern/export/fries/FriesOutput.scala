@@ -490,6 +490,38 @@ class FriesOutput extends JsonOutputter {
     }
   }
 
+  /** Add an entry to the entity and event Maps for the given mention. Then,
+    * recursively add the event's arguments to the appropriate maps. */
+  private def mkMapEntries(
+    paperID: String,
+    mention: BioMention,
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed,
+    // keep track of mentions that have already been processed
+    seen: Set[BioMention] = Set.empty[BioMention]): Unit = for {
+      // inspect mention and its arguments
+      m <- Seq(mention) ++ mention.arguments.flatten
+      if !seen.contains(m)
+  } {
+    val passage = getPassageForMention(passageMap, mention)
+    m match {
+
+      case event if event matches "Event" =>
+        // if the key (mention) does not already exist, add mention to the event map
+        if (!eventMap.contains(event)) eventMap += event -> mkEventId(paperID, passage, event.sentence)
+
+      // TODO: can this be restricted to entities, or does it need to handle context mentions, Sites, etc.?
+      case tb: TextBoundMention =>
+        // if the key (mention) does not already exist, add mention to the entity map
+        if (!entityMap.contains(tb)) entityMap += tb -> mkEventId(paperID, passage, tb.sentence)
+
+      // TODO: perhaps we should throw an exception here?
+      case other =>
+        println(s"Unrecognized mention with label '${other.label}'")
+    }
+    // recurse on arguments, while avoiding processing same mention again
+    mkMapEntries(paperID, m, passageMap, entityMap, eventMap, seen + m)
   }
 
   /** Add an entry to the given Event Map for the given event mention. Then,
