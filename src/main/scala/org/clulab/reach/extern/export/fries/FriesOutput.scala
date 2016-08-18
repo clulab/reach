@@ -449,10 +449,8 @@ class FriesOutput extends JsonOutputter {
 
     val entityMap = new IDed
     val eventMap = new IDed
-    // convert to bioMentions
-    val biomentions = mentions.map(_.toBioMention)
 
-    makeMapEntries(paperID, biomentions, passageMap, entityMap, eventMap)
+    makeMapEntries(paperID, mentions, passageMap, entityMap, eventMap)
     (entityMap, eventMap)
   }
 
@@ -461,20 +459,19 @@ class FriesOutput extends JsonOutputter {
     * recursively add the event's arguments to the appropriate maps. */
   private def makeMapEntries(
     paperID: String,
-    mentions: Seq[BioMention],
+    mentions: Seq[Mention],
     passageMap: Map[String, FriesEntry],
     entityMap: IDed,
     eventMap: IDed,
     // keep track of mentions that have already been processed
-    seen: Set[BioMention] = Set.empty[BioMention]): Unit = for {
+    seen: Set[Mention] = Set.empty[Mention]): Unit = for {
       // inspect mention and its arguments
       mention <- mentions
       m <- Seq(mention) ++ mention.arguments.values.flatten.toSeq
-      biomention = m.toBioMention
-      if !seen.contains(biomention)
+      if !seen.contains(m)
   } {
-    val passage = getPassageForMention(passageMap, biomention)
-    biomention match {
+    val passage = getPassageForMention(passageMap, m)
+    m match {
 
       case event if event matches "Event" =>
         // if the key (mention) does not already exist, add mention to the event map
