@@ -469,17 +469,19 @@ class FriesOutput extends JsonOutputter {
     seen: Set[BioMention] = Set.empty[BioMention]): Unit = for {
       // inspect mention and its arguments
       mention <- mentions
-      m <- Seq(mention) ++ mention.arguments.flatten
-      if !seen.contains(m)
+      m <- Seq(mention) ++ mention.arguments.values.flatten.toSeq
+      biomention = m.toBioMention
+      if !seen.contains(biomention)
   } {
-    val passage = getPassageForMention(passageMap, mention)
-    m match {
+    val passage = getPassageForMention(passageMap, biomention)
+    biomention match {
 
       case event if event matches "Event" =>
         // if the key (mention) does not already exist, add mention to the event map
         if (!eventMap.contains(event)) eventMap += event -> mkEventId(paperID, passage, event.sentence)
 
-      // TODO: can this be restricted to entities, or does it need to handle context mentions, Sites, etc.?
+      // handles sites, entities, and other tbs
+      // TODO: this will also handle context mentions, but should it?
       case tb: TextBoundMention =>
         // if the key (mention) does not already exist, add mention to the entity map
         if (!entityMap.contains(tb)) entityMap += tb -> mkEntityId(paperID, passage, tb.sentence)
