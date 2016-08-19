@@ -279,8 +279,12 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    eventMap.toSeq.sortBy(e => (e._1.sentence)).foreach { entry =>
-      val event = entry._1
+    for {
+      entry <- eventMap.toSeq.sortBy(e => (e._1.sentence))
+      event = entry._1
+      // make sure we haven't seen this event before
+      if !eventsDone.contains(event)
+    } {
       val passage = getPassageForMention(passageMap, event)
       frames ++= makeEventMention(paperId, passage, event.toBioMention, entityMap,
                                   eventMap, contextIdMap, assemblyApi)
@@ -597,7 +601,7 @@ class FriesOutput extends JsonOutputter {
     mention match {
       case em if isEventOrRelationMention(em) =>
         val arguments = em.arguments        // get the mention arguments Map
-        val argList = new FrameList         // start new arugment frame list
+        val argList = new FrameList         // start new argument frame list
 
         for {
           role <- arguments.keys.toList
