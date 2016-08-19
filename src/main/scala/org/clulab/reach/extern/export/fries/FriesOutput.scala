@@ -560,21 +560,6 @@ class FriesOutput extends JsonOutputter {
 
     val eventList = new FrameList
 
-    // recursively process arguments of nested events first:
-    mention match {
-      case em if isEventOrRelationMention(em) =>
-        val arguments = em.arguments
-        for {
-          role <- arguments.keys.toList
-          ithArg <- arguments(role)
-        } {
-          if (isEventOrRelationMention(ithArg) && !eventsDone.contains(ithArg))
-            eventList ++= makeEventMention(paperId, passageMeta, ithArg.toBioMention, entityMap,
-                                           eventMap, contextIdMap, assemblyApi)
-        }
-      case _ => ()
-    }
-
     val f = startFrame()
     f("frame-type") = "event-mention"
     f("frame-id") = getUniqueId(eventMap, mention)
