@@ -11,12 +11,9 @@ import org.json4s.native.JsonMethods._
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Fix first failing test as a test of fix.
+  *   Last Modified: Rewrite order dependent tests.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
-
-  val REG_FRAME = 0                         // index of positive regulation result frame
-  val PHOS_FRAME = 1                        // index of phosphorylation result frame
 
   val paperId = "PMC123456"
   val startTime = new Date()
@@ -58,74 +55,85 @@ class TestFriesOutput extends FlatSpec with Matchers {
     didList.forall(_ == paperId) should be (true)
   }
 
-  it should "have 1 sentence and one passage" in {
-    // val passages = ((json \ "sentences" \ "frames") \ "frame-type").values
-    val passages = (json \ "sentences" \ "frames" \ "frame-type").values.asInstanceOf[List[String]]
-    (passages.contains("passage")) should be (true)
-    (passages.contains("sentence")) should be (true)
-    val pText = ((json \ "sentences" \ "frames")(PHOS_FRAME) \ "text").values
-    (pText == text1) should be (true)
-    val sText = ((json \ "sentences" \ "frames")(REG_FRAME) \ "text").values
-    (sText == text1) should be (true)
+  it should "have 1 sentence and one passage frame-type" in {
+    val passages = json \ "sentences" \ "frames" \\ "frame-type" \\ classOf[JString]
+    passages should have size (2)
+    passages should contain ("passage")
+    passages should contain ("sentence")
+  }
+
+  it should "have the right text" in {
+    val texts = json \ "sentences" \ "frames" \\ "text" \\ classOf[JString]
+    texts should have size (2)
+    all (texts) should be (text1)
   }
 
   it should "have 2 event mentions: 1 phospho and 1 pos-reg" in {
-    // val subtypeList = json \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
-    val subtypeList = (json \ "events" \ "frames" \\ "subtype").values.asInstanceOf[List[String]]
+    val subtypeList = json \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
     subtypeList.isEmpty should be (false)
     subtypeList.size should be (2)
-    (subtypeList.contains("positive-regulation")) should be (true)
-    (subtypeList.contains("phosphorylation")) should be (true)
+    subtypeList should contain("positive-regulation")
+    subtypeList should contain("phosphorylation")
   }
 
-  it should "have the expected regulation arguments" in {
-    val args = (json \ "events" \ "frames")(REG_FRAME) \ "arguments" \\ classOf[JObject]
-    args.size should be (2)
-    val args0 = args(0)
-    (args0.getOrElse("object-type", "") == "argument") should be (true)
-    (args0.getOrElse("argument-type", "") == "event") should be (true)
-    (args0.getOrElse("type", "") == "controlled") should be (true)
-    val args1 = args(1)
-    (args1.getOrElse("object-type", "") == "argument") should be (true)
-    (args1.getOrElse("argument-type", "") == "entity") should be (true)
-    (args1.getOrElse("type", "") == "controller") should be (true)
+  it should "have the expected arguments argument-types" in {
+    val types = json \ "events" \ "frames" \ "arguments" \\ "argument-type" \\ classOf[JString]
+    types.size should be (3)
+    types.count(_ == "event") should be (1)
+    types.count(_ == "entity") should be (2)
   }
 
-  it should "mark regulation as direct" in {
-    val isDirect = ((json \ "events" \ "frames")(PHOS_FRAME) \ "is-direct") \\ classOf[JBool]
-    isDirect(0) should be (true)
+  it should "have the expected arguments types" in {
+    val types = json \ "events" \ "frames" \ "arguments" \\ "type" \\ classOf[JString]
+    types.size should be (3)
+    types should contain("controller")
+    types should contain("controlled")
+    types should contain("theme")
+  }
+
+  it should "regulation marked as direct" in {
+    val frames = json \ "events" \ "frames" \\ "is-direct" \\ classOf[JBool]
+    frames.size should be (1)
+    frames should contain(true)
   }
 
   it should "have phosphorylation trigger" in {
-    val trigger = ((json \ "events" \ "frames")(PHOS_FRAME) \ "trigger").values
-    (trigger == "phosphorylates") should be (true)
+    val triggers = (json \ "events" \ "frames") \\ "trigger" \\ classOf[JString]
+    triggers should have size (1)
+    all (triggers) should be ("phosphorylates")
   }
 
   it should "have 2 protein entities" in {
     val ents = (json \ "entities" \ "frames") \\ "type" \\ classOf[JString]
-    ents should not be empty
-    ents should have size 2
+    ents should have size (2)
     all (ents) should be ("protein")
   }
 
   it should "have the given protein names" in {
-    // val tvals = ((json \ "entities" \ "frames") \ "text").values
-    val tvals = (json \ "entities" \ "frames" \ "text").values.asInstanceOf[List[String]]
-    (tvals.contains("AKT1")) should be (true)
-    (tvals.contains("PTHR2")) should be (true)
+    val tvals = json \ "entities" \ "frames" \\ "text" \\ classOf[JString]
+    tvals should have size (2)
+    tvals should contain("AKT1")
+    tvals should contain("PTHR2")
   }
 
-  it should "have the expected xref properties" in {
-    val xrefs = json \ "entities" \ "frames" \ "xrefs" \\ classOf[JObject]
-    xrefs should have size 2
-    val xrefs0 = xrefs(0)
-    xrefs0 should contain ("namespace" -> "uniprot")
-    xrefs0 should contain ("object-type" -> "db-reference")
-    xrefs0 should contain ("id" -> "P31749")
-    val xrefs1 = xrefs(1)
-    xrefs1 should contain ("namespace" -> "uniprot")
-    xrefs1 should contain ("object-type" -> "db-reference")
-    xrefs1 should contain ("id" -> "P49190")
+  it should "have xrefs with expected namespace values" in {
+    val nsList = json \ "entities" \ "frames" \ "xrefs" \\ "namespace" \\ classOf[JString]
+    nsList should have size (2)
+    all (nsList) should be ("uniprot")
+    (nsList.filter(ns => ns == "uniprot")) should have size (2)
+  }
+
+  it should "have xrefs with expected object-type values" in {
+    val otList = json \ "entities" \ "frames" \ "xrefs" \\ "object-type" \\ classOf[JString]
+    otList should have size (2)
+    all (otList) should be ("db-reference")
+    (otList.filter(ns => ns == "db-reference")) should have size (2)
+  }
+
+  it should "have xrefs with expected ID values" in {
+    val idList = json \ "entities" \ "frames" \ "xrefs" \\ "id" \\ classOf[JString]
+    idList should contain ("P31749")
+    idList should contain ("P49190")
   }
 
 
