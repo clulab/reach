@@ -24,7 +24,7 @@ import org.clulab.reach.mentions._
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Cleanups.
+  *   Last Modified: Sort mention maps by sentence order.
   */
 class FriesOutput extends JsonOutputter {
 
@@ -250,11 +250,11 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    entityMap.foreach{ entry =>
+    entityMap.toSeq.sortBy(e => (e._1.sentence)).foreach { entry =>
       val entity = entry._1.toBioMention.asInstanceOf[BioTextBoundMention]
-      val id = entry._2
+      val entityId = entry._2
       val passage = getPassageForMention(passageMap, entity)
-      frames ++= makeEntityMention(paperId, passage, entity, id, contextIdMap)
+      frames ++= makeEntityMention(paperId, passage, entity, entityId, contextIdMap)
     }
 
     model
@@ -279,12 +279,11 @@ class FriesOutput extends JsonOutputter {
     val frames = new FrameList
     model("frames") = frames
 
-    eventMap.foreach{ entry =>
+    eventMap.toSeq.sortBy(e => (e._1.sentence)).foreach { entry =>
       val event = entry._1
-      val id = entry._2
       val passage = getPassageForMention(passageMap, event)
-      frames ++= makeEventMention(paperId, passage, event.toBioMention, id,
-                                  entityMap, eventMap, contextIdMap, assemblyApi)
+      frames ++= makeEventMention(paperId, passage, event.toBioMention, entityMap,
+                                  eventMap, contextIdMap, assemblyApi)
     }
 
     model
@@ -550,7 +549,6 @@ class FriesOutput extends JsonOutputter {
     paperId: String,
     passageMeta: FriesEntry,
     mention: BioMention,
-    eventId: String,
     entityMap: IDed,
     eventMap: IDed,
     contextIdMap: CtxIDed,
@@ -575,7 +573,7 @@ class FriesOutput extends JsonOutputter {
 
     val f = startFrame()
     f("frame-type") = "event-mention"
-    f("frame-id") = eventId
+    f("frame-id") = getUniqueId(eventMap, mention)
     f("sentence") = mkSentenceId(paperId, passageMeta, mention.sentence)
     f("start-pos") = makeRelativePosition(paperId, passageMeta, mention.startOffset)
     f("end-pos") = makeRelativePosition(paperId, passageMeta, mention.endOffset)
