@@ -19,7 +19,7 @@ import org.clulab.reach.darpa.OutputDegrader
 /**
   * Defines classes and methods used to build and output the index card format.
   *   Written by: Mihai Surdeanu. 8/27/2015.
-  *   Last Modified: Correct location of isDirect flag output.
+  *   Last Modified: Update for renamed method.
   */
 class IndexCardOutput extends JsonOutputter {
 
@@ -100,7 +100,7 @@ class IndexCardOutput extends JsonOutputter {
     val derefedMentions = allMentions.map(m => m.antecedentOrElse(m.toCorefMention))
 
     // keeps just events:
-    val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
+    val eventMentions = derefedMentions.filter(MentionManager.isEventOrRelationMention)
     // flatten mentions, deduplicate, etc.
     val flattenedMentions = OutputDegrader.prepareForOutput(eventMentions).map(_.toCorefMention)
     // keeps track of simple events that participate in regulations
