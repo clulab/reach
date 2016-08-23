@@ -67,6 +67,7 @@ class NxmlSearcher(val indexDir:String) {
 
   def saveDocs(resultDir:String, docIds:Set[(Int, Float)]): Unit = {
     val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
+    var count = 0
     for(docId <- docIds) {
       val doc = searcher.doc(docId._1)
       val id = doc.get("id")
@@ -75,8 +76,10 @@ class NxmlSearcher(val indexDir:String) {
       os.print(nxml)
       os.close()
       sos.println(s"$id\t${docId._2}")
+      count += 1
     }
     sos.close()
+    logger.info(s"Saved $count documents.")
   }
 
   def search(query:String, totalHits:Int = TOTAL_HITS):Set[(Int, Float)] = {
@@ -212,6 +215,13 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  def useCaseTB(resultDir:String): Unit = {
+    val eventDocs = search(""" "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """)
+    logger.info(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
@@ -245,7 +255,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase(resultDir)
+      searcher.useCaseTB(resultDir)
     }
 
     searcher.close()
