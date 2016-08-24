@@ -11,6 +11,7 @@ import ai.lum.nxmlreader.NxmlReader
 import org.slf4j.LoggerFactory
 import NxmlIndexer._
 import scala.collection.mutable
+import org.clulab.processors.bionlp.BioNLPProcessor
 
 
 /**
@@ -45,9 +46,17 @@ class NxmlIndexer {
     val config = new IndexWriterConfig(analyzer)
     val index = FSDirectory.open(Paths.get(indexDir))
     val writer = new IndexWriter(index, config)
+    // BioNLPProcessor to preprocess the text
+    val processor = new BioNLPProcessor
     count = 0
     for (file <- files) {
-      val nxmlDoc = nxmlReader.read(file)
+      // Preprocess bio text
+      val rawText = io.Source.fromFile(file).getLines.mkString("\n")
+      // This is potentially incorrect because this preprocesses both text and NXML tags...
+      // TODO: this needs to be fixed by adding a preprocessing callback to NxmlReader
+      val preprocessedText = processor.preprocessText(rawText)
+      // Parse the preprocessed nxml
+      val nxmlDoc = nxmlReader.parse(preprocessedText)
       val id = fileToPmc.get(getFileName(file, "nxml")).get
       val text = nxmlDoc.text
       val nxml = readNxml(file)
