@@ -53,6 +53,8 @@ class NxmlIndexer {
       // Preprocess bio text
       val rawText = io.Source.fromFile(file).getLines.mkString("\n")
       val preprocessedText = processor.preprocessText(rawText)
+      // This is potentially incorrect because this preprocesses both text and NXML tags...
+      // TODO: this needs to be fixed by adding a preprocessing callback to NxmlReader
       // Parse the preprocessed nxml
       val nxmlDoc = nxmlReader.parse(preprocessedText)
       val id = fileToPmc.get(getFileName(file, "nxml")).get
