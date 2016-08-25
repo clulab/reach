@@ -4,8 +4,9 @@ import java.io.File
 
 import org.apache.commons.io.FilenameUtils
 import org.clulab.reach.FriesEntry
-
 import scala.util.matching.Regex
+import java.nio.charset.CodingErrorAction
+import scala.io.Codec
 
 
 class DSVParser {
@@ -29,6 +30,13 @@ class DSVParser {
     hasHeader: Boolean = true,
     sectionsToIgnore: Set[String] = Set.empty[String]
   ): Seq[FriesEntry] = {
+
+    // handle encoding errors fast and loosely
+    // see http://stackoverflow.com/a/13626477
+    implicit val codec = Codec("UTF-8")
+    codec.onMalformedInput(CodingErrorAction.REPLACE)
+    codec.onUnmappableCharacter(CodingErrorAction.REPLACE)
+
     // Sniff out the delimiter based on the file's extension
     val delimiter: String = getDelimiter(file)
 
