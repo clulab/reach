@@ -9,11 +9,13 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.{Document, Field, StoredField, StringField, TextField}
 import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
-import ai.lum.nxmlreader.NxmlReader
+import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.slf4j.LoggerFactory
 import NxmlIndexer._
 import scala.collection.mutable
 import org.clulab.processors.bionlp.BioNLPProcessor
+
+import scala.util.{Failure, Success, Try}
 
 
 /**
@@ -51,6 +53,7 @@ class NxmlIndexer {
     // BioNLPProcessor to preprocess the text
     val processor = new BioNLPProcessor
     count = 0
+    var nxmlErrors = 0
     for (file <- files) {
       // Preprocess bio text
       val rawText = io.Source.fromFile(file).getLines.mkString("\n")
@@ -58,15 +61,21 @@ class NxmlIndexer {
       // TODO: this needs to be fixed by adding a preprocessing callback to NxmlReader
       val preprocessedText = processor.preprocessText(rawText)
       // Parse the preprocessed nxml
-      val nxmlDoc = nxmlReader.parse(preprocessedText)
+      val nxmlDoc = Try(nxmlReader.parse(preprocessedText)) match {
+        case Success(v) => v
+        case Failure(e) =>
+          logger.info(s"WARNING: NxmlReader failed on file $file")
+          Nil
+      }
 
-      if(nxmlDoc != null && fileToPmc.contains(getFileName(file, "nxml"))) {
+      if(nxmlDoc != Nil && fileToPmc.contains(getFileName(file, "nxml"))) {
+        val doc = nxmlDoc.asInstanceOf[NxmlDocument]
         val meta = fileToPmc.get(getFileName(file, "nxml")).get
-        val text = nxmlDoc.text
+        val text = doc.text
         val nxml = readNxml(file)
         addDoc(writer, meta, text, nxml)
       } else if(nxmlDoc == null) {
-        logger.info(s"WARNING: NXML parsing failed on file $file!")
+        nxmlErrors += 1
       }
       count += 1
       if(count % 100 == 0)
@@ -75,6 +84,7 @@ class NxmlIndexer {
     }
     writer.close()
     logger.info(s"Indexing complete. Indexed ${count}/${files.size} files.")
+
 
   }
 
