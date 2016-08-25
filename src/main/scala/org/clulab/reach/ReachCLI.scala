@@ -125,18 +125,19 @@ class ReachCLI(val nxmlDir:File,
 
               val ctxSectionsFile = new File(paperDir, "sections.txt")
               FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
-              //
-              // val ctxReachEventsFile = new File(paperDir, "reach_events.txt")
-              // FileUtils.writeLines(ctxReachEventsFile, outputter.eventLines.asJavaCollection)
+
+              val ctxReachEventsFile = new File(paperDir, "reach_events.txt")
+              FileUtils.writeLines(ctxReachEventsFile, outputter.eventLines.asJavaCollection)
 
               val ctxIsTitlesFile = new File(paperDir, "titles.txt")
               FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
+
+              val standoffFile = new File(paperDir, "standoff.json")
+              FileUtils.write(standoffFile, nxmlDoc.standoff.printJson)
               //
               // val ctxCitationsFile = new File(paperDir, "citations.txt")
               // FileUtils.writeLines(ctxCitationsFile, outputter.citationLines.asJavaCollection)
               //
-              // val ctxDocNumsFile = new File(paperDir, "docnums.txt")
-              // FileUtils.writeLines(ctxDocNumsFile, outputter.docNums.asJavaCollection)
               // These are the context plotfiles
               ////////////////////////////////////////////////////
 
