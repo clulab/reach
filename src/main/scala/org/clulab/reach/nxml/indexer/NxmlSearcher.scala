@@ -216,27 +216,34 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   val resolveReaction = Map(
-    "adds_modification_phosphorylation" -> Seq("phosphorylation", "phosphorylates")
+    "adds_modification_phosphorylation" -> Seq("phosphorylation", "phosphorylates"),
+    "increases_activity" -> Seq("activates", "activation"),
+    "decreases_activity" -> Seq("inhibits", "inhibition"),
+    "binds" -> Seq("binds", "binding"),
+    "inhibits_modification_phosphorylation" -> Seq("phosphorylation", "phosphorylates")
+
   )
 
   def resolveParticipant(term:String) = {
     "MEK"
   }
 
-  def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String){
-    val reactionTerms = resolveReaction(action).mkString(" ")
+  def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String) = {
+    val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
     // val pATerms = resolveParticipant(participantA)
     // val pBTerms = resolveParticipant(participantB)
 
-    val eventDocs = search(reactionTerms)
-    val pADocs = search(participantA)
-    val pBDocs = search(participantB)
+    val pADocs = search("\"" + participantA + " " + reactionTerms + "\"~10")
+    val pBDocs = search("\"" + reactionTerms + " " + participantB + "\"~10")
 
-    val resultSet = intersection(intersection(eventDocs, pADocs), pBDocs)
+    val resultSet = intersection(pADocs, pBDocs)
     logger.debug(s"The result contains ${resultSet.size} documents.")
     val resultDocs = docs(resultSet)
     saveNxml(resultDir, resultDocs, 0)
     logger.debug("Done.")
+
+    // Get the PMCIDs that match with the query
+    resultDocs map { _._1.get("id") }
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -271,16 +278,20 @@ object ClusteringSearcher extends App{
 
   // Parsing the CSV file
   val lines = io.Source.fromFile(csvFile).getLines.drop(1) // Don't forget to drop the header
-  for(line <- lines.take(1)){
+  val sos = new PrintWriter(outputDir + File.separator + "hits.txt")
+  for(line <- lines){
     // Parse the line
     val tokens = line.split(',')
-    val pA = tokens(1)
-    val pB = tokens(2)
-    val reaction = tokens(4)
+    val pA = tokens(2)
+    val pB = tokens(4)
+    val reaction = tokens(6)
 
     // Search lucene
-    searcher.useCaseClustering(pA, pB, reaction, outputDir)
+    val hits = searcher.useCaseClustering(pA, pB, reaction, outputDir)
+    sos.println(s"$pA $reaction $pB:\t${hits.mkString(",")}")
+
   }
+  sos.close
 }
 
 object NxmlSearcher {
