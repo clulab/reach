@@ -56,7 +56,9 @@ class NxmlIndexer {
     var nxmlErrors = 0
     for (file <- files) {
       // Preprocess bio text
-      val rawText = io.Source.fromFile(file).getLines.mkString("\n")
+      val source = io.Source.fromFile(file)
+      val rawText = source.getLines.mkString("\n")
+      source.close()
       // This is potentially incorrect because this preprocesses both text and NXML tags...
       // TODO: this needs to be fixed by adding a preprocessing callback to NxmlReader
       val preprocessedText = processor.preprocessText(rawText)
@@ -99,10 +101,12 @@ class NxmlIndexer {
 
   def readNxml(file:File):String = {
     val os = new StringBuilder
-    for(line <- io.Source.fromFile(file).getLines()) {
+    val source = io.Source.fromFile(file)
+    for(line <- source.getLines()) {
       os.append(line)
       os.append("\n")
     }
+    source.close()
     os.toString()
   }
 
@@ -110,7 +114,8 @@ class NxmlIndexer {
     // map from file name (wo/ extension) to pmc id
     val map = new mutable.HashMap[String, PMCMetaData]()
     val errorCount = new MutableNumber[Int](0)
-    for(line <- io.Source.fromFile(mapFile).getLines()) {
+    val source = io.Source.fromFile(mapFile)
+    for(line <- source.getLines()) {
       val tokens = line.split("\\t")
       if(tokens.length > 2) { // skip headers
       val fn = getFileName(tokens(0), "tar.gz")
@@ -121,6 +126,7 @@ class NxmlIndexer {
         // logger.debug(s"$fn -> $pmcId, $year")
       }
     }
+    source.close()
     logger.info(s"PMC map contains ${map.size} files.")
     logger.info(s"Found $errorCount errors when processing this file.")
     map.toMap
