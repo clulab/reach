@@ -517,5 +517,4 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent55)
     hasPositiveRegulationByEntity("Apoptosis", "Phosphorylation", List("p53"), mentions) should be (false)
   }
-
 }
