@@ -255,7 +255,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseTB(resultDir)
+      searcher.useCase2(resultDir)
     }
 
     searcher.close()
