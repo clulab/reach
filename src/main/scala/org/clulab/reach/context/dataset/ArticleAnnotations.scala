@@ -5,12 +5,30 @@ import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
 
-case class ContextType(val contextType:String, val id:String){
-  def this(annotationId:String){
-     // TODO: Implement this correctly
-     this("Hola", annotationId)
+case class ContextType(val contextType:String, val id:String)
+
+object ContextType{
+  def parse(annotationId:String) = {
+    val tokens = annotationId.split(":", 2)
+    val (namespace, gid) = (tokens(0), tokens(1))
+
+    namespace match {
+      case "taxonomy" => this("Species", annotationId)
+      case "cellosaurus" => this("CellLine", annotationId)
+      case "cellontology" => this("CellType", annotationId)
+      case "uberon" => this("Organ", annotationId)
+      case "tissuelist" => this("Organ", annotationId)
+      case "uaz" =>
+       val x = gid.split("-")(1)
+       x match {
+         case "org" => this("Organ", annotationId)
+         case "cline" => this("CellLine", annotationId)
+         case "ct" => this("CellType", annotationId)
+       }
+    }
   }
 }
+
 case class EventAnnotation(val sentenceId:Int, val interval:Interval, val contextsOf:Seq[ContextType])
 case class ContextAnnotation(val sentenceId: Int, val interval:Interval, val contextType:ContextType)
 
@@ -38,7 +56,7 @@ object ArticleAnnotations{
         val bounds = tokens(1).split("-").map(_.toInt)
         val (start, end) = (bounds(0), bounds(1))
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
-        val contexts = tokens(2).split(",").map(new ContextType(_))
+        val contexts = tokens(2).split(",").map(ContextType.parse(_))
 
         EventAnnotation(sentenceId, interval, contexts)
     }.toSeq
@@ -53,7 +71,7 @@ object ArticleAnnotations{
         val bounds = tokens(1).split("-").map(_.toInt)
         val (start, end) = (bounds(0), bounds(1))
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
-        val context = new ContextType(tokens(2))
+        val context = ContextType.parse(tokens(2))
 
         ContextAnnotation(sentenceId, interval, context)
     }.toSeq
