@@ -1,8 +1,7 @@
-package org.clulab.reach.nxml.indexer
+package org.clulab.reach.indexer
 
 import java.io.{FileWriter, PrintWriter, File}
 import java.nio.file.Paths
-
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.utils.StringUtils
 import org.apache.lucene.analysis.Analyzer
@@ -14,12 +13,10 @@ import org.apache.lucene.queryparser.classic.QueryParser
 import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
-
 import scala.collection.mutable
-
 import NxmlSearcher._
-
 import scala.collection.mutable.ArrayBuffer
+
 
 /**
  * Searches the NXML index created by NXML indexer
@@ -70,6 +67,7 @@ class NxmlSearcher(val indexDir:String) {
 
   def saveDocs(resultDir:String, docIds:Set[(Int, Float)]): Unit = {
     val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
+    var count = 0
     for(docId <- docIds) {
       val doc = searcher.doc(docId._1)
       val id = doc.get("id")
@@ -78,8 +76,10 @@ class NxmlSearcher(val indexDir:String) {
       os.print(nxml)
       os.close()
       sos.println(s"$id\t${docId._2}")
+      count += 1
     }
     sos.close()
+    logger.info(s"Saved $count documents.")
   }
 
   def search(query:String, totalHits:Int = TOTAL_HITS):Set[(Int, Float)] = {
@@ -215,6 +215,13 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
+  def useCaseTB(resultDir:String): Unit = {
+    val eventDocs = search(""" "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """)
+    logger.info(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
@@ -248,7 +255,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase(resultDir)
+      searcher.useCase2(resultDir)
     }
 
     searcher.close()

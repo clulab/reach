@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for use of Uberon as organ KB.
+  *   Last Modified: Rename protein kinases and protein domains file.
   */
 object ReachKBConstants {
 
@@ -50,19 +50,6 @@ object ReachKBConstants {
   val GendProteinPrefix = "UA-BP-GGP-"
 
 
-  /** Filename of the manually maintained cellular location file. */
-  val ManualCellLocationFilename = "manual-cellular_component.tsv.gz"
-
-  /** Filename of the manually maintained small molecule file. */
-  val ManualChemicalFilename = "manual-simple_chemical.tsv.gz"
-
-  /** Filename of the manually maintained protein file. */
-  val ManualProteinFilename = "manual-gene_or_gene_product.tsv.gz"
-
-  /** Filename of the manually maintained protein family file. */
-  val ManualProteinFamilyFilename = "manual-family.tsv.gz"
-
-
   /** Filename of the static bio processes file. */
   val StaticBioProcessFilename = "bio_process.tsv.gz"
 
@@ -104,7 +91,10 @@ object ReachKBConstants {
   val ContextTissueTypeFilename = "tissue-type.tsv.gz"
 
 
+  /** Filename of the protein kinases lookup table. */
+  val ProteinKinasesFilename = "uniprot-kinases.txt.gz"
+
   /** Filename of a file containing just Protein Domain suffixes; one per line. */
-  val ProteinDomainSuffixesFilename = "proteinDomains-short.txt"
+  val ProteinDomainShortNamesFilename = "proteinDomains-short.txt.gz"
 
 }

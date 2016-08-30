@@ -3,24 +3,23 @@ package org.clulab.reach.extern.export.indexcards
 import java.io.File
 import java.util.Date
 import java.util.regex.Pattern
-
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
-
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import org.clulab.reach.extern.export._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
-
 import JsonOutputter._
 import IndexCardOutput._
+import org.clulab.reach.FriesEntry
+import org.clulab.reach.darpa.OutputDegrader
+
 
 /**
   * Defines classes and methods used to build and output the index card format.
   *   Written by: Mihai Surdeanu. 8/27/2015.
-  *   Last Modified: Correct location of isDirect flag output.
+  *   Last Modified: Update for renamed method.
   */
 class IndexCardOutput extends JsonOutputter {
 
@@ -51,7 +50,8 @@ class IndexCardOutput extends JsonOutputter {
                           paperPassages:Seq[FriesEntry],
                           startTime:Date,
                           endTime:Date,
-                          outFilePrefix:String): Unit = {
+                          outFilePrefix:String
+  ): Unit = {
     // we create a separate directory for each paper, and store each index card as a separate file
     val dir = new File(outFilePrefix)
     if(! dir.exists()) {
@@ -100,13 +100,14 @@ class IndexCardOutput extends JsonOutputter {
     val derefedMentions = allMentions.map(m => m.antecedentOrElse(m.toCorefMention))
 
     // keeps just events:
-    val eventMentions = derefedMentions.filter(MentionManager.isEventMention)
-
+    val eventMentions = derefedMentions.filter(MentionManager.isEventOrRelationMention)
+    // flatten mentions, deduplicate, etc.
+    val flattenedMentions = OutputDegrader.prepareForOutput(eventMentions).map(_.toCorefMention)
     // keeps track of simple events that participate in regulations
     val simpleEventsInRegs = new mutable.HashSet[Mention]()
 
     // first, print all regulation events
-    for(mention <- eventMentions) {
+    for (mention <- flattenedMentions) {
       if (REGULATION_EVENTS.contains(mention.label)) {
         val card = mkRegulationIndexCard(mention, simpleEventsInRegs)
         card.foreach(c => {
@@ -117,7 +118,7 @@ class IndexCardOutput extends JsonOutputter {
     }
 
     // now, print everything else that wasn't printed already
-    for(mention <- eventMentions) {
+    for (mention <- flattenedMentions) {
       if (! REGULATION_EVENTS.contains(mention.label) &&
           ! simpleEventsInRegs.contains(mention))
       {
@@ -157,7 +158,7 @@ class IndexCardOutput extends JsonOutputter {
 
   /** Add the properties of the given context map to the given property map. */
   def mkContext (f:PropMap, mention:CorefMention): Unit = {
-    if (mention.context.exists(! _.isEmpty))
+    if (mention.context.exists(_.nonEmpty))
       f("context") = mention.context.get
   }
 

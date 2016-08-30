@@ -1,0 +1,50 @@
+#
+# The rules below apply ONLY to regulations (not activations)
+#
+
+# This applies only to non-nested regs
+- name: Positive_${ ruleType }_in_response_to
+  priority: ${ priority }
+  label: ${ label }
+  example: "Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF treatment"
+  action: ${ actionFlow }
+  pattern: |
+    trigger = in response to
+    controlled:SimpleEvent = <prep_in dobj?
+    controller:${ controllerType }? = <prep_in? (prep_to prep_with? | prep_with) ([lemma="treatment"] nn)?
+
+# This applies only to non-nested regs
+- name: Positive_${ ruleType }_following_Controller_activation
+  priority: ${ priority }
+  type: token
+  example: "The phosphorylation of AKT1 following MEK activation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent following @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/])
+
+
+# This applies only to non-nested regs
+- name: Positive_${ ruleType }_following_activation_of_Controller
+  priority: ${ priority }
+  type: token
+  example: "The phosphorylation of AKT1 following activation of MEK."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:SimpleEvent following (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) [word=/of|by/] @controller:${ controllerType }
+
+
+# it's important that the type of this be SimpleEvent
+# otherwise it picks as Controlled one of the above regulations matched through a token pattern
+# plus, these 4 patterns above are for non-nested regs anyway
+- name: Positive_${ ruleType }_syntax_following_activation
+  priority: ${ priority }
+  example: "The phosphorylation of AKT1 following MEK activation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    controller:BioEntity = /nn|prep_of|prep_by/
+    controlled:SimpleEvent = <prep_following
+

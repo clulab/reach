@@ -11,24 +11,36 @@ trait Event extends EntityEventRepresentation {
 
   /** PrecedenceRelations for this Event */
   def precedenceRelations: Set[PrecedenceRelation] = {
-    manager.getPrecedenceRelations(equivalenceHash)
+    manager.getPrecedenceRelationsFor(this)
   }
 
   /** Causal predecessors of this Event */
   def predecessors: Set[EntityEventRepresentation] =
-    manager.predecessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+    manager.predecessorsOf(this).map(_.asInstanceOf[Event])
 
   /** Distinct causal predecessors of this Event */
   def distinctPredecessors: Set[EntityEventRepresentation] =
-    manager.distinctPredecessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+    manager.distinctPredecessorsOf(this).map(_.asInstanceOf[Event])
+
+  /** Equivalent causal predecessors of this Event */
+  def equivalentPredecessors: Set[EntityEventRepresentation] = for {
+    p <- predecessors
+    e <- manager.getEquivalentEERs(p)
+  } yield e
 
   /** Causal successors of this Event */
   def successors: Set[EntityEventRepresentation] =
-    manager.successorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+    manager.successorsOf(this).map(_.asInstanceOf[Event])
 
   /** Distinct causal successors of this Event */
   def distinctSuccessors: Set[EntityEventRepresentation] =
-    manager.distinctSuccessorsOf(equivalenceHash).map(_.asInstanceOf[Event])
+    manager.distinctSuccessorsOf(this).map(_.asInstanceOf[Event])
+
+  /** Equivalent causal successors of this Event */
+  def equivalentSuccessors: Set[EntityEventRepresentation] = for {
+    s <- successors
+    e <- manager.getEquivalentEERs(s)
+  } yield e
 
   /** Get the entities (patients) serving as input to the event */
   def I: Set[Entity]

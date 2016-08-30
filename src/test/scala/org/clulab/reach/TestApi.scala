@@ -1,12 +1,11 @@
 package org.clulab.reach
 
-import org.clulab.reach.nxml._
 import org.clulab.reach.apis.Api
-
 import scala.util.Try
 import org.scalatest._
 import io.Source
 import TestUtils._
+
 
 class TestApi extends FlatSpec with Matchers {
 
@@ -18,7 +17,7 @@ class TestApi extends FlatSpec with Matchers {
 
   // basic function cases:
   it should "return Reach results from a FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", false, text)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)
     val results = Api.runOnFriesEntry(entry)
     results.isEmpty should be (false)
   }
@@ -67,13 +66,13 @@ class TestApi extends FlatSpec with Matchers {
 
   // some results cases:
   text2 should "return 1 positive activation result from a FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", false, text2)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text2)
     val results = Api.runOnFriesEntry(entry)
     results.filter(_.label == "Positive_activation") should have size (1)
   }
 
   text2 should "return 4 entity results from a FriesEntry" in {
-    val entry = FriesEntry(docId, chunkId, "example", "example", false, text2)
+    val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text2)
     val results = Api.runOnFriesEntry(entry)
     hasEntity("RAS", results) should be (true)
     hasEntity("p53", results) should be (true)

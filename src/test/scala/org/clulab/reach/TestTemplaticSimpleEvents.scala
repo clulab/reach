@@ -511,19 +511,86 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent35a)
     hasPositiveRegulationByEntity("E3 ubiquitin ligase", "Ubiquitination", List("beta-catenin"), mentions) should be (true)
   }
+
   val sent35b = "Beta-catenin ubiquitinates E3 ubiquitin ligase."
   sent35b should "contain a ubiquitination with cause" in {
     val mentions = getBioMentions(sent35b)
     hasPositiveRegulationByEntity("Beta-catenin", "Ubiquitination", List("E3 ubiquitin ligase"), mentions) should be (true)
   }
+
   val sent35c = "Ubiquitin ubiquitinates beta-catenin."
   sent35c should "not contain a ubiquitination" in {
     val mentions = getBioMentions(sent35c)
     hasPositiveRegulationByEntity("E3 ubiquitin ligase", "Ubiquitination", List("beta-catenin"), mentions) should be (false)
   }
+
   val sent35d = "Beta-catenin ubiquitinates ubiquitin."
   sent35d should "not contain a ubiquitination" in {
     val mentions = getBioMentions(sent35d)
     hasPositiveRegulationByEntity("Beta-catenin", "Ubiquitination", List("E3 ubiquitin ligase"), mentions) should be (false)
+  }
+
+  // Ensure we capture sites that are nominal modifiers of a nominal trigger
+  val sent36 = "We did not detect a change in the tyrosine phosphorylation of EGFR in cells expressing Gab1 proteins that are deficient in recruitment of Shp2."
+  sent36 should "contain a phosphorylation with a Site" in {
+    val mentions = getMentionsFromText(sent36)
+    val phosphos = mentions filter(_ matches "Phosphorylation")
+
+    phosphos should have size (1)
+
+    phosphos.head.arguments.keySet should contain ("theme")
+    phosphos.head.arguments("theme") should have size (1)
+    phosphos.head.arguments("theme").head.text should equal ("EGFR")
+
+    phosphos.head.arguments.keySet should contain ("site")
+    phosphos.head.arguments("site") should have size (1)
+    phosphos.head.arguments("site").head.text should equal ("tyrosine")
+  }
+
+  val sent37 = "The endogenous EGFR is tyrosine phosphorylated in response to EGF in all cell lines."
+  sent37 should "contain only a phosphorylation of EGFR by EGF" in {
+    val mentions = getBioMentions(sent37)
+    val phosphos = mentions filter(_ matches "Phosphorylation")
+
+    phosphos should have size (1)
+    phosphos.head.arguments.keySet should contain ("theme")
+    phosphos.head.arguments("theme") should have size (1)
+    phosphos.head.arguments("theme").head.text should equal ("EGFR")
+
+    phosphos.head.arguments.keySet should contain ("site")
+    phosphos.head.arguments("site") should have size (1)
+    phosphos.head.arguments("site").head.text should equal ("tyrosine")
+  }
+
+  val sent38 = "Both Gab1 and Gab1 F446/472/589 are tyrosine phosphorylated in response to EGF treatment"
+  sent38 should "contain only a phosphorylation of EGFR by EGF" in {
+    val mentions = getBioMentions(sent38)
+    val phosphos = mentions filter(_ matches "Phosphorylation")
+
+    phosphos should have size (2)
+    phosphos.foreach(phos => phos.arguments.keySet should contain ("theme"))
+    phosphos.foreach(phos => phos.arguments("theme") should have size (1))
+    phosphos.foreach(phos => phos.arguments("theme").head.text should equal ("Gab1"))
+
+    phosphos.foreach(phos => phos.arguments.keySet should contain ("site"))
+    phosphos.foreach(phos => phos.arguments("site") should have size (1))
+    phosphos.foreach(phos => phos.arguments("site").head.text should equal ("tyrosine"))
+  }
+
+  val sent39 = "However, while MEK5D phosphorylated a kinase dead mutant of ERK5 (ERK5-KD) at its TEY site"
+  sent39 should "not contain a phosphorylation of MEK5D" in {
+    val mentions = getBioMentions(sent39)
+    hasEventWithArguments("Phosphorylation", Seq("MEK5D"), mentions) should be (false)
+  }
+  val sent40 = "MEK5D phosphorylated ERK5."
+  sent40 should "contain a phosphorylation of ERK5 by MEK5D" in {
+    val mentions = getBioMentions(sent40)
+    hasEventWithArguments("Phosphorylation", Seq("ERK5"), mentions) should be (true)
+    hasPositiveRegulationByEntity("MEK5D", "Phosphorylation", Seq("ERK5"), mentions) should be (true)
+  }
+  val sent41 = "However, while MEK5D phosphorylated a kinase dead ERK5."
+  sent41 should "not contain a phosphorylation of MEK5D" in {
+    val mentions = getBioMentions(sent41)
+    hasEventWithArguments("Phosphorylation", Seq("MEK5D"), mentions) should be (false)
   }
 }

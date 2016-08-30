@@ -193,13 +193,13 @@ class CorefEventMention(
 
 
 class CorefRelationMention(
-                          labels: Seq[String],
-                          arguments: Map[String, Seq[Mention]],
-                          sentence: Int,
-                          document: Document,
-                          keep: Boolean,
-                          foundBy: String
-                          ) extends BioRelationMention(labels, arguments, sentence, document, keep, foundBy) with Anaphoric {
+  labels: Seq[String],
+  arguments: Map[String, Seq[Mention]],
+  sentence: Int,
+  document: Document,
+  keep: Boolean,
+  foundBy: String
+) extends BioRelationMention(labels, arguments, sentence, document, keep, foundBy) with Anaphoric {
 
   def isGeneric: Boolean = false
 

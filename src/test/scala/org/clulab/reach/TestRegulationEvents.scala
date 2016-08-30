@@ -162,9 +162,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
     val controlled = reg.get.arguments("controlled").head.toBioMention
-    controller.text should be ("ASPP1")
-    controller.modifications should have size (1)
-    controller.modifications.head.label should be ("Phosphorylation")
+    controller.label should equal ("Phosphorylation")
     controlled.labels should contain ("Ubiquitination")
     controlled.asInstanceOf[BioEventMention].isDirect should be (false)
     controlled.arguments should contain key ("theme")
@@ -183,8 +181,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     reg.get.arguments("controlled") should have size (1)
     val controller = reg.get.arguments("controller").head.toBioMention
     val controlled = reg.get.arguments("controlled").head.toBioMention
-    controller.text should be ("ASPP1 and ASPP2")
-    controller.labels should contain ("Complex")
+    controller.label should equal ("Binding")
     controlled.labels should contain ("Phosphorylation")
     controlled.arguments should contain key ("theme")
     controlled.arguments should not contain key ("cause")
@@ -251,7 +248,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     posReg.head.arguments("controlled") should have size (1)
     val controller = posReg.head.arguments("controller").head.toBioMention
     val controlled = posReg.head.arguments("controlled").head.toBioMention
-    controller.matches("Complex") should be (true)
+    controller.matches("Binding") should be (true)
     controlled.matches("Phosphorylation") should be (true)
     controlled.asInstanceOf[BioEventMention].isDirect should be (false)
   }
@@ -280,7 +277,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasNegativeRegulationByEntity("rapamycin", "Phosphorylation", List("ERK"), mentions) should be (true)
   }
 
-  val sent29 = "B-Raf phosphorylates MEK1 and MEK2 on Ser217 and Ser221"
+  val sent29 = "B-Raf phosphorylates MEK2 and MEK1 on Ser221 and Ser217"
   sent29 should "contain 4 phosphorylations and 4 regulations (GUS)" in {
     val mentions = getBioMentions(sent29)
     mentions.filter(_.label == "Positive_regulation") should have size (4)
@@ -440,5 +437,84 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     outer should have size (1)
     hasPositiveRegulationByEntity("BEF", "Phosphorylation", List("AFT"), mentions) should be (true)
     outer.head.arguments("controlled").head == inner.head should be (true)
+  }
+
+  // the next 6 tests cover the "in response to" regulation rules
+  val sent48 = "We first assayed the ability of the endogenous EGFR to be tyrosine autophosphorylated in response to EGF"
+  sent48 should "contain 1 PosReg of a phosphorylation" in {
+    val mentions = getBioMentions(sent48)
+    // mentions.filter(_ matches "Positive_regulation") should have size (1)
+    // mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("EGF", "AutoPhosphorylation", List("EGFR"), mentions) should be (true)
+  }
+
+  val sent49 = "the ability of the exogenous ErbB3 receptor to be tyrosine phosphorylated in response to stimulation with either EGF or neuregulin (NRG)"
+  sent49 should "contain 2 PosReg of a phosphorylation" in {
+    val mentions = getBioMentions(sent49)
+    mentions.filter(_ matches "Positive_regulation") should have size (2)
+    mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("ErbB3"), mentions) should be (true)
+    hasPositiveRegulationByEntity("neuregulin", "Phosphorylation", List("ErbB3"), mentions) should be (true)
+  }
+
+  val sent50 = "Both Gab1 and Gab1 F446/472/589 are tyrosine phosphorylated in response to EGF treatment"
+  sent50 should "contain 2 PosReg of 2 phosphorylation" in {
+    val mentions = getBioMentions(sent50)
+    mentions.filter(_ matches "Positive_regulation") should have size (2)
+    mentions.filter(_ matches "Phosphorylation") should have size (2)
+    hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("Gab1"), mentions) should be (true)
+  }
+
+  val sent51 = "The endogenous EGFR is tyrosine phosphorylated in response to EGF in all cell lines."
+  sent51 should "contain 1 PosReg of 1 phosphorylation" in {
+    val mentions = getBioMentions(sent51)
+    // mentions.filter(_ matches "Positive_regulation") should have size (1)
+    // mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("EGFR"), mentions) should be (true)
+  }
+
+  val sent52 = "As shown in Figure, the endogenous Gab1 present in WT MEFs is tyrosine phosphorylated in response to EGF treatment."
+  sent52 should "contain 1 PosReg of 1 phosphorylation" in {
+    val mentions = getBioMentions(sent52)
+    // mentions.filter(_ matches "Positive_regulation") should have size (1)
+    // mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("Gab1"), mentions) should be (true)
+  }
+
+  val sent53 = "We first assayed the ability of the mutant Gab1 proteins to become tyrosine phosphorylated in response to EGF."
+  sent53 should "contain 1 PosReg of 1 phosphorylation" in {
+    val mentions = getBioMentions(sent53)
+    // mentions.filter(_ matches "Positive_regulation") should have size (1)
+    // mentions.filter(_ matches "Phosphorylation") should have size (1)
+    hasPositiveRegulationByEntity("EGF", "Phosphorylation", List("Gab1"), mentions) should be (true)
+  }
+
+  // From MITRE's feedback2, 2016 summer eval
+  // These 4 tests cover "A following B activation" patterns
+  val sent54 = "The phosphorylation of AKT1 following MEK activation."
+  sent54 should "contain 1 positive regulation" in {
+    val mentions = getBioMentions(sent54)
+    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)   // fails
+  }
+  val sent54b = "We observed the phosphorylation of AKT1 following activation by MEK."
+  sent54b should "contain 1 positive regulation" in {
+    val mentions = getBioMentions(sent54b)
+    hasPositiveRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)  // fails
+  }
+  val sent54c = "The phosphorylation of AKT1 following inhibition of MEK."
+  sent54c should "contain 1 negative regulation" in {
+    val mentions = getBioMentions(sent54c)
+    hasNegativeRegulationByEntity("MEK", "Phosphorylation", List("AKT1"), mentions) should be (true)
+  }
+  val sent54d = "p53–ASPP2 complex in these cells following RAS activation"
+  sent54d should "contain 1 binding and 1 positive regulation event" in {
+    val mentions = getBioMentions(sent54d)
+    hasPositiveRegulationByEntity("RAS", "Binding", List("p53", "ASPP2"), mentions) should be (true)    // fails
+  }
+
+  val sent55 = "Apoptosis promotes the phosphorylation of p53."
+  sent55 should "contain no regulations" in {
+    val mentions = getBioMentions(sent55)
+    hasPositiveRegulationByEntity("Apoptosis", "Phosphorylation", List("p53"), mentions) should be (false)
   }
 }

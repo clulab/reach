@@ -89,7 +89,7 @@ class PathFinder(sentence: Sentence) {
     withEntities: Boolean = false,
     withChunks: Boolean = false
   ): Option[String] = {
-    val constraints = interval.toSeq flatMap { i =>
+    val constraints = interval flatMap { i =>
       mkTokenConstraint(i, withWords, withLemmas, withTags, withEntities, withChunks)
     }
     if (constraints.isEmpty) None else Some(constraints.mkString(" "))

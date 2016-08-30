@@ -1,10 +1,6 @@
 package org.clulab.reach.context
 
 import scala.annotation.tailrec
-import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.reach.context.rulebased._
-
 
 
 // Policy Two
@@ -82,7 +78,6 @@ class BoundedPaddingContext(
   // Apply the policy
   protected override def inferContext = padContext(Seq(), latentSparseMatrix, Seq.fill(this.contextTypes.size)(1), bound)
 
-  protected override def extractEntryFeatures(entry:FriesEntry):Array[(String, Double)] = Array()
 }
 
 

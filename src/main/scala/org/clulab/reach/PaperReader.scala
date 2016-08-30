@@ -6,26 +6,27 @@ import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import org.clulab.odin._
-import org.clulab.reach.nxml.{FriesEntry, NxmlReader}
 import org.clulab.reach.utils.DSVParser
 import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
+import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
+import com.typesafe.scalalogging.LazyLogging
 
 
-object PaperReader {
+object PaperReader extends LazyLogging {
 
   type PaperId = String
   type Dataset = Map[PaperId, Vector[Mention]]
 
-  println("loading ...")
+  logger.debug("loading ...")
   val config = ConfigFactory.load()
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
-  val ignoreSections = config.getStringList("nxml2fries.ignoreSections").asScala
+  val ignoreSections = config.getStringList("ignoreSections").asScala
 
   // systems for reading papers
-  val nxmlReader = new NxmlReader(ignoreSections)
+  val nxmlReader = new NxmlReader(ignoreSections.toSet)
   val dsvReader = new DSVParser()
 
   // for context engine
@@ -35,7 +36,7 @@ object PaperReader {
     context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem with appropriate context engine
-  val rs = new ReachSystem(contextEngineType = contextEngineType, contextParams = contextEngineParams)
+  lazy val rs = new ReachSystem(contextEngineType = contextEngineType, contextParams = contextEngineParams)
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
@@ -50,6 +51,7 @@ object PaperReader {
    * @return a Dataset (PaperID -> Mentions)
    */
   def readPapers(dir: File): Dataset = {
+    //val _ = rs.processor.annotate("blah")
     require(dir.isDirectory, s"'${dir.getCanonicalPath}' is not a directory")
     // read papers in parallel
     val files = dir.listFiles.par
@@ -66,27 +68,54 @@ object PaperReader {
   }
 
   /**
-   * Produces Mentions from either a .nxml or .csv paper using [[NxmlReader]] or [[DSVParser]] and [[ReachSystem]]
-   * @param file a File with either the .csv or .nxml extension
-   * @return (PaperID, Mentions)
-   */
-  def readPaper(file: File): (String, Vector[Mention]) = {
+    * Produces Mentions from either a .nxml or .csv/.tsv paper using [[NxmlReader]] or [[DSVParser]] and [[ReachSystem]]
+    * @param file a File with either the .csv, .tsv, or .nxml extension
+    * @return (PaperID, Mentions)
+    */
+  def readPaper(file: File): (String, Vector[Mention]) = file match {
+    case nxml if nxml.getName.endsWith(".nxml") =>
+      readNXMLPaper(nxml)
+    case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith("tsv") =>
+      readDSVPaper(dsv)
+    case other =>
+      throw new Exception(s"Given ${file.getAbsolutePath}, but readPaper doesn't support ${FilenameUtils.getExtension(other.getAbsolutePath)}")
+  }
+
+  def readNXMLPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
-    println(s"reading paper $paperID . . .")
-    paperID -> getMentionsFromFriesEntries(getEntriesFromPaper(file)).toVector
+    //info(s"reading paper $paperID . . .")
+    paperID -> rs.extractFrom(nxmlReader.read(file)).toVector
+  }
+
+  def readDSVPaper(file: File): (String, Vector[Mention]) = {
+    require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .tsv and .dsv files!")
+    val paperID = FilenameUtils.removeExtension(file.getName)
+    //info(s"reading paper $paperID . . .")
+    // get a single entry for the valid sections
+    val entry = getEntryFromPaper(file)
+    paperID -> rs.extractFrom(entry).toVector
   }
 
   /**
-   * Produces FriesEntries from .nxml paper using [[NxmlReader]] and [[ReachSystem]]
-   * @param file a File with the .nxml extension
-   * @return Seq[FriesEntry]
-   */
-  def getEntriesFromNXMLPaper(file: File): Seq[FriesEntry] = {
-    require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
-    for {
-      entry <- nxmlReader.readNxml(file)
-    } yield entry
+    * Get a single FriesEntry representing a paper
+    * @param file
+    * @return [[FriesEntry]]
+    */
+  def getEntryFromPaper(file: File): FriesEntry = file match {
+    case nxml if nxml.getName.endsWith(".nxml") =>
+      val nxmlDoc: NxmlDocument = nxmlReader.read(nxml)
+      new FriesEntry(nxmlDoc)
+    case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith("tsv") =>
+      dsvReader.toFriesEntry(dsv, sectionsToIgnore = ignoreSections.toSet)
+  }
+
+  def getEntryFromPaper(fileName: String): FriesEntry = getEntryFromPaper(new File(fileName))
+
+  def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = rs.extractFrom(entry).toVector
+
+  def getMentionsFromPaper(file: File): Vector[Mention] = {
+    readPaper(file)._2
   }
 
   /**
@@ -94,42 +123,6 @@ object PaperReader {
    */
   def getMentionsFromText(text: String): Seq[Mention] = rs.extractFrom(text, "", "")
 
-  /**
-   * Produces FriesEntries from .csv or .tsv papers using [[DSVParser]] and [[ReachSystem]]
-   * @param file a File with the .csv extension
-   * @return Seq[FriesEntry]
-   */
-  def getEntriesFromDSVPaper(file: File): Seq[FriesEntry] = {
-    require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .csv and .tsv files!")
-    dsvReader.toFriesEntries(file)
-  }
-
-  def getEntriesFromPaper(file: File): Seq[FriesEntry] = FilenameUtils.getExtension(file.getAbsolutePath) match {
-    case "nxml" => getEntriesFromNXMLPaper(file)
-    case "csv" => getEntriesFromDSVPaper(file)
-    case "tsv" => getEntriesFromDSVPaper(file)
-    case _ =>
-      val extension = FilenameUtils.getExtension(file.getAbsolutePath)
-      println(s"Reading of paper ${file.getName} failed!")
-      println(s"extension '$extension' not supported")
-      Nil
-  }
-
-  def getMentionsFromFriesEntries(entries: Seq[FriesEntry]): Seq[Mention] = rs.extractFrom(entries)
-
-  /**
-   * Get mentions from a single paper (.csv, .tsv, or .nxml)
-   * @param file a [[java.io.File]] object
-   * @return a Seq of Odin-style Mentions
-   */
-  def getMentionsFromPaper(file: File): Seq[Mention] = {
-    val entries =  FilenameUtils.getExtension(file.getAbsolutePath) match {
-      case "nxml" => getEntriesFromNXMLPaper(file)
-      case "csv" =>  getEntriesFromDSVPaper(file)
-      case "tsv" => getEntriesFromDSVPaper(file)
-    }
-    getMentionsFromFriesEntries(entries)
-  }
 }
 
 

@@ -7,6 +7,7 @@ import org.clulab.odin.Mention
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import org.apache.commons.io.FileUtils
+import scala.util.matching.Regex
 
 
 case class Row(
@@ -26,17 +27,35 @@ case class Row(
   // was involved in other events (input, controller, etc)
   val seen = evidence.size
   // the set of paper ids where mentions of this event were found
-  val docIDs = evidence.map(_.document.id.getOrElse("UNKNOWN"))
+  val docIDs = evidence.map(_.document
+    .id
+    .getOrElse(AssemblyExporter.UNKNOWN)
+    // FIXME: hack to trim section/chunk ID
+    .split("_").head
+  )
 
   def getTextualEvidence: Seq[String] = {
-    evidence.toSeq.map(_.sentenceObj.getSentenceText)
+    evidence.toSeq.map { m =>
+      val text = m.sentenceObj.getSentenceText
+      cleanText(text)
+    }
+  }
+
+  private def cleanText(contents: String): String = {
+    // replace multiple whitespace characters (newlines, tabs, etc) with a single space
+    val cleanContents = contents.replaceAll("\\s+", " ")
+    // check for only whitespace
+    AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches match {
+      case false => cleanContents
+      case true => AssemblyExporter.NONE
+    }
   }
 
   def toTSVrow: String = {
     val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
     val seenIn = docIDs.toSeq.sorted.mkString(", ")
     val examples = getTextualEvidence.mkString(" ++++ ")
-    s"$input\t$output\t$controller\t$eventID\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
+    s"${cleanText(input)}\t${cleanText(output)}\t${cleanText(controller)}\t${cleanText(eventID)}\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
   }
 
   def toShellRow: String = {
@@ -51,7 +70,8 @@ case class Row(
 /**
  * UA assembly exporter <br>
  * Used to produce a tsv file
- * @param manager
+  *
+  * @param manager
  */
 class AssemblyExporter(val manager: AssemblyManager) {
 
@@ -97,7 +117,8 @@ class AssemblyExporter(val manager: AssemblyManager) {
 
   /**
    * Create text representation of SimpleEntity
-   * @param entity a SimpleEntity
+    *
+    * @param entity a SimpleEntity
    * @return a String representing entity and its modifications, mutations, etc
    */
   def createSimpleEntityText(entity: SimpleEntity): String = {
@@ -176,7 +197,10 @@ class AssemblyExporter(val manager: AssemblyManager) {
     case reg: Regulation =>
       reg.controlled.map(createOutput).mkString(", ")
 
-    case _ => ""
+    // PTM-like cases
+    case entity: Entity => createInput(entity)
+
+    case _ => NONE
   }
 
   def createController(eer: EntityEventRepresentation): String = eer match {
@@ -184,16 +208,18 @@ class AssemblyExporter(val manager: AssemblyManager) {
     case ce: ComplexEvent =>
       ce.controller.map {
         case entity: SimpleEntity => createSimpleEntityText(entity)
+        case complex: Complex => createInput(complex)
         case c => s"${createOutput(c)}.${ce.polarity}"
       }.mkString(", ")
 
-    case _ => ""
+    case _ => NONE
 
   }
 
   /**
    * Converts predecessors of Event to Event IDs
-   * @param eer an [[EntityEventRepresentation]]
+    *
+    * @param eer an [[EntityEventRepresentation]]
    * @return a Set of String representing Event IDs of eer's predecessors
    */
   def precededBy(eer: EntityEventRepresentation): Set[String] = eer match {
@@ -234,14 +260,11 @@ class AssemblyExporter(val manager: AssemblyManager) {
     require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation's input ID not found in EventIDs for rows!")
   }
 
-  def writeTSV(outfile: String, rowFilter: Set[Row] => Set[Row]): Unit = {
+  def writeTSV(f: File, rowFilter: Set[Row] => Set[Row]): Unit = {
     val rowsForOutput = rowFilter(getEventRows)
-
     // validate output
     validateOutput(rowsForOutput)
-
     // prepare output
-    val f = new File(outfile)
     val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
     val text =
     // only events
@@ -309,6 +332,11 @@ object AssemblyExporter {
 
   import AssemblyManager._
 
+  val WHITESPACE = new Regex("\\s+")
+
+  val UNKNOWN = "UNKNOWN"
+  val NONE = "NONE"
+
   val PTMLUT: Map[String, String] = Map(
       "Phosphorylation" -> ".p",
       "Ubiquitination" -> ".u"
@@ -334,7 +362,8 @@ object AssemblyExporter {
 
   /**
    * Recursively checks whether or not a Mention m contains a Mention with the label Family
-   * @param m an Odin Mention
+    *
+    * @param m an Odin Mention
    * @return true or false
    */
   def containsFamily(m: Mention): Boolean = m match {
@@ -361,16 +390,27 @@ object AssemblyExporter {
     case act if act matches "ActivationEvent" => false
     case reg if reg matches "Regulation" => reg.arguments.values.flatten.forall(isValidRegulation)
   }
+
+  def seenAtLeastOnce(rows: Set[Row]): Set[Row] = rows.filter(_.seen >= 1)
+
+  def onlyEvents(rows: Set[Row]): Set[Row] = rows.filter {
+      row =>
+        row.seen > 0 &&
+          // must have a valid eventID
+          (row.eventID.nonEmpty || row.eventID != AssemblyExporter.NONE)
+  }
+
   /**
    * Applies MITRE requirements to assembled events
-   * @param rows a Set[Row]
+    *
+    * @param rows a Set[Row]
    * @return a filtered Set of [[Row]]
    */
   def MITREfilter(rows: Set[Row]): Set[Row] = {
     // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
     val filteredRows = rows.filter(_.seen >= 3)
       // 1b. Evidence come from at least 2 different sections.
-      .filter(_.docIDs.toSet.size >= 2)
+      .filter(_.docIDs.size >= 2)
       // 2a. No Activations, etc.
       .filter(r => r.evidence.forall(isValidMITREMention))
       // 2b. Findings cannot include protein families.
@@ -406,7 +446,8 @@ object AssemblyExporter {
   }
   /**
    * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
-   * @param m an Odin Mention
+    *
+    * @param m an Odin Mention
    * @return true or false
    */
   def hasUAZgrounding(m: Mention): Boolean = {

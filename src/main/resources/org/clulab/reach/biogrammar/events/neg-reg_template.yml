@@ -69,6 +69,15 @@
     controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|nn|amod|conj_|cc/{,2}
     controller:${ controllerType } = /prep_by|agent/ /appos|nn|amod|conj_|cc|prep_of|prep_in$/{,2}
 
+- name: Negative_${ ruleType }_syntax_7_verb
+  priority: ${ priority }
+  example: "Cells were additionally inhibited with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
+    controlled:${ controlledType } = prep_with vmod prep_for
+    controller:${ controllerType } = prep_with
 
 - name: Negative_${ ruleType }_syntax_1_noun
   priority: ${ priority }
@@ -134,6 +143,7 @@
     controller:${ controllerType } = <dep /nn|amod|conj_|cc/{,2}
     controlled:${ controlledType } = (/prep_of|prep_in$/ /nn|amod|conj_|cc/{,2}){1,2}
 
+
 # Captures common Hearst patterns: hypernym such as hyponym
 - name: Negative_${ ruleType }_syntax_noun_Hearst
   priority: ${ priority }
@@ -146,14 +156,17 @@
     controller:${ controllerType } = /prep_such_as|prep_including|prep_like/ (nn|appos)?
 
 
-- name: Negative_${ ruleType }_token_2_verb
-  priority: ${ priority }
-  example: ""
-  type: token
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy>[lemma=/${ negnouns }/])
+#
+# Replaced by the _following_Controller_inhibition rule
+#
+#- name: Negative_${ ruleType }_token_2_verb
+#  priority: ${ priority }
+#  example: ""
+#  type: token
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy>[lemma=/${ negnouns }/])
 
 
 - name: Negative_${ ruleType }_token_1_noun
@@ -198,18 +211,24 @@
     controller:${ controllerType } = /prep_by|agent/
     controlled:${ controlledType } = /poss/
 
-#
-# The rules below apply ONLY to regulations (not activations)
-#
 
-# this should only be used for regulations (not activations!); we use explicit types for the @controlled for this
-- name: Negative_${ ruleType }_in_response_to
+# a rule written to catch an example from MITRE
+# currently unclear how common this pattern may be...
+- name: Negative_${ ruleType }_token_experimental_results_1
   priority: ${ priority }
   type: token
+  example: "Cells were additionally inhibited with 10 ng/ml leptin and cell extracts analyzed for ErbB3 tyrosine phosphorylation."
   label: ${ label }
-  example: "Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF inhibition"
   action: ${ actionFlow }
   pattern: |
-    @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } [lemma=/${ negnouns}/]
+    # passive verb ("inhibited" in the example)
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=VBN])
+    # "leptin" in our example
+    with /./{,2} @controller:${ controllerType }
+    # analyzed, examined, etc.
+    # hopefully this isn't too noisy...
+    and /./{,3} [tag=/^V/] for
+    # the phosphorylation in our example
+    @controlled:${ controlledType }
 
 

@@ -1,6 +1,6 @@
 package org.clulab.assembly
 
-import org.clulab.assembly.AssemblyRunner._
+import org.clulab.assembly.Assembler._
 import org.clulab.reach.TestUtils._
 import org.scalatest.{Matchers, FlatSpec}
 
@@ -20,9 +20,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctRegulations(AssemblyManager.positive).head
 
     am.distinctPredecessorsOf(pRep).size should be(1)
-    val pr = am.getPrecedenceRelations(pRep).head
-    pr.before == bRep.equivalenceHash should be (true)
-    pr.after == pRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(pRep).head
+    pr.before.equivalenceHash == bRep.equivalenceHash should be (true)
+    pr.after.equivalenceHash == pRep.equivalenceHash should be (true)
 
   }
 
@@ -38,9 +38,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before.equivalenceHash == pRep.equivalenceHash should be (true)
+    pr.after.equivalenceHash == uRep.equivalenceHash should be (true)
   }
 
   val tamSent2 = "AFT will be ubiquitinated only if BEF is first phosphorylated"
@@ -53,9 +53,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before isEquivalentTo pRep should be (true)
+    pr.after isEquivalentTo uRep should be (true)
   }
 
   val tamSent3 = "AFT was ubiquitinated when BEF had been phosphorylated"
@@ -68,9 +68,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before isEquivalentTo pRep should be (true)
+    pr.after isEquivalentTo uRep should be (true)
   }
 
   val interSent1 = "BEF was phosphorylated. Then, AFT was ubiquitinated."
@@ -83,9 +83,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before isEquivalentTo pRep should be (true)
+    pr.after isEquivalentTo  uRep should be (true)
   }
 
   val interSent2 = "BEF was phosphorylated. Subsequently AFT was ubiquitinated."
@@ -98,9 +98,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before isEquivalentTo pRep should be (true)
+    pr.after isEquivalentTo uRep should be (true)
   }
 
   val interSent3 = "AFT was ubiquitinated. Prior to this, BEF was phosphorylated."
@@ -113,9 +113,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before isEquivalentTo pRep should be (true)
+    pr.after isEquivalentTo uRep should be (true)
   }
 
   val interSent4 = "AFT was ubiquitinated. Previously, BEF was phosphorylated."
@@ -128,9 +128,9 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
     am.distinctPredecessorsOf(uRep).size should be(1)
-    val pr = am.getPrecedenceRelations(uRep).head
-    pr.before == pRep.equivalenceHash should be (true)
-    pr.after == uRep.equivalenceHash should be (true)
+    val pr = am.getPrecedenceRelationsFor(uRep).head
+    pr.before isEquivalentTo pRep should be (true)
+    pr.after isEquivalentTo uRep should be (true)
   }
 
 
@@ -144,7 +144,7 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
 
-    am.distinctPredecessorsOf(uRep).size should be(0)
+    am.distinctPredecessorsOf(uRep) should have size (0)
   }
 
 }

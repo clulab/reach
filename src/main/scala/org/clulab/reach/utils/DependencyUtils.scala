@@ -203,7 +203,7 @@ object DependencyUtils {
 
     val heads = for (i <- span.start until span.end) yield followTrail(i, Nil)
 
-    heads.flatten.distinct.toSeq.sorted
+    heads.flatten.distinct.sorted
   }
 
   /**

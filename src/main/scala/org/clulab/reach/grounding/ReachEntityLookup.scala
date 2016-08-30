@@ -15,7 +15,7 @@ import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Repurpose manual KBs to 2nd highest priority.
+  *   Last Modified: Fix: allow overrides to work on Sites.
   */
 class ReachEntityLookup {
 
@@ -47,6 +47,7 @@ class ReachEntityLookup {
       case "Family" =>  augmentMention(mention, familySeq)
       case "Organ" => augmentMention(mention, organSeq)
       case "Simple_chemical" => augmentMention(mention, chemicalSeq)
+      case "Site" => augmentMention(mention, siteSeq)
       case "Species" => augmentMention(mention, speciesSeq)
       case "TissueType" => augmentMention(mention, tissueSeq)
       case _ =>  augmentMention(mention, azFailsafeSeq)
@@ -75,7 +76,7 @@ class ReachEntityLookup {
   val config = ConfigFactory.load()
   if (config.hasPath("grounding.adHocFiles")) {
     val moreKBs = config.getConfigList("grounding.adHocFiles").asScala.flatMap(addAdHocFile(_))
-    if (!moreKBs.isEmpty) extraKBs = moreKBs
+    if (moreKBs.nonEmpty) extraKBs = moreKBs
   }
 
   /** KB search sequence to use for Fallback grounding: when all others fail. */
@@ -87,21 +88,18 @@ class ReachEntityLookup {
   val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
 
   val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualCellLocation,
     StaticCellLocation,                 // GO subcellular KB
     StaticCellLocation2,                // Uniprot subcellular KB
     ModelGendCellLocation
   )
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualChemical,
     StaticChemical,
     // StaticMetabolite,                    // REPLACED by PubChem
     ModelGendChemical
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualProteinFamily,
     StaticProteinFamily,
     StaticProteinFamily2,
     ModelGendProteinAndFamily
@@ -110,10 +108,11 @@ class ReachEntityLookup {
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    ManualProtein,
     StaticProtein,
     ModelGendProteinAndFamily
   )
+
+  val siteSeq: KBSearchSequence = extraKBs ++ Seq() // nothing to add the extras to
 
   val speciesSeq: KBSearchSequence = extraKBs ++ Seq( ContextSpecies )
 

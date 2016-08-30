@@ -1,21 +1,19 @@
 package org.clulab.coref
 
-import org.clulab.odin.{Mention, _}
-import org.clulab.processors.Document
-import org.clulab.reach.grounding.{ReachKBConstants, KBEntry}
-import org.clulab.reach.{mentions, DarpaActions, DarpaLinks}
+import org.clulab.odin._
+import org.clulab.reach.grounding.{KBEntry, ReachKBConstants}
 import org.clulab.reach.utils.DependencyUtils._
 import org.clulab.reach.display._
 import org.clulab.reach.mentions._
 import org.clulab.coref.CorefUtils._
-
+import org.clulab.reach.darpa.{DarpaActions, DarpaLinks}
 import scala.annotation.tailrec
+
 
 class Coref {
 
   val debug: Boolean = false
   val verbose: Boolean = debug
-  val da: DarpaActions = new DarpaActions()
 
   /**
     * Make a map from TextBoundMentions to copies of themselves with a maximum of 1 antecedent
@@ -145,8 +143,8 @@ class Coref {
 
     ms.foldLeft[Seq[Seq[CorefMention]]](Nil)((args, thm) => args ++ (for {
       ant <- thm
-      nxt <- if (size - 1 > 0) group(ms.span(ms.indexOf(_) <= ms.indexOf(thm))._2.flatten.toList, size - 1).toSeq else Seq(Nil)
-    } yield Seq(Seq(ant), nxt.toSeq).flatten))
+      nxt <- if (size - 1 > 0) group(ms.span(ms.indexOf(_) <= ms.indexOf(thm))._2.flatten.toList, size - 1) else Seq(Nil)
+    } yield Seq(Seq(ant), nxt).flatten))
   }
 
   /**
@@ -234,7 +232,7 @@ class Coref {
         })
         argsAsEntities = argMs.map(ms => ms.map(m =>
           if (lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
-            val ant = da.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).get.toCorefMention
+            val ant = DarpaActions.convertEventToEntity(m.antecedent.get.asInstanceOf[BioEventMention]).toCorefMention
             createdComplexes = createdComplexes :+ ant
             val copy = new CorefEventMention(
               m.labels,

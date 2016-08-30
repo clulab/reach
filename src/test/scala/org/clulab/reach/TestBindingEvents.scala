@@ -1,14 +1,17 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
 import org.clulab.odin.State
 import org.clulab.struct.Interval
 import org.clulab.reach.mentions._
+
+import org.scalatest.{Matchers, FlatSpec}
+import scala.util.Try
 import TestUtils._
 
 /**
- * Unit tests to ensure Binding rules are matching correctly
- * Date: 5/19/15
+  * Unit tests to ensure Binding rules are matching correctly
+  *   Date: 5/19/15
+  *   Last Modified: Update tests for override KB.
  */
 class TestBindingEvents extends FlatSpec with Matchers {
 
@@ -132,9 +135,10 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("RAS", "ASPP"), mentions)
   }
 
-  val sent11 = "As expected based on previous studies, wild- type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B)."
+  val sent11 = "As expected based on previous studies, wild-type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B)."
   sent11 should "contain 2 binding events" in {
     val mentions = getBioMentions(sent11)
+    // printMentions(Try(mentions), true)      // DEBUGGING
     hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions) should be (true)
     hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions) should be (true)
   }
@@ -272,6 +276,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent21 = "Highly purified DNA-PKcs, Ku70/Ku80 heterodimer and the two documented XRCC1 binding partners LigIII and DNA polbeta were dot-blotted"
   sent21 should "contain 1 binding event between Ku70 and Ku80" in {
     val mentions = getBioMentions(sent21)
+    // printMentions(Try(mentions), true)      // DEBUGGING
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
   val sent22 = "The heterodimer Ku70-DNA ligase IV is awesome"
@@ -282,11 +287,13 @@ class TestBindingEvents extends FlatSpec with Matchers {
   val sent23 = "The complex Ku70/Ku80 is awesome"
   sent23 should "contain 1 binding event between Ku70 and Ku80" in {
     val mentions = getBioMentions(sent23)
+    // printMentions(Try(mentions), true)      // DEBUGGING
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
   val sent24 = "That Ku70/Ku80 complex is awesome"
   sent24 should "contain 1 binding event between Ku70 and Ku80" in {
     val mentions = getBioMentions(sent24)
+    // printMentions(Try(mentions), true)      // DEBUGGING
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
 
@@ -344,8 +351,9 @@ class TestBindingEvents extends FlatSpec with Matchers {
   }
 
   val sent33 = "As expected based on previous studies, wild-type K-Ras bound primarily 32P-GDP, while G12V-Ras bound 32P-GTP (Fig.2, A and B)."
-  sent33  should "contain 2 binding events" in {
+  sent33  should "contain two binding events" in {
     val mentions = getBioMentions(sent33)
+    // printMentions(Try(mentions), true)      // DEBUGGING
     hasEventWithArguments("Binding", List("K-Ras", "32P-GDP"), mentions) should be (true)
     hasEventWithArguments("Binding", List("G12V-Ras", "32P-GTP"), mentions) should be (true)
   }
@@ -429,6 +437,20 @@ class TestBindingEvents extends FlatSpec with Matchers {
   sent42 should "not contain a binding between RAC1 and CDC42" in {
     val mentions = getBioMentions(sent42)
     mentions filter (_ matches "Binding") should have size (0)
+  }
+
+  val sent43 = "We analyze the Mek-Ras-Akt1 complex."
+  sent43 should "contain three binary binding events" in {
+    val mentions = getBioMentions(sent43)
+    val bindings = mentions.filter(_ matches "Binding")
+    bindings should have size (1)
+    hasEventWithArguments("Binding", List("Mek", "Ras", "Akt1"), bindings) should be (true)
+  }
+
+  val sent44 = "We provide evidence and a model illustrating how oncogenic, activated Ras can increase the DNA binding and transcription function of SAF-1 / MAZ transcription factor, a transcriptional regulator of VEGF."
+  sent44 should "not contain binding events" in {
+    val mentions = getBioMentions(sent44)
+    mentions filter (_ matches "Binding") shouldBe empty
   }
 
 }

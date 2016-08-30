@@ -172,8 +172,7 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent21)
     val activations = mentions.filter(_ matches "Positive_activation")
     activations should have size (1)
-    val mods = activations.head.arguments("controller").head.toBioMention.modifications.map(_.label)
-    mods should contain ("Phosphorylation")
+    activations.head.arguments("controller").head.label should equal ("Phosphorylation")
   }
 
   val sent22 = "The phosphorylation of MEK deactivates K-Ras."
@@ -181,10 +180,9 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent22)
     val negActs = mentions.filter(_ matches "Negative_activation")
     negActs.length should be (1)
-    val mods = negActs.head.arguments("controller").head.toBioMention.modifications.map(_.label)
-    mods should contain ("Phosphorylation")
+    negActs.head.arguments("controller").head.label should equal ("Phosphorylation")
     // We shouldn't pick up any Positive Activations
-    mentions.count(_ matches "Positve_activation") should be(0)
+    mentions.count(_ matches "Positive_activation") should be (0)
   }
 
   // Relies on COREF
@@ -252,4 +250,53 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("Negative_activation")) should have size (1)
     hasNegativeActivation("Ras", "autophagy", mentions) should be (true)
   }
+
+  // From MITRE's feedback2, 2016 summer eval
+  val sent31 = "AKT1 expression results in subsequent activation of MEK"
+  sent31 should "contain 1 activation event" in {
+    val mentions = getBioMentions(sent31)
+    hasPositiveActivation("AKT1", "MEK", mentions) should be(true)
+  }
+  val sent32 = "AKT1 expression results in subsequent MEK activation"
+  sent32 should "contain 1 activation event" in {
+    val mentions = getBioMentions(sent32)
+    hasPositiveActivation("AKT1", "MEK", mentions) should be(true)
+  }
+  val sent33 = "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene."
+  sent33 should "contain 1 activation of MKP3" in {
+    val mentions = getBioMentions(sent33)
+    hasPositiveActivation("Ras", "MKP3", mentions) should be(true)
+  }
+  val sent34 = "We found that prolonged expression of active Ras resulted in up-regulation of the MKP3 gene via the PI3K/Akt pathway."
+  sent34 should "contain 1 activation of MKP3" in {
+    val mentions = getBioMentions(sent34)
+    hasPositiveActivation("Ras", "MKP3", mentions) should be(true)
+  }
+  val sent35 = "Up-regulation of MKP3 expression by active Ras expression"
+  sent35 should "contain 1 activation" in {
+    val mentions = getBioMentions(sent35)
+    hasPositiveActivation("Ras", "MKP3", mentions) should be(true)
+  }
+  val sent36 = "Apoptosis activated p53."
+  sent36 should "contain no activations" in {
+    val mentions = getBioMentions(sent36)
+    hasPositiveActivation("Apoptosis", "p53", mentions) should be (false)
+  }
+  val sent37 = "Cell aging increases apoptosis"
+  sent37 should "contain 1 activation" in {
+    val mentions = getBioMentions(sent37)
+    hasPositiveActivation("Cell aging", "apoptosis", mentions) should be (true)
+  }
+
+  val sent38 = "EGFR silencing deactivates MAPK1"
+  sent38 should "contain 1 positive activation" in {
+    val mentions = getBioMentions(sent38)
+    hasPositiveActivation("EGFR", "MAPK1", mentions) should be (true)
+  }
+  val sent39 = "EGFR deletion deactivates MAPK1"
+  sent39 should "contain 1 positive activation" in {
+    val mentions = getBioMentions(sent39)
+    hasPositiveActivation("EGFR", "MAPK1", mentions) should be (true)
+  }
+
 }
