@@ -1,0 +1,10 @@
+# DecreaseQuantity events require a theme of BioChemicalEntity
+
+- name: decrease_quantity_1
+  priority: ${ priority }
+  example: "loss of neurofibromin"
+  label: DecreaseQuantity
+  pattern: |
+    trigger = [lemma=/${ triggerLemma }/]
+    theme:BioChemicalEntity = prep_of | prep_in
+

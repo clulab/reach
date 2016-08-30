@@ -10,6 +10,20 @@ rules:
     vars:
       priority: "5"
 
+  - import: org/clulab/reach/biogrammar/events/transcription_events.yml
+    vars:
+      priority: "5"
+
+  - import: org/clulab/reach/biogrammar/events/decrease_events.yml
+    vars:
+      triggerLemma: "loss"
+      priority: "5"
+
+  - import: org/clulab/reach/biogrammar/events/quantity_events.yml
+    vars:
+      triggerLemma: "amount|level|quantity"
+      priority: "5"
+
   - import: org/clulab/reach/biogrammar/events/hydrolysis_events.yml
     vars:
       priority: "5"
