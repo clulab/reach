@@ -5,7 +5,11 @@ import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
 
-case class ContextType(val contextType:String, val id:String)
+object ContextLabel extends Enumeration{
+  val Species, CellLine, CellType, Organ = Value
+}
+
+case class ContextType(val contextType:ContextLabel.Value, val id:String)
 
 object ContextType{
   def parse(annotationId:String) = {
@@ -13,23 +17,23 @@ object ContextType{
     val (namespace, gid) = (tokens(0), tokens(1))
 
     namespace match {
-      case "taxonomy" => this("Species", annotationId)
-      case "cellosaurus" => this("CellLine", annotationId)
-      case "cellontology" => this("CellType", annotationId)
-      case "uberon" => this("Organ", annotationId)
-      case "tissuelist" => this("Organ", annotationId)
+      case "taxonomy" => this(ContextLabel.Species, annotationId)
+      case "cellosaurus" => this(ContextLabel.CellLine, annotationId)
+      case "cellontology" => this(ContextLabel.CellType, annotationId)
+      case "uberon" => this(ContextLabel.Organ, annotationId)
+      case "tissuelist" => this(ContextLabel.Organ, annotationId)
       case "uaz" =>
        val x = gid.split("-")(1)
        x match {
-         case "org" => this("Organ", annotationId)
-         case "cline" => this("CellLine", annotationId)
-         case "ct" => this("CellType", annotationId)
+         case "org" => this(ContextLabel.Organ, annotationId)
+         case "cline" => this(ContextLabel.CellLine, annotationId)
+         case "ct" => this(ContextLabel.CellType, annotationId)
        }
     }
   }
 }
 
-case class EventAnnotation(val sentenceId:Int, val interval:Interval, val contextsOf:Seq[ContextType])
+case class EventAnnotation(val sentenceId:Int, val interval:Interval, val contextsOf:Option[Seq[ContextType]] = None)
 case class ContextAnnotation(val sentenceId: Int, val interval:Interval, val contextType:ContextType)
 
 case class ArticleAnnotations(val sentences:Map[Int, String],
@@ -58,7 +62,7 @@ object ArticleAnnotations{
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
         val contexts = tokens(2).split(",").map(ContextType.parse(_))
 
-        EventAnnotation(sentenceId, interval, contexts)
+        EventAnnotation(sentenceId, interval, Some(contexts))
     }.toSeq
 
     val rawContext = Source.fromFile(new File(directory, "context.tsv")).getLines
