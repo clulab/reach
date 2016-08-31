@@ -418,20 +418,20 @@
     @theme:BioChemicalEntity "(" [!tag=/^V/]{,4} @site:Site? ")" (?<trigger>[lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (?! "of" @BioChemicalEntity)
 
 
-- name: ${ eventName }_token_9_noun
-  priority: ${ priority }
-  example: "$There was evidence for EGFR and ERBB3 tyrosine { nominalTriggerLemma }."
-  type: token
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    (?<theme> [mention="BioChemicalEntity" & !incoming=/prep_of|dobj/])
-    ("," @BioChemicalEntity)*
-    "and"
-    @BioChemicalEntity
-    @site:Site?
-    (?<trigger> [lemma=/${ nominalTriggerLemma }/])
-    (?! "of" @BioChemicalEntity)
+#- name: ${ eventName }_token_9_noun
+#  priority: ${ priority }
+#  example: "$There was evidence for EGFR and ERBB3 tyrosine { nominalTriggerLemma }."
+#  type: token
+#  label: ${ label }
+#  action: ${ actionFlow }
+#  pattern: |
+#    (?<theme> [mention="BioChemicalEntity" & !incoming=/prep_of|dobj/])
+#    ("," @BioChemicalEntity)*
+#    "and"
+#    @BioChemicalEntity
+#    @site:Site?
+#    (?<trigger> [lemma=/${ nominalTriggerLemma }/])
+#    (?! "of" @BioChemicalEntity)
 
 
 - name: ${ eventName }_token_4_verb
