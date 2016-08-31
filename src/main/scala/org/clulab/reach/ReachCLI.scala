@@ -15,6 +15,10 @@ import org.clulab.reach.extern.export.MentionManager
 import org.clulab.reach.extern.export.fries._
 import org.clulab.reach.extern.export.indexcards.IndexCardOutput
 import org.clulab.reach.mentions.CorefMention
+import org.clulab.reach.extern.export.context.IntervalOutput
+import org.clulab.reach.context.ContextEngine
+import org.clulab.processors.Document
+import ai.lum.nxmlreader.NxmlDocument
 
 
 /**
@@ -99,9 +103,25 @@ class ReachCLI(
       println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
     }
 
+    // ENRIQUE: Need this refactor in order to support context output
+    // Originaly:
+    //
     // entry must be kept around for outputter
-    val entry = PaperReader.getEntryFromPaper(file)
-    val mentions = PaperReader.getMentionsFromEntry(entry)
+    // val entry = PaperReader.getEntryFromPaper(file)
+    // val mentions = PaperReader.getMentionsFromEntry(entry)
+    //
+    // Now:
+    //
+    // HACK: To fix the preprocessing of text in the standoff
+    val preProcessedText = PaperReader.rs.processor.preprocessText(io.Source.fromFile(file).getLines.mkString("\n"))
+    // Hold the nxmlDoc for context output, by "unrolling" the getEntryFromPaper method
+    val nxmlDoc = PaperReader.nxmlReader.parse(preProcessedText)
+    val entry = new FriesEntry(nxmlDoc)
+    // Annotate the entry. Hold the document object for the context output, by "unrolling" the getMentionsFromEntry method
+    val doc = PaperReader.rs.mkDoc(entry.text, entry.name, entry.chunkId)
+    // Get the mentions as a Vector
+    val mentions = PaperReader.rs.extractFrom(doc).toVector
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     if (verbose) {
@@ -110,6 +130,9 @@ class ReachCLI(
 
     // generate output
     outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
+
+    // generate the context output
+    mkContextOutput(paperId, mentions, doc, nxmlDoc)
 
     // time elapsed (processing + writing output)
     val endTime = ReachCLI.now
@@ -122,6 +145,88 @@ class ReachCLI(
     FileUtils.writeStringToFile(
       logFile, s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n", true
     )
+  }
+
+
+  def mkContextOutput(paperId:String, mentions:Seq[Mention], doc:Document, nxml:NxmlDocument){
+
+    // Create paper directory
+    val paperDir = new File(outputDir, paperId)
+
+    if(!paperDir.exists){
+      paperDir.mkdir
+    }
+
+    ////// Commented while reimplementing IntervalOutput
+    // These are the intervals for generating HTML files
+    val outputter = new IntervalOutput(doc, nxml, mentions)
+    // Write the context stuff
+    val ctxSentencesFile = new File(paperDir, "sentences.txt")
+    FileUtils.writeLines(ctxSentencesFile, outputter.sentences.asJavaCollection)
+
+    val ctxEventsFile = new File(paperDir, "event_intervals.txt")
+    FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
+
+    val evtCtxFile = new File(paperDir, "reach_event_context.txt")
+    FileUtils.writeLines(evtCtxFile, outputter.evtCtxIndicence.asJavaCollection)
+
+    val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
+    FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
+
+    val ctxSectionsFile = new File(paperDir, "sections.txt")
+    FileUtils.writeLines(ctxSectionsFile, outputter.sections.asJavaCollection)
+
+    val ctxReachEventsFile = new File(paperDir, "reach_events.txt")
+    FileUtils.writeLines(ctxReachEventsFile, outputter.eventLines.asJavaCollection)
+
+    val ctxIsTitlesFile = new File(paperDir, "titles.txt")
+    FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
+
+    val standoffFile = new File(paperDir, "standoff.json")
+    FileUtils.write(standoffFile, nxml.standoff.printJson)
+    //
+    // val ctxCitationsFile = new File(paperDir, "citations.txt")
+    // FileUtils.writeLines(ctxCitationsFile, outputter.citationLines.asJavaCollection)
+    //
+    // These are the context plotfiles
+    ////////////////////////////////////////////////////
+
+    // Write obs.txt
+    // val contextEngine = reach.contextCache(paperId)
+    //
+    // contextEngine match {
+    //   case ce:RuleBasedContextEngine =>
+    //     val obs = ce.getObservationsMatrixStrings
+    //     FileUtils.writeLines(new File(paperDir, "obs.txt"), obs.asJavaCollection)
+    //     val states = ce.getStatesMatrixStrings
+    //     FileUtils.writeLines(new File(paperDir, "states.txt"), states.asJavaCollection)
+    //   case _ =>
+    //     // So far, these only makes sense if we use a rule based context engine
+    //     Unit
+    // }
+
+    // Context_events.txt created by python!!!
+
+    // Observation (features) vocabulary. These are descriptions
+    val obsLabelsFile = new File(outputDir, "obs_labels.txt")
+    if(!obsLabelsFile.exists){
+
+      val obs_labels = ContextEngine.featureVocabulary.values.toList.sortBy(_._1).map(_._2)
+      FileUtils.writeLines(obsLabelsFile, obs_labels.asJavaCollection)
+    }
+
+    // Context (states) vocabulary. These are descriptions
+    val statesLabelsFile = new File(outputDir, "states_labels.txt")
+    if(!statesLabelsFile.exists){
+      val states_labels = ContextEngine.latentVocabulary.values.toList.sortBy(_._1).map(_._2)
+      FileUtils.writeLines(statesLabelsFile, states_labels.asJavaCollection)
+    }
+
+    val statesIdsFile = new File(outputDir, "states_keys.txt")
+    if(!statesIdsFile.exists){
+      val statesIds = ContextEngine.reversedLatentVocabulary.keys.toSeq.sorted.map(x => ContextEngine.reversedLatentVocabulary(x)).map(_._2)
+      FileUtils.writeLines(statesIdsFile, statesIds.asJavaCollection)
+    }
   }
 
   /**
