@@ -433,4 +433,18 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p85", "Gab1"), mentions) should be (true)
   }
 
+  val sent42 = "We analyze the Mek-Ras-Akt1 complex."
+  sent42 should "contain three binary binding events" in {
+    val mentions = getBioMentions(sent42)
+    val bindings = mentions.filter(_ matches "Binding")
+    bindings should have size (1)
+    hasEventWithArguments("Binding", List("Mek", "Ras", "Akt1"), bindings) should be (true)
+  }
+
+  val sent43 = "We provide evidence and a model illustrating how oncogenic, activated Ras can increase the DNA binding and transcription function of SAF-1 / MAZ transcription factor, a transcriptional regulator of VEGF."
+  sent43 should "not contain binding events" in {
+    val mentions = getBioMentions(sent43)
+    mentions filter (_ matches "Binding") shouldBe empty
+  }
+
 }

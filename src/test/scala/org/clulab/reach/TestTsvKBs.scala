@@ -3,9 +3,9 @@ package org.clulab.reach
 import org.scalatest.{Matchers, FlatSpec}
 
 import TestUtils._
-
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
+
 
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
@@ -60,7 +60,7 @@ class TestTsvKBs extends FlatSpec with Matchers {
 
 
   // Tests of speciated (3-column) knowledge base
-  val imkbPF = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, true,
+  val imkbPF = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, hasSpeciesInfo = true,
     new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
 
   // test lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)

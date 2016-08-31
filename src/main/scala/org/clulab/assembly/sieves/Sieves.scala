@@ -1,5 +1,6 @@
 package org.clulab.assembly.sieves
 
+import com.typesafe.scalalogging.LazyLogging
 import com.typesafe.config.ConfigFactory
 import org.clulab.assembly.AssemblyManager
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
@@ -8,7 +9,7 @@ import org.clulab.reach.RuleReader
 import scala.annotation.tailrec
 
 
-class Sieves {
+class Sieves extends LazyLogging {
 
 }
 
@@ -24,10 +25,14 @@ class DeduplicationSieves extends Sieves {
    * @return an AssemblyManager
    */
   def trackMentions(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+    logger.debug(s"\tapplying trackMentions sieve...")
     val am = AssemblyManager()
     am.trackMentions(mentions)
     am
   }
+
+  // TODO: add approximate deduplication sieve
+  def approximateDeduplication(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 }
 
 /**
@@ -47,9 +52,12 @@ class PrecedenceSieves extends Sieves {
     */
   def withinRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
+    val name = "withinRbPrecedence"
+
+    logger.debug(s"\tapplying $name sieve...")
+
     val p = "/org/clulab/assembly/grammars/precedence.yml"
 
-    val name = "withinRbPrecedence"
     // find rule-based PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
@@ -77,6 +85,12 @@ class PrecedenceSieves extends Sieves {
     * @return an AssemblyManager
     */
   def reichenbachPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "reichenbachPrecedence"
+
+    logger.debug(s"\tapplying $name sieve...")
+
+    val tam_rules = "/org/clulab/assembly/grammars/tense_aspect.yml"
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
       val relevant: Set[Mention] = tams.filter{ tam =>
@@ -131,9 +145,6 @@ class PrecedenceSieves extends Sieves {
       }
     }
 
-    val name = "reichenbachPrecedence"
-    val tam_rules = "/org/clulab/assembly/grammars/tense_aspect.yml"
-
     // TODO: only look at events with verbal triggers
     val evs = mentions.filter(isEvent)
     val eventTriggers = evs.map(SieveUtils.findTrigger)
@@ -185,7 +196,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
-          manager.storePrecedenceRelation(e1, e2, Set(evidence), name)
+          manager.storePrecedenceRelation(before = e1, after = e2, Set[Mention](evidence), name)
         case "after" =>
           // create evidence mention
           val evidence = new RelationMention(
@@ -203,7 +214,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
-          manager.storePrecedenceRelation(e2, e1, Set(evidence), name)
+          manager.storePrecedenceRelation(before = e2, after = e1, Set[Mention](evidence), name)
         case _ => ()
       }
     }
@@ -224,18 +235,22 @@ class PrecedenceSieves extends Sieves {
     */
   def betweenRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
+    val name = "betweenRbPrecedence"
+
+    logger.debug(s"\tapplying $name sieve...")
+
+    val p = "/org/clulab/assembly/grammars/intersentential.yml"
+
     // If the full Event is nested within another mention, pull it out
     def correctScope(m: Mention): Mention = {
       m match {
         // arguments will have at most one "event" argument
+        // FIXME: the nesting is no longer limited
         case nested if nested.arguments contains "event" => nested.arguments("event").head
         case flat => flat
       }
     }
 
-    val p = "/org/clulab/assembly/grammars/intersentential.yml"
-
-    val name = "betweenRbPrecedence"
     // find rule-based inter-sentence PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
@@ -262,6 +277,9 @@ class PrecedenceSieves extends Sieves {
   def featureBasedClassifier(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
     val sieveName = "featureBasedClassifier"
+
+    logger.debug(s"\tapplying $sieveName sieve...")
+
     val validMentions = mentions.filter(validPrecedenceCandidate)
     for {
       e1 <- validMentions
@@ -277,14 +295,30 @@ class PrecedenceSieves extends Sieves {
       label match {
         case E1PrecedesE2 =>
           val evidence = createEvidenceForCPR(e1, e2, sieveName)
-          manager.storePrecedenceRelation(e1, e2, evidence, sieveName)
+          manager.storePrecedenceRelation(before = e1, after = e2, evidence, sieveName)
         case E2PrecedesE1 =>
           val evidence = createEvidenceForCPR(e2, e1, sieveName)
-          manager.storePrecedenceRelation(e2, e1, evidence, sieveName)
+          manager.storePrecedenceRelation(before = e2, after = e1, evidence, sieveName)
       }
     }
     manager
   }
+
+  // TODO: (selectively?) establish causal predecessors between controller and controlled of regulations
+  // ex. A is required for B
+  def regulationsToCausalPredecessors(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Propagate input features from causal predecessors
+  // Extend ParticipantFeatureTracker.getInputFeatures to handle events
+  //   - right now it assumes things are flattened
+  def propagateInputFeatures(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Keep only the "most complete" input features (ex Phos vs. Phos @ B)
+  def keepMostCompleteInputFeatures(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  // TODO: Write sieve to extend causal predecessors to equivalent EERs
+  // Could be selective via voting, textual proximity, etc.
+  def extendPredecessorsToEquivalentEERs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 }
 
 
@@ -365,7 +399,7 @@ object SieveUtils {
   def findTrigger(m: Mention): TextBoundMention = m match {
     // if mention is TB, just use the mention
     case tb: TextBoundMention =>
-      println(s"no trigger for mention '${tb.text}' with label '${m.label}'")
+      // println(s"no trigger for mention '${tb.text}' with label '${m.label}'")
       tb
     case event: EventMention =>
       event.trigger

@@ -1,9 +1,11 @@
 package org.clulab.reach.utils
 
 import java.io.File
+
 import org.apache.commons.io.FilenameUtils
+import org.clulab.reach.FriesEntry
+
 import scala.util.matching.Regex
-import org.clulab.reach.nxml.FriesEntry
 
 
 class DSVParser {
@@ -24,7 +26,9 @@ class DSVParser {
     chunkIdColumn: Int = 1,
     sectionIdColumn: Int = -1,
     textColumn: Int = 2,
-    hasHeader: Boolean = true): Seq[FriesEntry] = {
+    hasHeader: Boolean = true,
+    sectionsToIgnore: Set[String] = Set.empty[String]
+  ): Seq[FriesEntry] = {
     // Sniff out the delimiter based on the file's extension
     val delimiter: String = getDelimiter(file)
 
@@ -35,7 +39,8 @@ class DSVParser {
       case true => scala.io.Source.fromFile(file).getLines.drop(1)
       case false => scala.io.Source.fromFile(file).getLines
     }
-    for (line <- lines.toSeq) yield {
+
+    val entries = for (line <- lines.toSeq) yield {
 
       val columns: Seq[String] = line.split(delimiter, numCols)
       val docID = columns(docIdColumn)
@@ -52,6 +57,34 @@ class DSVParser {
         text = trim(text)
       )
     }
+
+    // remove sections that should be ignored
+    entries.filterNot(entry => sectionsToIgnore contains entry.sectionId)
+  }
+
+  def toFriesEntry(
+    file: File,
+    docIdColumn: Int = 0,
+    chunkIdColumn: Int = 1,
+    sectionIdColumn: Int = -1,
+    textColumn: Int = 2,
+    hasHeader: Boolean = true,
+    sectionsToIgnore: Set[String] = Set.empty[String]
+  ): FriesEntry = {
+    val entries = toFriesEntries(file, docIdColumn, chunkIdColumn, sectionIdColumn, textColumn, hasHeader, sectionsToIgnore)
+
+    val docID = entries.head.name
+    val allText = entries.map(_.text).mkString("\n")
+    // Create a single FriesEntry
+    FriesEntry(
+      name = docID,
+      // we'll use the docID as the chunk-id
+      chunkId = docID,
+      sectionId = "",
+      sectionName = "",
+      isTitle = false,
+      text = allText
+    )
   }
 
   /** Sniff out the delimiter based on the file's extension */

@@ -45,14 +45,16 @@
     theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_(with|to)/? /prep_of/{1,2} /conj_(and|or)/{,2}
     theme2:BioChemicalEntity+ = /conj_(and|or)/{,2} /prep_of/? /prep_(with|to)/{1,2} /conj_(and|or)/{,2} nn?
 
-- name: binding3wrong
+- name: binding_of_and
   label: Binding
   action: mkBinding
+  type: token
   priority: ${ priority }
   pattern: |
-    trigger = [word=/(?i)binding|dimerization|heterodimerization|ligation|recruitment/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = /conj_(and|or)/{,2} (<agent)? /prep_of/{1,2}
-    theme2:BioChemicalEntity* = /conj_(and|or)/{,2} (<agent)? /prep_to|prep_with/{1,2}
+    (?<trigger> /(?i)binding|dimerization|heterodimerization|ligation|recruitment/) of
+    @theme1:BioChemicalEntity
+    ((and | ",") @theme1:BioChemicalEntity)+
+    (?! with)
 
 - name: binding5
   label: Binding
@@ -326,11 +328,14 @@
 
 - name: binding_token_5
   label: Binding
-  action: mkBinding
+  action: mkNaryBinding
   priority: ${ priority }
   type: token
   pattern: |
-    [tag=DT] @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> complex)
+    [tag=DT] @theme1:BioChemicalEntity       # get the first entity
+    (("," @theme1:BioChemicalEntity)+ ","?)? # get the next n entities (n may be zero)
+    and @theme1:BioChemicalEntity            # get the last entity
+    (?<trigger> complex)                     # get the trigger
 
 - name: binding_coexist
   label: Binding

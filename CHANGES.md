@@ -1,5 +1,6 @@
 #Changes
 =======
++ **1.3.2** - Update to use Bioresources 1.1.15 and Processors 5.9.4.
 + **1.3.1** - Update of all edu.arizona.sista packages to org.clulab
 + **1.3.1** - Updated rules for parsing changes. Add rules for "VBN with" regulations. Correct amino acid rule. Add syntax -> surface rule. Several changes to activation/regulations rules.
 + **1.3.1** - Refactor protein domain table. Add protein kinase lookup table.

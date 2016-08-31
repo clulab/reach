@@ -1,6 +1,7 @@
-package org.clulab.reach
+package org.clulab.reach.darpa
 
 import org.clulab.odin._
+import org.clulab.reach._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
 import scala.annotation.tailrec
@@ -41,7 +42,7 @@ class DarpaActions extends Actions {
     */
   def mkNERMentions(mentions: Seq[Mention], state: State): Seq[Mention] = {
     mentions flatMap { m =>
-      val candidates = state.mentionsFor(m.sentence, m.tokenInterval.toSeq)
+      val candidates = state.mentionsFor(m.sentence, m.tokenInterval)
       // do any candidates overlap the mention?
       val overlap = candidates.exists(_.tokenInterval.overlaps(m.tokenInterval))
       if (overlap) None else Some(m.toBioMention)
@@ -126,8 +127,8 @@ class DarpaActions extends Actions {
     val filteredMentions = mentions.filterNot { ev =>
       // Only keep mentions that don't have ubiquitin as a theme
       ev.arguments("theme").exists(_.text.toLowerCase == "ubiquitin") ||
-      // mention shouldn't have ubiquitin as a cause either, if there is a cause
-      ev.arguments.get("cause").exists(_.exists(_.text.toLowerCase == "ubiquitin"))
+        // mention shouldn't have ubiquitin as a cause either, if there is a cause
+        ev.arguments.get("cause").exists(_.exists(_.text.toLowerCase == "ubiquitin"))
     }
     // return biomentions
     filteredMentions.map(_.toBioMention)
@@ -166,9 +167,11 @@ class DarpaActions extends Actions {
 
   def mkRegulation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
     mention <- mentions
+    // bioprocesses can't be controllers of regulations
+    if bioprocessValid(mention)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
-    if !hasSynPathOverlap(mention)
+    //if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     regulation = removeDummy(switchLabel(mention.toBioMention))
     // If the Mention has both a controller and controlled, they should be distinct
@@ -180,20 +183,33 @@ class DarpaActions extends Actions {
     * will only allow activations where no overlapping regulation is present
     */
   def mkActivation(mentions: Seq[Mention], state: State): Seq[Mention] = for {
-    // Prefer Activations with SimpleEvents as the controller
-    mention <- preferSimpleEventControllers(mentions)
+    // Prefer Activations with Events as the controller
+    mention <- preferEventControllers(mentions)
+    // bioprocesses can't activate biochemical entities
+    if bioprocessValid(mention)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
     if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     activation = removeDummy(switchLabel(mention.toBioMention))
-    // retrieve regulations that overlap this mention
-    regs = state.mentionsFor(activation.sentence, activation.tokenInterval, "Regulation")
-    // Don't report an Activation if an intersecting Regulation has been detected
+    // retrieve regulations that overlap this mention's controlled (Controller may be nested)
+    controlleds = activation.arguments("controlled")
+    regs = controlleds.flatMap(c => state.mentionsFor(activation.sentence, c.tokenInterval, "Regulation"))
+    // Don't report an Activation if an Regulation intersects with one of the activation's controlleds
     // or if the Activation has no controller
     // or if it's controller and controlled are not distinct
     if regs.isEmpty && hasController(activation) && hasDistinctControllerControlled(activation)
   } yield activation
+
+  /** For bindings that should not be split into pairs */
+  def mkNaryBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions map {
+    case m: EventMention if m matches "Binding" =>
+      // get the binding event participants
+      // note that they could be called either "theme1" or "theme2"
+      val themes = m.arguments.getOrElse("theme1", Nil) ++ m.arguments.getOrElse("theme2", Nil)
+      val arguments = Map("theme" -> themes)
+      m.copy(arguments = arguments)
+  }
 
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: EventMention if m.matches("Binding") =>
@@ -236,8 +252,8 @@ class DarpaActions extends Actions {
   }
 
   /**
-   * Promote any Sites in the Modifications of a SimpleEvent argument to an event argument "site"
-   */
+    * Promote any Sites in the Modifications of a SimpleEvent argument to an event argument "site"
+    */
   def siteSniffer(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
     case m: BioEventMention if m matches "SimpleEvent" =>
       val additionalSites: Seq[Mention] = m.arguments.values.flatten.toSeq.flatMap { case m: BioMention =>
@@ -279,26 +295,38 @@ class DarpaActions extends Actions {
     * Requires that the controlled and controller do not overlap
     */
   def splitSimpleEvents(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
-    case m: EventMention if m matches "SimpleEvent" =>
+    case m: EventMention if (m matches "SimpleEvent") & (m.arguments.keySet contains "cause") =>
       // Do we have a regulation?
-      if (m.arguments.keySet contains "cause") {
-        // FIXME There could be more than one cause...
-        val cause: Seq[Mention] = m.arguments("cause")
-        val evArgs = m.arguments - "cause"
+      val causes: Seq[Mention] = m.arguments("cause")
+      val themes: Seq[Mention] = m.arguments("theme")
+      val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
+      val nonCauseArgs = m.arguments - "cause"
+      val controlledArgs = nonCauseArgs.values.flatten.toSet
+
+      val splitEvs = for {
+        theme <- themes
+      } yield {
+        val evArgs = m.arguments - "cause" - "theme" ++ Map("theme" -> Seq(theme))
         val ev = new BioEventMention(m.copy(arguments = evArgs), direct = true)
-        // make sure the regulation is valid
-        val controlledArgs: Set[Mention] = evArgs.values.flatten.toSet
-        // controller of an event should not be an arg in the controlled
-        if (cause.forall(c => !controlledArgs.contains(c))) {
-          val regArgs = Map("controlled" -> Seq(ev), "controller" -> cause)
-          val reg = new BioRelationMention(m.copy(labels = DarpaActions.REG_LABELS, arguments = regArgs).toRelationMention)
-          // negations should be propagated to the newly created Positive_regulation
-          val (negMods, otherMods) = m.toBioMention.modifications.partition(_.isInstanceOf[Negation])
-          reg.modifications = negMods
-          ev.modifications = otherMods
-          Seq(reg, ev)
-        } else  Nil
-      } else Seq(m.toBioMention)
+        // modifications other than negations belong to the SimpleEvent
+        ev.modifications = otherMods
+        ev
+      }
+
+      val splitRegs = for {
+        ev <- splitEvs
+        cause <- causes
+        // controller shouldn't overlap with controlled arguments
+        if !controlledArgs.contains(cause)
+      } yield {
+        val regArgs = Map("controlled" -> Seq(ev), "controller" -> Seq(cause))
+        val reg = new BioRelationMention(m.copy(labels = DarpaActions.REG_LABELS, arguments = regArgs).toRelationMention)
+        // negations should be propagated to the newly created Positive_regulation
+        reg.modifications = negMods
+        reg
+      }
+
+      splitEvs ++ splitRegs
     case m => Seq(m.toBioMention)
   }
 
@@ -320,7 +348,7 @@ object DarpaActions {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|slow|starv|suppress|supress".r
 
   val MODIFIER_LABELS = "amod".r
 
@@ -366,13 +394,13 @@ object DarpaActions {
   }
 
   /** Gets a sequence of mentions and returns only the ones that have
-    * SimpleEvent controllers. If none is found, returns all mentions.
+    * Event controllers. If none is found, returns all mentions.
     */
-  def preferSimpleEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
+  def preferEventControllers(mentions: Seq[Mention]): Seq[Mention] = {
     // get events that have a SimpleEvent as a controller
     // assuming that events can only have one controller
     val eventsWithSimpleController = mentions.filter { m =>
-      m.arguments.contains("controller") && m.arguments("controller").head.matches("SimpleEvent")
+      m.arguments.contains("controller") && m.arguments("controller").head.matches("Event")
     }
     if (eventsWithSimpleController.nonEmpty) eventsWithSimpleController else mentions
   }
@@ -393,7 +421,7 @@ object DarpaActions {
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
-         case true =>
+        case true =>
           val newLabels = flipLabel(ce.label) +: ce.labels.tail
           // trigger labels should match event labels
           val newTrigger = ce.trigger.copy(labels = newLabels)
@@ -461,26 +489,24 @@ object DarpaActions {
   /** Test whether the given mention has a controller argument. */
   def hasController(mention: Mention): Boolean = mention.arguments.get("controller").isDefined
 
+  /** Test whether the mention has a bioprocess controller and, if so, if its use is legitimate */
+  def bioprocessValid(m: Mention): Boolean = {
+    (m.arguments.getOrElse("controller", Nil).map(_.label), m.arguments.getOrElse("controlled", Nil).map(_.label)) match {
+      case (irrelevant, _) if !irrelevant.contains("BioProcess") => true
+      case (procController, procControlled)
+        if procController.contains("BioProcess") & procControlled.contains("BioProcess") => true
+      case other => false // e.g. BioProcess controller but BioChemical controlled
+    }
+  }
+
   /** Gets a mention and checks that the controller and controlled are different.
     * Returns true if either the controller or the controlled is missing,
     * or if they are both present and are distinct.
     */
   def hasDistinctControllerControlled(m: Mention): Boolean = {
-    val controlled = m.arguments.getOrElse("controlled", Nil)
-    val controller = m.arguments.getOrElse("controller", Nil)
-    // if no controller or no controlled then we are good
-    if (controlled.isEmpty || controller.isEmpty) true
-    else {
-      // we are only concerned with the first controlled and controller
-      val c1 = controlled.head.toBioMention
-      val c2 = controller.head.toBioMention
-      if (c1 == c2) false // they are the same mention
-      else (c1.grounding, c2.grounding) match {
-        // if they are grounded the grounding should be different
-        case (Some(g1), Some(g2)) => g1 != g2
-        case _ => true // seems like they are different
-      }
-    }
+    val controlled = m.arguments.getOrElse("controlled", Nil).flatMap(_.toBioMention.grounding).toSet
+    val controller = m.arguments.getOrElse("controller", Nil).flatMap(_.toBioMention.grounding).toSet
+    controlled.intersect(controller).isEmpty
   }
 
   /** checks if a mention has a controller/controlled
@@ -578,6 +604,7 @@ object DarpaActions {
     * SimpleEvent -> theme + PTM <br>
     * Binding -> Complex (treated as an Entity) <br>
     * ComplexEvent -> recursive call on controlled (the event's "output") <br>
+    *
     * @param asOutput value of true to generate a Mention's output (ex. theme or controlled)
     */
   @tailrec

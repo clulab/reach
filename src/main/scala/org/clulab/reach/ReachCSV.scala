@@ -25,7 +25,8 @@ object ReachCSV extends App {
   // arguments
   // NOTE: we could also read .tsv files
   val csvFile = new File(config.getString("csv"))
-  val outputDir = config.getString("output")
+  val outputDir = config.getString("outDir")
+  // NOTE: these aren't listed in the application.conf under src/main/resources
   val docIdColumn = config.getInt("docIdColumn")
   val chunkIdColumn = config.getInt("chunkIdColumn")
   val sectionIdColumn = -1

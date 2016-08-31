@@ -85,7 +85,7 @@ class ReachGrounder extends Speciated {
       val species = contextNames.intersect(candNames)
 
       // if any species match then prefer candidates with those species
-      if (!species.isEmpty) {
+      if (species.nonEmpty) {
         val ordered = selectBySpecies(cands, species) ++ selectByNotSpecies(cands, species)
         mention.nominate(Some(ordered))     // reattach reordered grounding candidates
       }

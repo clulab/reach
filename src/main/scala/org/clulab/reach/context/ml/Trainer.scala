@@ -3,6 +3,7 @@ package org.clulab.reach.context.ml
 import java.io.File
 import org.clulab.odin._
 import org.clulab.reach._
+import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.context.dataset.ArticleAnnotations
 
 object Trainer extends App {
@@ -35,6 +36,6 @@ object Trainer extends App {
     var events = reach.extractEventsFrom(doc, entities)
     events = MentionFilter.keepMostCompleteMentions(events, State(events))
 
-    
+
   }
 }

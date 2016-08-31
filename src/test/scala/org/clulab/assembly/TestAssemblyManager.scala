@@ -90,7 +90,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     phos.output should have size(1)
 
-    val outputEntity =  phos.output.head.asInstanceOf[SimpleEntity]
+    val outputEntity = phos.output.head.asInstanceOf[SimpleEntity]
 
     val ptms = outputEntity.getPTMs
 
@@ -127,7 +127,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     // the input and output of the translocations should differ in terms of modifications
     t2.I != t2.O should be(true)
     // however, the grounding ids of both entities should be the same
-    t2.I.size should be(1)
+    t2.I should have size (1)
     t2.I.head.asInstanceOf[SimpleEntity].grounding == t2.O.head.asInstanceOf[SimpleEntity].grounding should be(true)
     t2.I.head.asInstanceOf[SimpleEntity].withSameGrounding contains t2.O.head.asInstanceOf[SimpleEntity] should be(true)
   }
@@ -189,25 +189,25 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val rem = am.getSimpleEvent(m)
 
     val themes = rem.input("theme")
-    themes.size should be(1)
+    themes should have size (1)
 
     val theme = themes.head.asInstanceOf[SimpleEntity]
 
     val inputPTMs = theme.getPTMs
-    inputPTMs.size should be(1)
+    inputPTMs should have size (1)
 
     val phosInputPTMs = theme.getPTMs("Phosphorylation")
-    phosInputPTMs.size should be(1)
+    phosInputPTMs should have size (1)
 
     val output = rem.output
-    output.size should be(1)
+    output should have size (1)
 
     val outputTheme = output.head.asInstanceOf[SimpleEntity]
     val outputPTMs = outputTheme.getPTMs
-    outputPTMs.size should be(0)
+    outputPTMs should have size (0)
 
     val phosOutputPTMs = outputTheme.getPTMs("Phosphorylation")
-    phosOutputPTMs.size should be(0)
+    phosOutputPTMs should have size (0)
   }
 
   //
@@ -221,8 +221,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     val am = AssemblyManager(mentions)
 
-    am.getRegulations.size should be(1)
-    am.distinctRegulations.size should be(1)
+    am.getRegulations should have size (1)
+    am.distinctRegulations should have size (1)
   }
 
   val regText2 = "Akt inhibits the phosphorylation of AFT by BEF."
@@ -234,8 +234,8 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     val regs: Set[Regulation] = am.distinctRegulations
 
-    am.getRegulations.size should be(2)
-    regs.size should be(2)
+    am.getRegulations should have size (2)
+    regs should have size (2)
 
     regs.count(r => r.controlled.head.isInstanceOf[Regulation]) should be(1)
   }
@@ -302,18 +302,18 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val p = mentions.filter(_ matches "Phosphorylation").head
 
     // test AssemblyManager's methods
-    am.predecessorsOf(p).size should be(0)
-    am.distinctPredecessorsOf(p).size should be(0)
-    am.successorsOf(p).size should be(0)
-    am.distinctSuccessorsOf(p).size should be(0)
+    am.predecessorsOf(p) should have size (0)
+    am.distinctPredecessorsOf(p) should have size (0)
+    am.successorsOf(p) should have size (0)
+    am.distinctSuccessorsOf(p) should have size (0)
 
     val se = am.getSimpleEvent(p)
 
     // test Event methods
-    se.predecessors.size should be(0)
-    se.distinctPredecessors.size should be(0)
-    se.successors.size should be(0)
-    se.distinctSuccessors.size should be(0)
+    se.predecessors should have size (0)
+    se.distinctPredecessors should have size (0)
+    se.successors should have size (0)
+    se.distinctSuccessors should have size (0)
   }
 
   val precedenceText = "Ras is phosphorylated by Mek after Mek is bound to p53."
@@ -330,55 +330,55 @@ class TestAssemblyManager extends FlatSpec with Matchers {
     val b = mentions.filter(_ matches "Binding").head
 
     // test mention-based methods
-    am.storePrecedenceRelation(p, b, "mention-based-test")
+    am.storePrecedenceRelation(p, b, foundBy = "mention-based-test")
 
-    am.getPrecedenceRelations(p).size should be(1)
-    am.predecessorsOf(p).size should be(0)
-    am.distinctPredecessorsOf(p).size should be(0)
-    am.successorsOf(p).size should be(1)
-    am.distinctSuccessorsOf(p).size should be(1)
+    am.getPrecedenceRelationsFor(p) should have size (1)
+    am.predecessorsOf(p) should have size (0)
+    am.distinctPredecessorsOf(p) should have size (0)
+    am.successorsOf(p) should have size (1)
+    am.distinctSuccessorsOf(p) should have size (1)
 
-    am.getPrecedenceRelations(b).size should be(1)
-    am.predecessorsOf(b).size should be(1)
-    am.distinctPredecessorsOf(b).size should be(1)
-    am.successorsOf(b).size should be(0)
-    am.distinctSuccessorsOf(b).size should be(0)
+    am.getPrecedenceRelationsFor(b) should have size (1)
+    am.predecessorsOf(b) should have size (1)
+    am.distinctPredecessorsOf(b) should have size (1)
+    am.successorsOf(b) should have size (0)
+    am.distinctSuccessorsOf(b) should have size (0)
 
     // test eer-based methods
     val pSE = am.getSimpleEvent(p)
     val bSE = am.getSimpleEvent(b)
 
     // test mention-based methods
-    am.storePrecedenceRelation(p, b, "mention-based-test")
+    am.storePrecedenceRelation(p, b, foundBy = "mention-based-test")
 
-    pSE.precedenceRelations.size should be(1)
-    pSE.predecessors.size should be(0)
-    pSE.distinctPredecessors.size should be(0)
-    pSE.successors.size should be(1)
-    pSE.distinctSuccessors.size should be(1)
+    pSE.precedenceRelations should have size (1)
+    pSE.predecessors should have size (0)
+    pSE.distinctPredecessors should have size (0)
+    pSE.successors should have size (1)
+    pSE.distinctSuccessors should have size (1)
 
-    bSE.precedenceRelations.size should be(1)
-    bSE.predecessors.size should be(1)
-    bSE.distinctPredecessors.size should be(1)
-    bSE.successors.size should be(0)
-    bSE.distinctSuccessors.size should be(0)
+    bSE.precedenceRelations should have size (1)
+    bSE.predecessors should have size (1)
+    bSE.distinctPredecessors should have size (1)
+    bSE.successors should have size (0)
+    bSE.distinctSuccessors should have size (0)
 
     // test distinct v. non-distinct
-    am.storePrecedenceRelation(p, b, "mention-based-test2")
+    am.storePrecedenceRelation(p, b, foundBy = "mention-based-test2")
     // this is a set, but the difference in
     // foundBy means "mention-based-test2" won't get collapsed
-    pSE.precedenceRelations.size should be(2)
-    pSE.predecessors.size should be(0)
-    pSE.distinctPredecessors.size should be(0)
-    pSE.successors.size should be(1)
-    pSE.distinctSuccessors.size should be(1)
+    pSE.precedenceRelations should have size (2)
+    pSE.predecessors should have size (0)
+    pSE.distinctPredecessors should have size (0)
+    pSE.successors should have size (1)
+    pSE.distinctSuccessors should have size (1)
     // this is a set, but the difference in
     // foundBy means "mention-based-test2" won't get collapsed
-    bSE.precedenceRelations.size should be(2)
-    bSE.predecessors.size should be(1)
-    bSE.distinctPredecessors.size should be(1)
-    bSE.successors.size should be(0)
-    bSE.distinctSuccessors.size should be(0)
+    bSE.precedenceRelations should have size (2)
+    bSE.predecessors should have size (1)
+    bSE.distinctPredecessors should have size (1)
+    bSE.successors should have size (0)
+    bSE.distinctSuccessors should have size (0)
   }
 
   "AssemblyManager" should s"not contain any EERs for '$negPhos' if all EERs referencing Mek are removed" in {
@@ -393,7 +393,7 @@ class TestAssemblyManager extends FlatSpec with Matchers {
 
     am.removeEntriesContainingIDofMention(m)
 
-    am.EERs.size should be(0)
+    am.EERs should have size (0)
   }
 
   it should "safely handle mentions in any order" in {

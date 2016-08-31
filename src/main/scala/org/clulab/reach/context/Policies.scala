@@ -1,10 +1,6 @@
 package org.clulab.reach.context
 
 import scala.annotation.tailrec
-import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.reach.context.rulebased._
-
 
 
 // Policy Two

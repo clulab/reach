@@ -1,7 +1,6 @@
 package org.clulab.reach
 
 import org.clulab.coref.Coref
-import org.clulab.reach.nxml.FriesEntry
 import org.clulab.odin._
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
@@ -13,6 +12,8 @@ import scala.collection.mutable
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import ai.lum.nxmlreader.NxmlDocument
+import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
+
 
 class ReachSystem(
     rules: Option[Rules] = None,
@@ -58,15 +59,21 @@ class ReachSystem(
     doc
   }
 
+  def mkDoc(nxml: NxmlDocument): Document = {
+    // we are using the PMC as the chunk-id because we now read
+    // the whole paper in a single chunk
+    mkDoc(nxml.text, nxml.pmc, nxml.pmc)
+  }
+
   def extractFrom(entry: FriesEntry): Seq[BioMention] =
     extractFrom(entry.text, entry.name, entry.chunkId)
 
   def extractFrom(nxml: NxmlDocument): Seq[BioMention] = {
     // use standoff hashcode as the chunkId
-    extractFrom(mkDoc(nxml.text, nxml.pmc, nxml.standoff.hashCode.toString), Some(nxml))
+    extractFrom(mkDoc(nxml), Some(nxml))
   }
 
-  def extractFrom(doc: Document, nxml: Option[NxmlDocument]): Seq[BioMention] = {
+  def extractFrom(doc: Document, nxmlDoc: Option[NxmlDocument]): Seq[BioMention] = {
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
@@ -81,7 +88,7 @@ class ReachSystem(
     // Coref expects to get all mentions grouped
     // we group according to the standoff, if there is one
     // else we just make one group with all the mentions
-    val groundedAndGrouped = nxml match {
+    val groundedAndGrouped = nxmlDoc match {
       case Some(nxml) => groupMentionsByStandoff(grounded, nxml)
       case None => Seq(grounded)
     }

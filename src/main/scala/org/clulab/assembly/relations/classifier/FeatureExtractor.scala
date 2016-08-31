@@ -12,6 +12,10 @@ object FeatureExtractor {
 
   val sep = ";;;"
 
+  // limits for n-grams
+  val minN = 1
+  val maxN = 2
+
   def mkRVFDatum(e1: Mention, e2: Mention, label: String): RVFDatum[String, String] = {
     val df = new Counter[String]()
     val features = mkFeatures(e1, e2)
@@ -27,7 +31,8 @@ object FeatureExtractor {
 
   /**
    * Takes Event 1 and Event 2 and produces features
-   * @param e1 Event 1 (mention)
+    *
+    * @param e1 Event 1 (mention)
    * @param e2 Event 1 (mention)
    * @return
    */
@@ -58,7 +63,7 @@ object FeatureExtractor {
     var features = Seq.empty[String]
     // add tokens in between the two mentions
     val intercedingTokens = tokensLinkingMentions(e1, e2)
-    features ++= addFeaturePrefix("interceding-token ngrams", ngrams(intercedingTokens, 1, 3))
+    features ++= addFeaturePrefix("interceding-token ngrams", ngrams(intercedingTokens, minN, maxN))
     features ++= Seq(s"interceding-tokens-full-span: ${intercedingTokens.mkString(" ")}")
     features
   }
@@ -105,7 +110,8 @@ object FeatureExtractor {
 
   /**
    * Generate variations of trigger -> arg syntactic paths
-   * @param m
+    *
+    * @param m
    * @return
    */
   def getTriggerArgPaths(m: Mention): Seq[String] = {
@@ -138,7 +144,7 @@ object FeatureExtractor {
       a <- args
       p <- getShortestPaths(trigger, a)
       if p.nonEmpty
-      dist = p.split(" ").size
+      dist = p.split(" ").length
     } yield s"${role.toUpperCase}: $dist"
     distances.distinct
   }
@@ -159,7 +165,7 @@ object FeatureExtractor {
     val distances = for {
       p <- getShortestPaths(e1, e2)
       if p.nonEmpty
-      dist = p.split(" ").size
+      dist = p.split(" ").length
     } yield s"sortest-path-dist: $dist"
     distances.distinct
   }
@@ -186,14 +192,15 @@ object FeatureExtractor {
     val distances = for {
       p <- getShortestPaths(t1, t2)
       if p.nonEmpty
-      dist = p.split(" ").size
+      dist = p.split(" ").length
     } yield s"trigger-dist: $dist"
     distances.distinct
   }
 
   /**
    * Features used to represent all mentions
-   * @param support a sequence of related mentions used to find shared arguments
+    *
+    * @param support a sequence of related mentions used to find shared arguments
    */
   def mkBasicFeatures(m: Mention, support: Seq[Mention] = Nil): Seq[String] = {
     // use resolved form
@@ -216,10 +223,10 @@ object FeatureExtractor {
     // most-specific label + all labels
     coreFeatures ++= getLabelFeatures(m)
     // get tokens in mention, but replace entities with their labels (MEK -> Protein)
-    coreFeatures ++= addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, 1, 3))
+    coreFeatures ++= addFeaturePrefix("ents2Label-mention-ngram", ngrams(ents2Label, minN, maxN))
     // use normalized mention span as single feature:
     // get tokens in mention, but replace args with their roles (ex. "Phosphorylation of KRAS" -> controlled)
-    coreFeatures ++= addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, 1, 3))
+    coreFeatures ++= addFeaturePrefix("args2Role-mention-ngram", ngrams(args2Role, minN, maxN))
     coreFeatures
   }
 
@@ -287,7 +294,7 @@ object FeatureExtractor {
         (role, args) <- m.arguments
         a <- args
       } yield (a.end - 1, role)
-      pairs.toMap
+      pairs
     }
     val toks = m.sentenceObj.words
     // get args
@@ -326,7 +333,8 @@ object FeatureExtractor {
    * Replaces entities in a mention with their label <br>
    * Array(the, Ras, protein, phosphorylates, Mek-32, at, 123) => <br>
    * Vector(FAMILY, protein, phosphorylates, GENE_OR_GENE_PRODUCT)
-   * @param support a sequence of related mentions used to find shared arguments
+    *
+    * @param support a sequence of related mentions used to find shared arguments
    */
   def replaceEntitiesWithLabel(e1: Mention, support: Seq[Mention]): Seq[String] = {
 
@@ -458,24 +466,35 @@ object FeatureExtractor {
   }
 
   /** find paths from sentence root to mention's trigger */
-  def getRootPaths(m: Mention): Seq[String] = {
+  def getRootPaths(m: Mention): Seq[String] = m.sentenceObj.dependencies match {
+    // no dependencies
+    case None => Nil
     // find root
-    val root = m.sentenceObj.dependencies.get.roots.head
-    val rootMention = new TextBoundMention(
-      label = "ROOT",
-      tokenInterval = Interval(root, root + 1),
-      sentence = m.sentence,
-      document = m.document,
-      keep = true,
-      foundBy = "getRootPath"
-    )
+    case Some(deps) => deps match {
+      // rare, but apparently possible
+      case noRoots if noRoots.roots.isEmpty => Nil
+      // at least one root
+      case hasRoots if deps.roots.nonEmpty =>
 
-    val trigger = SieveUtils.findTrigger(m)
+        val trigger = SieveUtils.findTrigger(m)
 
-    for {
-      p <- getShortestPaths(rootMention, trigger)
-      path = (Seq("ROOT") :+ p).mkString(" ")
-    } yield path
+        val rootMentions = for {
+          root <- hasRoots.roots
+        } yield new TextBoundMention(
+          label = "ROOT",
+          tokenInterval = Interval(root, root + 1),
+          sentence = m.sentence,
+          document = m.document,
+          keep = true,
+          foundBy = "getRootPath"
+        )
+        // find paths connecting each root to the trigger
+        for {
+          rootMention <- rootMentions.toSeq
+          p <- getShortestPaths(rootMention, trigger)
+          path = (Seq("ROOT") :+ p).mkString(" ")
+        } yield path
+    }
   }
 
   /** get token indices of shortest path between two mentions */

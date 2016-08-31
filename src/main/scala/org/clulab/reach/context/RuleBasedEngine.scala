@@ -1,12 +1,8 @@
-package org.clulab.reach.context.rulebased
+package org.clulab.reach.context
 
-import java.io._
 import scala.annotation.tailrec
-import scala.collection.mutable
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.processors.Document
 import org.clulab.reach.mentions._
-import org.clulab.reach.context.ContextEngine
+
 
 abstract class RuleBasedContextEngine extends ContextEngine {
 

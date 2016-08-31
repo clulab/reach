@@ -1,24 +1,17 @@
 package org.clulab.reach
 
 import java.util.Date
-
-import org.clulab.odin._
 import org.clulab.reach.extern.export.fries._
-import org.clulab.reach.mentions._
-import org.clulab.reach.nxml.FriesEntry
-import org.clulab.utils.Serializer
-
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
-
 import org.json4s._
 import org.json4s.native.JsonMethods._
+
 
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Update for fix of issue #236.
+  *   Last Modified: Rewrite order dependent tests.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -28,21 +21,21 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   val text1 = "AKT1 phosphorylates PTHR2"
   val mentions1 = getBioMentions(text1)
-  val entry = FriesEntry("text1", "1", "test", "test", false, text1)
-  val jStr = outputter.toJSON(paperId, mentions1, Seq(entry), startTime, new Date(), s"${paperId}")
+  val entry = FriesEntry("text1", "1", "test", "test", isTitle = false, text1)
+  val jStr = outputter.toJSON(paperId, mentions1, Seq(entry), startTime, new Date(), paperId)
   val json = parse(jStr)
 
   text1 should "produce 4 mentions" in {
-    // printMentions(Try(mentions1), true)      // DEBUGGING
+    // printMentions(Try(mentions1), true)     // DEBUGGING
     mentions1 should have size (4)
   }
 
   it should "produce valid JSON string" in {
     // println(s"JSON=$jStr")                  // DEBUGGING
-    (jStr.isEmpty) should be (false)
-    (jStr.contains("\"events\":")) should be (true)
-    (jStr.contains("\"entities\":")) should be (true)
-    (jStr.contains("\"sentences\":")) should be (true)
+    jStr should not be empty
+    jStr should include ("\"events\":")
+    jStr should include ("\"entities\":")
+    jStr should include ("\"sentences\":")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -54,97 +47,109 @@ class TestFriesOutput extends FlatSpec with Matchers {
   it should "output organization and component in meta-data" in {
     val orgList = json \\ "object-meta" \\ "organization" \\ classOf[JString]
     orgList.isEmpty should be (false)
-    (orgList.size == 3) should be (true)
+    orgList.size should be (3)
     orgList.forall(_ == "UAZ") should be (true)
     val didList = json \\ "object-meta" \\ "doc-id" \\ classOf[JString]
     didList.isEmpty should be (false)
-    (didList.size == 3) should be (true)
+    didList.size should be (3)
     didList.forall(_ == paperId) should be (true)
   }
 
-  it should "have 1 sentence and one passage" in {
-    val pass = ((json \ "sentences" \ "frames")(0) \ "frame-type").values
-    (pass == "passage") should be (true)
-    val pText = ((json \ "sentences" \ "frames")(0) \ "text").values
-    (pText == text1) should be (true)
-    val sent = ((json \ "sentences" \ "frames")(1) \ "frame-type").values
-    (sent == "sentence") should be (true)
-    val sText = ((json \ "sentences" \ "frames")(1) \ "text").values
-    (sText == text1) should be (true)
+  it should "have 1 sentence and one passage frame-type" in {
+    val passages = json \ "sentences" \ "frames" \\ "frame-type" \\ classOf[JString]
+    passages should have size (2)
+    passages should contain ("passage")
+    passages should contain ("sentence")
+  }
+
+  it should "have the right text" in {
+    val texts = json \ "sentences" \ "frames" \\ "text" \\ classOf[JString]
+    texts should have size (2)
+    all (texts) should be (text1)
   }
 
   it should "have 2 event mentions: 1 phospho and 1 pos-reg" in {
     val subtypeList = json \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
     subtypeList.isEmpty should be (false)
-    (subtypeList.size == 2) should be (true)
-    (subtypeList(0) == "phosphorylation") should be (true)
-    (subtypeList(1) == "positive-regulation") should be (true)
+    subtypeList.size should be (2)
+    subtypeList should contain("positive-regulation")
+    subtypeList should contain("phosphorylation")
   }
 
-  it should "have the expected regulation arguments" in {
-    val args = (json \ "events" \ "frames")(1) \ "arguments" \\ classOf[JObject]
-    (args.size == 2) should be (true)
-    val args0 = args(0)
-    (args0.getOrElse("object-type", "") == "argument") should be (true)
-    (args0.getOrElse("argument-type", "") == "event") should be (true)
-    (args0.getOrElse("type", "") == "controlled") should be (true)
-    val args1 = args(1)
-    (args1.getOrElse("object-type", "") == "argument") should be (true)
-    (args1.getOrElse("argument-type", "") == "entity") should be (true)
-    (args1.getOrElse("type", "") == "controller") should be (true)
+  it should "have the expected arguments argument-types" in {
+    val types = json \ "events" \ "frames" \ "arguments" \\ "argument-type" \\ classOf[JString]
+    types.size should be (3)
+    types.count(_ == "event") should be (1)
+    types.count(_ == "entity") should be (2)
   }
 
-  it should "mark regulation as direct" in {
-    val isDirect = ((json \ "events" \ "frames")(0) \ "is-direct") \\ classOf[JBool]
-    (isDirect(0)) should be (true)
+  it should "have the expected arguments types" in {
+    val types = json \ "events" \ "frames" \ "arguments" \\ "type" \\ classOf[JString]
+    types.size should be (3)
+    types should contain("controller")
+    types should contain("controlled")
+    types should contain("theme")
+  }
+
+  it should "regulation marked as direct" in {
+    val frames = json \ "events" \ "frames" \\ "is-direct" \\ classOf[JBool]
+    frames.size should be (1)
+    frames should contain(true)
   }
 
   it should "have phosphorylation trigger" in {
-    val trigger = ((json \ "events" \ "frames")(0) \ "trigger").values
-    (trigger == "phosphorylates") should be (true)
+    val triggers = (json \ "events" \ "frames") \\ "trigger" \\ classOf[JString]
+    triggers should have size (1)
+    all (triggers) should be ("phosphorylates")
   }
 
   it should "have 2 protein entities" in {
     val ents = (json \ "entities" \ "frames") \\ "type" \\ classOf[JString]
-    ents should not be empty
-    ents should have size 2
+    ents should have size (2)
     all (ents) should be ("protein")
   }
 
   it should "have the given protein names" in {
-    val aVal = ((json \ "entities" \ "frames")(0) \ "text").values
-    (aVal == "AKT1") should be (true)
-    val pVal = ((json \ "entities" \ "frames")(1) \ "text").values
-    (pVal == "PTHR2") should be (true)
+    val tvals = json \ "entities" \ "frames" \\ "text" \\ classOf[JString]
+    tvals should have size (2)
+    tvals should contain("AKT1")
+    tvals should contain("PTHR2")
   }
 
-  it should "have the expected xref properties" in {
-    val xrefs = json \ "entities" \ "frames" \ "xrefs" \\ classOf[JObject]
-    xrefs should have size 2
-    val xrefs0 = xrefs(0)
-    xrefs0 should contain ("namespace" -> "uniprot")
-    xrefs0 should contain ("object-type" -> "db-reference")
-    xrefs0 should contain ("id" -> "P31749")
-    val xrefs1 = xrefs(1)
-    xrefs1 should contain ("namespace" -> "uniprot")
-    xrefs1 should contain ("object-type" -> "db-reference")
-    xrefs1 should contain ("id" -> "P49190")
+  it should "have xrefs with expected namespace values" in {
+    val nsList = json \ "entities" \ "frames" \ "xrefs" \\ "namespace" \\ classOf[JString]
+    nsList should have size (2)
+    all (nsList) should be ("uniprot")
+    (nsList.filter(ns => ns == "uniprot")) should have size (2)
+  }
+
+  it should "have xrefs with expected object-type values" in {
+    val otList = json \ "entities" \ "frames" \ "xrefs" \\ "object-type" \\ classOf[JString]
+    otList should have size (2)
+    all (otList) should be ("db-reference")
+    (otList.filter(ns => ns == "db-reference")) should have size (2)
+  }
+
+  it should "have xrefs with expected ID values" in {
+    val idList = json \ "entities" \ "frames" \ "xrefs" \\ "id" \\ classOf[JString]
+    idList should contain ("P31749")
+    idList should contain ("P49190")
   }
 
 
   // Test output for regulation of regulation:
   val text2 = "The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt."
   val mentions2 = getBioMentions(text2)
-  val entry2 = FriesEntry("text2", "1", "test", "test", false, text2)
-  val jStr2 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), s"${paperId}")
+  val entry2 = FriesEntry("text2", "1", "test", "test", isTitle = false, text2)
+  val jStr2 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), paperId)
   val json2 = parse(jStr2)
 
-  "text2" should "produce valid JSON string" in {
+  text2 should "produce valid JSON string" in {
     // println(s"JSON=$jStr2")                  // DEBUGGING
-    (jStr2.isEmpty) should be (false)
-    (jStr2.contains("\"events\":")) should be (true)
-    (jStr2.contains("\"entities\":")) should be (true)
-    (jStr2.contains("\"sentences\":")) should be (true)
+    jStr2 should not be empty
+    jStr2 should include ("\"events\":")
+    jStr2 should include ("\"entities\":")
+    jStr2 should include ("\"sentences\":")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -156,26 +161,26 @@ class TestFriesOutput extends FlatSpec with Matchers {
   it should "have 5 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
     val subtypeList = json2 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
     subtypeList.isEmpty should be (false)
-    (subtypeList.size == 5) should be (true)
+    subtypeList.size should be (4)
     subtypeList.count(_ == "phosphorylation") should be (1)
     subtypeList.count(_ == "ubiquitination") should be (1)
     subtypeList.count(_ == "negative-regulation") should be (1)
-    subtypeList.count(_ == "positive-regulation") should be (2)
+    subtypeList.count(_ == "positive-regulation") should be (1)
   }
 
   // Test output for regulation *by* a regulation:
   val text3 = "The phosphorylation of AFT by BEF inhibits the ubiquitination of Akt."
   val mentions3 = getBioMentions(text3)
-  val entry3 = FriesEntry("text3", "1", "test", "test", false, text3)
-  val jStr3 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), s"${paperId}")
+  val entry3 = FriesEntry("text3", "1", "test", "test", isTitle = false, text3)
+  val jStr3 = outputter.toJSON(paperId, mentions2, Seq(entry2), startTime, new Date(), paperId)
   val json3 = parse(jStr3)
 
   text3 should "produce valid JSON string" in {
     // println(s"JSON=$jStr2")                  // DEBUGGING
-    (jStr3.isEmpty) should be (false)
-    (jStr3.contains("\"events\":")) should be (true)
-    (jStr3.contains("\"entities\":")) should be (true)
-    (jStr3.contains("\"sentences\":")) should be (true)
+    jStr3 should not be empty
+    jStr3 should include ("\"events\":")
+    jStr3 should include ("\"entities\":")
+    jStr3 should include ("\"sentences\":")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -186,13 +191,12 @@ class TestFriesOutput extends FlatSpec with Matchers {
 
   it should "have 4 event mentions: 1 phos, 1 ubiq, 1 neg-reg and 2 pos-reg" in {
     val subtypeList = json3 \ "events" \ "frames" \\ "subtype" \\ classOf[JString]
-    // print(subtypeList)
     subtypeList.isEmpty should be (false)
-    subtypeList.size should be (5)
+    subtypeList.size should be (4)
     subtypeList.count(_ == "phosphorylation") should be (1)
     subtypeList.count(_ == "ubiquitination") should be (1)
     subtypeList.count(_ == "negative-regulation") should be (1)
-    subtypeList.count(_ == "positive-regulation") should be (2)
+    subtypeList.count(_ == "positive-regulation") should be (1)
   }
 
 }

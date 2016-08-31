@@ -62,7 +62,7 @@ object CorefUtils {
   def argsComplete(args: Map[String,Seq[CorefMention]], lbls: Seq[String]): Boolean = {
     lbls match {
       case binding if lbls contains "Binding" =>
-        args.contains("theme") && args("theme").length == 2
+        args.contains("theme") && args("theme").length >= 2 // Binding is not required to be binary anymore (see binding_token_5)
       case simple if lbls contains "SimpleEvent" =>
         args.contains("theme") && args("theme").nonEmpty
       case complex if lbls contains "ComplexEvent" =>
