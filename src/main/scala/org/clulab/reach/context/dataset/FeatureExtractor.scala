@@ -39,7 +39,7 @@ case class PairFeatures(
     val features = Seq(
       s"sentenceDistance_${this.sentenceDistance}",
       s"contextPOSTag_${this.contextPOSTag}",
-      s"contextPOSTag_${this.eventPOSTag}",
+      s"eventPOSTag_${this.eventPOSTag}",
       s"dependencyDistance_${this.dependencyDistance}",
       //s"discourseDistance_${this.discourseDistance}",
       s"dependencyPath_${this.dependencyPath.mkString("_")}",
@@ -87,11 +87,92 @@ object FeatureExtractor{
      contextMention:BioTextBoundMention):PairFeatures = extractFeatures(doc,
         event, contextMention2Annotation(contextMention))
 
+  object FeatureProcessing{
+    def binSentenceDistance(d:Int):BinnedDistance.Value = {
+      // TODO: Implement this
+      BinnedDistance.SAME
+    }
+
+    def binDependencyDistance(d:Int):BinnedDistance.Value = {
+      // TODO: Implement this
+      BinnedDistance.SAME
+    }
+
+    def binDiscourseDistance(d:Int):BinnedDistance.Value = {
+      // TODO: Implement this
+      BinnedDistance.SAME
+    }
+
+    def clusterPOSTag(t:String):String ={
+      // TODO: Implement this
+      "NN"
+    }
+
+    def clusterDependency(t:String):String = {
+      // TODO: Implement this
+      "MM"
+    }
+
+
+  }
+
   def extractFeatures(doc:Document, event:EventAnnotation, contextMention:ContextAnnotation):PairFeatures = {
 
     val id = PairID(event, contextMention.contextType)
-    // TODO: Actually replace this with something meaningful
-    PairFeatures(id, BinnedDistance.SAME, "NN", "NN", Some(BinnedDistance.FAR), Seq(), Seq())
+
+    val sentenceDistance:BinnedDistance.Value = FeatureProcessing.binSentenceDistance(Math.abs(event.sentenceId - contextMention.sentenceId))
+
+    val dependencyPath:Option[Seq[String]] =
+      if(event.sentenceId == contextMention.sentenceId){
+        // Get the shortest path in the dependency graph
+        val sentence = doc.sentences(event.sentenceId)
+        val deps = sentence.dependencies.get
+
+        // Ignore direction for the sake of simplicity
+        val sequence = deps.shortestPath(event.interval.start, contextMention.interval.start, true)
+
+        if(sequence.size == 0){
+          println("DEBUG: Problem when extracting dependency path for features")
+          None
+        }
+        else{
+          val edges:Seq[String] = for(i <- 1 until sequence.size)
+           yield {
+            val (h, t) = (sequence(i-1), sequence(i))
+            deps.getEdges(h, t)(0)._3
+          }
+          Some(edges)
+        }
+      }
+      else
+        None
+
+    val dependencyLength = dependencyPath match {
+      case Some(path) => Some(FeatureProcessing.binDependencyDistance(path.size))
+      case None => None
+    }
+
+    val clusteredDependencyPath = dependencyPath match {
+      case Some(path) => path map FeatureProcessing.clusterDependency
+      case None => Seq()
+    }
+
+    val clusteredPOSPath:Seq[String] =
+      if(event.sentenceId == contextMention.sentenceId){
+        val sentence = doc.sentences(event.sentenceId)
+        val start = if(event.interval.start <= contextMention.interval.start) event.interval.start else contextMention.interval.start
+        val end = if(event.interval.start <= contextMention.interval.start) contextMention.interval.start else event.interval.start
+
+        val tags = sentence.tags.get
+        (start to end).map(tags).map(FeatureProcessing.clusterPOSTag)
+      }
+      else
+        Seq()
+
+    val eventPOS = FeatureProcessing.clusterPOSTag(doc.sentences(event.sentenceId).tags.get.apply(event.interval.start))
+    val contextPOS = FeatureProcessing.clusterPOSTag(doc.sentences(contextMention.sentenceId).tags.get.apply(contextMention.interval.start))
+
+    PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength, clusteredDependencyPath, clusteredPOSPath)
   }
 
   def extractFeaturesFromCorpus(doc:Document, eventAnnotations:Seq[EventAnnotation],
