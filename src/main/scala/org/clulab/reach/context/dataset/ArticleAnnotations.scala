@@ -33,10 +33,37 @@ object ContextType{
   }
 }
 
-case class EventAnnotation(val sentenceId:Int, val interval:Interval, val contextsOf:Option[Seq[ContextType]] = None)
-case class ContextAnnotation(val sentenceId: Int, val interval:Interval, val contextType:ContextType)
 
-case class ArticleAnnotations(val sentences:Map[Int, String],
+case class EventAnnotation(val sentenceId:Int,
+   val interval:Interval,
+   val annotatedContexts:Option[Seq[ContextType]] = None){
+     override def equals(o: Any) = o match {
+       case other:EventAnnotation =>
+        if(this.sentenceId == other.sentenceId &&
+          this.interval == other.interval)
+          true
+        else
+          false
+       case _ => false
+     }
+   }
+   
+case class ContextAnnotation(val sentenceId: Int,
+   val interval:Interval,
+   val contextType:ContextType){
+     override def equals(o: Any) = o match {
+       case other:EventAnnotation =>
+        if(this.sentenceId == other.sentenceId &&
+          this.interval == other.interval)
+          true
+        else
+          false
+       case _ => false
+     }
+   }
+
+case class ArticleAnnotations(val name:String,
+   val sentences:Map[Int, String],
    val eventAnnotations:Seq[EventAnnotation],
    val contextAnnotations:Seq[ContextAnnotation],
    val standoff:Option[Tree] = None)
@@ -83,6 +110,6 @@ object ArticleAnnotations{
     val soffFile = new File(directory, "standoff.json")
     val standoff = if(soffFile.exists) Some(Tree.readJson(soffFile.getPath)) else None
 
-    ArticleAnnotations(sentences, events, context, standoff)
+    ArticleAnnotations(directory, sentences, events, context, standoff)
   }
 }
