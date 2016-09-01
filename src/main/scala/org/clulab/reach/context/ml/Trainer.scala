@@ -155,7 +155,7 @@ object Trainer {
     // Train the logistic regression
 
     // TODO: adjust the parameters as in the python code
-    val lrc = new LogisticRegressionClassifier[Boolean, String](bias=true)
+    val lrc = new LogisticRegressionClassifier[Boolean, String](C=0.1, bias=true)
     lrc.train(dataset)
 
     // Return the trained logistic regression classifier
