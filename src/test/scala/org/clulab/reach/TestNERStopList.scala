@@ -1,11 +1,6 @@
 package org.clulab.reach
 
-import org.clulab.odin._
-import org.clulab.reach.mentions._
-import org.clulab.utils.Serializer
-
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
 import io.Source
 
@@ -25,5 +20,14 @@ class TestNERStopList extends FlatSpec with Matchers {
       // printMentions(Try(mentions), true)      // DEBUGGING
     }
   }
+
+  // TODO: uncomment after switching to processors 5.9.5
+  /*
+  val sent1 = "XREF_FIG and XREF_BIBR are not proteins!"
+  sent1 should "not produce any named entities" in {
+    val mentions = getBioMentions(sent1)
+    mentions.size should be (0)
+  }
+  */
 
 }
