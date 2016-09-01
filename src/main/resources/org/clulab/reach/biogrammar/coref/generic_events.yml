@@ -161,6 +161,9 @@
   pattern: |
     (?<trigger> [lemma=/de-?hydrolyzation|de-?hydrolysis/ & tag=/^N/ & !mention=/./])
 
+
+# Neither addition nor "reverse"
+
 - name: translocation_trigger
   label: [Generic_event, Translocation]
   action: ${ actionFlow }
@@ -175,4 +178,4 @@
   priority: ${ priority }
   type: token
   pattern: |
-    (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/ & !mention=/./])
+    (?<trigger> [lemma=/binding|interaction|association|assembly|formation|heterodimerzation|ligation|recruitment|oligomerization/ & tag=/^N/ & !mention=/./ & !outgoing=prep_of]) (?! of)
