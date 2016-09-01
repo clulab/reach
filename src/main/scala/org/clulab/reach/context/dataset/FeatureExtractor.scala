@@ -70,16 +70,6 @@ object FeatureExtractor{
       extractFeatures(doc, event, contextMention)
     }
 
-  def extractFeaturesB(doc:Document,
-    events:Seq[EventAnnotation],
-    contextMentions:Seq[BioTextBoundMention]):Seq[PairFeatures] =
-    for{
-      event <- events;
-      contextMention <- contextMentions
-    } yield {
-      extractFeatures(doc, event, contextMention)
-    }
-
 
   def eventMention2Annotation(m:BioEventMention) = EventAnnotation(m.sentence,
      Interval.closed(m.tokenInterval.start, m.tokenInterval.end))

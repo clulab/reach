@@ -1,6 +1,7 @@
 package org.clulab.reach.context.ml
 
 import java.io.File
+import ai.lum.common.Interval
 import org.clulab.struct.Counter
 import org.clulab.learning._
 import org.clulab.odin._
@@ -50,11 +51,21 @@ object Trainer {
     // Build the counts of the context annotations
     val contextCounts:Map[String, Int] = contextMentions.groupBy(_.nsId).mapValues(_.size)
 
+    // Filter out the reach conetxt mentions that overlap with any of the manual annotations
+    val manualContextAnnotations = annotations.contextAnnotations
+
+    val filteredMentions = contextMentions.filter{
+      m =>
+        !manualContextAnnotations.exists{
+          mc =>
+            val i = Interval.closed(m.tokenInterval.start, m.tokenInterval.end)
+            mc.sentenceId == m.sentence && mc.interval.intersects(i)
+        }
+    }.map(FeatureExtractor.contextMention2Annotation)
+
     // Extract features from reach's mentions
     println("Extracting features ...")
-    val pairs:Seq[PairFeatures] = FeatureExtractor.extractFeaturesB(doc, events, contextMentions)
-
-    // TODO: Aggregate the corpus manual annotations to the training data here
+    val pairs:Seq[PairFeatures] = FeatureExtractor.extractFeaturesFromCorpus(doc, events, manualContextAnnotations ++ filteredMentions)
 
     // Group the data by event location and context id
     val groupedPairs:Map[PairID, Seq[PairFeatures]] = pairs.groupBy(_.id)
@@ -93,8 +104,9 @@ object Trainer {
   def normalize(dataset:RVFDataset[Boolean, String]) = dataset
 
   def train(dataset:RVFDataset[Boolean, String]):LogisticRegressionClassifier[Boolean, String] = {
-
     // Train the logistic regression
+
+    // TODO: Balance dataset
     // TODO: adjust the parameters as in the python code
     val lrc = new LogisticRegressionClassifier[Boolean, String](bias=true)
     lrc.train(dataset)
