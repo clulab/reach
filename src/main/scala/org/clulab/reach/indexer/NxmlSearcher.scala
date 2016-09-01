@@ -222,6 +222,14 @@ class NxmlSearcher(val indexDir:String) {
     logger.info("Done.")
   }
 
+  // Natasa's use case, first query
+  def useCase3a(resultDir:String): Unit = {
+    val eventDocs = search("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein")""")
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
+    logger.debug("Done.")
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
@@ -255,7 +263,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase2(resultDir)
+      searcher.useCase3a(resultDir)
     }
 
     searcher.close()
