@@ -229,6 +229,14 @@ class NxmlSearcher(val indexDir:String) {
     saveDocs(resultDir, eventDocs)
     logger.debug("Done.")
   }
+  // Natasa's use case, second query
+  def useCase3b(resultDir:String): Unit = {
+    val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND pancreas"""
+    val eventDocs = search(query)
+    logger.debug(s"The result contains ${eventDocs.size} documents for query [$query]")
+    saveDocs(resultDir, eventDocs)
+    logger.debug("Done.")
+  }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
@@ -263,7 +271,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase3a(resultDir)
+      searcher.useCase3b(resultDir)
     }
 
     searcher.close()
