@@ -233,9 +233,25 @@ class NxmlSearcher(val indexDir:String) {
   def useCase3b(resultDir:String): Unit = {
     val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND pancreas"""
     val eventDocs = search(query)
-    logger.debug(s"The result contains ${eventDocs.size} documents for query [$query]")
+    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
     saveDocs(resultDir, eventDocs)
-    logger.debug("Done.")
+    logger.info("Done.")
+  }
+  // Natasa's use case, third query
+  def useCase3c(resultDir:String): Unit = {
+    val query = """(BMP OR "Bone Morphogenetic Protein") AND pancreas"""
+    val eventDocs = search(query)
+    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
+  }
+  // Natasa's use case, fourth query
+  def useCase3d(resultDir:String): Unit = {
+    val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein") AND pancreas"""
+    val eventDocs = search(query)
+    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -271,7 +287,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase3b(resultDir)
+      searcher.useCase3c(resultDir)
     }
 
     searcher.close()
