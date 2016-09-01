@@ -72,7 +72,7 @@ object FeatureExtractor{
 
 
   def eventMention2Annotation(m:BioEventMention) = EventAnnotation(m.sentence,
-     Interval.open(m.tokenInterval.start, m.tokenInterval.end))
+     Interval.open(m.trigger.tokenInterval.start, m.trigger.tokenInterval.end))
 
   def contextMention2Annotation(m:BioTextBoundMention) = ContextAnnotation(m.sentence,
      Interval.open(m.tokenInterval.start, m.tokenInterval.end),
