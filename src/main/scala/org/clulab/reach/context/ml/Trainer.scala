@@ -1,6 +1,8 @@
 package org.clulab.reach.context.ml
 
-import java.io.File
+import java.io._
+import collection.mutable.{ListBuffer, ArrayBuffer}
+import util.Random
 import ai.lum.common.Interval
 import org.clulab.struct.Counter
 import org.clulab.learning._
@@ -100,13 +102,58 @@ object Trainer {
     data
   }
 
-  // TODO: Normalize dataset
-  def normalize(dataset:RVFDataset[Boolean, String]) = dataset
+  def normalize(dataset:RVFDataset[Boolean, String]):ScaleRange[String] = Datasets.svmScaleDataset(dataset)
+
+  def balanceDataset(dataset:RVFDataset[Boolean, String],
+     negativesPerPositive:Int=4):RVFDataset[Boolean, String] = {
+
+      val positiveIndices = 0.until(dataset.size).filter{
+        i =>
+          val lex = dataset.labelLexicon
+          val labels = dataset.labels
+
+          lex.get(labels(i))
+      }
+
+      val negativeIndices = 0.until(dataset.size).filter{
+        i =>
+          val lex = dataset.labelLexicon
+          val labels = dataset.labels
+
+          !lex.get(labels(i))
+      }
+
+      assert(positiveIndices.size <= negativeIndices.size)
+
+      // Do a random sample of the negatives up to the specified ratio
+      val suffledNegativeIndices = Random.shuffle(negativeIndices)
+
+      val amount = positiveIndices.size * negativesPerPositive
+      val toTake = if(amount <= negativeIndices.size) negativeIndices.size else amount
+
+      val sampledNegativeIndices = negativeIndices.take(toTake)
+
+      val indices2Keep = (positiveIndices ++ negativeIndices).sorted
+
+      // Build a new dataset
+      val ll = dataset.labelLexicon
+      val fl = dataset.featureLexicon
+
+      val labels = new ArrayBuffer[Int]
+      val features = new ArrayBuffer[Array[Int]]
+      val values = new ArrayBuffer[Array[Double]]
+      for(i <- indices2Keep){
+        labels += dataset.labels(i)
+        features += dataset.features(i)
+        values += dataset.values(i)
+      }
+
+      new RVFDataset(ll, fl, labels, features, values)
+  }
 
   def train(dataset:RVFDataset[Boolean, String]):LogisticRegressionClassifier[Boolean, String] = {
     // Train the logistic regression
 
-    // TODO: Balance dataset
     // TODO: adjust the parameters as in the python code
     val lrc = new LogisticRegressionClassifier[Boolean, String](bias=true)
     lrc.train(dataset)
@@ -140,14 +187,21 @@ object Trainer {
       }
     }
 
+    // Balance dataset
+    val balancedDataset = balanceDataset(dataset)
+
     // Normalize dataset
-    val normalizedDataset = normalize(dataset)
+    val scalers = normalize(balancedDataset)
 
     // Train the classifier
-    val classifier = train(normalizedDataset)
+    val classifier = train(balancedDataset)
 
     // Store the trained model
     classifier.saveTo(outputFile.getAbsolutePath)
+    // Store the scalers
+    val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
+    scalers.saveTo(fw)
+    fw.close
   }
 
 }
