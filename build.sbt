@@ -50,7 +50,7 @@ publishTo := {
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
-// let’s remove any repositories for optional dependencies in our artifact
+// lets remove any repositories for optional dependencies in our artifact
 pomIncludeRepository := { _ => false }
 
 // mandatory stuff to add to the pom for publishing
@@ -81,7 +81,7 @@ pomExtra := (
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.15",
+  "org.clulab" % "bioresources" % "1.1.16-SNAPSHOT",
   "org.clulab" %% "processors" % "5.9.5",
   "org.clulab" %% "processors" % "5.9.5" classifier "models",
   "com.typesafe" % "config" % "1.2.1",

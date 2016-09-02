@@ -22,8 +22,8 @@ class BoundedPaddingContext(
 
         case head::tail =>
           // Group the prev step inferred row and the current by context type, then recurse
-          val prevContext = prevStep map (ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1)
-          val currentContext = head map (ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1)
+          val prevContext = prevStep map (ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)) groupBy (_._1)
+          val currentContext = head map (ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)) groupBy (_._1)
 
           // Apply the heuristic
           // Inferred context of type "x"
@@ -106,7 +106,7 @@ class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
       paddedContext map {
         step =>
           // Existing contexts for this line
-          val context = step.map(ContextEngine.getKey(_, ContextEngine.latentVocabulary)).groupBy(_._1)
+          val context = step.map(ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)).groupBy(_._1)
           this.contextTypes flatMap {
             ctype =>
               context.lift(ctype) match {
