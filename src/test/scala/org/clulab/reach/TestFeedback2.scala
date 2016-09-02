@@ -36,8 +36,9 @@ class TestFeedback2 extends FlatSpec with Matchers {
     regs.head.arguments("controlled").head.text should equal ("ErbB3 tyrosine phosphorylation")
   }
 
+  // FAILS!!
   val s3 = "Gab1 mutant protein deficient in Shp2 binding enhances EGF-induced activation of the PI-3"
-  s3 should "NOT contain Activation(Gab1, EGF)" in {
+  s3 should "contain Reg(Gab1, Activation(EGF, PI-3)" in {
     val mentions = getBioMentions(s3)
     hasPositiveRegulationByEntity("Gab1", "Positive_activation", List("EGF", "PI-3"), mentions) should be (true)
   }
@@ -76,6 +77,7 @@ class TestFeedback2 extends FlatSpec with Matchers {
     ptms.head.label should equal ("Phosphorylation")
   }
 
+  // FAILS!!
   val s6 = "These results imply that Ack1 mediated Ras phosphorylation results in subsequent AKT activation."
   s6 should "contain an activation with a PosReg(Phosphorylation) event serving as Controller" in {
     val mentions = getMentionsFromText(s6)

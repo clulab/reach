@@ -10,4 +10,4 @@
   type: token
   action: ${ actionFlow }
   pattern: |
-    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^(JJ|VBD|VBN)/]) @controlled:${ controlledType }
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^(JJ|VBD|VBN)/]) ([word=/(?i)^activation/] [word=/(?i)^of/] [word=/(?i)^the/]?)? @controlled:${ controlledType }
