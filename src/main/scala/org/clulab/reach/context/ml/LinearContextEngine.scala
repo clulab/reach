@@ -4,6 +4,7 @@ import java.io._
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.mentions._
 import org.clulab.learning._
+import org.clulab.reach.context.dataset.ContextType
 
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {
 
@@ -13,9 +14,27 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
 
-  def classify(mention:BioMention):BioMention = {
-    // TODO: Classify this event with all the context types in the paper
-    mention
+  def classify(mention:BioMention):BioMention = paperMentions match {
+    // Classify this event with all the context types in the paper
+    case Some(contextMentions) =>
+        // extract features and classify a pair
+        val actualContextMentions:Seq[BioTextBoundMention] = contextMentions map {
+            identity
+        }
+
+        // Convert the context mentions to a seq of ContextTypes
+        val contextTypes:Seq[ContextType] = actualContextMentions.map(m => ContextType.parse(m.nsId))
+
+        // Create the context map
+        val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
+
+        // Assign context
+        mention.context = Some(contextMap)
+
+        // Return the mention with context
+        mention
+
+    case None => throw new RuntimeException("LinearContextEngine hasn't been called to infer")
   }
 
   // Implementation of the ContextEngine trait
