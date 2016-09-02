@@ -36,13 +36,11 @@ class TestFeedback2 extends FlatSpec with Matchers {
     regs.head.arguments("controlled").head.text should equal ("ErbB3 tyrosine phosphorylation")
   }
 
-  /* // ms: skipping this; it's fine
   val s3 = "Gab1 mutant protein deficient in Shp2 binding enhances EGF-induced activation of the PI-3"
   s3 should "NOT contain Activation(Gab1, EGF)" in {
-    // TODO: disable activations when the Controlled dep path goes through the trigger of another event (e.g., "activation") - DANE, GUS
-    // ms: maybe this not too bad? MITRE seems to prefer this!
+    val mentions = getBioMentions(s3)
+    hasPositiveRegulationByEntity("Gab1", "Positive_activation", List("EGF", "PI-3"), mentions) should be (true)
   }
-  */
 
   val s4 = "ASPP1 and ASPP2 cooperate with RAS to enhance the transcriptional activity of p53"
   s4 should "contain two activations with p53 as Controlled" in {
