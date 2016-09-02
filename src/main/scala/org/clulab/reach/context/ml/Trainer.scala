@@ -122,28 +122,21 @@ object Trainer {
     // Generate Datum objects for each group
     val data:Map[PairID, RVFDatum[Boolean, String]] = groupedPairs map {
       case (id:PairID, instances:Iterable[PairFeatures]) =>
-        // Iterate over the instances to build a Datum instance
-        val c = new Counter[String]
-
-        for(i <- instances; f <- i.toSeq()){
-          // Concatenate the feature name and its value
-          c.incrementCount(f)
-        }
-
-        // Add the context id counts
-        val contextTypeFreq = Seq.fill(contextCounts(id.context.id))("context_frequency")
-        // Add the same feature multiple times according to the example
-        contextTypeFreq foreach (c.incrementCount(_))
 
         // Figure out the label
-        val truthContexts = id.textBoundLocation.annotatedContexts match {
-          case Some(contexts) =>
-            contexts.exists(c => c == id.context)
-          case None =>
-            println("DEBUG: Warning, manually annotated event without context annotations!")
-            false
+        val label = id.textBoundLocation.annotatedContexts match {
+        case Some(contexts) =>
+          contexts.exists(c => c == id.context)
+        case None =>
+          println("DEBUG: Warning, manually annotated event without context annotations!")
+          false
         }
-        (id, new RVFDatum[Boolean, String](true, c))
+
+        // Compute the context type frequency
+        val contextTypeCount = contextCounts(id.context.id)
+
+        val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, label)
+        (id, datum)
     }
 
     data

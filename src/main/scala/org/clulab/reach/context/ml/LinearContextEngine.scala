@@ -5,6 +5,8 @@ import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.mentions._
 import org.clulab.learning._
 import org.clulab.reach.context.dataset.ContextType
+import org.clulab.reach.context.dataset._
+import org.clulab.learning._
 
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {
 
@@ -13,26 +15,41 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
   val normalizers:ScaleRange[String] = ScaleRange.loadFrom(new FileReader(normalizersFile))
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
+  var paperContextTypes:Option[Seq[ContextType]] = None
+  var paperContextTypeCounts:Option[Map[String, Int]] = None
 
-  def classify(mention:BioMention):BioMention = paperMentions match {
+
+  def classify(eventMention:BioMention):BioMention = paperMentions match {
     // Classify this event with all the context types in the paper
     case Some(contextMentions) =>
-        // extract features and classify a pair
-        val actualContextMentions:Seq[BioTextBoundMention] = contextMentions map {
-            identity
-        }
+        val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
+            t =>
+                val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
 
-        // Convert the context mentions to a seq of ContextTypes
-        val contextTypes:Seq[ContextType] = actualContextMentions.map(m => ContextType.parse(m.nsId))
+                // Create feature pairs
+                val instances = FeatureExtractor.extractFeatures(eventMention.document, Seq(eventMention.asInstanceOf[BioEventMention]), mentions)
+                // Get the type frequency
+                val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
+                // Make the datum instance for classification
+                val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, true) // Label doesn´t matter here
+                // Normalize the datum
+                val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
+                val scaledDatum = new RVFDatum(datum.label, scaledFeats)
+                // Classify it
+                val isContext:Boolean = classifier.classOf(scaledDatum)
+
+                // If it's context, we keep it :)
+                isContext
+        }
 
         // Create the context map
         val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
 
         // Assign context
-        mention.context = Some(contextMap)
+        eventMention.context = Some(contextMap)
 
         // Return the mention with context
-        mention
+        eventMention
 
     case None => throw new RuntimeException("LinearContextEngine hasn't been called to infer")
   }
@@ -46,6 +63,12 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
   def infer(mentions: Seq[BioMention]) {
     // We store the paper's mentions here to do classification later
     paperMentions = Some(mentions.filter{ case tb:BioTextBoundMention => true; case _ => false}.map(_.asInstanceOf[BioTextBoundMention]))
+
+    // Get the contexttypes in the document
+    paperContextTypes = Some(paperMentions.get.map(m => ContextType.parse(m.nsId)))
+
+    // Compute the context type counts
+    paperContextTypeCounts = Some(paperMentions.get.map(_.nsId).groupBy(identity).mapValues(_.size))
   }
   def update(mentions: Seq[BioMention]) {
     // Not doing anything here yet

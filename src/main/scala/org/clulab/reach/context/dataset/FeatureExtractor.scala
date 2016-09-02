@@ -3,6 +3,8 @@ package org.clulab.reach.context.dataset
 import org.clulab.processors.Document
 import org.clulab.reach.mentions._
 import ai.lum.common.Interval
+import org.clulab.learning._
+import org.clulab.struct.Counter
 
 object BinnedDistance extends Enumeration{
   val SAME, CLOSE, FAR = Value
@@ -70,6 +72,22 @@ object FeatureExtractor{
       extractFeatures(doc, event, contextMention)
     }
 
+  def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:Boolean):RVFDatum[Boolean, String] = {
+      // Iterate over the instances to build a Datum instance
+      val c = new Counter[String]
+
+      for(i <- instances; f <- i.toSeq()){
+        // Concatenate the feature name and its value
+        c.incrementCount(f)
+      }
+
+      // Add the context id counts
+      val contextTypeFreq = Seq.fill(contextFrequency)("context_frequency")
+      // Add the same feature multiple times according to the example
+      contextTypeFreq foreach (c.incrementCount(_))
+
+      new RVFDatum[Boolean, String](label, c)
+  }
 
   def eventMention2Annotation(m:BioEventMention) = EventAnnotation(m.sentence,
      Interval.open(m.trigger.tokenInterval.start, m.trigger.tokenInterval.end))
