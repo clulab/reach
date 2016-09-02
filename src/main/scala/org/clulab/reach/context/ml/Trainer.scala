@@ -4,6 +4,8 @@ import java.io._
 import collection.mutable.{ListBuffer, ArrayBuffer}
 import util.Random
 import ai.lum.common.Interval
+import org.clulab.processors.Document
+import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Counter
 import org.clulab.learning._
 import org.clulab.odin._
@@ -13,6 +15,39 @@ import org.clulab.reach.context.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.context.dataset.ArticleAnnotations
 import org.clulab.reach.mentions._
+
+class PreAnnotatedDoc(val document:Document, val mentions:Seq[BioMention]) extends Serializable
+
+object DatasetAnnotator extends App{
+  // Preannotates the dataset and stores the serialized document in the directory
+
+  val corpusDir = new File(args(0))
+
+  // Loading reach system
+  val reach = new ReachSystem
+  val processor = reach.processor
+  //
+  val allAnnotations = corpusDir.listFiles.filter(_.isDirectory).map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
+
+  for(annotations <- allAnnotations.par){
+    val dir = new File(annotations.name)
+
+    println(s"Started annotating $dir...")
+    var doc = processor.mkDocumentFromSentences(annotations.sentences.values)
+    doc = processor.annotate(doc)
+
+    println(s"Extracting entities from $dir...")
+    val entities = reach.extractEntitiesFrom(doc)
+
+    val preprocessedAnnotations = new PreAnnotatedDoc(doc, entities)
+    val oos = new ObjectOutputStream(new FileOutputStream(new File(dir, "preprocessed.ser")))
+    oos.writeObject(preprocessedAnnotations)
+    oos.close
+
+
+    println(s"Finished annotating $dir...")
+  }
+}
 
 object Trainer {
 
@@ -27,12 +62,21 @@ object Trainer {
   }
 
   def extractFeatures(annotations:ArticleAnnotations):Map[PairID, RVFDatum[Boolean, String]] = {
-    println(s"Annotating ${annotations.name} ...")
+
     val sentences = annotations.sentences.values
-    var doc = processor.mkDocumentFromSentences(sentences)
-    doc = processor.annotate(doc)
-    println("Extracting entities ...")
-    val entities = reach.extractEntitiesFrom(doc)
+
+    val (doc:Document, entities:Seq[BioMention]) = annotations.preprocessed match {
+      case Some(preprocessed) => (preprocessed.document, preprocessed.mentions)
+      case None =>
+      println(s"Annotating ${annotations.name} ...")
+
+      var d = processor.mkDocumentFromSentences(sentences)
+      d = processor.annotate(d)
+      println("Extracting entities ...")
+      val e = reach.extractEntitiesFrom(d)
+      (d, e)
+    }
+
 
     // Don't use the system-extracted events for trainig
     // var rawMentions = reach.extractEventsFrom(doc, entities)
@@ -154,7 +198,6 @@ object Trainer {
   def train(dataset:RVFDataset[Boolean, String]):LogisticRegressionClassifier[Boolean, String] = {
     // Train the logistic regression
 
-    // TODO: adjust the parameters as in the python code
     val lrc = new LogisticRegressionClassifier[Boolean, String](C=0.1, bias=true)
     lrc.train(dataset)
 

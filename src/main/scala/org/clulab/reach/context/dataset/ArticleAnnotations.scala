@@ -4,9 +4,10 @@ import java.io.File
 import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
+import org.clulab.reach.context.ml.PreAnnotatedDoc
 
 object ContextLabel extends Enumeration{
-  val Species, CellLine, CellType, Organ = Value
+  val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value
 }
 
 case class ContextType(val contextType:ContextLabel.Value, val id:String)
@@ -22,6 +23,7 @@ object ContextType{
       case "cellontology" => this(ContextLabel.CellType, annotationId)
       case "uberon" => this(ContextLabel.Organ, annotationId)
       case "tissuelist" => this(ContextLabel.Organ, annotationId)
+      case "go" => this(ContextLabel.CellularLocation, annotationId)
       case "uaz" =>
        val x = gid.split("-")(1)
        x match {
@@ -29,6 +31,7 @@ object ContextType{
          case "cline" => this(ContextLabel.CellLine, annotationId)
          case "ct" => this(ContextLabel.CellType, annotationId)
        }
+      case _ => this(ContextLabel.UNDETERMINED, annotationId)
     }
   }
 }
@@ -47,7 +50,7 @@ case class EventAnnotation(val sentenceId:Int,
        case _ => false
      }
    }
-   
+
 case class ContextAnnotation(val sentenceId: Int,
    val interval:Interval,
    val contextType:ContextType){
@@ -66,7 +69,8 @@ case class ArticleAnnotations(val name:String,
    val sentences:Map[Int, String],
    val eventAnnotations:Seq[EventAnnotation],
    val contextAnnotations:Seq[ContextAnnotation],
-   val standoff:Option[Tree] = None)
+   val standoff:Option[Tree] = None,
+   val preprocessed:Option[PreAnnotatedDoc] = None)
 
 object ArticleAnnotations{
   def readPaperAnnotations(directory:String):ArticleAnnotations = {
@@ -75,7 +79,12 @@ object ArticleAnnotations{
     val sentences:Map[Int, String] = rawSentences.map{
       s =>
         val tokens = s.split("\t")
-        (tokens(0).toInt, tokens(1))
+        if(tokens.size < 2){
+          println(s"DEBUG: Empty sentence $s in $directory")
+          (tokens(0).toInt, "")
+        }
+        else
+          (tokens(0).toInt, tokens(1))
     }.toMap
 
     val rawEvents = Source.fromFile(new File(directory, "events.tsv")).getLines
@@ -87,7 +96,12 @@ object ArticleAnnotations{
         val bounds = tokens(1).split("-").map(_.toInt)
         val (start, end) = (bounds(0), bounds(1))
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
-        val contexts = tokens(2).split(",").map(ContextType.parse(_))
+        val contexts:Seq[ContextType] =
+          if(tokens.size == 3) tokens(2).split(",").map(ContextType.parse(_))
+          else{
+            println(s"DEBUG: Event without context in $directory")
+            Seq()
+          }
 
         EventAnnotation(sentenceId, interval, Some(contexts))
     }.toSeq
