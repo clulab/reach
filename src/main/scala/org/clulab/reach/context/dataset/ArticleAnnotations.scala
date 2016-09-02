@@ -1,6 +1,6 @@
 package org.clulab.reach.context.dataset
 
-import java.io.File
+import java.io._
 import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
@@ -123,6 +123,22 @@ object ArticleAnnotations{
 
     val soffFile = new File(directory, "standoff.json")
     val standoff = if(soffFile.exists) Some(Tree.readJson(soffFile.getPath)) else None
+
+    val preprocessed:Option[PreAnnotatedDoc] = {
+      val ppFile = new File(directory, "preprocessed.ser")
+      if(ppFile.exists){
+        val ois = new ObjectInputStream(new FileInputStream(ppFile)) {
+          override def resolveClass(desc: java.io.ObjectStreamClass): Class[_] = {
+            try { Class.forName(desc.getName, false, getClass.getClassLoader) }
+            catch { case ex: ClassNotFoundException => super.resolveClass(desc) }
+          }
+        }
+        Some(ois.readObject.asInstanceOf[PreAnnotatedDoc])
+      }
+      else{
+        None
+      }
+    }
 
     ArticleAnnotations(directory, sentences, events, context, standoff)
   }
