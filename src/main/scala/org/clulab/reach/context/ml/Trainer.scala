@@ -4,7 +4,7 @@ import java.io._
 import collection.mutable.{ListBuffer, ArrayBuffer}
 import util.Random
 import ai.lum.common.Interval
-import org.clulab.processors.Document
+import org.clulab.processors._
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Counter
 import org.clulab.learning._
@@ -16,7 +16,7 @@ import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.context.dataset.ArticleAnnotations
 import org.clulab.reach.mentions._
 
-class PreAnnotatedDoc(val document:Document, val mentions:Seq[BioMention]) extends Serializable
+class PreAnnotatedDoc(val serializedDoc:String, val mentions:Seq[BioMention]) extends Serializable
 
 object DatasetAnnotator extends App{
   // Preannotates the dataset and stores the serialized document in the directory
@@ -26,6 +26,7 @@ object DatasetAnnotator extends App{
   // Loading reach system
   val reach = new ReachSystem
   val processor = reach.processor
+  val docSerializer = new DocumentSerializer
   //
   val allAnnotations = corpusDir.listFiles.filter(_.isDirectory).map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
 
@@ -39,7 +40,7 @@ object DatasetAnnotator extends App{
     println(s"Extracting entities from $dir...")
     val entities = reach.extractEntitiesFrom(doc)
 
-    val preprocessedAnnotations = new PreAnnotatedDoc(doc, entities)
+    val preprocessedAnnotations = new PreAnnotatedDoc(docSerializer.save(doc), entities)
     val oos = new ObjectOutputStream(new FileOutputStream(new File(dir, "preprocessed.ser")))
     oos.writeObject(preprocessedAnnotations)
     oos.close
@@ -66,15 +67,17 @@ object Trainer {
     val sentences = annotations.sentences.values
 
     val (doc:Document, entities:Seq[BioMention]) = annotations.preprocessed match {
-      case Some(preprocessed) => (preprocessed.document, preprocessed.mentions)
+      case Some(preprocessed) =>
+        val docSer = new DocumentSerializer
+        (docSer.load(preprocessed.serializedDoc), preprocessed.mentions)
       case None =>
-      println(s"Annotating ${annotations.name} ...")
+        println(s"Annotating ${annotations.name} ...")
 
-      var d = processor.mkDocumentFromSentences(sentences)
-      d = processor.annotate(d)
-      println("Extracting entities ...")
-      val e = reach.extractEntitiesFrom(d)
-      (d, e)
+        var d = processor.mkDocumentFromSentences(sentences)
+        d = processor.annotate(d)
+        println("Extracting entities ...")
+        val e = reach.extractEntitiesFrom(d)
+        (d, e)
     }
 
 
