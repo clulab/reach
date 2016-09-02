@@ -348,7 +348,7 @@ object DarpaActions {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|slow|starv|suppress|supress".r
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|slow|starv|suppress|supress".r
 
   val MODIFIER_LABELS = "amod".r
 
