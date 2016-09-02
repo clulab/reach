@@ -205,7 +205,7 @@ object Trainer {
     lrc
   }
 
-  def main(args:Seq[String]){
+  def main(args:Array[String]){
     // Trains a LM model out of the annotations and the reach mentions
     // First parameter: Corpus directory
     // Second parameter: output file
