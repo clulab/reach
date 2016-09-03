@@ -38,6 +38,9 @@ object ContextType{
              case "org" => this(ContextLabel.Organ, annotationId)
              case "cline" => this(ContextLabel.CellLine, annotationId)
              case "ct" => this(ContextLabel.CellType, annotationId)
+             case i =>
+                println(s"DEBUG incorrectly parsed id $i")
+                this(ContextLabel.UNDETERMINED, annotationId)
             }
         }
 
