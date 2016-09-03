@@ -171,7 +171,7 @@ class DarpaActions extends Actions {
     if bioprocessValid(mention)
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
-    if !hasSynPathOverlap(mention)
+    // if !hasSynPathOverlap(mention)
     // switch label if needed based on negations
     regulation = removeDummy(switchLabel(mention.toBioMention))
     // If the Mention has both a controller and controlled, they should be distinct
