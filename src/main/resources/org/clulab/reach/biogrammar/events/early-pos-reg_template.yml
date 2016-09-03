@@ -1,0 +1,13 @@
+#
+# A very specific class of activations: "Y-induced Z"
+# These must be recognized first, so the nested event in "X activates Y-induced Z" works
+#
+
+- name: Positive_early_${ ruleType }
+  priority: ${ priority }
+  example: "AKT1 induced apoptosis"
+  label: ${ label }
+  type: token
+  action: ${ actionFlow }
+  pattern: |
+    @controller:${ controllerType } (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^(JJ|VBD|VBN)/]) ([word=/(?i)^activation/] [word=/(?i)^of/] [word=/(?i)^the/]?)? @controlled:${ controlledType }

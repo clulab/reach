@@ -169,13 +169,18 @@ class DarpaActions extends Actions {
     mention <- mentions
     // bioprocesses can't be controllers of regulations
     if bioprocessValid(mention)
+
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
-    //if !hasSynPathOverlap(mention)
+    // if !hasSynPathOverlap(mention) // do not enable this: there are legitimate cases
+
     // switch label if needed based on negations
     regulation = removeDummy(switchLabel(mention.toBioMention))
-    // If the Mention has both a controller and controlled, they should be distinct
+
+    // If the Mention has both a controller and controlled, their grounding should be distinct
     if hasDistinctControllerControlled(regulation)
+    // If the Mention has both a controller and controlled, their token spans should NOT overlap
+    if ! overlappingSpansControllerControlled(regulation)
   } yield regulation
 
   /**
@@ -507,6 +512,21 @@ object DarpaActions {
     val controlled = m.arguments.getOrElse("controlled", Nil).flatMap(_.toBioMention.grounding).toSet
     val controller = m.arguments.getOrElse("controller", Nil).flatMap(_.toBioMention.grounding).toSet
     controlled.intersect(controller).isEmpty
+  }
+
+  /**
+    * Checks if the token spans of the controlled and controller overlap.
+    * Returns true if they do
+    */
+  def overlappingSpansControllerControlled(m: Mention): Boolean = {
+    val controlleds = m.arguments.getOrElse("controlled", Set())
+    val controllers = m.arguments.getOrElse("controller", Set())
+    controllers.foreach(cr =>
+      controlleds.foreach(cd =>
+        if(cr.tokenInterval.overlaps(cd.tokenInterval))
+          return true
+    ))
+    false
   }
 
   /** checks if a mention has a controller/controlled
