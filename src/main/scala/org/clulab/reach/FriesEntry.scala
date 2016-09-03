@@ -36,3 +36,17 @@ case class FriesEntry(
     text = nxmldoc.standoff.text
   )
 }
+
+object FriesEntry {
+
+  def mkFriesEntry(paperID: String, text: String): FriesEntry = {
+    FriesEntry(
+      name = paperID,
+      chunkId = paperID,
+      sectionId = "",
+      sectionName = "",
+      isTitle = false,
+      text
+    )
+  }
+}
