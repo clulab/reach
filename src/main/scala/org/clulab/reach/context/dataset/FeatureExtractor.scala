@@ -4,6 +4,7 @@ import org.clulab.processors.Document
 import org.clulab.reach.mentions._
 import ai.lum.common.Interval
 import org.clulab.learning._
+import scala.util.Try
 import org.clulab.struct.Counter
 
 object BinnedDistance extends Enumeration{
@@ -180,7 +181,17 @@ object FeatureExtractor{
           val edges:Seq[String] = for(i <- 1 until sequence.size)
            yield {
             val (h, t) = (sequence(i-1), sequence(i))
-            deps.getEdges(h, t)(0)._3
+            val e = deps.getEdges(h, t)
+            // TODO: Check this
+            if(e.size > 1){
+                val edge = e(0)
+                println(s"DEBUG: $edge")
+                edge._3
+            }
+            else{
+                println("DEBUG: Din't find an edge that should be here")
+                ""
+            }
           }
           Some(edges)
         }
@@ -198,6 +209,7 @@ object FeatureExtractor{
       case None => Seq()
     }
 
+    // TODO: Check the index out of bounds in the POS tags
     val clusteredPOSPath:Seq[String] =
       if(event.sentenceId == contextMention.sentenceId){
         val sentence = doc.sentences(event.sentenceId)
@@ -205,13 +217,17 @@ object FeatureExtractor{
         val end = if(event.interval.start <= contextMention.interval.start) contextMention.interval.start else event.interval.start
 
         val tags = sentence.tags.get
-        (start to end).map(tags).map(FeatureProcessing.clusterPOSTag)
+
+        (start to end).map{
+            i => Try(tags(i)).getOrElse("")
+        }.map(FeatureProcessing.clusterPOSTag)
       }
       else
         Seq()
 
-    val eventPOS = FeatureProcessing.clusterPOSTag(doc.sentences(event.sentenceId).tags.get.apply(event.interval.start))
-    val contextPOS = FeatureProcessing.clusterPOSTag(doc.sentences(contextMention.sentenceId).tags.get.apply(contextMention.interval.start))
+
+    val eventPOS= FeatureProcessing.clusterPOSTag(Try(doc.sentences(event.sentenceId).tags.get.apply(event.interval.start)).getOrElse(""))
+    val contextPOS = FeatureProcessing.clusterPOSTag(Try(doc.sentences(contextMention.sentenceId).tags.get.apply(contextMention.interval.start)).getOrElse(""))
 
     PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength, clusteredDependencyPath, clusteredPOSPath)
   }

@@ -15,6 +15,7 @@ case class ContextType(val contextType:ContextLabel.Value, val id:String)
 object ContextType{
   def parse(annotationId:String) = {
     val tokens = annotationId.split(":", 2)
+
     val (namespace, gid) = (tokens(0), tokens(1))
 
     namespace match {
@@ -25,12 +26,23 @@ object ContextType{
       case "tissuelist" => this(ContextLabel.Organ, annotationId)
       case "go" => this(ContextLabel.CellularLocation, annotationId)
       case "uaz" =>
-       val x = gid.split("-")(1)
-       x match {
-         case "org" => this(ContextLabel.Organ, annotationId)
-         case "cline" => this(ContextLabel.CellLine, annotationId)
-         case "ct" => this(ContextLabel.CellType, annotationId)
-       }
+        // TODO: Fix this to consider uaz:UBERON:0000479 and uaz:CL:0000786
+        val y = gid.split("-")
+        if(y.size < 2){
+            println(s"DEBUG: $annotationId")
+            this(ContextLabel.UNDETERMINED, annotationId)
+        }
+        else{
+            val x = y(1)
+            x.toLowerCase match {
+             case "org" => this(ContextLabel.Organ, annotationId)
+             case "cline" => this(ContextLabel.CellLine, annotationId)
+             case "ct" => this(ContextLabel.CellType, annotationId)
+            }
+        }
+
+
+
       case _ => this(ContextLabel.UNDETERMINED, annotationId)
     }
   }
@@ -80,7 +92,6 @@ object ArticleAnnotations{
       s =>
         val tokens = s.split("\t")
         if(tokens.size < 2){
-          println(s"DEBUG: Empty sentence $s in $directory")
           (tokens(0).toInt, "")
         }
         else
@@ -140,6 +151,6 @@ object ArticleAnnotations{
       }
     }
 
-    ArticleAnnotations(directory, sentences, events, context, standoff)
+    ArticleAnnotations(directory, sentences, events, context, standoff, preprocessed)
   }
 }

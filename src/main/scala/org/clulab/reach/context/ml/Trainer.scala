@@ -93,6 +93,8 @@ object Trainer {
     // Use the manually annotated events for training
     var events = annotations.eventAnnotations
 
+    println(s"DEBUG: Event #: ${events.size}")
+
     // Filter out non-context mentions
     val contextMentions = entities.filter(ContextEngine.isContextMention)
       .map(_.asInstanceOf[BioTextBoundMention])
@@ -133,7 +135,8 @@ object Trainer {
         }
 
         // Compute the context type frequency
-        val contextTypeCount = contextCounts(id.context.id)
+        // TODO: Check for missing in the context counts
+        val contextTypeCount = contextCounts.lift(id.context.id).getOrElse(0)
 
         val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, label)
         (id, datum)
@@ -219,9 +222,12 @@ object Trainer {
 
     // Extract features
     for(ann <- annotations){
+
       val data = extractFeatures(ann)
       // Add the data of this paper to the training dataset
       for(datum <- data.values){
+        if(datum.label)
+            println("Negative example")
         dataset += datum
       }
     }
@@ -236,11 +242,11 @@ object Trainer {
     val classifier = train(balancedDataset)
 
     // Store the trained model
-    classifier.saveTo(outputFile.getAbsolutePath)
+    // classifier.saveTo(outputFile.getAbsolutePath)
     // Store the scalers
-    val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
-    scalers.saveTo(fw)
-    fw.close
+    // val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
+    // scalers.saveTo(fw)
+    // fw.close
   }
 
 }
