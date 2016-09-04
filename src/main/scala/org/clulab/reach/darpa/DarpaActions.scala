@@ -182,7 +182,7 @@ class DarpaActions extends Actions with LazyLogging {
     if hasDistinctControllerControlled(regulation)
     // If the Mention has both a controller and controlled, their token spans should NOT overlap
     if ! overlappingSpansControllerControlled(regulation)
-    _ = logger.debug(s"mkRegulation yields: ${display.summarizeMentions(regulation)}")
+    _ = logger.debug(s"mkRegulation yields: ${display.summarizeMention(regulation)}")
   } yield regulation
 
   /**
