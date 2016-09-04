@@ -245,6 +245,24 @@ class NxmlSearcher(val indexDir:String) {
     // Get the PMCIDs that match with the query
     resultDocs map { _._1.get("id") }
   }
+
+  def useCaseClustering2(participantA:String, participantB:String, action:String, resultDir:String) = {
+    val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
+    // val pATerms = resolveParticipant(participantA)
+    // val pBTerms = resolveParticipant(participantB)
+
+    val pADocs = search("\"" + participantA + "\"")
+    val pBDocs = search("\"" + participantB + "\"")
+
+    val resultSet = intersection(pADocs, pBDocs)
+    logger.debug(s"The result contains ${resultSet.size} documents.")
+    val resultDocs = docs(resultSet)
+    saveNxml(resultDir, resultDocs, 0)
+    logger.debug("Done.")
+
+    // Get the PMCIDs that match with the query
+    resultDocs map { _._1.get("id") }
+  }
   def useCaseTB(resultDir:String): Unit = {
     val eventDocs = search(""" "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """)
     logger.info(s"The result contains ${eventDocs.size} documents.")
@@ -293,7 +311,7 @@ object ClusteringSearcher extends App{
     val reaction = tokens(6)
 
     // Search lucene
-    val hits = searcher.useCaseClustering(pA, pB, reaction, outputDir)
+    val hits = searcher.useCaseClustering2(pA, pB, reaction, outputDir)
     sos.println(s"$pA $reaction $pB:\t${hits.mkString(",")}")
 
   }
