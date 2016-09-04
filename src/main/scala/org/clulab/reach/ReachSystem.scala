@@ -86,7 +86,11 @@ class ReachSystem(
     display.displayMentions(events, doc)
     contextEngine.update(events)
     val eventsWithContext = contextEngine.assign(events)
+    logger.debug(s"${eventsWithContext.size} events after contextEngine.assign")
+    display.displayMentions(eventsWithContext, doc)
     val grounded = grounder(eventsWithContext)
+    logger.debug(s"${grounded.size} events after grounder")
+    display.displayMentions(grounded, doc)
     // Coref expects to get all mentions grouped
     // we group according to the standoff, if there is one
     // else we just make one group with all the mentions
@@ -94,6 +98,8 @@ class ReachSystem(
       case Some(nxml) => groupMentionsByStandoff(grounded, nxml)
       case None => Seq(grounded)
     }
+    logger.debug(s"${groundedAndGrouped.flatten.size} events after groundedAndGrouped")
+    display.displayMentions(groundedAndGrouped.flatten, doc)
     val resolved = resolveCoref(groundedAndGrouped)
     logger.debug(s"${resolved.size} events after coref:")
     display.displayMentions(resolved, doc)
