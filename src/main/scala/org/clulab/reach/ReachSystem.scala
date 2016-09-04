@@ -12,6 +12,7 @@ import scala.collection.mutable
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
 import ai.lum.nxmlreader.NxmlDocument
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 
 
@@ -20,7 +21,7 @@ class ReachSystem(
     proc: Option[BioNLPProcessor] = None,
     contextEngineType: Engine = Dummy,
     contextParams: Map[String, String] = Map()
-) {
+) extends LazyLogging {
 
   import ReachSystem._
 
@@ -78,7 +79,11 @@ class ReachSystem(
     contextEngine.infer(entities)
     val entitiesWithContext = contextEngine.assign(entities)
     val unfilteredEvents = extractEventsFrom(doc, entitiesWithContext)
+    logger.debug(s"${unfilteredEvents.size} unfilteredEvents:")
+    display.displayMentions(unfilteredEvents,doc)
     val events = MentionFilter.keepMostCompleteMentions(unfilteredEvents, State(unfilteredEvents))
+    logger.debug(s"${events.size} events after MentionFilter.keepMostCompleteMentions:")
+    display.displayMentions(events, doc)
     contextEngine.update(events)
     val eventsWithContext = contextEngine.assign(events)
     val grounded = grounder(eventsWithContext)
@@ -90,10 +95,13 @@ class ReachSystem(
       case None => Seq(grounded)
     }
     val resolved = resolveCoref(groundedAndGrouped)
+    logger.debug(s"${resolved.size} events after coref:")
+    display.displayMentions(resolved, doc)
     // Coref introduced incomplete Mentions that now need to be pruned
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
-    // val complete = MentionFilter.keepMostCompleteMentions(eventsWithContext, State(eventsWithContext)).map(_.toBioMention)
-
+    logger.debug(s"${complete.size} events after coref + 2nd MentionFilter.keepMostCompleteMentions:")
+    display.displayMentions(complete, doc)
+    logger.debug(s"Resolving display...")
     resolveDisplay(complete)
   }
 

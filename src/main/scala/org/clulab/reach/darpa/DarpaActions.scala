@@ -1,5 +1,6 @@
 package org.clulab.reach.darpa
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.reach._
 import org.clulab.reach.mentions._
@@ -7,7 +8,7 @@ import org.clulab.struct.DirectedGraph
 import scala.annotation.tailrec
 
 
-class DarpaActions extends Actions {
+class DarpaActions extends Actions with LazyLogging {
 
   import DarpaActions._
 
@@ -181,6 +182,8 @@ class DarpaActions extends Actions {
     if hasDistinctControllerControlled(regulation)
     // If the Mention has both a controller and controlled, their token spans should NOT overlap
     if ! overlappingSpansControllerControlled(regulation)
+    _ = logger.debug(s"mkRegulation yields:")
+    _ = display.displayMention(mention.toBioMention)
   } yield regulation
 
   /**
@@ -337,6 +340,7 @@ class DarpaActions extends Actions {
 
   /** global action for EventEngine */
   def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    logger.debug("Running global action cleanupEvents...")
     val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
