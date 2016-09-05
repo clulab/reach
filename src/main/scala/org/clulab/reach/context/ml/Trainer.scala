@@ -62,7 +62,7 @@ object Trainer {
     corpusDir.listFiles.filter(_.isDirectory).map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
   }
 
-  def extractFeatures(annotations:ArticleAnnotations):Map[PairID, RVFDatum[Boolean, String]] = {
+  def extractFeatures(annotations:ArticleAnnotations):Map[PairID, RVFDatum[String, String]] = {
 
     val sentences = annotations.sentences.values
 
@@ -122,16 +122,16 @@ object Trainer {
     val groupedPairs:Map[PairID, Seq[PairFeatures]] = pairs.groupBy(_.id)
 
     // Generate Datum objects for each group
-    val data:Map[PairID, RVFDatum[Boolean, String]] = groupedPairs map {
+    val data:Map[PairID, RVFDatum[String, String]] = groupedPairs map {
       case (id:PairID, instances:Iterable[PairFeatures]) =>
 
         // Figure out the label
         val label = id.textBoundLocation.annotatedContexts match {
         case Some(contexts) =>
-          contexts.exists(c => c == id.context)
+          if(contexts.exists(c => c == id.context)) "true" else "false"
         case None =>
           println("DEBUG: Warning, manually annotated event without context annotations!")
-          false
+          "false" // False
         }
 
         // Compute the context type frequency
@@ -145,17 +145,17 @@ object Trainer {
     data
   }
 
-  def normalize(dataset:RVFDataset[Boolean, String]):ScaleRange[String] = Datasets.svmScaleDataset(dataset)
+  def normalize(dataset:RVFDataset[String, String]):ScaleRange[String] = Datasets.svmScaleDataset(dataset)
 
-  def balanceDataset(dataset:RVFDataset[Boolean, String],
-     negativesPerPositive:Int=4):RVFDataset[Boolean, String] = {
+  def balanceDataset(dataset:RVFDataset[String, String],
+     negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
       val positiveIndices = 0.until(dataset.size).filter{
         i =>
           val lex = dataset.labelLexicon
           val labels = dataset.labels
 
-          lex.get(labels(i))
+          lex.get(labels(i)) == "true"
       }
 
       val negativeIndices = 0.until(dataset.size).filter{
@@ -163,7 +163,7 @@ object Trainer {
           val lex = dataset.labelLexicon
           val labels = dataset.labels
 
-          !lex.get(labels(i))
+          lex.get(labels(i)) == "false"
       }
 
       assert(positiveIndices.size <= negativeIndices.size)
@@ -194,10 +194,10 @@ object Trainer {
       new RVFDataset(ll, fl, labels, features, values)
   }
 
-  def train(dataset:RVFDataset[Boolean, String]):LogisticRegressionClassifier[Boolean, String] = {
+  def train(dataset:RVFDataset[String, String]):LogisticRegressionClassifier[String, String] = {
     // Train the logistic regression
 
-    val lrc = new LogisticRegressionClassifier[Boolean, String](C=0.1, bias=true)
+    val lrc = new LogisticRegressionClassifier[String, String](C=0.1, bias=true)
     lrc.train(dataset)
 
     // Return the trained logistic regression classifier
@@ -218,7 +218,7 @@ object Trainer {
     val annotations = loadAnnotations(corpusDir)
 
     // Training dataset
-    val dataset = new RVFDataset[Boolean, String]()
+    val dataset = new RVFDataset[String, String]()
 
     // Extract features
     for(ann <- annotations){
@@ -226,7 +226,7 @@ object Trainer {
       val data = extractFeatures(ann)
       // Add the data of this paper to the training dataset
       for(datum <- data.values){
-        if(datum.label)
+        if(datum.label == "false")
             println("Negative example")
         dataset += datum
       }

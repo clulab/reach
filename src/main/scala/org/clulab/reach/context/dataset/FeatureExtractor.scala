@@ -73,7 +73,7 @@ object FeatureExtractor{
       extractFeatures(doc, event, contextMention)
     }
 
-  def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:Boolean):RVFDatum[Boolean, String] = {
+  def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:String):RVFDatum[String, String] = {
       // Iterate over the instances to build a Datum instance
       val c = new Counter[String]
 
@@ -87,7 +87,7 @@ object FeatureExtractor{
       // Add the same feature multiple times according to the example
       contextTypeFreq foreach (c.incrementCount(_))
 
-      new RVFDatum[Boolean, String](label, c)
+      new RVFDatum[String, String](label, c)
   }
 
   def eventMention2Annotation(m:BioEventMention) = EventAnnotation(m.sentence,

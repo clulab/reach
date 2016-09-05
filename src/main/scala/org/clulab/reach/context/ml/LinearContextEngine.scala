@@ -11,7 +11,7 @@ import org.clulab.learning._
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {
 
   // Load the trained data
-  val classifier = LiblinearClassifier.loadFrom[Boolean, String](parametersFile.getAbsolutePath)
+  val classifier = LiblinearClassifier.loadFrom[String, String](parametersFile.getAbsolutePath)
   val normalizers:ScaleRange[String] = ScaleRange.loadFrom(new FileReader(normalizersFile))
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
@@ -31,12 +31,12 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                 // Get the type frequency
                 val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
                 // Make the datum instance for classification
-                val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, true) // Label doesn´t matter here
+                val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
                 // Normalize the datum
                 val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
                 val scaledDatum = new RVFDatum(datum.label, scaledFeats)
                 // Classify it
-                val isContext:Boolean = classifier.classOf(scaledDatum)
+                val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
 
                 // If it's context, we keep it :)
                 isContext
