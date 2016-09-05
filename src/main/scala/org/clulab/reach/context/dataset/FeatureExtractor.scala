@@ -64,7 +64,7 @@ case class PairFeatures(
 object FeatureExtractor{
 
   def extractFeatures(doc:Document,
-    events:Seq[BioEventMention],
+    events:Seq[BioMention],
     contextMentions:Seq[BioTextBoundMention]):Seq[PairFeatures] =
     for{
       event <- events;
@@ -90,16 +90,20 @@ object FeatureExtractor{
       new RVFDatum[String, String](label, c)
   }
 
-  def eventMention2Annotation(m:BioEventMention) = EventAnnotation(m.sentence,
-     Interval.open(m.trigger.tokenInterval.start, m.trigger.tokenInterval.end))
+  def bioMention2Annotation(mention:BioMention) = mention match {
+      case m:BioEventMention =>
+        EventAnnotation(m.sentence, Interval.open(m.trigger.tokenInterval.start, m.trigger.tokenInterval.end))
+      case m =>
+        EventAnnotation(m.sentence, Interval.open(m.tokenInterval.start, m.tokenInterval.end))
+  }
 
   def contextMention2Annotation(m:BioTextBoundMention) = ContextAnnotation(m.sentence,
      Interval.open(m.tokenInterval.start, m.tokenInterval.end),
      ContextType.parse(m.nsId))
 
-  def extractFeatures(doc:Document, event:BioEventMention,
+  def extractFeatures(doc:Document, event:BioMention,
      contextMention:BioTextBoundMention):PairFeatures = extractFeatures(doc,
-        eventMention2Annotation(event),
+        bioMention2Annotation(event),
         contextMention2Annotation(contextMention))
 
   def extractFeatures(doc:Document, event:EventAnnotation,

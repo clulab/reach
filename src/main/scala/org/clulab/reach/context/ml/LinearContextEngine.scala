@@ -19,43 +19,46 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
   var paperContextTypeCounts:Option[Map[String, Int]] = None
 
 
-  def classify(eventM:BioMention):BioMention = paperMentions match {
+  def classify(bioM:BioMention):BioMention = paperMentions match {
     // Classify this event with all the context types in the paper
     case Some(contextMentions) =>
+        // Temporarely dissabled context assignment from BioTextBoundMentions (they are too many) for efficiency
+        bioM match {
+            case bm:BioTextBoundMention => bm
+            case bioMention =>
+                // Only assign context if this is not a context mention
+                if(!ContextEngine.isContextMention(bioMention)){
+                    val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
+                        t =>
+                            val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
+                            // Create feature pairs
+                            val instances = FeatureExtractor.extractFeatures(bioMention.document, Seq(bioMention), mentions)
+                            // Get the type frequency
+                            val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
+                            // Make the datum instance for classification
+                            val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
+                            // Normalize the datum
+                            //val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
+                            //val scaledDatum = new RVFDatum(datum.label, scaledFeats)
+                            val scaledDatum = datum
+                            // Classify it
+                            val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
 
-        eventM match {
+                            // If it's context, we keep it :)
+                            isContext
+                    }
 
-          case eventMention:BioEventMention =>
-            val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
-                t =>
-                    val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
+                    // Create the context map
+                    val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
 
-                    // Create feature pairs
-                    val instances = FeatureExtractor.extractFeatures(eventMention.document, Seq(eventMention.asInstanceOf[BioEventMention]), mentions)
-                    // Get the type frequency
-                    val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
-                    // Make the datum instance for classification
-                    val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
-                    // Normalize the datum
-                    //val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
-                    //val scaledDatum = new RVFDatum(datum.label, scaledFeats)
-                    val scaledDatum = datum
-                    // Classify it
-                    val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
+                    // Assign context
+                    bioMention.context = Some(contextMap)
 
-                    // If it's context, we keep it :)
-                    isContext
-            }
-
-            // Create the context map
-            val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
-
-            // Assign context
-            eventMention.context = Some(contextMap)
-
-            // Return the mention with context
-            eventMention
-          case _ => eventM
+                    // Return the mention with context
+                    bioMention
+                }
+                else
+                    bioMention // Return a context mention by itself
         }
 
     case None => throw new RuntimeException("LinearContextEngine hasn't been called to infer")
