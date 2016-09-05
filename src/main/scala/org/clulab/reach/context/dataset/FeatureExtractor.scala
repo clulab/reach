@@ -185,7 +185,7 @@ object FeatureExtractor{
             // TODO: Check this
             if(e.size > 1){
                 val edge = e(0)
-                println(s"DEBUG: $edge")
+                println(s"DEBUG: Edge $edge")
                 edge._3
             }
             else{

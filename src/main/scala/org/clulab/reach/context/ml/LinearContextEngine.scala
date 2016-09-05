@@ -12,44 +12,51 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
 
   // Load the trained data
   val classifier = LiblinearClassifier.loadFrom[String, String](parametersFile.getAbsolutePath)
-  val normalizers:ScaleRange[String] = ScaleRange.loadFrom(new FileReader(normalizersFile))
+  // val normalizers:ScaleRange[String] = ScaleRange.loadFrom(new FileReader(normalizersFile))
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
   var paperContextTypes:Option[Seq[ContextType]] = None
   var paperContextTypeCounts:Option[Map[String, Int]] = None
 
 
-  def classify(eventMention:BioMention):BioMention = paperMentions match {
+  def classify(eventM:BioMention):BioMention = paperMentions match {
     // Classify this event with all the context types in the paper
     case Some(contextMentions) =>
-        val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
-            t =>
-                val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
 
-                // Create feature pairs
-                val instances = FeatureExtractor.extractFeatures(eventMention.document, Seq(eventMention.asInstanceOf[BioEventMention]), mentions)
-                // Get the type frequency
-                val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
-                // Make the datum instance for classification
-                val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
-                // Normalize the datum
-                val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
-                val scaledDatum = new RVFDatum(datum.label, scaledFeats)
-                // Classify it
-                val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
+        eventM match {
 
-                // If it's context, we keep it :)
-                isContext
+          case eventMention:BioEventMention =>
+            val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
+                t =>
+                    val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
+
+                    // Create feature pairs
+                    val instances = FeatureExtractor.extractFeatures(eventMention.document, Seq(eventMention.asInstanceOf[BioEventMention]), mentions)
+                    // Get the type frequency
+                    val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
+                    // Make the datum instance for classification
+                    val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
+                    // Normalize the datum
+                    //val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
+                    //val scaledDatum = new RVFDatum(datum.label, scaledFeats)
+                    val scaledDatum = datum
+                    // Classify it
+                    val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
+
+                    // If it's context, we keep it :)
+                    isContext
+            }
+
+            // Create the context map
+            val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
+
+            // Assign context
+            eventMention.context = Some(contextMap)
+
+            // Return the mention with context
+            eventMention
+          case _ => eventM
         }
-
-        // Create the context map
-        val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
-
-        // Assign context
-        eventMention.context = Some(contextMap)
-
-        // Return the mention with context
-        eventMention
 
     case None => throw new RuntimeException("LinearContextEngine hasn't been called to infer")
   }
