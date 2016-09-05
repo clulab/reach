@@ -242,11 +242,11 @@ object Trainer {
     val classifier = train(balancedDataset)
 
     // Store the trained model
-    // classifier.saveTo(outputFile.getAbsolutePath)
+    classifier.saveTo(outputFile.getAbsolutePath)
     // Store the scalers
-    // val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
-    // scalers.saveTo(fw)
-    // fw.close
+    val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
+    scalers.saveTo(fw)
+    fw.close
   }
 
 }
