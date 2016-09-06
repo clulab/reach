@@ -82,8 +82,8 @@ pomExtra := (
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
   "org.clulab" % "bioresources" % "1.1.15",
-  "org.clulab" %% "processors" % "5.9.5",
-  "org.clulab" %% "processors" % "5.9.5" classifier "models",
+  "org.clulab" %% "processors" % "5.9.6-SNAPSHOT",
+  "org.clulab" %% "processors" % "5.9.6-SNAPSHOT" classifier "models",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
