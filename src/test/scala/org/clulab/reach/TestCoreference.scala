@@ -600,4 +600,14 @@ class TestCoreference extends FlatSpec with Matchers {
     entities should have size (4)
     entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)
   }
+
+  val sent55 = "Gab1 mutant protein enhances EGF induced activation of the PI-3"
+  sent55 should "contain a two-level complex event" in {
+    val mentions = getBioMentions(sent55)
+    val posreg = mentions.filter(_ matches "Positive_regulation")
+    val posact = mentions.filter(_ matches "Positive_activation")
+    posreg should have size (1)
+    posact should have size (1)
+    posreg.head.arguments("controlled").head == posact.head should be (true)
+  }
 }
