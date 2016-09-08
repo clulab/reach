@@ -79,10 +79,14 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
 
   def infer(mentions: Seq[BioMention]) {
     // We store the paper's mentions here to do classification later
-    paperMentions = Some(mentions.filter{ case tb:BioTextBoundMention => true; case _ => false}.map(_.asInstanceOf[BioTextBoundMention]))
+    paperMentions = Some(mentions.filter{ case tb:BioTextBoundMention => ContextEngine.isContextMention(tb); case _ => false}.map(_.asInstanceOf[BioTextBoundMention]))
 
     // Get the contexttypes in the document
-    paperContextTypes = Some(paperMentions.get.map(m => ContextType.parse(m.nsId)))
+    paperContextTypes = Some(paperMentions.get.map{m =>
+        if(m.nsId.startsWith("uaz:UAZ"))
+            println(s"DEBUG: Weird entry ${m.label} - ${m.text}")
+        ContextType.parse(m.nsId)}
+    )
 
     // Compute the context type counts
     paperContextTypeCounts = Some(paperMentions.get.map(_.nsId).groupBy(identity).mapValues(_.size))
