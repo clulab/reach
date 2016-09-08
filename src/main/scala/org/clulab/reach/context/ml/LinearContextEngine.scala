@@ -13,6 +13,13 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
   // Load the trained data
   val classifier = LiblinearClassifier.loadFrom[String, String](parametersFile.getAbsolutePath)
   // val normalizers:ScaleRange[String] = ScaleRange.loadFrom(new FileReader(normalizersFile))
+  val ois = new ObjectInputStream(new FileInputStream(normalizersFile)) {
+    override def resolveClass(desc: java.io.ObjectStreamClass): Class[_] = {
+      try { Class.forName(desc.getName, false, getClass.getClassLoader) }
+      catch { case ex: ClassNotFoundException => super.resolveClass(desc) }
+    }
+  }
+  val normalizers:ScaleRange[String] = ois.readObject.asInstanceOf[ScaleRange[String]]
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
   var paperContextTypes:Option[Seq[ContextType]] = None
@@ -38,9 +45,9 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                             // Make the datum instance for classification
                             val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
                             // Normalize the datum
-                            //val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
-                            //val scaledDatum = new RVFDatum(datum.label, scaledFeats)
-                            val scaledDatum = datum
+                            val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
+                            val scaledDatum = new RVFDatum(datum.label, scaledFeats)
+                            // val scaledDatum = datum
                             // Classify it
                             val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
 
