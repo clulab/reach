@@ -220,8 +220,11 @@ class Coref {
       s -> Seq(s)
     }).toMap
 
+    var resolvedMap = resolved ++ solidMap
+
     val inspectedMap = (for {
-      evt <- toInspect
+      evt <- toInspect.sortBy(depth)
+      //_=println(s"inspecting ${evt.text}")
 
       // Check already-made maps for previously resolved arguments
       resolvedArgs = (for {
@@ -229,7 +232,7 @@ class Coref {
         //_=println(s"lbl: $lbl\nargs: ${arg.map(_.text).mkString("\n")}")
         argMs = arg.map(m => {
           evt.sieves ++= sieveMap.getOrElse(m.toCorefMention, Set.empty)
-          resolved.getOrElse(m.toCorefMention, Nil)
+          resolvedMap.getOrElse(m.toCorefMention, Nil)
         })
         argsAsEntities = argMs.map(ms => ms.map(m =>
           if (lbl == "controller" && m.isInstanceOf[EventMention] && m.isGeneric) {
@@ -295,11 +298,11 @@ class Coref {
         }
         else Nil
       )
+      //println(s"${evt.text} => ${value.map(v => v.text).mkString(", ")}")
+      resolvedMap += evt -> value
       evt -> value
     }).toMap
 
-    // Note: we intentionally avoid generic complex events; recursive complex events are rare in any case, and
-    // complicated enough to be likely to induce errors
     solidMap ++ inspectedMap ++ createdComplexes.map(c => c -> Seq(c)).toMap
   }
 
@@ -413,6 +416,7 @@ class Coref {
           CorefFlow(links.nounPhraseMatch) andThen
           CorefFlow(links.simpleEventMatch)
 
+        //resolve(allLinks(orderedMentions, new LinearSelector)).filter(_.isComplete)
         resolve(allLinks(orderedMentions, new LinearSelector)).filter(_.isComplete)
       }
     }
