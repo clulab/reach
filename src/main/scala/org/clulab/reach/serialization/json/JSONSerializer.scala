@@ -1,12 +1,14 @@
 package org.clulab.reach.serialization.json
 
 import java.io.File
+
 import org.clulab.serialization.json.DocOps
 import org.clulab.serialization.json.JSONSerializer._
+import org.clulab.odin
 import org.clulab.odin._
 import org.clulab.reach.grounding.{KBEntry, KBResolution}
 import org.clulab.reach.mentions._
-import org.clulab.struct.Interval
+import org.clulab.struct.{DirectedGraph, Edge, Interval}
 import org.json4s.JsonDSL._
 import org.json4s._
 import org.json4s.native.JsonMethods._
@@ -15,9 +17,9 @@ import org.json4s.native.JsonMethods._
 /** JSON serialization utilities */
 object JSONSerializer {
 
-  def jsonAST(biomentions: Seq[BioMention]): JValue = {
-    val docsMap = biomentions.map(m => m.document.equivalenceHash.toString -> m.document.jsonAST).toMap
-    val mentionList = JArray(biomentions.map(m => BioMentionOps(m).jsonAST).toList)
+  def jsonAST(corefmentions: Seq[CorefMention]): JValue = {
+    val docsMap = corefmentions.map(m => m.document.equivalenceHash.toString -> m.document.jsonAST).toMap
+    val mentionList = JArray(corefmentions.map(m => CorefMentionOps(m).jsonAST).toList)
 
     ("documents" -> docsMap) ~
     ("mentions" -> mentionList)
@@ -26,7 +28,7 @@ object JSONSerializer {
   def jsonAST(f: File): JValue = parse(scala.io.Source.fromFile(f).getLines.mkString)
 
   /** Produce a sequence of biomentions from json */
-  def toBioMentions(json: JValue): Seq[BioMention] = {
+  def toCorefMentions(json: JValue): Seq[CorefMention] = {
 
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
@@ -34,17 +36,17 @@ object JSONSerializer {
     val djson = json \ "documents"
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
-    mmjson.arr.map(mjson => toBioMention(mjson, djson)).map(_.toBioMention)
+    mmjson.arr.map(mjson => toCorefMention(mjson, djson)).map(_.toCorefMention)
   }
   /** Produce a sequence of mentions from a json file */
-  def toBioMentions(file: File): Seq[BioMention] = toBioMentions(jsonAST(file))
+  def toCorefMentions(file: File): Seq[CorefMention] = toCorefMentions(jsonAST(file))
 
   /** Build mention from json of mention and corresponding json map of documents <br>
     * Since a single Document can be quite large and may be shared by multiple mentions,
     * only a reference to the document json is contained within each mention.
     * A map from doc reference to document json is used to avoid redundancies and reduce file size during serialization.
     * */
-  def toBioMention(mjson: JValue, djson: JValue): BioMention = {
+  def toCorefMention(mjson: JValue, djson: JValue): CorefMention = {
 
     val tokInterval = Interval(
       (mjson \ "tokenInterval" \ "start").extract[Int],
@@ -62,39 +64,91 @@ object JSONSerializer {
       val args = json.extract[Map[String, JArray]]
       val argPairs = for {
         (k: String, v: JValue) <- args
-        mns: Seq[Mention] = v.arr.map(m => toBioMention(m, djson))
+        mns: Seq[Mention] = v.arr.map(m => toCorefMention(m, djson))
       } yield (k, mns)
       argPairs
     } catch {
       case e: org.json4s.MappingException => Map.empty[String, Seq[Mention]]
     }
 
-    // build BioMention
+    /** Build mention paths from json */
+    def toPaths(json: JValue, djson: JValue): Map[String, Map[Mention, odin.SynPath]] = {
+
+      /** Create mention from args json for given id */
+      def findMention(mentionID: String, json: JValue, djson: JValue): Option[Mention] = {
+        // inspect arguments for matching ID
+        json \ "arguments" match {
+          // if we don't have arguments, we can't produce a Mention
+          case JNothing => None
+          // Ahoy! There be args!
+          case something =>
+            // flatten the Seq[Mention.jsonAST] for each arg
+            val argsjson: Iterable[JValue] = for {
+              mnsjson: JArray <- something.extract[Map[String, JArray]].values
+              mjson <- mnsjson.arr
+              if (mjson \ "id").extract[String] == mentionID
+            } yield mjson
+
+            argsjson.toList match {
+              case Nil => None
+              case j :: _ => Some(toMention(j, djson))
+            }
+        }
+      }
+
+      // build paths
+      json \ "paths" match {
+        case JNothing => Map.empty[String, Map[Mention, odin.SynPath]]
+        case contents => for {
+          (role, innermap) <- contents.extract[Map[String, Map[String, JValue]]]
+        } yield {
+          // make inner map (Map[Mention, odin.SynPath])
+          val pathMap = for {
+            (mentionID: String, pathJSON: JValue) <- innermap.toSeq
+            mOp = findMention(mentionID, json, djson)
+            // were we able to recover a mention?
+            if mOp.nonEmpty
+            m = mOp.get
+            edges: Seq[Edge[String]] = pathJSON.extract[Seq[Edge[String]]]
+            synPath: odin.SynPath = DirectedGraph.edgesToTriples[String](edges)
+          } yield m -> synPath
+          // marry role with (arg -> path) info
+          role -> pathMap.toMap
+        }
+      }
+    }
+
+    // build CorefMention
+    // NOTE: while it would be cleaner to create a Mention and THEN add the needed bio and coref attributes,
+    // it would not be easy to transform the arguments & trigger post-hoc using the json...
     val m = mjson \ "type" match {
-      case JString("BioEventMention") =>
-        new BioEventMention(
+      case JString(CorefEventMention.string) =>
+        new CorefEventMention(
           labels,
           // trigger must be (Bio)TextBoundMention
-          toBioMention(mjson \ "trigger", djson).asInstanceOf[BioTextBoundMention],
+          toCorefMention(mjson \ "trigger", djson).asInstanceOf[CorefTextBoundMention],
           mkArgumentsFromJsonAST(mjson \ "arguments"),
+          paths = toPaths(mjson, djson),
           sentence,
           document,
           keep,
-          foundBy
+          foundBy,
+          isDirect = (mjson \ "isDirect").extract[Boolean]
         )
 
-      case JString("BioRelationMention") =>
-        new BioRelationMention(
+      case JString(CorefRelationMention.string) =>
+        new CorefRelationMention(
           labels,
           mkArgumentsFromJsonAST(mjson \ "arguments"),
+          paths = toPaths(mjson, djson),
           sentence,
           document,
           keep,
           foundBy
         )
 
-      case JString("BioTextBoundMention") =>
-        new BioTextBoundMention(
+      case JString(CorefTextBoundMention.string) =>
+        new CorefTextBoundMention(
           labels,
           tokInterval,
           sentence,
@@ -105,6 +159,13 @@ object JSONSerializer {
 
       case other => throw new Exception(s"unrecognized mention type '${other.toString}'")
     }
+
+
+    m.antecedents = toAntecedents(mjson, djson)
+    m.sieves = (mjson \ "sieves").extract[Set[String]]
+
+    // attach display label
+    m.displayLabel = (mjson \ "displayLabel").extract[String]
 
     // update grounding
     toKBResolution(mjson) match {
@@ -119,6 +180,16 @@ object JSONSerializer {
     // update mods
     m.modifications = toModifications(mjson, djson)
     m
+  }
+
+  def toAntecedents(mjson: JValue, djson: JValue): Set[Anaphoric] = mjson \ "antecedents" match {
+    case JNothing => Set.empty[Anaphoric]
+    case antecedents =>
+      antecedents
+        .asInstanceOf[JArray]
+        .arr
+        .map(mjson => toCorefMention(mjson, djson)).map(_.toCorefMention)
+        .toSet
   }
 
   def toModifications(mjson: JValue, djson: JValue): Set[Modification] = mjson \ "modifications" match {
@@ -155,7 +226,7 @@ object JSONSerializer {
 
   private def getMention(key: String, json: JValue, djson: JValue): Option[Mention] = json \ key match {
     case JNothing => None
-    case evidence => Some(toBioMention(json, djson))
+    case evidence => Some(toCorefMention(json, djson))
   }
 
   def toKBResolution(json: JValue): Option[KBResolution] = json \ "grounding" match {
