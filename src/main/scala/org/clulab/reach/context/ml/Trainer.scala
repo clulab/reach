@@ -244,9 +244,14 @@ object Trainer {
     // Store the trained model
     classifier.saveTo(outputFile.getAbsolutePath)
     // Store the scalers
-    val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
-    scalers.saveTo(fw)
-    fw.close
+    // Old code that uses the built-in text serialization
+    // val fw = new FileWriter(outputFile.getAbsolutePath+".scalers")
+    // scalers.saveTo(fw)
+    // fw.close
+
+    val oos = new ObjectOutputStream(new FileOutputStream(outputFile.getAbsolutePath+".scalers"))
+    oos.writeObject(scalers)
+    oos.close
   }
 
 }
