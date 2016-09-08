@@ -27,12 +27,13 @@ class BioEventMention(
   labels: Seq[String],
   trigger: TextBoundMention,
   arguments: Map[String, Seq[Mention]],
+  paths: Map[String, Map[Mention, SynPath]],
   sentence: Int,
   document: Document,
   keep: Boolean,
   foundBy: String,
   val isDirect: Boolean = false
-) extends EventMention(labels, trigger, arguments, sentence, document, keep, foundBy)
+) extends EventMention(labels, mkTokenInterval(trigger, arguments), trigger, arguments, paths, sentence, document, keep, foundBy)
     with Modifications with Grounding with Display with Context{
 
   override def hashCode: Int = {
@@ -41,20 +42,21 @@ class BioEventMention(
   }
 
   def this(m: EventMention) =
-    this(m.labels, m.trigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
+    this(m.labels, m.trigger, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy)
 
   def this(m: EventMention, direct: Boolean) =
-    this(m.labels, m.trigger, m.arguments, m.sentence, m.document, m.keep, m.foundBy, direct)
+    this(m.labels, m.trigger, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy, direct)
 }
 
 class BioRelationMention(
   labels: Seq[String],
   arguments: Map[String, Seq[Mention]],
+  paths: Map[String, Map[Mention, SynPath]],
   sentence: Int,
   document: Document,
   keep: Boolean,
   foundBy: String
-) extends RelationMention(labels, arguments, sentence, document, keep, foundBy)
+) extends RelationMention(labels, mkTokenInterval(arguments), arguments, paths, sentence, document, keep, foundBy)
     with Modifications with Grounding with Display with Context {
 
   override def hashCode: Int = {
@@ -63,7 +65,7 @@ class BioRelationMention(
   }
 
   def this(m: RelationMention) =
-    this(m.labels, m.arguments, m.sentence, m.document, m.keep, m.foundBy)
+    this(m.labels, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy)
 }
 
 object BioMention{

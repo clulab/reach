@@ -27,6 +27,7 @@ package object mentions {
           m.labels,
           m.trigger,
           convertArguments(m.arguments),
+          m.paths,
           m.sentence,
           m.document,
           m.keep,
@@ -36,6 +37,7 @@ package object mentions {
         new BioRelationMention(
           m.labels,
           convertArguments(m.arguments),
+          m.paths,
           m.sentence,
           m.document,
           m.keep,
@@ -62,6 +64,7 @@ package object mentions {
           m.labels,
           m.trigger,
           corefArguments(m.arguments),
+          m.paths,
           m.sentence,
           m.document,
           m.keep,
@@ -76,6 +79,7 @@ package object mentions {
         val rel = new CorefRelationMention(
           m.labels,
           corefArguments(m.arguments),
+          m.paths,
           m.sentence,
           m.document,
           m.keep,
