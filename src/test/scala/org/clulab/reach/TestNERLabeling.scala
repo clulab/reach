@@ -11,12 +11,13 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Cleanup scalatest syntax.
+  *   Last Modified: Update for secondary cell line KB.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
   val bioProcess = "apoptosis, autophagic cell death, quiescence, hematopoiesis, or complex assembly cause cancer."
   val cellLine = "MPanc-96, mast, Hyssop, CEM/TART, and ZR75-1 cause cancer."
+  val cellLine2 = "Calu-3, UACC-2727, LS 180, N6/ADR, and Kasumi-4 are cancer cell lines."
   val cellType = "apud cell, AV nodal myocyte, An1 B Cell, xanthoblast, and zygote cause cancer"
   val cellTypes = "apud cells, AV nodal myocytes, An1 B Cells, xanthoblasts, and zygotes cause cancer"
   // this tests from Uniprot subcellular location AND GO subcellular location KBs:
@@ -43,6 +44,14 @@ class TestNERLabeling extends FlatSpec with Matchers {
     val mentions = getBioMentions(cellLine)
     mentions should not be (empty)
     // printMentions(Try(mentions), true)      // DEBUGGING
+    mentions should have size 5
+    mentions.count(_ matches "CellLine") should be (5)
+  }
+
+  cellLine2 should "have CellLine label" in {
+    val mentions = getBioMentions(cellLine2)
+    mentions should not be (empty)
+    printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size 5
     mentions.count(_ matches "CellLine") should be (5)
   }
