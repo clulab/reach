@@ -3,18 +3,20 @@ package org.clulab.reach.serialization
 import org.clulab.odin
 import org.clulab.odin._
 import org.clulab.serialization.json.{ MentionOps => JSONMentionOps, _ }
-import org.clulab.serialization.json.{ JSONSerializer => JSONSer }
+import org.clulab.reach.serialization.json.{ JSONSerializer => ReachJSONSerializer }
 import org.clulab.reach.mentions.{ MentionOps => MOps, _ }
 import org.clulab.reach.grounding.KBResolution
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Paths}
 import java.io.File
-import org.json4s.JsonDSL._
 import org.json4s._
+import org.json4s.JsonDSL._
+import org.json4s.native._
 
 
 package object json {
 
+  /** args -> coref represention -> json */
   private def argsAST(arguments: Map[String, Seq[Mention]]): JObject = {
     val args = arguments.map {
       case (name, mentions) => name -> JArray(mentions.map(_.toCorefMention.jsonAST).toList)
@@ -24,6 +26,7 @@ package object json {
 
   implicit val formats = org.json4s.DefaultFormats
 
+  /** CorefMention -> json */
   implicit class CorefMentionOps(m: CorefMention) extends JSONMentionOps(m) {
 
     override def jsonAST: JValue = m match {
@@ -31,11 +34,6 @@ package object json {
       case em: CorefEventMention => CorefEventMentionOps(em).jsonAST
       case rm: CorefRelationMention => CorefRelationMentionOps(rm).jsonAST
     }
-
-    // A mention only only contains a pointer to a document, so
-    // create a Seq[Mention] whose jsonAST includes
-    // an accompanying json map of docEquivHash -> doc's json
-    override def completeAST: JValue = Seq(m).jsonAST
 
     /**
       * Serialize mentions to json file
@@ -135,11 +133,11 @@ package object json {
       ("sieves" -> rm.sieves.jsonAST)
     }
   }
-
-  /** For sequences of biomentions */
+  
+  /** For Seq[CorefMention] */
   implicit class CorefMentionSeq(corefmentions: Seq[CorefMention]) extends MentionSeq(corefmentions) {
 
-    override def jsonAST: JValue = JSONSer.jsonAST(corefmentions)
+    override def jsonAST: JValue = ReachJSONSerializer.jsonAST(corefmentions)
 
     /**
       * Serialize mentions to json file
@@ -154,7 +152,7 @@ package object json {
   implicit class ModificationOps(mod: Modification) extends JSONSerialization {
     def jsonAST: JValue = mod match {
       case PTM(label, evidenceOp, siteOp, negated) =>
-        ("type" -> "PTM") ~
+        ("modification-type" -> "PTM") ~
         ("label" -> label) ~
         // evidence is optional
         ("evidence" -> evidenceOp.map(_.toCorefMention.jsonAST)) ~
@@ -162,17 +160,17 @@ package object json {
         ("site" -> siteOp.map(_.toCorefMention.jsonAST)) ~
         ("negated" -> negated)
       case Mutant(evidence, foundBy) =>
-        ("type" -> "Mutant") ~
+        ("modification-type" -> "Mutant") ~
         ("evidence" -> evidence.toCorefMention.jsonAST) ~
         ("foundBy" -> foundBy)
       case EventSite(evidence) =>
-        ("type" -> "EventSite") ~
+        ("modification-type" -> "EventSite") ~
         ("site" -> evidence.toCorefMention.jsonAST)
       case Negation(evidence) =>
-        ("type" -> "Negation") ~
+        ("modification-type" -> "Negation") ~
         ("evidence" -> evidence.toCorefMention.jsonAST)
       case Hypothesis(evidence) =>
-        ("type" -> "Hypothesis") ~
+        ("modification-type" -> "Hypothesis") ~
         ("evidence" -> evidence.toCorefMention.jsonAST)
     }
   }
@@ -216,6 +214,7 @@ package object json {
     }
   }
 
+  def prettify(json: JValue): String = prettyJson(renderJValue(json))
 
   object CorefTextBoundMention {
     val string = "CorefTextBoundMention"
