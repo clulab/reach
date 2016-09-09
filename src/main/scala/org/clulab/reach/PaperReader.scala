@@ -24,6 +24,7 @@ object PaperReader extends LazyLogging {
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
   val ignoreSections = config.getStringList("ignoreSections").asScala
+  val fileEncoding = config.getString("encoding")
 
   // systems for reading papers
   val nxmlReader = new NxmlReader(ignoreSections.toSet)
@@ -77,18 +78,20 @@ object PaperReader extends LazyLogging {
       readNXMLPaper(nxml)
     case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith("tsv") =>
       readDSVPaper(dsv)
+    case txt if txt.getName.endsWith(".txt") =>
+      readPlainTextPaper(txt)
     case other =>
       throw new Exception(s"Given ${file.getAbsolutePath}, but readPaper doesn't support ${FilenameUtils.getExtension(other.getAbsolutePath)}")
   }
 
-  def readNXMLPaper(file: File): (String, Vector[Mention]) = {
+  private def readNXMLPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
     //info(s"reading paper $paperID . . .")
     paperID -> rs.extractFrom(nxmlReader.read(file)).toVector
   }
 
-  def readDSVPaper(file: File): (String, Vector[Mention]) = {
+  private def readDSVPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .tsv and .dsv files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
     //info(s"reading paper $paperID . . .")
@@ -97,17 +100,32 @@ object PaperReader extends LazyLogging {
     paperID -> rs.extractFrom(entry).toVector
   }
 
+  private def readPlainTextPaper(file: File): (String, Vector[Mention]) = {
+    require(file.getName.endsWith(".txt"), s"Given ${file.getAbsolutePath}, but readPlainText only handles .txt files!")
+    val entry = getEntryFromPaper(file)
+    entry.name -> rs.extractFrom(entry).toVector
+  }
+
+  def getContents(file: File): String = scala.io.Source.fromFile(file, fileEncoding).getLines.mkString
+
   /**
     * Get a single FriesEntry representing a paper
     * @param file
     * @return [[FriesEntry]]
     */
   def getEntryFromPaper(file: File): FriesEntry = file match {
+
     case nxml if nxml.getName.endsWith(".nxml") =>
       val nxmlDoc: NxmlDocument = nxmlReader.read(nxml)
       new FriesEntry(nxmlDoc)
+
     case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith("tsv") =>
       dsvReader.toFriesEntry(dsv, sectionsToIgnore = ignoreSections.toSet)
+
+    case txt if txt.getName.endsWith(".txt") =>
+      val paperID = FilenameUtils.removeExtension(txt.getName)
+      val text = getContents(file)
+      FriesEntry.mkFriesEntry(paperID, text)
   }
 
   def getEntryFromPaper(fileName: String): FriesEntry = getEntryFromPaper(new File(fileName))

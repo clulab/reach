@@ -138,4 +138,32 @@ object CorefUtils {
       aContext.keySet.intersect(bContext.keySet)
         .forall(k => aContext(k).toSet.intersect(bContext(k).toSet).nonEmpty) // FIXME: Too strict?
   }
+
+  def depth(m: CorefMention): Int = m match {
+    case tbm: CorefTextBoundMention => 0
+
+    case evt: CorefEventMention =>
+      val argDepths = evt
+      .antecedentOrElse(evt)
+      .arguments
+      .values
+      .flatten
+      .map(arg => depth(arg.toCorefMention))
+      .toList
+
+      if (argDepths.isEmpty) 0 else 1 + argDepths.max
+
+    case rel: CorefRelationMention =>
+      val argDepths = rel
+      .antecedentOrElse(rel)
+      .arguments
+      .values
+      .flatten
+      .map(arg => depth(arg.toCorefMention))
+      .toList
+
+      if (argDepths.isEmpty) 0 else 1 + argDepths.max
+
+    case impossible => 0
+  }
 }
