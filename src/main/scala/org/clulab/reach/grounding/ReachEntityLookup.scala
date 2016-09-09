@@ -15,7 +15,7 @@ import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Fix: allow overrides to work on Sites.
+  *   Last Modified: Update for secondary cell line KB.
   */
 class ReachEntityLookup {
 
@@ -84,8 +84,12 @@ class ReachEntityLookup {
 
   // instantiate the various search sequences, each sequence for a different label:
   val bioProcessSeq: KBSearchSequence = extraKBs ++ Seq( StaticBioProcess )
-  val cellLineSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellLine )
   val cellTypeSeq: KBSearchSequence = extraKBs ++ Seq( ContextCellType )
+
+  val cellLineSeq: KBSearchSequence = extraKBs ++ Seq(
+    ContextCellLine,                        // Cellosaurus
+    ContextCellLine2                        // atcc
+  )
 
   val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
     StaticCellLocation,                 // GO subcellular KB
