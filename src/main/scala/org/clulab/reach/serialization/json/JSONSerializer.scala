@@ -1,7 +1,5 @@
 package org.clulab.reach.serialization.json
 
-import java.io.File
-
 import org.clulab.serialization.json.DocOps
 import org.clulab.serialization.json.JSONSerializer._
 import org.clulab.odin
@@ -12,10 +10,12 @@ import org.clulab.struct.{DirectedGraph, Edge, Interval}
 import org.json4s.JsonDSL._
 import org.json4s._
 import org.json4s.native.JsonMethods._
+import java.io.File
+import com.typesafe.scalalogging.LazyLogging
 
 
 /** JSON serialization utilities */
-object JSONSerializer {
+object JSONSerializer extends LazyLogging {
 
   def jsonAST(corefmentions: Seq[CorefMention]): JValue = {
     val docsMap = corefmentions.map(m => m.document.equivalenceHash.toString -> m.document.jsonAST).toMap
@@ -91,7 +91,7 @@ object JSONSerializer {
 
             argsjson.toList match {
               case Nil => None
-              case j :: _ => Some(toMention(j, djson))
+              case j :: _ => Some(toCorefMention(j, djson))
             }
         }
       }
@@ -126,7 +126,7 @@ object JSONSerializer {
         new CorefEventMention(
           labels,
           // trigger must be (Bio)TextBoundMention
-          toCorefMention(mjson \ "trigger", djson).asInstanceOf[CorefTextBoundMention],
+          toCorefMention(mjson \ "trigger", djson).toCorefMention.asInstanceOf[CorefTextBoundMention],
           mkArgumentsFromJsonAST(mjson \ "arguments"),
           paths = toPaths(mjson, djson),
           sentence,
@@ -157,15 +157,25 @@ object JSONSerializer {
           foundBy
         )
 
-      case other => throw new Exception(s"unrecognized mention type '${other.toString}'")
+      // paths involve Mention (not CorefMention)
+      case other => toMention(mjson, djson).toCorefMention
     }
-
 
     m.antecedents = toAntecedents(mjson, djson)
     m.sieves = (mjson \ "sieves").extract[Set[String]]
 
     // attach display label
-    m.displayLabel = (mjson \ "displayLabel").extract[String]
+    m match {
+      case cm: CorefMention =>
+        cm.displayLabel = {
+          mjson \ "displayLabel" match {
+            case JString(dl) => dl
+            // default to label (needed for things like trigger of a CorefEventMention)
+            case _ => cm.label
+          }
+        }
+      case other => ()
+    }
 
     // update grounding
     toKBResolution(mjson) match {

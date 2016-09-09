@@ -74,7 +74,7 @@ package object json {
       // usually just labels.head...
       ("displayLabel" -> tb.displayLabel) ~
       ("antecedents" -> tb.antecedents.jsonAST) ~
-      ("sieves" -> tb.sieves)
+      ("sieves" -> tb.sieves.jsonAST)
     }
   }
 
@@ -85,7 +85,7 @@ package object json {
       ("id" -> em.id) ~
       ("text" -> em.text) ~
       ("labels" -> em.labels) ~
-      ("trigger" -> em.trigger.asInstanceOf[CorefTextBoundMention].jsonAST) ~
+      ("trigger" -> em.trigger.toCorefMention.asInstanceOf[CorefTextBoundMention].jsonAST) ~
       ("paths" -> pathsAST(em.paths)) ~
       ("arguments" -> argsAST(em.arguments)) ~
       ("tokenInterval" -> Map("start" -> em.tokenInterval.start, "end" -> em.tokenInterval.end)) ~
@@ -104,7 +104,7 @@ package object json {
       ("displayLabel" -> em.displayLabel) ~
       ("isDirect" -> em.isDirect) ~
       ("antecedents" -> em.antecedents.jsonAST) ~
-      ("sieves" -> em.sieves)
+      ("sieves" -> em.sieves.jsonAST)
     }
   }
 
@@ -132,7 +132,7 @@ package object json {
       // usually just labels.head...
       ("displayLabel" -> rm.displayLabel) ~
       ("antecedents" -> rm.antecedents.jsonAST) ~
-      ("sieves" -> rm.sieves)
+      ("sieves" -> rm.sieves.jsonAST)
     }
   }
 
@@ -178,7 +178,10 @@ package object json {
   }
 
   implicit class ModificationsOps(mods: Set[Modification]) extends JSONSerialization {
-    def jsonAST: JValue = mods.map(_.jsonAST).toList
+    def jsonAST: JValue = mods match {
+      case hasMods if hasMods.nonEmpty => hasMods.map(_.jsonAST).toList
+      case _ => JNothing
+    }
   }
 
   implicit class KBResolutionOps(kbr: KBResolution) extends JSONSerialization {
@@ -193,11 +196,24 @@ package object json {
   }
 
   implicit class ContextOps(context: Map[String, Seq[String]]) extends JSONSerialization {
-    def jsonAST: JValue = context
+    def jsonAST: JValue = context match {
+      case hasContext if hasContext.nonEmpty => hasContext
+      case _ => JNothing
+    }
   }
 
   implicit class AnaphoricOps(antecedents: Set[Anaphoric]) extends JSONSerialization {
-    def jsonAST: JValue = antecedents.map(m => m.asInstanceOf[CorefMention].jsonAST)
+    def jsonAST: JValue = antecedents match {
+      case hasAntecedents if hasAntecedents.nonEmpty => hasAntecedents.map(m => m.asInstanceOf[CorefMention].jsonAST)
+      case _ => JNothing
+    }
+  }
+
+  implicit class StringSetOps(ss: Set[String]) extends JSONSerialization {
+    def jsonAST: JValue = ss match {
+      case contents if contents.nonEmpty => contents
+      case _ => JNothing
+    }
   }
 
 
