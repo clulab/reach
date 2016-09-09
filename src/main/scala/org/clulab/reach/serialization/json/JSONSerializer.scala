@@ -19,15 +19,14 @@ object JSONSerializer extends LazyLogging {
 
   def jsonAST(corefmentions: Seq[CorefMention]): JValue = {
     val docsMap = corefmentions.map(m => m.document.equivalenceHash.toString -> m.document.jsonAST).toMap
-    val mentionList = JArray(corefmentions.map(m => CorefMentionOps(m).jsonAST).toList)
-
+    val mentionList = corefmentions.map(m => CorefMentionOps(m).jsonAST).toList
     ("documents" -> docsMap) ~
     ("mentions" -> mentionList)
   }
 
   def jsonAST(f: File): JValue = parse(scala.io.Source.fromFile(f).getLines.mkString)
 
-  /** Produce a sequence of biomentions from json */
+  /** Produce a Seq[CorefMention] from json */
   def toCorefMentions(json: JValue): Seq[CorefMention] = {
 
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
@@ -36,7 +35,7 @@ object JSONSerializer extends LazyLogging {
     val djson = json \ "documents"
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
-    mmjson.arr.map(mjson => toCorefMention(mjson, djson)).map(_.toCorefMention)
+    mmjson.arr.map(mjson => toCorefMention(mjson, djson))
   }
   /** Produce a sequence of mentions from a json file */
   def toCorefMentions(file: File): Seq[CorefMention] = toCorefMentions(jsonAST(file))
@@ -203,11 +202,12 @@ object JSONSerializer extends LazyLogging {
   }
 
   def toModifications(mjson: JValue, djson: JValue): Set[Modification] = mjson \ "modifications" match {
-    case mods: JArray => mods.arr.map(json => toModification(json, djson)).toSet
-    case _ => Set.empty[Modification]
+    case mods: JArray =>
+      mods.arr.map { json => toModification(json, djson) }.toSet
+    case other => Set.empty[Modification]
   }
 
-  def toModification(mjson: JValue, djson: JValue): Modification = mjson \ "type" match {
+  def toModification(mjson: JValue, djson: JValue): Modification = mjson \ "modification-type" match {
     case JString("PTM") =>
       PTM(
         label = (mjson \ "label").extract[String],
@@ -236,7 +236,7 @@ object JSONSerializer extends LazyLogging {
 
   private def getMention(key: String, json: JValue, djson: JValue): Option[Mention] = json \ key match {
     case JNothing => None
-    case evidence => Some(toCorefMention(json, djson))
+    case evidence => Some(toCorefMention(evidence, djson))
   }
 
   def toKBResolution(json: JValue): Option[KBResolution] = json \ "grounding" match {
