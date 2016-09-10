@@ -93,8 +93,6 @@ object Trainer {
     // Use the manually annotated events for training
     var events = annotations.eventAnnotations
 
-    println(s"DEBUG: Event #: ${events.size}")
-
     // Filter out non-context mentions
     val contextMentions = entities.filter(ContextEngine.isContextMention)
       .map(_.asInstanceOf[BioTextBoundMention])
