@@ -56,7 +56,7 @@ class PrecedenceSieves extends Sieves {
 
     logger.debug(s"\tapplying $name sieve...")
 
-    val p = "/org/clulab/assembly/grammars/precedence.yml"
+    val p = "/org/clulab/reach/assembly/grammars/precedence.yml"
 
     // find rule-based PrecedenceRelations
     for {
@@ -90,7 +90,7 @@ class PrecedenceSieves extends Sieves {
 
     logger.debug(s"\tapplying $name sieve...")
 
-    val tam_rules = "/org/clulab/assembly/grammars/tense_aspect.yml"
+    val tam_rules = "/org/clulab/reach/assembly/grammars/tense_aspect.yml"
 
     def getTam(ev: Mention, tams: Seq[Mention], label: String): Option[Mention] = {
       val relevant: Set[Mention] = tams.filter{ tam =>
@@ -239,7 +239,7 @@ class PrecedenceSieves extends Sieves {
 
     logger.debug(s"\tapplying $name sieve...")
 
-    val p = "/org/clulab/assembly/grammars/intersentential.yml"
+    val p = "/org/clulab/reach/assembly/grammars/intersentential.yml"
 
     // If the full Event is nested within another mention, pull it out
     def correctScope(m: Mention): Mention = {
