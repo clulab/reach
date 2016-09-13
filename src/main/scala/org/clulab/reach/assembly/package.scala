@@ -1,4 +1,4 @@
-package org.clulab
+package org.clulab.reach
 
 import org.clulab.reach.assembly.representations.EntityEventRepresentation
 import org.clulab.odin.Mention

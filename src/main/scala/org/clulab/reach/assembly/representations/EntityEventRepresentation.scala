@@ -4,6 +4,7 @@ import org.clulab.reach.assembly._
 import org.clulab.odin.Mention
 import org.clulab.reach.mentions._
 
+
 /**
  * Trait used for entity/event representations of a Mention.
  */
