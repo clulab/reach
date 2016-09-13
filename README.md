@@ -148,7 +148,7 @@ Two additional output files are produced for assembly results **across** all pap
 You can run interactively explore assembly output for various snippets of text using the assembly shell:
 
 ```scala
-sbt "runMain org.clulab.assembly.AssemblyShell"
+sbt "runMain org.clulab.reach.assembly.AssemblyShell"
 ```
 
 # Modifying the code

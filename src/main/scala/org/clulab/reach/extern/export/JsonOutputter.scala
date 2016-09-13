@@ -7,7 +7,7 @@ import org.json4s.native.Serialization
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import ai.lum.nxmlreader.NxmlDocument
-import org.clulab.assembly.Assembler
+import org.clulab.reach.assembly.Assembler
 import org.clulab.reach.FriesEntry
 import org.clulab.serialization.json._
 

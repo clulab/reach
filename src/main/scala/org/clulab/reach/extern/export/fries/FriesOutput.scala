@@ -4,10 +4,10 @@ import java.io._
 import java.util.Date
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.native.Serialization
-import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
-import org.clulab.assembly.{Assembler, RoleWithFeatures}
-import org.clulab.assembly.export.AssemblyLink
-import org.clulab.assembly.representations.{PTM => AssemblyPTM}
+import org.clulab.reach.assembly.export.{CausalPrecedence, Equivalence}
+import org.clulab.reach.assembly.{Assembler, RoleWithFeatures}
+import org.clulab.reach.assembly.export.AssemblyLink
+import org.clulab.reach.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry
@@ -184,7 +184,7 @@ class FriesOutput extends JsonOutputter {
   //
 
   /** Add fixed pieces of meta data to the given model, along with additional meta data
-      from the given Map. */
+      *from the given Map. */
   private def addMetaInfo (model: PropMap,
                            paperId: String,
                            startTime: Date,
@@ -322,7 +322,7 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Lookup the context for the given mention. Return a newly created context ID and frame,
-      or an existing context ID, or neither if the mention has no context. */
+      *or an existing context ID, or neither if the mention has no context. */
   private def lookupContext (paperId: String,
                              passage: FriesEntry,
                              mention: BioMention,
@@ -347,7 +347,7 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Lookup the unique ID, for the given mention, in the given maps, based on the type
-      of the mention. Returns an option for the ID found, or None if no ID found. */
+      *of the mention. Returns an option for the ID found, or None if no ID found. */
   private def lookupMentionId (mention: Mention,
                                entityMap: IDed,
                                eventMap: IDed): Option[String] = mention match {
@@ -498,7 +498,7 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Create and return a new entity mention frame for the given entity mention
-      and, possibly, a related context frame. */
+      *and, possibly, a related context frame. */
   private def makeEntityMention (
     paperId: String,
     passageMeta: FriesEntry,
@@ -550,7 +550,7 @@ class FriesOutput extends JsonOutputter {
 
 
   /** Create and return a new event mention frame for the given event mention
-      and, possibly, a related context frame. */
+      *and, possibly, a related context frame. */
   private def makeEventMention (
     paperId: String,
     passageMeta: FriesEntry,
