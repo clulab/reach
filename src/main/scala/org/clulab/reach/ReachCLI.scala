@@ -7,8 +7,8 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
-import org.clulab.assembly._
-import org.clulab.assembly.export.{AssemblyExporter, Row}
+import org.clulab.reach.assembly._
+import org.clulab.reach.assembly.export.{AssemblyExporter, Row}
 import org.clulab.odin._
 import org.clulab.reach.darpa.OutputDegrader
 import org.clulab.reach.extern.export.MentionManager
