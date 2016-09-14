@@ -1,11 +1,14 @@
 package org.clulab.assembly
 
 import java.io.File
+
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly.representations._
+
 import collection.Map
 import collection.immutable
 import org.clulab.odin._
-import org.clulab.reach.mentions.{MentionOps, CorefMention}
+import org.clulab.reach.mentions.{CorefMention, MentionOps}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import org.clulab.reach.mentions
 
@@ -62,7 +65,7 @@ case class PrecedenceRelation(
 class AssemblyManager(
   m2id: Map[MentionState, IDPointer],
   id2eer: Map[IDPointer, EER]
-) extends Serializable {
+) extends Serializable with LazyLogging {
 
   import AssemblyManager._
 
@@ -1728,9 +1731,9 @@ class AssemblyManager(
     s"Mention(label=${m.label}, text='${m.text}', modifications=${bio.modifications}, doc=$docRepr)"
   }
 
-  def summarizeMentionIndex: Unit = println(mentionIndexSummary.sorted.mkString("\n"))
+  def summarizeMentionIndex: Unit = logger.info(mentionIndexSummary.sorted.mkString("\n"))
 
-  def summarizeEntities: Unit = println(getSimpleEntities.map(_.summarize).toSeq.sorted.mkString("\n"))
+  def summarizeEntities: Unit = logger.info(getSimpleEntities.map(_.summarize).toSeq.sorted.mkString("\n"))
 
 
   //

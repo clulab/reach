@@ -1,6 +1,8 @@
 package org.clulab.assembly.relations.corpus
 
 import java.io.File
+
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly.sieves.SieveUtils
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
@@ -107,7 +109,7 @@ case class AssemblyAnnotation(
   )
 }
 
-object CorpusReader {
+object CorpusReader extends LazyLogging {
 
   // default label for negative class
   val NEG = "None"
@@ -163,7 +165,7 @@ object CorpusReader {
       Some((e1, e2))
     } catch {
       case e: Exception =>
-        println(s"problem with annotation ${anno.id}")
+        logger.debug(s"problem with annotation ${anno.id}")
         None
     }
     pair

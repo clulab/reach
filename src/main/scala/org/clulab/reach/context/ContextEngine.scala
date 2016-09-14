@@ -1,5 +1,6 @@
 package org.clulab.reach.context
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachContextKBLister
 
@@ -17,7 +18,7 @@ trait ContextEngine {
 
 }
 
-object ContextEngine {
+object ContextEngine extends LazyLogging {
   // Seq of the labels we care about in context
   val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "TissueType", "ContextPossessive", "ContextLocation", "ContextDirection")
 
@@ -66,7 +67,7 @@ object ContextEngine {
   def getDescription(mention:BioMention, voc:Map[(String, String), String]):String = {
     val key = getContextKey(mention)
     if(key._2.startsWith("uaz:")){
-      println(s"Warning: ${mention.text}")
+      logger.debug(s"Warning: ${mention.text}")
     }
     getDescription(key, voc)
   }
@@ -74,14 +75,14 @@ object ContextEngine {
   def getDescription(key:(String, String), voc:Map[(String, String), String]):String = voc.lift(key) match {
     case Some(desc) => desc
     case None =>
-      println(s"WARNING: key $key not found in the context vocabulary")
+      logger.debug(s"WARNING: key $key not found in the context vocabulary")
       "MISSING"
   }
 
   def getIndex(mention:BioMention, voc:Map[(String, String), String]):Int = {
     val key = getContextKey(mention)
     if(key._2.startsWith("uaz:")){
-      println(s"Warning: ${mention.text}")
+      logger.debug(s"Warning: ${mention.text}")
     }
     getIndex(key, voc)
   }
@@ -89,7 +90,7 @@ object ContextEngine {
   // index 0 is "Missing", the rest of the entries get shifted 1 position
   def getIndex(key:(String, String), voc:Map[(String, String), String]):Int = voc.keys.toList.indexOf(key) match{
     case -1 =>
-      println(s"WARNING: key $key not found in the context vocabulary")
+      logger.debug(s"WARNING: key $key not found in the context vocabulary")
       0
     case ix:Int => ix + 1
   }

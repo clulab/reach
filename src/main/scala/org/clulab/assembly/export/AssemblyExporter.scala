@@ -1,12 +1,15 @@
 package org.clulab.assembly.export
 
 import java.io.File
+
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly._
 import org.clulab.assembly.representations._
 import org.clulab.odin.Mention
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import org.apache.commons.io.FileUtils
+
 import scala.util.matching.Regex
 
 
@@ -73,7 +76,7 @@ case class Row(
   *
   * @param manager
  */
-class AssemblyExporter(val manager: AssemblyManager) {
+class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   import AssemblyExporter._
 
@@ -172,12 +175,12 @@ class AssemblyExporter(val manager: AssemblyManager) {
   }
 
   def reportError(ce: ComplexEvent, c: EntityEventRepresentation): String = {
-    println(s"$c is a controlled of a ComplexEvent but it is not a Complex or Event!")
+    logger.debug(s"$c is a controlled of a ComplexEvent but it is not a Complex or Event!")
     val labels = c.evidence.map(_.label)
     val evidence = ce.evidence.map(_.text)
-    println(s"Evidence for ComplexEvent: $evidence")
-    println(s"Evidence for controlled: ${c.evidence.map(_.text)}")
-    println(s"Labels assigned to evidence: $labels")
+    logger.debug(s"Evidence for ComplexEvent: $evidence")
+    logger.debug(s"Evidence for controlled: ${c.evidence.map(_.text)}")
+    logger.debug(s"Labels assigned to evidence: $labels")
     "???"
   }
   def createOutput(eer: EntityEventRepresentation): String = eer match {

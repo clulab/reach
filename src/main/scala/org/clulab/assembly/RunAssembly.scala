@@ -1,17 +1,19 @@
 package org.clulab.assembly
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.assembly.export.{Row, AssemblyExporter}
+import com.typesafe.scalalogging.LazyLogging
+import org.clulab.assembly.export.{AssemblyExporter, Row}
 import org.clulab.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
 import org.clulab.assembly.sieves._
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
 import org.clulab.reach.PaperReader.Dataset
 import org.clulab.utils.Serializer
+
 import scala.reflect.io.File
 
 
-object RunAnnotationEval extends App {
+object RunAnnotationEval extends App with LazyLogging {
 
   import CorpusReader._
 
@@ -26,12 +28,12 @@ object RunAnnotationEval extends App {
   val (posGold, testMentions) = {
 
     if(File(evalGoldPath).exists & File(evalMentionsPath).exists) {
-      println("Serialized files exist")
+      logger.info("Serialized files exist")
       val pg = Serializer.load[Seq[PrecedenceRelation]](evalGoldPath)
       val tm = Serializer.load[Seq[Mention]](evalMentionsPath)
       (pg, tm)
     } else {
-      println("Serialized files not found")
+      logger.info("Serialized files not found")
       val annotationsPath = config.getString("assembly.corpusFile")
       val annotations: Seq[AssemblyAnnotation] = annotationsFromFile(annotationsPath)
       // gather precedence relations corpus
@@ -67,7 +69,7 @@ object RunAnnotationEval extends App {
     }
   }
 
-  println("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
+  logger.info("sieve\trule\tp\tr\tf1\ttp\tfp\tfn")
 
   for {
     (lbl, sieveResult) <- Assembler.applyEachSieve(testMentions)
@@ -121,6 +123,6 @@ object RunAnnotationEval extends App {
       rp.toSeq
     }
 
-    (rulePerformance :+ sievePerformance).sortBy(_.p).foreach(perf => println(perf.mkRow))
+    (rulePerformance :+ sievePerformance).sortBy(_.p).foreach(perf => logger.info(perf.mkRow))
   }
 }

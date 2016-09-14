@@ -3,6 +3,7 @@ package org.clulab.assembly.relations.corpus
 import java.io.File
 
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly.AssemblyManager
 import org.clulab.assembly.representations.Event
 import org.clulab.assembly.sieves.Constraints
@@ -99,7 +100,7 @@ object CorpusBuilder {
  * Builds a relation corpus from a serialized dataset. <br>
  * Corpus is written as json
  */
-object BuildCorpus extends App {
+object BuildCorpus extends App with LazyLogging {
 
   import CorpusBuilder._
 
@@ -109,7 +110,7 @@ object BuildCorpus extends App {
   val papersDir = config.getString("ReadPapers.papersDir")
   val datasetSource = config.getString("ReadPapers.serializedPapers")
 
-  println(s"Loading dataset ...")
+  logger.info(s"Loading dataset ...")
 
   def loadDataset(f: String): Try[Dataset] = Try(Serializer.load(datasetSource))
 
@@ -120,7 +121,7 @@ object BuildCorpus extends App {
 //  }
   val dataset: Dataset = Serializer.load(datasetSource)
 
-  println(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
+  logger.info(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
   val trainingInstances: Seq[TrainingInstance] = for {
     (pmid, mentions) <- dataset.toSeq
@@ -159,7 +160,7 @@ object BuildCorpus extends App {
     .values.map(_.head)
     .toSet
 
-  println(s"Found ${distinctTrainingInstances.size} examples for relation corpus ...")
+  logger.info(s"Found ${distinctTrainingInstances.size} examples for relation corpus ...")
   val sortedTIs: Seq[TrainingInstance] =
     distinctTrainingInstances
       .toSeq
@@ -167,5 +168,5 @@ object BuildCorpus extends App {
   val corpus = Corpus(sortedTIs)
   val content = corpus.toJSON
   FileUtils.writeStringToFile(outFile, content)
-  println(s"Wrote corpus to ${outFile.getAbsolutePath}")
+  logger.info(s"Wrote corpus to ${outFile.getAbsolutePath}")
 }
