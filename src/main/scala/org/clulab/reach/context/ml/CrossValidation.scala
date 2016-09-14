@@ -1,4 +1,5 @@
-/*** Does cross validation on the ML context model to verify the performance of the implementaiton
+/***
+* Does cross validation on the ML context model to verify the performance of the implementaiton
 */
 
 package org.clulab.reach.context.ml
@@ -30,6 +31,7 @@ object CrossValidation extends App {
                 (name -> features)
           }.toMap
 
+      val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
       // CV Loop
       val keySet = annotations.keySet
 
@@ -80,6 +82,10 @@ object CrossValidation extends App {
 
               results += Tuple2(truth, predictedLabel)
           }
+
+          val bcr = new BinaryClassificationResults(results.toSeq)
+          println(bcr)
+          cvResults += (evalFold -> bcr)
       }
 
 
