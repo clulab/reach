@@ -245,6 +245,7 @@ class DarpaActions extends Actions with LazyLogging {
   def mkBindingsFromPairs(pairs: Seq[Seq[BioMention]], original: EventMention): Seq[Mention] = for {
     Seq(theme1, theme2) <- pairs
     if !sameEntityID(theme1, theme2)
+    if !(theme1.tokenInterval overlaps theme2.tokenInterval)
   } yield {
     if (theme1.text.toLowerCase == "ubiquitin") {
       val arguments = Map("theme" -> Seq(theme2))
