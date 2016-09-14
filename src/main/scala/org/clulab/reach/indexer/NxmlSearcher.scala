@@ -1,5 +1,6 @@
 package org.clulab.reach.indexer
 
+import org.clulab.reach.grounding._
 import java.io.{FileWriter, PrintWriter, File}
 import java.nio.file.Paths
 import org.clulab.processors.bionlp.BioNLPProcessor
@@ -224,8 +225,18 @@ class NxmlSearcher(val indexDir:String) {
 
   )
 
+  
+  val lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq 
   def resolveParticipant(term:String) = {
-    "MEK"
+    val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
+
+
+    dict.lift(term) match {
+      case Some(l) => "(" + l.map( x => "\"" + x + "\"").mkString(" OR ") + ")"
+      case None =>
+        println(s"Warning: missing term in the KB: $term")
+        ""
+    }
   }
 
   def useCaseClustering(participantA:String, participantB:String, action:String, resultDir:String) = {
@@ -247,12 +258,14 @@ class NxmlSearcher(val indexDir:String) {
   }
 
   def useCaseClustering2(participantA:String, participantB:String, action:String, resultDir:String) = {
-    val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
-    // val pATerms = resolveParticipant(participantA)
-    // val pBTerms = resolveParticipant(participantB)
+    // val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
+    val pATerms = resolveParticipant(participantA)
+    val pBTerms = resolveParticipant(participantB)
 
-    val pADocs = search("\"" + participantA + "\"")
-    val pBDocs = search("\"" + participantB + "\"")
+    println("Participant A terms: " + pATerms)
+    println("Participant B terms: " + pBTerms)
+    val pADocs = search(pATerms)
+    val pBDocs = search(pBTerms)
 
     val resultSet = intersection(pADocs, pBDocs)
     logger.debug(s"The result contains ${resultSet.size} documents.")
@@ -306,13 +319,19 @@ object ClusteringSearcher extends App{
   for(line <- lines){
     // Parse the line
     val tokens = line.split(',')
-    val pA = tokens(2)
-    val pB = tokens(4)
+    val pA = tokens(2).split(":")(1)
+    val pB = tokens(4).split(":")(1)
     val reaction = tokens(6)
 
     // Search lucene
-    val hits = searcher.useCaseClustering2(pA, pB, reaction, outputDir)
-    sos.println(s"$pA $reaction $pB:\t${hits.mkString(",")}")
+    try{
+      val hits = searcher.useCaseClustering2(pA, pB, reaction, outputDir)
+      sos.println(s"$pA $reaction $pB:\t${hits.mkString(",")}")
+    }
+    catch
+    {
+      case _ => Unit
+    }
 
   }
   sos.close
