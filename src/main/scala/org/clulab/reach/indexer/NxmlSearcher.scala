@@ -283,6 +283,38 @@ class NxmlSearcher(val indexDir:String) {
     logger.info("Done.")
   }
 
+  // Natasa's use case, first query
+  def useCase4a(resultDir:String): Unit = {
+    val eventDocs = search("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein")""")
+    logger.debug(s"The result contains ${eventDocs.size} documents.")
+    saveDocs(resultDir, eventDocs)
+    logger.debug("Done.")
+  }
+  // Natasa's use case, second query
+  def useCase4b(resultDir:String): Unit = {
+    val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND pancreas"""
+    val eventDocs = search(query)
+    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
+  }
+  // Natasa's use case, third query
+  def useCase4c(resultDir:String): Unit = {
+    val query = """(BMP OR "Bone Morphogenetic Protein") AND pancreas"""
+    val eventDocs = search(query)
+    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
+  }
+  // Natasa's use case, fourth query
+  def useCase4d(resultDir:String): Unit = {
+    val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein") AND pancreas"""
+    val eventDocs = search(query)
+    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
+    saveDocs(resultDir, eventDocs)
+    logger.info("Done.")
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
