@@ -9,6 +9,8 @@ import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 import org.clulab.assembly._
 import org.clulab.assembly.export.{AssemblyExporter, Row}
+import org.clulab.reach.context.ContextStatistics
+import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.reach.darpa.OutputDegrader
 import org.clulab.reach.extern.export.MentionManager
@@ -182,6 +184,13 @@ class ReachCLI(
         ae.writeTSV(outFile, AssemblyExporter.MITREfilter)
         // no filter
         ae.writeTSV(outFile2, (rows: Set[Row]) => rows.filter(_.seen > 0))
+
+      // Context statistics
+      case ("context-stats", _) =>
+        val bioMentions = mentions.map(_.asInstanceOf[BioMention])
+        val stats = new ContextStatistics(bioMentions)
+        val outFile = new File(outputDir, s"$paperId-context_stats.txt")
+        stats.save(outFile)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
