@@ -6,6 +6,7 @@ import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{Rules, readResource}
 import org.clulab.processors.Document
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.processors.bionlp.BioNLPProcessor
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
@@ -43,7 +44,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor
-  val processor = if (proc.isEmpty) new BioNLPProcessor else proc.get
+  val processor = if (proc.isEmpty) new BioNLPProcessor(withDiscourse=ShallowNLPProcessor.JUST_EDUS) else proc.get
   processor.annotate("something")
 
   /** returns string with all rules used by the system */

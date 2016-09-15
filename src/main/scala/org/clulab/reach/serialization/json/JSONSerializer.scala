@@ -157,7 +157,7 @@ object JSONSerializer extends LazyLogging {
         )
 
       // paths involve Mention (not CorefMention)
-      case other => toMention(mjson, djson).toCorefMention
+      // case other => toMention(mjson, djson).toCorefMention
     }
 
     m.antecedents = toAntecedents(mjson, djson)
