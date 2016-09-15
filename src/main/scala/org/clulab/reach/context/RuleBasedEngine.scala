@@ -2,6 +2,7 @@ package org.clulab.reach.context
 
 import scala.annotation.tailrec
 import org.clulab.reach.mentions._
+import util.{Try, Success, Failure}
 
 
 abstract class RuleBasedContextEngine extends ContextEngine {
@@ -67,18 +68,18 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     //val entryFeatures = lines map (_._2) map extractEntryFeatures
 
     observedSparseMatrix = mentions.map{
-      _.map {
-        elem => ContextEngine.getIndex(ContextEngine.getContextKey(elem), ContextEngine.featureVocabulary)
-      }
+      _.map{
+        elem => Try(ContextEngine.getIndex(ContextEngine.getContextKey(elem), ContextEngine.featureVocabulary))
+      }.collect{ case Success(ix) => ix}
     }
 
     latentSparseMatrix = mentions.map{
       _.map{
         elem =>
           val key = ContextEngine.getContextKey(elem)
-          if (!key._1.startsWith("Context")) ContextEngine.getIndex(key, ContextEngine.latentVocabulary) else -1
+          if (!key._1.startsWith("Context")) Try(ContextEngine.getIndex(key, ContextEngine.latentVocabulary)) else Failure
           //filteredVocabulary(key)
-      }.filter(_ != -1)
+      }.collect{ case Success(i:Int) => i}
     }.toList
 
     inferedLatentSparseMatrix = inferContext
