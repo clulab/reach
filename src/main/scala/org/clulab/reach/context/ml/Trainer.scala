@@ -10,6 +10,7 @@ import org.clulab.struct.Counter
 import org.clulab.learning._
 import org.clulab.odin._
 import org.clulab.reach._
+import org.clulab.serialization.DocumentSerializer
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.context.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}

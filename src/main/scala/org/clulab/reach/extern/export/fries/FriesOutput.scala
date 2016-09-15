@@ -19,6 +19,8 @@ import org.clulab.reach.extern.export.JsonOutputter._
 import org.clulab.reach.extern.export.MentionManager._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
+import org.clulab.serialization.json
+import org.clulab.serialization.json.JSONSerializer.formats
 
 
 /**
@@ -384,7 +386,7 @@ class FriesOutput extends JsonOutputter {
             if (!isTextBoundMention(p))
               throw new RuntimeException(s"Complex participant [${p}] is not an instance of TextBoundMention")
             if (!entityMap.contains(p))
-              throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$parent.text] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + p.json(pretty = true))
+              throw new RuntimeException(s"Complex participant [${p.text} [mods: ${p.toCorefMention.modifications.map(_.toString).mkString(" ")}}]] not in entityMap \nin event [$parent.text] \nin sentence[${p.document.sentences(p.sentence).words.mkString(" ")}]:\n" + json.MentionOps(p).json(pretty = true))
             // participant checks have passed
             participants(s"$key${i + 1}") = entityMap.get(p).get
           }
@@ -393,7 +395,7 @@ class FriesOutput extends JsonOutputter {
 
       case "entity" =>                      // an Entity: fetch its ID from the entity map
         if (!entityMap.contains(arg)) {
-          throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}]] not in entityMap \nin event [$parent.text] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + arg.json(pretty = true))
+          throw new RuntimeException(s"Entity argument [${arg.text} [mods: ${arg.toCorefMention.modifications.map(_.toString).mkString(" ")}]] not in entityMap \nin event [$parent.text] \nin sentence[${arg.document.sentences(arg.sentence).words.mkString(" ")}]:\n" + json.MentionOps(arg).json(pretty = true))
         }
         pm("arg") = entityMap.get(arg).get
 
