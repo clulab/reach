@@ -95,8 +95,8 @@ object Trainer {
     // Use the manually annotated events for training
     var events = annotations.eventAnnotations
 
-    // Filter out non-context mentions
-    val contextMentions = entities.filter(ContextEngine.isContextMention)
+    // Filter out non-context mentions and cellular component mentions, because we don't have training data for this.
+    val contextMentions = entities.filter(e => ContextEngine.isContextMention(e) && e.label == "Cellular_component")
       .map(_.asInstanceOf[BioTextBoundMention])
 
     // Build the counts of the context annotations
