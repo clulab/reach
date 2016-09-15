@@ -61,6 +61,7 @@ object Trainer {
     println(s"Loading annotations from ${corpusDir.getPath} ...")
     // Load the annotations
     corpusDir.listFiles.filter(_.isDirectory).map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
+      .filter(_.eventAnnotations.size >= 10)
   }
 
   def extractFeatures(annotations:ArticleAnnotations):Map[PairID, RVFDatum[String, String]] = {
@@ -171,11 +172,11 @@ object Trainer {
       val suffledNegativeIndices = Random.shuffle(negativeIndices)
 
       val amount = positiveIndices.size * negativesPerPositive
-      val toTake = if(amount <= negativeIndices.size) negativeIndices.size else amount
+      val toTake = if(amount <= negativeIndices.size) amount else negativeIndices.size
 
       val sampledNegativeIndices = negativeIndices.take(toTake)
 
-      val indices2Keep = (positiveIndices ++ negativeIndices).sorted
+      val indices2Keep = (positiveIndices ++ sampledNegativeIndices).sorted
 
       // Build a new dataset
       val ll = dataset.labelLexicon

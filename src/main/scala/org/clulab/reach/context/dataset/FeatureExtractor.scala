@@ -175,29 +175,15 @@ object FeatureExtractor{
         val deps = sentence.dependencies.get
 
         // Ignore direction for the sake of simplicity
-        val sequence = deps.shortestPath(event.interval.start, contextMention.interval.start, true)
+        val sequence = deps.shortestPathEdges(event.interval.start, contextMention.interval.start, true)(0).map(_._3)
+        //println(sequence.mkString(" "))
 
         if(sequence.size == 0){
           println("DEBUG: Problem when extracting dependency path for features")
           None
         }
         else{
-          val edges:Seq[String] = for(i <- 1 until sequence.size)
-           yield {
-            val (h, t) = (sequence(i-1), sequence(i))
-            val e = deps.getEdges(h, t)
-            // TODO: Check this
-            if(e.size > 1){
-                val edge = e(0)
-                println(s"DEBUG: Edge $edge")
-                edge._3
-            }
-            else{
-                println("DEBUG: Din't find an edge that should be here")
-                ""
-            }
-          }
-          Some(edges)
+          Some(sequence)
         }
       }
       else

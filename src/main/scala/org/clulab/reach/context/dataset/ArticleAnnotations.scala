@@ -113,7 +113,8 @@ object ArticleAnnotations{
         val contexts:Seq[ContextType] =
           if(tokens.size == 3) tokens(2).split(",").map(ContextType.parse(_))
           else{
-            println(s"DEBUG: Event without context in $directory")
+            // TODO: Uncomment this and fix it in the files
+            //println(s"DEBUG: Event without context in $directory")
             Seq()
           }
 

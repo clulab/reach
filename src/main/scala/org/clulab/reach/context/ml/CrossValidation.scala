@@ -22,7 +22,7 @@ object CrossValidation extends App {
       val annotations = loadAnnotations(corpusDir).map(a => (a.name -> a)).toMap
 
       // Extract all the feartues ahead of time
-      println("Extracting all featrues ...")
+      println(s"Extracting all featrues of ${annotations.size} papers...")
       val data:Map[String, Iterable[RVFDatum[String, String]]] =
           annotations.map{
               case(name, ann) =>
@@ -32,6 +32,8 @@ object CrossValidation extends App {
           }.toMap
 
       val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
+      val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
+
       // CV Loop
       val keySet = annotations.keySet
 
@@ -58,6 +60,10 @@ object CrossValidation extends App {
           // Balance dataset
           val balancedDataset = balanceDataset(trainingDataset)
 
+          println(s"Sizes: ${trainingDataset.size} - ${balancedDataset.size}")
+
+          println(s"Training fold size:${balancedDataset.size}\tPositives: ${balancedDataset.labels.filter(balancedDataset.labelLexicon.get(_) == "true").size}\tNegatives: ${balancedDataset.labels.filter(balancedDataset.labelLexicon.get(_) == "false").size}")
+
           // Normalize dataset
           val scalers = normalize(balancedDataset)
 
@@ -67,6 +73,8 @@ object CrossValidation extends App {
           println("Evaluation ...")
           // Extract the evaluation fold features
           val testingData = data(evalFold)
+
+          println(s"Testing fold size: ${testingData.size}\tPositives: ${testingData.filter(_.label == "true").size}\tNegatives: ${testingData.filter(_.label == "false").size}")
 
           // Evaluate the testing data using the trained classifier
 
@@ -85,8 +93,14 @@ object CrossValidation extends App {
 
           val bcr = new BinaryClassificationResults(results.toSeq)
           println(bcr)
+          println
           cvResults += (evalFold -> bcr)
+          allResults ++= results
       }
 
+      val microAverage = new BinaryClassificationResults(allResults)
 
+      println
+      println(s"Microaveraged results of ${keySet.size} folds:")
+      println(microAverage)
 }
