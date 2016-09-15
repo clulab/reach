@@ -34,7 +34,8 @@ object DatasetAnnotator extends App{
     val dir = new File(annotations.name)
 
     println(s"Started annotating $dir...")
-    var doc = processor.mkDocumentFromSentences(annotations.sentences.values)
+    val sentences = annotations.sentences
+    var doc = processor.mkDocumentFromSentences((0 until sentences.size).map(sentences))
     doc = processor.annotate(doc)
 
     println(s"Extracting entities from $dir...")
