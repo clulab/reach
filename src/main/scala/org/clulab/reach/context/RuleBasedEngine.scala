@@ -20,7 +20,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   protected var docOffsets:Map[String, Int] = _
 
   // Default species context
-  protected var fallbackSpecies:Option[String] = _
+  protected var fallbackSpecies:Option[String] = None
 
   // Build sparse matrices
   // First, the observed value matrices
@@ -120,10 +120,17 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
   protected def inferContext:List[Seq[Int]]
   /***
-   * Queries the context of the specified line line. Returns a sequence of tuples
+   * Queries the context of the specified line. Returns a sequence of tuples
    * where the first element is the type of context and the second element a grounded id
    */
-  protected def query(line:Int):Map[String, Seq[String]] = inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
+  protected def query(line:Int):Map[String, Seq[String]] =
+    try{
+      inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
+    }
+    catch{
+      // There were no conetxt mentions when calling infer, thus we return an empty map
+      case e:NullPointerException => Map()
+    }
 
   protected def densifyFeatures:Seq[Seq[Double]] = entryFeatures map { _.map(_._2).toSeq }
 

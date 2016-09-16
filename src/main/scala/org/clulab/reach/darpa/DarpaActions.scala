@@ -152,7 +152,7 @@ class DarpaActions extends Actions with LazyLogging {
         // use cause of SimpleEvent to create a Regulation
         reg = new BioRelationMention(
           DarpaActions.REG_LABELS,
-          Map("controller" -> Seq(c), "controlled" -> Seq(ev)),
+          Map("controller" -> Seq(c), "controlled" -> Seq(ev)), Map.empty,
           e.sentence, e.document, e.keep, e.foundBy
         )
         // negations should be propagated to the newly created Positive_regulation
@@ -245,6 +245,7 @@ class DarpaActions extends Actions with LazyLogging {
   def mkBindingsFromPairs(pairs: Seq[Seq[BioMention]], original: EventMention): Seq[Mention] = for {
     Seq(theme1, theme2) <- pairs
     if !sameEntityID(theme1, theme2)
+    if !(theme1.tokenInterval overlaps theme2.tokenInterval)
   } yield {
     if (theme1.text.toLowerCase == "ubiquitin") {
       val arguments = Map("theme" -> Seq(theme2))
@@ -652,6 +653,7 @@ object DarpaActions {
       new BioRelationMention(
         taxonomy.hypernymsFor("Complex"),
         binding.arguments,
+        binding.paths,
         binding.sentence,
         binding.document,
         binding.keep,
