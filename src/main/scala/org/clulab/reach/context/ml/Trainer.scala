@@ -227,8 +227,6 @@ object Trainer {
       val data = extractFeatures(ann)
       // Add the data of this paper to the training dataset
       for(datum <- data.values){
-        if(datum.label == "false")
-            println("Negative example")
         dataset += datum
       }
     }
