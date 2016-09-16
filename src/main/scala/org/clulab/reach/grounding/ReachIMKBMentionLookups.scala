@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for secondary cell line KB.
+  *   Last Modified: Update for HMS drug KB.
   */
 object ReachIMKBMentionLookups {
 
@@ -28,6 +28,7 @@ object ReachIMKBMentionLookups {
   val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
   val StaticCellLocation2 = staticCellLocation2KBML // Uniprot subcellular KB
   val StaticChemical = staticChemicalKBML
+  val StaticDrug = staticDrugKBML
   // val StaticMetabolite = staticMetaboliteKBML    // REPLACED by PubChem
   val StaticProtein = staticProteinKBML
   val StaticProteinFamily = staticProteinFamilyKBML
@@ -96,7 +97,14 @@ object ReachIMKBMentionLookups {
   def staticChemicalKBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/pubchem.compound/", "MIR:00000034")
     metaInfo.put("file", StaticChemicalFilename)
-    new IMKBMentionLookup(TsvIMKBFactory.make("PubChem", StaticChemicalFilename, metaInfo))
+    new IMKBMentionLookup(TsvIMKBFactory.make("pubchem", StaticChemicalFilename, metaInfo))
+  }
+
+  /** KB accessor to resolve small molecule (drug) names via static KB. */
+  def staticDrugKBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/pubchem.compound/", "MIR:00000034")
+    metaInfo.put("file", StaticDrugFilename)
+    new IMKBMentionLookup(TsvIMKBFactory.make("pubchem", StaticDrugFilename, metaInfo))
   }
 
   /** KB accessor to resolve small molecule (chemical) names via static KB. */
