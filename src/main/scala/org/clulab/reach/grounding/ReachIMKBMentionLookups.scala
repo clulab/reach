@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Replace use of manual files.
+  *   Last Modified: Update for secondary cell line KB.
   */
 object ReachIMKBMentionLookups {
 
@@ -18,6 +18,7 @@ object ReachIMKBMentionLookups {
   // Singleton instances of the Reach KBs
 
   val ContextCellLine = contextCellLineKBML
+  val ContextCellLine2 = contextCellLine2KBML
   val ContextCellType = contextCellTypeKBML
   val ContextOrgan = contextOrganKBML
   val ContextSpecies = contextSpeciesKBML
@@ -25,7 +26,7 @@ object ReachIMKBMentionLookups {
 
   val StaticBioProcess = staticBioProcessKBML
   val StaticCellLocation = staticCellLocationKBML   // GO subcellular KB
-  val StaticCellLocation2 = staticCellLocationKBML2 // Uniprot subcellular KB
+  val StaticCellLocation2 = staticCellLocation2KBML // Uniprot subcellular KB
   val StaticChemical = staticChemicalKBML
   // val StaticMetabolite = staticMetaboliteKBML    // REPLACED by PubChem
   val StaticProtein = staticProteinKBML
@@ -67,7 +68,7 @@ object ReachIMKBMentionLookups {
   }
 
   /** KB accessor to resolve alternate subcellular location names via static KB. */
-  def staticCellLocationKBML2: IMKBMentionLookup = {
+  def staticCellLocation2KBML: IMKBMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00000005")
     metaInfo.put("file", StaticCellLocation2Filename)
     new IMKBMentionLookup(TsvIMKBFactory.make("uniprot", StaticCellLocation2Filename, metaInfo))
@@ -166,6 +167,13 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo()
     metaInfo.put("file", ContextCellLineFilename)
     new IMKBMentionLookup(TsvIMKBFactory.make("cellosaurus", ContextCellLineFilename, hasSpeciesInfo = true, metaInfo))
+  }
+
+  /** KB accessor to resolve alternate cell lines via a context KB. */
+  def contextCellLine2KBML: IMKBMentionLookup = {
+    val metaInfo = new IMKBMetaInfo()
+    metaInfo.put("file", ContextCellLine2Filename)
+    new IMKBMentionLookup(TsvIMKBFactory.make("atcc", ContextCellLine2Filename, metaInfo))
   }
 
   /** KB accessor to resolve cell types via a context KB. */

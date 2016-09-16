@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Rename protein kinases and protein domains file.
+  *   Last Modified: Update for secondary cell line KB.
   */
 object ReachKBConstants {
 
@@ -80,6 +80,9 @@ object ReachKBConstants {
 
   /** Filename of the context cell lines file */
   val ContextCellLineFilename = "Cellosaurus.tsv.gz"
+
+  /** Filename of the secondary context cell lines file */
+  val ContextCellLine2Filename = "atcc.tsv.gz"
 
   /** Filename of the context cell types file */
   val ContextCellTypeFilename = "CellOntology.tsv.gz"
