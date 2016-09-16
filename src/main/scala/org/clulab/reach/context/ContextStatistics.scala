@@ -80,7 +80,7 @@ class ContextStatistics(val reachMentions:Seq[BioMention]){
     }
     pw.println
 
-    pw.println("#ofMentions")
+    pw.println("#ofEvents")
     pw.println(s"${eventMentions.size}")
 
     pw.close
