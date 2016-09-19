@@ -26,7 +26,7 @@ import scala.collection.mutable.ArrayBuffer
 class NxmlSearcher(val indexDir:String) {
   val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
   val searcher = new IndexSearcher(reader)
-  val proc = new BioNLPProcessor()
+  val proc = new BioNLPProcessor(withChunks = false)
 
   def close() = reader.close()
 
