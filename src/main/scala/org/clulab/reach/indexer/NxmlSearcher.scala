@@ -86,6 +86,10 @@ class NxmlSearcher(val indexDir:String) {
     searchByField(query, "text", new StandardAnalyzer(), totalHits)
   }
 
+  def searchId(id:String, totalHits:Int = 1):Set[(Int, Float)] = {
+    searchByField(id, "id", new WhitespaceAnalyzer(), totalHits)
+  }
+
   def searchByField(query:String,
                     field:String,
                     analyzer:Analyzer,
@@ -257,7 +261,7 @@ class NxmlSearcher(val indexDir:String) {
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     for(id <- ids) {
-      val docs = searchByField(id, "id", new WhitespaceAnalyzer, verbose = false)
+      val docs = searchId(id)
       if(docs.isEmpty) {
         logger.info(s"Found 0 results for id $id!")
       } else if(docs.size > 1) {
