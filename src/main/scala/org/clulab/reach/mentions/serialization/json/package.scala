@@ -1,9 +1,9 @@
-package org.clulab.reach.serialization
+package org.clulab.reach.mentions.serialization
 
 import org.clulab.odin
 import org.clulab.odin._
 import org.clulab.serialization.json.{ MentionOps => JSONMentionOps, _ }
-import org.clulab.reach.serialization.json.{ JSONSerializer => ReachJSONSerializer }
+import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
 import org.clulab.reach.mentions.{ MentionOps => MOps, _ }
 import org.clulab.reach.grounding.KBResolution
 import java.nio.charset.StandardCharsets
@@ -16,7 +16,7 @@ import org.json4s.native._
 
 package object json {
 
-  /** args -> coref represention -> json */
+  /** args -> coref representation -> json */
   private def argsAST(arguments: Map[String, Seq[Mention]]): JObject = {
     val args = arguments.map {
       case (name, mentions) => name -> JArray(mentions.map(_.toCorefMention.jsonAST).toList)

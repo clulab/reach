@@ -1,4 +1,4 @@
-package org.clulab.reach.serialization.json
+package org.clulab.reach.mentions.serialization.json
 
 import org.clulab.serialization.json.DocOps
 import org.clulab.serialization.json.JSONSerializer._
@@ -11,14 +11,22 @@ import org.json4s.JsonDSL._
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import java.io.File
+
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.processors.Document
 
 
 /** JSON serialization utilities */
 object JSONSerializer extends LazyLogging {
 
   def jsonAST(corefmentions: Seq[CorefMention]): JValue = {
-    val docsMap = corefmentions.map(m => m.document.equivalenceHash.toString -> m.document.jsonAST).toMap
+    val docsMap: Map[String, JValue] = {
+      // create a set of Documents
+      // in order to avoid calling jsonAST for duplicate docs
+      val docs: Set[Document] = corefmentions.map(m => m.document).toSet
+      docs.map(doc => doc.equivalenceHash.toString -> doc.jsonAST)
+        .toMap
+    }
     val mentionList = corefmentions.map(m => CorefMentionOps(m).jsonAST).toList
     ("documents" -> docsMap) ~
     ("mentions" -> mentionList)
@@ -32,10 +40,11 @@ object JSONSerializer extends LazyLogging {
     require(json \ "documents" != JNothing, "\"documents\" key missing from json")
     require(json \ "mentions" != JNothing, "\"mentions\" key missing from json")
 
-    val djson = json \ "documents"
+    // build the documents once
+    val docMap = mkDocumentMap(json \ "documents")
     val mmjson = (json \ "mentions").asInstanceOf[JArray]
 
-    mmjson.arr.map(mjson => toCorefMention(mjson, djson))
+    mmjson.arr.map(mjson => toCorefMention(mjson, docMap))
   }
   /** Produce a sequence of mentions from a json file */
   def toCorefMentions(file: File): Seq[CorefMention] = toCorefMentions(jsonAST(file))
@@ -45,7 +54,7 @@ object JSONSerializer extends LazyLogging {
     * only a reference to the document json is contained within each mention.
     * A map from doc reference to document json is used to avoid redundancies and reduce file size during serialization.
     * */
-  def toCorefMention(mjson: JValue, djson: JValue): CorefMention = {
+  def toCorefMention(mjson: JValue, docMap: Map[String, Document]): CorefMention = {
 
     val tokInterval = Interval(
       (mjson \ "tokenInterval" \ "start").extract[Int],
@@ -55,7 +64,7 @@ object JSONSerializer extends LazyLogging {
     val labels = (mjson \ "labels").extract[List[String]]
     val sentence = (mjson \ "sentence").extract[Int]
     val docHash = (mjson \ "document").extract[String]
-    val document = toDocument(docHash, djson)
+    val document = docMap(docHash)
     val keep = (mjson \ "keep").extract[Boolean]
     val foundBy = (mjson \ "foundBy").extract[String]
 
@@ -63,7 +72,7 @@ object JSONSerializer extends LazyLogging {
       val args = json.extract[Map[String, JArray]]
       val argPairs = for {
         (k: String, v: JValue) <- args
-        mns: Seq[Mention] = v.arr.map(m => toCorefMention(m, djson))
+        mns: Seq[Mention] = v.arr.map(m => toCorefMention(m, docMap))
       } yield (k, mns)
       argPairs
     } catch {
@@ -71,10 +80,10 @@ object JSONSerializer extends LazyLogging {
     }
 
     /** Build mention paths from json */
-    def toPaths(json: JValue, djson: JValue): Map[String, Map[Mention, odin.SynPath]] = {
+    def toPaths(json: JValue, docMap: Map[String, Document]): Map[String, Map[Mention, odin.SynPath]] = {
 
       /** Create mention from args json for given id */
-      def findMention(mentionID: String, json: JValue, djson: JValue): Option[Mention] = {
+      def findMention(mentionID: String, json: JValue, docMap: Map[String, Document]): Option[Mention] = {
         // inspect arguments for matching ID
         json \ "arguments" match {
           // if we don't have arguments, we can't produce a Mention
@@ -90,7 +99,7 @@ object JSONSerializer extends LazyLogging {
 
             argsjson.toList match {
               case Nil => None
-              case j :: _ => Some(toCorefMention(j, djson))
+              case j :: _ => Some(toCorefMention(j, docMap))
             }
         }
       }
@@ -104,7 +113,7 @@ object JSONSerializer extends LazyLogging {
           // make inner map (Map[Mention, odin.SynPath])
           val pathMap = for {
             (mentionID: String, pathJSON: JValue) <- innermap.toSeq
-            mOp = findMention(mentionID, json, djson)
+            mOp = findMention(mentionID, json, docMap)
             // were we able to recover a mention?
             if mOp.nonEmpty
             m = mOp.get
@@ -125,9 +134,9 @@ object JSONSerializer extends LazyLogging {
         new CorefEventMention(
           labels,
           // trigger must be (Bio)TextBoundMention
-          toCorefMention(mjson \ "trigger", djson).toCorefMention.asInstanceOf[CorefTextBoundMention],
+          toCorefMention(mjson \ "trigger", docMap).toCorefMention.asInstanceOf[CorefTextBoundMention],
           mkArgumentsFromJsonAST(mjson \ "arguments"),
-          paths = toPaths(mjson, djson),
+          paths = toPaths(mjson, docMap),
           sentence,
           document,
           keep,
@@ -139,7 +148,7 @@ object JSONSerializer extends LazyLogging {
         new CorefRelationMention(
           labels,
           mkArgumentsFromJsonAST(mjson \ "arguments"),
-          paths = toPaths(mjson, djson),
+          paths = toPaths(mjson, docMap),
           sentence,
           document,
           keep,
@@ -157,10 +166,10 @@ object JSONSerializer extends LazyLogging {
         )
 
       // paths involve Mention (not CorefMention)
-      case other => toMention(mjson, djson).toCorefMention
+      case other => toMention(mjson, docMap).toCorefMention
     }
 
-    m.antecedents = toAntecedents(mjson, djson)
+    m.antecedents = toAntecedents(mjson, docMap)
     m.sieves = (mjson \ "sieves").extract[Set[String]]
 
     // attach display label
@@ -187,56 +196,56 @@ object JSONSerializer extends LazyLogging {
       case None => ()
     }
     // update mods
-    m.modifications = toModifications(mjson, djson)
+    m.modifications = toModifications(mjson, docMap)
     m
   }
 
-  def toAntecedents(mjson: JValue, djson: JValue): Set[Anaphoric] = mjson \ "antecedents" match {
+  def toAntecedents(mjson: JValue, docMap: Map[String, Document]): Set[Anaphoric] = mjson \ "antecedents" match {
     case JNothing => Set.empty[Anaphoric]
     case antecedents =>
       antecedents
         .asInstanceOf[JArray]
         .arr
-        .map(mjson => toCorefMention(mjson, djson)).map(_.toCorefMention)
+        .map(mjson => toCorefMention(mjson, docMap)).map(_.toCorefMention)
         .toSet
   }
 
-  def toModifications(mjson: JValue, djson: JValue): Set[Modification] = mjson \ "modifications" match {
+  def toModifications(mjson: JValue, docMap: Map[String, Document]): Set[Modification] = mjson \ "modifications" match {
     case mods: JArray =>
-      mods.arr.map { json => toModification(json, djson) }.toSet
+      mods.arr.map { json => toModification(json, docMap) }.toSet
     case other => Set.empty[Modification]
   }
 
-  def toModification(mjson: JValue, djson: JValue): Modification = mjson \ "modification-type" match {
+  def toModification(mjson: JValue, docMap: Map[String, Document]): Modification = mjson \ "modification-type" match {
     case JString("PTM") =>
       PTM(
         label = (mjson \ "label").extract[String],
-        evidence = getMention("evidence", mjson, djson),
-        site = getMention("site", mjson, djson),
+        evidence = getMention("evidence", mjson, docMap),
+        site = getMention("site", mjson, docMap),
         negated = (mjson \ "negated").extract[Boolean]
       )
     case JString("EventSite") =>
       // site is required
-      EventSite(site = getMention("site", mjson, djson).get)
+      EventSite(site = getMention("site", mjson, docMap).get)
     case JString("Mutant") =>
       // evidence is required
       Mutant(
         // evidence is required
-        evidence = getMention("evidence", mjson, djson).get,
+        evidence = getMention("evidence", mjson, docMap).get,
         foundBy = (mjson \ "foundBy").extract[String]
       )
     case JString("Negation") =>
       // evidence is required
-      Negation(evidence = getMention("evidence", mjson, djson).get)
+      Negation(evidence = getMention("evidence", mjson, docMap).get)
     case JString("Hypothesis") =>
       // evidence is required
-      Hypothesis(evidence = getMention("evidence", mjson, djson).get)
+      Hypothesis(evidence = getMention("evidence", mjson, docMap).get)
     case other => throw new Exception(s"unrecognized modification type '${other.toString}'")
   }
 
-  private def getMention(key: String, json: JValue, djson: JValue): Option[Mention] = json \ key match {
+  private def getMention(key: String, json: JValue, docMap: Map[String, Document]): Option[Mention] = json \ key match {
     case JNothing => None
-    case evidence => Some(toCorefMention(evidence, djson))
+    case evidence => Some(toCorefMention(evidence, docMap))
   }
 
   def toKBResolution(json: JValue): Option[KBResolution] = json \ "grounding" match {
