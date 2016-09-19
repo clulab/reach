@@ -1,8 +1,8 @@
-package org.clulab.reach.serialization
+package org.clulab.reach.mentions.serialization
 
 import org.scalatest._
 import org.clulab.reach.TestUtils._
-import org.clulab.reach.serialization.json._
+import org.clulab.reach.mentions.serialization.json._
 import org.json4s._
 
 
