@@ -269,7 +269,7 @@ class NxmlSearcher(val indexDir:String) {
       }
       result ++= docs
     }
-    logger.debug(s"Found ${result.size} documents for ${ids.length} ids.")
+    logger.info(s"Found ${result.size} documents for ${ids.length} ids.")
     val resultDocs = docs(result.toSet)
 
     saveNxml(resultDir, resultDocs)
