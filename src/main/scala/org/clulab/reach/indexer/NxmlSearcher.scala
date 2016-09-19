@@ -260,14 +260,16 @@ class NxmlSearcher(val indexDir:String) {
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
+    logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
     for(id <- ids) {
       val docs = searchId(id)
       if(docs.isEmpty) {
         logger.info(s"Found 0 results for id $id!")
       } else if(docs.size > 1) {
         logger.info(s"Found ${docs.size} for id $id, which should not happen!")
+      } else {
+        result ++= docs
       }
-      result ++= docs
     }
     logger.info(s"Found ${result.size} documents for ${ids.length} ids.")
     val resultDocs = docs(result.toSet)
