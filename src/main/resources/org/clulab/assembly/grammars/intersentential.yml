@@ -1,0 +1,70 @@
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# vars for assembly sieve
+vars:
+  # < operator should be outside of regex
+  after_type: "Event"
+  # "after" should be some kind of Event that transforms "before"
+  before_type: "Event"
+
+# Inter-sentence precedence expressions
+rules:
+  # Time expressions that are dependencies of the 'after' event
+  - name: timex-after1
+    example: "later"
+    label: TimexAfter
+    type: token
+    pattern: |
+      then | next | later | subsequently | consequently | ultimately | finally
+
+  # Events at the beginning of sentences (so that we can know its relation spans sentences)
+  - name: sentence-initial-event1
+    example: "AFT is then phosphorylated."
+    label: SentenceInitialEvent
+    type: token
+    pattern: |
+      ^ @event:Event
+
+  - name: inter-after1
+    example: "A is phosphorylated by B. As a downstream effect, [C is ...]"
+    label: InterAfter
+    type: token
+    pattern: |
+      ^
+      (?<trigger>
+      As a downstream effect |
+      Later |
+      In response |
+      Ultimately |
+      As a result |
+      Then |
+      Following (this | that) |
+      Afterwards |
+      Subsequently |
+      Consequently |
+      Eventually)
+      ","?
+      @after:Event
+
+  - name: inter-after2
+    example: "A is phosphorylated by B. [C is then ...]"
+    label: InterAfter
+    pattern: |
+      when:TimexAfter
+      after:SentenceInitialEvent = <advmod
+
+  - name: inter-before1
+    example: "A is phosphorylated by B. Prior to this, [C is ...]"
+    label: InterBefore
+    type: token
+    pattern: |
+      ^
+      (?<trigger>
+      Prior to (this | that) |
+      Previously |
+      Beforehand |
+      Before this |
+      For this)
+      ","?
+      @before:Event
+
