@@ -56,6 +56,11 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.isEmpty should be (true)
   }
 
+  it should "label E2F as a protein" in {
+    val mentions = getBioMentions("E2F is a protein")
+    hasEntity("E2F", mentions) should be (true)
+  }
+
   val sent2 = "It has recently been shown that oncogenic RAS can enhance the apoptotic function of p53 via ASPP1 and ASPP2"
   sent2 should "contain 4 entities" in {
     val mentions = getBioMentions(sent2)
@@ -162,4 +167,5 @@ class TestEntities extends FlatSpec with Matchers {
     mentions.length should be (1)
     mentions.head matches "Gene_or_gene_product" should be (true)
   }
+
 }
