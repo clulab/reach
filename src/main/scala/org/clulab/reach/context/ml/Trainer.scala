@@ -62,7 +62,7 @@ object Trainer {
     println(s"Loading annotations from ${corpusDir.getPath} ...")
     // Load the annotations
     corpusDir.listFiles.filter(_.isDirectory).map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
-      .filter(_.eventAnnotations.size >= 10)
+      .filter(_.eventAnnotations.size >= 20)
   }
 
   def extractFeatures(annotations:ArticleAnnotations):Map[PairID, RVFDatum[String, String]] = {

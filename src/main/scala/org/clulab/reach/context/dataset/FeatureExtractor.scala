@@ -43,11 +43,12 @@ case class PairFeatures(
       s"sentenceDistance_${this.sentenceDistance}",
       s"contextPOSTag_${this.contextPOSTag}",
       s"eventPOSTag_${this.eventPOSTag}",
-      s"dependencyDistance_${this.dependencyDistance}",
+      s"dependencyDistance_${this.dependencyDistance}"
       //s"discourseDistance_${this.discourseDistance}",
-      s"dependencyPath_${this.dependencyPath.mkString("_")}",
-      s"posPath_${this.posPath.mkString("_")}"
-    )
+      //s"dependencyPath_${this.dependencyPath.mkString("_")}",
+      //s"posPath_${this.posPath.mkString("_")}"
+    ) ++ this.dependencyPath.map(s => s"depBigram_$s") ++ this.posPath.map(s => s"posBigram_$s")
+
 
     if(feda){
       for(label <- Seq("general") ++ ContextLabel.values.toSeq; f <- features)
@@ -175,15 +176,26 @@ object FeatureExtractor{
         val deps = sentence.dependencies.get
 
         // Ignore direction for the sake of simplicity
-        val sequence = deps.shortestPathEdges(event.interval.start, contextMention.interval.start, true)(0).map(_._3)
+        val sequence = deps.shortestPathEdges(event.interval.start, contextMention.interval.start, true)(0).map(_._3).map(FeatureProcessing.clusterDependency)
         //println(sequence.mkString(" "))
+
 
         if(sequence.size == 0){
           println("DEBUG: Problem when extracting dependency path for features")
           None
         }
         else{
-          Some(sequence)
+          // make bigrams
+          val bigrams:Seq[String] = {
+            if(sequence.size == 1)
+              sequence
+            else{
+              val shifted = sequence.drop(1)
+              sequence.zip(shifted).map{ case (a, b) => s"${a}_${b}" }
+            }
+          }
+
+          Some(bigrams)
         }
       }
       else
@@ -194,10 +206,10 @@ object FeatureExtractor{
       case None => None
     }
 
-    val clusteredDependencyPath = dependencyPath match {
-      case Some(path) => path map FeatureProcessing.clusterDependency
-      case None => Seq()
-    }
+    // val clusteredDependencyPath = dependencyPath match {
+    //   case Some(path) => path map FeatureProcessing.clusterDependency
+    //   case None => Seq()
+    // }
 
     // TODO: Check the index out of bounds in the POS tags
     val clusteredPOSPath:Seq[String] =
@@ -208,9 +220,18 @@ object FeatureExtractor{
 
         val tags = sentence.tags.get
 
-        (start to end).map{
+        val pos_path = (start to end).map{
             i => Try(tags(i)).getOrElse("")
         }.map(FeatureProcessing.clusterPOSTag)
+
+        // Make bigrams
+        val pos_bigrams:Seq[String] = {
+          val shifted = pos_path.drop(1)
+          val bigrams = pos_path zip shifted
+          bigrams.map{ case (a, b) => s"${a}_${b}"}
+        }
+
+        pos_bigrams
       }
       else
         Seq()
@@ -219,7 +240,7 @@ object FeatureExtractor{
     val eventPOS= FeatureProcessing.clusterPOSTag(Try(doc.sentences(event.sentenceId).tags.get.apply(event.interval.start)).getOrElse(""))
     val contextPOS = FeatureProcessing.clusterPOSTag(Try(doc.sentences(contextMention.sentenceId).tags.get.apply(contextMention.interval.start)).getOrElse(""))
 
-    PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength, clusteredDependencyPath, clusteredPOSPath)
+    PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength, dependencyPath.getOrElse(Seq()), clusteredPOSPath)
   }
 
   def extractFeaturesFromCorpus(doc:Document, eventAnnotations:Seq[EventAnnotation],

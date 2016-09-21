@@ -49,7 +49,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                             val scaledDatum = new RVFDatum(datum.label, scaledFeats)
                             // val scaledDatum = datum
                             // Classify it
-                            val isContext:Boolean = classifier.classOf(scaledDatum) == "true"
+                            val isContext:Boolean = if(scaledDatum.getFeatureCount("sentenceDistance_SAME") >= 1) true; else classifier.classOf(scaledDatum) == "true"
 
                             // If it's context, we keep it :)
                             isContext
