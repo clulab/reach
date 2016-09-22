@@ -27,7 +27,7 @@ import scala.collection.mutable.ArrayBuffer
 class NxmlSearcher(val indexDir:String) {
   val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
   val searcher = new IndexSearcher(reader)
-  val proc = new BioNLPProcessor()
+  val proc = new BioNLPProcessor(withChunks = false)
 
   def close() = reader.close()
 
@@ -85,6 +85,10 @@ class NxmlSearcher(val indexDir:String) {
 
   def search(query:String, totalHits:Int = TOTAL_HITS):Set[(Int, Float)] = {
     searchByField(query, "text", new StandardAnalyzer(), totalHits)
+  }
+
+  def searchId(id:String, totalHits:Int = 1):Set[(Int, Float)] = {
+    searchByField(id, "id", new WhitespaceAnalyzer(), totalHits)
   }
 
   def searchByField(query:String,
@@ -317,16 +321,18 @@ class NxmlSearcher(val indexDir:String) {
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
+    logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
     for(id <- ids) {
-      val docs = searchByField(id, "id", new WhitespaceAnalyzer, verbose = false)
+      val docs = searchId(id)
       if(docs.isEmpty) {
         logger.info(s"Found 0 results for id $id!")
       } else if(docs.size > 1) {
         logger.info(s"Found ${docs.size} for id $id, which should not happen!")
+      } else {
+        result ++= docs
       }
-      result ++= docs
     }
-    logger.debug(s"Found ${result.size} documents for ${ids.length} ids.")
+    logger.info(s"Found ${result.size} documents for ${ids.length} ids.")
     val resultDocs = docs(result.toSet)
 
     saveNxml(resultDir, resultDocs)

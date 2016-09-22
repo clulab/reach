@@ -1,6 +1,9 @@
 #Changes
 =======
-+ **1.3.3** - Better handling of nested events.
++ **1.3.2** - Update to use Processors 6.0.0.
++ **1.3.2** - Optimizations to `json` serialization/deserialization of `CorefMention`.
++ **1.3.2** - Uses bioresources 1.1.15 and processors 5.9.6.  Introduces [`json` serialization/deserialization of `CorefMention` (including grounding, modifications, etc.)](https://gist.github.com/myedibleenso/8383af789b37ba598ff64ddd12c8b35b).
++ **1.3.2** - Better handling of nested events.
 + **1.3.2** - Update to use Bioresources 1.1.15 and Processors 5.9.5.
 + **1.3.1** - Update of all edu.arizona.sista packages to org.clulab
 + **1.3.1** - Updated rules for parsing changes. Add rules for "VBN with" regulations. Correct amino acid rule. Add syntax -> surface rule. Several changes to activation/regulations rules.

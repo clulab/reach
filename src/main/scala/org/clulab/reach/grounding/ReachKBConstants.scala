@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for secondary cell line KB.
+  *   Last Modified: Update for HMS drug KB.
   */
 object ReachKBConstants {
 
@@ -61,6 +61,9 @@ object ReachKBConstants {
 
   /** Filename of the static small molecule (chemical) file. */
   val StaticChemicalFilename = "PubChem.tsv.gz"
+
+  /** Filename of the static small molecule (drug) file. */
+  val StaticDrugFilename = "hms-drugs.tsv.gz"
 
   /** Filename of the static small molecule (metabolite) file. */
   val StaticMetaboliteFilename = "hmdb.tsv.gz"

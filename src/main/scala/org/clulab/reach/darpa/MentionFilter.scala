@@ -88,6 +88,7 @@ object MentionFilter {
                   new CorefRelationMention(
                     relReg.labels,
                     updatedArgs,
+                    relReg.paths,
                     relReg.sentence,
                     relReg.document,
                     relReg.keep,
@@ -108,6 +109,7 @@ object MentionFilter {
                     eventReg.labels,
                     eventReg.trigger,
                     updatedArgs,
+                    eventReg.paths,
                     eventReg.sentence,
                     eventReg.document,
                     eventReg.keep,

@@ -15,7 +15,7 @@ import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Update for secondary cell line KB.
+  *   Last Modified: Update for HMS drug KB.
   */
 class ReachEntityLookup {
 
@@ -98,7 +98,8 @@ class ReachEntityLookup {
   )
 
   val chemicalSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticChemical,
+    StaticChemical,                         // PubChem
+    StaticDrug,                             // HMS LINCS drugs
     // StaticMetabolite,                    // REPLACED by PubChem
     ModelGendChemical
   )
