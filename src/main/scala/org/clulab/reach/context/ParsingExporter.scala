@@ -3,6 +3,7 @@ package org.clulab.reach.context
 import java.io.File
 import io.Source
 import org.clulab.processors.Document
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.discourse.rstparser.DiscourseTree
 import org.clulab.struct.{Tree, DirectedGraph, DirectedGraphEdgeIterator}
@@ -36,7 +37,7 @@ object ParsingExporter extends App {
     val sections = sectionsLines filter { sec => !sec.startsWith("fig") }
 
     // Annotate
-    val proc = new BioNLPProcessor(withDiscourse=true)
+    val proc = new BioNLPProcessor(withDiscourse=ShallowNLPProcessor.WITH_DISCOURSE)
     val doc = proc annotateFromSentences (sentences)
 
     // Fetch the dependency parses - Use collapsed dependencies

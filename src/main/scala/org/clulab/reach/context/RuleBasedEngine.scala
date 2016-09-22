@@ -125,7 +125,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
    */
   protected def query(line:Int):Map[String, Seq[String]] =
     try{
-      inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
+      inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
     }
     catch{
       // There were no conetxt mentions when calling infer, thus we return an empty map

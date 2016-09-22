@@ -1,7 +1,6 @@
 package org.clulab.reach.context
 
 import java.io.File
-import org.clulab.reach.conetxt.ml.LinearContextEngine
 
 
 object ContextEngineFactory {
@@ -14,7 +13,6 @@ object ContextEngineFactory {
       val Policy2 = Value("Policy2")
       val Policy3 = Value("Policy3")
       val Policy4 = Value("Policy4")
-      val Linear = Value("Linear")
     }
     import Engine._
 
@@ -48,10 +46,6 @@ object ContextEngineFactory {
             case Policy4 => bound match {
                 case Some(b) => new BidirectionalPaddingContext(b)
                 case None => new BidirectionalPaddingContext
-            }
-            case Linear => (model, normalizers) match {
-              case (Some(m), Some(n)) => new LinearContextEngine(m, n)
-              case _ => throw new RuntimeException("Need to provide model and normalizers paths for the context engine")
             }
             case Dummy => new DummyContextEngine
             case _ => new DummyContextEngine
