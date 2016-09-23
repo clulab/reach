@@ -5,6 +5,7 @@ import org.clulab.reach.mentions._
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.TestUtils._
 import org.clulab.reach.TestUtils.Context._
+import org.clulab.context.rulebased._
 import org.scalatest.{Matchers, FlatSpec}
 
 
