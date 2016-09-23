@@ -16,6 +16,7 @@ import org.clulab.reach.context.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.context.dataset.ArticleAnnotations
 import org.clulab.reach.mentions._
+import org.clulab.reach.context._
 
 class PreAnnotatedDoc(val serializedDoc:String, val mentions:Seq[BioMention]) extends Serializable
 
@@ -97,7 +98,7 @@ object Trainer {
     var events = annotations.eventAnnotations
 
     // Filter out non-context mentions and cellular component mentions, because we don't have training data for this.
-    val contextMentions = entities.filter(e => ContextEngine.isContextMention(e) && e.label == "Cellular_component")
+    val contextMentions = entities.filter(e => ContextClass.isContextMention(e) && e.label == "Cellular_component")
       .map(_.asInstanceOf[BioTextBoundMention])
 
     // Build the counts of the context annotations

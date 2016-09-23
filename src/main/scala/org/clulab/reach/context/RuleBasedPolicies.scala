@@ -8,12 +8,14 @@ class BoundedPaddingContext(
  bound:Int = 3 // Default bound to extend the policy
 ) extends RuleBasedContextEngine{
 
-  protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine", "Cellular_component", "TissueType")
+  protected val contextTypes = ContextClass.values.toSeq
+  //protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine", "Cellular_component", "TissueType")
 
   // TODO: Do something smart to resolve ties
-  protected def untie(entities:Seq[(String, String)]) = entities.head
+  protected def untie(entities:Seq[(ContextClass.Value, String)]) = entities.head
 
   protected final def padContext(prevStep:Seq[Int], remainingSteps:List[Seq[Int]], repetitions:Seq[Int], bound:Int):List[Seq[Int]] = {
+
     @tailrec
     def iter(prevStep:Seq[Int], remainingSteps:List[Seq[Int]], repetitions:Seq[Int], bound:Int, acc:List[Seq[Int]]):List[Seq[Int]] = {
 
@@ -31,7 +33,7 @@ class BoundedPaddingContext(
 
           val currentStep = contextTypes.flatMap{ // Do this for each type of context. Flat Map as there could be more than one context of a type (maybe)
             contextType =>
-              val stepIx = this.contextTypes.indexOf(contextType)
+              val stepIx = contextTypes.indexOf(contextType)
 
               if(repetitions(stepIx) < bound){
                 (prevContext.lift(contextType), currentContext.lift(contextType)) match {
@@ -76,7 +78,7 @@ class BoundedPaddingContext(
     iter(prevStep, remainingSteps, repetitions, bound, Nil)
   }
   // Apply the policy
-  protected override def inferContext = padContext(Seq(), latentSparseMatrix, Seq.fill(this.contextTypes.size)(1), bound)
+  protected override def inferContext = padContext(Seq(), latentSparseMatrix, Seq.fill(contextTypes.size)(1), bound)
 
 }
 
@@ -130,7 +132,7 @@ class BidirectionalPaddingContext(
         // Reverse the sequences and use the same algorithm
         val reversedContext = firstPass map { _.reverse }
         val paddedContext = padContext(Seq(), reversedContext,
-         Seq.fill(this.contextTypes.size)(1), bound)
+         Seq.fill(contextTypes.size)(1), bound)
         // Don't forget to reverse again
         paddedContext map { _.reverse }
     }

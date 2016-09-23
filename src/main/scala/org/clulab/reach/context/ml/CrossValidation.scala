@@ -30,6 +30,7 @@ import org.clulab.reach.context.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.context.dataset.ArticleAnnotations
 import org.clulab.reach.mentions._
+import org.clulab.reach.context._
 
 object CrossValidation extends App {
 
@@ -40,7 +41,7 @@ object CrossValidation extends App {
 
         val manualContextAnnotations = anns.contextAnnotations
 
-        val contextMentions = entities.filter(e => ContextEngine.isContextMention(e) && e.label == "Cellular_component")
+        val contextMentions = entities.filter(e => ContextClass.isContextMention(e) && e.label == "Cellular_component")
           .map(_.asInstanceOf[BioTextBoundMention])
 
         val filteredMentions = contextMentions.filter{
