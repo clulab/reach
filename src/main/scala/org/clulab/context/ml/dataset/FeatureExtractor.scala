@@ -1,4 +1,4 @@
-package org.clulab.reach.context.dataset
+package org.clulab.context.ml.dataset
 
 import org.clulab.processors.Document
 import org.clulab.reach.mentions._
@@ -6,7 +6,7 @@ import ai.lum.common.Interval
 import org.clulab.learning._
 import scala.util.Try
 import org.clulab.struct.Counter
-import org.clulab.reach.context.ContextClass
+import org.clulab.context.ContextClass
 
 object BinnedDistance extends Enumeration{
   val SAME, CLOSE, FAR = Value

@@ -1,4 +1,4 @@
-package org.clulab.reach.context
+package org.clulab.context
 
 trait Context {
 

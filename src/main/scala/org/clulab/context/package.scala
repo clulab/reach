@@ -1,4 +1,4 @@
-package org.clulab.reach
+package org.clulab
 
 import com.typesafe.config.ConfigObject
 import org.clulab.reach.mentions._

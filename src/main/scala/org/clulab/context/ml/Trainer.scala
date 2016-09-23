@@ -1,4 +1,4 @@
-package org.clulab.reach.context.ml
+package org.clulab.context.ml
 
 import java.io._
 import collection.mutable.{ListBuffer, ArrayBuffer}
@@ -11,12 +11,11 @@ import org.clulab.learning._
 import org.clulab.odin._
 import org.clulab.reach._
 import org.clulab.serialization.DocumentSerializer
-import org.clulab.reach.context.ContextEngine
-import org.clulab.reach.context.dataset._
+import org.clulab.context.ContextEngine
+import org.clulab.context.ml.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
-import org.clulab.reach.context.dataset.ArticleAnnotations
 import org.clulab.reach.mentions._
-import org.clulab.reach.context._
+import org.clulab.context._
 
 class PreAnnotatedDoc(val serializedDoc:String, val mentions:Seq[BioMention]) extends Serializable
 
@@ -104,7 +103,7 @@ object Trainer {
     // Build the counts of the context annotations
     val contextCounts:Map[String, Int] = contextMentions.groupBy(_.nsId).mapValues(_.size)
 
-    // Filter out the reach conetxt mentions that overlap with any of the manual annotations
+    // Filter out the reach context mentions that overlap with any of the manual annotations
     val manualContextAnnotations = annotations.contextAnnotations
 
     val filteredMentions = contextMentions.filter{

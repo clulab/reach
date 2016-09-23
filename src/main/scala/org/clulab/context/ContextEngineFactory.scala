@@ -1,7 +1,8 @@
-package org.clulab.reach.context
+package org.clulab.context
 
 import java.io.File
-import org.clulab.reach.conetxt.ml.LinearContextEngine
+import org.clulab.context.ml.LinearContextEngine
+import org.clulab.context.rulebased._
 
 
 object ContextEngineFactory {

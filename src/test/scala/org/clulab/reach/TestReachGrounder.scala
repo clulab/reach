@@ -1,7 +1,7 @@
 package org.clulab.reach
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.context._
+import org.clulab.context._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.scalatest.{Matchers, FlatSpec}

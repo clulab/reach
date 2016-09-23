@@ -1,4 +1,4 @@
-package org.clulab.reach.context
+package org.clulab.context
 
 import util.{Try, Success, Failure}
 import org.clulab.reach.mentions.BioMention

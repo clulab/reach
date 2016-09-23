@@ -6,7 +6,8 @@ import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import scala.collection.immutable.ListMap
 import org.clulab.reach.display._
-import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.context
+import org.clulab.context.ContextEngineFactory.Engine
 import RuleReader._
 
 object ReachShell extends App {
@@ -93,11 +94,10 @@ object ReachShell extends App {
 
   def printCommands(): Unit = {
     println("\nCOMMANDS:")
-    val longest = commands.keys.toSeq.sortBy(_.length).last.length 
+    val longest = commands.keys.toSeq.sortBy(_.length).last.length
     for ((cmd, msg) <- commands)
       println(s"\t$cmd${"\t"*(1 + (longest - cmd.length)/4)}=> $msg")
     println
   }
 
 }
-

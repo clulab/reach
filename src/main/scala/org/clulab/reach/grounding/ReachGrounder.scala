@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin._
 import org.clulab.reach._
-import org.clulab.reach.context._
+import org.clulab.context._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBUtils._
 import org.clulab.reach.grounding.ReachMiscLookups._

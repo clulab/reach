@@ -1,11 +1,11 @@
-package org.clulab.reach.context.dataset
+package org.clulab.context.ml.dataset
 
 import java.io._
 import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
-import org.clulab.reach.context.ml.PreAnnotatedDoc
-import org.clulab.reach.context.ContextClass
+import org.clulab.context.ml.PreAnnotatedDoc
+import org.clulab.context.ContextClass
 
 // object ContextLabel extends Enumeration{
 //   val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value

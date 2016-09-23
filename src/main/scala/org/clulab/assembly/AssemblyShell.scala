@@ -3,13 +3,14 @@ package org.clulab.assembly
 import java.io.File
 import com.typesafe.config.ConfigFactory
 import org.clulab.assembly
-import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.context.ContextEngineFactory.Engine
 
 import scala.collection.immutable.ListMap
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import org.clulab.reach.display._
-import org.clulab.reach.{context, ReachSystem}
+import org.clulab.context
+import org.clulab.reach.ReachSystem
 import org.clulab.assembly.display._
 
 object AssemblyShell extends App {
@@ -104,4 +105,3 @@ object AssemblyShell extends App {
   }
 
 }
-

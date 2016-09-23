@@ -11,7 +11,7 @@ import org.clulab.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry
-import org.clulab.reach.context._
+import org.clulab.context._
 import org.clulab.reach.darpa.OutputDegrader
 import org.clulab.reach.display._
 import org.clulab.reach.extern.export._

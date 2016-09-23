@@ -1,12 +1,11 @@
-package org.clulab.reach.conetxt.ml
+package org.clulab.context.ml
 
 import java.io._
-import org.clulab.reach.context.ContextEngine
+import org.clulab.context.ContextEngine
 import org.clulab.reach.mentions._
 import org.clulab.learning._
-import org.clulab.reach.context._
-import org.clulab.reach.context.dataset.ContextType
-import org.clulab.reach.context.dataset._
+import org.clulab.context._
+import org.clulab.context.ml.dataset._
 import org.clulab.learning._
 
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {

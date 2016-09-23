@@ -1,4 +1,4 @@
-package org.clulab.reach.context
+package org.clulab.context
 
 import java.io.File
 import io.Source

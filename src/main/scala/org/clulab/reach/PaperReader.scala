@@ -1,10 +1,11 @@
 package org.clulab.reach
 
 import java.io._
-import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.context.ContextEngineFactory.Engine
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
+import org.clulab.context
 import org.clulab.odin._
 import org.clulab.reach.utils.DSVParser
 import org.clulab.utils.Serializer

@@ -1,4 +1,4 @@
-package org.clulab.reach.context
+package org.clulab.context
 
 import org.clulab.reach.mentions._
 

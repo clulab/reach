@@ -1,7 +1,7 @@
 package org.clulab.reach
 
 import org.clulab.coref.AntecedentSelector
-import org.clulab.reach.context.Context
+import org.clulab.context.Context
 import org.clulab.odin._
 
 package object mentions {

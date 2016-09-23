@@ -10,8 +10,8 @@ import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.processors.bionlp.BioNLPProcessor
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
-import org.clulab.reach.context._
-import org.clulab.reach.context.ContextEngineFactory.Engine._
+import org.clulab.context._
+import org.clulab.context.ContextEngineFactory.Engine._
 import ai.lum.nxmlreader.NxmlDocument
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}

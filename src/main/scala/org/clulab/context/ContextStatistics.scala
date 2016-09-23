@@ -1,6 +1,6 @@
 /** Counts statistics of the context assigned to mentions of a paper **/
 
-package org.clulab.reach.context
+package org.clulab.context
 
 import java.io._
 import collection.mutable.StringBuilder

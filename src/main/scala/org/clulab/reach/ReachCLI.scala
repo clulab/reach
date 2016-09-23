@@ -9,7 +9,7 @@ import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 import org.clulab.assembly._
 import org.clulab.assembly.export.{AssemblyExporter, Row}
-import org.clulab.reach.context.ContextStatistics
+import org.clulab.context.ContextStatistics
 import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.reach.darpa.OutputDegrader

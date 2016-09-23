@@ -1,6 +1,7 @@
-package org.clulab.reach.context
+package org.clulab.context.rulebased
 
 import scala.annotation.tailrec
+import org.clulab.context._
 
 
 // Policy Two

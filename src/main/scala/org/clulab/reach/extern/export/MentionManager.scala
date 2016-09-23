@@ -5,7 +5,7 @@ import scala.collection.mutable.MutableList
 import scala.util.hashing.MurmurHash3._
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.context._
+import org.clulab.context._
 import org.clulab.reach.mentions._
 
 

@@ -2,17 +2,17 @@
 * Does cross validation on the ML context model to verify the performance of the implementaiton
 */
 
-package org.clulab.reach.context.ml
+package org.clulab.context.ml
 
 import java.io.File
 import collection.mutable
 import org.clulab.learning._
 import Trainer._
 import org.clulab.reach._
-import org.clulab.reach.context.dataset._
+import org.clulab.context.ml.dataset._
 import org.clulab.processors._
 import org.clulab.odin._
-import org.clulab.reach.context.ContextEngine
+import org.clulab.context.ContextEngine
 import org.clulab.reach.mentions._
 import java.io._
 import collection.mutable.{ListBuffer, ArrayBuffer}
@@ -21,16 +21,10 @@ import ai.lum.common.Interval
 import org.clulab.processors._
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Counter
-import org.clulab.learning._
-import org.clulab.odin._
-import org.clulab.reach._
 import org.clulab.serialization.DocumentSerializer
-import org.clulab.reach.context.ContextEngine
-import org.clulab.reach.context.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
-import org.clulab.reach.context.dataset.ArticleAnnotations
 import org.clulab.reach.mentions._
-import org.clulab.reach.context._
+import org.clulab.context._
 
 object CrossValidation extends App {
 

@@ -3,7 +3,7 @@ package org.clulab.reach.mentions
 import org.clulab.odin._
 import org.clulab.struct.Interval
 import org.clulab.processors.Document
-import org.clulab.reach.context.Context
+import org.clulab.context.Context
 
 class BioTextBoundMention(
   labels: Seq[String],

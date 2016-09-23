@@ -1,4 +1,4 @@
-package org.clulab.reach.context.ml
+package org.clulab.context.ml
 
 import scala.math.pow
 
