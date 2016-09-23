@@ -4,6 +4,7 @@ import java.io._
 import org.clulab.reach.context.ContextEngine
 import org.clulab.reach.mentions._
 import org.clulab.learning._
+import org.clulab.reach.context._
 import org.clulab.reach.context.dataset.ContextType
 import org.clulab.reach.context.dataset._
 import org.clulab.learning._
@@ -34,7 +35,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
             case bm:BioTextBoundMention => bm
             case bioMention =>
                 // Only assign context if this is not a context mention
-                if(!ContextEngine.isContextMention(bioMention)){
+                if(!ContextClass.isContextMention(bioMention)){
                     val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
                         t =>
                             val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
@@ -81,9 +82,9 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
 
   def infer(mentions: Seq[BioMention]) {
     // We store the paper's mentions here to do classification later
-    paperMentions = Some(mentions.filter{ case tb:BioTextBoundMention => ContextEngine.isContextMention(tb); case _ => false}.map(_.asInstanceOf[BioTextBoundMention]))
+    paperMentions = Some(mentions.filter{ case tb:BioTextBoundMention => ContextClass.isContextMention(tb); case _ => false}.map(_.asInstanceOf[BioTextBoundMention]))
 
-    // Get the contexttypes in the document
+    // Get the context types in the document
     paperContextTypes = Some(paperMentions.get.map{m =>
         if(m.nsId.startsWith("uaz:UAZ"))
             println(s"DEBUG: Weird entry ${m.label} - ${m.text}")

@@ -6,6 +6,7 @@ import ai.lum.common.Interval
 import org.clulab.learning._
 import scala.util.Try
 import org.clulab.struct.Counter
+import org.clulab.reach.context.ContextClass
 
 object BinnedDistance extends Enumeration{
   val SAME, CLOSE, FAR = Value
@@ -51,7 +52,7 @@ case class PairFeatures(
 
 
     if(feda){
-      for(label <- Seq("general") ++ ContextLabel.values.toSeq; f <- features)
+      for(label <- Seq("general") ++ ContextClass.values.toSeq; f <- features)
         yield {
           s"${label}_$f"
         }

@@ -9,7 +9,7 @@ import org.clulab.reach.mentions._
 class ContextStatistics(val reachMentions:Seq[BioMention]){
 
   val contextMentions = reachMentions.filter{
-    case m:BioTextBoundMention => ContextEngine.isContextMention(m)
+    case m:BioTextBoundMention => ContextClass.isContextMention(m)
     case _ => false
   }
 

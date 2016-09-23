@@ -5,12 +5,13 @@ import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
 import org.clulab.reach.context.ml.PreAnnotatedDoc
+import org.clulab.reach.context.ContextClass
 
-object ContextLabel extends Enumeration{
-  val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value
-}
+// object ContextLabel extends Enumeration{
+//   val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value
+// }
 
-case class ContextType(val contextType:ContextLabel.Value, val id:String)
+case class ContextType(val contextType:ContextClass.Value, val id:String)
 
 object ContextType{
   def parse(annotationId:String) = {
@@ -19,34 +20,34 @@ object ContextType{
     val (namespace, gid) = (tokens(0), tokens(1))
 
     namespace match {
-      case "taxonomy" => this(ContextLabel.Species, annotationId)
-      case "cellosaurus" => this(ContextLabel.CellLine, annotationId)
-      case "cellontology" => this(ContextLabel.CellType, annotationId)
-      case "uberon" => this(ContextLabel.Organ, annotationId)
-      case "tissuelist" => this(ContextLabel.Organ, annotationId)
-      case "go" => this(ContextLabel.CellularLocation, annotationId)
+      case "taxonomy" => this(ContextClass.Species, annotationId)
+      case "cellosaurus" => this(ContextClass.CellLine, annotationId)
+      case "cellontology" => this(ContextClass.CellType, annotationId)
+      case "uberon" => this(ContextClass.Organ, annotationId)
+      case "tissuelist" => this(ContextClass.TissueType, annotationId)
+      case "go" => this(ContextClass.Cellular_component, annotationId)
       case "uaz" =>
         // TODO: Fix this to consider uaz:UBERON:0000479 and uaz:CL:0000786
         val y = gid.split("-")
         if(y.size < 2){
             println(s"DEBUG: $annotationId")
-            this(ContextLabel.UNDETERMINED, annotationId)
+            this(ContextClass.Undetermined, annotationId)
         }
         else{
             val x = y(1)
             x.toLowerCase match {
-             case "org" => this(ContextLabel.Organ, annotationId)
-             case "cline" => this(ContextLabel.CellLine, annotationId)
-             case "ct" => this(ContextLabel.CellType, annotationId)
+             case "org" => this(ContextClass.Organ, annotationId)
+             case "cline" => this(ContextClass.CellLine, annotationId)
+             case "ct" => this(ContextClass.CellType, annotationId)
              case i =>
                 println(s"DEBUG incorrectly parsed id $i")
-                this(ContextLabel.UNDETERMINED, annotationId)
+                this(ContextClass.Undetermined, annotationId)
             }
         }
 
 
 
-      case _ => this(ContextLabel.UNDETERMINED, annotationId)
+      case _ => this(ContextClass.Undetermined, annotationId)
     }
   }
 }
