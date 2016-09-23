@@ -38,16 +38,14 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                     val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
                         t =>
                             val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
-                            println(s"DEBUG: context mention size: ${mentions.size}")
                             // Create feature pairs
                             val instances = FeatureExtractor.extractFeatures(bioMention.document, Seq(bioMention), mentions)
-                            println(s"DEBUG: sentences: ${bioMention.document.sentences.size}")
                             // Get the type frequency
                             val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
-                            println(s"DEBUG ctx type count: $contextTypeCount")
                             // Make the datum instance for classification
                             val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
-                            println(s"DEBUG: Same sentence ${datum.getFeatureCount("sentenceDistance_SAME")}")
+                            val sameSen = mentions.exists(_.sentence == bioMention.sentence)
+                            println(s"DEBUG: Same sentence ment $sameSen ${datum.getFeatureCount("sentenceDistance_SAME")}")
                             // Normalize the datum
                             val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
                             val scaledDatum = new RVFDatum(datum.label, scaledFeats)
