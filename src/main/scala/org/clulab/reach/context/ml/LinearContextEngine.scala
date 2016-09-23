@@ -46,7 +46,6 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                             // Make the datum instance for classification
                             val datum = FeatureExtractor.mkRVFDatum(instances, contextTypeCount, "true") // Label doesn´t matter here
                             val sameSen = mentions.exists(_.sentence == bioMention.sentence)
-                            println(s"DEBUG: Same sentence ment $sameSen ${datum.getFeatureCount("sentenceDistance_SAME")}")
                             // Normalize the datum
                             val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, normalizers)
                             val scaledDatum = new RVFDatum(datum.label, scaledFeats)
