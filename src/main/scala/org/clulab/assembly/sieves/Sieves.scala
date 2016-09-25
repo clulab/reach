@@ -55,13 +55,13 @@ class PrecedenceSieves extends Sieves {
     * @param manager  an AssemblyManager
     * @return an AssemblyManager
     */
-  def withinRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+  def intrasententialRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
-    val name = "withinRbPrecedence"
+    val name = "intrasententialRBPrecedence"
 
     logger.debug(s"\tapplying '$name' sieve...")
 
-    val p = "/org/clulab/assembly/grammars/precedence.yml"
+    val p = "/org/clulab/assembly/grammars/intrasentential.yml"
 
     // find rule-based PrecedenceRelations
     for {
@@ -238,9 +238,9 @@ class PrecedenceSieves extends Sieves {
     * @param manager  an AssemblyManager
     * @return an AssemblyManager
     */
-  def betweenRbPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+  def intersententialRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
-    val name = "betweenRbPrecedence"
+    val name = "intersententialRBPrecedence"
 
     logger.debug(s"\tapplying '$name' sieve...")
 

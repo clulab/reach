@@ -145,9 +145,9 @@ object Assembler extends LazyLogging {
     // track relevant mentions
       AssemblySieve(dedup.trackMentions) andThen
         // find precedence relations using rules
-        AssemblySieve(precedence.withinRbPrecedence) andThen
+        AssemblySieve(precedence.intrasententialRBPrecedence) andThen
         //AssemblySieve(precedence.reichenbachPrecedence) andThen
-        AssemblySieve(precedence.betweenRbPrecedence) andThen
+        AssemblySieve(precedence.intersententialRBPrecedence) andThen
         // more conservative application of feature-based classifier
         AssemblySieve(precedence.featureBasedClassifierWithSharedArgs)
 
@@ -169,9 +169,9 @@ object Assembler extends LazyLogging {
     val precedence = new PrecedenceSieves()
 
     val availableSieves = Map(
-      "withinRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.withinRbPrecedence)),
+      "intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
       "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
-      "betweenRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.betweenRbPrecedence))
+      "intersententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intersententialRBPrecedence))
     )
 
     val ams = for {
