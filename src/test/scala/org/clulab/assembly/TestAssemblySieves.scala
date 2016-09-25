@@ -1,35 +1,32 @@
 package org.clulab.assembly
 
 import org.scalatest.{FlatSpec, Matchers}
-import org.clulab.assembly.Assembler._
 import TestUtils._
+import org.clulab.assembly.sieves.{AssemblySieve, DeduplicationSieves, PrecedenceSieves}
 
 
+/**
+  * Assembly sieve tests
+  */
 class TestAssemblySieves extends FlatSpec with Matchers {
-  val intraSent1 = "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct " +
-    "interaction between SRC-3 and ERα and can occur outside of the nucleus."
 
-  intraSent1 should "be annotated with the binding preceding the phosphorylation" in {
-    val mentions = getMentionsFromText(intraSent1)
-    val am = applySieves(mentions)
-
-    val bRep = am.distinctSimpleEvents("Binding").head
-    val pRep = am.distinctRegulations(AssemblyManager.positive).head
-
-    am.distinctPredecessorsOf(pRep).size should be(1)
-    val pr = am.getPrecedenceRelationsFor(pRep).head
-    pr.before.equivalenceHash == bRep.equivalenceHash should be (true)
-    pr.after.equivalenceHash == pRep.equivalenceHash should be (true)
-
-  }
-
-  // Sieve tests
+  // Reichenbach rules
 
   val tamSent1 = "Once BEF had been phosphorylated, AFT was ubiquitinated"
 
   tamSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(tamSent1)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using TAM rules
+        AssemblySieve(precedence.reichenbachPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -44,7 +41,17 @@ class TestAssemblySieves extends FlatSpec with Matchers {
 
   tamSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(tamSent2)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using TAM rules
+        AssemblySieve(precedence.reichenbachPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -59,7 +66,17 @@ class TestAssemblySieves extends FlatSpec with Matchers {
 
   tamSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(tamSent3)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using TAM rules
+        AssemblySieve(precedence.reichenbachPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -70,11 +87,53 @@ class TestAssemblySieves extends FlatSpec with Matchers {
     pr.after isEquivalentTo uRep should be (true)
   }
 
+
+  // Intrasential Odin rules
+
+  val intraSent1 = "Together these data demonstrate that E2-induced SRC-3 phosphorylation is dependent on a direct " +
+    "interaction between SRC-3 and ERα and can occur outside of the nucleus."
+
+  intraSent1 should "be annotated with the binding preceding the phosphorylation" in {
+    val mentions = getMentionsFromText(intraSent1)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using intrasentential Odin rules
+        AssemblySieve(precedence.intrasententialRBPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
+
+    val bRep = am.distinctSimpleEvents("Binding").head
+    val pRep = am.distinctRegulations(AssemblyManager.positive).head
+
+    am.distinctPredecessorsOf(pRep).size should be(1)
+    val pr = am.getPrecedenceRelationsFor(pRep).head
+    pr.before.equivalenceHash == bRep.equivalenceHash should be (true)
+    pr.after.equivalenceHash == pRep.equivalenceHash should be (true)
+
+  }
+
+  // Intersentential rules
+
   val interSent1 = "BEF was phosphorylated. Then, AFT was ubiquitinated."
 
   interSent1 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(interSent1)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using intersentential Odin rules
+        AssemblySieve(precedence.intersententialRBPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -89,7 +148,17 @@ class TestAssemblySieves extends FlatSpec with Matchers {
 
   interSent2 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(interSent2)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using intersentential Odin rules
+        AssemblySieve(precedence.intersententialRBPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -104,7 +173,17 @@ class TestAssemblySieves extends FlatSpec with Matchers {
 
   interSent3 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(interSent3)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using intersentential Odin rules
+        AssemblySieve(precedence.intersententialRBPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -119,7 +198,17 @@ class TestAssemblySieves extends FlatSpec with Matchers {
 
   interSent4 should "be annotated with the phosphorylation preceding the ubiquitination" in {
     val mentions = getMentionsFromText(interSent4)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using intersentential Odin rules
+        AssemblySieve(precedence.intersententialRBPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
@@ -136,7 +225,17 @@ class TestAssemblySieves extends FlatSpec with Matchers {
 
   interSent5 should "have no precedence relations" in {
     val mentions = getMentionsFromText(interSent5)
-    val am = applySieves(mentions)
+
+    val dedup = new DeduplicationSieves()
+    val precedence = new PrecedenceSieves()
+
+    val orderedSieves =
+    // track relevant mentions
+      AssemblySieve(dedup.trackMentions) andThen
+        // find precedence using intersentential Odin rules
+        AssemblySieve(precedence.intersententialRBPrecedence)
+
+    val am: AssemblyManager = orderedSieves.apply(mentions)
 
     val uRep = am.distinctSimpleEvents("Ubiquitination").head
     val pRep = am.distinctSimpleEvents("Phosphorylation").head
