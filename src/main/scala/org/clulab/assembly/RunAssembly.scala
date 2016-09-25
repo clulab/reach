@@ -1,9 +1,15 @@
 package org.clulab.assembly
 
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.FilenameUtils
+import java.io.File
 import org.clulab.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.odin.Mention
+import org.clulab.reach.PaperReader
+import org.clulab.reach.mentions._
 import org.clulab.utils.Serializer
+import scala.collection.parallel.ForkJoinTaskSupport
 import scala.reflect.io.File
 
 
@@ -116,5 +122,38 @@ object RunAnnotationEval extends App {
     }
 
     (rulePerformance :+ sievePerformance).sortBy(_.p).foreach(perf => println(perf.mkRow))
+  }
+}
+
+/**
+  * Serialize each paper in a directory to json
+  */
+object SerializePapersToJSON extends App with LazyLogging {
+
+  import org.clulab.reach.mentions.serialization.json._
+
+  val config = ConfigFactory.load()
+  val papersDir = new File(config.getString("papersDir"))
+  val outDir = new File(config.getString("outDir"))
+  // the number of threads to use for parallelization
+  val threadLimit = config.getInt("threadLimit")
+
+  logger.info(s"papersDir: ${papersDir.getAbsolutePath}")
+  logger.info(s"outDir: ${outDir.getAbsolutePath}")
+  logger.info(s"threads: $threadLimit")
+  val papers = papersDir.listFiles.par
+  papers.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+
+  for {
+    paper <- papers
+    paperID = FilenameUtils.removeExtension(paper.getName)
+    outFile = new File(s"$outDir/$paperID.json")
+    if !outFile.exists
+  } {
+    val mentions = PaperReader.getMentionsFromPaper(paper)
+    val cms: Seq[CorefMention] = mentions.map(_.toCorefMention)
+    logger.info(s"extracted ${mentions.size} mentions for $paperID")
+    cms.saveJSON(outFile, pretty = true)
+    logger.info(s"saved json to $outFile")
   }
 }
