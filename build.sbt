@@ -79,6 +79,8 @@ pomExtra := (
 // end publishing settings
 //
 
+//resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
   "org.clulab" %% "reach" % "1.3.2",
@@ -89,7 +91,9 @@ libraryDependencies ++= Seq(
   "commons-io" % "commons-io" % "2.4",
   // logging
   "ch.qos.logback" %  "logback-classic" % "1.1.7",
-  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0"
+  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
+  // graph-based CSP
+  "org.choco-solver" % "choco-graph" % "3.3.0"
 )
 
 // settings for building project website

@@ -1,25 +1,22 @@
 package org.clulab.assembly
 
 import java.io.File
-
 import org.clulab.assembly.representations._
-import org.clulab.assembly.sieves.SieveUtils
+import collection.Map
+import collection.immutable
 import org.clulab.odin._
-import org.clulab.reach.mentions.{CorefMention, MentionOps}
-
-import scala.collection.{Map, immutable}
+import org.clulab.reach.mentions.{MentionOps, CorefMention}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import org.clulab.reach.mentions
 
 
 /**
- * Stores precedence information for two distinct [[EntityEventRepresentation]]
-  *
+  * Stores precedence information for two distinct [[EntityEventRepresentation]]
   * @param before the [[EntityEventRepresentation] that precedes [[PrecedenceRelation.after]]
- * @param after the [[EntityEventRepresentation]] that follows [[PrecedenceRelation.before]]
- * @param evidence the mentions that serve as evidence for this precedence relation
- * @param foundBy the name of the Sieve which found this relation
- */
+  * @param after the [[EntityEventRepresentation]] that follows [[PrecedenceRelation.before]]
+  * @param evidence the mentions that serve as evidence for this precedence relation
+  * @param foundBy the name of the Sieve which found this relation
+  */
 case class PrecedenceRelation(
   before: EER,
   after: EER,
@@ -27,9 +24,10 @@ case class PrecedenceRelation(
   foundBy: String
 ) {
 
+  var confidence: Double = AssemblyManager.DEFAULT_CONFIDENCE
+
   /**
     * Returns true if the input argument is a [[PrecedenceRelation]] with identical before and after [[EntityEventRepresentation]]s
-    *
     * @param other Any comparison object
     * @return a Boolean
     */
@@ -41,7 +39,6 @@ case class PrecedenceRelation(
 
   /**
     * Returns true if the input argument is a [[PrecedenceRelation]] with either the same before or after [[EntityEventRepresentation]]s
-    *
     * @param other Any comparison object
     * @return a Boolean
     */
@@ -53,17 +50,17 @@ case class PrecedenceRelation(
 }
 
 /**
- * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
- *             These LUTs are used to populate the mentionStateToID and idToEERepresentation LUTs containing the same information.
- *             Subsequent updates to these LUTs create new LUTs.
- *             The motivation for the LUTs was to allow for changes in the mapping of a Mention -...-> [[EntityEventRepresentation]]
- *             to easily propagate in nested cases.
- *             For example, an update to the (Mention -> [[EntityEventRepresentation]]) mapping of a SimpleEvent Mention will propagate
- *             to the (Mention -> [[EntityEventRepresentation]]) mapping of any ComplexEvent Mention containing this SimpleEvent Mention.
- * @param m2id a lookup table from Mention -> [[IDPointer]].  Each key (Mention) should map to a unique [[IDPointer]].
- * @param id2eer a lookup table from [[IDPointer]] -> [[EntityEventRepresentation]].
- *                Keys ([[IDPointer]]) may point to the same value (EntityEventRepresentation)
- */
+  * @constructor Creates a new AssemblyManager from two LUTs: (Mention -> [[IDPointer]]) and ([[IDPointer]] -> [[EntityEventRepresentation]]).
+  *             These LUTs are used to populate the mentionStateToID and idToEERepresentation LUTs containing the same information.
+  *             Subsequent updates to these LUTs create new LUTs.
+  *             The motivation for the LUTs was to allow for changes in the mapping of a Mention -...-> [[EntityEventRepresentation]]
+  *             to easily propagate in nested cases.
+  *             For example, an update to the (Mention -> [[EntityEventRepresentation]]) mapping of a SimpleEvent Mention will propagate
+  *             to the (Mention -> [[EntityEventRepresentation]]) mapping of any ComplexEvent Mention containing this SimpleEvent Mention.
+  * @param m2id a lookup table from Mention -> [[IDPointer]].  Each key (Mention) should map to a unique [[IDPointer]].
+  * @param id2eer a lookup table from [[IDPointer]] -> [[EntityEventRepresentation]].
+  *                Keys ([[IDPointer]]) may point to the same value (EntityEventRepresentation)
+  */
 class AssemblyManager(
   m2id: Map[MentionState, IDPointer],
   id2eer: Map[IDPointer, EER]
@@ -101,41 +98,41 @@ class AssemblyManager(
   //
 
   /**
-   * Stores a PrecedenceRelation in [[EERtoPrecedenceRelations]] connecting "before" and "after".
-   * Tracks "before" and "after" Mentions and produces EERs, is not already present.
-    *
+    * Stores a PrecedenceRelation in [[EERtoPrecedenceRelations]] connecting "before" and "after".
+    * Tracks "before" and "after" Mentions and produces EERs, is not already present.
     * @param before an Odin Mention that causally precedes "after"
-   * @param after an Odin Mention that (causally) follows "before"
-   * @param evidence a Set of Odin Mentions serving as evidence for the precedence relation
-   * @param foundBy the name of the sieve or procedure that discovered this precedence relation
-   */
+    * @param after an Odin Mention that (causally) follows "before"
+    * @param evidence a Set of Odin Mentions serving as evidence for the precedence relation
+    * @param foundBy the name of the sieve or procedure that discovered this precedence relation
+    */
   def storePrecedenceRelation(
     before: Mention,
     after: Mention,
     evidence: Set[Mention] = Set.empty[Mention],
-    foundBy: String
+    foundBy: String,
+    confidence: Double = AssemblyManager.DEFAULT_CONFIDENCE
   ): Unit = {
 
     // ensure Mentions are being tracked
     // and get their corresponding EERs
     val eer1 = getOrCreateEER(before)
     val eer2 = getOrCreateEER(after)
-    val ev: Set[Mention] = if (evidence.isEmpty) SieveUtils.createEvidenceForCPR(before, after, foundBy) else evidence
-    storePrecedenceRelation(before = eer1, after = eer2, ev, foundBy)
+    val ev: Set[Mention] = if (evidence.isEmpty) sieves.SieveUtils.createEvidenceForCPR(before, after, foundBy) else evidence
+    storePrecedenceRelation(before = eer1, after = eer2, ev, foundBy, confidence)
   }
 
   /**
-   * Stores a PrecedenceRelation in [[EERtoPrecedenceRelations]] for the EERs corresponding to "before" and "after"
-    *
+    * Stores a PrecedenceRelation in [[EERtoPrecedenceRelations]] for the EERs corresponding to "before" and "after"
     * @param before an [[EntityEventRepresentation]] that causally precedes "after"
-   * @param after an [[EntityEventRepresentation]] that (causally) follows "before"
-   * @param foundBy the name of the sieve or procedure that discovered this precedence relation
-   */
+    * @param after an [[EntityEventRepresentation]] that (causally) follows "before"
+    * @param foundBy the name of the sieve or procedure that discovered this precedence relation
+    */
   def storePrecedenceRelation(
     before: EER,
     after: EER,
     evidence: Set[Mention],
-    foundBy: String
+    foundBy: String,
+    confidence: Double
   ): Unit = {
 
     val pr = PrecedenceRelation(
@@ -145,20 +142,23 @@ class AssemblyManager(
       foundBy
     )
 
+    // adjust confidence level
+    pr.confidence = confidence
+
     updateEERtoPrecedenceRelations(pr)
   }
 
   def storePrecedenceRelation(
     before: EER,
     after: EER,
-    foundBy: String
-  ): Unit = storePrecedenceRelation(before, after, Set.empty[Mention], foundBy)
+    foundBy: String,
+    confidence: Double
+  ): Unit = storePrecedenceRelation(before, after, Set.empty[Mention], foundBy, confidence)
 
   /**
-   * Update entries in [[EERtoPrecedenceRelations]] for pr.before and pr.after
-    *
+    * Update entries in [[EERtoPrecedenceRelations]] for pr.before and pr.after
     * @param pr a [[PrecedenceRelation]]
-   */
+    */
   private def updateEERtoPrecedenceRelations(pr: PrecedenceRelation): Unit = {
     // update PRs for before
     val before = pr.before
@@ -172,71 +172,65 @@ class AssemblyManager(
 
   // retrieval of PrecedenceRelations
   /**
-   * Retrieves the Set of PrecedenceRelations corresponding to the provided [[EntityEventRepresentation.equivalenceHash]] (eh)
-    *
+    * Retrieves the Set of PrecedenceRelations corresponding to the provided [[EntityEventRepresentation.equivalenceHash]] (eh)
     * @param eer an [[EntityEventRepresentation]]
-   */
+    */
   def getPrecedenceRelationsFor(eer: EER): Set[PrecedenceRelation] = EERtoPrecedenceRelations(eer)
 
   /**
-   * Retrieves the Set of PrecedenceRelations corresponding to the provided Mention
-    *
+    * Retrieves the Set of PrecedenceRelations corresponding to the provided Mention
     * @param m an Odin Mention
-   */
+    */
   def getPrecedenceRelationsFor(m: Mention): Set[PrecedenceRelation] = {
     getPrecedenceRelationsFor(getOrCreateEER(m))
   }
 
   /**
-   * Retrieves the (distinct) Set of PrecedenceRelations for all Events
-   */
+    * Retrieves the (distinct) Set of PrecedenceRelations for all Events
+    */
   def getPrecedenceRelations: Set[PrecedenceRelation] = {
-   for {
-     e <- distinctEvents
-     pr <- getPrecedenceRelationsFor(e)
-   } yield pr
+    for {
+      e <- distinctEvents
+      pr <- getPrecedenceRelationsFor(e)
+    } yield pr
   }
 
   /**
-   * Retrieves the distinct Set of EER predecessors for the provided EER.
-    *
+    * Retrieves the distinct Set of EER predecessors for the provided EER.
     * @param eer an [[EntityEventRepresentation]]
-   * @return the Set of distinct EntityEventRepresentations known to causally precede any EER corresponding to [[EntityEventRepresentation.equivalenceHash]]
-   */
+    * @return the Set of distinct EntityEventRepresentations known to causally precede any EER corresponding to [[EntityEventRepresentation.equivalenceHash]]
+    */
   def distinctPredecessorsOf(eer: EER): Set[EER] = {
     val predecessors = predecessorsOf(eer)
     distinctEERsFromSet(predecessors)
   }
 
   /**
-   * Retrieves the distinct Set of EER predecessors for the provided Mention (m).
-    *
+    * Retrieves the distinct Set of EER predecessors for the provided Mention (m).
     * @param m an Odin Mention
-   * @return the Set of distinct EntityEventRepresentations known to causally precede the EER corresponding to M
-   */
+    * @return the Set of distinct EntityEventRepresentations known to causally precede the EER corresponding to M
+    */
   def distinctPredecessorsOf(m: Mention): Set[EER] = m match {
     case isValid if AssemblyManager.isValidMention(m) =>
-        distinctPredecessorsOf(getOrCreateEER(m))
+      distinctPredecessorsOf(getOrCreateEER(m))
     case _ => Set.empty[EER]
   }
 
   /**
-   * Retrieves the non-distinct Set of EER predecessors for the provided EER.
-    *
+    * Retrieves the non-distinct Set of EER predecessors for the provided EER.
     * @param eer an [[EntityEventRepresentation]]
-   * @return the Set of non-distinct EntityEventRepresentations known to causally precede eer
-   */
+    * @return the Set of non-distinct EntityEventRepresentations known to causally precede eer
+    */
   def predecessorsOf(eer: EER): Set[EER] = for {
     pr <- EERtoPrecedenceRelations(eer)
     if pr.before.equivalenceHash != eer.equivalenceHash
   } yield pr.before
 
   /**
-   * Retrieves the non-distinct Set of EER predecessors for the provided Mention (m).
-    *
+    * Retrieves the non-distinct Set of EER predecessors for the provided Mention (m).
     * @param m an Odin Mention
-   * @return the Set of non-distinct EntityEventRepresentations known to causally precede the EER corresponding to m
-   */
+    * @return the Set of non-distinct EntityEventRepresentations known to causally precede the EER corresponding to m
+    */
   def predecessorsOf(m: Mention): Set[EER] = m match {
     // check if valid mention
     case isValid if AssemblyManager.isValidMention(isValid) =>
@@ -245,22 +239,20 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves the distinct Set of EER successors for the provided EER.
-    *
+    * Retrieves the distinct Set of EER successors for the provided EER.
     * @param eer an [[EntityEventRepresentation]]
-   * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
-   */
+    * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
+    */
   def distinctSuccessorsOf(eer: EER): Set[EER] = {
     val successors = successorsOf(eer)
     distinctEERsFromSet(successors)
   }
 
   /**
-   * Retrieves the distinct Set of EER successors for the provided Mention (m).
-    *
+    * Retrieves the distinct Set of EER successors for the provided Mention (m).
     * @param m an Odin Mention
-   * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
-   */
+    * @return the Set of distinct EntityEventRepresentations known to causally succeed any EER corresponding to eh
+    */
   def distinctSuccessorsOf(m: Mention): Set[EER] = m match {
     // check if Mention is valid
     case isValid if AssemblyManager.isValidMention(isValid) =>
@@ -269,22 +261,20 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves the non-distinct Set of EER successors for the provided EER.
-    *
+    * Retrieves the non-distinct Set of EER successors for the provided EER.
     * @param eer an [[EntityEventRepresentation]]
-   * @return the Set of non-distinct EntityEventRepresentations known to causally succeed eer
-   */
+    * @return the Set of non-distinct EntityEventRepresentations known to causally succeed eer
+    */
   def successorsOf(eer: EER): Set[EER] = for {
     pr <- getPrecedenceRelationsFor(eer)
     if pr.after.equivalenceHash != eer.equivalenceHash
   } yield eer
 
   /**
-   * Retrieves the non-distinct Set of EER successors for the provided Mention (m).
-    *
+    * Retrieves the non-distinct Set of EER successors for the provided Mention (m).
     * @param m an Odin Mention
-   * @return the Set of non-distinct EntityEventRepresentations known to causally succeed the EER corresponding to m
-   */
+    * @return the Set of non-distinct EntityEventRepresentations known to causally succeed the EER corresponding to m
+    */
   def successorsOf(m: Mention): Set[EER] = m match {
     // check if Mention is valid
     case isValid if AssemblyManager.isValidMention(isValid) =>
@@ -297,22 +287,20 @@ class AssemblyManager(
   //
 
   /**
-   * Creates an [[EntityEventRepresentation]] if m is a valid Mention
-   * See [[isValidMention]] for details on validation check
-    *
+    * Creates an [[EntityEventRepresentation]] if m is a valid Mention
+    * See [[isValidMention]] for details on validation check
     * @param m an Odin Mention
-   */
+    */
   def trackMention(m: Mention): Unit = {
     // do not store Sites, Activations, etc. in LUT 1
     if (isValidMention(m)) getOrCreateEER(m)
   }
 
   /**
-   * Creates an [[EntityEventRepresentation]] for each valid Mention
-   * See [[isValidMention]] for details on validation check
-    *
+    * Creates an [[EntityEventRepresentation]] for each valid Mention
+    * See [[isValidMention]] for details on validation check
     * @param mentions a sequence of Mention to store in the AssemblyManager LUTs
-   */
+    */
   def trackMentions(mentions: Seq[Mention]): Unit = {
     // do not store Sites, Activations, etc. in LUT 1
     mentions.filter(isValidMention)
@@ -321,11 +309,10 @@ class AssemblyManager(
   }
 
   /**
-   * Gets the polarity of a mention.  Should only be relevant to ComplexEvents
-    *
+    * Gets the polarity of a mention.  Should only be relevant to ComplexEvents
     * @param m an Odin Mention
-   * @return [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
-   */
+    * @return [[AssemblyManager.positive]], [[AssemblyManager.negative]], or [[AssemblyManager.unknown]]
+    */
   def getPolarityLabel(m: Mention): String = m match {
     case pos if pos matches "(?i)^positive".r => AssemblyManager.positive
     case neg if neg matches "(?i)^negative".r => AssemblyManager.negative
@@ -337,11 +324,10 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a unique [[IDPointer]].
-   * This implementation does not rely on updates to either the [[mentionStateToID]] or [[idToEER]] LUT to determine a unique [[IDPointer]].
-    *
+    * Creates a unique [[IDPointer]].
+    * This implementation does not rely on updates to either the [[mentionStateToID]] or [[idToEER]] LUT to determine a unique [[IDPointer]].
     * @return a unique [[IDPointer]]
-   */
+    */
   // use the size of LUT 2 to create a new ID
   private def createID: IDPointer = {
     val currentID = nextID
@@ -350,11 +336,10 @@ class AssemblyManager(
   }
 
   /**
-   * Attempts to retrieve an [[IDPointer]] for a Mention, and creates a new [[IDPointer]] if none is found.
-    *
+    * Attempts to retrieve an [[IDPointer]] for a Mention, and creates a new [[IDPointer]] if none is found.
     * @param m an Odin Mention
-   * @return an [[IDPointer]] unique to m
-   */
+    * @return an [[IDPointer]] unique to m
+    */
   private def getOrCreateID(m: Mention): IDPointer = {
     mentionStateToID.getOrElse(getMentionState(m), createID)
   }
@@ -364,12 +349,11 @@ class AssemblyManager(
   //
 
   /**
-   * Updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param id a unique [[IDPointer]] for m
-   * @param m an Odin Mention
-   * @param eer the [[EntityEventRepresentation]] corresponding to m
-   */
+    * @param m an Odin Mention
+    * @param eer the [[EntityEventRepresentation]] corresponding to m
+    */
   private def updateLUTs(id: IDPointer, m: Mention, eer: EER): Unit = {
     // update LUT #1a
     updateMentionStateToIDTable(m, id)
@@ -382,42 +366,38 @@ class AssemblyManager(
   }
 
   /**
-   * Updates the [[ehToEERs]] LUT
-    *
+    * Updates the [[ehToEERs]] LUT
     * @param eh an equivalenceHash
-   * @param eer an [[EER]]
-   */
+    * @param eer an [[EER]]
+    */
   private def updateEHtoEERsTable(eh: Int, eer: EER): Unit = {
     val idsForEH = ehToEERs.getOrElse(eh, Set.empty[EER]) ++ Set(eer)
     ehToEERs = ehToEERs + (eh -> idsForEH)
   }
 
   /**
-   * Updates the [[mentionStateToID]] LUT
-    *
+    * Updates the [[mentionStateToID]] LUT
     * @param m an Odin Mention
-   * @param id an [[IDPointer]] unique to m
-   */
+    * @param id an [[IDPointer]] unique to m
+    */
   private def updateMentionStateToIDTable(m: Mention, id: IDPointer): Unit = {
     mentionStateToID = mentionStateToID + (getMentionState(m) -> id)
   }
 
   /**
-   * Updates the [[idToMentionState]] LUT
-    *
+    * Updates the [[idToMentionState]] LUT
     * @param m an Odin Mention
-   * @param id an [[IDPointer]] unique to m
-   */
+    * @param id an [[IDPointer]] unique to m
+    */
   private def updateIDtoMentionStateTable(m: Mention, id: IDPointer): Unit = {
     idToMentionState = idToMentionState + (id -> getMentionState(m))
   }
 
   /**
-   * Updates the [[idToEER]] LUT
-    *
+    * Updates the [[idToEER]] LUT
     * @param id a unique [[IDPointer]] pointing to eer
-   * @param eer an [[EntityEventRepresentation]] associated with the provided id
-   */
+    * @param eer an [[EntityEventRepresentation]] associated with the provided id
+    */
   private def updateIDtoEERTable(id: IDPointer, eer: EER): Unit = {
     idToEER = idToEER + (id -> eer)
     // update the ehToEERs table
@@ -429,11 +409,10 @@ class AssemblyManager(
   //
 
   /**
-   * Removes mention and corresponding [[EntityEventRepresentation]] associated with the provided id.
-   * If the corresponding EntityEventRepresentation is a [[SimpleEvent]], remove its output as well.
-    *
+    * Removes mention and corresponding [[EntityEventRepresentation]] associated with the provided id.
+    * If the corresponding EntityEventRepresentation is a [[SimpleEvent]], remove its output as well.
     * @param id an [[IDPointer]] used to identify mentions and EntityEventRepresentations for removal
-   */
+    */
   def removeEntriesContainingID(id: IDPointer): Unit = {
 
     // get ids of EEReprs containing the given id
@@ -441,30 +420,28 @@ class AssemblyManager(
       r <- idToEER.values.toSeq
       if r.containsID(id)
     } yield r match {
-        // if an event, get event's id and ids of event's outputs
-        case event: SimpleEvent =>
-          event.outputPointers ++ Set(event.uniqueID)
-        case eer => Set(eer.uniqueID)
-      }
+      // if an event, get event's id and ids of event's outputs
+      case event: SimpleEvent =>
+        event.outputPointers ++ Set(event.uniqueID)
+      case eer => Set(eer.uniqueID)
+    }
 
     removeEntriesCorrespondingToIDs(ids.flatten)
   }
 
   /**
-   * Removes mention and corresponding EERepresentation from the AssemblyManager
-    *
+    * Removes mention and corresponding EERepresentation from the AssemblyManager
     * @param m
-   */
+    */
   def removeEntriesContainingIDofMention(m: Mention): Unit = {
     val id = getOrCreateID(m)
     removeEntriesContainingID(id)
   }
 
   /**
-   * Removes entries referencing the given [[EntityEventRepresentation]].
-    *
+    * Removes entries referencing the given [[EntityEventRepresentation]].
     * @param eer an [[EntityEventRepresentation]] used to identify mentions and EntityEventRepresentations for removal
-   */
+    */
   def removeEntriesContainingIDofEER(eer: EER): Unit = {
 
     // get ids of EERepresentations containing the id of the given EERepresentation
@@ -477,10 +454,9 @@ class AssemblyManager(
   }
 
   /**
-   * Removes entries referencing the any of the given [[IDPointer]].
-    *
+    * Removes entries referencing the any of the given [[IDPointer]].
     * @param ids a Seq[IDPointer] used to identify mentions and EntityEventRepresentations for removal
-   */
+    */
   def removeEntriesCorrespondingToIDs(ids: Seq[IDPointer]): Unit = {
 
     // remove mentions associated with the IDs
@@ -509,16 +485,15 @@ class AssemblyManager(
   //
 
   /**
-   * Builds a Set[AssemblyModfication] from the modifcations belonging to a Mention m.
-   * Currently, only a subset of Mention [[org.clulab.reach.mentions.Modification]] are considered relevant to assembly:
-   * PTM
-   * Mutant
-   *
-   * Additionally, a Mention corresponding to an Entity will include an [[EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
+    * Builds a Set[AssemblyModfication] from the modifcations belonging to a Mention m.
+    * Currently, only a subset of Mention [[org.clulab.reach.mentions.Modification]] are considered relevant to assembly:
+    * PTM
+    * Mutant
     *
+    * Additionally, a Mention corresponding to an Entity will include an [[EntityLabel]] [[AssemblyModification]] encoding its label (ex. Family)
     * @param m an Odin Mention
-   * @return Set[AssemblyModification]
-   */
+    * @return Set[AssemblyModification]
+    */
   protected def mkAssemblyModifications(m: Mention): Set[AssemblyModification] = {
     // we only care to represent a subset of the Modifications associated with a mention
     val mods: Set[AssemblyModification] =
@@ -539,17 +514,16 @@ class AssemblyManager(
   //
 
   /**
-   * Create a [[SimpleEntity]] representation from a Mention
-   * and an optional set of optional modifications (useful for building output of SimpleEvent)
-   *
-   * Whenever modifications are provided, the [[mentionStateToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
+    * Create a [[SimpleEntity]] representation from a Mention
+    * and an optional set of optional modifications (useful for building output of SimpleEvent)
     *
+    * Whenever modifications are provided, the [[mentionStateToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
     * @param m an Odin Mention
-   * @param mods an optional set of [[AssemblyModification]].
-   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
-   *             (i.e., the PTM cannot be recovered by simply examining m out of context)
-   * @return a tuple of ([[IDPointer]], [[SimpleEntity]])
-   */
+    * @param mods an optional set of [[AssemblyModification]].
+    *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
+    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
+    * @return a tuple of ([[IDPointer]], [[SimpleEntity]])
+    */
   protected def createSimpleEntityWithID(
     m: Mention,
     mods: Option[Set[AssemblyModification]]
@@ -604,17 +578,16 @@ class AssemblyManager(
   }
 
   /**
-   * Create a [[SimpleEntity]] representation from a Mention
-   * and an optional set of optional modifications (useful for building output of SimpleEvent)
-   *
-   * Whenever modifications are provided, the [[mentionStateToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
+    * Create a [[SimpleEntity]] representation from a Mention
+    * and an optional set of optional modifications (useful for building output of SimpleEvent)
     *
+    * Whenever modifications are provided, the [[mentionStateToID]] LUT is NOT updated, so as to avoid a conflict with the existing mapping (see the description of mods for the motivation)
     * @param m an Odin Mention
-   * @param mods an optional set of [[AssemblyModification]].
-   *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
-   *             (i.e., the PTM cannot be recovered by simply examining m out of context)
-   * @return a [[SimpleEntity]]
-   */
+    * @param mods an optional set of [[AssemblyModification]].
+    *             This is useful for building the output of a [[SimpleEvent]] (any simple event other than a Binding), which is a set of [[SimpleEvent]] where the key [[PTM]] comes from the [[SimpleEvent]]
+    *             (i.e., the PTM cannot be recovered by simply examining m out of context)
+    * @return a [[SimpleEntity]]
+    */
   protected def createSimpleEntity(
     m: Mention,
     mods: Option[Set[AssemblyModification]]
@@ -626,11 +599,10 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[Complex]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a tuple of ([[Complex]], [[IDPointer]])
-   */
+    * @return a tuple of ([[Complex]], [[IDPointer]])
+    */
   protected def createComplexWithID(m: Mention): (Complex, IDPointer) = {
 
     // check for coref
@@ -663,11 +635,10 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[Complex]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[Complex]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a [[Complex]]
-   */
+    * @return a [[Complex]]
+    */
   private def createComplex(m: Mention): Complex = createComplexWithID(m)._1
 
   //
@@ -675,11 +646,10 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
-   */
+    * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+    */
   private def createSimpleEventWithID(m: Mention): (SimpleEvent, IDPointer) = {
 
     //
@@ -687,11 +657,10 @@ class AssemblyManager(
     //
 
     /**
-     * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-      *
+      * Creates a [[SimpleEvent]] from a Binding Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
       * @param m an Odin Mention
-     * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
-     */
+      * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+      */
     def handleBinding(m: Mention): (SimpleEvent, IDPointer) = {
 
       // check for coref
@@ -761,16 +730,15 @@ class AssemblyManager(
     }
 
     /**
-     * Creates a [[SimpleEvent]] from a Translocation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-      *
+      * Creates a [[SimpleEvent]] from a Translocation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
       * @param m an Odin Mention
-     * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
-     */
+      * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+      */
     def handleTranslocation(m: Mention): (SimpleEvent, IDPointer) = {
 
       /**
-       * Create input Map for Translocation event
-       */
+        * Create input Map for Translocation event
+        */
       def createInputForTranslocation(m: Mention): Map[String, Set[IDPointer]] = {
 
         val isNegated = hasNegation(m)
@@ -804,8 +772,8 @@ class AssemblyManager(
       }
 
       /**
-       * Create output Set for addition event
-       */
+        * Create output Set for addition event
+        */
       def createOutputForTranslocation(m: Mention): Set[IDPointer] = {
 
         val isNegated = hasNegation(m)
@@ -865,89 +833,88 @@ class AssemblyManager(
       (eer, id)
     }
 
-     /**
-     * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-       *
-       * @param m an Odin Mention
-     * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
-     */
+    /**
+      * Creates a [[SimpleEvent]] from a SimpleEvent Mention (excluding Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
+      * @param m an Odin Mention
+      * @return a tuple of ([[SimpleEvent]], [[IDPointer]])
+      */
     def handleNBSimpleEvent(m: Mention): (SimpleEvent, IDPointer) = {
 
-       /**
+      /**
         * Create input Map for removal event
         */
-       def createInputForRemovalEvent(m: Mention): Map[String, Set[IDPointer]] = {
+      def createInputForRemovalEvent(m: Mention): Map[String, Set[IDPointer]] = {
 
-         val isNegated = hasNegation(m)
+        val isNegated = hasNegation(m)
 
-         // get input PTM for removal event
-         val ptm: String = m.label.replaceAll("^De", "").capitalize
+        // get input PTM for removal event
+        val ptm: String = m.label.replaceAll("^De", "").capitalize
 
-         // handle sites
-         val ptms: Set[AssemblyModification] = m match {
-           case hasSites if hasSites.arguments contains "site" =>
-             // create a PTM for each site
-             for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(ptm, Some(site.text), isNegated)
-           // create a PTM without a site
-           case noSites => Set(representations.PTM(ptm, None, isNegated))
-         }
+        // handle sites
+        val ptms: Set[AssemblyModification] = m match {
+          case hasSites if hasSites.arguments contains "site" =>
+            // create a PTM for each site
+            for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(ptm, Some(site.text), isNegated)
+          // create a PTM without a site
+          case noSites => Set(representations.PTM(ptm, None, isNegated))
+        }
 
-         // filter out sites from input
-         val siteLessArgs = m.arguments - "site"
-         val input: Map[String, Set[IDPointer]] = siteLessArgs map {
-           case ("theme", mns: Seq[Mention]) =>
-             ("theme", mns.map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2).toSet)
-           case (role: String, mns: Seq[Mention]) =>
-             (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
-         }
-         input
-       }
+        // filter out sites from input
+        val siteLessArgs = m.arguments - "site"
+        val input: Map[String, Set[IDPointer]] = siteLessArgs map {
+          case ("theme", mns: Seq[Mention]) =>
+            ("theme", mns.map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2).toSet)
+          case (role: String, mns: Seq[Mention]) =>
+            (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
+        }
+        input
+      }
 
-       /**
+      /**
         * Create input Map for addition event
         */
-       def createInputForAdditionEvent(m: Mention): Map[String, Set[IDPointer]] = {
-         // filter out sites from input
-         val siteLessArgs = m.arguments - "site"
-         val input: Map[String, Set[IDPointer]] = siteLessArgs map {
-           case (role: String, mns: Seq[Mention]) =>
-             //println(s"\tprocessing mentions for '$role' role of '${e.label}'")
-             (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
-         }
-         input
-       }
+      def createInputForAdditionEvent(m: Mention): Map[String, Set[IDPointer]] = {
+        // filter out sites from input
+        val siteLessArgs = m.arguments - "site"
+        val input: Map[String, Set[IDPointer]] = siteLessArgs map {
+          case (role: String, mns: Seq[Mention]) =>
+            //println(s"\tprocessing mentions for '$role' role of '${e.label}'")
+            (role, mns.map(getOrCreateEERwithID).map(_._2).toSet)
+        }
+        input
+      }
 
-       /**
+      /**
         * Create output Set for addition event
         */
-       def createOutputForRemovalEvent(m: Mention): Set[IDPointer] = {
-         // NOTE: we need to be careful if we use something other than theme
-         m.arguments("theme")
-           .map(getOrCreateEERwithID).map(_._2)
-           .toSet
-       }
+      def createOutputForRemovalEvent(m: Mention): Set[IDPointer] = {
+        // NOTE: we need to be careful if we use something other than theme
+        m.arguments("theme")
+          .map(getOrCreateEERwithID).map(_._2)
+          .toSet
+      }
 
-       /**
+      /**
         * Create output Set for addition event
         */
-       def createOutputForAdditionEvent(m: Mention): Set[IDPointer] = {
+      def createOutputForAdditionEvent(m: Mention): Set[IDPointer] = {
 
-         val isNegated = hasNegation(m)
+        val isNegated = hasNegation(m)
 
-         // handle sites
-         val ptms: Set[AssemblyModification] = m match {
-           case hasSites if hasSites.arguments contains "site" =>
-             // create a PTM for each site
-             for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(m.label, Some(site.text), isNegated)
-           // create a PTM without a site
-           case noSites => Set(representations.PTM(m.label, None, isNegated))
-         }
+        // handle sites
+        val ptms: Set[AssemblyModification] = m match {
+          case hasSites if hasSites.arguments contains "site" =>
+            // create a PTM for each site
+            for (site <- hasSites.arguments("site").toSet[Mention]) yield representations.PTM(m.label, Some(site.text), isNegated)
+          // create a PTM without a site
+          case noSites => Set(representations.PTM(m.label, None, isNegated))
+        }
 
-         // NOTE: we need to be careful if we use something other than theme
-         m.arguments("theme")
-           .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2)
-           .toSet
-       }
+        // NOTE: we need to be careful if we use something other than theme
+        m.arguments("theme")
+          .map(m => createSimpleEntityWithID(m, Some(ptms))).map(_._2)
+          .toSet
+      }
 
       // check for coref
       val e = getResolvedForm(m)
@@ -1011,11 +978,10 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[SimpleEvent]] from a Simple Event Mention (excludes Bindings) and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a [[SimpleEvent]]
-   */
+    * @return a [[SimpleEvent]]
+    */
   private def createSimpleEvent(m: Mention): SimpleEvent = createSimpleEventWithID(m)._1
 
   //
@@ -1023,11 +989,10 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a tuple of ([[Regulation]], [[IDPointer]])
-   */
+    * @return a tuple of ([[Regulation]], [[IDPointer]])
+    */
   private def createRegulationWithID(m: Mention): (Regulation, IDPointer) = {
 
     // check for coref
@@ -1079,19 +1044,17 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[Regulation]] from a Regulation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a [[Regulation]]
-   */
+    * @return a [[Regulation]]
+    */
   private def createRegulation(m: Mention): Regulation = createRegulationWithID(m)._1
 
   /**
-   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[Activation]] from an Activation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a [[Activation]]
-   */
+    * @return a [[Activation]]
+    */
   private def createActivation(m: Mention): Activation = createActivationWithID(m)._1
 
   //
@@ -1099,11 +1062,10 @@ class AssemblyManager(
   //
 
   /**
-   * Creates a [[Activation]] from an Activation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
-    *
+    * Creates a [[Activation]] from an Activation Mention and updates the [[mentionStateToID]] and [[idToEER]] LUTs
     * @param m an Odin Mention
-   * @return a tuple of ([[Activation]], [[IDPointer]])
-   */
+    * @return a tuple of ([[Activation]], [[IDPointer]])
+    */
   private def createActivationWithID(m: Mention): (Activation, IDPointer) = {
 
     // check for coref
@@ -1156,14 +1118,13 @@ class AssemblyManager(
   //
 
   /**
-   * Attempts to retrieve an [[EntityEventRepresentation]] for m.
-   * If a representation cannot be retrieved, a new one is created.
-   * Whenever a new representation is created,
-   * the [[mentionStateToID]] and [[idToEER]] LUTs will be updated (see [[createEER]] for details)
-    *
+    * Attempts to retrieve an [[EntityEventRepresentation]] for m.
+    * If a representation cannot be retrieved, a new one is created.
+    * Whenever a new representation is created,
+    * the [[mentionStateToID]] and [[idToEER]] LUTs will be updated (see [[createEER]] for details)
     * @param m an Odin Mention
-   * @return the [[EntityEventRepresentation]] corresponding to m
-   */
+    * @return the [[EntityEventRepresentation]] corresponding to m
+    */
   private def getOrCreateEER(m: Mention): EER = {
     // ensure this mention should be stored in LUT 1
     require(isValidMention(m), s"mention with the label ${m.label} cannot be tracked by the AssemblyManager")
@@ -1178,12 +1139,11 @@ class AssemblyManager(
   }
 
   /**
-   * Attempts to retrieve a ([[EntityEventRepresentation]], [[IDPointer]]) tuple given a Mention m.
-   * The tuple will be created if the Mention m is not already present in the [[mentionStateToID]] LUT
-    *
+    * Attempts to retrieve a ([[EntityEventRepresentation]], [[IDPointer]]) tuple given a Mention m.
+    * The tuple will be created if the Mention m is not already present in the [[mentionStateToID]] LUT
     * @param m an Odin Mention
-   * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
-   */
+    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
+    */
   private def getOrCreateEERwithID(m: Mention): (EER, IDPointer) = hasMention(m) match {
     case true =>
       val id = mentionStateToID(getMentionState(m))
@@ -1196,13 +1156,12 @@ class AssemblyManager(
   }
 
   /**
-   * Creates a ([[EntityEventRepresentation]], [[IDPointer]]) tuple from a Mention m.
-   * Assumes the Mention m is not already present in the [[mentionStateToID]] LUT
-   * Updates to [[mentionStateToID]] and [[idToEER]] in the relevant create* call
-    *
+    * Creates a ([[EntityEventRepresentation]], [[IDPointer]]) tuple from a Mention m.
+    * Assumes the Mention m is not already present in the [[mentionStateToID]] LUT
+    * Updates to [[mentionStateToID]] and [[idToEER]] in the relevant create* call
     * @param m an Odin Mention
-   * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
-   */
+    * @return a tuple of ([[EntityEventRepresentation]], [[IDPointer]])
+    */
   private def createEERwithID(m: Mention): (EER, IDPointer) = {
     // pass the unresolved form through according to a check against the resolved form
     getResolvedForm(m) match {
@@ -1217,12 +1176,11 @@ class AssemblyManager(
   }
 
   /**
-   * Creates an ([[EntityEventRepresentation]], [[IDPointer]]) tuple given a Mention m.
-   * The tuple will be created if the Mention m is not already present in the [[mentionStateToID]] LUT
-    *
+    * Creates an ([[EntityEventRepresentation]], [[IDPointer]]) tuple given a Mention m.
+    * The tuple will be created if the Mention m is not already present in the [[mentionStateToID]] LUT
     * @param m an Odin Mention
-   * @return an [[EntityEventRepresentation]]
-   */
+    * @return an [[EntityEventRepresentation]]
+    */
   private def createEER(m: Mention): EER = createEERwithID(m)._1
 
   //
@@ -1230,8 +1188,8 @@ class AssemblyManager(
   //
 
   /**
-   * A (mostly) human readable printout of the (key, value) pairs in the [[mentionStateToID]]] LUT
-   */
+    * A (mostly) human readable printout of the (key, value) pairs in the [[mentionStateToID]]] LUT
+    */
   def mentionIndexSummary: Seq[String] = {
     for {
       (k, id) <- mentionStateToID.toSeq
@@ -1243,34 +1201,30 @@ class AssemblyManager(
   //
 
   /**
-   * Retrieves all tracked Mentions from [[AssemblyManager.mentionStateToID]]
-    *
+    * Retrieves all tracked Mentions from [[AssemblyManager.mentionStateToID]]
     * @return the Set of Odin Mentions tracked by this AssemblyManager
-   */
+    */
   def trackedMentions: Set[Mention] = mentionStateToID.keys.map(_._1).toSet
 
   /**
-   * Retrieves all EntityEventRepresentations found in [[AssemblyManager.idToEER]]
-    *
+    * Retrieves all EntityEventRepresentations found in [[AssemblyManager.idToEER]]
     * @return the Set of Odin Mentions tracked by this AssemblyManager
-   */
+    */
   def EERs: Set[EER] = idToEER.values.toSet
 
   /**
-   * Retrieves ID from an [[EntityEventRepresentation.uniqueID]]
-    *
+    * Retrieves ID from an [[EntityEventRepresentation.uniqueID]]
     * @param eer an EntityEventRepresentation
-   * @return the IDPointer for the repr
-   */
+    * @return the IDPointer for the repr
+    */
   def getID(eer: EER): IDPointer = eer.uniqueID
 
   /**
-   * Retrieves an [[EntityEventRepresentation]] for a Mention.
-   * Assumes an [[EntityEventRepresentation]] for the given Mention already exists.
-    *
+    * Retrieves an [[EntityEventRepresentation]] for a Mention.
+    * Assumes an [[EntityEventRepresentation]] for the given Mention already exists.
     * @param m an Odin Mention
-   * @return an [[EntityEventRepresentation]]
-   */
+    * @return an [[EntityEventRepresentation]]
+    */
   def getEER(m: Mention): EER = {
     require(isValidMention(m), s"Mention '${m.label}' is not valid")
     val k1 = getMentionState(m)
@@ -1281,27 +1235,33 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves an [[EntityEventRepresentation]] associated with the given [[IDPointer]].
-   * Assumes an [[EntityEventRepresentation]] associated with the provide [[IDPointer]] already exists.
-    *
+    * Retrieves an [[EntityEventRepresentation]] associated with the given [[IDPointer]].
+    * Assumes an [[EntityEventRepresentation]] associated with the provide [[IDPointer]] already exists.
     * @param id an [[IDPointer]]
-   * @return an [[EntityEventRepresentation]]
-   */
+    * @return an [[EntityEventRepresentation]]
+    */
   def getEER(id: IDPointer): EER =
     idToEER(id)
 
   /**
-   * Retrieves the Set of [[EntityEventRepresentation]] tracked by the manager.
-    *
+    * Retrieves the Set of [[EntityEventRepresentation]] tracked by the manager.
     * @return Set[EntityEventRepresentation]
-   */
+    */
   def getEERs: Set[EER] = idToEER.values.toSet
 
   /**
-   * Returns a SimpleEntity for a Mention with the appropriate labels.
-    *
+    * Returns an Entity for a Mention with the appropriate labels.
+    * @param m an Odin Mention.  Must have the label "Entity"
+    */
+  def getEntity(m: Mention): Entity = {
+    require(m matches "Entity", "Mention is not an Entity")
+    getOrCreateEER(m).asInstanceOf[Entity]
+  }
+
+  /**
+    * Returns a SimpleEntity for a Mention with the appropriate labels.
     * @param m an Odin Mention.  Must have the label "Entity" and not the label "Complex".
-   */
+    */
   def getSimpleEntity(m: Mention): SimpleEntity = {
     require(m matches "Entity", "Mention is not an Entity")
     require(! (m matches "Complex"), "Mention is a Complex")
@@ -1309,49 +1269,44 @@ class AssemblyManager(
   }
 
   /**
-   * Returns an Event for a Mention with the appropriate labels.
-    *
+    * Returns an Event for a Mention with the appropriate labels.
     * @param m an Odin Mention.
-   */
+    */
   // TODO: add label check?
   def getEvent(m: Mention): Event = getOrCreateEER(m).asInstanceOf[Event]
 
   /**
-   * Returns a Regulation for a Mention m with the appropriate label.
-    *
+    * Returns a Regulation for a Mention m with the appropriate label.
     * @param m an Odin Mention.  Must have the label "Complex".
-   */
+    */
   def getComplex(m: Mention): Complex = {
     require(m matches "Complex", "Mention is not a Complex")
     getOrCreateEER(m).asInstanceOf[Complex]
   }
 
   /**
-   * Returns a SimpleEvent for a Mention m with the appropriate labels.
-    *
+    * Returns a SimpleEvent for a Mention m with the appropriate labels.
     * @param m an Odin Mention.  Must have the label "SimpleEvent".
-   */
+    */
   def getSimpleEvent(m: Mention): SimpleEvent = {
     require(m matches "SimpleEvent", "Mention is not a SimpleEvent")
     getOrCreateEER(m).asInstanceOf[SimpleEvent]
   }
 
   /**
-   * Returns a Regulation for a Mention m with the label "Regulation"
-    *
+    * Returns a Regulation for a Mention m with the label "Regulation"
     * @param m an Odin Mention.  Must have the label "Regulation"
-   */
+    */
   def getRegulation(m: Mention): Regulation = {
     require(m matches "Regulation", "Mention is not a Regulation")
     getOrCreateEER(m).asInstanceOf[Regulation]
   }
 
   /**
-   * Collects mentions pointing to a given [[EntityEventRepresentation]].
-    *
+    * Collects mentions pointing to a given [[EntityEventRepresentation]].
     * @param eer an [[EntityEventRepresentation]]
-   * @return a sequence of Mention serving as textual evidence of the given representation
-   */
+    * @return a sequence of Mention serving as textual evidence of the given representation
+    */
   def getEvidence(eer: EER): Set[Mention] = {
     val equivEERs: Set[EER] = ehToEERs.getOrElse(eer.equivalenceHash, Set.empty[EER])
     // retrieve the mention by id
@@ -1370,27 +1325,25 @@ class AssemblyManager(
   //
 
   /**
-   * Get non-distinct equivalent EERs matching the provided equivalenceHash (eh)
-    *
+    * Get non-distinct equivalent EERs matching the provided equivalenceHash (eh)
     * @param eh an [[EntityEventRepresentation.equivalenceHash]]
-   * @return
-   */
+    * @return
+    */
   def getEquivalentEERs(eh: Int): Set[EER] = ehToEERs.getOrElse(eh, Set.empty[EER])
   def getEquivalentEERs(eer: EER): Set[EER] = ehToEERs.getOrElse(eer.equivalenceHash, Set.empty[EER])
 
   /**
-   * Returns groups of equivalent [[EntityEventRepresentation]], ignoring differences due to [[IDPointer]] references.
-   *
-   * Mentions may point to (essentially) the same [[EntityEventRepresentation]], which would only differ in terms of the [[IDPointer]], which link an [[EntityEventRepresentation]] to a particular Mention
-   */
+    * Returns groups of equivalent [[EntityEventRepresentation]], ignoring differences due to [[IDPointer]] references.
+    *
+    * Mentions may point to (essentially) the same [[EntityEventRepresentation]], which would only differ in terms of the [[IDPointer]], which link an [[EntityEventRepresentation]] to a particular Mention
+    */
   def groupedEERs: Seq[Set[EER]] = ehToEERs.values.toSeq
 
   /**
-   * Gets distinct members of eers after grouping by [[EntityEventRepresentation.equivalenceHash]].
-    *
+    * Gets distinct members of eers after grouping by [[EntityEventRepresentation.equivalenceHash]].
     * @param eers an [[EntityEventRepresentation]] Set
-   * @return
-   */
+    * @return
+    */
   def distinctEERsFromSet(eers: Set[EER]): Set[EER] = {
     eers.groupBy(_.equivalenceHash)
       .mapValues(_.head)
@@ -1399,18 +1352,18 @@ class AssemblyManager(
   }
 
   /**
-   * Returns head of each group returned by [[groupedEERs]].
-   *
-   * @return a Set of [[EntityEventRepresentation]]
-   */
+    * Returns head of each group returned by [[groupedEERs]].
+    *
+    * @return a Set of [[EntityEventRepresentation]]
+    */
   def distinctEERs: Set[EER] = {
     groupedEERs.map(_.head)
       .toSet
   }
 
   /**
-   * Returns Set of "distinct" [[EntityEventRepresentation]] with corresponding evidence.
-   */
+    * Returns Set of "distinct" [[EntityEventRepresentation]] with corresponding evidence.
+    */
   def distinctEERsWithEvidence: Set[(EER, Set[Mention])] = {
     distinctEERs.map(eer => (eer, getEvidence(eer)))
   }
@@ -1418,9 +1371,9 @@ class AssemblyManager(
   // Entity
 
   /**
-   * Retrieves all Entities from the manager.
-   * Note that these are non-distinct.
-   */
+    * Retrieves all Entities from the manager.
+    * Note that these are non-distinct.
+    */
   def getEntities: Set[Entity] = {
     for {
       e: EER <- getEERs
@@ -1430,10 +1383,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Entities. Ignores multiple instances of the same Entity.
-    *
+    * Returns "distinct" Set of Entities. Ignores multiple instances of the same Entity.
     * @return a Set of Entity
-   */
+    */
   def distinctEntities: Set[Entity] = {
     for {
       e: EER <- distinctEERs
@@ -1443,10 +1395,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Entities and all evidence (Set[Mention]) corresponding to each [[Entity]].
-    *
+    * Returns "distinct" Set of Entities and all evidence (Set[Mention]) corresponding to each [[Entity]].
     * @return Set[(Entity, Set[Mention])]
-   */
+    */
   def distinctEntitiesWithEvidence: Set[(Entity, Set[Mention])] = {
     distinctEntities
       .map( entity => (entity, getEvidence(entity)))
@@ -1455,9 +1406,9 @@ class AssemblyManager(
   // Event
 
   /**
-   * Retrieves all Events from the manager.
-   * Note that these are non-distinct (Events may differ in terms of their IDPointers).
-   */
+    * Retrieves all Events from the manager.
+    * Note that these are non-distinct (Events may differ in terms of their IDPointers).
+    */
   def getEvents: Set[Event] = {
     for {
       e: EER <- getEERs
@@ -1467,10 +1418,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Events. Ignores multiple instances of the same Entity.
-    *
+    * Returns "distinct" Set of Events. Ignores multiple instances of the same Entity.
     * @return a Set of Event
-   */
+    */
   def distinctEvents: Set[Event] = {
     for {
       e: EER <- distinctEERs
@@ -1480,10 +1430,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Events and all evidence (Set[Mention]) corresponding to each [[Event]].
-    *
+    * Returns "distinct" Set of Events and all evidence (Set[Mention]) corresponding to each [[Event]].
     * @return Set[(SimpleEntity, Set[Mention])]
-   */
+    */
   def distinctEventsWithEvidence: Set[(Event, Set[Mention])] = {
     distinctEvents
       .map( event => (event, getEvidence(event)))
@@ -1492,9 +1441,9 @@ class AssemblyManager(
   // SimpleEntity
 
   /**
-   * Retrieves all SimpleEntities from the manager.
-   * Note that these are non-distinct.
-   */
+    * Retrieves all SimpleEntities from the manager.
+    * Note that these are non-distinct.
+    */
   def getSimpleEntities: Set[SimpleEntity] = {
     for {
       e: EER <- getEERs
@@ -1504,11 +1453,10 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves all SimpleEntities containing the given
-    *
+    * Retrieves all SimpleEntities containing the given
     * @param mod an [[AssemblyModification]]
-   * @return a Set of SimpleEntities sharing mod
-   */
+    * @return a Set of SimpleEntities sharing mod
+    */
   def getSimpleEntitiesByModification[M <: AssemblyModification](mod: M): Set[SimpleEntity] = {
     for {
       se <- getSimpleEntities
@@ -1517,10 +1465,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of SimpleEntity. Ignores multiple instances of the same SimpleEntity.
-    *
+    * Returns "distinct" Set of SimpleEntity. Ignores multiple instances of the same SimpleEntity.
     * @return a Set of SimpleEntity
-   */
+    */
   def distinctSimpleEntities: Set[SimpleEntity] = {
     for {
       e: EER <- distinctEERs
@@ -1530,10 +1477,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of SimpleEntities and all evidence (Set[Mention]) corresponding to each [[SimpleEntity]].
-    *
+    * Returns "distinct" Set of SimpleEntities and all evidence (Set[Mention]) corresponding to each [[SimpleEntity]].
     * @return Set[(SimpleEntity, Set[Mention])]
-   */
+    */
   def distinctSimpleEntitiesWithEvidence: Set[(SimpleEntity, Set[Mention])] = {
     distinctSimpleEntities
       .map( entity => (entity, getEvidence(entity)))
@@ -1542,9 +1488,9 @@ class AssemblyManager(
   // Complex
 
   /**
-   * Retrieves all Complexes from the manager.
-   * Note that these are non-distinct (Complexes may differ in terms of their IDPointers).
-   */
+    * Retrieves all Complexes from the manager.
+    * Note that these are non-distinct (Complexes may differ in terms of their IDPointers).
+    */
   def getComplexes: Set[Complex] = {
     for {
       e: EER <- getEERs
@@ -1554,10 +1500,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Complexes. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of Complexes. Ignores differences in IDPointers.
     * @return a Set of Complexes
-   */
+    */
   def distinctComplexes: Set[Complex] = {
     for {
       e: EER <- distinctEERs
@@ -1567,10 +1512,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Complexes and all evidence (Set[Mention]) corresponding to each Complex.
-    *
+    * Returns "distinct" Set of Complexes and all evidence (Set[Mention]) corresponding to each Complex.
     * @return Set[(Complex, Set[Mention])]
-   */
+    */
   def distinctComplexesWithEvidence: Set[(Complex, Set[Mention])] = {
     distinctComplexes
       .map( comp => (comp, getEvidence(comp)))
@@ -1579,9 +1523,9 @@ class AssemblyManager(
   // SimpleEvents
 
   /**
-   * Retrieves all SimpleEvents from the manager.
-   * Note that these are non-distinct (SimpleEvents may differ in terms of their IDPointers).
-   */
+    * Retrieves all SimpleEvents from the manager.
+    * Note that these are non-distinct (SimpleEvents may differ in terms of their IDPointers).
+    */
   def getSimpleEvents: Set[SimpleEvent] = {
     for {
       e: EER <- getEERs
@@ -1591,11 +1535,10 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves all SimpleEvents from the manager matching the provided event label.
-   * Note that these are non-distinct (SimpleEvents may differ in terms of their IDPointers).
-    *
+    * Retrieves all SimpleEvents from the manager matching the provided event label.
+    * Note that these are non-distinct (SimpleEvents may differ in terms of their IDPointers).
     * @param label a String to match against each [[SimpleEvent.label]]
-   */
+    */
   def getSimpleEvents(label: String): Set[SimpleEvent] = {
     for {
       e: EER <- getEERs
@@ -1606,10 +1549,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of SimpleEvents. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of SimpleEvents. Ignores differences in IDPointers.
     * @return a Set of SimpleEvents
-   */
+    */
   def distinctSimpleEvents: Set[SimpleEvent] = {
     for {
       e: EER <- distinctEERs
@@ -1619,11 +1561,10 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of SimpleEvents matching the provided event label. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of SimpleEvents matching the provided event label. Ignores differences in IDPointers.
     * @param label a String to match against each [[SimpleEvent.label]]
-   * @return a Set of SimpleEvents
-   */
+    * @return a Set of SimpleEvents
+    */
   def distinctSimpleEvents(label: String): Set[SimpleEvent] = {
     for {
       e: EER <- distinctEERs
@@ -1634,11 +1575,10 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of SimpleEvent matching the provided event label and all evidence (Set[Mention]) corresponding to each SimpleEvent.
-    *
+    * Returns "distinct" Set of SimpleEvent matching the provided event label and all evidence (Set[Mention]) corresponding to each SimpleEvent.
     * @param label a String to match against each [[SimpleEvent.label]]
-   * @return Set[(SimpleEvent, Set[Mention])]
-   */
+    * @return Set[(SimpleEvent, Set[Mention])]
+    */
   def distinctSimpleEventsWithEvidence(label: String): Set[(SimpleEvent, Set[Mention])] = {
     distinctSimpleEvents(label)
       .map( se => (se, getEvidence(se)))
@@ -1647,9 +1587,9 @@ class AssemblyManager(
   // Regulations
 
   /**
-   * Retrieves all Regulations from the manager.
-   * Note that these are non-distinct (Regulations may differ in terms of their IDPointers).
-   */
+    * Retrieves all Regulations from the manager.
+    * Note that these are non-distinct (Regulations may differ in terms of their IDPointers).
+    */
   def getRegulations: Set[Regulation] = {
     for {
       e: EER <- getEERs
@@ -1659,11 +1599,10 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves all Regulations from the manager matching the provided polarity label.
-   * Note that these are non-distinct (Regulations may differ in terms of their IDPointers).
-    *
+    * Retrieves all Regulations from the manager matching the provided polarity label.
+    * Note that these are non-distinct (Regulations may differ in terms of their IDPointers).
     * @param polarity a String to match against each [[Regulation.polarity]]
-   */
+    */
   def getRegulations(polarity: String): Set[Regulation] = {
     for {
       e: EER <- getEERs
@@ -1674,10 +1613,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Regulation. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of Regulation. Ignores differences in IDPointers.
     * @return a Set of Regulation
-   */
+    */
   def distinctRegulations: Set[Regulation] = {
     for {
       e: EER <- distinctEERs
@@ -1687,11 +1625,10 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Regulations matching the provided polarity. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of Regulations matching the provided polarity. Ignores differences in IDPointers.
     * @param polarity a String to match against each [[Regulation.polarity]]
-   * @return a Set of Regulations
-   */
+    * @return a Set of Regulations
+    */
   def distinctRegulations(polarity: String): Set[Regulation] = {
     for {
       e: EER <- distinctEERs
@@ -1702,21 +1639,19 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Regulations and all evidence (Set[Mention]) corresponding to each Regulation.
-    *
+    * Returns "distinct" Set of Regulations and all evidence (Set[Mention]) corresponding to each Regulation.
     * @return Set[(Regulation, Set[Mention])]
-   */
+    */
   def distinctRegulationsWithEvidence: Set[(Regulation, Set[Mention])] = {
     distinctRegulations
       .map( reg => (reg, getEvidence(reg)))
   }
 
   /**
-   * Returns "distinct" Set of Regulations matching the provided polarity and all evidence (Set[Mention]) corresponding to each Regulation.
-    *
+    * Returns "distinct" Set of Regulations matching the provided polarity and all evidence (Set[Mention]) corresponding to each Regulation.
     * @param polarity a String to match against each [[Regulation.polarity]]
-   * @return Set[(Regulation, Set[Mention])]
-   */
+    * @return Set[(Regulation, Set[Mention])]
+    */
   def distinctRegulationsWithEvidence(polarity: String): Set[(Regulation, Set[Mention])] = {
     distinctRegulations(polarity)
       .map( reg => (reg, getEvidence(reg)))
@@ -1725,9 +1660,9 @@ class AssemblyManager(
   // Activations
 
   /**
-   * Retrieves all Activations from the manager.
-   * Note that these are non-distinct (Activations may differ in terms of their IDPointers).
-   */
+    * Retrieves all Activations from the manager.
+    * Note that these are non-distinct (Activations may differ in terms of their IDPointers).
+    */
   def getActivations: Set[Activation] = {
     for {
       e: EER <- getEERs
@@ -1737,11 +1672,10 @@ class AssemblyManager(
   }
 
   /**
-   * Retrieves all Activations from the manager matching the provided polarity label.
-   * Note that these are non-distinct (Activations may differ in terms of their IDPointers).
-    *
+    * Retrieves all Activations from the manager matching the provided polarity label.
+    * Note that these are non-distinct (Activations may differ in terms of their IDPointers).
     * @param polarity a String to match against each [[Activation.polarity]]
-   */
+    */
   def getActivations(polarity: String): Set[Activation] = {
     for {
       e: EER <- getEERs
@@ -1752,10 +1686,9 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Activations. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of Activations. Ignores differences in IDPointers.
     * @return a Set of Regulation
-   */
+    */
   def distinctActivations: Set[Activation] = {
     for {
       e: EER <- distinctEERs
@@ -1765,11 +1698,10 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Activations matching the provided polarity. Ignores differences in IDPointers.
-    *
+    * Returns "distinct" Set of Activations matching the provided polarity. Ignores differences in IDPointers.
     * @param polarity a String to match against each [[Activation.polarity]]
-   * @return a Set of Activations
-   */
+    * @return a Set of Activations
+    */
   def distinctActivations(polarity: String): Set[Activation] = {
     for {
       e: EER <- distinctEERs
@@ -1780,21 +1712,19 @@ class AssemblyManager(
   }
 
   /**
-   * Returns "distinct" Set of Activations and all evidence (Set[Mention]) corresponding to each Activation.
-    *
+    * Returns "distinct" Set of Activations and all evidence (Set[Mention]) corresponding to each Activation.
     * @return Set[(Regulation, Set[Mention])]
-   */
+    */
   def distinctActivationsWithEvidence: Set[(Regulation, Set[Mention])] = {
     distinctRegulations
       .map( reg => (reg, getEvidence(reg)))
   }
 
   /**
-   * Returns "distinct" Set of Activations matching the provided polarity and all evidence (Set[Mention]) corresponding to each Activation.
-    *
+    * Returns "distinct" Set of Activations matching the provided polarity and all evidence (Set[Mention]) corresponding to each Activation.
     * @param polarity a String to match against each [[Activation.polarity]]
-   * @return Set[(Activation, Set[Mention])]
-   */
+    * @return Set[(Activation, Set[Mention])]
+    */
   def distinctActivationsWithEvidence(polarity: String): Set[(Activation, Set[Mention])] = {
     distinctActivations(polarity)
       .map( act => (act, getEvidence(act)))
@@ -1805,11 +1735,10 @@ class AssemblyManager(
   //
 
   /**
-   * A high-level summary of a Mention m
-    *
+    * A high-level summary of a Mention m
     * @param m an Odin Mention
-   * @return a high-level String representation of m
-   */
+    * @return a high-level String representation of m
+    */
   def mentionSummary(m: Mention): String = {
     val bio = m.toBioMention
     val docRepr = s"DOC:${m.document.id.get} (sent. ${m.sentence})"
@@ -1855,14 +1784,15 @@ object AssemblyManager {
   val negative = "Negative"
   val unknown = "UNKNOWN"
 
+  val DEFAULT_CONFIDENCE = 1.0
+
   def apply(): AssemblyManager = new AssemblyManager(Map.empty[MentionState, IDPointer], Map.empty[IDPointer, EER])
 
   /**
-   * Instantiate [[AssemblyManager]] and track the provided Mentions
-    *
+    * Instantiate [[AssemblyManager]] and track the provided Mentions
     * @param mns a sequence of Odin Mentions
-   * @return an [[AssemblyManager]]
-   */
+    * @return an [[AssemblyManager]]
+    */
   def apply(mns: Seq[Mention]): AssemblyManager = {
     val am = new AssemblyManager(Map.empty[MentionState, IDPointer], Map.empty[IDPointer, EER])
     am.trackMentions(mns)
@@ -1876,24 +1806,22 @@ object AssemblyManager {
   }
 
   /**
-   * Get antecedent if present.  Otherwise return the CorefMntion as-is. <br>
-   *
-   * Used to retrieve the appropriate features of a mention's antecedent.
+    * Get antecedent if present.  Otherwise return the CorefMntion as-is. <br>
     *
+    * Used to retrieve the appropriate features of a mention's antecedent.
     * @param m an Odin Mention
-   * @return a [[org.clulab.reach.mentions.CorefMention]] (possibly cm)
-   */
+    * @return a [[org.clulab.reach.mentions.CorefMention]] (possibly cm)
+    */
   def getResolvedForm(m: Mention): CorefMention = {
     val cm = m.toCorefMention
     cm.antecedentOrElse(cm)
   }
 
   /**
-   * Checks whether a mention involves a corefence resolution
-    *
+    * Checks whether a mention involves a corefence resolution
     * @param m an Odin Mention
-   * @return
-   */
+    * @return
+    */
   def involvesCoreference(m: Mention): Boolean = getResolvedForm(m) match {
     // if the resolved form differs from m, this is a case of coref
     case resolved if resolved != m => true
@@ -1902,14 +1830,13 @@ object AssemblyManager {
   }
 
   /**
-   * Checks to see if the mention can be safely handled by the AssemblyManager
-   * Currently Sites are not stored in the LUTs,
-   * though they can appear as part of a modification
-   * (see the [[PTM]] [[AssemblyModification]] for an example)
-    *
+    * Checks to see if the mention can be safely handled by the AssemblyManager
+    * Currently Sites are not stored in the LUTs,
+    * though they can appear as part of a modification
+    * (see the [[PTM]] [[AssemblyModification]] for an example)
     * @param mention an Odin Mention
-   * @return true if the mention can be safely handled by the manager; false otherwise
-   */
+    * @return true if the mention can be safely handled by the manager; false otherwise
+    */
   def isValidMention(mention: Mention): Boolean = {
 
     getResolvedForm(mention) match {
@@ -1954,11 +1881,10 @@ object AssemblyManager {
   }
 
   /**
-   * Retrieves all themes from a Mention
-    *
+    * Retrieves all themes from a Mention
     * @param m an Odin Mention
-   * @return a Seq[Mention] produced by a flattening of all values corresponding to theme* keys
-   */
+    * @return a Seq[Mention] produced by a flattening of all values corresponding to theme* keys
+    */
   def getAllThemes(m: Mention): Seq[Mention] = {
     m.arguments
       .filter(_._1.toLowerCase.startsWith("theme"))
@@ -1968,8 +1894,8 @@ object AssemblyManager {
   }
 
   /**
-   * Check if mention is negated
-   */
+    * Check if mention is negated
+    */
   def hasNegation(m: Mention): Boolean = m.toBioMention.modifications exists {
     case mentions.Negation(_) => true
     case _ => false

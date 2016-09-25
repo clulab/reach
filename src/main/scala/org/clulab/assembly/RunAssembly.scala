@@ -1,7 +1,7 @@
 package org.clulab.assembly
 
 import com.typesafe.config.ConfigFactory
-import org.clulab.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
+import org.clulab.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.odin.Mention
 import org.clulab.utils.Serializer
 import scala.reflect.io.File
@@ -28,22 +28,20 @@ object RunAnnotationEval extends App {
       (pg, tm)
     } else {
       println("Serialized files not found")
-      val annotationsPath = config.getString("assembly.corpusFile")
-      val annotations: Seq[AssemblyAnnotation] = annotationsFromFile(annotationsPath)
+      val eps: Seq[EventPair] = CorpusReader.readCorpus
       // gather precedence relations corpus
-      val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
-      val noneAnnotations = CorpusReader.filterRelations(annotations, noRelations ++ subsumptionRelations ++ equivalenceRelations)
+      val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
+      val noneAnnotations = CorpusReader.filterRelations(eps, noRelations ++ subsumptionRelations ++ equivalenceRelations)
 
       val (posGoldNested, testMentionsNested) = (for {
-        anno <- precedenceAnnotations.par
-        e1e2 = getE1E2(anno)
-        if e1e2.nonEmpty
+        ep <- eps
+        e1 = ep.e1
+        e2 = ep.e2
       } yield {
-        val (e1, e2) = e1e2.get
         // short-term assembly manager to get at mentions easier
         val am = AssemblyManager()
         am.trackMentions(Seq(e1, e2))
-        val goldRel = anno.relation match {
+        val goldRel = ep.relation match {
           case "E1 precedes E2" =>
             Seq(PrecedenceRelation(am.getEER(e1), am.getEER(e2), Set.empty[Mention], "gold"))
           case "E2 precedes E1" =>

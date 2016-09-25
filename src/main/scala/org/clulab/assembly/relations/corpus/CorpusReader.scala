@@ -1,11 +1,16 @@
 package org.clulab.assembly.relations.corpus
 
 import java.io.File
-import org.clulab.assembly.sieves.SieveUtils
+import com.typesafe.scalalogging.LazyLogging
+import org.clulab.assembly.AssemblyManager
+import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
+import org.clulab.assembly.sieves.{Constraints, SieveUtils}
 import org.clulab.odin.Mention
-import org.clulab.reach.PaperReader
+import org.clulab.reach.PaperReader._
+import org.clulab.utils.Serializer
 import org.json4s.DefaultFormats
 import org.json4s.native.JsonMethods
+import org.clulab.reach.mentions._
 
 
 case class AssemblyAnnotation(
@@ -37,6 +42,8 @@ case class AssemblyAnnotation(
   // these will be filled out during annotation
   `annotator-id`: String,
   relation: String,
+  confidence: Double = AnnotationUtils.HIGH,
+  // details on annotation instance
   `cross-sentence`: Boolean,
   `paper-id`: String
 ) {
@@ -70,6 +77,8 @@ case class AssemblyAnnotation(
     // these will be filled out during annotation
     annotatorID: String = `annotator-id`,
     rel: String = relation,
+    confScore: Double = confidence,
+    // details on annotation instance
     crossSentence: Boolean = `cross-sentence`,
     paperID: String = `paper-id`
   ): AssemblyAnnotation =
@@ -102,27 +111,39 @@ case class AssemblyAnnotation(
       // these will be filled out during annotation
       annotatorID,
       rel,
+      confScore,
+      // annotation instance details
       crossSentence,
       paperID
-  )
+    )
 }
 
-object CorpusReader {
+object CorpusReader extends LazyLogging {
 
   // default label for negative class
-  val NEG = "None"
+  val NEG = AssemblyRelationClassifier.NEG
 
   val precedenceRelations =  Set("E1 precedes E2", "E2 precedes E1")
   val subsumptionRelations = Set("E1 specifies E2", "E2 specifies E1")
   val equivalenceRelations = Set("Equivalent")
-  val noRelations = Set("None")
-  lazy val rs = PaperReader.rs
+  val noRelations = Set(NEG)
 
   // needed for .extract
   implicit val formats = DefaultFormats
 
+  val datasetSource = config.getString("assembly.serializedDataset")
+
+  // TODO: write replacement to read new json
   def annotationsFromFile(jsonFile: String): Seq[AssemblyAnnotation] = {
-    val json = JsonMethods.parse(new File(jsonFile))
+
+    val json = jsonFile match {
+      case url if url.startsWith("http") =>
+        val fileContents = scala.io.Source.fromURL(url).mkString
+        JsonMethods.parse(fileContents)
+      case other =>
+        val f = new File(other)
+        JsonMethods.parse(f)
+    }
     //    val updatedJson = json transformField {
     //      case ("e1-label", x) => ("e1Label", x)
     //      case ("e1-sentence", x) => ("e1Sentence", x)
@@ -131,18 +152,20 @@ object CorpusReader {
     json.extract[Seq[AssemblyAnnotation]]
   }
 
+  def annotationsFromFileNEW(jsonFile: String): Seq[AssemblyAnnotation] = ???
+
   /** set all labels not in the set of positive labels to NEG */
   def filterRelations(
-    annotations: Seq[AssemblyAnnotation],
+    eps: Seq[EventPair],
     positiveLabels: Set[String]
-  ): Seq[AssemblyAnnotation] = annotations flatMap {
+  ): Seq[EventPair] = eps flatMap {
     // keep subsumption annotations
     case valid if positiveLabels contains valid.relation => Seq(valid)
     // ignore bugs
     case bug if bug.relation == "Bug" => Nil
     // set relation to NEG
     case other =>
-      Seq(other.copy(rel = NEG))
+      Seq(other.copy(relation = NEG))
   }
 
   /** Finds mention matching label and trigger text */
@@ -153,19 +176,91 @@ object CorpusReader {
     }.head
   }
 
-  def getE1E2(anno: AssemblyAnnotation): Option[(Mention, Mention)] = {
-    val mentions = rs.extractFrom(anno.text, anno.`paper-id`, "")
+  def buildEventPairs(aas: Seq[AssemblyAnnotation]): Seq[EventPair] = {
 
-    val pair: Option[(Mention, Mention)] = try {
-      // prepare datum
-      val e1 = findMention(mentions, anno.`e1-label`, anno.`e1-trigger`)
-      val e2 = findMention(mentions, anno.`e2-label`, anno.`e2-trigger`)
-      Some((e1, e2))
-    } catch {
-      case e: Exception =>
-        println(s"problem with annotation ${anno.id}")
-        None
-    }
-    pair
+    val aasPaperIDLUT: Map[String, Seq[AssemblyAnnotation]] = aas.groupBy(_.`paper-id`)
+
+    logger.info(s"Loading dataset from $datasetSource")
+
+    val extractedMentionsLUT: Map[String, Seq[CorefMention]] = datasetLUT
+    logger.info("Retrieving event pairs based on annotations")
+
+    // get training instances
+    val eps: Seq[EventPair] = for {
+      (paperID, aas) <- aasPaperIDLUT.toSeq
+      mentionPool = extractedMentionsLUT(paperID)
+      aa <- aas
+      ep = findEventPair(aa, mentionPool)
+      if ep.nonEmpty
+    } yield ep.get
+
+    eps
   }
+
+  def datasetLUT: Map[String, Seq[CorefMention]] =
+    Serializer.load[Dataset](datasetSource)
+      .mapValues(mns => mns.map(_.toCorefMention)).withDefaultValue(List())
+
+  def findEventPair(anno: AssemblyAnnotation, candidates: Seq[CorefMention]): Option[EventPair] = try {
+    // prepare datum
+    val e1 = findMention(candidates, anno.`e1-label`, anno.`e1-trigger`).toCorefMention
+    val e2 = findMention(candidates, anno.`e2-label`, anno.`e2-trigger`).toCorefMention
+    val ep = EventPair(anno.text, e1, e2, anno.relation)
+    Some(ep)
+  } catch {
+    case e: Exception =>
+      logger.error(s"problem with annotation ${anno.id}")
+      None
+  }
+
+  /** Find equivalent event pairs in a given window **/
+  def equivalentEventPairs(
+    eps: Seq[EventPair],
+    dsLUT: Map[String, Seq[CorefMention]],
+    kWindow: Int): Seq[EventPair] = {
+
+    // TODO: make sure this is called with the filtered event pairs (i.e., only those pairs with one of the "precedes" label)
+    val epsLUT: Map[String, Seq[EventPair]] = eps.groupBy(_.pmid)
+    val proximalEquivalentPairs = for {
+      (paperID: String, pairs: Seq[EventPair]) <- epsLUT
+      epMentions: Seq[CorefMention] = pairs.flatMap{case pair: EventPair => Seq(pair.e1, pair.e2)}
+      mns = dsLUT(paperID)
+      // initialize an AssemblyManager with all relevant mentions for the paper
+      am = AssemblyManager(mns ++ epMentions)
+      // find equivalent mentions for the pair within this paper
+      p <- pairs
+      e1EER = am.getEER(p.e1)
+      e1EquivMentions = am.getEquivalentEERs(e1EER).flatMap(_.evidence).toSeq
+      e2EER = am.getEER(p.e2)
+      e2EquivMentions = am.getEquivalentEERs(e2EER).flatMap(_.evidence).toSeq
+      e1equiv <- e1EquivMentions
+      e2equiv <- e2EquivMentions
+      // TODO: must both of these be true?
+      if e1equiv != p.e1
+      if e2equiv != p.e2
+      // impose window constraints
+      // TODO: check these
+      if Constraints.withinWindow(e1equiv, e2equiv, kWindow)
+      if Constraints.withinWindow(e1equiv, p.e1, kWindow) || Constraints.withinWindow(e1equiv, p.e2, kWindow)
+      if Constraints.withinWindow(e2equiv, p.e1, kWindow) || Constraints.withinWindow(e2equiv, p.e2, kWindow)
+      text: String = CorpusBuilder.getSententialSpan(e1equiv, e2equiv)
+    // we don't know which is textually precedes the other
+    } yield EventPair(text, Set(e1equiv.toCorefMention, e2equiv.toCorefMention))
+    proximalEquivalentPairs.toSeq
+  }
+
+  def readCorpus: Seq[EventPair] = {
+    val aas: Seq[AssemblyAnnotation] = annotationsFromFile(config.getString("assembly.classifier.trainingFile"))
+    val eps: Seq[EventPair] = buildEventPairs(aas)
+    eps
+  }
+}
+
+/**
+  * Houses values for three confidence bins, etc.
+  */
+object AnnotationUtils {
+  val LOW = 0.25
+  val NORMAL = 0.75
+  val HIGH = 1.0
 }

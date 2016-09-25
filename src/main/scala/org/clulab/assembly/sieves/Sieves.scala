@@ -1,11 +1,16 @@
 package org.clulab.assembly.sieves
 
-import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.assembly.AssemblyManager
+import com.typesafe.config.ConfigFactory
+import org.clulab.assembly.{AssemblyManager, EER}
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.odin._
 import org.clulab.reach.RuleReader
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.cstrs.GraphConstraintFactory
+import org.chocosolver.solver.variables.GraphVarFactory
+import org.chocosolver.util.objects.graphs.DirectedGraph
+import org.chocosolver.util.objects.setDataStructures.SetType
 import scala.annotation.tailrec
 
 
@@ -14,18 +19,18 @@ class Sieves extends LazyLogging {
 }
 
 /**
- * Contains all deduplication sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
- */
+  * Contains all deduplication sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
+  */
 class DeduplicationSieves extends Sieves {
   /**
-   * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
-   *
-   * @param mentions a sequence of Odin Mentions
-   * @param manager  an AssemblyManager
-   * @return an AssemblyManager
-   */
+    * Populates an AssemblyManager with mentions (default behavior of AssemblyManager)
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
   def trackMentions(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
-    logger.debug(s"\tapplying trackMentions sieve...")
+    logger.debug(s"\tapplying 'trackMentions' sieve...")
     val am = AssemblyManager()
     am.trackMentions(mentions)
     am
@@ -36,8 +41,8 @@ class DeduplicationSieves extends Sieves {
 }
 
 /**
- * Contains all precedence sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
- */
+  * Contains all precedence sieves of the signature (mentions: Seq[Mention], manager: AssemblyManager) => AssemblyManager.
+  */
 class PrecedenceSieves extends Sieves {
 
   import Constraints._
@@ -54,9 +59,9 @@ class PrecedenceSieves extends Sieves {
 
     val name = "withinRbPrecedence"
 
-    logger.debug(s"\tapplying $name sieve...")
+    logger.debug(s"\tapplying '$name' sieve...")
 
-    val p = "/org/clulab/assembly/grammars/intrasentential.yml"
+    val p = "/org/clulab/assembly/grammars/precedence.yml"
 
     // find rule-based PrecedenceRelations
     for {
@@ -71,6 +76,7 @@ class PrecedenceSieves extends Sieves {
       if notAnExistingComplexEvent(rel) && noExistingPrecedence(a, b, manager)
     } {
       // store the precedence relation
+      // TODO: add score
       manager.storePrecedenceRelation(b, a, Set(rel), name)
     }
 
@@ -88,7 +94,7 @@ class PrecedenceSieves extends Sieves {
 
     val name = "reichenbachPrecedence"
 
-    logger.debug(s"\tapplying $name sieve...")
+    logger.debug(s"\tapplying '$name' sieve...")
 
     val tam_rules = "/org/clulab/assembly/grammars/tense_aspect.yml"
 
@@ -100,10 +106,7 @@ class PrecedenceSieves extends Sieves {
           (tam matches label) &&
           (tam.tokenInterval overlaps triggerInterval)}.toSet
       // rules should produce at most one tense or aspect mention
-      // TODO: This is debugging, so only log when debugging
-      // if (relevant.size > 1 ) {
-      //   println(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")}\nEvent text:'${ev.text}'\nEvent sentence: '${ev.sentenceObj.getSentenceText}'\nTam span: ${relevant.map(_.text).mkString("'", "', '", "'")}\n=================""")
-      // }
+      if (relevant.size > 1 ) logger.debug(s"""Found TAMs of ${relevant.map(_.label).mkString(", ")}\nEvent text:'${ev.text}'\nEvent sentence: '${ev.sentenceObj.getSentenceText}'\nTam span: ${relevant.map(_.text).mkString("'", "', '", "'")}\n=================""")
       relevant.headOption
     }
 
@@ -196,6 +199,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
+          // TODO: add score
           manager.storePrecedenceRelation(before = e1, after = e2, Set[Mention](evidence), name)
         case "after" =>
           // create evidence mention
@@ -214,6 +218,7 @@ class PrecedenceSieves extends Sieves {
             true,
             name
           )
+          // TODO: add score
           manager.storePrecedenceRelation(before = e2, after = e1, Set[Mention](evidence), name)
         case _ => ()
       }
@@ -237,7 +242,7 @@ class PrecedenceSieves extends Sieves {
 
     val name = "betweenRbPrecedence"
 
-    logger.debug(s"\tapplying $name sieve...")
+    logger.debug(s"\tapplying '$name' sieve...")
 
     val p = "/org/clulab/assembly/grammars/intersentential.yml"
 
@@ -268,40 +273,50 @@ class PrecedenceSieves extends Sieves {
       if isValidRelationPair(a, b) && noExistingPrecedence(a, b, manager)
     } {
       // store the precedence relation
+      // TODO: add score
       manager.storePrecedenceRelation(b, a, Set(rel), name)
     }
 
     manager
   }
 
-  def featureBasedClassifier(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+  def featureBasedClassifierNoSharedArgs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
 
-    val sieveName = "featureBasedClassifier"
+    def meetsRequirements(m1: Mention, m2: Mention): Boolean = {
+      // Assume same window size imposed on corpus
+      // NOTE: this also checks document equality,
+      // which is needed because of .precedes check in FeatureExtractor
+      Constraints.withinWindow(m1, m2, kWindow) &&
+        Constraints.isValidRelationPair(m1, m2)
+    }
 
-    logger.debug(s"\tapplying $sieveName sieve...")
+    val name = "feature-based-classifier-w/o-shared-arg-requirement"
+
+    logger.debug(s"\tapplying '$name' sieve...")
 
     val validMentions = mentions.filter(validPrecedenceCandidate)
-    for {
-      e1 <- validMentions
-      e2 <- validMentions
-      if isValidRelationPair(e1, e2)
-      // needed because of .precedes check in FeatureExtractor
-      if e1.document == e2.document
-      label = clf.classify(e1, e2)
-      if label != AssemblyRelationClassifier.NEG
-      // make sure the prediction is not a contradiction
-      if noExistingPrecedence(e1, e2, manager)
-    } {
-      label match {
-        case E1PrecedesE2 =>
-          val evidence = createEvidenceForCPR(e1, e2, sieveName)
-          manager.storePrecedenceRelation(before = e1, after = e2, evidence, sieveName)
-        case E2PrecedesE1 =>
-          val evidence = createEvidenceForCPR(e2, e1, sieveName)
-          manager.storePrecedenceRelation(before = e2, after = e1, evidence, sieveName)
-      }
+
+    classifyCausalPrecedencePairs(validMentions, manager, name, meetsRequirements)
+  }
+
+  def featureBasedClassifierWithSharedArgs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    def meetsRequirements(m1: Mention, m2: Mention): Boolean = {
+      // Assume same window size imposed on corpus
+      // NOTE: this also checks document equality,
+      // which is needed because of .precedes check in FeatureExtractor
+      Constraints.withinWindow(m1, m2, kWindow) &&
+        Constraints.shareArg(m1, m2) &&
+        Constraints.isValidRelationPair(m1, m2)
     }
-    manager
+
+    val name = "feature-based-classifier-with-shared-arg-requirement"
+
+    logger.debug(s"\tapplying '$name' sieve...")
+
+    val validMentions = mentions.filter(validPrecedenceCandidate)
+
+    classifyCausalPrecedencePairs(validMentions, manager, name, meetsRequirements)
   }
 
   // TODO: (selectively?) establish causal predecessors between controller and controlled of regulations
@@ -319,18 +334,91 @@ class PrecedenceSieves extends Sieves {
   // TODO: Write sieve to extend causal predecessors to equivalent EERs
   // Could be selective via voting, textual proximity, etc.
   def extendPredecessorsToEquivalentEERs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
+
+  def graphCSP(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    // http://perso.ensta-paristech.fr/~diam/corlab/online/choco/ChocoGraphDoc-20150118.pdf
+
+    val allEvents = manager.getEvents.toSeq.sortBy(_.equivalenceHash)
+
+    val dg = new DirectedGraph(
+      // the maximum number of nodes in the graph (solution)
+      allEvents.size,
+      // use SetType.LINKED_LIST for sparse graphs
+      // SetType.BIPARTITESET has optimal time complexity, but memory usage can be expensive
+      // SetType.BITSET: supposedly a good default (why?)
+      SetType.BIPARTITESET,
+      // whether or not the node set is fixed
+      false
+    )
+
+    val solver = new Solver//("precedence-solver")
+
+    // define graph lower-bound (i.e., what nodes and links must exist in solution?)
+    val GLB = new DirectedGraph(
+      solver,
+      allEvents.size,
+      SetType.BIPARTITESET,
+      // whether or not the node set is fixed
+      // TODO: Should this be false?
+      true
+    )
+
+    // define graph upper-bound (i.e., what nodes and links could possibly exist?)
+    val GUB = new DirectedGraph(
+      solver,
+      allEvents.size,
+      SetType.BIPARTITESET,
+      // whether or not the node set is fixed
+      // TODO: Should this be false?
+      false
+    )
+
+    for {
+      (e1: EER, i: Int) <- allEvents.zipWithIndex
+      (e2: EER, j: Int) <- allEvents.zipWithIndex
+    } {
+
+      // nodes exist in upper-bound
+      GUB.addNode(i)
+      GUB.addNode(j)
+      // TODO: Should this only be allowed if the opposite is not true?
+      GUB.addArc(i, j)
+
+      // check if a required solution
+      (e1, e2) match {
+        // TODO: should this check if any of successors is equiv to succesor?
+        case (pred, successor) if pred.successors contains successor =>
+          // predicted precedence relation, so nodes must exist in
+          GLB.addNode(i)
+          GLB.addNode(j)
+          GLB.addArc(i, j)
+      }
+    }
+
+    val g = GraphVarFactory.directed_graph_var("G", GLB, GUB, solver)
+
+    // make antisymmetric ( if (i,j), then ~(j,i)
+    solver.post(GraphConstraintFactory.antisymmetric(g))
+    // use transitivity
+    solver.post(GraphConstraintFactory.transitivity(g))
+    // solve!
+    ???
+  }
 }
 
 
 
 /**
- * Utilities commonly used by Sieves
- */
-object SieveUtils {
+  * Utilities commonly used by Sieves
+  */
+object SieveUtils extends LazyLogging {
 
   // load feature-based classifier
   val config = ConfigFactory.load()
   val classifierPath = config.getString("assembly.classifier.model")
+  val kWindow = config.getInt("assembly.windowSize")
+
   lazy val clf = AssemblyRelationClassifier.loadFrom(classifierPath)
 
   val E1PrecedesE2 = "E1 precedes E2"
@@ -340,24 +428,24 @@ object SieveUtils {
   val precedenceMentionLabel = "Precedence"
 
   /**
-   * Check if mention is a causal precedence candidate
- *
-   * @param m an Odin-style Mention
-   * @return true or false
-   */
+    * Check if mention is a causal precedence candidate
+    * @param m an Odin-style Mention
+    * @return true or false
+    */
   def validPrecedenceCandidate(m: Mention): Boolean = m match {
     case event if event matches "Event" => true
     case validEntity if validEntity matches "/^(Complex|Bioprocess)$".r => true
     case _ => false
   }
+
   /**
-   * Applies a set of assembly rules to provide mentions (existingMentions).
-   * Care is taken to apply the rules to each set of mentions from the same Document.
+    * Applies a set of assembly rules to provide mentions (existingMentions). <br>
+    * Care is taken to apply the rules to each set of mentions from the same Document.
     *
     * @param rulesPath a path to a rule file (under resources)
-   * @param existingMentions a Seq of Odin Mentions
-   * @return a Seq of RelationMentions
-   */
+    * @param existingMentions a Seq of Odin Mentions
+    * @return a Seq of RelationMentions
+    */
   def assemblyViaRules(rulesPath: String, existingMentions: Seq[Mention]): Seq[Mention] = {
 
     // read rules and initialize state with existing mentions
@@ -369,7 +457,7 @@ object SieveUtils {
 
     val assembledMentions: Iterable[Mention] =
       for {
-        // NOTE: Odin expects all mentions in the state to belong to the same doc!
+      // NOTE: Odin expects all mentions in the state to belong to the same doc!
         (doc, mentionsFromReach) <- existingMentions.groupBy(_.document)
         // create a new state with just the mentions from a particular doc
         // note that a doc is as granular as a section of a paper
@@ -388,19 +476,54 @@ object SieveUtils {
   }
 
   /**
+    * Classifies pairs of mentions meeting given criteria using the feature-based precedence classifier
+    * @param validMentions a set of candidate mentions to generate pairs for classification
+    * @param manager
+    * @param sieveName the name of the sieve applying the classifier (used when storing a precedence relation)
+    * @param isValidPair a function that tests whether or not a pair of mentions should be considered for classification
+    * @return
+    */
+  def classifyCausalPrecedencePairs(
+    validMentions: Seq[Mention],
+    manager: AssemblyManager,
+    sieveName: String,
+    isValidPair: (Mention, Mention) => Boolean): AssemblyManager = {
+    for {
+      e1 <- validMentions
+      e2 <- validMentions
+      if isValidPair(e1, e2)
+      // classify (score used to assess confidence in relation)
+      (label: String, score: Double) = clf.getLabelWithScore(e1, e2)
+      if label != AssemblyRelationClassifier.NEG
+      // make sure the prediction is not a contradiction
+      if Constraints.noExistingPrecedence(e1, e2, manager)
+    } {
+      label match {
+        case E1PrecedesE2 =>
+          val evidence = createEvidenceForCPR(e1, e2, sieveName)
+          manager.storePrecedenceRelation(before = e1, after = e2, evidence, sieveName, score)
+        case E2PrecedesE1 =>
+          val evidence = createEvidenceForCPR(e2, e1, sieveName)
+          manager.storePrecedenceRelation(before = e2, after = e1, evidence, sieveName, score)
+      }
+    }
+    manager
+  }
+
+  /**
     * Returns true if the mention is an Event and therefore a candidate for precedence
     *
     * @param m an Odin Mention
     * @return a Boolean
     */
-  def isEvent(m:Mention) = m.matches("Event") && !m.isInstanceOf[TextBoundMention]
+  def isEvent(m:Mention) = m.matches("Event")
 
   /** Retrieve trigger from Mention */
   @tailrec
   def findTrigger(m: Mention): TextBoundMention = m match {
     // if mention is TB, just use the mention
     case tb: TextBoundMention =>
-      // println(s"no trigger for mention '${tb.text}' with label '${m.label}'")
+      logger.debug(s"no trigger for mention '${tb.text}' with label '${m.label}'")
       tb
     case event: EventMention =>
       event.trigger
@@ -410,13 +533,12 @@ object SieveUtils {
   }
 
   /**
-   * Create evidence from Causal Precedence relation
- *
-   * @param before an Odin-style Mention preceding 'after'
-   * @param after an Odin-style Mention following 'before'
-   * @param foundBy the name of the sieve that found the relation
-   * @return a set of Mention
-   */
+    * Create evidence from Causal Precedence relation
+    * @param before an Odin-style Mention preceding 'after'
+    * @param after an Odin-style Mention following 'before'
+    * @param foundBy the name of the sieve that found the relation
+    * @return a set of Mention
+    */
   def createEvidenceForCPR(
     before: Mention,
     after: Mention,

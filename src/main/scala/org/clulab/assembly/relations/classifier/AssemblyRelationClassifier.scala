@@ -1,11 +1,10 @@
 package org.clulab.assembly.relations.classifier
 
 import java.io._
-import org.clulab.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
+import org.clulab.assembly.relations.corpus.EventPair
 import org.clulab.learning._
 import org.clulab.odin.Mention
 import org.clulab.reach.PaperReader
-import org.clulab.assembly.relations.corpus.CorpusReader
 import org.clulab.struct.Counter
 
 
@@ -20,10 +19,15 @@ class AssemblyRelationClassifier(
   /** pick the label with the most likely score */
   def classify(datum: RVFDatum[String, String]): String = getLabelScores(datum).argMax._1
   def classify(e1: Mention, e2: Mention): String = classify(mkRVFDatum(UNKNOWN, e1, e2))
+  /** return the most likely label and its score */
+  def getLabelWithScore(datum: RVFDatum[String, String]): (String, Double) = getLabelScores(datum).argMax
+  def getLabelWithScore(e1: Mention, e2: Mention): (String, Double) = getLabelScores(e1, e2).argMax
 
   /** get the scores for each possible label */
   def getLabelScores(datum: RVFDatum[String, String]): Counter[String] =
     classifier.scoresOf(datum)
+  def getLabelScores(e1: Mention, e2: Mention): Counter[String] =
+    classifier.scoresOf(mkRVFDatum(UNKNOWN, e1, e2))
 
   def saveTo(s: String): Unit = {
     val oos = new ObjectOutputStream(new FileOutputStream(s))
@@ -79,17 +83,11 @@ object AssemblyRelationClassifier {
   def mkRVFDatum(label: String, e1: Mention, e2: Mention): RVFDatum[String, String] =
     FeatureExtractor.mkRVFDatum(e1, e2, label)
 
-  def mkRVFDataset(annotations: Seq[AssemblyAnnotation]): RVFDataset[String, String] = {
+  def mkRVFDataset(eps: Seq[EventPair]): RVFDataset[String, String] = {
     val dataset = new RVFDataset[String, String]
     // add each valid annotation to dataset
-    for {
-      a <- annotations
-      pair = CorpusReader.getE1E2(a)
-      if pair.nonEmpty
-    } {
-      val (e1, e2) = pair.get
-      val relation = a.relation
-      val datum = FeatureExtractor.mkRVFDatum(e1, e2, relation)
+    for (ep <- eps) {
+      val datum = FeatureExtractor.mkRVFDatum(ep.e1, ep.e2, ep.relation)
       dataset += datum
     }
     dataset

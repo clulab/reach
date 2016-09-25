@@ -1,13 +1,12 @@
 package org.clulab.assembly.relations.classifier
 
 import java.io.File
-
 import com.typesafe.config.ConfigFactory
-import org.apache.commons.io.{FileUtils, FilenameUtils}
-import org.clulab.assembly.relations.corpus.{AssemblyAnnotation, CorpusReader}
+import com.typesafe.scalalogging.LazyLogging
+import org.clulab.assembly.relations.corpus.CorpusReader._
+import org.clulab.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.learning._
-import CorpusReader._
-import org.clulab.assembly.relations.corpus.CorpusReader
+import org.apache.commons.io.{FileUtils, FilenameUtils}
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Random
 
@@ -83,7 +82,7 @@ object Evaluator {
     for(fold <- folds) {
       // Uncomment to confirm the size of each class in each fold
       // val balance = fold.test.map(dataset.labels(_)).groupBy(identity).mapValues(_.size)
-      // println(s"fold: ${balance.mkString(", ")}")
+      // logger.debug(s"fold: ${balance.mkString(", ")}")
       val classifier = classifierFactory()
       classifier.train(dataset, fold.train.toArray)
       for(i <- fold.test) {
@@ -135,7 +134,7 @@ object Evaluator {
     val rows = scores.map(pair => s"${pair._1}\t${pair._2}").mkString("\n")
     val content =
       s"""$header
-          |$rows
+         |$rows
        """.stripMargin
 
     FileUtils.writeStringToFile(f, content)
@@ -143,98 +142,94 @@ object Evaluator {
 
 }
 
-object ClassifyAssemblyRelations extends App {
+object ClassifyAssemblyRelations extends App with LazyLogging {
 
   import CorpusReader._
 
-  val config = ConfigFactory.load()
-  val annotationsPath = config.getString("assembly.corpusFile")
-  val annotations: Seq[AssemblyAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
+  val eps: Seq[EventPair] = CorpusReader.readCorpus
 
   // gather precedence relations corpus
-  val precedenceAnnotations = filterRelations(annotations, precedenceRelations)
+  val precedenceAnnotations = filterRelations(eps, precedenceRelations)
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
   val pcf = AssemblyRelationClassifier.train(precedenceDataset)
   // get cross validation accuracy
   val scores = Evaluator.crossValidate(precedenceDataset, "lr-l2")
   val accuracy = Evaluator.calculateAccuracy(scores)
-  println(f"Precedence relation accuracy (using ${pcf.classifierType} with 5-fold cross validation):\t$accuracy%1.3f")
+  logger.info(f"Precedence relation accuracy (using ${pcf.classifierType} with 5-fold cross validation):\t$accuracy%1.3f")
 
   // gather subsumption relations corpus
-  val subsumptionAnnotations = filterRelations(annotations, subsumptionRelations)
+  val subsumptionAnnotations = filterRelations(eps, subsumptionRelations)
   val subsumptionDataset = AssemblyRelationClassifier.mkRVFDataset(subsumptionAnnotations)
 
   // gather equivalence relations corpus
-  val equivalenceAnnotations = filterRelations(annotations, subsumptionRelations)
+  val equivalenceAnnotations = filterRelations(eps, subsumptionRelations)
   val equivalenceDataset = AssemblyRelationClassifier.mkRVFDataset(equivalenceAnnotations)
 }
 
-object TrainAssemblyRelationClassifier extends App {
+object TrainAssemblyRelationClassifier extends App with LazyLogging {
   val config = ConfigFactory.load()
-  val annotationsPath = config.getString("assembly.corpusFile")
   val classifierType = config.getString("assembly.classifier.classifier")
   val classifierPath = config.getString("assembly.classifier.model")
-  val annotations: Seq[AssemblyAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
+  val eps: Seq[EventPair] = CorpusReader.readCorpus
 
   // gather precedence relations corpus
-  val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
+  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
   // train
-  println(s"Training classifier using ${precedenceAnnotations.size}")
+  logger.info(s"Training classifier using ${precedenceAnnotations.size}")
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
   val pcf = AssemblyRelationClassifier.train(precedenceDataset, AssemblyRelationClassifier.getModel(classifierType))
   // save model
-  println(s"saving trained classifier to $classifierPath . . .")
+  logger.info(s"saving trained classifier to $classifierPath . . .")
   pcf.saveTo(classifierPath)
 }
 
 /** *
   * Train and evaluate precedence relation classifier
   */
-object CrossValidateAssemblyRelationClassifier extends App {
+object CrossValidateAssemblyRelationClassifier extends App with LazyLogging {
 
   val config = ConfigFactory.load()
-  val annotationsPath = config.getString("assembly.corpusFile")
   val classifierPath = config.getString("assembly.classifier.model")
   val results = config.getString("assembly.classifier.results")
-  val annotations: Seq[AssemblyAnnotation] = CorpusReader.annotationsFromFile(annotationsPath)
+  val eps: Seq[EventPair] = CorpusReader.readCorpus
 
   // gather precedence relations corpus
-  val precedenceAnnotations = CorpusReader.filterRelations(annotations, precedenceRelations)
+  val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
   // train
-  println(s"Training classifier using ${precedenceAnnotations.size}")
+  logger.info(s"Training classifier using ${precedenceAnnotations.size}")
   val precedenceDataset = AssemblyRelationClassifier.mkRVFDataset(precedenceAnnotations)
-//  val pcf = AssemblyRelationClassifier.train(precedenceDataset)
-//  // results
-//
-//  // save model
-//  println(s"saving trained classifier to ${} . . .")
-//  pcf.saveTo(classifierPath)
+  //  val pcf = AssemblyRelationClassifier.train(precedenceDataset)
+  //  // results
+  //
+  //  // save model
+  //  println(s"saving trained classifier to ${} . . .")
+  //  pcf.saveTo(classifierPath)
 
   // evaluate
   // get cross validation accuracy
-  println(s"Running cross validation . . .")
+  logger.info(s"Running cross validation . . .")
   val models = Seq("lr-l2", "lr-l1", "lin-svm-l2", "lin-svm-l1")//, "rf")
   // evaluate each model
   val res = for {
-    model <- models
-  } yield {
-    val scores = Evaluator.stratifiedCrossValidate(
-      dataset = precedenceDataset,
-      classifierFactory = () => AssemblyRelationClassifier.getModel(model),
-      numFolds = 10
-    )
-    val performance = Evaluator.calculatePerformance(scores)
-    val outFile = s"${FilenameUtils.removeExtension(results)}-$model.${FilenameUtils.getExtension(results)}"
-    println(s"Writing results to $outFile . . .")
-    Evaluator.writeScoresToTSV(scores, outFile)
-    (model, performance)
-  }
+      model <- models
+    } yield {
+      val scores = Evaluator.stratifiedCrossValidate(
+        dataset = precedenceDataset,
+        classifierFactory = () => AssemblyRelationClassifier.getModel(model),
+        numFolds = 10
+      )
+      val performance = Evaluator.calculatePerformance(scores)
+      val outFile = s"${FilenameUtils.removeExtension(results)}-$model.${FilenameUtils.getExtension(results)}"
+      logger.info(s"Writing results to $outFile . . .")
+      Evaluator.writeScoresToTSV(scores, outFile)
+      (model, performance)
+    }
 
-  println(s"model\tlabel\tp\tr\tf1\ttp\tfp\tfn")
+  logger.info(s"model\tlabel\tp\tr\tf1\ttp\tfp\tfn")
   for {
     (model, performance) <- res
     lbl <- performance
   } {
-    println(s"$model\t${lbl.mkRow}")
+    logger.info(s"$model\t${lbl.mkRow}")
   }
 }
