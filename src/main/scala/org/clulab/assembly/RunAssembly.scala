@@ -10,7 +10,6 @@ import org.clulab.reach.PaperReader
 import org.clulab.reach.mentions._
 import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
-import scala.reflect.io.File
 
 
 object RunAnnotationEval extends App {
@@ -27,7 +26,7 @@ object RunAnnotationEval extends App {
 
   val (posGold, testMentions) = {
 
-    if(File(evalGoldPath).exists & File(evalMentionsPath).exists) {
+    if(new File(evalGoldPath).exists & new File(evalMentionsPath).exists) {
       println("Serialized files exist")
       val pg = Serializer.load[Seq[PrecedenceRelation]](evalGoldPath)
       val tm = Serializer.load[Seq[Mention]](evalMentionsPath)
