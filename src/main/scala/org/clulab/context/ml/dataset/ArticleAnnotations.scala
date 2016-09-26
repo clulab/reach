@@ -31,11 +31,15 @@ object ContextType{
       case "tissuelist" => this(ContextClass.TissueType, annotationId)
       case "go" => this(ContextClass.Cellular_component, annotationId)
       case "uaz" =>
-        // TODO: Fix this to consider uaz:UBERON:0000479 and uaz:CL:0000786
         val y = gid.split("-")
         if(y.size < 2){
-            println(s"DEBUG: $annotationId")
-            this(ContextClass.Undetermined, annotationId)
+            if(y(0).toLowerCase.contains("uberon"))
+              this(ContextClass.Organ, annotationId)
+            else if(y(0).toLowerCase.contains("cl:"))
+              this(ContextClass.CellLine, annotationId)
+            else
+              println(s"DEBUG: Unrecognized context id $annotationId - ContextType.parse")
+              this(ContextClass.Undetermined, annotationId)
         }
         else{
             val x = y(1)
@@ -44,14 +48,13 @@ object ContextType{
              case "cline" => this(ContextClass.CellLine, annotationId)
              case "ct" => this(ContextClass.CellType, annotationId)
              case i =>
-                println(s"DEBUG incorrectly parsed id $i")
+                println(s"DEBUG: Unrecognized context id $annotationId - ContextType.parse")
                 this(ContextClass.Undetermined, annotationId)
             }
         }
-
-
-
-      case _ => this(ContextClass.Undetermined, annotationId)
+      case _ =>
+        println(s"DEBUG: Unrecognized context id $annotationId - ContextType.parse")
+        this(ContextClass.Undetermined, annotationId)
     }
   }
 }

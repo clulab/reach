@@ -85,7 +85,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
     // Get the context types in the document
     paperContextTypes = Some(paperMentions.get.map{m =>
         if(m.nsId.startsWith("uaz:UAZ"))
-            println(s"DEBUG: Weird entry ${m.label} - ${m.text}")
+            println(s"DEBUG: Weird entry ${m.label} - ${m.text} - ${m.nsId}")
         ContextType.parse(m)}
     )
 

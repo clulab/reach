@@ -10,22 +10,22 @@ object Debug extends App{
 
   for(d <- dirs){
     val anns = ArticleAnnotations.readPaperAnnotations(d.getPath)
-    println
-    println(s"== ${d.getPath} ==")
-    val doc = new DocumentSerializer().load(anns.preprocessed.get.serializedDoc)
-    val sentences = anns.sentences
-
-    if(doc.sentences.size != sentences.size){
-      println(s"${d.getPath} sentences: ${sentences.size}\tdoc sentences: ${doc.sentences.size}")
-    }
-
-    println("First sentences:")
-    println(sentences(0))
-    println(doc.sentences(0).getSentenceText)
-    println
-    println("Last sentences:")
-    println(sentences(sentences.size-1))
-    println(doc.sentences(sentences.size-1).getSentenceText)
+    // println
+    // println(s"== ${d.getPath} ==")
+    // val doc = new DocumentSerializer().load(anns.preprocessed.get.serializedDoc)
+    // val sentences = anns.sentences
+    //
+    // if(doc.sentences.size != sentences.size){
+    //   println(s"${d.getPath} sentences: ${sentences.size}\tdoc sentences: ${doc.sentences.size}")
+    // }
+    //
+    // println("First sentences:")
+    // println(sentences(0))
+    // println(doc.sentences(0).getSentenceText)
+    // println
+    // println("Last sentences:")
+    // println(sentences(sentences.size-1))
+    // println(doc.sentences(sentences.size-1).getSentenceText)
 
     // println("==================")
     // doc.sentences.map(_.getSentenceText).foreach(println)
