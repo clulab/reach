@@ -44,7 +44,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor
-  val processor = if (proc.isEmpty) new BioNLPProcessor(withDiscourse=ShallowNLPProcessor.NO_DISCOURSE) else proc.get
+  val processor = if (proc.isEmpty) new BioNLPProcessor(withChunks = false) else proc.get
   processor.annotate("something")
 
   /** returns string with all rules used by the system */

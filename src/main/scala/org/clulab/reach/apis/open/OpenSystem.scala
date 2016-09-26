@@ -4,6 +4,8 @@ import org.clulab.odin._
 import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.processors.Document
 import org.clulab.processors.corenlp.CoreNLPProcessor
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
+
 import scala.util.Try
 
 

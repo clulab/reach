@@ -51,7 +51,7 @@ class NxmlIndexer {
     val index = FSDirectory.open(Paths.get(indexDir))
     val writer = new IndexWriter(index, config)
     // BioNLPProcessor to preprocess the text
-    val processor = new BioNLPProcessor
+    val processor = new BioNLPProcessor(withChunks = false)
     count = 0
     var nxmlErrors = 0
     for (file <- files) {

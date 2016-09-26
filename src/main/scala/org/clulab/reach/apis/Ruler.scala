@@ -4,6 +4,7 @@ import org.clulab.odin.impl.{OdinCompileException, OdinNamedCompileException}
 import org.clulab.processors.Document
 import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.processors.corenlp.CoreNLPProcessor
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach._
 import org.clulab.reach.brat.Brat
 import org.clulab.reach.apis.open.OpenSystem

@@ -2,13 +2,14 @@ package org.clulab.reach
 
 import org.clulab.reach.grounding._
 import org.scalatest.{Matchers, FlatSpec}
+import scala.util.Try                       // do not remove: needed for debugging
 import TestUtils._
 
 
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Cleanup scalatest syntax.
+  *   Last Modified: Add tests for overrides as a result of Hans error analysis.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -36,8 +37,11 @@ class TestOverrides extends FlatSpec with Matchers {
   val fam1 = "ERK1/2, ERK 1/2, Neuregulin, Neuroregulin are Families. "
   val fam1_ids = Seq("UAZ-PF-244", "UAZ-PF-244", "PF02158", "PF02158")
 
-  val fam2 = "SMAD2/3, SMAD 2/3, and TGFB are Families. "
-  val fam2_ids = Seq("UAZ-PF-243", "UAZ-PF-243", "IPR015615")
+  val fam2 = "SMAD2/3, SMAD 2/3, TGFB and Cadherin are important Families. "
+  val fam2_ids = Seq("UAZ-PF-243", "UAZ-PF-243", "IPR015615", "PF00028")
+
+  val chem = "GTP, GDP, cyclododecane, TAK-165, and estrone are important molecules. "
+  val chem_ids = Seq("6830", "8977", "18529", "644692", "5870")
 
   val estros = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
 
@@ -301,6 +305,34 @@ class TestOverrides extends FlatSpec with Matchers {
   it should "match expected grounding IDs" in {
     for ((m, ndx) <- fam2_mentions.zipWithIndex) {
       m.grounding.isDefined && (m.grounding.get.id == fam2_ids(ndx)) should be (true)
+    }
+  }
+
+
+  // Simple_chemical Tests
+  val chem_mentions = getBioMentions(chem)
+  chem should "have expected number of results" in {
+    chem_mentions should not be (empty)
+    // printMentions(Try(chem_mentions), true)      // DEBUGGING
+    chem_mentions should have size (chem_ids.size)
+  }
+
+  it should "have labeled all mentions as Simple_chemical" in {
+    chem_mentions.count(_ matches "Simple_chemical") should be (chem_ids.size)
+  }
+
+  it should "have display labeled all mentions as Simple_chemical" in {
+    chem_mentions.count(_.displayLabel == "Simple_chemical") should be (chem_ids.size)
+  }
+
+  it should "have grounded all mentions as Human" in {
+    chem_mentions.forall(m => m.grounding.isDefined &&
+                         Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
+  }
+
+  it should "match expected grounding IDs" in {
+    for ((m, ndx) <- chem_mentions.zipWithIndex) {
+      m.grounding.isDefined && (m.grounding.get.id == chem_ids(ndx)) should be (true)
     }
   }
 

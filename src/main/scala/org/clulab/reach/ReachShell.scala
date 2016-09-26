@@ -6,7 +6,6 @@ import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import scala.collection.immutable.ListMap
 import org.clulab.reach.display._
-import org.clulab.context
 import org.clulab.context.ContextEngineFactory.Engine
 import RuleReader._
 
