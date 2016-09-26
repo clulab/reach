@@ -101,7 +101,7 @@ object FeatureExtractor{
 
   def contextMention2Annotation(m:BioTextBoundMention) = ContextAnnotation(m.sentence,
      Interval.open(m.tokenInterval.start, m.tokenInterval.end),
-     ContextType.parse(m.nsId))
+     ContextType.parse(m))
 
   def extractFeatures(doc:Document, event:BioMention,
      contextMention:BioTextBoundMention):PairFeatures = extractFeatures(doc,

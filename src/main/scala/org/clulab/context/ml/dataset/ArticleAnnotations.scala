@@ -4,6 +4,7 @@ import java.io._
 import io.Source
 import ai.lum.common.Interval
 import ai.lum.nxmlreader.standoff.Tree
+import org.clulab.reach.mentions.BioTextBoundMention
 import org.clulab.context.ml.PreAnnotatedDoc
 import org.clulab.context.ContextClass
 
@@ -14,6 +15,9 @@ import org.clulab.context.ContextClass
 case class ContextType(val contextType:ContextClass.Value, val id:String)
 
 object ContextType{
+
+  def parse(mention:BioTextBoundMention):ContextType = this(ContextClass.getContextClass(mention), mention.nsId)
+
   def parse(annotationId:String) = {
     val tokens = annotationId.split(":", 2)
 

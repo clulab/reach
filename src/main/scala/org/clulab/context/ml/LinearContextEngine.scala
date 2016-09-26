@@ -37,7 +37,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                 if(!ContextClass.isContextMention(bioMention)){
                     val contextTypes:Seq[ContextType] = paperContextTypes.get.filter{
                         t =>
-                            val mentions = contextMentions.filter(m => ContextType.parse(m.nsId) == t)
+                            val mentions = contextMentions.filter(m => ContextType.parse(m) == t)
                             // Create feature pairs
                             val instances = FeatureExtractor.extractFeatures(bioMention.document, Seq(bioMention), mentions)
                             // Get the type frequency
@@ -86,7 +86,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
     paperContextTypes = Some(paperMentions.get.map{m =>
         if(m.nsId.startsWith("uaz:UAZ"))
             println(s"DEBUG: Weird entry ${m.label} - ${m.text}")
-        ContextType.parse(m.nsId)}
+        ContextType.parse(m)}
     )
 
     // Compute the context type counts
