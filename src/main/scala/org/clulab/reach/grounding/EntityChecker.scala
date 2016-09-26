@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
+  *   Last Modified: Update for HMS drug KB.
   */
 object EntityChecker extends App with LazyLogging {
 
@@ -26,7 +26,7 @@ object EntityChecker extends App with LazyLogging {
                                        staticProteinKBLookup )
 
   /** Search sequence for small molecules. */
-  protected val chemSearcher = Seq( staticChemicalKBLookup )
+  protected val chemSearcher = Seq( staticChemicalKBLookup, staticDrugKBLookup )
 
   /** Search sequence for sub cellular locations terms. */
   protected val cellLocationSearcher = Seq( staticCellLocationKBLookup )

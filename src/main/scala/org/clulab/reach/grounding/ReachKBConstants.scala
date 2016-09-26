@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Rename protein kinases and protein domains file.
+  *   Last Modified: Update for HMS drug KB.
   */
 object ReachKBConstants {
 
@@ -62,6 +62,9 @@ object ReachKBConstants {
   /** Filename of the static small molecule (chemical) file. */
   val StaticChemicalFilename = "PubChem.tsv.gz"
 
+  /** Filename of the static small molecule (drug) file. */
+  val StaticDrugFilename = "hms-drugs.tsv.gz"
+
   /** Filename of the static small molecule (metabolite) file. */
   val StaticMetaboliteFilename = "hmdb.tsv.gz"
 
@@ -80,6 +83,9 @@ object ReachKBConstants {
 
   /** Filename of the context cell lines file */
   val ContextCellLineFilename = "Cellosaurus.tsv.gz"
+
+  /** Filename of the secondary context cell lines file */
+  val ContextCellLine2Filename = "atcc.tsv.gz"
 
   /** Filename of the context cell types file */
   val ContextCellTypeFilename = "CellOntology.tsv.gz"
