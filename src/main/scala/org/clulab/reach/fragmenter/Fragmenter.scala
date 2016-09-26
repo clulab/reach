@@ -2,6 +2,9 @@ package org.clulab.reach.fragmenter
 
 import java.net.URL
 import java.io.{File, FileInputStream, InputStream}
+
+import com.typesafe.scalalogging.LazyLogging
+
 import scala.collection.JavaConverters._
 import scala.reflect.ClassTag
 import org.biopax.paxtools.io.SimpleIOHandler
@@ -57,16 +60,16 @@ object Fragmenter {
   def fromURL(spec: String): Fragmenter = fromURL(new URL(spec))
 }
 
-object FragmenterApp extends App {
+object FragmenterApp extends App with LazyLogging {
   val filename = "/home/marcov/Downloads/Pathway Commons.4.Reactome.BIOPAX.owl"
   val frag = Fragmenter fromFile filename
 
-  println(s"BiochemicalReactions = ${frag.biochemicalReactions.size}")
+  logger.info(s"BiochemicalReactions = ${frag.biochemicalReactions.size}")
   println
 
   val hist = frag.biochemicalReactions groupBy (_.conversionLabels)
   hist foreach { case (labels, reactions) =>
-    println(s"$labels = ${reactions.size}")
+    logger.info(s"$labels = ${reactions.size}")
     reactions map ("  " + _.name) foreach println
     println
   }

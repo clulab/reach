@@ -1,12 +1,14 @@
 package org.clulab.reach
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.processors.{Document, Sentence}
+
 import scala.util.matching.Regex
 
 
-package object display {
+package object display extends LazyLogging {
 
   val WHITESPACE = new Regex("^\\s+")
 
@@ -42,11 +44,11 @@ package object display {
   }
 
   def displayMentions(mentions: Seq[Mention], doc: Document): Unit = {
-    println(summarizeMentions(mentions, doc))
+    logger.info(summarizeMentions(mentions, doc))
   }
 
   def printSyntacticDependencies(s:Sentence): Unit = {
-    println(syntacticDependenciesToString(s))
+    logger.info(syntacticDependenciesToString(s))
   }
 
   def syntacticDependenciesToString(s:Sentence): String = {
@@ -118,7 +120,7 @@ package object display {
   }
 
   def displayMention(mention: Mention): Unit = {
-    println(summarizeMention(mention))
+    logger.info(summarizeMention(mention))
   }
 
   def summarizeArguments(b: BioMention): String = {
@@ -131,7 +133,7 @@ package object display {
   }
 
   def displayArguments(b: BioMention): Unit = {
-    println(summarizeArguments(b))
+    logger.info(summarizeArguments(b))
   }
 
   def summarizeContext(b: BioMention): String = b.context match {
@@ -144,7 +146,7 @@ package object display {
   }
 
   def displayContext(b: BioMention): Unit = {
-    println(summarizeContext(b))
+    logger.info(summarizeContext(b))
   }
 
   def summarizeModifications(b: BioMention, level:Int = 0): String = {
@@ -179,7 +181,7 @@ package object display {
   }
 
   def displayModifications(b: BioMention, level: Int = 0): Unit = {
-    println(summarizeModifications(b, level))
+    logger.info(summarizeModifications(b, level))
   }
 
   def cleanVerbose(s:String):String = {

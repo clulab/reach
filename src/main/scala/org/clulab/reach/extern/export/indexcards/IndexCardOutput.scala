@@ -3,6 +3,7 @@ package org.clulab.reach.extern.export.indexcards
 import java.io.File
 import java.util.Date
 import java.util.regex.Pattern
+
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import org.clulab.odin.Mention
@@ -12,6 +13,7 @@ import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import JsonOutputter._
 import IndexCardOutput._
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.darpa.OutputDegrader
 
@@ -21,7 +23,7 @@ import org.clulab.reach.darpa.OutputDegrader
   *   Written by: Mihai Surdeanu. 8/27/2015.
   *   Last Modified: Update for renamed method.
   */
-class IndexCardOutput extends JsonOutputter {
+class IndexCardOutput extends JsonOutputter with LazyLogging {
 
   /**
    * Returns the given mentions in the index-card JSON format, as one big string.
@@ -182,7 +184,7 @@ class IndexCardOutput extends JsonOutputter {
     // participants should always be grounded here! (even if only to an UAZID)
     // assert(arg.isGrounded, s"Argument '${arg.text}' should be grounded at this point!")
     if (!arg.isGrounded) {
-      println(s"Failed to ground argument ${arg.text}!")
+      logger.error(s"Failed to ground argument ${arg.text}!")
     }
     if (arg.isGrounded) f("identifier") = mkIdentifier(arg.grounding.get)
 

@@ -1,6 +1,7 @@
 package org.clulab.reach.grounding
 
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.reach._
 import org.clulab.reach.context._
@@ -14,7 +15,7 @@ import org.clulab.reach.extern.export.MentionManager
   *   Written by Tom Hicks. 2/9/2016.
   *   Last Modified: Update import for class rename.
   */
-class ReachGrounder extends Speciated {
+class ReachGrounder extends Speciated with LazyLogging {
 
   val config = ConfigFactory.load()
   val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
@@ -99,6 +100,6 @@ class ReachGrounder extends Speciated {
   }
 
   private def printMention (mention:BioMention): Unit =
-    mentionMgr.mentionToStrings(mention).foreach { System.err.println(_) }
+    mentionMgr.mentionToStrings(mention).foreach { logger.error(_) }
 
 }

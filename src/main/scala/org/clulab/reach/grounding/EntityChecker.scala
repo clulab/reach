@@ -2,12 +2,12 @@ package org.clulab.reach.grounding
 
 import java.io._
 
+import com.typesafe.scalalogging.LazyLogging
 import org.biopax.paxtools.io._
 import org.biopax.paxtools.model._
 import org.biopax.paxtools.model.level3._
 
 import scala.collection.JavaConverters._
-
 import org.clulab.reach.grounding.ReachIMKBLookups._
 import org.clulab.reach.grounding.ReachKBConstants._
 
@@ -16,7 +16,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
   *   Author: by Tom Hicks. 5/14/2015.
   *   Last Modified: Replace ChEBI and HMDB KBs with PubChem.
   */
-object EntityChecker extends App {
+object EntityChecker extends App with LazyLogging {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
@@ -46,7 +46,7 @@ object EntityChecker extends App {
     val instances:collection.mutable.Set[SmallMolecule] =
       (model.getObjects(classOf[SmallMolecule])).asScala
     val molecules = instances.toSeq.map(_.getDisplayName()).sorted.distinct
-    println(s"FOUND: ${molecules.size} small molecules in input model")
+    logger.info(s"FOUND: ${molecules.size} small molecules in input model")
     val missing = molecules.filterNot(lookup(_, chemSearcher))
     outputMissing(missing, GendChemicalFilename, GendChemicalPrefix)
   }
@@ -55,7 +55,7 @@ object EntityChecker extends App {
     val instances:collection.mutable.Set[CellularLocationVocabulary] =
       (model.getObjects(classOf[CellularLocationVocabulary])).asScala
     val cellLocs = instances.toSeq.flatMap(_.getTerm().asScala).sorted.distinct
-    println(s"FOUND: ${cellLocs.size} cellular location terms in input model")
+    logger.info(s"FOUND: ${cellLocs.size} cellular location terms in input model")
     val missing = cellLocs.filterNot(lookup(_, cellLocationSearcher))
     outputMissing(missing, GendCellLocationFilename, GendCellLocationPrefix)
   }
@@ -64,7 +64,7 @@ object EntityChecker extends App {
     val instances:collection.mutable.Set[Protein] = (model.getObjects(classOf[Protein])).asScala
     var proteins = instances.toSeq.map(_.getDisplayName()) ++ findComplexProteinNames(model)
     proteins = proteins.sorted.distinct     // sort and remove duplicate names
-    println(s"FOUND: ${proteins.size} distinct proteins in input model")
+    logger.info(s"FOUND: ${proteins.size} distinct proteins in input model")
     val missing = proteins.filterNot(lookup(_, proteinSearcher))
     outputMissing(missing, GendProteinFilename, GendProteinPrefix)
   }
