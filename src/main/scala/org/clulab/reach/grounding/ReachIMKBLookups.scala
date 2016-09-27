@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for context tissue types KB.
+  *   Last Modified: Update for HMS drug KB.
   */
 object ReachIMKBLookups {
 
@@ -31,7 +31,14 @@ object ReachIMKBLookups {
   def staticChemicalKBLookup: IMKBLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/pubchem.compound/", "MIR:00000034")
     metaInfo.put("file", StaticChemicalFilename)
-    new IMKBLookup(tsvIMKBFactory.make("PubChem", StaticChemicalFilename, metaInfo))
+    new IMKBLookup(tsvIMKBFactory.make("pubchem", StaticChemicalFilename, metaInfo))
+  }
+
+  /** KB lookup to resolve small molecule (drug) names via static KB. */
+  def staticDrugKBLookup: IMKBLookup = {
+    val metaInfo = new IMKBMetaInfo("http://identifiers.org/pubchem.compound/", "MIR:00000034")
+    metaInfo.put("file", StaticDrugFilename)
+    new IMKBLookup(tsvIMKBFactory.make("pubchem", StaticDrugFilename, metaInfo))
   }
 
   /** KB lookup to resolve small molecule (chemical) names via static KB. */

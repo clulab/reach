@@ -50,6 +50,10 @@ object TestUtils {
     m <- getMentionsFromText(text)
   } yield m.toBioMention
 
+  def getCorefmentionsFromText(text: String): Seq[CorefMention] = for {
+    m <- getMentionsFromText(text)
+  } yield m.toCorefMention
+
   def getFlattenedBioMentionsFromText(text: String): Seq[BioMention] = for {
     m <- getMentionsFromText(text)
   } yield OutputDegrader.flattenMention(m).toBioMention

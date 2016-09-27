@@ -518,4 +518,15 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("Apoptosis", "Phosphorylation", List("p53"), mentions) should be (false)
   }
 
+  val sent56 = "RAS1 activates AKT-induced apoptosis"
+  sent56 should "contain 1 activation and 1 positive regulation of that activation" in {
+    val mentions = getBioMentions(sent56)
+    hasPositiveRegulationByEntity("RAS1", "Positive_activation", List("AKT", "apoptosis"), mentions) should be (true)
+  }
+
+  val sent57 = "Indeed, expression of RARbeta2 has been shown to restore retinoic acid induced apoptosis"
+  sent57 should "contain 1 activation and 1 positive regulation of that activation" in {
+    val mentions = getBioMentions(sent57)
+    hasPositiveRegulationByEntity("RARbeta2", "Positive_activation", List("retinoic acid", "apoptosis"), mentions) should be (true)
+  }
 }

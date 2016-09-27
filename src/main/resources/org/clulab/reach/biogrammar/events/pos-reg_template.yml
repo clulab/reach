@@ -8,6 +8,7 @@
 # use prep_in$ instead of prep_in, to avoid matching prep_including, which has different semantics
 #
 
+# note: nsubjpass for controller should not be there in an ideal world; but it does show up in practice
 - name: Positive_${ ruleType }_syntax_1_verb
   priority: ${ priority }
   example: "X activates Y"
@@ -16,7 +17,7 @@
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/{,2}
-    controller:${ controllerType } = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1b_verb
@@ -147,7 +148,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
+    trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]? (?! downstream)
     controlled:${ controlledType } = /prep_of|prep_in$/ /conj_|cc|nn|amod/{,2}
     controller:${ controllerType } = /cc|nn|amod/{1,2} | conj_or prep_by nn?
 

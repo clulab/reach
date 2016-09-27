@@ -3,6 +3,8 @@ package org.clulab.reach.apis.open
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.processors.corenlp.CoreNLPProcessor
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
+
 import scala.util.Try
 
 
@@ -11,7 +13,7 @@ class OpenSystem(p: Option[CoreNLPProcessor] = None) {
   // Avoid costly reloading of models
   val proc: CoreNLPProcessor =
     if (p.nonEmpty) p.get
-    else new CoreNLPProcessor(withDiscourse = false)
+    else new CoreNLPProcessor(withDiscourse = ShallowNLPProcessor.NO_DISCOURSE)
 
   // For the demo, Ruler will provide us with our rules
   var cachedRules: String = ""

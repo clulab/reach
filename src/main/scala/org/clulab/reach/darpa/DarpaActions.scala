@@ -1,5 +1,6 @@
 package org.clulab.reach.darpa
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.reach._
 import org.clulab.reach.mentions._
@@ -7,7 +8,7 @@ import org.clulab.struct.DirectedGraph
 import scala.annotation.tailrec
 
 
-class DarpaActions extends Actions {
+class DarpaActions extends Actions with LazyLogging {
 
   import DarpaActions._
 
@@ -151,7 +152,7 @@ class DarpaActions extends Actions {
         // use cause of SimpleEvent to create a Regulation
         reg = new BioRelationMention(
           DarpaActions.REG_LABELS,
-          Map("controller" -> Seq(c), "controlled" -> Seq(ev)),
+          Map("controller" -> Seq(c), "controlled" -> Seq(ev)), Map.empty,
           e.sentence, e.document, e.keep, e.foundBy
         )
         // negations should be propagated to the newly created Positive_regulation
@@ -169,13 +170,19 @@ class DarpaActions extends Actions {
     mention <- mentions
     // bioprocesses can't be controllers of regulations
     if bioprocessValid(mention)
+
     // controller/controlled paths shouldn't overlap.
     // NOTE this needs to be done on mentions coming directly from Odin
-    //if !hasSynPathOverlap(mention)
+    // if !hasSynPathOverlap(mention) // do not enable this: there are legitimate cases
+
     // switch label if needed based on negations
     regulation = removeDummy(switchLabel(mention.toBioMention))
-    // If the Mention has both a controller and controlled, they should be distinct
+
+    // If the Mention has both a controller and controlled, their grounding should be distinct
     if hasDistinctControllerControlled(regulation)
+    // If the Mention has both a controller and controlled, their token spans should NOT overlap
+    if ! overlappingSpansControllerControlled(regulation)
+    _ = logger.debug(s"mkRegulation yields: ${display.summarizeMention(regulation)}")
   } yield regulation
 
   /**
@@ -238,6 +245,7 @@ class DarpaActions extends Actions {
   def mkBindingsFromPairs(pairs: Seq[Seq[BioMention]], original: EventMention): Seq[Mention] = for {
     Seq(theme1, theme2) <- pairs
     if !sameEntityID(theme1, theme2)
+    if !(theme1.tokenInterval overlaps theme2.tokenInterval)
   } yield {
     if (theme1.text.toLowerCase == "ubiquitin") {
       val arguments = Map("theme" -> Seq(theme2))
@@ -332,6 +340,7 @@ class DarpaActions extends Actions {
 
   /** global action for EventEngine */
   def cleanupEvents(mentions: Seq[Mention], state: State): Seq[Mention] = {
+    logger.debug("Running global action cleanupEvents...")
     val r1 = siteSniffer(mentions, state)
     val r2 = keepIfValidArgs(r1, state)
     val r3 = NegationHandler.detectNegations(r2, state)
@@ -348,7 +357,7 @@ object DarpaActions {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|slow|starv|suppress|supress".r
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|slow|starv|suppress|supress".r
 
   val MODIFIER_LABELS = "amod".r
 
@@ -509,6 +518,21 @@ object DarpaActions {
     controlled.intersect(controller).isEmpty
   }
 
+  /**
+    * Checks if the token spans of the controlled and controller overlap.
+    * Returns true if they do
+    */
+  def overlappingSpansControllerControlled(m: Mention): Boolean = {
+    val controlleds = m.arguments.getOrElse("controlled", Set())
+    val controllers = m.arguments.getOrElse("controller", Set())
+    controllers.foreach(cr =>
+      controlleds.foreach(cd =>
+        if(cr.tokenInterval.overlaps(cd.tokenInterval))
+          return true
+    ))
+    false
+  }
+
   /** checks if a mention has a controller/controlled
     * arguments with syntactic paths from the trigger
     * that overlap
@@ -629,6 +653,7 @@ object DarpaActions {
       new BioRelationMention(
         taxonomy.hypernymsFor("Complex"),
         binding.arguments,
+        binding.paths,
         binding.sentence,
         binding.document,
         binding.keep,

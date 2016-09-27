@@ -334,14 +334,14 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("PI3K", "Ras"), mentions) should be (true)
   }
 
-  val sent31 = "We observed that endogenous PLC, Afadin, Calmodulin and Tubulin co-immunoprecipitated with G12V-K-Ras (GUS)"
-  sent31 should "contain 4 binding events for G12V-K-Ras" in {
+  val sent31 = "We observed that endogenous PLC, Afadin, Calmodulin and Tubulin bind with Sos."
+  sent31 should "contain 4 binding events for Sos" in {
     val mentions = getBioMentions(sent31)
-    // TODO: this doesn't work because we don't recognize G12V-K-Ras as entity. Please add it to the model.
-    hasEventWithArguments("Binding", List("PLC", "G12V-K-Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("Afadin", "G12V-K-Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("Calmodulin", "G12V-K-Ras"), mentions) should be (true)
-    hasEventWithArguments("Binding", List("Tubulin", "G12V-K-Ras"), mentions) should be (true)
+    // TODO: this didn't work because we don't recognize G12V-K-Ras as entity. Please add it to the model.
+    hasEventWithArguments("Binding", List("PLC", "Sos"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Afadin", "Sos"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Calmodulin", "Sos"), mentions) should be (true)
+    hasEventWithArguments("Binding", List("Tubulin", "Sos"), mentions) should be (true)
   }
 
   val sent32 = "Something increases the fraction of GTP-bound Ras"
@@ -433,17 +433,30 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("p85", "Gab1"), mentions) should be (true)
   }
 
-  val sent42 = "We analyze the Mek-Ras-Akt1 complex."
-  sent42 should "contain three binary binding events" in {
+  val sent42 = "Point mutations made are listed along with their impact on binding to RAC1 and CDC42"
+  sent42 should "not contain a binding between RAC1 and CDC42" in {
     val mentions = getBioMentions(sent42)
+    mentions filter (_ matches "Binding") should have size (0)
+  }
+
+  val sent43 = "We analyze the Mek-Ras-Akt1 complex."
+  sent43 should "contain three binary binding events" in {
+    val mentions = getBioMentions(sent43)
     val bindings = mentions.filter(_ matches "Binding")
     bindings should have size (1)
     hasEventWithArguments("Binding", List("Mek", "Ras", "Akt1"), bindings) should be (true)
   }
 
-  val sent43 = "We provide evidence and a model illustrating how oncogenic, activated Ras can increase the DNA binding and transcription function of SAF-1 / MAZ transcription factor, a transcriptional regulator of VEGF."
-  sent43 should "not contain binding events" in {
-    val mentions = getBioMentions(sent43)
+  val sent44 = "We provide evidence and a model illustrating how oncogenic, activated Ras can increase the DNA binding and transcription function of SAF-1 / MAZ transcription factor, a transcriptional regulator of VEGF."
+  sent44 should "not contain binding events" in {
+    val mentions = getBioMentions(sent44)
+    mentions filter (_ matches "Binding") shouldBe empty
+  }
+
+  val sent45 = "The empty vector and HSP20 overexpressing HuH7 cell lysates were immunoprecipitated (IP) with " +
+    "antibodies for AKT, ERK, MEK and normal rabbit IgG"
+  sent45 should "not contain binding events" in {
+    val mentions = getBioMentions(sent45)
     mentions filter (_ matches "Binding") shouldBe empty
   }
 
