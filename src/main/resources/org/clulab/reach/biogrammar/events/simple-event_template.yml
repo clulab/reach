@@ -84,18 +84,6 @@
     site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
 
 
-- name: ${ eventName }_syntax_3c_verb
-  priority: ${ priority }
-  example: ""
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = <nn{,2}
-    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
-
-
 - name: ${ eventName }_syntax_3d_verb
   priority: ${ priority }
   example: ""
