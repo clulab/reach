@@ -96,6 +96,7 @@ class Coref {
             specific.labels,
             specific.trigger,
             argSet,
+            specific.paths,
             specific.sentence,
             specific.document,
             specific.keep,
@@ -241,6 +242,7 @@ class Coref {
               m.labels,
               m.asInstanceOf[CorefEventMention].trigger,
               m.asInstanceOf[CorefEventMention].arguments,
+              m.paths,
               m.sentence,
               m.document,
               m.keep,
@@ -273,6 +275,7 @@ class Coref {
               val generated = new CorefRelationMention(
                 evt.labels,
                 argSet,
+                evt.paths,
                 evt.sentence,
                 evt.document,
                 evt.keep,
@@ -284,6 +287,7 @@ class Coref {
                 evt.labels,
                 evt.asInstanceOf[CorefEventMention].trigger,
                 argSet,
+                evt.paths,
                 evt.sentence,
                 evt.document,
                 evt.keep,
@@ -320,8 +324,8 @@ class Coref {
     val tbmSieveMap = tbmSieves(tbms.filter(_.isGeneric))
     if (verbose) resolvedTBMs.foreach { case (k, v) => println(s"TBM: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
 
-    val resolvedSimple = resolveSimpleEvents(sevts, resolvedTBMs, tbmSieveMap)
-    val evtSieveMap = evtSieves(sevts.filter(_.isGeneric))
+    val resolvedSimple = resolveSimpleEvents(sevts, resolvedTBMs, tbmSieveMap).asInstanceOf[Map[CorefMention, Seq[CorefMention]]]
+    val evtSieveMap = evtSieves(sevts.filter(_.isGeneric)).asInstanceOf[Map[CorefMention, Set[String]]]
     if (verbose) resolvedSimple.foreach { case (k, v) => println(s"SimpleEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
 
     val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple, tbmSieveMap ++ evtSieveMap)

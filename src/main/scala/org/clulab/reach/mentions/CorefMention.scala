@@ -115,12 +115,13 @@ class CorefEventMention(
   labels: Seq[String],
   trigger: TextBoundMention,
   arguments: Map[String, Seq[Mention]],
+  paths: Map[String, Map[Mention, SynPath]],
   sentence: Int,
   document: Document,
   keep: Boolean,
   foundBy: String,
   isDirect: Boolean = false
-) extends BioEventMention(labels, trigger, arguments, sentence, document, keep, foundBy, isDirect) with Anaphoric {
+) extends BioEventMention(labels, trigger, arguments, paths, sentence, document, keep, foundBy, isDirect) with Anaphoric {
 
   def isGeneric: Boolean = labels contains "Generic_event"
 
@@ -140,6 +141,7 @@ class CorefEventMention(
             this.labels,
             this.trigger,
             this.arguments,
+            this.paths,
             this.sentence,
             this.document,
             this.keep,
@@ -195,11 +197,12 @@ class CorefEventMention(
 class CorefRelationMention(
   labels: Seq[String],
   arguments: Map[String, Seq[Mention]],
+  paths: Map[String, Map[Mention, SynPath]],
   sentence: Int,
   document: Document,
   keep: Boolean,
   foundBy: String
-) extends BioRelationMention(labels, arguments, sentence, document, keep, foundBy) with Anaphoric {
+) extends BioRelationMention(labels, arguments, paths, sentence, document, keep, foundBy) with Anaphoric {
 
   def isGeneric: Boolean = false
 

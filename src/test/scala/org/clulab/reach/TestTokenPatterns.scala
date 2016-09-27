@@ -1,7 +1,6 @@
 package org.clulab.reach
 
 import org.scalatest._
-import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Interval
 import org.clulab.odin.impl.TokenPattern
 import org.clulab.odin._

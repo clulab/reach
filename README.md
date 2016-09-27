@@ -17,7 +17,7 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
-+ **1.3.0** - Use Bioresources 1.1.9, Processors 5.8.5. Allow regulations of regulations. Identify X inhibitors as chemicals. Use MITRE model for NER/grounding. Add NER stop list. Add Translocation mention support to Assembly. Various rule fixes and enhancements. Allow PaperReader to read .csv files.
++ **1.3.3** - Uses bioresources 1.1.15 and processors 5.9.6.  Introduces [`json` serialization/deserialization of `CorefMention` (including grounding, modifications, etc.)](https://gist.github.com/myedibleenso/8383af789b37ba598ff64ddd12c8b35b).
 + [more...](CHANGES.md)
 
 # Authors  
@@ -60,7 +60,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 <dependency>
    <groupId>org.clulab</groupId>
    <artifactId>reach_2.11</artifactId>
-   <version>1.3.0</version>
+   <version>1.3.2</version>
 </dependency>
 ```
 
@@ -68,7 +68,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 
 ```scala
 libraryDependencies ++= Seq(
-    "org.clulab" %% "reach" % "1.3.0"
+    "org.clulab" %% "reach" % "1.3.2"
 )
 ```
 

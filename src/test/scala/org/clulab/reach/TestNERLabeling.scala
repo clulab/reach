@@ -11,7 +11,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Cleanup scalatest syntax.
+  *   Last Modified: Add tests for new drug KB.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -30,6 +30,10 @@ class TestNERLabeling extends FlatSpec with Matchers {
   val chemical = "endoxifen sulfate, Juvamine, Adenosine-phosphate, Xitix, and Monic acid cause cancer"
   val sites = "ALOG domain, AMIN domain, KIP1-like, KEN domain, and HAS subgroup cause cancer"
   val species = "Potato, wheat, Yerba-mate, Danio rerio, zebrafish, Rats, Gallus gallus, and chickens cause cancer"
+
+  val drug = "Alvocidib, Anacardic acid, L-779450, Masitinib, and  Withaferin A are known drugs. "
+  val drug_ids = Seq("5287969", "167551", "9950176", "10074640", "265237")
+
 
   bioProcess should "have BioProcess label" in {
     val mentions = getBioMentions(bioProcess)
@@ -191,6 +195,29 @@ class TestNERLabeling extends FlatSpec with Matchers {
   it should "match expected grounding IDs" in {
     val m = mentions274f(0)
     (m.grounding.isDefined && (m.grounding.get.id == "UAZ-PF-214")) should be (true)
+  }
+
+
+  // Drug KB Simple_chemical Tests
+  val drug_mentions = getBioMentions(drug)
+  drug should "have expected number of results" in {
+    drug_mentions should not be (empty)
+    // printMentions(Try(drug_mentions), true)      // DEBUGGING
+    drug_mentions should have size (drug_ids.size)
+  }
+
+  it should "have labeled all mentions as Simple_chemical" in {
+    drug_mentions.count(_ matches "Simple_chemical") should be (drug_ids.size)
+  }
+
+  it should "have display labeled all mentions as Simple_chemical" in {
+    drug_mentions.count(_.displayLabel == "Simple_chemical") should be (drug_ids.size)
+  }
+
+  it should "match expected grounding IDs" in {
+    for ((m, ndx) <- drug_mentions.zipWithIndex) {
+      m.grounding.isDefined && (m.grounding.get.id == drug_ids(ndx)) should be (true)
+    }
   }
 
 }
