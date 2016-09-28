@@ -1,10 +1,10 @@
-# Quantity events require a theme of BioChemicalEntity
+# Amount events require a theme of BioChemicalEntity
 
-- name: quantity_1
+- name: amount_1
   priority: ${ priority }
   example: "levels of neurofibromin. neurofibromin levels."
-  label: Quantity
+  label: Amount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
-    theme:BioChemicalEntity = prep_of | nn
+    theme:BioChemicalEntity = prep_of amod? | nn
 

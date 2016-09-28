@@ -1,5 +1,4 @@
 #Transcription events require arguments of type BioChemicalEntity
-#
 
 - name: expression_1
   priority: ${ priority }
@@ -20,6 +19,7 @@
     theme:BioChemicalEntity =  </vmod/ /conj_|cc/*
     cause:BioChemicalEntity? = /agent|prep_by/
 
+
 - name: expression_3
   priority: ${ priority }
   example: "Indeed, EGFR is overexpressed in 30%-85% patients with CRC."
@@ -28,6 +28,7 @@
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
     theme:BioChemicalEntity = nsubjpass /conj_|cc/*
     cause:BioChemicalEntity? = /agent|prep_by/
+
 
 - name: transcription_0
   priority: ${ priority }
@@ -48,6 +49,7 @@
     theme:BioChemicalEntity = prep_of? nn{1,2} /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
 
+
 - name: transcription_1b
   priority: ${ priority }
   example: "expression of NRF2 by Kras"
@@ -56,6 +58,7 @@
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
     theme:BioChemicalEntity = prep_of nn{,2} /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
+
 
 - name: transcription_2
   priority: ${ priority }
@@ -66,6 +69,7 @@
     theme:BioChemicalEntity = <dep /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
 
+
 - name: transcription_3
   priority: ${ priority }
   example: "Transcription of Kras"
@@ -74,3 +78,5 @@
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
     theme:BioChemicalEntity = prep_of /conj_|cc/*
     cause:BioChemicalEntity? = prep_by
+
+
