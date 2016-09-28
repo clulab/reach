@@ -50,4 +50,12 @@ class TestTranscriptionEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Transcription", List("MCL-1"), mentions) should be (true)
   }
 
+  val sent8 = "Ets-1 upregulates MMP-9 expression"
+  sent8 should "contain a Regulation of a Transcription, not an activation" in {
+    val mentions = getBioMentions(sent8)
+    hasEventWithArguments("Transcription", List("MMP-9"), mentions) should be (true)
+    hasPositiveRegulationByEntity("Ets-1", "Transcription", Seq("MMP-9"), mentions) should be (true)
+    mentions filter (_ matches "ActivationEvent") should have size (0)
+  }
+
 }
