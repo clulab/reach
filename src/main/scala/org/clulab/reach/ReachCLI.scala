@@ -33,7 +33,7 @@ class ReachCLI(
 
   /** Process papers **/
   def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
-    logger.debug("Initializing Reach ...")
+    logger.info("Initializing Reach ...")
 
     val _ = PaperReader.rs.extractFrom("Blah", "", "")
     val files = papersDir.listFiles.par

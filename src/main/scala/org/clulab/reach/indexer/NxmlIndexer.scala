@@ -66,7 +66,7 @@ class NxmlIndexer {
       val nxmlDoc = Try(nxmlReader.parse(preprocessedText)) match {
         case Success(v) => v
         case Failure(e) =>
-          logger.info(s"WARNING: NxmlReader failed on file $file")
+          logger.error(s"WARNING: NxmlReader failed on file $file")
           Nil
       }
 
@@ -147,7 +147,7 @@ class NxmlIndexer {
       return m.group(1)
     }
     errorCount.value = errorCount.value + 1
-    logger.info(s"WARNING: did not find publication year for journal $journalName!")
+    logger.error(s"WARNING: did not find publication year for journal $journalName!")
     "1950"
   }
 }
