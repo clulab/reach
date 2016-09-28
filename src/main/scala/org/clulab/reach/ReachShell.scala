@@ -10,10 +10,9 @@ import scala.collection.immutable.ListMap
 import org.clulab.reach.display._
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import RuleReader._
-import com.typesafe.scalalogging.LazyLogging
 
-object ReachShell extends App with LazyLogging {
-  logger.info("Loading ReachSystem ...")
+object ReachShell extends App {
+  println("Loading ReachSystem ...")
 
   val config = ConfigFactory.load()
 
@@ -47,7 +46,7 @@ object ReachShell extends App with LazyLogging {
     //":reload" -> "reload rules"
   )
 
-  logger.info("\nWelcome to ReachShell!")
+  println("\nWelcome to ReachShell!")
   printCommands()
 
   var running = true
@@ -95,11 +94,11 @@ object ReachShell extends App with LazyLogging {
   // functions
 
   def printCommands(): Unit = {
-    logger.info("\nCOMMANDS:")
+    println("\nCOMMANDS:")
     val longest = commands.keys.toSeq.sortBy(_.length).last.length 
     for ((cmd, msg) <- commands)
-      logger.info(s"\t$cmd${"\t"*(1 + (longest - cmd.length)/4)}=> $msg")
-    logger.info("")
+      println(s"\t$cmd${"\t"*(1 + (longest - cmd.length)/4)}=> $msg")
+    println("")
   }
 
 }

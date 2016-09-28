@@ -36,7 +36,7 @@ object Brat extends LazyLogging {
           Some(TextBound(id, label, spans, chunks(2)))
         } catch {
           case e: Exception =>
-            logger.debug(line.trim)
+            logger.error(line.trim)
             None
         }
 

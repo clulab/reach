@@ -212,7 +212,7 @@ object ReachCLI extends App with LazyLogging {
 
   // if friesDir does not exist create it
   if (!outDir.exists) {
-    logger.debug(s"Creating output directory: ${outDir.getCanonicalPath}")
+    logger.info(s"Creating output directory: ${outDir.getCanonicalPath}")
     FileUtils.forceMkdir(outDir)
   } else if (!outDir.isDirectory) {
     sys.error(s"${outDir.getCanonicalPath} is not a directory")
