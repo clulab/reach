@@ -111,8 +111,8 @@ object CorpusBuilder {
   def selectEventPairs(cms: Seq[CorefMention]): Seq[EventPair] = {
     // track mentions
     val am = AssemblyManager(cms)
-    // select training instances
-    val tis = for {
+    // select event pairs
+    val eps = for {
     // iterate over pairs of sentences in each doc
       (doc, corefmentions) <- cms.groupBy(m => m.document)
       candidates = findValidMentions(corefmentions)
@@ -131,12 +131,12 @@ object CorpusBuilder {
       if Constraints.shareArg(m1, m2)
       // create training instance
       text = getSententialSpan(m1, m2)
-      ti = EventPair(text, Set(m1, m2))
+      ep = EventPair(text, Set(m1, m2))
       // triggers should not be the same
-      if ti.e1.trigger != ti.e2.trigger
-    } yield ti
+      if ep.e1.trigger != ep.e2.trigger
+    } yield ep
 
-    tis.toSeq
+    eps.toSeq
   }
 
   def distinctEventPairs(eps: Seq[EventPair]): Seq[EventPair] = {
@@ -172,17 +172,17 @@ object BuildCorpus extends App with LazyLogging {
 
   logger.info(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
-  val trainingInstances: Seq[EventPair] = for {
+  val eps: Seq[EventPair] = for {
     (pmid, mentions) <- dataset.toSeq
     mns = mentions.map(_.toCorefMention)
-    ti <- selectEventPairs(mns)
-  } yield ti
+    ep <- selectEventPairs(mns)
+  } yield ep
 
   // distinct and sort
-  val distinctTrainingInstances: Seq[EventPair] = distinctEventPairs(trainingInstances)
-  logger.info(s"Found ${distinctTrainingInstances.size} examples for relation corpus ...")
+  val distincteps: Seq[EventPair] = distinctEventPairs(eps)
+  logger.info(s"Found ${distincteps.size} examples for relation corpus ...")
   // create corpus and write to file
-  val corpus = Corpus(distinctTrainingInstances)
+  val corpus = Corpus(distincteps)
   val content = corpus.json(pretty = true)
   FileUtils.writeStringToFile(outFile, content)
   logger.info(s"Wrote corpus to ${outFile.getAbsolutePath}")
