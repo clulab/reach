@@ -12,7 +12,7 @@ import org.clulab.utils.Serializer
 import scala.collection.parallel.ForkJoinTaskSupport
 
 
-object RunAnnotationEval extends App {
+object RunAnnotationEval extends App with LazyLogging {
 
   import CorpusReader._
 
@@ -27,12 +27,12 @@ object RunAnnotationEval extends App {
   val (posGold, testMentions) = {
 
     if(new File(evalGoldPath).exists & new File(evalMentionsPath).exists) {
-      println("Serialized files exist")
+      logger.info("Serialized files exist")
       val pg = Serializer.load[Seq[PrecedenceRelation]](evalGoldPath)
       val tm = Serializer.load[Seq[Mention]](evalMentionsPath)
       (pg, tm)
     } else {
-      println("Serialized files not found")
+      logger.info("Serialized files not found")
       val eps: Seq[EventPair] = CorpusReader.readCorpus
       // gather precedence relations corpus
       val precedenceAnnotations = CorpusReader.filterRelations(eps, precedenceRelations)
