@@ -45,7 +45,8 @@ case class AssemblyAnnotation(
   confidence: Double = AnnotationUtils.HIGH,
   // details on annotation instance
   `cross-sentence`: Boolean,
-  `paper-id`: String
+  `paper-id`: String,
+  notes: Option[String]
 ) {
   /** Copy constructor for ease of editing precedence annotations */
   def copy(
@@ -80,7 +81,8 @@ case class AssemblyAnnotation(
     confScore: Double = confidence,
     // details on annotation instance
     crossSentence: Boolean = `cross-sentence`,
-    paperID: String = `paper-id`
+    paperID: String = `paper-id`,
+    notes: Option[String] = this.notes
   ): AssemblyAnnotation =
     AssemblyAnnotation(
       annotationID,
@@ -114,7 +116,8 @@ case class AssemblyAnnotation(
       confScore,
       // annotation instance details
       crossSentence,
-      paperID
+      paperID,
+      notes
     )
 }
 

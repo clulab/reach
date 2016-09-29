@@ -111,7 +111,9 @@ case class Corpus(instances: Seq[EventPair]) extends JSONSerialization {
       ("confidence" -> AnnotationUtils.HIGH) ~
       // additional features
       ("cross-sentence" -> ti.isCrossSentence) ~
-      ("paper-id" -> ti.pmid)
+      ("paper-id" -> ti.pmid) ~
+      // annotation notes
+      ("notes" -> "")
     }
 
     // TODO: find a way to do this without adding "mention-data"
