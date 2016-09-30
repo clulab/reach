@@ -22,8 +22,8 @@ class BoundedPaddingContext(
 
         case head::tail =>
           // Group the prev step inferred row and the current by context type, then recurse
-          val prevContext = prevStep map (ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1)
-          val currentContext = head map (ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1)
+          val prevContext = prevStep map (ContextEngine.getKey(_, ContextEngine.latentVocabularyKeys)) groupBy (_._1)
+          val currentContext = head map (ContextEngine.getKey(_, ContextEngine.latentVocabularyKeys)) groupBy (_._1)
 
           // Apply the heuristic
           // Inferred context of type "x"
@@ -63,7 +63,7 @@ class BoundedPaddingContext(
                 }
               }
 
-          } map (ContextEngine.getIndex(_, ContextEngine.latentVocabulary))
+          } map (ContextEngine.getIndex(_, ContextEngine.latentVocabularyKeys))
 
           // Recurse
           iter(currentStep, tail, newRepetitions, bound, currentStep::acc)
@@ -95,7 +95,7 @@ class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
       // Get the most common mentioned context of each type
       val defaultContexts = this.mentions.flatten.map(ContextEngine.getContextKey(_))  // Get the context keys of the mentions
         .filter(x => this.contextTypes.contains(x._1)).groupBy(_._1) // Keep only those we care about and group them by type
-        .mapValues(bucket => bucket.map(ContextEngine.getIndex(_, ContextEngine.featureVocabulary))) // Get their numeric value from the vocabulary
+        .mapValues(bucket => bucket.map(ContextEngine.getIndex(_, ContextEngine.featureVocabularyKeys))) // Get their numeric value from the vocabulary
         .mapValues(bucket => bucket.groupBy(identity).mapValues(_.size)) // Count the occurences
         .mapValues(bucket => Seq(bucket.maxBy(_._2)._1)) // Select the most common element
 
@@ -106,12 +106,12 @@ class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
       paddedContext map {
         step =>
           // Existing contexts for this line
-          val context = step.map(ContextEngine.getKey(_, ContextEngine.latentVocabulary)).groupBy(_._1)
+          val context = step.map(ContextEngine.getKey(_, ContextEngine.latentVocabularyKeys)).groupBy(_._1)
           this.contextTypes flatMap {
             ctype =>
               context.lift(ctype) match {
                 case Some(x) =>
-                  x map (ContextEngine.getIndex(_, ContextEngine.latentVocabulary))
+                  x map (ContextEngine.getIndex(_, ContextEngine.latentVocabularyKeys))
                 case None =>
                   defaultContexts.lift(ctype).getOrElse(Seq())
               }
