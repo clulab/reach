@@ -1,6 +1,7 @@
 package org.clulab.assembly.relations.corpus
 
 import java.io.File
+
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.assembly.AssemblyManager
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
@@ -11,6 +12,7 @@ import org.clulab.utils.Serializer
 import org.json4s.DefaultFormats
 import org.json4s.native.JsonMethods
 import org.clulab.reach.mentions._
+import org.clulab.reach.mentions.serialization.json.JSONSerializer
 
 
 case class AssemblyAnnotation(
@@ -186,12 +188,12 @@ object CorpusReader extends LazyLogging {
     logger.info(s"Loading dataset from $datasetSource")
 
     val extractedMentionsLUT: Map[String, Seq[CorefMention]] = datasetLUT
-    logger.info("Retrieving event pairs based on annotations")
+    logger.info(s"Retrieving event pairs based on annotations for ${datasetLUT.size} documents")
 
     // get training instances
     val eps: Seq[EventPair] = for {
       (paperID, aas) <- aasPaperIDLUT.toSeq
-      mentionPool = extractedMentionsLUT(paperID)
+      mentionPool = extractedMentionsLUT(paperID.replace("PMC", ""))
       aa <- aas
       ep = findEventPair(aa, mentionPool)
       if ep.nonEmpty
@@ -200,9 +202,24 @@ object CorpusReader extends LazyLogging {
     eps
   }
 
-  def datasetLUT: Map[String, Seq[CorefMention]] =
-    Serializer.load[Dataset](datasetSource)
-      .mapValues(mns => mns.map(_.toCorefMention)).withDefaultValue(List())
+  def datasetLUT: Map[String, Seq[CorefMention]] = {
+    def parseJSON(f: File): Option[Seq[CorefMention]] = try {
+        Some(JSONSerializer.toCorefMentions(f))
+    } catch {
+      case e: org.json4s.ParserUtil.ParseException => {
+        logger.info(s"Failed to parse $f")
+        None
+      }
+    }
+    val docMentionPairs = for {
+      f <- new File(datasetSource).listFiles
+      cms: Option[Seq[CorefMention]] = parseJSON(f)
+      if cms.nonEmpty
+      paperID = cms.get.head.document.id.get.split("_").head.replace("PMC", "")
+    } yield  paperID -> cms.get
+
+    docMentionPairs.toMap.withDefaultValue(Nil)
+  }
 
   def findEventPair(anno: AssemblyAnnotation, candidates: Seq[CorefMention]): Option[EventPair] = try {
     // prepare datum
