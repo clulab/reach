@@ -12,9 +12,7 @@ For more details on the sieve-based assembly system, please refer to the followi
 
 ```
 @inproceedings{GHP+:2016aa,
-  author       = {Gus Hahn-Powell and
-Dane Bell and
-Marco A. Valenzuela-Esc\'{a}rcega and Mihai Surdeanu},
+  author       = {Gus Hahn-Powell and Dane Bell and Marco A. Valenzuela-Esc\'{a}rcega and Mihai Surdeanu},
   title        = {This before That: Causal Precedence in the Biomedical Domain},
   booktitle    = {Proceedings of the 2016 Workshop on Biomedical Natural Language Processing},
   organization = {Association for Computational Linguistics}
