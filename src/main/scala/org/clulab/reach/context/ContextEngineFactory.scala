@@ -9,7 +9,7 @@ object ContextEngineFactory {
       val Dummy = Value("Dummy")
       val Policy1 = Value("Policy1")
       val Policy2 = Value("Policy2")
-      val Policy3 = Value("Policy3")
+      // val Policy3 = Value("Policy3")
       val Policy4 = Value("Policy4")
     }
     import Engine._
@@ -27,10 +27,10 @@ object ContextEngineFactory {
                 case Some(b) => new BoundedPaddingContext(b)
                 case None => new BoundedPaddingContext
             }
-            case Policy3 => bound match {
-                case Some(b) => new FillingContext(b)
-                case None => new FillingContext
-            }
+            // case Policy3 => bound match {
+            //     case Some(b) => new FillingContext(b)
+            //     case None => new FillingContext
+            // }
             case Policy4 => bound match {
                 case Some(b) => new BidirectionalPaddingContext(b)
                 case None => new BidirectionalPaddingContext
