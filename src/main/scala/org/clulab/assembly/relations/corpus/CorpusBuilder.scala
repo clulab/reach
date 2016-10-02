@@ -1,18 +1,18 @@
 package org.clulab.assembly.relations.corpus
 
+import org.clulab.assembly.AssemblyManager
+import org.clulab.assembly.sieves.Constraints
+import org.clulab.odin._
+import org.clulab.reach.mentions._
+
+import scala.util.Try
 import collection.JavaConversions._
-import java.io.File
+import org.apache.commons.io.FileUtils
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.assembly.AssemblyManager
-import org.clulab.assembly.sieves.{Constraints, SieveUtils}
-import org.clulab.odin._
+import java.io.File
+
 import org.clulab.reach.PaperReader.Dataset
-import org.clulab.utils.Serializer
-import org.apache.commons.io.FileUtils
-import org.clulab.reach.mentions._
-import org.clulab.reach.mentions.serialization.json.CorefMentionOps
-import scala.util.Try
 
 
 /**
@@ -32,13 +32,6 @@ object CorpusBuilder {
   val kWindow = config.getInt("assembly.windowSize")
   val validLabels: Set[String] = config.getStringList("assembly.corpus.validLabels").toSet
 
-  /** Additional attributes and methods for a [[CorefMention]] */
-  implicit class EventOps(mention: CorefMention) extends CorefMentionOps(mention) {
-    val eventLabel: String = mention.label
-    val sentenceText: String = mention.sentenceObj.getSentenceText()
-    // NOTE: if mention is a TB, trigger will simply be the mention (ex. BioProcess)
-    val trigger = SieveUtils.findTrigger(mention)
-  }
   /**
     * Find mentions in sentences of interest. <br>
     * @param mns a sequence of Odin Mentions
@@ -58,11 +51,6 @@ object CorpusBuilder {
     val pmid = getPMID(m)
     s"http://www.ncbi.nlm.nih.gov/pmc/articles/$pmid/"
   }
-
-  /** Retrieves PubMed ID from Document.id of an Odin Mention */
-  def getPMID(mention: Mention): String = getPMID(mention.document.id.get)
-  /** Retrieves PubMed ID from Document.id of an Odin Mention */
-  def getPMID(docid: String): String = docid.split("_")(0)
 
   /**
     * Get the shortest sentential span of text that includes any sources for coref resolution in the two mentions
@@ -159,16 +147,9 @@ object BuildCorpus extends App with LazyLogging {
 
   import CorpusBuilder._
 
-  val outFile = new File(config.getString("assembly.corpus.corpusFile"))
-
-  val papersDir = config.getString("ReadPapers.papersDir")
-  val datasetSource = config.getString("ReadPapers.serializedPapers")
-
   logger.info(s"Loading dataset ...")
 
-  def loadDataset(f: String): Try[Dataset] = Try(Serializer.load(datasetSource))
-
-  val dataset: Dataset = Serializer.load(datasetSource)
+  val dataset: Dataset = datasetLUT(config.getString("assembly.corpus.jsonDir"))
 
   logger.info(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
@@ -181,9 +162,9 @@ object BuildCorpus extends App with LazyLogging {
   // distinct and sort
   val distincteps: Seq[EventPair] = distinctEventPairs(eps)
   logger.info(s"Found ${distincteps.size} examples for relation corpus ...")
+
+  val outDir = new File(config.getString("assembly.corpus.corpusDir"))
   // create corpus and write to file
   val corpus = Corpus(distincteps)
-  val content = corpus.json(pretty = true)
-  FileUtils.writeStringToFile(outFile, content)
-  logger.info(s"Wrote corpus to ${outFile.getAbsolutePath}")
+  corpus.writeJSON(outDir, false)
 }

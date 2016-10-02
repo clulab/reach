@@ -1,16 +1,30 @@
 package org.clulab.assembly.relations.corpus
 
+import org.clulab.processors.Document
 import org.clulab.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.assembly.sieves.Constraints
 import org.clulab.reach.mentions.CorefMention
-import org.clulab.reach.mentions.serialization.json.CorefMentionSeq
+import org.clulab.reach.mentions.serialization.json.{CorefMentionSeq, JSONSerializer}
 import org.clulab.serialization.json.JSONSerialization
+import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
+import org.json4s._
 import scala.util.hashing.MurmurHash3._
+import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.FileUtils
+import java.io.File
 
 
 /** Storage class for an event pair (i.e., a single example for the relation corpus) */
-case class EventPair(text: String, e1: CorefMention, e2: CorefMention, relation: String) {
+case class EventPair(
+  text: String,
+  e1: CorefMention,
+  e2: CorefMention,
+  relation: String,
+  confidence: Double = AnnotationUtils.HIGH,
+  annotatorID: String = "",
+  notes: Option[String] = None
+) extends JSONSerialization {
 
   import CorpusBuilder._
 
@@ -46,6 +60,47 @@ case class EventPair(text: String, e1: CorefMention, e2: CorefMention, relation:
     after: CorefMention = this.e2,
     relation: String = this.relation
   ): EventPair = EventPair(text, before, after, relation)
+
+
+  def jsonAST: JValue = {
+    // build json
+    ("id" -> this.equivalenceHash) ~
+    ("text" -> this.text) ~
+    ("coref" -> this.coref) ~
+    // event 1
+    ("e1-id" -> this.e1.id) ~
+    ("e1-label" -> this.e1.eventLabel) ~
+    ("e1-sentence" -> this.e1.sentenceText) ~
+    ("e1-sentence-index" -> this.e1.sentence) ~
+    ("e1-tokens" -> this.e1.sentenceObj.words.toList) ~
+    // can be used to highlight event span in annotation UI
+    ("e1-start" -> this.e1.start) ~
+    ("e1-end" -> this.e1.end) ~
+    ("e1-trigger" -> this.e1.trigger.text) ~
+    ("e1-trigger-start" -> this.e1.trigger.start) ~
+    ("e1-trigger-end" -> this.e1.trigger.end) ~
+    // event 2
+    ("e2-id" -> this.e2.id) ~
+    ("e2-label" -> this.e2.eventLabel) ~
+    ("e2-sentence" -> this.e2.text) ~
+    ("e2-sentence-index" -> this.e2.sentence) ~
+    ("e2-tokens" -> this.e2.sentenceObj.words.toList) ~
+    // can be used to highlight event span in annotation UI
+    ("e2-start" -> this.e2.start) ~
+    ("e2-end" -> this.e2.end) ~
+    ("e2-trigger" -> this.e2.trigger.text) ~
+    ("e2-trigger-start" -> this.e2.trigger.start) ~
+    ("e2-trigger-end" -> this.e2.trigger.end) ~
+    // these will be filled out during annotation
+    ("annotator-id" -> "") ~
+    ("relation" -> this.relation) ~
+    ("confidence" -> confidence) ~
+    // additional features
+    ("cross-sentence" -> this.isCrossSentence) ~
+    ("paper-id" -> this.pmid) ~
+    // annotation notes
+    ("notes" -> "")
+  }
 }
 
 object EventPair {
@@ -71,52 +126,83 @@ case class Corpus(instances: Seq[EventPair]) extends JSONSerialization {
 
   val mentions: Seq[CorefMention] = instances.flatMap(ti => Seq(ti.e1, ti.e2)).distinct
 
-  def jsonAST = {
+  /** AST of event pairs */
+  def jsonAST: JValue = instances.map(_.jsonAST)
 
-    import CorpusBuilder.EventOps
-
-    val examples = instances.map { ti =>
-      // TODO: Should this json be condensed?
-      // build json
-      ("id" -> ti.equivalenceHash) ~
-      ("text" -> ti.text) ~
-      ("coref" -> ti.coref) ~
-      // event 1
-      ("e1-id" -> ti.e1.id) ~
-      ("e1-label" -> ti.e1.eventLabel) ~
-      ("e1-sentence" -> ti.e1.sentenceText) ~
-      ("e1-sentence-index" -> ti.e1.sentence) ~
-      ("e1-tokens" -> ti.e1.sentenceObj.words.toList) ~
-      // can be used to highlight event span in annotation UI
-      ("e1-start" -> ti.e1.start) ~
-      ("e1-end" -> ti.e1.end) ~
-      ("e1-trigger" -> ti.e1.trigger.text) ~
-      ("e1-trigger-start" -> ti.e1.trigger.start) ~
-      ("e1-trigger-end" -> ti.e1.trigger.end) ~
-      // event 2
-      ("e2-id" -> ti.e2.id) ~
-      ("e2-label" -> ti.e2.eventLabel) ~
-      ("e2-sentence" -> ti.e2.text) ~
-      ("e2-sentence-index" -> ti.e2.sentence) ~
-      ("e2-tokens" -> ti.e2.sentenceObj.words.toList) ~
-      // can be used to highlight event span in annotation UI
-      ("e2-start" -> ti.e2.start) ~
-      ("e2-end" -> ti.e2.end) ~
-      ("e2-trigger" -> ti.e2.trigger.text) ~
-      ("e2-trigger-start" -> ti.e2.trigger.start) ~
-      ("e2-trigger-end" -> ti.e2.trigger.end) ~
-      // these will be filled out during annotation
-      ("annotator-id" -> "") ~
-      ("relation" -> ti.relation) ~
-      ("confidence" -> AnnotationUtils.HIGH) ~
-      // additional features
-      ("cross-sentence" -> ti.isCrossSentence) ~
-      ("paper-id" -> ti.pmid) ~
-      // annotation notes
-      ("notes" -> "")
+  private def compressMentions(mentions: Seq[CorefMention]): Seq[CorefMention] = {
+    mentions.map(_.document).toSet.foreach { doc: Document =>
+      // prune text from mention docs
+      doc.text = None
+      //      for (s <- doc.sentences) {
+      //        // compress graph map for each sentence
+      //        s.dependenciesByType = s.dependenciesByType.get(GraphMap.STANFORD_COLLAPSED) match {
+      //          case Some(g) => GraphMap(Map(GraphMap.STANFORD_COLLAPSED -> g))
+      //          case None => s.dependenciesByType
+      //        }
+      //      }
     }
-
-    // TODO: find a way to do this without adding "mention-data"
-    ("mention-data" -> mentions.jsonAST) ~ ("event-pairs" -> examples)
+    mentions
   }
+
+  def writeJSON(corpusPath: String, pretty: Boolean): Unit = writeJSON(new File(corpusPath), pretty)
+  def writeJSON(corpusDir: File, pretty: Boolean): Unit = {
+    val dmLUT: Map[String, Seq[CorefMention]] = mentions.groupBy(m => getPMID(m))
+    val mentionDataDir = new File(corpusDir, Corpus.MENTION_DATA)
+    // create data dir
+    if (! mentionDataDir.exists) FileUtils.forceMkdir(mentionDataDir)
+    // for each doc, write doc + mentions to a json file
+    for ((paperID, cms) <- dmLUT) {
+      val of = new File(mentionDataDir, s"$paperID-mention-data.json")
+      FileUtils.write(of, cms.json(pretty))
+    }
+    // write event pair info to json file
+    FileUtils.write(new File(corpusDir, s"${Corpus.EVENT_PAIRS}.json"), this.json(pretty))
+  }
+}
+
+object Corpus extends LazyLogging {
+
+  implicit val formats = DefaultFormats
+
+  private val MENTION_DATA = "mention-data"
+  private val EVENT_PAIRS = "event-pairs"
+
+  def apply(corpusDir: String): Corpus = apply(new File(corpusDir))
+  def apply(corpusDir: File): Corpus = {
+    val mentionDataDir = new File(corpusDir, MENTION_DATA)
+    logger.info(s"Deserializing mention-data...")
+    // load docs in parallel
+    val cms: Seq[CorefMention] = mentionDataDir.listFiles.par
+      .flatMap(JSONSerializer.toCorefMentions).seq
+    val epsJAST = parse(new File(corpusDir, s"$EVENT_PAIRS.json"))
+    logger.info(s"Building event-pairs...")
+    Corpus(getEventPairs(epsJAST, cms))
+  }
+
+  private def getEventPairs(epsjson: JValue, cms: Seq[CorefMention]): Seq[EventPair] = {
+    val mentionMap = cms.map(m => m.id -> m).toMap
+    for {
+      aa <- epsjson.extract[Seq[AssemblyAnnotation]]
+    } yield EventPair(
+      text = aa.text,
+      e1 = mentionMap(aa.`e1-id`),
+      e2 = mentionMap(aa.`e2-id`),
+      relation = aa.relation,
+      confidence = aa.confidence,
+      annotatorID = aa.`annotator-id`,
+      notes = aa.notes
+    )
+  }
+
+  private case class AssemblyAnnotation(
+    id: Int,
+    text: String,
+    relation: String,
+    `annotator-id`: String,
+    coref: Boolean,
+    `e1-id`: String,
+    `e2-id`: String,
+    confidence: Double,
+    notes: Option[String]
+  )
 }

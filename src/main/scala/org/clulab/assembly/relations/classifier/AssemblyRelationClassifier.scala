@@ -42,7 +42,7 @@ object AssemblyRelationClassifier {
   val NEG = "None"
   val UNKNOWN = "unknown"
   // reach system (makes use of context parameters specified in config)
-  val rs = PaperReader.rs
+  lazy val rs = PaperReader.rs
 
   // convenience map for plugging in different classifiers
   def getModel(txt: String): Classifier[String, String] = txt match {
