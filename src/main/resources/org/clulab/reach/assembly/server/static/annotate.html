@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assembly Annotations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .table td {
+        text-align: center;
+      }
+      .legend {
+        color: grey;
+      }
+      #relation {
+        font-size: x-large;
+      }
+      .example {
+        font-size: 125%;
+      }
+      .more-margin {
+        margin-top: 2em;
+      }
+      .big-margin {
+        margin-top: 4em;
+      }
+      .med-margin {
+        margin-top: 2em;
+      }
+      .event-text {
+        color: grey;
+      }
+      .e1 {
+        color: dodgerblue;
+      }
+      .e2 {
+        color: red;
+      }
+      .btn-file {
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+      }
+    </style>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <!-- more bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- bootstrap dialog -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    <!-- underscore -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  </head>
+  <body>
+    <div class="container theme-showcase" role="main">
+      <script>
+        $(document).ready(function() {
+
+          var annotations = [];
+          var current = 0;
+          // the maximum number of suggested annotations
+          var annoMaxSize = 900;
+
+          $("#load-annotations").on('change', function () {
+            //Get first file in files Array
+            var annoFile = $("#load-annotations").prop('files')[0];
+            handleFileSelect(annoFile);
+            // check file size
+          });
+
+          function handleFileSelect(f) {
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function() {
+              return function(e) {
+                annotations = JSON.parse(e.target.result);
+                updateTable();
+                console.log("loaded " + annotations.length + " annotations from file");
+                if (fileTooLarge()) fileSizeWarning()
+              };
+            })(f);
+
+            // Read in the json file as a data URL.
+            reader.readAsText(f);
+          }
+
+//          // load json
+//          $.getJSON("annotations.json", function(json) {
+//              annotations = json;
+//              // update the displayed data
+//              updateTable();
+//              console.log("annotations: " + annotations.length);
+//              console.log("updated table!")
+//            });
+
+          // remind user to enter annotator id
+          function enterIDreminder() {
+            BootstrapDialog.show({
+              title: 'Annotator ID required',
+              message: 'Please enter an Annotator ID.',
+              buttons: [{
+                cssClass: 'btn-primary',
+                hotkey: 13, // Enter.
+                label: 'Close',
+                action: function(d) {
+                  d.close();
+                }
+              }]
+            });
+          }
+
+          // remind user to enter annotator id
+          function displayTextForCopy(txt) {
+            BootstrapDialog.show({
+              title: 'Copy to clipboard: Ctrl+C, Enter',
+              message: function(d) {
+                return txt
+              },
+              buttons: [{
+                cssClass: 'btn-primary',
+                hotkey: 13, // Enter.
+                label: 'Close',
+                action: function(d) {
+                  d.close();
+                }
+              }]
+            });
+          }
+
+          // notify user that there isn't any saved data to load
+          function missingDataNotice() {
+            BootstrapDialog.show({
+              title: 'Missing',
+              type: BootstrapDialog.TYPE_WARNING,
+              message: 'There is no stored data to load.',
+              buttons: [{
+                cssClass: 'btn-warning',
+                hotkey: 13, // Enter.
+                label: 'Close',
+                action: function(d) {
+                  d.close();
+                }
+              }]
+            });
+          }
+
+          // confirm clearing of cache
+          function confirmClear() {
+            BootstrapDialog.show({
+              title: 'Missing',
+              type: BootstrapDialog.TYPE_DANGER,
+              closable: false,
+              message: 'Really delete cached annotations?',
+              buttons: [{
+                  cssClass: 'btn-danger',
+                  label: 'Delete all items',
+                  action: function(d) {
+                    console.log("clearing local storage...");
+                    localStorage.removeItem('annotations');
+                    localStorage.removeItem('current');
+                    localStorage.removeItem('annotator-id');
+                    d.close();
+                  }
+                },
+                {
+                cssClass: 'btn-primary',
+                label: 'Cancel',
+                action: function(d) {
+                  console.log("clear was canceled");
+                  d.close();
+                }
+              }]
+            });
+          }
+
+          function copyText(txt) {
+            //displayTextForCopy(txt);
+            window.prompt ("Copy to clipboard: Ctrl+C, Enter", txt);
+//            var clip = new ClipboardEvent('copy', { dataType: 'text/plain', data: txt});
+//            document.dispatchEvent(clip);
+//            console.log("Copied text to clipboard!")
+          }
+
+          $("#e1-text").click(function() {
+            // Copy the highlighted text
+            var anno = annotations[current];
+            var txt = anno['e1-sentence'];
+            copyText(txt);
+          });
+
+          $("#e2-text").click(function() {
+            // Copy the highlighted text
+            var anno = annotations[current];
+            var txt = anno['e2-sentence'];
+            copyText(txt);
+          });
+
+          function fileTooLarge() {
+            return annotations.length > annoMaxSize
+          }
+          function fileSizeWarning() {
+            $("#too-large").show();
+          }
+
+          // handle data export
+          $("#export").click(function() {
+            var dataURI = encodeURIComponent(JSON.stringify(annotations, null, '\t'));
+            var data = "text/json;charset=utf-8," + dataURI;
+            var annoID = $("#annotator-id").val();
+            var a = document.createElement('a');
+            a.href = 'data:' + data;
+            a.download = 'annotations-'+ annoID + '.json';
+            // TODO: is there a way to open this in a new window client-side?
+            window.location.href = a
+          });
+
+          // check if annotator id is given
+          function annoIDisEmpty() {
+            var annoID = $("#annotator-id").val();
+            console.log("Annotator ID: " +annoID);
+            return (annoID.length == 0 || annoID == "Enter annotator id (email)")
+          }
+
+          // update stored annotation
+          function updateAnnotation() {
+            var anno = annotations[current];
+            var label = $("#relation").text();
+            var annoID = $("#annotator-id").val();
+            anno["relation"] = label;
+            anno["annotator-id"] = annoID
+          }
+
+          function getPaperLink(anno) {
+            var pmid = anno["paper-id"];
+            var url = "http://www.ncbi.nlm.nih.gov/pmc/articles/" + pmid;
+            return "<a href=\"" + url + "\" target=\"_blank\">" + pmid + "</a>"
+          }
+
+          function getSentences(anno) {
+            // e1
+            // generate a copy of the tokens
+            var e1Toks = anno["e1-tokens"].slice(0);
+            var e1Start = anno["e1-start"];
+            var e1End = anno["e1-end"];
+            var e1TriggerStart = anno["e1-trigger-start"];
+            var e1TriggerEnd = anno["e1-trigger-end"] - 1;
+
+            // format trigger for e1
+            var e1tStart = e1Toks[e1TriggerStart];
+            e1Toks[e1TriggerStart] = "<strong>" + e1tStart;
+            var e1tEnd = e1Toks[e1TriggerEnd];
+            e1Toks[e1TriggerEnd] = e1tEnd + "</strong>";
+
+            // e2
+            // generate a copy of the tokens
+            var e2Toks = anno["e2-tokens"].slice(0);
+            var e2Start = anno["e2-start"];
+            var e2End = anno["e2-end"];
+            var e2TriggerStart = anno["e2-trigger-start"];
+            var e2TriggerEnd = anno["e2-trigger-end"]  - 1;
+
+            // format trigger for e2
+            var e2tStart = e2Toks[e2TriggerStart];
+            e2Toks[e2TriggerStart] = "<strong>" + e2tStart;
+            var e2tEnd = e2Toks[e2TriggerEnd];
+            e2Toks[e2TriggerEnd] = e2tEnd + "</strong>";
+
+            // format the event text
+            var endTag = "</span> ";
+            var e1Text = "<span class='event-text'>" + e1Toks.slice(0, e1Start).join(" ") + " <span class ='e1'>" + e1Toks.slice(e1Start, e1End).join(" ") + endTag + e1Toks.slice(e1End, e1Toks.length).join(" ") + endTag;
+            var e2Text = "<span class='event-text'>" + e2Toks.slice(0, e2Start).join(" ") + " <span class ='e2'>" + e2Toks.slice(e2Start, e2End).join(" ") + endTag + e2Toks.slice(e2End, e2Toks.length).join(" ") + endTag;
+            return {
+              "e1Sent": e1Text,
+              "e2Sent": e2Text
+            }
+          }
+          // update displayed information
+          function updateTable() {
+            if (annotations != null && annotations.length > 0) {
+              console.log("# annotations: " + annotations.length);
+              var anno = annotations[current];
+              var text = getSentences(anno);
+              // get event labels
+              var e1Label = anno["e1-label"];
+              var e2Label = anno["e2-label"];
+              // get sentences
+              var e1SentIdx = anno["e1-sentence-index"];
+              var e2SentIdx = anno["e2-sentence-index"];
+              // relation label
+              var label = anno["relation"];
+              // paper link
+              var paperLink = getPaperLink(anno);
+              // update displayed sentences
+              $("#e1-text").html(text.e1Sent);
+              $("#e2-text").html(text.e2Sent);
+              // update displayed sentences indices
+              $("#e1-sentence-index").html("Sentence " + e1SentIdx);
+              $("#e2-sentence-index").html("Sentence " + e2SentIdx);
+              // update labels for events
+              $("#e1-label").html("<code>" + e1Label + "</code>");
+              $("#e2-label").html("<code>" + e2Label + "</code>");
+              // update relation
+              $("#relation").text(label);
+              // update paper link
+              $("#paper").html(paperLink);
+              // update displayed information
+              var total = annotations.length;
+              $("#total").text(current + 1 + " / " + total);
+            }
+          }
+
+          // reset displayed values
+          function clearTable() {
+            console.log("\tClearing table!");
+            $("#e1-text").text("");
+            $("#e2-text").text("");
+            // clear relation and label
+            $("#relation").text("");
+            // don't remove annotator id
+          }
+
+          // store and reset displayed values
+          function storeAndClearTable() {
+            updateAnnotation();
+            clearTable()
+          }
+
+          // move to the next training instance
+          function advanceCurrent() {
+            var next = current + 1;
+            if (next < annotations.length) {
+              current = next
+            } else current = 0
+          }
+
+          // move to the previous training instance
+          function retreatCurrent() {
+            var prev = current - 1;
+            var last = annotations.length - 1;
+            if ((prev >= 0) && (prev <= annotations.length)) {
+              current = prev
+            } else if (prev < 0) {
+              current = last
+            }
+          }
+
+          // register annotator id on <Enter>
+          $('#annotator-id').keyup(function(e) {
+            if(e.which == 13) {
+              // remove focus
+              $('#annotator-id').blur();
+            }
+          });
+
+          // handle navigation
+          $(document).keydown(function(e) {
+            // only perform action if button is pressed outside of text area
+            var tag = e.target.tagName.toLowerCase();
+            var v = "";
+            if (tag != 'input' && tag != 'textarea') {
+              // relations via number keys
+              // 0 key
+              if (e.which == 48) {
+                v = '';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 1 key
+              if (e.which == 49) {
+                v = 'None';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 2 key
+              if (e.which == 50) {
+                v = 'E1 precedes E2';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 3 key
+              if (e.which == 51) {
+                v = 'E2 precedes E1';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 4 key
+              if (e.which == 52) {
+                v = 'Equivalent';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 5 key
+              if (e.which == 53) {
+                v = 'E1 subsumes E2';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 6 key
+              if (e.which == 54) {
+                v = 'E2 subsumes E1';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 7 key
+              if (e.which == 55) {
+                v = 'Bug';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // 8 key
+              if (e.which == 56) {
+                v = 'Other';
+                $("#relation").text(v);
+                updateAnnotation();
+              }
+              // arrows
+              if (e.which == 37) {
+                // require annoID
+                if (annoIDisEmpty()) {
+                  enterIDreminder();
+                }
+                // store annotation and display previous
+                else {
+                  storeAndClearTable();
+                  retreatCurrent();
+                }
+              }
+              if (e.which == 39) {
+                // require annoID
+                if (annoIDisEmpty()) {
+                  enterIDreminder();
+                }
+                // store annotation and display previous
+                else {
+                  storeAndClearTable();
+                  advanceCurrent();
+                }
+              }
+              updateTable();
+              // check file size
+              if (fileTooLarge()) {
+                fileSizeWarning()
+              } else {
+                // attempt to save data
+                saveToLocalStorage();
+              }
+             }
+          });
+
+          // Load previous data
+          $("#load-prev-data").on('click', function() {
+            loadFromLocalStorage()
+          });
+
+          // load cached annotation data from local storage
+          function loadFromLocalStorage() {
+            console.log("loading from local storage...");
+            var oldAnnotations = JSON.parse(localStorage.getItem('annotations'));
+            if (oldAnnotations != null && oldAnnotations.length > 0) {
+              var cur = parseInt(localStorage.getItem('current'));
+              console.log("curr: "+ cur);
+              // update annotations
+              annotations = oldAnnotations;
+              // update current
+              current = cur;
+              // update Anno ID
+              $("#annotator-id").val(localStorage.getItem('annotator-id'));
+              console.log(annotations.length + " annotations");
+              // update display
+              updateTable();
+            } else {
+              missingDataNotice();
+            }
+          }
+
+          // save annotation data to local storage
+          function saveToLocalStorage() {
+            console.log("saving to local storage...");
+            // store current item index
+            localStorage.setItem("current", current);
+            console.log("\tstored current: ", localStorage["current"]);
+            // store annotations
+            localStorage.setItem("annotations", JSON.stringify(annotations));
+            // store Anno ID
+            localStorage.setItem("annotator-id", $("#annotator-id").val());
+            console.log("\tstored annotator id: ", localStorage["annotator-id"])
+          }
+
+          // empty local storage cache
+          function clearLocalStorage() {
+            // confirm clear
+            confirmClear();
+          }
+
+          // Clear previous data
+          $("#clear-prev-data").on('click', function() {
+            clearLocalStorage();
+          });
+
+        });
+      </script>
+      <!-- training instance -->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th class="text-center h3"><span class="e1">E1</span></th>
+            <th class="text-center h3"><span class="e2">E2</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="e1-label" class="text-center example col-md-3"></td>
+            <td id="e2-label" class="text-center example col-md-3"></td>
+          </tr>
+          <tr>
+            <td id="e1-sentence-index" class="text-center example col-md-3"></td>
+            <td id="e2-sentence-index" class="text-center example col-md-3"></td>
+          </tr>
+          <tr>
+            <td id="e1-text" class="text-center example col-md-3"></td>
+            <td id="e2-text" class="text-center example col-md-3"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- .json too large warning -->
+      <div id="too-large" class="alert alert-danger collapse">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <span class="h4">Uh-oh!</span>
+        <br>
+        <p class="med-margin">
+          The <code>.json</code> file you've loaded is too large to save if something goes wrong (a file with &le; 800 training instances is recommended)...
+        </p>
+      </div>
+      <!-- key legend -->
+      <div class="container col-sm-3">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#legends">Legend</button>
+      </div>
+      <div id="legends" class="legend collapse container big-margin">
+        <p class="more-margin"></p>
+        <div class="col-xs-3">
+          <h3 class="sub-header text-center">Relations</h3>
+          <div class="table-responsive">
+            <table class="table legend">
+              <thead>
+              <tr>
+                <th class="col-md-2">Key</th>
+                <th class="col-md-2">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="col-md-2">0</td>
+                <td class="col-md-2"></td>
+              </tr>
+              <tr>
+                <td class="col-md-2">1</td>
+                <td class="col-md-2">None</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">2</td>
+                <td class="col-md-2">E1 precedes E2</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">3</td>
+                <td class="col-md-2">E2 precedes E1</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">4</td>
+                <td class="col-md-2">Equivalent</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">5</td>
+                <td class="col-md-2">E1 specifies E2</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">6</td>
+                <td class="col-md-2">E2 specifies E1</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">7</td>
+                <td class="col-md-2">Bug</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">8</td>
+                <td class="col-md-2">Other</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <h3 class="sub-header text-center">Navigation</h3>
+          <div class="table-responsive">
+            <table class="table legend">
+              <thead>
+              <tr>
+                <th class="col-md-2">Key</th>
+                <th class="col-md-2">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="col-md-2">&larr;</td>
+                <td class="col-md-2">previous annotation</td>
+              </tr>
+              <tr>
+                <td class="col-md-2">&rarr;</td>
+                <td class="col-md-2">next annotation</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- end of legend -->
+      <!-- selection -->
+      <div class="container big-margin">
+        <!-- relation selector -->
+        <div class="form-group row">
+          <label class="control-label col-sm-2 h4" for="annotator-id">Annotator ID:</label>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="annotator-id" placeholder="Enter annotator id (email)">
+          </div>
+        </div>
+        <!-- relation selector -->
+        <div class="form-group row">
+          <label class="control-label col-sm-2 h4" for="relation">Relation:</label>
+          <div class="col-sm-3">
+            <div id="relation"></div>
+          </div>
+        </div>
+        <!-- paper -->
+        <div class="form-group row">
+          <label class="control-label col-sm-2 h4" for="relation">Paper:</label>
+          <div class="col-sm-3">
+            <div id="paper" class="h4"></div>
+          </div>
+        </div>
+        <!-- count and annotation export -->
+        <div class="form-group row">
+          <!-- count -->
+          <label id="total" class="control-label col-sm-2 h4" for="export">0 / 0</label>
+          <!-- annotation export -->
+          <div class="col-sm-2">
+            <button id="export"class="btn btn-success"  data-toggle="tooltip" data-placement="right" title="Export annotations to .json">Export</button>
+          </div>
+        </div>
+        <hr>
+        <!-- load data -->
+        <div class="form-group row">
+          <!-- File load -->
+          <div class="col-sm-2">
+            <span class="btn btn-primary btn-file">
+              Select file<input type="file" id="load-annotations" accept="application/json"/>
+            </span>
+          </div>
+          <!-- load previous -->
+          <div class="col-sm-2">
+            <button id="load-prev-data" class="btn btn-primary">Load Previous</button>
+          </div>
+          <!-- clear previous -->
+          <div class="col-sm-2">
+            <button id="clear-prev-data" class="btn btn-danger">Clear Previous</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!-- Buttons -->
+      <div class="form-group row">
+        <!-- Examples -->
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examples">Examples</button>
+        </div>
+        <div class="col-sm-3">
+          <a href="example-annotations.json" download="example-annotations.json">Download an example dataset</a>
+        </div>
+      </div>
+      <div id="examples" class="collapse">
+        <p class="more-margin">
+          Choose the most appropriate relation that holds between the two events.  If the relation is unclear or nonexistent, choose <b>None</b>.
+        </p>
+        <table class="table table-striped legend">
+          <thead>
+            <tr>
+              <th class="text-center h4">E1</th>
+              <th class="text-center h4">E2</th>
+              <th class="text-center h4">Relation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">Protein A is phosphorylated by Protein B.</td>
+              <td class="text-center">Following its phosphorylation, Protein A is bound to Protein C.</td>
+              <td class="text-center">E1 precedes E2</td>
+            </tr>
+            <tr>
+              <td class="text-center">Protein A is phosphorylated by Protein B.</td>
+              <td class="text-center">Protein C binds with Protein D.</td>
+              <td class="text-center">None</td>
+            </tr>
+            <tr>
+              <td class="text-center">Protein A is phosphorylated at Site A by Protein B.</td>
+              <td class="text-center">The phosphorylation of Protein A by Protein B leads to ...</td>
+              <td class="text-center">E1 specifies E2</td>
+            </tr>
+            <tr>
+              <td class="text-center">Protein A is phosphorylated by Protein B.</td>
+              <td class="text-center">The phosphorylation of Protein A by Protein B leads to ...</td>
+              <td class="text-center">Equivalent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end of examples -->
+    </div>
+  </body>
+</html>

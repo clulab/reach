@@ -81,20 +81,35 @@ pomExtra := (
 
 //resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
-libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" %% "reach" % "1.3.2",
-  "org.clulab" %% "processors-main" % "6.0.0",
-  "org.clulab" %% "processors-corenlp" % "6.0.0",
-  "org.clulab" %% "processors-models" % "6.0.0",
-  "com.typesafe" % "config" % "1.2.1",
-  "commons-io" % "commons-io" % "2.4",
-  // logging
-  "ch.qos.logback" %  "logback-classic" % "1.1.7",
-  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
-  // graph-based CSP
-  "org.choco-solver" % "choco-graph" % "3.3.0"
-)
+libraryDependencies ++= {
+  val akkaV = "2.4.3"
+  Seq(
+    "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+    "org.clulab" %% "reach" % "1.3.2",
+    "org.clulab" %% "processors-main" % "6.0.0",
+    "org.clulab" %% "processors-corenlp" % "6.0.0",
+    "org.clulab" %% "processors-models" % "6.0.0",
+    "com.typesafe" % "config" % "1.2.1",
+    "commons-io" % "commons-io" % "2.4",
+    // logging
+    "ch.qos.logback" %  "logback-classic" % "1.1.7",
+    "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
+    // graph-based CSP
+    "org.choco-solver" % "choco-graph" % "3.3.0",
+    // Twirl
+    //"com.typesafe.play"                  %% "twirl-api"                              % twirlV,
+    // AKKA
+    "com.typesafe.akka"                  %%  "akka-actor"                            % akkaV,
+    "com.typesafe.akka"                  %%  "akka-stream"                           % akkaV,
+    "com.typesafe.akka"                  %%  "akka-http-experimental"                % akkaV,
+    "com.typesafe.akka"                  %%  "akka-http-spray-json-experimental"     % akkaV,
+    "com.typesafe.akka"                  %%  "akka-http-testkit"                     % akkaV,
+    "com.typesafe.akka"                  %%  "akka-actor"                            % akkaV,
+    "com.typesafe.akka"                  %%  "akka-testkit"                          % akkaV    % "test",
+    "com.typesafe.akka"                  %%  "akka-slf4j"                            % akkaV,
+    "com.typesafe.akka"                  %%  "akka-http-xml-experimental"            % akkaV
+  )
+}
 
 // settings for building project website
 
