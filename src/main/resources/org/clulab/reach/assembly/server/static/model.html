@@ -36,7 +36,7 @@
         function getNextID() {
             var nextID = "E" + (eventIDs.length + 1);
             eventIDs.push(nextID);
-            console.log("eventIDs: " + eventIDs);
+            //console.log("eventIDs: " + eventIDs);
             return nextID
         }
 
@@ -50,7 +50,7 @@
           $('#reactions tbody>tr:last #controller').val('');
           $('#reactions tbody>tr:last #reaction-type').val('');
           $('#reactions tbody>tr:last #controlled').val('');
-          $('#reactions tbody>tr:last #precedes').val('');
+          $('#reactions tbody>tr:last #preceded-by').val('');
           return false;
         });
 
@@ -67,6 +67,35 @@
             }
             return false;
         });
+
+        $("#preceded-by").on("mouseenter", function () {
+            //console.log("repopulating preceded-by");
+            populatePredecessors(this);
+            return false;
+        });
+
+        function populatePredecessors(predecessorsSelector) {
+            // Find id of this event
+            var currentEvent = $(predecessorsSelector).closest('tr').find('#event-id').text();
+            //console.log("current event: " + currentEvent);
+            // Filter possible selections
+            // Disallow event to be preceded by itself
+            var candidates = _.filter(eventIDs, function(event) {
+                return (!(event in removedIDs) && (currentEvent != event));
+            });
+            // keep track of currently selected option
+            var selected = $(predecessorsSelector).find(":selected");
+            // empty options
+            $(predecessorsSelector).empty();
+            $(selected).appendTo(predecessorsSelector);
+            $(predecessorsSelector).val(selected.val());
+            // add default
+            $("<option>").val("NONE").text("").appendTo(predecessorsSelector);
+            // add each candidate
+            $.each(candidates, function( i, candidate) {
+                $("<option>").val(candidate).text(candidate).appendTo(predecessorsSelector);
+            });
+        }
     });
   </script>
 </head>
@@ -181,7 +210,9 @@
                 <td>
                     <div class="form-group">
                         <label for="preceded-by">Preceded by</label>
-                        <input class="form-control" type="text" name="preceded-by" id="preceded-by" />
+                        <select class="form-control" name="preceded-by" id="preceded-by">
+                            <option value="NONE"></option>
+                        </select>
                     </div>
                 </td>
               </tr>
