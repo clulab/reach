@@ -46,20 +46,6 @@
             return nextID
         }
 
-        $("#add").click(function() {
-          $('#reactions tbody>tr:last').clone(true).insertAfter('#reactions tbody>tr:last');
-          var nextID = getNextID();
-          // update reaction ID
-          $('#reactions tbody>tr:last #reaction').attr("id", nextID);
-          // set text of ID
-          $('#reactions tbody>tr:last #event-id').text(nextID);
-          $('#reactions tbody>tr:last #controller-entity').val('');
-          $('#reactions tbody>tr:last #reaction-type').val("NONE");
-          $('#reactions tbody>tr:last #controlled').val('');
-          $('#reactions tbody>tr:last #preceded-by').val('');
-          return false;
-        });
-
         $("#remove-reaction").click(function () {
             if ((eventIDs.length - Object.keys(removedIDs).length) > 1) {
                 var toRemove = $(this).prev('#event-id').text();
@@ -83,6 +69,8 @@
         $(".controller-entity-button").on("click", function () {
             var c = $(this).next('.controller-entity-selector');
             c.collapse("toggle");
+            // hide event data
+            $(this).closest('tr').find('.controller-event-selector').collapse("hide");
         });
 
         $(".controller-event-button").on("click", function () {
@@ -94,6 +82,9 @@
             if (candidates.length > 0) {
                 var c = $(this).next('.controller-event-selector');
                 c.collapse("toggle");
+                // hide entity data
+                $(this).next('.controller-entity-selector').collapse("hide");
+                // add options
                 populateEvents($(this).closest('tr').find('#controller-event'));
             } else {
                 //console.log("can't remove w/ eventIDs: " + eventIDs);
@@ -106,6 +97,8 @@
         $(".controlled-entity-button").on("click", function () {
             var c = $(this).next('.controlled-entity-selector');
             c.collapse("toggle");
+            // hide event data
+            $(this).closest('tr').find('.controlled-event-selector').collapse("hide");
         });
 
         $(".controlled-event-button").on("click", function () {
@@ -117,6 +110,9 @@
             if (candidates.length > 0) {
                 var c = $(this).next('.controlled-event-selector');
                 c.collapse("toggle");
+                // hide entity data
+                $(this).next('.controlled-entity-selector').collapse("hide");
+                // add options
                 populateEvents($(this).closest('tr').find('#controlled-event'));
             } else {
                 //console.log("can't remove w/ eventIDs: " + eventIDs);
@@ -135,9 +131,9 @@
             // keep track of currently selected option
             var selected = $(eventsSelector).find(":selected");
             // empty options
-//            $(eventsSelector).empty();
-//            $(selected).appendTo(eventsSelector);
-//            $(eventsSelector).val(selected.val());
+            $(eventsSelector).empty();
+            $(selected).appendTo(eventsSelector);
+            $(eventsSelector).val(selected.val());
             // add each candidate
             $.each(candidates, function(i, candidate) {
                 //console.log(candidate + " is an option");
@@ -167,6 +163,17 @@
                 $("<option>").val(candidate).text(candidate).appendTo(predecessorsSelector);
             });
         }
+
+        var protoRow = $('#reactions tr:last').clone(true, true);
+
+        $("#add").click(function() {
+            $(protoRow).clone(true, true).insertAfter('#reactions tbody>tr:last');
+            var nextID = getNextID();
+            // update reaction ID
+            $('#reactions tr:last #reaction').attr("id", nextID);
+            // set text of ID
+            $('#reactions tr:last #event-id').text(nextID);
+        });
     });
   </script>
 </head>
