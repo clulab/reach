@@ -15,6 +15,8 @@ class BoundedPaddingContext(
   /** assigns context to mentions given current state of the engine */
   def assign(mentions: Seq[BioMention]) = {
 
+    assert(this.orderedContextMentions != null, "ContextEngine: infer must be called before assign")
+
     // Assign context to each mention
     for(m <- mentions){
       val interval = getInterval(m.sentence)
@@ -22,8 +24,13 @@ class BoundedPaddingContext(
 
       // If the context map doesn't have species and there's a default
       if(!contextMap.keySet.contains("Species")
-          && defaultSpeciesContext.isDefined){
-        contextMap += ("Species" -> Array(defaultSpeciesContext.get))
+          && defaultContexts.isDefined){
+
+        val defaults = defaultContexts.get
+        if(defaults.keySet.contains("Species")){
+            contextMap += ("Species" -> Array(defaults("Species")))
+        }
+
       }
 
       // Assign the context map to the mention
@@ -58,43 +65,30 @@ class BoundedPaddingContext(
 
 
 // Policy 1
-class PaddingContext extends BoundedPaddingContext(Int.MaxValue){
+class PaddingContext extends BoundedPaddingContext(Int.MaxValue)
 
-}
 
-// ENRIQUE: Disabled until further notice
 // Policy 3
-// class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
-//
-//     // Override the infer context to fill the empty slots
-//     protected override def inferContext = {
-//       // Get the most common mentioned context of each type
-//       val defaultContexts = this.mentions.flatten.map(ContextEngine.getContextKey(_))  // Get the context keys of the mentions
-//         .filter(x => this.contextTypes.contains(x._1)).groupBy(_._1) // Keep only those we care about and group them by type
-//         .mapValues(bucket => bucket.map(ContextEngine.getIndex(_, ContextEngine.featureVocabulary))) // Get their numeric value from the vocabulary
-//         .mapValues(bucket => bucket.groupBy(identity).mapValues(_.size)) // Count the occurences
-//         .mapValues(bucket => Seq(bucket.maxBy(_._2)._1)) // Select the most common element
-//
-//       // Let the super class do its job
-//       val paddedContext = super.inferContext
-//
-//       // Now for each line assign a default context if necessary
-//       paddedContext map {
-//         step =>
-//           // Existing contexts for this line
-//           val context = step.map(ContextEngine.getKey(_, ContextEngine.latentVocabulary)).groupBy(_._1)
-//           this.contextTypes flatMap {
-//             ctype =>
-//               context.lift(ctype) match {
-//                 case Some(x) =>
-//                   x map (ContextEngine.getIndex(_, ContextEngine.latentVocabulary))
-//                 case None =>
-//                   defaultContexts.lift(ctype).getOrElse(Seq())
-//               }
-//           }
-//       }
-//     }
-// }
+class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
+
+  override def queryContext(interval:(Int, Int)):Map[String, Seq[String]] = defaultContexts match {
+    case Some(defaults) =>
+      // Make a mutable map to add the default contexts
+      val context:mutable.Map[String, Seq[String]] = mutable.Map.empty ++ super.queryContext(interval)
+
+      val existingKeys = context.keySet
+      for(ctxClass <- defaults.keys){
+        if(!existingKeys.contains(ctxClass))
+          context += (ctxClass -> Seq(defaults(ctxClass)))
+      }
+
+      // Convert to an immutable map and return
+      Map.empty ++ context
+
+    // If there aren't any defaults
+    case None => super.queryContext(interval)
+  }
+}
 
 // Policy 4
 class BidirectionalPaddingContext(

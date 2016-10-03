@@ -11,7 +11,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
   // Feature order should be kept consisting for all return values
   var orderedContextMentions:Map[Int, Seq[BioTextBoundMention]] = _
   // This is to keep the default species if necessary
-  var defaultSpeciesContext:Option[String] = None
+  var defaultContexts:Option[Map[String, String]] = None
 
   // Name of the entry features
   /** initializes any data structure that needs to be initialized */
@@ -23,13 +23,18 @@ abstract class RuleBasedContextEngine extends ContextEngine {
     // Create an ordered Map, for efficiency
     orderedContextMentions = immutable.TreeMap(entries.toArray:_*)
 
-    // Compute the default species
-    val speciesMentions = contextMentions filter (_.labels.head == "Species")
-    val counts = speciesMentions.groupBy(_.nsId).mapValues(_.size).toSeq.map(t => (t._2 -> t._1)).toMap
-    if(!counts.isEmpty){
-      val key = counts.keys.max
-      defaultSpeciesContext = Some(counts(key))
-    }
+    // Compute default context classes
+    // First count the context types
+    val contextCounts:Map[(String, String), Int] = mentions map ContextEngine.getContextKey groupBy identity mapValues (_.size)
+    // Then gorup them by class
+    val defaultContexts:Map[String, String] = contextCounts.toSeq.groupBy(_._1._1)
+      // Sort them in decreasing order by frequency
+      .mapValues(_.map(t => (t._1._2, t._2)))
+      // And pick the id with of the type with highest frequency
+      .mapValues(l => l.maxBy(_._2)._1)
+
+    // Assign it to the class field
+    this.defaultContexts = Some(defaultContexts)
   }
 
   /** updates those data structures with any new info */
