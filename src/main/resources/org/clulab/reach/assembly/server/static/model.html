@@ -13,6 +13,12 @@
         td {
             vertical-align: middle;
         }
+        .entity-selector {
+            display:none;
+        }
+        .event-selector {
+            display:none;
+        }
     </style>
   <!-- bootstrap -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -47,7 +53,7 @@
           $('#reactions tbody>tr:last #reaction').attr("id", nextID);
           // set text of ID
           $('#reactions tbody>tr:last #event-id').text(nextID);
-          $('#reactions tbody>tr:last #controller').val('');
+          $('#reactions tbody>tr:last #controller-entity').val('');
           $('#reactions tbody>tr:last #reaction-type').val("NONE");
           $('#reactions tbody>tr:last #controlled').val('');
           $('#reactions tbody>tr:last #preceded-by').val('');
@@ -65,14 +71,79 @@
              //console.log("can't remove w/ eventIDs: " + eventIDs);
              alert("Cannot remove all reactions!");
             }
-            return false;
         });
 
         $("#preceded-by").on("mouseenter", function () {
             //console.log("repopulating preceded-by");
             populatePredecessors(this);
-            return false;
         });
+
+        // CONTROLLER
+
+        $(".controller-entity-button").on("click", function () {
+            var c = $(this).next('.controller-entity-selector');
+            c.collapse("toggle");
+        });
+
+        $(".controller-event-button").on("click", function () {
+            // Ensure there are valid events available
+            var currentEvent = $(this).closest('tr').find('#event-id').text();
+            var candidates = _.filter(eventIDs, function(event) {
+                return (!(event in removedIDs) && (currentEvent != event));
+            });
+            if (candidates.length > 0) {
+                var c = $(this).next('.controller-event-selector');
+                c.collapse("toggle");
+                populateEvents($(this).closest('tr').find('#controller-event'));
+            } else {
+                //console.log("can't remove w/ eventIDs: " + eventIDs);
+                alert("No events available");
+            }
+        });
+
+        // CONTROLLED
+
+        $(".controlled-entity-button").on("click", function () {
+            var c = $(this).next('.controlled-entity-selector');
+            c.collapse("toggle");
+        });
+
+        $(".controlled-event-button").on("click", function () {
+            // Ensure there are valid events available
+            var currentEvent = $(this).closest('tr').find('#event-id').text();
+            var candidates = _.filter(eventIDs, function(event) {
+                return (!(event in removedIDs) && (currentEvent != event));
+            });
+            if (candidates.length > 0) {
+                var c = $(this).next('.controlled-event-selector');
+                c.collapse("toggle");
+                populateEvents($(this).closest('tr').find('#controlled-event'));
+            } else {
+                //console.log("can't remove w/ eventIDs: " + eventIDs);
+                alert("No events available");
+            }
+        });
+
+        function populateEvents(eventsSelector) {
+            // Find id of this event
+            var currentEvent = $(eventsSelector).closest('tr').find('#event-id').text();
+            //console.log("Row's Event ID: " + currentEvent);
+            // Disallow event to be preceded by itself
+            var candidates = _.filter(eventIDs, function(event) {
+                return (!(event in removedIDs) && (currentEvent != event));
+            });
+            // keep track of currently selected option
+            var selected = $(eventsSelector).find(":selected");
+            // empty options
+//            $(eventsSelector).empty();
+//            $(selected).appendTo(eventsSelector);
+//            $(eventsSelector).val(selected.val());
+            // add each candidate
+            $.each(candidates, function(i, candidate) {
+                //console.log(candidate + " is an option");
+                $("<option>").val(candidate).text(candidate).appendTo(eventsSelector);
+            });
+        }
 
         function populatePredecessors(predecessorsSelector) {
             // Find id of this event
@@ -125,34 +196,48 @@
                   </td>
                   <!-- CONTROLLER -->
                   <td>
-                      <div class="form-group">
-                          <label for="controller">Controller</label>
-                          <input class="form-control" type="text" name="controller" id="controller"/>
-                      </div>
-                      <div class="form-group">
-                          <label for="controller-grounding-id">Grounding ID</label>
-                          <!-- TODO: use ajax to retrieve grounding candidate ids-->
-                          <select class="form-control" name="controller-grounding-id" id="controller-grounding-id">
-                          </select>
-                      </div>
-                      <!-- mods, mutant state, etc-->
-                      <div class="form-group">
-                          <label for="controller-state">State</label>
-                          <div id="controller-state">
-                              <div class="checkbox">
-                                  <label><input type="checkbox" name="phosphorylated" value="Phosphorylated">Phosphorylated</label>
+                      <div class="controller-type">
+                          <!-- CONTROLLER (event) -->
+                          <button type="button" class="btn btn-primary controller-event-button" >Event</button>
+                          <div class="form-group event-selector controller-event-selector">
+                              <label for="controller-event">Controller</label>
+                              <select class="form-control" name="controller-event" id="controller-event">
+                                  <option value="NONE"></option>
+                              </select>
+                          </div>
+                          <!-- CONTROLLER (entity) -->
+                          <button type="button" class="btn btn-primary controller-entity-button" >Entity</button>
+                          <div class="form-group entity-selector controller-entity-selector">
+                              <div class="form-group">
+                                  <label for="controller-entity">Controller</label>
+                                  <input class="form-control" type="text" name="controller-entity" id="controller-entity"/>
                               </div>
-                              <div class="checkbox">
-                                  <label><input type="checkbox" name="bound" value="bound">Bound</label>
+                              <div class="form-group">
+                                  <label for="controller-entity-grounding-id">Grounding ID</label>
+                                  <!-- TODO: use ajax to retrieve grounding candidate ids-->
+                                  <select class="form-control" name="controller-entity-grounding-id" id="controller-entity-grounding-id">
+                                  </select>
                               </div>
-                              <div class="checkbox">
-                                  <label><input type="checkbox" name="activated" value="activated">Activated</label>
-                              </div>
-                              <div class="checkbox">
-                                  <label><input type="checkbox" name="deactivated" value="deactivated">Deactivated</label>
-                              </div>
-                              <div class="checkbox">
-                                  <label><input type="checkbox" name="mutant" value="mutant">Mutant</label>
+                              <!-- mods, mutant state, etc-->
+                              <div class="form-group">
+                                  <label for="controller-entity-state">State</label>
+                                  <div id="controller-entity-state">
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="phosphorylated" value="Phosphorylated">Phosphorylated</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="bound" value="bound">Bound</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="activated" value="activated">Activated</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="deactivated" value="deactivated">Deactivated</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="mutant" value="mutant">Mutant</label>
+                                      </div>
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -173,38 +258,52 @@
                   </td>
                   <!-- CONTROLLED -->
                   <td>
-                     <div class="form-group">
-                        <label for="controlled">Controlled</label>
-                        <input class="form-control" type="text" name="controlled" id="controlled"/>
-                     </div>
-                     <div class="form-group">
-                        <label for="controlled-grounding-id">Grounding ID</label>
-                        <!-- TODO: use ajax to retrieve grounding candidate ids-->
-                        <select class="form-control" name="controlled-grounding-id" id="controlled-grounding-id">
-                        </select>
-                     </div>
-                  <!-- mods, mutant state, etc-->
-                  <div class="form-group">
-                      <label for="controlled-state">State</label>
-                      <div id="controlled-state">
-                      <div class="checkbox">
-                          <label><input type="checkbox" name="phosporylated" value="Phosphorylated">Phosphorylated</label>
+                      <div class="controlled-type">
+                          <!-- CONTROLLED (event) -->
+                          <button type="button" class="btn btn-primary controlled-event-button" >Event</button>
+                          <div class="form-group event-selector controlled-event-selector">
+                              <label for="controlled-event">Controlled</label>
+                              <select class="form-control" name="controller-event" id="controlled-event">
+                                  <option value="NONE"></option>
+                              </select>
+                          </div>
+                          <!-- CONTROLLED (entity) -->
+                          <button type="button" class="btn btn-primary controlled-entity-button" >Entity</button>
+                          <div class="form-group entity-selector controlled-entity-selector">
+                              <div class="form-group">
+                                  <label for="controlled-entity">Controlled</label>
+                                  <input class="form-control" type="text" name="controlled-entity" id="controlled-entity"/>
+                              </div>
+                              <div class="form-group">
+                                  <label for="controlled-entity-grounding-id">Grounding ID</label>
+                                  <!-- TODO: use ajax to retrieve grounding candidate ids-->
+                                  <select class="form-control" name="controlled-entity-grounding-id" id="controlled-entity-grounding-id">
+                                  </select>
+                              </div>
+                              <!-- mods, mutant state, etc-->
+                              <div class="form-group">
+                                  <label for="controlled-entity-state">State</label>
+                                  <div id="controlled-entity-state">
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="phosphorylated" value="Phosphorylated">Phosphorylated</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="bound" value="bound">Bound</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="activated" value="activated">Activated</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="deactivated" value="deactivated">Deactivated</label>
+                                      </div>
+                                      <div class="checkbox">
+                                          <label><input type="checkbox" name="mutant" value="mutant">Mutant</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
-                      <div class="checkbox">
-                          <label><input type="checkbox" name="bound" value="bound">Bound</label>
-                      </div>
-                      <div class="checkbox">
-                          <label><input type="checkbox" name="activated" value="activated">Activated</label>
-                      </div>
-                      <div class="checkbox">
-                          <label><input type="checkbox" name="deactivated" value="deactivated">Deactivated</label>
-                      </div>
-                      <div class="checkbox">
-                          <label><input type="checkbox" name="mutant" value="mutant">Mutant</label>
-                      </div>
-                      </div>
-                  </div>
-                </td>
+                  </td>
                 <td>
                     <div class="form-group">
                         <label for="preceded-by">Preceded by</label>
