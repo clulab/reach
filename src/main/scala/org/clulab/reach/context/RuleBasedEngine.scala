@@ -25,7 +25,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
     // Compute default context classes
     // First count the context types
-    val contextCounts:Map[(String, String), Int] = mentions map ContextEngine.getContextKey groupBy identity mapValues (_.size)
+    val contextCounts:Map[(String, String), Int] = contextMentions map ContextEngine.getContextKey groupBy identity mapValues (_.size)
     // Then gorup them by class
     val defaultContexts:Map[String, String] = contextCounts.toSeq.groupBy(_._1._1)
       // Sort them in decreasing order by frequency
