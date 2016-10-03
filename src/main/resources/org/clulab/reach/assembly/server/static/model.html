@@ -48,7 +48,7 @@
           // set text of ID
           $('#reactions tbody>tr:last #event-id').text(nextID);
           $('#reactions tbody>tr:last #controller').val('');
-          $('#reactions tbody>tr:last #reaction-type').val('');
+          $('#reactions tbody>tr:last #reaction-type').val("NONE");
           $('#reactions tbody>tr:last #controlled').val('');
           $('#reactions tbody>tr:last #preceded-by').val('');
           return false;
@@ -133,7 +133,6 @@
                           <label for="controller-grounding-id">Grounding ID</label>
                           <!-- TODO: use ajax to retrieve grounding candidate ids-->
                           <select class="form-control" name="controller-grounding-id" id="controller-grounding-id">
-                              <option value="unknown">???</option>
                           </select>
                       </div>
                       <!-- mods, mutant state, etc-->
@@ -141,7 +140,7 @@
                           <label for="controller-state">State</label>
                           <div id="controller-state">
                               <div class="checkbox">
-                                  <label><input type="checkbox" name="phosporylated" value="Phosphorylated">Phosphorylated</label>
+                                  <label><input type="checkbox" name="phosphorylated" value="Phosphorylated">Phosphorylated</label>
                               </div>
                               <div class="checkbox">
                                   <label><input type="checkbox" name="bound" value="bound">Bound</label>
@@ -158,7 +157,7 @@
                           </div>
                       </div>
                   </td>
-                  <!-- Reaction -->
+                  <!-- Reaction type -->
                   <td>
                       <div class="form-group">
                           <label for="reaction-type">Reaction</label>
@@ -182,7 +181,6 @@
                         <label for="controlled-grounding-id">Grounding ID</label>
                         <!-- TODO: use ajax to retrieve grounding candidate ids-->
                         <select class="form-control" name="controlled-grounding-id" id="controlled-grounding-id">
-                            <option value="unknown">???</option>
                         </select>
                      </div>
                   <!-- mods, mutant state, etc-->
