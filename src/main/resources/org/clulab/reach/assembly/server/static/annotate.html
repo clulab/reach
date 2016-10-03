@@ -226,7 +226,7 @@
             var annoID = $("#annotator-id").val();
             var a = document.createElement('a');
             a.href = 'data:' + data;
-            a.download = 'annotations-'+ annoID + '.json';
+            a.download = 'event-pairs-' + annoID + '.json';
             // TODO: is there a way to open this in a new window client-side?
             window.location.href = a
           });
@@ -241,10 +241,9 @@
           // update stored annotation
           function updateAnnotation() {
             var anno = annotations[current];
-            var label = $("#relation").text();
-            var annoID = $("#annotator-id").val();
-            anno["relation"] = label;
-            anno["annotator-id"] = annoID
+            anno["relation"] = $("#relation").text();
+            anno["annotator-id"] = $("#annotator-id").val();
+            anno["notes"] = $("#notes").val();
           }
 
           function getPaperLink(anno) {
@@ -320,6 +319,8 @@
               $("#relation").text(label);
               // update paper link
               $("#paper").html(paperLink);
+              // update notes
+              $("#notes").val(anno["notes"]);
               // update displayed information
               var total = annotations.length;
               $("#total").text(current + 1 + " / " + total);
@@ -651,6 +652,14 @@
           <label class="control-label col-sm-2 h4" for="relation">Paper:</label>
           <div class="col-sm-3">
             <div id="paper" class="h4"></div>
+          </div>
+        </div>
+        <!-- notes -->
+        <div class="form-group row">
+          <label for="notes" class="control-label col-sm-2 h4">Notes</label>
+          <!-- annotation export -->
+          <div class="col-sm-4">
+            <textarea class="form-control vresize" rows="3" id="notes"></textarea>
           </div>
         </div>
         <!-- count and annotation export -->
