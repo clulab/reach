@@ -19,6 +19,9 @@
         .event-selector {
             display:none;
         }
+        .grounding-selector {
+            display:none;
+        }
     </style>
   <!-- bootstrap -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -73,6 +76,19 @@
             $(this).closest('tr').find('.controller-event-selector').collapse("hide");
         });
 
+        $(".controller-grounding-button").on("click", function () {
+            var entityText = $(this).closest('tr').find('#controller-entity').val();
+            var currentEvent = $(this).closest('tr').find('#event-id').text();
+            if (entityText) {
+                var c = $(this).next('.controller-grounding-selector');
+                console.log("Text for entity controller of " + currentEvent + ": '" + entityText + "'");
+                c.collapse("show");
+                // TODO: send string to server and populate grounding candidates list
+            } else {
+                alert("No entity string given for controller of " + currentEvent);
+            }
+        });
+
         $(".controller-event-button").on("click", function () {
             // Ensure there are valid events available
             var currentEvent = $(this).closest('tr').find('#event-id').text();
@@ -99,6 +115,19 @@
             c.collapse("toggle");
             // hide event data
             $(this).closest('tr').find('.controlled-event-selector').collapse("hide");
+        });
+
+        $(".controlled-grounding-button").on("click", function () {
+            var entityText = $(this).closest('tr').find('#controlled-entity').val();
+            var currentEvent = $(this).closest('tr').find('#event-id').text();
+            if (entityText) {
+                var c = $(this).next('.controlled-grounding-selector');
+                console.log("Text for entity controlled of " + currentEvent + ": '" + entityText + "'");
+                c.collapse("show");
+                // TODO: send string to server and populate grounding candidates list
+            } else {
+                alert("No entity string given for controlled of " + currentEvent);
+            }
         });
 
         $(".controlled-event-button").on("click", function () {
@@ -219,11 +248,15 @@
                                   <label for="controller-entity">Controller</label>
                                   <input class="form-control" type="text" name="controller-entity" id="controller-entity"/>
                               </div>
-                              <div class="form-group">
-                                  <label for="controller-entity-grounding-id">Grounding ID</label>
-                                  <!-- TODO: use ajax to retrieve grounding candidate ids-->
-                                  <select class="form-control" name="controller-entity-grounding-id" id="controller-entity-grounding-id">
-                                  </select>
+                              <!-- CONTROLLER grounding -->
+                              <button type="button" class="btn btn-info controller-grounding-button" >Ground</button>
+                              <div class="form-group grounding-selector controller-grounding-selector">
+                                  <div class="form-group">
+                                      <label for="controller-entity-grounding-id">Grounding ID</label>
+                                      <!-- TODO: use ajax to retrieve grounding candidate ids-->
+                                      <select class="form-control" name="controller-entity-grounding-id" id="controller-entity-grounding-id">
+                                      </select>
+                                  </div>
                               </div>
                               <!-- mods, mutant state, etc-->
                               <div class="form-group">
@@ -281,11 +314,15 @@
                                   <label for="controlled-entity">Controlled</label>
                                   <input class="form-control" type="text" name="controlled-entity" id="controlled-entity"/>
                               </div>
-                              <div class="form-group">
-                                  <label for="controlled-entity-grounding-id">Grounding ID</label>
-                                  <!-- TODO: use ajax to retrieve grounding candidate ids-->
-                                  <select class="form-control" name="controlled-entity-grounding-id" id="controlled-entity-grounding-id">
-                                  </select>
+                              <!-- CONTROLLED grounding -->
+                              <button type="button" class="btn btn-info controlled-grounding-button" >Ground</button>
+                              <div class="form-group grounding-selector controlled-grounding-selector">
+                                  <div class="form-group">
+                                      <label for="controlled-entity-grounding-id">Grounding ID</label>
+                                      <!-- TODO: use ajax to retrieve grounding candidate ids-->
+                                      <select class="form-control" name="controlled-entity-grounding-id" id="controlled-entity-grounding-id">
+                                      </select>
+                                  </div>
                               </div>
                               <!-- mods, mutant state, etc-->
                               <div class="form-group">
