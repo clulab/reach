@@ -17,7 +17,6 @@ import java.io.File
 
 /** Storage class for an event pair (i.e., a single example for the relation corpus) */
 case class EventPair(
-  text: String,
   e1: CorefMention,
   e2: CorefMention,
   relation: String,
@@ -29,6 +28,7 @@ case class EventPair(
   import CorpusBuilder._
 
   require(e1.document == e2.document, "Documents must be the same for e1 and e2")
+  val text = getSententialSpan(e1, e2)
   val sentenceIndices = Seq(e1.sentence, e2.sentence).distinct.sorted
   val doc = e1.document
   val pmid = getPMID(doc.id.get)
@@ -55,11 +55,13 @@ case class EventPair(
   }
 
   def copy(
-    text: String = this.text,
     before: CorefMention = this.e1,
     after: CorefMention = this.e2,
-    relation: String = this.relation
-  ): EventPair = EventPair(text, before, after, relation)
+    relation: String = this.relation,
+    confidence: Double = this.confidence,
+    annotatorID: String = this.annotatorID,
+    notes: Option[String] = this.notes
+  ): EventPair = EventPair(before, after, relation, confidence, annotatorID, notes)
 
 
   def jsonAST: JValue = {
@@ -105,19 +107,19 @@ case class EventPair(
 
 object EventPair {
 
-  def apply(text: String, mentions: Set[CorefMention]): EventPair = {
+  def apply(mentions: Set[CorefMention]): EventPair = {
     val before = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2).head
     val after = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2).last
 
-    apply(text, before, after)
+    apply(before, after)
   }
 
-  def apply(text: String, before: CorefMention, after: CorefMention): EventPair = {
+  def apply(before: CorefMention, after: CorefMention): EventPair = {
 
     // if the two event mentions have the same controlled, this is a negative example
     val rel: String = if (Constraints.shareControlleds(before, after)) AssemblyRelationClassifier.NEG else ""
 
-    EventPair(text, e1 = before, e2 = after, rel)
+    EventPair(e1 = before, e2 = after, rel)
   }
 }
 
@@ -184,7 +186,6 @@ object Corpus extends LazyLogging {
     for {
       aa <- epsjson.extract[Seq[AssemblyAnnotation]]
     } yield EventPair(
-      text = aa.text,
       e1 = mentionMap(aa.`e1-id`),
       e2 = mentionMap(aa.`e2-id`),
       relation = aa.relation,

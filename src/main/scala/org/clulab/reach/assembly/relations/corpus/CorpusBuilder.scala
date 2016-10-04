@@ -116,8 +116,7 @@ object CorpusBuilder {
       // EERs must share at least one arg
       if Constraints.shareArg(m1, m2)
       // create training instance
-      text = getSententialSpan(m1, m2)
-      ep = EventPair(text, Set(m1, m2))
+      ep = EventPair(Set(m1, m2))
       // triggers should not be the same
       if ep.e1.trigger != ep.e2.trigger
     } yield ep
@@ -133,7 +132,6 @@ object CorpusBuilder {
     // sort
     distinctEPs.sortBy{ ep => (ep.doc.id.getOrElse(""), ep.sentenceIndices.head) }
   }
-
 }
 
 
@@ -147,14 +145,13 @@ object BuildCorpus extends App with LazyLogging {
 
   logger.info(s"Loading dataset ...")
 
-  val dataset: Dataset = datasetLUT(config.getString("assembly.corpus.jsonDir"))
+  val dataset: Map[String, Seq[CorefMention]] = datasetLUT(config.getString("assembly.corpus.jsonDir"))
 
   logger.info(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
   val eps: Seq[EventPair] = for {
     (pmid, mentions) <- dataset.toSeq
-    mns = mentions.map(_.toCorefMention)
-    ep <- selectEventPairs(mns)
+    ep <- selectEventPairs(mentions)
   } yield ep
 
   // distinct and sort
@@ -164,5 +161,5 @@ object BuildCorpus extends App with LazyLogging {
   val outDir = new File(config.getString("assembly.corpus.corpusDir"))
   // create corpus and write to file
   val corpus = Corpus(distincteps)
-  corpus.writeJSON(outDir, false)
+  corpus.writeJSON(outDir, pretty = false)
 }
