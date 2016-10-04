@@ -348,7 +348,7 @@ class Coref extends LazyLogging {
       if (mentions.isEmpty) Nil
       else {
         logger.debug("BEFORE COREF")
-        displayMentions(mentions, mentions.head.document)
+        logger.debug(summarizeMentions(mentions, mentions.head.document))
         logger.debug("Starting coref...")
 
         // order mentions and also remove Generic_event mentions that do not have definite determiners.
