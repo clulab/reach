@@ -65,8 +65,8 @@ rules:
       eventName: "Ubiquitination"
       actionFlow: "mkUbiquitination"
       label: "Ubiquitination"
-      verbalTriggerLemma: "ubiquitinate"
-      nominalTriggerLemma: "ubiquitination"
+      verbalTriggerLemma: "ubiquit(in|yl)ate"
+      nominalTriggerLemma: "ubiquit(in|yl)ation"
       triggerPrefix: "!word=/(?i)^de/"
       priority: "5"
 
@@ -168,8 +168,8 @@ rules:
       eventName: "Deubiquitination"
       actionFlow: "mkUbiquitination"
       label: "Deubiquitination"
-      verbalTriggerLemma: "de-?ubiquitinate"
-      nominalTriggerLemma: "de-?ubiquitination"
+      verbalTriggerLemma: "de-?ubiquit(in|yl)ate"
+      nominalTriggerLemma: "de-?ubiquit(in|yl)ation"
       triggerPrefix: "word=/(?i)^de/"
       priority: "5"
 
