@@ -89,13 +89,84 @@ object CorpusReader extends LazyLogging {
       if Constraints.withinWindow(e1equiv, e2equiv, kWindow)
       if Constraints.withinWindow(e1equiv, p.e1, kWindow) || Constraints.withinWindow(e1equiv, p.e2, kWindow)
       if Constraints.withinWindow(e2equiv, p.e1, kWindow) || Constraints.withinWindow(e2equiv, p.e2, kWindow)
-      text: String = CorpusBuilder.getSententialSpan(e1equiv, e2equiv)
     // we don't know which is textually precedes the other
-    } yield EventPair(text, Set(e1equiv.toCorefMention, e2equiv.toCorefMention))
+    } yield EventPair(Set(e1equiv.toCorefMention, e2equiv.toCorefMention))
     proximalEquivalentPairs.toSeq
   }
 
   def readCorpus(corpusDir: String): Corpus = Corpus(corpusDir)
+}
+
+/** Attempt to recover mentions from legacy annotation format */
+object LegacyAnnotationReader extends LazyLogging {
+
+  def readLegacyAnnotations(annoFile: File, jsonDir: File): Seq[EventPair] = {
+    val dsLUT = datasetLUT(jsonDir.getAbsolutePath)
+    val aas = assemblyAnnotationsFromFile(annoFile)
+    findEventPairs(aas, dsLUT)
+  }
+
+  private case class AssemblyAnnotation(
+    text: String,
+    relation: String,
+    `annotator-id`: String,
+    coref: Boolean,
+    `paper-id`: String,
+    //event 1
+    `e1-trigger`: String,
+    `e1-label`: String,
+    `e1-sentence-index`: Int,
+    `e1-start`: Int,
+    `e1-end`: Int,
+    `e1-tokens`: Seq[String],
+    // event 2
+    `e2-trigger`: String,
+    `e2-label`: String,
+    `e2-sentence-index`: Int,
+    `e2-start`: Int,
+    `e2-end`: Int,
+    `e2-tokens`: Seq[String]
+  ) {
+    val sententialDistance: Int = Math.abs(this.`e1-sentence-index` - this.`e2-sentence-index`)
+  }
+
+  private def assemblyAnnotationsFromFile(f: File): Seq[AssemblyAnnotation] = {
+    implicit val formats = DefaultFormats
+    val json = JsonMethods.parse(f)
+    json.extract[Seq[AssemblyAnnotation]]
+  }
+
+  private def findEventPairs(aas: Seq[AssemblyAnnotation], cmsLUT: Map[String, Seq[CorefMention]]): Seq[EventPair] = {
+    for {
+      aa <- aas
+      candidates = cmsLUT(aa.`paper-id`)
+      e1Candidates = candidates.filter(_ matches aa.`e1-label`)
+      e2Candidates = candidates.filter(_ matches aa.`e2-label`)
+      // check for matching triggers
+      e1c <- e1Candidates
+      if SieveUtils.findTrigger(e1c).text == aa.`e1-trigger`
+      e2c <- e2Candidates
+      if SieveUtils.findTrigger(e2c).text == aa.`e2-trigger`
+      // check sentential distance
+      mnDist: Int = Math.abs(e1c.sentence - e2c.sentence)
+      if mnDist == aa.sententialDistance
+      ep = EventPair(Set(e1c, e2c))
+    } yield ep
+  }
+
+  def updateEventPairs(annotatedEPs: Seq[EventPair], unannotatedEPs: Seq[EventPair]): Seq[EventPair] = {
+    val annoLUT: Map[(CorefMention, CorefMention), EventPair] = annotatedEPs.map(eps => (eps.e1, eps.e2) -> eps).toMap
+    for {
+      ep <- unannotatedEPs
+      k = (ep.e1, ep.e2)
+    } yield {
+      annoLUT contains k match {
+        // use the annotated (old) ep
+        case true => annoLUT(k)
+        case false => ep
+      }
+    }
+  }
 }
 
 /**
