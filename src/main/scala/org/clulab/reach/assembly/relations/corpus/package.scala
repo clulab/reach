@@ -34,12 +34,13 @@ package object corpus extends LazyLogging {
       }
     }
     val docMentionPairs = for {
-      f <- new File(jsonDir).listFiles
+      f <- new File(jsonDir).listFiles.par
+      if f.getName.endsWith(".json")
       cms: Option[Seq[CorefMention]] = parseJSON(f)
       if cms.nonEmpty
       paperID = getPMID(cms.get.head)
     } yield  paperID -> cms.get.toVector
 
-    docMentionPairs.toMap.withDefaultValue(Vector.empty[CorefMention])
+    docMentionPairs.seq.toMap.withDefaultValue(Vector.empty[CorefMention])
   }
 }

@@ -1,7 +1,6 @@
 package org.clulab.reach.assembly.relations.corpus
 
 import org.clulab.reach.mentions._
-import org.clulab.reach.PaperReader.Dataset
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.sieves.Constraints
 import org.clulab.odin._

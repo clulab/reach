@@ -72,9 +72,9 @@ case class EventPair(
     // event 1
     ("e1-id" -> this.e1.id) ~
     ("e1-label" -> this.e1.eventLabel) ~
-    ("e1-sentence" -> this.e1.sentenceText) ~
+    ("e1-sentence-text" -> this.e1.sentenceText) ~
     ("e1-sentence-index" -> this.e1.sentence) ~
-    ("e1-tokens" -> this.e1.sentenceObj.words.toList) ~
+    ("e1-sentence-tokens" -> this.e1.sentenceObj.words.toList) ~
     // can be used to highlight event span in annotation UI
     ("e1-start" -> this.e1.start) ~
     ("e1-end" -> this.e1.end) ~
@@ -84,9 +84,9 @@ case class EventPair(
     // event 2
     ("e2-id" -> this.e2.id) ~
     ("e2-label" -> this.e2.eventLabel) ~
-    ("e2-sentence" -> this.e2.text) ~
+    ("e2-sentence-text" -> this.e2.text) ~
     ("e2-sentence-index" -> this.e2.sentence) ~
-    ("e2-tokens" -> this.e2.sentenceObj.words.toList) ~
+    ("e2-sentence-tokens" -> this.e2.sentenceObj.words.toList) ~
     // can be used to highlight event span in annotation UI
     ("e2-start" -> this.e2.start) ~
     ("e2-end" -> this.e2.end) ~
