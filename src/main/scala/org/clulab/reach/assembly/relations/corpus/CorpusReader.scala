@@ -139,6 +139,12 @@ object LegacyAnnotationReader extends LazyLogging {
     json.extract[Seq[AssemblyAnnotation]]
   }
 
+  private def isExactMatch(aa: AssemblyAnnotation, e1: CorefMention, e2: CorefMention): Boolean = {
+    aa.`e1-sentence-index` == e1.sentence && aa.`e2-sentence-index` == e2.sentence &&
+      aa.`e1-start` == e1.start && aa.`e2-start` == e2.start &&
+      aa.`e1-end` == e1.end && aa.`e2-end` == e2.end
+  }
+
   private def findEventPairs(aas: Seq[AssemblyAnnotation], cmsLUT: Map[String, Seq[CorefMention]]): Seq[EventPair] = {
     for {
       aa <- aas
@@ -155,15 +161,35 @@ object LegacyAnnotationReader extends LazyLogging {
       if SieveUtils.findTrigger(e1c).text == aa.`e1-trigger`
       //if e2c.text contains aa.`e2-trigger`
       if SieveUtils.findTrigger(e2c).text == aa.`e2-trigger`
-      ep = EventPair(
+      // final check
+      if Constraints.isValidRelationPair(e1c, e2c)
+    } yield {
+
+      // estimate confidence in match
+      val confidence: Double = (e1c, e2c) match {
+        // is the annotation an exact match?
+        case exactMatch if isExactMatch(aa, exactMatch._1, exactMatch._2) =>
+          AnnotationUtils.HIGH
+        case other =>
+          val overlapE1 = aa.`e1-tokens`.count(tok => e1c.words contains tok).toDouble / e1c.words.size
+          val overlapE2 = aa.`e2-tokens`.count(tok => e2c.words contains tok).toDouble / e2c.words.size
+          (overlapE1 + overlapE2) / 2.0 match {
+            case highOverlap if highOverlap >= 0.5 =>
+              AnnotationUtils.NORMAL
+            case low =>
+              AnnotationUtils.LOW
+          }
+      }
+
+      EventPair(
         e1c,
         e2c,
         aa.relation,
-        confidence = AnnotationUtils.HIGH,
+        confidence,
         annotatorID  = aa.`annotator-id`,
         notes = None
       )
-    } yield ep
+    }
   }
 
   def updateEventPairs(annotatedEPs: Seq[EventPair], unannotatedEPs: Seq[EventPair]): Seq[EventPair] = {
