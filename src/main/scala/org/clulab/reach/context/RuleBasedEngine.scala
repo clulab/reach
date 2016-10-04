@@ -68,7 +68,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
 
     observedSparseMatrix = mentions.map{
       _.map {
-        elem => ContextEngine.getIndex(ContextEngine.getContextKey(elem), ContextEngine.featureVocabulary)
+        elem => ContextEngine.getIndex(ContextEngine.getContextKey(elem), ContextEngine.featureVocabularyKeys)
       }
     }
 
@@ -76,7 +76,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
       _.map{
         elem =>
           val key = ContextEngine.getContextKey(elem)
-          if (!key._1.startsWith("Context")) ContextEngine.getIndex(key, ContextEngine.latentVocabulary) else -1
+          if (!key._1.startsWith("Context")) ContextEngine.getIndex(key, ContextEngine.latentVocabularyKeys) else -1
           //filteredVocabulary(key)
       }.filter(_ != -1)
     }.toList
@@ -125,7 +125,7 @@ abstract class RuleBasedContextEngine extends ContextEngine {
    */
   protected def query(line:Int):Map[String, Seq[String]] =
     try{
-      inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.latentVocabulary)) groupBy (_._1) mapValues (_.map(_._2))
+      inferedLatentSparseMatrix(line) map ( ContextEngine.getKey(_, ContextEngine.latentVocabularyKeys)) groupBy (_._1) mapValues (_.map(_._2))
     }
     catch{
       // There were no conetxt mentions when calling infer, thus we return an empty map
