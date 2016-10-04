@@ -101,8 +101,11 @@ object CorpusReader extends LazyLogging {
 object LegacyAnnotationReader extends LazyLogging {
 
   def readLegacyAnnotations(annoFile: File, jsonDir: File): Seq[EventPair] = {
+    logger.info(s"deserializing mentions...")
     val dsLUT = datasetLUT(jsonDir.getAbsolutePath)
+    logger.info(s"reading annotations from ${annoFile.getAbsolutePath}")
     val aas = assemblyAnnotationsFromFile(annoFile)
+    logger.info(s"Building EventPairs for annotations...")
     findEventPairs(aas, dsLUT)
   }
 
@@ -142,15 +145,24 @@ object LegacyAnnotationReader extends LazyLogging {
       candidates = cmsLUT(aa.`paper-id`)
       e1Candidates = candidates.filter(_ matches aa.`e1-label`)
       e2Candidates = candidates.filter(_ matches aa.`e2-label`)
-      // check for matching triggers
       e1c <- e1Candidates
-      if SieveUtils.findTrigger(e1c).text == aa.`e1-trigger`
       e2c <- e2Candidates
-      if SieveUtils.findTrigger(e2c).text == aa.`e2-trigger`
       // check sentential distance
       mnDist: Int = Math.abs(e1c.sentence - e2c.sentence)
       if mnDist == aa.sententialDistance
-      ep = EventPair(Set(e1c, e2c))
+      // check for matching triggers
+      //if e1c.text contains aa.`e1-trigger`
+      if SieveUtils.findTrigger(e1c).text == aa.`e1-trigger`
+      //if e2c.text contains aa.`e2-trigger`
+      if SieveUtils.findTrigger(e2c).text == aa.`e2-trigger`
+      ep = EventPair(
+        e1c,
+        e2c,
+        aa.relation,
+        confidence = AnnotationUtils.HIGH,
+        annotatorID  = aa.`annotator-id`,
+        notes = None
+      )
     } yield ep
   }
 
