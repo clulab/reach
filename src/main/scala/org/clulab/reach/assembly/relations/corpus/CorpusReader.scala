@@ -178,8 +178,8 @@ object LegacyAnnotationReader extends LazyLogging {
           AnnotationUtils.HIGH
         case inexact =>
           val weight = 0.9
-          val overlapE1 = aa.`e1-tokens`.count(tok => e1c.words contains tok).toDouble / Seq(e1c.words.size, aa.`e1-tokens`.size).min
-          val overlapE2 = aa.`e2-tokens`.count(tok => e2c.words contains tok).toDouble / Seq(e2c.words.size, aa.`e2-tokens`.size).min
+          val overlapE1 = aa.`e1-tokens`.count(tok => e1c.words contains tok).toDouble / Seq(e1c.words.size, aa.`e1-tokens`.size).max
+          val overlapE2 = aa.`e2-tokens`.count(tok => e2c.words contains tok).toDouble / Seq(e2c.words.size, aa.`e2-tokens`.size).max
           (overlapE1 + overlapE2) / 2.0  * weight
       }
       EventPair(
