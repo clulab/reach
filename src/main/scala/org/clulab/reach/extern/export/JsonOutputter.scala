@@ -15,24 +15,31 @@ import org.clulab.serialization.json._
 /**
   * Trait for output formatters which output JSON formats.
   *   Written by Tom Hicks. 5/22/2015.
-  *   Last Modified: Fix doc header for toJSON.
+  *   Last Modified: Update for Amount event. Add missing method doc strings.
   */
 trait JsonOutputter {
 
   /**
     * Returns the given mentions in some JSON-based format, as one big string.
+    * Default method to be overridden by each JSON output formatter.
     * The processing start and stop date/times are given.
     * The output filename prefix is provided for use by the generator routines, as needed.
-    * Default method to be overridden by each JSON output formatter.
     */
-  def toJSON (paperId:String,
-              allMentions:Seq[Mention],
-              paperPassages:Seq[FriesEntry],
-              startTime:Date,
-              endTime:Date,
-              outFilePrefix:String): String
+  def toJSON (
+    paperId:String,
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String): String
 
-  def toJSON(
+  /**
+    * Returns the given mentions in some JSON-based format, as one big string.
+    * Alternate interface: takes document and extracts passages to output mentions.
+    * The processing start and stop date/times are given.
+    * The output filename prefix is provided for use by the generator routines, as needed.
+    */
+  def toJSON (
       paperId: String,
       allMentions: Seq[Mention],
       nxmldoc: NxmlDocument,
@@ -43,7 +50,29 @@ trait JsonOutputter {
     toJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
 
-  def writeJSON(
+
+  /**
+    * Outputs the given mentions to the given output file in some JSON-based format.
+    * Default method to be overridden by each JSON output formatter.
+    * The processing start and stop date/times are given.
+    * The output file is given as a prefix, in case outputters choose to generate
+    * multiple output files (e.g., see FriesOutput).
+    */
+  def writeJSON (paperId:String,
+                 allMentions:Seq[Mention],
+                 paperPassages:Seq[FriesEntry],
+                 startTime:Date,
+                 endTime:Date,
+                 outFilePrefix:String)
+
+  /**
+    * Outputs the given mentions to the given output file in some JSON-based format,
+    * including additional information from the assembly process.
+    * The processing start and stop date/times are given.
+    * The output file is given as a prefix, in case outputters choose to generate
+    * multiple output files (e.g., see FriesOutput).
+    */
+  def writeJSON (
     paperId:String,
     allMentions:Seq[Mention],
     paperPassages:Seq[FriesEntry],
@@ -55,18 +84,11 @@ trait JsonOutputter {
 
   /**
     * Outputs the given mentions to the given output file in some JSON-based format.
+    * Alternate interface: takes document and extracts passages to output mentions.
     * The processing start and stop date/times are given.
     * The output file is given as a prefix, in case outputters choose to generate
-    * multiple output files (e.g., see FriesOutput)
-    * Default method to be overridden by each JSON output formatter.
+    * multiple output files (e.g., see FriesOutput).
     */
-  def writeJSON (paperId:String,
-                 allMentions:Seq[Mention],
-                 paperPassages:Seq[FriesEntry],
-                 startTime:Date,
-                 endTime:Date,
-                 outFilePrefix:String)
-
   def writeJSON(
       paperId: String,
       allMentions: Seq[Mention],
@@ -78,7 +100,9 @@ trait JsonOutputter {
     writeJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
 
-  private def nxmlToEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = {
+
+  /** Take NXML document and return a sequence of passages from it. */
+  private def nxmlToEntries (nxmldoc: NxmlDocument): Seq[FriesEntry] = {
     Seq(new FriesEntry(nxmldoc))
   }
 
@@ -142,6 +166,9 @@ object JsonOutputter {
 
     if (label == "Complex")
       return "complex-assembly"
+
+    if (AMOUNT_EVENTS.contains(label))
+      return "amount"
 
     if (REGULATION_EVENTS.contains(label))
       return "regulation"
