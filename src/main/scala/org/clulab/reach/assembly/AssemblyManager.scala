@@ -1,10 +1,11 @@
 package org.clulab.reach.assembly
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.assembly.representations._
 import collection.Map
 import collection.immutable
 import org.clulab.odin._
-import org.clulab.reach.mentions.{MentionOps, CorefMention}
+import org.clulab.reach.mentions.{CorefMention, MentionOps}
 // used to differentiate AssemblyModifications from Modifications on mentions
 import org.clulab.reach.mentions
 import java.io.File
@@ -64,7 +65,7 @@ case class PrecedenceRelation(
 class AssemblyManager(
   m2id: Map[MentionState, IDPointer],
   id2eer: Map[IDPointer, EER]
-) extends Serializable {
+) extends Serializable with LazyLogging {
 
   import AssemblyManager._
 
@@ -929,6 +930,10 @@ class AssemblyManager(
           createInputForRemovalEvent(removalEvent)
         case additionEvent if additionEvent matches "AdditionEvent" =>
           createInputForAdditionEvent(additionEvent)
+        // other (assume addition event -like behavior)
+        case other =>
+          logger.debug(s"Treating mention with label '${other.label}' as an AdditionEvent")
+          createInputForAdditionEvent(other)
       }
 
       // prepare output
@@ -937,6 +942,9 @@ class AssemblyManager(
           createOutputForRemovalEvent(removalEvent)
         case additionEvent if additionEvent matches "AdditionEvent" =>
           createOutputForAdditionEvent(additionEvent)
+        // other (assume addition event -like behavior)
+        case other =>
+          createOutputForAdditionEvent(other)
       }
 
       // prepare id
