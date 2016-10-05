@@ -34,7 +34,7 @@ class BoundedPaddingContext(
       }
 
       // Assign the context map to the mention
-      m.context = Some(contextMap)
+      m.context = if(contextMap != Map.empty) Some(contextMap) else None
     }
 
     mentions
@@ -53,7 +53,7 @@ class BoundedPaddingContext(
     }
 
     // Make the dictionary
-    val context:Map[String, Seq[String]] = contextMentions map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).take(1))
+    val context:Map[String, Seq[String]] = (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).take(1)) map identity
 
     context
   }
