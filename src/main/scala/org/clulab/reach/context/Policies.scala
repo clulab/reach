@@ -1,6 +1,7 @@
 package org.clulab.reach.context
 
-import scala.annotation.tailrec
+import org.clulab.reach.mentions._
+import collection.mutable
 
 
 // Policy Two
@@ -8,130 +9,90 @@ class BoundedPaddingContext(
  bound:Int = 3 // Default bound to extend the policy
 ) extends RuleBasedContextEngine{
 
-  protected def contextTypes = Seq("Species", "Organ", "CellType", "CellLine", "Cellular_component", "TissueType")
+  /** updates those data structures with any new info */
+  def update(mentions: Seq[BioMention]){}
 
-  // TODO: Do something smart to resolve ties
-  protected def untie(entities:Seq[(String, String)]) = entities.head
+  /** assigns context to mentions given current state of the engine */
+  def assign(mentions: Seq[BioMention]) = {
 
-  protected final def padContext(prevStep:Seq[Int], remainingSteps:List[Seq[Int]], repetitions:Seq[Int], bound:Int):List[Seq[Int]] = {
-    @tailrec
-    def iter(prevStep:Seq[Int], remainingSteps:List[Seq[Int]], repetitions:Seq[Int], bound:Int, acc:List[Seq[Int]]):List[Seq[Int]] = {
+    assert(this.orderedContextMentions != null, "ContextEngine: infer must be called before assign")
 
+    // Assign context to each mention
+    for(m <- mentions){
+      val interval = getInterval(m.sentence)
+      var contextMap = queryContext(interval)
 
-      remainingSteps match {
+      // If the context map doesn't have species and there's a default
+      if(!contextMap.keySet.contains("Species")
+          && defaultContexts.isDefined){
 
-        case head::tail =>
-          // Group the prev step inferred row and the current by context type, then recurse
-          val prevContext = prevStep map (ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)) groupBy (_._1)
-          val currentContext = head map (ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)) groupBy (_._1)
+        val defaults = defaultContexts.get
+        if(defaults.keySet.contains("Species")){
+            contextMap += ("Species" -> Array(defaults("Species")))
+        }
 
-          // Apply the heuristic
-          // Inferred context of type "x"
-          val newRepetitions = new Array[Int](repetitions.size)
-
-          val currentStep = contextTypes.flatMap{ // Do this for each type of context. Flat Map as there could be more than one context of a type (maybe)
-            contextType =>
-              val stepIx = this.contextTypes.indexOf(contextType)
-
-              if(repetitions(stepIx) < bound){
-                (prevContext.lift(contextType), currentContext.lift(contextType)) match {
-                  // No prev, Current
-                  case (None, Some(curr)) =>
-                    newRepetitions(stepIx) = 1
-                    Seq(untie(curr))
-                  // Prev, No current
-                  case (Some(prev), None) =>
-                    newRepetitions(stepIx) = repetitions(stepIx)+1
-                    Seq(prev.head)
-                  // Prev, Current
-                  case (Some(prev), Some(curr)) =>
-                    newRepetitions(stepIx) = 1
-                    Seq(untie(curr))
-                  // No prev, No current
-                  case (None, None) =>
-                    newRepetitions(stepIx) = 1
-                    Nil
-                }
-              }
-              else{
-                newRepetitions(stepIx) = 1
-                currentContext.lift(contextType) match {
-                  case Some(curr) =>
-                    Seq(untie(curr))
-                  case None =>
-                    Seq()
-                }
-              }
-
-          } map (ContextEngine.getIndex(_, ContextEngine.latentVocabulary))
-
-          // Recurse
-          iter(currentStep, tail, newRepetitions, bound, currentStep::acc)
-
-
-        case Nil => acc
       }
+
+      // Assign the context map to the mention
+      m.context = if(contextMap != Map.empty) Some(contextMap) else None
     }
 
-    iter(prevStep, remainingSteps, repetitions, bound, Nil)
+    mentions
   }
-  // Apply the policy
-  protected override def inferContext = padContext(Seq(), latentSparseMatrix, Seq.fill(this.contextTypes.size)(1), bound)
+
+  // This queries the context mentions and builds the context map
+  def queryContext(interval:(Int, Int)):Map[String, Seq[String]] = {
+    // Get the mentions we need
+    val contextMentions = new mutable.ListBuffer[BioTextBoundMention]
+    for(i <- interval._1 to interval._2){
+      val mentions:Seq[BioTextBoundMention] = orderedContextMentions.lift(i) match{
+        case Some(mentions) => mentions
+        case None => Nil
+      }
+      contextMentions ++= mentions
+    }
+
+    // Make the dictionary
+    val context:Map[String, Seq[String]] = (Nil ++ contextMentions) map ContextEngine.getContextKey groupBy (_._1) mapValues (t => t.map(_._2).take(1)) map identity
+
+    context
+  }
+
+  // This is to be overriden by the subclasses!
+  def getInterval(ix:Int):(Int, Int) = (ix-bound, ix)
 
 }
 
 
 // Policy 1
-class PaddingContext extends BoundedPaddingContext(Int.MaxValue){
-
-}
+class PaddingContext extends BoundedPaddingContext(Int.MaxValue)
 
 
 // Policy 3
 class FillingContext(bound:Int = 3) extends BoundedPaddingContext(bound){
 
-    // Override the infer context to fill the empty slots
-    protected override def inferContext = {
-      // Get the most common mentioned context of each type
-      val defaultContexts = this.mentions.flatten.map(ContextEngine.getContextKey(_))  // Get the context keys of the mentions
-        .filter(x => this.contextTypes.contains(x._1)).groupBy(_._1) // Keep only those we care about and group them by type
-        .mapValues(bucket => bucket.map(ContextEngine.getIndex(_, ContextEngine.featureVocabulary))) // Get their numeric value from the vocabulary
-        .mapValues(bucket => bucket.groupBy(identity).mapValues(_.size)) // Count the occurences
-        .mapValues(bucket => Seq(bucket.maxBy(_._2)._1)) // Select the most common element
+  override def queryContext(interval:(Int, Int)):Map[String, Seq[String]] = defaultContexts match {
+    case Some(defaults) =>
+      // Make a mutable map to add the default contexts
+      val context:mutable.Map[String, Seq[String]] = mutable.Map.empty ++ super.queryContext(interval)
 
-      // Let the super class do its job
-      val paddedContext = super.inferContext
-
-      // Now for each line assign a default context if necessary
-      paddedContext map {
-        step =>
-          // Existing contexts for this line
-          val context = step.map(ContextEngine.getKey(_, ContextEngine.reversedLatentVocabulary)).groupBy(_._1)
-          this.contextTypes flatMap {
-            ctype =>
-              context.lift(ctype) match {
-                case Some(x) =>
-                  x map (ContextEngine.getIndex(_, ContextEngine.latentVocabulary))
-                case None =>
-                  defaultContexts.lift(ctype).getOrElse(Seq())
-              }
-          }
+      val existingKeys = context.keySet
+      for(ctxClass <- defaults.keys){
+        if(!existingKeys.contains(ctxClass))
+          context += (ctxClass -> Seq(defaults(ctxClass)))
       }
-    }
+
+      // Convert to an immutable map and return
+      Map.empty ++ context
+
+    // If there aren't any defaults
+    case None => super.queryContext(interval)
+  }
 }
 
 // Policy 4
 class BidirectionalPaddingContext(
     bound:Int = 3 // Default bound to extend the policy
 ) extends BoundedPaddingContext{
-    protected override def inferContext = {
-        // Do the same as before
-        val firstPass = super.inferContext
-        // Reverse the sequences and use the same algorithm
-        val reversedContext = firstPass map { _.reverse }
-        val paddedContext = padContext(Seq(), reversedContext,
-         Seq.fill(this.contextTypes.size)(1), bound)
-        // Don't forget to reverse again
-        paddedContext map { _.reverse }
-    }
+    override def getInterval(ix:Int):(Int, Int) = (ix-bound, ix+bound)
 }

@@ -229,8 +229,8 @@ class NxmlSearcher(val indexDir:String) {
 
   )
 
-  
-  val lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq 
+
+  val lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
   def resolveParticipant(term:String) = {
     val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
 
@@ -368,7 +368,7 @@ object ClusteringSearcher extends App{
     }
     catch
     {
-      case _ => Unit
+      case _:Throwable => Unit
     }
 
   }

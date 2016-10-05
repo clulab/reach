@@ -128,27 +128,28 @@ class IntervalOutput(doc:Document, nxmlDoc:NxmlDocument, mentions:Seq[Mention]){
         evtIntervals += itsStr
       }
 
-      evtCtxIndicence ++= localEvents.map(_.asInstanceOf[BioEventMention]) flatMap {
-         evt =>
-           val contexts = evt.context match {
-             case Some(ctx) => ctx
-             case None => Nil
-           }
-
-           val label = evt.label
-           val sentenceIx = i
-
-           contexts flatMap {
-             case (ctxType: String, ctxIds: Seq[String]) =>
-               ctxIds flatMap {
-                 ctxId =>
-                   val ctxIdx = ContextEngine.getIndex((ctxType, ctxId), ContextEngine.latentVocabulary)
-                   Seq(s"$label\t$sentenceIx\t$ctxType\t$ctxIdx")
-               }
-
-           }
-
-      }
+      // TODO: Need reimplementing after issue #390
+      // evtCtxIndicence ++= localEvents.map(_.asInstanceOf[BioEventMention]) flatMap {
+      //    evt =>
+      //      val contexts = evt.context match {
+      //        case Some(ctx) => ctx
+      //        case None => Nil
+      //      }
+      //
+      //      val label = evt.label
+      //      val sentenceIx = i
+      //
+      //      contexts flatMap {
+      //        case (ctxType: String, ctxIds: Seq[String]) =>
+      //          ctxIds flatMap {
+      //            ctxId =>
+      //              val ctxIdx = ContextEngine.getIndex((ctxType, ctxId), ContextEngine.latentVocabulary)
+      //              Seq(s"$label\t$sentenceIx\t$ctxType\t$ctxIdx")
+      //          }
+      //
+      //      }
+      //
+      // }
   }
 
   // Store context mentions

@@ -84,30 +84,6 @@
     site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
 
 
-- name: ${ eventName }_syntax_3c_verb
-  priority: ${ priority }
-  example: ""
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = <nn{,2}
-    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
-
-
-- name: ${ eventName }_syntax_3d_verb
-  priority: ${ priority }
-  example: ""
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
-    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
-
-
 - name: ${ eventName }_syntax_3e_verb
   priority: ${ priority }
   example: ""
@@ -129,30 +105,6 @@
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
     cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
     theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
-    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
-
-
-- name: ${ eventName }_syntax_3g_verb
-  priority: ${ priority }
-  example: ""
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = <nn{,2}
-    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
-    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
-
-
-- name: ${ eventName }_syntax_3h_verb
-  priority: ${ priority }
-  example: ""
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
-    theme:BioChemicalEntity = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
     site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
 
 

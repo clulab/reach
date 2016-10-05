@@ -167,8 +167,9 @@ class ReachCLI(
     val ctxEventsFile = new File(paperDir, "event_intervals.txt")
     FileUtils.writeLines(ctxEventsFile, outputter.evtIntervals.asJavaCollection)
 
-    val evtCtxFile = new File(paperDir, "reach_event_context.txt")
-    FileUtils.writeLines(evtCtxFile, outputter.evtCtxIndicence.asJavaCollection)
+    // TODO: Need reimplementing after issue #390
+    // val evtCtxFile = new File(paperDir, "reach_event_context.txt")
+    // FileUtils.writeLines(evtCtxFile, outputter.evtCtxIndicence.asJavaCollection)
 
     val ctxMentionsFile = new File(paperDir, "mention_intervals.txt")
     FileUtils.writeLines(ctxMentionsFile, outputter.ctxMentions.asJavaCollection)
@@ -191,42 +192,9 @@ class ReachCLI(
     // These are the context plotfiles
     ////////////////////////////////////////////////////
 
-    // Write obs.txt
-    // val contextEngine = reach.contextCache(paperId)
-    //
-    // contextEngine match {
-    //   case ce:RuleBasedContextEngine =>
-    //     val obs = ce.getObservationsMatrixStrings
-    //     FileUtils.writeLines(new File(paperDir, "obs.txt"), obs.asJavaCollection)
-    //     val states = ce.getStatesMatrixStrings
-    //     FileUtils.writeLines(new File(paperDir, "states.txt"), states.asJavaCollection)
-    //   case _ =>
-    //     // So far, these only makes sense if we use a rule based context engine
-    //     Unit
-    // }
-
     // Context_events.txt created by python!!!
 
-    // Observation (features) vocabulary. These are descriptions
-    val obsLabelsFile = new File(outputDir, "obs_labels.txt")
-    if(!obsLabelsFile.exists){
 
-      val obs_labels = ContextEngine.featureVocabulary.values.toList.sortBy(_._1).map(_._2)
-      FileUtils.writeLines(obsLabelsFile, obs_labels.asJavaCollection)
-    }
-
-    // Context (states) vocabulary. These are descriptions
-    val statesLabelsFile = new File(outputDir, "states_labels.txt")
-    if(!statesLabelsFile.exists){
-      val states_labels = ContextEngine.latentVocabulary.values.toList.sortBy(_._1).map(_._2)
-      FileUtils.writeLines(statesLabelsFile, states_labels.asJavaCollection)
-    }
-
-    val statesIdsFile = new File(outputDir, "states_keys.txt")
-    if(!statesIdsFile.exists){
-      val statesIds = ContextEngine.reversedLatentVocabulary.keys.toSeq.sorted.map(x => ContextEngine.reversedLatentVocabulary(x)).map(_._2)
-      FileUtils.writeLines(statesIdsFile, statesIds.asJavaCollection)
-    }
   }
 
   /**

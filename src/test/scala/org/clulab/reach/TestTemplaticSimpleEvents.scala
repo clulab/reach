@@ -593,4 +593,16 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent41)
     hasEventWithArguments("Phosphorylation", Seq("MEK5D"), mentions) should be (false)
   }
+
+  val sent42 = "Expression of SIRT1, SIRT2, and acetylated (Ac)-p53 in gastric cancer cell lines."
+  sent42 should "not contain an acetylation of SIRT1" in {
+    val mentions = getBioMentions(sent42)
+    hasEventWithArguments("Acetylation", Seq("SIRT1"), mentions) should be (false)
+  }
+
+  val sent43 = "SIRT1 ubiquitylates MEK5D"
+  sent43 should "contain a ubiqutination" in {
+    val mentions = getBioMentions(sent43)
+    hasEventWithArguments("Ubiquitination", Seq("MEK5D"), mentions) should be (true)
+  }
 }
