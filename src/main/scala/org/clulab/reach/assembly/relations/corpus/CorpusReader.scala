@@ -102,11 +102,15 @@ object LegacyAnnotationReader extends LazyLogging {
 
   def readLegacyAnnotations(annoFile: File, jsonDir: File): Seq[EventPair] = {
     logger.info(s"deserializing mentions...")
-    val dsLUT = datasetLUT(jsonDir.getAbsolutePath)
+    val dsLUT = datasetLUT(jsonDir)
+    readLegacyAnnotations(annoFile, dsLUT)
+  }
+
+  def readLegacyAnnotations(annoFile: File, doc2cmsLUT: Map[String, Seq[CorefMention]]): Seq[EventPair] = {
     logger.info(s"reading annotations from ${annoFile.getAbsolutePath}")
     val aas = assemblyAnnotationsFromFile(annoFile)
     logger.info(s"Building EventPairs for annotations...")
-    findEventPairs(aas, dsLUT)
+    findEventPairs(aas, doc2cmsLUT)
   }
 
   private case class AssemblyAnnotation(

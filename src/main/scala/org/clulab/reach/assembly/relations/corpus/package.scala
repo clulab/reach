@@ -5,6 +5,7 @@ import org.clulab.reach.assembly.sieves.SieveUtils
 import org.clulab.reach.mentions.serialization.json.{CorefMentionOps, JSONSerializer}
 import org.clulab.reach.mentions._
 import com.typesafe.scalalogging.LazyLogging
+import scala.collection.GenSeq
 import java.io.File
 
 
@@ -24,23 +25,17 @@ package object corpus extends LazyLogging {
   def getPMID(docid: String): String = s"PMC${docid.split("_")(0).replace("PMC", "")}"
 
   /** Create a dataset from a directory of json files, where each file represents the reach reading results for that paper */
-  def datasetLUT(jsonDir: String): Map[String, Vector[CorefMention]] = {
-    def parseJSON(f: File): Option[Seq[CorefMention]] = try {
-      Some(JSONSerializer.toCorefMentions(f))
-    } catch {
-      case e: org.json4s.ParserUtil.ParseException => {
-        logger.info(s"Failed to parse $f")
-        None
-      }
-    }
+  def datasetLUT(jsonDir: File): Map[String, Vector[CorefMention]] = datasetLUT(jsonDir.listFiles)
+  def datasetLUT(jsonFiles: GenSeq[File]): Map[String, Vector[CorefMention]] = {
     val docMentionPairs = for {
-      f <- new File(jsonDir).listFiles.par
+      f <- jsonFiles
       if f.getName.endsWith(".json")
-      cms: Option[Seq[CorefMention]] = parseJSON(f)
+      _ = logger.debug(s"parsing ${f.getName}")
+      cms: Vector[CorefMention] = JSONSerializer.toCorefMentions(f).toVector
       if cms.nonEmpty
-      paperID = getPMID(cms.get.head)
-    } yield  paperID -> cms.get.toVector
-
+      _ = logger.debug(s"successfully parsed ${f.getName}")
+      paperID = getPMID(cms.head)
+    } yield  paperID -> cms
     docMentionPairs.seq.toMap.withDefaultValue(Vector.empty[CorefMention])
   }
 }

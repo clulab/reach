@@ -143,8 +143,8 @@ object BuildCorpus extends App with LazyLogging {
   import CorpusBuilder._
 
   logger.info(s"Loading dataset ...")
-
-  val dataset: Map[String, Seq[CorefMention]] = datasetLUT(config.getString("assembly.corpus.jsonDir"))
+  val jsonFiles = new File(config.getString("assembly.corpus.jsonDir")).listFiles.par
+  val dataset: Map[String, Seq[CorefMention]] = datasetLUT(jsonFiles)
 
   logger.info(s"processing ${dataset.values.map(_.size).sum} mentions from ${dataset.size} papers ...")
   // get training instances
