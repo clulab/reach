@@ -98,7 +98,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
 
   // Test same proteins in human context:
   val text4 = "BCDIN3 and BCP and CK-4 and ZZZ3 are found in the human."
-  val mentions4 = getBioMentions(text4)
+  val mentions4 = getBioMentions(text4) filter (!ContextEngine.isContextMention(_))
 
   text4 should "produce mentions" in {
     // printMentions(Try(mentions4), true)      // DEBUGGING
@@ -114,7 +114,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
 
   // Test same proteins in African clawed frog context (where they are not found):
   val text5 = "BCDIN3 and BCP and CK-4 and ZZZ3 are found in the african clawed frog."
-  val mentions5 = getBioMentions(text5)
+  val mentions5 = getBioMentions(text5) filter (!ContextEngine.isContextMention(_))
 
   text5 should "produce mentions" in {
     // printMentions(Try(mentions5), true)      // DEBUGGING
@@ -130,7 +130,7 @@ class TestReachGrounder extends FlatSpec with Matchers {
 
   // Test species/grounding boundaries across sentences.
   val text6 = "ATRX and B2GPI and Zonulin are found in rats. ATRX and B2GPI and Zonulin are also found in humans."
-  val mentions6 = getBioMentions(text6)
+  val mentions6 = getBioMentions(text6) filter (!ContextEngine.isContextMention(_))
 
   text6 should "produce mentions" in {
     // printMentions(Try(mentions6), true)      // DEBUGGING
