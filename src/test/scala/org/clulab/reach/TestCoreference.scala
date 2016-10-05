@@ -254,16 +254,14 @@ class TestCoreference extends FlatSpec with Matchers {
   // TODO: it seems we miss NegAct(Binding(Gab1, p85), PI-3)?
   // TODO: we miss NegReg(Controller = Binding(Gab1, p85), Controlled = Act(EGF, PI-3))?
   /*
-  val sent24 = "Previous work has shown that Gab1 is not a global substrate of Shp2, as complex formation between " +
-    "Gab1 and Shp2 does not reduce the total EGF-induced tyrosine phosphorylation levels of Gab1 [15]. However there " +
-    "have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation " +
-    "sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the " +
-    "PI-3 kinase pathway"
+  val sent24 = "there have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine " +
+    "phosphorylation sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced " +
+    "activation of the PI-3 kinase pathway"
   sent24 should "have a Binding as a controller if it produces an ActivationEvent" in {
     val mentions = getBioMentions(sent24)
-    val act = mentions.find(_ matches "ActivationEvent")
+    val act = mentions.filter(m => m.matches("ActivationEvent"))
     if (act.nonEmpty) {
-      val controller = act.get.arguments("controller").head
+      val controller = act.head.arguments("controller").head.toCorefMention
       (controller.antecedentOrElse(controller) matches "Binding") should be (true)
     }
   }
@@ -606,8 +604,26 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent55)
     val posreg = mentions.filter(_ matches "Positive_regulation")
     val posact = mentions.filter(_ matches "Positive_activation")
-    posreg should have size (1)
-    posact should have size (1)
+    posreg should have size 1
+    posact should have size 1
     posreg.head.arguments("controlled").head == posact.head should be (true)
+  }
+
+  val sent56 = "Akta and HSP20 are common. It phosphorylates Akta."
+  sent56 should "match 'It' to 'HSP20' (not 'Akta')" in {
+    val mentions = getBioMentions(sent56)
+    val it = mentions.find(_.text == "It")
+    //it should not be empty
+    it.get.antecedentOrElse(it.get).text should be ("HSP20")
+  }
+
+  val sent57 = "It is possible that the effects of HSP20 on AKT might differ between normal cardiomyocytes or " +
+    "mesenchymal stem cells and HCC cells. The binding partner(s) of HSP20 and their interaction(s) might be " +
+    "dependent on the cell types."
+  sent57 should "match 'their' to 'AKT' (not 'HSP20')" in {
+    val mentions = getBioMentions(sent57)
+    val their = mentions.find(_.text == "their")
+    //their.nonEmpty should not be empty
+    their.get.antecedentOrElse(their.get).text should be ("AKT")
   }
 }

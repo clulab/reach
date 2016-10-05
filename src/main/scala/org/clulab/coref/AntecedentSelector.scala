@@ -13,15 +13,17 @@ abstract class AntecedentSelector {
  */
 class LinearSelector extends AntecedentSelector {
   def apply(anaphor: CorefMention, candidates: Seq[CorefMention], numToSelect: Int = 1, sentenceLimit: Int = 1): Seq[CorefMention] = {
-    require(!(candidates contains anaphor), s"""The anaphor \"${anaphor.text}\" is among the candidates!"""")
+    require(!(candidates contains anaphor), s"The anaphor '${anaphor.text}' is among the candidates!")
 
     var selected: Seq[CorefMention] = Nil
     val rightMost = anaphor.sentence
     var i = rightMost
 
     while (i >= 0 && rightMost - i <= sentenceLimit && selected.length < numToSelect) {
-      selected ++= candidates.filter(x => x.sentence == i).sorted[Mention].take(math.max(numToSelect - selected.length,0))
-      i -= 1
+      val blah = candidates.filter(x => x.sentence == i)
+        .filter(x => !selected.exists(y => y.grounding == x.grounding)).sorted[Mention]
+      selected ++= blah.take(math.min(blah.length, 1))
+      if (blah.isEmpty) i -= 1
     }
 
     selected

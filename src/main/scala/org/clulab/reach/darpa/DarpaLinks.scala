@@ -145,7 +145,8 @@ class DarpaLinks extends Links {
           !g.isGeneric &&
           wdsExpanded.contains(hd) &&
           m.labels == g.labels &&
-          !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence))
+          !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence)) &&
+          !coArguments(g, m, hasArgs)
       }
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
@@ -202,6 +203,7 @@ class DarpaLinks extends Links {
                 m.getClass == g.getClass &&
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
+                !coArguments(g, m, hasArgs) &&
                 (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention])
             }
             case "controller" => mentions.filter { m =>
@@ -210,6 +212,7 @@ class DarpaLinks extends Links {
                 m.getClass == g.getClass &&
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
+                !coArguments(g, m, hasArgs) &&
                 (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention])
             }
             case _ => tbms.filter { m =>
@@ -218,14 +221,15 @@ class DarpaLinks extends Links {
                 m.getClass == g.getClass &&
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
+                !coArguments(g, m, hasArgs) &&
                 m.matches("PossibleController")
             }
           }
-          if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
+          if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString("-")).mkString("', '")}'")
 
           // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
-          if (verbose) println(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
+          if (verbose) println(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString("-")).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
           // trying to link the two
