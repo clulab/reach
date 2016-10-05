@@ -165,6 +165,8 @@ object LegacyAnnotationReader extends LazyLogging {
       if SieveUtils.findTrigger(e1c).text == aa.`e1-trigger`
       //if e2c.text contains aa.`e2-trigger`
       if SieveUtils.findTrigger(e2c).text == aa.`e2-trigger`
+      // Do the mentions share an argument?
+      if Constraints.shareArg(e1c, e2c)
       // final check
       if Constraints.isValidRelationPair(e1c, e2c)
     } yield {
