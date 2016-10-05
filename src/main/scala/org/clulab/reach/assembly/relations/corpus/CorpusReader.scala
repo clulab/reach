@@ -174,17 +174,11 @@ object LegacyAnnotationReader extends LazyLogging {
         // is the annotation an exact match?
         case exactMatch if isExactMatch(aa, exactMatch._1, exactMatch._2) =>
           AnnotationUtils.HIGH
-        case other =>
+        case inexact =>
           val overlapE1 = aa.`e1-tokens`.count(tok => e1c.words contains tok).toDouble / e1c.words.size
           val overlapE2 = aa.`e2-tokens`.count(tok => e2c.words contains tok).toDouble / e2c.words.size
-          (overlapE1 + overlapE2) / 2.0 match {
-            case highOverlap if highOverlap >= 0.5 =>
-              AnnotationUtils.NORMAL
-            case low =>
-              AnnotationUtils.LOW
-          }
+          (overlapE1 + overlapE2) / 2.0
       }
-
       EventPair(
         e1c,
         e2c,
