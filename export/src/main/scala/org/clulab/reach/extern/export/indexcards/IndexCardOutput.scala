@@ -8,6 +8,7 @@ import scala.collection.mutable.ListBuffer
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import org.clulab.reach.extern.export._
+import org.clulab.reach.utils.MentionManager
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import JsonOutputter._

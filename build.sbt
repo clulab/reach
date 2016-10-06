@@ -68,11 +68,15 @@ lazy val root = (project in file("."))
       (Keys.`package` in (main, Compile)).value
     }
   )
-  .aggregate(main)
-  .dependsOn(main) // so that we can import from the console
+  .aggregate(main, export)
+  .dependsOn(main, export) // so that we can import from the console
 
 lazy val main = project
   .settings(commonSettings:_*)
+
+lazy val export = project
+  .settings(commonSettings:_*)
+  .dependsOn(main)
 
 //
 // publishing settings
