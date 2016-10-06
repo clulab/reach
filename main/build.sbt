@@ -6,7 +6,6 @@ libraryDependencies ++= Seq(
   "org.clulab" %% "processors-main" % "6.0.0",
   "org.clulab" %% "processors-corenlp" % "6.0.0",
   "org.clulab" %% "processors-models" % "6.0.0",
-  // "org.clulab" %% "reach-assembly" % "0.0.1",
   "com.typesafe" % "config" % "1.2.1",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.1",

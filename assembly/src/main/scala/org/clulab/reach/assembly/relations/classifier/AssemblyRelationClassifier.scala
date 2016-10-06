@@ -1,13 +1,18 @@
 package org.clulab.reach.assembly.relations.classifier
 
+import ai.lum.common.Serializer
+import org.apache.commons.io.IOUtils
 import org.clulab.reach.PaperReader
 import org.clulab.reach.assembly.relations.corpus.EventPair
 import org.clulab.learning._
 import org.clulab.odin.Mention
 import org.clulab.struct.Counter
+import com.typesafe.scalalogging.LazyLogging
 import java.io._
 
 
+// FIXME: retrain model and revert to 1L
+@SerialVersionUID(3089493267757636991L)
 class AssemblyRelationClassifier(
   val classifier: Classifier[String, String]
 ) extends Serializable {
@@ -37,7 +42,7 @@ class AssemblyRelationClassifier(
 
 }
 
-object AssemblyRelationClassifier {
+object AssemblyRelationClassifier extends LazyLogging {
 
   val NEG = "None"
   val UNKNOWN = "unknown"
@@ -71,11 +76,11 @@ object AssemblyRelationClassifier {
   }
 
   def loadFrom(p: String): AssemblyRelationClassifier = {
-    val path = p.replaceAll("src/main/resources", "")
-    // load from resources
-    val ois = new ObjectInputStream(getClass.getResourceAsStream(path))
-    val clf = ois.readObject.asInstanceOf[AssemblyRelationClassifier]
-    ois.close()
+    logger.debug(s"model path: $p")
+    val stream = getClass.getClassLoader.getResourceAsStream(p)
+    val bytes = IOUtils.toByteArray(stream)
+    val clf = Serializer.deserialize[AssemblyRelationClassifier](bytes)
+    stream.close()
     clf
   }
 

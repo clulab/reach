@@ -2,6 +2,7 @@ package org.clulab.reach.export
 
 import java.io.File
 import org.clulab.reach.ReachCLI
+import org.clulab.reach.TestUtils._
 import org.clulab.utils.Files
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -13,7 +14,7 @@ import org.scalatest.{FlatSpec, Matchers}
   * Last Modified: GHP rewrite for consolidated ReachCLI, cleanups, and changed config file.
   */
 class TestReachCLI extends FlatSpec with Matchers {
-  val nxmlDir = new File("src/test/resources/inputs/test-nxml")
+  val nxmlDir = readResourceAsFile("inputs/test-nxml")
 
   // FRIES no assembly
   lazy val tmpFriesDir = Files.mkTmpDir("tmpFries", deleteOnExit = true)

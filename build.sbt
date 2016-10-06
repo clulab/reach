@@ -80,7 +80,7 @@ lazy val assembly = project
 
 lazy val export = project
   .settings(commonSettings:_*)
-  .dependsOn(main % "test->test;compile->compile", assembly)
+  .dependsOn(main % "test->test;compile->compile", assembly % "test;compile") // need access to assembly/src/resources
 
 //
 // publishing settings

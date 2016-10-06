@@ -7,6 +7,7 @@ import org.clulab.processors.Document
 import scala.util.Try
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.clulab.reach.utils.MentionManager
+import java.io.File
 
 
 /**
@@ -34,6 +35,24 @@ object TestUtils {
     def mkEntries(nxmldoc: NxmlDocument): Seq[FriesEntry] = Seq(new FriesEntry(nxmldoc))
 
     val paperAnnotations = Map(1 -> annotatePaper(nxml1)/*, 2 -> annotatePaper(nxml2), 3 -> annotatePaper(nxml3)*/)
+  }
+
+  /**
+    * Read contents of rule file in the classpath, given some path
+    * @param path the path to a file
+    * @return file contents as a String
+    */
+  def readFileContent(path: String) = {
+    val stream = getClass.getClassLoader.getResourceAsStream(path)
+    val source = io.Source.fromInputStream(stream)
+    val data = source.mkString
+    source.close()
+    data
+  }
+
+  def readResourceAsFile(path: String): File = {
+    val url = getClass.getClassLoader.getResource(path)
+    new File(url.toURI)
   }
 
   val testReach = PaperReader.rs // All tests should use this system!
