@@ -19,6 +19,7 @@ import org.clulab.reach.extern.export.context.IntervalOutput
 import org.clulab.reach.context.ContextEngine
 import org.clulab.processors.Document
 import ai.lum.nxmlreader.NxmlDocument
+import org.clulab.reach.context._
 
 
 /**
@@ -184,6 +185,7 @@ class ReachCLI(
     FileUtils.writeLines(ctxIsTitlesFile, outputter.titles.asJavaCollection)
 
     val standoffFile = new File(paperDir, "standoff.json")
+
     FileUtils.write(standoffFile, nxml.standoff.printJson)
     //
     // val ctxCitationsFile = new File(paperDir, "citations.txt")
