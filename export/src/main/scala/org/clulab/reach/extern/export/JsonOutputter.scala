@@ -7,7 +7,7 @@ import org.json4s.native.Serialization
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import ai.lum.nxmlreader.NxmlDocument
-import org.clulab.assembly.Assembler
+// import org.clulab.assembly.Assembler
 import org.clulab.reach.FriesEntry
 import org.clulab.serialization.json._
 
@@ -42,16 +42,6 @@ trait JsonOutputter {
   ): String = {
     toJSON(paperId, allMentions, nxmlToEntries(nxmldoc), startTime, endTime, outFilePrefix)
   }
-
-  def writeJSON(
-    paperId:String,
-    allMentions:Seq[Mention],
-    paperPassages:Seq[FriesEntry],
-    startTime:Date,
-    endTime:Date,
-    outFilePrefix:String,
-    assemblyAPI: Assembler
-  ): Unit = writeJSON(paperId, allMentions, paperPassages, startTime, endTime, outFilePrefix)
 
   /**
     * Outputs the given mentions to the given output file in some JSON-based format.

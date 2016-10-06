@@ -7,7 +7,7 @@ import org.clulab.reach.context._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBUtils._
 import org.clulab.reach.grounding.ReachMiscLookups._
-import org.clulab.reach.extern.export.MentionManager
+import org.clulab.reach.utils.MentionManager
 
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.

@@ -4,10 +4,10 @@ import java.io._
 import java.util.Date
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.native.Serialization
-import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
-import org.clulab.assembly.{Assembler, RoleWithFeatures}
-import org.clulab.assembly.export.AssemblyLink
-import org.clulab.assembly.representations.{PTM => AssemblyPTM}
+// import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
+// import org.clulab.assembly.{Assembler, RoleWithFeatures}
+// import org.clulab.assembly.export.AssemblyLink
+// import org.clulab.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry

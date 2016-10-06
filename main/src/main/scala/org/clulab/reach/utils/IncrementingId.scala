@@ -1,4 +1,4 @@
-package org.clulab.reach.extern.export
+package org.clulab.reach.utils
 
 /**
  * Implements an incrementing identification string for numbering entities.

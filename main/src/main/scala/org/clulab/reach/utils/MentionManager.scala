@@ -1,4 +1,4 @@
-package org.clulab.reach.extern.export
+package org.clulab.reach.utils
 
 import java.io._
 import scala.collection.mutable.MutableList
