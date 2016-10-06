@@ -1,8 +1,8 @@
-package org.clulab.reach
+package org.clulab.reach.export
 
-import org.scalatest.{FlatSpec, Matchers}
+import org.clulab.reach.export.ExportUtils._
 import org.clulab.reach.mentions._
-import TestUtils._
+import org.scalatest.{FlatSpec, Matchers}
 
 
 class TestOutputDegrader extends FlatSpec with Matchers {

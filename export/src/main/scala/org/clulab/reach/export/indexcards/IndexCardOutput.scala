@@ -1,4 +1,4 @@
-package org.clulab.reach.extern.export.indexcards
+package org.clulab.reach.export.indexcards
 
 import java.io.File
 import java.util.Date
@@ -7,14 +7,13 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
-import org.clulab.reach.extern.export._
+import org.clulab.reach.export.JsonOutputter._
 import org.clulab.reach.utils.MentionManager
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
-import JsonOutputter._
 import IndexCardOutput._
 import org.clulab.reach.FriesEntry
-import org.clulab.reach.darpa.OutputDegrader
+import org.clulab.reach.export.{JsonOutputter, OutputDegrader}
 
 
 /**

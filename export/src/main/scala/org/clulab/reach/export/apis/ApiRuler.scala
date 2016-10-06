@@ -1,12 +1,12 @@
-package org.clulab.reach.apis
+package org.clulab.reach.export.apis
 
 import java.util.{Date, Map => JMap}
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.Mention
 import org.clulab.reach._
-import org.clulab.reach.extern.export.fries.FriesOutput
-import org.clulab.reach.extern.export.indexcards.IndexCardOutput
-import org.clulab.reach.extern.export.IncrementingId
+import org.clulab.reach.export.fries.FriesOutput
+import org.clulab.reach.export.indexcards.IndexCardOutput
+import org.clulab.reach.utils.IncrementingId
 import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
 import scala.collection.JavaConverters._
 

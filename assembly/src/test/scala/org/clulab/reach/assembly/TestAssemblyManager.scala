@@ -2,7 +2,7 @@ package org.clulab.reach.assembly
 
 import org.clulab.reach.assembly.representations._
 import org.scalatest.{FlatSpec, Matchers}
-import TestUtils._
+import org.clulab.reach.TestUtils._
 
 
 class TestAssemblyManager extends FlatSpec with Matchers {

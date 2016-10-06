@@ -1,4 +1,4 @@
-package org.clulab.reach.apis.open
+package org.clulab.reach.export.apis.open
 
 import org.clulab.odin.Actions
 

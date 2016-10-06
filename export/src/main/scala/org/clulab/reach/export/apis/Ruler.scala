@@ -1,4 +1,4 @@
-package org.clulab.reach.apis
+package org.clulab.reach.export.apis
 
 import org.clulab.odin.impl.{OdinCompileException, OdinNamedCompileException}
 import org.clulab.processors.Document
@@ -6,7 +6,7 @@ import org.clulab.processors.corenlp.CoreNLPProcessor
 import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach._
 import org.clulab.reach.brat.Brat
-import org.clulab.reach.apis.open.OpenSystem
+import org.clulab.reach.export.apis.open.OpenSystem
 import scala.collection.JavaConverters._
 import scala.util.{Failure, Success, Try}
 

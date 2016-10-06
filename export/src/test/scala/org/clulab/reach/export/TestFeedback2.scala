@@ -1,5 +1,6 @@
-package org.clulab.reach
+package org.clulab.reach.export
 
+import org.clulab.reach.export.ExportUtils._
 import org.clulab.reach.TestUtils._
 import org.clulab.reach.mentions._
 import org.scalatest.{FlatSpec, Matchers}

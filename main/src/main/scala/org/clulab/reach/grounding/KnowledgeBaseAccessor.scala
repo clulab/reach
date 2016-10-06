@@ -1,4 +1,4 @@
-package org.clulab.reach.extern.inward
+package org.clulab.reach.grounding
 
 import org.clulab.odin._
 

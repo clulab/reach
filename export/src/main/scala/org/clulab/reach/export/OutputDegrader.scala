@@ -1,6 +1,7 @@
-package org.clulab.reach.darpa
+package org.clulab.reach.export
 
 import org.clulab.odin._
+import org.clulab.reach.darpa.{DarpaActions, MentionFilter}
 import org.clulab.reach.mentions._
 
 

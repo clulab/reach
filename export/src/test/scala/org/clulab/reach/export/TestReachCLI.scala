@@ -1,8 +1,9 @@
-package org.clulab.reach
+package org.clulab.reach.export
 
 import java.io.File
+import org.clulab.reach.ReachCLI
 import org.clulab.utils.Files
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 
 
 /**

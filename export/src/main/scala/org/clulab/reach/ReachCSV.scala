@@ -3,7 +3,7 @@ package org.clulab.reach
 import java.io.File
 import java.util.Date
 import com.typesafe.config.ConfigFactory
-import org.clulab.reach.extern.export.indexcards.IndexCardOutput
+import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.utils.DSVParser
 
 

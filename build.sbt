@@ -76,11 +76,11 @@ lazy val main = project
 
 lazy val assembly = project
   .settings(commonSettings:_*)
-  .dependsOn(main)
+  .dependsOn(main % "test->test;compile->compile")
 
 lazy val export = project
   .settings(commonSettings:_*)
-  .dependsOn(main, assembly)
+  .dependsOn(main % "test->test;compile->compile", assembly)
 
 //
 // publishing settings

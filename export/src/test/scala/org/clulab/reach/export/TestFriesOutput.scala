@@ -1,11 +1,13 @@
-package org.clulab.reach
+package org.clulab.reach.export
 
 import java.util.Date
-import org.clulab.reach.extern.export.fries._
-import org.scalatest.{Matchers, FlatSpec}
-import TestUtils._
+
+import org.clulab.reach.FriesEntry
+import org.clulab.reach.TestUtils._
+import org.clulab.reach.export.fries._
 import org.json4s._
 import org.json4s.native.JsonMethods._
+import org.scalatest.{FlatSpec, Matchers}
 
 
 /**

@@ -1,13 +1,12 @@
 package org.clulab.reach
 
 import io.Source
-import org.clulab.reach.extern.export.MentionManager
 import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.processors.Document
 import scala.util.Try
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
-import org.clulab.reach.darpa.OutputDegrader
+import org.clulab.reach.utils.MentionManager
 
 
 /**
@@ -53,17 +52,6 @@ object TestUtils {
   def getCorefmentionsFromText(text: String): Seq[CorefMention] = for {
     m <- getMentionsFromText(text)
   } yield m.toCorefMention
-
-  def getFlattenedBioMentionsFromText(text: String): Seq[BioMention] = for {
-    m <- getMentionsFromText(text)
-  } yield OutputDegrader.flattenMention(m).toBioMention
-
-  def getMentionsForFriesOutput(text: String): Seq[BioMention] = {
-    val mentions = getMentionsFromText(text)
-    OutputDegrader.prepareForOutput(mentions)
-  }
-
-  def getMentionsForFriesOutput(mns: Seq[Mention]): Seq[BioMention] = OutputDegrader.prepareForOutput(mns)
 
   def getBioMentions(text:String, verbose:Boolean = false):Seq[BioMention] = {
     val entry = FriesEntry(docId, chunkId, "example", "example", isTitle = false, text)

@@ -1,4 +1,4 @@
-package org.clulab.reach.apis
+package org.clulab.reach.export.apis
 
 import java.util.{List => JList}
 import com.typesafe.config.ConfigFactory

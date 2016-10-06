@@ -1,22 +1,22 @@
-package org.clulab.reach.extern.export.fries
+package org.clulab.reach.export.fries
 
 import java.io._
 import java.util.Date
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.native.Serialization
-// import org.clulab.assembly.export.{CausalPrecedence, Equivalence}
-// import org.clulab.assembly.{Assembler, RoleWithFeatures}
-// import org.clulab.assembly.export.AssemblyLink
-// import org.clulab.assembly.representations.{PTM => AssemblyPTM}
+import org.clulab.reach.assembly.export.{CausalPrecedence, Equivalence}
+import org.clulab.reach.assembly.{Assembler, RoleWithFeatures}
+import org.clulab.reach.assembly.export.AssemblyLink
+import org.clulab.reach.assembly.representations.{PTM => AssemblyPTM}
 import org.clulab.odin._
 import org.clulab.processors.Document
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.context._
-import org.clulab.reach.darpa.OutputDegrader
 import org.clulab.reach.display._
-import org.clulab.reach.extern.export._
-import org.clulab.reach.extern.export.JsonOutputter._
-import org.clulab.reach.extern.export.MentionManager._
+import org.clulab.reach.export._
+import org.clulab.reach.export.JsonOutputter._
+import org.clulab.reach.utils.IncrementingId
+import org.clulab.reach.utils.MentionManager._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.serialization.json
@@ -70,11 +70,11 @@ class FriesOutput extends JsonOutputter {
     * returned as a single JSON string with corresponding top-level fields.
     */
   override def toJSON (paperId:String,
-                       allMentions:Seq[Mention],
-                       paperPassages:Seq[FriesEntry],
-                       startTime:Date,
-                       endTime:Date,
-                       outFilePrefix:String): String = {
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String): String = {
 
     val (sentModel, entityModel, eventModel, _) =
       makeModels(paperId, allMentions, paperPassages, startTime, endTime)
@@ -93,11 +93,11 @@ class FriesOutput extends JsonOutputter {
     * Each output file is prefixed with the given prefix string.
     */
   override def writeJSON (paperId:String,
-                          allMentions:Seq[Mention],
-                          paperPassages:Seq[FriesEntry],
-                          startTime:Date,
-                          endTime:Date,
-                          outFilePrefix:String): Unit = {
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String): Unit = {
 
     val (sentModel, entityModel, eventModel, _) =
       makeModels(paperId, allMentions, paperPassages, startTime, endTime)
@@ -114,12 +114,12 @@ class FriesOutput extends JsonOutputter {
     * Each output file is prefixed with the given prefix string.
     */
   override def writeJSON (paperId:String,
-                          allMentions:Seq[Mention],
-                          paperPassages:Seq[FriesEntry],
-                          startTime:Date,
-                          endTime:Date,
-                          outFilePrefix:String,
-                          assemblyApi: Assembler): Unit = {
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    outFilePrefix:String,
+    assemblyApi: Assembler): Unit = {
 
     val (sentModel, entityModel, eventModel, assemblyModel) =
       makeModels(paperId, allMentions, paperPassages, startTime, endTime, Some(assemblyApi))
@@ -134,11 +134,11 @@ class FriesOutput extends JsonOutputter {
 
   /** Make and return the Sentence, Entity, Event, and (optionally) Assembly data models. */
   def makeModels (paperId:String,
-                  allMentions:Seq[Mention],
-                  paperPassages:Seq[FriesEntry],
-                  startTime:Date,
-                  endTime:Date,
-                  assemblyApi: Option[Assembler] = None): (PropMap, PropMap, PropMap, Option[PropMap]) = {
+    allMentions:Seq[Mention],
+    paperPassages:Seq[FriesEntry],
+    startTime:Date,
+    endTime:Date,
+    assemblyApi: Option[Assembler] = None): (PropMap, PropMap, PropMap, Option[PropMap]) = {
     // reset the set of events already output
     eventsDone.clear()
 
@@ -153,7 +153,7 @@ class FriesOutput extends JsonOutputter {
 
     // make Sentence Model
     val sentModel = sentencesToModel(paperId, derefedMentions, passageMap,
-                                     startTime, endTime, otherMetaData)
+      startTime, endTime, otherMetaData)
 
     // make Entity Map and Event Map: mappings from entities & events to unique ids
     val (entityMap, eventMap) = makeEMaps(paperId, derefedMentions, passageMap)
@@ -161,18 +161,18 @@ class FriesOutput extends JsonOutputter {
     // make Entity Model
     val contextIdMap = new CtxIDed
     val entityModel = entitiesToModel(paperId, passageMap, entityMap,
-                                      contextIdMap, startTime, endTime, otherMetaData)
+      contextIdMap, startTime, endTime, otherMetaData)
 
     // make Event Model
     val eventModel = eventsToModel(paperId, passageMap, entityMap,
-                                   eventMap, contextIdMap, startTime, endTime,
-                                   otherMetaData, assemblyApi)
+      eventMap, contextIdMap, startTime, endTime,
+      otherMetaData, assemblyApi)
 
     // make optional Assembly Model
     val assemblyModel =
       if (assemblyApi.isDefined)
         Some(assemblyToModel(paperId, derefedMentions, passageMap, entityMap,
-                             eventMap, startTime, endTime, otherMetaData, assemblyApi.get))
+          eventMap, startTime, endTime, otherMetaData, assemblyApi.get))
       else None
 
     (sentModel, entityModel, eventModel, assemblyModel)
@@ -186,10 +186,10 @@ class FriesOutput extends JsonOutputter {
   /** Add fixed pieces of meta data to the given model, along with additional meta data
       from the given Map. */
   private def addMetaInfo (model: PropMap,
-                           paperId: String,
-                           startTime: Date,
-                           endTime: Date,
-                           otherMetaData: Map[String, String]): Unit = {
+    paperId: String,
+    startTime: Date,
+    endTime: Date,
+    otherMetaData: Map[String, String]): Unit = {
     model("object-type") = "frame-collection"
 
     val meta = new PropMap
@@ -207,14 +207,14 @@ class FriesOutput extends JsonOutputter {
 
   /** Return an Assembly Model, representing selected assembly information for this paper. */
   private def assemblyToModel (paperId: String,
-                               mentions: Seq[Mention],
-                               passageMap: Map[String, FriesEntry],
-                               entityMap: IDed,
-                               eventMap: IDed,
-                               startTime: Date,
-                               endTime: Date,
-                               otherMetaData: Map[String, String],
-                               assemblyApi: Assembler): PropMap = {
+    mentions: Seq[Mention],
+    passageMap: Map[String, FriesEntry],
+    entityMap: IDed,
+    eventMap: IDed,
+    startTime: Date,
+    endTime: Date,
+    otherMetaData: Map[String, String],
+    assemblyApi: Assembler): PropMap = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
@@ -225,11 +225,11 @@ class FriesOutput extends JsonOutputter {
       val fromId = lookupMentionId(mention, entityMap, eventMap)
       if (fromId.isDefined) {
         frames ++= make1toMLinkFrames(paperId, mention, fromId.get,
-                                      assemblyApi.getEquivalenceLinks(mention),
-                                      "equivalent-to", passageMap, entityMap, eventMap)
+          assemblyApi.getEquivalenceLinks(mention),
+          "equivalent-to", passageMap, entityMap, eventMap)
         frames ++= make1to1LinkFrames(paperId, mention, fromId.get,
-                                      assemblyApi.getCausalPredecessors(mention),
-                                      "preceded-by", passageMap, entityMap, eventMap)
+          assemblyApi.getCausalPredecessors(mention),
+          "preceded-by", passageMap, entityMap, eventMap)
       }
     }
     model                              // return the constructed assembly model
@@ -289,7 +289,7 @@ class FriesOutput extends JsonOutputter {
     } {
       val passage = getPassageForMention(passageMap, event)
       frames ++= makeEventMention(paperId, passage, event.toBioMention, entityMap,
-                                  eventMap, contextIdMap, assemblyApi)
+        eventMap, contextIdMap, assemblyApi)
     }
 
     model
@@ -307,7 +307,7 @@ class FriesOutput extends JsonOutputter {
 
   /** Return the passage selected by the given mention's chunk ID. */
   private def getPassageForMention (passageMap: Map[String, FriesEntry],
-                                    mention: Mention): FriesEntry = {
+    mention: Mention): FriesEntry = {
     val chunkId = getChunkId(mention)
     assert(passageMap.contains(chunkId), s"passageMap missing chunkId ${chunkId}")
     passageMap.get(chunkId).get
@@ -324,9 +324,9 @@ class FriesOutput extends JsonOutputter {
   /** Lookup the context for the given mention. Return a newly created context ID and frame,
       or an existing context ID, or neither if the mention has no context. */
   private def lookupContext (paperId: String,
-                             passage: FriesEntry,
-                             mention: BioMention,
-                             contextIdMap: CtxIDed): Tuple2[Option[String], Option[PropMap]] =
+    passage: FriesEntry,
+    mention: BioMention,
+    contextIdMap: CtxIDed): Tuple2[Option[String], Option[PropMap]] =
   {
     var contextId: Option[String] = None
     var contextFrame: Option[PropMap] = None
@@ -335,7 +335,7 @@ class FriesOutput extends JsonOutputter {
       val context = mention.context.get
       contextId = contextIdMap.get(context) // get the context ID for the context
       if (contextId.isEmpty) {           // if this is a new context
-        val ctxid = mkContextId(paperId, passage, mention.sentence) // generate new context ID
+      val ctxid = mkContextId(paperId, passage, mention.sentence) // generate new context ID
         contextIdMap.put(context, ctxid)      // save the new context ID keyed by the context
         contextFrame = Some(makeContextFrame(paperId, passage, mention, ctxid, context))
         contextId = Some(ctxid)               // save the new context ID
@@ -349,8 +349,8 @@ class FriesOutput extends JsonOutputter {
   /** Lookup the unique ID, for the given mention, in the given maps, based on the type
       of the mention. Returns an option for the ID found, or None if no ID found. */
   private def lookupMentionId (mention: Mention,
-                               entityMap: IDed,
-                               eventMap: IDed): Option[String] = mention match {
+    entityMap: IDed,
+    eventMap: IDed): Option[String] = mention match {
     case tbm: TextBoundMention => entityMap.get(tbm)
     case evm: EventMention => eventMap.get(evm)
     case rem: RelationMention => eventMap.get(rem)
@@ -368,12 +368,12 @@ class FriesOutput extends JsonOutputter {
 
 
   private def makeArgumentFrame (name: String,
-                                 arg: Mention,
-                                 argIndex: Int,
-                                 parent: Mention,
-                                 entityMap: IDed,
-                                 eventMap: IDed,
-                                 argFeatures:Option[RoleWithFeatures] = None): PropMap = {
+    arg: Mention,
+    argIndex: Int,
+    parent: Mention,
+    entityMap: IDed,
+    eventMap: IDed,
+    argFeatures:Option[RoleWithFeatures] = None): PropMap = {
     val pm = new PropMap                    // create new argument frame
     pm("object-type") = "argument"
     pm("type") = prettifyLabel(name)
@@ -432,10 +432,10 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a new context frame using the given mention and context info. */
   private def makeContextFrame (paperId: String,
-                                passage: FriesEntry,
-                                mention: BioMention,
-                                contextId: String,
-                                context: ContextMap): PropMap = {
+    passage: FriesEntry,
+    mention: BioMention,
+    contextId: String,
+    context: ContextMap): PropMap = {
     val f = startFrame()
     f("frame-type") = "context"
     f("frame-id") = contextId
@@ -480,10 +480,10 @@ class FriesOutput extends JsonOutputter {
     eventMap: IDed,
     // keep track of mentions that have already been processed
     seen: Set[Mention] = Set.empty[Mention]): Unit = for {
-      // inspect mention and its arguments
-      mention <- mentions
-      m <- Seq(mention) ++ mention.arguments.values.flatten.toSeq
-      if !seen.contains(m)
+  // inspect mention and its arguments
+    mention <- mentions
+    m <- Seq(mention) ++ mention.arguments.values.flatten.toSeq
+    if !seen.contains(m)
   } {
     val passage = getPassageForMention(passageMap, m)
     m match {
@@ -605,7 +605,7 @@ class FriesOutput extends JsonOutputter {
     mention match {
       case em if isEventOrRelationMention(em) =>
         val arguments = em.arguments        // get the mention arguments Map
-        val argList = new FrameList         // start new argument frame list
+      val argList = new FrameList         // start new argument frame list
 
         for {
           role <- arguments.keys.toList
@@ -659,8 +659,8 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a single assembly link argument map. */
   private def makeLinkArgumentFrame (arg: String,
-                                     argType: String,
-                                     index: Option[Integer] = None): PropMap = {
+    argType: String,
+    index: Option[Integer] = None): PropMap = {
     val pm = new PropMap
     pm("object-type") = "argument"
     pm("type") = argType
@@ -672,9 +672,9 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a new binary Link frame. */
   private def makeLinkFrame (linkId: String,
-                             frameType: String,
-                             foundBy: String,
-                             args: List[PropMap]): PropMap = {
+    frameType: String,
+    foundBy: String,
+    args: List[PropMap]): PropMap = {
     val f = startFrame()
     f("frame-id") = linkId
     f("frame-type") = "link"
@@ -708,7 +708,7 @@ class FriesOutput extends JsonOutputter {
           val m2Id = lookupMentionId(before, entityMap, eventMap)
           if (m2Id.isDefined) {
             val args = List(makeLinkArgumentFrame(fromId, "after"),
-                            makeLinkArgumentFrame(m2Id.get, "before"))
+              makeLinkArgumentFrame(m2Id.get, "before"))
             frames += makeLinkFrame(linkId, frameType, foundBy, args)
           }
         case unknown =>
@@ -731,7 +731,7 @@ class FriesOutput extends JsonOutputter {
   ): List[PropMap] = {
     val frames: ListBuffer[PropMap] = new ListBuffer()
     if (links.nonEmpty) {               // ignore empty maps
-      val passage = getPassageForMention(passageMap, from)
+    val passage = getPassageForMention(passageMap, from)
       val linkId = mkLinkId(paperId, passage, from.sentence) // generate single link ID
 
       val foundBy = links.head.foundBy  // get foundBy from arbitrary element
@@ -783,9 +783,9 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a new passage frame. */
   private def makePassage (model: PropMap,
-                           paperId: String,
-                           passage: FriesEntry,
-                           passageDoc: Document): PropMap = {
+    paperId: String,
+    passage: FriesEntry,
+    passageDoc: Document): PropMap = {
     val f = startFrame(Some("nxml2fries"))
     f("frame-id") = mkPassageId(paperId, passage)
     f("frame-type") = "passage"
@@ -812,8 +812,8 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a single relative position map. */
   private def makeRelativePosition (paperId: String,
-                                    passageMeta: FriesEntry,
-                                    characterOffset: Int): PropMap = {
+    passageMeta: FriesEntry,
+    characterOffset: Int): PropMap = {
     val pm = new PropMap
     pm("object-type") = "relative-pos"
     pm("reference") = mkPassageId(paperId, passageMeta)
@@ -823,10 +823,10 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a sentence frame. */
   private def makeSentence (model: PropMap,
-                            paperId: String,
-                            passageMeta: FriesEntry,
-                            passageDoc: Document,
-                            offset: Int): PropMap = {
+    paperId: String,
+    passageMeta: FriesEntry,
+    passageDoc: Document,
+    offset: Int): PropMap = {
     val f = startFrame(Some("BioNLPProcessor"))
     f("frame-type") = "sentence"
     f("frame-id") = mkSentenceId(paperId, passageMeta, offset)
@@ -839,9 +839,9 @@ class FriesOutput extends JsonOutputter {
 
   /** Create and return a sequence of sentence frames. */
   private def makeSentences (model: PropMap,
-                             paperId: String,
-                             passageMeta: FriesEntry,
-                             passageDoc: Document): Seq[PropMap] = {
+    paperId: String,
+    passageMeta: FriesEntry,
+    passageDoc: Document): Seq[PropMap] = {
     val sents = new ListBuffer[PropMap]
     for (i <- passageDoc.sentences.indices) {
       sents += makeSentence(model, paperId, passageMeta, passageDoc, i)
@@ -879,11 +879,11 @@ class FriesOutput extends JsonOutputter {
 
   /** Returns a data-structure representing all sections and sentences in this paper. */
   private def sentencesToModel (paperId: String,
-                                mentions: Seq[Mention],
-                                passageMap: Map[String, FriesEntry],
-                                startTime: Date,
-                                endTime: Date,
-                                otherMetaData: Map[String, String]): PropMap = {
+    mentions: Seq[Mention],
+    passageMap: Map[String, FriesEntry],
+    startTime: Date,
+    endTime: Date,
+    otherMetaData: Map[String, String]): PropMap = {
     val model:PropMap = new PropMap
     addMetaInfo(model, paperId, startTime, endTime, otherMetaData)
 
@@ -915,9 +915,9 @@ class FriesOutput extends JsonOutputter {
     val f = new PropMap
     f("object-type") = "frame"
     if (component.isDefined) {              // no need to override default meta-data each time
-      val meta = new PropMap
+    val meta = new PropMap
       meta("object-type") = "meta-info"
-        meta("component") = component
+      meta("component") = component
       f("object-meta") = meta
     }
     f
