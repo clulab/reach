@@ -12,26 +12,6 @@ lazy val commonSettings = Seq(
 
   parallelExecution in Test := false,
 
-  //
-  // publishing settings
-  //
-
-  // these are the steps to be performed during release
-  releaseProcess := Seq[ReleaseStep](
-    checkSnapshotDependencies,
-    inquireVersions,
-    runClean,
-    runTest,
-    setReleaseVersion,
-    ReleaseStep(action = Command.process("publishSigned", _)),
-    ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
-    commitReleaseVersion,
-    tagRelease,
-    setNextVersion,
-    commitNextVersion,
-    pushChanges
-  ),
-
   // publish to a maven repo
   publishMavenStyle := true,
 
@@ -93,6 +73,26 @@ lazy val root = (project in file("."))
 
 lazy val main = project
   .settings(commonSettings:_*)
+
+//
+// publishing settings
+//
+
+// these are the steps to be performed during release
+releaseProcess := Seq[ReleaseStep](
+  checkSnapshotDependencies,
+  inquireVersions,
+  runClean,
+  runTest,
+  setReleaseVersion,
+  ReleaseStep(action = Command.process("publishSigned", _)),
+  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+  commitReleaseVersion,
+  tagRelease,
+  setNextVersion,
+  commitNextVersion,
+  pushChanges
+)
 
 // settings for building project website
 
