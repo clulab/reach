@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/clulab/reach-assembly.svg?branch=master)](https://travis-ci.org/clulab/reach-assembly)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach-assembly_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.clulab/reach-assembly_2.11)
-
 `reach-assembly`
 =====
 
@@ -20,9 +17,6 @@ For more details on the sieve-based assembly system, please refer to the followi
   Note         = {Paper available at \url{https://arxiv.org/abs/1606.08089}}
 }
 ```
-
-# Licensing
-All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
 + **0.0.1** - Assembly system from `reach` v1.3.2
@@ -58,11 +52,11 @@ More publications from the Reach project are available [here](https://github.com
 
 This software requires Java 1.8.
 
-The `jar` is available on Maven Central. To use, simply add the following dependency to your `build.sbt`:
+The `jar` is available on Maven Central. To use, simply add the following dependency to your `build.sbt` (NOTE: replace yourVersion with the version you wish to use):
 
 ```scala
 libraryDependencies ++= Seq(
-    "org.clulab" %% "reach" % "1.3.2"
+    "org.clulab" %% "reach-assembly" % "yourVersion"
 )
 ```
 
@@ -78,7 +72,7 @@ Add the generated jar files under `target/` to your `$CLASSPATH`, along with the
 You can run interactively explore assembly output for various snippets of text using the assembly shell:
 
 ```scala
-sbt "runMain org.clulab.assembly.AssemblyShell"
+sbt "runMain org.clulab.reach.assembly.AssemblyShell"
 ```
 
 # Modifying the code

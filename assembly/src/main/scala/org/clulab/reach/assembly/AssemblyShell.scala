@@ -8,7 +8,7 @@ import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 import org.clulab.reach.display._
 import org.clulab.reach.{context, ReachSystem}
-import org.clulab.assembly.display._
+import org.clulab.reach.assembly.display._
 
 
 object AssemblyShell extends App {
