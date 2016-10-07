@@ -10,7 +10,7 @@ lazy val commonSettings = Seq(
 
   testOptions in Test += Tests.Argument("-oD"),
 
-  parallelExecution in Test := false,
+  parallelExecution in Global := false,
 
   // publish to a maven repo
   publishMavenStyle := true,
