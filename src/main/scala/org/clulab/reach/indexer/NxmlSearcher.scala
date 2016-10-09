@@ -72,10 +72,12 @@ class NxmlSearcher(val indexDir:String) {
       val doc = searcher.doc(docId._1)
       val id = doc.get("id")
       val nxml = doc.get("nxml")
+      val year = doc.get("year")
+      val size = nxml.toString.length * 2 // in bytes
       val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
       os.print(nxml)
       os.close()
-      sos.println(s"$id\t${docId._2}")
+      sos.println(s"$id\t${docId._2}\t$year\t$size")
       count += 1
     }
     sos.close()
