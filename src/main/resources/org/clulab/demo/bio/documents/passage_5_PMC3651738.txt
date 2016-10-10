@@ -1,5 +1,0 @@
-The increase in expression of HER3 after MAPK inhibition is due to activation of gene transcription, which was associated with a reduction of binding of the transcriptional repressors CTBP1 and CTBP2 to the HER3 gene promoter.
-These corepressors have been previously linked to inhibition of HER3 transcription through promoter regions that show overlapping occupancy with ZNF217, a transcription factor also involved in HER3 regulation (30).
-Accordingly, knockdown of CTBPs acutely induced HER3 expression and phosphorylation in thyroid cancer cells.
-MAPK inhibition may dictate a chromatin redistribution of these repressors, and thus activate HER3 transcription.
-The biochemical mechanisms involved in delocalization of CtBPs by MAPK inhibition have not been explored, but posttranslational modifications are known to regulate the repressive activity of CtBPs either by translocation to the cytoplasm or by targeting them for degradation (36, 37).

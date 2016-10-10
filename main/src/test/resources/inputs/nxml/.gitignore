@@ -1,0 +1,4 @@
+Makefile
+*.so
+*.tsv
+*.txt
