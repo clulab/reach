@@ -1,5 +1,6 @@
 package org.clulab.reach.context
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachContextKBLister
 
@@ -17,7 +18,7 @@ trait ContextEngine {
 
 }
 
-object ContextEngine {
+object ContextEngine extends LazyLogging {
   // Seq of the labels we care about in context
   val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "TissueType", "ContextPossessive", "ContextLocation", "ContextDirection")
 
@@ -54,8 +55,5 @@ object ContextEngine {
   }.groupBy{ // Group by namespace and id
     e => (e.namespace, e.id)
   }.values.map(_(0)).toSeq // Select the first element of each group
-
-
-
-
+  
 }

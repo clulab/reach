@@ -2,6 +2,9 @@ package org.clulab.reach.export.fries
 
 import java.io._
 import java.util.Date
+
+import com.typesafe.scalalogging.LazyLogging
+
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
 import org.json4s.native.Serialization
 import org.clulab.reach.assembly.export.{CausalPrecedence, Equivalence}
@@ -28,7 +31,7 @@ import org.clulab.serialization.json.JSONSerializer.formats
   *   Written by: Mihai Surdeanu and Tom Hicks.
   *   Last Modified: Output alternate candidate groundings and grounding species.
   */
-class FriesOutput extends JsonOutputter {
+class FriesOutput extends JsonOutputter with LazyLogging {
 
   // local type definitions:
   type IDed = scala.collection.mutable.HashMap[Mention, String]
@@ -712,7 +715,7 @@ class FriesOutput extends JsonOutputter {
             frames += makeLinkFrame(linkId, frameType, foundBy, args)
           }
         case unknown =>
-          System.err.println(s"Cannot create 1-to-1 links for type '${unknown.getClass}'")
+          logger.error(s"Cannot create 1-to-1 links for type '${unknown.getClass}'")
       }
     }
     frames.toList
@@ -747,7 +750,7 @@ class FriesOutput extends JsonOutputter {
             frames += makeLinkFrame(linkId, frameType, foundBy, args.toList)
 
         case unknown =>
-          System.err.println(s"Cannot create 1-to-M links for type '${unknown.getClass}'")
+          logger.error(s"Cannot create 1-to-M links for type '${unknown.getClass}'")
       }
     }
     frames.toList

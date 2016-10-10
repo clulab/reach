@@ -3,6 +3,7 @@ package org.clulab.reach
 import java.io.File
 import java.util.Date
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.utils.DSVParser
 
@@ -12,7 +13,7 @@ import org.clulab.reach.utils.DSVParser
  * User: mihais
  * Date: 10/30/15
  */
-object ReachCSV extends App {
+object ReachCSV extends App with LazyLogging {
   //
   // Customize these for various CSV files
   //
@@ -44,7 +45,7 @@ object ReachCSV extends App {
     textColumn = textColumn,
     hasHeader = hasHeader)) {
     //println(s"""Parsing line: ${line.mkString("; ")}""")
-    println(s"Processing ${entry.name}, ${entry.chunkId}...")
+    logger.info(s"Processing ${entry.name}, ${entry.chunkId}...")
 
     try {
       val startTime = now
@@ -82,7 +83,7 @@ object ReachCSV extends App {
     }
 
     count += 1
-    println(s"Processed $count lines.")
+    logger.info(s"Processed $count lines.")
   }
 
   def now = new Date()

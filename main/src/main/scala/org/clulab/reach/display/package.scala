@@ -3,6 +3,7 @@ package org.clulab.reach
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import org.clulab.processors.{Document, Sentence}
+
 import scala.util.matching.Regex
 
 
@@ -22,7 +23,6 @@ package object display {
       val sortedEntities = tbs ++ rels.sortBy(_.label)
       val entitySummaries = sortedEntities map summarizeMention
       val eventSummaries = events map summarizeMention
-      events foreach displayMention
       val boundary = "=" * 50
 
       s"""

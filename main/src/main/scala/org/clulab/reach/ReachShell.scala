@@ -1,9 +1,11 @@
 package org.clulab.reach
 
 import java.io.File
+
 import com.typesafe.config.ConfigFactory
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
+
 import scala.collection.immutable.ListMap
 import org.clulab.reach.display._
 import org.clulab.reach.context.ContextEngineFactory.Engine
@@ -96,7 +98,7 @@ object ReachShell extends App {
     val longest = commands.keys.toSeq.sortBy(_.length).last.length 
     for ((cmd, msg) <- commands)
       println(s"\t$cmd${"\t"*(1 + (longest - cmd.length)/4)}=> $msg")
-    println
+    println("")
   }
 
 }

@@ -1,5 +1,6 @@
 package org.clulab.coref
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
 import org.clulab.reach.grounding.{KBEntry, ReachKBConstants}
 import org.clulab.reach.utils.DependencyUtils._
@@ -7,13 +8,11 @@ import org.clulab.reach.display._
 import org.clulab.reach.mentions._
 import org.clulab.coref.CorefUtils._
 import org.clulab.reach.darpa.{DarpaActions, DarpaLinks}
+
 import scala.annotation.tailrec
 
 
-class Coref {
-
-  val debug: Boolean = false
-  val verbose: Boolean = debug
+class Coref extends LazyLogging {
 
   /**
     * Make a map from TextBoundMentions to copies of themselves with a maximum of 1 antecedent
@@ -80,12 +79,12 @@ class Coref {
         case _ => combineArgs(resolvedArgs.map(entry => entry._1 -> entry._2.flatten))
       }
     } yield {
-      if (verbose && argSets.nonEmpty) {
+      if (logger.underlying.isDebugEnabled && argSets.nonEmpty) {
         argSets.foreach { argSet =>
-          println("argSet: ")
+          logger.debug("argSet: ")
           argSet.foreach {
             case (lbl: String, ms: Seq[CorefMention]) =>
-              println(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[", ",", "]")).mkString(","))
+              logger.debug(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[", ",", "]")).mkString(","))
           }
         }
       }
@@ -257,12 +256,12 @@ class Coref {
       // new events
       argSets = combineArgs(resolvedArgs)
     } yield {
-      if (verbose) {
-        println("argSets:")
+      if (logger.underlying.isDebugEnabled && argSets.nonEmpty) {
+        logger.debug("argSets:")
         argSets.foreach { argSet =>
           argSet.foreach {
             case (lbl: String, ms: Seq[CorefMention]) =>
-              println(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[", ",", "]")).mkString(","))
+              logger.debug(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[", ",", "]")).mkString(","))
           }
         }
       }
@@ -315,21 +314,21 @@ class Coref {
     * @return mentions with generic mentions replaced by their antecedents
     */
   def resolve(mentions: Seq[CorefMention]): Seq[CorefMention] = {
-    if (verbose) println("\n=====Resolution=====\n")
+    logger.debug("\n=====Resolution=====\n")
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention]).map(_.asInstanceOf[CorefTextBoundMention])
     val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
     val cevts = mentions.filter(m => m.matches("ComplexEvent"))
 
     val resolvedTBMs = resolveTBMs(tbms)
     val tbmSieveMap = tbmSieves(tbms.filter(_.isGeneric))
-    if (verbose) resolvedTBMs.foreach { case (k, v) => println(s"TBM: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
+    resolvedTBMs.foreach { case (k, v) => logger.debug(s"TBM: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
 
     val resolvedSimple = resolveSimpleEvents(sevts, resolvedTBMs, tbmSieveMap).asInstanceOf[Map[CorefMention, Seq[CorefMention]]]
     val evtSieveMap = evtSieves(sevts.filter(_.isGeneric)).asInstanceOf[Map[CorefMention, Set[String]]]
-    if (verbose) resolvedSimple.foreach { case (k, v) => println(s"SimpleEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
+    resolvedSimple.foreach { case (k, v) => logger.debug(s"SimpleEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
 
     val resolvedComplex = resolveComplexEvents(cevts, resolvedTBMs ++ resolvedSimple, tbmSieveMap ++ evtSieveMap)
-    if (verbose) resolvedComplex.foreach { case (k, v) => println(s"ComplexEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
+    resolvedComplex.foreach { case (k, v) => logger.debug(s"ComplexEvent: ${k.text} => (" + v.map(vcopy => vcopy.text + vcopy.antecedents.map(_.text).mkString("[", ",", "]")).mkString(",") + ")") }
     val resolved = resolvedTBMs ++ resolvedSimple ++ resolvedComplex
 
     val retVal = corefDistinct(mentions.flatMap(mention => resolved.getOrElse(mention, Nil)))
@@ -347,11 +346,9 @@ class Coref {
 
       if (mentions.isEmpty) Nil
       else {
-        if (debug) {
-          println("BEFORE COREF")
-          displayMentions(mentions, mentions.head.document)
-          println("Starting coref...")
-        }
+        logger.debug("BEFORE COREF")
+        logger.debug(summarizeMentions(mentions, mentions.head.document))
+        logger.debug("Starting coref...")
 
         // order mentions and also remove Generic_event mentions that do not have definite determiners.
         val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
@@ -369,9 +366,9 @@ class Coref {
                   hasDet.isEmpty
                 } catch {
                   case e: Throwable =>
-                    println(s"Sentence: ${sent.getSentenceText()}")
-                    println(s"Mention text: ${m.text}")
-                    println(s"Head index is: $hd")
+                    logger.error(s"Sentence: ${sent.getSentenceText()}")
+                    logger.error(s"Mention text: ${m.text}")
+                    logger.error(s"Head index is: $hd")
                     displayMention(m)
                     true
                 }
@@ -394,13 +391,13 @@ class Coref {
           else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
         }
 
-        if (debug) println("\n=====Alias matching=====")
+        logger.debug("\n=====Alias matching=====")
         // share more complete grounding based on alias map
         orderedMentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
           mention =>
             val kbEntry = mention.grounding.get.entry
             if (aliases contains kbEntry) {
-              if (debug) println(s"${mention.text} matches ${aliases(kbEntry).text}")
+              logger.debug(s"${mention.text} matches ${aliases(kbEntry).text}")
               mention.copyGroundingFrom(aliases(kbEntry))
               mention.sieves += "aliasGroundingMatch"
             }

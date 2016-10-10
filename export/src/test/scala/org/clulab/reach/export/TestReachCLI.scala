@@ -41,7 +41,7 @@ class TestReachCLI extends FlatSpec with Matchers {
 
   "ReachCLI" should "output TEXT correctly on NXML papers" in {
     println(s"Will output TEXT output in directory ${txtDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = txtDir, outputFormat = "text", logFile = txtLogFile, verbose = false)
+    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = txtDir, outputFormat = "text", logFile = txtLogFile)
     val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
     if(errorCount > 0) dumpLog(txtLogFile)
     errorCount should be (0)
@@ -49,7 +49,7 @@ class TestReachCLI extends FlatSpec with Matchers {
 
   it should "output FRIES correctly on NXML papers without assembly" in {
     println(s"Will output FRIES output in directory ${friesDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesDir, outputFormat = "fries", logFile = friesLogFile, verbose = false)
+    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesDir, outputFormat = "fries", logFile = friesLogFile)
     val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
     if(errorCount > 0) dumpLog(friesLogFile)
     errorCount should be (0)
@@ -57,7 +57,7 @@ class TestReachCLI extends FlatSpec with Matchers {
 
   it should "output FRIES correctly on NXML papers with Assembly" in {
     println(s"Will output FRIES with Assembly output in directory ${friesWithAssemblyDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesWithAssemblyDir, outputFormat = "fries", logFile = friesWithAssemblyLogFile, verbose = false)
+    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesWithAssemblyDir, outputFormat = "fries", logFile = friesWithAssemblyLogFile)
     val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = true)
     if(errorCount > 0) dumpLog(friesWithAssemblyLogFile)
     errorCount should be (0)
@@ -65,7 +65,7 @@ class TestReachCLI extends FlatSpec with Matchers {
 
   it should "output IndexCard correctly on NXML papers" in {
     println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = icDir, outputFormat = "indexcard", logFile = icLogFile, verbose = false)
+    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = icDir, outputFormat = "indexcard", logFile = icLogFile)
     val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
     if(errorCount > 0) dumpLog(icLogFile)
     errorCount should be (0)

@@ -1,5 +1,6 @@
 package org.clulab.reach.darpa
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.coref.CorefUtils._
 import org.clulab.coref.{AntecedentSelector, LinearSelector, Links}
 import org.clulab.odin._
@@ -8,10 +9,8 @@ import org.clulab.reach.mentions._
 import org.clulab.reach.utils.DependencyUtils._
 
 
-class DarpaLinks extends Links {
+class DarpaLinks extends Links with LazyLogging {
 
-  val debug: Boolean = false
-  val verbose: Boolean = debug
   val defaultSelector: AntecedentSelector = new LinearSelector
 
   /**
@@ -24,7 +23,7 @@ class DarpaLinks extends Links {
     */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    if (debug) println("\n=====Exact entity string matching=====")
+    logger.debug("\n=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
         !x.asInstanceOf[CorefTextBoundMention].isGeneric &&
@@ -35,7 +34,7 @@ class DarpaLinks extends Links {
       case (ent, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
           if (curr.antecedents.isEmpty && !curr.isGeneric) {
-            if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
+            logger.debug(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
             curr.antecedents ++= prev
           }
           Set(curr)
@@ -54,7 +53,7 @@ class DarpaLinks extends Links {
     */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    if (debug) println("\n=====Entity grounding matching=====")
+    logger.debug("\n=====Entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
@@ -66,7 +65,7 @@ class DarpaLinks extends Links {
       case (gr, ms) =>
         ms.foldLeft(Set.empty: Set[CorefMention])((prev, curr) => {
           if (curr.antecedents.isEmpty && curr.nonGeneric) {
-            if (debug) println(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
+            logger.debug(s"${curr.text} matches ${prev.map(_.text).mkString(", ")}")
             curr.antecedents ++= prev
           }
           Set(curr)
@@ -77,14 +76,14 @@ class DarpaLinks extends Links {
 
   def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    if (debug) println("\n=====Mutant protein matching=====")
+    logger.debug("\n=====Mutant protein matching=====")
 
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention])
     val gms = tbms.filter(m => m.hasGenericMutation)
 
     gms.foreach {
       case gm =>
-        if (verbose) println(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.find(_.isGeneric).get.text}'")
+        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.find(_.isGeneric).get.text}'")
 
         val cands = tbms.filter { m =>
           m.precedes(gm) &&
@@ -95,11 +94,11 @@ class DarpaLinks extends Links {
             m.mutants.forall(mut => !mut.isGeneric)
         }
 
-        if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
+        logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
         val ants = selector(gm, cands diff Seq(gm), gm.number)
-        if (debug) ants.foreach { ant =>
-          println(s"${gm.text} ${gm.mutants.find(mut => mut.isGeneric).get.text} links " +
+        ants.foreach { ant =>
+          logger.debug(s"${gm.text} ${gm.mutants.find(mut => mut.isGeneric).get.text} links " +
             s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}")
         }
 
@@ -120,7 +119,7 @@ class DarpaLinks extends Links {
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
     val doc = mentions.head.document
-    if (debug) println("\n=====Strict head matching=====")
+    logger.debug("\n=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     // split generic mentions from specific mentions -- we'll only be working on generics
@@ -135,7 +134,8 @@ class DarpaLinks extends Links {
       // get the head of the noun phrase the mention is in
       val hd = doc.sentences(g.sentence)
         .words(findHeadStrict(gExpanded, doc.sentences(g.sentence)).getOrElse(g.tokenInterval.end - 1)).toLowerCase
-      if (verbose) println(s"Searching for ${g.number.toString} antecedents to '${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")}' expanded to " +
+      logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}" +
+        s"${g.mutants.map(_.text).mkString(" ", " ", "")}' expanded to " +
         s"'${doc.sentences(g.sentence).words.slice(gExpanded.start, gExpanded.end).mkString(" ")}' with head '$hd'")
       // what other tbms have this same head?
       val cands = tbms.filter { m =>
@@ -149,8 +149,8 @@ class DarpaLinks extends Links {
       }
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
-      if (debug) ants.foreach { ant =>
-        println(s"${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")} links to" +
+      ants.foreach { ant =>
+        logger.debug(s"${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")} links to" +
           s" ${ant.text}${ant.mutants.map(_.text).mkString(" ", " ", "")}")
       }
       g.antecedents ++= ants
@@ -168,7 +168,7 @@ class DarpaLinks extends Links {
     */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    if (debug) println("\n=====Pronominal matching=====")
+    logger.debug("\n=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     hasArgs.filter(_.antecedents.isEmpty).foreach {
@@ -179,19 +179,26 @@ class DarpaLinks extends Links {
         // plus all the arguments of any events that have this event as an argument
         var excludeThese = Seq(pronominal)
 
-        if (verbose) proMap.foreach(kv =>
-          println(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals (${kv._2._2.map(_.text).mkString(", ")})"))
+        proMap.foreach(kv =>
+          logger.debug(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals " +
+            s"(${kv._2._2.map(_.text).mkString(", ")})"))
 
         // look at each matching generic argument in turn, in textual order
+        // NB: Do *not* make this flatMap
         proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach { kv =>
           val (lbl, g) = (kv._1, kv._2.toCorefMention)
-          if (verbose) println(s"Searching for ${g.number.toString} antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}' excluding " +
+            s"${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           val gTag = g.tags.get.headOption
 
           if(gTag.isEmpty || gTag.head != "PRP$") {
             excludeThese ++= pronominal.arguments.values.flatten.toSeq.map(_.toCorefMention) ++
-              hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten.map(_.toCorefMention)
+              hasArgs
+                .filter(m => m.arguments.values.flatten.toSeq.contains(pronominal))
+                .flatMap(_.arguments.values)
+                .flatten
+                .map(_.toCorefMention)
           }
 
           val cands = lbl match {
@@ -221,11 +228,11 @@ class DarpaLinks extends Links {
                 m.matches("PossibleController")
             }
           }
-          if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
+          logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
           // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
-          if (verbose) println(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
+          logger.debug(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
           // trying to link the two
@@ -254,7 +261,7 @@ class DarpaLinks extends Links {
     */
   def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    if (debug) println("\n=====Noun phrase matching=====")
+    logger.debug("\n=====Noun phrase matching=====")
 
     // only apply this matcher to arguments to events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -283,8 +290,9 @@ class DarpaLinks extends Links {
         // Note: Do *not* turn this into flatMap
         npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
           val (lbl, g) = (kv._1, kv._2.toCorefMention)
-          if (verbose) println(s"Searching for ${g.number.toString} antecedents to '${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")}' " +
-            s"excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}" +
+            s"${g.mutants.map(_.text).mkString(" ", " ", "")}' excluding " +
+            s"${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions
@@ -316,11 +324,11 @@ class DarpaLinks extends Links {
                 g.labels.filter(l => l != "Generic_entity" && l != "Generic_event").forall(x => m.labels.contains(x))
             }
           }
-          if (verbose) println(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
+          logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
           // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
-          if (verbose) println(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
+          logger.debug(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
           // trying to link the two
@@ -350,7 +358,7 @@ class DarpaLinks extends Links {
     */
   def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    if (debug) println("\n=====Simple event matching=====\n")
+    logger.debug("\n=====Simple event matching=====\n")
 
     val seLabels = SIMPLE_EVENTS - "Generic_event"
 
@@ -388,19 +396,19 @@ class DarpaLinks extends Links {
         // first check if g already has had an antecedent found during a different ComplexEvent's search
         if (gInState.isDefined && gInState.get.antecedents.isEmpty) {
 
-          if (verbose) println(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          logger.debug(s"Searching for antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           // candidates for the generic mention g's antecedents are full SimpleEvent mentions that precede g by 0-1
           // sentences, which haven't been found as an antecedent to another argument yet, and which has matching labels
           val cands = specifics.filter(s => (s precedes g) && g.sentence - s.sentence < 2 && !excludeThese.contains(s) &&
             (s matches g.labels.toSet.intersect(seLabels).toSeq.headOption.getOrElse("")))
 
-          if (verbose) println(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
+          logger.debug(s"Candidates are '${cands.map(_.text).mkString("', '")}'")
 
           // use the selector to choose which among the candidates is best. Assume 1 antecedent for now.
           val ant = selector(g.asInstanceOf[CorefMention], cands, 1)
 
-          if (verbose) println(s"matched '${ant.map(_.text).mkString(", ")}'")
+          logger.debug(s"matched '${ant.map(_.text).mkString(", ")}'")
 
           gInState.get.antecedents ++= ant
           excludeThese ++= ant

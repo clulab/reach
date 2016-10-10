@@ -2,6 +2,7 @@ package org.clulab.reach.brat
 
 import java.io.{File, InputStream}
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.utils.BratUtils
 
 import scala.collection.mutable.HashMap
@@ -9,7 +10,7 @@ import org.clulab.struct.Interval
 import org.clulab.processors.{Document, Sentence}
 import org.clulab.odin._
 
-object Brat {
+object Brat extends LazyLogging {
   def readStandOff(input: String): Seq[Annotation] =
     input.lines.toSeq flatMap parseAnnotation
 
@@ -35,7 +36,7 @@ object Brat {
           Some(TextBound(id, label, spans, chunks(2)))
         } catch {
           case e: Exception =>
-            println(line.trim)
+            logger.error(line.trim)
             None
         }
 

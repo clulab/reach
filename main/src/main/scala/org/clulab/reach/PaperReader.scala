@@ -144,16 +144,16 @@ object PaperReader extends LazyLogging {
 }
 
 
-object ReadPapers extends App {
+object ReadPapers extends App with LazyLogging {
 
   val config = ConfigFactory.load()
 
   val papersDir = config.getString("ReadPapers.papersDir")
   val outFile = config.getString("ReadPapers.serializedPapers")
 
-  println("reading papers ...")
+  logger.info("reading papers ...")
   val dataset = PaperReader.readPapers(papersDir)
 
-  println("serializing ...")
+  logger.info("serializing ...")
   Serializer.save(dataset, outFile)
 }
