@@ -7,22 +7,37 @@ import org.clulab.odin.Mention
 import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
+import com.typesafe.scalalogging.LazyLogging
 import scala.util.matching.Regex
 import java.io.File
 
+
+trait EERDescription {
+  val eer: EntityEventRepresentation
+  val input: String
+  val output: String
+  val controller: String
+  val eerID: String
+  val label: String
+  val precededBy: Set[String]
+  val negated: Boolean
+  //val isDirect: Boolean
+  val evidence: Set[Mention]
+  val seen: Int
+}
 
 case class Row(
   input: String,
   output: String,
   controller: String,
-  eventID: String,
-  eventLabel: String,
+  eerID: String,
+  label: String,
   precededBy: Set[String],
   negated: Boolean,
   evidence: Set[Mention],
   // to make debugging easier
-  sourceRepresentation: EntityEventRepresentation
-) {
+  eer: EntityEventRepresentation
+) extends EERDescription {
   // this might serve as a proxy for confidence, though
   // it would also be good to know how many times this event
   // was involved in other events (input, controller, etc)
@@ -33,13 +48,25 @@ case class Row(
     .getOrElse(AssemblyExporter.UNKNOWN)
     // FIXME: hack to trim section/chunk ID
     .split("_").head
-  )
+  ).map(id => s"PMC$id".replaceAll("^(PMC)*", "PMC"))
 
   def getTextualEvidence: Seq[String] = {
     evidence.toSeq.map { m =>
       val text = m.sentenceObj.getSentenceText
       cleanText(text)
     }
+  }
+
+  def contextFromEvidence(contextLabel: String): String = {
+    val contextMentions = for {
+      m <- evidence
+      cm = m.toCorefMention
+      if cm.context.nonEmpty
+      contextMap = cm.context.get
+      if contextMap contains contextLabel
+      entry <- contextMap(contextLabel)
+    } yield entry
+    contextMentions.mkString(AssemblyExporter.CONCAT)
   }
 
   private def cleanText(contents: String): String = {
@@ -52,19 +79,75 @@ case class Row(
     }
   }
 
-  def toTSVrow: String = {
-    val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
-    val seenIn = docIDs.toSeq.sorted.mkString(", ")
-    val examples = getTextualEvidence.mkString(" ++++ ")
-    s"${cleanText(input)}\t${cleanText(output)}\t${cleanText(controller)}\t${cleanText(eventID)}\t$eventLabel\t$precedingEvents\t$negated\t$seen\t$examples\t$seenIn"
+  def isDirect: Boolean = evidence.exists{ e =>
+    e.toCorefMention match {
+      case em: CorefEventMention => em.isDirect
+      // mark all activations as indirect
+      case activation if activation matches "Activation" => false
+      // NOTE: should already be covered by CorefEventMention case
+      case se if se matches "SimpleEvent" => true
+      case binding if binding matches "Binding" => true
+      case complex if complex matches "Complex" => true
+      // we'll call entities "direct"
+      // NOTE: likely entity rows will not be reported
+      case entity if entity matches "Entity" => true
+      // a reg with a simple event as its controlled
+      case reg if ExportFilters.regWithSimpleEventWithController(reg) => true
+      // assume it's indirect otherwise?
+      case other => false
+    }
   }
 
-  def toShellRow: String = {
-    val precedingEvents = precededBy.toSeq.sorted.mkString(", ")
-    s"""$eventID:\t${if(negated) "! " else ""}$input """ +
-      s"""==${if (controller.nonEmpty) "[" + controller + "]" else ""}==> """ +
-      s"""$output""" +
-      s"""${if (precedingEvents.nonEmpty) s"\n\t\tPreceding => $precedingEvents" else ""}\n\n"""
+  def isIndirect: Boolean = evidence.exists{ e =>
+    e.toCorefMention match {
+      case em: CorefEventMention => ! em.isDirect
+      // mark all activations as indirect
+      case activation if activation matches "Activation" => true
+      // NOTE: should already be covered by CorefEventMention case
+      case se if se matches "SimpleEvent" => false
+      // bindings are direct
+      case binding if binding matches "Binding" => false
+      case complex if complex matches "Complex" => false
+      // we'll call entities "direct"
+      // NOTE: likely entity rows will not be reported
+      case entity if entity matches "Entity" => false
+      // a reg with a simple event as its controlled
+      case reg if ExportFilters.regWithSimpleEventWithController(reg) => false
+      // assume it's indirect otherwise?
+      case other => true
+    }
+  }
+
+  private def setToString(s: Set[String]): String = s.toSeq.sorted.mkString(", ")
+
+  val columns: Map[String, String] = {
+    Map(
+      AssemblyExporter.INPUT -> cleanText(input),
+      AssemblyExporter.OUTPUT -> cleanText(output),
+      AssemblyExporter.CONTROLLER -> cleanText(controller),
+      AssemblyExporter.EVENT_ID -> cleanText(eerID),
+      AssemblyExporter.EVENT_LABEL -> label,
+      AssemblyExporter.PRECEDED_BY -> setToString(precededBy),
+      AssemblyExporter.NEGATED -> negated.toString,
+      AssemblyExporter.SEEN -> seen.toString,
+      AssemblyExporter.EVIDENCE -> getTextualEvidence.mkString(AssemblyExporter.CONCAT),
+      AssemblyExporter.SEEN_IN -> setToString(docIDs),
+      AssemblyExporter.INDIRECT -> isIndirect.toString,
+      //AssemblyExporter.IS_DIRECT -> isDirect.toString,
+      AssemblyExporter.CONTEXT_SPECIES -> contextFromEvidence(AssemblyExporter.SPECIES),
+      AssemblyExporter.CONTEXT_ORGAN -> contextFromEvidence(AssemblyExporter.ORGAN),
+      AssemblyExporter.CONTEXT_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
+      AssemblyExporter.CONTEXT_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
+      AssemblyExporter.CONTEXT_CELLULAR_COMPONENT -> contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT),
+      AssemblyExporter.CONTEXT_TISSUE_TYPE -> contextFromEvidence(AssemblyExporter.TISSUE_TYPE)
+    )
+  }
+
+  def toRow(cols: Seq[String], sep: String = AssemblyExporter.SEP): String = {
+    val r = for {
+      col <- cols
+    } yield columns(col)
+    r.mkString(sep)
   }
 }
 
@@ -74,7 +157,7 @@ case class Row(
   *
   * @param manager
  */
-class AssemblyExporter(val manager: AssemblyManager) {
+class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   import AssemblyExporter._
 
@@ -172,15 +255,6 @@ class AssemblyExporter(val manager: AssemblyManager) {
       reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash, reportError(reg, c))).mkString(", ")
   }
 
-  def reportError(ce: ComplexEvent, c: EntityEventRepresentation): String = {
-    println(s"$c is a controlled of a ComplexEvent but it is not a Complex or Event!")
-    val labels = c.evidence.map(_.label)
-    val evidence = ce.evidence.map(_.text)
-    println(s"Evidence for ComplexEvent: $evidence")
-    println(s"Evidence for controlled: ${c.evidence.map(_.text)}")
-    println(s"Labels assigned to evidence: $labels")
-    "???"
-  }
   def createOutput(eer: EntityEventRepresentation): String = eer match {
 
     case complex: Complex =>
@@ -229,80 +303,27 @@ class AssemblyExporter(val manager: AssemblyManager) {
       event.predecessors.map(se => EERLUT(se.equivalenceHash))
   }
 
-  /** for debugging purposes */
-  def rowsWithPrecededByIDProblems(rows: Set[Row]): Set[Row] = {
-    // make sure the output is valid
-    val eventIDs: Set[String] = rows.map(_.eventID)
-    val problems = rows.filter(r => ! r.precededBy.forall(eid => eventIDs contains eid))
-    problems
-  }
-
-  /** for debugging purposes */
-  def rowsWithOutputIDProblems(rows: Set[Row]): Set[Row] = {
-    // make sure the output is valid
-    val eventIDs: Set[String] = rows.map(_.eventID)
-    val problems = rows
-      .filter(r => r.eventLabel == "Regulation")
-      .filterNot(r => eventIDs contains r.input)
-    problems
-  }
-
-  /** Validate the rows before writing */
-  def validateOutput(rowsForOutput: Set[Row]): Unit = {
-    // make sure the output is valid
-    val eventIDs: Set[String] = rowsForOutput.map(_.eventID)
-    val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
-    val regInputIDs = rowsForOutput
-      .filter(r => r.eventLabel == "Regulation")
-      .map(_.input)
-    // check if all precededBy IDs exist as row IDs
-    require(precededByIDs.forall(eid => eventIDs contains eid), "Event ID in preceded by does not correspond to any row's ID!")
-    // check if all regs have output IDs that correspond to some row ID
-    require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation's input ID not found in EventIDs for rows!")
-  }
-
-  def writeTSV(f: File, rowFilter: Set[Row] => Set[Row]): Unit = {
-    val rowsForOutput = rowFilter(getEventRows)
+  // FIXME: take columns and sep as params
+  def writeRows(
+    f: File,
+    cols: Seq[String],
+    sep: String = AssemblyExporter.SEP,
+    rowFilter: Set[Row] => Set[Row]
+  ): Unit = {
+    val rowsForOutput = rowFilter(getRows)
     // validate output
     validateOutput(rowsForOutput)
     // prepare output
-    val header = s"INPUT\tOUTPUT\tCONTROLLER\tEVENT ID\tEVENT LABEL\tPRECEDED BY\tNEGATED?\tSEEN\tEVIDENCE\tSEEN IN\n"
+    val header =  s"${cols.mkString("\t")}\n"
     val text =
     // only events
       rowsForOutput
         .toSeq
-        .sortBy(r => (r.eventLabel, -r.docIDs.size, -r.seen))
-        .map(_.toTSVrow)
+        .sortBy(r => (r.label, -r.docIDs.size, -r.seen))
+        .map(_.toRow(cols, sep))
         .mkString("\n")
     // write the output to disk
     FileUtils.writeStringToFile(f, header + text)
-  }
-
-  def shellOutput(rowFilter: Set[Row] => Set[Row]): String = {
-    val rowsForOutput = rowFilter(getEventRows)
-
-    // validate output
-    validateOutput(rowsForOutput)
-
-    val text =
-    // only events
-      rowsForOutput
-        .toSeq
-        .sortBy(r => (r.eventID))
-        .map(_.toShellRow)
-        .mkString
-    text + "=" * 50
-  }
-
-  def getEventLabel(e: EntityEventRepresentation): String = e match {
-    case reg: Regulation => "Regulation"
-    case act: Activation => "Activation"
-    case se: SimpleEvent => se.label
-    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
-      ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
-    //case comp: Complex => "entity"
-    // filter these out later
-    case entity => "entity"
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
@@ -325,9 +346,36 @@ class AssemblyExporter(val manager: AssemblyManager) {
     rows
     }
 
-  def getEventRows: Set[Row] = getRows.filter(_.eventLabel != "entity")
+  /** for debugging purposes */
+  def reportError(ce: ComplexEvent, c: EntityEventRepresentation): String = {
+    logger.error(s"$c is a controlled of a ComplexEvent but it is not a Complex or Event!")
+    val labels = c.evidence.map(_.label)
+    val evidence = ce.evidence.map(_.text)
+    logger.error(s"Evidence for ComplexEvent: $evidence")
+    logger.error(s"Evidence for controlled: ${c.evidence.map(_.text)}")
+    logger.error(s"Labels assigned to evidence: $labels")
+    "???"
+  }
 
+  /** for debugging purposes */
+  def rowsWithPrecededByIDProblems(rows: Set[Row]): Set[Row] = {
+    // make sure the output is valid
+    val eventIDs: Set[String] = rows.map(_.eerID)
+    val problems = rows.filter(r => ! r.precededBy.forall(eid => eventIDs contains eid))
+    problems
+  }
+
+  /** for debugging purposes */
+  def rowsWithOutputIDProblems(rows: Set[Row]): Set[Row] = {
+    // make sure the output is valid
+    val eventIDs: Set[String] = rows.map(_.eerID)
+    val problems = rows
+      .filter(r => r.label == REGULATION)
+      .filterNot(r => eventIDs contains r.input)
+    problems
+  }
 }
+
 
 object AssemblyExporter {
 
@@ -342,6 +390,78 @@ object AssemblyExporter {
       "Phosphorylation" -> ".p",
       "Ubiquitination" -> ".u"
   )
+
+  // eer labels (for filtering)
+  val ENTITY = "entity"
+  val REGULATION = "Regulation"
+  val ACTIVATION = "Activation"
+
+  // context types
+  val SPECIES = "Species"
+  val ORGAN = "Organ"
+  val CELL_LINE = "CellLine"
+  val CELL_TYPE = "CellType"
+  val CELLULAR_COMPONENT = "Cellular_component"
+  val TISSUE_TYPE = "TissueType"
+
+  // columns
+  val INPUT = "INPUT"
+  val OUTPUT = "OUTPUT"
+  val CONTROLLER = "CONTROLLER"
+  val EVENT_ID = "EVENT ID"
+  val EVENT_LABEL = "EVENT LABEL"
+  val PRECEDED_BY = "PRECEDED BY"
+  val NEGATED = "NEGATED"
+  val SEEN = "SEEN"
+  val EVIDENCE = "EVIDENCE"
+  val SEEN_IN = "SEEN IN"
+  //val IS_DIRECT = "IS DIRECT?"
+  val INDIRECT = "INDIRECT?"
+  val CONTEXT_SPECIES = "CONTEXT (SPECIES)"
+  val CONTEXT_ORGAN = "CONTEXT (ORGAN)"
+  val CONTEXT_CELL_LINE = "CONTEXT (CELL LINE)"
+  val CONTEXT_CELL_TYPE = "CONTEXT (CELL TYPE)"
+  val CONTEXT_CELLULAR_COMPONENT = "CONTEXT (CELLULAR COMPONENT)"
+  val CONTEXT_TISSUE_TYPE = "CONTEXT (TISSUE TYPE)"
+
+  val SEP = "\t"
+  val CONCAT = " ++++ "
+
+  val DEFAULT_COLUMNS = Seq(
+    AssemblyExporter.INPUT,
+    AssemblyExporter.OUTPUT,
+    AssemblyExporter.CONTROLLER,
+    AssemblyExporter.EVENT_ID,
+    AssemblyExporter.EVENT_LABEL,
+    AssemblyExporter.PRECEDED_BY,
+    AssemblyExporter.NEGATED,
+    AssemblyExporter.INDIRECT,
+    // context
+    AssemblyExporter.CONTEXT_SPECIES,
+    AssemblyExporter.CONTEXT_ORGAN,
+    AssemblyExporter.CONTEXT_CELL_LINE,
+    AssemblyExporter.CONTEXT_CELL_TYPE,
+    AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
+    AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // evidence
+    AssemblyExporter.SEEN,
+    AssemblyExporter.EVIDENCE,
+    AssemblyExporter.SEEN_IN
+  )
+
+  /** Validate the rows before writing */
+  def validateOutput(rowsForOutput: Set[Row]): Unit = {
+    // make sure the output is valid
+    val eventIDs: Set[String] = rowsForOutput.map(_.eerID)
+    val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
+    val regInputIDs = rowsForOutput
+      .filter(r => r.label == REGULATION)
+      .map(_.input)
+    // check if all precededBy IDs exist as row IDs
+    require(precededByIDs.forall(eid => eventIDs contains eid), "Event ID in preceded by does not correspond to any row's ID!")
+    // check if all regs have output IDs that correspond to some row ID
+    require(regInputIDs.forall(eid => eventIDs contains eid), "Regulation's input ID not found in EventIDs for rows!")
+  }
 
   def resolveEvidence(m: Mention): CorefMention = {
     getResolvedForm(m.toCorefMention)
@@ -361,28 +481,55 @@ object AssemblyExporter {
     }
   }
 
+  def getEventLabel(e: EntityEventRepresentation): String = e match {
+    case reg: Regulation => REGULATION
+    case act: Activation => ACTIVATION
+    case se: SimpleEvent => se.label
+    case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
+      ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
+    //case comp: Complex => "entity"
+    // filter these out later
+    case entity => "entity"
+  }
+}
+
+
+object ExportFilters {
+
+  /** The EERDescription may not be an entity */
+  def isEvent(row: EERDescription): Boolean = {
+    // must have a valid eventID
+    row.label != AssemblyExporter.ENTITY && (row.label.nonEmpty || row.label != AssemblyExporter.NONE)
+  }
+
   /**
-   * Recursively checks whether or not a Mention m contains a Mention with the label Family
+    * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
     *
     * @param m an Odin Mention
-   * @return true or false
-   */
+    * @return true or false
+    */
+  def hasUAZgrounding(m: Mention): Boolean = {
+    m match {
+      case entity if entity matches "Entity" =>
+        entity.toCorefMention.nsId.toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
+      case site if site matches "Site" => false
+      case event if event matches "Event" =>
+        event.arguments.values.flatten.exists(hasUAZgrounding)
+    }
+  }
+
+  /**
+    * Recursively checks whether or not a Mention m contains a Mention with the label Family
+    *
+    * @param m an Odin Mention
+    * @return true or false
+    */
   def containsFamily(m: Mention): Boolean = m match {
     case entity if entity matches "Entity" =>
       entity matches "Family"
     case site if site matches "Site" => false
     case event if event matches "Event" =>
       event.arguments.values.flatten.exists(containsFamily)
-  }
-
-  def isValidMITREMention(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" => true
-    case se if se matches "SimpleEvent" => true
-    case reg if reg matches "Regulation" => isValidRegulation(reg)
-    // no activations for MITRE
-    case act if act matches "ActivationEvent" => false
-    // assume false...
-    case other => false
   }
 
   def isValidRegulation(m: Mention): Boolean = m match {
@@ -392,37 +539,7 @@ object AssemblyExporter {
     case reg if reg matches "Regulation" => reg.arguments.values.flatten.forall(isValidRegulation)
   }
 
-  def seenAtLeastOnce(rows: Set[Row]): Set[Row] = rows.filter(_.seen >= 1)
-
-  def onlyEvents(rows: Set[Row]): Set[Row] = rows.filter {
-      row =>
-        row.seen > 0 &&
-          // must have a valid eventID
-          (row.eventID.nonEmpty || row.eventID != AssemblyExporter.NONE)
-  }
-
-  /**
-   * Applies MITRE requirements to assembled events
-    *
-    * @param rows a Set[Row]
-   * @return a filtered Set of [[Row]]
-   */
-  def MITREfilter(rows: Set[Row]): Set[Row] = {
-    // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
-    val filteredRows = rows.filter(_.seen >= 3)
-      // 1b. Evidence come from at least 2 different sections.
-      .filter(_.docIDs.size >= 2)
-      // 2a. No Activations, etc.
-      .filter(r => r.evidence.forall(isValidMITREMention))
-      // 2b. Findings cannot include protein families.
-      .filter(r => r.evidence.forall(e => ! containsFamily(e)))
-      // 3. Findings should not have an unresolved (UAZ) grounding.
-      // FIXME: probably this should operate over EERs, not their evidence
-      .filter(r => r.evidence.forall(e => ! hasUAZgrounding(e)))
-    // 4. Only keep precedence entries that exist in set of filteredRow's event IDs
-    val eventIDs = filteredRows.map(_.eventID)
-    filteredRows.map(r => filterPrecededBy(r, eventIDs))
-  }
+  def seenAtLeastOnce(row: EERDescription): Boolean = row.seen >= 1
 
   def filterPrecededBy(row: Row, eventIDs: Set[String]): Row = row match {
     case nopredecessors if nopredecessors.precededBy.isEmpty => nopredecessors
@@ -437,27 +554,57 @@ object AssemblyExporter {
         problem.input,
         problem.output,
         problem.controller,
-        problem.eventID,
-        problem.eventLabel,
+        problem.eerID,
+        problem.label,
         validPs,
         problem.negated,
         problem.evidence,
-        problem.sourceRepresentation
+        problem.eer
       )
   }
+
+  def isValidMITREMention(m: Mention): Boolean = m match {
+    case entity if entity matches "Entity" => true
+    case se if se matches "SimpleEvent" => true
+    case reg if reg matches "Regulation" => isValidRegulation(reg)
+    // no activations for MITRE
+    case act if act matches "ActivationEvent" => false
+    // assume false...
+    case other => false
+  }
+
   /**
-   * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
+    * Applies MITRE requirements to assembled events
     *
-    * @param m an Odin Mention
-   * @return true or false
-   */
-  def hasUAZgrounding(m: Mention): Boolean = {
-    m match {
-      case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId.toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
-      case site if site matches "Site" => false
-      case event if event matches "Event" =>
-        event.arguments.values.flatten.exists(hasUAZgrounding)
-    }
+    * @param rows a Set[Row]
+    * @return a filtered Set of [[Row]]
+    */
+  def MITREfilter(rows: Set[Row]): Set[Row] = {
+    // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
+    val filteredRows = rows.filter(_.seen >= 3)
+      // 1b. Evidence come from at least 2 different sections.
+      .filter(_.docIDs.size >= 2)
+      // 2a. No Activations, etc.
+      .filter(r => r.evidence.forall(isValidMITREMention))
+      // 2b. Findings cannot include protein families.
+      .filter(r => r.evidence.forall(e => ! containsFamily(e)))
+      // 3. Findings should not have an unresolved (UAZ) grounding.
+      // FIXME: probably this should operate over EERs, not their evidence
+      .filter(r => r.evidence.forall(e => ! hasUAZgrounding(e)))
+    // 4. Only keep precedence entries that exist in set of filteredRow's event IDs
+    val eventIDs = filteredRows.map(_.label)
+    filteredRows.map(r => filterPrecededBy(r, eventIDs))
+  }
+
+
+  def regWithSimpleEventWithController(m: Mention): Boolean = m match {
+    case hasControllerControlled if (hasControllerControlled.arguments contains "controller") && (hasControllerControlled.arguments contains "controlled") =>
+      hasControllerControlled.arguments("controlled").exists {
+        case se if se.matches("SimpleEvent") => true
+        case reg if reg matches AssemblyExporter.REGULATION => regWithSimpleEventWithController(reg)
+        // Activations, etc
+        case other => false
+      }
+    case other => false
   }
 }

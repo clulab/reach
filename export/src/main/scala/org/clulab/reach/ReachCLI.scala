@@ -8,8 +8,9 @@ import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
 import org.clulab.reach.assembly._
-import org.clulab.reach.assembly.export.{AssemblyExporter, Row}
+import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
 import org.clulab.odin._
+import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.utils.MentionManager
 import org.clulab.reach.export.fries._
@@ -172,16 +173,51 @@ class ReachCLI(
         val outputter =new IndexCardOutput()
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
 
-      // Arizona's custom output for assembly
+      // assembly output
       case ("assembly-tsv", _) =>
         val assembler = doAssembly(mentions)
         val ae = new AssemblyExporter(assembler.am)
         val outFile = new File(outputDir, s"$paperId-assembly-out.tsv")
         val outFile2 = new File(outputDir, s"$paperId-assembly-out-unconstrained.tsv")
         // MITRE's requirements
-        ae.writeTSV(outFile, AssemblyExporter.MITREfilter)
+        ae.writeRows(outFile, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, ExportFilters.MITREfilter)
         // no filter
-        ae.writeTSV(outFile2, (rows: Set[Row]) => rows.filter(_.seen > 0))
+        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Set[Row]) => rows.filter(_.seen > 0))
+
+      // Arizona's custom output for assembly
+      case ("arizona", _) =>
+        // perform deduplication
+        val dedup = new DeduplicationSieves()
+        val orderedSieves =
+        // track relevant mentions
+          AssemblySieve(dedup.trackMentions)
+        val am: AssemblyManager = orderedSieves.apply(mentions)
+        val ae = new AssemblyExporter(am)
+        val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
+        // no filter
+        // FIXME: specify columns and sep
+        val cols = Seq(
+          AssemblyExporter.INPUT,
+          AssemblyExporter.OUTPUT,
+          AssemblyExporter.CONTROLLER,
+          AssemblyExporter.EVENT_ID,
+          AssemblyExporter.EVENT_LABEL,
+          AssemblyExporter.NEGATED,
+          AssemblyExporter.INDIRECT,
+          // context
+          AssemblyExporter.CONTEXT_SPECIES,
+          AssemblyExporter.CONTEXT_ORGAN,
+          AssemblyExporter.CONTEXT_CELL_LINE,
+          AssemblyExporter.CONTEXT_CELL_TYPE,
+          AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
+          AssemblyExporter.CONTEXT_TISSUE_TYPE,
+          // evidence
+          AssemblyExporter.SEEN,
+          AssemblyExporter.EVIDENCE,
+          AssemblyExporter.SEEN_IN
+        )
+        def filterUnseen(rows: Set[Row]): Set[Row] = rows.filter(_.seen > 0)
+        ae.writeRows(outFile, cols, AssemblyExporter.SEP, filterUnseen)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
