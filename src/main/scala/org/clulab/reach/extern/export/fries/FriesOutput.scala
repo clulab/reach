@@ -29,7 +29,7 @@ import org.clulab.serialization.json.JSONSerializer.formats
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Sort mention maps by sentence order.
+  *   Last Modified: Output alternate candidate groundings and grounding species.
   */
 class FriesOutput extends JsonOutputter with LazyLogging {
 
@@ -361,6 +361,15 @@ class FriesOutput extends JsonOutputter with LazyLogging {
   }
 
 
+  /** Create and return a list of alternate grounding candidates. */
+  private def makeAltGroundings (mention: BioMention): FrameList = {
+    val altGroundings = new FrameList
+    mention.candidates.foreach(cands =>
+      cands.tail.foreach(cand => altGroundings += makeGrounding(cand)))
+    altGroundings
+  }
+
+
   private def makeArgumentFrame (name: String,
                                  arg: Mention,
                                  argIndex: Int,
@@ -519,9 +528,17 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     f("end-pos") = makeRelativePosition(paperId, passageMeta, mention.endOffset)
     f("text") = mention.text
     f("type") = prettifyLabel(mention.displayLabel)
+
+    // add best grounding
     val groundings = new FrameList
     mention.grounding.foreach(grnd => groundings += makeGrounding(grnd))
     f("xrefs") = groundings
+
+    // add other grounding candidates
+    val altGroundings = makeAltGroundings(mention)
+    if (altGroundings.nonEmpty)
+      f("alt-xrefs") = altGroundings
+
     if (mention.isModified) {
       val ms = new FrameList
       for (m <- mention.modifications) {
@@ -638,6 +655,8 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     pm("object-type") = "db-reference"
     pm("namespace") = grounding.namespace
     pm("id") = grounding.id
+    if (grounding.hasSpecies)
+      pm("species") = grounding.species
     pm
   }
 
