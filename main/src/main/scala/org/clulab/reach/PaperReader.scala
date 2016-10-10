@@ -27,7 +27,7 @@ object PaperReader extends LazyLogging {
   val fileEncoding = config.getString("encoding")
 
   // systems for reading papers
-  val nxmlReader = new NxmlReader(ignoreSections.toSet)
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = rs.processor.preprocessText)
   val dsvReader = new DSVParser()
 
   // for context engine
