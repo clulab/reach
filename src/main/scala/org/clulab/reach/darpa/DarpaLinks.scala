@@ -134,7 +134,8 @@ class DarpaLinks extends Links with LazyLogging {
       // get the head of the noun phrase the mention is in
       val hd = doc.sentences(g.sentence)
         .words(findHeadStrict(gExpanded, doc.sentences(g.sentence)).getOrElse(g.tokenInterval.end - 1)).toLowerCase
-      logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")}' expanded to " +
+      logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}" +
+        s"${g.mutants.map(_.text).mkString(" ", " ", "")}' expanded to " +
         s"'${doc.sentences(g.sentence).words.slice(gExpanded.start, gExpanded.end).mkString(" ")}' with head '$hd'")
       // what other tbms have this same head?
       val cands = tbms.filter { m =>
@@ -179,18 +180,25 @@ class DarpaLinks extends Links with LazyLogging {
         var excludeThese = Seq(pronominal)
 
         proMap.foreach(kv =>
-          logger.debug(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals (${kv._2._2.map(_.text).mkString(", ")})"))
+          logger.debug(s"${kv._1} has pronominal args (${kv._2._1.map(_.text).mkString(", ")}) and non-pronominals " +
+            s"(${kv._2._2.map(_.text).mkString(", ")})"))
 
         // look at each matching generic argument in turn, in textual order
+        // NB: Do *not* make this flatMap
         proMap.map(pm => pm._2._1.map(v => (pm._1, v))).flatten.toSeq.sortBy(a => a._2).foreach { kv =>
           val (lbl, g) = (kv._1, kv._2.toCorefMention)
-          logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}' excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}' excluding " +
+            s"${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           val gTag = g.tags.get.headOption
 
           if(gTag.isEmpty || gTag.head != "PRP$") {
             excludeThese ++= pronominal.arguments.values.flatten.toSeq.map(_.toCorefMention) ++
-              hasArgs.filter(m => m.arguments.values.flatten.toSeq.contains(pronominal)).flatMap(_.arguments.values).flatten.map(_.toCorefMention)
+              hasArgs
+                .filter(m => m.arguments.values.flatten.toSeq.contains(pronominal))
+                .flatMap(_.arguments.values)
+                .flatten
+                .map(_.toCorefMention)
           }
 
           val cands = lbl match {
@@ -282,8 +290,9 @@ class DarpaLinks extends Links with LazyLogging {
         // Note: Do *not* turn this into flatMap
         npMap.map(npm => npm._2._1.map(v => (npm._1, v))).flatten.toSeq.sortBy(x => x._2).foreach { kv =>
           val (lbl, g) = (kv._1, kv._2.toCorefMention)
-          logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}${g.mutants.map(_.text).mkString(" ", " ", "")}' " +
-            s"excluding ${excludeThese.map(_.text).mkString("'", "', '", "'")}")
+          logger.debug(s"Searching for ${g.number.toString} antecedents to '${g.text}" +
+            s"${g.mutants.map(_.text).mkString(" ", " ", "")}' excluding " +
+            s"${excludeThese.map(_.text).mkString("'", "', '", "'")}")
 
           val cands = lbl match {
             // controlled and controller can be EventMentions; other argument types must be TextBoundMentions

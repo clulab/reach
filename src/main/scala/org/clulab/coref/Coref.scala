@@ -14,9 +14,6 @@ import scala.annotation.tailrec
 
 class Coref extends LazyLogging {
 
-//  val debug: Boolean = false
-//  val verbose: Boolean = debug
-
   /**
     * Make a map from TextBoundMentions to copies of themselves with a maximum of 1 antecedent
     */
@@ -82,7 +79,7 @@ class Coref extends LazyLogging {
         case _ => combineArgs(resolvedArgs.map(entry => entry._1 -> entry._2.flatten))
       }
     } yield {
-      if (argSets.nonEmpty) {
+      if (logger.underlying.isDebugEnabled && argSets.nonEmpty) {
         argSets.foreach { argSet =>
           logger.debug("argSet: ")
           argSet.foreach {
@@ -259,11 +256,13 @@ class Coref extends LazyLogging {
       // new events
       argSets = combineArgs(resolvedArgs)
     } yield {
-      logger.debug("argSets:")
-      argSets.foreach { argSet =>
-        argSet.foreach {
-          case (lbl: String, ms: Seq[CorefMention]) =>
-            logger.debug(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[", ",", "]")).mkString(","))
+      if (logger.underlying.isDebugEnabled && argSets.nonEmpty) {
+        logger.debug("argSets:")
+        argSets.foreach { argSet =>
+          argSet.foreach {
+            case (lbl: String, ms: Seq[CorefMention]) =>
+              logger.debug(lbl + " -> " + ms.map(m => m.text + m.antecedents.map(_.text).mkString("[", ",", "]")).mkString(","))
+          }
         }
       }
 

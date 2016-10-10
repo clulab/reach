@@ -23,7 +23,6 @@ package object display {
       val sortedEntities = tbs ++ rels.sortBy(_.label)
       val entitySummaries = sortedEntities map summarizeMention
       val eventSummaries = events map summarizeMention
-      events foreach displayMention
       val boundary = "=" * 50
 
       s"""
