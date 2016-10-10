@@ -601,7 +601,7 @@ object ExportFilters {
     case hasControllerControlled if (hasControllerControlled.arguments contains "controller") && (hasControllerControlled.arguments contains "controlled") =>
       hasControllerControlled.arguments("controlled").exists {
         case se if se.matches("SimpleEvent") => true
-        case reg if reg matches "Regulation" => regWithSimpleEventWithController(reg)
+        case reg if reg matches AssemblyExporter.REGULATION => regWithSimpleEventWithController(reg)
         // Activations, etc
         case other => false
       }
