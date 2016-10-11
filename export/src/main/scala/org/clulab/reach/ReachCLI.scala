@@ -235,7 +235,7 @@ object ReachCLI extends App with LazyLogging {
   // should assembly be performed?
   val withAssembly = config.getBoolean("withAssembly")
   val outputType = config.getString("outputType")
-  val logFile = new File(config.getString("logFile"))
+  val logFile = new File(config.getString("logging.logfile"))
 
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
