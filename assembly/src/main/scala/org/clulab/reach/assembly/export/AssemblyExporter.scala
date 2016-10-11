@@ -189,11 +189,12 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   def getText(entity: SimpleEntity): String = {
    val text = entity.sourceMention match {
-      case Some(m) => m.text
+      // get the resolved form
+      case Some(m) => resolveEvidence(m).text
       case noSource =>
         val altText =
           entity.withSameGrounding
-            .flatMap(_.evidence.map(resolveEvidence).map(_.text))
+            .flatMap(_.evidence.map(resolveEvidence).map(_.text)) // get the resolved form
         if (altText.nonEmpty) altText.head else "???"
     }
     text
@@ -316,7 +317,6 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     // prepare output
     val header =  s"${cols.mkString("\t")}\n"
     val text =
-    // only events
       rowsForOutput
         .toSeq
         .sortBy(r => (r.label, -r.docIDs.size, -r.seen))

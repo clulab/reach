@@ -209,8 +209,13 @@ class ReachCLI(
           AssemblyExporter.EVIDENCE,
           AssemblyExporter.SEEN_IN
         )
-        def filterUnseen(rows: Set[Row]): Set[Row] = rows.filter(_.seen > 0)
-        ae.writeRows(outFile, cols, AssemblyExporter.SEP, filterUnseen)
+        def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
+          // remove unseen
+          (r.seen > 0) &&
+          // keep only the events
+          ExportFilters.isEvent(r)
+        }
+        ae.writeRows(outFile, cols, AssemblyExporter.SEP, arizonaFilter)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
