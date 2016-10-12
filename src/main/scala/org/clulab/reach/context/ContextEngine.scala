@@ -22,7 +22,7 @@ object ContextEngine {
   val contextMatching = Seq("Species", "Organ", "CellLine", "CellType", "Cellular_component", "TissueType", "ContextPossessive", "ContextLocation", "ContextDirection")
 
   def isContextMention(mention:BioMention) = (ContextEngine.contextMatching map (mention.labels.contains(_))).foldLeft(false)(_||_)
-  
+
   def getContextKey(mention:BioMention):(String, String) ={
     val id = if(mention.isGrounded) mention.grounding match{
       case Some(grounding) => grounding.nsId
@@ -56,43 +56,6 @@ object ContextEngine {
   }.values.map(_(0)).toSeq // Select the first element of each group
 
 
-  val latentVocabulary:Map[(String, String), String] = sortedContextEntries.map{
-    entry => ((entry.ctxType, s"${entry.namespace}:${entry.id}") -> entry.text)
-  }.toMap
 
-  // Same here but for the observed features
-  val featureVocabulary:Map[(String, String), String] = latentVocabulary // Now add any new stuff that may show up as a feature
 
-  def getDescription(mention:BioMention, voc:Map[(String, String), String]):String = {
-    val key = getContextKey(mention)
-    if(key._2.startsWith("uaz:")){
-      println(s"Warning: ${mention.text}")
-    }
-    getDescription(key, voc)
-  }
-
-  def getDescription(key:(String, String), voc:Map[(String, String), String]):String = voc.lift(key) match {
-    case Some(desc) => desc
-    case None =>
-      println(s"WARNING: key $key not found in the context vocabulary")
-      "MISSING"
-  }
-
-  def getIndex(mention:BioMention, voc:Map[(String, String), String]):Int = {
-    val key = getContextKey(mention)
-    if(key._2.startsWith("uaz:")){
-      println(s"Warning: ${mention.text}")
-    }
-    getIndex(key, voc)
-  }
-
-  // index 0 is "Missing", the rest of the entries get shifted 1 position
-  def getIndex(key:(String, String), voc:Map[(String, String), String]):Int = voc.keys.toList.indexOf(key) match{
-    case -1 =>
-      println(s"WARNING: key $key not found in the context vocabulary")
-      0
-    case ix:Int => ix + 1
-  }
-
-  def getKey(ix:Int, voc:Map[(String, String), String]):(String, String) = if(ix>0) voc.keys.toList(ix - 1) else ("MISSING", "MISSING")
 }

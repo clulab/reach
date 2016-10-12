@@ -484,4 +484,10 @@ class TestTemplaticSimpleDeEvents extends FlatSpec with Matchers {
     // TODO: this fails because the *_token_8_noun rule over matches. Please fix
     hasEventWithArguments("Dephosphorylation", List("p35"), mentions) should be (false)
   }
+
+  val sent35 = "SIRT1 deubiquitylates MEK5D"
+  sent35 should "contain a deubiqutination" in {
+    val mentions = getBioMentions(sent35)
+    hasEventWithArguments("Deubiquitination", Seq("MEK5D"), mentions) should be (true)
+  }
 }
