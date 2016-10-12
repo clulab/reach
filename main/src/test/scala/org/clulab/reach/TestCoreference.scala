@@ -624,7 +624,7 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent57)
     val their = mentions.filter(_.text == "their")
     their.nonEmpty should be (true)
-    val ants = their.map(_.antecedentOrElse(their.get).text)
+    val ants = their.map(m => m.antecedentOrElse(m).text)
     ants should contain ("AKT")
     ants should contain ("HSP20")
   }
