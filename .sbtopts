@@ -1,1 +1,4 @@
 -J-Xmx5G
+-J-XX:+CMSClassUnloadingEnabled
+-J-XX:+UseConcMarkSweepGC
+-J-Xmx7G

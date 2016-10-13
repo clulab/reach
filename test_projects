@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sbt main/test
+sbt assembly/test
+sbt export/test
