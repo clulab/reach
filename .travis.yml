@@ -6,4 +6,7 @@ scala:
 branches:
   only:
     - master
-
+script:
+  - sbt main/test
+  - sbt assembly/test
+  - sbt export/test
