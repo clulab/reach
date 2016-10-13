@@ -57,17 +57,7 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .settings(
-    publishArtifact := false,
-    publishTo := Some("dummy" at "nowhere"),
-    publish := {},
-    publishLocal := {},
-    publishM2 := {},
-    Keys.`package` := {
-      // avoid generating an empty jar for the root project
-      (Keys.`package` in (main, Compile)).value
-    }
-  )
+  .settings(name := "reach-exe")
   .aggregate(main, assembly, export)
   .dependsOn(main, assembly, export) // so that we can import from the console
 
