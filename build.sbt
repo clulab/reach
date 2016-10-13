@@ -57,9 +57,12 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
-  .settings(name := "reach-exe")
   .aggregate(main, assembly, export)
-  .dependsOn(main, assembly, export) // so that we can import from the console
+  .dependsOn(main % "test->test;compile", assembly, export) // so that we can import from the console
+  .settings(
+    name := "reach-exe",
+    aggregate in test := false
+  )
 
 lazy val main = project
   .settings(commonSettings:_*)
