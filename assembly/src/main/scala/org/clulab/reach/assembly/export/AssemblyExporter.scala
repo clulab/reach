@@ -79,25 +79,6 @@ case class Row(
     }
   }
 
-  def isDirect: Boolean = evidence.exists{ e =>
-    e.toCorefMention match {
-      case em: CorefEventMention => em.isDirect
-      // mark all activations as indirect
-      case activation if activation matches "Activation" => false
-      // NOTE: should already be covered by CorefEventMention case
-      case se if se matches "SimpleEvent" => true
-      case binding if binding matches "Binding" => true
-      case complex if complex matches "Complex" => true
-      // we'll call entities "direct"
-      // NOTE: likely entity rows will not be reported
-      case entity if entity matches "Entity" => true
-      // a reg with a simple event as its controlled
-      case reg if ExportFilters.regWithSimpleEventWithController(reg) => true
-      // assume it's indirect otherwise?
-      case other => false
-    }
-  }
-
   def isIndirect: Boolean = evidence.exists{ e =>
     e.toCorefMention match {
       case em: CorefEventMention => ! em.isDirect
@@ -231,15 +212,15 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     s"$text::${entity.grounding}$mutantForms$features"
   }
 
-  def createInput(eer: EntityEventRepresentation): String = eer match {
+  def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
 
-    case entity: SimpleEntity => createSimpleEntityText(entity)
+    case entity: SimpleEntity => s"${createSimpleEntityText(entity)}$mods"
 
     case complex: Complex =>
-      complex.members.map(createInput).mkString(", ")
+      complex.members.map(m => createInput(m, mods)).mkString(", ")
 
     case se: SimpleEvent =>
-      se.input.values.flatten.map(createInput).mkString(", ")
+      se.input.values.flatten.map(m => createInput(m, mods)).mkString(", ")
 
     // inputs to an activation are entities
     case act: Activation =>
@@ -247,7 +228,13 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         // get IDs of any events
         case event: Event => EERLUT.getOrElse(event.equivalenceHash, reportError(act, event))
         // represent entities directly
-        case entity: Entity => createInput(entity)
+        case entity: Entity =>
+          val activationMod = act.polarity match {
+            // negative activations start with activated input
+            case AssemblyManager.negative => ".a"
+            case _ => ""
+          }
+          createInput(entity, s"$mods$activationMod")
       }.mkString(", ")
 
     // inputs to a regulation are other events
@@ -256,25 +243,26 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash, reportError(reg, c))).mkString(", ")
   }
 
-  def createOutput(eer: EntityEventRepresentation): String = eer match {
+  def createOutput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
 
     case complex: Complex =>
-      complex.members.map(createInput).mkString("{", ", ", "}")
+      complex.members.map(m => createInput(m, mods)).mkString("{", ", ", "}")
 
     case se: SimpleEvent =>
       se.output.map{
         case binding: Complex => createOutput(binding)
-        case other => createInput(other)
+        case other => createInput(other, mods)
       }.mkString(", ")
 
-    case act: Activation =>
-      act.controlled.map(c => s"${createInput(c)}.a").mkString(", ")
+    // positive activations produce an acitvated output entity
+    case posact: Activation if posact.polarity == AssemblyManager.positive =>
+      posact.controlled.map(c => createInput(c, s"$mods.a")).mkString(", ")
 
-    case reg: Regulation =>
-      reg.controlled.map(createOutput).mkString(", ")
+    case ce: ComplexEvent =>
+      ce.controlled.map(c => createOutput(c, mods)).mkString(", ")
 
     // PTM-like cases
-    case entity: Entity => createInput(entity)
+    case entity: Entity => createInput(entity, mods)
 
     case _ => NONE
   }
@@ -282,11 +270,14 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   def createController(eer: EntityEventRepresentation): String = eer match {
 
     case ce: ComplexEvent =>
+      val sign = if (ce.polarity == AssemblyManager.negative) ".neg" else ""
       ce.controller.map {
         case entity: SimpleEntity => createSimpleEntityText(entity)
         case complex: Complex => createInput(complex)
         case c => s"${createOutput(c)}.${ce.polarity}"
-      }.mkString(", ")
+      }  // add polarity
+        .map(t => s"$t$sign")
+        .mkString(", ")
 
     case _ => NONE
 
