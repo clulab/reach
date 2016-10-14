@@ -1,9 +1,9 @@
-# DecreaseAmount events require a theme of BioChemicalEntity
+# Decrease_amount events require a theme of BioChemicalEntity
 
 - name: decrease_amount_1
   priority: ${ priority }
   example: "loss of neurofibromin"
-  label: DecreaseAmount
+  label: Decrease_amount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
     theme:BioChemicalEntity = prep_of | prep_in
