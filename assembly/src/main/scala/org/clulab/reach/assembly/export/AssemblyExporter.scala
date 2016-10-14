@@ -270,14 +270,11 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   def createController(eer: EntityEventRepresentation): String = eer match {
 
     case ce: ComplexEvent =>
-      val sign = if (ce.polarity == AssemblyManager.negative) ".neg" else ""
       ce.controller.map {
         case entity: SimpleEntity => createSimpleEntityText(entity)
         case complex: Complex => createInput(complex)
         case c => s"${createOutput(c)}.${ce.polarity}"
-      }  // add polarity
-        .map(t => s"$t$sign")
-        .mkString(", ")
+      }.mkString(", ")
 
     case _ => NONE
 
@@ -473,8 +470,8 @@ object AssemblyExporter {
   }
 
   def getEventLabel(e: EntityEventRepresentation): String = e match {
-    case reg: Regulation => REGULATION
-    case act: Activation => ACTIVATION
+    case reg: Regulation => s"$REGULATION (${reg.polarity})"
+    case act: Activation => s"$ACTIVATION (${act.polarity})"
     case se: SimpleEvent => se.label
     case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
       ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
