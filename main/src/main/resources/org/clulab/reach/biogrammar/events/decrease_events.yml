@@ -3,7 +3,7 @@
 - name: decrease_amount_1
   priority: ${ priority }
   example: "loss of neurofibromin"
-  label: Decrease_amount
+  label: DecreaseAmount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
     theme:BioChemicalEntity = prep_of | prep_in

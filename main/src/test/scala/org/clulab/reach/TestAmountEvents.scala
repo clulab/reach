@@ -14,6 +14,6 @@ class TestAmountEvents extends FlatSpec with Matchers {
   val sent2 = "Ets-1 upregulates the loss of MMP-9."
   sent2 should "have a Decrease_amount event of MMP-9" in {
     val mentions = getBioMentions(sent2)
-    hasEventWithArguments("Decrease_amount", Seq("MMP-9"), mentions) should be (true)
+    hasEventWithArguments("DecreaseAmount", Seq("MMP-9"), mentions) should be (true)
   }
 }

@@ -29,9 +29,9 @@
             - Generic_event
             - Translocation
             - Amount:
-              - Increase_amount:
+              - IncreaseAmount:
                 - Transcription
-              - Decrease_amount
+              - DecreaseAmount
             - AdditionEvent:
                 - Acetylation
                 - Farnesylation
