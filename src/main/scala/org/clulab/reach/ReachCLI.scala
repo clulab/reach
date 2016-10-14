@@ -7,13 +7,14 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
-import org.clulab.assembly._
-import org.clulab.assembly.export.{AssemblyExporter, Row}
+import org.clulab.reach.assembly._
+import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
 import org.clulab.odin._
-import org.clulab.reach.darpa.OutputDegrader
-import org.clulab.reach.extern.export.MentionManager
-import org.clulab.reach.extern.export.fries._
-import org.clulab.reach.extern.export.indexcards.IndexCardOutput
+import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
+import org.clulab.reach.export.OutputDegrader
+import org.clulab.reach.utils.MentionManager
+import org.clulab.reach.export.fries._
+import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.mentions.CorefMention
 
 
@@ -27,14 +28,13 @@ class ReachCLI(
   val papersDir: File,
   val outputDir: File,
   val outputFormat: String,
-  val logFile: File,
-  val verbose: Boolean = false
+  val logFile: File
+//  val verbose: Boolean = false
 ) extends LazyLogging {
 
   /** Process papers **/
   def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
-    if (verbose)
-      println("Initializing Reach ...")
+    logger.info("Initializing Reach ...")
 
     val _ = PaperReader.rs.extractFrom("Blah", "", "")
     val files = papersDir.listFiles.par
@@ -95,18 +95,14 @@ class ReachCLI(
 
     FileUtils.writeStringToFile(logFile, s"$startTime: Starting $paperId\n", true)
 
-    if (verbose) {
-      println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
-    }
+    logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
 
 
-    if (verbose) {
-      println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
-    }
+    logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
 
     // generate output
     outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
@@ -115,9 +111,7 @@ class ReachCLI(
     val endTime = ReachCLI.now
     val endNS = System.nanoTime
 
-    if (verbose) {
-      println(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
-    }
+    logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
 
     FileUtils.writeStringToFile(
       logFile, s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n", true
@@ -144,7 +138,7 @@ class ReachCLI(
         val mentionMgr = new MentionManager()
         val lines = mentionMgr.sortMentionsToStrings(mentions)
         val outFile = new File(outputDir, s"$paperId.txt")
-        println(s"writing ${outFile.getName} ...")
+        logger.info(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
 
       // Handle FRIES-style output (w/ assembly)
@@ -172,16 +166,56 @@ class ReachCLI(
         val outputter =new IndexCardOutput()
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
 
-      // Arizona's custom output for assembly
+      // assembly output
       case ("assembly-tsv", _) =>
         val assembler = doAssembly(mentions)
         val ae = new AssemblyExporter(assembler.am)
         val outFile = new File(outputDir, s"$paperId-assembly-out.tsv")
         val outFile2 = new File(outputDir, s"$paperId-assembly-out-unconstrained.tsv")
         // MITRE's requirements
-        ae.writeTSV(outFile, AssemblyExporter.MITREfilter)
+        ae.writeRows(outFile, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, ExportFilters.MITREfilter)
         // no filter
-        ae.writeTSV(outFile2, (rows: Set[Row]) => rows.filter(_.seen > 0))
+        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Set[Row]) => rows.filter(_.seen > 0))
+
+      // Arizona's custom output for assembly
+      case ("arizona", _) =>
+        // perform deduplication
+        val dedup = new DeduplicationSieves()
+        val orderedSieves =
+        // track relevant mentions
+          AssemblySieve(dedup.trackMentions)
+        val am: AssemblyManager = orderedSieves.apply(mentions)
+        val ae = new AssemblyExporter(am)
+        val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
+        // no filter
+        // FIXME: specify columns and sep
+        val cols = Seq(
+          AssemblyExporter.INPUT,
+          AssemblyExporter.OUTPUT,
+          AssemblyExporter.CONTROLLER,
+          AssemblyExporter.EVENT_ID,
+          AssemblyExporter.EVENT_LABEL,
+          AssemblyExporter.NEGATED,
+          AssemblyExporter.INDIRECT,
+          // context
+          AssemblyExporter.CONTEXT_SPECIES,
+          AssemblyExporter.CONTEXT_ORGAN,
+          AssemblyExporter.CONTEXT_CELL_LINE,
+          AssemblyExporter.CONTEXT_CELL_TYPE,
+          AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
+          AssemblyExporter.CONTEXT_TISSUE_TYPE,
+          // evidence
+          AssemblyExporter.SEEN,
+          AssemblyExporter.EVIDENCE,
+          AssemblyExporter.SEEN_IN
+        )
+        def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
+          // remove unseen
+          (r.seen > 0) &&
+          // keep only the events
+          ExportFilters.isEvent(r)
+        }
+        ae.writeRows(outFile, cols, AssemblyExporter.SEP, arizonaFilter)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
@@ -190,19 +224,18 @@ class ReachCLI(
   private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }
 
-object ReachCLI extends App {
+object ReachCLI extends App with LazyLogging {
   // use specified config file or the default one if one is not provided
   val config =
     if (args.isEmpty) ConfigFactory.load()
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
-  val verbose = config.getBoolean("verbose")
   val papersDir = new File(config.getString("papersDir"))
   val outDir = new File(config.getString("outDir"))
   // should assembly be performed?
   val withAssembly = config.getBoolean("withAssembly")
   val outputType = config.getString("outputType")
-  val logFile = new File(config.getString("logFile"))
+  val logFile = new File(config.getString("logging.logfile"))
 
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
@@ -220,14 +253,13 @@ object ReachCLI extends App {
 
   // if friesDir does not exist create it
   if (!outDir.exists) {
-    if (verbose)
-      println(s"Creating output directory: ${outDir.getCanonicalPath}")
+    logger.info(s"Creating output directory: ${outDir.getCanonicalPath}")
     FileUtils.forceMkdir(outDir)
   } else if (!outDir.isDirectory) {
     sys.error(s"${outDir.getCanonicalPath} is not a directory")
   }
 
-  val cli = new ReachCLI(papersDir, outDir, outputType, logFile, verbose)
+  val cli = new ReachCLI(papersDir, outDir, outputType, logFile)
 
   cli.processPapers(Some(threadLimit), withAssembly)
 

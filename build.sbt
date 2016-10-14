@@ -1,22 +1,79 @@
 import ReleaseTransformations._
 
-name := "reach"
+lazy val commonSettings = Seq(
 
-organization := "org.clulab"
+  organization := "org.clulab",
 
-scalaVersion := "2.11.8"
+  scalaVersion := "2.11.8",
 
-scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation")
+  scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
 
-testOptions in Test += Tests.Argument("-oD")
+  testOptions in Test += Tests.Argument("-oD"),
 
-parallelExecution in Test := false
+  parallelExecution in Global := false,
 
-// forward sbt's stdin to forked process
-connectInput in run := true
+  // publish to a maven repo
+  publishMavenStyle := true,
 
-// don't show output prefix
-outputStrategy := Some(StdoutOutput)
+  // the standard maven repository
+  publishTo := {
+    val nexus = "https://oss.sonatype.org/"
+    if (isSnapshot.value)
+      Some("snapshots" at nexus + "content/repositories/snapshots")
+    else
+      Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  },
+
+  // let’s remove any repositories for optional dependencies in our artifact
+  pomIncludeRepository := { _ => false },
+
+  // mandatory stuff to add to the pom for publishing
+  pomExtra :=
+    <url>https://github.com/clulab/reach</url>
+    <licenses>
+      <license>
+        <name>Apache License, Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+    <scm>
+      <url>https://github.com/clulab/reach</url>
+      <connection>https://github.com/clulab/reach</connection>
+    </scm>
+    <developers>
+      <developer>
+        <id>mihai.surdeanu</id>
+        <name>Mihai Surdeanu</name>
+        <email>mihai@surdeanu.info</email>
+      </developer>
+    </developers>
+
+  //
+  // end publishing settings
+  //
+
+)
+
+lazy val root = (project in file("."))
+  .settings(commonSettings: _*)
+  .aggregate(main, assembly, export)
+  .dependsOn(main % "test->test;compile", assembly, export) // so that we can import from the console
+  .settings(
+    name := "reach-exe",
+    aggregate in test := false
+  )
+
+lazy val main = project
+  .settings(commonSettings:_*)
+
+lazy val assembly = project
+  .settings(commonSettings:_*)
+  .dependsOn(main % "test->test;compile->compile")
+
+lazy val export = project
+  .settings(commonSettings:_*)
+  .dependsOn(main % "test->test;compile->compile", assembly % "test;compile") // need access to assembly/src/resources
 
 //
 // publishing settings
@@ -36,67 +93,6 @@ releaseProcess := Seq[ReleaseStep](
   setNextVersion,
   commitNextVersion,
   pushChanges
-)
-
-// publish to a maven repo
-publishMavenStyle := true
-
-// the standard maven repository
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
-
-// let’s remove any repositories for optional dependencies in our artifact
-pomIncludeRepository := { _ => false }
-
-// mandatory stuff to add to the pom for publishing
-pomExtra := (
-  <url>https://github.com/clulab/reach</url>
-  <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-  <scm>
-    <url>https://github.com/clulab/reach</url>
-    <connection>https://github.com/clulab/reach</connection>
-  </scm>
-  <developers>
-    <developer>
-      <id>mihai.surdeanu</id>
-      <name>Mihai Surdeanu</name>
-      <email>mihai@surdeanu.info</email>
-    </developer>
-  </developers>)
-
-//
-// end publishing settings
-//
-
-libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.17",
-  "org.clulab" %% "processors-main" % "6.0.0",
-  "org.clulab" %% "processors-corenlp" % "6.0.0",
-  "org.clulab" %% "processors-models" % "6.0.0",
-  "org.clulab" %% "reach-assembly" % "0.0.1",
-  "com.typesafe" % "config" % "1.2.1",
-  "commons-io" % "commons-io" % "2.4",
-  "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
-  "jline" % "jline" % "2.12.1",
-  "org.apache.lucene" % "lucene-core" % "5.3.1",
-  "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
-  "org.apache.lucene" % "lucene-queryparser" % "5.3.1",
-  "ai.lum" %% "nxmlreader" % "0.0.6",
-  // logging
-  "ch.qos.logback" %  "logback-classic" % "1.1.7",
-  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0"
 )
 
 // settings for building project website
