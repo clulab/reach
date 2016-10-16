@@ -299,4 +299,10 @@ class TestActivationEvents extends FlatSpec with Matchers {
     hasPositiveActivation("EGFR", "MAPK1", mentions) should be (true)
   }
 
+  val sent40 = "We now show that mTOR inhibition induces insulin receptor substrate-1 expression and abrogates feedback inhibition of the pathway , resulting in Akt activation both in cancer cell lines and in patient tumors treated with the rapamycin derivative , RAD001 ."
+  sent40 should "contain 1 positive activation" in {
+    val cms = getCorefmentionsFromText(sent40)
+    cms.count(_ matches "Positive_activation") should be (1)
+    hasPositiveActivation(controllerEntity = "rapamycin", controlledEntity = "Akt", cms)
+  }
 }
