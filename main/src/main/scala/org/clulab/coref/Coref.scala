@@ -2,7 +2,7 @@ package org.clulab.coref
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
-import org.clulab.reach.grounding.{KBEntry, ReachKBConstants}
+import org.clulab.reach.grounding.{KBEntry, ReachKBConstants, Resolutions}
 import org.clulab.reach.utils.DependencyUtils._
 import org.clulab.reach.display._
 import org.clulab.reach.mentions._
@@ -338,7 +338,7 @@ class Coref extends LazyLogging {
 
   def apply(docMentions: Seq[Seq[Mention]]): Seq[Seq[CorefMention]] = {
 
-    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, BioMention]
+    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, Resolutions]
 
     for {
       mentions <- docMentions
@@ -387,8 +387,15 @@ class Coref extends LazyLogging {
             !(aliases contains a.grounding.get.entry) && // assume any existing entry is correct
             !(aliases contains b.grounding.get.entry) // so don't replace existing entry
         } {
-          if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
-          else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
+          if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b.candidates
+          else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a.candidates
+          else if (a.grounding.get.namespace == b.grounding.get.namespace) {
+            val both = a.candidates.getOrElse(Nil) ++ b.candidates.getOrElse(Nil)
+            if (both.nonEmpty) {
+              aliases(a.grounding.get.entry) = Option(both)
+              aliases(b.grounding.get.entry) = Option(both)
+            }
+          }
         }
 
         logger.debug("\n=====Alias matching=====")
@@ -397,8 +404,9 @@ class Coref extends LazyLogging {
           mention =>
             val kbEntry = mention.grounding.get.entry
             if (aliases contains kbEntry) {
-              logger.debug(s"${mention.text} matches ${aliases(kbEntry).text}")
-              mention.copyGroundingFrom(aliases(kbEntry))
+              logger.debug(s"${mention.text} matches " +
+                s"${aliases(kbEntry).getOrElse(Nil).map(_.text).mkString("{'","', '", "}")}")
+              mention.nominate(aliases(kbEntry))
               mention.sieves += "aliasGroundingMatch"
             }
         }

@@ -1,7 +1,5 @@
 package org.clulab.reach.grounding
 
-import scala.Serializable
-
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.

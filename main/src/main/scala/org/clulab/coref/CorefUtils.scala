@@ -120,9 +120,9 @@ object CorefUtils {
       a.label == b.label &&
       a.nonGeneric && b.nonGeneric &&
       compatibleContext(a, b) &&
-      a.isGrounded && b.isGrounded &&
-      ((a.grounding().get.namespace == ReachKBConstants.DefaultNamespace) ^
-        (b.grounding().get.namespace == ReachKBConstants.DefaultNamespace))
+      a.isGrounded && b.isGrounded //&&
+      //((a.grounding().get.namespace == ReachKBConstants.DefaultNamespace) ^
+      //  (b.grounding().get.namespace == ReachKBConstants.DefaultNamespace))
   }
 
   /**
