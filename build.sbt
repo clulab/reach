@@ -12,8 +12,6 @@ lazy val commonSettings = Seq(
 
   parallelExecution in Global := false,
 
-  test in assembly := {},
-
   // publish to a maven repo
   publishMavenStyle := true,
 
