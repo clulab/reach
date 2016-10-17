@@ -71,25 +71,25 @@ object FileProcessorWebUI extends App with FileUpload {
   }
 
   def generateOutput(outputFormat: String): Route = fileUpload(PAPER) {
-      case (fileInfo, fileStream) =>
-        logger.info(s"File is ${fileInfo.fileName}")
-        logger.info(s"Output type is $outputFormat")
-        val temp = System.getProperty("java.io.tmpdir")
-        val tempFile = new File(temp, fileInfo.fileName)
-        val sink = FileIO.toFile(tempFile)
-        val writeResult = fileStream.runWith(sink)
-        onSuccess(writeResult) { result =>
-          result.status match {
-            case Success(_) =>
-              //complete(s"${fileInfo.fileName} successfully saved to ${tempFile.getAbsolutePath}")
-              val result = processFile(tempFile, outputFormat)
-              logger.info(s"successfully processed ${fileInfo.fileName}")
-//              println(result)
-              complete(result)
-            case Failure(e) => throw e
-          }
+    case (fileInfo, fileStream) =>
+      logger.info(s"File is ${fileInfo.fileName}")
+      logger.info(s"Output type is $outputFormat")
+      val temp = System.getProperty("java.io.tmpdir")
+      val tempFile = new File(temp, fileInfo.fileName)
+      val sink = FileIO.toFile(tempFile)
+      val writeResult = fileStream.runWith(sink)
+      onSuccess(writeResult) { result =>
+        result.status match {
+          case Success(_) =>
+            //complete(s"${fileInfo.fileName} successfully saved to ${tempFile.getAbsolutePath}")
+            val result = processFile(tempFile, outputFormat)
+            logger.info(s"successfully processed ${fileInfo.fileName}")
+            //              println(result)
+            complete(result)
+          case Failure(e) => throw e
         }
-    }
+      }
+  }
 
   def handleSubmission: Route = {
     // log results
@@ -98,23 +98,23 @@ object FileProcessorWebUI extends App with FileUpload {
       path("") {
         getFromResource(s"$static/index.html")
       } ~
-      path("process" / "paper") {
-        (post & entity(as[Multipart.FormData])) { formdata =>
-          // FIXME: how do I retrieve the value of the "output-type" field?
-          val outputFormat: String = ???
-          logger.info(s"OUTPUT_TYPE: $outputFormat")
-          generateOutput(outputFormat)
-          // HttpResponse(status = StatusCodes.InternalServerError, entity = "<h2>Failed to process your file</h2>")
+        path("process" / "paper") {
+          (post & entity(as[Multipart.FormData])) { formdata =>
+            // FIXME: how do I retrieve the value of the "output-type" field?
+            val outputFormat: String = ???
+            logger.info(s"OUTPUT_TYPE: $outputFormat")
+            generateOutput(outputFormat)
+            // HttpResponse(status = StatusCodes.InternalServerError, entity = "<h2>Failed to process your file</h2>")
+          }
+        } ~
+        path("process" / "paper" / ARIZONA ) {
+          logger.info("received request to process/paper/json")
+          (post & entity(as[Multipart.FormData])) { formdata => generateOutput(ARIZONA) }
+        } ~
+        path("process" / "paper" / JSON ) {
+          logger.info("received request to process/paper/json")
+          (post & entity(as[Multipart.FormData])) { formdata => generateOutput(JSON) }
         }
-      } ~
-      path("process" / "paper" / ARIZONA ) {
-        logger.info("received request to process/paper/json")
-        (post & entity(as[Multipart.FormData])) { formdata => generateOutput(ARIZONA) }
-      } ~
-      path("process" / "paper" / JSON ) {
-        logger.info("received request to process/paper/json")
-        (post & entity(as[Multipart.FormData])) { formdata => generateOutput(JSON) }
-      }
     }
   }
 

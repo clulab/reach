@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>reach-assembly</title>
+        <style>
+        #results {
+          font-family: monospace;
+          font-size: 10px;
+          font-weight: normal;
+          resize: none;
+          overflow-y: scroll;
+        }
+        #results-div {
+          display: none;
+        }
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- bootstrap dialog -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    </head>
+    <body>
+      <div class="modal fade" id="loading" role="dialog">
+        <div class="modal-dialog modal-sm">
+          <svg width='120px' height='120px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-spin">
+            <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
+            <g transform="translate(50 50)">
+              <g transform="rotate(0) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(45) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.12s" dur="1s" repeatCount="indefinite">
+                  </animate><animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.12s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(90) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.25s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.25s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(135) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.37s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.37s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(180) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.5s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.5s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(225) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.62s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.62s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(270) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.75s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.75s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+              <g transform="rotate(315) translate(34 0)">
+                <circle cx="0" cy="0" r="8" fill="#000">
+                  <animate attributeName="opacity" from="1" to="0.1" begin="0.87s" dur="1s" repeatCount="indefinite">
+                  </animate>
+                  <animateTransform attributeName="transform" type="scale" from="1.5" to="1" begin="0.87s" dur="1s" repeatCount="indefinite">
+                  </animateTransform>
+                </circle>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="container theme-showcase" role="main">
+          <!-- pass key & value -->
+          <form class="form-horizontal" id="paper-reader-form" method="post" enctype="multipart/form-data"> <!--  action="/process/paper/arizona" -->
+              <fieldset>
+
+                  <!-- Form Name -->
+                  <legend>Process Paper</legend>
+
+                  <!-- File Button -->
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for="paper-upload">Select paper</label>
+                      <div class="col-md-4">
+                          <input id="paper-upload" name="paper-upload" class="input-file" type="file">
+                      </div>
+                  </div>
+
+                  <!-- Select Basic -->
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for="output-type">Output as ...</label>
+                      <div class="col-md-5">
+                          <select id="output-type" name="output-type" class="form-control">
+                              <option value="arizona">arizona (column-based format)</option>
+                              <option value="json">json (serialization of mentions and document annotations)</option>
+                          </select>
+                      </div>
+                  </div>
+              </fieldset>
+              <input type="submit" id="form-submit" class="btn-primary" value="Submit">
+          </form>
+          <div class="accordian-toggle" id="results-div">
+            <h2>Results</h2>
+            <textarea class="form-control" id="results" rows="10">
+            </textarea>
+          </div>
+      </div>
+      <script "text/javascript">
+      $('document').ready(function () {
+        $('#results-div').collapse('hide');
+        $(document).ajaxStart(function () {
+          $('#loading').modal('show');
+          $('#results-div').collapse('hide');
+        }).ajaxStop(function () {
+          $('#loading').modal('hide');
+          $('#results-div').css("display", "initial");
+          $('#results-div').collapse('show');
+        });
+
+        var baseURL = location.protocol + '//' + location.hostname + (location.port ? ':'+location.port: '') + "/process/paper/";
+
+        // Dispatch submission
+        $("#paper-reader-form").submit(function(){
+          event.preventDefault();
+
+          var formData = new FormData();
+          //var formData = new FormData($("#paper-reader-form")[0]);
+          formData.append("input-type", $("#input-type").val());
+          // get file
+          formData.append("paper-upload", $("#paper-upload")[0].files[0]);
+
+          var outputType = $("#output-type").val();
+          var postURL = baseURL + outputType;
+
+          console.log("postURL: " + postURL);
+          // console.log("output-type: " + outputType);
+
+          $.ajax({
+            url: postURL,
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) { $('#results').val(response) }
+          });
+        });
+
+      });
+      </script>
+    </body>
+</html>
