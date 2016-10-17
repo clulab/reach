@@ -166,4 +166,22 @@ object CorefUtils {
 
     case impossible => 0
   }
+
+  def collapseArguments(mention: Mention): Set[Mention] = {
+    if (mention.isInstanceOf[CorefTextBoundMention]) return Set(mention)
+    Set(mention) ++ mention.arguments.values.flatten.flatMap(m => collapseArguments(m)).toSet
+  }
+
+  /**
+    * Given two [[Mention]]s, determine whether any event has both as (nested) arguments.
+    * @param a
+    * @param b
+    * @param evts
+    * @return
+    */
+  def coArguments(generic: Mention, nonGeneric: Mention, evts: Seq[Mention]): Boolean = {
+    val argSets = evts.map(collapseArguments(_))
+    argSets.exists(args => args.contains(generic) &&
+      args.exists(_.toBioMention.grounding == nonGeneric.toBioMention.grounding))
+  }
 }
