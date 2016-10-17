@@ -525,8 +525,27 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   val sent57 = "Indeed, expression of RARbeta2 has been shown to restore retinoic acid induced apoptosis"
-  sent57 should "contain 1 activation and 1 positive regulation of that activation" in {
+  sent57 should "contain 1 Transcription and 1 positive activation, and 1 positive regulation" in {
     val mentions = getBioMentions(sent57)
-    hasPositiveRegulationByEntity("RARbeta2", "Positive_activation", List("retinoic acid", "apoptosis"), mentions) should be (true)
+    mentions.filter(_ matches "Transcription") should have size (1)
+    mentions.filter(_ matches "Positive_activation") should have size (1)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+  }
+
+  val sent58 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
+  sent58 should "contain 1 amount, 1 binding, and 2 negative regulations" in {
+    val mentions = getBioMentions(sent58)
+    mentions.filter(_.label.contains("Amount")) should have size (1)
+    mentions.filter(_.label.contains("Binding")) should have size (1)
+    mentions.filter(_.label.contains("Negative_regulation")) should have size (2)
+    mentions.filter(_.label.contains("Negative_activation")) should have size (0)
+  }
+
+  val sent59 = "Up-regulation of MKP3 expression by active Ras expression"
+  sent59 should "contain 1 positive regulation and 2 transcriptions" in {
+    val mentions = getBioMentions(sent59)
+    mentions.filter(_.label.contains("Transcription")) should have size (2)
+    mentions.filter(_.label.contains("Positive_regulation")) should have size (1)
+    mentions.filter(_.label.contains("Positive_activation")) should have size (0)
   }
 }

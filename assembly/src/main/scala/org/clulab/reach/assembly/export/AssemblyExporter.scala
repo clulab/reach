@@ -292,13 +292,23 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       event.predecessors.map(se => EERLUT(se.equivalenceHash))
   }
 
-  // FIXME: take columns and sep as params
   def writeRows(
     f: File,
     cols: Seq[String],
     sep: String = AssemblyExporter.SEP,
     rowFilter: Set[Row] => Set[Row]
   ): Unit = {
+
+    val results = rowsToString(cols, sep, rowFilter)
+    // write the output to disk
+    FileUtils.writeStringToFile(f, results)
+  }
+
+  def rowsToString(
+    cols: Seq[String],
+    sep: String = AssemblyExporter.SEP,
+    rowFilter: Set[Row] => Set[Row]
+  ): String = {
     val rowsForOutput = rowFilter(getRows)
     // validate output
     validateOutput(rowsForOutput)
@@ -310,8 +320,8 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         .sortBy(r => (r.label, -r.docIDs.size, -r.seen))
         .map(_.toRow(cols, sep))
         .mkString("\n")
-    // write the output to disk
-    FileUtils.writeStringToFile(f, header + text)
+
+    header + text
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
