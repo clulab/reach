@@ -83,7 +83,7 @@ class DarpaLinks extends Links with LazyLogging {
 
     gms.foreach {
       case gm =>
-        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.find(_.isGeneric).get.text}'")
+        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.filter(_.isGeneric).map(_.text)}'")
 
         val cands = tbms.filter { m =>
           m.precedes(gm) &&
@@ -98,7 +98,7 @@ class DarpaLinks extends Links with LazyLogging {
 
         val ants = selector(gm, cands diff Seq(gm), gm.number)
         ants.foreach { ant =>
-          logger.debug(s"${gm.text} ${gm.mutants.find(mut => mut.isGeneric).get.text} links " +
+          logger.debug(s"${gm.text} ${gm.mutants.filter(mut => mut.isGeneric).map(_.text)} links " +
             s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}")
         }
 
