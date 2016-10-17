@@ -2,5 +2,5 @@
 
 sbt test
 sbt main/test
-sbt assembly/test
+sbt causalAssembly/test
 sbt export/test
