@@ -150,7 +150,7 @@
         var baseURL = location.protocol + '//' + location.hostname + (location.port ? ':'+location.port: '') + "/process/paper/";
 
         // Dispatch submission
-        $("#paper-reader-form").submit(function(){
+        $("#paper-reader-form").submit(function(event) {
           event.preventDefault();
 
           var formData = new FormData();
