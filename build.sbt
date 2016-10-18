@@ -63,6 +63,7 @@ lazy val root = (project in file("."))
     name := "reach-exe",
     aggregate in test := false,
     aggregate in assembly := false,
+    test in assembly := {},
     assemblyJarName in assembly := s"reach-gordo-${version.value}.jar"
   )
 
