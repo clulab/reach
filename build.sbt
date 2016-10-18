@@ -60,8 +60,7 @@ lazy val root = (project in file("."))
   .aggregate(main, assembly, export)
   .dependsOn(main % "test->test;compile", assembly, export) // so that we can import from the console
   .settings(
-    name := "reach-exe",
-    aggregate in test := false
+    name := "reach-exe"
   )
 
 lazy val main = project
