@@ -7,14 +7,14 @@ import org.clulab.reach._
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.utils.IncrementingId
-import ai.lum.nxmlreader.{ NxmlReader, NxmlDocument }
+import ai.lum.nxmlreader._
 import scala.collection.JavaConverters._
 
 
 /**
   * External interface class to accept and process text strings and NXML documents,
   * returning REACH results in either FRIES or IndexCard JSON format.
-  *   Last Modified: Add output format argument to API calls.
+  *   Last Modified: Import all of ai.lum.nxmlreader. Update reader call.
   */
 object ApiRuler {
   // a response is a heterogeneous Java Map from String to either String or Boolean
@@ -41,7 +41,7 @@ object ApiRuler {
 
   /** Extracts raw text from given nxml and returns a response with all the mentions. */
   def annotateNxml(nxml: String, outFormat: String): Response = {
-    val nxmlDoc = reader.read(nxml)
+    val nxmlDoc = reader.parse(nxml)
     mkResponse(nxmlDoc, reach.extractFrom(nxmlDoc), outFormat)
   }
 
