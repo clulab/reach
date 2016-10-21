@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for HMS drug KB.
+  *   Last Modified: Refactor transform constants to Reach KB key transforms object.
   */
 object ReachKBConstants {
 
@@ -12,19 +12,6 @@ object ReachKBConstants {
 
   /** The string used to separate a namespace and an ID. */
   val NamespaceIdSeparator: String = ":"
-
-
-  /** The set of words to remove from all keys to create a lookup key. */
-  val AllKeysStopSuffixes = Seq("_human")
-
-  /** The set of words to remove from a key to create a protein family lookup key. */
-  val FamilyStopSuffixes = Seq(" protein family", " family")
-
-  /** The set of characters to remove from the text to create a lookup key. */
-  val KeyCharactersToRemove = " /-".toSet
-
-  /** The set of words to remove from a key to create a protein lookup key. */
-  val ProteinStopSuffixes = Seq(" mutant protein", " protein")
 
 
   /** File Path to the directory which holds the entity knowledge bases. */

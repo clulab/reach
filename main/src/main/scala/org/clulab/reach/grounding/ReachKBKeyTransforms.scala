@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Refactor protein domain suffix testing method.
+  *   Last Modified: Refactor transform constants to here.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -24,11 +24,11 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     return allTexts.map(makeCanonicalKey(_))
   }
 
-  /** Return the portion of the text string minus one of the protein family suffixes,
-    * if found in the given text string, else return the text lowercased. */
-  def stripFamilySuffixes (text:String): String = {
+  /** Return the portion of the text string minus one of the protein family postpositional
+    * attributives, if found in the given text string, else return the text lowercased. */
+  def stripFamilyPostAttributives (text:String): String = {
     val lcText = text.toLowerCase           // match lower cased text only
-    stripSuffixes(FamilyStopSuffixes, lcText)
+    stripSuffixes(FamilyPostAttributives, lcText)
   }
 
   /** Return the portion of the text string minus one of the organ-cell-type suffixes,
@@ -57,11 +57,11 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     case _ => text
   }
 
-  /** Return the portion of the text string minus one of the protein suffixes, if found
-    * in the given text string, else return the text lowercased. */
-  def stripProteinSuffixes (text:String): String = {
+  /** Return the portion of the text string minus one of the protein postpositional
+    * attributives, if found in the given text string, else return the text lowercased. */
+  def stripProteinPostAttributives (text:String): String = {
     val lcText = text.toLowerCase           // match lower cased text only
-    stripSuffixes(ProteinStopSuffixes, lcText)
+    stripSuffixes(ProteinPostAttributives, lcText)
   }
 
   /** Check for one of several types of hyphen-separated strings and, if found,
@@ -79,8 +79,17 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
 /** Trait Companion Object allows Mixin OR Import pattern. */
 object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
+  /** The set of words to remove from all keys to create a lookup key. */
+  val AllKeysStopSuffixes = Seq("_human")
+
+  /** The set of words to remove from a key to create a protein family lookup key. */
+  val FamilyPostAttributives = Seq(" protein family", " family")
+
   /** Pattern matching 2 text strings separated by a hyphen, case insensitive. */
   val HyphenatedNamePat = """(?i)(\w+)-(\w+)""".r
+
+  /** The set of characters to remove from the text to create a lookup key. */
+  val KeyCharactersToRemove = " /-".toSet
 
   /** Trailing context strings for organ phrases, case insensitive. */
   val OrganSuffixPat = """(?i)(.*)(cells?|tissues?|fluids?)""".r
@@ -91,18 +100,21 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   /** Match phosphorylation mutation phrases, case insensitive. */
   val PhosphorMutationPat = """(?i)phosphorylated\s+(.*)\s+\w+\s+mutant""".r
 
+  /** The set of words to remove from a key to create a protein lookup key. */
+  val ProteinPostAttributives = Seq(" mutant protein", " protein")
+
   /** Match mutation string at end of text string, case insensitive. */
   val TrailingMutationPat = """(?i)(.*)\s+\w+\s+mutant""".r
 
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
-  val familyKeyTransforms = Seq( stripFamilySuffixes _ )
+  val familyKeyTransforms = Seq( stripFamilyPostAttributives _ )
 
   /** List of transform methods to apply for alternate Organ-CellType lookups. */
   val organCellTypeKeyTransforms = Seq( stripOrganCellTypeSuffixes _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
-  val proteinKeyTransforms = Seq( stripProteinSuffixes _,
+  val proteinKeyTransforms = Seq( stripProteinPostAttributives _,
                                   stripMutantProtein _,
                                   hyphenatedProteinKey _,
                                   stripPTMPrefixes _ )
