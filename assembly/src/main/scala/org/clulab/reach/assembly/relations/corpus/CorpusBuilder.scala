@@ -120,16 +120,16 @@ object CorpusBuilder {
       if ep.e1.trigger != ep.e2.trigger
     } yield ep
 
-    eps.toSeq
+    distinctEventPairs(eps.toSeq)
   }
 
   def distinctEventPairs(eps: Seq[EventPair]): Seq[EventPair] = {
-    val distinctEPs: Seq[EventPair] = eps
-      .groupBy(ti => (ti.e1.eventLabel, ti.e1.trigger, ti.e2.eventLabel, ti.e2.trigger))
-      .values.map(_.head)
-      .toSet.toSeq
-    // sort
-    distinctEPs.sortBy{ ep => (ep.doc.id.getOrElse(""), ep.sentenceIndices.head) }
+    eps.distinct.groupBy(ep =>
+      // distinct by...
+      (ep.e1.sentence, ep.e2.trigger, ep.e1.label, ep.e1.text, ep.e2.sentence, ep.e2.trigger, ep.e2.label, ep.e2.text)
+    ).values.map(_.head) // get one value for each key
+      .toSeq
+      .sortBy{ ep => (ep.doc.id.getOrElse(""), ep.sentenceIndices.head) }
   }
 }
 
@@ -153,12 +153,10 @@ object BuildCorpus extends App with LazyLogging {
     ep <- selectEventPairs(mentions)
   } yield ep
 
-  // distinct and sort
-  val distincteps: Seq[EventPair] = distinctEventPairs(eps)
-  logger.info(s"Found ${distincteps.size} examples for relation corpus ...")
+  logger.info(s"Found ${eps.size} examples for relation corpus ...")
 
   val outDir = new File(config.getString("assembly.corpus.corpusDir"))
   // create corpus and write to file
-  val corpus = Corpus(distincteps)
+  val corpus = Corpus(eps)
   corpus.writeJSON(outDir, pretty = false)
 }
