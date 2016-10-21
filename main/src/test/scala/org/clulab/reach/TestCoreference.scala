@@ -254,16 +254,14 @@ class TestCoreference extends FlatSpec with Matchers {
   // TODO: it seems we miss NegAct(Binding(Gab1, p85), PI-3)?
   // TODO: we miss NegReg(Controller = Binding(Gab1, p85), Controlled = Act(EGF, PI-3))?
   /*
-  val sent24 = "Previous work has shown that Gab1 is not a global substrate of Shp2, as complex formation between " +
-    "Gab1 and Shp2 does not reduce the total EGF-induced tyrosine phosphorylation levels of Gab1 [15]. However there " +
-    "have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine phosphorylation " +
-    "sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced activation of the " +
-    "PI-3 kinase pathway"
+  val sent24 = "there have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine " +
+    "phosphorylation sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced " +
+    "activation of the PI-3 kinase pathway"
   sent24 should "have a Binding as a controller if it produces an ActivationEvent" in {
     val mentions = getBioMentions(sent24)
-    val act = mentions.find(_ matches "ActivationEvent")
+    val act = mentions.filter(m => m.matches("ActivationEvent"))
     if (act.nonEmpty) {
-      val controller = act.get.arguments("controller").head
+      val controller = act.head.arguments("controller").head.toCorefMention
       (controller.antecedentOrElse(controller) matches "Binding") should be (true)
     }
   }
@@ -407,17 +405,17 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions.exists(_ matches "Binding") should be (false)
   }
 
-  val sent34 = "Cells were transfected with N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants and analyzed " +
-    "for activatory STAT1(Y701) phosphorylation 48 hours later. In 293T and RCS cells, all six FGFR3 mutants induced " +
-    "activatory ERK(T202/Y204) phosphorylation"
-  sent34 should "contain 12 regulations of 2 ERK phosphorylations" in {
-    val mentions = getBioMentions(sent34)
-    val phos = mentions.filter(m => m.matches("Phosphorylation") &&
-      m.arguments.getOrElse("theme", Nil).map(_.text).contains("ERK"))
-    phos should have size (2)
-    val regs = mentions.filter(m => m.matches("Positive_regulation"))
-    regs should have size (12)
-  }
+//  val sent34 = "Cells were transfected with N540K, G380R, R248C, Y373C, K650M and K650E-FGFR3 mutants and analyzed " +
+//    "for activatory STAT1(Y701) phosphorylation 48 hours later. In 293T and RCS cells, all six FGFR3 mutants induced " +
+//    "activatory ERK(T202/Y204) phosphorylation"
+//  sent34 should "contain 12 regulations of 2 ERK phosphorylations" in {
+//    val mentions = getBioMentions(sent34)
+//    val phos = mentions.filter(m => m.matches("Phosphorylation") &&
+//      m.arguments.getOrElse("theme", Nil).map(_.text).contains("ERK"))
+//    phos should have size (2)
+//    val regs = mentions.filter(m => m.matches("Positive_regulation"))
+//    regs should have size (12)
+//  }
 
 //  val sent35 = "Vectors carrying the wild-type FGFR3 as well as the N540K (HCH), G380R (ACH), R248C, Y373C, K650E " +
 //  "(TD) and K650M (SADDAN and TD) mutants were expressed in CHO cells. It is possible that N540K, G380R, R248C and " +
@@ -611,14 +609,34 @@ class TestCoreference extends FlatSpec with Matchers {
     posreg.head.arguments("controlled").head == posact.head should be (true)
   }
 
-  val sent56 = "ASPP1 (better known as ASPP2) is a common protein."
-  sent56 should "share grounding between ASPP1 and ASPP2" in {
+  val sent56 = "Akta and HSP20 are common. It phosphorylates Akta."
+  sent56 should "match 'It' to 'HSP20' (not 'Akta')" in {
     val mentions = getBioMentions(sent56)
+    val it = mentions.find(_.text == "It")
+    //it should not be empty
+    it.get.antecedentOrElse(it.get).text should be ("HSP20")
+  }
+
+  val sent57 = "It is possible that the effects of HSP20 on AKT might differ between normal cardiomyocytes or " +
+    "mesenchymal stem cells and HCC cells. The binding partner(s) of HSP20 and their interaction(s) might be " +
+    "dependent on the cell types."
+  sent57 should "match 'their' to 'AKT' (not 'HSP20')" in {
+    val mentions = getBioMentions(sent57)
+    val their = mentions.filter(_.text == "their")
+    their.nonEmpty should be (true)
+    val ants = their.map(m => m.antecedentOrElse(m).text)
+    ants should contain ("AKT")
+    ants should contain ("HSP20")
+  }
+
+  val sent58 = "ASPP1 (better known as ASPP2) is a common protein."
+  sent58 should "share grounding between ASPP1 and ASPP2" in {
+    val mentions = getBioMentions(sent58)
     mentions should have size 2
     mentions.head.candidates should not be empty
     mentions.last.candidates should not be empty
     val aspp1cands = mentions.head.candidates.get.toSet
     val aspp2cands = mentions.last.candidates.get.toSet
-    aspp1cands should equal (aspp2cands)
+    aspp1cands should equal(aspp2cands)
   }
 }
