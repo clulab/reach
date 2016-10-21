@@ -6,11 +6,11 @@ import org.clulab.reach.assembly.{AssemblyManager, EER}
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.RuleReader
 import org.clulab.odin._
-import org.chocosolver.solver.Solver
-import org.chocosolver.solver.cstrs.GraphConstraintFactory
-import org.chocosolver.solver.variables.GraphVarFactory
-import org.chocosolver.util.objects.graphs.DirectedGraph
-import org.chocosolver.util.objects.setDataStructures.SetType
+//import org.chocosolver.solver.Solver
+//import org.chocosolver.solver.cstrs.GraphConstraintFactory
+//import org.chocosolver.solver.variables.GraphVarFactory
+//import org.chocosolver.util.objects.graphs.DirectedGraph
+//import org.chocosolver.util.objects.setDataStructures.SetType
 import scala.annotation.tailrec
 
 
@@ -335,76 +335,76 @@ class PrecedenceSieves extends Sieves {
   // Could be selective via voting, textual proximity, etc.
   def extendPredecessorsToEquivalentEERs(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = ???
 
-  def graphCSP(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
-
-    // http://perso.ensta-paristech.fr/~diam/corlab/online/choco/ChocoGraphDoc-20150118.pdf
-
-    val allEvents = manager.getEvents.toSeq.sortBy(_.equivalenceHash)
-
-    val dg = new DirectedGraph(
-      // the maximum number of nodes in the graph (solution)
-      allEvents.size,
-      // use SetType.LINKED_LIST for sparse graphs
-      // SetType.BIPARTITESET has optimal time complexity, but memory usage can be expensive
-      // SetType.BITSET: supposedly a good default (why?)
-      SetType.BIPARTITESET,
-      // whether or not the node set is fixed
-      false
-    )
-
-    val solver = new Solver//("precedence-solver")
-
-    // define graph lower-bound (i.e., what nodes and links must exist in solution?)
-    val GLB = new DirectedGraph(
-      solver,
-      allEvents.size,
-      SetType.BIPARTITESET,
-      // whether or not the node set is fixed
-      // TODO: Should this be false?
-      true
-    )
-
-    // define graph upper-bound (i.e., what nodes and links could possibly exist?)
-    val GUB = new DirectedGraph(
-      solver,
-      allEvents.size,
-      SetType.BIPARTITESET,
-      // whether or not the node set is fixed
-      // TODO: Should this be false?
-      false
-    )
-
-    for {
-      (e1: EER, i: Int) <- allEvents.zipWithIndex
-      (e2: EER, j: Int) <- allEvents.zipWithIndex
-    } {
-
-      // nodes exist in upper-bound
-      GUB.addNode(i)
-      GUB.addNode(j)
-      // TODO: Should this only be allowed if the opposite is not true?
-      GUB.addArc(i, j)
-
-      // check if a required solution
-      (e1, e2) match {
-        // TODO: should this check if any of successors is equiv to succesor?
-        case (pred, successor) if pred.successors contains successor =>
-          // predicted precedence relation, so nodes must exist in
-          GLB.addNode(i)
-          GLB.addNode(j)
-          GLB.addArc(i, j)
-      }
-    }
-
-    val g = GraphVarFactory.directed_graph_var("G", GLB, GUB, solver)
-
-    // make antisymmetric ( if (i,j), then ~(j,i)
-    solver.post(GraphConstraintFactory.antisymmetric(g))
-    // use transitivity
-    solver.post(GraphConstraintFactory.transitivity(g))
-    // solve!
-    ???
-  }
+//  def graphCSP(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+//
+//    // http://perso.ensta-paristech.fr/~diam/corlab/online/choco/ChocoGraphDoc-20150118.pdf
+//
+//    val allEvents = manager.getEvents.toSeq.sortBy(_.equivalenceHash)
+//
+//    val dg = new DirectedGraph(
+//      // the maximum number of nodes in the graph (solution)
+//      allEvents.size,
+//      // use SetType.LINKED_LIST for sparse graphs
+//      // SetType.BIPARTITESET has optimal time complexity, but memory usage can be expensive
+//      // SetType.BITSET: supposedly a good default (why?)
+//      SetType.BIPARTITESET,
+//      // whether or not the node set is fixed
+//      false
+//    )
+//
+//    val solver = new Solver//("precedence-solver")
+//
+//    // define graph lower-bound (i.e., what nodes and links must exist in solution?)
+//    val GLB = new DirectedGraph(
+//      solver,
+//      allEvents.size,
+//      SetType.BIPARTITESET,
+//      // whether or not the node set is fixed
+//      // TODO: Should this be false?
+//      true
+//    )
+//
+//    // define graph upper-bound (i.e., what nodes and links could possibly exist?)
+//    val GUB = new DirectedGraph(
+//      solver,
+//      allEvents.size,
+//      SetType.BIPARTITESET,
+//      // whether or not the node set is fixed
+//      // TODO: Should this be false?
+//      false
+//    )
+//
+//    for {
+//      (e1: EER, i: Int) <- allEvents.zipWithIndex
+//      (e2: EER, j: Int) <- allEvents.zipWithIndex
+//    } {
+//
+//      // nodes exist in upper-bound
+//      GUB.addNode(i)
+//      GUB.addNode(j)
+//      // TODO: Should this only be allowed if the opposite is not true?
+//      GUB.addArc(i, j)
+//
+//      // check if a required solution
+//      (e1, e2) match {
+//        // TODO: should this check if any of successors is equiv to succesor?
+//        case (pred, successor) if pred.successors contains successor =>
+//          // predicted precedence relation, so nodes must exist in
+//          GLB.addNode(i)
+//          GLB.addNode(j)
+//          GLB.addArc(i, j)
+//      }
+//    }
+//
+//    val g = GraphVarFactory.directed_graph_var("G", GLB, GUB, solver)
+//
+//    // make antisymmetric ( if (i,j), then ~(j,i)
+//    solver.post(GraphConstraintFactory.antisymmetric(g))
+//    // use transitivity
+//    solver.post(GraphConstraintFactory.transitivity(g))
+//    // solve!
+//    ???
+//  }
 }
 
 
