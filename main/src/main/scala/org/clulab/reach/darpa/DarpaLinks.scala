@@ -23,7 +23,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Exact entity string matching=====")
+    logger.debug("=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
         !x.asInstanceOf[CorefTextBoundMention].isGeneric &&
@@ -53,7 +53,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Entity grounding matching=====")
+    logger.debug("=====Entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
@@ -76,7 +76,7 @@ class DarpaLinks extends Links with LazyLogging {
 
   def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Mutant protein matching=====")
+    logger.debug("=====Mutant protein matching=====")
 
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention])
     val gms = tbms.filter(m => m.hasGenericMutation)
@@ -119,7 +119,7 @@ class DarpaLinks extends Links with LazyLogging {
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
     val doc = mentions.head.document
-    logger.debug("\n=====Strict head matching=====")
+    logger.debug("=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     // split generic mentions from specific mentions -- we'll only be working on generics
@@ -168,7 +168,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Pronominal matching=====")
+    logger.debug("=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     hasArgs.filter(_.antecedents.isEmpty).foreach {
@@ -261,7 +261,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Noun phrase matching=====")
+    logger.debug("=====Noun phrase matching=====")
 
     // only apply this matcher to arguments to events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -358,7 +358,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Simple event matching=====\n")
+    logger.debug("=====Simple event matching=====")
 
     val seLabels = SIMPLE_EVENTS - "Generic_event"
 
