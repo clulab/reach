@@ -14,7 +14,7 @@ Reach is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(
 Please scroll down to the bottom of this page for additional resources, including a Reach output visualizer, REST API, and datasets created with Reach.
 
 # Licensing
-All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
+This project is, and will always be, free for *research purposes*. However, starting on the next release, we will be using a licence that restricts its use for *commercial purposes*. Details are forthcoming.
 
 # Changes
 + **1.3.3** - Sub-project split into main, assembly, export.
