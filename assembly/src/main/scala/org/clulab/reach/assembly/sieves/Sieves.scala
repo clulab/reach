@@ -446,11 +446,11 @@ object SieveUtils extends LazyLogging {
     * @param existingMentions a Seq of Odin Mentions
     * @return a Seq of RelationMentions
     */
-  def assemblyViaRules(rulesPath: String, existingMentions: Seq[Mention]): Seq[Mention] = {
+  def assemblyViaRules(rulesPath: String, existingMentions: Seq[Mention], actions: Actions = new Actions): Seq[Mention] = {
 
     // read rules and initialize state with existing mentions
     val rules:String = RuleReader.readResource(rulesPath)
-    val ee = ExtractorEngine(rules)
+    val ee = ExtractorEngine(rules, actions)
 
     // since we break a paper into sections, we'll need to group the mentions by doc
     // rule set only produces target RelationMentions
