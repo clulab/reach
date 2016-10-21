@@ -1,0 +1,158 @@
+# assembly sub-tree moved to main taxonomy
+# these rules make use of labels that exist in that taxonomy
+# rather than duplicate it here, the assembly branch was grafted there
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# vars for assembly sieve
+vars:
+  mylabel: "Precedence"
+  discoursemarkerpriority: "1"
+  deprulepriority: "2"
+  surfacerulepriority: "3"
+  after_type: "Event"
+  before_type: "Event"
+  myaction: "validatePrecedenceRelations"
+  regverbaltrigger: [lemma=/^(promote)/]
+
+# rules for assembly sieve
+# FIXME: these should be subdivided into E1precedesE2Trigger and E2precedesE1Trigger
+rules:
+  - name: discourse-marker
+    label: DiscourseMarker
+    priority: ${discoursemarkerpriority}
+    type: token
+    pattern: |
+      prior to
+      |
+      # ex. following, followed by, follows
+      [lemma=follow] "by"?
+      |
+      leading to
+      |
+      [lemma=result] in
+      |
+      "as"? "a"? [lemma=result] (from|of)
+      |
+      before
+      |
+      after
+      |
+      due to
+      |
+      "," when
+      |
+      "," thereby
+      |
+      furthermore
+      |
+      also can
+      |
+      precedes the
+      |
+      dependent on
+      |
+      depends on
+      |
+      in response to
+      |
+      # ex. the first of these
+      first
+      |
+      # ex. the second step is
+      second
+      |
+      next
+      |
+      "as"? "a" downstream "effect"?
+      |
+      # Upon PI3K activation,
+      [lemma=upon] (@Event | @Entity activation) ","?
+      |
+      and ${regverbaltrigger}
+
+
+  # intra-sentence cases
+#  - name: intrasentence-1
+#    label: Precedence
+#    priority: ${surfacerulepriority}
+#    type: token
+#    action: ${myaction}
+#    example:
+
+  - name: intrasentence-resulting-in
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "Furthermore , AKT phosphorylates and activates pro-survival protein XIAP ( X linked inhibitor of apoptosis protein ) , resulting in an increase of binding of XIAP to caspases 3 , 7 and 9 and inhibition of these caspases , the activities of which are essential for apoptosis induction ."
+    pattern: |
+      @before:Event "," resulting in []*? @after:Event
+
+  - name: intrasentence-as-a-result-of
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "Furthermore , AKT phosphorylates and activates pro-survival protein XIAP ( X linked inhibitor of apoptosis protein ) , resulting in an increase of binding of XIAP to caspases 3 , 7 and 9 and inhibition of these caspases , the activities of which are essential for apoptosis induction ."
+    pattern: |
+      @after:Event as a result of @before:Event
+      |
+      [lemma=as] a result of @before:Event ","? @after:Event
+
+  - name: intrasentence-where-it
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "Specifically , FOXO1 phosphorylated by AKT translocates to the cytosol where it is ubiquitinated by Skp2 and subjected to proteasome dependent degradation ( Huang et al. ,     ) ."
+    pattern: |
+      @before:Event []*? where @after:Event
+
+
+
+  # cross-sentence cases
+
+  - name: cross-sentence-binding-binding
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "The first of these is the binding of Cdc25 to the GDP bound wt Ras to produce the ternary wt Ras-GDP-Cdc25 complex .  The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
+    pattern: |
+      before: @Binding
+      after: (?<= @DiscourseMarker? []*) @Binding
+
+  - name: cross-sentence-activated
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "PIP3 binds to Akt and then translocates to the plasma membrane where Akt is activated by phosphorylation .  Activated Akt phosphorylates its substrates including the serine and threonine kinase mTOR which then phosphorylates S6 kinases ( S6K ) and inhibits 4E-BP , leading to increased protein translation as well as other targets that regulate cell division and apoptosis     ."
+    pattern: |
+      before: @Binding (?= []*? where []*? [lemma=activate] []*)
+      after: (?<= [lemma=activate] []*) @ComplexEvent
+
+  - name: cross-sentence-shared-controlleds
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: sharedControlleds
+    example: "GSK-3beta can then phosphorylate beta-catenin on S33 , S37 and T41 .  The Axin and GSK -3 / CK1 and APC complex induces the degradation of beta-catenin ."
+    pattern: |
+      before: @ComplexEvent
+      after: @ComplexEvent
+
+  # FIXME: modify Constraints.sharedControlleds to allow comparisons to SimpleEvents (using themes)
+  - name: cross-sentence-complex-event-then-binding
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
+    pattern: |
+      before: @ComplexEvent
+      after: (?<= [tag=DT] second step []*) @Binding

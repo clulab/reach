@@ -84,6 +84,43 @@ class PrecedenceSieves extends Sieves {
   }
 
   /**
+    * Rule-based method using discourse features to establish precedence
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
+  def discourseRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "discourseRBPrecedence"
+
+    logger.debug(s"\tapplying '$name' sieve...")
+
+    val p = "/org/clulab/reach/assembly/grammars/discourse-rules.yml"
+
+    val actions = new AssemblyActions
+
+    // find rule-based PrecedenceRelations
+    for {
+      rel <- assemblyViaRules(p, mentions, actions)
+      before = rel.arguments.getOrElse(beforeRole, Nil)
+      after = rel.arguments.getOrElse(afterRole, Nil)
+      if before.nonEmpty && after.nonEmpty
+      // both "before" and "after" should have single mentions
+      b = before.head
+      a = after.head
+      // cannot be an existing regulation
+      if notAnExistingComplexEvent(rel) && noExistingPrecedence(a, b, manager)
+    } {
+      // store the precedence relation
+      // TODO: add score
+      manager.storePrecedenceRelation(b, a, Set(rel), name)
+    }
+
+    manager
+  }
+
+  /**
     * Rule-based method using grammatical tense and aspect to establish precedence
     *
     * @param mentions a sequence of Odin Mentions
