@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Refactor transform constants to here.
+  *   Last Modified: Rename organ variables. Start attributive patterns.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -33,9 +33,9 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
 
   /** Return the portion of the text string minus one of the organ-cell-type suffixes,
     * if found in the given text string, else return the text unchanged. */
-  def stripOrganCellTypeSuffixes (text:String): String = {
+  def stripOrganSuffixes (text:String): String = {
     return text match {
-      case OrganSuffixPat(lhs, _) => lhs
+      case OrganPostAttributivePat(lhs, _) => lhs
       case _ => text                        // return text unchanged
     }
   }
@@ -84,6 +84,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
   /** The set of words to remove from a key to create a protein family lookup key. */
   val FamilyPostAttributives = Seq(" protein family", " family")
+  val FamilyPostAttributivePat = """(?i)(.*)((protein family)?|family?)""".r
 
   /** Pattern matching 2 text strings separated by a hyphen, case insensitive. */
   val HyphenatedNamePat = """(?i)(\w+)-(\w+)""".r
@@ -92,7 +93,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val KeyCharactersToRemove = " /-".toSet
 
   /** Trailing context strings for organ phrases, case insensitive. */
-  val OrganSuffixPat = """(?i)(.*)(cells?|tissues?|fluids?)""".r
+  val OrganPostAttributivePat = """(?i)(.*)(cells?|tissues?|fluids?)""".r
 
   /** Match protein names beginning with special PTM-related prefix characters. */
   val PTMPrefixPat = """(p|u)([A-Z0-9_-][A-Za-z0-9_-]*)""".r
@@ -102,6 +103,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
   /** The set of words to remove from a key to create a protein lookup key. */
   val ProteinPostAttributives = Seq(" mutant protein", " protein")
+  val ProteinPostAttributivePat = """(?i)(.*)((mutant protein)?|protein?)""".r
 
   /** Match mutation string at end of text string, case insensitive. */
   val TrailingMutationPat = """(?i)(.*)\s+\w+\s+mutant""".r
@@ -110,8 +112,8 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   /** List of transform methods to apply for alternate Protein Family lookups. */
   val familyKeyTransforms = Seq( stripFamilyPostAttributives _ )
 
-  /** List of transform methods to apply for alternate Organ-CellType lookups. */
-  val organCellTypeKeyTransforms = Seq( stripOrganCellTypeSuffixes _ )
+  /** List of transform methods to apply for alternate Organ lookups. */
+  val organKeyTransforms = Seq( stripOrganSuffixes _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
   val proteinKeyTransforms = Seq( stripProteinPostAttributives _,
