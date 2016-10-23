@@ -154,29 +154,4 @@ object Assembler extends LazyLogging {
 
     am
   }
-
-  /**
-    * Applies each Assembly Sieve to mentions and returns and updated AssemblyManager for each.
-    *
-    * @param mentions a Seq of Odin Mentions
-    * @return an AssemblyManager
-    */
-  def applyEachSieve(mentions: Seq[Mention]): Map[String, AssemblyManager] = {
-
-    val dedup = new DeduplicationSieves()
-    val precedence = new PrecedenceSieves()
-
-    val availableSieves = Map(
-      "intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
-      "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
-      "intersententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intersententialRBPrecedence))
-    )
-
-    val ams = for {
-      (lbl, s) <- availableSieves.par
-      am = s.apply(mentions)
-    } yield lbl -> am
-
-    ams.seq //++ Map("all" -> applySieves(mentions))
-  }
 }

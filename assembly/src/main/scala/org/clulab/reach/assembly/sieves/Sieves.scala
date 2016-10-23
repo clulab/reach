@@ -16,6 +16,7 @@ import scala.annotation.tailrec
 
 class Sieves extends LazyLogging {
 
+
 }
 
 /**
@@ -66,8 +67,8 @@ class PrecedenceSieves extends Sieves {
     // find rule-based PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions)
-      before = rel.arguments.getOrElse(beforeRole, Nil)
-      after = rel.arguments.getOrElse(afterRole, Nil)
+      before = rel.arguments.getOrElse(SieveUtils.beforeRole, Nil)
+      after = rel.arguments.getOrElse(SieveUtils.afterRole, Nil)
       if before.nonEmpty && after.nonEmpty
       // both "before" and "after" should have single mentions
       b = before.head
@@ -103,8 +104,8 @@ class PrecedenceSieves extends Sieves {
     // find rule-based PrecedenceRelations
     for {
       rel <- assemblyViaRules(p, mentions, actions)
-      before = rel.arguments.getOrElse(beforeRole, Nil)
-      after = rel.arguments.getOrElse(afterRole, Nil)
+      before = rel.arguments.getOrElse(SieveUtils.beforeRole, Nil)
+      after = rel.arguments.getOrElse(SieveUtils.afterRole, Nil)
       if before.nonEmpty && after.nonEmpty
       // both "before" and "after" should have single mentions
       b = before.head
@@ -119,7 +120,7 @@ class PrecedenceSieves extends Sieves {
 
     manager
   }
-
+  
   /**
     * Rule-based method using grammatical tense and aspect to establish precedence
     *
@@ -128,6 +129,9 @@ class PrecedenceSieves extends Sieves {
     * @return an AssemblyManager
     */
   def reichenbachPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val BEFORE = "before"
+    val AFTER = "after"
 
     val name = "reichenbachPrecedence"
 
@@ -156,31 +160,31 @@ class PrecedenceSieves extends Sieves {
 
     def getReichenbach(e1t: String, e1a: String, e2t: String, e2a: String): String = {
       (e1t, e1a, e2t, e2a) match {
-        case ("PastTense", "none", "PastTense", "Perfective") => "after"
-        case ("PastTense", "none", "FutureTense", "none") => "before"
-        case ("PastTense", "none", "FutureTense", "Perfective") => "before"
+        case ("PastTense", "none", "PastTense", "Perfective") => AFTER
+        case ("PastTense", "none", "FutureTense", "none") => BEFORE
+        case ("PastTense", "none", "FutureTense", "Perfective") => BEFORE
         //
-        case ("PastTense", "Perfective", "PastTense", "none") => "before"
-        case ("PastTense", "Perfective", "PresentTense", "none") => "before"
-        case ("PastTense", "Perfective", "PresentTense", "Perfective") => "before"
-        case ("PastTense", "Perfective", "FutureTense", "none") => "before"
-        case ("PastTense", "Perfective", "FutureTense", "Perfective") => "before"
+        case ("PastTense", "Perfective", "PastTense", "none") => BEFORE
+        case ("PastTense", "Perfective", "PresentTense", "none") => BEFORE
+        case ("PastTense", "Perfective", "PresentTense", "Perfective") => BEFORE
+        case ("PastTense", "Perfective", "FutureTense", "none") => BEFORE
+        case ("PastTense", "Perfective", "FutureTense", "Perfective") => BEFORE
         //
-        case ("PresentTense", "none", "PastTense", "Perfective") => "after"
-        case ("PresentTense", "none", "FutureTense", "none") => "before"
+        case ("PresentTense", "none", "PastTense", "Perfective") => AFTER
+        case ("PresentTense", "none", "FutureTense", "none") => BEFORE
         //
-        case ("PresentTense", "Perfective", "PastTense", "Perfective") => "after"
-        case ("PresentTense", "Perfective", "FutureTense", "none") => "before"
-        case ("PresentTense", "Perfective", "FutureTense", "Perfective") => "before"
+        case ("PresentTense", "Perfective", "PastTense", "Perfective") => AFTER
+        case ("PresentTense", "Perfective", "FutureTense", "none") => BEFORE
+        case ("PresentTense", "Perfective", "FutureTense", "Perfective") => BEFORE
         //
-        case ("FutureTense", "none", "PastTense", "none") => "after"
-        case ("FutureTense", "none", "PastTense", "Perfective") => "after"
-        case ("FutureTense", "none", "PresentTense", "none") => "after"
-        case ("FutureTense", "none", "PresentTense", "Perfective") => "after"
+        case ("FutureTense", "none", "PastTense", "none") => AFTER
+        case ("FutureTense", "none", "PastTense", "Perfective") => AFTER
+        case ("FutureTense", "none", "PresentTense", "none") => AFTER
+        case ("FutureTense", "none", "PresentTense", "Perfective") => AFTER
         //
-        case ("FutureTense", "Perfective", "PastTense", "none") => "after"
-        case ("FutureTense", "Perfective", "PastTense", "Perfective") => "after"
-        case ("FutureTense", "Perfective", "PresentTense", "Perfective") => "after"
+        case ("FutureTense", "Perfective", "PastTense", "none") => AFTER
+        case ("FutureTense", "Perfective", "PastTense", "Perfective") => AFTER
+        case ("FutureTense", "Perfective", "PresentTense", "Perfective") => AFTER
         case _ => "none"
       }
     }
@@ -219,13 +223,13 @@ class PrecedenceSieves extends Sieves {
       val e2aspectMentions: Seq[Mention] = if (e2aspect.nonEmpty) Seq(e2aspect.get) else Seq.empty[Mention]
 
       pr match {
-        case "before" =>
+        case `BEFORE` =>
           // create evidence mention
           val evidence = new RelationMention(
             SieveUtils.precedenceMentionLabel,
             Map(
-              "before" -> Seq(e1),
-              "after" -> Seq(e2),
+              SieveUtils.beforeRole -> Seq(e1),
+              SieveUtils.afterRole -> Seq(e2),
               "e1tense" -> e1tenseMentions,
               "e1aspect" -> e1aspectMentions,
               "e2tense" -> e2tenseMentions,
@@ -238,13 +242,13 @@ class PrecedenceSieves extends Sieves {
           )
           // TODO: add score
           manager.storePrecedenceRelation(before = e1, after = e2, Set[Mention](evidence), name)
-        case "after" =>
+        case `AFTER` =>
           // create evidence mention
           val evidence = new RelationMention(
             SieveUtils.precedenceMentionLabel,
             Map(
-              "before" -> Seq(e2),
-              "after" -> Seq(e1),
+              SieveUtils.beforeRole -> Seq(e2),
+              SieveUtils.afterRole -> Seq(e1),
               "e1tense" -> e1tenseMentions,
               "e1aspect" -> e1aspectMentions,
               "e2tense" -> e2tenseMentions,
@@ -299,8 +303,8 @@ class PrecedenceSieves extends Sieves {
       // TODO: Decide whether to restrict matches more, e.g. to last of prior sentence
       other <- mentions.filter(m => isEvent(m) && m.document == rel.document && m.sentence == rel.sentence - 1)
       (before, after) = rel.label match {
-        case "InterAfter" => (Seq(other), rel.arguments("after"))
-        case "InterBefore" => (rel.arguments("before"), Seq(other))
+        case "InterAfter" => (Seq(other), rel.arguments(SieveUtils.beforeRole))
+        case "InterBefore" => (rel.arguments(SieveUtils.beforeRole), Seq(other))
         case _ => (Nil, Nil)
       }
       if before.nonEmpty && after.nonEmpty
@@ -460,12 +464,36 @@ object SieveUtils extends LazyLogging {
 
   val E1PrecedesE2 = "E1 precedes E2"
   val E2PrecedesE1 = "E2 precedes E1"
+  // subsumption and equivalence
+  val E1SpecifiesE2 = "E1 specifies E2"
+  val E2SpecifiesE1 = "E2 specifies E1"
+  val Equivalent = "Equivalent"
+  // default label for negative class
+  val NEG = AssemblyRelationClassifier.NEG
+
+  val precedenceRelations =  Set(E1PrecedesE2, E2PrecedesE1)
+  val subsumptionRelations = Set(E1SpecifiesE2, E2SpecifiesE1)
+  val equivalenceRelations = Set(Equivalent)
+  val noRelations = Set(NEG)
 
   // the label used to identify Mentions modelling precedence relations
   val precedenceMentionLabel = "Precedence"
+  val beforeRole = "before"
+  val afterRole = "after"
+
+  val dedup = new DeduplicationSieves()
+  val precedence = new PrecedenceSieves()
+
+  val sieves = Map(
+    "intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
+    "reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
+    "intersententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intersententialRBPrecedence)),
+    "discourseRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.discourseRBPrecedence))
+  )
 
   /**
     * Check if mention is a causal precedence candidate
+    *
     * @param m an Odin-style Mention
     * @return true or false
     */
@@ -514,8 +542,9 @@ object SieveUtils extends LazyLogging {
 
   /**
     * Classifies pairs of mentions meeting given criteria using the feature-based precedence classifier
+    *
     * @param validMentions a set of candidate mentions to generate pairs for classification
-    * @param manager
+    * @param manager an [[AssemblyManager]]
     * @param sieveName the name of the sieve applying the classifier (used when storing a precedence relation)
     * @param isValidPair a function that tests whether or not a pair of mentions should be considered for classification
     * @return
@@ -571,6 +600,7 @@ object SieveUtils extends LazyLogging {
 
   /**
     * Create evidence from Causal Precedence relation
+    *
     * @param before an Odin-style Mention preceding 'after'
     * @param after an Odin-style Mention following 'before'
     * @param foundBy the name of the sieve that found the relation
@@ -583,7 +613,7 @@ object SieveUtils extends LazyLogging {
   ): Set[Mention] = {
     val evidence = new RelationMention(
       SieveUtils.precedenceMentionLabel,
-      Map("before" -> Seq(before), "after" -> Seq(after)),
+      Map(beforeRole -> Seq(before), afterRole -> Seq(after)),
       before.sentence,
       before.document,
       true,

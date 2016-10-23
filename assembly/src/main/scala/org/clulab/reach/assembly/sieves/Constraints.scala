@@ -39,6 +39,12 @@ object Constraints {
   // Used by relation classifier & relation corpus
   //
 
+  /** Checks if two Mentions have an equivalent EER */
+  def areEquivalent(m1: Mention, m2: Mention): Boolean = {
+    val am = AssemblyManager(Seq(m1, m2))
+    am.getEER(m1).isEquivalentTo(am.getEER(m2))
+  }
+
   /** Checks if two Mentions share at least one SimpleEntity with the same grounding ID */
   def shareArg(m1: Mention, m2: Mention): Boolean = {
 

@@ -1,6 +1,6 @@
 package org.clulab.reach.assembly.relations.classifier
 
-import org.clulab.reach.assembly.relations.corpus.CorpusReader._
+import org.clulab.reach.assembly.sieves.SieveUtils._
 import org.clulab.reach.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.learning._
 import org.apache.commons.io.{FileUtils, FilenameUtils}
