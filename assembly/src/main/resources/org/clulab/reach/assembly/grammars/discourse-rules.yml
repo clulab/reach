@@ -6,7 +6,6 @@ taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 # vars for assembly sieve
 vars:
   mylabel: "Precedence"
-  discoursemarkerpriority: "1"
   deprulepriority: "2"
   surfacerulepriority: "3"
   after_type: "Event"
@@ -17,9 +16,9 @@ vars:
 # rules for assembly sieve
 # FIXME: these should be subdivided into E1precedesE2Trigger and E2precedesE1Trigger
 rules:
-  - name: discourse-marker
-    label: DiscourseMarker
-    priority: ${discoursemarkerpriority}
+  - name: precedence-marker
+    label: PrecedenceMarker
+    priority: 1
     type: token
     pattern: |
       prior to
@@ -69,15 +68,15 @@ rules:
       [lemma=upon] (@Event | @Entity activation) ","?
       |
       and ${regverbaltrigger}
+      |
+      which in turn
 
 
+  ########################
+  #
   # intra-sentence cases
-#  - name: intrasentence-1
-#    label: Precedence
-#    priority: ${surfacerulepriority}
-#    type: token
-#    action: ${myaction}
-#    example:
+  #
+  ########################
 
   - name: intrasentence-resulting-in
     label: Precedence
@@ -88,16 +87,26 @@ rules:
     pattern: |
       @before:Event "," resulting in []*? @after:Event
 
+ # FIXME: find the example
   - name: intrasentence-as-a-result-of
     label: Precedence
     priority: ${surfacerulepriority}
     type: token
     action: ${myaction}
-    example: "Furthermore , AKT phosphorylates and activates pro-survival protein XIAP ( X linked inhibitor of apoptosis protein ) , resulting in an increase of binding of XIAP to caspases 3 , 7 and 9 and inhibition of these caspases , the activities of which are essential for apoptosis induction ."
+    example: ""
     pattern: |
       @after:Event as a result of @before:Event
       |
       [lemma=as] a result of @before:Event ","? @after:Event
+
+  - name: intrasentence-leading-to
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "AMPK directly phosphorylates Raptor in an LKB1 dependent manner leading to the binding of 14-3-3 proteins to Raptor and subsequent inhibition of mTORC1 ."
+    pattern: |
+      @before:ComplexEvent []*? leading to [tag=DT]? "subsequent"? @after:Event
 
   - name: intrasentence-where-it
     label: Precedence
@@ -108,9 +117,44 @@ rules:
     pattern: |
       @before:Event []*? where @after:Event
 
+  - name: intrasentence-semicolon
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "GTP loaded RAS then triggers the sequential activation of RAF , MEK , and MAPK ; active RAF phosphorylates and activates MEK , which in turn phosphorylates and activates MAPK    ."
+    pattern: |
+      @before:Event ";" []{,2} @after:Event
+
+  - name: intrasentence-when-it
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: ${myaction}
+    example: "When eIF4E is bound to 4E-BP1 it is prevented from joining the translation initiation complex but upon phosphorylation by mTOR , 4E-BP1 releases eIF4E which is then phosphorylated by p70S6K and can join the active initiation complex   ."
+    pattern: |
+      [lemma=when] @before:Event ","? it []*? @after:Event
+
+  # TODO: write action to expand tok to event
+  - name: intrasentence-which-in-turn
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: token
+    action: expandArgs
+    example: "When eIF4E is bound to 4E-BP1 it is prevented from joining the translation initiation complex but upon phosphorylation by mTOR , 4E-BP1 releases eIF4E which is then phosphorylated by p70S6K and can join the active initiation complex   ."
+    example2: "The p53 pathway is generally activated by DNA damage , which results in phosphorylation of p53 by ATM or CHK2 at sites near MDM2 and MDM4 binding ."
+    pattern: |
+      @before:Event []*?
+      (?<! each of) ","? which "then"? (in turn)?
+      (?<after> [mention=Event.trigger]) # this token should be expanded to an Event
 
 
+
+  ########################
+  #
   # cross-sentence cases
+  #
+  ########################
 
   - name: cross-sentence-binding-binding
     label: Precedence
@@ -120,8 +164,8 @@ rules:
     action: ${myaction}
     example: "The first of these is the binding of Cdc25 to the GDP bound wt Ras to produce the ternary wt Ras-GDP-Cdc25 complex .  The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
     pattern: |
-      before: @Binding
-      after: (?<= @DiscourseMarker? []*) @Binding
+      before:Binding = @Binding
+      after:Binding = (?<= @DiscourseMarker? []*) @Binding
 
   - name: cross-sentence-activated
     label: Precedence
@@ -131,19 +175,19 @@ rules:
     action: ${myaction}
     example: "PIP3 binds to Akt and then translocates to the plasma membrane where Akt is activated by phosphorylation .  Activated Akt phosphorylates its substrates including the serine and threonine kinase mTOR which then phosphorylates S6 kinases ( S6K ) and inhibits 4E-BP , leading to increased protein translation as well as other targets that regulate cell division and apoptosis     ."
     pattern: |
-      before: @Binding (?= []*? where []*? [lemma=activate] []*)
-      after: (?<= [lemma=activate] []*) @ComplexEvent
+      before:Binding = @Binding (?= []*? where []*? [lemma=activate] []*)
+      after:ComplexEvent = (?<= [lemma=activate] []*) @ComplexEvent
 
   - name: cross-sentence-shared-controlleds
     label: Precedence
     priority: ${surfacerulepriority}
     type: "cross-sentence"
     right-window: 1
-    action: sharedControlleds
+    action: shareControlleds
     example: "GSK-3beta can then phosphorylate beta-catenin on S33 , S37 and T41 .  The Axin and GSK -3 / CK1 and APC complex induces the degradation of beta-catenin ."
     pattern: |
-      before: @ComplexEvent
-      after: @ComplexEvent
+      before:ComplexEvent = @ComplexEvent
+      after:ComplexEvent = @ComplexEvent
 
   # FIXME: modify Constraints.sharedControlleds to allow comparisons to SimpleEvents (using themes)
   - name: cross-sentence-complex-event-then-binding
@@ -154,5 +198,30 @@ rules:
     action: ${myaction}
     example: "The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
     pattern: |
-      before: @ComplexEvent
-      after: (?<= [tag=DT] second step []*) @Binding
+      before:ComplexEvent = @ComplexEvent
+      after:Binding = (?<= [tag=DT] second step []*) @Binding
+
+
+  - name: cross-sentence-furthermore
+    label: Precedence
+    priority: ${surfacerulepriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "Akt interacts with Raf and phosphorylates it at Ser259 .  Furthermore , phosphorylation of Raf by Akt inhibits activation of the Raf-MEK-ERK signaling pathway and has been shown to alter the cellular response in a human breast cancer cell line from cell cycle arrest to proliferation ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= [lemma=furthermore] ",") @Event
+
+
+#  - name: cross-sentence-these-interactions
+#    label: Precedence
+#    priority: ${surfacerulepriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: ${myaction}
+#    example:
+#    pattern: |
+#      before:Event = @Event
+#      # FIXME: don't include type for second arg
+#      after:Event = (?<= [lemma=furthermore] ",") @Event
