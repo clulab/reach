@@ -8,33 +8,33 @@ vars:
 rules:
   - import: org/clulab/reach/biogrammar/events/bind_events.yml
     vars:
-      priority: "5"
+      priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/transcription_events.yml
     vars:
-      priority: "5"
+      priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/decrease_events.yml
     vars:
       triggerLemma: "loss"
-      priority: "5"
+      priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/amount_events.yml
     vars:
       triggerLemma: "amount|level|quantity"
-      priority: "5"
+      priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/hydrolysis_events.yml
     vars:
-      priority: "5"
+      priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/dehydrolysis_events.yml
     vars:
-      priority: "5"
+      priority: "7"
 
   - import: org/clulab/reach/biogrammar/events/translocation_events.yml
     vars:
-      priority: "5"
+      priority: "7"
 
   # Phosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -45,7 +45,7 @@ rules:
       verbalTriggerLemma: "phosphorylate"
       nominalTriggerLemma: "phosphorylation"
       triggerPrefix: "!word=/(?i)^(de|auto)/"
-      priority: "5"
+      priority: "7"
 
   # AutoPhosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event-auto_template.yml
@@ -57,7 +57,7 @@ rules:
       baseVerbalTriggerLemma: "phosphorylate"
       nominalTriggerLemma: "auto-?phosphorylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Ubiquitination
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -68,7 +68,7 @@ rules:
       verbalTriggerLemma: "ubiquit(in|yl)ate"
       nominalTriggerLemma: "ubiquit(in|yl)ation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Hydroxylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -79,7 +79,7 @@ rules:
       verbalTriggerLemma: "hydroxylate"
       nominalTriggerLemma: "hydroxylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Sumoylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -90,7 +90,7 @@ rules:
       verbalTriggerLemma: "sumoylate"
       nominalTriggerLemma: "sumoylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Glycosylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -101,7 +101,7 @@ rules:
       verbalTriggerLemma: "glycosylate"
       nominalTriggerLemma: "glycosylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Acetylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -112,7 +112,7 @@ rules:
       verbalTriggerLemma: "acetylate"
       nominalTriggerLemma: "acetylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Farnesylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -123,7 +123,7 @@ rules:
       verbalTriggerLemma: "farnesylate"
       nominalTriggerLemma: "farnesylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Ribosylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -134,7 +134,7 @@ rules:
       verbalTriggerLemma: "ribosylate"
       nominalTriggerLemma: "ribosylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Methylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -145,7 +145,7 @@ rules:
       verbalTriggerLemma: "methylate"
       nominalTriggerLemma: "methylation"
       triggerPrefix: "!word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
 
   #
@@ -160,7 +160,7 @@ rules:
       verbalTriggerLemma: "de-?phosphorylate"
       nominalTriggerLemma: "de-?phosphorylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Deubiquitination
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -171,7 +171,7 @@ rules:
       verbalTriggerLemma: "de-?ubiquit(in|yl)ate"
       nominalTriggerLemma: "de-?ubiquit(in|yl)ation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Dehydroxylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -182,7 +182,7 @@ rules:
       verbalTriggerLemma: "de-?hydroxylate"
       nominalTriggerLemma: "de-?hydroxylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Desumoylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -193,7 +193,7 @@ rules:
       verbalTriggerLemma: "de-?sumoylate"
       nominalTriggerLemma: "de-?sumoylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Deglycosylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -204,7 +204,7 @@ rules:
       verbalTriggerLemma: "de-?glycosylate"
       nominalTriggerLemma: "de-?glycosylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Deacetylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -215,7 +215,7 @@ rules:
       verbalTriggerLemma: "de-?acetylate"
       nominalTriggerLemma: "de-?acetylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Defarnesylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -226,7 +226,7 @@ rules:
       verbalTriggerLemma: "de-?farnesylate"
       nominalTriggerLemma: "de-?farnesylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Deribosylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -237,7 +237,7 @@ rules:
       verbalTriggerLemma: "de-?ribosylate"
       nominalTriggerLemma: "de-?ribosylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
   # Demethylation
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -248,14 +248,14 @@ rules:
       verbalTriggerLemma: "de-?methylate"
       nominalTriggerLemma: "de-?methylation"
       triggerPrefix: "word=/(?i)^de/"
-      priority: "5"
+      priority: "7"
 
 
   # Generic (incomplete) events
   - import: org/clulab/reach/biogrammar/coref/generic_events.yml
     vars:
       actionFlow: "mkBioMention"
-      priority: "6"
+      priority: "8"
 
 
   # A very specific class of regulations: "Y-induced Z" (where Z is an event)
@@ -266,7 +266,7 @@ rules:
       ruleType: "regulation"
       triggers: "induced|mediated"
       actionFlow: "mkRegulation"
-      priority: "7" # must be priority of regulations - 1!
+      priority: "9" # must be priority of regulations - 1!
       controlledType: "SimpleEvent"
       controllerType: "BioEntity"
 
@@ -278,7 +278,7 @@ rules:
       ruleType: "activation"
       triggers: "induced|mediated"
       actionFlow: "mkActivation"
-      priority: "8" # must be priority of regulations - 1!
+      priority: "10" # must be priority of regulations - 1!
       controlledType: "BioEntity"
       controllerType: "BioEntity"
 
@@ -290,7 +290,7 @@ rules:
       ruleType: "regulation"
       triggers: "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
       actionFlow: "mkRegulation"
-      priority: "10-11"
+      priority: "12-13"
       controlledType: "Event"
       controllerType: "PossibleController"
 
@@ -301,7 +301,7 @@ rules:
       ruleType: "regulation"
       triggers: "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
       actionFlow: "mkRegulation"
-      priority: "10-11"
+      priority: "12-13"
       controlledType: "Event"
       controllerType: "PossibleController"
 
@@ -312,7 +312,7 @@ rules:
       ruleType: "regulation"
       triggers: "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress|uncoupl"
       actionFlow: "mkRegulation"
-      priority: "10-11"
+      priority: "12-13"
       controlledType: "Event"
       controllerType: "PossibleController"
 
@@ -323,7 +323,7 @@ rules:
       ruleType: "regulation"
       triggers: "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress|uncoupl"
       actionFlow: "mkRegulation"
-      priority: "10-11"
+      priority: "12-13"
       controlledType: "Event"
       controllerType: "PossibleController"
 
@@ -334,7 +334,7 @@ rules:
       ruleType: "activation"
       triggers: "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
       actionFlow: "mkActivation"
-      priority: "12" # must be 1 + priority of regulations!
+      priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
       controllerType: "PossibleController"
 
@@ -345,7 +345,7 @@ rules:
       ruleType: "activation"
       triggers: "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
       actionFlow: "mkActivation"
-      priority: "12" # must be 1 + priority of regulations!
+      priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
       controllerType: "PossibleController"
 
@@ -356,6 +356,6 @@ rules:
       ruleType: "activation"
       triggers: "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|sequester|slow|starv|suppress|supress"
       actionFlow: "mkActivation"
-      priority: "12" # must be 1 + priority of regulations!
+      priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
       controllerType: "PossibleController"

@@ -1,5 +1,6 @@
 package org.clulab.reach
 
+import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
 import org.clulab.reach.grounding._
@@ -156,8 +157,10 @@ class ReachSystem(
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
     // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
+    // use aliases to find more entities
+    val entitiesWithAliases = Alias.canonizeAliases(entities, doc)
     // attach modification features to entities
-    val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
+    val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entitiesWithAliases))
     val mutationAddedEntities = modifiedEntities flatMap {
       case m: BioTextBoundMention => mutationsToMentions(m)
       case m => Seq(m)

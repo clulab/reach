@@ -6,16 +6,25 @@ rules:
 
   - import: org/clulab/reach/biogrammar/coref/alias_template.yml
     vars:
-      label: "Simple_chemical"
+      aLabel: "Simple_chemical"
+      aCapture: "@alias:Simple_chemical"
+      bLabel: "Simple_chemical"
+      bCapture: "@alias:Simple_chemical"
       priority: "4"
 
   - import: org/clulab/reach/biogrammar/coref/alias_template.yml
     vars:
-      label: "Equivalable" # TODO: better name
+      aLabel: "Equivalable"
+      aCapture: "@alias:Equivalable"
+      bLabel: "Equivalable"
+      bCapture: "@alias:Equivalable"
       priority: "4"
 
   - import: org/clulab/reach/biogrammar/coref/alias_template.yml
     vars:
-      label: "Mutant"
+      aLabel: "Mutant"
+      aCapture: "@alias:Mutant"
+      bLabel: "Mutant"
+      bCapture: "@alias:Mutant"
       priority: "4"
 

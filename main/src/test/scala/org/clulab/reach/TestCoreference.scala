@@ -635,8 +635,32 @@ class TestCoreference extends FlatSpec with Matchers {
     mentions should have size 2
     mentions.head.candidates should not be empty
     mentions.last.candidates should not be empty
-    val aspp1cands = mentions.head.candidates.get.toSet
-    val aspp2cands = mentions.last.candidates.get.toSet
-    aspp1cands should equal(aspp2cands)
+    val aspp1Cands = mentions.head.candidates.get.toSet
+    val aspp2Cands = mentions.last.candidates.get.toSet
+    aspp1Cands should equal(aspp2Cands)
+  }
+
+  val sent59 = "ASPP1 (better known as 23peM) is a common protein."
+  sent59 should "make a mention of 23peM and ground it to ASPP1" in {
+    val mentions = getBioMentions(sent59)
+    mentions should have size 2
+    mentions.head.candidates should not be empty
+    mentions.last.candidates should not be empty
+    mentions.head.labels should equal (mentions.last.labels)
+    val aspp1Cands = mentions.head.candidates.get.toSet
+    val nonceCands = mentions.last.candidates.get.toSet
+    aspp1Cands should equal (nonceCands)
+  }
+
+  val sent60 = "23peM (ASPP1) is a common protein."
+  sent60 should "make a mention of 23peM and ground it to ASPP1" in {
+    val mentions = getBioMentions(sent59)
+    mentions should have size 2
+    mentions.head.candidates should not be empty
+    mentions.last.candidates should not be empty
+    mentions.head.labels should equal (mentions.last.labels)
+    val nonceCands = mentions.head.candidates.get.toSet
+    val aspp1Cands = mentions.last.candidates.get.toSet
+    aspp1Cands should equal (nonceCands)
   }
 }
