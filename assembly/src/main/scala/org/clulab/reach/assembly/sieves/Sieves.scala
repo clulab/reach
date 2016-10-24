@@ -49,6 +49,38 @@ class PrecedenceSieves extends Sieves {
   import Constraints._
   import SieveUtils._
 
+
+  private def applyPrecedenceRules(
+    mentions: Seq[Mention],
+    manager: AssemblyManager,
+    sieveName: String,
+    ruleFile: String,
+    actions: Actions = new Actions
+  ): AssemblyManager = {
+
+    // find rule-based PrecedenceRelations
+    for {
+      rel <- assemblyViaRules(ruleFile, mentions, actions)
+      // ignore discourse markers
+      if rel.label == precedenceMentionLabel
+      before = rel.arguments.getOrElse(SieveUtils.beforeRole, Nil)
+      after = rel.arguments.getOrElse(SieveUtils.afterRole, Nil)
+      if before.nonEmpty && after.nonEmpty
+      // both "before" and "after" should have single mentions
+      b = before.head
+      a = after.head
+      // cannot be an existing regulation
+      //if notAnExistingComplexEvent(rel)
+      if noExistingPrecedence(a, b, manager)
+    } {
+      // store the precedence relation
+      // TODO: add score
+      manager.storePrecedenceRelation(b, a, Set(rel), sieveName)
+    }
+
+    manager
+  }
+
   /**
     * Rule-based method for detecting precedence relations within sentences
     *
@@ -62,26 +94,33 @@ class PrecedenceSieves extends Sieves {
 
     logger.debug(s"\tapplying '$name' sieve...")
 
-    val p = "/org/clulab/reach/assembly/grammars/intrasentential.yml"
+    val actions = new AssemblyActions
+    val ruleFile = "/org/clulab/reach/assembly/grammars/intrasentential.yml"
 
-    // find rule-based PrecedenceRelations
-    for {
-      rel <- assemblyViaRules(p, mentions)
-      before = rel.arguments.getOrElse(SieveUtils.beforeRole, Nil)
-      after = rel.arguments.getOrElse(SieveUtils.afterRole, Nil)
-      if before.nonEmpty && after.nonEmpty
-      // both "before" and "after" should have single mentions
-      b = before.head
-      a = after.head
-      // cannot be an existing regulation
-      if notAnExistingComplexEvent(rel) && noExistingPrecedence(a, b, manager)
-    } {
-      // store the precedence relation
-      // TODO: add score
-      manager.storePrecedenceRelation(b, a, Set(rel), name)
-    }
+    val am2 = applyPrecedenceRules(mentions, manager, name, ruleFile, actions)
 
-    manager
+    am2
+  }
+
+  /**
+    * Rule-based method for detecting inter-sentence precedence relations
+    *
+    * @param mentions a sequence of Odin Mentions
+    * @param manager  an AssemblyManager
+    * @return an AssemblyManager
+    */
+  def intersententialRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
+
+    val name = "intersententialRBPrecedence"
+
+    logger.debug(s"\tapplying '$name' sieve...")
+
+    val actions = new AssemblyActions
+    val ruleFile = "/org/clulab/reach/assembly/grammars/intersentential.yml"
+
+    val am2 = applyPrecedenceRules(mentions, manager, name, ruleFile, actions)
+
+    am2
   }
 
   /**
@@ -97,28 +136,14 @@ class PrecedenceSieves extends Sieves {
 
     logger.debug(s"\tapplying '$name' sieve...")
 
-    val p = "/org/clulab/reach/assembly/grammars/discourse-rules.yml"
-
     val actions = new AssemblyActions
+    val intraSententialRules =  "/org/clulab/reach/assembly/grammars/intrasentential.yml"
+    val interSententialRules = "/org/clulab/reach/assembly/grammars/intersentential.yml"
 
-    // find rule-based PrecedenceRelations
-    for {
-      rel <- assemblyViaRules(p, mentions, actions)
-      before = rel.arguments.getOrElse(SieveUtils.beforeRole, Nil)
-      after = rel.arguments.getOrElse(SieveUtils.afterRole, Nil)
-      if before.nonEmpty && after.nonEmpty
-      // both "before" and "after" should have single mentions
-      b = before.head
-      a = after.head
-      // cannot be an existing regulation
-      if notAnExistingComplexEvent(rel) && noExistingPrecedence(a, b, manager)
-    } {
-      // store the precedence relation
-      // TODO: add score
-      manager.storePrecedenceRelation(b, a, Set(rel), name)
-    }
+    val am2 = applyPrecedenceRules(mentions, manager, name, intraSententialRules, actions)
+    val am3 = applyPrecedenceRules(mentions, manager, name, interSententialRules, actions)
 
-    manager
+    am3
   }
   
   /**
@@ -267,56 +292,6 @@ class PrecedenceSieves extends Sieves {
 
     // print the counts of the tam relations
     // relCounts.foreach(tam => println(s"${tam._1}\t${tam._2}"))
-
-    manager
-  }
-
-
-  /**
-    * Rule-based method for detecting inter-sentence precedence relations
-    *
-    * @param mentions a sequence of Odin Mentions
-    * @param manager  an AssemblyManager
-    * @return an AssemblyManager
-    */
-  def intersententialRBPrecedence(mentions: Seq[Mention], manager: AssemblyManager): AssemblyManager = {
-
-    val name = "intersententialRBPrecedence"
-
-    logger.debug(s"\tapplying '$name' sieve...")
-
-    val p = "/org/clulab/reach/assembly/grammars/intersentential.yml"
-
-    // If the full Event is nested within another mention, pull it out
-    def correctScope(m: Mention): Mention = {
-      m match {
-        // arguments will have at most one "event" argument
-        // FIXME: the nesting is no longer limited
-        case nested if nested.arguments contains "event" => nested.arguments("event").head
-        case flat => flat
-      }
-    }
-
-    // find rule-based inter-sentence PrecedenceRelations
-    for {
-      rel <- assemblyViaRules(p, mentions)
-      // TODO: Decide whether to restrict matches more, e.g. to last of prior sentence
-      other <- mentions.filter(m => isEvent(m) && m.document == rel.document && m.sentence == rel.sentence - 1)
-      (before, after) = rel.label match {
-        case "InterAfter" => (Seq(other), rel.arguments(SieveUtils.beforeRole))
-        case "InterBefore" => (rel.arguments(SieveUtils.beforeRole), Seq(other))
-        case _ => (Nil, Nil)
-      }
-      if before.nonEmpty && after.nonEmpty
-      b = correctScope(before.head)
-      a = correctScope(after.head)
-
-      if isValidRelationPair(a, b) && noExistingPrecedence(a, b, manager)
-    } {
-      // store the precedence relation
-      // TODO: add score
-      manager.storePrecedenceRelation(b, a, Set(rel), name)
-    }
 
     manager
   }
@@ -530,7 +505,6 @@ object SieveUtils extends LazyLogging {
         // initialize a state with the subset of mentions
         // belonging to the same doc.
         m <- ee.extractFrom(doc, oldState)
-        // _ = if (m matches precedenceMentionLabel) displayMention(m)
         // ensure that mention is one related to Assembly
         // we don't want to return things from the old state
         if m matches precedenceMentionLabel

@@ -92,19 +92,26 @@ object Constraints {
     }
   }
 
-  /** Use this check to automatically label negative examples **/
+  /** Determine if two mentions share an equivalent controlled/patient **/
   def shareControlleds(mention1: Mention, mention2: Mention): Boolean = {
     // resolve both event mentions
     val m1 = AssemblyManager.getResolvedForm(mention1)
     val m2 = AssemblyManager.getResolvedForm(mention2)
-    (m1, m2) match {
-      // are the controlleds identical?
-      case (ce1: Mention, ce2: Mention) if (ce1 matches "ComplexEvent") && (ce2 matches "ComplexEvent") =>
-        val c1 = AssemblyManager.getResolvedForm(ce1.arguments("controlled").head)
-        val c2 = AssemblyManager.getResolvedForm(ce2.arguments("controlled").head)
-        c1.text == c2.text
-      case _ => false
+
+    val manager = AssemblyManager(Seq(mention1, mention2))
+
+    def getControlled(m: Mention): Seq[Mention] = m match {
+      case ce if ce matches "ComplexEvent" =>
+        ce.arguments("controlled").map(AssemblyManager.getResolvedForm).flatMap(getControlled)
+      case se if se matches "SimpleEvent" =>
+        se.arguments("theme").map(AssemblyManager.getResolvedForm).flatMap(getControlled)
+      case other => Seq(other)
     }
+
+    val m1controlleds = getControlled(m1).map(manager.getEER).map(_.equivalenceHash).toSet
+    val m2controlleds = getControlled(m2).map(manager.getEER).map(_.equivalenceHash).toSet
+
+    m1controlleds.intersect(m2controlleds).nonEmpty
   }
 
   /**

@@ -45,7 +45,7 @@ case class PrecedenceRelation(
     */
   // TODO: Should this be in terms of an Equiv Hash?
   def isEquivalentTo(other: Any): Boolean = other match {
-    case pr: PrecedenceRelation => this.before == pr.before || this.after == pr.after
+    case pr: PrecedenceRelation => this.before.isEquivalentTo(pr.before) || this.after.isEquivalentTo(pr.after)
     case _ => false
   }
 }

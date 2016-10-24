@@ -1,7 +1,7 @@
 package org.clulab.reach.assembly.sieves
 
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.odin.{Actions, Mention, RelationMention, State}
+import org.clulab.odin._
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.taxonomy
 
@@ -14,23 +14,54 @@ class AssemblyActions extends Actions with LazyLogging {
   val AFTER = SieveUtils.afterRole
   val PRECEDENCE = SieveUtils.precedenceMentionLabel
   val precedenceMentionLabels = taxonomy.hypernymsFor(PRECEDENCE)
-  logger.info(s"precedenceMentionLabels: $precedenceMentionLabels")
 
   def identityAction(mentions: Seq[Mention], state: State): Seq[Mention] = mentions
 
-  private def showBeforeAfter(mention: Mention): String = {
+  /** Create a precedence mention for a before and after pair */
+  private def mkPrecedenceMention(parent: Mention, before: Mention, after: Mention): Mention = before.sentence == after.sentence match {
+    case true =>
+      new CrossSentenceMention(
+        labels = precedenceMentionLabels,
+        anchor = before,
+        neighbor = after,
+        arguments = Map(BEFORE -> Seq(before), AFTER -> Seq(after)),
+        document = parent.document,
+        keep = parent.keep,
+        foundBy = parent.foundBy
+      )
+    case false =>
+      new RelationMention(
+        labels = precedenceMentionLabels,
+        arguments = Map(BEFORE -> Seq(before), AFTER -> Seq(after)),
+        sentence = parent.sentence,
+        document = parent.document,
+        keep = parent.keep,
+        foundBy = parent.foundBy
+      )
+  }
+
+  def showBeforeAfter(mention: Mention): String = {
     val before = mention.arguments(SieveUtils.beforeRole).head
     val after = mention.arguments(SieveUtils.afterRole).head
-    s"""found-by:\t${mention.foundBy}
-       |cross-sentence?:\t${before.sentence != after.sentence}
-       |before (${before.label}):\t"${before.text}"
-       |after  (${after.label}):\t"${after.text}"
+    before.sentence == after.sentence match {
+      case true =>
+        s"""found-by:\t${mention.foundBy}
+            |s1:\t'${before.sentenceObj.getSentenceText}'
+            |before (${before.label}):\t"${before.text}"
+            |after  (${after.label}):\t"${after.text}"
      """.stripMargin
+
+      case false =>
+        s"""found-by:\t${mention.foundBy}
+            |s1:\t'${before.sentenceObj.getSentenceText}'
+            |s2:\t'${after.sentenceObj.getSentenceText}'
+            |before (${before.label}):\t"${before.text}"
+            |after  (${after.label}):\t"${after.text}"
+     """.stripMargin
+    }
   }
 
   def validatePrecedenceRelations(mentions: Seq[Mention], state: State): Seq[Mention] = {
-
-    val am = AssemblyManager(mentions)
 
     val validCandidates = for {
       m <- mentions
@@ -39,20 +70,35 @@ class AssemblyActions extends Actions with LazyLogging {
       b <- m.arguments(BEFORE)
       a <- m.arguments(AFTER)
       // a should not be equivalent to b
-      if ! Constraints.areEquivalent(b, a)
+      if !Constraints.areEquivalent(b, a)
       if Constraints.shareArg(b, a)
       if Constraints.isValidRelationPair(b, a)
-    } yield new RelationMention(
-      labels = precedenceMentionLabels,
-      arguments = Map(BEFORE -> Seq(b), AFTER -> Seq(a)),
-      sentence = m.sentence,
-      document = m.document,
-      keep = m.keep,
-      foundBy = m.foundBy
-    )
+    } yield mkPrecedenceMention(parent = m, before = b, after = a)
+
+    val distinctCandidates = validCandidates.distinct
+
+    if (distinctCandidates.nonEmpty) {
+      logger.debug(s"validatePrecedenceRelations found ${distinctCandidates.size} matches\n ${distinctCandidates.map(showBeforeAfter).mkString("\n")}")
+    }
+    distinctCandidates
+  }
+
+  def validatePrecedenceRelations2(mentions: Seq[Mention], state: State): Seq[Mention] = {
+
+    val validCandidates = for {
+      m <- mentions
+      if m.arguments contains BEFORE
+      if m.arguments contains AFTER
+      b <- m.arguments(BEFORE)
+      a <- m.arguments(AFTER)
+      // a should not be equivalent to b
+      if !Constraints.areEquivalent(b, a)
+      if Constraints.shareArg(b, a)
+      if Constraints.isValidRelationPair(b, a)
+    } yield mkPrecedenceMention(parent = m, before = b, after = a)
 
     if (validCandidates.nonEmpty) {
-      logger.info(s"validatePrecedenceRelations found ${validCandidates.size} matches\n ${validCandidates.map(showBeforeAfter).mkString("\n")}")
+      logger.debug(s"validatePrecedenceRelations found ${validCandidates.size} matches\n ${validCandidates.map(showBeforeAfter).mkString("\n")}")
     }
     validCandidates
   }
@@ -62,7 +108,7 @@ class AssemblyActions extends Actions with LazyLogging {
     b <- m.arguments(BEFORE)
     a <- m.arguments(AFTER)
     if Constraints.shareControlleds(b, a)
-  } yield m
+  } yield mkPrecedenceMention(parent = m, before = b, after = a)
 
   def expandArgs(mentions: Seq[Mention], state: State): Seq[Mention] = {
 
@@ -75,20 +121,37 @@ class AssemblyActions extends Actions with LazyLogging {
       if m.arguments contains AFTER
       b <- m.arguments(BEFORE).flatMap(getOverlappingEvents)
       a <- m.arguments(AFTER).flatMap(getOverlappingEvents)
-    } yield new RelationMention(
-      labels = precedenceMentionLabels,
-      arguments = Map(BEFORE -> Seq(b), AFTER -> Seq(a)),
-      sentence = m.sentence,
-      document = m.document,
-      keep = m.keep,
-      foundBy = m.foundBy
-    )
+      if a != b
+    } yield mkPrecedenceMention(parent = m, before = b, after = a)
 
     if (expanded.nonEmpty) {
-      logger.info(s"expandArgs found ${expanded.size} candidates\n ${expanded.map(showBeforeAfter).mkString("\n")}")
+      logger.debug(s"expandArgs found ${expanded.size} candidates\n ${expanded.map(showBeforeAfter).mkString("\n")}")
     }
 
     validatePrecedenceRelations(expanded, state)
+  }
+
+  def afterArgResolvesToBefore(mentions: Seq[Mention], state: State): Seq[Mention] = {
+
+    def resolvesToBefore(before: Mention, afterArgs: Seq[Mention]): Boolean = {
+      val am = AssemblyManager(afterArgs :+ before)
+      // val afterArgsSet: Set[Mention] = afterArgs.map(AssemblyManager.getResolvedForm).toSet
+      val isTrue: Boolean = afterArgs.map(am.getEER).map(_.equivalenceHash).toSet contains am.getEER(before).equivalenceHash
+      if (isTrue) {
+        logger.info(s"afterArgResolvesToBefore passes for before (${before.label}) with text: '${before.text}'")
+      }
+      isTrue
+
+    }
+
+    for {
+      m <- mentions
+      if m.arguments contains BEFORE
+      if m.arguments contains AFTER
+      b <- m.arguments(BEFORE)
+      a <- m.arguments(AFTER)
+      if resolvesToBefore(b, a.arguments.values.flatten.toSeq)
+    } yield mkPrecedenceMention(parent = m, before = b, after = a)
   }
 
 }

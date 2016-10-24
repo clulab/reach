@@ -1,0 +1,60 @@
+taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
+
+# FIXME: these should be subdivided into E1precedesE2Trigger and E2precedesE1Trigger
+rules:
+  - name: precedence-marker
+    label: PrecedenceMarker
+    priority: 1
+    type: token
+    pattern: |
+      prior to
+      |
+      # ex. following, followed by, follows
+      [lemma=follow] "by"?
+      |
+      then
+      |
+      [lemma=lead] to
+      |
+      [lemma=result] in
+      |
+      "as"? "a"? [lemma=result] (from|of)
+      |
+      before
+      |
+      after
+      |
+      due to
+      |
+      "," when
+      |
+      "," thereby
+      |
+      furthermore
+      |
+      also can
+      |
+      precedes the
+      |
+      dependent on
+      |
+      depends on
+      |
+      in response to
+      |
+      # ex. the first of these
+      first
+      |
+      # ex. the second step is
+      second
+      |
+      next
+      |
+      "as"? "a" downstream "effect"?
+      |
+      # Upon PI3K activation,
+      [lemma=upon] (@Event | @Entity activation) ","?
+      |
+      and ${regverbaltrigger}
+      |
+      which in turn

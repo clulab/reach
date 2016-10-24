@@ -190,8 +190,8 @@ object SieveEvaluator {
         rp.toSeq
       }
 
-      (rulePerformance :+ sievePerformance).sortBy(_.p).foreach(perf => println(perf.mkRow))
-
+      (rulePerformance.sortBy(_.rule) :+ sievePerformance).foreach(perf => println(perf.mkRow))
+      println()
       sievePerformance
     }
 

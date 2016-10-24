@@ -118,10 +118,7 @@ object EventPair {
 
   def apply(before: CorefMention, after: CorefMention): EventPair = {
 
-    // if the two event mentions have the same controlled, this is a negative example
-    val rel: String = if (Constraints.shareControlleds(before, after)) AssemblyRelationClassifier.NEG else ""
-
-    EventPair(e1 = before, e2 = after, rel)
+    EventPair(e1 = before, e2 = after, relation = "")
   }
 }
 

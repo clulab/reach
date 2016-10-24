@@ -1,23 +1,106 @@
-# assembly sub-tree moved to main taxonomy
-# these rules make use of labels that exist in that taxonomy
 # rather than duplicate it here, the assembly branch was grafted there
 taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 
 # vars for assembly sieve
 vars:
   mylabel: "Precedence"
+  mypriority: "2"
+  myaction: "validatePrecedenceRelations"
+  # TODO: fix comparison of binding args to ComplexEvent controlleds
+  crosssentenceaction: "identityAction"
+  regverbaltrigger: [lemma=/^(promote)/]
+  # vars for old rules
+  after_type: "Event"
+  before_type: "Event"
   deprulepriority: "1"
   surfacerulepriority: "2"
-  # < operator should be outside of regex
-  after_type: "Event"
-  # "after" should be some kind of Event that transforms "before"
-  before_type: "Event"
   beforesurface: "[lemma=/^(before|prior|precede)$/]"
   aftersurface: "[lemma=/^follow|after$/]"
 
 # rules for assembly sieve
+
+  ########################
+  #
+  # intra-sentence cases
+  #
+  ########################
+
 rules:
-  # Event rules
+  # precedence markers
+  - import: org/clulab/reach/assembly/grammars/precedence-markers.yml
+
+  - name: intrasentence-resulting-in
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: ${myaction}
+    example: "Furthermore , AKT phosphorylates and activates pro-survival protein XIAP ( X linked inhibitor of apoptosis protein ) , resulting in an increase of binding of XIAP to caspases 3 , 7 and 9 and inhibition of these caspases , the activities of which are essential for apoptosis induction ."
+    pattern: |
+      @before:Event "," resulting in []*? @after:Event
+
+ # FIXME: find the example
+  - name: intrasentence-as-a-result-of
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: ${myaction}
+    example: ""
+    pattern: |
+      @after:Event as a result of @before:Event
+      |
+      [lemma=as] a result of @before:Event ","? @after:Event
+
+  - name: intrasentence-leading-to
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: ${myaction}
+    example: "AMPK directly phosphorylates Raptor in an LKB1 dependent manner leading to the binding of 14-3-3 proteins to Raptor and subsequent inhibition of mTORC1 ."
+    pattern: |
+      @before:ComplexEvent []*? leading to [tag=DT]? "subsequent"? @after:Event
+
+  - name: intrasentence-where-it
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: ${myaction}
+    example: "Specifically , FOXO1 phosphorylated by AKT translocates to the cytosol where it is ubiquitinated by Skp2 and subjected to proteasome dependent degradation ( Huang et al. ,     ) ."
+    pattern: |
+      @before:Event []*? where @after:Event
+
+  - name: intrasentence-semicolon
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: ${myaction}
+    example: "GTP loaded RAS then triggers the sequential activation of RAF , MEK , and MAPK ; active RAF phosphorylates and activates MEK , which in turn phosphorylates and activates MAPK    ."
+    pattern: |
+      @before:Event ";" []{,2} @after:Event
+
+  - name: intrasentence-when-it
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: ${myaction}
+    example: "When eIF4E is bound to 4E-BP1 it is prevented from joining the translation initiation complex but upon phosphorylation by mTOR , 4E-BP1 releases eIF4E which is then phosphorylated by p70S6K and can join the active initiation complex   ."
+    pattern: |
+      [lemma=when] @before:Event ","? it []*? @after:Event
+
+  # TODO: write action to expand tok to event
+  - name: intrasentence-which-in-turn
+    label: Precedence
+    priority: ${mypriority}
+    type: token
+    action: expandArgs
+    example: "When eIF4E is bound to 4E-BP1 it is prevented from joining the translation initiation complex but upon phosphorylation by mTOR , 4E-BP1 releases eIF4E which is then phosphorylated by p70S6K and can join the active initiation complex   ."
+    example2: "The p53 pathway is generally activated by DNA damage , which results in phosphorylation of p53 by ATM or CHK2 at sites near MDM2 and MDM4 binding ."
+    pattern: |
+      @before:Event []*?
+      (?<! each of) ","? which "then"? (in turn)?
+      (?<after> [mention=Event.trigger]) # this token should be expanded to an Event
+
+
+  # (Old rules) Event rules
   - name: assembly-prep-syntax-1
     label: ${mylabel}
     priority: ${deprulepriority}
