@@ -63,13 +63,13 @@ class TestReachCLI extends FlatSpec with Matchers {
     errorCount should be (0)
   }
 
-  it should "output IndexCard correctly on NXML papers" in {
-    println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = icDir, outputFormat = "indexcard", logFile = icLogFile)
-    val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
-    if(errorCount > 0) dumpLog(icLogFile)
-    errorCount should be (0)
-  }
+//  it should "output IndexCard correctly on NXML papers" in {
+//    println(s"Will output IndexCard output in directory ${icDir.getAbsolutePath}")
+//    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = icDir, outputFormat = "indexcard", logFile = icLogFile)
+//    val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = false)
+//    if(errorCount > 0) dumpLog(icLogFile)
+//    errorCount should be (0)
+//  }
 
   // TODO: Add test to ensure correct handling of csv and tsv files
 

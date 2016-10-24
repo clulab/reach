@@ -11,3 +11,19 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:${ controllerType } = <prep_in [lemma=result] nsubj /nn|amod|conj_|cc/{,2}
     controlled:${ controlledType } = /nn|prep_of/
+
+
+- name: "Positive_activation_surface_treated_with"
+  priority: ${ priority }
+  example: "We now show that mTOR inhibition induces insulin receptor substrate-1 expression and abrogates feedback inhibition of the pathway , resulting in Akt activation both in cancer cell lines and in patient tumors treated with the rapamycin derivative , RAD001 ."
+  type: token
+  label: ${label}
+  action: ${ actionFlow }
+  pattern: |
+    @controlled:BioEntity [lemma=activation]?
+    # some number of interceding tokens
+    []{,10}
+    (?<trigger> treated with)
+    # determiners, etc.
+    []{,3}
+    @controller:BioEntity

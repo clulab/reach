@@ -189,8 +189,7 @@ class ReachCLI(
         val am: AssemblyManager = orderedSieves.apply(mentions)
         val ae = new AssemblyExporter(am)
         val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
-        // no filter
-        // FIXME: specify columns and sep
+
         val cols = Seq(
           AssemblyExporter.INPUT,
           AssemblyExporter.OUTPUT,

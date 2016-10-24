@@ -57,30 +57,26 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings: _*)
+  .aggregate(main, causalAssembly, export)
+  .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
   .settings(
-    publishArtifact := false,
-    publishTo := Some("dummy" at "nowhere"),
-    publish := {},
-    publishLocal := {},
-    publishM2 := {},
-    Keys.`package` := {
-      // avoid generating an empty jar for the root project
-      (Keys.`package` in (main, Compile)).value
-    }
+    name := "reach-exe",
+    aggregate in test := false,
+    aggregate in assembly := false,
+    test in assembly := {},
+    assemblyJarName in assembly := s"reach-gordo-${version.value}.jar"
   )
-  .aggregate(main, assembly, export)
-  .dependsOn(main, assembly, export) // so that we can import from the console
 
 lazy val main = project
   .settings(commonSettings:_*)
 
-lazy val assembly = project
+lazy val causalAssembly = project.in(file("assembly"))
   .settings(commonSettings:_*)
   .dependsOn(main % "test->test;compile->compile")
 
 lazy val export = project
   .settings(commonSettings:_*)
-  .dependsOn(main % "test->test;compile->compile", assembly % "test;compile") // need access to assembly/src/resources
+  .dependsOn(main % "test->test;compile->compile", causalAssembly % "test;compile") // need access to assembly/src/resources
 
 //
 // publishing settings

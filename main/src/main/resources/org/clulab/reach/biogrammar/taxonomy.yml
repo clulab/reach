@@ -28,6 +28,10 @@
             - Binding
             - Generic_event
             - Translocation
+            - Amount:
+              - IncreaseAmount:
+                - Transcription
+              - DecreaseAmount
             - AdditionEvent:
                 - Acetylation
                 - Farnesylation
