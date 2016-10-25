@@ -114,7 +114,7 @@ class ReachSystem(
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
-    val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
+    val entitiesPerEntry = extractEntitiesFrom(documents)
     contextEngine.infer(entitiesPerEntry.flatten)
     val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
     // get events
@@ -167,6 +167,30 @@ class ReachSystem(
     }
     // add grounding candidates to entities
     entityLookup(mutationAddedEntities)
+  }
+
+  def extractEntitiesFrom(docs: Seq[Document]): Seq[Seq[BioMention]] = {
+    // extract entities
+    val entities = for (doc <- docs) yield entityEngine.extractByType[BioMention](doc)
+    // use aliases to find more entities
+    val entitiesWithAliases = Alias.canonizeAliases(entities, docs)
+
+    for {
+      i <- docs.indices
+      doc = docs(i)
+      docEntities = entitiesWithAliases(i)
+    } yield {
+      // attach modification features to entities
+      val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(docEntities))
+      val mutationAddedEntities = modifiedEntities flatMap {
+        case m: BioTextBoundMention => mutationsToMentions(m)
+        case m => Seq(m)
+      }
+      // add grounding candidates to entities
+      entityLookup(mutationAddedEntities)
+
+      mutationAddedEntities
+    }
   }
 
   /** If the given mention has many mutations attached to it, return a mention for each mutation. */

@@ -1,6 +1,6 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 import TestUtils._
 import org.clulab.reach.mentions._
 
@@ -662,5 +662,14 @@ class TestCoreference extends FlatSpec with Matchers {
     val nonceCands = mentions.head.candidates.get.toSet
     val aspp1Cands = mentions.last.candidates.get.toSet
     aspp1Cands should equal (nonceCands)
+  }
+
+  // When documents are processed together, aliases found in one should be sought in the others
+  val sent61 = "We examine the role of 23peM."
+  val doc1 = testReach.mkDoc(sent61, "testDoc1")
+  val doc2 = testReach.mkDoc(sent60, "testDoc2")
+  sent61 should "contain a mention of 23peM" in {
+    val mentions = testReach.extractFrom(Nil, Seq(doc1, doc2))
+    mentions.filter(_.text == "23peM") should have size 2
   }
 }
