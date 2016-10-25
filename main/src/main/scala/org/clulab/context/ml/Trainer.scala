@@ -243,7 +243,7 @@ object Trainer {
     val balancedDataset = balanceDataset(dataset)
 
     // Normalize dataset
-    val scalers = normalize(balancedDataset)
+    val scalers:ScaleRange[String] = normalize(balancedDataset)
 
     // Train the classifier
     val classifier = train(balancedDataset)
@@ -256,9 +256,7 @@ object Trainer {
     // scalers.saveTo(fw)
     // fw.close
 
-    val oos = new ObjectOutputStream(new FileOutputStream(outputFile.getAbsolutePath+".scalers"))
-    oos.writeObject(scalers)
-    oos.close
+    Serializer.save[ScaleRange[String]](scalers, outputFile.getAbsolutePath+".scalers")
   }
 
 }

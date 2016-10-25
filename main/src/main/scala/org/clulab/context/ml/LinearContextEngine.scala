@@ -7,19 +7,13 @@ import org.clulab.learning._
 import org.clulab.context._
 import org.clulab.context.ml.dataset._
 import org.clulab.learning._
+import org.clulab.utils.Serializer
 
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {
 
   // Load the trained data
   val classifier = LiblinearClassifier.loadFrom[String, String](parametersFile.getAbsolutePath)
-  // val normalizers:ScaleRange[String] = ScaleRange.loadFrom(new FileReader(normalizersFile))
-  val ois = new ObjectInputStream(new FileInputStream(normalizersFile)) {
-    override def resolveClass(desc: java.io.ObjectStreamClass): Class[_] = {
-      try { Class.forName(desc.getName, false, getClass.getClassLoader) }
-      catch { case ex: ClassNotFoundException => super.resolveClass(desc) }
-    }
-  }
-  val normalizers:ScaleRange[String] = ois.readObject.asInstanceOf[ScaleRange[String]]
+  val normalizers:ScaleRange[String] = Serializer.load[ScaleRange[String]](normalizersFile.getAbsolutePath)
 
   var paperMentions:Option[Seq[BioTextBoundMention]] = None
   var paperContextTypes:Option[Seq[ContextType]] = None
