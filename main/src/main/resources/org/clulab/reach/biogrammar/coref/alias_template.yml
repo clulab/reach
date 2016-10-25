@@ -5,7 +5,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    ${ aCapture }
+    ^ ${ aCapture }
     [tag="-LRB-"]
     ${ bCapture }
     ([word=/^,|\/|or$/]+ ${ bCapture })*?
