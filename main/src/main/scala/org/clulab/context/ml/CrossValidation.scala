@@ -25,13 +25,18 @@ import org.clulab.serialization.DocumentSerializer
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.mentions._
 import org.clulab.context._
+import org.clulab.serialization.json.JSONSerializer
+import org.json4s.native.JsonMethods._
 
 object CrossValidation extends App {
 
       def classifyWithPolicy(anns:ArticleAnnotations):Seq[(Boolean, Boolean)] = {
         // Simulates Policy 4
 
-        val entities:Seq[BioMention] = anns.preprocessed.get.mentions
+        // Restore the mentions from JSON
+        val jsonAST = parse(anns.preprocessed.get.mentions)
+
+        val entities:Seq[BioMention] = JSONSerializer.toMentions(jsonAST).map(_.asInstanceOf[BioMention])
 
         val manualContextAnnotations = anns.contextAnnotations
 

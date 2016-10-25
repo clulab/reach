@@ -16,8 +16,11 @@ import org.clulab.context.ml.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.mentions._
 import org.clulab.context._
+import org.clulab.serialization.json.JSONSerializer
+import org.json4s.native.JsonMethods._
+import org.clulab.utils.Serializer
 
-class PreAnnotatedDoc(val serializedDoc:String, val mentions:Seq[BioMention]) extends Serializable
+class PreAnnotatedDoc(val serializedDoc:String, val mentions:String) extends Serializable
 
 object DatasetAnnotator extends App{
   // Preannotates the dataset and stores the serialized document in the directory
@@ -42,10 +45,13 @@ object DatasetAnnotator extends App{
     println(s"Extracting entities from $dir...")
     val entities = reach.extractEntitiesFrom(doc)
 
-    val preprocessedAnnotations = new PreAnnotatedDoc(docSerializer.save(doc), entities)
-    val oos = new ObjectOutputStream(new FileOutputStream(new File(dir, "preprocessed.ser")))
-    oos.writeObject(preprocessedAnnotations)
-    oos.close
+    val serializedEntities:String = compact(render(JSONSerializer.jsonAST(entities)))
+
+    val preprocessedAnnotations = new PreAnnotatedDoc(docSerializer.save(doc), serializedEntities)
+    Serializer.save[PreAnnotatedDoc](preprocessedAnnotations, "preprocessed.ser")
+    //val oos = new ObjectOutputStream(new FileOutputStream(new File(dir, "preprocessed.ser")))
+    // oos.writeObject(preprocessedAnnotations)
+    // oos.close
 
 
     println(s"Finished annotating $dir...")
@@ -72,7 +78,8 @@ object Trainer {
     val (doc:Document, entities:Seq[BioMention]) = annotations.preprocessed match {
       case Some(preprocessed) =>
         val docSer = new DocumentSerializer
-        (docSer.load(preprocessed.serializedDoc), preprocessed.mentions)
+        val jsonAST = parse(preprocessed.mentions)
+        (docSer.load(preprocessed.serializedDoc), JSONSerializer.toMentions(jsonAST).map(_.asInstanceOf[BioMention]))
       case None =>
         println(s"Annotating ${annotations.name} ...")
 

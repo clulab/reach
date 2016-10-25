@@ -7,6 +7,7 @@ import ai.lum.nxmlreader.standoff.Tree
 import org.clulab.reach.mentions.BioTextBoundMention
 import org.clulab.context.ml.PreAnnotatedDoc
 import org.clulab.context.ContextClass
+import org.clulab.utils.Serializer
 
 // object ContextLabel extends Enumeration{
 //   val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value
@@ -150,13 +151,14 @@ object ArticleAnnotations{
     val preprocessed:Option[PreAnnotatedDoc] = {
       val ppFile = new File(directory, "preprocessed.ser")
       if(ppFile.exists){
-        val ois = new ObjectInputStream(new FileInputStream(ppFile)) {
-          override def resolveClass(desc: java.io.ObjectStreamClass): Class[_] = {
-            try { Class.forName(desc.getName, false, getClass.getClassLoader) }
-            catch { case ex: ClassNotFoundException => super.resolveClass(desc) }
-          }
-        }
-        Some(ois.readObject.asInstanceOf[PreAnnotatedDoc])
+        // val ois = new ObjectInputStream(new FileInputStream(ppFile)) {
+        //   override def resolveClass(desc: java.io.ObjectStreamClass): Class[_] = {
+        //     try { Class.forName(desc.getName, false, getClass.getClassLoader) }
+        //     catch { case ex: ClassNotFoundException => super.resolveClass(desc) }
+        //   }
+        // }
+
+        Some(Serializer.load[PreAnnotatedDoc]("preprocessed.ser"))
       }
       else{
         None
