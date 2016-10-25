@@ -670,6 +670,11 @@ class TestCoreference extends FlatSpec with Matchers {
   val doc2 = testReach.mkDoc(sent60, "testDoc2")
   sent61 should "contain a mention of 23peM" in {
     val mentions = testReach.extractFrom(Nil, Seq(doc1, doc2))
-    mentions.filter(_.text == "23peM") should have size 2
+    val nonces = mentions.filter(_.text == "23peM")
+    nonces should have size 2
+    val asp = mentions.find(_.text == "ASPP1")
+    asp should not be empty
+    val aspCands = asp.get.candidates.get.toSet
+    nonces.foreach(nonce => nonce.candidates.get.toSet should equal (aspCands))
   }
 }
