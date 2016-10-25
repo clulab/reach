@@ -25,7 +25,7 @@ import org.clulab.serialization.DocumentSerializer
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.mentions._
 import org.clulab.context._
-import org.clulab.serialization.json.JSONSerializer
+import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.json4s.native.JsonMethods._
 
 object CrossValidation extends App {
@@ -36,7 +36,7 @@ object CrossValidation extends App {
         // Restore the mentions from JSON
         val jsonAST = parse(anns.preprocessed.get.mentions)
 
-        val entities:Seq[BioMention] = JSONSerializer.toMentions(jsonAST).map(_.asInstanceOf[BioMention])
+        val entities:Seq[BioMention] = JSONSerializer.toCorefMentions(jsonAST).map(_.asInstanceOf[BioMention])
 
         val manualContextAnnotations = anns.contextAnnotations
 

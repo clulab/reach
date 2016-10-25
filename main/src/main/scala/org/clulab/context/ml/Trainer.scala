@@ -16,7 +16,7 @@ import org.clulab.context.ml.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.mentions._
 import org.clulab.context._
-import org.clulab.serialization.json.JSONSerializer
+import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.json4s.native.JsonMethods._
 import org.clulab.utils.Serializer
 
@@ -43,7 +43,7 @@ object DatasetAnnotator extends App{
     doc = processor.annotate(doc)
 
     println(s"Extracting entities from $dir...")
-    val entities = reach.extractEntitiesFrom(doc)
+    val entities = reach.extractEntitiesFrom(doc).map(_.asInstanceOf[CorefMention])
 
     val serializedEntities:String = compact(render(JSONSerializer.jsonAST(entities)))
 
@@ -79,7 +79,8 @@ object Trainer {
       case Some(preprocessed) =>
         val docSer = new DocumentSerializer
         val jsonAST = parse(preprocessed.mentions)
-        (docSer.load(preprocessed.serializedDoc), JSONSerializer.toMentions(jsonAST).map(_.asInstanceOf[BioMention]))
+        val e = JSONSerializer.toCorefMentions(jsonAST)
+        (docSer.load(preprocessed.serializedDoc), e.map(_.asInstanceOf[BioMention]))
       case None =>
         println(s"Annotating ${annotations.name} ...")
 
