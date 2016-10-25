@@ -158,7 +158,7 @@ object ArticleAnnotations{
         //   }
         // }
 
-        Some(Serializer.load[PreAnnotatedDoc]("preprocessed.ser"))
+        Some(Serializer.load[PreAnnotatedDoc](ppFile.getAbsolutePath))
       }
       else{
         None

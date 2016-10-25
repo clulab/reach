@@ -48,7 +48,7 @@ object DatasetAnnotator extends App{
     val serializedEntities:String = compact(render(JSONSerializer.jsonAST(entities)))
 
     val preprocessedAnnotations = new PreAnnotatedDoc(docSerializer.save(doc), serializedEntities)
-    Serializer.save[PreAnnotatedDoc](preprocessedAnnotations, "preprocessed.ser")
+    Serializer.save[PreAnnotatedDoc](preprocessedAnnotations, new File(dir, "preprocessed.ser").getAbsolutePath)
     //val oos = new ObjectOutputStream(new FileOutputStream(new File(dir, "preprocessed.ser")))
     // oos.writeObject(preprocessedAnnotations)
     // oos.close
