@@ -226,14 +226,16 @@
     trigger = oligomerization (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <prep_through nsubj
 
-- name: binding_22
-  label: Binding
-  action: mkBinding
-  priority: ${ priority }
-  pattern: |
-    trigger = [lemma=target & tag=/^N/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = <nn{,2} nn{,2} | nsubj
-    theme2:BioChemicalEntity+ = prep_of
+# ms: this is too ambiguous as a binding rule
+#- name: binding_22
+#  example: "A is target of B"
+#  label: Binding
+#  action: mkBinding
+#  priority: ${ priority }
+#  pattern: |
+#    trigger = [lemma=target & tag=/^N/] (?! [lemma="site"])
+#    theme1:BioChemicalEntity+ = <nn{,2} nn{,2} | nsubj
+#    theme2:BioChemicalEntity+ = prep_of
 
 - name: binding_syntax_23_verb
   example: "RBD of PI3KC2β binds nucleotide-free Ra"
