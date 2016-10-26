@@ -4,6 +4,11 @@ import org.clulab.reach.mentions._
 import org.clulab.processors.Document
 
 object Alias {
+  /**
+    * When an alias relation is found in which one of the terms is not recognized as a mention,<br>
+    *   create a new [[InstanceFinder]] to search for further instances of the term in the rest<br>
+    *   of the document.
+    */
   def canonizeAliases(mentions: Seq[BioMention], doc: Document): Seq[BioMention] = {
 
     val (aliasRelations, entities) = mentions.partition(m => m matches "Alias")
@@ -33,6 +38,11 @@ object Alias {
     entities ++ newMentions.flatten.map(_.toBioMention)
   }
 
+  /**
+    * When an alias relation is found in which one of the terms is not recognized as a mention,<br>
+    *   create a new [[InstanceFinder]] to search for further instances of the term elsewhere<br>
+    *   in the same document as well as the other documents passed in.
+    */
   def canonizeAliases(mentions: Seq[Seq[BioMention]], docs: Seq[Document]): Seq[Seq[BioMention]] = {
 
     val (aliasRelations, entities) = mentions.map(_.partition(m => m matches "Alias")).unzip
@@ -45,11 +55,6 @@ object Alias {
     } yield source.get.head -> targets.get
 
     val aliasByLabel = sourceToTarget.groupBy{ case (src, tgts) => src.labels }
-
-    val targetToSource = (for {
-      (src, tgts) <- sourceToTarget
-      tgt <- tgts
-    } yield tgt -> src).toMap
 
     val newMentions = for {
       doc <- docs
