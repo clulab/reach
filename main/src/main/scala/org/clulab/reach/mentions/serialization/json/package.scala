@@ -16,10 +16,18 @@ import org.json4s.native._
 
 package object json {
 
+  /** generate the appropriate AST according to Mention type */
+  def mentionToJsonAST(m: Mention): JValue = m match {
+    // NOTE: order matters due to inheritance
+    case cm: CorefMention => CorefMentionOps(cm).jsonAST
+    case bm: BioMention => BioMentionOps(bm).jsonAST
+    case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
+  }
+
   /** args -> coref representation -> json */
   private def argsAST(arguments: Map[String, Seq[Mention]]): JObject = {
     val args = arguments.map {
-      case (name, mentions) => name -> JArray(mentions.map(_.toCorefMention.jsonAST).toList)
+      case (name, mentions) => name -> JArray(mentions.map(mentionToJsonAST).toList)
     }
     JObject(args.toList)
   }
@@ -71,10 +79,12 @@ package object json {
 
   implicit class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) {
     override def jsonAST: JValue = {
-      TextBoundMentionOps(tb).jsonAST merge (
-        ("type" -> BioTextBoundMention.string) ~
-        // used for paths map
-        ("id" -> tb.id) ~
+
+      val ast = TextBoundMentionOps(tb).jsonAST replace
+        (List("type"), BioTextBoundMention.string) replace
+        (List("id"), tb.id)
+
+      ast merge (
         ("modifications" -> tb.modifications.jsonAST) ~
         // grounding is optional
         ("grounding" -> tb.grounding.map(_.jsonAST)) ~
@@ -88,12 +98,13 @@ package object json {
 
   implicit class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) {
     override def jsonAST: JValue = {
-      EventMentionOps(em).jsonAST merge (
-        ("type" -> BioEventMention.string) ~
-        // used for paths map
-        ("id" -> em.id) ~
-        ("trigger" -> em.trigger.toBioMention.asInstanceOf[BioTextBoundMention].jsonAST) ~
-        ("arguments" -> argsAST(em.arguments)) ~
+
+      val ast = EventMentionOps(em).jsonAST replace
+        (List("type"), BioEventMention.string) replace
+        (List("id"), em.id) replace
+        (List("arguments"), argsAST(em.arguments))
+
+      ast merge (
         ("modifications" -> em.modifications.jsonAST) ~
         // grounding is optional
         ("grounding" -> em.grounding.map(_.jsonAST)) ~
@@ -108,11 +119,13 @@ package object json {
 
   implicit class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) {
     override def jsonAST: JValue = {
-      RelationMentionOps(rm).jsonAST merge (
-        ("type" -> BioRelationMention.string) ~
-        // used for paths map
-        ("id" -> rm.id) ~
-        ("arguments" -> argsAST(rm.arguments)) ~
+
+      val ast = RelationMentionOps(rm).jsonAST replace
+        (List("type"), BioRelationMention.string) replace
+        (List("id"), rm.id) replace
+        (List("arguments"), argsAST(rm.arguments))
+
+      ast merge (
         ("modifications" -> rm.modifications.jsonAST) ~
         // grounding is optional
         ("grounding" -> rm.grounding.map(_.jsonAST)) ~
@@ -126,10 +139,12 @@ package object json {
 
   implicit class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends BioTextBoundMentionOps(tb) {
     override def jsonAST: JValue = {
-      BioTextBoundMentionOps(tb).jsonAST merge (
-        ("type" -> CorefTextBoundMention.string) ~
-        // used for paths map
-        ("id" -> tb.id) ~
+
+      val ast = BioTextBoundMentionOps(tb).jsonAST replace
+        (List("type"), CorefTextBoundMention.string) replace
+        (List("id"), tb.id)
+
+      ast merge (
         ("antecedents" -> tb.antecedents.jsonAST) ~
         ("sieves" -> tb.sieves.jsonAST)
         )
@@ -138,12 +153,13 @@ package object json {
 
   implicit class CorefEventMentionOps(em: CorefEventMention) extends BioEventMentionOps(em) {
     override def jsonAST: JValue = {
-      BioEventMentionOps(em).jsonAST merge (
-        ("type" -> CorefEventMention.string) ~
-        // used for paths map
-        ("id" -> em.id) ~
-        ("trigger" -> em.trigger.toCorefMention.asInstanceOf[CorefTextBoundMention].jsonAST) ~
-        ("arguments" -> argsAST(em.arguments)) ~
+
+      val ast = BioEventMentionOps(em).jsonAST replace
+        (List("type"), CorefEventMention.string) replace
+        (List("id"), em.id) replace
+        (List("arguments"), argsAST(em.arguments))
+
+      ast merge (
         ("antecedents" -> em.antecedents.jsonAST) ~
         ("sieves" -> em.sieves.jsonAST)
         )
@@ -152,11 +168,13 @@ package object json {
 
   implicit class CorefRelationMentionOps(rm: CorefRelationMention) extends BioRelationMentionOps(rm) {
     override def jsonAST: JValue = {
-      BioRelationMentionOps(rm).jsonAST merge (
-        ("type" -> CorefRelationMention.string) ~
-        // used for paths map
-        ("id" -> rm.id) ~
-        ("arguments" -> argsAST(rm.arguments)) ~
+
+      val ast = BioRelationMentionOps(rm).jsonAST replace
+        (List("type"), CorefRelationMention.string) replace
+        (List("id"), rm.id) replace
+        (List("arguments"), argsAST(rm.arguments))
+
+      ast merge (
         ("antecedents" -> rm.antecedents.jsonAST) ~
         ("sieves" -> rm.sieves.jsonAST)
         )
@@ -199,23 +217,23 @@ package object json {
         ("modification-type" -> "PTM") ~
         ("label" -> label) ~
         // evidence is optional
-        ("evidence" -> evidenceOp.map(_.toCorefMention.jsonAST)) ~
+        ("evidence" -> evidenceOp.map(mentionToJsonAST)) ~
         // site is optional
-        ("site" -> siteOp.map(_.toCorefMention.jsonAST)) ~
+        ("site" -> siteOp.map(mentionToJsonAST)) ~
         ("negated" -> negated)
       case Mutant(evidence, foundBy) =>
         ("modification-type" -> "Mutant") ~
-        ("evidence" -> evidence.toCorefMention.jsonAST) ~
+        ("evidence" -> mentionToJsonAST(evidence)) ~
         ("foundBy" -> foundBy)
       case EventSite(evidence) =>
         ("modification-type" -> "EventSite") ~
-        ("site" -> evidence.toCorefMention.jsonAST)
+        ("site" -> mentionToJsonAST(evidence))
       case Negation(evidence) =>
         ("modification-type" -> "Negation") ~
-        ("evidence" -> evidence.toCorefMention.jsonAST)
+        ("evidence" -> mentionToJsonAST(evidence))
       case Hypothesis(evidence) =>
         ("modification-type" -> "Hypothesis") ~
-        ("evidence" -> evidence.toCorefMention.jsonAST)
+        ("evidence" -> mentionToJsonAST(evidence))
     }
   }
 
