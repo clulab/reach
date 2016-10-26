@@ -83,7 +83,7 @@ class DarpaLinks extends Links with LazyLogging {
 
     gms.foreach {
       case gm =>
-        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.filter(_.isGeneric).map(_.text)}'")
+        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.filter(_.isGeneric).map(_.text).mkString(" ", "/", "")}'")
 
         val cands = tbms.filter { m =>
           m.precedes(gm) &&
@@ -91,14 +91,15 @@ class DarpaLinks extends Links with LazyLogging {
             m.isGrounded &&
             (m.grounding.get.equals(gm.grounding.get) | gm.isGeneric) &&
             (m.mutants.nonEmpty | gm.tags.get.head.takeRight(1) == "$") &&
-            m.mutants.forall(mut => !mut.isGeneric)
+            m.mutants.forall(mut => !mut.isGeneric) &&
+            compatibleMutants(m, gm)
         }
 
         logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
         val ants = selector(gm, cands diff Seq(gm), gm.number)
         ants.foreach { ant =>
-          logger.debug(s"${gm.text} ${gm.mutants.filter(mut => mut.isGeneric).map(_.text)} links " +
+          logger.debug(s"${gm.text} ${gm.mutants.filter(mut => mut.isGeneric).map(_.text).mkString(" ", "/", "")} links " +
             s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}")
         }
 

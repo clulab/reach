@@ -2,19 +2,21 @@ taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 
 rules:
   - import: org/clulab/reach/biogrammar/entities/entities.yml
+  - import: org/clulab/reach/biogrammar/entities/mutants.yml
   - import: org/clulab/reach/biogrammar/coref/generic_entities.yml
     vars:
-      priority: "6"
+      earlyPriority: "5"
+      priority: "7"
   - import: org/clulab/reach/biogrammar/coref/alias_template.yml
     vars:
-      priority: "6"
+      priority: "7"
       aLabel: "Equivalable"
       aCapture: "@aliasSource:Equivalable"
       bLabel: "Nonce"
       bCapture: "(?<aliasTarget> [!mention=/.*/ & tag=/NNP?/]{1,2})"
   - import: org/clulab/reach/biogrammar/coref/alias_template.yml
     vars:
-      priority: "6"
+      priority: "7"
       aLabel: "Nonce"
       aCapture: "(?<aliasTarget> [!mention=/.*/ & tag=/NNP?/]{1,2})"
       bLabel: "Equivalable"

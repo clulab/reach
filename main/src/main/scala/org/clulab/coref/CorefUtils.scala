@@ -102,9 +102,11 @@ object CorefUtils {
   def compatibleMutants(a: CorefMention, b: CorefMention): Boolean = {
     val sameMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) &&
       b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
+    val subsetMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) ||
+      b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
     if (sameMutants && !a.hasGenericMutation && !b.hasGenericMutation) true
-    else if (a.hasGenericMutation && b.mutants.nonEmpty) true
-    else if (b.hasGenericMutation && a.mutants.nonEmpty) true
+    else if (subsetMutants && a.hasGenericMutation && b.mutants.nonEmpty) true
+    else if (subsetMutants && b.hasGenericMutation && a.mutants.nonEmpty) true
     else false
   }
 

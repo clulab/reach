@@ -2,7 +2,6 @@ taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 
 rules:
   - import: org/clulab/reach/biogrammar/modifications/modifications.yml
-  - import: org/clulab/reach/biogrammar/modifications/mutants.yml
 
   - import: org/clulab/reach/biogrammar/coref/alias_template.yml
     vars:
