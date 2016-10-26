@@ -26,6 +26,25 @@ package object json {
 
   implicit val formats = org.json4s.DefaultFormats
 
+  /** BioMention -> json */
+  implicit class BioMentionOps(m: BioMention) extends JSONMentionOps(m) {
+
+    override def jsonAST: JValue = m match {
+      case tb: BioTextBoundMention => BioTextBoundMentionOps(tb).jsonAST
+      case em: BioEventMention => BioEventMentionOps(em).jsonAST
+      case rm: BioRelationMention => BioRelationMentionOps(rm).jsonAST
+    }
+
+    /**
+      * Serialize mentions to json file
+      */
+    override def saveJSON(file: String, pretty: Boolean): Unit = {
+      require(file.endsWith(".json"), "file should have .json extension")
+      Files.write(Paths.get(file), Seq[BioMention](m).json(pretty).getBytes(StandardCharsets.UTF_8))
+    }
+    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
+  }
+
   /** CorefMention -> json */
   implicit class CorefMentionOps(m: CorefMention) extends JSONMentionOps(m) {
 
@@ -40,7 +59,7 @@ package object json {
       */
     override def saveJSON(file: String, pretty: Boolean): Unit = {
       require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), Seq(m).json(pretty).getBytes(StandardCharsets.UTF_8))
+      Files.write(Paths.get(file), Seq[CorefMention](m).json(pretty).getBytes(StandardCharsets.UTF_8))
     }
     override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
   }
@@ -50,92 +69,117 @@ package object json {
     case _ => JNothing
   }
 
-  implicit class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends TextBoundMentionOps(tb) {
+  implicit class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) {
     override def jsonAST: JValue = {
-      ("type" -> CorefTextBoundMention.string) ~
-      // used for paths map
-      ("id" -> tb.id) ~
-      ("text" -> tb.text) ~
-      ("labels" -> tb.labels) ~
-      ("tokenInterval" -> Map("start" -> tb.tokenInterval.start, "end" -> tb.tokenInterval.end)) ~
-      ("characterStartOffset" -> tb.startOffset) ~
-      ("characterEndOffset" -> tb.endOffset) ~
-      ("sentence" -> tb.sentence) ~
-      ("document" -> tb.document.equivalenceHash.toString) ~
-      ("keep" -> tb.keep) ~
-      ("foundBy" -> tb.foundBy) ~
-      ("modifications" -> tb.modifications.jsonAST) ~
-      // grounding is optional
-      ("grounding" -> tb.grounding.map(_.jsonAST)) ~
-      // context is optional
-      ("context" -> tb.context.map(_.jsonAST)) ~
-      // usually just labels.head...
-      ("displayLabel" -> tb.displayLabel) ~
-      ("antecedents" -> tb.antecedents.jsonAST) ~
-      ("sieves" -> tb.sieves.jsonAST)
+      TextBoundMentionOps(tb).jsonAST merge (
+        ("type" -> BioTextBoundMention.string) ~
+        // used for paths map
+        ("id" -> tb.id) ~
+        ("modifications" -> tb.modifications.jsonAST) ~
+        // grounding is optional
+        ("grounding" -> tb.grounding.map(_.jsonAST)) ~
+        // context is optional
+        ("context" -> tb.context.map(_.jsonAST)) ~
+        // usually just labels.head...
+        ("displayLabel" -> tb.displayLabel)
+        )
     }
   }
 
-  implicit class CorefEventMentionOps(em: CorefEventMention) extends EventMentionOps(em) {
+  implicit class BioEventMentionOps(em: BioEventMention) extends EventMentionOps(em) {
     override def jsonAST: JValue = {
-      ("type" -> CorefEventMention.string) ~
-      // used for paths map
-      ("id" -> em.id) ~
-      ("text" -> em.text) ~
-      ("labels" -> em.labels) ~
-      ("trigger" -> em.trigger.toCorefMention.asInstanceOf[CorefTextBoundMention].jsonAST) ~
-      ("paths" -> pathsAST(em.paths)) ~
-      ("arguments" -> argsAST(em.arguments)) ~
-      ("tokenInterval" -> Map("start" -> em.tokenInterval.start, "end" -> em.tokenInterval.end)) ~
-      ("characterStartOffset" -> em.startOffset) ~
-      ("characterEndOffset" -> em.endOffset) ~
-      ("sentence" -> em.sentence) ~
-      ("document" -> em.document.equivalenceHash.toString) ~
-      ("keep" -> em.keep) ~
-      ("foundBy" -> em.foundBy) ~
-      ("modifications" -> em.modifications.jsonAST) ~
-      // grounding is optional
-      ("grounding" -> em.grounding.map(_.jsonAST)) ~
-      // context is optional
-      ("context" -> em.context.map(_.jsonAST)) ~
-      // usually just labels.head...
-      ("displayLabel" -> em.displayLabel) ~
-      ("isDirect" -> em.isDirect) ~
-      ("antecedents" -> em.antecedents.jsonAST) ~
-      ("sieves" -> em.sieves.jsonAST)
+      EventMentionOps(em).jsonAST merge (
+        ("type" -> BioEventMention.string) ~
+        // used for paths map
+        ("id" -> em.id) ~
+        ("trigger" -> em.trigger.toBioMention.asInstanceOf[BioTextBoundMention].jsonAST) ~
+        ("arguments" -> argsAST(em.arguments)) ~
+        ("modifications" -> em.modifications.jsonAST) ~
+        // grounding is optional
+        ("grounding" -> em.grounding.map(_.jsonAST)) ~
+        // context is optional
+        ("context" -> em.context.map(_.jsonAST)) ~
+        // usually just labels.head...
+        ("displayLabel" -> em.displayLabel) ~
+        ("isDirect" -> em.isDirect)
+        )
     }
   }
 
-  implicit class CorefRelationMentionOps(rm: CorefRelationMention) extends RelationMentionOps(rm) {
+  implicit class BioRelationMentionOps(rm: BioRelationMention) extends RelationMentionOps(rm) {
     override def jsonAST: JValue = {
-      ("type" -> CorefRelationMention.string) ~
-      // used for paths map
-      ("id" -> rm.id) ~
-      ("text" -> rm.text) ~
-      ("labels" -> rm.labels) ~
-      ("arguments" -> argsAST(rm.arguments)) ~
-      ("paths" -> pathsAST(rm.paths)) ~
-      ("tokenInterval" -> Map("start" -> rm.tokenInterval.start, "end" -> rm.tokenInterval.end)) ~
-      ("characterStartOffset" -> rm.startOffset) ~
-      ("characterEndOffset" -> rm.endOffset) ~
-      ("sentence" -> rm.sentence) ~
-      ("document" -> rm.document.equivalenceHash.toString) ~
-      ("keep" -> rm.keep) ~
-      ("foundBy" -> rm.foundBy) ~
-      ("modifications" -> rm.modifications.jsonAST) ~
-      // grounding is optional
-      ("grounding" -> rm.grounding.map(_.jsonAST)) ~
-      // context is optional
-      ("context" -> rm.context.map(_.jsonAST)) ~
-      // usually just labels.head...
-      ("displayLabel" -> rm.displayLabel) ~
-      ("antecedents" -> rm.antecedents.jsonAST) ~
-      ("sieves" -> rm.sieves.jsonAST)
+      RelationMentionOps(rm).jsonAST merge (
+        ("type" -> BioRelationMention.string) ~
+        // used for paths map
+        ("id" -> rm.id) ~
+        ("arguments" -> argsAST(rm.arguments)) ~
+        ("modifications" -> rm.modifications.jsonAST) ~
+        // grounding is optional
+        ("grounding" -> rm.grounding.map(_.jsonAST)) ~
+        // context is optional
+        ("context" -> rm.context.map(_.jsonAST)) ~
+        // usually just labels.head...
+        ("displayLabel" -> rm.displayLabel)
+        )
     }
   }
-  
+
+  implicit class CorefTextBoundMentionOps(tb: CorefTextBoundMention) extends BioTextBoundMentionOps(tb) {
+    override def jsonAST: JValue = {
+      BioTextBoundMentionOps(tb).jsonAST merge (
+        ("type" -> CorefTextBoundMention.string) ~
+        // used for paths map
+        ("id" -> tb.id) ~
+        ("antecedents" -> tb.antecedents.jsonAST) ~
+        ("sieves" -> tb.sieves.jsonAST)
+        )
+    }
+  }
+
+  implicit class CorefEventMentionOps(em: CorefEventMention) extends BioEventMentionOps(em) {
+    override def jsonAST: JValue = {
+      BioEventMentionOps(em).jsonAST merge (
+        ("type" -> CorefEventMention.string) ~
+        // used for paths map
+        ("id" -> em.id) ~
+        ("trigger" -> em.trigger.toCorefMention.asInstanceOf[CorefTextBoundMention].jsonAST) ~
+        ("arguments" -> argsAST(em.arguments)) ~
+        ("antecedents" -> em.antecedents.jsonAST) ~
+        ("sieves" -> em.sieves.jsonAST)
+        )
+    }
+  }
+
+  implicit class CorefRelationMentionOps(rm: CorefRelationMention) extends BioRelationMentionOps(rm) {
+    override def jsonAST: JValue = {
+      BioRelationMentionOps(rm).jsonAST merge (
+        ("type" -> CorefRelationMention.string) ~
+        // used for paths map
+        ("id" -> rm.id) ~
+        ("arguments" -> argsAST(rm.arguments)) ~
+        ("antecedents" -> rm.antecedents.jsonAST) ~
+        ("sieves" -> rm.sieves.jsonAST)
+        )
+    }
+  }
+
+  /** For Seq[BioMention] */
+  implicit class BioMentionSeq(biomentions: Seq[BioMention]) extends MentionSeq(biomentions) {
+
+    override def jsonAST: JValue = ReachJSONSerializer.jsonAST(biomentions)
+
+    /**
+      * Serialize mentions to json file
+      */
+    override def saveJSON(file: String, pretty: Boolean): Unit = {
+      require(file.endsWith(".json"), "file should have .json extension")
+      Files.write(Paths.get(file), biomentions.json(pretty).getBytes(StandardCharsets.UTF_8))
+    }
+    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
+  }
+
   /** For Seq[CorefMention] */
-  implicit class CorefMentionSeq(corefmentions: Seq[CorefMention]) extends MentionSeq(corefmentions) {
+  implicit class CorefMentionSeq(corefmentions: Seq[CorefMention]) extends BioMentionSeq(corefmentions) {
 
     override def jsonAST: JValue = ReachJSONSerializer.jsonAST(corefmentions)
 
@@ -215,6 +259,21 @@ package object json {
   }
 
   def prettify(json: JValue): String = prettyJson(renderJValue(json))
+
+  object BioTextBoundMention {
+    val string = "BioTextBoundMention"
+    val shortString = "T"
+  }
+
+  object BioEventMention {
+    val string = "BioEventMention"
+    val shortString = "E"
+  }
+
+  object BioRelationMention {
+    val string = "BioRelationMention"
+    val shortString = "R"
+  }
 
   object CorefTextBoundMention {
     val string = "CorefTextBoundMention"
