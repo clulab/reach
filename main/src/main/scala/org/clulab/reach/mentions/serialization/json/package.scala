@@ -2,9 +2,10 @@ package org.clulab.reach.mentions.serialization
 
 import org.clulab.odin
 import org.clulab.odin._
-import org.clulab.serialization.json.{ MentionOps => JSONMentionOps, _ }
+import org.clulab.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
+import org.clulab.serialization.json.{ MentionOps => OdinMentionOps, JSONSerialization, OdinPathOps }
 import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
-import org.clulab.reach.mentions.{ MentionOps => MOps, _ }
+import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.KBResolution
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Paths}
@@ -16,13 +17,63 @@ import org.json4s.native._
 
 package object json {
 
+  implicit val formats = org.json4s.DefaultFormats
+
   /** generate the appropriate AST according to Mention type */
-  def mentionToJsonAST(m: Mention): JValue = m match {
+  private def mentionToJsonAST(m: Mention): JValue = m match {
     // NOTE: order matters due to inheritance
     case cm: CorefMention => CorefMentionOps(cm).jsonAST
     case bm: BioMention => BioMentionOps(bm).jsonAST
     case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
   }
+
+  implicit class MentionJSONOps(m: Mention) extends OdinMentionOps(m) {
+
+    /** Without "documents" field **/
+    override def jsonAST: JValue = mentionToJsonAST(m)
+
+    /** Includes "documents" field for simple deserialization **/
+    override def completeAST: JValue = REACHMentionSeq(Seq(m)).jsonAST
+
+    /**
+      * Serialize mentions to json file
+      */
+    override def saveJSON(file: String, pretty: Boolean): Unit = {
+      require(file.endsWith(".json"), "file should have .json extension")
+      Files.write(Paths.get(file), Seq(m).json(pretty).getBytes(StandardCharsets.UTF_8))
+    }
+    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
+  }
+
+  /** For Seq[BioMention], Seq[CorefMention], etc */
+  implicit class REACHMentionSeq(mentions: Seq[Mention]) extends JSONSerialization {
+
+    override def jsonAST: JValue = ReachJSONSerializer.jsonAST(mentions)
+
+    /**
+      * Serialize mentions to json file
+      */
+    def saveJSON(file: String, pretty: Boolean): Unit = {
+      require(file.endsWith(".json"), "file should have .json extension")
+      Files.write(Paths.get(file), mentions.json(pretty).getBytes(StandardCharsets.UTF_8))
+    }
+    def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
+  }
+
+  /** generate a json string from the given ast */
+  def astToJSON(jsonast: JValue, pretty: Boolean): String = {
+    val jsonDoc = renderJValue(jsonast)
+    pretty match {
+      case true => prettyJson(jsonDoc)
+      case false => compactJson(jsonDoc)
+    }
+  }
+
+  /** generate a json string from a mention <br>
+    * Note that this is incomplete for deserialization purposes,
+    * as only a reference to the Document is included
+    * */
+  def mentionToJSON(m: Mention, pretty: Boolean): String = astToJSON(mentionToJsonAST(m), pretty)
 
   /** args -> coref representation -> json */
   private def argsAST(arguments: Map[String, Seq[Mention]]): JObject = {
@@ -32,44 +83,24 @@ package object json {
     JObject(args.toList)
   }
 
-  implicit val formats = org.json4s.DefaultFormats
-
   /** BioMention -> json */
-  implicit class BioMentionOps(m: BioMention) extends JSONMentionOps(m) {
+  implicit class BioMentionOps(m: BioMention) extends JSONSerialization {
 
     override def jsonAST: JValue = m match {
       case tb: BioTextBoundMention => BioTextBoundMentionOps(tb).jsonAST
       case em: BioEventMention => BioEventMentionOps(em).jsonAST
       case rm: BioRelationMention => BioRelationMentionOps(rm).jsonAST
     }
-
-    /**
-      * Serialize mentions to json file
-      */
-    override def saveJSON(file: String, pretty: Boolean): Unit = {
-      require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), Seq[BioMention](m).json(pretty).getBytes(StandardCharsets.UTF_8))
-    }
-    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
   }
 
   /** CorefMention -> json */
-  implicit class CorefMentionOps(m: CorefMention) extends JSONMentionOps(m) {
+  implicit class CorefMentionOps(m: CorefMention) extends JSONSerialization {
 
     override def jsonAST: JValue = m match {
       case tb: CorefTextBoundMention => CorefTextBoundMentionOps(tb).jsonAST
       case em: CorefEventMention => CorefEventMentionOps(em).jsonAST
       case rm: CorefRelationMention => CorefRelationMentionOps(rm).jsonAST
     }
-
-    /**
-      * Serialize mentions to json file
-      */
-    override def saveJSON(file: String, pretty: Boolean): Unit = {
-      require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), Seq[CorefMention](m).json(pretty).getBytes(StandardCharsets.UTF_8))
-    }
-    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
   }
 
   def pathsAST(paths: Map[String, Map[Mention, odin.SynPath]]): JValue = paths match {
@@ -78,6 +109,10 @@ package object json {
   }
 
   implicit class BioTextBoundMentionOps(tb: BioTextBoundMention) extends TextBoundMentionOps(tb) {
+
+//    override val stringCode = s"org.clulab.odin.${BioTextBoundMention.string}"
+//    override def id: String = s"${BioTextBoundMention.shortString}:$equivalenceHash"
+
     override def jsonAST: JValue = {
 
       val ast = TextBoundMentionOps(tb).jsonAST replace
@@ -179,36 +214,6 @@ package object json {
         ("sieves" -> rm.sieves.jsonAST)
         )
     }
-  }
-
-  /** For Seq[BioMention] */
-  implicit class BioMentionSeq(biomentions: Seq[BioMention]) extends MentionSeq(biomentions) {
-
-    override def jsonAST: JValue = ReachJSONSerializer.jsonAST(biomentions)
-
-    /**
-      * Serialize mentions to json file
-      */
-    override def saveJSON(file: String, pretty: Boolean): Unit = {
-      require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), biomentions.json(pretty).getBytes(StandardCharsets.UTF_8))
-    }
-    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
-  }
-
-  /** For Seq[CorefMention] */
-  implicit class CorefMentionSeq(corefmentions: Seq[CorefMention]) extends BioMentionSeq(corefmentions) {
-
-    override def jsonAST: JValue = ReachJSONSerializer.jsonAST(corefmentions)
-
-    /**
-      * Serialize mentions to json file
-      */
-    override def saveJSON(file: String, pretty: Boolean): Unit = {
-      require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), corefmentions.json(pretty).getBytes(StandardCharsets.UTF_8))
-    }
-    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
   }
 
   implicit class ModificationOps(mod: Modification) extends JSONSerialization {

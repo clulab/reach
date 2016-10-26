@@ -18,13 +18,22 @@ import org.clulab.processors.Document
 /** JSON serialization utilities */
 object JSONSerializer extends LazyLogging {
 
-  def mkDocsMap(mentions: Seq[Mention]): Map[String, JValue] = {
+  private def mentionsToDocsJMap(mentions: Seq[Mention]): Map[String, JValue] = {
+    docsToDocsJMap(mentions.map(m => m.document))
+  }
+
+  /** Creates a Map of a Document.equivalenceHash (as String) -> Document.jsonAST <br>
+    */
+  def docsToDocsJMap(docs: Seq[Document]): Map[String, JValue] = {
     // create a set of Documents
     // in order to avoid calling jsonAST for duplicate docs
-    val docs: Set[Document] = mentions.map(m => m.document).toSet
-    docs.map(doc => doc.equivalenceHash.toString -> doc.jsonAST)
-      .toMap
+    docs.distinct.map(doc => doc.equivalenceHash.toString -> doc.jsonAST).toMap
   }
+
+  /** Creates a Map of a Document.equivalenceHash (as String) -> Document <br>
+    * Used for deserialization of mention JSON
+    */
+  def docsToDocumentMap(docs: Seq[Document]): Map[String, Document] = mkDocumentMap(docsToDocsJMap(docs))
 
   def jsonAST(mentions: Seq[Mention]): JValue = {
 
@@ -33,7 +42,7 @@ object JSONSerializer extends LazyLogging {
       case cm: CorefMention => CorefMentionOps(cm).jsonAST
       case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
     }.toList
-    val docMap: Map[String, JValue] = mkDocsMap(mentions)
+    val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
     ("documents" -> docMap) ~ ("mentions" -> mentionList)
   }
 
@@ -127,6 +136,11 @@ object JSONSerializer extends LazyLogging {
     m
   }
 
+  def toBioMention(mjson: JValue, doc: Document): BioMention = {
+    val docsMap = docsToDocumentMap(Seq(doc))
+    toBioMention(mjson, docsMap)
+  }
+
   /** Produce a sequence of mentions from a json file */
   def toCorefMentions(file: File): Seq[CorefMention] = toCorefMentions(jsonAST(file))
 
@@ -216,6 +230,11 @@ object JSONSerializer extends LazyLogging {
     // update mods
     m.modifications = toModifications(mjson, docMap)
     m
+  }
+
+  def toCorefMention(mjson: JValue, doc: Document): CorefMention = {
+    val docsMap = docsToDocumentMap(Seq(doc))
+    toCorefMention(mjson, docsMap)
   }
 
   private def toAntecedents(mjson: JValue, docMap: Map[String, Document]): Set[Anaphoric] = mjson \ "antecedents" match {
@@ -312,10 +331,10 @@ object JSONSerializer extends LazyLogging {
   private def setDisplayLabel(m: Mention, mjson: JValue): Unit = (m, mjson \ "displayLabel") match {
     case (bm: BioMention, JString(dl)) => bm.displayLabel = dl
     // default to label (needed for things like trigger of a BioEventMention)
-    case (bm: BioMention, JString(dl)) => bm.displayLabel = bm.label
+    case (bm: BioMention, _) => bm.displayLabel = bm.label
     case (cm: CorefMention, JString(dl)) => cm.displayLabel = dl
     // default to label (needed for things like trigger of a CorefEventMention)
-    case (cm: CorefMention, JString(dl)) => cm.displayLabel = cm.label
+    case (cm: CorefMention, _) => cm.displayLabel = cm.label
     case other => ()
   }
 
@@ -325,8 +344,8 @@ object JSONSerializer extends LazyLogging {
   }
   // update context
   private def setContext(m: Mention, mjson: JValue): Unit = (m, toContext(mjson)) match {
-    case (bm: BioMention, Some(context)) => bm.context = Some(context)
     case (cm: CorefMention, Some(context)) => cm.context = Some(context)
+    case (bm: BioMention, Some(context)) => bm.context = Some(context)
     case _ => ()
   }
 
@@ -350,7 +369,7 @@ object JSONSerializer extends LazyLogging {
     case Some(kbr) =>
       val resolution = Some(Seq(kbr))
       m match {
-        case cm: BioMention => cm.nominate(resolution)
+        case cm: CorefMention => cm.nominate(resolution)
         case bm: BioMention => bm.nominate(resolution)
         case other => ()
       }
