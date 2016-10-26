@@ -1,5 +1,6 @@
 package org.clulab.reach
 
+import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
 import org.clulab.reach.grounding._
@@ -113,7 +114,7 @@ class ReachSystem(
     // initialize the context engine
     val contextEngine = ContextEngineFactory.buildEngine(contextEngineType, contextParams)
 
-    val entitiesPerEntry = for (doc <- documents) yield extractEntitiesFrom(doc)
+    val entitiesPerEntry = extractEntitiesFrom(documents)
     contextEngine.infer(entitiesPerEntry.flatten)
     val entitiesWithContextPerEntry = for (es <- entitiesPerEntry) yield contextEngine.assign(es)
     // get events
@@ -156,14 +157,46 @@ class ReachSystem(
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
     // extract entities
     val entities = entityEngine.extractByType[BioMention](doc)
-    // attach modification features to entities
-    val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entities))
-    val mutationAddedEntities = modifiedEntities flatMap {
+    // attach mutations to entities
+    // this step must precede alias search to prevent alias overmatching
+    val mutationAddedEntities = entities flatMap {
       case m: BioTextBoundMention => mutationsToMentions(m)
       case m => Seq(m)
     }
+    // use aliases to find more entities
+    // TODO: attach mutations to these entities as well
+    val entitiesWithAliases = Alias.canonizeAliases(mutationAddedEntities, doc)
+    // attach modification features to entities
+    val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entitiesWithAliases))
     // add grounding candidates to entities
-    entityLookup(mutationAddedEntities)
+    entityLookup(modifiedEntities)
+  }
+
+  def extractEntitiesFrom(docs: Seq[Document]): Seq[Seq[BioMention]] = {
+    // extract entities
+    val entities = for (doc <- docs) yield entityEngine.extractByType[BioMention](doc)
+    // attach mutations to entities
+    // this step must precede alias search to prevent alias overmatching
+    val mutationAddedEntities = for (entitiesInDoc <- entities) yield {
+      entitiesInDoc flatMap {
+        case m: BioTextBoundMention => mutationsToMentions(m)
+        case m => Seq(m)
+      }
+    }
+    // use aliases to find more entities
+    // TODO: attach mutations to these entities as well
+    val entitiesWithAliases = Alias.canonizeAliases(mutationAddedEntities, docs)
+
+    for {
+      i <- docs.indices
+      doc = docs(i)
+      docEntities = entitiesWithAliases(i)
+    } yield {
+      // attach modification features to entities
+      val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(docEntities))
+      // add grounding candidates to entities
+      entityLookup(modifiedEntities)
+    }
   }
 
   /** If the given mention has many mutations attached to it, return a mention for each mutation. */
