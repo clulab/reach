@@ -1,10 +1,7 @@
 package org.clulab.reach
 
-import org.clulab.odin._
-import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
 import TestUtils._
 
 
@@ -82,7 +79,10 @@ class TestNERLabeling extends FlatSpec with Matchers {
     mentions should not be (empty)
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size 10
-    mentions.count(_ matches "Family") should be (10)
+
+    // "Ras guanyl-releasing protein 1" is both a protein and a protein family
+    // this test is robust to this: it allows either label for this entity
+    (mentions.count(_ matches "Family") >= 9) should be (true)
   }
 
   ggp should "have Gene_or_gene_product label" in {

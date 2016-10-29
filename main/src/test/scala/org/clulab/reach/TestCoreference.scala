@@ -1,6 +1,6 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 import TestUtils._
 import org.clulab.reach.mentions._
 
@@ -550,7 +550,7 @@ class TestCoreference extends FlatSpec with Matchers {
   sent49a should "apply diacylglycerol grounding to DAG" in {
     val mentions = getBioMentions(sent49a)
     val entities = mentions filter (_ matches "Entity")
-    entities should have size (2)
+    entities should have size 2
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Order shouldn't matter
@@ -558,7 +558,7 @@ class TestCoreference extends FlatSpec with Matchers {
   sent49b should "apply diacylglycerol grounding to DAG" in {
     val mentions = getBioMentions(sent49b)
     val entities = mentions filter (_ matches "Entity")
-    entities should have size (2)
+    entities should have size 2
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Aliases must be of same type
@@ -566,28 +566,28 @@ class TestCoreference extends FlatSpec with Matchers {
   sent50 should "not apply Akt grounding to diacylglycerol or vice versa" in {
     val mentions = getBioMentions(sent50)
     val entities = mentions filter (_ matches "Entity")
-    entities should have size (2)
+    entities should have size 2
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
   val sent51 = "Diacylglycerol (hereafter referred to as S135) functions as a second messenger signaling lipid."
   sent51 should "not apply S135 grounding to diacylglycerol or vice versa" in {
     val mentions = getBioMentions(sent51)
     val entities = mentions filter (m => (m matches "Entity") || (m matches "Site"))
-    entities should have size (2)
+    entities should have size 2
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (false)
   }
   val sent52 = "Diacylglycerol, sometimes called DAG, functions as a second messenger signaling lipid."
   sent52 should "apply diacylglycerol grounding to DAG" in {
     val mentions = getBioMentions(sent52)
     val entities = mentions filter (_ matches "Entity")
-    entities should have size (2)
+    entities should have size 2
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   val sent53 = "Diacylglycerol (alias DAG) functions as a second messenger signaling lipid."
   sent53 should "apply diacylglycerol grounding to DAG" in {
     val mentions = getBioMentions(sent53)
     val entities = mentions filter (_ matches "Entity")
-    entities should have size (2)
+    entities should have size 2
     entities.head.grounding.get.equals(entities.last.grounding.get) should be (true)
   }
   // Series should work with 'or'
@@ -595,7 +595,7 @@ class TestCoreference extends FlatSpec with Matchers {
   sent54 should "apply diacylglycerol grounding to 3 chemicals" in {
     val mentions = getBioMentions(sent54)
     val entities = mentions filter (_ matches "Entity")
-    entities should have size (4)
+    entities should have size 4
     entities.combinations(2).forall(pair => pair.head.grounding.get.equals(pair.last.grounding.get)) should be (true)
   }
 
@@ -627,5 +627,54 @@ class TestCoreference extends FlatSpec with Matchers {
     val ants = their.map(m => m.antecedentOrElse(m).text)
     ants should contain ("AKT")
     ants should contain ("HSP20")
+  }
+
+  val sent58 = "ASPP1 (better known as ASPP2) is a common protein."
+  sent58 should "share grounding between ASPP1 and ASPP2" in {
+    val mentions = getBioMentions(sent58)
+    mentions should have size 2
+    mentions.head.candidates should not be empty
+    mentions.last.candidates should not be empty
+    val aspp1Cands = mentions.head.candidates.get.toSet
+    val aspp2Cands = mentions.last.candidates.get.toSet
+    aspp1Cands should equal(aspp2Cands)
+  }
+
+  val sent59 = "ASPP1 (better known as 23peM) is a common protein."
+  sent59 should "make a mention of 23peM and ground it to ASPP1" in {
+    val mentions = getBioMentions(sent59)
+    mentions should have size 2
+    mentions.head.candidates should not be empty
+    mentions.last.candidates should not be empty
+    mentions.head.labels should equal (mentions.last.labels)
+    val aspp1Cands = mentions.head.candidates.get.toSet
+    val nonceCands = mentions.last.candidates.get.toSet
+    aspp1Cands should equal (nonceCands)
+  }
+
+  val sent60 = "23peM (ASPP1) is a common protein."
+  sent60 should "make a mention of 23peM and ground it to ASPP1" in {
+    val mentions = getBioMentions(sent59)
+    mentions should have size 2
+    mentions.head.candidates should not be empty
+    mentions.last.candidates should not be empty
+    mentions.head.labels should equal (mentions.last.labels)
+    val nonceCands = mentions.head.candidates.get.toSet
+    val aspp1Cands = mentions.last.candidates.get.toSet
+    aspp1Cands should equal (nonceCands)
+  }
+
+  // When documents are processed together, aliases found in one should be sought in the others
+  val sent61 = "We examine the role of 23peM."
+  val doc1 = testReach.mkDoc(sent61, "testDoc1")
+  val doc2 = testReach.mkDoc(sent60, "testDoc2")
+  sent61 should "contain a mention of 23peM" in {
+    val mentions = testReach.extractFrom(Nil, Seq(doc1, doc2))
+    val nonces = mentions.filter(_.text == "23peM")
+    nonces should have size 2
+    val asp = mentions.find(_.text == "ASPP1")
+    asp should not be empty
+    val aspCands = asp.get.candidates.get.toSet
+    nonces.foreach(nonce => nonce.candidates.get.toSet should equal (aspCands))
   }
 }

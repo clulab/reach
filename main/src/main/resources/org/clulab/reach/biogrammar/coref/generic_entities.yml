@@ -1,27 +1,29 @@
 # 'mutant' when it's not preceded or followed by a macromolecule; early priority so it can participate in mutation rules
 - name: Generic_mutant_known_mutation1
   label: [Generic_entity, Gene_or_gene_product]
-  priority: ${ priority }
+  example: "insertion mutant"
+  priority: ${ earlyPriority }
   action: mkBioMention
   type: token
   pattern: |
-    (?<! [mention=MacroMolecule])
-    [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Protein]?
+    (?<! [mention=Equivalable])
+    [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Equivalable]?
     [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
-    (?! [mention=/Generic_entity|Family|MacroMolecule/])
+    (?! [mention=/Generic_entity|Equivalable/])
 
 - name: Generic_mutant_known_mutation2
   label: [Generic_entity, Gene_or_gene_product]
-  priority: ${ priority }
+  example: "its substitution mutant"
+  priority: ${ earlyPriority }
   action: mkBioMention
   type: token
   pattern: |
-    (?<! [mention=MacroMolecule])
+    (?<! [mention=Equivalable])
     [!(mention=/.*/) & tag=/\$$/ & lemma=/(?i)^its|their|whose$/]?
     [mention=Simple_chemical]?
-    [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Protein]?
+    [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Equivalable]?
     [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
-    (?! [mention=/Generic_entity|Family|MacroMolecule/])
+    (?! [mention=/Generic_entity|Equivalable/])
 
 # Words with a DT POS but which are not acting as determiners, e.g. 'this' in "This is an example."
 - name: DT_not_determiner
