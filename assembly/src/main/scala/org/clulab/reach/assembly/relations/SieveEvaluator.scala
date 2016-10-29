@@ -119,8 +119,8 @@ object SieveEvaluator {
     val precedence = new PrecedenceSieves()
 
     val availableSieves: Map[String, AssemblySieve] = Map(
-      "intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
       //"reichenbachPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.reichenbachPrecedence)),
+      //"intrasententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intrasententialRBPrecedence)),
       //"intersententialRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.intersententialRBPrecedence)),
       "discourseRBPrecedence" -> (AssemblySieve(dedup.trackMentions) andThen AssemblySieve(precedence.discourseRBPrecedence))
     )
@@ -197,4 +197,16 @@ object SieveEvaluator {
 
     performanceOfEachSieve.toSeq
   }
+}
+
+object RunRBSieveEval extends App {
+
+  import SieveEvaluator._
+
+  val corpusDir = "/Users/gus/repos/reach-resources/wip"
+  val corpus = Corpus(corpusDir)
+
+  val sieveResults = SieveEvaluator.applyEachSieve(corpus.mentions)
+  val preformanceForEachSieve = SieveEvaluator.evaluateSieves(corpus.precedenceRelations, sieveResults)
+
 }
