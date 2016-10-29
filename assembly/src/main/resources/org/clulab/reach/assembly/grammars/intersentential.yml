@@ -11,7 +11,7 @@ vars:
   after_type: "Event"
   before_type: "Event"
   # TODO: fix comparison of binding args to ComplexEvent controlleds
-  myaction: "identityAction" # "validatePrecedenceRelations"
+  myaction: "identityAction" #"validatePrecedenceRelations" #"identityAction"
   regverbaltrigger: [lemma=/^(promote)/]
 
 # rules for assembly sieve
@@ -161,16 +161,16 @@ rules:
 #      after:Event = (?<= [lemma=although] []*?) [mention=Event]+ (?= []*? [word=/(?i)required$/])
 
 
-  - name: cross-sentence-discourse-clue-3
-    label: Precedence
-    priority: ${mypriority}
-    type: "cross-sentence"
-    right-window: 1
-    action: ${myaction}
-    example: "Unphosphorylated 4E-BP1 interacts with the cap binding protein eIF4E and prevents the formation of the 4F translational initiation complex ( eIF4F ) ; by competing for the binding of eukaryotic initiation factor 4G ( eIF4G ) to eIF4E .  4E-BP1 phosphorylation by mTORC1 results in the release of the eIF4E , which then associates with eIF4G to stimulate translation initiation [ XREF_BIBR-XREF_BIBR , XREF_BIBR-XREF_BIBR ] ."
-    pattern: |
-      before:Event = @Event
-      after:Event = (?<= which "then"? (in turn)?) @Event
+#  - name: cross-sentence-discourse-clue-3
+#    label: Precedence
+#    priority: ${mypriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: ${myaction}
+#    example: "Unphosphorylated 4E-BP1 interacts with the cap binding protein eIF4E and prevents the formation of the 4F translational initiation complex ( eIF4F ) ; by competing for the binding of eukaryotic initiation factor 4G ( eIF4G ) to eIF4E .  4E-BP1 phosphorylation by mTORC1 results in the release of the eIF4E , which then associates with eIF4G to stimulate translation initiation [ XREF_BIBR-XREF_BIBR , XREF_BIBR-XREF_BIBR ] ."
+#    pattern: |
+#      before:Event = @Event
+#      after:Event = (?<= which "then"? (in turn)?) @Event
 
   - name: cross-sentence-discourse-clue-4
     label: Precedence

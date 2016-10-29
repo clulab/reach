@@ -5,9 +5,8 @@ taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 vars:
   mylabel: "Precedence"
   mypriority: "2"
-  myaction: "validatePrecedenceRelations"
+  myaction: "validatePrecedenceRelations" # "identityAction"
   # TODO: fix comparison of binding args to ComplexEvent controlleds
-  crosssentenceaction: "identityAction"
   regverbaltrigger: [lemma=/^(promote)/]
   # vars for old rules
   after_type: "Event"
