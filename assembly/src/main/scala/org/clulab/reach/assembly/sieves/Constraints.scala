@@ -46,18 +46,7 @@ object Constraints {
   }
 
   /** Checks if two Mentions share at least one SimpleEntity with the same grounding ID */
-  def shareArg(m1: Mention, m2: Mention): Boolean = {
-
-    def getInput(eer: EntityEventRepresentation): Set[Entity] = eer match {
-      case complex: Complex =>
-        // a complex could contain another complex, so flatten
-        // until members are all simple entities
-        // then cast each as Entity for uniformity
-        complex.flattenMembers.map(_.asInstanceOf[Entity])
-      case entity: Entity => Set(entity)
-      case simpleEvent: SimpleEvent => simpleEvent.I
-      case complexEvent: ComplexEvent => complexEvent.I
-    }
+  def shareEntityGrounding(m1: Mention, m2: Mention): Boolean = {
 
     /** Check if two sets of [[Entity]] have an approximate intersection in terms of [[GroundingID]] */
     def fuzzyIntersects(s1: Set[Entity], s2: Set[Entity]): Boolean = {
@@ -82,8 +71,8 @@ object Constraints {
         val eer1 = mngr.getEER(v1)
         val eer2 = mngr.getEER(v2)
         // get input sets
-        val input1 = getInput(eer1)
-        val input2 = getInput(eer2)
+        val input1 = AssemblyManager.getInputEntities(eer1)
+        val input2 = AssemblyManager.getInputEntities(eer2)
 
         // check if inputs intersect in terms of grounding IDs
         fuzzyIntersects(input1, input2)
@@ -145,8 +134,9 @@ object Constraints {
     // ex: "inhibited" neg-regs "activation". remove interactions between Regulations and their Controlled
     val ceConstraint: Boolean = (m1, m2) match {
 
-      // make sure both mentions can be handled by the AssemblyManager
-      case (p1: Mention, p2: Mention) if !AssemblyManager.isValidMention(p1) || !AssemblyManager.isValidMention(p2) => false
+      // if this is a cross-sentence case, simply check that these mentions can be handled by the manager
+      case (s1: Mention, s2: Mention) if s1.sentence != s2.sentence =>
+        AssemblyManager.isValidMention(s1) && AssemblyManager.isValidMention(s2)
 
       // two complex events should not share their controlled (activation-specific check)
       case (a1: Mention, a2: Mention) if (a1 matches "ActivationEvent") && (a2 matches "ActivationEvent") =>
@@ -168,7 +158,9 @@ object Constraints {
       case (ce: Mention, m: Mention) if ce matches "ComplexEvent" =>
         m.text != ce.arguments("controlled").head.text
 
-      case _ => true
+      // make sure the mentions can be handled by the manager
+      case (o1: Mention, o2: Mention) =>
+        AssemblyManager.isValidMention(o1) && AssemblyManager.isValidMention(o2)
     }
     // text spans should be unique
     (m1.words != m2.words) && ceConstraint

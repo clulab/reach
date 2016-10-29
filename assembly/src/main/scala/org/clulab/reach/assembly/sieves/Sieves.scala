@@ -322,7 +322,7 @@ class PrecedenceSieves extends Sieves {
       // NOTE: this also checks document equality,
       // which is needed because of .precedes check in FeatureExtractor
       Constraints.withinWindow(m1, m2, kWindow) &&
-        Constraints.shareArg(m1, m2) &&
+        Constraints.shareEntityGrounding(m1, m2) &&
         Constraints.isValidRelationPair(m1, m2)
     }
 

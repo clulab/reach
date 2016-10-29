@@ -69,38 +69,16 @@ class AssemblyActions extends Actions with LazyLogging {
       if m.arguments contains AFTER
       b <- m.arguments(BEFORE)
       a <- m.arguments(AFTER)
-      // a should not be equivalent to b
+      // "a" should not be equivalent to "b"
       if !Constraints.areEquivalent(b, a)
-      if Constraints.shareArg(b, a)
-      if Constraints.isValidRelationPair(b, a)
-    } yield mkPrecedenceMention(parent = m, before = b, after = a)
-
-    val distinctCandidates = validCandidates.distinct
-
-    if (distinctCandidates.nonEmpty) {
-      logger.debug(s"validatePrecedenceRelations found ${distinctCandidates.size} matches\n ${distinctCandidates.map(showBeforeAfter).mkString("\n")}")
-    }
-    distinctCandidates
-  }
-
-  def validatePrecedenceRelations2(mentions: Seq[Mention], state: State): Seq[Mention] = {
-
-    val validCandidates = for {
-      m <- mentions
-      if m.arguments contains BEFORE
-      if m.arguments contains AFTER
-      b <- m.arguments(BEFORE)
-      a <- m.arguments(AFTER)
-      // a should not be equivalent to b
-      if !Constraints.areEquivalent(b, a)
-      if Constraints.shareArg(b, a)
+      if Constraints.shareEntityGrounding(b, a)
       if Constraints.isValidRelationPair(b, a)
     } yield mkPrecedenceMention(parent = m, before = b, after = a)
 
     if (validCandidates.nonEmpty) {
       logger.debug(s"validatePrecedenceRelations found ${validCandidates.size} matches\n ${validCandidates.map(showBeforeAfter).mkString("\n")}")
     }
-    validCandidates
+    validCandidates.distinct
   }
 
   def shareControlleds(mentions: Seq[Mention], state: State): Seq[Mention] = for {

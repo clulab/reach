@@ -1908,4 +1908,20 @@ object AssemblyManager {
     case mentions.Negation(_) => true
     case _ => false
   }
+
+  /**
+    * Retrieve the set of input entities from an eer
+    * @param eer an [[EntityEventRepresentation]]
+    * @return a set of Entity-type EERs
+    */
+  def getInputEntities(eer: EntityEventRepresentation): Set[Entity] = eer match {
+    case complex: Complex =>
+      // a complex could contain another complex, so flatten
+      // until members are all simple entities
+      // then cast each as Entity for uniformity
+      complex.flattenMembers.map(_.asInstanceOf[Entity])
+    case entity: Entity => Set(entity)
+    case simpleEvent: SimpleEvent => simpleEvent.I
+    case complexEvent: ComplexEvent => complexEvent.I
+  }
 }

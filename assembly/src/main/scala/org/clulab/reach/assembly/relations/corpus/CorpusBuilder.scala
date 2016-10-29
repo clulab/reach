@@ -113,7 +113,7 @@ object CorpusBuilder {
       // could be SimpleEvent, Reg, or Activation...
       if Constraints.isValidRelationPair(m1, m2)
       // EERs must share at least one arg
-      if Constraints.shareArg(m1, m2)
+      if Constraints.shareEntityGrounding(m1, m2)
       // create training instance
       ep = EventPair(Set(m1, m2))
       // triggers should not be the same
