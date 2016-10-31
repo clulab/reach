@@ -38,8 +38,8 @@ object JSONSerializer extends LazyLogging {
   def jsonAST(mentions: Seq[Mention]): JValue = {
 
     val mentionList: List[JValue] = mentions.map{
-      case bm: BioMention => BioMentionOps(bm).jsonAST
       case cm: CorefMention => CorefMentionOps(cm).jsonAST
+      case bm: BioMention => BioMentionOps(bm).jsonAST
       case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
@@ -329,12 +329,10 @@ object JSONSerializer extends LazyLogging {
 
   // attach display label
   private def setDisplayLabel(m: Mention, mjson: JValue): Unit = (m, mjson \ "displayLabel") match {
+    // covers both coref and bio cases
     case (bm: BioMention, JString(dl)) => bm.displayLabel = dl
     // default to label (needed for things like trigger of a BioEventMention)
     case (bm: BioMention, _) => bm.displayLabel = bm.label
-    case (cm: CorefMention, JString(dl)) => cm.displayLabel = dl
-    // default to label (needed for things like trigger of a CorefEventMention)
-    case (cm: CorefMention, _) => cm.displayLabel = cm.label
     case other => ()
   }
 
