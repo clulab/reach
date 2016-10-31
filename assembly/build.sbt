@@ -7,13 +7,8 @@ libraryDependencies ++= {
   Seq(
     "org.scalatest" %% "scalatest" % "2.2.4" % "test",
     "ai.lum" %% "common" % "0.0.3",
-    //"com.typesafe" % "config" % "1.2.1",
-    //"commons-io" % "commons-io" % "2.4",
-    // logging
-    //"ch.qos.logback" %  "logback-classic" % "1.1.7",
-    //"com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
     // graph-based CSP
-    "org.choco-solver" % "choco-graph" % "3.3.0",
+    //"org.choco-solver" % "choco-graph" % "3.3.0",
     // Twirl
     //"com.typesafe.play"                  %% "twirl-api"                              % twirlV,
     // AKKA

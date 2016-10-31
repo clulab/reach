@@ -108,18 +108,17 @@ case class EventPair(
 object EventPair {
 
   def apply(mentions: Set[CorefMention]): EventPair = {
-    val before = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2).head
-    val after = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2).last
+    require(mentions.size == 2, "EventPair takes exactly two Mentions")
+    val mns = mentions.toSeq.sortWith((m1, m2) => m1 precedes m2)
+    val before = mns.head
+    val after = mns.last
 
     apply(before, after)
   }
 
   def apply(before: CorefMention, after: CorefMention): EventPair = {
 
-    // if the two event mentions have the same controlled, this is a negative example
-    val rel: String = if (Constraints.shareControlleds(before, after)) AssemblyRelationClassifier.NEG else ""
-
-    EventPair(e1 = before, e2 = after, rel)
+    EventPair(e1 = before, e2 = after, relation = "")
   }
 }
 

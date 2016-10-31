@@ -1,70 +1,334 @@
+
+# assembly sub-tree moved to main taxonomy
+# these rules make use of labels that exist in that taxonomy
+# rather than duplicate it here, the assembly branch was grafted there
 taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 
 # vars for assembly sieve
 vars:
-  # < operator should be outside of regex
+  mylabel: "Precedence"
+  mypriority: "2"
   after_type: "Event"
-  # "after" should be some kind of Event that transforms "before"
   before_type: "Event"
+  # TODO: fix comparison of binding args to ComplexEvent controlleds
+  myaction: "identityAction" #"validatePrecedenceRelations" #"identityAction"
+  regverbaltrigger: [lemma=/^(promote)/]
 
-# Inter-sentence precedence expressions
+# rules for assembly sieve
+
+  ########################
+  #
+  # intra-sentence cases
+  #
+  ########################
+
 rules:
-  # Time expressions that are dependencies of the 'after' event
-  - name: timex-after1
-    example: "later"
-    label: TimexAfter
-    type: token
-    pattern: |
-      then | next | later | subsequently | consequently | ultimately | finally
+  # precedence markers
+  - import: org/clulab/reach/assembly/grammars/precedence-markers.yml
 
-  # Events at the beginning of sentences (so that we can know its relation spans sentences)
-  - name: sentence-initial-event1
-    example: "AFT is then phosphorylated."
-    label: SentenceInitialEvent
-    type: token
-    pattern: |
-      ^ @event:Event
+  ########################
+  #
+  # cross-sentence cases
+  #
+  ########################
 
-  - name: inter-after1
-    example: "A is phosphorylated by B. As a downstream effect, [C is ...]"
-    label: InterAfter
-    type: token
+  - name: cross-sentence-binding-binding
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "The first of these is the binding of Cdc25 to the GDP bound wt Ras to produce the ternary wt Ras-GDP-Cdc25 complex .  The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
     pattern: |
-      ^
-      (?<trigger>
-      As a downstream effect |
-      Later |
-      In response |
-      Ultimately |
-      As a result |
-      Then |
-      Following (this | that) |
-      Afterwards |
-      Subsequently |
-      Consequently |
-      Eventually)
-      ","?
-      @after:Event
+      before:Binding = @Binding
+      after:Binding = (?<= @PrecedenceMarker? []*) @Binding
 
-  - name: inter-after2
-    example: "A is phosphorylated by B. [C is then ...]"
-    label: InterAfter
+#  - name: cross-sentence-activated-1
+#    label: Precedence
+#    priority: ${mypriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: ${crosssentenceaction}
+#    example: "PIP3 binds to Akt and then translocates to the plasma membrane where Akt is activated by phosphorylation .  Activated Akt phosphorylates its substrates including the serine and threonine kinase mTOR which then phosphorylates S6 kinases ( S6K ) and inhibits 4E-BP , leading to increased protein translation as well as other targets that regulate cell division and apoptosis     ."
+#    pattern: |
+#      before:Binding = @Binding (?= []*? where []*? [lemma=activate] []*)
+#      after:ComplexEvent = (?<= [lemma=activate] []*) @ComplexEvent
+
+  - name: cross-sentence-activated-2
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "PIP3 binds to Akt and then translocates to the plasma membrane where Akt is activated by phosphorylation .  Activated Akt phosphorylates its substrates including the serine/threonine kinase mTOR which then phosphorylates S6 kinases ( S6K ) and inhibits 4E-BP , leading to increased protein translation as well as other targets that regulate cell division and apoptosis XREF_BIBR ."
     pattern: |
-      when:TimexAfter
-      after:SentenceInitialEvent = <advmod
+      before:Event = @Event
+      # activated CONTROLLER ...
+      after:ComplexEvent = (?<= [lemma=/activate/]) [mention=ComplexEvent.controller]+ [mention=ComplexEvent]+
 
-  - name: inter-before1
-    example: "A is phosphorylated by B. Prior to this, [C is ...]"
-    label: InterBefore
-    type: token
+  - name: cross-sentence-shared-controlleds
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: shareControlleds
+    example: "GSK-3beta can then phosphorylate beta-catenin on S33 , S37 and T41 .  The Axin and GSK -3 / CK1 and APC complex induces the degradation of beta-catenin ."
     pattern: |
-      ^
-      (?<trigger>
-      Prior to (this | that) |
-      Previously |
-      Beforehand |
-      Before this |
-      For this)
-      ","?
-      @before:Event
+      before:ComplexEvent = @ComplexEvent
+      after:ComplexEvent = @ComplexEvent
 
+  # FIXME: modify Constraints.sharedControlleds to allow comparisons to SimpleEvents (using themes)
+  - name: cross-sentence-complex-event-then-binding
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
+    pattern: |
+      before:ComplexEvent = @ComplexEvent
+      after:Binding = (?<= [tag=DT] second step []*) @Binding
+
+
+  - name: cross-sentence-furthermore
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "Akt interacts with Raf and phosphorylates it at Ser259 .  Furthermore , phosphorylation of Raf by Akt inhibits activation of the Raf-MEK-ERK signaling pathway and has been shown to alter the cellular response in a human breast cancer cell line from cell cycle arrest to proliferation ."
+    example: "JNK interacts with SIRT1 upon oxidative stress , phosphorylates SIRT1 at Ser27 , Ser47 , and Thr530 , thereby enhancing its nuclear localization ( Nasrin et al. , XREF_BIBR ) .  Furthermore these phosphorylations increase the enzymatic activity of SIRT1 in a substrate specific manner with histone H3 , but not p53 , becoming a better substrate ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= [lemma=furthermore] ","? [lemma=/^(this|these)$/]? []{,3}) @Event
+
+
+#  # FIXME: this doesn't seem to work
+#  - name: cross-sentence-before-is-antecedent
+#    label: Precedence
+#    priority: ${mypriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: afterArgResolvesToBefore
+#    example: "In addition , binding of caveolin-1 or caveolin-3 inhibited the auto-phosphorylation and activation of c-Src and the related Src family tyrosine kinase Fyn [ XREF_BIBR ] .  These interactions were mediated by residues 82-101 in the cytoplasmic N-terminus of caveolin-1 , a region of the protein which is called the ' scaffolding domain ' , and which interacts with numerous proteins ."
+#    pattern: |
+#      before:Event = @Event
+#      after:Event = @Event
+
+  - name: cross-sentence-coref-clue-1
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "In addition , binding of caveolin-1 or caveolin-3 inhibited the auto-phosphorylation and activation of c-Src and the related Src family tyrosine kinase Fyn [ XREF_BIBR ] .  These interactions were mediated by residues 82-101 in the cytoplasmic N-terminus of caveolin-1 , a region of the protein which is called the ' scaffolding domain ' , and which interacts with numerous proteins ."
+    pattern: |
+      before:Binding = @Binding
+      after:Event = (?<= [lemma=/^(this|these)$/]) [mention=Event]+
+
+  - name: cross-sentence-coref-clue-2
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "In addition , binding of caveolin-1 or caveolin-3 inhibited the auto-phosphorylation and activation of c-Src and the related Src family tyrosine kinase Fyn [ XREF_BIBR ] .  These interactions were mediated by residues 82-101 in the cytoplasmic N-terminus of caveolin-1 , a region of the protein which is called the ' scaffolding domain ' , and which interacts with numerous proteins ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= [lemma=/^(this|these|its)$/]) [mention=Event]+
+
+  - name: cross-sentence-discourse-clue-1
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "The formation of the ternary complex disrupts the binding interaction between wt Ras and GDP , resulting in release of the bound GDP to produce the wt Ras Cdc25 binary complex .  The second step is the binding of the cellularly abundant GTP to the wt Ras complexed with Cdc25 ; this binding expels the bound Cdc25 from wt Ras to produce GTP bound wt Ras ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= @PrecedenceMarker []*?) [mention=Event]+
+
+
+#  - name: cross-sentence-discourse-clue-2
+#    label: Precedence
+#    priority: ${mypriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: ${myaction}
+#    example: "ATRIP binds to RPA coated ssDNA and thereby results in the recruitment of ATR to the DNA lesion [ XREF_BIBR , XREF_BIBR , XREF_BIBR ] .  Although the association of the ATR and ATRIP complex with RPA coated ssDNA is required , it is insufficient to increase ATR derived kinase activity ."
+#    pattern: |
+#      before:Event = @Event
+#      after:Event = (?<= [lemma=although] []*?) [mention=Event]+ (?= []*? [word=/(?i)required$/])
+
+
+#  - name: cross-sentence-discourse-clue-3
+#    label: Precedence
+#    priority: ${mypriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: ${myaction}
+#    example: "Unphosphorylated 4E-BP1 interacts with the cap binding protein eIF4E and prevents the formation of the 4F translational initiation complex ( eIF4F ) ; by competing for the binding of eukaryotic initiation factor 4G ( eIF4G ) to eIF4E .  4E-BP1 phosphorylation by mTORC1 results in the release of the eIF4E , which then associates with eIF4G to stimulate translation initiation [ XREF_BIBR-XREF_BIBR , XREF_BIBR-XREF_BIBR ] ."
+#    pattern: |
+#      before:Event = @Event
+#      after:Event = (?<= which "then"? (in turn)?) @Event
+
+  - name: cross-sentence-discourse-clue-4
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "GSK-3beta can then phosphorylate beta-catenin on S33 , S37 and T41 .  The Axin , GSK-3 , CK1 , and APC complex induces the degradation of beta-catenin ."
+    pattern: |
+      before:Event = @Event
+      after:Event = [mention=Event]*? [word=/(?i)^induces$/ & mention=Event] [mention=Event]+
+
+  - name: cross-sentence-discourse-clue-5
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "DNMT1 physically interacts with acetyltransferase Tip60 , herpesvirus associated ubiquitin specific protease ( HAUSP ) , ubiquitin like containing PHD and RING finger domains 1 ( UHRF1 ) , HDAC1 and PCNA on chromatin [ XREF_BIBR ] .  Tip60 promotes acetylation of DNMT1 , which triggers ubiquitination by the E3 ligase UHRF1 , thereby targeting DNMT1 for proteasomal degradation during late S phase [ XREF_BIBR ] ."
+    pattern: |
+      before:Event = @Event
+      after:Event = @Event (?= "," which)
+
+  - name: cross-sentence-discourse-clue-6
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "AKT can interact with PIP3 , followed by a phosphorylation of AKT at Threonin308 by phosphoinosite dependent protein kinase-1 ( PDK1 ) .  To develop its full activity , AKT is phosphorylated at a second amino acid , Serine 473 , by the mammalian target of rapamycin complex 2 ( mTORC2 ) ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= ^([lemma=in] [lemma=order])? [lemma=to] [tag=/^V/] []*? ",") @Event
+
+  - name: cross-sentence-discourse-clue-7
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "Bim is sequestered by dynein cytoskeletal complexes when cells are attached to ECM .  Cell detachment induces release of Bim from these complexes and causes its translocation to the mitochondria , where it interacts with Bcl-xL , neutralizing its prosurvival function [ XREF_BIBR , XREF_BIBR ] ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= ","? where) [lemma=it] [mention=Event]+
+
+  - name: cross-sentence-discourse-clue-8
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "Cyclin E1 , which is encoded by an early E2F1 responsive gene , then binds to CDK2 and completely inactivates Rb protein , driving the cells to enter the S phase .  When the cells enter the S phase , cyclin A binds to CDK2 and promotes the phosphorylation of many proteins involved in DNA synthesis ."
+    pattern: |
+      before:Event = @Event
+      after:Event = (?<= [lemma=when] []*? ",") @Event
+
+  - name: cross-sentence-discourse-clue-9
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    example: "When the cells enter the S phase , cyclin A binds to CDK2 and promotes the phosphorylation of many proteins involved in DNA synthesis .  Prophase is then initiated after cyclin A binds to CDK1 ."
+    pattern: |
+      before:Event = (?<= [lemma=when] []*? ",") @Event
+      after:Event = (?<= [lemma=after] []*?) @Event
+
+  - name: cross-sentence-discourse-clue-10
+    label: Precedence
+    priority: ${mypriority}
+    type: "cross-sentence"
+    right-window: 1
+    action: ${myaction}
+    pattern: |
+      before:Event = (?<= [lemma=when] []*? ",") @Event
+      after:Event = [mention=Event]*? [lemma=then & mention=Event] [mention=Event]+
+
+#[word=/(?i)mediated$/]
+
+#  - name: cross-sentence-these-interactions
+#    label: Precedence
+#    priority: ${surfacerulepriority}
+#    type: "cross-sentence"
+#    right-window: 1
+#    action: ${myaction}
+#    example:
+#    pattern: |
+#      before:Event = @Event
+#      # FIXME: don't include type for second arg
+#      after:Event = (?<= [lemma=furthermore] ",") @Event
+
+
+
+## vars for assembly sieve
+#vars:
+#  # < operator should be outside of regex
+#  after_type: "Event"
+#  # "after" should be some kind of Event that transforms "before"
+#  before_type: "Event"
+#
+## Inter-sentence precedence expressions
+#rules:
+#  # Time expressions that are dependencies of the 'after' event
+#  - name: timex-after1
+#    example: "later"
+#    label: TimexAfter
+#    type: token
+#    pattern: |
+#      then | next | later | subsequently | consequently | ultimately | finally
+#
+#  # Events at the beginning of sentences (so that we can know its relation spans sentences)
+#  - name: sentence-initial-event1
+#    example: "AFT is then phosphorylated."
+#    label: SentenceInitialEvent
+#    type: token
+#    pattern: |
+#      ^ @event:Event
+#
+#  - name: inter-after1
+#    example: "A is phosphorylated by B. As a downstream effect, [C is ...]"
+#    label: InterAfter
+#    type: token
+#    pattern: |
+#      ^
+#      (?<trigger>
+#      As a downstream effect |
+#      Later |
+#      In response |
+#      Ultimately |
+#      As a result |
+#      Then |
+#      Following (this | that) |
+#      Afterwards |
+#      Subsequently |
+#      Consequently |
+#      Eventually)
+#      ","?
+#      @after:Event
+#
+#  - name: inter-after2
+#    example: "A is phosphorylated by B. [C is then ...]"
+#    label: InterAfter
+#    pattern: |
+#      when:TimexAfter
+#      after:SentenceInitialEvent = <advmod
+#
+#  - name: inter-before1
+#    example: "A is phosphorylated by B. Prior to this, [C is ...]"
+#    label: InterBefore
+#    type: token
+#    pattern: |
+#      ^
+#      (?<trigger>
+#      Prior to (this | that) |
+#      Previously |
+#      Beforehand |
+#      Before this |
+#      For this)
+#      ","?
+#      @before:Event
+#

@@ -3,7 +3,6 @@ package org.clulab.reach.assembly.relations.corpus
 import org.clulab.odin.Mention
 import org.clulab.reach.mentions._
 import org.clulab.reach.assembly.AssemblyManager
-import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.assembly.sieves.{Constraints, SieveUtils}
 import org.json4s.DefaultFormats
 import org.json4s.native.JsonMethods
@@ -13,14 +12,6 @@ import java.io.File
 
 
 object CorpusReader extends LazyLogging {
-
-  // default label for negative class
-  val NEG = AssemblyRelationClassifier.NEG
-
-  val precedenceRelations =  Set("E1 precedes E2", "E2 precedes E1")
-  val subsumptionRelations = Set("E1 specifies E2", "E2 specifies E1")
-  val equivalenceRelations = Set("Equivalent")
-  val noRelations = Set(NEG)
 
   // needed for .extract
   implicit val formats = DefaultFormats
@@ -48,7 +39,7 @@ object CorpusReader extends LazyLogging {
     case bug if bug.relation == "Bug" => Nil
     // set relation to NEG
     case other =>
-      Seq(other.copy(relation = NEG))
+      Seq(other.copy(relation = SieveUtils.NEG))
   }
 
   /** Finds mention matching label and trigger text */
@@ -166,7 +157,7 @@ object LegacyAnnotationReader extends LazyLogging {
       //if e2c.text contains aa.`e2-trigger`
       if SieveUtils.findTrigger(e2c).text == aa.`e2-trigger`
       // Do the mentions share an argument?
-      if Constraints.shareArg(e1c, e2c)
+      if Constraints.shareEntityGrounding(e1c, e2c)
       // final check
       if Constraints.isValidRelationPair(e1c, e2c)
     } yield {

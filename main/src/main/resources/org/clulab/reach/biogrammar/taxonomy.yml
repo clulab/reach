@@ -78,6 +78,7 @@
                       - GENE
 # a preliminary taxonomy for assembly (precedence relations)
 - Precedence:
+    - PrecedenceMarker
     # for pairs that are directly (immediately) connected
     # difficult to know from odin rules alone, but not impossible
     - DirectConnection
@@ -100,3 +101,4 @@
         - Aspect:
             - Perfective
             - Progressive
+    # discourse markers (i.e., textual clues signaling a precedence relation)

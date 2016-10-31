@@ -45,7 +45,7 @@ case class PrecedenceRelation(
     */
   // TODO: Should this be in terms of an Equiv Hash?
   def isEquivalentTo(other: Any): Boolean = other match {
-    case pr: PrecedenceRelation => this.before == pr.before || this.after == pr.after
+    case pr: PrecedenceRelation => this.before.isEquivalentTo(pr.before) || this.after.isEquivalentTo(pr.after)
     case _ => false
   }
 }
@@ -1907,5 +1907,21 @@ object AssemblyManager {
   def hasNegation(m: Mention): Boolean = m.toBioMention.modifications exists {
     case mentions.Negation(_) => true
     case _ => false
+  }
+
+  /**
+    * Retrieve the set of input entities from an eer
+    * @param eer an [[EntityEventRepresentation]]
+    * @return a set of Entity-type EERs
+    */
+  def getInputEntities(eer: EntityEventRepresentation): Set[Entity] = eer match {
+    case complex: Complex =>
+      // a complex could contain another complex, so flatten
+      // until members are all simple entities
+      // then cast each as Entity for uniformity
+      complex.flattenMembers.map(_.asInstanceOf[Entity])
+    case entity: Entity => Set(entity)
+    case simpleEvent: SimpleEvent => simpleEvent.I
+    case complexEvent: ComplexEvent => complexEvent.I
   }
 }
