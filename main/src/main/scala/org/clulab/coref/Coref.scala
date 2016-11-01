@@ -2,7 +2,7 @@ package org.clulab.coref
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
-import org.clulab.reach.grounding.{KBEntry, ReachKBConstants}
+import org.clulab.reach.grounding.{KBEntry, ReachKBConstants, Resolutions}
 import org.clulab.reach.utils.DependencyUtils._
 import org.clulab.reach.display._
 import org.clulab.reach.mentions._
@@ -314,7 +314,7 @@ class Coref extends LazyLogging {
     * @return mentions with generic mentions replaced by their antecedents
     */
   def resolve(mentions: Seq[CorefMention]): Seq[CorefMention] = {
-    logger.debug("\n=====Resolution=====\n")
+    logger.debug("=====Resolution=====")
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention]).map(_.asInstanceOf[CorefTextBoundMention])
     val sevts = mentions.filter(m => m.isInstanceOf[CorefEventMention] && m.matches("SimpleEvent")).map(_.asInstanceOf[CorefEventMention])
     val cevts = mentions.filter(m => m.matches("ComplexEvent"))
@@ -338,9 +338,9 @@ class Coref extends LazyLogging {
 
   def apply(docMentions: Seq[Seq[Mention]]): Seq[Seq[CorefMention]] = {
 
-    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, BioMention]
+    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, Resolutions]
 
-    for {
+    val orderedMentions = for {
       mentions <- docMentions
     } yield {
 
@@ -352,7 +352,7 @@ class Coref extends LazyLogging {
 
         // order mentions and also remove Generic_event mentions that do not have definite determiners.
         val legalDeterminers = Seq("the", "this", "that", "these", "those", "such")
-        val orderedMentions: Seq[CorefMention] = mentions
+        mentions
           .map(_.toCorefMention)
           .filterNot(m => {
             m.isGeneric && !m.isClosedClass && {
@@ -369,53 +369,82 @@ class Coref extends LazyLogging {
                     logger.error(s"Sentence: ${sent.getSentenceText()}")
                     logger.error(s"Mention text: ${m.text}")
                     logger.error(s"Head index is: $hd")
-                    displayMention(m)
+                    logger.error(summarizeMention(m))
                     true
                 }
               }
             }
           }).sorted[Mention]
-
-        // find aliases
-        val aliasRelations = orderedMentions filter (_ matches "Alias")
-        for {
-          aliasRelation <- aliasRelations
-          entities = aliasRelation.arguments.getOrElse("alias", Nil)
-          pair <- entities.combinations(2)
-          (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
-          if compatibleGrounding(a, b) && // includes check to see that they're both grounded
-            !(aliases contains a.grounding.get.entry) && // assume any existing entry is correct
-            !(aliases contains b.grounding.get.entry) // so don't replace existing entry
-        } {
-          if (a.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(a.grounding.get.entry) = b
-          else if (b.grounding.get.namespace == ReachKBConstants.DefaultNamespace) aliases(b.grounding.get.entry) = a
-        }
-
-        logger.debug("\n=====Alias matching=====")
-        // share more complete grounding based on alias map
-        orderedMentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
-          mention =>
-            val kbEntry = mention.grounding.get.entry
-            if (aliases contains kbEntry) {
-              logger.debug(s"${mention.text} matches ${aliases(kbEntry).text}")
-              mention.copyGroundingFrom(aliases(kbEntry))
-              mention.sieves += "aliasGroundingMatch"
-            }
-        }
-
-        val links = new DarpaLinks
-
-        val allLinks = CorefFlow(links.exactStringMatch) andThen
-          CorefFlow(links.groundingMatch) andThen
-          CorefFlow(links.mutantProteinMatch) andThen
-          CorefFlow(links.strictHeadMatch) andThen
-          CorefFlow(links.pronominalMatch) andThen
-          CorefFlow(links.nounPhraseMatch) andThen
-          CorefFlow(links.simpleEventMatch)
-
-        //resolve(allLinks(orderedMentions, new LinearSelector)).filter(_.isComplete)
-        resolve(allLinks(orderedMentions, new LinearSelector)).filter(_.isComplete)
       }
     }
+
+    for {
+      mentions <- orderedMentions
+    } {
+      // find aliases
+      val aliasRelations = mentions filter (_ matches "Alias")
+      for {
+        aliasRelation <- aliasRelations
+        entities = aliasRelation.arguments.getOrElse("alias", Nil)
+        pair <- entities.combinations(2)
+        (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
+        if compatibleGrounding(a, b) && // includes check to see that they're both grounded
+          !(aliases contains a.grounding.get.entry) && // assume any existing entry is correct
+          !(aliases contains b.grounding.get.entry) // so don't replace existing entry
+      } {
+        val ag = a.grounding.get
+        val bg = b.grounding.get
+        // one or the other is effectively ungrounded
+        if (ag.namespace == ReachKBConstants.DefaultNamespace) aliases(ag.entry) = b.candidates
+        else if (bg.namespace == ReachKBConstants.DefaultNamespace) aliases(bg.entry) = a.candidates
+        // both are grounded, but maybe one's grounding is correct for both
+        else if (ag.namespace != ReachKBConstants.DefaultNamespace &&
+          bg.namespace != ReachKBConstants.DefaultNamespace) {
+          // combine candidates in order -- important to maintain correct first choice
+          val ab = a.candidates.getOrElse(Nil) ++ b.candidates.getOrElse(Nil)
+          val ba = b.candidates.getOrElse(Nil) ++ a.candidates.getOrElse(Nil)
+          if (ab.nonEmpty) {
+            aliases(ag.entry) = Option(ab)
+            aliases(bg.entry) = Option(ba)
+          }
+        }
+        // if both are effectively ungrounded, do nothing
+      }
+    }
+
+    val resolvedMentions = for {
+      mentions <- orderedMentions
+    } yield {
+      val links = new DarpaLinks
+
+      val allLinks = CorefFlow(links.exactStringMatch) andThen
+        CorefFlow(links.groundingMatch) andThen
+        CorefFlow(links.mutantProteinMatch) andThen
+        CorefFlow(links.strictHeadMatch) andThen
+        CorefFlow(links.pronominalMatch) andThen
+        CorefFlow(links.nounPhraseMatch) andThen
+        CorefFlow(links.simpleEventMatch)
+
+      resolve(allLinks(mentions, new LinearSelector)).filter(_.isComplete)
+    }
+
+    logger.debug("=====Alias matching=====")
+    for {
+      mentions <- resolvedMentions
+    } {
+      // share more complete grounding based on alias map
+      mentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
+        mention =>
+          val kbEntry = mention.grounding.get.entry
+          if (aliases contains kbEntry) {
+            logger.debug(s"${mention.text} matches " +
+              s"${aliases(kbEntry).getOrElse(Nil).map(_.text).mkString("{'", "', '", "}")}")
+            mention.nominate(aliases(kbEntry))
+            mention.sieves += "aliasGroundingMatch"
+          }
+      }
+    }
+
+    resolvedMentions
   }
 }

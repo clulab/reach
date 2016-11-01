@@ -297,6 +297,8 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
 
+  // ms: removed these two unit tests; too ambiguous
+  /*
   val sent25 = "Identification by mass spectroscopy of DNA-PKcs associated with XRCC1"
   sent25 should "contain 1 binding event" in {
     val mentions = getBioMentions(sent25)
@@ -307,6 +309,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent26)
     hasEventWithArguments("Binding", List("DNA-PKcs", "XRCC1"), mentions) should be (true)
   }
+  */
 
   val sent27 = "Once bound to the DSB, the DNA-PK holoenzyme facilitates the recruitment..."
   sent27 should "contain 1 binding event (MARCO)" in {
