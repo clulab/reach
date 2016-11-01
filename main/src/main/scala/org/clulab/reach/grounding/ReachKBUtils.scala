@@ -10,7 +10,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Fix: bug in readLines method.
+  *   Last Modified: Cleanup: remove unneeded class prefixes.
   */
 object ReachKBUtils extends Speciated {
 
@@ -50,8 +50,8 @@ object ReachKBUtils extends Speciated {
 
   /** Read and return all the lines from the specified file. */
   def readLines (filename:String): List[String] = {
-    val kbResourcePath = ReachKBUtils.makePathInKBDir(filename)
-    val source = ReachKBUtils.sourceFromResource(kbResourcePath)
+    val kbResourcePath = makePathInKBDir(filename)
+    val source = sourceFromResource(kbResourcePath)
     val lines = source.getLines().toList
     source.close()
     lines

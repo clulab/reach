@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Rename organ variables. Start attributive patterns.
+  *   Last Modified: Add Sorger lab gene name affixes.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -120,6 +120,16 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
                                   stripMutantProtein _,
                                   hyphenatedProteinKey _,
                                   stripPTMPrefixes _ )
+
+  /** Set of gene name affix strings extracted from the Sorger bioentities file. */
+  val GeneNameAffixes: Set[String] =
+    ReachKBUtils.readLines(GeneNameAffixesFilename)
+                .map(affix => makeCanonicalKey(affix.trim)).toSet
+
+  /** Tell whether the given string names a gene name affix or not. */
+  def isGeneNameAffix (affix: String): Boolean =
+    GeneNameAffixes.contains(makeCanonicalKey(affix))
+
 
   /** Set of short protein domain strings. */
   val ProteinDomainShortNames: Set[String] =
