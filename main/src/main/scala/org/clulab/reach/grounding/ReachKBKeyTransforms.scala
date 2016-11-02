@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Add Sorger lab gene name affixes.
+  *   Last Modified: Add transform to strip gene name affixes.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -64,6 +64,17 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     stripSuffixes(ProteinPostAttributives, lcText)
   }
 
+  /** Remove affixes from given dash-separated key, return concatenated string of non-affixes. */
+  def stripGeneNameAffixes (text:String): String = {
+    if (text.contains("-")) {
+      val stripped = text.split("-").filterNot(isGeneNameAffix(_))
+      if (!stripped.isEmpty)
+        stripped.mkString("-")
+      else text
+    }
+    else text
+  }
+
   /** Check for one of several types of hyphen-separated strings and, if found,
     * extract and return the candidate text portion, else return the text unchanged. */
   def hyphenatedProteinKey (text:String): String = {
@@ -118,6 +129,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   /** List of transform methods to apply for alternate Protein lookups. */
   val proteinKeyTransforms = Seq( stripProteinPostAttributives _,
                                   stripMutantProtein _,
+                                  stripGeneNameAffixes _,
                                   hyphenatedProteinKey _,
                                   stripPTMPrefixes _ )
 
