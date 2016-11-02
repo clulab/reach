@@ -378,6 +378,7 @@ class Coref extends LazyLogging {
       }
     }
 
+    val default = ReachKBConstants.DefaultNamespace
     for {
       mentions <- orderedMentions
     } {
@@ -395,11 +396,10 @@ class Coref extends LazyLogging {
         val ag = a.grounding.get
         val bg = b.grounding.get
         // one or the other is effectively ungrounded
-        if (ag.namespace == ReachKBConstants.DefaultNamespace) aliases(ag.entry) = b.candidates
-        else if (bg.namespace == ReachKBConstants.DefaultNamespace) aliases(bg.entry) = a.candidates
+        if (ag.namespace == default && bg.namespace != default) aliases(ag.entry) = b.candidates
+        else if (bg.namespace == default && ag.namespace != default) aliases(bg.entry) = a.candidates
         // both are grounded, but maybe one's grounding is correct for both
-        else if (ag.namespace != ReachKBConstants.DefaultNamespace &&
-          bg.namespace != ReachKBConstants.DefaultNamespace) {
+        else if (ag.namespace != default && bg.namespace != default) {
           // combine candidates in order -- important to maintain correct first choice
           val ab = a.candidates.getOrElse(Nil) ++ b.candidates.getOrElse(Nil)
           val ba = b.candidates.getOrElse(Nil) ++ a.candidates.getOrElse(Nil)

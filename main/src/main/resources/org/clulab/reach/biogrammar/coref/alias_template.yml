@@ -133,3 +133,18 @@
     ${ bCapture }
     (("," ${ bCapture })* ","? and ${ bCapture })?
 
+- name: alias_${ aLabel }-${ bLabel }_homolog2
+  example: "Eyeless, a homolog of Pax6, is the subject of this work."
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    ${ aCapture }
+    (("," ${ aCapture })* ","? and ${ aCapture })?
+    ","
+    (the | a)?
+    [lemma="homolog"]
+    of
+    ${ bCapture }
+
