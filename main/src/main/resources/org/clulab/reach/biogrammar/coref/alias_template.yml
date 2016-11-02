@@ -121,3 +121,15 @@
     ([word=/^,|\/|or$/]+ ${ bCapture })*
     [tag=/^\.|,|:$/]
 
+- name: alias_${ aLabel }-${ bLabel }_homolog
+  example: "We studied the effects of the Pax6 homologs eyeless and eyegone."
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    ${ aCapture }
+    [lemma="homolog"]
+    ${ bCapture }
+    (("," ${ bCapture })* ","? and ${ bCapture })?
+
