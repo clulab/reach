@@ -677,4 +677,38 @@ class TestCoreference extends FlatSpec with Matchers {
     val aspCands = asp.get.candidates.get.toSet
     nonces.foreach(nonce => nonce.candidates.get.toSet should equal (aspCands))
   }
+
+  val sent62a = "We studied the effects of the Pax6 homologs eyeless and eyegone."
+  sent62a should "contain grounded mentions for eyeless and eyegone" in {
+    val mentions = getBioMentions(sent62a)
+    mentions should have size 3
+    val pax = mentions.find(_.text == "Pax6")
+    pax should not be empty
+    val targetGrounding = pax.get.candidates.get.toSet
+    mentions.filter(_.text == "eyeless").foreach(_.candidates.get.toSet should equal(targetGrounding))
+    mentions.filter(_.text == "eyegone").foreach(_.candidates.get.toSet should equal(targetGrounding))
+  }
+
+  val sent62b = "The Pax6 homologs eyeless, eyefull, and eyegone were found in established lines."
+  sent62b should "contain grounded mentions for eyeless, eyefull, and eyegone" in {
+    val mentions = getBioMentions(sent62b)
+    mentions should have size 4
+    val pax = mentions.find(_.text == "Pax6")
+    pax should not be empty
+    val targetGrounding = pax.get.candidates.get.toSet
+    mentions.filter(_.text == "eyeless").foreach(_.candidates.get.toSet should equal(targetGrounding))
+    mentions.filter(_.text == "eyefull").foreach(_.candidates.get.toSet should equal(targetGrounding))
+    mentions.filter(_.text == "eyegone").foreach(_.candidates.get.toSet should equal(targetGrounding))
+  }
+
+  val sent63 = "Eyeless and eyegone, homologs of Pax6, are the subject of this work."
+  sent63 should "contain grounded mentions for eyeless and eyegone" in {
+    val mentions = getBioMentions(sent63)
+    mentions should have size 3
+    val pax = mentions.find(_.text == "Pax6")
+    pax should not be empty
+    val targetGrounding = pax.get.candidates.get.toSet
+    mentions.filter(_.text.toLowerCase == "eyeless").foreach(_.candidates.get.toSet should equal(targetGrounding))
+    mentions.filter(_.text == "eyegone").foreach(_.candidates.get.toSet should equal(targetGrounding))
+  }
 }
