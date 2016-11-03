@@ -239,17 +239,6 @@
     @controller:${ controllerType } (?<trigger> [word=/(?i)^(mediat)/ & !tag=/^JJ/]) @controlled:${ controlledType } /(?i)^(activation)/
 
 
-# TODO: ms - I don't think this ever matches. Remove?
-#- name: Positive_${ ruleType }_token_2_verb
-#  priority: ${ priority }
-#  example: ""
-#  type: token
-#  label: ${ label }
-#  action: ${ actionFlow }
-#  pattern: |
-#    (?<trigger> [word=/(?i)^(${ triggers })/ & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
-
-
 - name: Positive_${ ruleType }_token_1_noun
   priority: ${ priority }
   example: "mTOR activator Rapamycin"
@@ -268,7 +257,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns}/])
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negTriggers }/ ])
 
 
 # a rule written to catch an example from MITRE

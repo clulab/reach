@@ -1,9 +1,16 @@
 taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 
 vars:
+  # triggers and lookaheads/behinds for regulations and activations
   posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
-  negnouns: "decreas|inhibit|loss|repress|suppress|supress"
+  #negnouns: "decreas|inhibit|loss|repress|suppress|supress"
   auxtriggers: "activ|regul"
+  #posRegTriggers: "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+  #posActTriggers: "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
+  posTriggers: "acceler|accept|accumul|activat|aid|allow|augment|cataly|caus|contribut|direct|driv|elev|elicit|enabl|enhanc|increas|induc|initi|interconvert|lead|led|mediat|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|re-express|rescu|restor|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+  #negRegTriggers: "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress|uncoupl"
+  #negActTriggers: "inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|sequester|slow|starv|suppress|supress"
+  negTriggers: "attenu|abolish|abrog|antagon|arrest|attenu|block|deactiv|decreas|degrad|deplet|deregul|diminish|disrupt|down-reg|downreg|dysregul|elimin|impair|imped|inactiv|inhibit|knockdown|limit|loss|lower|negat|nullifi|perturb|prevent|reduc|reliev|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress"
 
 rules:
   - import: org/clulab/reach/biogrammar/events/bind_events.yml
@@ -35,6 +42,12 @@ rules:
   - import: org/clulab/reach/biogrammar/events/translocation_events.yml
     vars:
       priority: "7"
+
+  ###############################################################################
+  #
+  # Simple events
+  #
+  ###############################################################################
 
   # Phosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -150,6 +163,7 @@ rules:
 
   #
   # "Reverse" Simple Events:
+  #
 
   # Dephosphorylations
   - import: org/clulab/reach/biogrammar/events/simple-event_template.yml
@@ -257,8 +271,13 @@ rules:
       actionFlow: "mkBioMention"
       priority: "8"
 
+  ###############################################################################
+  #
+  # Nested events
+  #
+  ###############################################################################
 
-  # A very specific class of regulations: "Y-induced Z" (where Z is an event)
+  # A very specific class of "early" regulations: "Y-induced Z" (where Z is an event)
   # These must be recognized first, so the nested event in "X activates Y-induced Z" works
   - import: org/clulab/reach/biogrammar/events/early-pos-reg_template.yml
     vars:
@@ -270,7 +289,7 @@ rules:
       controlledType: "SimpleEvent"
       controllerType: "BioEntity"
 
-  # A very specific class of activations: "Y-induced Z" (where Z is an entity)
+  # A very specific class of "early" activations: "Y-induced Z" (where Z is an entity)
   # These must be recognized first, so the nested event in "X activates Y-induced Z" works
   - import: org/clulab/reach/biogrammar/events/early-pos-reg_template.yml
     vars:
@@ -288,7 +307,7 @@ rules:
     vars:
       label: "Positive_regulation"
       ruleType: "regulation"
-      triggers: "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+      triggers: ${posTriggers}
       actionFlow: "mkRegulation"
       priority: "12-13"
       controlledType: "Event"
@@ -299,7 +318,7 @@ rules:
     vars:
       label: "Positive_regulation"
       ruleType: "regulation"
-      triggers: "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"
+      triggers: ${posTriggers}
       actionFlow: "mkRegulation"
       priority: "12-13"
       controlledType: "Event"
@@ -310,7 +329,7 @@ rules:
     vars:
       label: "Negative_regulation"
       ruleType: "regulation"
-      triggers: "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress|uncoupl"
+      triggers: ${negTriggers}
       actionFlow: "mkRegulation"
       priority: "12-13"
       controlledType: "Event"
@@ -321,7 +340,7 @@ rules:
     vars:
       label: "Negative_regulation"
       ruleType: "regulation"
-      triggers: "abolish|abrog|absenc|antagon|arrest|attenu|block|blunt|deactiv|decreas|defect|defici|degrad|delay|deplet|deregul|diminish|disengag|disrupt|down|down-reg|downreg|drop|dysregul|elimin|impair|imped|inactiv|inhibit|interf|knockdown|lack|limit|loss|lost|lower|negat|neutral|nullifi|oppos|overc|perturb|prevent|reduc|reliev|remov|repress|resist|restrict|revers|sequester|shutdown|slow|starv|suppress|supress|uncoupl"
+      triggers: ${negTriggers}
       actionFlow: "mkRegulation"
       priority: "12-13"
       controlledType: "Event"
@@ -332,7 +351,7 @@ rules:
     vars:
       label: "Positive_activation"
       ruleType: "activation"
-      triggers: "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
+      triggers: ${posTriggers}
       actionFlow: "mkActivation"
       priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
@@ -343,7 +362,7 @@ rules:
     vars:
       label: "Positive_activation"
       ruleType: "activation"
-      triggers: "acceler|activat|aid|allow|augment|direct|elev|elicit|enabl|enhanc|increas|induc|initi|modul|necess|overexpress|potenti|produc|prolong|promot|rais|reactivat|rescu|respons|restor|re-express|retent|sequest|signal|stimul|support|synerg|synthes|trigger|up-regul|upregul"
+      triggers: ${posTriggers}
       actionFlow: "mkActivation"
       priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
@@ -354,7 +373,7 @@ rules:
     vars:
       label: "Negative_activation"
       ruleType: "activation"
-      triggers: "attenu|block|deactiv|decreas|degrad|diminish|disrupt|impair|imped|inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|sequester|slow|starv|suppress|supress"
+      triggers: ${negTriggers}
       actionFlow: "mkActivation"
       priority: "14" # must be 1 + priority of regulations!
       controlledType: "BioEntity"
