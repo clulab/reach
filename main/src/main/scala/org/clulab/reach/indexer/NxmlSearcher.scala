@@ -290,7 +290,8 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseDengue(resultDir)
+      // searcher.useCaseDengue(resultDir)
+      searcher.useCase(resultDir)
     }
 
     searcher.close()
