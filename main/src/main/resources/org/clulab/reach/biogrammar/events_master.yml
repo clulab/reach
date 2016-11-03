@@ -2,7 +2,7 @@ taxonomy: org/clulab/reach/biogrammar/taxonomy.yml
 
 vars:
   # triggers and lookaheads/behinds for regulations and activations
-  posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
+  #posnouns: "acceler|activ|augment|cataly|caus|driv|elev|elicit|enhanc|increas|induc|induct|initi|produc|promot|promot|rais|reactiv|re-express|releas|stimul|trigger|up-regul|upregul"
   #negnouns: "decreas|inhibit|loss|repress|suppress|supress"
   auxtriggers: "activ|regul"
   #posRegTriggers: "acceler|accept|accumul|action|activat|aid|allow|associ|augment|cataly|caus|cleav|confer|contribut|convert|direct|driv|elev|elicit|enabl|enhanc|escort|export|gener|high|increas|induc|induct|initi|interact|interconvert|involv|lead|led|major|mediat|modul|necess|overexpress|potent|proce|produc|prolong|promot|rais|reactivat|re-express|releas|render|requir|rescu|respons|restor|result|retent|signal|stimul|support|synerg|synthes|target|trigger|underli|up-regul|upregul"

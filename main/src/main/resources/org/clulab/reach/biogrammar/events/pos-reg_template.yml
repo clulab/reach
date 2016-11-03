@@ -204,7 +204,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ posnouns }/ & tag=/^N/]
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
     controller:${ controllerType } = nsubj
     controlled:${ controlledType } = /prep_of|prep_in$/
 
@@ -215,7 +215,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ posnouns }/ & tag=/^N/]
+    trigger = [lemma=/${ triggers }/ & tag=/^N/]
     controller:${ controllerType } = /prep_by|agent/
     controlled:${ controlledType } = /poss/
 
