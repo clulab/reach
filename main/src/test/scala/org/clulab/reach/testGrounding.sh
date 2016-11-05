@@ -11,7 +11,7 @@ org.clulab.reach.TestKBSupport \
 org.clulab.reach.TestMiscLookups \
 org.clulab.reach.TestModelEntities \
 org.clulab.reach.TestNERLabeling \
-org.clulab.reach.TestOrganCellTypeResolutions \
+org.clulab.reach.TestOrganResolutions \
 org.clulab.reach.TestOverrides \
 org.clulab.reach.TestProteinResolutions \
 org.clulab.reach.TestReachContextKBLister \

@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for HMS drug KB.
+  *   Last Modified: Update for class renames.
   */
 object ReachIMKBMentionLookups {
 
@@ -193,10 +193,10 @@ object ReachIMKBMentionLookups {
 
   /** KB accessor to resolve organ names via a context KB.
       Uses alternate key lookups for organ to cell type inference. */
-  def contextOrganKBML: IMKBOrganCellTypeMentionLookup = {
+  def contextOrganKBML: IMKBOrganMentionLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/uberon/", "MIR:00000446")
     metaInfo.put("file", ContextOrganFilename)
-    new IMKBOrganCellTypeMentionLookup(TsvIMKBFactory.make("uberon", ContextOrganFilename, metaInfo))
+    new IMKBOrganMentionLookup(TsvIMKBFactory.make("uberon", ContextOrganFilename, metaInfo))
   }
 
   /** KB accessor to resolve species names via a context KB. */
