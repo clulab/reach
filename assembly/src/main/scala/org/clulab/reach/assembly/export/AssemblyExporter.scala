@@ -1,6 +1,6 @@
 package org.clulab.reach.assembly.export
 
-import org.apache.commons.io.FileUtils
+import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.representations._
 import org.clulab.odin.{EventMention, Mention}
@@ -8,7 +8,6 @@ import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import com.typesafe.scalalogging.LazyLogging
-
 import scala.util.matching.Regex
 import java.io.File
 
@@ -303,7 +302,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
     val results = rowsToString(cols, sep, rowFilter)
     // write the output to disk
-    FileUtils.writeStringToFile(f, results)
+    f.writeString(results, java.nio.charset.StandardCharsets.UTF_8)
   }
 
   def rowsToString(
