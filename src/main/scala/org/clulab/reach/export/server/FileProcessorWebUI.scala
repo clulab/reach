@@ -7,20 +7,18 @@ import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.scaladsl._
 import akka.stream.{ActorMaterializer, Materializer}
-import java.io.{File, FileOutputStream}
 import akka.event.{Logging, LoggingAdapter}
 import akka.util.ByteString
+import java.io.{File, FileOutputStream}
 import com.typesafe.config.{Config, ConfigValueFactory}
 import org.clulab.reach.assembly.server._
 import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.PaperReader
-import org.clulab.reach.assembly.AssemblyManager
-import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
-import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
+import org.clulab.reach.export.arizona.ArizonaOutputter
 import org.json4s.{DefaultFormats, native}
 import scala.concurrent.{ExecutionContextExecutor, Future}
-import scala.util.{Success, Failure}
+import scala.util.{Failure, Success}
 
 
 trait FileUpload {
@@ -123,45 +121,8 @@ object FileProcessorWebUI extends App with FileUpload {
     val cms = PaperReader.getMentionsFromPaper(tempFile).map(_.toCorefMention)
 
     outputType match {
-      case ARIZONA =>
-        // perform deduplication
-        val dedup = new DeduplicationSieves()
-        val orderedSieves =
-        // track relevant mentions
-          AssemblySieve(dedup.trackMentions)
-        val am: AssemblyManager = orderedSieves.apply(cms)
-        val ae = new AssemblyExporter(am)
-
-        val cols = Seq(
-          AssemblyExporter.INPUT,
-          AssemblyExporter.OUTPUT,
-          AssemblyExporter.CONTROLLER,
-          AssemblyExporter.EVENT_ID,
-          AssemblyExporter.EVENT_LABEL,
-          AssemblyExporter.NEGATED,
-          AssemblyExporter.INDIRECT,
-          // context
-          AssemblyExporter.CONTEXT_SPECIES,
-          AssemblyExporter.CONTEXT_ORGAN,
-          AssemblyExporter.CONTEXT_CELL_LINE,
-          AssemblyExporter.CONTEXT_CELL_TYPE,
-          AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
-          AssemblyExporter.CONTEXT_TISSUE_TYPE,
-          // evidence
-          AssemblyExporter.SEEN,
-          AssemblyExporter.EVIDENCE,
-          AssemblyExporter.SEEN_IN
-        )
-        def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
-          // remove unseen
-          (r.seen > 0) &&
-            // keep only the events
-            ExportFilters.isEvent(r)
-        }
-        ae.rowsToString(cols, AssemblyExporter.SEP, arizonaFilter)
-
-      case JSON =>
-        cms.json(false)
+      case ARIZONA => ArizonaOutputter.tabularOutput(cms)
+      case JSON => cms.json(false)
     }
   }
 

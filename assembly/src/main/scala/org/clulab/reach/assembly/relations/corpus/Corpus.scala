@@ -11,6 +11,7 @@ import org.json4s.JsonDSL._
 import org.json4s._
 import scala.util.hashing.MurmurHash3._
 import com.typesafe.scalalogging.LazyLogging
+import ai.lum.common.FileUtils._
 import org.apache.commons.io.FileUtils
 import java.io.File
 
@@ -155,10 +156,11 @@ case class Corpus(instances: Seq[EventPair]) extends JSONSerialization {
     // for each doc, write doc + mentions to a json file
     for ((paperID, cms) <- dmLUT) {
       val of = new File(mentionDataDir, s"$paperID-mention-data.json")
-      FileUtils.write(of, cms.json(pretty))
+      of.writeString(cms.json(pretty), java.nio.charset.StandardCharsets.UTF_8)
     }
     // write event pair info to json file
-    FileUtils.write(new File(corpusDir, s"${Corpus.EVENT_PAIRS}.json"), this.json(pretty))
+    val f = new File(corpusDir, s"${Corpus.EVENT_PAIRS}.json")
+    f.writeString(this.json(pretty), java.nio.charset.StandardCharsets.UTF_8)
   }
 }
 
