@@ -500,9 +500,12 @@ object AssemblyExporter {
   }
 
   def getSortedTriggers(mns: Seq[Mention]): String = {
+    // attempt to get the lemmatized trigger for each mention
+    val triggers = mns.flatMap(getTrigger)
     val triggerCounts: Seq[(Int, String)] = for {
-      trig: String <- mns.flatMap(getTrigger)
-      cnt = mns.count(_ == trig)
+      // count each distinct trigger
+      trig: String <- triggers.distinct
+      cnt = triggers.count(_ == trig)
     } yield cnt -> trig
 
     // sort by counts
