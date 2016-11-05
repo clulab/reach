@@ -72,7 +72,7 @@ class ReachCLI(
                |
             |==========
                |""".stripMargin
-          FileUtils.writeStringToFile(logFile, report, true)
+          logger.error(report)
           1
       }
       error
@@ -94,14 +94,12 @@ class ReachCLI(
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
 
-    FileUtils.writeStringToFile(logFile, s"$startTime: Starting $paperId\n", true)
-
+    logger.info(s"$startTime: Starting $paperId\n")
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
-
 
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
 
@@ -113,10 +111,8 @@ class ReachCLI(
     val endNS = System.nanoTime
 
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
+    logger.info(s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n")
 
-    FileUtils.writeStringToFile(
-      logFile, s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n", true
-    )
   }
 
   /**
@@ -211,7 +207,7 @@ object ReachCLI extends App with LazyLogging {
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
   }
-  FileUtils.writeStringToFile(logFile, s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...\n")
+  logger.info(s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...\n")
 
   // if papersDir does not exist there is nothing to do
   if (!papersDir.exists) {
