@@ -1,22 +1,23 @@
 package org.clulab.reach
 
-import java.io.File
-import java.util.Date
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
+import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
 import org.clulab.odin._
-import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.utils.MentionManager
 import org.clulab.reach.export.fries._
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.mentions.CorefMention
+import java.io.File
+import java.util.Date
 
+import org.clulab.reach.export.arizona.ArizonaOutputter
 
 /**
   * Class to run Reach reading and assembly then produce FRIES format output
@@ -179,44 +180,9 @@ class ReachCLI(
 
       // Arizona's custom output for assembly
       case ("arizona", _) =>
-        // perform deduplication
-        val dedup = new DeduplicationSieves()
-        val orderedSieves =
-        // track relevant mentions
-          AssemblySieve(dedup.trackMentions)
-        val am: AssemblyManager = orderedSieves.apply(mentions)
-        val ae = new AssemblyExporter(am)
+        val output = ArizonaOutputter.tabularOutput(mentions)
         val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
-
-        val cols = Seq(
-          AssemblyExporter.INPUT,
-          AssemblyExporter.OUTPUT,
-          AssemblyExporter.CONTROLLER,
-          AssemblyExporter.EVENT_ID,
-          AssemblyExporter.EVENT_LABEL,
-          AssemblyExporter.NEGATED,
-          AssemblyExporter.INDIRECT,
-          // context
-          AssemblyExporter.CONTEXT_SPECIES,
-          AssemblyExporter.CONTEXT_ORGAN,
-          AssemblyExporter.CONTEXT_CELL_LINE,
-          AssemblyExporter.CONTEXT_CELL_TYPE,
-          AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
-          AssemblyExporter.CONTEXT_TISSUE_TYPE,
-          // triggers
-          AssemblyExporter.TRIGGERS,
-          // evidence
-          AssemblyExporter.SEEN,
-          AssemblyExporter.EVIDENCE,
-          AssemblyExporter.SEEN_IN
-        )
-        def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
-          // remove unseen
-          (r.seen > 0) &&
-          // keep only the events
-          ExportFilters.isEvent(r)
-        }
-        ae.writeRows(outFile, cols, AssemblyExporter.SEP, arizonaFilter)
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }

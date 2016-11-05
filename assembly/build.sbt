@@ -6,7 +6,7 @@ libraryDependencies ++= {
   val akkaV = "2.4.3"
   Seq(
     "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-    "ai.lum" %% "common" % "0.0.3",
+    "ai.lum" %% "common" % "0.0.5",
     //"com.typesafe" % "config" % "1.2.1",
     //"commons-io" % "commons-io" % "2.4",
     // logging
