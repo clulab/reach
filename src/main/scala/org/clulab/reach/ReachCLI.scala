@@ -203,6 +203,8 @@ class ReachCLI(
           AssemblyExporter.CONTEXT_CELL_TYPE,
           AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
           AssemblyExporter.CONTEXT_TISSUE_TYPE,
+          // triggers
+          AssemblyExporter.TRIGGERS,
           // evidence
           AssemblyExporter.SEEN,
           AssemblyExporter.EVIDENCE,
