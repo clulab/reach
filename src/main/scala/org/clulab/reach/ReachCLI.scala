@@ -4,6 +4,7 @@ import java.io.File
 import java.util.Date
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
+import scala.collection.mutable
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{FileUtils, FilenameUtils}
@@ -31,6 +32,10 @@ class ReachCLI(
   val logFile: File
 //  val verbose: Boolean = false
 ) extends LazyLogging {
+
+  private val docSentencesCounts = new mutable.HashMap[String, Int]
+
+  def numOfProcessedSentences = docSentencesCounts.values.sum
 
   /** Process papers **/
   def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
@@ -100,6 +105,17 @@ class ReachCLI(
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
+
+    // Get the number of lines in the document from the mentions
+    val sentenceNumber:Int = if(mentions.size > 0){
+      val m = mentions(0)
+      m.document.sentences.size
+    }
+    else
+      0
+
+    // Add it to the map
+    docSentencesCounts += (file.getAbsolutePath -> sentenceNumber)
 
 
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
@@ -235,6 +251,7 @@ object ReachCLI extends App with LazyLogging {
   val withAssembly = config.getBoolean("withAssembly")
   val outputType = config.getString("outputType")
   val logFile = new File(config.getString("logging.logfile"))
+  val sentencesFile = new File(outDir, config.getString("sentencesFile"))
 
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
@@ -261,6 +278,11 @@ object ReachCLI extends App with LazyLogging {
   val cli = new ReachCLI(papersDir, outDir, outputType, logFile)
 
   cli.processPapers(Some(threadLimit), withAssembly)
+
+  val numOfProcessedSentences = cli.numOfProcessedSentences
+
+  // Write down the total number of sentences processed in this run
+  FileUtils.writeStringToFile(sentencesFile, s"$numOfProcessedSentences")
 
   def now = new Date()
 }
