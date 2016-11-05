@@ -3,11 +3,12 @@ package org.clulab.reach.assembly.export
 import org.apache.commons.io.FileUtils
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.representations._
-import org.clulab.odin.Mention
+import org.clulab.odin.{EventMention, Mention}
 import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import com.typesafe.scalalogging.LazyLogging
+
 import scala.util.matching.Regex
 import java.io.File
 
@@ -110,6 +111,7 @@ case class Row(
       AssemblyExporter.EVENT_LABEL -> label,
       AssemblyExporter.PRECEDED_BY -> setToString(precededBy),
       AssemblyExporter.NEGATED -> negated.toString,
+      AssemblyExporter.TRIGGERS -> AssemblyExporter.getSortedTriggers(evidence.toSeq),
       AssemblyExporter.SEEN -> seen.toString,
       AssemblyExporter.EVIDENCE -> getTextualEvidence.mkString(AssemblyExporter.CONCAT),
       AssemblyExporter.SEEN_IN -> setToString(docIDs),
@@ -273,7 +275,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       ce.controller.map {
         case entity: SimpleEntity => createSimpleEntityText(entity)
         case complex: Complex => createInput(complex)
-        case c => s"${createOutput(c)}.${ce.polarity}"
+        case c => createOutput(c)
       }.mkString(", ")
 
     case _ => NONE
@@ -421,6 +423,7 @@ object AssemblyExporter {
   val CONTEXT_CELL_TYPE = "CONTEXT (CELL TYPE)"
   val CONTEXT_CELLULAR_COMPONENT = "CONTEXT (CELLULAR COMPONENT)"
   val CONTEXT_TISSUE_TYPE = "CONTEXT (TISSUE TYPE)"
+  val TRIGGERS = "TRIGGERS"
 
   val SEP = "\t"
   val CONCAT = " ++++ "
@@ -441,6 +444,8 @@ object AssemblyExporter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // trigger
+    AssemblyExporter.TRIGGERS,
     // evidence
     AssemblyExporter.SEEN,
     AssemblyExporter.EVIDENCE,
@@ -488,6 +493,23 @@ object AssemblyExporter {
     //case comp: Complex => "entity"
     // filter these out later
     case entity => "entity"
+  }
+
+  def getTrigger(m: Mention): Option[String] = m match {
+    case em: EventMention => em.trigger.lemmas.map(_.mkString(" "))
+    case _ => None
+  }
+
+  def getSortedTriggers(mns: Seq[Mention]): String = {
+    val triggerCounts: Seq[(Int, String)] = for {
+      trig: String <- mns.flatMap(getTrigger)
+      cnt = mns.count(_ == trig)
+    } yield cnt -> trig
+
+    // sort by counts
+    triggerCounts.sortBy(_._1).reverse
+      .map(_._2) // get the triggers
+      .mkString(AssemblyExporter.CONCAT) // concatenate
   }
 }
 
