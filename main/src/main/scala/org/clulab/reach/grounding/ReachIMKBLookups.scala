@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for HMS drug KB.
+  *   Last Modified: Update for Bioentities KBs.
   */
 object ReachIMKBLookups {
 
@@ -56,6 +56,14 @@ object ReachIMKBLookups {
     new IMKBProteinLookup(tsvIMKBFactory.make("uniprot", StaticProteinFilename, true, metaInfo))
   }
 
+  /** KB accessor to resolve protein complex names via static KBs with alternate lookups. */
+  def staticProteinComplexKBLookup: IMKBProteinLookup = {
+    val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
+    metaInfo.put("file", StaticProteinComplexFilename)
+    metaInfo.put("protein", "true")         // mark as from a protein KB
+    new IMKBProteinLookup(tsvIMKBFactory.make("bioentities", StaticProteinComplexFilename, metaInfo))
+  }
+
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
   def staticProteinFamilyKBLookup: IMKBFamilyLookup = {
     val metaInfo = new IMKBMetaInfo("http://identifiers.org/pfam/", "MIR:00000028")
@@ -72,4 +80,11 @@ object ReachIMKBLookups {
     new IMKBFamilyLookup(tsvIMKBFactory.make("interpro", StaticProteinFamily2Filename, true, metaInfo))
   }
 
+  /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
+  def staticProteinFamily0KBLookup: IMKBFamilyLookup = {
+    val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
+    metaInfo.put("file", StaticProteinFamily0Filename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
+    new IMKBFamilyLookup(tsvIMKBFactory.make("bioentities", StaticProteinFamily0Filename, metaInfo))
+  }
 }
