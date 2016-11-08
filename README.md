@@ -17,6 +17,7 @@ Please scroll down to the bottom of this page for additional resources, includin
 All our own code is licensed under Apache License Version 2.0. **However, some of the libraries used here, most notably CoreNLP, are GPL v2.** If `BioNLPProcessor` is not removed from this package, technically our whole code becomes GPL v2 since `BioNLPProcessor` builds on Stanford's `CoreNLP` functionality. Soon, we will split the code into multiple components, so licensing becomes less ambiguous.
 
 # Changes
++ **1.3.3** - Sub-project split into main, assembly, export.
 + **1.3.3** - Uses bioresources 1.1.15 and processors 5.9.6.  Introduces [`json` serialization/deserialization of `CorefMention` (including grounding, modifications, etc.)](https://gist.github.com/myedibleenso/8383af789b37ba598ff64ddd12c8b35b).
 + [more...](CHANGES.md)
 

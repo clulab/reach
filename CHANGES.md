@@ -1,6 +1,7 @@
 #Changes
 =======
-+ **1.3.2** - Update to use Processors 6.0.0.
++ **1.3.3** - Sub-project split into main, assembly, export.
++ **1.3.3** - Uses Bioresources 1.1.17 and Processors 6.0.0.
 + **1.3.2** - Optimizations to `json` serialization/deserialization of `CorefMention`.
 + **1.3.2** - Uses bioresources 1.1.15 and processors 5.9.6.  Introduces [`json` serialization/deserialization of `CorefMention` (including grounding, modifications, etc.)](https://gist.github.com/myedibleenso/8383af789b37ba598ff64ddd12c8b35b).
 + **1.3.2** - Better handling of nested events.
