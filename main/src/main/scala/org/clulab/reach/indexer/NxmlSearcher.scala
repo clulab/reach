@@ -357,14 +357,14 @@ object ClusteringSearcher extends App{
   val lines = io.Source.fromFile(csvFile).getLines.drop(1) // Don't forget to drop the header
   val sos = new PrintWriter(outputDir + File.separator + "hits.txt")
   for(line <- lines){
-    // Parse the line
-    val tokens = line.split(',')
-    val pA = tokens(2).split(":")(1)
-    val pB = tokens(4).split(":")(1)
-    val reaction = tokens(6)
 
     // Search lucene
     try{
+      // Parse the line
+      val tokens = line.split(',')
+      val pA = tokens(2).split(":")(1)
+      val pB = tokens(4).split(":")(1)
+      val reaction = ""//tokens(6)
       val hits = searcher.useCaseClustering2(pA, pB, reaction, outputDir)
       sos.println(s"$pA $reaction $pB:\t${hits.mkString(",")}")
     }
