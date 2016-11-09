@@ -10,7 +10,7 @@
   example: "Cells rescued with wild type Gab1 exhibit Gab1 tyrosine phosphorylation in response to EGF inhibition"
   action: ${ actionFlow }
   pattern: |
-    @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } [lemma=/${ negnouns}/]
+    @controlled:SimpleEvent (?<trigger> in response to (treatment with)?) @controller:${ controllerType } [lemma=/${ triggers }/ & tag=/^NN/]
 
 
 # This applies only to non-nested regs
