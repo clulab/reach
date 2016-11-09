@@ -8,9 +8,9 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 12/20/2015.
-  *   Last Modified: Update for use of Uberon as organ KB.
+  *   Last Modified: Rename this class. Update for class renames.
   */
-class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
+class TestOrganResolutions extends FlatSpec with Matchers {
 
   val imkbOCT = new TestOctKBL              // defined after this class (LOOK BELOW)
 
@@ -67,6 +67,6 @@ class TestOrganCellTypeResolutions extends FlatSpec with Matchers {
 
 
 // Protein family KB using alternate protein resolutions
-class TestOctKBL extends IMKBOrganCellTypeLookup {
+class TestOctKBL extends IMKBOrganLookup {
   memoryKB = (new TsvIMKBFactory).make(ContextOrganFilename)
 }
