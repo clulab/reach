@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory
 import scala.collection.mutable
 import NxmlSearcher._
 import scala.collection.mutable.ArrayBuffer
+import org.clulab.reach.grounding.ReachKBUtils
 
 
 /**
@@ -255,6 +256,40 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  val lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
+  def resolveParticipant(term:String) = {
+    val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
+
+
+    dict.lift(term) match {
+      case Some(l) => "(" + l.map( x => "\"" + x + "\"").mkString(" OR ") + ")"
+      case None =>
+        println(s"Warning: missing term in the KB: $term")
+        ""
+    }
+  }
+
+
+  def useCaseDRL(participantA:String, participantB:String, resultDir:String) = {
+    // val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
+    val pATerms = resolveParticipant(participantA)
+    val pBTerms = resolveParticipant(participantB)
+
+    println("Participant A terms: " + pATerms)
+    println("Participant B terms: " + pBTerms)
+    val pADocs = search(pATerms)
+    val pBDocs = search(pBTerms)
+
+    val resultSet = intersection(pADocs, pBDocs)
+    logger.debug(s"The result contains ${resultSet.size} documents.")
+    val resultDocs = docs(resultSet)
+    saveNxml(resultDir, resultDocs, 0)
+    logger.debug("Done.")
+
+    // Get the PMCIDs that match with the query
+    resultDocs map { _._1.get("id") }
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
@@ -307,4 +342,38 @@ object NxmlSearcher {
     }
     ids.toArray
   }
+}
+
+object ClusteringSearcher extends App{
+  val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
+
+  val indexDir = args(0)
+  val csvFile = args(1)
+  val outputDir = args(2)
+
+
+  val searcher = new NxmlSearcher(indexDir)
+  println(s"Searching docs from $csvFile in $indexDir to $outputDir")
+
+  // Parsing the CSV file
+  val lines = io.Source.fromFile(csvFile).getLines.drop(1) // Don't forget to drop the header
+  val sos = new PrintWriter(outputDir + File.separator + "hits.txt")
+  for(line <- lines){
+    // Parse the line
+    val tokens = line.split(',')
+    val pA = tokens(2).split(":")(1)
+    val pB = tokens(4).split(":")(1)
+
+    // Search lucene
+    try{
+      val hits = searcher.useCaseDRL(pA, pB, outputDir)
+      sos.println(s"$pA - $pB:\t${hits.mkString(",")}")
+    }
+    catch
+    {
+      case _:Throwable => Unit
+    }
+
+  }
+  sos.close
 }
