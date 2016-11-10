@@ -10,6 +10,7 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.Document
 import org.apache.lucene.index.DirectoryReader
 import org.apache.lucene.queryparser.classic.QueryParser
+import org.apache.lucene.queryparser.classic.QueryParserBase
 import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
@@ -256,7 +257,11 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
-  val lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
+  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
   def resolveParticipant(term:String) = {
     val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
 
@@ -270,24 +275,35 @@ class NxmlSearcher(val indexDir:String) {
   }
 
 
-  def useCaseDRL(participantA:String, participantB:String, resultDir:String) = {
+  def useCaseDRL(participantA:String, participantB:String, resultDir:String):Option[Set[String]] = {
     // val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
     val pATerms = resolveParticipant(participantA)
     val pBTerms = resolveParticipant(participantB)
 
     println("Participant A terms: " + pATerms)
     println("Participant B terms: " + pBTerms)
-    val pADocs = search(pATerms)
-    val pBDocs = search(pBTerms)
+    //val pADocs = search(pATerms)
+    //val pBDocs = search(pBTerms)
+    if(pATerms == "" && pBTerms == "")
+      return None
 
-    val resultSet = intersection(pADocs, pBDocs)
+    //val resultSet = intersection(pADocs, pBDocs)
+    val resultSet = if(participantA == "NONE")
+      search(pBTerms)
+    else if(participantB == "NONE")
+      search(pATerms)
+    else
+      search(QueryParserBase.escape("(" + pATerms + ") AND  " + pBTerms + ")~20"))
+
+    println(s"Found ${resultSet.size} matches")
+
     logger.debug(s"The result contains ${resultSet.size} documents.")
     val resultDocs = docs(resultSet)
     saveNxml(resultDir, resultDocs, 0)
     logger.debug("Done.")
 
     // Get the PMCIDs that match with the query
-    resultDocs map { _._1.get("id") }
+    Some(resultDocs map { _._1.get("id") })
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -313,7 +329,7 @@ class NxmlSearcher(val indexDir:String) {
 
 object NxmlSearcher {
   val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
-  val TOTAL_HITS = 500000
+  val TOTAL_HITS = 1000
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
@@ -361,17 +377,22 @@ object ClusteringSearcher extends App{
   for(line <- lines){
     // Parse the line
     val tokens = line.split(',')
-    val pA = tokens(2).split(":")(1)
-    val pB = tokens(4).split(":")(1)
+    println(line)
+    val pA = if(tokens(2) != "NONE") tokens(2).split(":")(1) else "NONE"
+    val pB = if(tokens(4) != "NONE") tokens(4).split(":")(1) else "NONE"
 
     // Search lucene
     try{
       val hits = searcher.useCaseDRL(pA, pB, outputDir)
-      sos.println(s"$pA - $pB:\t${hits.mkString(",")}")
+      hits match{
+        case Some(h) =>
+          sos.println(s"$pA - $pB:\t${hits.mkString(",")}")
+        case None => Unit
+      }
     }
     catch
     {
-      case _:Throwable => Unit
+      case e:Throwable => println(s"Error!: $e")
     }
 
   }
