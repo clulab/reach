@@ -1,0 +1,346 @@
+{
+   "documents" : {
+      "854411903" : {
+         "text" : "Phosphorylated MEK activates K-RAS.",
+         "sentences" : [
+            {
+               "graphs" : {
+                  "stanford-basic" : {
+                     "edges" : [
+                        {
+                           "destination" : 1,
+                           "source" : 0,
+                           "relation" : "dobj"
+                        },
+                        {
+                           "relation" : "csubj",
+                           "destination" : 0,
+                           "source" : 2
+                        },
+                        {
+                           "relation" : "dobj",
+                           "source" : 2,
+                           "destination" : 3
+                        }
+                     ],
+                     "roots" : [
+                        2
+                     ]
+                  },
+                  "stanford-collapsed" : {
+                     "edges" : [
+                        {
+                           "relation" : "dobj",
+                           "source" : 0,
+                           "destination" : 1
+                        },
+                        {
+                           "relation" : "csubj",
+                           "source" : 2,
+                           "destination" : 0
+                        },
+                        {
+                           "destination" : 3,
+                           "source" : 2,
+                           "relation" : "dobj"
+                        }
+                     ],
+                     "roots" : [
+                        2
+                     ]
+                  }
+               },
+               "startOffsets" : [
+                  0,
+                  15,
+                  19,
+                  29,
+                  34
+               ],
+               "tags" : [
+                  "VBN",
+                  "NN",
+                  "VBZ",
+                  "NN",
+                  "."
+               ],
+               "lemmas" : [
+                  "phosphorylate",
+                  "mek",
+                  "activate",
+                  "k-ra",
+                  "."
+               ],
+               "endOffsets" : [
+                  14,
+                  18,
+                  28,
+                  34,
+                  35
+               ],
+               "entities" : [
+                  "O",
+                  "B-Family",
+                  "O",
+                  "B-Gene_or_gene_product",
+                  "O"
+               ],
+               "words" : [
+                  "Phosphorylated",
+                  "MEK",
+                  "activates",
+                  "K-RAS",
+                  "."
+               ]
+            }
+         ],
+         "id" : ""
+      }
+   },
+   "mentions" : [
+      {
+         "document" : "854411903",
+         "tokenInterval" : {
+            "start" : 1,
+            "end" : 2
+         },
+         "text" : "MEK",
+         "sentence" : 0,
+         "displayLabel" : "Family",
+         "grounding" : {
+            "id" : "MEK",
+            "namespace" : "BE",
+            "species" : "human",
+            "key" : "mek",
+            "text" : "MEK"
+         },
+         "characterStartOffset" : 15,
+         "foundBy" : "ner-family-entities",
+         "characterEndOffset" : 18,
+         "id" : "T:1665379328",
+         "labels" : [
+            "Family",
+            "Equivalable",
+            "BioChemicalEntity",
+            "BioEntity",
+            "Entity",
+            "PossibleController"
+         ],
+         "type" : "BioTextBoundMention",
+         "keep" : true,
+         "modifications" : [
+            {
+               "negated" : false,
+               "modification-type" : "PTM",
+               "evidence" : {
+                  "type" : "BioTextBoundMention",
+                  "keep" : true,
+                  "document" : "854411903",
+                  "tokenInterval" : {
+                     "start" : 0,
+                     "end" : 1
+                  },
+                  "text" : "Phosphorylated",
+                  "sentence" : 0,
+                  "grounding" : {
+                     "species" : "",
+                     "id" : "UAZ00001",
+                     "namespace" : "uaz",
+                     "text" : "Phosphorylated",
+                     "key" : "phosphorylated"
+                  },
+                  "displayLabel" : "ModificationTrigger",
+                  "foundBy" : "modification_trigger_1",
+                  "characterStartOffset" : 0,
+                  "characterEndOffset" : 14,
+                  "labels" : [
+                     "ModificationTrigger"
+                  ],
+                  "id" : "T:1131221863"
+               },
+               "label" : "Phosphorylation"
+            }
+         ]
+      },
+      {
+         "type" : "BioTextBoundMention",
+         "keep" : true,
+         "document" : "854411903",
+         "text" : "K-RAS",
+         "tokenInterval" : {
+            "start" : 3,
+            "end" : 4
+         },
+         "grounding" : {
+            "id" : "P01116",
+            "namespace" : "uniprot",
+            "species" : "human",
+            "text" : "KRAS",
+            "key" : "kras"
+         },
+         "displayLabel" : "Protein",
+         "sentence" : 0,
+         "characterStartOffset" : 29,
+         "foundBy" : "ner-gene_or_gene_product-entities",
+         "characterEndOffset" : 34,
+         "id" : "T:-2134912054",
+         "labels" : [
+            "Gene_or_gene_product",
+            "MacroMolecule",
+            "Equivalable",
+            "BioChemicalEntity",
+            "BioEntity",
+            "Entity",
+            "PossibleController"
+         ]
+      },
+      {
+         "type" : "BioEventMention",
+         "keep" : true,
+         "arguments" : {
+            "controller" : [
+               {
+                  "id" : "T:1665379328",
+                  "labels" : [
+                     "Family",
+                     "Equivalable",
+                     "BioChemicalEntity",
+                     "BioEntity",
+                     "Entity",
+                     "PossibleController"
+                  ],
+                  "foundBy" : "ner-family-entities",
+                  "characterStartOffset" : 15,
+                  "characterEndOffset" : 18,
+                  "sentence" : 0,
+                  "displayLabel" : "Family",
+                  "grounding" : {
+                     "key" : "mek",
+                     "text" : "MEK",
+                     "species" : "human",
+                     "id" : "MEK",
+                     "namespace" : "BE"
+                  },
+                  "text" : "MEK",
+                  "document" : "854411903",
+                  "tokenInterval" : {
+                     "end" : 2,
+                     "start" : 1
+                  },
+                  "modifications" : [
+                     {
+                        "evidence" : {
+                           "type" : "BioTextBoundMention",
+                           "keep" : true,
+                           "text" : "Phosphorylated",
+                           "document" : "854411903",
+                           "tokenInterval" : {
+                              "end" : 1,
+                              "start" : 0
+                           },
+                           "displayLabel" : "ModificationTrigger",
+                           "grounding" : {
+                              "text" : "Phosphorylated",
+                              "key" : "phosphorylated",
+                              "species" : "",
+                              "namespace" : "uaz",
+                              "id" : "UAZ00001"
+                           },
+                           "sentence" : 0,
+                           "characterStartOffset" : 0,
+                           "foundBy" : "modification_trigger_1",
+                           "characterEndOffset" : 14,
+                           "id" : "T:1131221863",
+                           "labels" : [
+                              "ModificationTrigger"
+                           ]
+                        },
+                        "negated" : false,
+                        "modification-type" : "PTM",
+                        "label" : "Phosphorylation"
+                     }
+                  ],
+                  "keep" : true,
+                  "type" : "CorefTextBoundMention"
+               }
+            ],
+            "controlled" : [
+               {
+                  "type" : "CorefTextBoundMention",
+                  "keep" : true,
+                  "displayLabel" : "Protein",
+                  "grounding" : {
+                     "species" : "human",
+                     "id" : "P01116",
+                     "namespace" : "uniprot",
+                     "text" : "KRAS",
+                     "key" : "kras"
+                  },
+                  "sentence" : 0,
+                  "document" : "854411903",
+                  "text" : "K-RAS",
+                  "tokenInterval" : {
+                     "end" : 4,
+                     "start" : 3
+                  },
+                  "id" : "T:-2134912054",
+                  "labels" : [
+                     "Gene_or_gene_product",
+                     "MacroMolecule",
+                     "Equivalable",
+                     "BioChemicalEntity",
+                     "BioEntity",
+                     "Entity",
+                     "PossibleController"
+                  ],
+                  "foundBy" : "ner-gene_or_gene_product-entities",
+                  "characterEndOffset" : 34,
+                  "characterStartOffset" : 29
+               }
+            ]
+         },
+         "trigger" : {
+            "type" : "TextBoundMention",
+            "keep" : true,
+            "tokenInterval" : {
+               "end" : 3,
+               "start" : 2
+            },
+            "document" : "854411903",
+            "text" : "activates",
+            "sentence" : 0,
+            "characterEndOffset" : 28,
+            "foundBy" : "Positive_activation_token_1_verb",
+            "characterStartOffset" : 19,
+            "labels" : [
+               "Positive_activation",
+               "ActivationEvent",
+               "ComplexEvent",
+               "Event",
+               "PossibleController"
+            ],
+            "id" : "T:461594565"
+         },
+         "document" : "854411903",
+         "isDirect" : false,
+         "tokenInterval" : {
+            "end" : 4,
+            "start" : 1
+         },
+         "text" : "MEK activates K-RAS",
+         "sentence" : 0,
+         "displayLabel" : "Positive_activation",
+         "foundBy" : "Positive_activation_token_1_verb",
+         "characterEndOffset" : 34,
+         "characterStartOffset" : 15,
+         "id" : "E:1847354113",
+         "labels" : [
+            "Positive_activation",
+            "ActivationEvent",
+            "ComplexEvent",
+            "Event",
+            "PossibleController"
+         ]
+      }
+   ]
+}
