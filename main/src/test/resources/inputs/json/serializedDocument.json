@@ -109,7 +109,7 @@
          "displayLabel" : "Family",
          "grounding" : {
             "id" : "MEK",
-            "namespace" : "BE",
+            "namespace" : "be",
             "species" : "human",
             "key" : "mek",
             "text" : "MEK"
@@ -219,7 +219,7 @@
                      "text" : "MEK",
                      "species" : "human",
                      "id" : "MEK",
-                     "namespace" : "BE"
+                     "namespace" : "be"
                   },
                   "text" : "MEK",
                   "document" : "854411903",
