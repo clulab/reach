@@ -13,9 +13,9 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure protein complex resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/17/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Rename class: testing protein complexes only.
   */
-class TestBEResolutions extends FlatSpec with Matchers {
+class TestComplexResolutions extends FlatSpec with Matchers {
 
   val bePC = new TestComplexKBL           // defined after this class (LOOK BELOW)
 
@@ -88,7 +88,7 @@ class TestBEResolutions extends FlatSpec with Matchers {
 }
 
 
-// Protein KB using alternate protein resolutions
+// KB for Protein Complexes. Uses alternate protein lookups.
 class TestComplexKBL extends IMKBProteinLookup {
   val meta = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
   meta.put("protein", "true")               // mark as from a protein KB
