@@ -13,7 +13,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure protein complex resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/17/2016.
-  *   Last Modified: Rename class: testing protein complexes only.
+  *   Last Modified: Some cleanups.
   */
 class TestComplexResolutions extends FlatSpec with Matchers {
 
@@ -78,11 +78,9 @@ class TestComplexResolutions extends FlatSpec with Matchers {
     (bePC.resolve("AMPK alpha2beta2gamma2")) should be (empty)
     (bePC.resolve("AMPK a2b2g2")) should be (empty)
     (bePC.resolve("alpha2beta2gamma2")) should be (empty)
-    (bePC.resolve("ACOX")) should be (empty)
-    (bePC.resolve("COX4")) should be (empty)
-    (bePC.resolve("COX6A")) should be (empty)
-    (bePC.resolve("COX6B")) should be (empty)
-    (bePC.resolve("COX8")) should be (empty)
+
+    (bePC.resolve("AMPK-alpha1")) should be (empty) // GGP
+    (bePC.resolve("FOXP3")) should be (empty)       // GGP
   }
 
 }
