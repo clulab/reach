@@ -13,7 +13,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Refactor to test Bioentities protein family KB.
+  *   Last Modified: Add tests for Bioentities protein family KB.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
@@ -215,6 +215,93 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (isProteinGrounded(menL)) should be (false)
   }
 
+  "BE-PF resolve" should "fail despite alternate lookups" in {
+    // keys not in KB:
+    (bePF.resolve("NOTINKB")) should be (empty)
+    (bePF.resolve("notinkb")) should be (empty)
+    (bePF.resolve("notinkb_human")) should be (empty)
+    (bePF.resolve("notinkb protein")) should be (empty)
+    (bePF.resolve("notinkb family")) should be (empty)
+    (bePF.resolve("mutant-acad")) should be (empty) // mutant pattern not matched
+  }
+
+  "BE-PF resolve" should "work for protein family Bioentities" in {
+    (bePF.resolve("14-3-3 proteins")) should be (defined) // first entry
+    (bePF.resolve("ABL")) should be (defined)
+    (bePF.resolve("ABL_family")) should be (defined)
+    (bePF.resolve("AMPK")) should be (defined)
+    (bePF.resolve("AMPKalpha")) should be (defined)
+    (bePF.resolve("AMPK_alpha")) should be (defined)
+    (bePF.resolve("AMPK alpha")) should be (defined)
+    (bePF.resolve("ampk Alpha")) should be (defined)
+    (bePF.resolve("Death_receptor")) should be (defined)
+    (bePF.resolve("death receptor")) should be (defined)
+    (bePF.resolve("ERK")) should be (defined)
+    (bePF.resolve("Erk")) should be (defined)
+    (bePF.resolve("erk")) should be (defined)
+    (bePF.resolve("ERK 1/2")) should be (defined)
+    (bePF.resolve("ERK1/2")) should be (defined)
+    (bePF.resolve("Erk1/2")) should be (defined)
+    (bePF.resolve("Erk-1/2")) should be (defined)
+    (bePF.resolve("HDAC")) should be (defined)
+    (bePF.resolve("HDAC_I")) should be (defined)
+    (bePF.resolve("HDAC_II")) should be (defined)
+    (bePF.resolve("HDAC_III")) should be (defined)
+    (bePF.resolve("HDAC_IV")) should be (defined)
+    (bePF.resolve("IKappaB kinase")) should be (defined)
+    (bePF.resolve("IkappaB kinase")) should be (defined)
+    (bePF.resolve("IKK")) should be (defined)
+    (bePF.resolve("IKK_family")) should be (defined)
+    (bePF.resolve("inhibin")) should be (defined)
+    (bePF.resolve("Sulfonylurea_receptor")) should be (defined)
+    (bePF.resolve("VEGF")) should be (defined)
+    (bePF.resolve("VEGFR")) should be (defined)
+    (bePF.resolve("WNT")) should be (defined) // last entry
+  }
+
+  "BE-PF resolve" should "work via alternate lookups" in {
+    (bePF.resolve("4EBP family")) should be (defined)
+    (bePF.resolve("ABL family")) should be (defined)
+    (bePF.resolve("ABL_family family")) should be (defined)
+    (bePF.resolve("ERK family")) should be (defined)
+    (bePF.resolve("Erk family")) should be (defined)
+    (bePF.resolve("erk family")) should be (defined)
+    (bePF.resolve("ERK 1/2 family")) should be (defined)
+    (bePF.resolve("ERK1/2 family")) should be (defined)
+    (bePF.resolve("Erk1/2 family")) should be (defined)
+    (bePF.resolve("Erk-1/2 family")) should be (defined)
+    (bePF.resolve("IkappaB kinase family")) should be (defined)
+    (bePF.resolve("inhibin family")) should be (defined)
+    (bePF.resolve("Sulfonylurea_receptor family")) should be (defined)
+    (bePF.resolve("WNT family")) should be (defined)
+  }
+
+  "BE-PF resolve" should "work for protein complexes despite NER override" in {
+    // in NER Override only:
+    (bePF.resolve("ACOX")) should be (defined)
+    (bePF.resolve("BMP")) should be (defined)
+    (bePF.resolve("Cadherin")) should be (defined)
+    (bePF.resolve("COX4")) should be (defined)
+    (bePF.resolve("COX6A")) should be (defined)
+    (bePF.resolve("COX6B")) should be (defined)
+    (bePF.resolve("COX8")) should be (defined)
+    (bePF.resolve("CRISP")) should be (defined)
+    (bePF.resolve("MAF")) should be (defined)
+    (bePF.resolve("NOTCH")) should be (defined)
+    (bePF.resolve("PKI")) should be (defined)
+    (bePF.resolve("RAS")) should be (defined)
+  }
+
+  "BE-PF family resolve" should "fail for protein complex Bioentities" in {
+    // Complexes, not families:
+    (bePF.resolve("ACC")) should be (empty)
+    (bePF.resolve("COX")) should be (empty)
+    (bePF.resolve("Cox")) should be (empty)
+    (bePF.resolve("cox")) should be (empty)
+    (bePF.resolve("Fibrinogen")) should be (empty)
+    (bePF.resolve("PI3K")) should be (empty)
+  }
+
 }
 
 
@@ -230,6 +317,6 @@ class IPProtFamKBL extends IMKBFamilyLookup {
 class BEProtFamKBL extends IMKBFamilyLookup {
   val meta = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
   meta.put("family", "true")                // mark as from a protein family KB
-  memoryKB = (new TsvIMKBFactory).make("bioentities", StaticProteinFamily0Filename, meta)
+  memoryKB = (new TsvIMKBFactory).make("be", StaticProteinFamily0Filename, meta)
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
 }
