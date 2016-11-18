@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for Bioentities KBs.
+  *   Last Modified: Shorten Bioentities namespace.
   */
 object ReachIMKBMentionLookups {
 
@@ -142,8 +142,7 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     metaInfo.put("file", StaticProteinComplexFilename)
     metaInfo.put("protein", "true")         // treat complexes as a protein KB
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make("bioentities",
-                                                     StaticProteinComplexFilename, metaInfo))
+    new IMKBProteinMentionLookup(TsvIMKBFactory.make("be", StaticProteinComplexFilename, metaInfo))
   }
 
   //
@@ -183,8 +182,7 @@ object ReachIMKBMentionLookups {
     val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     metaInfo.put("file", StaticProteinFamily0Filename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make("bioentities",
-                                                    StaticProteinFamily0Filename, metaInfo))
+    new IMKBFamilyMentionLookup(TsvIMKBFactory.make("be", StaticProteinFamily0Filename, metaInfo))
   }
 
 

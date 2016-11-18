@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for Bioentities KBs.
+  *   Last Modified: Shorten Bioentities namespace.
   */
 object ReachIMKBLookups {
 
@@ -61,7 +61,7 @@ object ReachIMKBLookups {
     val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     metaInfo.put("file", StaticProteinComplexFilename)
     metaInfo.put("protein", "true")         // mark as from a protein KB
-    new IMKBProteinLookup(tsvIMKBFactory.make("bioentities", StaticProteinComplexFilename, metaInfo))
+    new IMKBProteinLookup(tsvIMKBFactory.make("be", StaticProteinComplexFilename, metaInfo))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
@@ -85,6 +85,6 @@ object ReachIMKBLookups {
     val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     metaInfo.put("file", StaticProteinFamily0Filename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
-    new IMKBFamilyLookup(tsvIMKBFactory.make("bioentities", StaticProteinFamily0Filename, metaInfo))
+    new IMKBFamilyLookup(tsvIMKBFactory.make("be", StaticProteinFamily0Filename, metaInfo))
   }
 }
