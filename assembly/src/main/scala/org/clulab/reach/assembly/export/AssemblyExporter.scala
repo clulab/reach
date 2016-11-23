@@ -121,7 +121,29 @@ case class Row(
       AssemblyExporter.CONTEXT_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
       AssemblyExporter.CONTEXT_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
       AssemblyExporter.CONTEXT_CELLULAR_COMPONENT -> contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT),
-      AssemblyExporter.CONTEXT_TISSUE_TYPE -> contextFromEvidence(AssemblyExporter.TISSUE_TYPE)
+      AssemblyExporter.CONTEXT_TISSUE_TYPE -> contextFromEvidence(AssemblyExporter.TISSUE_TYPE),
+
+      // operations specific to the CMU tabular format
+      AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(input),
+      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_DATABASE_NAME -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_LOCATION -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_LOCATION_IDENTIFIER -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_CELL_LINE -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_CELL_TYPE -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_ORGANISM -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_POS_REG_NAME -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_POS_REG_TYPE -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_POS_REG_ID -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_POS_REG_LOCATION -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_POS_REG_LOCATION_ID -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_NEG_REG_NAME -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_NEG_REG_TYPE -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_NEG_REG_ID -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_NEG_REG_LOCATION -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_EVIDENCE  -> getTextualEvidence.mkString(AssemblyExporter.CONCAT)
     )
   }
 
@@ -255,7 +277,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         case other => createInput(other, mods)
       }.mkString(", ")
 
-    // positive activations produce an acitvated output entity
+    // positive activations produce an activated output entity
     case posact: Activation if posact.polarity == AssemblyManager.positive =>
       posact.controlled.map(c => createInput(c, s"$mods.a")).mkString(", ")
 
@@ -424,6 +446,28 @@ object AssemblyExporter {
   val CONTEXT_TISSUE_TYPE = "CONTEXT (TISSUE TYPE)"
   val TRIGGERS = "TRIGGERS"
 
+  // columns for the CMU tabular format
+  val CMU_ELEMENT_NAME = "Element Name"
+  val CMU_ELEMENT_TYPE = "Element Type"
+  val CMU_DATABASE_NAME = "Database Name"
+  val CMU_ELEMENT_IDENTIFIER = "Element Identifier"
+  val CMU_LOCATION = "Location"
+  val CMU_LOCATION_IDENTIFIER = "Location Identifier"
+  val CMU_CELL_LINE = "Cell Line"
+  val CMU_CELL_TYPE = "Cell Type"
+  val CMU_ORGANISM = "Organism"
+  val CMU_POS_REG_NAME = "PosReg Name"
+  val CMU_POS_REG_TYPE = "PosReg Type"
+  val CMU_POS_REG_ID = "PosReg ID"
+  val CMU_POS_REG_LOCATION = "PosReg Location"
+  val CMU_POS_REG_LOCATION_ID = "PosReg Location ID"
+  val CMU_NEG_REG_NAME = "NegReg Name"
+  val CMU_NEG_REG_TYPE = "NegReg Type"
+  val CMU_NEG_REG_ID = "NegReg ID"
+  val CMU_NEG_REG_LOCATION = "NegReg Location"
+  val CMU_NEG_REG_LOCATION_ID = "NegReg Location ID"
+  val CMU_EVIDENCE = "Evidence"
+
   val SEP = "\t"
   val CONCAT = " ++++ "
 
@@ -449,6 +493,29 @@ object AssemblyExporter {
     AssemblyExporter.SEEN,
     AssemblyExporter.EVIDENCE,
     AssemblyExporter.SEEN_IN
+  )
+
+  val CMU_COLUMNS = Seq(
+    CMU_ELEMENT_NAME,
+    CMU_ELEMENT_TYPE,
+    CMU_DATABASE_NAME,
+    CMU_ELEMENT_IDENTIFIER,
+    CMU_LOCATION,
+    CMU_LOCATION_IDENTIFIER,
+    CMU_CELL_LINE,
+    CMU_CELL_TYPE,
+    CMU_ORGANISM,
+    CMU_POS_REG_NAME,
+    CMU_POS_REG_TYPE,
+    CMU_POS_REG_ID,
+    CMU_POS_REG_LOCATION,
+    CMU_POS_REG_LOCATION_ID,
+    CMU_NEG_REG_NAME,
+    CMU_NEG_REG_TYPE,
+    CMU_NEG_REG_ID,
+    CMU_NEG_REG_LOCATION,
+    CMU_NEG_REG_LOCATION_ID,
+    CMU_EVIDENCE
   )
 
   /** Validate the rows before writing */

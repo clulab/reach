@@ -47,6 +47,7 @@ trait FileUpload {
 object FileProcessorWebUI extends App with FileUpload {
 
   val ARIZONA = "arizona"
+  val CMU = "cmu"
   val JSON = "json"
 
   // form elements
@@ -109,6 +110,10 @@ object FileProcessorWebUI extends App with FileUpload {
           logger.info("received request to process/paper/json")
           (post & entity(as[Multipart.FormData])) { formdata => generateOutput(ARIZONA) }
         } ~
+        path("process" / "paper" / CMU ) {
+          logger.info("received request to process/paper/json")
+          (post & entity(as[Multipart.FormData])) { formdata => generateOutput(CMU) }
+        } ~
         path("process" / "paper" / JSON ) {
           logger.info("received request to process/paper/json")
           (post & entity(as[Multipart.FormData])) { formdata => generateOutput(JSON) }
@@ -122,6 +127,7 @@ object FileProcessorWebUI extends App with FileUpload {
 
     outputType match {
       case ARIZONA => ArizonaOutputter.tabularOutput(cms)
+      case CMU => CMUOutputter.tabularOutput(cms)
       case JSON => cms.json(false)
     }
   }
