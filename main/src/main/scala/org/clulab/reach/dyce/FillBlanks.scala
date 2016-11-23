@@ -3,13 +3,15 @@ package org.clulab.reach.dyce
 import java.nio.file.Paths
 import java.io.File
 
-import org.apache.lucene.analysis.Analyzer
+import org.apache.commons.io.FileUtils
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.index.DirectoryReader
 import org.apache.lucene.queryparser.classic.{QueryParser, QueryParserBase}
 import org.apache.lucene.search.{IndexSearcher, TopScoreDocCollector}
 import org.apache.lucene.store.FSDirectory
+import org.clulab.reach.PaperReader
 import org.slf4j.LoggerFactory
+import org.clulab.reach.mentions.MentionOps
 
 import collection.mutable
 import org.clulab.utils.Serializer
@@ -17,8 +19,12 @@ import org.clulab.reach.grounding.ReachKBUtils
 import org.clulab.reach.indexer.NxmlSearcher
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.struct.DirectedGraph
+import org.clulab.reach.PaperReader
 
 import scala.collection.mutable.ListBuffer
+import org.json4s._
+import org.json4s.native.JsonMethods._
+import org.clulab.serialization.json._
 
 /**
   * Created by enrique on 21/11/16.
@@ -41,7 +47,7 @@ class FillBlanks {
   val nxmlDir = "/home/enoriega/fillblanks/nxml"
   val reachOutputDir = "/home/enoriega/fillblanks/annotations"
 
-  lazy val reachSystem =
+  //lazy val reachSystem =
 
   // Load the serialized record if exists, otherwise create a new one
   val ldcFile = new File(nxmlDir, "luceneDocRecord.ser")
@@ -53,14 +59,10 @@ class FillBlanks {
   }
   ///////////////////////
 
-  // Load the serialized record if exists, otherwise create a new one
-  val anrFile = new File(reachOutputDir, "annotationsRecord.ser")
-  val annotationsRecord = if(anrFile.exists()){
-    Serializer.load[mutable.Set[String]](anrFile.getAbsolutePath)
-  }
-  else{
-    mutable.Set[String]()
-  }
+
+  // Load the existing annotations
+  val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
+
 
   var G:Option[DirectedGraph[Participant]] = None // Directed graph with the model. It is a mutable variable as it will change each step
 
@@ -76,7 +78,7 @@ class FillBlanks {
   annotationsRecord ++= paperSet
 
   // Extract them
-  val activations = readPapers(paperSet)
+  val activations = readPapers(paperSet) // TODO: Make sure the parameter has the right form
 
   //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
@@ -118,7 +120,7 @@ class FillBlanks {
       annotationsRecord ++= docs
 
       // Annotate the new papers
-      val activations = readPapers(docs)
+      val activations = readPapers(docs) // TODO: Make sure the parameter has the right form
 
       //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
@@ -179,14 +181,70 @@ class FillBlanks {
   }
 
   /***
+    * Serializes the relevant annotations to disk to avoid making them again
+    * @param id Name of the paper
+    * @param ann Mentions to save
+    */
+  def serializeAnnotations(id: String, ann: Seq[CorefMention]): Unit ={
+    // Create the output dir
+    val dir = new File(reachOutputDir, id)
+    if(!dir.exists){
+      dir.mkdirs()
+    }
+
+    // Serialize the mentions to json
+    val json = ann.jsonAST
+
+    // Write them to disk
+    val file = new File(dir, "mentions.json")
+    FileUtils.writeStringToFile(file, compact(render(json)))
+  }
+
+  /***
     * Reads the NXML files and returns events to export and build the graph
+    *
     * @param paths Paths to the relevant NXML documents
     * @return The REACH events
     */
   def readPapers(paths: Iterable[String]):Iterable[CorefMention] = {
-    Nil
+
+    // Find the mentions that are already in the cache
+    val existing = paths.filter(annotationsRecord.contains)
+    val nonExisting = paths.filter(p => !annotationsRecord.contains(p))
+
+    // Fetch the annotations from the existing cache
+    val existingAnnotations = existing flatMap getExistingAnnotations
+
+    // Annotate the papers that haven't been so
+    val newAnnotations:Seq[(String, Seq[CorefMention])] = {
+      nonExisting.map{
+        p =>
+        val f = new File(p)
+        val (id, mentions) = PaperReader.readPaper(f)
+          (id, mentions.map(m => MentionOps(m).toCorefMention))
+      }.toSeq.seq
+    }
+
+    // Add the new annotations to the cache here and also store them on disk
+    for((id, ann) <- newAnnotations){
+      annotationsCache += (id -> ann)
+      try {
+        serializeAnnotations(id, ann)
+      }catch{
+        case e:Exception => Unit // TODO: Add an alert here
+      }
+    }
+
+    existingAnnotations ++ newAnnotations.flatMap(_._2)
   }
 
+  def getExistingAnnotations(id:String):Iterable[CorefMention] = {
+    // If they're loaded return them
+    annotationsCache.lift(id) match {
+      case Some(a) => a
+      case None => Nil
+    }
+  }
 
   /***
     * Gets the synonyms from the KB files
@@ -294,4 +352,35 @@ object FillBlanks{
   // Lucene index path
   val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
   val searcher = new IndexSearcher(reader)
+
+  def loadExtractions(path:String):(mutable.Set[String], mutable.HashMap[String, Iterable[CorefMention]]) = {
+    val record = mutable.Set[String]()
+    val cache = mutable.HashMap[String, Iterable[CorefMention]]()
+
+    val dir = new File(path)
+
+    // If the directory exists, populate the data structures
+    if(dir.exists){
+      // Every directory contains a mentions.json file
+      for(d <- dir.listFiles){
+        if(d.isDirectory){
+          val m = new File(d, "mentions.json")
+          if(m.exists){
+            // Add the paper to the record
+            val id = d.getName
+            record += id
+            // Deserialize the mentions and add them to the cache
+            try{
+              val mentions = JSONSerializer.toMentions(m).map(x => MentionOps(x).toCorefMention)
+              cache += (id -> mentions)
+            }catch {
+              case _:Exception => Unit // TODO: add an alert here
+            }
+          }
+        }
+      }
+    }
+
+    (record, cache)
+  }
 }
