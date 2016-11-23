@@ -1,9 +1,24 @@
 package org.clulab.reach.dyce
 
+import java.nio.file.Paths
+import java.io.File
+
+import org.apache.lucene.analysis.Analyzer
+import org.apache.lucene.analysis.standard.StandardAnalyzer
+import org.apache.lucene.index.DirectoryReader
+import org.apache.lucene.queryparser.classic.{QueryParser, QueryParserBase}
+import org.apache.lucene.search.{IndexSearcher, TopScoreDocCollector}
+import org.apache.lucene.store.FSDirectory
+import org.slf4j.LoggerFactory
+
 import collection.mutable
+import org.clulab.utils.Serializer
 import org.clulab.reach.grounding.ReachKBUtils
+import org.clulab.reach.indexer.NxmlSearcher
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.struct.DirectedGraph
+
+import scala.collection.mutable.ListBuffer
 
 /**
   * Created by enrique on 21/11/16.
@@ -17,19 +32,42 @@ case class Connection(val controller:Participant, val controlled:Participant, va
 
 class FillBlanks {
 
+  val totalHits = 500 // Max # of hits per query
+
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
   val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
 
-  val annotationsRecord = mutable.Set[String]()
 
-  val indexPath = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index" // Lucene index path
+  val nxmlDir = "/home/enoriega/fillblanks/nxml"
+  val reachOutputDir = "/home/enoriega/fillblanks/annotations"
+
+  lazy val reachSystem =
+
+  // Load the serialized record if exists, otherwise create a new one
+  val ldcFile = new File(nxmlDir, "luceneDocRecord.ser")
+  val luceneDocRecord = if(ldcFile.exists()){
+    Serializer.load[mutable.HashMap[Int, String]](ldcFile.getAbsolutePath)
+  }
+  else{
+    mutable.HashMap[Int, String]()
+  }
+  ///////////////////////
+
+  // Load the serialized record if exists, otherwise create a new one
+  val anrFile = new File(reachOutputDir, "annotationsRecord.ser")
+  val annotationsRecord = if(anrFile.exists()){
+    Serializer.load[mutable.Set[String]](anrFile.getAbsolutePath)
+  }
+  else{
+    mutable.Set[String]()
+  }
 
   var G:Option[DirectedGraph[Participant]] = None // Directed graph with the model. It is a mutable variable as it will change each step
 
 
   // First step, bootstrap the graph by querying individually the participants
-  val docsA:Iterable[String] = FillBlanks.queryIndividualParticipant(participantA)
-  val docsB :Iterable[String] = FillBlanks.queryIndividualParticipant(participantB)
+  val docsA:Iterable[String] = queryIndividualParticipant(participantA)
+  val docsB :Iterable[String] = queryIndividualParticipant(participantB)
 
   // Join them
   val paperSet:Set[String] = docsA.toSet & docsB.toSet
@@ -38,20 +76,20 @@ class FillBlanks {
   annotationsRecord ++= paperSet
 
   // Extract them
-  val activations = FillBlanks.readPapers(paperSet)
+  val activations = readPapers(paperSet)
 
   //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
   // Build a set of connections out of the extractions
-  val connections:Iterable[Connection] = FillBlanks.buildEdges(activations)
+  val connections:Iterable[Connection] = buildEdges(activations)
   //Grow the graph
-  G = Some(FillBlanks.expandGraph(G, connections))
+  G = Some(expandGraph(G, connections))
 
   // Loop of iterative steps of expanding the graph
   var stop = false
-  while(!stop){ // TODO: Replace the logical statement with something that breaks
+  while(!stop){
     // Look for a path between participants A and B
-    val path = FillBlanks.findPath(G.get, participantA, participantB)
+    val path = findPath(G.get, participantA, participantB)
 
     path match {
       case Some(p) =>
@@ -61,15 +99,15 @@ class FillBlanks {
     }
 
     if(!stop) {
-      val frontierA = FillBlanks.findFrontier(G.get, participantA)
-      val frontierB = FillBlanks.findFrontier(G.get, participantB)
+      val frontierA = findFrontier(G.get, participantA)
+      val frontierB = findFrontier(G.get, participantB)
 
 
       // TODO: make sure to expand this cross product to include more nodes if necessary (like the original participant)
       val pairs = for {l <- frontierA; r <- frontierB} yield (l, r) // These are the pairs to expand our search
 
       // Query the index to find the new papers to annotate
-      val allDocs = pairs flatMap (p => FillBlanks.queryParticipants(p._1, p._2))
+      val allDocs = pairs flatMap (p => queryParticipants(p._1, p._2))
 
       // Filter out those papers that have been already annotated
       val docs = allDocs filter {
@@ -80,21 +118,17 @@ class FillBlanks {
       annotationsRecord ++= docs
 
       // Annotate the new papers
-      val activations = FillBlanks.readPapers(docs)
+      val activations = readPapers(docs)
 
       //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
       // Build a set of connections out of the extractions
-      val connections:Iterable[Connection] = FillBlanks.buildEdges(activations)
+      val connections:Iterable[Connection] = buildEdges(activations)
       //Grow the graph
-      G = Some(FillBlanks.expandGraph(G, connections))
+      G = Some(expandGraph(G, connections))
     }
   }
 
-
-}
-
-object FillBlanks{
 
   /***
     * Searches for a path between the participants in the graph
@@ -154,17 +188,14 @@ object FillBlanks{
   }
 
 
-  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
-
-  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
-
+  /***
+    * Gets the synonyms from the KB files
+    * @param term Grounding ID without namespace to look for
+    * @return String with the disjunction of synonyms ready to be queried by lucene
+    */
   def resolveParticipant(term:String) = {
 
-    dict.lift(term) match {
+    FillBlanks.dict.lift(term) match {
       case Some(l) => "(" + l.map( x => "\"" + x + "\"").mkString(" OR ") + ")"
       case None =>
         println(s"Warning: missing term in the KB: $term")
@@ -173,15 +204,94 @@ object FillBlanks{
   }
 
   /***
-    * Finds papers that expand the fronteir anchored on this participant
+    * Finds papers that expand the frontier anchored on this participant
     * @param p Participant to anchor out lucene query
     * @return Iterable with the ids of the papers in the output directory
     */
   def queryIndividualParticipant(p:Participant):Iterable[String] = {
-    Nil // TODO: Replace me with an actual path.
+
+    // Build a query for lucene
+    val luceneQuery = resolveParticipant(p.id)
+    val hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
+
+    // Returns the seq with the ids to annotate
+    fetchHitsWithCache(hits)
+
   }
 
-  def queryParticipants(a:Participant,b:Participant):Iterable[String] = {
-    Nil // TODO: Replace me with an actual path.
+  /***
+    * Expands the frontier with a focus on finding info that may create a path between participants
+    * @param a Participant A
+    * @param b Participant B
+    * @return
+    */
+  def queryParticipants(a:Participant, b:Participant):Iterable[String] = {
+    // Build a query for lucene
+    val aSynonyms = resolveParticipant(a.id)
+    val bSynonyms = resolveParticipant(b.id)
+
+    val luceneQuery = "(" + aSynonyms + ") AND  (" + bSynonyms + ")~20"
+    val hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
+
+    // Returns the seq with the ids to annotate
+    fetchHitsWithCache(hits)
   }
+
+  /***
+    * Retrieves documents from lucene. If they have already been retrieved don't do it agaib
+    * @param hits Set of documents coming from NxmlSearcher
+    * @return list with the ids of documents already fetched from the index
+    */
+  def fetchHitsWithCache(hits: Set[(Int, Float)]): List[String] = {
+    // Hits are tuples with (docId, score), fetch the documents from the ids if they haven't been fetched before
+    val existing = new ListBuffer[String]
+    val toFetch = new ListBuffer[(Int, Float)]
+
+    for (record <- hits) {
+      if (luceneDocRecord contains record._1) {
+        // Get the IDs from the record
+        existing += luceneDocRecord(record._1)
+      }
+      else {
+        // Mark them for retrieval
+        toFetch += record
+      }
+    }
+
+    val tfs = toFetch.toSet
+    // Fetch the Document objects
+    val docs = FillBlanks.nxmlSearcher.docs(tfs)
+    val newPapers = docs.toSeq.sortBy(-_._2).map(d => d._1.get("id"))
+
+    // Save them to disk
+    FillBlanks.nxmlSearcher.saveNxml(nxmlDir, docs)
+
+    // Add them to the record
+    for ((t, d) <- toFetch.sortBy(-_._2) zip newPapers) {
+      luceneDocRecord += (t._1 -> d)
+    }
+
+    // Reserialize the record
+    Serializer.save[mutable.HashMap[Int, String]](luceneDocRecord, ldcFile.getAbsolutePath)
+
+    existing.toList ++ newPapers
+  }
+
+}
+
+object FillBlanks{
+  val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
+  val nxmlSearcher = new NxmlSearcher(indexDir)
+
+  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
+
+  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
+
+  // Lucene index path
+  val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
+  val searcher = new IndexSearcher(reader)
 }
