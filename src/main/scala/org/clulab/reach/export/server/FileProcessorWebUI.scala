@@ -12,6 +12,7 @@ import akka.util.ByteString
 import java.io.{File, FileOutputStream}
 import com.typesafe.config.{Config, ConfigValueFactory}
 import org.clulab.reach.assembly.server._
+import org.clulab.reach.export.cmu.CMUExporter
 import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.PaperReader
@@ -127,7 +128,7 @@ object FileProcessorWebUI extends App with FileUpload {
 
     outputType match {
       case ARIZONA => ArizonaOutputter.tabularOutput(cms)
-      case CMU => CMUOutputter.tabularOutput(cms)
+      case CMU => CMUExporter.tabularOutput(cms)
       case JSON => cms.json(false)
     }
   }

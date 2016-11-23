@@ -1,5 +1,7 @@
 package org.clulab.reach
 
+import org.clulab.reach.export.cmu.CMUExporter
+
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
@@ -182,7 +184,7 @@ class ReachCLI(
 
       // CMU's custom tabular output for assembly
       case ("cmu", _) =>
-        val output = CMUOutputter.tabularOutput(mentions)
+        val output = CMUExporter.tabularOutput(mentions)
         val outFile = new File(outputDir, s"$paperId-cmu-out.tsv")
         outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
