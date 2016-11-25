@@ -36,7 +36,7 @@ case class Participant(val namespace:String, val id:String){
 
 case class Connection(val controller:Participant, val controlled:Participant, val sign:Boolean)
 
-class FillBlanks extends App{
+object FillBlanks extends App{
 
   val totalHits = 500 // Max # of hits per query
 
@@ -335,9 +335,7 @@ class FillBlanks extends App{
     existing.toList ++ newPapers
   }
 
-}
 
-object FillBlanks{
   val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
   val nxmlSearcher = new NxmlSearcher(indexDir)
 
