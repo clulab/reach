@@ -125,7 +125,7 @@ case class Row(
 
       // operations specific to the CMU tabular format
       AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(input),
-      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_ELEMENT_TYPE -> label, // TODO: change
       AssemblyExporter.CMU_DATABASE_NAME -> cleanText(input), // TODO: change
       AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(input), // TODO: change
       AssemblyExporter.CMU_LOCATION -> cleanText(input), // TODO: change
@@ -591,6 +591,19 @@ object ExportFilters {
     row.label != AssemblyExporter.ENTITY && (row.label.nonEmpty || row.label != AssemblyExporter.NONE)
   }
 
+  /** Must have a Controller or be a valid Translocation */
+  def hasController(r:EERDescription): Boolean = {
+    if(r.controller != AssemblyExporter.NONE) return true
+
+    // TODO:
+    // Translocations wo/ controllers are accepted if both source and destination are given
+    if(r.label == "Translocation") {
+
+    }
+
+    false
+  }
+
   /**
     * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
     *
@@ -600,7 +613,7 @@ object ExportFilters {
   def hasUAZgrounding(m: Mention): Boolean = {
     m match {
       case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId.toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
+        entity.toCorefMention.nsId().toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
       case site if site matches "Site" => false
       case event if event matches "Event" =>
         event.arguments.values.flatten.exists(hasUAZgrounding)

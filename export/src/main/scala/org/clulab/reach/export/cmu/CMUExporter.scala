@@ -15,8 +15,10 @@ object CMUExporter {
   def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
     // remove unseen
     (r.seen > 0) &&
-      // keep only the events
-      ExportFilters.isEvent(r)
+    // keep only the events
+    ExportFilters.isEvent(r) &&
+    // CMU only cares about events that have a controller! (or Translocations)
+    ExportFilters.hasController(r)
   }
 
   def tabularOutput(mentions: Seq[Mention]): String = {
