@@ -36,7 +36,7 @@ case class Participant(val namespace:String, val id:String){
 
 case class Connection(val controller:Participant, val controlled:Participant, val sign:Boolean)
 
-class FillBlanks {
+class FillBlanks extends App{
 
   val totalHits = 500 // Max # of hits per query
 
