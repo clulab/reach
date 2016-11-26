@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add override test for entries kept despite clash with BE KBs.
+  *   Last Modified: Add NER override group tests for BE entries.
   */
 class TestOverrides extends FlatSpec with Matchers {
   val Chemical = "Simple_chemical"
@@ -43,25 +43,78 @@ class TestOverrides extends FlatSpec with Matchers {
   val fam1_ids = Seq("ERK", "ERK", "PF02158", "PF02158")
 
   val fam2 = "SMAD, SMAD2/3, SMAD 2/3, and TGFB are important Families. "
-  val fam2_ids = Seq("SMAD", "SMAD", "SMAD", "IPR015615")
+  val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "IPR015615")
 
-  val fam3 = "AKT and Cadherin are important Families. "
-  val fam3_ids = Seq("AKT", "PF00028")
-
-  // Override entries which were kept despite clash with BE KBs:
-  val fam4 = """ACOX, BMP, Cadherin, CRISP, DDR,
+  // Override entries (families) which were kept despite clash with BE KBs:
+  val be1 = """ACOX, BMP, Cadherin, CRISP, DDR,
                 COX4, COX6a, COX6b, COX7a, COX7b,
                 COX8, DVL, ETS, FGF, FLOT,
                 GATA, HSP90, IGFBP, IL1, IRS,
                 MAF, NOTCH, PKI, RAS, SAA,
                 and TGFB are unchanged Families."""
-  val fam4_ids = Seq(
+  val be1_ids = Seq(
     "PF01756", "PF02608", "PF00028", "PF08562", "PF08841",
     "PF02936", "PF02046", "PF02297", "PF02238", "PF05392",
     "PF02285", "PF08137", "PF00178", "PF00167", "PF15975",
     "PF00320", "PF00183", "PF00219", "PF00340", "PF02174",
     "PF02545", "PF00066", "PF02827", "PF00071", "PF00277",
     "IPR015615")
+
+  // Override entries added as synonyms for BE complexes:
+  val be2c = """Activin A, Activin AB, Activin B, Inhibin A, Inhibin B,
+                AMPK alpha1beta1gamma1, AMPK alpha1beta1gamma2, AMPK alpha1beta1gamma3,
+                AMPK alpha1beta2gamma1, AMPK alpha1beta2gamma2, AMPK alpha2beta1gamma1,
+                AMPK alpha2beta2gamma1, AMPK alpha2beta2gamma2, AMPK alpha2beta2gamma3,
+                AMPK a1b1g1, AMPK a1b1g2, AMPK a1b1g3,
+                AMPK a1b2g1, AMPK a1b2g2, AMPK a2b1g1,
+                AMPK a2b2g1, AMPK a2b2g2, AMPK a2b2g3,
+                alpha1beta1gamma1, alpha1beta1gamma2, alpha1beta1gamma3,
+                alpha1beta2gamma1, alpha1beta2gamma2, alpha2beta1gamma1,
+                alpha2beta2gamma1, alpha2beta2gamma2, and alpha2beta2gamma3
+                are important complexes."""
+  val be2c_ids = Seq(
+    "Activin_A", "Activin_AB", "Activin_B", "Inhibin_A", "Inhibin_B",
+    "AMPK_A1B1G1", "AMPK_A1B1G2", "AMPK_A1B1G3",
+    "AMPK_A1B2G1", "AMPK_A1B2G2", "AMPK_A2B1G1",
+    "AMPK_A2B2G1", "AMPK_A2B2G2", "AMPK_A2B2G3",
+    "AMPK_A1B1G1", "AMPK_A1B1G2", "AMPK_A1B1G3",
+    "AMPK_A1B2G1", "AMPK_A1B2G2", "AMPK_A2B1G1",
+    "AMPK_A2B2G1", "AMPK_A2B2G2", "AMPK_A2B2G3",
+    "AMPK_A1B1G1", "AMPK_A1B1G2", "AMPK_A1B1G3",
+    "AMPK_A1B2G1", "AMPK_A1B2G2", "AMPK_A2B1G1",
+    "AMPK_A2B2G1", "AMPK_A2B2G2", "AMPK_A2B2G3" )
+
+  // Override entries added as synonyms for BE families:
+  val be2f = """BMP Receptor Type I, BMP Receptor Type II, CAMK2,
+                MAPK p38, p38 MAPKs, MEK 1/2,
+                MYL Alkali, MYL Regulatory, MYL Slow,
+                NRG1/2, NRG3/4, SMAD 2/3
+                are important families."""
+  val be2f_ids = Seq(
+    "BMP_receptor_type_I", "BMP_receptor_type_II", "CAMK2_family",
+    "p38", "p38", "MEK",
+    "MYL_alkali", "MYL_regulatory", "MYL_slow",
+    "NRG_1_2", "NRG_3_4", "SMAD2_3" )
+
+  // Override entries (protein complexes) removed in favor of the BE KBs:
+  val be3c = """AMPK, AP1, and PI3K are important complexes."""
+  val be3c_ids = Seq("AMPK", "AP1", "PI3K")
+
+  // Override entries (protein families) removed in favor of the BE KBs:
+  val be3f = """AKT, LDH, NFAT, SOD,
+                and VEGFR are important families."""
+  val be3f_ids = Seq(
+    "AKT", "LDH", "NFAT", "SOD", "VEGFR" )
+
+  // Override entries added to give BE families priority over GGP:
+  val be5 = """Fos, GST, INS, p38, PDGF,
+               INS, MEK, MEK1/2, MEK 1/2,
+               PDGFR, RAF, Src, STAT5, and TSC are important families."""
+  val be5_ids = Seq(
+    "FOS_family", "GST", "INS", "p38", "PDGF",
+    "INS", "MEK", "MEK", "MEK",
+    "PDGFR", "RAF", "SRC", "STAT5", "TSC" )
+
 
   val chem = "GTP, GDP, cyclododecane, TAK-165, and estrone are important molecules. "
   val chem_ids = Seq("6830", "8977", "18529", "644692", "5870")
@@ -133,8 +186,12 @@ class TestOverrides extends FlatSpec with Matchers {
   testMentions(ggp7,     ggp7_ids, GGP,      Some(Protein), true)
   testMentions(fam1,     fam1_ids, Family,   Some(Family), false)
   testMentions(fam2,     fam2_ids, Family,   Some(Family), false)
-  testMentions(fam3,     fam3_ids, Family,   Some(Family), false)
-  testMentions(fam4,     fam4_ids, Family,   Some(Family), false)
+  testMentions(be1,      be1_ids,  Family,   Some(Family), false)
+  testMentions(be2c,     be2c_ids, GGP,      Some(Protein), false, true)
+  testMentions(be2f,     be2f_ids, Family,   Some(Family), false, true)
+  testMentions(be3c,     be3c_ids, GGP,      Some(Protein), false, true)
+  testMentions(be3f,     be3f_ids, Family,   Some(Family), false, true)
+  testMentions(be5,      be5_ids,  Family,   Some(Family), false, true)
   testMentions(chem,     chem_ids, Chemical, Some(Chemical), true)
   testMentions(aminos,   aa_ids,   Site,     Some(Site), false)
 
