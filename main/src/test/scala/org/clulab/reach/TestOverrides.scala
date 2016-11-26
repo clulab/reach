@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Refactor to use test method.
+  *   Last Modified: Add override test for entries kept despite clash with BE KBs.
   */
 class TestOverrides extends FlatSpec with Matchers {
   val Chemical = "Simple_chemical"
@@ -47,6 +47,21 @@ class TestOverrides extends FlatSpec with Matchers {
 
   val fam3 = "AKT and Cadherin are important Families. "
   val fam3_ids = Seq("AKT", "PF00028")
+
+  // Override entries which were kept despite clash with BE KBs:
+  val fam4 = """ACOX, BMP, Cadherin, CRISP, DDR,
+                COX4, COX6a, COX6b, COX7a, COX7b,
+                COX8, DVL, ETS, FGF, FLOT,
+                GATA, HSP90, IGFBP, IL1, IRS,
+                MAF, NOTCH, PKI, RAS, SAA,
+                and TGFB are unchanged Families."""
+  val fam4_ids = Seq(
+    "PF01756", "PF02608", "PF00028", "PF08562", "PF08841",
+    "PF02936", "PF02046", "PF02297", "PF02238", "PF05392",
+    "PF02285", "PF08137", "PF00178", "PF00167", "PF15975",
+    "PF00320", "PF00183", "PF00219", "PF00340", "PF02174",
+    "PF02545", "PF00066", "PF02827", "PF00071", "PF00277",
+    "IPR015615")
 
   val chem = "GTP, GDP, cyclododecane, TAK-165, and estrone are important molecules. "
   val chem_ids = Seq("6830", "8977", "18529", "644692", "5870")
@@ -119,6 +134,7 @@ class TestOverrides extends FlatSpec with Matchers {
   testMentions(fam1,     fam1_ids, Family,   Some(Family), false)
   testMentions(fam2,     fam2_ids, Family,   Some(Family), false)
   testMentions(fam3,     fam3_ids, Family,   Some(Family), false)
+  testMentions(fam4,     fam4_ids, Family,   Some(Family), false)
   testMentions(chem,     chem_ids, Chemical, Some(Chemical), true)
   testMentions(aminos,   aa_ids,   Site,     Some(Site), false)
 
