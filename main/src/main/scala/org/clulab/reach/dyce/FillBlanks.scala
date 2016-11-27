@@ -47,7 +47,7 @@ object FillBlanks extends App{
   val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
 
   val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
-  val nxmlSearcher:NxmlSearcher = null//new NxmlSearcher(indexDir)
+  val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
   // Lucene index path
   //val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
@@ -59,8 +59,8 @@ object FillBlanks extends App{
   val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
 
 
-  val nxmlDir = "/home/enoriega/fillblanks/nxml"
-  val reachOutputDir = "/home/enoriega/fillblanks/annotations"
+  val nxmlDir = "/work/enoriega/fillblanks/nxml"
+  val reachOutputDir = "/work/enoriega/fillblanks/annotations"
 
   //lazy val reachSystem =
 
@@ -87,13 +87,13 @@ object FillBlanks extends App{
   val docsB :Iterable[String] = queryIndividualParticipant(participantB)
 
   // Join them
-  val paperSet:Set[String] = docsA.toSet & docsB.toSet
-
-  // Add them to the annotations record
-  annotationsRecord ++= paperSet
+  val paperSet:Set[String] = docsA.toSet | docsB.toSet
 
   // Extract them
   val activations = readPapers(paperSet) // TODO: Make sure the parameter has the right form
+
+  // Add them to the annotations record
+  annotationsRecord ++= paperSet
 
   //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
@@ -234,8 +234,8 @@ object FillBlanks extends App{
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
       nonExisting.map{
         p =>
-        val f = new File(p)
-        val (id, mentions) = PaperReader.readPaper(f)
+          val f = new File(p)
+          val (id, mentions) = PaperReader.readPaper(f)
           (id, mentions.map(m => MentionOps(m).toCorefMention))
       }.toSeq.seq
     }
