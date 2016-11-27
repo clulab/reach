@@ -87,10 +87,10 @@ object FillBlanks extends App{
   val docsB :Iterable[String] = queryIndividualParticipant(participantB)
 
   // Join them
-  val paperSet:Set[String] = docsA.toSet | docsB.toSet
+  val paperSet:Set[String] = (docsA.toSet | docsB.toSet).map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
   // Extract them
-  val activations = readPapers(paperSet) // TODO: Make sure the parameter has the right form
+  val activations = readPapers(paperSet)// TODO: Make sure the parameter has the right form
 
   // Add them to the annotations record
   annotationsRecord ++= paperSet
@@ -132,7 +132,7 @@ object FillBlanks extends App{
       }
 
       // Add the papers to the record to avoid annotating them later
-      annotationsRecord ++= docs
+      annotationsRecord ++= docs.map(d => new File(nxmlDir, s"$d.nxml").getAbsolutePath)
 
       // Annotate the new papers
       val activations = readPapers(docs) // TODO: Make sure the parameter has the right form
