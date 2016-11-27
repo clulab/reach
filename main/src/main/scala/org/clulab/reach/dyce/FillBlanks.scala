@@ -37,6 +37,8 @@ case class Participant(val namespace:String, val id:String){
 case class Connection(val controller:Participant, val controlled:Participant, val sign:Boolean)
 
 object FillBlanks extends App{
+  var initialized = false // Flag to indicate whether reach has been initialized
+
 
   var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
@@ -223,6 +225,12 @@ object FillBlanks extends App{
     */
   def readPapers(paths: Iterable[String]):Iterable[CorefMention] = {
 
+    // Initialize the reach system if necessary
+    if(!this.initialized){
+      val _ = PaperReader.rs.extractFrom("Blah", "", "")
+      this.initialized = true
+    }
+
     // Find the mentions that are already in the cache
     val existing = paths.filter(annotationsRecord.contains)
     val nonExisting = paths.filter(p => !annotationsRecord.contains(p))
@@ -232,7 +240,7 @@ object FillBlanks extends App{
 
     // Annotate the papers that haven't been so
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
-      nonExisting.map{
+      Seq(nonExisting.head).map{
         p =>
           val f = new File(p)
           val (id, mentions) = PaperReader.readPaper(f)
