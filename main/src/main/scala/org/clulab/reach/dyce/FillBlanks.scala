@@ -38,6 +38,21 @@ case class Connection(val controller:Participant, val controlled:Participant, va
 
 object FillBlanks extends App{
 
+  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
+
+  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
+
+  val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
+  val nxmlSearcher:NxmlSearcher = null//new NxmlSearcher(indexDir)
+
+  // Lucene index path
+  //val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
+  //val searcher = new IndexSearcher(reader)
+
   val totalHits = 500 // Max # of hits per query
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
@@ -334,22 +349,6 @@ object FillBlanks extends App{
 
     existing.toList ++ newPapers
   }
-
-
-  val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
-  val nxmlSearcher = new NxmlSearcher(indexDir)
-
-  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
-
-  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
-
-  // Lucene index path
-  val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
-  val searcher = new IndexSearcher(reader)
 
   def loadExtractions(path:String):(mutable.Set[String], mutable.HashMap[String, Iterable[CorefMention]]) = {
     val record = mutable.Set[String]()
