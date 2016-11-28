@@ -264,8 +264,8 @@ object FillBlanks extends App with LazyLogging{
           val controlled = cd.head
 
           // If the particpant is an entity, then give "positive" sign by default, otherwise infer it from the labels
-          val crSign = if(controller.matches("Event")) positiveLabels.map(controller.matches) else true
-          val cdSign = if(controlled.matches("Event")) positiveLabels.map(controlled.matches) else true
+          val crSign = if(controller.matches("Event")) positiveLabels.map(controller.matches).reduce((a,b) => a | b) else true
+          val cdSign = if(controlled.matches("Event")) positiveLabels.map(controlled.matches).reduce((a,b) => a | b) else true
 
           // If both participants have the same sign ...
           if(crSign == cdSign){
@@ -302,7 +302,7 @@ object FillBlanks extends App with LazyLogging{
 
         (controller, controlled) match {
           case (Some(cr), Some(cd)) =>
-            val sign = getSign(event)// TODO: Replace this for the real sign. Ask how to get it
+            val sign = getSign(event)
             Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign))
 
           case _ => None
