@@ -243,11 +243,16 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   def createTranslocationArgument(eer: EntityEventRepresentation, name: String): String = eer match {
     case se: SimpleEvent =>
-      if(se.label == "Translocation" && se.input.contains(name)) {
-        createInput(se.input.get(name).get.head)
-      } else {
-        NONE
+      if(se.label == "Translocation") {
+        for(e <- se.evidence) {
+          if(e.arguments.contains(name)){
+            val arg = e.arguments.get(name).get.head.toCorefMention
+            val id = arg.nsId()
+            return id
+          }
+        }
       }
+      NONE
     case _ => NONE
   }
 
