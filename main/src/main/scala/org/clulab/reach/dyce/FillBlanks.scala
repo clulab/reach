@@ -232,8 +232,12 @@ object FillBlanks extends App{
     }
 
     // Find the mentions that are already in the cache
-    val existing = paths.filter(annotationsRecord.contains)
-    val nonExisting = paths.filter(p => !annotationsRecord.contains(p))
+    val existing = paths.map{
+      // Get their id from the path
+      p => p.split("/").last.split(".")(0)
+    }.filter(annotationsRecord.contains)
+
+    val nonExisting = paths.filter{p => val i = p.split("/").last.split(".")(0); !annotationsRecord.contains(i)}
 
     // Fetch the annotations from the existing cache
     val existingAnnotations = existing flatMap getExistingAnnotations
