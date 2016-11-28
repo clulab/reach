@@ -45,7 +45,7 @@ object FillBlanks extends App with LazyLogging{
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
 
-  val totalHits = 1 // Max # of hits per query
+  val totalHits = 500 // Max # of hits per query
   logger.info(s"Max hits for retrieval: $totalHits")
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
@@ -89,6 +89,7 @@ object FillBlanks extends App with LazyLogging{
   //// Focused query
   val docs:Iterable[String] = queryParticipants(participantA, participantB)
   val paperSet = docs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
+  logger.info(s"Query returned ${docs.size} hits")
 
   // Extract them
   logger.info("Reading retrieved papers ...")
@@ -103,6 +104,7 @@ object FillBlanks extends App with LazyLogging{
   // Build a set of connections out of the extractions
   logger.info("Growing the model with results ...")
   val connections:Iterable[Connection] = buildEdges(activations)
+  logger.info(s"Extracted ${connections.size} connections")
   //Grow the graph
   G = Some(expandGraph(G, connections))
   logger.info("Done growing the model")
@@ -135,6 +137,7 @@ object FillBlanks extends App with LazyLogging{
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
       val allDocs = pairs flatMap (p => queryParticipants(p._1, p._2))
+      logger.info(s"Query returned ${allDocs.size} hits")
 
       // Filter out those papers that have been already annotated
       val docs = allDocs filter {
