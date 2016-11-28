@@ -1,5 +1,7 @@
 #Changes
 =======
++ **1.3.3** - Added a new tabular format for the DyCE CMU model.
++ **1.3.3** - The "arizona" tabular format was extended with source/destination for Translocation events.
 + **1.3.3** - Mentions are created from previously unrecognized aliases.
 + **1.3.3** - Sub-project split into main, assembly, export.
 + **1.3.3** - Uses Bioresources 1.1.17 and Processors 6.0.0.
