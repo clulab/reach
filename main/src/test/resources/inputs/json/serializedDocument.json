@@ -110,7 +110,7 @@
          "grounding" : {
             "id" : "MEK",
             "namespace" : "be",
-            "species" : "human",
+            "species" : "",
             "key" : "mek",
             "text" : "MEK"
          },
@@ -217,7 +217,7 @@
                   "grounding" : {
                      "key" : "mek",
                      "text" : "MEK",
-                     "species" : "human",
+                     "species" : "",
                      "id" : "MEK",
                      "namespace" : "be"
                   },
