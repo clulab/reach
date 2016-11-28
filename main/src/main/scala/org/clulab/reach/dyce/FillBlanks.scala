@@ -1,28 +1,21 @@
 package org.clulab.reach.dyce
 
-import java.nio.file.Paths
 import java.io.File
 
 import org.apache.commons.io.FileUtils
 import org.apache.lucene.analysis.standard.StandardAnalyzer
-import org.apache.lucene.index.DirectoryReader
-import org.apache.lucene.queryparser.classic.{QueryParser, QueryParserBase}
-import org.apache.lucene.search.{IndexSearcher, TopScoreDocCollector}
-import org.apache.lucene.store.FSDirectory
-import org.clulab.reach.PaperReader
-import org.slf4j.LoggerFactory
-import org.clulab.reach.mentions.MentionOps
+import com.typesafe.scalalogging.LazyLogging
+import org.clulab.odin.EventMention
+import org.clulab.reach.mentions.{CorefEventMention, CorefMention, MentionOps}
 
 import collection.mutable
 import org.clulab.utils.Serializer
 import org.clulab.reach.grounding.ReachKBUtils
 import org.clulab.reach.indexer.NxmlSearcher
-import org.clulab.reach.mentions.CorefMention
 import org.clulab.struct.DirectedGraph
 import org.clulab.reach.PaperReader
 
 import scala.collection.mutable.ListBuffer
-import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.clulab.serialization.json._
 
@@ -36,10 +29,10 @@ case class Participant(val namespace:String, val id:String){
 
 case class Connection(val controller:Participant, val controlled:Participant, val sign:Boolean)
 
-object FillBlanks extends App{
+object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
 
-
+  logger.debug("Loading KBs...")
   var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
@@ -51,11 +44,9 @@ object FillBlanks extends App{
   val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
-  // Lucene index path
-  //val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
-  //val searcher = new IndexSearcher(reader)
 
-  val totalHits = 500 // Max # of hits per query
+  val totalHits = 1 // Max # of hits per query
+  logger.debug(s"Max hits for retrieval: $totalHits")
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
   val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
@@ -64,8 +55,7 @@ object FillBlanks extends App{
   val nxmlDir = "/work/enoriega/fillblanks/nxml"
   val reachOutputDir = "/work/enoriega/fillblanks/annotations"
 
-  //lazy val reachSystem =
-
+  logger.debug("Loading lucene record...")
   // Load the serialized record if exists, otherwise create a new one
   val ldcFile = new File(nxmlDir, "luceneDocRecord.ser")
   val luceneDocRecord = if(ldcFile.exists()){
@@ -78,21 +68,26 @@ object FillBlanks extends App{
 
 
   // Load the existing annotations
+  logger.debug("Loading existing annotations")
   val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
 
 
   var G:Option[DirectedGraph[Participant]] = None // Directed graph with the model. It is a mutable variable as it will change each step
 
 
+  logger.debug(s"Bootstraping step: Retrieving docs for the target participants ...")
   // First step, bootstrap the graph by querying individually the participants
   val docsA:Iterable[String] = queryIndividualParticipant(participantA)
   val docsB :Iterable[String] = queryIndividualParticipant(participantB)
+  logger.debug(s"Done retrieving papers for initial participants")
 
   // Join them
   val paperSet:Set[String] = (docsA.toSet | docsB.toSet).map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
   // Extract them
-  val activations = readPapers(paperSet)// TODO: Make sure the parameter has the right form
+  logger.debug("Reading retrieved papers ...")
+  val activations = readPapers(paperSet)
+  logger.debug("Finished reading papers")
 
   // Add them to the annotations record
   annotationsRecord ++= paperSet
@@ -100,24 +95,30 @@ object FillBlanks extends App{
   //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
   // Build a set of connections out of the extractions
+  logger.debug("Growing the model with results ...")
   val connections:Iterable[Connection] = buildEdges(activations)
   //Grow the graph
   G = Some(expandGraph(G, connections))
+  logger.debug("Done growing the model")
 
   // Loop of iterative steps of expanding the graph
+  logger.debug("Starting iterative phase...")
   var stop = false
   while(!stop){
     // Look for a path between participants A and B
+    logger.debug("Looking for a path between the anchors ...")
     val path = findPath(G.get, participantA, participantB)
 
     path match {
       case Some(p) =>
         // TODO: Report the result
         stop = true
+        logger.debug("Path found!! Stopping")
       case None => Unit
     }
 
     if(!stop) {
+      logger.debug("Path not found. Expanding the frontier...")
       val frontierA = findFrontier(G.get, participantA)
       val frontierB = findFrontier(G.get, participantB)
 
@@ -126,6 +127,7 @@ object FillBlanks extends App{
       val pairs = for {l <- frontierA; r <- frontierB} yield (l, r) // These are the pairs to expand our search
 
       // Query the index to find the new papers to annotate
+      logger.debug("Retrieving papers to build a path...")
       val allDocs = pairs flatMap (p => queryParticipants(p._1, p._2))
 
       // Filter out those papers that have been already annotated
@@ -137,17 +139,21 @@ object FillBlanks extends App{
       annotationsRecord ++= docs.map(d => new File(nxmlDir, s"$d.nxml").getAbsolutePath)
 
       // Annotate the new papers
+      logger.debug("Annotating papers ...")
       val activations = readPapers(docs) // TODO: Make sure the parameter has the right form
+      logger.debug("Finished reading papers")
 
       //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
       // Build a set of connections out of the extractions
+      logger.debug("Growing the model with results ...")
       val connections:Iterable[Connection] = buildEdges(activations)
       //Grow the graph
       G = Some(expandGraph(G, connections))
+      logger.debug("Done growing the model")
     }
   }
-
+  logger.debug("Finished iterative phase")
 
   /***
     * Searches for a path between the participants in the graph
@@ -190,10 +196,14 @@ object FillBlanks extends App{
   /***
     * Builds edges for the model graph out of raw REACH extractions
     *
-    * @param activations REACH evenbts to use
+    * @param activations REACH events to use
     * @return Iterable of connection instances
     */
   def buildEdges(activations:Iterable[CorefMention]):Iterable[Connection] = {
+    for(a <- activations)  {
+      val event = a.asInstanceOf[CorefEventMention]
+
+    }
     Nil
   }
 
@@ -209,6 +219,8 @@ object FillBlanks extends App{
       dir.mkdirs()
     }
 
+    logger.debug(s"Serializing annotations of $id...")
+
     // Serialize the mentions to json
     val json = ann.jsonAST
 
@@ -216,6 +228,8 @@ object FillBlanks extends App{
     val file = new File(dir, "mentions.json")
     FileUtils.writeStringToFile(file, compact(render(json)))
   }
+
+  private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 
   /***
     * Reads the NXML files and returns events to export and build the graph
@@ -243,24 +257,31 @@ object FillBlanks extends App{
     val existingAnnotations = existing flatMap getExistingAnnotations
 
     // Annotate the papers that haven't been so
+    logger.debug(s"${nonExisting.size} papers to annotate ...")
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
       nonExisting.par.map{
         p =>
           val f = new File(p)
+          val startNS = System.nanoTime
+          logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $p: starting reading")
           val (id, mentions) = PaperReader.readPaper(f)
-          (id, mentions.map(m => MentionOps(m).toCorefMention))
+          logger.debug(s"Finished annotating $p")
+          logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $p")
+
+          // Keep only the event mentions and cast to coref mention
+          val ann = mentions.collect{ case e:EventMention => e}.map(m => MentionOps(m).toCorefMention)
+          // Serializing annotations
+          try {
+            serializeAnnotations(id, ann)
+          }catch{
+            case e:Exception =>
+              logger.error(e.getMessage)
+          }
+
+          (id, ann)
       }.toSeq.seq
     }
 
-    // Add the new annotations to the cache here and also store them on disk
-    for((id, ann) <- newAnnotations){
-      annotationsCache += (id -> ann)
-      try {
-        serializeAnnotations(id, ann)
-      }catch{
-        case e:Exception => Unit // TODO: Add an alert here
-      }
-    }
 
     existingAnnotations ++ newAnnotations.flatMap(_._2)
   }
@@ -383,7 +404,8 @@ object FillBlanks extends App{
               val mentions = JSONSerializer.toMentions(m).map(x => MentionOps(x).toCorefMention)
               cache += (id -> mentions)
             }catch {
-              case _:Exception => Unit // TODO: add an alert here
+              case e:Exception =>
+                logger.error(e.getMessage)
             }
           }
         }
