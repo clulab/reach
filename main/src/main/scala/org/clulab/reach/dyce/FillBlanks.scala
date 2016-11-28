@@ -2,21 +2,19 @@ package org.clulab.reach.dyce
 
 import java.io.File
 
-import org.apache.commons.io.FileUtils
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin.{EventMention, Mention}
-import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention, CorefEventMention, CorefMention, MentionOps}
+import org.clulab.reach.mentions.{BioMention, BioTextBoundMention, CorefEventMention, CorefMention, MentionOps}
 
 import collection.mutable
 import org.clulab.utils.Serializer
-import org.clulab.reach.grounding.{KBEntry, KBResolution, ReachKBUtils}
+import org.clulab.reach.grounding.{KBResolution, ReachKBUtils}
 import org.clulab.reach.indexer.NxmlSearcher
 import org.clulab.struct.DirectedGraph
 import org.clulab.reach.PaperReader
 
 import scala.collection.mutable.ListBuffer
-import org.json4s.native.JsonMethods._
 import org.clulab.reach.mentions.serialization.json.REACHMentionSeq
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
 
@@ -77,13 +75,19 @@ object FillBlanks extends App with LazyLogging{
 
 
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
+  //// Initial first step querying individually
   // First step, bootstrap the graph by querying individually the participants
-  val docsA:Iterable[String] = queryIndividualParticipant(participantA)
-  val docsB :Iterable[String] = queryIndividualParticipant(participantB)
-  logger.info(s"Done retrieving papers for initial participants")
+//  val docsA:Iterable[String] = queryIndividualParticipant(participantA)
+//  val docsB :Iterable[String] = queryIndividualParticipant(participantB)
+//  logger.info(s"Done retrieving papers for initial participants")
+//
+//  // Join them
+//  val paperSet:Set[String] = (docsA.toSet | docsB.toSet).map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
-  // Join them
-  val paperSet:Set[String] = (docsA.toSet | docsB.toSet).map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
+  //// Focused query
+  val docs:Iterable[String] = queryParticipants(participantA, participantB)
+  val paperSet = docs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
   // Extract them
   logger.info("Reading retrieved papers ...")
@@ -386,11 +390,22 @@ object FillBlanks extends App with LazyLogging{
     val aSynonyms = resolveParticipant(a.id)
     val bSynonyms = resolveParticipant(b.id)
 
-    val luceneQuery = "(" + aSynonyms + ") AND  (" + bSynonyms + ")~20"
-    val hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
-
-    // Returns the seq with the ids to annotate
-    fetchHitsWithCache(hits)
+    var luceneQuery = "(" + aSynonyms + ") AND  (" + bSynonyms + ")~20"
+    var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
+    if(hits.size > 0)
+      // Returns the seq with the ids to annotate
+      fetchHitsWithCache(hits)
+    else{
+      luceneQuery = "(" + aSynonyms + ") AND  (" + bSynonyms + ")"
+      hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
+      if(hits.size > 0)
+        fetchHitsWithCache(hits)
+      else{
+        luceneQuery = "(" + aSynonyms + ") OR  (" + bSynonyms + ")"
+        hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
+        fetchHitsWithCache(hits)
+      }
+    }
   }
 
   /***
