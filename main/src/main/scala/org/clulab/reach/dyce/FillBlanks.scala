@@ -5,12 +5,12 @@ import java.io.File
 import org.apache.commons.io.FileUtils
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.odin.EventMention
-import org.clulab.reach.mentions.{BioMention, CorefEventMention, CorefMention, MentionOps}
+import org.clulab.odin.{EventMention, Mention}
+import org.clulab.reach.mentions.{BioEventMention, BioMention, CorefEventMention, CorefMention, MentionOps}
 
 import collection.mutable
 import org.clulab.utils.Serializer
-import org.clulab.reach.grounding.ReachKBUtils
+import org.clulab.reach.grounding.{KBEntry, KBResolution, ReachKBUtils}
 import org.clulab.reach.indexer.NxmlSearcher
 import org.clulab.struct.DirectedGraph
 import org.clulab.reach.PaperReader
@@ -193,6 +193,26 @@ object FillBlanks extends App with LazyLogging{
   }
 
 
+  def unravellEvent(arg: Option[Seq[Mention]]):Option[KBResolution] =  arg match {
+    case Some(a) =>
+      val candidate = a.head.asInstanceOf[BioMention]
+      // Is it a simple event?
+      if(candidate.matches("SimpleEvent")){
+        // Get it's theme
+        candidate.namedArguments("theme") match {
+          case Some(theme) => theme.head.asInstanceOf[BioEventMention].grounding
+          case None => None
+        }
+      }
+      else if(!candidate.matches("Event")){
+        candidate.grounding
+      }
+      else
+        None
+
+    case None => None
+  }
+
   /***
     * Builds edges for the model graph out of raw REACH extractions
     *
@@ -203,22 +223,14 @@ object FillBlanks extends App with LazyLogging{
     val data:Iterable[Option[Connection]] = activations map {
       a =>
         val event = a.asInstanceOf[CorefEventMention]
-        val controller = event.namedArguments("controller")
-        val controlled = event.namedArguments("controlled")
+        val controller = unravellEvent(event.namedArguments("controller"))
+        val controlled = unravellEvent(event.namedArguments("controlled"))
 
         (controller, controlled) match {
           case (Some(cr), Some(cd)) =>
-
-            // Inspect the groundings
-            val controllerGrounding = cr.head.asInstanceOf[BioMention].grounding
-            val controlledGrounding = cd.head.asInstanceOf[BioMention].grounding
-            (controllerGrounding, controlledGrounding) match {
-              case (Some(crg), Some(cdg)) =>
-                val sign = true // TODO: Replace this for the real sign. Ask how to get it
-                // TODO: Unravell the complex events into their participants up to one level
-                Some(Connection(Participant(crg.namespace, crg.id), Participant(cdg.namespace, cdg.id), sign))
-              case _ => None
-            }
+            val sign = true // TODO: Replace this for the real sign. Ask how to get it
+            // TODO: Unravell the complex events into their participants up to one level
+            Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign))
 
           case _ => None
         }
