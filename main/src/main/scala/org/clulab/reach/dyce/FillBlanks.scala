@@ -235,8 +235,8 @@ object FillBlanks extends App with LazyLogging{
     case None => None
   }
 
-  private val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
-  private val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
+  private val positiveLabels = Vector("Positive_regulation", "Positive_activation", "Deubiquitination", "IncreaseAmount", "AdditionEvent")
+  private val negativeLabels = Vector("Negative_regulation", "Negative_activation", "Ubiquitination", "DecreaseAmount", "RemovalEvent", "Translocation")
 
   /***
     * Computes the sign of the event
