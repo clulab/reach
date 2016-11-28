@@ -271,8 +271,9 @@ object FillBlanks extends App with LazyLogging{
 
     // Write them to disk
     val file = new File(dir, "mentions.json")
-    ann.saveJSON(file, true)
+    //ann.saveJSON(file, true)
     //FileUtils.writeStringToFile(file, compact(render(json)))
+    Serializer.save[Seq[CorefMention]](ann, file.getAbsolutePath)
   }
 
   private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
@@ -452,7 +453,8 @@ object FillBlanks extends App with LazyLogging{
             record += id
             // Deserialize the mentions and add them to the cache
             try{
-              val mentions = JSONSerializer.toMentions(m).map(x => MentionOps(x).toCorefMention)
+              //val mentions = JSONSerializer.toMentions(m).map(x => MentionOps(x).toCorefMention)
+              val mentions = Serializer.load[Seq[CorefMention]](m.getAbsolutePath)
               cache += (id -> mentions)
             }catch {
               case e:Exception =>
