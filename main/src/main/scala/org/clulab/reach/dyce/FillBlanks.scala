@@ -189,11 +189,20 @@ object FillBlanks extends App with LazyLogging{
     * @return Graph with the new information added
     */
   def expandGraph(G: Option[DirectedGraph[Participant]], connections: Iterable[Connection]): DirectedGraph[Participant] = {
+    G match {
+      case Some(g) => g
+      case None => None
+    }
     G.get
   }
 
 
-  def unravellEvent(arg: Option[Seq[Mention]]):Option[KBResolution] =  arg match {
+  /***
+    * Gives back the KBResolution object of an entity or of the controlled reaction down to one element
+    * @param arg Value coming from namedArguments from an Event
+    * @return KBResolution or None
+    */
+  def unravelEvent(arg: Option[Seq[Mention]]):Option[KBResolution] =  arg match {
     case Some(a) =>
       val candidate = a.head.asInstanceOf[BioMention]
       // Is it a simple event?
@@ -227,13 +236,13 @@ object FillBlanks extends App with LazyLogging{
     val data:Iterable[Option[Connection]] = activations map {
       a =>
         val event = a.asInstanceOf[CorefEventMention]
-        val controller = unravellEvent(event.namedArguments("controller"))
-        val controlled = unravellEvent(event.namedArguments("controlled"))
+        val controller = unravelEvent(event.namedArguments("controller"))
+        val controlled = unravelEvent(event.namedArguments("controlled"))
 
         (controller, controlled) match {
           case (Some(cr), Some(cd)) =>
             val sign = true // TODO: Replace this for the real sign. Ask how to get it
-            // TODO: Unravell the complex events into their participants up to one level
+            // TODO: Unravel the complex events into their participants up to one level
             Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign))
 
           case _ => None
@@ -258,11 +267,12 @@ object FillBlanks extends App with LazyLogging{
     logger.info(s"Serializing annotations of $id...")
 
     // Serialize the mentions to json
-    val json = ann.jsonAST
+    //val json = ann.jsonAST
 
     // Write them to disk
     val file = new File(dir, "mentions.json")
-    FileUtils.writeStringToFile(file, compact(render(json)))
+    ann.saveJSON(file, true)
+    //FileUtils.writeStringToFile(file, compact(render(json)))
   }
 
   private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
@@ -419,6 +429,11 @@ object FillBlanks extends App with LazyLogging{
     existing.toList ++ newPapers
   }
 
+  /***
+    * Loads REACH extractions from the disk
+    * @param path Directory where they are stored
+    * @return
+    */
   def loadExtractions(path:String):(mutable.Set[String], mutable.HashMap[String, Iterable[CorefMention]]) = {
     val record = mutable.Set[String]()
     val cache = mutable.HashMap[String, Iterable[CorefMention]]()
