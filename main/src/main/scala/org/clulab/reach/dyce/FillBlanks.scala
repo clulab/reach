@@ -286,12 +286,6 @@ object FillBlanks extends App with LazyLogging{
     */
   def readPapers(paths: Iterable[String]):Iterable[CorefMention] = {
 
-    // Initialize the reach system if necessary
-//    if(!this.initialized){
-//      val _ = PaperReader.rs.extractFrom("Blah", "", "")
-//      this.initialized = true
-//    }
-
     // Find the mentions that are already in the cache
     val existing = paths.map{
       // Get their id from the path
@@ -305,6 +299,13 @@ object FillBlanks extends App with LazyLogging{
 
     // Annotate the papers that haven't been so
     logger.info(s"${nonExisting.size} papers to annotate ...")
+    if(nonExisting.size > 0){
+      // Initialize the reach system if necessary
+      if(!this.initialized){
+        val _ = PaperReader.rs.extractFrom("Blah", "", "")
+        this.initialized = true
+      }
+    }
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
       nonExisting.par.map{
         p =>
@@ -323,6 +324,7 @@ object FillBlanks extends App with LazyLogging{
           }catch{
             case e:Exception =>
               logger.error(e.getMessage)
+              logger.error(e.toString)
           }
 
           (id, ann)
