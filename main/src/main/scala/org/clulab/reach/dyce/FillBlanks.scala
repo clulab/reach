@@ -234,7 +234,7 @@ object FillBlanks extends App{
     // Find the mentions that are already in the cache
     val existing = paths.map{
       // Get their id from the path
-      p => p.split("/").last.split(".")(0)
+      p => p.split("/").last.split("\\.")(0)
     }.filter(annotationsRecord.contains)
 
     val nonExisting = paths.filter{p => val i = p.split("/").last.split("\\.")(0); !annotationsRecord.contains(i)}
