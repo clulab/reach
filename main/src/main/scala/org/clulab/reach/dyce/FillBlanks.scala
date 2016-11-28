@@ -200,7 +200,11 @@ object FillBlanks extends App with LazyLogging{
       if(candidate.matches("SimpleEvent")){
         // Get it's theme
         candidate.namedArguments("theme") match {
-          case Some(theme) => theme.head.asInstanceOf[BioEventMention].grounding
+          case Some(theme) =>
+            if(!theme.head.matches("Event"))
+              theme.head.asInstanceOf[BioEventMention].grounding
+            else
+              None
           case None => None
         }
       }
