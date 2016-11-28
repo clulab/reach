@@ -6,7 +6,7 @@ import org.apache.commons.io.FileUtils
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin.{EventMention, Mention}
-import org.clulab.reach.mentions.{BioEventMention, BioMention, CorefEventMention, CorefMention, MentionOps}
+import org.clulab.reach.mentions.{BioEventMention, BioMention, BioTextBoundMention, CorefEventMention, CorefMention, MentionOps}
 
 import collection.mutable
 import org.clulab.utils.Serializer
@@ -202,7 +202,7 @@ object FillBlanks extends App with LazyLogging{
         candidate.namedArguments("theme") match {
           case Some(theme) =>
             if(!theme.head.matches("Event"))
-              theme.head.asInstanceOf[BioEventMention].grounding
+              theme.head.asInstanceOf[BioTextBoundMention].grounding
             else
               None
           case None => None
