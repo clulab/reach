@@ -210,9 +210,12 @@ object FillBlanks extends App with LazyLogging{
           case (Some(cr), Some(cd)) =>
 
             // Inspect the groundings
-            (cr.head.asInstanceOf[BioMention].grounding(), cd.head.asInstanceOf[BioMention].grounding()) match {
+            val controllerGrounding = cr.head.asInstanceOf[BioMention].grounding
+            val controlledGrounding = cd.head.asInstanceOf[BioMention].grounding
+            (controllerGrounding, controlledGrounding) match {
               case (Some(crg), Some(cdg)) =>
                 val sign = true // TODO: Replace this for the real sign. Ask how to get it
+                // TODO: Unravell the complex events into their participants up to one level
                 Some(Connection(Participant(crg.namespace, crg.id), Participant(cdg.namespace, cdg.id), sign))
               case _ => None
             }
