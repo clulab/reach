@@ -130,7 +130,7 @@ case class Row(
 
       // operations specific to the CMU tabular format
       AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(input),
-      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_ELEMENT_TYPE -> label, // TODO: change
       AssemblyExporter.CMU_DATABASE_NAME -> cleanText(input), // TODO: change
       AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(input), // TODO: change
       AssemblyExporter.CMU_LOCATION -> cleanText(input), // TODO: change
@@ -612,6 +612,19 @@ object ExportFilters {
   def isEvent(row: EERDescription): Boolean = {
     // must have a valid eventID
     row.label != AssemblyExporter.ENTITY && (row.label.nonEmpty || row.label != AssemblyExporter.NONE)
+  }
+
+  /** Must have a Controller or be a valid Translocation */
+  def hasController(r:EERDescription): Boolean = {
+    if(r.controller != AssemblyExporter.NONE) return true
+
+    // TODO:
+    // Translocations wo/ controllers are accepted if both source and destination are given
+    if(r.label == "Translocation") {
+
+    }
+
+    false
   }
 
   /**
