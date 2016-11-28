@@ -226,10 +226,10 @@ object FillBlanks extends App{
   def readPapers(paths: Iterable[String]):Iterable[CorefMention] = {
 
     // Initialize the reach system if necessary
-    if(!this.initialized){
-      val _ = PaperReader.rs.extractFrom("Blah", "", "")
-      this.initialized = true
-    }
+//    if(!this.initialized){
+//      val _ = PaperReader.rs.extractFrom("Blah", "", "")
+//      this.initialized = true
+//    }
 
     // Find the mentions that are already in the cache
     val existing = paths.map{
@@ -237,14 +237,14 @@ object FillBlanks extends App{
       p => p.split("/").last.split(".")(0)
     }.filter(annotationsRecord.contains)
 
-    val nonExisting = paths.filter{p => val i = p.split("/").last.split(".")(0); !annotationsRecord.contains(i)}
+    val nonExisting = paths.filter{p => val i = p.split("/").last.split("\\.")(0); !annotationsRecord.contains(i)}
 
     // Fetch the annotations from the existing cache
     val existingAnnotations = existing flatMap getExistingAnnotations
 
     // Annotate the papers that haven't been so
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
-      Seq(nonExisting.head).map{
+      nonExisting.par.map{
         p =>
           val f = new File(p)
           val (id, mentions) = PaperReader.readPaper(f)
