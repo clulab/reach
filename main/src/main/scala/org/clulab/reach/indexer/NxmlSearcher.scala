@@ -293,7 +293,7 @@ class NxmlSearcher(val indexDir:String) {
     else if(participantB == "NONE")
       search(pATerms)
     else
-      search(QueryParserBase.escape("(" + pATerms + ") AND  " + pBTerms + ")~20"))
+      search(QueryParserBase.escape("(" + pATerms + " AND  " + pBTerms + ")~20"))
 
     println(s"Found ${resultSet.size} matches")
 

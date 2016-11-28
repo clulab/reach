@@ -394,18 +394,18 @@ object FillBlanks extends App with LazyLogging{
     val aSynonyms = resolveParticipant(a.id)
     val bSynonyms = resolveParticipant(b.id)
 
-    var luceneQuery = QueryParserBase.escape("(" + aSynonyms + ") AND  (" + bSynonyms + ")~20")
+    var luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND " + bSynonyms + ")~20")
     var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
     if(hits.size > 0)
       // Returns the seq with the ids to annotate
       fetchHitsWithCache(hits)
     else{
-      luceneQuery = QueryParserBase.escape("(" + aSynonyms + ") AND  (" + bSynonyms + ")")
+      luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND  " + bSynonyms + ")")
       hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
       if(hits.size > 0)
         fetchHitsWithCache(hits)
       else{
-        luceneQuery = QueryParserBase.escape("(" + aSynonyms + ") OR  (" + bSynonyms + ")")
+        luceneQuery = QueryParserBase.escape("(" + aSynonyms + " OR  " + bSynonyms + ")")
         hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
         fetchHitsWithCache(hits)
       }
