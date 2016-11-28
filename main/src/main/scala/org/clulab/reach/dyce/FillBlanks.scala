@@ -45,7 +45,7 @@ object FillBlanks extends App with LazyLogging{
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
 
-  val totalHits = 500 // Max # of hits per query
+  val totalHits = 100 // Max # of hits per query
   logger.info(s"Max hits for retrieval: $totalHits")
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
@@ -235,6 +235,58 @@ object FillBlanks extends App with LazyLogging{
     case None => None
   }
 
+  private val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
+  private val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
+
+  /***
+    * Computes the sign of the event
+    * @param event
+    * @return
+    */
+  def getSign(event: CorefEventMention):Boolean = {
+
+    // If this event is a simple event just read the labels to figure out the sign
+    if(event.matches("SimpleEvent")){
+      val positiveEvidence = positiveLabels.map(event.matches).reduce((a,b) => a | b)
+      val negativeEvidence = negativeLabels.map(event.matches).reduce((a,b) => a | b)
+
+      assert(positiveEvidence != negativeEvidence, "An event can't have positive and negative signs at the same time")
+      positiveEvidence // This should be enough because of mutual exclusivity
+    }
+    else{
+      // Then this is a complex event
+      val controllerOpt = event.namedArguments("controller")
+      val controlledOpt = event.namedArguments("controlled")
+
+      (controllerOpt, controlledOpt) match {
+        case(Some(cr), Some(cd)) =>
+          val controller = cr.head
+          val controlled = cd.head
+
+          // If the particpant is an entity, then give "positive" sign by default, otherwise infer it from the labels
+          val crSign = if(controller.matches("Event")) positiveLabels.map(controller.matches) else true
+          val cdSign = if(controlled.matches("Event")) positiveLabels.map(controlled.matches) else true
+
+          // If both participants have the same sign ...
+          if(crSign == cdSign){
+            // Return positive:
+            //  - Positive regulation of a positive simple event is a positive activation
+            //  - Negative regulation of a negative simple event is a positive activation by double negation
+            true
+          }
+          // If they have different sign ...
+          else {
+            // Return positive:
+            //  - Negative regulation of a positive simple event is a negative activation
+            //  - Positive regulation of a positive simple event is a negative activation
+            false
+          }
+        case _ => false // This case doesn't matter because will be filtered downstream
+      }
+    }
+
+  }
+
   /***
     * Builds edges for the model graph out of raw REACH extractions
     *
@@ -250,8 +302,7 @@ object FillBlanks extends App with LazyLogging{
 
         (controller, controlled) match {
           case (Some(cr), Some(cd)) =>
-            val sign = true // TODO: Replace this for the real sign. Ask how to get it
-            // TODO: Unravel the complex events into their participants up to one level
+            val sign = getSign(event)// TODO: Replace this for the real sign. Ask how to get it
             Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign))
 
           case _ => None
@@ -320,10 +371,10 @@ object FillBlanks extends App with LazyLogging{
         p =>
           val f = new File(p)
           val startNS = System.nanoTime
-          logger.info(s"  ${nsToS(startNS, System.nanoTime)}s: $p: starting reading")
+          logger.info(s"$p: starting reading")
           val (id, mentions) = PaperReader.readPaper(f)
           logger.info(s"Finished annotating $p")
-          logger.info(s"  ${nsToS(startNS, System.nanoTime)}s: $p")
+          logger.info(s"${nsToS(startNS, System.nanoTime)}s: $p")
 
           // Keep only the event mentions and cast to coref mention
           val ann = mentions.collect{ case e:EventMention => e}.map(m => MentionOps(m).toCorefMention)
