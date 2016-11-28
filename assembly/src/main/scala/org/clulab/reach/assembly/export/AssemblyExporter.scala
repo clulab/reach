@@ -29,6 +29,8 @@ trait EERDescription {
 case class Row(
   input: String,
   output: String,
+  source: String, // only for Translocation
+  destination: String, // only for Translocation
   controller: String,
   eerID: String,
   label: String,
@@ -122,6 +124,9 @@ case class Row(
       AssemblyExporter.CONTEXT_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
       AssemblyExporter.CONTEXT_CELLULAR_COMPONENT -> contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT),
       AssemblyExporter.CONTEXT_TISSUE_TYPE -> contextFromEvidence(AssemblyExporter.TISSUE_TYPE),
+      // for translocations only: source and destination
+      AssemblyExporter.TRANSLOCATION_SOURCE -> cleanText(source),
+      AssemblyExporter.TRANSLOCATION_DESTINATION -> cleanText(destination),
 
       // operations specific to the CMU tabular format
       AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(input),
@@ -158,8 +163,6 @@ case class Row(
 /**
  * UA assembly exporter <br>
  * Used to produce a tsv file
-  *
-  * @param manager
  */
 class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
@@ -233,6 +236,19 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
     val text = getText(entity)
     s"$text::${entity.grounding}$mutantForms$features"
+  }
+
+  def createSource(eer: EntityEventRepresentation): String = createTranslocationArgument(eer, "source")
+  def createDestination(eer: EntityEventRepresentation): String = createTranslocationArgument(eer, "destination")
+
+  def createTranslocationArgument(eer: EntityEventRepresentation, name: String): String = eer match {
+    case se: SimpleEvent =>
+      if(se.label == "Translocation" && se.input.contains(name)) {
+        createInput(se.input.get(name).get.head)
+      } else {
+        NONE
+      }
+    case _ => NONE
   }
 
   def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
@@ -355,6 +371,8 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
           Row(
             createInput(event),
             createOutput(event),
+            createSource(event),
+            createDestination(event),
             createController(event),
             EERLUT(event.equivalenceHash),
             getEventLabel(event),
@@ -445,6 +463,8 @@ object AssemblyExporter {
   val CONTEXT_CELLULAR_COMPONENT = "CONTEXT (CELLULAR COMPONENT)"
   val CONTEXT_TISSUE_TYPE = "CONTEXT (TISSUE TYPE)"
   val TRIGGERS = "TRIGGERS"
+  val TRANSLOCATION_SOURCE = "TRANSLOCATION (SOURCE)"
+  val TRANSLOCATION_DESTINATION = "TRANSLOCATION (DESTINATION)"
 
   // columns for the CMU tabular format
   val CMU_ELEMENT_NAME = "Element Name"
@@ -487,6 +507,9 @@ object AssemblyExporter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // source, destination for translocations
+    AssemblyExporter.TRANSLOCATION_SOURCE,
+    AssemblyExporter.TRANSLOCATION_DESTINATION,
     // trigger
     AssemblyExporter.TRIGGERS,
     // evidence
@@ -600,7 +623,7 @@ object ExportFilters {
   def hasUAZgrounding(m: Mention): Boolean = {
     m match {
       case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId.toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
+        entity.toCorefMention.nsId().toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
       case site if site matches "Site" => false
       case event if event matches "Event" =>
         event.arguments.values.flatten.exists(hasUAZgrounding)
@@ -642,6 +665,8 @@ object ExportFilters {
       Row(
         problem.input,
         problem.output,
+        problem.source,
+        problem.destination,
         problem.controller,
         problem.eerID,
         problem.label,
