@@ -17,7 +17,8 @@ import org.clulab.reach.PaperReader
 
 import scala.collection.mutable.ListBuffer
 import org.json4s.native.JsonMethods._
-import org.clulab.serialization.json._
+import org.clulab.reach.mentions.serialization.json.REACHMentionSeq
+import org.clulab.reach.mentions.serialization.json.JSONSerializer
 
 /**
   * Created by enrique on 21/11/16.
@@ -271,9 +272,9 @@ object FillBlanks extends App with LazyLogging{
 
     // Write them to disk
     val file = new File(dir, "mentions.json")
-    //ann.saveJSON(file, true)
+    REACHMentionSeq(ann).saveJSON(file, true)
     //FileUtils.writeStringToFile(file, compact(render(json)))
-    Serializer.save[Seq[CorefMention]](ann, file.getAbsolutePath)
+    //Serializer.save[Seq[CorefMention]](ann, file.getAbsolutePath)
   }
 
   private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
@@ -455,8 +456,8 @@ object FillBlanks extends App with LazyLogging{
             record += id
             // Deserialize the mentions and add them to the cache
             try{
-              //val mentions = JSONSerializer.toMentions(m).map(x => MentionOps(x).toCorefMention)
-              val mentions = Serializer.load[Seq[CorefMention]](m.getAbsolutePath)
+              val mentions = JSONSerializer.toCorefMentions(m)
+              //val mentions = Serializer.load[Seq[CorefMention]](m.getAbsolutePath)
               cache += (id -> mentions)
             }catch {
               case e:Exception =>
