@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add NER override group tests for BE entries.
+  *   Last Modified: Add test of some sample families now grounded by the BE KB.
   */
 class TestOverrides extends FlatSpec with Matchers {
   val Chemical = "Simple_chemical"
@@ -39,20 +39,20 @@ class TestOverrides extends FlatSpec with Matchers {
   val ggp7 = "HRAS, H-RAS, KRAS, K-RAS, NRAS, N-RAS are GGPs. "
   val ggp7_ids = Seq("P01112", "P01112", "P01116", "P01116", "P01111", "P01111")
 
-  val fam1 = "ERK1/2, ERK 1/2, Neuregulin, Neuroregulin are Families. "
-  val fam1_ids = Seq("ERK", "ERK", "PF02158", "PF02158")
+  val fam1 = "ERK, ERK1/2, ERK 1/2, Neuregulin, Neuroregulin are Families. "
+  val fam1_ids = Seq("ERK", "ERK", "ERK", "PF02158", "PF02158")
 
   val fam2 = "SMAD, SMAD2/3, SMAD 2/3, and TGFB are important Families. "
   val fam2_ids = Seq("SMAD", "SMAD2_3", "SMAD2_3", "IPR015615")
 
-  // Override entries (families) which were kept despite clash with BE KBs:
-  val be1 = """ACOX, BMP, Cadherin, CRISP, DDR,
+  // Override family entries which were kept despite clash with BE KBs:
+  val be1f = """ACOX, BMP, Cadherin, CRISP, DDR,
                 COX4, COX6a, COX6b, COX7a, COX7b,
                 COX8, DVL, ETS, FGF, FLOT,
                 GATA, HSP90, IGFBP, IL1, IRS,
                 MAF, NOTCH, PKI, RAS, SAA,
                 and TGFB are unchanged Families."""
-  val be1_ids = Seq(
+  val be1f_ids = Seq(
     "PF01756", "PF02608", "PF00028", "PF08562", "PF08841",
     "PF02936", "PF02046", "PF02297", "PF02238", "PF05392",
     "PF02285", "PF08137", "PF00178", "PF00167", "PF15975",
@@ -96,24 +96,38 @@ class TestOverrides extends FlatSpec with Matchers {
     "MYL_alkali", "MYL_regulatory", "MYL_slow",
     "NRG_1_2", "NRG_3_4", "SMAD2_3" )
 
-  // Override entries (protein complexes) removed in favor of the BE KBs:
+  // Previous Override GGP entries, replaced by BE complexes KB:
   val be3c = """AMPK, AP1, and PI3K are important complexes."""
   val be3c_ids = Seq("AMPK", "AP1", "PI3K")
 
-  // Override entries (protein families) removed in favor of the BE KBs:
+  // Previous Override GGP entries, replaced by BE family KB:
   val be3f = """AKT, LDH, NFAT, SOD,
                 and VEGFR are important families."""
   val be3f_ids = Seq(
     "AKT", "LDH", "NFAT", "SOD", "VEGFR" )
 
   // Override entries added to give BE families priority over GGP:
-  val be5 = """Fos, GST, INS, p38, PDGF,
-               INS, MEK, MEK1/2, MEK 1/2,
-               PDGFR, RAF, Src, STAT5, and TSC are important families."""
-  val be5_ids = Seq(
+  val be4f = """Fos, GST, INS, p38, PDGF,
+                PDGFR, RAF, Src, STAT5, and TSC are important families."""
+  val be4f_ids = Seq(
     "FOS_family", "GST", "INS", "p38", "PDGF",
-    "INS", "MEK", "MEK", "MEK",
     "PDGFR", "RAF", "SRC", "STAT5", "TSC" )
+
+  // A few sample previous Override Family entries, replaced by BE family KB.
+  val be5f = """ACAD, ACSL, ACTN, ADCY, ADH,
+                ADRA, ADRA2, ADRB, ADRBK, ALDH,
+                ALDO, APOA, ARRB, ATP2A, ATP5G,
+                BIRC, CAPN, Carboxylesterase, CD16, CD64,
+                MAPK, MEK, MEK1/2, MEK 1/2, ERK,
+                CSNK1, CSNK2, CTNNA, CUL, Cyclophilin are sample families."""
+  val be5f_ids = Seq(
+    "ACAD", "ACSL", "ACTN", "ADCY", "ADH",
+    "ADRA", "ADRA2", "ADRB", "ADRBK", "ALDH",
+    "ALDO", "APOA", "ARRB", "ATP2A", "ATP5G",
+    "BIRC", "CAPN", "Carboxylesterase", "CD16", "CD64",
+    "ERK", "MEK", "MEK", "MEK", "ERK",
+    "CSNK1", "CSNK2", "CTNNA", "CUL", "Cyclophilin"
+  )
 
 
   val chem = "GTP, GDP, cyclododecane, TAK-165, and estrone are important molecules. "
@@ -184,16 +198,17 @@ class TestOverrides extends FlatSpec with Matchers {
   testMentions(ggp5,     ggp5_ids, GGP,      Some(Protein), false)
   testMentions(ggp6,     ggp6_ids, GGP,      Some(Protein), true)
   testMentions(ggp7,     ggp7_ids, GGP,      Some(Protein), true)
-  testMentions(fam1,     fam1_ids, Family,   Some(Family), false)
-  testMentions(fam2,     fam2_ids, Family,   Some(Family), false)
-  testMentions(be1,      be1_ids,  Family,   Some(Family), false)
-  testMentions(be2c,     be2c_ids, GGP,      Some(Protein), false, true)
-  testMentions(be2f,     be2f_ids, Family,   Some(Family), false, true)
-  testMentions(be3c,     be3c_ids, GGP,      Some(Protein), false, true)
-  testMentions(be3f,     be3f_ids, Family,   Some(Family), false, true)
-  testMentions(be5,      be5_ids,  Family,   Some(Family), false, true)
+  testMentions(fam1,     fam1_ids, Family,   Some(Family),  false)
+  testMentions(fam2,     fam2_ids, Family,   Some(Family),  false)
+  testMentions(be1f,     be1f_ids, Family,   Some(Family),  false)
+  testMentions(be2c,     be2c_ids, GGP,      Some(Protein), false)
+  testMentions(be2f,     be2f_ids, Family,   Some(Family),  false)
+  testMentions(be3c,     be3c_ids, GGP,      Some(Protein), false)
+  testMentions(be3f,     be3f_ids, Family,   Some(Family),  false)
+  testMentions(be4f,     be4f_ids, Family,   Some(Family),  false)
+  testMentions(be5f,     be5f_ids, Family,   Some(Family),  false)
   testMentions(chem,     chem_ids, Chemical, Some(Chemical), true)
-  testMentions(aminos,   aa_ids,   Site,     Some(Site), false)
+  testMentions(aminos,   aa_ids,   Site,     Some(Site),    false)
 
   // special test for Estrogens and their nicknames:
   estros should "have Simple_chemical labels" in {
