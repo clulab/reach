@@ -245,6 +245,7 @@ object FillBlanks extends App with LazyLogging{
     */
   def getSign(event: CorefEventMention):Boolean = {
 
+    // TODO: Fix the sign for ubiquitination after Mihai confirms with CMU the correct behavior
     // If this event is a simple event just read the labels to figure out the sign
     if(event.matches("SimpleEvent")){
       val positiveEvidence = positiveLabels.map(event.matches).reduce((a,b) => a | b)
@@ -399,7 +400,17 @@ object FillBlanks extends App with LazyLogging{
     // If they're loaded return them
     annotationsCache.lift(id) match {
       case Some(a) => a
-      case None => Nil
+      case None =>
+        // Load the annotations from disk if they exist
+        val file = new File(new File(reachOutputDir, id), "mentions.json")
+        val mentions = if(file.exists){
+          JSONSerializer.toCorefMentions(file)
+        }
+        else
+          Nil
+        // Add them to the cache
+        annotationsCache += (id -> mentions)
+        mentions
     }
   }
 
@@ -526,9 +537,9 @@ object FillBlanks extends App with LazyLogging{
             record += id
             // Deserialize the mentions and add them to the cache
             try{
-              val mentions = JSONSerializer.toCorefMentions(m)
+              //val mentions = JSONSerializer.toCorefMentions(m)
               //val mentions = Serializer.load[Seq[CorefMention]](m.getAbsolutePath)
-              cache += (id -> mentions)
+              //cache += (id -> mentions)
             }catch {
               case e:Exception =>
                 logger.error(e.getMessage)
