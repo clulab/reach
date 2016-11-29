@@ -32,8 +32,8 @@ case class Connection(val controller:Participant, val controlled:Participant, va
 object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
 
-  val positiveLabels = Vector("Positive_regulation", "Positive_activation", "Deubiquitination", "IncreaseAmount", "AdditionEvent")
-  val negativeLabels = Vector("Negative_regulation", "Negative_activation", "Ubiquitination", "DecreaseAmount", "RemovalEvent", "Translocation")
+  val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
+  val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
 
   logger.info("Loading KBs...")
   var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
@@ -245,7 +245,6 @@ object FillBlanks extends App with LazyLogging{
     */
   def getSign(event: CorefEventMention):Boolean = {
 
-    // TODO: Fix the sign for ubiquitination after Mihai confirms with CMU the correct behavior
     // If this event is a simple event just read the labels to figure out the sign
     if(event.matches("SimpleEvent")){
       val positiveEvidence = positiveLabels.map(event.matches).reduce((a,b) => a | b)
@@ -265,8 +264,27 @@ object FillBlanks extends App with LazyLogging{
           val controlled = cd.head
 
           // If the particpant is an entity, then give "positive" sign by default, otherwise infer it from the labels
-          val crSign = if(controller.matches("Event")) positiveLabels.map(controller.matches).reduce((a,b) => a | b) else true
-          val cdSign = if(controlled.matches("Event")) positiveLabels.map(controlled.matches).reduce((a,b) => a | b) else true
+          val crSign = if(controller.matches("Event")) {
+            if(controller.matches("Ubiquitination"))
+              false
+            else if(controller.matches("Deubiquitination"))
+              true
+            else
+              positiveLabels.map(controller.matches).reduce((a, b) => a | b)
+          }
+          else true
+          val cdSign = if(controlled.matches("Event")) {
+            if(controlled.matches("Ubiquitination"))
+              false
+            else if(controlled.matches("Deubiquitination"))
+              true
+            else
+              positiveLabels.map(controlled.matches).reduce((a, b) => a | b)
+          }
+          else
+            true
+
+
 
           // If both participants have the same sign ...
           if(crSign == cdSign){
