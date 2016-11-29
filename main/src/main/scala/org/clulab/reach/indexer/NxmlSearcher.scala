@@ -1,7 +1,8 @@
 package org.clulab.reach.indexer
 
-import java.io.{FileWriter, PrintWriter, File}
+import java.io.{File, FileWriter, PrintWriter}
 import java.nio.file.Paths
+
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.utils.StringUtils
 import org.apache.lucene.analysis.Analyzer
@@ -11,11 +12,13 @@ import org.apache.lucene.document.Document
 import org.apache.lucene.index.DirectoryReader
 import org.apache.lucene.queryparser.classic.QueryParser
 import org.apache.lucene.queryparser.classic.QueryParserBase
-import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
+import org.apache.lucene.search.{IndexSearcher, TopScoreDocCollector}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
+
 import scala.collection.mutable
 import NxmlSearcher._
+
 import scala.collection.mutable.ArrayBuffer
 import org.clulab.reach.grounding.ReachKBUtils
 
@@ -275,17 +278,17 @@ class NxmlSearcher(val indexDir:String) {
   }
 
 
-  def useCaseDRL(participantA:String, participantB:String, resultDir:String):Option[Set[String]] = {
+  def useCaseDRL(participantA:String, participantB:String, resultDir:String):Set[(Int, Float)] = {
     // val reactionTerms = s"(${resolveReaction(action).mkString(" OR ")})"
     val pATerms = resolveParticipant(participantA)
     val pBTerms = resolveParticipant(participantB)
 
-    println("Participant A terms: " + pATerms)
-    println("Participant B terms: " + pBTerms)
+    logger.info("Participant A terms: " + pATerms)
+    logger.info("Participant B terms: " + pBTerms)
     //val pADocs = search(pATerms)
     //val pBDocs = search(pBTerms)
     if(pATerms == "" && pBTerms == "")
-      return None
+      return Set()
 
     //val resultSet = intersection(pADocs, pBDocs)
     val resultSet = if(participantA == "NONE")
@@ -293,17 +296,12 @@ class NxmlSearcher(val indexDir:String) {
     else if(participantB == "NONE")
       search(pATerms)
     else
-      search(QueryParserBase.escape("(" + pATerms + " AND  " + pBTerms + ")~20"))
+      search(QueryParserBase.escape("(human OR pancreas OR cancer) ((" + pATerms + " AND  " + pBTerms + ")~20)"))
 
-    println(s"Found ${resultSet.size} matches")
 
-    logger.debug(s"The result contains ${resultSet.size} documents.")
-    val resultDocs = docs(resultSet)
-    saveNxml(resultDir, resultDocs, 0)
-    logger.debug("Done.")
+    logger.info(s"Found ${resultSet.size} matches")
 
-    // Get the PMCIDs that match with the query
-    Some(resultDocs map { _._1.get("id") })
+    resultSet
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -369,11 +367,11 @@ object ClusteringSearcher extends App{
 
 
   val searcher = new NxmlSearcher(indexDir)
-  println(s"Searching docs from $csvFile in $indexDir to $outputDir")
+  logger.info(s"Searching docs from $csvFile in $indexDir to $outputDir")
 
   // Parsing the CSV file
   val lines = io.Source.fromFile(csvFile).getLines.drop(1) // Don't forget to drop the header
-  val sos = new PrintWriter(outputDir + File.separator + "hits.txt")
+  //val sos = new PrintWriter(outputDir + File.separator + "hits.txt")
   for(line <- lines){
     // Parse the line
     val tokens = line.split(',')
@@ -381,14 +379,19 @@ object ClusteringSearcher extends App{
     val pA = if(tokens(2) != "NONE") tokens(2).split(":")(1) else "NONE"
     val pB = if(tokens(4) != "NONE") tokens(4).split(":")(1) else "NONE"
 
+
+    val fetched = new mutable.HashSet[Int]
+
     // Search lucene
     try{
       val hits = searcher.useCaseDRL(pA, pB, outputDir)
-      hits match{
-        case Some(h) =>
-          sos.println(s"$pA - $pB:\t${hits.mkString(",")}")
-        case None => Unit
-      }
+      val toFetch = hits.filter(h => !fetched.contains(h._1))
+      logger.info(s"Retrieving ${toFetch.size} new documents...")
+
+      val resultDocs = searcher.docs(toFetch)
+      searcher.saveNxml(outputDir, resultDocs, 0)
+      logger.debug("Done.")
+
     }
     catch
     {
@@ -396,5 +399,5 @@ object ClusteringSearcher extends App{
     }
 
   }
-  sos.close
+  //sos.close
 }
