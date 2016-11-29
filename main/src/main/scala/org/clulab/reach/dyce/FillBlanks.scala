@@ -32,6 +32,9 @@ case class Connection(val controller:Participant, val controlled:Participant, va
 object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
 
+  val positiveLabels = Vector("Positive_regulation", "Positive_activation", "Deubiquitination", "IncreaseAmount", "AdditionEvent")
+  val negativeLabels = Vector("Negative_regulation", "Negative_activation", "Ubiquitination", "DecreaseAmount", "RemovalEvent", "Translocation")
+
   logger.info("Loading KBs...")
   var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
@@ -234,9 +237,6 @@ object FillBlanks extends App with LazyLogging{
 
     case None => None
   }
-
-  private val positiveLabels = Vector("Positive_regulation", "Positive_activation", "Deubiquitination", "IncreaseAmount", "AdditionEvent")
-  private val negativeLabels = Vector("Negative_regulation", "Negative_activation", "Ubiquitination", "DecreaseAmount", "RemovalEvent", "Translocation")
 
   /***
     * Computes the sign of the event
