@@ -15,7 +15,7 @@ import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 /**
   * Class which implements project internal methods to ground entities.
   *   Written by Tom Hicks. 11/9/2015.
-  *   Last Modified: Update for HMS drug KB.
+  *   Last Modified: Update for Bioentities KBs.
   */
 class ReachEntityLookup {
 
@@ -92,8 +92,8 @@ class ReachEntityLookup {
   )
 
   val cellComponentSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticCellLocation,                 // GO subcellular KB
-    StaticCellLocation2,                // Uniprot subcellular KB
+    StaticCellLocation,                     // GO subcellular KB
+    StaticCellLocation2,                    // Uniprot subcellular KB
     ModelGendCellLocation
   )
 
@@ -105,15 +105,17 @@ class ReachEntityLookup {
   )
 
   val familySeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProteinFamily,
-    StaticProteinFamily2,
+    StaticProteinFamily0,                   // Bioentities families
+    StaticProteinFamily,                    // PFAM families
+    StaticProteinFamily2,                   // InterPro families
     ModelGendProteinAndFamily
   )
 
   val organSeq: KBSearchSequence = extraKBs ++ Seq( ContextOrgan )
 
   val proteinSeq: KBSearchSequence = extraKBs ++ Seq(
-    StaticProtein,
+    StaticProteinComplex,                   // Bioentities complexes
+    StaticProtein,                          // Uniprot proteins
     ModelGendProteinAndFamily
   )
 
