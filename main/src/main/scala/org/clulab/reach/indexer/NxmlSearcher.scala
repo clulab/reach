@@ -376,8 +376,8 @@ object ClusteringSearcher extends App{
     // Parse the line
     val tokens = line.split(',')
     println(line)
-    val pA = if(tokens(2) != "NONE") tokens(2).split(":")(1) else "NONE"
-    val pB = if(tokens(4) != "NONE") tokens(4).split(":")(1) else "NONE"
+    val pA = if(tokens(3) != "NONE") tokens(3).split(":")(1) else "NONE"
+    val pB = if(tokens(5) != "NONE") tokens(5).split(":")(1) else "NONE"
 
 
     val fetched = new mutable.HashSet[Int]
