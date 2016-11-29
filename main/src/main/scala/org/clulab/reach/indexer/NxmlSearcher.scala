@@ -387,6 +387,7 @@ object ClusteringSearcher extends App{
       val hits = searcher.useCaseDRL(pA, pB, outputDir)
       val toFetch = hits.filter(h => !fetched.contains(h._1))
       logger.info(s"Retrieving ${toFetch.size} new documents...")
+      fetched ++= (toFetch map (_._1))
 
       val resultDocs = searcher.docs(toFetch)
       searcher.saveNxml(outputDir, resultDocs, 0)
