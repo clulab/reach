@@ -1,6 +1,7 @@
 #Binding events require arguments of type BioChemicalEntity
 #Use {1,2} quantifier for theme
 
+# TODO (ms): remove "associate" from binding1* rules; maybe Ok, given the stronger syntactic connections?
 - name: binding1a
   label: Binding
   action: mkBinding
@@ -66,12 +67,13 @@
       theme2:BioChemicalEntity+ = <nn (nn{,2} | <dep)
       #dummy: <nn >nn [word=/protein|domain|site/]
 
+# ms: removed "associate" from this rule; too ambiguous
 - name: binding6
   label: Binding
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [lemma=/bind|associate|interact|ligate/ & tag=/^V/]
+      trigger = [lemma=/bind|interact|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = (<amod nn{,2} >prep_of? >appos?) | nsubj
       theme2:BioChemicalEntity+ = conj_and? dobj
 
@@ -111,12 +113,13 @@
       theme1:BioChemicalEntity+ = nn | prep_of
       theme2:BioChemicalEntity* = <prep_through? >prep_with
 
+# ms: remove "associate" and "interact" from binding10* rules; too ambiguous
 - name: binding10
   label: Binding
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [lemma=/bind|associate|interact|ligate/ & tag=/^V/]
+      trigger = [lemma=/bind|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = <vmod <prep_with?
 
 - name: binding10b
@@ -124,7 +127,7 @@
   action: mkBinding
   priority: ${ priority }
   pattern: |
-      trigger = [lemma=/bind|associate|interact|ligate/ & tag=/^V/]
+      trigger = [lemma=/bind|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity = <vmod
       theme2:BioChemicalEntity = /prep_with|prep_to/
 
@@ -183,12 +186,14 @@
     theme1:BioChemicalEntity+ = <vmod | nsubj
     theme2:BioChemicalEntity* = /prep_to|prep_with/
 
+# ms: removed "associate", and "interact" from this rule. Too ambiguous
 - name: binding_17
+  example: "A is bound with B"
   label: Binding
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|associate|interact|ligate/ & tag=/^V/]
+    trigger = [lemma=/bind|ligate/ & tag=/^V/]
     theme1:BioChemicalEntity+ = nsubjpass | <rcmod <appos?
     theme2:BioChemicalEntity+ = /agent|prep_to|prep_with/ nn{,2} | dobj nn{,2}
 
@@ -226,14 +231,16 @@
     trigger = oligomerization (?! [lemma="site"])
     theme1:BioChemicalEntity+ = <prep_through nsubj
 
-- name: binding_22
-  label: Binding
-  action: mkBinding
-  priority: ${ priority }
-  pattern: |
-    trigger = [lemma=target & tag=/^N/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = <nn{,2} nn{,2} | nsubj
-    theme2:BioChemicalEntity+ = prep_of
+# ms: this is too ambiguous as a binding rule
+#- name: binding_22
+#  example: "A is target of B"
+#  label: Binding
+#  action: mkBinding
+#  priority: ${ priority }
+#  pattern: |
+#    trigger = [lemma=target & tag=/^N/] (?! [lemma="site"])
+#    theme1:BioChemicalEntity+ = <nn{,2} nn{,2} | nsubj
+#    theme2:BioChemicalEntity+ = prep_of
 
 - name: binding_syntax_23_verb
   example: "RBD of PI3KC2β binds nucleotide-free Ra"

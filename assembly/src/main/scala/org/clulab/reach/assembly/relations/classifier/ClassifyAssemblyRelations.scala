@@ -3,7 +3,8 @@ package org.clulab.reach.assembly.relations.classifier
 import org.clulab.reach.assembly.relations.corpus.CorpusReader._
 import org.clulab.reach.assembly.relations.corpus.{CorpusReader, EventPair}
 import org.clulab.learning._
-import org.apache.commons.io.{FileUtils, FilenameUtils}
+import ai.lum.common.FileUtils._
+import org.apache.commons.io.FilenameUtils
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.Random
 import com.typesafe.scalalogging.LazyLogging
@@ -137,7 +138,7 @@ object Evaluator {
          |$rows
        """.stripMargin
 
-    FileUtils.writeStringToFile(f, content)
+    f.writeString(content, java.nio.charset.StandardCharsets.UTF_8)
   }
 
 }

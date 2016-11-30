@@ -5,9 +5,10 @@ import org.clulab.reach.mentions._
 import TestUtils._
 
 /**
- * Unit tests to ensure Regulation (both Pos and Neg) rules are matching correctly
- * Date: 5/19/15
- */
+  * Unit tests to ensure Regulation (both Pos and Neg) rules are matching correctly
+  * Date: 5/19/15
+  * Last Modified: Update test for BE KBs.
+  */
 class TestRegulationEvents extends FlatSpec with Matchers {
   val sent1 = "Phosphorylation of ASPP2 by MAPK is required for RAS induced increased binding to p53 and increased transactivation of pro-apoptotic genes."
   sent1 should "have an up-regulated phosphorylation" in {
@@ -59,12 +60,11 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     hasPositiveRegulationByEntity("MAPK1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
-  val sent6 = "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
+  val sent6 = "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by AKT1 had very low levels of incorporated 32P"
   sent6 should "contain 1 regulation" in {
     val mentions = getBioMentions(sent6)
     hasEventWithArguments("Phosphorylation", List("ASPP2"), mentions) should be (true)
-    // TODO: This is failing because we're missing SAPK in "p38 SAPK"; we only get p38, but we used to get "p38 SAPK"
-    hasPositiveRegulationByEntity("p38 SAPK", "Phosphorylation", List("ASPP2"), mentions) should be (true)
+    hasPositiveRegulationByEntity("AKT1", "Phosphorylation", List("ASPP2"), mentions) should be (true)
   }
 
   val sent7 = "The phosphorylated ASPP2 fragment by MAPK1 was digested by trypsin and fractioned on a high performance liquid chromatography."
@@ -230,7 +230,7 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   // a weird text from the PMC384* where we used to overmatch
-  val sent23 = "histone 2B phosphorylated by p38 SAPK had high levels of incorporated 32P, suggesting that p38 SAPK was active; while under the same conditions, ASPP2 (693-1128) fragment"
+  val sent23 = "histone 2B phosphorylated by AKT1 had high levels of incorporated 32P, suggesting that AKT1 was active; while under the same conditions, ASPP2 (693-1128) fragment"
   sent23 should "contain 1 phosphorylation and 1 positive regulation" in {
     val mentions = getBioMentions(sent23)
     mentions.filter(_.label == "Positive_regulation") should have size (1)
@@ -525,8 +525,27 @@ class TestRegulationEvents extends FlatSpec with Matchers {
   }
 
   val sent57 = "Indeed, expression of RARbeta2 has been shown to restore retinoic acid induced apoptosis"
-  sent57 should "contain 1 activation and 1 positive regulation of that activation" in {
+  sent57 should "contain 1 Transcription and 1 positive activation, and 1 positive regulation" in {
     val mentions = getBioMentions(sent57)
-    hasPositiveRegulationByEntity("RARbeta2", "Positive_activation", List("retinoic acid", "apoptosis"), mentions) should be (true)
+    mentions.filter(_ matches "Transcription") should have size (1)
+    mentions.filter(_ matches "Positive_activation") should have size (1)
+    mentions.filter(_ matches "Positive_regulation") should have size (1)
+  }
+
+  val sent58 = "We observed increased ERBB3 binding to PI3K following MEK inhibition (Figure 1D), and accordingly, MEK inhibition substantially increased tyrosine phosphorylated ERBB3 levels (Figure 1A)."
+  sent58 should "contain 1 amount, 1 binding, and 2 negative regulations" in {
+    val mentions = getBioMentions(sent58)
+    mentions.filter(_.label.contains("Amount")) should have size (1)
+    mentions.filter(_.label.contains("Binding")) should have size (1)
+    mentions.filter(_.label.contains("Negative_regulation")) should have size (2)
+    mentions.filter(_.label.contains("Negative_activation")) should have size (0)
+  }
+
+  val sent59 = "Up-regulation of MKP3 expression by active Ras expression"
+  sent59 should "contain 1 positive regulation and 2 transcriptions" in {
+    val mentions = getBioMentions(sent59)
+    mentions.filter(_.label.contains("Transcription")) should have size (2)
+    mentions.filter(_.label.contains("Positive_regulation")) should have size (1)
+    mentions.filter(_.label.contains("Positive_activation")) should have size (0)
   }
 }

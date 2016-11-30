@@ -207,19 +207,24 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
-  /** Finds all NXML that contain at least one biochemical interaction */
-  def useCase2(resultDir:String): Unit = {
-    val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
+  def vanillaUseCase(query:String, resultDir:String) {
+    val eventDocs = search(query)
     logger.debug(s"The result contains ${eventDocs.size} documents.")
     saveDocs(resultDir, eventDocs)
     logger.debug("Done.")
   }
 
+  /** Finds all NXML that contain at least one biochemical interaction */
+  def useCase2(resultDir:String) {
+    vanillaUseCase(
+      "phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds",
+      resultDir)
+  }
+
   def useCase3(resultDir:String): Unit = {
-    val eventDocs = search("children AND ((TNFAlpha AND nutrition) OR (inflammation AND stunting) OR (kcal AND inflammation) OR (protein AND inflammation) OR (nutrition AND inflammation))")
-    logger.debug(s"The result contains ${eventDocs.size} documents.")
-    saveDocs(resultDir, eventDocs)
-    logger.debug("Done.")
+    vanillaUseCase(
+      "children AND ((TNFAlpha AND nutrition) OR (inflammation AND stunting) OR (kcal AND inflammation) OR (protein AND inflammation) OR (nutrition AND inflammation))",
+      resultDir)
   }
 
   val resolveReaction = Map(
@@ -283,42 +288,32 @@ class NxmlSearcher(val indexDir:String) {
     resultDocs map { _._1.get("id") }
   }
   def useCaseTB(resultDir:String): Unit = {
-    val eventDocs = search(""" "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """)
-    logger.info(s"The result contains ${eventDocs.size} documents.")
-    saveDocs(resultDir, eventDocs)
-    logger.info("Done.")
+    vanillaUseCase(
+      """ "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """,
+      resultDir)
   }
 
   // Natasa's use case, first query
   def useCase4a(resultDir:String): Unit = {
-    val eventDocs = search("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein")""")
-    logger.debug(s"The result contains ${eventDocs.size} documents.")
-    saveDocs(resultDir, eventDocs)
-    logger.debug("Done.")
+    vanillaUseCase("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein")""", resultDir)
   }
   // Natasa's use case, second query
   def useCase4b(resultDir:String): Unit = {
-    val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND pancreas"""
-    val eventDocs = search(query)
-    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
-    saveDocs(resultDir, eventDocs)
-    logger.info("Done.")
+    vanillaUseCase("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND pancreas""", resultDir)
   }
   // Natasa's use case, third query
   def useCase4c(resultDir:String): Unit = {
-    val query = """(BMP OR "Bone Morphogenetic Protein") AND pancreas"""
-    val eventDocs = search(query)
-    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
-    saveDocs(resultDir, eventDocs)
-    logger.info("Done.")
+    vanillaUseCase("""(BMP OR "Bone Morphogenetic Protein") AND pancreas""", resultDir)
   }
   // Natasa's use case, fourth query
   def useCase4d(resultDir:String): Unit = {
-    val query = """(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein") AND pancreas"""
-    val eventDocs = search(query)
-    logger.info(s"The result contains ${eventDocs.size} documents for query [$query]")
-    saveDocs(resultDir, eventDocs)
-    logger.info("Done.")
+    vanillaUseCase("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein") AND pancreas""", resultDir)
+  }
+
+  def useCaseDengue(resultDir:String): Unit = {
+    vanillaUseCase(
+      """(Dengue OR den OR denv OR Dengue-1 Dengue-2 OR Dengue-3 OR Dengue-4 OR Dengue1 Dengue2 OR Dengue3 OR Dengue4 OR Den-1 OR Den-2 OR Den-3 OR Den-4 OR Den1 OR Den2 OR Den3 OR Den4 OR Denv1 OR Denv2 OR Denv3 OR Denv4 Denv-1 OR Denv-2 OR Denv-3 OR Denv-4) AND (serotype OR serotypes OR viremia OR "capillary leakage" OR "hemorrhagic fever" OR "self-limited dengue fever" OR fever OR "dengue shock syndrome" OR "inapparent dengue infection" OR "serial infection" OR "homologous response" OR "heterologous response" OR "immune evasion" OR "arthropod borne" OR mosquito OR mosquitoes OR "mosquito-borne" OR prm OR ns1 OR ns2a OR ns2b OR ns3 OR ns4a OR ns4 OR ns5)""",
+      resultDir)
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -391,7 +386,8 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase2(resultDir)
+      // searcher.useCaseDengue(resultDir)
+      searcher.useCase(resultDir)
     }
 
     searcher.close()

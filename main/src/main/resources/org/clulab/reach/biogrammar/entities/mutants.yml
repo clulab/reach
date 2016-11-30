@@ -135,7 +135,8 @@
 #NOTE: mutantlate_.+ should happen AFTER mutant_.+, because they are generic
 - name: mutantlate_1
   label: GenericMutant
-  priority: 2
+  example: "ASPP1 mutant"
+  priority: 5
   action: mkBioMention
   type: token
   keep: false
@@ -144,7 +145,8 @@
 
 - name: mutantlate_2
   label: GenericMutant
-  priority: 2
+  example: "mutant ASPP1"
+  priority: 5
   action: mkBioMention
   type: token
   keep: false
@@ -157,8 +159,9 @@
 
 - name: mutantmod_1a
   label: Mutant
+  example: "ASPP1 mutant K111M"
   action: storeMutants
-  priority: 4
+  priority: 6
   type: token
   pattern: |
     (?<! [mention=Mutant])
@@ -169,8 +172,9 @@
 
 - name: mutantmod_1b
   label: Mutant
+  example: "K111M mutant of ASPP1"
   action: storeMutants
-  priority: 4
+  priority: 6
   type: token
   pattern: |
     @mutant:Mutant
@@ -181,8 +185,9 @@
 
 - name: mutantmod_2
   label: Mutant
+  example: "K111M, K112M, and K113M mutants of ASPP1"
   action: storeMutants
-  priority: 4
+  priority: 6
   type: token
   pattern: |
     (?<! [mention=BioChemicalEntity])
@@ -195,7 +200,7 @@
   label: Mutant
   example: "ASPP1 mutants K111M, K112M, and K113M and ASPP2"
   action: storeMutants
-  priority: 4
+  priority: 6
   type: token
   pattern: |
     (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule) [lemma=/^(mutant|mutation)/]?
@@ -206,7 +211,7 @@
   label: Mutant
   example: "wild-type ASPP1 and the K111M, K112M, and K113M mutants"
   action: storeMutants
-  priority: 4
+  priority: 6
   type: token
   pattern: |
     (@entity:Family | @entity:MacroMolecule) [lemma=/^(mutant|mutation)/]?
@@ -218,7 +223,7 @@
 - name: mutantmod_withparens
   label: Mutant
   action: storeMutants
-  priority: 4
+  priority: 6
   example: "ERK(T202M Y204E)"
   type: token
   pattern: |
@@ -228,7 +233,7 @@
 - name: mutantmod_withparens2
   label: Mutant
   action: storeMutants
-  priority: 4
+  priority: 6
   example: "ERK(T202M, Y204E)"
   type: token
   pattern: |

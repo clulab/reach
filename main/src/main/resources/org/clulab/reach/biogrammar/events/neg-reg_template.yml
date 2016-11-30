@@ -156,19 +156,6 @@
     controller:${ controllerType } = /prep_such_as|prep_including|prep_like/ (nn|appos)?
 
 
-#
-# Replaced by the _following_Controller_inhibition rule
-#
-#- name: Negative_${ ruleType }_token_2_verb
-#  priority: ${ priority }
-#  example: ""
-#  type: token
-#  label: ${ label }
-#  action: ${ actionFlow }
-#  pattern: |
-#    (?<trigger> [word=increased & !tag=/^JJ/]) @controlled:${ controlledType } following @controller:${ controllerType } (?<dummy>[lemma=/${ negnouns }/])
-
-
 - name: Negative_${ ruleType }_token_1_noun
   priority: ${ priority }
   example: "mTOR inhibitor Rapamycin"
@@ -187,7 +174,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ negnouns }/])
+    (?<trigger> [word=/(?i)^(${ triggers })/ & tag=/^NN/]) of @controlled:${ controlledType } by @controller:${ controllerType } (?! [lemma=/${ triggers }/ & tag=/^NN/])
 
 
 - name: Negative_${ ruleType }_copula_1
@@ -196,7 +183,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ negnouns }/ & tag=/^N/]
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
     controller:${ controllerType } = nsubj
     controlled:${ controlledType } = /prep_of|prep_in$/
 
@@ -207,7 +194,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ negnouns }/ & tag=/^N/]
+    trigger = [lemma=/${ triggers }/ & tag=/^N/]
     controller:${ controllerType } = /prep_by|agent/
     controlled:${ controlledType } = /poss/
 

@@ -1,17 +1,15 @@
 package org.clulab.reach
 
-import org.clulab.odin._
-import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.scalatest.{Matchers, FlatSpec}
-import scala.util.Try
+import scala.util.Try                       // do not remove: needed for debugging
 import TestUtils._
 
 
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Add tests for new drug KB.
+  *   Last Modified: Update for use of BE KBs.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -91,7 +89,10 @@ class TestNERLabeling extends FlatSpec with Matchers {
     mentions should not be (empty)
     // printMentions(Try(mentions), true)      // DEBUGGING
     mentions should have size 10
-    mentions.count(_ matches "Family") should be (10)
+
+    // "Ras guanyl-releasing protein 1" is both a protein and a protein family
+    // this test is robust to this: it allows either label for this entity
+    (mentions.count(_ matches "Family") >= 9) should be (true)
   }
 
   ggp should "have Gene_or_gene_product label" in {
@@ -196,14 +197,9 @@ class TestNERLabeling extends FlatSpec with Matchers {
     mentions274f.count(_.displayLabel == "Family") should be (1)
   }
 
-  it should "have grounded all mentions as Human" in {
-    mentions274f.forall(m => m.grounding.isDefined &&
-                        Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
-  }
-
   it should "match expected grounding IDs" in {
     val m = mentions274f(0)
-    (m.grounding.isDefined && (m.grounding.get.id == "UAZ-PF-214")) should be (true)
+    (m.grounding.isDefined && (m.grounding.get.id == "SMAD")) should be (true)
   }
 
 

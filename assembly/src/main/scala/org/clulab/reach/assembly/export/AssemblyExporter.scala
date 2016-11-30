@@ -1,9 +1,9 @@
 package org.clulab.reach.assembly.export
 
-import org.apache.commons.io.FileUtils
+import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.representations._
-import org.clulab.odin.Mention
+import org.clulab.odin.{EventMention, Mention}
 import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
@@ -79,25 +79,6 @@ case class Row(
     }
   }
 
-  def isDirect: Boolean = evidence.exists{ e =>
-    e.toCorefMention match {
-      case em: CorefEventMention => em.isDirect
-      // mark all activations as indirect
-      case activation if activation matches "Activation" => false
-      // NOTE: should already be covered by CorefEventMention case
-      case se if se matches "SimpleEvent" => true
-      case binding if binding matches "Binding" => true
-      case complex if complex matches "Complex" => true
-      // we'll call entities "direct"
-      // NOTE: likely entity rows will not be reported
-      case entity if entity matches "Entity" => true
-      // a reg with a simple event as its controlled
-      case reg if ExportFilters.regWithSimpleEventWithController(reg) => true
-      // assume it's indirect otherwise?
-      case other => false
-    }
-  }
-
   def isIndirect: Boolean = evidence.exists{ e =>
     e.toCorefMention match {
       case em: CorefEventMention => ! em.isDirect
@@ -129,6 +110,7 @@ case class Row(
       AssemblyExporter.EVENT_LABEL -> label,
       AssemblyExporter.PRECEDED_BY -> setToString(precededBy),
       AssemblyExporter.NEGATED -> negated.toString,
+      AssemblyExporter.TRIGGERS -> AssemblyExporter.getSortedTriggers(evidence.toSeq),
       AssemblyExporter.SEEN -> seen.toString,
       AssemblyExporter.EVIDENCE -> getTextualEvidence.mkString(AssemblyExporter.CONCAT),
       AssemblyExporter.SEEN_IN -> setToString(docIDs),
@@ -231,15 +213,15 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     s"$text::${entity.grounding}$mutantForms$features"
   }
 
-  def createInput(eer: EntityEventRepresentation): String = eer match {
+  def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
 
-    case entity: SimpleEntity => createSimpleEntityText(entity)
+    case entity: SimpleEntity => s"${createSimpleEntityText(entity)}$mods"
 
     case complex: Complex =>
-      complex.members.map(createInput).mkString(", ")
+      complex.members.map(m => createInput(m, mods)).mkString(", ")
 
     case se: SimpleEvent =>
-      se.input.values.flatten.map(createInput).mkString(", ")
+      se.input.values.flatten.map(m => createInput(m, mods)).mkString(", ")
 
     // inputs to an activation are entities
     case act: Activation =>
@@ -247,7 +229,13 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         // get IDs of any events
         case event: Event => EERLUT.getOrElse(event.equivalenceHash, reportError(act, event))
         // represent entities directly
-        case entity: Entity => createInput(entity)
+        case entity: Entity =>
+          val activationMod = act.polarity match {
+            // negative activations start with activated input
+            case AssemblyManager.negative => ".a"
+            case _ => ""
+          }
+          createInput(entity, s"$mods$activationMod")
       }.mkString(", ")
 
     // inputs to a regulation are other events
@@ -256,25 +244,26 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       reg.controlled.map(c => EERLUT.getOrElse(c.equivalenceHash, reportError(reg, c))).mkString(", ")
   }
 
-  def createOutput(eer: EntityEventRepresentation): String = eer match {
+  def createOutput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
 
     case complex: Complex =>
-      complex.members.map(createInput).mkString("{", ", ", "}")
+      complex.members.map(m => createInput(m, mods)).mkString("{", ", ", "}")
 
     case se: SimpleEvent =>
       se.output.map{
         case binding: Complex => createOutput(binding)
-        case other => createInput(other)
+        case other => createInput(other, mods)
       }.mkString(", ")
 
-    case act: Activation =>
-      act.controlled.map(c => s"${createInput(c)}.a").mkString(", ")
+    // positive activations produce an acitvated output entity
+    case posact: Activation if posact.polarity == AssemblyManager.positive =>
+      posact.controlled.map(c => createInput(c, s"$mods.a")).mkString(", ")
 
-    case reg: Regulation =>
-      reg.controlled.map(createOutput).mkString(", ")
+    case ce: ComplexEvent =>
+      ce.controlled.map(c => createOutput(c, mods)).mkString(", ")
 
     // PTM-like cases
-    case entity: Entity => createInput(entity)
+    case entity: Entity => createInput(entity, mods)
 
     case _ => NONE
   }
@@ -285,7 +274,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       ce.controller.map {
         case entity: SimpleEntity => createSimpleEntityText(entity)
         case complex: Complex => createInput(complex)
-        case c => s"${createOutput(c)}.${ce.polarity}"
+        case c => createOutput(c)
       }.mkString(", ")
 
     case _ => NONE
@@ -304,13 +293,23 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       event.predecessors.map(se => EERLUT(se.equivalenceHash))
   }
 
-  // FIXME: take columns and sep as params
   def writeRows(
     f: File,
     cols: Seq[String],
     sep: String = AssemblyExporter.SEP,
     rowFilter: Set[Row] => Set[Row]
   ): Unit = {
+
+    val results = rowsToString(cols, sep, rowFilter)
+    // write the output to disk
+    f.writeString(results, java.nio.charset.StandardCharsets.UTF_8)
+  }
+
+  def rowsToString(
+    cols: Seq[String],
+    sep: String = AssemblyExporter.SEP,
+    rowFilter: Set[Row] => Set[Row]
+  ): String = {
     val rowsForOutput = rowFilter(getRows)
     // validate output
     validateOutput(rowsForOutput)
@@ -322,8 +321,8 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         .sortBy(r => (r.label, -r.docIDs.size, -r.seen))
         .map(_.toRow(cols, sep))
         .mkString("\n")
-    // write the output to disk
-    FileUtils.writeStringToFile(f, header + text)
+
+    header + text
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
@@ -423,6 +422,7 @@ object AssemblyExporter {
   val CONTEXT_CELL_TYPE = "CONTEXT (CELL TYPE)"
   val CONTEXT_CELLULAR_COMPONENT = "CONTEXT (CELLULAR COMPONENT)"
   val CONTEXT_TISSUE_TYPE = "CONTEXT (TISSUE TYPE)"
+  val TRIGGERS = "TRIGGERS"
 
   val SEP = "\t"
   val CONCAT = " ++++ "
@@ -443,6 +443,8 @@ object AssemblyExporter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // trigger
+    AssemblyExporter.TRIGGERS,
     // evidence
     AssemblyExporter.SEEN,
     AssemblyExporter.EVIDENCE,
@@ -482,14 +484,34 @@ object AssemblyExporter {
   }
 
   def getEventLabel(e: EntityEventRepresentation): String = e match {
-    case reg: Regulation => REGULATION
-    case act: Activation => ACTIVATION
+    case reg: Regulation => s"$REGULATION (${reg.polarity})"
+    case act: Activation => s"$ACTIVATION (${act.polarity})"
     case se: SimpleEvent => se.label
     case ptm: SimpleEntity if ptm.modifications.exists(_.isInstanceOf[representations.PTM]) =>
       ptm.modifications.find(_.isInstanceOf[representations.PTM]).get.asInstanceOf[representations.PTM].label
     //case comp: Complex => "entity"
     // filter these out later
     case entity => "entity"
+  }
+
+  def getTrigger(m: Mention): Option[String] = m match {
+    case em: EventMention => em.trigger.lemmas.map(_.mkString(" "))
+    case _ => None
+  }
+
+  def getSortedTriggers(mns: Seq[Mention]): String = {
+    // attempt to get the lemmatized trigger for each mention
+    val triggers = mns.flatMap(getTrigger)
+    val triggerCounts: Seq[(Int, String)] = for {
+      // count each distinct trigger
+      trig: String <- triggers.distinct
+      cnt = triggers.count(_ == trig)
+    } yield cnt -> trig
+
+    // sort by counts
+    triggerCounts.sortBy(_._1).reverse
+      .map(_._2) // get the triggers
+      .mkString(AssemblyExporter.CONCAT) // concatenate
   }
 }
 

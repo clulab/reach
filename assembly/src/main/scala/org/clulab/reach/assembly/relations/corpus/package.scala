@@ -27,15 +27,13 @@ package object corpus extends LazyLogging {
   /** Create a dataset from a directory of json files, where each file represents the reach reading results for that paper */
   def datasetLUT(jsonDir: File): Map[String, Vector[CorefMention]] = datasetLUT(jsonDir.listFiles)
   def datasetLUT(jsonFiles: GenSeq[File]): Map[String, Vector[CorefMention]] = {
-    val docMentionPairs = for {
-      f <- jsonFiles
-      if f.getName.endsWith(".json")
-      _ = logger.debug(s"parsing ${f.getName}")
-      cms: Vector[CorefMention] = JSONSerializer.toCorefMentions(f).toVector
-      if cms.nonEmpty
-      _ = logger.debug(s"successfully parsed ${f.getName}")
-      paperID = getPMID(cms.head)
-    } yield  paperID -> cms
+    val docMentionPairs = jsonFiles.filter(_.getName.endsWith(".json")).map{ f: File =>
+      logger.debug(s"parsing ${f.getName}")
+      val cms: Vector[CorefMention] = JSONSerializer.toCorefMentions(f).toVector
+      if (cms.nonEmpty) logger.debug(s"successfully parsed ${f.getName}")
+      val paperID = getPMID(cms.head)
+      paperID -> cms
+    }
     docMentionPairs.seq.toMap.withDefaultValue(Vector.empty[CorefMention])
   }
 }

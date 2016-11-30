@@ -2,8 +2,12 @@ package org.clulab.reach
 
 /**
   * Convenience sets built from taxonomy
+  *   Written by Gus Hahn-Powell. 7/16/2016.
+  *   Last Modified: Add amount events set.
   */
 object ReachConstants {
+
+  val AMOUNT_EVENTS = taxonomy.hyponymsFor("Amount").toSet
 
   val ACTIVATION_EVENTS = taxonomy.hyponymsFor("ActivationEvent").toSet
   val REGULATION_EVENTS = taxonomy.hyponymsFor("Regulation").toSet

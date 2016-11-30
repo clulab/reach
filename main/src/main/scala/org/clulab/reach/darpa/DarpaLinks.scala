@@ -23,7 +23,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def exactStringMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Exact entity string matching=====")
+    logger.debug("=====Exact entity string matching=====")
     val sameText = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
         !x.asInstanceOf[CorefTextBoundMention].isGeneric &&
@@ -53,7 +53,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def groundingMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Entity grounding matching=====")
+    logger.debug("=====Entity grounding matching=====")
     // exact grounding
     val sameGrounding = mentions
       .filter(x => x.isInstanceOf[CorefTextBoundMention] &&
@@ -76,14 +76,14 @@ class DarpaLinks extends Links with LazyLogging {
 
   def mutantProteinMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Mutant protein matching=====")
+    logger.debug("=====Mutant protein matching=====")
 
     val tbms = mentions.filter(_.isInstanceOf[CorefTextBoundMention])
     val gms = tbms.filter(m => m.hasGenericMutation)
 
     gms.foreach {
       case gm =>
-        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.find(_.isGeneric).get.text}'")
+        logger.debug(s"Searching for ${gm.number.toString} antecedents to '${gm.text} ${gm.mutants.filter(_.isGeneric).map(_.text).mkString(" ", "/", "")}'")
 
         val cands = tbms.filter { m =>
           m.precedes(gm) &&
@@ -91,14 +91,15 @@ class DarpaLinks extends Links with LazyLogging {
             m.isGrounded &&
             (m.grounding.get.equals(gm.grounding.get) | gm.isGeneric) &&
             (m.mutants.nonEmpty | gm.tags.get.head.takeRight(1) == "$") &&
-            m.mutants.forall(mut => !mut.isGeneric)
+            m.mutants.forall(mut => !mut.isGeneric) &&
+            compatibleMutants(m, gm)
         }
 
         logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
 
         val ants = selector(gm, cands diff Seq(gm), gm.number)
         ants.foreach { ant =>
-          logger.debug(s"${gm.text} ${gm.mutants.find(mut => mut.isGeneric).get.text} links " +
+          logger.debug(s"${gm.text} ${gm.mutants.filter(mut => mut.isGeneric).map(_.text).mkString(" ", "/", "")} links " +
             s"to ${ant.text} ${ant.mutants.map(_.text).mkString("/")}")
         }
 
@@ -119,7 +120,7 @@ class DarpaLinks extends Links with LazyLogging {
   def strictHeadMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
     val doc = mentions.head.document
-    logger.debug("\n=====Strict head matching=====")
+    logger.debug("=====Strict head matching=====")
     // split TBMs from other mentions -- we'll only be working on TBMs
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     // split generic mentions from specific mentions -- we'll only be working on generics
@@ -145,7 +146,8 @@ class DarpaLinks extends Links with LazyLogging {
           !g.isGeneric &&
           wdsExpanded.contains(hd) &&
           m.labels == g.labels &&
-          !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence))
+          !nested(gExpanded, mExpanded, doc.sentences(g.sentence), doc.sentences(m.sentence)) &&
+          !coArguments(g, m, hasArgs)
       }
       // use the selector to say which of the candidates is best
       val ants = selector(g, cands, g.number)
@@ -168,7 +170,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def pronominalMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Pronominal matching=====")
+    logger.debug("=====Pronominal matching=====")
     // separate out TBMs, so we can look only at arguments of events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
     hasArgs.filter(_.antecedents.isEmpty).foreach {
@@ -209,6 +211,7 @@ class DarpaLinks extends Links with LazyLogging {
                 m.getClass == g.getClass &&
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
+                !coArguments(g, m, hasArgs) &&
                 (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention])
             }
             case "controller" => mentions.filter { m =>
@@ -217,6 +220,7 @@ class DarpaLinks extends Links with LazyLogging {
                 m.getClass == g.getClass &&
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
+                !coArguments(g, m, hasArgs) &&
                 (m.matches("PossibleController") || m.isInstanceOf[CorefEventMention])
             }
             case _ => tbms.filter { m =>
@@ -225,14 +229,15 @@ class DarpaLinks extends Links with LazyLogging {
                 m.getClass == g.getClass &&
                 !m.isGeneric &&
                 !excludeThese.contains(m) &&
+                !coArguments(g, m, hasArgs) &&
                 m.matches("PossibleController")
             }
           }
-          logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString(" ", " ", "")).mkString("', '")}'")
+          logger.debug(s"Candidates are '${cands.map(c => c.text + c.mutants.map(_.text).mkString("-")).mkString("', '")}'")
 
           // apply selector to candidates
           val ants = selector(g.asInstanceOf[CorefTextBoundMention], cands, g.toCorefMention.number)
-          logger.debug(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString(" ", " ", "")).mkString(", ")}'")
+          logger.debug(s"matched '${ants.map(a => a.text + a.mutants.map(_.text).mkString("-")).mkString(", ")}'")
 
           // We must check for the anaphor mention in the state, because if it's not, we'll get an error upon
           // trying to link the two
@@ -261,7 +266,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def nounPhraseMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Noun phrase matching=====")
+    logger.debug("=====Noun phrase matching=====")
 
     // only apply this matcher to arguments to events -- others are irrelevant
     val (tbms, hasArgs) = mentions.partition(m => m.isInstanceOf[CorefTextBoundMention])
@@ -358,7 +363,7 @@ class DarpaLinks extends Links with LazyLogging {
     */
   def simpleEventMatch(mentions: Seq[CorefMention], selector: AntecedentSelector = defaultSelector): Seq[CorefMention] = {
     if (mentions.isEmpty) return Nil
-    logger.debug("\n=====Simple event matching=====\n")
+    logger.debug("=====Simple event matching=====")
 
     val seLabels = SIMPLE_EVENTS - "Generic_event"
 
