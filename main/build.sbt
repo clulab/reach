@@ -16,5 +16,6 @@ libraryDependencies ++= Seq(
   "ai.lum" %% "nxmlreader" % "0.0.7",
   // logging
   "ch.qos.logback" %  "logback-classic" % "1.1.7",
-  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0"
+  "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
+  "org.scala-graph" %% "graph-core" % "1.11.3"
 )

@@ -12,12 +12,14 @@ import collection.mutable
 import org.clulab.utils.Serializer
 import org.clulab.reach.grounding.{KBResolution, ReachKBUtils}
 import org.clulab.reach.indexer.NxmlSearcher
-import org.clulab.struct.DirectedGraph
 import org.clulab.reach.PaperReader
 
 import scala.collection.mutable.ListBuffer
 import org.clulab.reach.mentions.serialization.json.REACHMentionSeq
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
+
+import scalax.collection.mutable.Graph
+import scalax.collection.GraphPredef._, scalax.collection.GraphEdge._
 
 /**
   * Created by enrique on 21/11/16.
@@ -25,6 +27,15 @@ import org.clulab.reach.mentions.serialization.json.JSONSerializer
 
 case class Participant(val namespace:String, val id:String){
   lazy val synonyms =  FillBlanks.dict.lift(id);
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Participant]
+
+  override def equals(obj: Any): Boolean = obj match {
+    case that:Participant => this.id == that.id
+    case _ => false
+  }
+
+  override def hashCode(): Int = this.id.hashCode
 }
 
 case class Connection(val controller:Participant, val controlled:Participant, val sign:Boolean)
@@ -75,8 +86,7 @@ object FillBlanks extends App with LazyLogging{
   val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
 
 
-  var G:Option[DirectedGraph[Participant]] = None // Directed graph with the model. It is a mutable variable as it will change each step
-
+  val G:Graph[Participant, DiEdge] = Graph[Participant, DiEdge]() // Directed graph with the model.
 
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
   //// Initial first step querying individually
@@ -109,7 +119,7 @@ object FillBlanks extends App with LazyLogging{
   val connections:Iterable[Connection] = buildEdges(activations)
   logger.info(s"Extracted ${connections.size} connections")
   //Grow the graph
-  G = Some(expandGraph(G, connections))
+  expandGraph(connections)
   logger.info("Done growing the model")
 
   // Loop of iterative steps of expanding the graph
@@ -118,7 +128,7 @@ object FillBlanks extends App with LazyLogging{
   while(!stop){
     // Look for a path between participants A and B
     logger.info("Looking for a path between the anchors ...")
-    val path = findPath(G.get, participantA, participantB)
+    val path = findPath(participantA, participantB)
 
     path match {
       case Some(p) =>
@@ -130,8 +140,8 @@ object FillBlanks extends App with LazyLogging{
 
     if(!stop) {
       logger.info("Path not found. Expanding the frontier...")
-      val frontierA = findFrontier(G.get, participantA)
-      val frontierB = findFrontier(G.get, participantB)
+      val frontierA = findFrontier(participantA)
+      val frontierB = findFrontier(participantB)
 
 
       // TODO: make sure to expand this cross product to include more nodes if necessary (like the original participant)
@@ -161,7 +171,7 @@ object FillBlanks extends App with LazyLogging{
       logger.info("Growing the model with results ...")
       val connections:Iterable[Connection] = buildEdges(activations)
       //Grow the graph
-      G = Some(expandGraph(G, connections))
+      expandGraph(connections)
       logger.info("Done growing the model")
     }
   }
@@ -169,13 +179,11 @@ object FillBlanks extends App with LazyLogging{
 
   /***
     * Searches for a path between the participants in the graph
-    * @param G Model graph
     * @param participantA Source of the path
     * @param participantB Sink of the path
     * @return Some sequence if the path exists, otherwise None
     */
-  def findPath(G: DirectedGraph[Participant], participantA: Participant
-               , participantB: Participant): Option[Seq[Participant]] =
+  def findPath(participantA: Participant, participantB: Participant): Option[Seq[Participant]] =
   {
     None
   }
@@ -184,11 +192,10 @@ object FillBlanks extends App with LazyLogging{
   /***
     * Finds the search frontier in the graph relative to participant
     *
-    * @param G The model
     * @param participant The participant of concern
     * @return Iterable of participants that make the frontier
     */
-  def findFrontier(G:DirectedGraph[Participant], participant: Participant):Iterable[Participant] = {
+  def findFrontier(participant: Participant):Iterable[Participant] = {
     Nil
   }
 
@@ -196,16 +203,10 @@ object FillBlanks extends App with LazyLogging{
   /***
     * Creates a new graph with the connections of the existing graph and new connections from the second argument
     *
-    * @param G existing graph, if any, to be expanded
     * @param connections New information to incorporate to the graph
-    * @return Graph with the new information added
     */
-  def expandGraph(G: Option[DirectedGraph[Participant]], connections: Iterable[Connection]): DirectedGraph[Participant] = {
-    G match {
-      case Some(g) => g
-      case None => None
-    }
-    G.get
+  def expandGraph(connections: Iterable[Connection]){
+    Unit
   }
 
 
