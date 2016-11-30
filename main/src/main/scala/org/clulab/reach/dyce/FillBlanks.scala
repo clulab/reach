@@ -2,43 +2,57 @@ package org.clulab.reach.dyce
 
 import java.io.File
 
-import org.apache.lucene.analysis.standard.StandardAnalyzer
 import com.typesafe.scalalogging.LazyLogging
+import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.queryparser.classic.QueryParserBase
 import org.clulab.odin.{EventMention, Mention}
-import org.clulab.reach.mentions.{BioMention, BioTextBoundMention, CorefEventMention, CorefMention, MentionOps}
-
-import collection.mutable
-import org.clulab.utils.Serializer
+import org.clulab.reach.PaperReader
 import org.clulab.reach.grounding.{KBResolution, ReachKBUtils}
 import org.clulab.reach.indexer.NxmlSearcher
-import org.clulab.reach.PaperReader
+import org.clulab.reach.mentions.serialization.json.{JSONSerializer, REACHMentionSeq}
+import org.clulab.reach.mentions.{BioMention, BioTextBoundMention, CorefEventMention, CorefMention, MentionOps}
+import org.clulab.utils.Serializer
 
+import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
-import org.clulab.reach.mentions.serialization.json.REACHMentionSeq
-import org.clulab.reach.mentions.serialization.json.JSONSerializer
-
-import scalax.collection.mutable.Graph
-import scalax.collection.GraphPredef._, scalax.collection.GraphEdge._
+import scalax.collection.GraphPredef._
+import scalax.collection.edge.Implicits._
+import scalax.collection.edge.LDiEdge
+import scalax.collection.mutable.Graph // shortcuts
 
 /**
   * Created by enrique on 21/11/16.
   */
 
-case class Participant(val namespace:String, val id:String){
+case class Participant(namespace:String, id:String){
   lazy val synonyms =  FillBlanks.dict.lift(id);
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Participant]
 
   override def equals(obj: Any): Boolean = obj match {
-    case that:Participant => this.id == that.id
+    case that:Participant => (this.namespace == that.namespace) && (this.id == that.id)
     case _ => false
   }
 
-  override def hashCode(): Int = this.id.hashCode
+  override def hashCode(): Int = (this.id + this.namespace).hashCode
+
+  override def toString: String = s"$namespace:$id"
 }
 
-case class Connection(val controller:Participant, val controlled:Participant, val sign:Boolean)
+case class Connection(controller:Participant, controlled:Participant, sign:Boolean){
+
+  override def canEqual(that: Any): Boolean = that.isInstanceOf[Connection]
+
+  override def equals(obj: scala.Any): Boolean = obj match {
+    case that:Connection => (this.controller== that.controller) && (this.controlled == that.controlled) && this.sign == that.sign
+    case _ => false
+  }
+
+  override def hashCode(): Int = s"${controller.toString}:${controlled.toString}:$sign".hashCode
+
+  override def toString: String = s"Controller: $controller - Controlled: $controlled - Sign: $sign"
+
+}
 
 object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
@@ -53,7 +67,7 @@ object FillBlanks extends App with LazyLogging{
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
 
-  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).toSet.toSeq)
+  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).distinct)
 
   val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
@@ -86,18 +100,9 @@ object FillBlanks extends App with LazyLogging{
   val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
 
 
-  val G:Graph[Participant, DiEdge] = Graph[Participant, DiEdge]() // Directed graph with the model.
+  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge]() // Directed graph with the model.
 
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
-  //// Initial first step querying individually
-  // First step, bootstrap the graph by querying individually the participants
-//  val docsA:Iterable[String] = queryIndividualParticipant(participantA)
-//  val docsB :Iterable[String] = queryIndividualParticipant(participantB)
-//  logger.info(s"Done retrieving papers for initial participants")
-//
-//  // Join them
-//  val paperSet:Set[String] = (docsA.toSet | docsB.toSet).map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
-  ///////////////////////////////////////////////////////////////////////////////////////////
 
   //// Focused query
   val docs:Iterable[String] = queryParticipants(participantA, participantB)
@@ -125,6 +130,8 @@ object FillBlanks extends App with LazyLogging{
   // Loop of iterative steps of expanding the graph
   logger.info("Starting iterative phase...")
   var stop = false
+
+
   while(!stop){
     // Look for a path between participants A and B
     logger.info("Looking for a path between the anchors ...")
@@ -140,12 +147,12 @@ object FillBlanks extends App with LazyLogging{
 
     if(!stop) {
       logger.info("Path not found. Expanding the frontier...")
-      val frontierA = findFrontier(participantA)
-      val frontierB = findFrontier(participantB)
 
+      // Get the connected components of the model graph
+      val components = getConnectedComponents
 
-      // TODO: make sure to expand this cross product to include more nodes if necessary (like the original participant)
-      val pairs = for {l <- frontierA; r <- frontierB} yield (l, r) // These are the pairs to expand our search
+      // Make the pairs to query the index
+      val pairs = crossProduct(components.toSet)
 
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
@@ -153,16 +160,16 @@ object FillBlanks extends App with LazyLogging{
       logger.info(s"Query returned ${allDocs.size} hits")
 
       // Filter out those papers that have been already annotated
-      val docs = allDocs filter {
-        d => !annotationsRecord.contains(d)
-      }
+      val docs = allDocs diff annotationsRecord
+
+      val paperSet = docs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
       // Add the papers to the record to avoid annotating them later
-      annotationsRecord ++= docs.map(d => new File(nxmlDir, s"$d.nxml").getAbsolutePath)
+      annotationsRecord ++= paperSet
 
       // Annotate the new papers
       logger.info("Annotating papers ...")
-      val activations = readPapers(docs) // TODO: Make sure the parameter has the right form
+      val activations = readPapers(paperSet)
       logger.info("Finished reading papers")
 
       //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
@@ -177,26 +184,55 @@ object FillBlanks extends App with LazyLogging{
   }
   logger.info("Finished iterative phase")
 
+
+  /***
+    * Computes the pairs of entities in the connected components to be queried by lucene
+    * @param components Connected components of the model graph
+    * @return The pairs to be queried
+    */
+  def crossProduct(components: Set[Set[Participant]]):Set[(Participant, Participant)] = {
+    val pairs = components flatMap {
+      current =>
+        val others = (components - current).flatten
+        for{
+          c <- current
+          o <- others
+        } yield (c, o)
+    }
+
+    pairs
+  }
+
+  /***
+    * Gets the sets of nodes in the connected components
+    * @return Iterable with a set of nodes for each connected component
+    */
+  def getConnectedComponents:Iterable[Set[Participant]] = {
+    G.componentTraverser().map{
+      c => c.nodes.map(_.value)
+    }.toSeq
+  }
+
   /***
     * Searches for a path between the participants in the graph
-    * @param participantA Source of the path
+    * @param participantA Source of the pathŒ∏
     * @param participantB Sink of the path
     * @return Some sequence if the path exists, otherwise None
     */
-  def findPath(participantA: Participant, participantB: Participant): Option[Seq[Participant]] =
+  def findPath(participantA: Participant, participantB: Participant): Option[Seq[Connection]] =
   {
-    None
-  }
-
-
-  /***
-    * Finds the search frontier in the graph relative to participant
-    *
-    * @param participant The participant of concern
-    * @return Iterable of participants that make the frontier
-    */
-  def findFrontier(participant: Participant):Iterable[Participant] = {
-    Nil
+    (G find participantA, G find participantB) match {
+      case (Some(pa), Some(pb)) =>
+        pa shortestPathTo pb match{
+          case Some(path) => Some{
+            path.edges.map{
+              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean])
+            }.toSeq
+          }
+          case None => None
+        }
+      case _ => None
+    }
   }
 
 
@@ -206,7 +242,19 @@ object FillBlanks extends App with LazyLogging{
     * @param connections New information to incorporate to the graph
     */
   def expandGraph(connections: Iterable[Connection]){
-    Unit
+    // How large was the graph before?
+    val prevNodesCount = this.G.nodes.size
+    val prevEdgesCount = this.G.edges.size
+    // Make labeled directed edges out of each connection
+    val edges = connections map {c => (c.controller ~+> c.controlled)(c.sign)}
+    // Add them to the graph
+    this.G ++= edges
+    // How large is it now?
+    val nodesCount = this.G.nodes.size
+    val edgesCount = this.G.edges.size
+
+    logger.info(s"Model participants; Before: $prevNodesCount\tAfter: $nodesCount")
+    logger.info(s"Model connections; Before: $prevEdgesCount\tAfter: $edgesCount")
   }
 
 
@@ -224,14 +272,14 @@ object FillBlanks extends App with LazyLogging{
         candidate.namedArguments("theme") match {
           case Some(theme) =>
             if(!theme.head.matches("Event"))
-              theme.head.asInstanceOf[BioTextBoundMention].grounding
+              theme.head.asInstanceOf[BioTextBoundMention].grounding()
             else
               None
           case None => None
         }
       }
       else if(!candidate.matches("Event")){
-        candidate.grounding
+        candidate.grounding()
       }
       else
         None
@@ -241,8 +289,8 @@ object FillBlanks extends App with LazyLogging{
 
   /***
     * Computes the sign of the event
-    * @param event
-    * @return
+    * @param event REACH event
+    * @return Sign of the reaction
     */
   def getSign(event: CorefEventMention):Boolean = {
 
@@ -351,7 +399,7 @@ object FillBlanks extends App with LazyLogging{
 
     // Write them to disk
     val file = new File(dir, "mentions.json")
-    REACHMentionSeq(ann).saveJSON(file, true)
+    REACHMentionSeq(ann).saveJSON(file, pretty = true)
     //FileUtils.writeStringToFile(file, compact(render(json)))
     //Serializer.save[Seq[CorefMention]](ann, file.getAbsolutePath)
   }
@@ -379,7 +427,7 @@ object FillBlanks extends App with LazyLogging{
 
     // Annotate the papers that haven't been so
     logger.info(s"${nonExisting.size} papers to annotate ...")
-    if(nonExisting.size > 0){
+    if(nonExisting.nonEmpty){
       // Initialize the reach system if necessary
       if(!this.initialized){
         val _ = PaperReader.rs.extractFrom("Blah", "", "")
@@ -477,13 +525,13 @@ object FillBlanks extends App with LazyLogging{
 
     var luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND " + bSynonyms + ")~20")
     var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
-    if(hits.size > 0)
+    if(hits.nonEmpty)
       // Returns the seq with the ids to annotate
       fetchHitsWithCache(hits)
     else{
       luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND  " + bSynonyms + ")")
       hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
-      if(hits.size > 0)
+      if(hits.nonEmpty)
         fetchHitsWithCache(hits)
       else{
         luceneQuery = QueryParserBase.escape("(" + aSynonyms + " OR  " + bSynonyms + ")")
