@@ -56,6 +56,7 @@ case class Connection(controller:Participant, controlled:Participant, sign:Boole
 
 object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
+  var iterations = 0 // Number of iterations after bootstrapping made
 
   val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
   val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
@@ -141,11 +142,14 @@ object FillBlanks extends App with LazyLogging{
       case Some(p) =>
         logger.info(p.mkString(" - "))
         stop = true
-        logger.info("Path found!! Stopping")
+        logger.info(s"Path found!! Stopping after $iterations iterations")
       case None => Unit
     }
 
     if(!stop) {
+      iterations += 1
+
+
       logger.info("Path not found. Expanding the frontier...")
 
       // Get the connected components of the model graph
@@ -156,7 +160,7 @@ object FillBlanks extends App with LazyLogging{
 
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
-      val allDocs = pairs flatMap (p => queryParticipants(p._1, p._2))
+      val allDocs = pairs.par.flatMap(p => queryParticipants(p._1, p._2)).seq
       logger.info(s"Query returned ${allDocs.size} hits")
 
       // Filter out those papers that have been already annotated
@@ -441,8 +445,7 @@ object FillBlanks extends App with LazyLogging{
           val startNS = System.nanoTime
           logger.info(s"$p: starting reading")
           val (id, mentions) = PaperReader.readPaper(f)
-          logger.info(s"Finished annotating $p")
-          logger.info(s"${nsToS(startNS, System.nanoTime)}s: $p")
+          logger.info(s"${nsToS(startNS, System.nanoTime)}s Finished annotating $p")
 
           // Keep only the event mentions and cast to coref mention
           val ann = mentions.collect{ case e:EventMention => e}.map(m => MentionOps(m).toCorefMention)
