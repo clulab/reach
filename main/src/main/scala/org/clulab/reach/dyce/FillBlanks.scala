@@ -169,7 +169,7 @@ object FillBlanks extends App with LazyLogging{
       val paperSet = docs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
       // Add the papers to the record to avoid annotating them later
-      annotationsRecord ++= paperSet
+      annotationsRecord ++= docs
 
       // Annotate the new papers
       logger.info("Annotating papers ...")
