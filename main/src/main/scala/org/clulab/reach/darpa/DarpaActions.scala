@@ -357,9 +357,13 @@ object DarpaActions {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|slow|starv|suppress|supress".r
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|siRNA|slow|starv|suppress|supress".r
 
   val MODIFIER_LABELS = "amod".r
+
+  val NOUN_LABELS = "nn".r
+
+  val OF_LABELS = "prep_of".r
 
   // patterns for "reverse" modifications
   val deAcetylatPat     = "(?i)de-?acetylat".r
@@ -458,14 +462,17 @@ object DarpaActions {
         shortestPath = path
       }
     }
-    val shortestPathWithMods = addAdjectivalModifiers(shortestPath, deps)
+    val shortestPathWithAdjMods = addAdjectivalModifiers(shortestPath, deps)
+    val nnMods = nounModifiers(arg.tokenInterval.indices, deps)
+    val ofMods = ofModifiers(arg.tokenInterval.indices, deps)
     // get all tokens considered negatives
     val negatives = for {
-      tok <- shortestPathWithMods
+      tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods).distinct // a single token can't negate twice
       if !excluded.contains(tok)
       lemma = trigger.sentenceObj.lemmas.get(tok)
       if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
     } yield tok
+    println(s"Found ${negatives.size} negatives: ${negatives.mkString(", ")}")
     // return number of negatives
     negatives.size
   }
@@ -484,6 +491,26 @@ object DarpaActions {
   def getModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
     (tok, dep) <- deps.getOutgoingEdges(token)
     if MODIFIER_LABELS.findFirstIn(dep).isDefined
+  } yield tok
+
+  def nounModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
+    t <- tokens
+    token <- t +: getNounModifiers(t, deps)
+  } yield token
+
+  def getNounModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
+    (tok, dep) <- deps.getIncomingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
+    if NOUN_LABELS.findFirstIn(dep).isDefined
+  } yield tok
+
+  def ofModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
+    t <- tokens
+    token <- t +: getOfModifiers(t, deps)
+  } yield token
+
+  def getOfModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
+    (tok, dep) <- deps.getIncomingEdges(token) // NB: *Incoming* edges, for e.g. "knockdown of Stat3"
+    if OF_LABELS.findFirstIn(dep).isDefined
   } yield tok
 
   /** gets a polarized label and returns it flipped */
