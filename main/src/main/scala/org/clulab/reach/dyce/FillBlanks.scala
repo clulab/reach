@@ -73,7 +73,7 @@ object FillBlanks extends App with LazyLogging{
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
 
-  val totalHits = 100 // Max # of hits per query
+  val totalHits = 10 // Max # of hits per query
   logger.info(s"Max hits for retrieval: $totalHits")
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
@@ -139,7 +139,7 @@ object FillBlanks extends App with LazyLogging{
 
     path match {
       case Some(p) =>
-        // TODO: Report the result
+        logger.info(p.mkString(" - "))
         stop = true
         logger.info("Path found!! Stopping")
       case None => Unit
