@@ -102,7 +102,7 @@ object FillBlanks extends App with LazyLogging{
   val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
 
 
-  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge]() // Directed graph with the model.
+  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
 
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
 
@@ -137,6 +137,8 @@ object FillBlanks extends App with LazyLogging{
 
   while(!stop){
     // Look for a path between participants A and B
+    iterations += 1
+    logger.info(s"Iteration $iterations")
     logger.info("Looking for a path between the anchors ...")
     val path = findPath(participantA, participantB)
 
