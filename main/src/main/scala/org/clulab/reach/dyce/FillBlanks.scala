@@ -372,6 +372,7 @@ object FillBlanks extends App with LazyLogging{
 
   /***
     * Builds edges for the model graph out of raw REACH extractions
+    * Filters out all those edges that only happen once
     *
     * @param activations REACH events to use
     * @return Iterable of connection instances
@@ -392,7 +393,13 @@ object FillBlanks extends App with LazyLogging{
         }
     }
 
-    data.collect{ case Some(connection) => connection }
+    val unfilteredConnections = data.collect{ case Some(connection) => connection }
+
+    // Filter out the connections that appear only once
+    val counter = unfilteredConnections groupBy identity mapValues (_.size)
+    val filteredConnections = counter.filter(_._2 > 1).map(_._1)
+
+    filteredConnections
   }
 
   /***
