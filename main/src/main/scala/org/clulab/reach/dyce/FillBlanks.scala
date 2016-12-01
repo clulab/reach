@@ -57,6 +57,7 @@ case class Connection(controller:Participant, controlled:Participant, sign:Boole
 object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
   var iterations = 0 // Number of iterations after bootstrapping made
+  var numNodes, numEdges = 0
 
   val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
   val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
@@ -74,7 +75,7 @@ object FillBlanks extends App with LazyLogging{
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
 
-  val totalHits = 10 // Max # of hits per query
+  val totalHits = 1 // Max # of hits per query
   logger.info(s"Max hits for retrieval: $totalHits")
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
@@ -101,7 +102,7 @@ object FillBlanks extends App with LazyLogging{
   val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
 
 
-  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge]() // Directed graph with the model.
+  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
 
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
 
@@ -125,7 +126,8 @@ object FillBlanks extends App with LazyLogging{
   val connections:Iterable[Connection] = buildEdges(activations)
   logger.info(s"Extracted ${connections.size} connections")
   //Grow the graph
-  expandGraph(connections)
+  val size = expandGraph(connections)
+  numNodes = size._1; numEdges = size._2
   logger.info("Done growing the model")
 
   // Loop of iterative steps of expanding the graph
@@ -182,8 +184,12 @@ object FillBlanks extends App with LazyLogging{
       logger.info("Growing the model with results ...")
       val connections:Iterable[Connection] = buildEdges(activations)
       //Grow the graph
-      expandGraph(connections)
+      val newSize = expandGraph(connections)
       logger.info("Done growing the model")
+      if(newSize == (numNodes, numEdges)){
+        stop = true
+        logger.info("The model didn't change.")
+      }
     }
   }
   logger.info("Finished iterative phase")
@@ -244,8 +250,9 @@ object FillBlanks extends App with LazyLogging{
     * Creates a new graph with the connections of the existing graph and new connections from the second argument
     *
     * @param connections New information to incorporate to the graph
+    * @return A tuple with the number of nodes and the number of edges after the modification
     */
-  def expandGraph(connections: Iterable[Connection]){
+  def expandGraph(connections: Iterable[Connection]):(Int, Int) = {
     // How large was the graph before?
     val prevNodesCount = this.G.nodes.size
     val prevEdgesCount = this.G.edges.size
@@ -259,6 +266,8 @@ object FillBlanks extends App with LazyLogging{
 
     logger.info(s"Model participants; Before: $prevNodesCount\tAfter: $nodesCount")
     logger.info(s"Model connections; Before: $prevEdgesCount\tAfter: $edgesCount")
+
+    (nodesCount, edgesCount)
   }
 
 
