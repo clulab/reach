@@ -102,7 +102,7 @@ object FillBlanks extends App with LazyLogging{
   val (annotationsRecord, annotationsCache) = FillBlanks.loadExtractions(reachOutputDir)
 
 
-  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
+  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge]() // Directed graph with the model.
 
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
 
@@ -142,7 +142,7 @@ object FillBlanks extends App with LazyLogging{
 
     path match {
       case Some(p) =>
-        logger.info(p.mkString(" - "))
+        logger.info(p.mkString(" || "))
         stop = true
         logger.info(s"Path found!! Stopping after $iterations iterations")
       case None => Unit
@@ -183,6 +183,7 @@ object FillBlanks extends App with LazyLogging{
       // Build a set of connections out of the extractions
       logger.info("Growing the model with results ...")
       val connections:Iterable[Connection] = buildEdges(activations)
+      logger.info(s"Extracted ${connections.size} connections")
       //Grow the graph
       val newSize = expandGraph(connections)
       logger.info("Done growing the model")
@@ -503,7 +504,7 @@ object FillBlanks extends App with LazyLogging{
     FillBlanks.dict.lift(term) match {
       case Some(l) => "(" + l.map( x => "\"" + x + "\"").mkString(" OR ") + ")"
       case None =>
-        println(s"Warning: missing term in the KB: $term")
+        logger.debug(s"Warning: missing term in the KB: $term")
         ""
     }
   }
@@ -534,6 +535,10 @@ object FillBlanks extends App with LazyLogging{
     // Build a query for lucene
     val aSynonyms = resolveParticipant(a.id)
     val bSynonyms = resolveParticipant(b.id)
+
+    if(aSynonyms.isEmpty || bSynonyms.isEmpty){
+      return Nil
+    }
 
     var luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND " + bSynonyms + ")~20")
     var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
