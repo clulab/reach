@@ -137,8 +137,6 @@ object FillBlanks extends App with LazyLogging{
 
   while(!stop){
     // Look for a path between participants A and B
-    iterations += 1
-    logger.info(s"Iteration $iterations")
     logger.info("Looking for a path between the anchors ...")
     val path = findPath(participantA, participantB)
 
@@ -153,8 +151,9 @@ object FillBlanks extends App with LazyLogging{
     if(!stop) {
       iterations += 1
 
-
       logger.info("Path not found. Expanding the frontier...")
+
+      logger.info(s"Iteration $iterations")
 
       // Get the connected components of the model graph
       val components = getConnectedComponents
