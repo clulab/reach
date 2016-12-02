@@ -178,13 +178,13 @@ object FillBlanks extends App with LazyLogging{
 
       val paperSet = allDocs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
-      // Add the papers to the record to avoid annotating them later
-      annotationsRecord ++= newDocs
-
       // Annotate the new papers
       logger.info("Annotating papers ...")
       val activations = readPapers(paperSet)
       logger.info("Finished reading papers")
+
+      // Add the papers to the record to avoid annotating them later
+      annotationsRecord ++= newDocs
 
       //TODO: Compute overlap with dyce model - Export arizona output and call my python script or reimplement here for efficiency
 
