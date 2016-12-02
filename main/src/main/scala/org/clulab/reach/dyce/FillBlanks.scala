@@ -68,6 +68,7 @@ object FillBlanks extends App with LazyLogging{
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
   lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("bio_process.tsv.gz")).getLines.toSeq
 
   val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).distinct)
 
@@ -75,11 +76,13 @@ object FillBlanks extends App with LazyLogging{
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
 
-  val totalHits = 1 // Max # of hits per query
+  val totalHits = 100 // Max # of hits per query
   logger.info(s"Max hits for retrieval: $totalHits")
 
-  val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
-  val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
+  //val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
+  val participantA = Participant("uniprot","P19838")
+  //val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
+  val participantB = Participant("go", "GO:0006915")
 
 
   val nxmlDir = "/work/enoriega/fillblanks/nxml"
