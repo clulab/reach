@@ -164,6 +164,8 @@ object FillBlanks extends App with LazyLogging{
       // Make the pairs to query the index
       val pairs = crossProduct(components.toSet)
 
+      logger.info(s"About to execute ${pairs.size} queries ...")
+
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
       val hits = pairs.par.map(p => queryParticipants(p._1, p._2)).seq
