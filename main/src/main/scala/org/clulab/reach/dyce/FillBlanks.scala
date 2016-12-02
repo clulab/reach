@@ -110,7 +110,7 @@ object FillBlanks extends App with LazyLogging{
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
 
   //// Focused query
-  val docs:Iterable[String] = queryParticipants(participantA, participantB)
+  val docs:Iterable[String] = fetchHitsWithCache(queryParticipants(participantA, participantB))
   val paperSet = docs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
   logger.info(s"Query returned ${docs.size} hits")
 
@@ -166,7 +166,9 @@ object FillBlanks extends App with LazyLogging{
 
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
-      val allDocs = pairs.par.flatMap(p => queryParticipants(p._1, p._2)).seq
+      val hits = pairs.par.map(p => queryParticipants(p._1, p._2)).seq
+      val topHits = if(hits.size <= totalHits) hits.flatten else hits.flatMap(_.take(10)).take(totalHits)
+      val allDocs = fetchHitsWithCache(topHits).toSet
       logger.info(s"Query returned ${allDocs.size} hits")
 
       // Filter out those papers that have been already annotated
@@ -525,14 +527,14 @@ object FillBlanks extends App with LazyLogging{
     * @param p Participant to anchor out lucene query
     * @return Iterable with the ids of the papers in the output directory
     */
-  def queryIndividualParticipant(p:Participant):Iterable[String] = {
+  def queryIndividualParticipant(p:Participant):Set[(Int, Float)] = {
 
     // Build a query for lucene
     val luceneQuery = resolveParticipant(p.id)
     val hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
 
     // Returns the seq with the ids to annotate
-    fetchHitsWithCache(hits)
+    hits
 
   }
 
@@ -542,29 +544,29 @@ object FillBlanks extends App with LazyLogging{
     * @param b Participant B
     * @return
     */
-  def queryParticipants(a:Participant, b:Participant):Iterable[String] = {
+  def queryParticipants(a:Participant, b:Participant):Set[(Int, Float)] = {
     // Build a query for lucene
     val aSynonyms = resolveParticipant(a.id)
     val bSynonyms = resolveParticipant(b.id)
 
     if(aSynonyms.isEmpty || bSynonyms.isEmpty){
-      return Nil
+      return Set()
     }
 
     var luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND " + bSynonyms + ")~20")
     var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
     if(hits.nonEmpty)
       // Returns the seq with the ids to annotate
-      fetchHitsWithCache(hits)
+      hits
     else{
       luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND  " + bSynonyms + ")")
       hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
       if(hits.nonEmpty)
-        fetchHitsWithCache(hits)
+        hits
       else{
         luceneQuery = QueryParserBase.escape("(" + aSynonyms + " OR  " + bSynonyms + ")")
         hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
-        fetchHitsWithCache(hits)
+        hits
       }
     }
   }
