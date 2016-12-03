@@ -104,7 +104,7 @@ object FillBlanks extends App with LazyLogging{
 
   /// Load the query cache it it exists, otherwise create a new one
   val queryCacheFile = new File("query_cache.ser")
-  val queriedPairs =  if(ldcFile.exists()) Serializer.load[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queryCacheFile.getAbsolutePath)
+  val queriedPairs =  if(queryCacheFile.exists()) Serializer.load[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queryCacheFile.getAbsolutePath)
   else mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]()
 
 
