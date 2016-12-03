@@ -15,6 +15,7 @@ import org.clulab.utils.Serializer
 
 import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
+import scala.collection.parallel.ForkJoinTaskSupport
 import scalax.collection.GraphPredef._
 import scalax.collection.edge.Implicits._
 import scalax.collection.edge.LDiEdge
@@ -168,7 +169,9 @@ object FillBlanks extends App with LazyLogging{
 
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
-      val hits = pairs.par.map(p => queryParticipants(p._1, p._2)).seq
+      val parPairs = pairs.par
+      parPairs.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
+      val hits = parPairs.par.map(p => queryParticipants(p._1, p._2)).seq
       val topHits = if(hits.size <= totalHits) hits.flatten else hits.flatMap(_.take(10)).take(totalHits)
       val allDocs = fetchHitsWithCache(topHits).toSet
       logger.info(s"Query returned ${allDocs.size} hits")
@@ -464,7 +467,9 @@ object FillBlanks extends App with LazyLogging{
       }
     }
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
-      nonExisting.par.map{
+      val parNonExisting = nonExisting.par
+      parNonExisting.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
+      parNonExisting.par.map{
         p =>
           val f = new File(p)
           val startNS = System.nanoTime
