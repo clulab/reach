@@ -173,11 +173,11 @@ object FillBlanks extends App with LazyLogging{
       parPairs.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
       val hits = parPairs.par.map(p => queryParticipants(p._1, p._2)).seq
       val topHits = if(hits.size <= totalHits) hits.flatten else hits.flatMap(_.take(10)).take(totalHits)
-      val allDocs = fetchHitsWithCache(topHits).toSet
+      val allDocs = fetchHitsWithCache(topHits)
       logger.info(s"Query returned ${allDocs.size} hits")
 
       // Filter out those papers that have been already annotated
-      val newDocs = allDocs diff annotationsRecord
+      val newDocs = allDocs.toSet diff annotationsRecord
 
       val paperSet = allDocs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
 
