@@ -60,7 +60,7 @@ object FillBlanks extends App with LazyLogging{
   var iterations = 0 // Number of iterations after bootstrapping made
   var numNodes, numEdges = 0
   val taskSupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
-  val queriedPairs = new mutable.HashMap[Tuple2[Participant, Participant], Set[(Int, Float)]]
+
 
   val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
   val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
@@ -101,6 +101,11 @@ object FillBlanks extends App with LazyLogging{
     mutable.HashMap[Int, String]()
   }
   ///////////////////////
+
+  /// Load the query cache it it exists, otherwise create a new one
+  val queryCacheFile = new File("query_cache.ser")
+  val queriedPairs =  if(ldcFile.exists()) Serializer.load[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queryCacheFile.getAbsolutePath)
+  else mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]()
 
 
   // Load the existing annotations
@@ -186,6 +191,10 @@ object FillBlanks extends App with LazyLogging{
       val topHits = if(hits.size <= totalHits) hits.flatten else hits.flatMap(_.take(10)).take(totalHits)
       val allDocs = fetchHitsWithCache(topHits)
       logger.info(s"Query returned ${allDocs.size} hits")
+
+      // Serialize the query cache
+      logger.info(s"Serializing the query cache of size ${queriedPairs.size}...")
+      Serializer.save[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queriedPairs, queryCacheFile.getAbsolutePath)
 
       // Filter out those papers that have been already annotated
       val newDocs = allDocs.toSet diff annotationsRecord
