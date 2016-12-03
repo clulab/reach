@@ -79,7 +79,7 @@ object FillBlanks extends App with LazyLogging{
   val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
 
 
-  val totalHits = 100 // Max # of hits per query
+  val totalHits = 200 // Max # of hits per query
   logger.info(s"Max hits for retrieval: $totalHits")
 
   //val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
@@ -149,6 +149,7 @@ object FillBlanks extends App with LazyLogging{
   logger.info("Starting iterative phase...")
   var stop = false
 
+  var oldQueryCacheSize = queriedPairs.size
 
   while(!stop){
     // Look for a path between participants A and B
@@ -185,8 +186,6 @@ object FillBlanks extends App with LazyLogging{
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
 
-      val oldQueryCacheSize = queriedPairs.size
-
       val parPairs = pairs.par
       parPairs.tasksupport = taskSupport
       val hits = parPairs.par.map(p => queryParticipants(p._1, p._2)).seq
@@ -195,9 +194,10 @@ object FillBlanks extends App with LazyLogging{
       logger.info(s"Query returned ${allDocs.size} hits")
 
       // Serialize the query cache
-      if(queriedPairs.size > oldQueryCacheSize) {
+      if(queriedPairs.size > (oldQueryCacheSize+1000)) {
         logger.info(s"Serializing the query cache of size ${queriedPairs.size}...")
         Serializer.save[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queriedPairs, queryCacheFile.getAbsolutePath)
+        oldQueryCacheSize = queriedPairs.size
       }
 
       // Filter out those papers that have been already annotated
@@ -226,6 +226,7 @@ object FillBlanks extends App with LazyLogging{
         stop = true
         logger.info("The model didn't change.")
       }
+      numNodes = newSize._1; numEdges = newSize._2
     }
 
     // Beg for garbage collection
