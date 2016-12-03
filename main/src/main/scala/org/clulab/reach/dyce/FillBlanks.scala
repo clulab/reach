@@ -59,6 +59,7 @@ object FillBlanks extends App with LazyLogging{
   var initialized = false // Flag to indicate whether reach has been initialized
   var iterations = 0 // Number of iterations after bootstrapping made
   var numNodes, numEdges = 0
+  val taskSupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
 
   val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
   val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
@@ -170,7 +171,7 @@ object FillBlanks extends App with LazyLogging{
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
       val parPairs = pairs.par
-      parPairs.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
+      parPairs.tasksupport = taskSupport
       val hits = parPairs.par.map(p => queryParticipants(p._1, p._2)).seq
       val topHits = if(hits.size <= totalHits) hits.flatten else hits.flatMap(_.take(10)).take(totalHits)
       val allDocs = fetchHitsWithCache(topHits)
@@ -468,7 +469,7 @@ object FillBlanks extends App with LazyLogging{
     }
     val newAnnotations:Seq[(String, Seq[CorefMention])] = {
       val parNonExisting = nonExisting.par
-      parNonExisting.tasksupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
+      parNonExisting.tasksupport = taskSupport
       parNonExisting.par.map{
         p =>
           val f = new File(p)
