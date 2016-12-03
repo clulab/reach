@@ -60,6 +60,7 @@ object FillBlanks extends App with LazyLogging{
   var iterations = 0 // Number of iterations after bootstrapping made
   var numNodes, numEdges = 0
   val taskSupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
+  val queriedPairs = new mutable.HashMap[Tuple2[Participant, Participant], Set[(Int, Float)]]
 
   val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
   val negativeLabels = Vector("Negative_regulation", "Negative_activation", "DecreaseAmount", "RemovalEvent", "Translocation")
@@ -112,9 +113,13 @@ object FillBlanks extends App with LazyLogging{
   logger.info(s"Bootstraping step: Retrieving docs for the target participants ...")
 
   //// Focused query
-  val docs:Iterable[String] = fetchHitsWithCache(queryParticipants(participantA, participantB))
+  val hits = queryParticipants(participantA, participantB)
+  val docs:Iterable[String] = fetchHitsWithCache(hits)
   val paperSet = docs.map(p => new File(nxmlDir, s"$p.nxml").getAbsolutePath)
   logger.info(s"Query returned ${docs.size} hits")
+
+  // Add the participants to the queried pairs cache
+  queriedPairs += (Tuple2(participantA, participantB) -> hits)
 
   // Extract them
   logger.info("Reading retrieved papers ...")
@@ -166,10 +171,15 @@ object FillBlanks extends App with LazyLogging{
       // Make the pairs to query the index
       val pairs = crossProduct(components.toSet)
 
-      logger.info(s"About to execute ${pairs.size} queries ...")
+      // How many new pairs to query?
+      val numQueries = pairs.count(p => queriedPairs.contains(p))
+
+
+      logger.info(s"Found ${pairs.size} hits. About to execute $numQueries queries ...")
 
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
+
       val parPairs = pairs.par
       parPairs.tasksupport = taskSupport
       val hits = parPairs.par.map(p => queryParticipants(p._1, p._2)).seq
@@ -204,6 +214,9 @@ object FillBlanks extends App with LazyLogging{
         logger.info("The model didn't change.")
       }
     }
+
+    // Beg for garbage collection
+    System.gc()
   }
   logger.info("Finished iterative phase")
 
@@ -553,29 +566,39 @@ object FillBlanks extends App with LazyLogging{
     * @return
     */
   def queryParticipants(a:Participant, b:Participant):Set[(Int, Float)] = {
-    // Build a query for lucene
-    val aSynonyms = resolveParticipant(a.id)
-    val bSynonyms = resolveParticipant(b.id)
 
-    if(aSynonyms.isEmpty || bSynonyms.isEmpty){
-      return Set()
-    }
+    val key = (a,b)
+    queriedPairs.lift(key) match {
+      case Some(result) => result
+      case None =>
+        // Build a query for lucene
+        val aSynonyms = resolveParticipant(a.id)
+        val bSynonyms = resolveParticipant(b.id)
 
-    var luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND " + bSynonyms + ")~20")
-    var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
-    if(hits.nonEmpty)
-      // Returns the seq with the ids to annotate
-      hits
-    else{
-      luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND  " + bSynonyms + ")")
-      hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
-      if(hits.nonEmpty)
-        hits
-      else{
-        luceneQuery = QueryParserBase.escape("(" + aSynonyms + " OR  " + bSynonyms + ")")
-        hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
-        hits
-      }
+        if(aSynonyms.isEmpty || bSynonyms.isEmpty){
+          queriedPairs += (key -> Set())
+          return Set()
+        }
+
+        var luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND " + bSynonyms + ")~20")
+        var hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits) // Search Lucene for the participants
+        val result = if(hits.nonEmpty)
+        // Returns the seq with the ids to annotate
+          hits
+        else{
+          luceneQuery = QueryParserBase.escape("(" + aSynonyms + " AND  " + bSynonyms + ")")
+          hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
+          if(hits.nonEmpty)
+            hits
+          else{
+            luceneQuery = QueryParserBase.escape("(" + aSynonyms + " OR  " + bSynonyms + ")")
+            hits = FillBlanks.nxmlSearcher.searchByField(luceneQuery, "text", new StandardAnalyzer(), totalHits)
+            hits
+          }
+        }
+
+        queriedPairs += (key -> result)
+        result
     }
   }
 
