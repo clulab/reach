@@ -172,7 +172,7 @@ object FillBlanks extends App with LazyLogging{
       val pairs = crossProduct(components.toSet)
 
       // How many new pairs to query?
-      val numQueries = pairs.count(p => queriedPairs.contains(p))
+      val numQueries = pairs.count(p => !queriedPairs.contains(p))
 
 
       logger.info(s"Found ${pairs.size} hits. About to execute $numQueries queries ...")
@@ -216,6 +216,7 @@ object FillBlanks extends App with LazyLogging{
     }
 
     // Beg for garbage collection
+    logger.info("Asking for GC")
     System.gc()
   }
   logger.info("Finished iterative phase")
