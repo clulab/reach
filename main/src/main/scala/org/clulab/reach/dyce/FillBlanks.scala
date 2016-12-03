@@ -185,6 +185,8 @@ object FillBlanks extends App with LazyLogging{
       // Query the index to find the new papers to annotate
       logger.info("Retrieving papers to build a path...")
 
+      val oldQueryCacheSize = queriedPairs.size
+
       val parPairs = pairs.par
       parPairs.tasksupport = taskSupport
       val hits = parPairs.par.map(p => queryParticipants(p._1, p._2)).seq
@@ -193,8 +195,10 @@ object FillBlanks extends App with LazyLogging{
       logger.info(s"Query returned ${allDocs.size} hits")
 
       // Serialize the query cache
-      logger.info(s"Serializing the query cache of size ${queriedPairs.size}...")
-      Serializer.save[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queriedPairs, queryCacheFile.getAbsolutePath)
+      if(queriedPairs.size > oldQueryCacheSize) {
+        logger.info(s"Serializing the query cache of size ${queriedPairs.size}...")
+        Serializer.save[mutable.HashMap[(Participant, Participant), Set[(Int, Float)]]](queriedPairs, queryCacheFile.getAbsolutePath)
+      }
 
       // Filter out those papers that have been already annotated
       val newDocs = allDocs.toSet diff annotationsRecord
