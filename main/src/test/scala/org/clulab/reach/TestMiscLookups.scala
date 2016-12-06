@@ -1,7 +1,7 @@
 package org.clulab.reach
 
 import org.scalatest.{Matchers, FlatSpec}
-import TestUtils._
+import org.clulab.reach.TestUtils._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachMiscLookups._
@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachMiscLookups._
 /**
   * Unit tests of additional lookup tables and knowledge bases.
   *   Written by: Tom Hicks. 7/10/2016.
-  *   Last Modified: Add tests for gene name affixes.
+  *   Last Modified: Update for separation of gene name affixes.
   */
 class TestMiscLookups extends FlatSpec with Matchers {
 
@@ -103,49 +103,78 @@ class TestMiscLookups extends FlatSpec with Matchers {
   }
 
 
-  // Tests of the singleton Gene Name Affixes set:
-  val gna = GeneNameAffixes
+  // Tests of the singleton Gene Name Prefixes set:
+  val gnp = GeneNamePrefixes
 
-  "Gene Name Affixes" should "test that contains method works" in {
-    (gna.contains("NOT-IN-KB")) should be (false) // not in KB
-    (gna.contains("not-in-kb")) should be (false) // not in KB
-    (gna.contains("prefix")) should be (false)    // not in KB
-    (gna.contains("suffix")) should be (false)    // not in KB
-    (gna.contains("affix")) should be (false)     // not in KB
-    (gna.contains("uaz")) should be (false)       // not in KB
-    (gna.contains("activated")) should be (true)  // first entry in list
-    (gna.contains("ACTIVATED")) should be (false) // entries are lowercase
-    (gna.contains("flag")) should be (true)
-    (gna.contains("Flag")) should be (false)      // entries are lowercase
-    (gna.contains("FLAG")) should be (false)      // entries are lowercase
-    (gna.contains("gst")) should be (true)
-    (gna.contains("GST")) should be (false)       // entries are lowercase
-    (gna.contains("phospho")) should be (true)
-    (gna.contains("phosphor")) should be (true)
-    (gna.contains("phosphorylated")) should be (true)
-    (gna.contains("shrna")) should be (true)      // last entry in list
-    (gna.contains("shRNA")) should be (false)     // entries are lowercase
+  "Gene Name Prefixes" should "test that contains method works" in {
+    (gnp.contains("NOT-IN-KB")) should be (false) // not in KB
+    (gnp.contains("not-in-kb")) should be (false) // not in KB
+    (gnp.contains("prefix")) should be (false)    // not in KB
+    (gnp.contains("suffix")) should be (false)    // not in KB
+    (gnp.contains("affix")) should be (false)     // not in KB
+    (gnp.contains("uaz")) should be (false)       // not in KB
+    (gnp.contains("activated")) should be (true)  // first entry in list
+    (gnp.contains("ACTIVATED")) should be (false) // entries are lowercase
+    (gnp.contains("flag")) should be (true)
+    (gnp.contains("Flag")) should be (false)      // entries are lowercase
+    (gnp.contains("FLAG")) should be (false)      // entries are lowercase
+    (gnp.contains("gst")) should be (true)
+    (gnp.contains("GST")) should be (false)       // entries are lowercase
+    (gnp.contains("phospho")) should be (true)
+    (gnp.contains("phosphor")) should be (true)
+    (gnp.contains("phosphorylated")) should be (true)
+    (gnp.contains("yfp")) should be (true)        // last entry in list
+    (gnp.contains("YFP")) should be (false)       // entries are lowercase
   }
 
-  "Gene Name Affixes" should "test that isGeneNameAffix method works" in {
-    (isGeneNameAffix("NOT-IN-KB")) should be (false) // not in KB
-    (isGeneNameAffix("not-in-kb")) should be (false) // not in KB
-    (isGeneNameAffix("prefix")) should be (false)    // not in KB
-    (isGeneNameAffix("suffix")) should be (false)    // not in KB
-    (isGeneNameAffix("affix")) should be (false)     // not in KB
-    (isGeneNameAffix("uaz")) should be (false)       // not in KB
-    (isGeneNameAffix("activated")) should be (true)  // first entry in list
-    (isGeneNameAffix("ACTIVATED")) should be (true)  // case should not matter
-    (isGeneNameAffix("flag")) should be (true)
-    (isGeneNameAffix("Flag")) should be (true)       // case should not matter
-    (isGeneNameAffix("FLAG")) should be (true)       // case should not matter
-    (isGeneNameAffix("gst")) should be (true)
-    (isGeneNameAffix("GST")) should be (true)        // case should not matter
-    (isGeneNameAffix("phospho")) should be (true)
-    (isGeneNameAffix("phosphor")) should be (true)
-    (isGeneNameAffix("phosphorylated")) should be (true)
-    (isGeneNameAffix("shrna")) should be (true)      // last entry in list
-    (isGeneNameAffix("shRNA")) should be (true)      // last entry in list
+  "Gene Name Prefixes" should "test that isGeneNamePrefix method works" in {
+    (isGeneNamePrefix("NOT-IN-KB")) should be (false) // not in KB
+    (isGeneNamePrefix("not-in-kb")) should be (false) // not in KB
+    (isGeneNamePrefix("prefix")) should be (false)    // not in KB
+    (isGeneNamePrefix("suffix")) should be (false)    // not in KB
+    (isGeneNamePrefix("affix")) should be (false)     // not in KB
+    (isGeneNamePrefix("uaz")) should be (false)       // not in KB
+    (isGeneNamePrefix("activated")) should be (true)  // first entry in list
+    (isGeneNamePrefix("ACTIVATED")) should be (true)  // case should not matter
+    (isGeneNamePrefix("flag")) should be (true)
+    (isGeneNamePrefix("Flag")) should be (true)       // case should not matter
+    (isGeneNamePrefix("FLAG")) should be (true)       // case should not matter
+    (isGeneNamePrefix("gst")) should be (true)
+    (isGeneNamePrefix("GST")) should be (true)        // case should not matter
+    (isGeneNamePrefix("phospho")) should be (true)
+    (isGeneNamePrefix("phosphor")) should be (true)
+    (isGeneNamePrefix("phosphorylated")) should be (true)
+    (isGeneNamePrefix("yfp")) should be (true)        // last entry in list
+    (isGeneNamePrefix("YFP")) should be (true)        // last entry in list
+  }
+
+  // Tests of the singleton Gene Name Suffixes set:
+  val gns = GeneNameSuffixes
+
+  "Gene Name Suffixes" should "test that contains method works" in {
+    (gns.contains("NOT-IN-KB")) should be (false) // not in KB
+    (gns.contains("not-in-kb")) should be (false) // not in KB
+    (gns.contains("prefix")) should be (false)    // not in KB
+    (gns.contains("suffix")) should be (false)    // not in KB
+    (gns.contains("affix")) should be (false)     // not in KB
+    (gns.contains("uaz")) should be (false)       // not in KB
+    (gns.contains("egfp")) should be (true)       // first entry in list
+    (gns.contains("EFGP")) should be (false)      // entries are lowercase
+    (gns.contains("gfp")) should be (true)        // last entry in list
+    (gns.contains("GFP")) should be (false)       // entries are lowercase
+  }
+
+  "Gene Name Suffixes" should "test that isGeneNameSuffix method works" in {
+    (isGeneNameSuffix("NOT-IN-KB")) should be (false) // not in KB
+    (isGeneNameSuffix("not-in-kb")) should be (false) // not in KB
+    (isGeneNameSuffix("prefix")) should be (false)    // not in KB
+    (isGeneNameSuffix("suffix")) should be (false)    // not in KB
+    (isGeneNameSuffix("affix")) should be (false)     // not in KB
+    (isGeneNameSuffix("uaz")) should be (false)       // not in KB
+    (isGeneNameSuffix("egfp")) should be (true)       // first entry in list
+    (isGeneNameSuffix("EGFP")) should be (true)       // case should not matter
+    (isGeneNameSuffix("gfp")) should be (true)        // last entry in list
+    (isGeneNameSuffix("GFP")) should be (true)        // last entry in list
   }
 
 }
