@@ -40,7 +40,7 @@ case class Participant(namespace:String, id:String){
   override def toString: String = s"$namespace:$id"
 }
 
-case class Connection(controller:Participant, controlled:Participant, sign:Boolean){
+case class Connection(controller:Participant, controlled:Participant, sign:Boolean, evidence:String){
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Connection]
 
@@ -60,6 +60,7 @@ object FillBlanks extends App with LazyLogging{
   var iterations = 0 // Number of iterations after bootstrapping made
   var numNodes, numEdges = 0
   val taskSupport = new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(20))
+  val evidence = new mutable.HashMap[Connection, mutable.Set[String]]()
 
 
   val positiveLabels = Vector("Positive_regulation", "Positive_activation", "IncreaseAmount", "AdditionEvent")
@@ -159,6 +160,13 @@ object FillBlanks extends App with LazyLogging{
     path match {
       case Some(p) =>
         logger.info(p.mkString(" || "))
+        for(c <- p){
+          println(s"Evidence of $c")
+          println()
+          val sentences = evidence(c)
+          println(sentences.mkString("\n"))
+          println("----------------------------")
+        }
         stop = true
         logger.info(s"Path found!! Stopping after $iterations iterations")
       case None => Unit
@@ -277,7 +285,7 @@ object FillBlanks extends App with LazyLogging{
         pa shortestPathTo pb match{
           case Some(path) => Some{
             path.edges.map{
-              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean])
+              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], "")
             }.toSeq
           }
           case None => None
@@ -422,11 +430,12 @@ object FillBlanks extends App with LazyLogging{
         val event = a.asInstanceOf[CorefEventMention]
         val controller = unravelEvent(event.namedArguments("controller"))
         val controlled = unravelEvent(event.namedArguments("controlled"))
+        val text = event.text
 
         (controller, controlled) match {
           case (Some(cr), Some(cd)) =>
             val sign = getSign(event)
-            Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign))
+            Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign, text))
 
           case _ => None
         }
@@ -437,6 +446,19 @@ object FillBlanks extends App with LazyLogging{
     // Filter out the connections that appear only once
     val counter = unfilteredConnections groupBy identity mapValues (_.size)
     val filteredConnections = counter.filter(_._2 > 1).map(_._1)
+
+    // Store the evidence
+    for(con <- filteredConnections){
+      if(evidence.contains(con)){
+        evidence(con) += con.evidence
+      }
+      else{
+        val s = new mutable.HashSet[String]
+        s += con.evidence
+        evidence += (con -> s)
+      }
+    }
+
 
     filteredConnections
   }
