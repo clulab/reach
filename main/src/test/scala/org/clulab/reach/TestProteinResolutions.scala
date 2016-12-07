@@ -13,7 +13,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Add tests for gene name affix stripping.
+  *   Last Modified: Updates tests for removal of gene name inhibition affixes.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -117,14 +117,14 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("u-notinkb")) should be (empty)
     (imkbP.resolve("rAAV")) should be (empty)            // only prefix
     (imkbP.resolve("EGFP-MCHY")) should be (empty)       // only prefixes
-    (imkbP.resolve("GFP-Mchy-SH")) should be (empty)     // only prefixes
-    (imkbP.resolve("shRNA")) should be (empty)           // only suffix
-    (imkbP.resolve("KD-shRNA")) should be (empty)        // only suffixes
-    (imkbP.resolve("Gfp-kd")) should be (empty)          // only prefix & suffix
-    (imkbP.resolve("Gfp-SH-kd-shRNA")) should be (empty) // only prefixes & suffixes
+    (imkbP.resolve("GFP-Mchy-MMTV")) should be (empty)   // only prefixes
+    (imkbP.resolve("EGFP")) should be (empty)            // only suffix
+    (imkbP.resolve("efgp-EGFP")) should be (empty)        // only suffixes
+    (imkbP.resolve("EGfp-egfp")) should be (empty)        // only prefix & suffix
+    (imkbP.resolve("Gfp-MMTV-egfp-GFP")) should be (empty) // only prefixes & suffixes
     (imkbP.resolve("Yfp-virus-YFP")) should be (empty)   // no such protein
-    (imkbP.resolve("KD-VIRUS-shRNA")) should be (empty)  // no such protein
-    (imkbP.resolve("Gfp-Virus-kd")) should be (empty)    // no such protein
+    (imkbP.resolve("HA-VIRUS-GFP")) should be (empty)    // no such protein
+    (imkbP.resolve("Gfp-Virus-egfp")) should be (empty)  // no such protein
   }
 
   "ProteinKBL resolve" should "work with gene name affix stripping" in {
@@ -141,18 +141,18 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("YFP-STBA")) should be (defined)
     (imkbP.resolve("phospho-ERK")) should be (defined)
     (imkbP.resolve("phosphorylated-ERK")) should be (defined)
-    (imkbP.resolve("ERK-KD")) should be (defined)            // suffixed
-    (imkbP.resolve("ERK-kd")) should be (defined)            // suffixed
-    (imkbP.resolve("ERK-KD-SHRNA")) should be (defined)      // multiple suffixes
-    (imkbP.resolve("ERK-kd-shrna")) should be (defined)      // multiple suffixes
+    (imkbP.resolve("ERK-egfp")) should be (defined)          // suffixed
+    (imkbP.resolve("ERK-gfp")) should be (defined)           // suffixed
+    (imkbP.resolve("ERK-GFP-EGFP")) should be (defined)      // multiple suffixes
+    (imkbP.resolve("ERK-gfp-egfp")) should be (defined)      // multiple suffixes
     (imkbP.resolve("Myr-Flag-Akt1")) should be (defined)     // multiple prefix
     (imkbP.resolve("Myr-Flag-Akt-1")) should be (defined)    // multiple prefix
-    (imkbP.resolve("Sh-Myr-Flag-Akt1")) should be (defined)  // multiple prefix
-    (imkbP.resolve("SH-MYR-FLAG-Akt-1")) should be (defined) // multiple prefix
-    (imkbP.resolve("GFP-KRAS-KD")) should be (defined)       // prefix & suffix
-    (imkbP.resolve("GFP-KRAS-Kd")) should be (defined)       // prefix & suffix
-    (imkbP.resolve("WT-Gfp-KRAS-Kd-shRNA")) should be (defined) // prefixes & suffixes
-    (imkbP.resolve("WT-Gfp-KRAS-Kd-shRNA")) should be (defined) // prefixes & suffixes
+    (imkbP.resolve("mmtv-Myr-Flag-Akt1")) should be (defined)  // multiple prefix
+    (imkbP.resolve("MMTV-MYR-FLAG-Akt-1")) should be (defined) // multiple prefix
+    (imkbP.resolve("GFP-KRAS-GFP")) should be (defined)      // prefix & suffix
+    (imkbP.resolve("GFP-KRAS-EGFP")) should be (defined)     // prefix & suffix
+    (imkbP.resolve("WT-Gfp-KRAS-gfp-EGFP")) should be (defined) // prefixes & suffixes
+    (imkbP.resolve("WT-Gfp-KRAS-gfp-EGFP")) should be (defined) // prefixes & suffixes
   }
 
 
