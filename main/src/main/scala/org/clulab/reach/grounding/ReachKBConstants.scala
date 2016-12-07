@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add Bioentities KB files.
+  *   Last Modified: Separate gene name affixes.
   */
 object ReachKBConstants {
 
@@ -90,9 +90,10 @@ object ReachKBConstants {
   val ContextTissueTypeFilename = "tissue-type.tsv.gz"
 
 
-  /** Filename of a file containing just Gene Name Affix strings, extracted from
-      the Sorger bioentities file. */
-  val GeneNameAffixesFilename = "geneNameAffixes.txt.gz"
+  /** Filenames of files containing just Gene Name Prefix or Suffix strings, extracted
+      from the Sorger bioentities file. */
+  val GeneNamePrefixesFilename = "geneNamePrefixes.txt.gz"
+  val GeneNameSuffixesFilename = "geneNameSuffixes.txt.gz"
 
   /** Filename of the protein kinases lookup table. */
   val ProteinKinasesFilename = "uniprot-kinases.txt.gz"

@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * REACH-related methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Add transform to strip gene name affixes.
+  *   Last Modified: Update for separation of gene name affixes.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -64,10 +64,10 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     stripSuffixes(ProteinPostAttributives, lcText)
   }
 
-  /** Remove affixes from given dash-separated key, return concatenated string of non-affixes. */
+  /** Remove prefixes from given dash-separated key, return concatenated string of non-prefixes. */
   def stripGeneNameAffixes (text:String): String = {
     if (text.contains("-")) {
-      val stripped = text.split("-").filterNot(isGeneNameAffix(_))
+      val stripped = text.split("-").filterNot(txt => isGeneNamePrefix(txt) || isGeneNameSuffix(txt))
       if (!stripped.isEmpty)
         stripped.mkString("-")
       else text
@@ -133,14 +133,25 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
                                   hyphenatedProteinKey _,
                                   stripPTMPrefixes _ )
 
-  /** Set of gene name affix strings extracted from the Sorger bioentities file. */
-  val GeneNameAffixes: Set[String] =
-    ReachKBUtils.readLines(GeneNameAffixesFilename)
-                .map(affix => makeCanonicalKey(affix.trim)).toSet
 
-  /** Tell whether the given string names a gene name affix or not. */
-  def isGeneNameAffix (affix: String): Boolean =
-    GeneNameAffixes.contains(makeCanonicalKey(affix))
+  /** Set of gene name prefix strings extracted from the Sorger bioentities file. */
+  val GeneNamePrefixes: Set[String] =
+    ReachKBUtils.readLines(GeneNamePrefixesFilename)
+                .map(prefix => makeCanonicalKey(prefix.trim)).toSet
+
+  /** Tell whether the given string names a gene name prefix or not. */
+  def isGeneNamePrefix (prefix: String): Boolean =
+    GeneNamePrefixes.contains(makeCanonicalKey(prefix))
+
+
+  /** Set of gene name suffix strings extracted from the Sorger bioentities file. */
+  val GeneNameSuffixes: Set[String] =
+    ReachKBUtils.readLines(GeneNameSuffixesFilename)
+                .map(suffix => makeCanonicalKey(suffix.trim)).toSet
+
+  /** Tell whether the given string names a gene name suffix or not. */
+  def isGeneNameSuffix (suffix: String): Boolean =
+    GeneNameSuffixes.contains(makeCanonicalKey(suffix))
 
 
   /** Set of short protein domain strings. */
