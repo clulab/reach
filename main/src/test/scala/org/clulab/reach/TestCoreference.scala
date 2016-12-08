@@ -609,12 +609,20 @@ class TestCoreference extends FlatSpec with Matchers {
     posreg.head.arguments("controlled").head == posact.head should be (true)
   }
 
-  val sent56 = "Akta and HSP20 are common. It phosphorylates Akta."
-  sent56 should "match 'It' to 'HSP20' (not 'Akta')" in {
-    val mentions = getBioMentions(sent56)
+  val sent56a = "Akta and HSP20 are common. It phosphorylates Akta."
+  sent56a should "match 'It' to 'HSP20' (not 'Akta')" in {
+    val mentions = getBioMentions(sent56a)
     val it = mentions.find(_.text == "It")
     //it should not be empty
     it.get.antecedentOrElse(it.get).text should be ("HSP20")
+  }
+
+  val sent56b = "ASPP1 binds Mek. It then binds KIAA0771."
+  sent56b should "match 'It' to 'Mek' (not 'ASPP1')" in {
+    val mentions = getBioMentions(sent56b)
+    val it = mentions.find(_.text == "It")
+    //it should not be empty
+    it.get.antecedentOrElse(it.get).text should be ("Mek")
   }
 
   val sent57 = "It is possible that the effects of HSP20 on AKT might differ between normal cardiomyocytes or " +

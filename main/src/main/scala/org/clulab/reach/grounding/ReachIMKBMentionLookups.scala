@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for class renames.
+  *   Last Modified: Shorten Bioentities namespace.
   */
 object ReachIMKBMentionLookups {
 
@@ -31,6 +31,8 @@ object ReachIMKBMentionLookups {
   val StaticDrug = staticDrugKBML
   // val StaticMetabolite = staticMetaboliteKBML    // REPLACED by PubChem
   val StaticProtein = staticProteinKBML
+  val StaticProteinComplex = staticProteinComplexKBML
+  val StaticProteinFamily0 = staticProteinFamily0KBML
   val StaticProteinFamily = staticProteinFamilyKBML
   val StaticProteinFamily2 = staticProteinFamily2KBML
 
@@ -135,6 +137,14 @@ object ReachIMKBMentionLookups {
     new IMKBProteinMentionLookup(TsvIMKBFactory.make("uniprot", StaticProteinFilename, hasSpeciesInfo = true, metaInfo))
   }
 
+  /** KB accessor to resolve protein complex names via static KB. */
+  def staticProteinComplexKBML: IMKBProteinMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
+    metaInfo.put("file", StaticProteinComplexFilename)
+    metaInfo.put("protein", "true")         // treat complexes as a protein KB
+    new IMKBProteinMentionLookup(TsvIMKBFactory.make("be", StaticProteinComplexFilename, metaInfo))
+  }
+
   //
   // Protein Family Accessors
   //   These extend from LocalAltKBMentionLookup because protein & protein family
@@ -163,8 +173,18 @@ object ReachIMKBMentionLookups {
     metaInfo.put("file", StaticProteinFamily2Filename)
     metaInfo.put("family", "true")          // mark as from a protein family KB
     new IMKBFamilyMentionLookup(TsvIMKBFactory.make("interpro",
-                                                    StaticProteinFamily2Filename, hasSpeciesInfo = true, metaInfo))
+                                                    StaticProteinFamily2Filename,
+                                                    hasSpeciesInfo = true, metaInfo))
   }
+
+  /** KB accessor to resolve protein family names via static KB. */
+  def staticProteinFamily0KBML: IMKBFamilyMentionLookup = {
+    val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
+    metaInfo.put("file", StaticProteinFamily0Filename)
+    metaInfo.put("family", "true")          // mark as from a protein family KB
+    new IMKBFamilyMentionLookup(TsvIMKBFactory.make("be", StaticProteinFamily0Filename, metaInfo))
+  }
+
 
   //
   // Context-related Accessors

@@ -4,6 +4,7 @@
 sbt 'test-only \
 org.clulab.reach.TestAdHocIMKBs \
 org.clulab.reach.TestAzFailsafeKB \
+org.clulab.reach.TestComplexResolutions \
 org.clulab.reach.TestFamilyResolutions \
 org.clulab.reach.TestGrounding \
 org.clulab.reach.TestGroundingTrait \

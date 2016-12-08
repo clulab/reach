@@ -21,7 +21,7 @@ class LinearSelector extends AntecedentSelector {
 
     while (i >= 0 && rightMost - i <= sentenceLimit && selected.length < numToSelect) {
       val oneChunk = candidates.filter(x => x.sentence == i)
-        .filter(x => !selected.exists(y => y.grounding == x.grounding)).sorted[Mention]
+        .filter(x => !selected.exists(y => y.sharesGroundingWith(x))).sorted[Mention]
       selected ++= oneChunk.take(math.min(oneChunk.length, numToSelect - selected.length))
       if (oneChunk.isEmpty) i -= 1
     }

@@ -14,15 +14,17 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Program to lookup/check incoming BioPax model entities against local knowledge bases.
   *   Author: by Tom Hicks. 5/14/2015.
-  *   Last Modified: Update for HMS drug KB.
+  *   Last Modified: Update for Bioentities KBs.
   */
 object EntityChecker extends App with LazyLogging {
 
   private val idCntr = new IncrementingCounter() // counter sequence class
 
   /** Search sequence for resolving proteins. */
-  protected val proteinSearcher = Seq( staticProteinFamilyKBLookup,
+  protected val proteinSearcher = Seq( staticProteinFamily0KBLookup,
+                                       staticProteinFamilyKBLookup,
                                        staticProteinFamily2KBLookup,
+                                       staticProteinComplexKBLookup,
                                        staticProteinKBLookup )
 
   /** Search sequence for small molecules. */
