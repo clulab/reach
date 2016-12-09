@@ -10,6 +10,8 @@ import org.clulab.struct.Interval
 import org.clulab.processors.{Document, Sentence}
 import org.clulab.odin._
 
+import scala.annotation.tailrec
+
 object Brat extends LazyLogging {
   def readStandOff(input: String): Seq[Annotation] =
     input.lines.toSeq flatMap parseAnnotation
@@ -164,12 +166,40 @@ object Brat extends LazyLogging {
 
       case m: EventMention =>
         val trigger = getId(m.trigger, doc, tracker)
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name.capitalize}:${getId(v, doc, tracker)}") }.mkString(" ")
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => dumpArgStandoff(v, doc, tracker,  name.capitalize)) }.mkString(" ")
         s"${getId(m, doc, tracker)}\t${m.label}:$trigger $arguments"
 
       case m: RelationMention =>
-        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v => s"${name.capitalize}:${getId(v, doc, tracker)}") }.mkString(" ")
+        val arguments = m.arguments.flatMap{ case (name, vals) => vals map (v =>dumpArgStandoff(v, doc, tracker,  name.capitalize)) }.mkString(" ")
         s"${getId(m, doc, tracker)}\t${m.label} $arguments"
+    }
+  }
+
+  /**
+    * Handle nested arguments
+    */
+  @tailrec
+  private def dumpArgStandoff(m: Mention, doc: Document, tracker: IdTracker, argname: String): String = m match {
+    // use the tbm as-is
+    case tbm: TextBoundMention =>
+      val id = getId(tbm, doc, tracker)
+      s"$argname:$id"
+
+    // use the trigger
+    case em: EventMention =>
+      val id = getId(em, doc, tracker)
+      s"$argname:$id"
+
+    // try again with one of the Rel's args
+    case rm: RelationMention => argname match {
+      case "Controller" =>
+        // get controllED of controllER
+        val nestedElement = rm.arguments("controlled").head
+        dumpArgStandoff(nestedElement, doc, tracker, argname)
+      case "Controlled" =>
+        // get controllED of controllED
+        val nestedElement = rm.arguments("controlled").head
+        dumpArgStandoff(nestedElement, doc, tracker, argname)
     }
   }
 
