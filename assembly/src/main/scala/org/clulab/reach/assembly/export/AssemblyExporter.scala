@@ -8,8 +8,10 @@ import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import com.typesafe.scalalogging.LazyLogging
+
 import scala.util.matching.Regex
 import java.io.File
+import java.util.regex.Pattern
 
 
 trait EERDescription {
@@ -81,6 +83,45 @@ case class Row(
     }
   }
 
+  private def elementType(input:String):String = {
+    val db = elementDatabase(input)
+    val t = db match {
+      case "uniprot" => "Protein"
+      case "pfam" => "Protein Family"
+      case "pubchem" => "Chemical"
+      case "go" => "Biological Process"
+      case _ => "Other"
+    }
+    println(s"TYPE from $db is $t")
+    t
+  }
+
+  private def elementIdentifier(input:String):String = {
+    val v = elementParser(input)
+    if(v.isDefined) v.get._3
+    else AssemblyExporter.NONE
+  }
+
+  private def elementDatabase(input:String):String = {
+    elementParser(input) match {
+      case v: Some[(String, String, String)] => v.get._2
+      case _ => AssemblyExporter.NONE
+    }
+  }
+
+  private def elementParser(input:String):Option[(String, String, String)] = {
+    println(s"Parsing input: $input")
+    val m = AssemblyExporter.ELEMENT_PATTERN.matcher(input)
+    if(m.matches()) {
+      val name = m.group(1)
+      val db = m.group(2).toLowerCase()
+      val id = m.group(3)
+      println(s"""$name, $db, $id!!!!""")
+      return Some(name, db, id)
+    }
+    None
+  }
+
   def isIndirect: Boolean = evidence.exists{ e =>
     e.toCorefMention match {
       case em: CorefEventMention => ! em.isDirect
@@ -130,9 +171,9 @@ case class Row(
 
       // operations specific to the CMU tabular format
       AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(input),
-      AssemblyExporter.CMU_ELEMENT_TYPE -> label, // TODO: change
-      AssemblyExporter.CMU_DATABASE_NAME -> cleanText(input), // TODO: change
-      AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(input), // TODO: change
+      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(elementType(input)),
+      AssemblyExporter.CMU_DATABASE_NAME -> cleanText(elementDatabase(input)),
+      AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(elementIdentifier(input)),
       AssemblyExporter.CMU_LOCATION -> cleanText(input), // TODO: change
       AssemblyExporter.CMU_LOCATION_IDENTIFIER -> cleanText(input), // TODO: change
       AssemblyExporter.CMU_CELL_LINE -> cleanText(input), // TODO: change
@@ -545,6 +586,8 @@ object AssemblyExporter {
     CMU_NEG_REG_LOCATION_ID,
     CMU_EVIDENCE
   )
+
+  val ELEMENT_PATTERN = Pattern.compile("""([^:]+)::([^:]+):(\w+)""", Pattern.CASE_INSENSITIVE)
 
   /** Validate the rows before writing */
   def validateOutput(rowsForOutput: Set[Row]): Unit = {
