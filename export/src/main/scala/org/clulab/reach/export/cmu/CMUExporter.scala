@@ -12,7 +12,7 @@ import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
   */
 object CMUExporter {
 
-  def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
+  def cmuFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
     // remove unseen
     (r.seen > 0) &&
     // keep only the events
@@ -23,7 +23,7 @@ object CMUExporter {
 
   def tabularOutput(mentions: Seq[Mention]): String = {
     val ae = createExporter(mentions)
-    ae.rowsToString(AssemblyExporter.CMU_COLUMNS, AssemblyExporter.SEP, arizonaFilter)
+    ae.rowsToString(AssemblyExporter.CMU_COLUMNS, AssemblyExporter.SEP, cmuFilter)
   }
 
   def createExporter(mentions: Seq[Mention]): AssemblyExporter = {

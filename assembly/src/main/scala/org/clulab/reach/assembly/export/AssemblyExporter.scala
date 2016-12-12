@@ -36,6 +36,7 @@ case class Row(
   controller: String,
   eerID: String,
   label: String,
+  mechanismType: String, // what simple event is regulated in this regulation
   precededBy: Set[String],
   negated: Boolean,
   evidence: Set[Mention],
@@ -124,6 +125,20 @@ case class Row(
     }
   }
 
+  private def indirectLabel(isIndirect:Boolean): String =
+    if(isIndirect) "I" else "D"
+
+  private def removePTM(elem:String):String = {
+    val dotOffset = elem.lastIndexOf('.')
+    if(dotOffset > 0) {
+      val e = elem.substring(0, dotOffset)
+      // println(s"AFTER PTM: $e")
+      e
+    } else {
+      elem
+    }
+  }
+
   private def elementParser(input:String):Option[(String, String, String)] = {
     //println(s"Parsing input: $input")
     val m = AssemblyExporter.ELEMENT_PATTERN.matcher(input)
@@ -135,6 +150,26 @@ case class Row(
       return Some(name, db, id)
     }
     None
+  }
+
+  private def getLocation:String = {
+    if(label != "Translocation")
+      contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
+    else
+      destination
+  }
+
+  private def getControllerLocation:String = {
+    if(label != "Translocation")
+      // same as getLocation
+      contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
+    else
+      source
+  }
+
+  private def locationName(id:String):String = {
+    AssemblyExporter.NONE
+    // TODO
   }
 
   def isIndirect: Boolean = evidence.exists{ e =>
@@ -185,25 +220,28 @@ case class Row(
       AssemblyExporter.TRANSLOCATION_DESTINATION -> cleanText(destination),
 
       // operations specific to the CMU tabular format
-      AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(elementName(input)),
-      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(elementType(input)),
-      AssemblyExporter.CMU_DATABASE_NAME -> cleanText(elementDatabase(input)),
-      AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(elementIdentifier(input)),
-      AssemblyExporter.CMU_LOCATION -> cleanText(input), // TODO: change
-      AssemblyExporter.CMU_LOCATION_IDENTIFIER -> cleanText(input), // TODO: change
-      AssemblyExporter.CMU_CELL_LINE -> cleanText(input), // TODO: change
-      AssemblyExporter.CMU_CELL_TYPE -> cleanText(input), // TODO: change
-      AssemblyExporter.CMU_ORGANISM -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(elementName(removePTM(output))),
+      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(elementType(removePTM(output))),
+      AssemblyExporter.CMU_DATABASE_NAME -> cleanText(elementDatabase(removePTM(output))),
+      AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(elementIdentifier(removePTM(output))),
+      AssemblyExporter.CMU_LOCATION -> cleanText(locationName(getLocation)),
+      AssemblyExporter.CMU_LOCATION_IDENTIFIER -> getLocation,
+      AssemblyExporter.CMU_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
+      AssemblyExporter.CMU_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
+      AssemblyExporter.CMU_ORGANISM -> contextFromEvidence(AssemblyExporter.ORGAN),
       AssemblyExporter.CMU_POS_REG_NAME -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_POS_REG_TYPE -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_POS_REG_ID -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_POS_REG_LOCATION -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_POS_REG_LOCATION_ID -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_POS_REG_LOCATION -> cleanText(locationName(getControllerLocation)),
+      AssemblyExporter.CMU_POS_REG_LOCATION_ID -> getControllerLocation,
       AssemblyExporter.CMU_NEG_REG_NAME -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_NEG_REG_TYPE -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_NEG_REG_ID -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_NEG_REG_LOCATION -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> cleanText(input), // TODO: change,
+      AssemblyExporter.CMU_NEG_REG_LOCATION -> cleanText(locationName(getControllerLocation)),
+      AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> getControllerLocation,
+      AssemblyExporter.CMU_IS_INDIRECT -> indirectLabel(isIndirect),
+      AssemblyExporter.CMU_MECHANISM_TYPE -> mechanismType,
+      AssemblyExporter.CMU_PAPER_ID -> setToString(docIDs),
       AssemblyExporter.CMU_EVIDENCE  -> getTextualEvidence.mkString(AssemblyExporter.CONCAT)
     )
   }
@@ -303,6 +341,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         for(e <- se.evidence) {
           if(e.arguments.contains(name)){
             val arg = e.arguments.get(name).get.head.toCorefMention
+            val nm = arg.text
             val id = arg.nsId()
             return id
           }
@@ -311,6 +350,29 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       NONE
     case _ => NONE
   }
+
+  def createMechanismType(eer: EntityEventRepresentation): String = eer match {
+    case ne: Regulation =>
+      val simpleEvent = findSimpleEventControlled(ne.evidence.head)
+      if (simpleEvent.isDefined) simpleEvent.get.label
+      else AssemblyExporter.NONE
+    case _ => AssemblyExporter.NONE
+  }
+
+  def findSimpleEventControlled(event: Mention): Option[Mention] = {
+    if(event.label.contains(REGULATION.toLowerCase())) {
+      if(event.arguments.contains("controlled"))
+        return findSimpleEventControlled(event.arguments.get("controlled").get.head)
+      else
+        return None
+    } else if (event.label.contains(ACTIVATION.toLowerCase())) {
+      // we are looking for mechanistic events, not activations
+      return None
+    }
+
+    Some(event)
+  }
+
 
   def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
 
@@ -427,24 +489,26 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
   def getRows: Set[Row] = {
 
-      val rows: Set[Row] = distinctEERS
-        .map { event =>
-          Row(
-            createInput(event),
-            createOutput(event),
-            createSource(event),
-            createDestination(event),
-            createController(event),
-            EERLUT(event.equivalenceHash),
-            getEventLabel(event),
-            precededBy(event),
-            event.negated,
-            event.evidence,
-            event
-         )
+    val rows: Set[Row] = distinctEERS
+      .map { event =>
+        Row(
+          createInput(event),
+          createOutput(event),
+          createSource(event),
+          createDestination(event),
+          createController(event),
+          EERLUT(event.equivalenceHash),
+          getEventLabel(event),
+          createMechanismType(event),
+          precededBy(event),
+          event.negated,
+          event.evidence,
+          event
+        )
       }
+
     rows
-    }
+  }
 
   /** for debugging purposes */
   def reportError(ce: ComplexEvent, c: EntityEventRepresentation): String = {
@@ -547,6 +611,9 @@ object AssemblyExporter {
   val CMU_NEG_REG_ID = "NegReg ID"
   val CMU_NEG_REG_LOCATION = "NegReg Location"
   val CMU_NEG_REG_LOCATION_ID = "NegReg Location ID"
+  val CMU_IS_INDIRECT = "Interaction  Direct (D) or Indirect (I)"
+  val CMU_MECHANISM_TYPE = "Mechanism Type for Direct"
+  val CMU_PAPER_ID = "Paper ID"
   val CMU_EVIDENCE = "Evidence"
 
   val SEP = "\t"
@@ -599,10 +666,13 @@ object AssemblyExporter {
     CMU_NEG_REG_ID,
     CMU_NEG_REG_LOCATION,
     CMU_NEG_REG_LOCATION_ID,
+    CMU_IS_INDIRECT,
+    CMU_MECHANISM_TYPE,
+    CMU_PAPER_ID,
     CMU_EVIDENCE
   )
 
-  val ELEMENT_PATTERN = Pattern.compile("""([^:]+)::([^:]+):(\w+)""", Pattern.CASE_INSENSITIVE)
+  val ELEMENT_PATTERN = Pattern.compile("""([^:]+)::([^:]+):(.+)""", Pattern.CASE_INSENSITIVE)
 
   /** Validate the rows before writing */
   def validateOutput(rowsForOutput: Set[Row]): Unit = {
@@ -681,10 +751,11 @@ object ExportFilters {
   def hasController(r:EERDescription): Boolean = {
     if(r.controller != AssemblyExporter.NONE) return true
 
-    // TODO:
     // Translocations wo/ controllers are accepted if both source and destination are given
-    if(r.label == "Translocation") {
-
+    if(r.label == "Translocation" && r.isInstanceOf[Row]) {
+      val row = r.asInstanceOf[Row]
+      if(row.source != AssemblyExporter.NONE && row.destination != AssemblyExporter.NONE)
+        return true
     }
 
     false
@@ -746,6 +817,7 @@ object ExportFilters {
         problem.controller,
         problem.eerID,
         problem.label,
+        problem.mechanismType,
         validPs,
         problem.negated,
         problem.evidence,
