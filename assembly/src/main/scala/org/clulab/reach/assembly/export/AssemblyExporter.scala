@@ -152,24 +152,32 @@ case class Row(
     None
   }
 
+  /** Remove namespace from location ids, which are sufficient */
+  private def removeNamespaceFromId(id:String): String = {
+    val colonOffset = id.indexOf(':')
+    if(colonOffset > 0) id.substring(colonOffset + 1).toLowerCase
+    else id.toLowerCase
+  }
+
   private def getLocation:String = {
-    if(label != "Translocation")
+    val id = if(label != "Translocation")
       contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
     else
       destination
+    removeNamespaceFromId(id)
   }
 
   private def getControllerLocation:String = {
-    if(label != "Translocation")
+    val id = if(label != "Translocation")
       // same as getLocation
       contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
     else
       source
+    removeNamespaceFromId(id)
   }
 
   private def locationName(id:String):String = {
-    AssemblyExporter.NONE
-    // TODO
+    AssemblyExporter.CMU_KNOWN_LOCATIONS.getOrElse(id, "Other")
   }
 
   def isIndirect: Boolean = evidence.exists{ e =>
@@ -673,6 +681,16 @@ object AssemblyExporter {
   )
 
   val ELEMENT_PATTERN = Pattern.compile("""([^:]+)::([^:]+):(.+)""", Pattern.CASE_INSENSITIVE)
+
+  // FIXME: replace with an actual KB lookup (Tom)
+  val CMU_KNOWN_LOCATIONS:Map[String, String] = Map(
+    "go:0005737" -> "cytoplasm",
+    "go:0005886" -> "plasma membrane",
+    "go:0005634" -> "nucleus",
+    "go:0005739" -> "mitochondria",
+    "go:0005576" -> "external",
+    "go:0005783" -> "endoplasmic reticulum"
+  )
 
   /** Validate the rows before writing */
   def validateOutput(rowsForOutput: Set[Row]): Unit = {
