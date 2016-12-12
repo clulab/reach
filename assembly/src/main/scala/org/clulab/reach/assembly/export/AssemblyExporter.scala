@@ -83,22 +83,37 @@ case class Row(
     }
   }
 
+  /**
+    * Translates Reach namespaces into element types
+    * Note that this only worries about entities that can serve as elements in the CMU format
+    **/
   private def elementType(input:String):String = {
     val db = elementDatabase(input)
     val t = db match {
       case "uniprot" => "Protein"
       case "pfam" => "Protein Family"
+      case "interpro" => "Protein Family"
+      case "be" => "Protein Family|Protein Complex"
       case "pubchem" => "Chemical"
+      case "hmdb" => "Chemical"
+      case "chebi" => "Chemical"
       case "go" => "Biological Process"
+      case "mesh" => "Biological Process"
       case _ => "Other"
     }
-    println(s"TYPE from $db is $t")
+    //println(s"TYPE from $db is $t")
     t
   }
 
   private def elementIdentifier(input:String):String = {
     val v = elementParser(input)
     if(v.isDefined) v.get._3
+    else AssemblyExporter.NONE
+  }
+
+  private def elementName(input:String):String = {
+    val v = elementParser(input)
+    if(v.isDefined) v.get._1
     else AssemblyExporter.NONE
   }
 
@@ -110,13 +125,13 @@ case class Row(
   }
 
   private def elementParser(input:String):Option[(String, String, String)] = {
-    println(s"Parsing input: $input")
+    //println(s"Parsing input: $input")
     val m = AssemblyExporter.ELEMENT_PATTERN.matcher(input)
     if(m.matches()) {
       val name = m.group(1)
       val db = m.group(2).toLowerCase()
       val id = m.group(3)
-      println(s"""$name, $db, $id!!!!""")
+      //println(s"""$name, $db, $id!!!!""")
       return Some(name, db, id)
     }
     None
@@ -170,7 +185,7 @@ case class Row(
       AssemblyExporter.TRANSLOCATION_DESTINATION -> cleanText(destination),
 
       // operations specific to the CMU tabular format
-      AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(input),
+      AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(elementName(input)),
       AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(elementType(input)),
       AssemblyExporter.CMU_DATABASE_NAME -> cleanText(elementDatabase(input)),
       AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(elementIdentifier(input)),
