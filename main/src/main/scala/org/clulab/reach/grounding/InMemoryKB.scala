@@ -8,24 +8,14 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Add methods to make and add entries with canonical keys.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class InMemoryKB (
-
-  /** Tell whether this KB contains species information. */
-  val hasSpeciesInfo: Boolean = false,      // default for KBs without species info
 
   /** Meta information about the external KB from which this KB was created. */
   val metaInfo: IMKBMetaInfo = new IMKBMetaInfo()
 
 ) extends Speciated with ReachKBKeyTransforms {
-
-  /** Additional constructor to add namespace to meta information for reference. */
-  def this (namespace: String, hasSpeciesInfo: Boolean, metaInfo: IMKBMetaInfo) = {
-    this(hasSpeciesInfo, metaInfo)
-    this.metaInfo.put("namespace", namespace)
-  }
-
 
   /** The root data structure implementing this in-memory knowledge base. */
   val theKB = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
@@ -120,7 +110,8 @@ class InMemoryKB (
 
 
   /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
-  def newResolution (entry: KBEntry): KBResolution = new KBResolution(entry, Some(metaInfo))
+  def newResolution (entry: KBEntry): KBResolution =
+    new KBResolution(entry, metaInfo.asInstanceOf[KBMetaInfo])
 
   /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
       this KB and the given KB entries. */

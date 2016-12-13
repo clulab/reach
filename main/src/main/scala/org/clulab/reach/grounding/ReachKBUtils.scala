@@ -10,17 +10,17 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Cleanup: remove unneeded class prefixes.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 object ReachKBUtils extends Speciated {
 
   /** Tell whether the given mention is grounded from a protein family KB or not. */
   def isFamilyGrounded (mention:BioMention): Boolean =
-    mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("family"))
+    mention.isGrounded && mention.grounding.get.metaInfo.isFamilyKB
 
   /** Tell whether the given mention is grounded from a protein KB or not. */
   def isProteinGrounded (mention:BioMention): Boolean =
-    mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("protein"))
+    mention.isGrounded && mention.grounding.get.metaInfo.isProteinKB
 
 
   /** Return a formatted string containing this entry's namespace and ID. */

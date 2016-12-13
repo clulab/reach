@@ -11,7 +11,7 @@ class KBResolution (
   val entry: KBEntry,
 
   /** Meta information about the KB from which this resolution was created. */
-  val metaInfo: Option[KBMetaInfo] = None
+  val metaInfo: KBMetaInfo = new KBMetaInfo()
 
 ) extends Serializable {
 
@@ -44,7 +44,7 @@ class KBResolution (
 
   /** Method to provide logging/debugging printout. */
   def logString: String =
-    s"""<KBResolution:|${text}|${key}|${namespace}|${id}|${species}|${metaInfo.getOrElse("")}|>"""
+    s"""<KBResolution:|${text}|${key}|${namespace}|${id}|${species}|${metaInfo}|>"""
 
   /** Override method to provide logging/debugging printout. */
   override def toString: String = s"KBResolution(${key}, ${namespace}, ${id}, ${species})"

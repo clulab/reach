@@ -31,7 +31,8 @@ class ReachEntityLookup {
     if (fileDef.isEmpty) return None        // sanity check
     val params: Map[String, _ >: String] = fileDef.root.unwrapped.asScala
     params.get("kb").map { fname =>
-      new IMKBMentionLookup(AdHocIMKBFactory.make(fname.asInstanceOf[String]))
+      val metaInfo = new IMKBMetaInfo(kbFilename = Some(fname.asInstanceOf[String]))
+      new IMKBMentionLookup(AdHocIMKBFactory.make(metaInfo))
     }
   }
 

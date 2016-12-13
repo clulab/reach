@@ -1,48 +1,22 @@
 package org.clulab.reach.grounding
 
-import scala.io.Source
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBUtils._
 
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Refactor for standardized 2-5 column KB format.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
   /** Main factory method to create, fill, and return an encapsulate knowledge base. */
-  def make (
-    namespace: String = DefaultNamespace,
-    kbFilename: String = "",                // default for KBs with no file to load
-    hasSpeciesInfo: Boolean = false,        // default to KBs without species info
-    metaInfo: Option[IMKBMetaInfo] = None
-  ): InMemoryKB = {
-    val imkb: InMemoryKB = new InMemoryKB(namespace.toLowerCase, hasSpeciesInfo,
-                                          metaInfo.getOrElse(new IMKBMetaInfo()))
-    if (kbFilename != "")
-      loadFromKBDir(imkb, kbFilename, namespace)     // load new in-memory KB
-    // imkb.imkb.foreach { case (k, entries) =>   // for DEBUGGING
-    //   entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING
+  def make (metaInfo:IMKBMetaInfo): InMemoryKB = {
+    val imkb: InMemoryKB = new InMemoryKB(metaInfo)
+    // load new in-memory KB, if filename specified:
+    metaInfo.kbFilename.foreach { loadFromKBDir(imkb, _, metaInfo.namespace) }
     imkb
   }
-
-  /** Additional factory method to workaround option. */
-  def make (namespace: String, kbFilename: String,
-            hasSpeciesInfo: Boolean, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(namespace, kbFilename, hasSpeciesInfo, Some(metaInfo))
-
-  /** Additional factory method to default unused arguments. */
-  def make (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(namespace, kbFilename, hasSpeciesInfo = false, Some(metaInfo))
-
-  /** Additional factory method to default unused arguments. */
-  def make (kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(DefaultNamespace, kbFilename, hasSpeciesInfo = false, Some(metaInfo))
-
-  /** Additional factory method to default unused arguments. */
-  def make (kbFilename: String): InMemoryKB = make(DefaultNamespace, kbFilename, hasSpeciesInfo = false, None)
-
 
   /**
     * Load this KB from the given 2-5 column, tab-separated-value (TSV) text file.

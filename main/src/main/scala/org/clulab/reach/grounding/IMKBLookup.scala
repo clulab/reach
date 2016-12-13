@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Redo grounding step1 to propagate ambiguity.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class IMKBLookup (
 
@@ -16,7 +16,7 @@ class IMKBLookup (
   def entries = memoryKB.entries
 
   /** Tell whether this KB contains species information or not. */
-  def hasSpeciesInfo: Boolean = memoryKB.hasSpeciesInfo
+  // def hasSpeciesInfo: Boolean = memoryKB.hasSpeciesInfo
 
   /** Return meta information about the external KB from which this KB was created. */
   def metaInfo: IMKBMetaInfo = memoryKB.metaInfo
