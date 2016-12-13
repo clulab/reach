@@ -3,32 +3,27 @@ package org.clulab.reach.grounding
 import org.clulab.reach.grounding.ReachKBConstants._
 
 /**
-  * Abstract base class and concrete class to hold meta data for a knowledge base.
+  * Class to hold common meta data for different types of knowledge bases.
   *   Written by Tom Hicks. 12/11/2016.
-  *   Last Modified: Refactor.
+  *   Last Modified: Refactor out abstract class.
   */
-abstract class MetaInfo (
-  val namespace: String,
-  val hasSpeciesInfo: Boolean,
-  val isFamilyKB: Boolean,
-  val isProteinKB: Boolean
-) { }
-
-
 class KBMetaInfo (
 
-  /** Filename from which the KB data is loaded. */
-  val kbFilename: Option[String] = None,    // default for KBs with no file to load
+  /** The namespace string for this KB. */
+  val namespace: String = DefaultNamespace, // default UAZ namespace
 
-  namespace: String = DefaultNamespace,     // default UAZ namespace
-  hasSpeciesInfo: Boolean = false,          // default to KBs without species info
-  isFamilyKB: Boolean = false,              // does KB contain protein family entries
-  isProteinKB: Boolean = false              // does KB contain protein entries
+  /** Tell if this KB has explicit (multi) or implicit (single) species information or not. */
+  val hasSpeciesInfo: Boolean = false,      // default to KBs without species info
 
-) extends MetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) {
+  /** Flag identifying this KB as containing protein family entries. */
+  val isFamilyKB: Boolean = false,
+
+  /** Flag identifying this KB as containing protein or protein complex entries. */
+  val isProteinKB: Boolean = false
+
+)  {
 
   /** Override method to provide logging/debugging printout. */
   override def toString: String =
-    s"<KBMetaInfo: $namespace, $kbFilename, sp=$hasSpeciesInfo, f=$isFamilyKB, p=$isProteinKB>"
-
+    s"<KBMetaInfo: $namespace, sp=$hasSpeciesInfo, f=$isFamilyKB, p=$isProteinKB>"
 }

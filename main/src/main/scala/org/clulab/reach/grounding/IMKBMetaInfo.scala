@@ -5,9 +5,12 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Class holding meta-information for an in-memory knowledge base instance.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor.
+  *   Last Modified: Refactor out abstract class.
   */
 class IMKBMetaInfo (
+
+  /** Filename from which the KB data is loaded. */
+  val kbFilename: Option[String] = None,    // default for KBs with no file to load
 
   /** The primary URI of the external KB (e.g., http://identifiers.org/uniprot/). */
   val baseURI: String = "",
@@ -17,12 +20,11 @@ class IMKBMetaInfo (
   val resourceId: String = "",
 
   namespace: String = DefaultNamespace,     // default UAZ namespace
-  kbFilename: Option[String] = None,        // default for KBs with no file to load
   hasSpeciesInfo: Boolean = false,          // default to KBs without species info
   isFamilyKB: Boolean = false,              // does KB contain protein family entries
   isProteinKB: Boolean = false              // does KB contain protein entries
 
-) extends KBMetaInfo (kbFilename, namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) {
+) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) {
 
   /**
     * Using the given ID string, generate a URI which references an entry
