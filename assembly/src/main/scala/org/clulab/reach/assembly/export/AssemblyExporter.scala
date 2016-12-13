@@ -36,9 +36,10 @@ case class Row(
   source: String, // only for Translocation
   destination: String, // only for Translocation
   controller: String,
+  nestedControllers: (List[String], List[String]), // _1 = positive controllers, _2 = negative controllers
   eerID: String,
   label: String,
-  mechanismType: String, // what simple event is regulated in this regulation
+  mechanismType: String, // what simple event is regulated by this regulation
   precededBy: Set[String],
   negated: Boolean,
   evidence: Set[Mention],
@@ -278,12 +279,12 @@ case class Row(
       AssemblyExporter.CMU_POS_REG_NAME -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_POS_REG_TYPE -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_POS_REG_ID -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_POS_REG_LOCATION -> cleanText(locationName(getControllerLocation)),
+      AssemblyExporter.CMU_POS_REG_LOCATION -> cleanText(locationName(getControllerLocation)), // TODO: print only when pos controllers > 0
       AssemblyExporter.CMU_POS_REG_LOCATION_ID -> getControllerLocation,
       AssemblyExporter.CMU_NEG_REG_NAME -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_NEG_REG_TYPE -> cleanText(input), // TODO: change,
       AssemblyExporter.CMU_NEG_REG_ID -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_NEG_REG_LOCATION -> cleanText(locationName(getControllerLocation)),
+      AssemblyExporter.CMU_NEG_REG_LOCATION -> cleanText(locationName(getControllerLocation)), // TODO: print only when neg controllers > 0
       AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> getControllerLocation,
       AssemblyExporter.CMU_IS_INDIRECT -> indirectLabel(isIndirect),
       AssemblyExporter.CMU_MECHANISM_TYPE -> mechanismType,
@@ -488,6 +489,10 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   }
 
+  def createNestedControllers(eer: EntityEventRepresentation): (List[String], List[String]) = {
+    (null, null) // TODO
+  }
+
   /**
    * Converts predecessors of Event to Event IDs
     *
@@ -543,6 +548,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
           createSource(event),
           createDestination(event),
           createController(event),
+          createNestedControllers(event),
           EERLUT(event.equivalenceHash),
           getEventLabel(event),
           createMechanismType(event),
@@ -720,7 +726,7 @@ object AssemblyExporter {
 
   val ELEMENT_PATTERN = Pattern.compile("""([^:]+)::([^:]+):(.+)""", Pattern.CASE_INSENSITIVE)
 
-  // FIXME: replace with an actual KB lookup (Tom)
+  // FIXME: replace with an actual KB lookup from the subcellular location KB (Tom)
   val CMU_KNOWN_LOCATIONS:Map[String, String] = Map(
     "go:0005737" -> "cytoplasm",
     "go:0005886" -> "plasma membrane",
@@ -871,6 +877,7 @@ object ExportFilters {
         problem.source,
         problem.destination,
         problem.controller,
+        problem.nestedControllers,
         problem.eerID,
         problem.label,
         problem.mechanismType,
