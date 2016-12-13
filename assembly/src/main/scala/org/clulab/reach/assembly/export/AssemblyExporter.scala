@@ -13,6 +13,8 @@ import scala.util.matching.Regex
 import java.io.File
 import java.util.regex.Pattern
 
+import scala.collection.mutable.ListBuffer
+
 
 trait EERDescription {
   val eer: EntityEventRepresentation
@@ -106,12 +108,6 @@ case class Row(
     t
   }
 
-  private def elementIdentifier(input:String):String = {
-    val v = elementParser(input)
-    if(v.isDefined) v.get._3
-    else AssemblyExporter.NONE
-  }
-
   private def elementName(input:String):String = {
     val v = elementParser(input)
     if(v.isDefined) v.get._1
@@ -122,6 +118,61 @@ case class Row(
     elementParser(input) match {
       case v: Some[(String, String, String)] => v.get._2
       case _ => AssemblyExporter.NONE
+    }
+  }
+
+  private def elementIdentifier(input:String):String = {
+    val v = elementParser(input)
+    if(v.isDefined) v.get._3
+    else AssemblyExporter.NONE
+  }
+
+  private def elementParser(input:String):Option[(String, String, String)] = {
+    val components = tokenizeComponents(input)
+
+    if (components.length == 1)
+      return parseSingleElement(components(0))
+
+    // handle complexes below
+    val parsedComponents = components.map(parseSingleElement)
+
+    val names = new ListBuffer[String]
+    val dbs = new ListBuffer[String]
+    val ids = new ListBuffer[String]
+    for(c <- parsedComponents) {
+      if(c.isDefined) {
+        names += c.get._1
+        dbs += c.get._2
+        ids += c.get._3
+      }
+    }
+
+    if(ids.size == 0) return None
+    Some(mkComplexPart(names), mkComplexPart(dbs), mkComplexPart(ids))
+  }
+
+  private def mkComplexPart(components:Seq[String]):String =
+    s"""{${components.mkString(", ")}}"""
+
+  def parseSingleElement(input:String): Option[(String, String, String)] = {
+    val m = AssemblyExporter.ELEMENT_PATTERN.matcher(input)
+    if(m.matches()) {
+      val name = m.group(1)
+      val db = m.group(2).toLowerCase()
+      val id = m.group(3)
+      return Some(name, db, id)
+    }
+    None
+  }
+
+  private def tokenizeComponents(input:String):Array[String] = {
+    if(input.startsWith("{") && input.endsWith("}")) {
+      // found a complex; break it down into its components
+      val components = input.substring(1, input.length - 1).split(""",\s*""").map(_.trim)
+      components
+    } else {
+      // just a single entity
+      Array(input)
     }
   }
 
@@ -137,19 +188,6 @@ case class Row(
     } else {
       elem
     }
-  }
-
-  private def elementParser(input:String):Option[(String, String, String)] = {
-    //println(s"Parsing input: $input")
-    val m = AssemblyExporter.ELEMENT_PATTERN.matcher(input)
-    if(m.matches()) {
-      val name = m.group(1)
-      val db = m.group(2).toLowerCase()
-      val id = m.group(3)
-      //println(s"""$name, $db, $id!!!!""")
-      return Some(name, db, id)
-    }
-    None
   }
 
   /** Remove namespace from location ids, which are sufficient */
