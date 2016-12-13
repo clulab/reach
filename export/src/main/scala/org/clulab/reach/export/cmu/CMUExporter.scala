@@ -2,8 +2,10 @@ package org.clulab.reach.export.cmu
 
 import org.clulab.odin.Mention
 import org.clulab.reach.assembly.AssemblyManager
-import org.clulab.reach.assembly.export.{AssemblyExporter, Row, ExportFilters}
+import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
 import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
+
+import scala.collection.mutable
 
 /**
   * Yet another tabular format
@@ -12,13 +14,25 @@ import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
   */
 object CMUExporter {
 
-  def cmuFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
+  def cmuFilter(rows: Set[Row]): Set[Row] = removeChildren(keepEvents(rows))
+
+  def keepEvents(rows: Set[Row]): Set[Row] = rows.filter { r =>
     // remove unseen
     (r.seen > 0) &&
     // keep only the events
     ExportFilters.isEvent(r) &&
     // CMU only cares about events that have a controller! (or Translocations)
     ExportFilters.hasController(r)
+  }
+
+  def removeChildren(rows: Set[Row]): Set[Row] = {
+    // remove events that appear as input of other events in this set
+    val children = new mutable.HashSet[String]()
+    for(row <- rows)
+      if(row.input != AssemblyExporter.NONE)
+        children += row.input
+
+    rows.filter { r => ! children.contains(r.eerID) }
   }
 
   def tabularOutput(mentions: Seq[Mention]): String = {
