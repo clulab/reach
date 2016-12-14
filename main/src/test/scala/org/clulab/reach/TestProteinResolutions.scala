@@ -13,7 +13,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Add tests for gene name affix stripping.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -403,7 +403,13 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
 // Protein KB using alternate protein resolutions
 class TestProteinKBL extends IMKBProteinLookup {
-  val meta = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
-  meta.put("protein", "true")               // mark as from a protein KB
-  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true, meta)
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticProteinFilename),
+    namespace = "uniprot",
+    baseURI = "http://identifiers.org/uniprot/",
+    resourceId = "MIR:00100164",
+    hasSpeciesInfo = true,
+    isProteinKB = true
+  )
+  memoryKB = (new TsvIMKBFactory).make(meta)
 }

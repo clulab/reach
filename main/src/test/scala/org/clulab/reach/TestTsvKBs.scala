@@ -10,13 +10,12 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for removal of lookup any.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class TestTsvKBs extends FlatSpec with Matchers {
 
   // Tests of non-speciated (2-column) knowledge base
-  val imkb2 = (new TsvIMKBFactory).make("uniprot", StaticCellLocation2Filename,
-    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
+  val imkb2 = (new CellLocKBL).memoryKB     // defined after this class (LOOK BELOW)
 
   "InMemoryKB COL-2" should "lookupAll on IMKB from COL-2 TSV file" in {
     (imkb2.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
@@ -60,10 +59,9 @@ class TestTsvKBs extends FlatSpec with Matchers {
 
 
   // Tests of speciated (3-column) knowledge base
-  val imkbPF = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, hasSpeciesInfo = true,
-    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
+  val imkbPF = (new ProtFamKBL).memoryKB // defined after this class (LOOK BELOW)
 
-  // test lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)
+  // tests lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)
 
   "InMemoryKB COL-3" should "lookupAll on IMKB from COL-3 gzipped TSV file" in {
     (imkbPF.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
@@ -113,4 +111,26 @@ class TestTsvKBs extends FlatSpec with Matchers {
     (imkbPF.lookupNoSpecies("hk").isDefined) should be (false)        // has a species
   }
 
+}
+
+class CellLocKBL extends IMKBLookup {
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticCellLocation2Filename),
+    namespace = "uniprot",
+    baseURI = "http://identifiers.org/uazclu/",
+    resourceId = "MIR:00000000"
+  )
+  memoryKB = (new TsvIMKBFactory).make(meta)
+}
+
+class ProtFamKBL extends IMKBLookup {
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticProteinFamily2Filename),
+    namespace = "interpro",
+    baseURI = "http://identifiers.org/uazclu/",
+    resourceId = "MIR:00000000",
+    hasSpeciesInfo = true,
+    isFamilyKB = true
+  )
+  memoryKB = (new TsvIMKBFactory).make(meta)
 }

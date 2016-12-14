@@ -7,12 +7,13 @@ import org.clulab.reach.grounding._
 /**
   * Unit tests to ensure a mixed-namespace in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 1/20/2016.
-  *   Last Modified: Update for NER corrections in BioResources 1.1.4.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class TestAdHocIMKBs extends FlatSpec with Matchers {
 
   // Tests of 3-column KB without specific species, so human assumed:
-  val ahkb3 = (new AdHocIMKBFactory).make("NER-Grounding-Override.tsv.gz")
+  val meta = new IMKBMetaInfo(kbFilename = Some("NER-Grounding-Override.tsv.gz"))
+  val ahkb3 = (new AdHocIMKBFactory).make(meta)
 
   "AdHocKB COL-3" should "lookupAll on AHKB from COL-3 TSV file" in {
     (ahkb3.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB

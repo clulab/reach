@@ -13,11 +13,11 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Add tests for Bioentities protein family KB.
+  *   Last Modified: Update for refactor of KB meta info.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
-  val ipPF = new IPProtFamKBL           // defined after this class (LOOK BELOW)
+  val ipPF = new IPProtFamKBL               // defined after this class (LOOK BELOW)
 
   "IP-PF" should "should be marked as family grounded but not protein grounded" in {
     val txtU = "PTHR21244 is cool."
@@ -307,16 +307,26 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
 // InterPro Protein Family KB using alternate protein family resolutions
 class IPProtFamKBL extends IMKBFamilyLookup {
-  val meta = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
-  meta.put("family", "true")                // mark as from a protein family KB
-  memoryKB = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, true, meta)
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticProteinFamily2Filename),
+    namespace = "interpro",
+    baseURI = "http://identifiers.org/interpro/",
+    resourceId = "MIR:00000011",
+    hasSpeciesInfo = true,
+    isFamilyKB = true
+  )
   // println(s"IP-KB.metaInfo=${memoryKB.metaInfo}")
+  memoryKB = (new TsvIMKBFactory).make(meta)
 }
 
 // Bioentities Protein Family KB using alternate protein family resolutions
 class BEProtFamKBL extends IMKBFamilyLookup {
-  val meta = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
-  meta.put("family", "true")                // mark as from a protein family KB
-  memoryKB = (new TsvIMKBFactory).make("be", StaticProteinFamily0Filename, meta)
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticProteinFamily0Filename),
+    namespace = "be",
+    baseURI = "https://github.com/sorgerlab/bioentities",
+    isFamilyKB = true
+  )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
+  memoryKB = (new TsvIMKBFactory).make(meta)
 }
