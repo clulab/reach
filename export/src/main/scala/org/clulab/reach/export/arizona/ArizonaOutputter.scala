@@ -26,6 +26,9 @@ object ArizonaOutputter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // translocations
+    AssemblyExporter.TRANSLOCATION_SOURCE,
+    AssemblyExporter.TRANSLOCATION_DESTINATION,
     // triggers
     AssemblyExporter.TRIGGERS,
     // evidence

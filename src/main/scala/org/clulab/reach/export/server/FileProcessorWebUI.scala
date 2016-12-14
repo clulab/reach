@@ -12,6 +12,7 @@ import akka.util.ByteString
 import java.io.{File, FileOutputStream}
 import com.typesafe.config.{Config, ConfigValueFactory}
 import org.clulab.reach.assembly.server._
+import org.clulab.reach.export.cmu.CMUExporter
 import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.PaperReader
@@ -47,6 +48,7 @@ trait FileUpload {
 object FileProcessorWebUI extends App with FileUpload {
 
   val ARIZONA = "arizona"
+  val CMU = "cmu"
   val JSON = "json"
 
   // form elements
@@ -109,6 +111,10 @@ object FileProcessorWebUI extends App with FileUpload {
           logger.info("received request to process/paper/json")
           (post & entity(as[Multipart.FormData])) { formdata => generateOutput(ARIZONA) }
         } ~
+        path("process" / "paper" / CMU ) {
+          logger.info("received request to process/paper/json")
+          (post & entity(as[Multipart.FormData])) { formdata => generateOutput(CMU) }
+        } ~
         path("process" / "paper" / JSON ) {
           logger.info("received request to process/paper/json")
           (post & entity(as[Multipart.FormData])) { formdata => generateOutput(JSON) }
@@ -122,6 +128,7 @@ object FileProcessorWebUI extends App with FileUpload {
 
     outputType match {
       case ARIZONA => ArizonaOutputter.tabularOutput(cms)
+      case CMU => CMUExporter.tabularOutput(cms)
       case JSON => cms.json(false)
     }
   }
