@@ -94,7 +94,7 @@ class ReachCLI(
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
 
-    logger.info(s"$startTime: Starting $paperId\n")
+    logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
     // entry must be kept around for outputter
@@ -111,7 +111,7 @@ class ReachCLI(
     val endNS = System.nanoTime
 
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
-    logger.info(s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n")
+    logger.info(s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)")
 
   }
 
@@ -207,7 +207,7 @@ object ReachCLI extends App with LazyLogging {
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
   }
-  logger.info(s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...\n")
+  logger.info(s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
 
   // if papersDir does not exist there is nothing to do
   if (!papersDir.exists) {
