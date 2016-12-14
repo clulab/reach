@@ -49,9 +49,9 @@ case class Row(
   // this might serve as a proxy for confidence, though
   // it would also be good to know how many times this event
   // was involved in other events (input, controller, etc)
-  val seen = evidence.size
+  val seen:Int = evidence.size
   // the set of paper ids where mentions of this event were found
-  val docIDs = evidence.map(_.document
+  val docIDs:Set[String] = evidence.map(_.document
     .id
     .getOrElse(AssemblyExporter.UNKNOWN)
     // FIXME: hack to trim section/chunk ID
@@ -93,6 +93,25 @@ case class Row(
     **/
   private def elementType(input:String):String = {
     val db = elementDatabase(input)
+
+    if (db.startsWith("{")) {
+      val dbs = db.substring(1, db.length - 1).split(""",\s*""")
+      val b = new StringBuilder
+      b.append("{")
+      var first = true
+      for(d <- dbs) {
+        if(! first) b.append(", ")
+        b.append(singleElementType(d))
+        first = false
+      }
+      b.append("}")
+      b.toString()
+    } else {
+      singleElementType(db)
+    }
+  }
+
+  private def singleElementType(db:String):String = {
     val t = db match {
       case "uniprot" => "Protein"
       case "pfam" => "Protein Family"
@@ -148,7 +167,7 @@ case class Row(
       }
     }
 
-    if(ids.size == 0) return None
+    if(ids.isEmpty) return None
     Some(mkComplexPart(names), mkComplexPart(dbs), mkComplexPart(ids))
   }
 
@@ -198,6 +217,65 @@ case class Row(
     else id.toLowerCase
   }
 
+  private def getPositiveControllerNames: String = {
+    //println(s"POSITIVE CONTROLLERS = ${nestedControllers._1.mkString(", ")}")
+    val b = new StringBuilder
+    val names = nestedControllers._1.map(elementName)
+    var first = true
+    for(n <- names) {
+      if(! first)
+        b.append(", ")
+      b.append(n)
+      if(names.size > 1)
+        b.append("*1")
+      if(! first)
+        b.append("+")
+      first = false
+    }
+    b.toString()
+  }
+  private def getPositiveControllerTypes: String = {
+    val b = new StringBuilder
+    val types = nestedControllers._1.map(elementType)
+    b.append(types.mkString(", "))
+    b.toString()
+  }
+  private def getPositiveControllerIds: String = {
+    val b = new StringBuilder
+    val ids = nestedControllers._1.map(elementIdentifier)
+    b.append(ids.mkString(", "))
+    b.toString()
+  }
+
+  private def getNegativeControllerNames: String = {
+    val b = new StringBuilder
+    val names = nestedControllers._2.map(elementName)
+    var first = true
+    for(n <- names) {
+      if(! first)
+        b.append(", ")
+      b.append(n)
+      if(names.size > 1)
+        b.append("*1")
+      if(! first)
+        b.append("-")
+      first = false
+    }
+    b.toString()
+  }
+  private def getNegativeControllerTypes: String = {
+    val b = new StringBuilder
+    val types = nestedControllers._2.map(elementType)
+    b.append(types.mkString(", "))
+    b.toString()
+  }
+  private def getNegativeControllerIds: String = {
+    val b = new StringBuilder
+    val ids = nestedControllers._2.map(elementIdentifier)
+    b.append(ids.mkString(", "))
+    b.toString()
+  }
+
   private def getLocation:String = {
     val id = if(label != "Translocation")
       contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
@@ -216,7 +294,33 @@ case class Row(
   }
 
   private def locationName(id:String):String = {
+    if(id.trim.isEmpty) return ""
     AssemblyExporter.CMU_KNOWN_LOCATIONS.getOrElse(id, "Other")
+  }
+
+  private def getPositiveControllerLocationName: String = {
+    if(nestedControllers._1.nonEmpty)
+      cleanText(locationName(getControllerLocation))
+    else
+      ""
+  }
+  private def getPositiveControllerLocationId: String = {
+    if(nestedControllers._1.nonEmpty)
+      getControllerLocation
+    else
+      ""
+  }
+  private def getNegativeControllerLocationName: String = {
+    if(nestedControllers._2.nonEmpty)
+      cleanText(locationName(getControllerLocation))
+    else
+      ""
+  }
+  private def getNegativeControllerLocationId: String = {
+    if(nestedControllers._2.nonEmpty)
+      getControllerLocation
+    else
+      ""
   }
 
   def isIndirect: Boolean = evidence.exists{ e =>
@@ -276,16 +380,16 @@ case class Row(
       AssemblyExporter.CMU_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
       AssemblyExporter.CMU_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
       AssemblyExporter.CMU_ORGANISM -> contextFromEvidence(AssemblyExporter.ORGAN),
-      AssemblyExporter.CMU_POS_REG_NAME -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_POS_REG_TYPE -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_POS_REG_ID -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_POS_REG_LOCATION -> cleanText(locationName(getControllerLocation)), // TODO: print only when pos controllers > 0
-      AssemblyExporter.CMU_POS_REG_LOCATION_ID -> getControllerLocation,
-      AssemblyExporter.CMU_NEG_REG_NAME -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_NEG_REG_TYPE -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_NEG_REG_ID -> cleanText(input), // TODO: change,
-      AssemblyExporter.CMU_NEG_REG_LOCATION -> cleanText(locationName(getControllerLocation)), // TODO: print only when neg controllers > 0
-      AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> getControllerLocation,
+      AssemblyExporter.CMU_POS_REG_NAME -> getPositiveControllerNames,
+      AssemblyExporter.CMU_POS_REG_TYPE -> getPositiveControllerTypes,
+      AssemblyExporter.CMU_POS_REG_ID -> getPositiveControllerIds,
+      AssemblyExporter.CMU_POS_REG_LOCATION -> getPositiveControllerLocationName,
+      AssemblyExporter.CMU_POS_REG_LOCATION_ID -> getPositiveControllerLocationId,
+      AssemblyExporter.CMU_NEG_REG_NAME -> getNegativeControllerNames,
+      AssemblyExporter.CMU_NEG_REG_TYPE -> getNegativeControllerTypes,
+      AssemblyExporter.CMU_NEG_REG_ID -> getNegativeControllerIds,
+      AssemblyExporter.CMU_NEG_REG_LOCATION -> getNegativeControllerLocationName,
+      AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> getNegativeControllerLocationId,
       AssemblyExporter.CMU_IS_INDIRECT -> indirectLabel(isIndirect),
       AssemblyExporter.CMU_MECHANISM_TYPE -> mechanismType,
       AssemblyExporter.CMU_PAPER_ID -> setToString(docIDs),
@@ -314,10 +418,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   // LUT for retrieving IDs to distinct EERs
   // TODO: A better version of this should probably belong to the manager
-  val EERLUT: Map[Int, String] = distinctEERS.map{
-    case eer =>
-      (eer.equivalenceHash, mkEventID(eer))
-  }.toMap
+  val EERLUT: Map[Int, String] = distinctEERS.map{ eer => (eer.equivalenceHash, mkEventID(eer)) }.toMap
 
   val grounding2Text: Map[GroundingID, String] = {
     val pairs: Set[(GroundingID, String)] = for {
@@ -387,8 +488,8 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       if(se.label == "Translocation") {
         for(e <- se.evidence) {
           if(e.arguments.contains(name)){
-            val arg = e.arguments.get(name).get.head.toCorefMention
-            val nm = arg.text
+            // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
+            val arg = e.arguments(name).head.toCorefMention
             val id = arg.nsId()
             return id
           }
@@ -400,6 +501,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   def createMechanismType(eer: EntityEventRepresentation): String = eer match {
     case ne: Regulation =>
+      // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
       val simpleEvent = findSimpleEventControlled(ne.evidence.head)
       if (simpleEvent.isDefined) simpleEvent.get.label
       else AssemblyExporter.NONE
@@ -409,6 +511,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   def findSimpleEventControlled(event: Mention): Option[Mention] = {
     if(event.label.contains(REGULATION.toLowerCase())) {
       if(event.arguments.contains("controlled"))
+        // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
         return findSimpleEventControlled(event.arguments.get("controlled").get.head)
       else
         return None
@@ -419,7 +522,6 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
     Some(event)
   }
-
 
   def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
 
@@ -490,7 +592,50 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   def createNestedControllers(eer: EntityEventRepresentation): (List[String], List[String]) = {
-    (null, null) // TODO
+    val positiveControllers = new ListBuffer[String]
+    val negativeControllers = new ListBuffer[String]
+    fetchNestedControllers(eer, positiveControllers, negativeControllers)
+    Tuple2(positiveControllers.toList, negativeControllers.toList)
+  }
+
+  private def fetchNestedControllers(
+    eer: EntityEventRepresentation,
+    positiveControllers:ListBuffer[String],
+    negativeControllers:ListBuffer[String]): Boolean = {
+
+    eer match {
+      case se: SimpleEvent =>
+        if(se.label.startsWith("De") || se.label == "Ubiquitination")
+          false
+        else if(se.label == "Translocation" && se.inputPointers.contains("theme")) {
+          // for translocations, the element itself serves as its own controller
+          positiveControllers += createOutput(se.manager.getEER(se.inputPointers("theme").head))
+          true
+        } else
+          true
+      case act: Activation =>
+        if(act.polarity == "Positive") {
+          for(c <- act.controller)
+            positiveControllers += createOutput(c)
+          true
+        } else {
+          for(c <- act.controller)
+            negativeControllers += createOutput(c)
+          false
+        }
+      case reg: Regulation =>
+        var polarity =fetchNestedControllers(reg.controlled.head, positiveControllers, negativeControllers)
+        if(reg.polarity == "Negative") polarity = ! polarity
+        if(polarity) {
+          for(c <- reg.controller)
+            positiveControllers += createOutput(c)
+        } else {
+          for(c <- reg.controller)
+            negativeControllers += createOutput(c)
+        }
+        polarity
+      case _ => true
+    }
   }
 
   /**
