@@ -1,6 +1,6 @@
 package org.clulab.reach.assembly
 
-import org.clulab.reach.assembly.export.{AssemblyExporter, Row, ExportFilters}
+import org.clulab.reach.assembly.export.{AssemblyExporter, AssemblyRow, ExportFilters}
 import org.clulab.odin._
 
 
@@ -14,10 +14,10 @@ package object display {
     println(so)
   }
 
-  def shellOutput(rows: Set[Row]): String = {
+  def shellOutput(rows: Seq[AssemblyRow]): String = {
     val rowsForOutput = rows.filter { row =>
       ExportFilters.seenAtLeastOnce(row) && ExportFilters.isEvent(row)
-    }
+    }.distinct
 
     // validate output
     AssemblyExporter.validateOutput(rowsForOutput)
@@ -25,14 +25,13 @@ package object display {
     val text =
     // only events
       rowsForOutput
-        .toSeq
         .sortBy(r => r.eerID)
         .map(_.toShellRow)
         .mkString
     text + "=" * 50
   }
 
-  implicit class RowOps(row: Row) {
+  implicit class RowOps(row: AssemblyRow) {
     def toShellRow: String = {
       val precedingEvents = row.precededBy.toSeq.sorted.mkString(", ")
       s"""${row.eerID}:\t${if(row.negated) "! " else ""}${row.input} """ +

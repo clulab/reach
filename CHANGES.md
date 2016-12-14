@@ -1,5 +1,8 @@
 #Changes
 =======
+
++ **1.3.3** - Added a new tabular format for the DyCE CMU model.
++ **1.3.3** - The "arizona" tabular format was extended with source/destination for Translocation events.
 + **1.3.3** - Use Processors 6.0.1 and Bioresources 1.1.19, which contains Harvard Bioentities project KBs. Update many tests for BE KBs.
 + **1.3.3** - Mentions are created from previously unrecognized aliases.
 + **1.3.3** - Sub-project split into main, assembly, export.

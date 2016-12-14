@@ -2,8 +2,8 @@ package org.clulab.reach.export.arizona
 
 import org.clulab.odin.Mention
 import org.clulab.reach.assembly.AssemblyManager
-import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
-import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
+import org.clulab.reach.assembly.export.{ AssemblyExporter, ExportFilters, AssemblyRow }
+import org.clulab.reach.assembly.sieves.{ AssemblySieve, DeduplicationSieves }
 
 
 /**
@@ -26,6 +26,9 @@ object ArizonaOutputter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // translocations
+    AssemblyExporter.TRANSLOCATION_SOURCE,
+    AssemblyExporter.TRANSLOCATION_DESTINATION,
     // triggers
     AssemblyExporter.TRIGGERS,
     // evidence
@@ -34,12 +37,12 @@ object ArizonaOutputter {
     AssemblyExporter.SEEN_IN
   )
 
-  def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
+  def arizonaFilter(rows: Seq[AssemblyRow]): Seq[AssemblyRow] = rows.filter { r =>
     // remove unseen
     (r.seen > 0) &&
       // keep only the events
       ExportFilters.isEvent(r)
-  }
+  }.distinct
 
   def tabularOutput(mentions: Seq[Mention]): String = {
     val ae = createExporter(mentions)
