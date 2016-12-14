@@ -6,10 +6,10 @@ import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-import org.apache.commons.io.{FileUtils, FilenameUtils}
+import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly._
-import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
+import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
 import org.clulab.odin._
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.utils.MentionManager
@@ -174,7 +174,7 @@ class ReachCLI(
         // MITRE's requirements
         ae.writeRows(outFile, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, ExportFilters.MITREfilter)
         // no filter
-        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Set[Row]) => rows.filter(_.seen > 0))
+        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Seq[AssemblyRow]) => rows.filter(_.seen > 0))
 
       // Arizona's custom tabular output for assembly
       case ("arizona", _) =>

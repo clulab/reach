@@ -11,404 +11,14 @@ import com.typesafe.scalalogging.LazyLogging
 
 import scala.util.matching.Regex
 import java.io.File
-import java.util.regex.Pattern
 
-import scala.collection.mutable.ListBuffer
-
-
-trait EERDescription {
-  val eer: EntityEventRepresentation
-  val input: String
-  val output: String
-  val controller: String
-  val eerID: String
-  val label: String
-  val precededBy: Set[String]
-  val negated: Boolean
-  //val isDirect: Boolean
-  val evidence: Set[Mention]
-  val seen: Int
-}
-
-case class Row(
-  input: String,
-  output: String,
-  source: String, // only for Translocation
-  destination: String, // only for Translocation
-  controller: String,
-  nestedControllers: (List[String], List[String]), // _1 = positive controllers, _2 = negative controllers
-  eerID: String,
-  label: String,
-  mechanismType: String, // what simple event is regulated by this regulation
-  precededBy: Set[String],
-  negated: Boolean,
-  evidence: Set[Mention],
-  // to make debugging easier
-  eer: EntityEventRepresentation
-) extends EERDescription {
-  // this might serve as a proxy for confidence, though
-  // it would also be good to know how many times this event
-  // was involved in other events (input, controller, etc)
-  val seen:Int = evidence.size
-  // the set of paper ids where mentions of this event were found
-  val docIDs:Set[String] = evidence.map(_.document
-    .id
-    .getOrElse(AssemblyExporter.UNKNOWN)
-    // FIXME: hack to trim section/chunk ID
-    .split("_").head
-  ).map(id => s"PMC$id".replaceAll("^(PMC)*", "PMC"))
-
-  def getTextualEvidence: Seq[String] = {
-    evidence.toSeq.map { m =>
-      val text = m.sentenceObj.getSentenceText
-      cleanText(text)
-    }
-  }
-
-  def contextFromEvidence(contextLabel: String): String = {
-    val contextMentions = for {
-      m <- evidence
-      cm = m.toCorefMention
-      if cm.context.nonEmpty
-      contextMap = cm.context.get
-      if contextMap contains contextLabel
-      entry <- contextMap(contextLabel)
-    } yield entry
-    contextMentions.mkString(AssemblyExporter.CONCAT)
-  }
-
-  private def cleanText(contents: String): String = {
-    // replace multiple whitespace characters (newlines, tabs, etc) with a single space
-    val cleanContents = contents.replaceAll("\\s+", " ")
-    // check for only whitespace
-    AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches match {
-      case false => cleanContents
-      case true => AssemblyExporter.NONE
-    }
-  }
-
-  /**
-    * Translates Reach namespaces into element types
-    * Note that this only worries about entities that can serve as elements in the CMU format
-    **/
-  private def elementType(input:String):String = {
-    val db = elementDatabase(input)
-
-    if (db.startsWith("{")) {
-      val dbs = db.substring(1, db.length - 1).split(""",\s*""")
-      val b = new StringBuilder
-      b.append("{")
-      var first = true
-      for(d <- dbs) {
-        if(! first) b.append(", ")
-        b.append(singleElementType(d))
-        first = false
-      }
-      b.append("}")
-      b.toString()
-    } else {
-      singleElementType(db)
-    }
-  }
-
-  private def singleElementType(db:String):String = {
-    val t = db match {
-      case "uniprot" => "Protein"
-      case "pfam" => "Protein Family"
-      case "interpro" => "Protein Family"
-      case "be" => "Protein Family|Protein Complex"
-      case "pubchem" => "Chemical"
-      case "hmdb" => "Chemical"
-      case "chebi" => "Chemical"
-      case "go" => "Biological Process"
-      case "mesh" => "Biological Process"
-      case _ => "Other"
-    }
-    //println(s"TYPE from $db is $t")
-    t
-  }
-
-  private def elementName(input:String):String = {
-    val v = elementParser(input)
-    if(v.isDefined) v.get._1
-    else AssemblyExporter.NONE
-  }
-
-  private def elementDatabase(input:String):String = {
-    elementParser(input) match {
-      case v: Some[(String, String, String)] => v.get._2
-      case _ => AssemblyExporter.NONE
-    }
-  }
-
-  private def elementIdentifier(input:String):String = {
-    val v = elementParser(input)
-    if(v.isDefined) v.get._3
-    else AssemblyExporter.NONE
-  }
-
-  private def elementParser(input:String):Option[(String, String, String)] = {
-    val components = tokenizeComponents(input)
-
-    if (components.length == 1)
-      return parseSingleElement(components(0))
-
-    // handle complexes below
-    val parsedComponents = components.map(parseSingleElement)
-
-    val names = new ListBuffer[String]
-    val dbs = new ListBuffer[String]
-    val ids = new ListBuffer[String]
-    for(c <- parsedComponents) {
-      if(c.isDefined) {
-        names += c.get._1
-        dbs += c.get._2
-        ids += c.get._3
-      }
-    }
-
-    if(ids.isEmpty) return None
-    Some(mkComplexPart(names), mkComplexPart(dbs), mkComplexPart(ids))
-  }
-
-  private def mkComplexPart(components:Seq[String]):String =
-    s"""{${components.mkString(", ")}}"""
-
-  def parseSingleElement(input:String): Option[(String, String, String)] = {
-    val m = AssemblyExporter.ELEMENT_PATTERN.matcher(input)
-    if(m.matches()) {
-      val name = m.group(1)
-      val db = m.group(2).toLowerCase()
-      val id = m.group(3)
-      return Some(name, db, id)
-    }
-    None
-  }
-
-  private def tokenizeComponents(input:String):Array[String] = {
-    if(input.startsWith("{") && input.endsWith("}")) {
-      // found a complex; break it down into its components
-      val components = input.substring(1, input.length - 1).split(""",\s*""").map(_.trim)
-      components
-    } else {
-      // just a single entity
-      Array(input)
-    }
-  }
-
-  private def indirectLabel(isIndirect:Boolean): String =
-    if(isIndirect) "I" else "D"
-
-  private def removePTM(elem:String):String = {
-    val dotOffset = elem.lastIndexOf('.')
-    if(dotOffset > 0) {
-      val e = elem.substring(0, dotOffset)
-      // println(s"AFTER PTM: $e")
-      e
-    } else {
-      elem
-    }
-  }
-
-  /** Remove namespace from location ids, which are sufficient */
-  private def removeNamespaceFromId(id:String): String = {
-    val colonOffset = id.indexOf(':')
-    if(colonOffset > 0) id.substring(colonOffset + 1).toLowerCase
-    else id.toLowerCase
-  }
-
-  private def getPositiveControllerNames: String = {
-    //println(s"POSITIVE CONTROLLERS = ${nestedControllers._1.mkString(", ")}")
-    val b = new StringBuilder
-    val names = nestedControllers._1.map(elementName)
-    var first = true
-    for(n <- names) {
-      if(! first)
-        b.append(", ")
-      b.append(n)
-      if(names.size > 1)
-        b.append("*1")
-      if(! first)
-        b.append("+")
-      first = false
-    }
-    b.toString()
-  }
-  private def getPositiveControllerTypes: String = {
-    val b = new StringBuilder
-    val types = nestedControllers._1.map(elementType)
-    b.append(types.mkString(", "))
-    b.toString()
-  }
-  private def getPositiveControllerIds: String = {
-    val b = new StringBuilder
-    val ids = nestedControllers._1.map(elementIdentifier)
-    b.append(ids.mkString(", "))
-    b.toString()
-  }
-
-  private def getNegativeControllerNames: String = {
-    val b = new StringBuilder
-    val names = nestedControllers._2.map(elementName)
-    var first = true
-    for(n <- names) {
-      if(! first)
-        b.append(", ")
-      b.append(n)
-      if(names.size > 1)
-        b.append("*1")
-      if(! first)
-        b.append("-")
-      first = false
-    }
-    b.toString()
-  }
-  private def getNegativeControllerTypes: String = {
-    val b = new StringBuilder
-    val types = nestedControllers._2.map(elementType)
-    b.append(types.mkString(", "))
-    b.toString()
-  }
-  private def getNegativeControllerIds: String = {
-    val b = new StringBuilder
-    val ids = nestedControllers._2.map(elementIdentifier)
-    b.append(ids.mkString(", "))
-    b.toString()
-  }
-
-  private def getLocation:String = {
-    val id = if(label != "Translocation")
-      contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
-    else
-      destination
-    removeNamespaceFromId(id)
-  }
-
-  private def getControllerLocation:String = {
-    val id = if(label != "Translocation")
-      // same as getLocation
-      contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT)
-    else
-      source
-    removeNamespaceFromId(id)
-  }
-
-  private def locationName(id:String):String = {
-    if(id.trim.isEmpty) return ""
-    AssemblyExporter.CMU_KNOWN_LOCATIONS.getOrElse(id, "Other")
-  }
-
-  private def getPositiveControllerLocationName: String = {
-    if(nestedControllers._1.nonEmpty)
-      cleanText(locationName(getControllerLocation))
-    else
-      ""
-  }
-  private def getPositiveControllerLocationId: String = {
-    if(nestedControllers._1.nonEmpty)
-      getControllerLocation
-    else
-      ""
-  }
-  private def getNegativeControllerLocationName: String = {
-    if(nestedControllers._2.nonEmpty)
-      cleanText(locationName(getControllerLocation))
-    else
-      ""
-  }
-  private def getNegativeControllerLocationId: String = {
-    if(nestedControllers._2.nonEmpty)
-      getControllerLocation
-    else
-      ""
-  }
-
-  def isIndirect: Boolean = evidence.exists{ e =>
-    e.toCorefMention match {
-      case em: CorefEventMention => ! em.isDirect
-      // mark all activations as indirect
-      case activation if activation matches "Activation" => true
-      // NOTE: should already be covered by CorefEventMention case
-      case se if se matches "SimpleEvent" => false
-      // bindings are direct
-      case binding if binding matches "Binding" => false
-      case complex if complex matches "Complex" => false
-      // we'll call entities "direct"
-      // NOTE: likely entity rows will not be reported
-      case entity if entity matches "Entity" => false
-      // a reg with a simple event as its controlled
-      case reg if ExportFilters.regWithSimpleEventWithController(reg) => false
-      // assume it's indirect otherwise?
-      case other => true
-    }
-  }
-
-  private def setToString(s: Set[String]): String = s.toSeq.sorted.mkString(", ")
-
-  val columns: Map[String, String] = {
-    Map(
-      AssemblyExporter.INPUT -> cleanText(input),
-      AssemblyExporter.OUTPUT -> cleanText(output),
-      AssemblyExporter.CONTROLLER -> cleanText(controller),
-      AssemblyExporter.EVENT_ID -> cleanText(eerID),
-      AssemblyExporter.EVENT_LABEL -> label,
-      AssemblyExporter.PRECEDED_BY -> setToString(precededBy),
-      AssemblyExporter.NEGATED -> negated.toString,
-      AssemblyExporter.TRIGGERS -> AssemblyExporter.getSortedTriggers(evidence.toSeq),
-      AssemblyExporter.SEEN -> seen.toString,
-      AssemblyExporter.EVIDENCE -> getTextualEvidence.mkString(AssemblyExporter.CONCAT),
-      AssemblyExporter.SEEN_IN -> setToString(docIDs),
-      AssemblyExporter.INDIRECT -> isIndirect.toString,
-      //AssemblyExporter.IS_DIRECT -> isDirect.toString,
-      AssemblyExporter.CONTEXT_SPECIES -> contextFromEvidence(AssemblyExporter.SPECIES),
-      AssemblyExporter.CONTEXT_ORGAN -> contextFromEvidence(AssemblyExporter.ORGAN),
-      AssemblyExporter.CONTEXT_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
-      AssemblyExporter.CONTEXT_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
-      AssemblyExporter.CONTEXT_CELLULAR_COMPONENT -> contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT),
-      AssemblyExporter.CONTEXT_TISSUE_TYPE -> contextFromEvidence(AssemblyExporter.TISSUE_TYPE),
-      // for translocations only: source and destination
-      AssemblyExporter.TRANSLOCATION_SOURCE -> cleanText(source),
-      AssemblyExporter.TRANSLOCATION_DESTINATION -> cleanText(destination),
-
-      // operations specific to the CMU tabular format
-      AssemblyExporter.CMU_ELEMENT_NAME -> cleanText(elementName(removePTM(output))),
-      AssemblyExporter.CMU_ELEMENT_TYPE -> cleanText(elementType(removePTM(output))),
-      AssemblyExporter.CMU_DATABASE_NAME -> cleanText(elementDatabase(removePTM(output))),
-      AssemblyExporter.CMU_ELEMENT_IDENTIFIER -> cleanText(elementIdentifier(removePTM(output))),
-      AssemblyExporter.CMU_LOCATION -> cleanText(locationName(getLocation)),
-      AssemblyExporter.CMU_LOCATION_IDENTIFIER -> getLocation,
-      AssemblyExporter.CMU_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
-      AssemblyExporter.CMU_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
-      AssemblyExporter.CMU_ORGANISM -> contextFromEvidence(AssemblyExporter.ORGAN),
-      AssemblyExporter.CMU_POS_REG_NAME -> getPositiveControllerNames,
-      AssemblyExporter.CMU_POS_REG_TYPE -> getPositiveControllerTypes,
-      AssemblyExporter.CMU_POS_REG_ID -> getPositiveControllerIds,
-      AssemblyExporter.CMU_POS_REG_LOCATION -> getPositiveControllerLocationName,
-      AssemblyExporter.CMU_POS_REG_LOCATION_ID -> getPositiveControllerLocationId,
-      AssemblyExporter.CMU_NEG_REG_NAME -> getNegativeControllerNames,
-      AssemblyExporter.CMU_NEG_REG_TYPE -> getNegativeControllerTypes,
-      AssemblyExporter.CMU_NEG_REG_ID -> getNegativeControllerIds,
-      AssemblyExporter.CMU_NEG_REG_LOCATION -> getNegativeControllerLocationName,
-      AssemblyExporter.CMU_NEG_REG_LOCATION_ID -> getNegativeControllerLocationId,
-      AssemblyExporter.CMU_IS_INDIRECT -> indirectLabel(isIndirect),
-      AssemblyExporter.CMU_MECHANISM_TYPE -> mechanismType,
-      AssemblyExporter.CMU_PAPER_ID -> setToString(docIDs),
-      AssemblyExporter.CMU_EVIDENCE  -> getTextualEvidence.mkString(AssemblyExporter.CONCAT)
-    )
-  }
-
-  def toRow(cols: Seq[String], sep: String = AssemblyExporter.SEP): String = {
-    val r = for {
-      col <- cols
-    } yield columns(col)
-    r.mkString(sep)
-  }
-}
 
 /**
- * UA assembly exporter <br>
- * Used to produce a tsv file
- */
+  * UA assembly exporter <br>
+  * Used to produce a tsv file
+  *
+  * @param manager
+  */
 class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   import AssemblyExporter._
@@ -437,7 +47,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   def getText(entity: SimpleEntity): String = {
-   val text = entity.sourceMention match {
+    val text = entity.sourceMention match {
       // get the resolved form
       case Some(m) => resolveEvidence(m).text
       case noSource =>
@@ -450,16 +60,16 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   /**
-   * Create text representation of SimpleEntity
+    * Create text representation of SimpleEntity
     *
     * @param entity a SimpleEntity
-   * @return a String representing entity and its modifications, mutations, etc
-   */
+    * @return a String representing entity and its modifications, mutations, etc
+    */
   def createSimpleEntityText(entity: SimpleEntity): String = {
 
     // partition modifications
     val (muts, other) =
-      entity.modifications.partition(_.isInstanceOf[MutantEntity])
+    entity.modifications.partition(_.isInstanceOf[MutantEntity])
 
     // mutations
     val mutations = muts.map(_.asInstanceOf[MutantEntity])
@@ -480,9 +90,9 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     s"$text::${entity.grounding}$mutantForms$features"
   }
 
+  // FIXME: Change EER mods to include Location
   def createSource(eer: EntityEventRepresentation): String = createTranslocationArgument(eer, "source")
   def createDestination(eer: EntityEventRepresentation): String = createTranslocationArgument(eer, "destination")
-
   def createTranslocationArgument(eer: EntityEventRepresentation, name: String): String = eer match {
     case se: SimpleEvent =>
       if(se.label == "Translocation") {
@@ -497,30 +107,6 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       }
       NONE
     case _ => NONE
-  }
-
-  def createMechanismType(eer: EntityEventRepresentation): String = eer match {
-    case ne: Regulation =>
-      // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
-      val simpleEvent = findSimpleEventControlled(ne.evidence.head)
-      if (simpleEvent.isDefined) simpleEvent.get.label
-      else AssemblyExporter.NONE
-    case _ => AssemblyExporter.NONE
-  }
-
-  def findSimpleEventControlled(event: Mention): Option[Mention] = {
-    if(event.label.contains(REGULATION.toLowerCase())) {
-      if(event.arguments.contains("controlled"))
-        // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
-        return findSimpleEventControlled(event.arguments.get("controlled").get.head)
-      else
-        return None
-    } else if (event.label.contains(ACTIVATION.toLowerCase())) {
-      // we are looking for mechanistic events, not activations
-      return None
-    }
-
-    Some(event)
   }
 
   def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
@@ -591,59 +177,12 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   }
 
-  def createNestedControllers(eer: EntityEventRepresentation): (List[String], List[String]) = {
-    val positiveControllers = new ListBuffer[String]
-    val negativeControllers = new ListBuffer[String]
-    fetchNestedControllers(eer, positiveControllers, negativeControllers)
-    Tuple2(positiveControllers.toList, negativeControllers.toList)
-  }
-
-  private def fetchNestedControllers(
-    eer: EntityEventRepresentation,
-    positiveControllers:ListBuffer[String],
-    negativeControllers:ListBuffer[String]): Boolean = {
-
-    eer match {
-      case se: SimpleEvent =>
-        if(se.label.startsWith("De") || se.label == "Ubiquitination")
-          false
-        else if(se.label == "Translocation" && se.inputPointers.contains("theme")) {
-          // for translocations, the element itself serves as its own controller
-          positiveControllers += createOutput(se.manager.getEER(se.inputPointers("theme").head))
-          true
-        } else
-          true
-      case act: Activation =>
-        if(act.polarity == "Positive") {
-          for(c <- act.controller)
-            positiveControllers += createOutput(c)
-          true
-        } else {
-          for(c <- act.controller)
-            negativeControllers += createOutput(c)
-          false
-        }
-      case reg: Regulation =>
-        var polarity =fetchNestedControllers(reg.controlled.head, positiveControllers, negativeControllers)
-        if(reg.polarity == "Negative") polarity = ! polarity
-        if(polarity) {
-          for(c <- reg.controller)
-            positiveControllers += createOutput(c)
-        } else {
-          for(c <- reg.controller)
-            negativeControllers += createOutput(c)
-        }
-        polarity
-      case _ => true
-    }
-  }
-
   /**
-   * Converts predecessors of Event to Event IDs
+    * Converts predecessors of Event to Event IDs
     *
     * @param eer an [[EntityEventRepresentation]]
-   * @return a Set of String representing Event IDs of eer's predecessors
-   */
+    * @return a Set of String representing Event IDs of eer's predecessors
+    */
   def precededBy(eer: EntityEventRepresentation): Set[String] = eer match {
     case entity: Entity => Set.empty[String]
     case event: Event =>
@@ -654,7 +193,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     f: File,
     cols: Seq[String],
     sep: String = AssemblyExporter.SEP,
-    rowFilter: Set[Row] => Set[Row]
+    rowFilter: Seq[AssemblyRow] => Seq[AssemblyRow]
   ): Unit = {
 
     val results = rowsToString(cols, sep, rowFilter)
@@ -665,7 +204,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   def rowsToString(
     cols: Seq[String],
     sep: String = AssemblyExporter.SEP,
-    rowFilter: Set[Row] => Set[Row]
+    rowFilter: Seq[AssemblyRow] => Seq[AssemblyRow]
   ): String = {
     val rowsForOutput = rowFilter(getRows)
     // validate output
@@ -683,28 +222,25 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
-  def getRows: Set[Row] = {
+  def getRows: Seq[AssemblyRow] = {
 
-    val rows: Set[Row] = distinctEERS
+    val rows: Set[AssemblyRow] = distinctEERS
       .map { event =>
-        Row(
+        AssemblyRow(
           createInput(event),
           createOutput(event),
           createSource(event),
           createDestination(event),
           createController(event),
-          createNestedControllers(event),
           EERLUT(event.equivalenceHash),
           getEventLabel(event),
-          createMechanismType(event),
           precededBy(event),
           event.negated,
           event.evidence,
           event
         )
       }
-
-    rows
+    rows.toSeq
   }
 
   /** for debugging purposes */
@@ -719,17 +255,17 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   /** for debugging purposes */
-  def rowsWithPrecededByIDProblems(rows: Set[Row]): Set[Row] = {
+  def rowsWithPrecededByIDProblems(rows: Seq[AssemblyRow]): Seq[AssemblyRow] = {
     // make sure the output is valid
-    val eventIDs: Set[String] = rows.map(_.eerID)
+    val eventIDs: Seq[String] = rows.map(_.eerID).distinct
     val problems = rows.filter(r => ! r.precededBy.forall(eid => eventIDs contains eid))
     problems
   }
 
   /** for debugging purposes */
-  def rowsWithOutputIDProblems(rows: Set[Row]): Set[Row] = {
+  def rowsWithOutputIDProblems(rows: Seq[AssemblyRow]): Seq[AssemblyRow] = {
     // make sure the output is valid
-    val eventIDs: Set[String] = rows.map(_.eerID)
+    val eventIDs: Seq[String] = rows.map(_.eerID).distinct
     val problems = rows
       .filter(r => r.label == REGULATION)
       .filterNot(r => eventIDs contains r.input)
@@ -748,14 +284,15 @@ object AssemblyExporter {
   val NONE = "NONE"
 
   val PTMLUT: Map[String, String] = Map(
-      "Phosphorylation" -> ".p",
-      "Ubiquitination" -> ".u"
+    "Phosphorylation" -> ".p",
+    "Ubiquitination" -> ".u"
   )
 
   // eer labels (for filtering)
   val ENTITY = "entity"
   val REGULATION = "Regulation"
   val ACTIVATION = "Activation"
+  val TRANSLOCATION = "Translocation"
 
   // context types
   val SPECIES = "Species"
@@ -788,31 +325,6 @@ object AssemblyExporter {
   val TRANSLOCATION_SOURCE = "TRANSLOCATION (SOURCE)"
   val TRANSLOCATION_DESTINATION = "TRANSLOCATION (DESTINATION)"
 
-  // columns for the CMU tabular format
-  val CMU_ELEMENT_NAME = "Element Name"
-  val CMU_ELEMENT_TYPE = "Element Type"
-  val CMU_DATABASE_NAME = "Database Name"
-  val CMU_ELEMENT_IDENTIFIER = "Element Identifier"
-  val CMU_LOCATION = "Location"
-  val CMU_LOCATION_IDENTIFIER = "Location Identifier"
-  val CMU_CELL_LINE = "Cell Line"
-  val CMU_CELL_TYPE = "Cell Type"
-  val CMU_ORGANISM = "Organism"
-  val CMU_POS_REG_NAME = "PosReg Name"
-  val CMU_POS_REG_TYPE = "PosReg Type"
-  val CMU_POS_REG_ID = "PosReg ID"
-  val CMU_POS_REG_LOCATION = "PosReg Location"
-  val CMU_POS_REG_LOCATION_ID = "PosReg Location ID"
-  val CMU_NEG_REG_NAME = "NegReg Name"
-  val CMU_NEG_REG_TYPE = "NegReg Type"
-  val CMU_NEG_REG_ID = "NegReg ID"
-  val CMU_NEG_REG_LOCATION = "NegReg Location"
-  val CMU_NEG_REG_LOCATION_ID = "NegReg Location ID"
-  val CMU_IS_INDIRECT = "Interaction  Direct (D) or Indirect (I)"
-  val CMU_MECHANISM_TYPE = "Mechanism Type for Direct"
-  val CMU_PAPER_ID = "Paper ID"
-  val CMU_EVIDENCE = "Evidence"
-
   val SEP = "\t"
   val CONCAT = " ++++ "
 
@@ -832,9 +344,6 @@ object AssemblyExporter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
-    // source, destination for translocations
-    AssemblyExporter.TRANSLOCATION_SOURCE,
-    AssemblyExporter.TRANSLOCATION_DESTINATION,
     // trigger
     AssemblyExporter.TRIGGERS,
     // evidence
@@ -843,49 +352,11 @@ object AssemblyExporter {
     AssemblyExporter.SEEN_IN
   )
 
-  val CMU_COLUMNS = Seq(
-    CMU_ELEMENT_NAME,
-    CMU_ELEMENT_TYPE,
-    CMU_DATABASE_NAME,
-    CMU_ELEMENT_IDENTIFIER,
-    CMU_LOCATION,
-    CMU_LOCATION_IDENTIFIER,
-    CMU_CELL_LINE,
-    CMU_CELL_TYPE,
-    CMU_ORGANISM,
-    CMU_POS_REG_NAME,
-    CMU_POS_REG_TYPE,
-    CMU_POS_REG_ID,
-    CMU_POS_REG_LOCATION,
-    CMU_POS_REG_LOCATION_ID,
-    CMU_NEG_REG_NAME,
-    CMU_NEG_REG_TYPE,
-    CMU_NEG_REG_ID,
-    CMU_NEG_REG_LOCATION,
-    CMU_NEG_REG_LOCATION_ID,
-    CMU_IS_INDIRECT,
-    CMU_MECHANISM_TYPE,
-    CMU_PAPER_ID,
-    CMU_EVIDENCE
-  )
-
-  val ELEMENT_PATTERN = Pattern.compile("""([^:]+)::([^:]+):(.+)""", Pattern.CASE_INSENSITIVE)
-
-  // FIXME: replace with an actual KB lookup from the subcellular location KB (Tom)
-  val CMU_KNOWN_LOCATIONS:Map[String, String] = Map(
-    "go:0005737" -> "cytoplasm",
-    "go:0005886" -> "plasma membrane",
-    "go:0005634" -> "nucleus",
-    "go:0005739" -> "mitochondria",
-    "go:0005576" -> "external",
-    "go:0005783" -> "endoplasmic reticulum"
-  )
-
   /** Validate the rows before writing */
-  def validateOutput(rowsForOutput: Set[Row]): Unit = {
+  def validateOutput(rowsForOutput: Seq[AssemblyRow]): Unit = {
     // make sure the output is valid
-    val eventIDs: Set[String] = rowsForOutput.map(_.eerID)
-    val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
+    val eventIDs: Seq[String] = rowsForOutput.map(_.eerID).distinct
+    val precededByIDs: Seq[String] = rowsForOutput.flatMap(_.precededBy).distinct
     val regInputIDs = rowsForOutput
       .filter(r => r.label == REGULATION)
       .map(_.input)
@@ -933,7 +404,7 @@ object AssemblyExporter {
     // attempt to get the lemmatized trigger for each mention
     val triggers = mns.flatMap(getTrigger)
     val triggerCounts: Seq[(Int, String)] = for {
-      // count each distinct trigger
+    // count each distinct trigger
       trig: String <- triggers.distinct
       cnt = triggers.count(_ == trig)
     } yield cnt -> trig
@@ -942,139 +413,5 @@ object AssemblyExporter {
     triggerCounts.sortBy(_._1).reverse
       .map(_._2) // get the triggers
       .mkString(AssemblyExporter.CONCAT) // concatenate
-  }
-}
-
-
-object ExportFilters {
-
-  /** The EERDescription may not be an entity */
-  def isEvent(row: EERDescription): Boolean = {
-    // must have a valid eventID
-    row.label != AssemblyExporter.ENTITY && (row.label.nonEmpty || row.label != AssemblyExporter.NONE)
-  }
-
-  /** Must have a Controller or be a valid Translocation */
-  def hasController(r:EERDescription): Boolean = {
-    if(r.controller != AssemblyExporter.NONE) return true
-
-    // Translocations wo/ controllers are accepted if both source and destination are given
-    if(r.label == "Translocation" && r.isInstanceOf[Row]) {
-      val row = r.asInstanceOf[Row]
-      if(row.source != AssemblyExporter.NONE && row.destination != AssemblyExporter.NONE)
-        return true
-    }
-
-    false
-  }
-
-  /**
-    * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
-    *
-    * @param m an Odin Mention
-    * @return true or false
-    */
-  def hasUAZgrounding(m: Mention): Boolean = {
-    m match {
-      case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId().toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
-      case site if site matches "Site" => false
-      case event if event matches "Event" =>
-        event.arguments.values.flatten.exists(hasUAZgrounding)
-    }
-  }
-
-  /**
-    * Recursively checks whether or not a Mention m contains a Mention with the label Family
-    *
-    * @param m an Odin Mention
-    * @return true or false
-    */
-  def containsFamily(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" =>
-      entity matches "Family"
-    case site if site matches "Site" => false
-    case event if event matches "Event" =>
-      event.arguments.values.flatten.exists(containsFamily)
-  }
-
-  def isValidRegulation(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" => true
-    case se if se matches "SimpleEvent" => true
-    case act if act matches "ActivationEvent" => false
-    case reg if reg matches "Regulation" => reg.arguments.values.flatten.forall(isValidRegulation)
-  }
-
-  def seenAtLeastOnce(row: EERDescription): Boolean = row.seen >= 1
-
-  def filterPrecededBy(row: Row, eventIDs: Set[String]): Row = row match {
-    case nopredecessors if nopredecessors.precededBy.isEmpty => nopredecessors
-    case validPreds if validPreds.precededBy.forall(eid => eventIDs contains eid) =>
-      validPreds
-
-    case problem =>
-      // keep only the predecessors that exist in the current set of rows
-      val validPs: Set[String] = problem.precededBy intersect eventIDs
-
-      Row(
-        problem.input,
-        problem.output,
-        problem.source,
-        problem.destination,
-        problem.controller,
-        problem.nestedControllers,
-        problem.eerID,
-        problem.label,
-        problem.mechanismType,
-        validPs,
-        problem.negated,
-        problem.evidence,
-        problem.eer
-      )
-  }
-
-  def isValidMITREMention(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" => true
-    case se if se matches "SimpleEvent" => true
-    case reg if reg matches "Regulation" => isValidRegulation(reg)
-    // no activations for MITRE
-    case act if act matches "ActivationEvent" => false
-    // assume false...
-    case other => false
-  }
-
-  /**
-    * Applies MITRE requirements to assembled events
-    *
-    * @param rows a Set[Row]
-    * @return a filtered Set of [[Row]]
-    */
-  def MITREfilter(rows: Set[Row]): Set[Row] = {
-    // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
-    val filteredRows = rows.filter(_.seen >= 3)
-      // 1b. Evidence come from at least 2 different sections.
-      .filter(_.docIDs.size >= 2)
-      // 2a. No Activations, etc.
-      .filter(r => r.evidence.forall(isValidMITREMention))
-      // 2b. Findings cannot include protein families.
-      .filter(r => r.evidence.forall(e => ! containsFamily(e)))
-      // 3. Findings should not have an unresolved (UAZ) grounding.
-      // FIXME: probably this should operate over EERs, not their evidence
-      .filter(r => r.evidence.forall(e => ! hasUAZgrounding(e)))
-    // 4. Only keep precedence entries that exist in set of filteredRow's event IDs
-    val eventIDs = filteredRows.map(_.label)
-    filteredRows.map(r => filterPrecededBy(r, eventIDs))
-  }
-
-
-  def regWithSimpleEventWithController(m: Mention): Boolean = m match {
-    case hasControllerControlled if (hasControllerControlled.arguments contains "controller") && (hasControllerControlled.arguments contains "controlled") =>
-      hasControllerControlled.arguments("controlled").exists {
-        case se if se.matches("SimpleEvent") => true
-        case reg if reg matches AssemblyExporter.REGULATION => regWithSimpleEventWithController(reg)
-        // Activations, etc
-        case other => false
-      }
-    case other => false
   }
 }
