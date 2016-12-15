@@ -6,12 +6,15 @@ import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FileUtils
 import org.clulab.reach.PaperReader
-import org.clulab.reach.serialization.json._
+import org.clulab.serialization.json._
+
 import scala.collection.parallel.ForkJoinTaskSupport
 import java.io.File
 
 
-/** Built with resuming aborted jobs in mind,
+/**
+  * Parse nxml papers and serialize to json. <br>
+  * Built with resuming aborted jobs in mind,
   * PapersToJSON checks to see if the output file for a paper has already been produced
   * before attempting to read the paper
   * */
@@ -38,12 +41,12 @@ object PapersToJSON extends App with LazyLogging {
     p <- papers
     // the PMID
     paperID = p.getBaseName()
-    outFile = new File(outDir, s"$paperID-mentions.json")
+    outFile = new File(outDir, s"$paperID.json")
     if !outFile.exists
   } {
     logger.info(s"reading $paperID")
-    val mns = PaperReader.getMentionsFromPaper(p)
-    mns.saveJSON(outFile, pretty = true)
+    val doc = PaperReader.rs.mkDoc(PaperReader.nxmlReader.read(p))
+    doc.saveJSON(outFile, pretty = true)
     logger.info(s"serialized $paperID to ${outFile.getAbsolutePath}")
   }
 }
