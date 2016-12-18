@@ -177,7 +177,7 @@ class ReachCLI(
 
     val standoffFile = new File(paperDir, "standoff.json")
 
-    FileUtils.write(standoffFile, nxml.standoff.printJson)
+    // FileUtils.write(standoffFile, nxml.standoff.printJson)
     //
     // val ctxCitationsFile = new File(paperDir, "citations.txt")
     // FileUtils.writeLines(ctxCitationsFile, outputter.citationLines.asJavaCollection)
