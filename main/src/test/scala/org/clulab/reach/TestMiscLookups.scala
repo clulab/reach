@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachMiscLookups._
 /**
   * Unit tests of additional lookup tables and knowledge bases.
   *   Written by: Tom Hicks. 7/10/2016.
-  *   Last Modified: Add is-a tests for protein kinase and protein domains.
+  *   Last Modified: Add tests for gene name affixes.
   */
 class TestMiscLookups extends FlatSpec with Matchers {
 
@@ -100,6 +100,52 @@ class TestMiscLookups extends FlatSpec with Matchers {
     (isProteinDomain("zu5")) should be (true)        // last entry in list
     (isProteinDomain("Germane")) should be (true)
     (isProteinDomain("germane")) should be (true)    // odd but true
+  }
+
+
+  // Tests of the singleton Gene Name Affixes set:
+  val gna = GeneNameAffixes
+
+  "Gene Name Affixes" should "test that contains method works" in {
+    (gna.contains("NOT-IN-KB")) should be (false) // not in KB
+    (gna.contains("not-in-kb")) should be (false) // not in KB
+    (gna.contains("prefix")) should be (false)    // not in KB
+    (gna.contains("suffix")) should be (false)    // not in KB
+    (gna.contains("affix")) should be (false)     // not in KB
+    (gna.contains("uaz")) should be (false)       // not in KB
+    (gna.contains("activated")) should be (true)  // first entry in list
+    (gna.contains("ACTIVATED")) should be (false) // entries are lowercase
+    (gna.contains("flag")) should be (true)
+    (gna.contains("Flag")) should be (false)      // entries are lowercase
+    (gna.contains("FLAG")) should be (false)      // entries are lowercase
+    (gna.contains("gst")) should be (true)
+    (gna.contains("GST")) should be (false)       // entries are lowercase
+    (gna.contains("phospho")) should be (true)
+    (gna.contains("phosphor")) should be (true)
+    (gna.contains("phosphorylated")) should be (true)
+    (gna.contains("shrna")) should be (true)      // last entry in list
+    (gna.contains("shRNA")) should be (false)     // entries are lowercase
+  }
+
+  "Gene Name Affixes" should "test that isGeneNameAffix method works" in {
+    (isGeneNameAffix("NOT-IN-KB")) should be (false) // not in KB
+    (isGeneNameAffix("not-in-kb")) should be (false) // not in KB
+    (isGeneNameAffix("prefix")) should be (false)    // not in KB
+    (isGeneNameAffix("suffix")) should be (false)    // not in KB
+    (isGeneNameAffix("affix")) should be (false)     // not in KB
+    (isGeneNameAffix("uaz")) should be (false)       // not in KB
+    (isGeneNameAffix("activated")) should be (true)  // first entry in list
+    (isGeneNameAffix("ACTIVATED")) should be (true)  // case should not matter
+    (isGeneNameAffix("flag")) should be (true)
+    (isGeneNameAffix("Flag")) should be (true)       // case should not matter
+    (isGeneNameAffix("FLAG")) should be (true)       // case should not matter
+    (isGeneNameAffix("gst")) should be (true)
+    (isGeneNameAffix("GST")) should be (true)        // case should not matter
+    (isGeneNameAffix("phospho")) should be (true)
+    (isGeneNameAffix("phosphor")) should be (true)
+    (isGeneNameAffix("phosphorylated")) should be (true)
+    (isGeneNameAffix("shrna")) should be (true)      // last entry in list
+    (isGeneNameAffix("shRNA")) should be (true)      // last entry in list
   }
 
 }

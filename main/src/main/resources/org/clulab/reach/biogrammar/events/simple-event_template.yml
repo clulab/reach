@@ -417,7 +417,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    (@cause:BioChemicalEntity)? (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]) [!tag=/^(V|JJ)/ & !word=by]{,2}? @theme:BioChemicalEntity []{1,10} @site:Site
+    (@cause:BioChemicalEntity)? (?<trigger> [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]) [!tag=/^(V|JJ)/ & !word=by]{,2}? @theme:BioChemicalEntity protein? at (@site:Site ("," | and | as well as){,2})* @site:Site
 
 
 # This is the only way to get this, due to horrible misparsing.

@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Trait for defining constants used by grounding and entity checking code.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for HMS drug KB.
+  *   Last Modified: Add Bioentities KB files.
   */
 object ReachKBConstants {
 
@@ -12,19 +12,6 @@ object ReachKBConstants {
 
   /** The string used to separate a namespace and an ID. */
   val NamespaceIdSeparator: String = ":"
-
-
-  /** The set of words to remove from all keys to create a lookup key. */
-  val AllKeysStopSuffixes = Seq("_human")
-
-  /** The set of words to remove from a key to create a protein family lookup key. */
-  val FamilyStopSuffixes = Seq(" protein family", " family")
-
-  /** The set of characters to remove from the text to create a lookup key. */
-  val KeyCharactersToRemove = " /-".toSet
-
-  /** The set of words to remove from a key to create a protein lookup key. */
-  val ProteinStopSuffixes = Seq(" mutant protein", " protein")
 
 
   /** File Path to the directory which holds the entity knowledge bases. */
@@ -68,6 +55,9 @@ object ReachKBConstants {
   /** Filename of the static small molecule (metabolite) file. */
   val StaticMetaboliteFilename = "hmdb.tsv.gz"
 
+  /** Filename of the static protein complex file. */
+  val StaticProteinComplexFilename = "BEcomplexes.tsv.gz"
+
   /** Filename of the static protein file. */
   val StaticProteinFilename = "uniprot-proteins.tsv.gz"
 
@@ -76,6 +66,9 @@ object ReachKBConstants {
 
   /** Filename of the secondary static protein family file. */
   val StaticProteinFamily2Filename = "ProteinFamilies.tsv.gz"
+
+  /** Filename of the override static protein family file. */
+  val StaticProteinFamily0Filename = "BEfamilies.tsv.gz"
 
 
   /** Filename of the context species file */
@@ -96,6 +89,10 @@ object ReachKBConstants {
   /** Filename of the static tissue type file. */
   val ContextTissueTypeFilename = "tissue-type.tsv.gz"
 
+
+  /** Filename of a file containing just Gene Name Affix strings, extracted from
+      the Sorger bioentities file. */
+  val GeneNameAffixesFilename = "geneNameAffixes.txt.gz"
 
   /** Filename of the protein kinases lookup table. */
   val ProteinKinasesFilename = "uniprot-kinases.txt.gz"

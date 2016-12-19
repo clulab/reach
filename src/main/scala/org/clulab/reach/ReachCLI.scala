@@ -1,23 +1,26 @@
 package org.clulab.reach
 
-import java.io.File
-import java.util.Date
+import org.clulab.reach.export.cmu.CMUExporter
+
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.mutable
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
-import org.apache.commons.io.{FileUtils, FilenameUtils}
+import org.apache.commons.io.{ FileUtils, FilenameUtils }
+import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly._
-import org.clulab.reach.assembly.export.{AssemblyExporter, ExportFilters, Row}
+import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
 import org.clulab.odin._
-import org.clulab.reach.assembly.sieves.{AssemblySieve, DeduplicationSieves}
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.utils.MentionManager
 import org.clulab.reach.export.fries._
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.mentions.CorefMention
+import java.io.File
+import java.util.Date
 
+import org.clulab.reach.export.arizona.ArizonaOutputter
 
 /**
   * Class to run Reach reading and assembly then produce FRIES format output
@@ -76,7 +79,7 @@ class ReachCLI(
                |
             |==========
                |""".stripMargin
-          FileUtils.writeStringToFile(logFile, report, true)
+          logger.error(report)
           1
       }
       error
@@ -98,8 +101,7 @@ class ReachCLI(
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
 
-    FileUtils.writeStringToFile(logFile, s"$startTime: Starting $paperId\n", true)
-
+    logger.info(s"$startTime: Starting $paperId")
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
 
     // entry must be kept around for outputter
@@ -128,10 +130,8 @@ class ReachCLI(
     val endNS = System.nanoTime
 
     logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
+    logger.info(s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)")
 
-    FileUtils.writeStringToFile(
-      logFile, s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)\n", true
-    )
   }
 
   /**
@@ -191,46 +191,19 @@ class ReachCLI(
         // MITRE's requirements
         ae.writeRows(outFile, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, ExportFilters.MITREfilter)
         // no filter
-        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Set[Row]) => rows.filter(_.seen > 0))
+        ae.writeRows(outFile2, AssemblyExporter.DEFAULT_COLUMNS, AssemblyExporter.SEP, (rows: Seq[AssemblyRow]) => rows.filter(_.seen > 0))
 
-      // Arizona's custom output for assembly
+      // Arizona's custom tabular output for assembly
       case ("arizona", _) =>
-        // perform deduplication
-        val dedup = new DeduplicationSieves()
-        val orderedSieves =
-        // track relevant mentions
-          AssemblySieve(dedup.trackMentions)
-        val am: AssemblyManager = orderedSieves.apply(mentions)
-        val ae = new AssemblyExporter(am)
+        val output = ArizonaOutputter.tabularOutput(mentions)
         val outFile = new File(outputDir, s"$paperId-arizona-out.tsv")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
-        val cols = Seq(
-          AssemblyExporter.INPUT,
-          AssemblyExporter.OUTPUT,
-          AssemblyExporter.CONTROLLER,
-          AssemblyExporter.EVENT_ID,
-          AssemblyExporter.EVENT_LABEL,
-          AssemblyExporter.NEGATED,
-          AssemblyExporter.INDIRECT,
-          // context
-          AssemblyExporter.CONTEXT_SPECIES,
-          AssemblyExporter.CONTEXT_ORGAN,
-          AssemblyExporter.CONTEXT_CELL_LINE,
-          AssemblyExporter.CONTEXT_CELL_TYPE,
-          AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
-          AssemblyExporter.CONTEXT_TISSUE_TYPE,
-          // evidence
-          AssemblyExporter.SEEN,
-          AssemblyExporter.EVIDENCE,
-          AssemblyExporter.SEEN_IN
-        )
-        def arizonaFilter(rows: Set[Row]): Set[Row] = rows.filter { r =>
-          // remove unseen
-          (r.seen > 0) &&
-          // keep only the events
-          ExportFilters.isEvent(r)
-        }
-        ae.writeRows(outFile, cols, AssemblyExporter.SEP, arizonaFilter)
+      // CMU's custom tabular output for assembly
+      case ("cmu", _) =>
+        val output = CMUExporter.tabularOutput(mentions)
+        val outFile = new File(outputDir, s"$paperId-cmu-out.tsv")
+        outFile.writeString(output, java.nio.charset.StandardCharsets.UTF_8)
 
       case _ => throw new RuntimeException(s"Output format ${outputType.toLowerCase} not yet supported!")
     }
@@ -260,7 +233,7 @@ object ReachCLI extends App with LazyLogging {
   if (logFile.exists) {
     FileUtils.forceDelete(logFile)
   }
-  FileUtils.writeStringToFile(logFile, s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...\n")
+  logger.info(s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
 
   // if papersDir does not exist there is nothing to do
   if (!papersDir.exists) {

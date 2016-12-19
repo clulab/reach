@@ -1,143 +1,24 @@
 package org.clulab.reach.assembly.export
 
-import org.apache.commons.io.FileUtils
+import ai.lum.common.FileUtils._
 import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.representations._
-import org.clulab.odin.Mention
+import org.clulab.odin.{EventMention, Mention}
 import org.clulab.reach.assembly._
 import org.clulab.reach.grounding.ReachKBConstants
 import org.clulab.reach.mentions._
 import com.typesafe.scalalogging.LazyLogging
+
 import scala.util.matching.Regex
 import java.io.File
 
 
-trait EERDescription {
-  val eer: EntityEventRepresentation
-  val input: String
-  val output: String
-  val controller: String
-  val eerID: String
-  val label: String
-  val precededBy: Set[String]
-  val negated: Boolean
-  //val isDirect: Boolean
-  val evidence: Set[Mention]
-  val seen: Int
-}
-
-case class Row(
-  input: String,
-  output: String,
-  controller: String,
-  eerID: String,
-  label: String,
-  precededBy: Set[String],
-  negated: Boolean,
-  evidence: Set[Mention],
-  // to make debugging easier
-  eer: EntityEventRepresentation
-) extends EERDescription {
-  // this might serve as a proxy for confidence, though
-  // it would also be good to know how many times this event
-  // was involved in other events (input, controller, etc)
-  val seen = evidence.size
-  // the set of paper ids where mentions of this event were found
-  val docIDs = evidence.map(_.document
-    .id
-    .getOrElse(AssemblyExporter.UNKNOWN)
-    // FIXME: hack to trim section/chunk ID
-    .split("_").head
-  ).map(id => s"PMC$id".replaceAll("^(PMC)*", "PMC"))
-
-  def getTextualEvidence: Seq[String] = {
-    evidence.toSeq.map { m =>
-      val text = m.sentenceObj.getSentenceText
-      cleanText(text)
-    }
-  }
-
-  def contextFromEvidence(contextLabel: String): String = {
-    val contextMentions = for {
-      m <- evidence
-      cm = m.toCorefMention
-      if cm.context.nonEmpty
-      contextMap = cm.context.get
-      if contextMap contains contextLabel
-      entry <- contextMap(contextLabel)
-    } yield entry
-    contextMentions.mkString(AssemblyExporter.CONCAT)
-  }
-
-  private def cleanText(contents: String): String = {
-    // replace multiple whitespace characters (newlines, tabs, etc) with a single space
-    val cleanContents = contents.replaceAll("\\s+", " ")
-    // check for only whitespace
-    AssemblyExporter.WHITESPACE.pattern.matcher(cleanContents).matches match {
-      case false => cleanContents
-      case true => AssemblyExporter.NONE
-    }
-  }
-
-  def isIndirect: Boolean = evidence.exists{ e =>
-    e.toCorefMention match {
-      case em: CorefEventMention => ! em.isDirect
-      // mark all activations as indirect
-      case activation if activation matches "Activation" => true
-      // NOTE: should already be covered by CorefEventMention case
-      case se if se matches "SimpleEvent" => false
-      // bindings are direct
-      case binding if binding matches "Binding" => false
-      case complex if complex matches "Complex" => false
-      // we'll call entities "direct"
-      // NOTE: likely entity rows will not be reported
-      case entity if entity matches "Entity" => false
-      // a reg with a simple event as its controlled
-      case reg if ExportFilters.regWithSimpleEventWithController(reg) => false
-      // assume it's indirect otherwise?
-      case other => true
-    }
-  }
-
-  private def setToString(s: Set[String]): String = s.toSeq.sorted.mkString(", ")
-
-  val columns: Map[String, String] = {
-    Map(
-      AssemblyExporter.INPUT -> cleanText(input),
-      AssemblyExporter.OUTPUT -> cleanText(output),
-      AssemblyExporter.CONTROLLER -> cleanText(controller),
-      AssemblyExporter.EVENT_ID -> cleanText(eerID),
-      AssemblyExporter.EVENT_LABEL -> label,
-      AssemblyExporter.PRECEDED_BY -> setToString(precededBy),
-      AssemblyExporter.NEGATED -> negated.toString,
-      AssemblyExporter.SEEN -> seen.toString,
-      AssemblyExporter.EVIDENCE -> getTextualEvidence.mkString(AssemblyExporter.CONCAT),
-      AssemblyExporter.SEEN_IN -> setToString(docIDs),
-      AssemblyExporter.INDIRECT -> isIndirect.toString,
-      //AssemblyExporter.IS_DIRECT -> isDirect.toString,
-      AssemblyExporter.CONTEXT_SPECIES -> contextFromEvidence(AssemblyExporter.SPECIES),
-      AssemblyExporter.CONTEXT_ORGAN -> contextFromEvidence(AssemblyExporter.ORGAN),
-      AssemblyExporter.CONTEXT_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
-      AssemblyExporter.CONTEXT_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
-      AssemblyExporter.CONTEXT_CELLULAR_COMPONENT -> contextFromEvidence(AssemblyExporter.CELLULAR_COMPONENT),
-      AssemblyExporter.CONTEXT_TISSUE_TYPE -> contextFromEvidence(AssemblyExporter.TISSUE_TYPE)
-    )
-  }
-
-  def toRow(cols: Seq[String], sep: String = AssemblyExporter.SEP): String = {
-    val r = for {
-      col <- cols
-    } yield columns(col)
-    r.mkString(sep)
-  }
-}
-
 /**
- * UA assembly exporter <br>
- * Used to produce a tsv file
+  * UA assembly exporter <br>
+  * Used to produce a tsv file
   *
   * @param manager
- */
+  */
 class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   import AssemblyExporter._
@@ -147,10 +28,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
   // LUT for retrieving IDs to distinct EERs
   // TODO: A better version of this should probably belong to the manager
-  val EERLUT: Map[Int, String] = distinctEERS.map{
-    case eer =>
-      (eer.equivalenceHash, mkEventID(eer))
-  }.toMap
+  val EERLUT: Map[Int, String] = distinctEERS.map{ eer => (eer.equivalenceHash, mkEventID(eer)) }.toMap
 
   val grounding2Text: Map[GroundingID, String] = {
     val pairs: Set[(GroundingID, String)] = for {
@@ -169,7 +47,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   def getText(entity: SimpleEntity): String = {
-   val text = entity.sourceMention match {
+    val text = entity.sourceMention match {
       // get the resolved form
       case Some(m) => resolveEvidence(m).text
       case noSource =>
@@ -182,16 +60,16 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   /**
-   * Create text representation of SimpleEntity
+    * Create text representation of SimpleEntity
     *
     * @param entity a SimpleEntity
-   * @return a String representing entity and its modifications, mutations, etc
-   */
+    * @return a String representing entity and its modifications, mutations, etc
+    */
   def createSimpleEntityText(entity: SimpleEntity): String = {
 
     // partition modifications
     val (muts, other) =
-      entity.modifications.partition(_.isInstanceOf[MutantEntity])
+    entity.modifications.partition(_.isInstanceOf[MutantEntity])
 
     // mutations
     val mutations = muts.map(_.asInstanceOf[MutantEntity])
@@ -210,6 +88,25 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
 
     val text = getText(entity)
     s"$text::${entity.grounding}$mutantForms$features"
+  }
+
+  // FIXME: Change EER mods to include Location
+  def createSource(eer: EntityEventRepresentation): String = createTranslocationArgument(eer, "source")
+  def createDestination(eer: EntityEventRepresentation): String = createTranslocationArgument(eer, "destination")
+  def createTranslocationArgument(eer: EntityEventRepresentation, name: String): String = eer match {
+    case se: SimpleEvent =>
+      if(se.label == "Translocation") {
+        for(e <- se.evidence) {
+          if(e.arguments.contains(name)){
+            // FIXME: use all mentions, not just the head (this matters only when we store non-identical mentions in the same EER)
+            val arg = e.arguments(name).head.toCorefMention
+            val id = arg.nsId()
+            return id
+          }
+        }
+      }
+      NONE
+    case _ => NONE
   }
 
   def createInput(eer: EntityEventRepresentation, mods: String = ""): String = eer match {
@@ -254,7 +151,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
         case other => createInput(other, mods)
       }.mkString(", ")
 
-    // positive activations produce an acitvated output entity
+    // positive activations produce an activated output entity
     case posact: Activation if posact.polarity == AssemblyManager.positive =>
       posact.controlled.map(c => createInput(c, s"$mods.a")).mkString(", ")
 
@@ -273,7 +170,7 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
       ce.controller.map {
         case entity: SimpleEntity => createSimpleEntityText(entity)
         case complex: Complex => createInput(complex)
-        case c => s"${createOutput(c)}.${ce.polarity}"
+        case c => createOutput(c)
       }.mkString(", ")
 
     case _ => NONE
@@ -281,11 +178,11 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   /**
-   * Converts predecessors of Event to Event IDs
+    * Converts predecessors of Event to Event IDs
     *
     * @param eer an [[EntityEventRepresentation]]
-   * @return a Set of String representing Event IDs of eer's predecessors
-   */
+    * @return a Set of String representing Event IDs of eer's predecessors
+    */
   def precededBy(eer: EntityEventRepresentation): Set[String] = eer match {
     case entity: Entity => Set.empty[String]
     case event: Event =>
@@ -296,18 +193,18 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
     f: File,
     cols: Seq[String],
     sep: String = AssemblyExporter.SEP,
-    rowFilter: Set[Row] => Set[Row]
+    rowFilter: Seq[AssemblyRow] => Seq[AssemblyRow]
   ): Unit = {
 
     val results = rowsToString(cols, sep, rowFilter)
     // write the output to disk
-    FileUtils.writeStringToFile(f, results)
+    f.writeString(results, java.nio.charset.StandardCharsets.UTF_8)
   }
 
   def rowsToString(
     cols: Seq[String],
     sep: String = AssemblyExporter.SEP,
-    rowFilter: Set[Row] => Set[Row]
+    rowFilter: Seq[AssemblyRow] => Seq[AssemblyRow]
   ): String = {
     val rowsForOutput = rowFilter(getRows)
     // validate output
@@ -325,24 +222,26 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   // INPUT, OUTPUT, CONTROLLER, PRECEDED BY, EVENT ID, SEEN, EXAMPLE-TEXT
-  def getRows: Set[Row] = {
+  def getRows: Seq[AssemblyRow] = {
 
-      val rows: Set[Row] = distinctEERS
-        .map { event =>
-          Row(
-            createInput(event),
-            createOutput(event),
-            createController(event),
-            EERLUT(event.equivalenceHash),
-            getEventLabel(event),
-            precededBy(event),
-            event.negated,
-            event.evidence,
-            event
-         )
+    val rows: Set[AssemblyRow] = distinctEERS
+      .map { event =>
+        AssemblyRow(
+          createInput(event),
+          createOutput(event),
+          createSource(event),
+          createDestination(event),
+          createController(event),
+          EERLUT(event.equivalenceHash),
+          getEventLabel(event),
+          precededBy(event),
+          event.negated,
+          event.evidence,
+          event
+        )
       }
-    rows
-    }
+    rows.toSeq
+  }
 
   /** for debugging purposes */
   def reportError(ce: ComplexEvent, c: EntityEventRepresentation): String = {
@@ -356,17 +255,17 @@ class AssemblyExporter(val manager: AssemblyManager) extends LazyLogging {
   }
 
   /** for debugging purposes */
-  def rowsWithPrecededByIDProblems(rows: Set[Row]): Set[Row] = {
+  def rowsWithPrecededByIDProblems(rows: Seq[AssemblyRow]): Seq[AssemblyRow] = {
     // make sure the output is valid
-    val eventIDs: Set[String] = rows.map(_.eerID)
+    val eventIDs: Seq[String] = rows.map(_.eerID).distinct
     val problems = rows.filter(r => ! r.precededBy.forall(eid => eventIDs contains eid))
     problems
   }
 
   /** for debugging purposes */
-  def rowsWithOutputIDProblems(rows: Set[Row]): Set[Row] = {
+  def rowsWithOutputIDProblems(rows: Seq[AssemblyRow]): Seq[AssemblyRow] = {
     // make sure the output is valid
-    val eventIDs: Set[String] = rows.map(_.eerID)
+    val eventIDs: Seq[String] = rows.map(_.eerID).distinct
     val problems = rows
       .filter(r => r.label == REGULATION)
       .filterNot(r => eventIDs contains r.input)
@@ -385,14 +284,15 @@ object AssemblyExporter {
   val NONE = "NONE"
 
   val PTMLUT: Map[String, String] = Map(
-      "Phosphorylation" -> ".p",
-      "Ubiquitination" -> ".u"
+    "Phosphorylation" -> ".p",
+    "Ubiquitination" -> ".u"
   )
 
   // eer labels (for filtering)
   val ENTITY = "entity"
   val REGULATION = "Regulation"
   val ACTIVATION = "Activation"
+  val TRANSLOCATION = "Translocation"
 
   // context types
   val SPECIES = "Species"
@@ -421,6 +321,9 @@ object AssemblyExporter {
   val CONTEXT_CELL_TYPE = "CONTEXT (CELL TYPE)"
   val CONTEXT_CELLULAR_COMPONENT = "CONTEXT (CELLULAR COMPONENT)"
   val CONTEXT_TISSUE_TYPE = "CONTEXT (TISSUE TYPE)"
+  val TRIGGERS = "TRIGGERS"
+  val TRANSLOCATION_SOURCE = "TRANSLOCATION (SOURCE)"
+  val TRANSLOCATION_DESTINATION = "TRANSLOCATION (DESTINATION)"
 
   val SEP = "\t"
   val CONCAT = " ++++ "
@@ -441,6 +344,8 @@ object AssemblyExporter {
     AssemblyExporter.CONTEXT_CELL_TYPE,
     AssemblyExporter.CONTEXT_CELLULAR_COMPONENT,
     AssemblyExporter.CONTEXT_TISSUE_TYPE,
+    // trigger
+    AssemblyExporter.TRIGGERS,
     // evidence
     AssemblyExporter.SEEN,
     AssemblyExporter.EVIDENCE,
@@ -448,10 +353,10 @@ object AssemblyExporter {
   )
 
   /** Validate the rows before writing */
-  def validateOutput(rowsForOutput: Set[Row]): Unit = {
+  def validateOutput(rowsForOutput: Seq[AssemblyRow]): Unit = {
     // make sure the output is valid
-    val eventIDs: Set[String] = rowsForOutput.map(_.eerID)
-    val precededByIDs: Set[String] = rowsForOutput.flatMap(_.precededBy)
+    val eventIDs: Seq[String] = rowsForOutput.map(_.eerID).distinct
+    val precededByIDs: Seq[String] = rowsForOutput.flatMap(_.precededBy).distinct
     val regInputIDs = rowsForOutput
       .filter(r => r.label == REGULATION)
       .map(_.input)
@@ -489,120 +394,24 @@ object AssemblyExporter {
     // filter these out later
     case entity => "entity"
   }
-}
 
-
-object ExportFilters {
-
-  /** The EERDescription may not be an entity */
-  def isEvent(row: EERDescription): Boolean = {
-    // must have a valid eventID
-    row.label != AssemblyExporter.ENTITY && (row.label.nonEmpty || row.label != AssemblyExporter.NONE)
+  def getTrigger(m: Mention): Option[String] = m match {
+    case em: EventMention => em.trigger.lemmas.map(_.mkString(" "))
+    case _ => None
   }
 
-  /**
-    * Recursively checks whether or not a Mention m contains a Mention with the a UAZ grounding
-    *
-    * @param m an Odin Mention
-    * @return true or false
-    */
-  def hasUAZgrounding(m: Mention): Boolean = {
-    m match {
-      case entity if entity matches "Entity" =>
-        entity.toCorefMention.nsId.toLowerCase.startsWith(ReachKBConstants.DefaultNamespace)
-      case site if site matches "Site" => false
-      case event if event matches "Event" =>
-        event.arguments.values.flatten.exists(hasUAZgrounding)
-    }
-  }
+  def getSortedTriggers(mns: Seq[Mention]): String = {
+    // attempt to get the lemmatized trigger for each mention
+    val triggers = mns.flatMap(getTrigger)
+    val triggerCounts: Seq[(Int, String)] = for {
+    // count each distinct trigger
+      trig: String <- triggers.distinct
+      cnt = triggers.count(_ == trig)
+    } yield cnt -> trig
 
-  /**
-    * Recursively checks whether or not a Mention m contains a Mention with the label Family
-    *
-    * @param m an Odin Mention
-    * @return true or false
-    */
-  def containsFamily(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" =>
-      entity matches "Family"
-    case site if site matches "Site" => false
-    case event if event matches "Event" =>
-      event.arguments.values.flatten.exists(containsFamily)
-  }
-
-  def isValidRegulation(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" => true
-    case se if se matches "SimpleEvent" => true
-    case act if act matches "ActivationEvent" => false
-    case reg if reg matches "Regulation" => reg.arguments.values.flatten.forall(isValidRegulation)
-  }
-
-  def seenAtLeastOnce(row: EERDescription): Boolean = row.seen >= 1
-
-  def filterPrecededBy(row: Row, eventIDs: Set[String]): Row = row match {
-    case nopredecessors if nopredecessors.precededBy.isEmpty => nopredecessors
-    case validPreds if validPreds.precededBy.forall(eid => eventIDs contains eid) =>
-      validPreds
-
-    case problem =>
-      // keep only the predecessors that exist in the current set of rows
-      val validPs: Set[String] = problem.precededBy intersect eventIDs
-
-      Row(
-        problem.input,
-        problem.output,
-        problem.controller,
-        problem.eerID,
-        problem.label,
-        validPs,
-        problem.negated,
-        problem.evidence,
-        problem.eer
-      )
-  }
-
-  def isValidMITREMention(m: Mention): Boolean = m match {
-    case entity if entity matches "Entity" => true
-    case se if se matches "SimpleEvent" => true
-    case reg if reg matches "Regulation" => isValidRegulation(reg)
-    // no activations for MITRE
-    case act if act matches "ActivationEvent" => false
-    // assume false...
-    case other => false
-  }
-
-  /**
-    * Applies MITRE requirements to assembled events
-    *
-    * @param rows a Set[Row]
-    * @return a filtered Set of [[Row]]
-    */
-  def MITREfilter(rows: Set[Row]): Set[Row] = {
-    // 1a. A finding is to be reported only if it is supported by >= 3 different examples.
-    val filteredRows = rows.filter(_.seen >= 3)
-      // 1b. Evidence come from at least 2 different sections.
-      .filter(_.docIDs.size >= 2)
-      // 2a. No Activations, etc.
-      .filter(r => r.evidence.forall(isValidMITREMention))
-      // 2b. Findings cannot include protein families.
-      .filter(r => r.evidence.forall(e => ! containsFamily(e)))
-      // 3. Findings should not have an unresolved (UAZ) grounding.
-      // FIXME: probably this should operate over EERs, not their evidence
-      .filter(r => r.evidence.forall(e => ! hasUAZgrounding(e)))
-    // 4. Only keep precedence entries that exist in set of filteredRow's event IDs
-    val eventIDs = filteredRows.map(_.label)
-    filteredRows.map(r => filterPrecededBy(r, eventIDs))
-  }
-
-
-  def regWithSimpleEventWithController(m: Mention): Boolean = m match {
-    case hasControllerControlled if (hasControllerControlled.arguments contains "controller") && (hasControllerControlled.arguments contains "controlled") =>
-      hasControllerControlled.arguments("controlled").exists {
-        case se if se.matches("SimpleEvent") => true
-        case reg if reg matches AssemblyExporter.REGULATION => regWithSimpleEventWithController(reg)
-        // Activations, etc
-        case other => false
-      }
-    case other => false
+    // sort by counts
+    triggerCounts.sortBy(_._1).reverse
+      .map(_._2) // get the triggers
+      .mkString(AssemblyExporter.CONCAT) // concatenate
   }
 }

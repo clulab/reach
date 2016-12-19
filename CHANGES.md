@@ -1,8 +1,11 @@
 #Changes
 =======
+
++ **1.3.3** - Added a new tabular format for the DyCE CMU model.
++ **1.3.3** - The "arizona" tabular format was extended with source/destination for Translocation events.
++ **1.3.3** - Use Processors 6.0.1 and Bioresources 1.1.19, which contains Harvard Bioentities project KBs. Update many tests for BE KBs.
 + **1.3.3** - Mentions are created from previously unrecognized aliases.
 + **1.3.3** - Sub-project split into main, assembly, export.
-+ **1.3.3** - Uses Bioresources 1.1.17 and Processors 6.0.0.
 + **1.3.2** - Optimizations to `json` serialization/deserialization of `CorefMention`.
 + **1.3.2** - Uses bioresources 1.1.15 and processors 5.9.6.  Introduces [`json` serialization/deserialization of `CorefMention` (including grounding, modifications, etc.)](https://gist.github.com/myedibleenso/8383af789b37ba598ff64ddd12c8b35b).
 + **1.3.2** - Better handling of nested events.

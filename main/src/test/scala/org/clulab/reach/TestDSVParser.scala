@@ -19,4 +19,11 @@ class TestDSVParser extends FlatSpec with Matchers {
     val entries = parser.toFriesEntries(examplePaper)
     entries should have size(6)
   }
+
+  val funkyCSVString = """1,2,"Furthermore, phosphorylated X does Y""""
+
+  "DSVParser" should s"correctly split '$funkyCSVString' into three columns" in {
+    funkyCSVString.split(DSVParser.CSV) should have size(3)
+    funkyCSVString.split(parser.getSplitPattern(",")) should have size(3)
+  }
 }
