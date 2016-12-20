@@ -63,4 +63,17 @@ trait Grounding {
   //   _candidates = None                      // final grounding done: remove candidates
   // }
 
+  /** Return true if this and other share at least one candidates */
+  def sharesGroundingWith(other: Grounding): Boolean = {
+    // necessary because normal equals includes .key, normally the text of the candidate
+    def candsToTuples(cands: Option[Seq[KBResolution]]): Set[(String, String, String)] = {
+      val comparisonInfo = cands.getOrElse(Nil).map{ kb =>
+        (kb.namespace, kb.id, kb.species)
+      }
+      comparisonInfo.toSet
+    }
+
+    val overlap = candsToTuples(_candidates) & candsToTuples(other.candidates())
+    overlap.nonEmpty
+  }
 }

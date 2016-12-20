@@ -2,13 +2,14 @@ package org.clulab.reach
 
 import org.clulab.reach.grounding._
 import org.scalatest.{Matchers, FlatSpec}
+import scala.util.Try                       // do not remove: needed for debugging
 import TestUtils._
 
 
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Add tests for new drug KB.
+  *   Last Modified: Update for use of BE KBs.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -187,14 +188,9 @@ class TestNERLabeling extends FlatSpec with Matchers {
     mentions274f.count(_.displayLabel == "Family") should be (1)
   }
 
-  it should "have grounded all mentions as Human" in {
-    mentions274f.forall(m => m.grounding.isDefined &&
-                        Speciated.isHumanSpecies(m.grounding.get.species)) should be (true)
-  }
-
   it should "match expected grounding IDs" in {
     val m = mentions274f(0)
-    (m.grounding.isDefined && (m.grounding.get.id == "UAZ-PF-214")) should be (true)
+    (m.grounding.isDefined && (m.grounding.get.id == "SMAD")) should be (true)
   }
 
 
