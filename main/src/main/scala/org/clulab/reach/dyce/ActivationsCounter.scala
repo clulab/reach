@@ -46,8 +46,12 @@ object ActivationsCounter extends App with LazyLogging{
             case 1 =>
               val c = controllers(0)
               val values = for{(k,v) <- c; if k == "arg"} yield v
-              val JString(controllerVal) = values(0)
-              Some(controllerVal)
+              if(values.size == 1) {
+                val JString(controllerVal) = values(0)
+                Some(controllerVal)
+              }
+              else
+                None
             case 0 => None
             case _ => throw new RuntimeException(s"An activation has more than one controller: $id")
           }
@@ -63,8 +67,12 @@ object ActivationsCounter extends App with LazyLogging{
             case 1 =>
               val c = controlleds(0)
               val values = for{(k,v) <- c; if k == "arg"} yield v
-              val JString(controlledVal) = values(0)
-              Some(controlledVal)
+              if(values.size == 1) {
+                val JString(controlledVal) = values(0)
+                Some(controlledVal)
+              }
+              else
+                None
             case 0 => None
             case _ => throw new RuntimeException(s"An activation has more than one controlled: $id")
           }
