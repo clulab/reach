@@ -431,12 +431,10 @@ object DarpaActions {
       val excluded = trigger.tokenInterval.toSet
       // count total number of negatives between trigger and each argument
       val numNegatives = arguments.flatMap(arg => countSemanticNegatives(trigger, arg, excluded)).toSeq.distinct.length
-      println(s"Found $numNegatives negatives for '${ce.text}'")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
         case true =>
-          println("Flipping label...")
           val newLabels = flipLabel(ce.label) +: ce.labels.tail
           // trigger labels should match event labels
           val newTrigger = ce.trigger.copy(labels = newLabels)
@@ -474,7 +472,6 @@ object DarpaActions {
       lemma = trigger.sentenceObj.lemmas.get(tok)
       if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
     } yield tok
-    println(s"Found ${negatives.size} negatives: ${negatives.map(trigger.sentenceObj.words(_)).mkString(", ")}")
     // return number of negatives
     negatives
   }
