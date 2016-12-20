@@ -97,7 +97,9 @@ object ActivationsCounter extends App with LazyLogging{
 
   def parseEntities(path:String):Iterable[(String, Participant)] = {
     // Read the file
-    val text = Source.fromFile(path).getLines.mkString("\n")
+    val source = Source.fromFile(path)
+    val text = source.getLines.mkString("\n")
+    source.close
 
     // Parse the code
     val json = parse(text)
