@@ -357,7 +357,7 @@ object DarpaActions {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|siRNA|slow|starv|suppress|supress".r
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|target".r
 
   val MODIFIER_LABELS = "amod".r
 
@@ -430,11 +430,13 @@ object DarpaActions {
       // do not exclude args as they may involve regulations
       val excluded = trigger.tokenInterval.toSet
       // count total number of negatives between trigger and each argument
-      val numNegatives = arguments.map(arg => countSemanticNegatives(trigger, arg, excluded)).sum
+      val numNegatives = arguments.flatMap(arg => countSemanticNegatives(trigger, arg, excluded)).toSeq.distinct.length
+      println(s"Found $numNegatives negatives for '${ce.text}'")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
         case true =>
+          println("Flipping label...")
           val newLabels = flipLabel(ce.label) +: ce.labels.tail
           // trigger labels should match event labels
           val newTrigger = ce.trigger.copy(labels = newLabels)
@@ -450,9 +452,9 @@ object DarpaActions {
     * Returns the number of semantic negatives found in the shortest possible path
     * between the trigger and the argument.
     */
-  def countSemanticNegatives(trigger: Mention, arg: Mention, excluded: Set[Int]): Int = {
+  def countSemanticNegatives(trigger: Mention, arg: Mention, excluded: Set[Int]): Seq[Int] = {
     // it is possible for the trigger and the arg to be in different sentences because of coreference
-    if (trigger.sentence != arg.sentence) return 0
+    if (trigger.sentence != arg.sentence) return Nil
     val deps = trigger.sentenceObj.dependencies.get
     // find the shortest path between any token in the trigger and any token in the argument
     var shortestPath: Seq[Int] = null
@@ -472,9 +474,9 @@ object DarpaActions {
       lemma = trigger.sentenceObj.lemmas.get(tok)
       if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
     } yield tok
-    println(s"Found ${negatives.size} negatives: ${negatives.mkString(", ")}")
+    println(s"Found ${negatives.size} negatives: ${negatives.map(trigger.sentenceObj.words(_)).mkString(", ")}")
     // return number of negatives
-    negatives.size
+    negatives
   }
 
   /**
