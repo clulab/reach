@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat
 
 import org.clulab.utils.Serializer
 
+import scala.collection.parallel.ForkJoinTaskSupport
+
 /**
   * Counts the activations on a FriesFormat output to do statistics over them
   * Created by enrique on 19/12/16.
@@ -21,7 +23,9 @@ object ActivationsCounter extends App with LazyLogging{
   def parseEvents(path:String):Iterable[(String, String, Boolean)] = {
 
     // Read the file
-    val text = Source.fromFile(path).getLines.mkString("\n")
+    val source = Source.fromFile(path)
+    val text = source.getLines.mkString("\n")
+    source.close
 
     // Parse the code
     val json = parse(text)
@@ -158,8 +162,11 @@ object ActivationsCounter extends App with LazyLogging{
         prefix
     }
 
+    val support =  new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(10))
+    val parPrefixes = prefixes.par
+    parPrefixes.tasksupport = support
     // Parse each document
-    val results = prefixes.par.map{
+    val results = parPrefixes.map{
       prefix =>
         logger.info(s"Reading $prefix")
         parseInfo(s"$prefix.entities.json", s"$prefix.events.json")
