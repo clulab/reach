@@ -149,7 +149,7 @@ object ActivationsCounter extends App with LazyLogging{
     events
   }
 
-  def parseDirectory(dirPath:String):Iterable[Iterable[Connection]] = {
+  def parseDirectory(dirPath:String):Iterable[(String, Iterable[Connection])] = {
     val dir = new File(dirPath)
 
     // Get the file name prefixes
@@ -169,7 +169,11 @@ object ActivationsCounter extends App with LazyLogging{
     val results = parPrefixes.map{
       prefix =>
         logger.info(s"Reading $prefix")
-        parseInfo(s"$prefix.entities.json", s"$prefix.events.json")
+        // Get theh document name from the ID
+        val key = prefix.split(File.separator).last.split("\\.").head
+        // Read the data
+        val value = parseInfo(s"$prefix.entities.json", s"$prefix.events.json")
+        (key, value)
     }.seq
 
     // Return
@@ -184,5 +188,5 @@ object ActivationsCounter extends App with LazyLogging{
   val stamp = dateFormat.format(date)
 
   // Serialize the results
-  Serializer.save[Iterable[Iterable[Connection]]](counts, s"activation_counts_$stamp.ser")
+  Serializer.save[Iterable[(String, Iterable[Connection])]](counts, s"activation_counts_$stamp.ser")
 }
