@@ -40,7 +40,7 @@ case class Participant(namespace:String, id:String){
   override def toString: String = s"$namespace:$id"
 }
 
-case class Connection(controller:Participant, controlled:Participant, sign:Boolean, evidence:String){
+case class Connection(controller:Participant, controlled:Participant, sign:Boolean, evidence:Iterable[String]){
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Connection]
 
@@ -285,7 +285,7 @@ object FillBlanks extends App with LazyLogging{
         pa shortestPathTo pb match{
           case Some(path) => Some{
             path.edges.map{
-              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], "")
+              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq(""))
             }.toSeq
           }
           case None => None
@@ -435,7 +435,7 @@ object FillBlanks extends App with LazyLogging{
         (controller, controlled) match {
           case (Some(cr), Some(cd)) =>
             val sign = getSign(event)
-            Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign, text))
+            Some(Connection(Participant(cr.namespace, cr.id), Participant(cd.namespace, cd.id), sign, Seq(text)))
 
           case _ => None
         }
@@ -450,11 +450,11 @@ object FillBlanks extends App with LazyLogging{
     // Store the evidence
     for(con <- filteredConnections){
       if(evidence.contains(con)){
-        evidence(con) += con.evidence
+        evidence(con) ++= con.evidence
       }
       else{
         val s = new mutable.HashSet[String]
-        s += con.evidence
+        s ++= con.evidence
         evidence += (con -> s)
       }
     }

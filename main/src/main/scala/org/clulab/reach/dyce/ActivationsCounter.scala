@@ -20,7 +20,7 @@ import scala.collection.parallel.ForkJoinTaskSupport
 object ActivationsCounter extends App with LazyLogging{
 
 
-  def parseEvents(path:String):Iterable[(String, String, Boolean)] = {
+  def parseEvents(path:String):Iterable[(String, String, Boolean, String)] = {
 
     // Read the file
     val source = Source.fromFile(path)
@@ -33,8 +33,9 @@ object ActivationsCounter extends App with LazyLogging{
     // Get the activations out of the frames
     val frames = json \ "frames"
 
-    val activations:Iterable[Option[(String, String, Boolean)]] = for(frame <- frames.children) yield {
+    val activations:Iterable[Option[(String, String, Boolean, String)]] = for(frame <- frames.children) yield {
       val JString(id) = frame \ "frame-id"
+      val JString(evidence) = frame \ "verbose-text"
 
       frame \ "type" match {
         case JString("activation") =>
@@ -85,8 +86,8 @@ object ActivationsCounter extends App with LazyLogging{
             case (Some(cr), Some(cd)) =>
 
               frame \ "subtype" match {
-                case JString("positive-activation") => Some((cr, cd, true))
-                case JString("negative-activation") => Some((cr, cd, false))
+                case JString("positive-activation") => Some((cr, cd, true, evidence))
+                case JString("negative-activation") => Some((cr, cd, false, evidence))
                 case _ => throw new RuntimeException(s"An activation isn't positive or negative: $id")
               }
             case _ => None
@@ -141,7 +142,7 @@ object ActivationsCounter extends App with LazyLogging{
         val controller = entities.lift(re._1)
         val controlled = entities.lift(re._2)
         (controller, controlled) match {
-          case (Some(cr), Some(cd)) => Some(Connection(cr, cd, re._3, ""))
+          case (Some(cr), Some(cd)) => Some(Connection(cr, cd, re._3, Seq(re._4)))
           case _ => None
         }
     } collect { case Some(x) => x }
