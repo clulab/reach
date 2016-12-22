@@ -3,7 +3,7 @@ package org.clulab.reach.grounding
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Update for refactor of key transforms.
   */
 class IMKBLookup (
 
@@ -74,7 +74,7 @@ class IMKBLookup (
     * Return a resolution for the entry, if any found.
     */
   override def resolveAlt (text:String, transforms:KeyTransforms): Resolutions = {
-    val allKeys = reachAlternateKeys(text, transforms)
+    val allKeys = applyAllTransforms(text, transforms)
     memoryKB.lookupsAll(allKeys)
   }
 
@@ -87,7 +87,7 @@ class IMKBLookup (
   override def resolveByASpeciesAlt (text:String, species:String,
                                      transforms:KeyTransforms): Resolutions =
   {
-    val allKeys = reachAlternateKeys(text, transforms)
+    val allKeys = applyAllTransforms(text, transforms)
     memoryKB.lookupsByASpecies(allKeys, species)
   }
 
@@ -99,7 +99,7 @@ class IMKBLookup (
   override def resolveBySpeciesAlt (text:String, speciesSet:SpeciesNameSet,
                                     transforms:KeyTransforms): Resolutions =
   {
-    val allKeys = reachAlternateKeys(text, transforms)
+    val allKeys = applyAllTransforms(text, transforms)
     memoryKB.lookupsBySpecies(allKeys, speciesSet)
   }
 
@@ -110,7 +110,7 @@ class IMKBLookup (
     * Return a resolution for a human entry, if any found.
     */
   override def resolveHumanAlt (text:String, transforms:KeyTransforms): Resolutions = {
-    val allKeys = reachAlternateKeys(text, transforms)
+    val allKeys = applyAllTransforms(text, transforms)
     memoryKB.lookupsHuman(allKeys)
   }
 
@@ -121,7 +121,7 @@ class IMKBLookup (
     * Return a resolution for the entry, if any found.
     */
   def resolveNoSpeciesAlt (text:String, transforms:KeyTransforms): Resolutions = {
-    val allKeys = reachAlternateKeys(text, transforms)
+    val allKeys = applyAllTransforms(text, transforms)
     memoryKB.lookupsNoSpecies(allKeys)
   }
 

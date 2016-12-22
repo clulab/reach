@@ -1,31 +1,84 @@
 package org.clulab.reach.grounding
 
+import org.clulab.reach.mentions._
+
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Update for case-insensitive transforms.
+  *   Last Modified: Begin refactoring of key transforms to the KB.
   */
 trait KBKeyTransforms {
 
-  /** Type alias for functions which take a text string and return a potential key string. */
-  type KeyTransforms = Seq[(String) => String]
+  /** Type alias for a (possibly empty) sequence of key transform results. */
+  type KeyCandidates = Seq[String]
+  val NoCandidates = Seq.empty[String]
+
+  /** Type alias for functions which take a text string and return a (possibly empty)
+      list of potential key strings. */
+  type KeyTransformFn = (String) => KeyCandidates
+  type KeyTransforms = Seq[KeyTransformFn]
+
+  /** Type alias for functions which take a mention and return a (possibly empty)
+      list of potential key strings. */
+  type MentionKeyTransformFn = (BioTextBoundMention) => KeyCandidates
+  type MentionKeyTransforms = Seq[MentionKeyTransformFn]
 
 
-  /** Return a sequence of alternate keys, one for each of the given key transforms. */
-  def applyTransforms (text:String, transformFns:KeyTransforms): Seq[String] = {
-    transformFns.map(_.apply(text)).filter{ str => (str != text) && (str != text.toLowerCase) }
+  /** Apply the given key transforms to the given string, returning a (possibly empty)
+      sequence of potential key strings. */
+  def applyAllTransforms (text: String, transformFns: KeyTransforms): KeyCandidates =
+    transformFns.flatMap(_.apply(text))
+
+  /** Apply the given mention key transforms to the given mention, returning a (possibly empty)
+      sequence of potential key strings. */
+  def applyAllTransforms (
+    mention: BioTextBoundMention,
+    transformFns: MentionKeyTransforms
+  ): KeyCandidates = {
+    transformFns.flatMap(_.apply(mention))
+  }
+
+
+  /** A key transform which implements an Identity function for Strings. */
+  def identityKT (text:String): KeyCandidates = Seq(text)
+
+  /** A key transform which implements a minimal transform function for Mentions. */
+  def identityMKT (mention:BioTextBoundMention): KeyCandidates = Seq(mention.text)
+
+
+  /** Try to remove all of the suffixes in the given set from the given text. */
+  def stripAllSuffixes (suffixes:Seq[String], text:String): Option[String] = {
+    var done:Boolean = false
+    var lastText = text                     // prepare for first round
+    var modText = text                      // remember text before stripping
+    while (!done) {
+      suffixes.foreach { suffix =>          // try all suffixes
+        modText = modText.stripSuffix(suffix)
+      }
+      if (modText == lastText)              // if no suffixes were stripped in last round
+        done = true                         // done: exit the loop
+      else                                  // else try another round of stripping
+        lastText = modText                  // update result from last round
+    }
+    if ((modText == text) ||                // if no suffixes were stripped at all
+        (modText.trim.equals("")))          // or no stem text left at all
+      return None                           // then signal failure
+    else                                    // else something was stripped
+      return Some(modText)                  // so return the new string
   }
 
   /** Try to remove all of the suffixes in the given set from the given text. */
-  def stripSuffixes (suffixes:Seq[String], text:String): String = {
-    var modText = text
-    suffixes.foreach { suffix =>
-      modText = modText.stripSuffix(suffix)
-    }
-    if (modText == text)                    // if no suffixes were stripped
-      return text                           // then return the unaltered text
-    else                                    // else at least one suffix was stripped
-      return stripSuffixes(suffixes, modText) // so try another round of stripping
+  def stripAllSuffixesKT (suffixes:Seq[String], text:String): KeyCandidates = {
+    val stripped = stripAllSuffixes(suffixes, text)
+    if (stripped.isDefined) Seq(stripped.get) else NoCandidates
   }
 
+  /** Try to remove all of the suffixes in the given set from the given mention text. */
+  def stripAllSuffixesMKT (suffixes:Seq[String], mention:BioTextBoundMention): KeyCandidates =
+    stripAllSuffixesKT(suffixes, mention.text)
+
 }
+
+
+/** Trait Companion Object allows Mixin OR Import pattern. */
+object KBKeyTransforms extends KBKeyTransforms { }
