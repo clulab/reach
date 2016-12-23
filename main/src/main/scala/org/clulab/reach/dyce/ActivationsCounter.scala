@@ -188,6 +188,16 @@ object ActivationsCounter extends App with LazyLogging{
   val date = new Date();
   val stamp = dateFormat.format(date)
 
-  // Serialize the results
-  Serializer.save[Iterable[(String, Iterable[Connection])]](counts, s"activation_counts_$stamp.ser")
+  // Serialize the results, keep evidence separate as a map
+  val evidence:Map[Connection, Iterable[String]] = counts.map(_._2).flatten.map{
+    v => (Connection(v.controller, v.controlled, v.sign, Seq()) -> v.evidence)
+  }.toMap
+
+  val connections:Iterable[(String, Iterable[Connection])] = counts.map {
+    case (k,v) =>
+      (k, v map { c=> Connection(c.controller, c.controlled, c.sign, Seq()) })
+  }
+
+  Serializer.save[Iterable[(String, Iterable[Connection])]](connections, s"activation_counts_$stamp.ser")
+  Serializer.save[Map[Connection, Iterable[String]]](evidence, s"activation_evidence_$stamp.ser")
 }
