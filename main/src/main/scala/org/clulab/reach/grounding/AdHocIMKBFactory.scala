@@ -7,7 +7,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Refactor for standardized 2-5 column KB format.
+  *   Last Modified: Update debugging dump of KB.
   */
 class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
 
@@ -17,8 +17,10 @@ class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
     val imkb: InMemoryKB = new InMemoryKB(true, metaInfo.getOrElse(new IMKBMetaInfo()))
     if (kbFilename != "")
       loadFromKBDir(imkb, kbFilename)     // load new in-memory KB
-    // imkb.imkb.foreach { case (k, entries) =>   // for DEBUGGING
-    //   entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING
+    // if (kbFilename == "NER-Grounding-Override.tsv.gz") {  // for DEBUGGING
+    //   imkb.theKB.foreach { case (k, entries) =>   // for DEBUGGING
+    //     entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING
+    // }
     return imkb
   }
 
