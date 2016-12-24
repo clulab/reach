@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test the labeling of various types of mentions identified by the NER.
   *   Written by: Tom Hicks. 4/21/2016.
-  *   Last Modified: Update for use of BE KBs.
+  *   Last Modified: Update tests for added PhaseIII drugs.
   */
 class TestNERLabeling extends FlatSpec with Matchers {
 
@@ -31,6 +31,9 @@ class TestNERLabeling extends FlatSpec with Matchers {
 
   val drug = "Alvocidib, Anacardic acid, L-779450, Masitinib, and  Withaferin A are known drugs. "
   val drug_ids = Seq("5287969", "167551", "9950176", "10074640", "265237")
+
+  val drug2 = "Temsirolimus, ZSTK-474, PD0325901, Stattic, HNHA, PLX4720, RO-31-7549, P6, and Nutlin are known drugs. "
+  val drug2_ids = Seq("148191", "11647372", "9826528", "2779853", "16126782", "24180719", "2403", "5494425", "216345")
 
 
   bioProcess should "have BioProcess label" in {
@@ -213,6 +216,27 @@ class TestNERLabeling extends FlatSpec with Matchers {
   it should "match expected grounding IDs" in {
     for ((m, ndx) <- drug_mentions.zipWithIndex) {
       m.grounding.isDefined && (m.grounding.get.id == drug_ids(ndx)) should be (true)
+    }
+  }
+
+  val drug2_mentions = getBioMentions(drug2)
+  drug2 should "have expected number of results" in {
+    drug2_mentions should not be (empty)
+    // printMentions(Try(drug2_mentions), true)      // DEBUGGING
+    drug2_mentions should have size (drug2_ids.size)
+  }
+
+  it should "have labeled all mentions as Simple_chemical" in {
+    drug2_mentions.count(_ matches "Simple_chemical") should be (drug2_ids.size)
+  }
+
+  it should "have display labeled all mentions as Simple_chemical" in {
+    drug2_mentions.count(_.displayLabel == "Simple_chemical") should be (drug2_ids.size)
+  }
+
+  it should "match expected grounding IDs" in {
+    for ((m, ndx) <- drug2_mentions.zipWithIndex) {
+      m.grounding.isDefined && (m.grounding.get.id == drug2_ids(ndx)) should be (true)
     }
   }
 
