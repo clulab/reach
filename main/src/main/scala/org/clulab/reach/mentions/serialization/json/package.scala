@@ -251,12 +251,12 @@ package object json {
 
   implicit class KBResolutionOps(kbr: KBResolution) extends JSONSerialization {
     def jsonAST: JValue = {
-      // components needed to construct KBEntry (KBResolution.entry)
-      ("text" -> kbr.entry.text) ~
-      ("key" -> kbr.entry.key) ~
-      ("namespace" -> kbr.entry.namespace) ~
-      ("id" -> kbr.entry.id) ~
-      ("species" -> kbr.entry.species)
+      // components needed to construct KBResolution
+      ("text" -> kbr.text) ~
+      ("key" -> kbr.key) ~
+      ("namespace" -> kbr.namespace) ~
+      ("id" -> kbr.id) ~
+      ("species" -> kbr.species)
     }
   }
 

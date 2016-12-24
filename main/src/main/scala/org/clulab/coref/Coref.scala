@@ -2,7 +2,7 @@ package org.clulab.coref
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.odin._
-import org.clulab.reach.grounding.{KBEntry, ReachKBConstants, Resolutions}
+import org.clulab.reach.grounding.{ReachKBConstants, KBResolution, Resolutions}
 import org.clulab.reach.utils.DependencyUtils._
 import org.clulab.reach.display._
 import org.clulab.reach.mentions._
@@ -338,7 +338,7 @@ class Coref extends LazyLogging {
 
   def apply(docMentions: Seq[Seq[Mention]]): Seq[Seq[CorefMention]] = {
 
-    val aliases = scala.collection.mutable.HashMap.empty[KBEntry, Resolutions]
+    val aliases = scala.collection.mutable.HashMap.empty[KBResolution, Resolutions]
 
     val orderedMentions = for {
       mentions <- docMentions
@@ -390,22 +390,22 @@ class Coref extends LazyLogging {
         pair <- entities.combinations(2)
         (a, b) = (pair.head.toCorefMention, pair.last.toCorefMention)
         if compatibleGrounding(a, b) && // includes check to see that they're both grounded
-          !(aliases contains a.grounding.get.entry) && // assume any existing entry is correct
-          !(aliases contains b.grounding.get.entry) // so don't replace existing entry
+          !(aliases contains a.grounding.get) && // assume any existing grounding is correct
+          !(aliases contains b.grounding.get) // so don't replace existing grounding
       } {
         val ag = a.grounding.get
         val bg = b.grounding.get
         // one or the other is effectively ungrounded
-        if (ag.namespace == default && bg.namespace != default) aliases(ag.entry) = b.candidates
-        else if (bg.namespace == default && ag.namespace != default) aliases(bg.entry) = a.candidates
+        if (ag.namespace == default && bg.namespace != default) aliases(ag) = b.candidates
+        else if (bg.namespace == default && ag.namespace != default) aliases(bg) = a.candidates
         // both are grounded, but maybe one's grounding is correct for both
         else if (ag.namespace != default && bg.namespace != default) {
           // combine candidates in order -- important to maintain correct first choice
           val ab = a.candidates.getOrElse(Nil) ++ b.candidates.getOrElse(Nil)
           val ba = b.candidates.getOrElse(Nil) ++ a.candidates.getOrElse(Nil)
           if (ab.nonEmpty) {
-            aliases(ag.entry) = Option(ab)
-            aliases(bg.entry) = Option(ba)
+            aliases(ag) = Option(ab)
+            aliases(bg) = Option(ba)
           }
         }
         // if both are effectively ungrounded, do nothing
@@ -435,11 +435,11 @@ class Coref extends LazyLogging {
       // share more complete grounding based on alias map
       mentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
         mention =>
-          val kbEntry = mention.grounding.get.entry
-          if (aliases contains kbEntry) {
+          val kbRes = mention.grounding.get
+          if (aliases contains kbRes) {
             logger.debug(s"${mention.text} matches " +
-              s"${aliases(kbEntry).getOrElse(Nil).map(_.text).mkString("{'", "', '", "}")}")
-            mention.nominate(aliases(kbEntry))
+              s"${aliases(kbRes).getOrElse(Nil).map(_.text).mkString("{'", "', '", "}")}")
+            mention.nominate(aliases(kbRes))
             mention.sieves += "aliasGroundingMatch"
           }
       }

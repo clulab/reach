@@ -4,7 +4,7 @@ import org.clulab.serialization.json.DocOps
 import org.clulab.serialization.json.JSONSerializer._
 import org.clulab.odin
 import org.clulab.odin._
-import org.clulab.reach.grounding.{KBEntry, KBResolution}
+import org.clulab.reach.grounding.{KBResolution}
 import org.clulab.reach.mentions._
 import org.clulab.struct.{DirectedGraph, Edge, Interval}
 import org.json4s.JsonDSL._
@@ -350,15 +350,14 @@ object JSONSerializer extends LazyLogging {
   private def toKBResolution(json: JValue): Option[KBResolution] = json \ "grounding" match {
     case JNothing => None
     case grounding =>
-      // build entry
-      val entry = new KBEntry(
+      // build KB resolution object
+      val kbr = new KBResolution(
         text = (grounding \ "text").extract[String],
         key = (grounding \ "key").extract[String],
         namespace = (grounding \ "namespace").extract[String],
         id = (grounding \ "id").extract[String],
         species = (grounding \ "species").extract[String]
       )
-      val kbr = new KBResolution(entry)
       Some(kbr)
   }
 
