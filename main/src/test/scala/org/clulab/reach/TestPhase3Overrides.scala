@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 12/26/2016.
-  *   Last Modified: Add 132 Mouse tests which will not pass until NER KB loader is updated.
+  *   Last Modified: Add tests for first & last 100 Rabbit entries which will not pass until NER KB loader is updated.
   */
 class TestPhase3Overrides extends FlatSpec with Matchers {
   val GGP = "Gene_or_gene_product"
@@ -20,8 +20,8 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
   val Rat = SpeciesNameSet("rat")
 
   // test data sets
-  val ggp1 = "RPA32 is an override GGP."
-  val ggp1_ids = Seq("P15927")
+  val ggpRat = "RPA32 is an override GGP."
+  val ggpRat_ids = Seq("P15927")
 
   val ggpG = """Beclin, BECN1, CD274, Pdcd-1L1, and XBP1 are override GGPs."""
   val ggpG_ids = Seq("Q14457", "Q14457", "Q9NZQ7", "Q9NZQ7", "P17861")
@@ -88,6 +88,107 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
     "Q92889", "P62258"
   )
 
+
+  // TODO: following test will not pass until the NER KB loader
+  // is updated to read the Phase3 Override file
+  val ggpR1 = """
+    14-3-3 beta, 14-3-3 zeta, 14-3-3-beta, 14-3-3-beta_V, 14-3-3-zeta,
+    4E-BP1, 4E-BP1 (phospho S65), 4E-BP1_pS65, 4EBP1_pS65_V, 4EBP1_V,
+    53BP1, A-Raf, ABL, ACACA, ACC1,
+    ACC1_C, Acetyl CoA Carboxylase 1, ACTB, AIM1, alpha-tublin,
+    AMPK alpha, AMPK alpha (phospho T172), AMPK alpha 2 (Phospho S345), AMPK-a2_pS345, AMPKa,
+    AMPKa_C, AMPKa_pT172, AMPK_pT172_V, Androgen Receptor, AR,
+    ARAF, ARID1A, AR_V, ATG3, Atg3,
+    ATG7, Atg7, ATM, ATM (phospho S1981), ATM_pS1981,
+    ATM_pS1981_mouse, ATR, ATR (Phospho S428), ATRX, ATR_pS428,
+    Aurora B/AIM1, Aurora-B, AXL, Axl, b-Actin,
+    b-Catenin, b-Catenin_pT41_S45, b-Catenin_V, B-Raf, B-Raf (phospho S445),
+    B-Raf_pS445, B7-H4, BABAM1, BAD, Bad (phospho S112),
+    Bad_pS112, BAD_pS112_C, Bak, BAK1, BAK_C,
+    BAX, Bax, BAX_C, Bcl-xL, BCL-XL_C,
+    BCL2A1, Bcl2A1, BCL2L1, BCL2L11, BCL2_C,
+    beta Actin, beta Catenin, beta Catenin (phospho T41/S45), BID, Bid,
+    BID_C, Bim, BIM_V, BIRC3, BRAF,
+    bRAF_mouse, bRAF_pS445, BRD4, c-Abl, c-IAP2,
+    c-Jun (phospho S73), c-JUN_pS73, c-Jun_pS73, c-Kit, c-KIT_V,
+    c-Met (phospho Y1234/Y1235), c-Met_pY1234_Y1235, c-Myc, C-Raf,
+    and C-Raf (phospho S338) are override GGPs.
+  """
+
+  val ggpR1_ids = Seq(
+    "P31946", "P63104", "P31946", "P31946", "P63104",
+    "Q13541", "Q13541", "Q13541", "Q13541", "Q13541",
+    "Q12888", "P10398", "P00519", "Q13085", "Q13085",
+    "Q13085", "Q13085", "P60709", "Q96GD4", "Q71U36",
+    "Q13131", "Q13131", "P54646", "P54646", "Q13131",
+    "Q13131", "Q13131", "Q13131", "P10275", "P10275",
+    "P10398", "O14497", "P10275", "Q9NT62", "Q9NT62",
+    "O95352", "O95352", "Q13315", "Q13315", "Q13315",
+    "Q13315", "P20848", "P20848", "P46100", "P20848",
+    "Q96GD4", "Q96GD4", "P30530", "P30530", "P60709",
+    "P35222", "P35222", "P35222", "P15056", "P15056",
+    "P15056", "Q7Z7D3", "Q9NWV8", "Q92934", "Q92934",
+    "Q92934", "Q92934", "Q16611", "Q16611", "Q16611",
+    "Q07812", "Q07812", "Q07812", "Q07817", "Q07817",
+    "Q16548", "Q16548", "Q07817", "O43521", "Q16548",
+    "P60709", "P35222", "P35222", "P55957", "P55957",
+    "P55957", "O43521", "O43521", "Q13489", "P15056",
+    "P15056", "P15056", "O60885", "P00519", "Q13489",
+    "P05412", "P05412", "P05412", "P10721", "P10721",
+    "P08581", "P08581", "P01106", "P04049", "P04049"
+  )
+
+
+  // TODO: following test will not pass until the NER KB loader
+  // is updated to read the Phase3 Override file
+  val ggpR3 = """
+    Rb_pS807_S811, Rb_pS807_V, RELA, RICTOR, Rictor,
+    Rictor (phospho T1135), Rictor_pT1135, RIP, Rock-1, ROCK1,
+    RPA32 (Phospho S4/S8), RPA32_pS4_S8, RPS6, RPS6K, RPS6KB1,
+    RPTOR, S6 (phospho S235/S236), S6 (phospho S240/S244), S6_pS235_S236, S6_pS235_V,
+    S6_pS240_S244, S6_pS240_V, SDHA, Shc (phospho Y317), SHC1,
+    SHC_pY317, Shc_pY317, SHP-2 (phospho Y542), SHP-2_pY542, SLC16A4,
+    SLC1A5, SMAD1, Smad1, SMAD3, Smad3,
+    SOD2, SOX2, Sox2, STAT3, Stat3,
+    Stat3 (phospho Y705), Stat3_pY705, STAT3_pY705_V, STAT5A, Stat5a,
+    STAT5_V, Stathmin 1, Stathmin-1, Stathmin_V, STMN1,
+    TAZ, TFAM, TFRC, TIGAR, TP53,
+    TP53BP1, Transferrin Receptor, TRIM25, TSC1, TSC1/Hamartin,
+    TSC2, TSC2/Tuberin (phospho T1462), TSC2_C, TSC2_pT1462, TTF1,
+    TUBA1A, Tuberin, Tuberin_pT1462, TUFM, TYRO3,
+    Tyro3, UBAC1, ULK1, ULK1 (phospho S757), ULK1_pS757,
+    VASP, VEGF Receptor 2, VEGFR-2, VTCN1, WEE1,
+    Wee1, Wee1 (Phospho S642), Wee1_pS642, WIPI1, WIPI2,
+    WWTR1, XRCC1, YAP, YAP (phospho S127), YAP1,
+    YAP_pS127, YAP_V, YB1 (phospho S102), YB1_pS102, YBI_pS102,
+    YBX1, YWHAB, YWHAZ, ZAP-70, and ZAP7
+    are override GGPs.
+  """
+
+  val ggpR3_ids = Seq(
+    "P06400", "P06400", "Q04206", "Q6R327", "Q6R327",
+    "Q6R327", "Q6R327", "P52594", "Q13464", "Q13464",
+    "P15927", "P15927", "P62753", "Q15418", "P23443",
+    "Q8N122", "P62753", "P62753", "P62753", "P62753",
+    "P62753", "P62753", "P31040", "P29353", "P29353",
+    "P29353", "P29353", "Q06124", "Q06124", "O15374",
+    "Q15758", "Q15797", "Q15797", "P84022", "P84022",
+    "P04179", "P48431", "P48431", "P40763", "P40763",
+    "P40763", "P40763", "P40763", "P42229", "P42229",
+    "P42229", "P16949", "P16949", "P16949", "P16949",
+    "Q9GZV5", "Q00059", "P02786", "Q9NQ88", "P04637",
+    "Q12888", "P02786", "Q14258", "Q92574", "Q92574",
+    "P49815", "P49815", "P49815", "P49815", "P43699",
+    "Q71U36", "P49815", "P49815", "P49411", "Q06418",
+    "Q06418", "Q9BSL1", "O75385", "O75385", "O75385",
+    "P50552", "P35968", "P35968", "Q7Z7D3", "P30291",
+    "P30291", "P30291", "P30291", "Q5MNZ9", "Q9Y4P8",
+    "Q9GZV5", "P18887", "P46937", "P46937", "P46937",
+    "P46937", "P46937", "P67809", "P67809", "P67809",
+    "P67809", "P31946", "P63104", "P43403", "P4340"
+  )
+
+
   /** Override test driver method. */
   def testMentions (
     text: String,
@@ -133,9 +234,11 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
   }
 
   // Run the actual tests:
-  testMentions(ggp1, ggp1_ids, GGP, Some(Protein), Some(Rat))
+  testMentions(ggpRat, ggpRat_ids, GGP, Some(Protein), Some(Rat))
   testMentions(ggpG, ggpG_ids, GGP, Some(Protein), Some(Goat))
   // TODO: following test will not pass until the NER KB loader is updated
-  // testMentions(ggpM, ggpM_ids, GGP, Some(Protein), Some(Mouse), true)
+  // testMentions(ggpM, ggpM_ids, GGP, Some(Protein), Some(Mouse))
+  // testMentions(ggpR1, ggpR1_ids, GGP, Some(Protein), Some(Rabbit))
+  // testMentions(ggpR3, ggpR3_ids, GGP, Some(Protein), Some(Rabbit))
 
 }
