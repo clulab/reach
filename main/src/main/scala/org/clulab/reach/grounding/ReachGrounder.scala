@@ -8,14 +8,15 @@ import org.clulab.reach.context._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBUtils._
 import org.clulab.reach.grounding.ReachMiscLookups._
+import org.clulab.reach.grounding.Speciated._
 import org.clulab.reach.utils.MentionManager
 
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Update import for class rename.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
-class ReachGrounder extends Speciated with LazyLogging {
+class ReachGrounder extends LazyLogging {
 
   val config = ConfigFactory.load()
   val overrideSpecies = config.getBoolean("grounding.overrideSpecies")

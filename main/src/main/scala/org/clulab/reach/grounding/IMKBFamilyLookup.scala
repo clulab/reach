@@ -1,11 +1,12 @@
 package org.clulab.reach.grounding
 
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Class implementing alternate key lookups for protein family knowledge bases.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Change to class, add IMKB ctor argument.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class IMKBFamilyLookup (
 

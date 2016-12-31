@@ -2,11 +2,12 @@ package org.clulab.reach.grounding
 
 import org.clulab.odin._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Class implementing alternate key mention lookups for protein family knowledge bases.
   *   Written by Tom Hicks. 11/15/2015.
-  *   Last Modified: Fix: call superclass constructor.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class IMKBFamilyMentionLookup (
 

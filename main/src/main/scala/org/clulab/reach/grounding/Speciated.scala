@@ -5,13 +5,16 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Trait for species features used in external knowledge bases.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Add constants and testers for human Namespace:IDs.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 trait Speciated {
 
-  /** Species name sets. */
+  /** Define species name set type. */
   type SpeciesNameSet = Set[String]
-  def  SpeciesNameSet(xs:String*): Set[String] = Set(xs: _*)
+
+  /** Convenience function to create a species name set from string arguments. */
+  def  SpeciesNameSet (xs:String*): Set[String] = Set(xs: _*)
+
 
   /** Tell whether the given sequence of namespace/ID strings contains a human nsId. */
   def containsHumanNsId (nsIdSeq: Seq[String]): Boolean = nsIdSeq.exists(hasHumanNsId(_))

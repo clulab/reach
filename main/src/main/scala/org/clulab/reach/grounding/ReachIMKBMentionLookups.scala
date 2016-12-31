@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Shorten Bioentities namespace.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 object ReachIMKBMentionLookups {
 

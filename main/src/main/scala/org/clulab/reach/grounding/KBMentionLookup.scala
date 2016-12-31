@@ -1,11 +1,12 @@
 package org.clulab.reach.grounding
 
 import org.clulab.odin._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Trait for simple and species-specific Mention lookup in local knowledge bases.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 trait KBMentionLookup extends KBLookup {
 

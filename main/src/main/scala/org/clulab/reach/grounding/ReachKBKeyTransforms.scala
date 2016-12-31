@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Begin refactoring of key transforms to the KB.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 

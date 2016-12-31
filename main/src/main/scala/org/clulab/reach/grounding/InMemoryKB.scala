@@ -5,11 +5,12 @@ import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Begin refactoring of key transforms to the KB.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class InMemoryKB (
 
@@ -20,7 +21,7 @@ class InMemoryKB (
 
   val mentionKeyTransforms: MentionKeyTransforms = DefaultMentionKeyTransforms
 
-) extends Speciated {
+)  {
 
   /** The root data structure implementing this in-memory knowledge base. */
   val theKB = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]

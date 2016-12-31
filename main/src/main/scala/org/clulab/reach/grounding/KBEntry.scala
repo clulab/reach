@@ -4,11 +4,12 @@ import scala.Serializable
 import scala.util.hashing.MurmurHash3._
 
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Class holding information about a specific entry from an external Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor namespace:ID method to utils class.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class KBEntry (
 
@@ -27,7 +28,7 @@ class KBEntry (
   /** The species associated with this entry, if any. Empty string represents no species. */
   val species: String = KBEntry.NoSpeciesValue
 
-) extends Speciated with Serializable {
+) extends Serializable {
 
   /** Helper method for equals redefinition. */
   def canEqual (other: Any): Boolean = other.isInstanceOf[KBEntry]

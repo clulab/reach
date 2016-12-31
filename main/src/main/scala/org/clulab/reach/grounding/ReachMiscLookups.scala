@@ -5,9 +5,9 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object implementing Reach specific reverse lookup tables.
   *   Written by: Tom Hicks. 3/10/2016
-  *   Last Modified: Rename class. Add kinase lookup.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
-object ReachMiscLookups extends ReachKBKeyTransforms {
+object ReachMiscLookups {
 
   /** Single factory instance to generate Tsv RLKB classes. */
   val tsvRLKBFactory = new RLKBFactory

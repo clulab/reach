@@ -1,11 +1,12 @@
 package org.clulab.reach.grounding
 
 import org.clulab.reach.mentions._
+import org.clulab.reach.grounding.KBKeyTransforms._
 
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Begin refactoring of key transforms to the KB.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 trait KBKeyTransforms {
 

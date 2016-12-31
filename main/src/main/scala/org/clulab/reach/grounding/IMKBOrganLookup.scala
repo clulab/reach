@@ -2,12 +2,13 @@ package org.clulab.reach.grounding
 
 import org.clulab.odin._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Class implementing alternate key lookups for cell types which can be inferred
   * from the organ name and specific contextual suffixes.
   *   Written by Tom Hicks. 12/20/2015.
-  *   Last Modified: Rename class. Shorten organ vals.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class IMKBOrganLookup (
 

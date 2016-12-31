@@ -5,14 +5,15 @@ import java.util.zip.GZIPInputStream
 import scala.io.Source
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.Speciated._
 
 
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
-object ReachKBUtils extends Speciated {
+object ReachKBUtils {
 
   /** Tell whether the given mention is grounded from a protein family KB or not. */
   def isFamilyGrounded (mention:BioMention): Boolean =

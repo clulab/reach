@@ -1,12 +1,15 @@
 package org.clulab.reach.grounding
 
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
+
 /**
   * Trait for simple and species-specific string lookup in local knowledge bases
   * using alternate key resolutions.
   *   Written by Tom Hicks. 11/15/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
-trait KBAltLookup extends Speciated with KBKeyTransforms {
+trait KBAltLookup {
 
   /** Resolve the given text string to an optional entry in a knowledge base.
     * If the text is not found, use the given text transforming functions to create

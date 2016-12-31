@@ -1,14 +1,16 @@
 package org.clulab.reach.grounding
 
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
-class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
+class TsvIMKBFactory {
 
   /** Main factory method to create, fill, and return an encapsulate knowledge base. */
   def make (metaInfo:IMKBMetaInfo): InMemoryKB = {

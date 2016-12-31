@@ -1,16 +1,19 @@
 package org.clulab.reach.grounding
 
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
+
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for refactor of key transforms.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class IMKBLookup (
 
   /** The in-memory knowledge base that all lookups will work against. */
   var memoryKB: InMemoryKB = new InMemoryKB()
 
-) extends KBLookup with KBAltLookup with ReachKBKeyTransforms {
+) extends KBLookup with KBAltLookup {
 
   /** Return a sequence over the entries in this KB. */
   def entries = memoryKB.entries

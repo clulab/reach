@@ -2,11 +2,13 @@ package org.clulab.reach.grounding
 
 import org.clulab.odin._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * KB accessor implementation which always resolves each mention with a local, fake ID.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Refactor singleton instance here.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class AzFailsafeKBML extends IMKBMentionLookup {
 

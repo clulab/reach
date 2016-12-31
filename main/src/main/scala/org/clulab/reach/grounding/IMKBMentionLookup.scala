@@ -1,11 +1,13 @@
 package org.clulab.reach.grounding
 
 import org.clulab.odin._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Class implementing logic for local KB Mention lookups on top of base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Change to class, add IMKB ctor argument.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
 class IMKBMentionLookup (
 
