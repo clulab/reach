@@ -10,16 +10,15 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
+  *   Last Modified: Replace separate key transforms with configuration record.
   */
 class InMemoryKB (
 
   /** Meta information about the external KB from which this KB was created. */
   val metaInfo: IMKBMetaInfo = new IMKBMetaInfo(),
 
-  val keyTransforms: KeyTransforms = DefaultKeyTransforms,
-
-  val mentionKeyTransforms: MentionKeyTransforms = DefaultMentionKeyTransforms
+  /** Configuration record containing KB key transforms for this KB. */
+  val keyTransforms: IMKBKeyTransforms = new IMKBKeyTransforms()
 
 )  {
 

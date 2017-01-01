@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
+  *   Last Modified: Rename default key transforms, add default add key transforms.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -138,11 +138,14 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val TrailingMutationPat = """(?i)(.*)\s+\w+\s+mutant""".r
 
 
+  /** List of default transforms to apply during the KB's entry creation phase. */
+  val DefaultAddKeyTransforms = Seq( identityKT _, canonicalKT _ )
+
   /** List of default transforms to apply in the absence of specific transform arguments. */
-  val DefaultKeyTransforms = Seq( identityKT _ )
+  val DefaultQueryKeyTransforms = Seq( identityKT _, canonicalKT _ )
 
   /** List of default mention transforms to apply in the absence of specific transform arguments. */
-  val DefaultMentionKeyTransforms = Seq( identityMKT _ )
+  val DefaultMentionKeyTransforms = Seq( identityMKT _, canonicalMKT _ )
 
 
   /** List of transform methods to apply for alternate Protein Family lookups. */

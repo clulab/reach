@@ -1,6 +1,7 @@
 package org.clulab.reach.grounding
 
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
