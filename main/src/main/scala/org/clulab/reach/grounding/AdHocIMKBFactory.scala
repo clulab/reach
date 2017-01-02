@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
+  *   Last Modified: Update for changing IMKB.
   */
 class AdHocIMKBFactory {
 
@@ -48,7 +48,7 @@ class AdHocIMKBFactory {
     val refId = fields(1)
     val species = if (fields(2) != "") fields(2) else Speciated.Human
     val namespace = fields(3)
-    imkb.addCanonicalEntry(text, namespace, refId, species) // store new entry
+    imkb.addEntries(text, namespace, refId, species) // store new KB entries
   }
 
   /** Check for required fields in one row of the TSV input file. */

@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
+  *   Last Modified: Update for changing IMKB.
   */
 class TsvIMKBFactory {
 
@@ -45,9 +45,10 @@ class TsvIMKBFactory {
   private def processFields (imkb:InMemoryKB, fields:Seq[String], namespace:String): Unit = {
     val text = fields(0)
     val refId = fields(1)
-    val species = if ((fields.size > 2) && (fields(2) != "")) fields(2)
-                  else KBEntry.NoSpeciesValue
-    imkb.addCanonicalEntry(text, namespace, refId, species) // store new entry
+    if ((fields.size > 2) && (fields(2) != ""))
+      imkb.addEntries(text, namespace, refId, fields(2)) // store new KB entries w/ species
+    else
+      imkb.addEntries(text, namespace, refId)            // store new KB entries w/o species
   }
 
   /** Check for required fields in one row of a TSV input file. */
