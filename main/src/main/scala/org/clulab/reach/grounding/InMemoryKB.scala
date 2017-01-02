@@ -2,6 +2,7 @@ package org.clulab.reach.grounding
 
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
+// import org.clulab.reach.grounding.KBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
@@ -10,7 +11,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Replace separate key transforms with configuration record.
+  *   Last Modified: Refactor to use transforms for entry addition and query.
   */
 class InMemoryKB (
 
@@ -25,37 +26,50 @@ class InMemoryKB (
   /** The root data structure implementing this in-memory knowledge base. */
   val theKB = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
 
-  /** Add the given entry to this KB, if it is unique. */
-  def addEntry (entry:KBEntry) = theKB.addBinding(entry.key, entry)
-
-  /** Make a canonically keyed entry and add it to this KB. */
-  def addCanonicalEntry (text:String, namespace:String, refId:String, species:String) = {
-    addEntry(makeCanonicalEntry(text, namespace, refId, species))
-  }
-
-
-  /** Return an sequence over the entries in this KB. */
+  /** Return a sequence of ALL the entries in this KB. */
   def entries: Seq[KBEntry] = theKB.values.flatten.toSeq
 
+  /** Create and add zero or more KB entries for the given info.
+    * Duplicate entries are not added. Return the number of entries added.
+    */
+  def addEntries (
+    text: String,
+    namespace: String,
+    refId: String,
+    species: String = KBEntry.NoSpeciesValue
+  ): Int = {
+    var addCount: Int = 0
+    additionKeys(text).foreach { key =>
+      storeEntry(new KBEntry(text, key, namespace.toLowerCase, refId, species.toLowerCase))
+      addCount += 1
+    }
+    return addCount
+  }
 
-  /** Return resolutions for the set of all KB entries for the given key. */
-  def lookupAll (key:String): Resolutions =
-    newResolutions(theKB.get(key).map(eset => eset.toSeq))
+  /** Apply key transforms to the given text string to return all storage keys. */
+  def additionKeys (text:String): KeyCandidates =
+    KBKeyTransforms.applyAllTransforms(text, keyTransforms.additionKTs)
+
+  /** Apply key transforms to the given text string to return all query keys. */
+  def queryKeys (text:String): KeyCandidates =
+    KBKeyTransforms.applyAllTransforms(text, keyTransforms.queryKTs)
+
+
+  /** Return resolutions for the set of all KB entries for the given text string. */
+  def lookupAll (text:String): Resolutions = lookupsAll(queryKeys(text))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsAll (allKeys:Seq[String]): Resolutions =
+  def lookupsAll (allKeys:KeyCandidates): Resolutions =
     applyLookupFn(lookupAll, allKeys)
 
 
-  /** Find the set of KB entries, for the given key, which match the given single species.
-      Returns resolutions for matching entries or None. */
-  def lookupByASpecies (key:String, species:String): Resolutions =
-    newResolutions(theKB.get(key)
-                   .map(eset => eset.toSeq.filter(kbe => kbe.species == species))
-                   .filter(_.nonEmpty))
+  /** Find the set of KB entries, for the given text string, which match the given
+      single species. Returns resolutions for matching entries or None. */
+  def lookupByASpecies (text:String, species:String): Resolutions =
+    lookupsByASpecies(queryKeys(text), species)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsByASpecies (allKeys:Seq[String], species:String): Resolutions = {
+  def lookupsByASpecies (allKeys:KeyCandidates, species:String): Resolutions = {
     allKeys.foreach { key =>
       val entries = lookupByASpecies(key, species)
       if (entries.isDefined) return entries
@@ -64,15 +78,13 @@ class InMemoryKB (
   }
 
 
-  /** Finds the set of KB entries, for the given key, which contains a species in the
-      given set of species. Returns resolutions for matching entries or None. */
- def lookupBySpecies (key:String, speciesSet:SpeciesNameSet): Resolutions =
-    newResolutions(theKB.get(key)
-                   .map(eset => eset.toSeq.filter(kbe => isMemberOf(kbe.species, speciesSet)))
-                   .filter(_.nonEmpty))
+  /** Finds the set of KB entries, for the given text string, which contains a species
+      in the given set of species. Returns resolutions for matching entries or None. */
+ def lookupBySpecies (text:String, speciesSet:SpeciesNameSet): Resolutions =
+   lookupsBySpecies(queryKeys(text), speciesSet)
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsBySpecies (allKeys:Seq[String],
+  def lookupsBySpecies (allKeys:KeyCandidates,
                         speciesSet:SpeciesNameSet): Resolutions =
   {
     allKeys.foreach { key =>
@@ -83,67 +95,49 @@ class InMemoryKB (
   }
 
 
-  /** Finds the set of KB entries, for the given key, which have humans as the species.
+  /** Finds the set of KB entries, for the given text string, which have humans as the species.
       Returns resolutions for matching entries or None. */
-  def lookupHuman (key:String): Resolutions =
-    newResolutions(theKB.get(key)
-                   .map(eset => eset.toSeq.filter(kbe => isHumanSpecies(kbe.species)))
-                   .filter(_.nonEmpty))
+  def lookupHuman (text:String): Resolutions = lookupsHuman(queryKeys(text))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsHuman (allKeys:Seq[String]): Resolutions =
+  def lookupsHuman (allKeys:KeyCandidates): Resolutions =
     applyLookupFn(lookupHuman, allKeys)
 
 
-  /** Find the set of KB entries, for the given key, which do not contain a species.
+  /** Find the set of KB entries, for the given text string, which do not contain a species.
       Returns resolutions for matching entries or None. */
-  def lookupNoSpecies (key:String): Resolutions =
-    newResolutions(theKB.get(key)
-                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies))
-                   .filter(_.nonEmpty))
+  def lookupNoSpecies (text:String): Resolutions = lookupsNoSpecies(queryKeys(text))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsNoSpecies (allKeys:Seq[String]): Resolutions =
+  def lookupsNoSpecies (allKeys:KeyCandidates): Resolutions =
     applyLookupFn(lookupNoSpecies, allKeys)
 
 
-  /** Make and return an entry, with a canonical key, from the given fields. */
-  def makeCanonicalEntry (text:String, namespace:String, refId:String, species:String): KBEntry = {
-    val key = makeCanonicalKey(text)        // make canonical storage key
-    return new KBEntry(text, key, namespace.toLowerCase, refId, species.toLowerCase)
-  }
-
-
-  /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
-  def newResolution (entry: KBEntry): KBResolution =
-    new KBResolution(entry, metaInfo.asInstanceOf[KBMetaInfo])
-
-  /** Wrap the given sequence of KB entries in a sequence of resolutions formed from
-      this KB and the given KB entries. */
-  def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions = {
-    val resSeq = entries.map(_.map(kbe => newResolution(kbe)))
-    resSeq.map { resolutions =>
-      selectHuman(resolutions) ++ selectNoSpecies(resolutions) ++ selectNotHuman(resolutions)
-    }
-  }
-
-  /** Wrap the given KB entry in a new singleton-sequence of resolutions formed from
-      this KB and the given KB entry. */
-  def toResolutions (entry: KBEntry): Resolutions = Option(Seq.apply(newResolution(entry)))
-
-  /** Wrap the given optional KB entry in a new singleton-sequence of resolutions formed from
-      this KB and the given KB entry. */
-  def makeResolution (entry: Option[KBEntry]): Option[KBResolution] =
-    entry.map(kbe => newResolution(kbe))
-
 
   /** Try lookup function on all given keys until one succeeds or all fail. */
-  private def applyLookupFn (fn:(String) => Resolutions, allKeys:Seq[String]): Resolutions = {
+  private def applyLookupFn (fn:(String) => Resolutions, allKeys:KeyCandidates): Resolutions = {
     allKeys.foreach { key =>
       val entries = fn.apply(key)
       if (entries.isDefined) return entries
     }
     return None                             // tried all keys: no success
   }
+
+  /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
+  private def newResolution (entry: KBEntry): KBResolution =
+    new KBResolution(entry, metaInfo.asInstanceOf[KBMetaInfo])
+
+  /** Wrap the given sequence of KB entries as a sorted sequence of resolutions with
+      meta information from this KB. */
+  private def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions = {
+    val resSeq = entries.map(_.map(kbe => newResolution(kbe)))
+    resSeq.map { resolutions =>
+      // enforce the desired sorting of entries:
+      selectHuman(resolutions) ++ selectNoSpecies(resolutions) ++ selectNotHuman(resolutions)
+    }
+  }
+
+  /** Store the given entry in this KB, if not already present. */
+  private def storeEntry (entry:KBEntry) = theKB.addBinding(entry.key, entry)
 
 }
