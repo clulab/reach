@@ -11,7 +11,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor to use transforms for entry addition and query.
+  *   Last Modified: Redo lookup function signatures.
   */
 class InMemoryKB (
 
@@ -56,22 +56,33 @@ class InMemoryKB (
 
 
   /** Return resolutions for the set of all KB entries for the given text string. */
-  def lookupAll (text:String): Resolutions = lookupsAll(queryKeys(text))
+  def lookup (text:String): Resolutions = lookupKeys(queryKeys(text))
+
+  /** Return resolutions for the set of all KB entries indexed by the given key string. */
+  def lookupKey (key:String): Resolutions =
+    newResolutions(theKB.get(key).map(eset => eset.toSeq))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsAll (allKeys:KeyCandidates): Resolutions =
-    applyLookupFn(lookupAll, allKeys)
+  def lookupKeys (allKeys:KeyCandidates): Resolutions =
+    applyLookupFn(lookupKey, allKeys)
 
 
   /** Find the set of KB entries, for the given text string, which match the given
       single species. Returns resolutions for matching entries or None. */
   def lookupByASpecies (text:String, species:String): Resolutions =
-    lookupsByASpecies(queryKeys(text), species)
+    lookupKeysByASpecies(queryKeys(text), species)
+
+  /** Find the set of KB entries, for the given key, which match the given single species.
+      Returns resolutions for matching entries or None. */
+  def lookupKeyByASpecies (key:String, species:String): Resolutions =
+    newResolutions(theKB.get(key)
+                   .map(eset => eset.toSeq.filter(kbe => kbe.species == species))
+                   .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsByASpecies (allKeys:KeyCandidates, species:String): Resolutions = {
+  def lookupKeysByASpecies (allKeys:KeyCandidates, species:String): Resolutions = {
     allKeys.foreach { key =>
-      val entries = lookupByASpecies(key, species)
+      val entries = lookupKeyByASpecies(key, species)
       if (entries.isDefined) return entries
     }
     return None                             // tried all keys: no success
@@ -81,14 +92,21 @@ class InMemoryKB (
   /** Finds the set of KB entries, for the given text string, which contains a species
       in the given set of species. Returns resolutions for matching entries or None. */
  def lookupBySpecies (text:String, speciesSet:SpeciesNameSet): Resolutions =
-   lookupsBySpecies(queryKeys(text), speciesSet)
+   lookupKeysBySpecies(queryKeys(text), speciesSet)
+
+  /** Finds the set of KB entries, for the given key, which contains a species in the
+      given set of species. Returns resolutions for matching entries or None. */
+  def lookupKeyBySpecies (key:String, speciesSet:SpeciesNameSet): Resolutions =
+    newResolutions(theKB.get(key)
+                   .map(eset => eset.toSeq.filter(kbe => isMemberOf(kbe.species, speciesSet)))
+                   .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsBySpecies (allKeys:KeyCandidates,
-                        speciesSet:SpeciesNameSet): Resolutions =
+  def lookupKeysBySpecies (allKeys:KeyCandidates,
+                           speciesSet:SpeciesNameSet): Resolutions =
   {
     allKeys.foreach { key =>
-      val entries = lookupBySpecies(key, speciesSet)
+      val entries = lookupKeyBySpecies(key, speciesSet)
       if (entries.isDefined) return entries
     }
     return None                             // tried all keys: no success
@@ -97,20 +115,34 @@ class InMemoryKB (
 
   /** Finds the set of KB entries, for the given text string, which have humans as the species.
       Returns resolutions for matching entries or None. */
-  def lookupHuman (text:String): Resolutions = lookupsHuman(queryKeys(text))
+  def lookupHuman (text:String): Resolutions = lookupKeysHuman(queryKeys(text))
+
+  /** Finds the set of KB entries, for the given key, which have humans as the species.
+      Returns resolutions for matching entries or None. */
+  def lookupKeyHuman (key:String): Resolutions =
+    newResolutions(theKB.get(key)
+                   .map(eset => eset.toSeq.filter(kbe => isHumanSpecies(kbe.species)))
+                   .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsHuman (allKeys:KeyCandidates): Resolutions =
-    applyLookupFn(lookupHuman, allKeys)
+  def lookupKeysHuman (allKeys:KeyCandidates): Resolutions =
+    applyLookupFn(lookupKeyHuman, allKeys)
 
 
   /** Find the set of KB entries, for the given text string, which do not contain a species.
       Returns resolutions for matching entries or None. */
-  def lookupNoSpecies (text:String): Resolutions = lookupsNoSpecies(queryKeys(text))
+  def lookupNoSpecies (text:String): Resolutions = lookupKeysNoSpecies(queryKeys(text))
+
+  /** Find the set of KB entries, for the given key, which do not contain a species.
+      Returns resolutions for matching entries or None. */
+  def lookupKeyNoSpecies (key:String): Resolutions =
+    newResolutions(theKB.get(key)
+                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies))
+                   .filter(_.nonEmpty))
 
   /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupsNoSpecies (allKeys:KeyCandidates): Resolutions =
-    applyLookupFn(lookupNoSpecies, allKeys)
+  def lookupKeysNoSpecies (allKeys:KeyCandidates): Resolutions =
+    applyLookupFn(lookupKeyNoSpecies, allKeys)
 
 
 
