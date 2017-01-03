@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
+  *   Last Modified: Make stripAllSuffixes return unmodified strings.
   */
 trait KBKeyTransforms {
 
@@ -61,9 +61,10 @@ trait KBKeyTransforms {
       else                                  // else try another round of stripping
         lastText = modText                  // update result from last round
     }
-    if ((modText == text) ||                // if no suffixes were stripped at all
-        (modText.trim.equals("")))          // or no stem text left at all
+    if (modText.trim.equals(""))            // if no stem text left at all
       return None                           // then signal failure
+    else if (modText == text)               // else if no suffixes were stripped at all
+      return Some(text)                     // return unchanged text
     else                                    // else something was stripped
       return Some(modText)                  // so return the new string
   }
