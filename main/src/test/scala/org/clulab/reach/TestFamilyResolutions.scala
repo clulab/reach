@@ -8,12 +8,13 @@ import TestUtils._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Update for refactoring of key transforms.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
@@ -306,7 +307,7 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
 
 // InterPro Protein Family KB using alternate protein family resolutions
-class IPProtFamKBL extends IMKBFamilyLookup {
+class IPProtFamKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
     kbFilename = Some(StaticProteinFamily2Filename),
     namespace = "interpro",
@@ -316,11 +317,12 @@ class IPProtFamKBL extends IMKBFamilyLookup {
     isFamilyKB = true
   )
   // println(s"IP-KB.metaInfo=${memoryKB.metaInfo}")
-  memoryKB = (new TsvIMKBFactory).make(meta)
+  val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+  memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
 
 // Bioentities Protein Family KB using alternate protein family resolutions
-class BEProtFamKBL extends IMKBFamilyLookup {
+class BEProtFamKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
     kbFilename = Some(StaticProteinFamily0Filename),
     namespace = "be",
@@ -328,5 +330,6 @@ class BEProtFamKBL extends IMKBFamilyLookup {
     isFamilyKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
-  memoryKB = (new TsvIMKBFactory).make(meta)
+  val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+  memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

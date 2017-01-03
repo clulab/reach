@@ -4,11 +4,12 @@ import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 12/20/2015.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Update for refactoring of key transforms.
   */
 class TestOrganResolutions extends FlatSpec with Matchers {
 
@@ -67,7 +68,8 @@ class TestOrganResolutions extends FlatSpec with Matchers {
 
 
 // Protein family KB using alternate protein resolutions
-class TestOctKBL extends IMKBOrganLookup {
+class TestOctKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(kbFilename = Some(ContextOrganFilename))
-  memoryKB = (new TsvIMKBFactory).make(meta)
+  val keyTransforms = new IMKBKeyTransforms(OrganKeyTransforms, OrganKeyTransforms)
+  memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

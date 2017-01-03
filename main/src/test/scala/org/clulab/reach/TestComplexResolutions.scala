@@ -8,12 +8,13 @@ import TestUtils._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
 
 /**
   * Unit tests to ensure protein complex resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/17/2016.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Update for refactoring of key transforms.
   */
 class TestComplexResolutions extends FlatSpec with Matchers {
 
@@ -87,7 +88,7 @@ class TestComplexResolutions extends FlatSpec with Matchers {
 
 
 // KB for Protein Complexes. Uses alternate protein lookups.
-class TestComplexKBL extends IMKBProteinLookup {
+class TestComplexKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
     kbFilename = Some(StaticProteinComplexFilename),
     namespace = "be",
@@ -95,5 +96,6 @@ class TestComplexKBL extends IMKBProteinLookup {
     isProteinKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
-  memoryKB = (new TsvIMKBFactory).make(meta)
+  val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+  memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

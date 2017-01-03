@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for refactoring of transforms.
+  *   Last Modified: Update for refactoring of key transforms.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
@@ -112,63 +112,63 @@ class TestKBSupport extends FlatSpec with Matchers {
 
 
   // test ReachKeyTransforms
-  "applyAllTransforms(identical, proteinKeyTransforms)" should "return identical string" in {
-    (applyAllTransforms("identical",proteinKeyTransforms)).isEmpty should be (true)
-    (applyAllTransforms("IDENTICAL",proteinKeyTransforms)).isEmpty should be (true)
-    (applyAllTransforms("no change",proteinKeyTransforms)).isEmpty should be (true)
-    (applyAllTransforms("result: empty list",proteinKeyTransforms)).isEmpty should be (true)
+  "applyAllTransforms(identical, ProteinKeyTransforms)" should "return identical string" in {
+    (applyAllTransforms("identical",ProteinKeyTransforms)).isEmpty should be (true)
+    (applyAllTransforms("IDENTICAL",ProteinKeyTransforms)).isEmpty should be (true)
+    (applyAllTransforms("no change",ProteinKeyTransforms)).isEmpty should be (true)
+    (applyAllTransforms("result: empty list",ProteinKeyTransforms)).isEmpty should be (true)
   }
 
-  "applyAllTransforms(LHS-RHS, proteinKeyTransforms)" should "return RHS" in {
+  "applyAllTransforms(LHS-RHS, ProteinKeyTransforms)" should "return RHS" in {
     // mostly testing unmutateProteinKey
-    val xkeys = applyAllTransforms("LHS-RHS", proteinKeyTransforms)
+    val xkeys = applyAllTransforms("LHS-RHS", ProteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "RHS") should be (true)
   }
 
-  "applyAllTransforms(hairy protein, proteinKeyTransforms)" should "return hairy" in {
+  "applyAllTransforms(hairy protein, ProteinKeyTransforms)" should "return hairy" in {
     // mostly testing stripProteinSuffixes
-    val xkeys = applyAllTransforms("hairy protein", proteinKeyTransforms)
+    val xkeys = applyAllTransforms("hairy protein", ProteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "hairy") should be (true)
   }
 
-  "applyAllTransforms(savage API mutant, proteinKeyTransforms)" should "return savage" in {
+  "applyAllTransforms(savage API mutant, ProteinKeyTransforms)" should "return savage" in {
     // mostly testing stripMutantProtein
-    val xkeys = applyAllTransforms("savage API mutant", proteinKeyTransforms)
+    val xkeys = applyAllTransforms("savage API mutant", ProteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "savage") should be (true)
   }
 
-  "applyAllTransforms(weird protein mutant, proteinKeyTransforms)" should "return weird" in {
+  "applyAllTransforms(weird protein mutant, ProteinKeyTransforms)" should "return weird" in {
     // mostly testing stripProteinSuffixes
-    val xkeys = applyAllTransforms("weird protein mutant", proteinKeyTransforms)
+    val xkeys = applyAllTransforms("weird protein mutant", ProteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "weird") should be (true)
   }
 
-  "applyAllTransforms(odd mutant protein, proteinKeyTransforms)" should "return odd" in {
+  "applyAllTransforms(odd mutant protein, ProteinKeyTransforms)" should "return odd" in {
     // mostly testing stripProteinSuffixes
-    val xkeys = applyAllTransforms("odd mutant protein", proteinKeyTransforms)
+    val xkeys = applyAllTransforms("odd mutant protein", ProteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "odd") should be (true)
   }
 
-  "applyAllTransforms(phosphorylated WILD XK mutant, proteinKeyTransforms)" should "return WILD" in {
+  "applyAllTransforms(phosphorylated WILD XK mutant, ProteinKeyTransforms)" should "return WILD" in {
     // mostly testing stripMutantProtein
-    val xkeys = applyAllTransforms("phosphorylated WILD XK mutant", proteinKeyTransforms)
+    val xkeys = applyAllTransforms("phosphorylated WILD XK mutant", ProteinKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "WILD") should be (true)
   }
 
-  "applyAllTransforms(Parsnip family, familyKeyTransforms)" should "return Parsnip" in {
-    val xkeys = applyAllTransforms("Parsnip family", familyKeyTransforms)
+  "applyAllTransforms(Parsnip family, FamilyKeyTransforms)" should "return Parsnip" in {
+    val xkeys = applyAllTransforms("Parsnip family", FamilyKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "parsnip") should be (true)
   }
 
-  "applyAllTransforms(sad protein family, familyKeyTransforms)" should "return sad" in {
-    val xkeys = applyAllTransforms("sad protein family", familyKeyTransforms)
+  "applyAllTransforms(sad protein family, FamilyKeyTransforms)" should "return sad" in {
+    val xkeys = applyAllTransforms("sad protein family", FamilyKeyTransforms)
     (xkeys.size == 1) should be (true)
     (xkeys.head == "sad") should be (true)
   }
