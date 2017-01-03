@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Rename default key transforms, add default add key transforms.
+  *   Last Modified: Reorder functions. Cleanup. Temporarily use Identity transforms.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -24,62 +24,21 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def canonicalMKT (mention:BioTextBoundMention): KeyCandidates = canonicalKT(mention.text)
 
 
-  /** Canonicalize the given text string into a key for both storage and lookup. */
-  def makeCanonicalKey (text:String): String = {
-    var key:String = text.toLowerCase
-    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
-    key = key.filterNot(KeyCharactersToRemove)
-    stripAllSuffixes(AllKeysStopSuffixes, key).getOrElse("")
+  /** Check for one of several types of hyphen-separated strings and, if found,
+    * extract and return the candidate text portion, else return the text unchanged. */
+  def hyphenatedProteinKey (text:String): KeyCandidates = {
+    return text match {
+      // check for RHS protein domain or LHS mutant spec: return protein portion only
+      case HyphenatedNamePat(lhs, rhs) => if (isProteinDomain(rhs)) Seq(lhs) else Seq(rhs)
+      case _ => NoCandidates                // signal failure
+    }
   }
-
-
-  /** Return alternate lookup keys created from the given text string and transform functions. */
-  // def reachAlternateKeys (text:String, transformFns:KeyTransforms): Seq[String] = {
-  //   val allTexts = text +: applyTransforms(text, transformFns)
-  //   return allTexts.map(makeCanonicalKey(_))
-  // }
-
 
   /** Return the portion of the text string minus one of the protein family postpositional
     * attributives, if found in the given text string, else return the text lowercased. */
   def stripFamilyPostAttributives (text:String): KeyCandidates = {
     val lcText = text.toLowerCase           // match lower cased text only
     stripAllSuffixesKT(FamilyPostAttributives, lcText)
-  }
-
-  /** Return the portion of the text string minus one of the organ-cell-type suffixes,
-    * if found in the given text string, else return the text unchanged. */
-  def stripOrganSuffixes (text:String): KeyCandidates = {
-    return text match {
-      case OrganPostAttributivePat(lhs, _) => Seq(lhs)
-      case _ => NoCandidates                // signal failure
-    }
-  }
-
-  /** Return the portion of the text string before a trailing mutation phrase,
-    * if found in the given text string, else return the text unchanged. */
-  def stripMutantProtein (text:String): KeyCandidates = {
-    return text match {
-      case PhosphorMutationPat(lhs) => Seq(lhs)
-      case TrailingMutationPat(lhs) => Seq(lhs)
-      case _ => NoCandidates                // signal failure
-    }
-  }
-
-  /** Return the portion of the text string minus any of the PTM-related prefixes, if found
-    * in the given text string, else return the text unchanged. */
-  def stripPTMPrefixes (text:String): KeyCandidates = {
-    return text match {
-      case PTMPrefixPat(prefix, restOfKey) => Seq(restOfKey)
-      case _ => NoCandidates                // signal failure
-    }
-  }
-
-  /** Return the portion of the text string minus one of the protein postpositional
-    * attributives, if found in the given text string, else return the text lowercased. */
-  def stripProteinPostAttributives (text:String): KeyCandidates = {
-    val lcText = text.toLowerCase           // match lower cased text only
-    stripAllSuffixesKT(ProteinPostAttributives, lcText)
   }
 
   /** Remove affixes from given dash-separated key, return concatenated string of non-affixes. */
@@ -93,15 +52,50 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     else NoCandidates
   }
 
-  /** Check for one of several types of hyphen-separated strings and, if found,
-    * extract and return the candidate text portion, else return the text unchanged. */
-  def hyphenatedProteinKey (text:String): KeyCandidates = {
+  /** Return the portion of the text string before a trailing mutation phrase,
+    * if found in the given text string, else return the text unchanged. */
+  def stripMutantProtein (text:String): KeyCandidates = {
     return text match {
-      // check for RHS protein domain or LHS mutant spec: return protein portion only
-      case HyphenatedNamePat(lhs, rhs) => if (isProteinDomain(rhs)) Seq(lhs) else Seq(rhs)
+      case PhosphorMutationPat(lhs) => Seq(lhs)
+      case TrailingMutationPat(lhs) => Seq(lhs)
       case _ => NoCandidates                // signal failure
     }
   }
+
+  /** Return the portion of the text string minus one of the organ-cell-type suffixes,
+    * if found in the given text string, else return the text unchanged. */
+  def stripOrganSuffixes (text:String): KeyCandidates = {
+    return text match {
+      case OrganPostAttributivePat(lhs, _) => Seq(lhs)
+      case _ => NoCandidates                // signal failure
+    }
+  }
+
+  /** Return the portion of the text string minus one of the protein postpositional
+    * attributives, if found in the given text string, else return the text lowercased. */
+  def stripProteinPostAttributives (text:String): KeyCandidates = {
+    val lcText = text.toLowerCase           // match lower cased text only
+    stripAllSuffixesKT(ProteinPostAttributives, lcText)
+  }
+
+  /** Return the portion of the text string minus any of the PTM-related prefixes, if found
+    * in the given text string, else return the text unchanged. */
+  def stripPTMPrefixes (text:String): KeyCandidates = {
+    return text match {
+      case PTMPrefixPat(prefix, restOfKey) => Seq(restOfKey)
+      case _ => NoCandidates                // signal failure
+    }
+  }
+
+
+  /** Canonicalize the given text string into a key for both storage and lookup. */
+  def makeCanonicalKey (text:String): String = {
+    var key:String = text.toLowerCase
+    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
+    key = key.filterNot(KeyCharactersToRemove)
+    stripAllSuffixes(AllKeysStopSuffixes, key).getOrElse("")
+  }
+
 }
 
 
@@ -139,23 +133,26 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
 
   /** List of default transforms to apply during the KB's entry creation phase. */
-  val DefaultAddKeyTransforms = Seq( identityKT _, canonicalKT _ )
+  // val DefaultAddKeyTransforms = Seq( identityKT _, canonicalKT _ )
+  val DefaultAddKeyTransforms = Seq( identityKT _)
 
   /** List of default transforms to apply in the absence of specific transform arguments. */
-  val DefaultQueryKeyTransforms = Seq( identityKT _, canonicalKT _ )
+  // val DefaultQueryKeyTransforms = Seq( identityKT _, canonicalKT _ )
+  val DefaultQueryKeyTransforms = Seq( identityKT _)
 
   /** List of default mention transforms to apply in the absence of specific transform arguments. */
-  val DefaultMentionKeyTransforms = Seq( identityMKT _, canonicalMKT _ )
+  // val DefaultMentionKeyTransforms = Seq( identityMKT _, canonicalMKT _ )
+  val DefaultMentionKeyTransforms = Seq( identityMKT _)
 
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
-  val familyKeyTransforms = Seq( stripFamilyPostAttributives _ )
+  val FamilyKeyTransforms = Seq( stripFamilyPostAttributives _ )
 
   /** List of transform methods to apply for alternate Organ lookups. */
-  val organKeyTransforms = Seq( stripOrganSuffixes _ )
+  val OrganKeyTransforms = Seq( stripOrganSuffixes _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
-  val proteinKeyTransforms = Seq( stripProteinPostAttributives _,
+  val ProteinKeyTransforms = Seq( stripProteinPostAttributives _,
                                   stripMutantProtein _,
                                   stripGeneNameAffixes _,
                                   hyphenatedProteinKey _,
