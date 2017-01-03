@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Refactor to use key transforms.
   */
 object ReachIMKBLookups {
 
@@ -24,7 +24,8 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/go/",
       resourceId = "MIR:00000022"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve subcellular location names via static KB. */
@@ -38,7 +39,8 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/uniprot/",
       resourceId = "MIR:00000005"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve small molecule (metabolite) names via static KB. */
@@ -52,7 +54,8 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/hmdb/",
       resourceId = "MIR:00000051"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve small molecule (chemical) names via static KB. */
@@ -66,7 +69,8 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/pubchem.compound/",
       resourceId = "MIR:00000034"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve small molecule (drug) names via static KB. */
@@ -80,7 +84,8 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/pubchem.compound/",
       resourceId = "MIR:00000034"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve small molecule (chemical) names via static KB. */
@@ -91,12 +96,13 @@ object ReachIMKBLookups {
   //     baseURI = "http://identifiers.org/chebi/",
   //     resourceId = "MIR:00100009"
   //   )
-  //   new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+  //   val keyTransforms = new IMKBKeyTransforms()
+  //   new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   // }
 
 
   /** KB accessor to resolve protein names via static KBs with alternate lookups. */
-  def staticProteinKBLookup: IMKBProteinLookup = {
+  def staticProteinKBLookup: IMKBLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
     // metaInfo.put("file", StaticProteinFilename)
     // metaInfo.put("protein", "true")         // mark as from a protein KB
@@ -109,11 +115,13 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    new IMKBProteinLookup(tsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein complex names via static KBs with alternate lookups. */
-  def staticProteinComplexKBLookup: IMKBProteinLookup = {
+  def staticProteinComplexKBLookup: IMKBLookup = {
     // val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     // metaInfo.put("file", StaticProteinComplexFilename)
     // metaInfo.put("protein", "true")         // mark as from a protein KB
@@ -124,11 +132,13 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true
     )
-    new IMKBProteinLookup(tsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
-  def staticProteinFamilyKBLookup: IMKBFamilyLookup = {
+  def staticProteinFamilyKBLookup: IMKBLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/pfam/", "MIR:00000028")
     // metaInfo.put("file", StaticProteinFamilyFilename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -140,11 +150,13 @@ object ReachIMKBLookups {
       resourceId = "MIR:00000028",
       isFamilyKB = true
     )
-    new IMKBFamilyLookup(tsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
-  def staticProteinFamily2KBLookup: IMKBFamilyLookup = {
+  def staticProteinFamily2KBLookup: IMKBLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
     // metaInfo.put("file", StaticProteinFamily2Filename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -157,11 +169,13 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isFamilyKB = true
     )
-    new IMKBFamilyLookup(tsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
-  def staticProteinFamily0KBLookup: IMKBFamilyLookup = {
+  def staticProteinFamily0KBLookup: IMKBLookup = {
     // val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     // metaInfo.put("file", StaticProteinFamily0Filename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -172,7 +186,9 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isFamilyKB = true
     )
-    new IMKBFamilyLookup(tsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
 }

@@ -15,7 +15,7 @@ class KBResolution (
 
 ) extends Serializable {
 
-  /** Alternate constructors which do not require access to embedded KBEntry. */
+  /** Other constructors which do not require access to embedded KBEntry. */
   def this (text: String, key: String, namespace: String, id: String) =
     this(new KBEntry(text, key, namespace, id))
 

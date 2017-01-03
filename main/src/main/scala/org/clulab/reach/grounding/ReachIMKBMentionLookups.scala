@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
+  *   Last Modified: Refactor to use key transforms.
   */
 object ReachIMKBMentionLookups {
 
@@ -52,7 +52,8 @@ object ReachIMKBMentionLookups {
     // metaInfo.put("file", StaticBioProcessFilename)
     // new IMKBMentionLookup(AdHocIMKBFactory.make(StaticBioProcessFilename, metaInfo))
     val metaInfo = new IMKBMetaInfo(kbFilename = Some(StaticBioProcessFilename))
-    new IMKBMentionLookup(AdHocIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(AdHocIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   //
@@ -65,7 +66,8 @@ object ReachIMKBMentionLookups {
     // metaInfo.put("file", GendCellLocationFilename)
     // new IMKBMentionLookup(TsvIMKBFactory.make(GendCellLocationFilename, metaInfo))
     val metaInfo = new IMKBMetaInfo(kbFilename = Some(GendCellLocationFilename))
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve subcellular location names via static KB. */
@@ -79,7 +81,8 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/go/",
       resourceId = "MIR:00000022"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve alternate subcellular location names via static KB. */
@@ -93,7 +96,8 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/uniprot/",
       resourceId = "MIR:00000005"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   //
@@ -106,7 +110,8 @@ object ReachIMKBMentionLookups {
     // metaInfo.put("file", GendChemicalFilename)
     // new IMKBMentionLookup(TsvIMKBFactory.make(GendChemicalFilename, metaInfo))
     val metaInfo = new IMKBMetaInfo(kbFilename = Some(GendChemicalFilename))
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve small molecule (metabolite) names via static KB. */
@@ -120,7 +125,8 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/hmdb/",
       resourceId = "MIR:00000051"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve small molecule (chemical) names via static KB. */
@@ -134,7 +140,8 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/pubchem.compound/",
       resourceId = "MIR:00000034"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve small molecule (drug) names via static KB. */
@@ -148,7 +155,8 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/pubchem.compound/",
       resourceId = "MIR:00000034"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve small molecule (chemical) names via static KB. */
@@ -159,7 +167,8 @@ object ReachIMKBMentionLookups {
   //     baseURI = "http://identifiers.org/chebi/",
   //     resourceId = "MIR:00100009"
   //   )
-  //   new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+  //   val keyTransforms = new IMKBKeyTransforms()
+  //   new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   // }
 
 
@@ -168,7 +177,7 @@ object ReachIMKBMentionLookups {
   //
 
   /** KB accessor to resolve protein names via KBs generated from the BioPax model. */
-  def gendProteinKBML: IMKBProteinMentionLookup = {
+  def gendProteinKBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo()
     // metaInfo.put("file", GendProteinFilename)
     // metaInfo.put("protein", "true")         // mark as from a protein KB
@@ -177,11 +186,13 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(GendProteinFilename),
       isProteinKB = true
     )
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein names via static KB. */
-  def staticProteinKBML: IMKBProteinMentionLookup = {
+  def staticProteinKBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
     // metaInfo.put("file", StaticProteinFilename)
     // metaInfo.put("protein", "true")         // mark as from a protein KB
@@ -194,11 +205,13 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein complex names via static KB. */
-  def staticProteinComplexKBML: IMKBProteinMentionLookup = {
+  def staticProteinComplexKBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     // metaInfo.put("file", StaticProteinComplexFilename)
     // metaInfo.put("protein", "true")         // treat complexes as a protein KB
@@ -209,18 +222,18 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true
     )
-    new IMKBProteinMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
 
   //
   // Protein Family Accessors
-  //   These extend from LocalAltKBMentionLookup because protein & protein family
-  //   alternate lookups are the same for now.
   //
 
   /** KB accessor to resolve protein family names via KBs generated from the BioPax model. */
-  def gendProteinFamilyKBML: IMKBFamilyMentionLookup = {
+  def gendProteinFamilyKBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo()
     // metaInfo.put("file", GendProteinFilename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -229,11 +242,13 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(GendProteinFilename),
       isFamilyKB = true
     )
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein family names via static KB. */
-  def staticProteinFamilyKBML: IMKBFamilyMentionLookup = {
+  def staticProteinFamilyKBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/pfam/", "MIR:00000028")
     // metaInfo.put("file", StaticProteinFamilyFilename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -245,11 +260,13 @@ object ReachIMKBMentionLookups {
       resourceId = "MIR:00000028",
       isFamilyKB = true
     )
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein family names via static KB. */
-  def staticProteinFamily2KBML: IMKBFamilyMentionLookup = {
+  def staticProteinFamily2KBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/interpro/", "MIR:00000011")
     // metaInfo.put("file", StaticProteinFamily2Filename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -264,11 +281,13 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isFamilyKB = true
     )
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein family names via static KB. */
-  def staticProteinFamily0KBML: IMKBFamilyMentionLookup = {
+  def staticProteinFamily0KBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo("https://github.com/sorgerlab/bioentities")
     // metaInfo.put("file", StaticProteinFamily0Filename)
     // metaInfo.put("family", "true")          // mark as from a protein family KB
@@ -279,7 +298,9 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isFamilyKB = true
     )
-    new IMKBFamilyMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
 
@@ -297,7 +318,8 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(ContextCellLineFilename),
       hasSpeciesInfo = true
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve alternate cell lines via a context KB. */
@@ -309,7 +331,8 @@ object ReachIMKBMentionLookups {
       namespace = "atcc",
       kbFilename = Some(ContextCellLine2Filename)
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve cell types via a context KB. */
@@ -323,12 +346,13 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/cl/",
       resourceId = "MIR:00000110"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve organ names via a context KB.
       Uses alternate key lookups for organ to cell type inference. */
-  def contextOrganKBML: IMKBOrganMentionLookup = {
+  def contextOrganKBML: IMKBMentionLookup = {
     // val metaInfo = new IMKBMetaInfo("http://identifiers.org/uberon/", "MIR:00000446")
     // metaInfo.put("file", ContextOrganFilename)
     // new IMKBOrganMentionLookup(TsvIMKBFactory.make("uberon", ContextOrganFilename, metaInfo))
@@ -338,7 +362,9 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/uberon/",
       resourceId = "MIR:00000446"
     )
-    new IMKBOrganMentionLookup(TsvIMKBFactory.make(metaInfo))
+    // val keyTransforms = new IMKBKeyTransforms(OrganKeyTransforms, OrganKeyTransforms)
+    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve species names via a context KB. */
@@ -352,7 +378,8 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/taxonomy/",
       resourceId= "MIR:00000006"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve tissue type names via context KB. */
@@ -366,7 +393,8 @@ object ReachIMKBMentionLookups {
       baseURI= "http://identifiers.org/tissuelist/",
       resourceId = "MIR:00000360"
     )
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
+    val keyTransforms = new IMKBKeyTransforms()
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
 }

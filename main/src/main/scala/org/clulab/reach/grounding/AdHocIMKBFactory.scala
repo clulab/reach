@@ -9,12 +9,15 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Update for changing IMKB.
+  *   Last Modified: Update to use key transforms.
   */
 class AdHocIMKBFactory {
 
   /** Main factory method to create, fill, and return an encapsulated knowledge base. */
-  def make (metaInfo:IMKBMetaInfo): InMemoryKB = {
+  def make (
+    metaInfo: IMKBMetaInfo,
+    keyTransforms: IMKBKeyTransforms = new IMKBKeyTransforms()
+  ): InMemoryKB = {
     val imkb: InMemoryKB = new InMemoryKB(metaInfo)
     // load new in-memory KB, if filename specified:
     metaInfo.kbFilename.foreach { loadFromKBDir(imkb, _) } // load new in-memory KB
