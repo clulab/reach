@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Reorder functions. Cleanup. Temporarily use Identity transforms.
+  *   Last Modified: Revert to Canonical KTs. Add strip organ post attributive functions.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -60,6 +60,13 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
       case TrailingMutationPat(lhs) => Seq(lhs)
       case _ => NoCandidates                // signal failure
     }
+  }
+
+  /** Return the portion of the text string minus one of the organ postpositional
+    * attributives, if found in the given text string, else return the text. */
+  def stripOrganPostAttributives (text:String): KeyCandidates = {
+    val lcText = text.toLowerCase           // match lower cased text only
+    stripAllSuffixesKT(OrganPostAttributives, lcText)
   }
 
   /** Return the portion of the text string minus one of the organ-cell-type suffixes,
@@ -116,6 +123,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val KeyCharactersToRemove = " /-".toSet
 
   /** Trailing context strings for organ phrases, case insensitive. */
+  val OrganPostAttributives = Seq(" cell", " cells", " tissue", " tissues", " fluid", " fluids")
   val OrganPostAttributivePat = """(?i)(.*)(cells?|tissues?|fluids?)""".r
 
   /** Match protein names beginning with special PTM-related prefix characters. */
@@ -134,11 +142,11 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
   /** List of default transforms to apply during the KB's entry creation phase. */
   // val DefaultAddKeyTransforms = Seq( identityKT _, canonicalKT _ )
-  val DefaultAddKeyTransforms = Seq( identityKT _)
+  val DefaultAddKeyTransforms = Seq( canonicalKT _)
 
   /** List of default transforms to apply in the absence of specific transform arguments. */
   // val DefaultQueryKeyTransforms = Seq( identityKT _, canonicalKT _ )
-  val DefaultQueryKeyTransforms = Seq( identityKT _)
+  val DefaultQueryKeyTransforms = Seq( canonicalKT _)
 
   /** List of default mention transforms to apply in the absence of specific transform arguments. */
   // val DefaultMentionKeyTransforms = Seq( identityMKT _, canonicalMKT _ )
@@ -149,7 +157,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val FamilyKeyTransforms = Seq( stripFamilyPostAttributives _ )
 
   /** List of transform methods to apply for alternate Organ lookups. */
-  val OrganKeyTransforms = Seq( stripOrganSuffixes _ )
+  val OrganKeyTransforms = Seq( stripOrganPostAttributives _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
   val ProteinKeyTransforms = Seq( stripProteinPostAttributives _,
