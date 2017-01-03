@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Refactor to use key transforms.
+  *   Last Modified: Update for rename of lookup function.
   */
 class IMKBLookup (
 
@@ -26,7 +26,7 @@ class IMKBLookup (
     * Return a resolution for the entry, if any found.
     */
   override def resolve (text:String): Resolutions =
-    memoryKB.lookupAll(text)                // find all matching entries in memory KB
+    memoryKB.lookup(text)                   // find all matching entries in memory KB
 
   /** Resolve the given text string to optional group of entries in a knowledge base,
     * returning resolutions for all entries found in the KB, for the given species.

@@ -7,7 +7,7 @@ import org.clulab.reach.grounding._
 /**
   * Unit tests to ensure a mixed-namespace in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 1/20/2016.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Update for rename of lookup function.
   */
 class TestAdHocIMKBs extends FlatSpec with Matchers {
 
@@ -15,14 +15,14 @@ class TestAdHocIMKBs extends FlatSpec with Matchers {
   val meta = new IMKBMetaInfo(kbFilename = Some("NER-Grounding-Override.tsv.gz"))
   val ahkb3 = (new AdHocIMKBFactory).make(meta)
 
-  "AdHocKB COL-3" should "lookupAll on AHKB from COL-3 TSV file" in {
-    (ahkb3.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (ahkb3.lookupAll("not-in-kb").isDefined) should be (false) // not in KB
-    (ahkb3.lookupAll("TROP2").isDefined) should be (false)  // uppercase
-    (ahkb3.lookupAll("Trop2").isDefined) should be (false)  // mixed case
-    (ahkb3.lookupAll("trop2").isDefined) should be (true)
-    (ahkb3.lookupAll("nadph").isDefined) should be (true)
-    (ahkb3.lookupAll("ros").isDefined) should be (true)
+  "AdHocKB COL-3" should "lookup on AHKB from COL-3 TSV file" in {
+    (ahkb3.lookup("NOT-IN-KB").isDefined) should be (false) // not in KB
+    (ahkb3.lookup("not-in-kb").isDefined) should be (false) // not in KB
+    (ahkb3.lookup("TROP2").isDefined) should be (false)  // uppercase
+    (ahkb3.lookup("Trop2").isDefined) should be (false)  // mixed case
+    (ahkb3.lookup("trop2").isDefined) should be (true)
+    (ahkb3.lookup("nadph").isDefined) should be (true)
+    (ahkb3.lookup("ros").isDefined) should be (true)
   }
 
   "AdHocKB COL-3" should "lookupByASpecies on AHKB from COL-3 TSV file" in {

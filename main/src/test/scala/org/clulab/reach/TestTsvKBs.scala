@@ -6,23 +6,22 @@ import TestUtils._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 
-
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for refactor of KB meta info.
+  *   Last Modified: Update for rename of lookup function.
   */
 class TestTsvKBs extends FlatSpec with Matchers {
 
   // Tests of non-speciated (2-column) knowledge base
   val imkb2 = (new CellLocKBL).memoryKB     // defined after this class (LOOK BELOW)
 
-  "InMemoryKB COL-2" should "lookupAll on IMKB from COL-2 TSV file" in {
-    (imkb2.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (imkb2.lookupAll("not-in-kb").isDefined) should be (false) // not in KB
-    (imkb2.lookupAll("DENDRITE").isDefined) should be (false)  // uppercase
-    (imkb2.lookupAll("dendrite").isDefined) should be (true)
-    (imkb2.lookupAll("telomere").isDefined) should be (true)
+  "InMemoryKB COL-2" should "lookup on IMKB from COL-2 TSV file" in {
+    (imkb2.lookup("NOT-IN-KB").isDefined) should be (false) // not in KB
+    (imkb2.lookup("not-in-kb").isDefined) should be (false) // not in KB
+    (imkb2.lookup("DENDRITE").isDefined) should be (false)  // uppercase
+    (imkb2.lookup("dendrite").isDefined) should be (true)
+    (imkb2.lookup("telomere").isDefined) should be (true)
   }
 
   "InMemoryKB COL-2" should "fail to lookupByASpecies on IMKB from COL-2 TSV file" in {
@@ -63,11 +62,11 @@ class TestTsvKBs extends FlatSpec with Matchers {
 
   // tests lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)
 
-  "InMemoryKB COL-3" should "lookupAll on IMKB from COL-3 gzipped TSV file" in {
-    (imkbPF.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (imkbPF.lookupAll("PTHR21244").isDefined) should be (false) // uppercase
-    (imkbPF.lookupAll("pthr21244").isDefined) should be (true)
-    (imkbPF.lookupAll("hk").isDefined) should be (true)
+  "InMemoryKB COL-3" should "lookup on IMKB from COL-3 gzipped TSV file" in {
+    (imkbPF.lookup("NOT-IN-KB").isDefined) should be (false) // not in KB
+    (imkbPF.lookup("PTHR21244").isDefined) should be (false) // uppercase
+    (imkbPF.lookup("pthr21244").isDefined) should be (true)
+    (imkbPF.lookup("hk").isDefined) should be (true)
   }
 
   "InMemoryKB COL-3" should "lookupByASpecies on IMKB from COL-3 gzipped TSV file" in {
