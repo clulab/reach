@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for refactoring of key transforms.
+  *   Last Modified: Redo key transform and strip suffix tests.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
@@ -112,65 +112,98 @@ class TestKBSupport extends FlatSpec with Matchers {
 
 
   // test ReachKeyTransforms
-  "applyAllTransforms(identical, ProteinKeyTransforms)" should "return identical string" in {
-    (applyAllTransforms("identical",ProteinKeyTransforms)).isEmpty should be (true)
-    (applyAllTransforms("IDENTICAL",ProteinKeyTransforms)).isEmpty should be (true)
-    (applyAllTransforms("no change",ProteinKeyTransforms)).isEmpty should be (true)
-    (applyAllTransforms("result: empty list",ProteinKeyTransforms)).isEmpty should be (true)
+  def firstKT (text:String): KeyCandidates = Seq(text.head.toString)
+  def lastKT (text:String): KeyCandidates = Seq(text.last.toString)
+  def revKT (text:String): KeyCandidates = Seq(text.reverse)
+
+  def kt_id = Seq(identityKT _)
+  def kt_first = Seq(firstKT _)
+  def kt_last = Seq(lastKT _)
+  def kt_rev = Seq(revKT _)
+  def kt_all = Seq(identityKT _, firstKT _, lastKT _, revKT _)
+
+  "applyAllTransforms(XXX, identityKT)" should "return identical strings" in {
+    (applyAllTransforms("", kt_id).head) should equal ("")
+    (applyAllTransforms("I", kt_id).head) should equal ("I")
+    (applyAllTransforms("identical", kt_id).head) should equal ("identical")
+    (applyAllTransforms("IDENTICAL", kt_id).head) should equal ("IDENTICAL")
+    (applyAllTransforms("ID-ENTICAL", kt_id).head) should equal ("ID-ENTICAL")
+    (applyAllTransforms("IDENT/ICAL", kt_id).head) should equal ("IDENT/ICAL")
+    (applyAllTransforms("ID-ENT/ICAL", kt_id).head) should equal ("ID-ENT/ICAL")
+    (applyAllTransforms("Abc/DEF/xyz", kt_id).head) should equal ("Abc/DEF/xyz")
   }
 
-  "applyAllTransforms(LHS-RHS, ProteinKeyTransforms)" should "return RHS" in {
-    // mostly testing unmutateProteinKey
-    val xkeys = applyAllTransforms("LHS-RHS", ProteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "RHS") should be (true)
+  "applyAllTransforms(XXX, various KTs)" should "do the right things separately" in {
+    (applyAllTransforms("abc-xyz", kt_first).head) should equal ("a")
+    (applyAllTransforms("ABC-XYZ", kt_first).head) should equal ("A")
+    (applyAllTransforms("abc-xyz", kt_last).head) should equal ("z")
+    (applyAllTransforms("ABC-XYZ", kt_last).head) should equal ("Z")
+    (applyAllTransforms("abcxyz", kt_rev).head) should equal ("zyxcba")
+    (applyAllTransforms("ABCXYZ", kt_rev).head) should equal ("ZYXCBA")
   }
 
-  "applyAllTransforms(hairy protein, ProteinKeyTransforms)" should "return hairy" in {
-    // mostly testing stripProteinSuffixes
-    val xkeys = applyAllTransforms("hairy protein", ProteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "hairy") should be (true)
+  "applyAllTransforms(XXX, multiple KTs)" should "do the right things" in {
+    (applyAllTransforms("abcxyz", kt_all).size) should be (4)
+    (applyAllTransforms("ABCXYZ", kt_all).size) should be (4)
+    (applyAllTransforms(" X ", kt_all).size) should be (4)
+    (applyAllTransforms("abcxyz", kt_all)) should equal (Seq("abcxyz", "a", "z", "zyxcba"))
+    (applyAllTransforms("ABCXYZ", kt_all)) should equal (Seq("ABCXYZ", "A", "Z", "ZYXCBA"))
+    (applyAllTransforms(" X ", kt_all)) should equal (Seq(" X ", " ", " ", " X "))
   }
 
-  "applyAllTransforms(savage API mutant, ProteinKeyTransforms)" should "return savage" in {
-    // mostly testing stripMutantProtein
-    val xkeys = applyAllTransforms("savage API mutant", ProteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "savage") should be (true)
+  // Test real Reach transforms
+  def kt_hyphenPK = Seq(hyphenatedProteinKey _)
+  def kt_stripPPA = Seq(stripProteinPostAttributives _)
+  def kt_stripMP  = Seq(stripMutantProtein _)
+  def kt_stripPTMP = Seq(stripPTMPrefixes _)
+  def kt_stripGNA = Seq(stripGeneNameAffixes _)
+  def kt_stripFPA = Seq(stripFamilyPostAttributives _)
+  def kt_stripOPA = Seq(stripOrganPostAttributives _)
+
+  "applyAllTransforms(various strings, hyphenatedProteinKey)" should "return stems" in {
+    (applyAllTransforms("LHS-RHS", kt_hyphenPK)) should equal (Seq("RHS"))
+    (applyAllTransforms("lhs-aai", kt_hyphenPK)) should equal (Seq("lhs"))
+    (applyAllTransforms("AKT1-AAI", kt_hyphenPK)) should equal (Seq("AKT1"))
+    (applyAllTransforms("Akt1-Aai", kt_hyphenPK)) should equal (Seq("Akt1"))
+    (applyAllTransforms("AAI-AKT1", kt_hyphenPK)) should equal (Seq("AKT1"))
   }
 
-  "applyAllTransforms(weird protein mutant, ProteinKeyTransforms)" should "return weird" in {
-    // mostly testing stripProteinSuffixes
-    val xkeys = applyAllTransforms("weird protein mutant", ProteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "weird") should be (true)
+  "applyAllTransforms(various strings, stripProteinPostAttributives)" should "return stems" in {
+    (applyAllTransforms("hairy protein", kt_stripPPA)) should equal (Seq("hairy"))
+    (applyAllTransforms("HAIRY protein", kt_stripPPA)) should equal (Seq("hairy"))
+    (applyAllTransforms("odd mutant protein", kt_stripPPA)) should equal (Seq("odd"))
+    (applyAllTransforms("Odd Mutant protein", kt_stripPPA)) should equal (Seq("odd"))
   }
 
-  "applyAllTransforms(odd mutant protein, ProteinKeyTransforms)" should "return odd" in {
-    // mostly testing stripProteinSuffixes
-    val xkeys = applyAllTransforms("odd mutant protein", ProteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "odd") should be (true)
+  "applyAllTransforms(various strings, stripOrganPostAttributives)" should "return stems" in {
+    (applyAllTransforms("red cell", kt_stripOPA)) should equal (Seq("red"))
+    (applyAllTransforms("red cells", kt_stripOPA)) should equal (Seq("red"))
+    (applyAllTransforms("blue tissue", kt_stripOPA)) should equal (Seq("blue"))
+    (applyAllTransforms("blue tissues", kt_stripOPA)) should equal (Seq("blue"))
+    (applyAllTransforms("green fluid", kt_stripOPA)) should equal (Seq("green"))
+    (applyAllTransforms("green fluids", kt_stripOPA)) should equal (Seq("green"))
+    (applyAllTransforms("purple cell tissue", kt_stripOPA)) should equal (Seq("purple"))
+    (applyAllTransforms("purple cell tissues", kt_stripOPA)) should equal (Seq("purple"))
+    (applyAllTransforms("purple cell fluid", kt_stripOPA)) should equal (Seq("purple"))
+    (applyAllTransforms("purple cell fluids", kt_stripOPA)) should equal (Seq("purple"))
+    (applyAllTransforms("purple cell tissue fluid", kt_stripOPA)) should equal (Seq("purple"))
+    (applyAllTransforms("purple cell tissue fluids", kt_stripOPA)) should equal (Seq("purple"))
+    (applyAllTransforms("purple cells tissues fluids", kt_stripOPA)) should equal (Seq("purple"))
   }
 
-  "applyAllTransforms(phosphorylated WILD XK mutant, ProteinKeyTransforms)" should "return WILD" in {
-    // mostly testing stripMutantProtein
-    val xkeys = applyAllTransforms("phosphorylated WILD XK mutant", ProteinKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "WILD") should be (true)
+  "applyAllTransforms(various strings, stripMutantProtein)" should "return stems" in {
+    (applyAllTransforms("crazy weird mutant", kt_stripMP)) should equal (Seq("crazy"))
+    (applyAllTransforms("Crazy Weird Mutant", kt_stripMP)) should equal (Seq("Crazy"))
+    (applyAllTransforms("crazy API mutant", kt_stripMP)) should equal (Seq("crazy"))
+    (applyAllTransforms("phosphorylated WILD XK mutant", kt_stripMP)) should equal (Seq("WILD"))
+    (applyAllTransforms("Phosphorylated WILD XK mutant", kt_stripMP)) should equal (Seq("WILD"))
   }
 
-  "applyAllTransforms(Parsnip family, FamilyKeyTransforms)" should "return Parsnip" in {
-    val xkeys = applyAllTransforms("Parsnip family", FamilyKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "parsnip") should be (true)
-  }
-
-  "applyAllTransforms(sad protein family, FamilyKeyTransforms)" should "return sad" in {
-    val xkeys = applyAllTransforms("sad protein family", FamilyKeyTransforms)
-    (xkeys.size == 1) should be (true)
-    (xkeys.head == "sad") should be (true)
+  "applyAllTransforms(various strings, stripFamilyPostAttributives)" should "return stems" in {
+    (applyAllTransforms("parsnip family", kt_stripFPA)) should equal (Seq("parsnip"))
+    (applyAllTransforms("Parsnip Family", kt_stripFPA)) should equal (Seq("parsnip"))
+    (applyAllTransforms("sad protein family", kt_stripFPA)) should equal (Seq("sad"))
+    (applyAllTransforms("SAD protein family", kt_stripFPA)) should equal (Seq("sad"))
   }
 
 
@@ -195,18 +228,31 @@ class TestKBSupport extends FlatSpec with Matchers {
   }
 
   val seq0 = Seq[String]()
-  val seq1 = Seq("one")
-  val seq2 = Seq("one", "two")
+  val seq1 = Seq(" one")
+  val seq2 = Seq(" one", " two")
+
   "stripAllSuffixes(seq0, string one)" should "return string one" in {
-    (stripAllSuffixes(seq0, "string one") == "string one") should be (true)
+    (stripAllSuffixes(seq0, "string one")) should equal (Some("string one"))
   }
 
-  "stripAllSuffixes(seq1, stringone)" should "return string" in {
-    (stripAllSuffixes(seq1, "stringone") == "string") should be (true)
+  "stripAllSuffixes(seq0, a string/one-two)" should "return a string/one-two" in {
+    (stripAllSuffixes(seq0, "a string/one-two")) should equal (Some("a string/one-two"))
   }
 
-  "stripAllSuffixes(seq2, stringtwo)" should "return string" in {
-    (stripAllSuffixes(seq2, "stringtwo") == "string") should be (true)
+  "stripAllSuffixes(seq1, string one)" should "return string" in {
+    (stripAllSuffixes(seq1, "string one")) should equal (Some("string"))
+  }
+
+  "stripAllSuffixes(seq2, string two)" should "return string" in {
+    (stripAllSuffixes(seq2, "string two")) should equal (Some("string"))
+  }
+
+  "stripAllSuffixes(seq2, string one two one two)" should "return string" in {
+    (stripAllSuffixes(seq2, "string one two one two")) should equal (Some("string"))
+  }
+
+  "stripAllSuffixes(seq2, string one one one)" should "return string" in {
+    (stripAllSuffixes(seq2, "string one one one")) should equal (Some("string"))
   }
 
   // test KBUtils
