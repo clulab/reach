@@ -215,7 +215,7 @@ class DarpaActions extends Actions with LazyLogging {
       // note that they could be called either "theme1" or "theme2"
       val themes = m.arguments.getOrElse("theme1", Nil) ++ m.arguments.getOrElse("theme2", Nil)
       val arguments = Map("theme" -> themes)
-      m.copy(arguments = arguments)
+      new BioEventMention(m.copy(arguments = arguments), isDirect = true)
   }
 
   def mkBinding(mentions: Seq[Mention], state: State): Seq[Mention] = mentions flatMap {
@@ -255,7 +255,7 @@ class DarpaActions extends Actions with LazyLogging {
       new BioEventMention(original.copy(labels = taxonomy.hypernymsFor("Ubiquitination"), arguments = arguments))
     } else {
       val arguments = Map("theme" -> Seq(theme1, theme2))
-      new BioEventMention(original.copy(arguments = arguments))
+      new BioEventMention(original.copy(arguments = arguments), isDirect = true)
     }
   }
 
@@ -315,7 +315,7 @@ class DarpaActions extends Actions with LazyLogging {
         theme <- themes
       } yield {
         val evArgs = m.arguments - "cause" - "theme" ++ Map("theme" -> Seq(theme))
-        val ev = new BioEventMention(m.copy(arguments = evArgs), direct = true)
+        val ev = new BioEventMention(m.copy(arguments = evArgs), isDirect = true)
         // modifications other than negations belong to the SimpleEvent
         ev.modifications = otherMods
         ev
@@ -435,7 +435,7 @@ object DarpaActions {
           // trigger labels should match event labels
           val newTrigger = ce.trigger.copy(labels = newLabels)
           // return new mention with flipped label
-          new BioEventMention(ce.copy(labels = newLabels, trigger = newTrigger))
+          new BioEventMention(ce.copy(labels = newLabels, trigger = newTrigger), ce.isDirect)
         // return mention unmodified
         case false => ce
       }
