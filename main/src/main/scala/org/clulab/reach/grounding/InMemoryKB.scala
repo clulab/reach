@@ -11,7 +11,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Redo lookup function signatures.
+  *   Last Modified: Update for apply all transforms argument reversal.
   */
 class InMemoryKB (
 
@@ -48,11 +48,11 @@ class InMemoryKB (
 
   /** Apply key transforms to the given text string to return all storage keys. */
   def additionKeys (text:String): KeyCandidates =
-    KBKeyTransforms.applyAllTransforms(text, keyTransforms.additionKTs)
+    KBKeyTransforms.applyAllTransforms(keyTransforms.additionKTs, text)
 
   /** Apply key transforms to the given text string to return all query keys. */
   def queryKeys (text:String): KeyCandidates =
-    KBKeyTransforms.applyAllTransforms(text, keyTransforms.queryKTs)
+    KBKeyTransforms.applyAllTransforms(keyTransforms.queryKTs, text)
 
 
   /** Return resolutions for the set of all KB entries for the given text string. */

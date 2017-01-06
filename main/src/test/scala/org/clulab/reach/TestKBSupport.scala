@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Redo key transform and strip suffix tests.
+  *   Last Modified: Update for apply all transforms argument reversal.
   */
 class TestKBSupport extends FlatSpec with Matchers {
 
@@ -123,32 +123,32 @@ class TestKBSupport extends FlatSpec with Matchers {
   def kt_all = Seq(identityKT _, firstKT _, lastKT _, revKT _)
 
   "applyAllTransforms(XXX, identityKT)" should "return identical strings" in {
-    (applyAllTransforms("", kt_id).head) should equal ("")
-    (applyAllTransforms("I", kt_id).head) should equal ("I")
-    (applyAllTransforms("identical", kt_id).head) should equal ("identical")
-    (applyAllTransforms("IDENTICAL", kt_id).head) should equal ("IDENTICAL")
-    (applyAllTransforms("ID-ENTICAL", kt_id).head) should equal ("ID-ENTICAL")
-    (applyAllTransforms("IDENT/ICAL", kt_id).head) should equal ("IDENT/ICAL")
-    (applyAllTransforms("ID-ENT/ICAL", kt_id).head) should equal ("ID-ENT/ICAL")
-    (applyAllTransforms("Abc/DEF/xyz", kt_id).head) should equal ("Abc/DEF/xyz")
+    (applyAllTransforms(kt_id, "").head) should equal ("")
+    (applyAllTransforms(kt_id, "I").head) should equal ("I")
+    (applyAllTransforms(kt_id, "identical").head) should equal ("identical")
+    (applyAllTransforms(kt_id, "IDENTICAL").head) should equal ("IDENTICAL")
+    (applyAllTransforms(kt_id, "ID-ENTICAL").head) should equal ("ID-ENTICAL")
+    (applyAllTransforms(kt_id, "IDENT/ICAL").head) should equal ("IDENT/ICAL")
+    (applyAllTransforms(kt_id, "ID-ENT/ICAL").head) should equal ("ID-ENT/ICAL")
+    (applyAllTransforms(kt_id, "Abc/DEF/xyz").head) should equal ("Abc/DEF/xyz")
   }
 
   "applyAllTransforms(XXX, various KTs)" should "do the right things separately" in {
-    (applyAllTransforms("abc-xyz", kt_first).head) should equal ("a")
-    (applyAllTransforms("ABC-XYZ", kt_first).head) should equal ("A")
-    (applyAllTransforms("abc-xyz", kt_last).head) should equal ("z")
-    (applyAllTransforms("ABC-XYZ", kt_last).head) should equal ("Z")
-    (applyAllTransforms("abcxyz", kt_rev).head) should equal ("zyxcba")
-    (applyAllTransforms("ABCXYZ", kt_rev).head) should equal ("ZYXCBA")
+    (applyAllTransforms(kt_first, "abc-xyz").head) should equal ("a")
+    (applyAllTransforms(kt_first, "ABC-XYZ").head) should equal ("A")
+    (applyAllTransforms(kt_last, "abc-xyz").head) should equal ("z")
+    (applyAllTransforms(kt_last, "ABC-XYZ").head) should equal ("Z")
+    (applyAllTransforms(kt_rev, "abcxyz").head) should equal ("zyxcba")
+    (applyAllTransforms(kt_rev, "ABCXYZ").head) should equal ("ZYXCBA")
   }
 
   "applyAllTransforms(XXX, multiple KTs)" should "do the right things" in {
-    (applyAllTransforms("abcxyz", kt_all).size) should be (4)
-    (applyAllTransforms("ABCXYZ", kt_all).size) should be (4)
-    (applyAllTransforms(" X ", kt_all).size) should be (4)
-    (applyAllTransforms("abcxyz", kt_all)) should equal (Seq("abcxyz", "a", "z", "zyxcba"))
-    (applyAllTransforms("ABCXYZ", kt_all)) should equal (Seq("ABCXYZ", "A", "Z", "ZYXCBA"))
-    (applyAllTransforms(" X ", kt_all)) should equal (Seq(" X ", " ", " ", " X "))
+    (applyAllTransforms(kt_all, "abcxyz").size) should be (4)
+    (applyAllTransforms(kt_all, "ABCXYZ").size) should be (4)
+    (applyAllTransforms(kt_all, " X ").size) should be (4)
+    (applyAllTransforms(kt_all, "abcxyz")) should equal (Seq("abcxyz", "a", "z", "zyxcba"))
+    (applyAllTransforms(kt_all, "ABCXYZ")) should equal (Seq("ABCXYZ", "A", "Z", "ZYXCBA"))
+    (applyAllTransforms(kt_all, " X ")) should equal (Seq(" X ", " ", " ", " X "))
   }
 
   // Test real Reach transforms
@@ -160,50 +160,50 @@ class TestKBSupport extends FlatSpec with Matchers {
   def kt_stripFPA = Seq(stripFamilyPostAttributives _)
   def kt_stripOPA = Seq(stripOrganPostAttributives _)
 
-  "applyAllTransforms(various strings, hyphenatedProteinKey)" should "return stems" in {
-    (applyAllTransforms("LHS-RHS", kt_hyphenPK)) should equal (Seq("RHS"))
-    (applyAllTransforms("lhs-aai", kt_hyphenPK)) should equal (Seq("lhs"))
-    (applyAllTransforms("AKT1-AAI", kt_hyphenPK)) should equal (Seq("AKT1"))
-    (applyAllTransforms("Akt1-Aai", kt_hyphenPK)) should equal (Seq("Akt1"))
-    (applyAllTransforms("AAI-AKT1", kt_hyphenPK)) should equal (Seq("AKT1"))
+  "applyAllTransforms(hyphenatedProteinKey, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_hyphenPK, "LHS-RHS")) should equal (Seq("RHS"))
+    (applyAllTransforms(kt_hyphenPK, "lhs-aai")) should equal (Seq("lhs"))
+    (applyAllTransforms(kt_hyphenPK, "AKT1-AAI")) should equal (Seq("AKT1"))
+    (applyAllTransforms(kt_hyphenPK, "Akt1-Aai")) should equal (Seq("Akt1"))
+    (applyAllTransforms(kt_hyphenPK, "AAI-AKT1")) should equal (Seq("AKT1"))
   }
 
-  "applyAllTransforms(various strings, stripProteinPostAttributives)" should "return stems" in {
-    (applyAllTransforms("hairy protein", kt_stripPPA)) should equal (Seq("hairy"))
-    (applyAllTransforms("HAIRY protein", kt_stripPPA)) should equal (Seq("hairy"))
-    (applyAllTransforms("odd mutant protein", kt_stripPPA)) should equal (Seq("odd"))
-    (applyAllTransforms("Odd Mutant protein", kt_stripPPA)) should equal (Seq("odd"))
+  "applyAllTransforms(stripProteinPostAttributives, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "HAIRY protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "odd mutant protein")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripPPA, "Odd Mutant protein")) should equal (Seq("odd"))
   }
 
-  "applyAllTransforms(various strings, stripOrganPostAttributives)" should "return stems" in {
-    (applyAllTransforms("red cell", kt_stripOPA)) should equal (Seq("red"))
-    (applyAllTransforms("red cells", kt_stripOPA)) should equal (Seq("red"))
-    (applyAllTransforms("blue tissue", kt_stripOPA)) should equal (Seq("blue"))
-    (applyAllTransforms("blue tissues", kt_stripOPA)) should equal (Seq("blue"))
-    (applyAllTransforms("green fluid", kt_stripOPA)) should equal (Seq("green"))
-    (applyAllTransforms("green fluids", kt_stripOPA)) should equal (Seq("green"))
-    (applyAllTransforms("purple cell tissue", kt_stripOPA)) should equal (Seq("purple"))
-    (applyAllTransforms("purple cell tissues", kt_stripOPA)) should equal (Seq("purple"))
-    (applyAllTransforms("purple cell fluid", kt_stripOPA)) should equal (Seq("purple"))
-    (applyAllTransforms("purple cell fluids", kt_stripOPA)) should equal (Seq("purple"))
-    (applyAllTransforms("purple cell tissue fluid", kt_stripOPA)) should equal (Seq("purple"))
-    (applyAllTransforms("purple cell tissue fluids", kt_stripOPA)) should equal (Seq("purple"))
-    (applyAllTransforms("purple cells tissues fluids", kt_stripOPA)) should equal (Seq("purple"))
+  "applyAllTransforms(stripOrganPostAttributives, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripOPA, "red cell")) should equal (Seq("red"))
+    (applyAllTransforms(kt_stripOPA, "red cells")) should equal (Seq("red"))
+    (applyAllTransforms(kt_stripOPA, "blue tissue")) should equal (Seq("blue"))
+    (applyAllTransforms(kt_stripOPA, "blue tissues")) should equal (Seq("blue"))
+    (applyAllTransforms(kt_stripOPA, "green fluid")) should equal (Seq("green"))
+    (applyAllTransforms(kt_stripOPA, "green fluids")) should equal (Seq("green"))
+    (applyAllTransforms(kt_stripOPA, "purple cell tissue")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cell tissues")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cell fluid")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cell fluids")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cell tissue fluid")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cell tissue fluids")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cells tissues fluids")) should equal (Seq("purple"))
   }
 
-  "applyAllTransforms(various strings, stripMutantProtein)" should "return stems" in {
-    (applyAllTransforms("crazy weird mutant", kt_stripMP)) should equal (Seq("crazy"))
-    (applyAllTransforms("Crazy Weird Mutant", kt_stripMP)) should equal (Seq("Crazy"))
-    (applyAllTransforms("crazy API mutant", kt_stripMP)) should equal (Seq("crazy"))
-    (applyAllTransforms("phosphorylated WILD XK mutant", kt_stripMP)) should equal (Seq("WILD"))
-    (applyAllTransforms("Phosphorylated WILD XK mutant", kt_stripMP)) should equal (Seq("WILD"))
+  "applyAllTransforms(stripMutantProtein, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripMP, "crazy weird mutant")) should equal (Seq("crazy"))
+    (applyAllTransforms(kt_stripMP, "Crazy Weird Mutant")) should equal (Seq("Crazy"))
+    (applyAllTransforms(kt_stripMP, "crazy API mutant")) should equal (Seq("crazy"))
+    (applyAllTransforms(kt_stripMP, "phosphorylated WILD XK mutant")) should equal (Seq("WILD"))
+    (applyAllTransforms(kt_stripMP, "Phosphorylated WILD XK mutant")) should equal (Seq("WILD"))
   }
 
-  "applyAllTransforms(various strings, stripFamilyPostAttributives)" should "return stems" in {
-    (applyAllTransforms("parsnip family", kt_stripFPA)) should equal (Seq("parsnip"))
-    (applyAllTransforms("Parsnip Family", kt_stripFPA)) should equal (Seq("parsnip"))
-    (applyAllTransforms("sad protein family", kt_stripFPA)) should equal (Seq("sad"))
-    (applyAllTransforms("SAD protein family", kt_stripFPA)) should equal (Seq("sad"))
+  "applyAllTransforms(stripFamilyPostAttributives, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripFPA, "parsnip family")) should equal (Seq("parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip Family")) should equal (Seq("parsnip"))
+    (applyAllTransforms(kt_stripFPA, "sad protein family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "SAD protein family")) should equal (Seq("sad"))
   }
 
 
