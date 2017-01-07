@@ -44,8 +44,8 @@ class BioEventMention(
   def this(m: EventMention) =
     this(m.labels, m.trigger, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy)
 
-  def this(m: EventMention, direct: Boolean) =
-    this(m.labels, m.trigger, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy, direct)
+  def this(m: EventMention, isDirect: Boolean) =
+    this(m.labels, m.trigger, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy, isDirect = isDirect)
 }
 
 class BioRelationMention(
