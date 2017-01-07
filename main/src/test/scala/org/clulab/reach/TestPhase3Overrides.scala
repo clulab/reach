@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 12/26/2016.
-  *   Last Modified: Minor fix for species testing label.
+  *   Last Modified: Change commenting for failing tests.
   */
 class TestPhase3Overrides extends FlatSpec with Matchers {
   val GGP = "Gene_or_gene_product"
@@ -26,8 +26,7 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
   val ggpG = """Beclin, BECN1, CD274, Pdcd-1L1, and XBP1 are override GGPs."""
   val ggpG_ids = Seq("Q14457", "Q14457", "Q9NZQ7", "Q9NZQ7", "P17861")
 
-  // TODO: following test will not pass until the NER KB loader
-  // is updated to read the Phase3 Override file
+  // TODO: following tests (which contain Sites) do not pass due to parse conflicts.
   val ggpM = """
     14-3-3 epsilon, 14-3-3-epsilon, ADAR1, AKT1S1, Annexin I,
     Annexin VII, Annexin-I, Annexin-VII, ANXA1, ANXA7,
@@ -89,8 +88,7 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
   )
 
 
-  // TODO: following test will not pass until the NER KB loader
-  // is updated to read the Phase3 Override file
+  // TODO: following tests (which contain Sites) do not pass due to parse conflicts.
   val ggpR1 = """
     14-3-3 beta, 14-3-3 zeta, 14-3-3-beta, 14-3-3-beta_V, 14-3-3-zeta,
     4E-BP1, 4E-BP1 (phospho S65), 4E-BP1_pS65, 4EBP1_pS65_V, 4EBP1_V,
@@ -139,8 +137,7 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
   )
 
 
-  // TODO: following test will not pass until the NER KB loader
-  // is updated to read the Phase3 Override file
+  // TODO: following tests (which contain Sites) do not pass due to parse conflicts.
   val ggpR3 = """
     Rb_pS807_S811, Rb_pS807_V, RELA, RICTOR, Rictor,
     Rictor (phospho T1135), Rictor_pT1135, RIP, Rock-1, ROCK1,
@@ -236,7 +233,7 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
   // Run the actual tests:
   testMentions(ggpRat, ggpRat_ids, GGP, Some(Protein), Some(Rat))
   testMentions(ggpG, ggpG_ids, GGP, Some(Protein), Some(Goat))
-  // TODO: following test will not pass until the NER KB loader is updated
+  // TODO: following tests will not pass because of parse conflicts:
   // testMentions(ggpM, ggpM_ids, GGP, Some(Protein), Some(Mouse))
   // testMentions(ggpR1, ggpR1_ids, GGP, Some(Protein), Some(Rabbit))
   // testMentions(ggpR3, ggpR3_ids, GGP, Some(Protein), Some(Rabbit))
