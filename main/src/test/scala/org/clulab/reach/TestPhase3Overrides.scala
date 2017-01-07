@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 12/26/2016.
-  *   Last Modified: Add tests for first & last 100 Rabbit entries which will not pass until NER KB loader is updated.
+  *   Last Modified: Minor fix for species testing label.
   */
 class TestPhase3Overrides extends FlatSpec with Matchers {
   val GGP = "Gene_or_gene_product"
@@ -220,7 +220,7 @@ class TestPhase3Overrides extends FlatSpec with Matchers {
 
     if (groundedSpecies.isDefined) {
       val species = groundedSpecies.get
-      it should "have grounded all mentions as ${species}" in {
+      it should s"have grounded all mentions as ${species}" in {
         mentions.forall(m => m.grounding.isDefined &&
           Speciated.isMemberOf(m.grounding.get.species, species)) should be (true)
       }
