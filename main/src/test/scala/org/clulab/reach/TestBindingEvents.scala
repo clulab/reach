@@ -27,6 +27,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bindings) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
   }
 
@@ -41,6 +42,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bindings) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
   }
 
@@ -80,6 +82,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
 
     mentions = getBioMentions(sent5b)
@@ -88,6 +91,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
   }
 
