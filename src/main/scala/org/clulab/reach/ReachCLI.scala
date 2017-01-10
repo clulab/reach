@@ -4,6 +4,7 @@ import org.clulab.reach.export.cmu.CMUExporter
 
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
+import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
@@ -16,7 +17,7 @@ import org.clulab.reach.utils.MentionManager
 import org.clulab.reach.export.fries._
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.mentions.CorefMention
-import java.io.File
+import java.io.{ File, FileOutputStream, OutputStreamWriter, PrintWriter }
 import java.util.Date
 
 import org.clulab.reach.export.arizona.ArizonaOutputter
@@ -25,14 +26,14 @@ import org.clulab.reach.export.arizona.ArizonaOutputter
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Add timing and logging.
+  *   Last Modified: Add processing restart capability, debugging of configuration. Cleanups.
   */
 class ReachCLI(
   val papersDir: File,
   val outputDir: File,
   val outputFormat: String,
-  val logFile: File
-//  val verbose: Boolean = false
+  val logFile: File,
+  val skipFiles: Set[String] = Set.empty[String]
 ) extends LazyLogging {
 
   /** Process papers **/
@@ -50,7 +51,9 @@ class ReachCLI(
 
     val errorCount = for {
       file <- files
-      paperID = FilenameUtils.removeExtension(file.getName)
+      filename = file.getName
+      paperID = FilenameUtils.removeExtension(filename)
+      if (!skipFiles.contains(filename))
     } yield {
       val error: Int = try {
         processPaper(file, withAssembly)
@@ -83,11 +86,10 @@ class ReachCLI(
   }
 
   def prepareMentionsForMITRE(mentions: Seq[Mention]): Seq[CorefMention] = {
-    // NOTE: We're already doing this in the exporter, but the mentions given to the Assembler probably
-    // need to match since flattening results in a loss of information
+    // NOTE: We're already doing this in the exporter, but the mentions given to the
+    // Assembler probably need to match since flattening results in a loss of information
     OutputDegrader.prepareForOutput(mentions)
   }
-
 
   def doAssembly(mns: Seq[Mention]): Assembler = Assembler(mns)
 
@@ -97,24 +99,26 @@ class ReachCLI(
     val startTime = ReachCLI.now
 
     logger.info(s"$startTime: Starting $paperId")
-    logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: starting reading")
+    logger.debug(s"  ${ nsToS(startNS, System.nanoTime) }s: $paperId: started reading")
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
 
-    logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished reading")
+    logger.debug(s"  ${ nsToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
     // generate output
     outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
+
+    // record successful processing of input file for possible batch restart
+    ReachCLI.fileSucceeded(file)
 
     // time elapsed (processing + writing output)
     val endTime = ReachCLI.now
     val endNS = System.nanoTime
 
-    logger.debug(s"  ${nsToS(startNS, System.nanoTime)}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
+    logger.debug(s"  ${ nsToS(startNS, System.nanoTime) }s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
     logger.info(s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)")
-
   }
 
   /**
@@ -146,7 +150,6 @@ class ReachCLI(
         val assembler = doAssembly(mentionsForOutput)
         // time elapsed (w/ assembly)
         val procTime = ReachCLI.now
-        //if (verbose) {println (s"  ${nsToS (startNS, System.nanoTime)}s: $paperId: finished initializing Assembler")}
         val outputter = new FriesOutput()
         outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile, assembler)
 
@@ -195,34 +198,54 @@ class ReachCLI(
   private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }
 
+
 object ReachCLI extends App with LazyLogging {
+  private val restartFileLock = new Object  // lock file object for restart file
+
   // use specified config file or the default one if one is not provided
   val config =
     if (args.isEmpty) ConfigFactory.load()
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
+  val logFile = new File(config.getString("logging.logfile"))
+  if (logFile.exists)                     // clean up old logfile, if it exists
+    FileUtils.forceDelete(logFile)
+
   val papersDir = new File(config.getString("papersDir"))
+  logger.debug(s"(ReachCLI.init): papersDir=${papersDir}")
   val outDir = new File(config.getString("outDir"))
+  logger.debug(s"(ReachCLI.init): outDir=${outDir}")
+  val outputType = config.getString("outputType")
+  logger.debug(s"(ReachCLI.init): outputType=${outputType}")
+  val encoding = config.getString("encoding")
+  logger.debug(s"(ReachCLI.init): encoding=${encoding}")
+
   // should assembly be performed?
   val withAssembly = config.getBoolean("withAssembly")
-  val outputType = config.getString("outputType")
-  val logFile = new File(config.getString("logging.logfile"))
+  logger.debug(s"(ReachCLI.init): withAssembly=${withAssembly}")
+
+  // configure the optional restart capability
+  val useRestart = config.getBoolean("restart.useRestart")
+  logger.debug(s"(ReachCLI.init): useRestart=${useRestart}")
+  val restartFile = new File(config.getString("restart.logfile"))
+  logger.debug(s"(ReachCLI.init): restartFile=${restartFile}")
+  val skipFiles = if (useRestart && restartFile.exists)
+    Source.fromFile(restartFile, encoding).getLines().toSet
+  else
+    Set.empty[String]
 
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
+  logger.debug(s"(ReachCLI.init): threadLimit=${threadLimit}")
 
-  // lets start a new log file
-  if (logFile.exists) {
-    FileUtils.forceDelete(logFile)
-  }
-  logger.info(s"$now: ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
+  logger.info(s"ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
 
-  // if papersDir does not exist there is nothing to do
+  // if input papers directory does not exist there is nothing to do
   if (!papersDir.exists) {
     sys.error(s"${papersDir.getCanonicalPath} does not exist")
   }
 
-  // if friesDir does not exist create it
+  // if output directory does not exist create it
   if (!outDir.exists) {
     logger.info(s"Creating output directory: ${outDir.getCanonicalPath}")
     FileUtils.forceMkdir(outDir)
@@ -230,9 +253,25 @@ object ReachCLI extends App with LazyLogging {
     sys.error(s"${outDir.getCanonicalPath} is not a directory")
   }
 
-  val cli = new ReachCLI(papersDir, outDir, outputType, logFile)
-
+  // create a new batch class and process the input papers
+  val cli = new ReachCLI(papersDir, outDir, outputType, logFile, skipFiles)
   cli.processPapers(Some(threadLimit), withAssembly)
 
+
+  /** Return a new timestamp each time called. */
   def now = new Date()
+
+  /** In the restart log file, record the given file as successfully completed. */
+  def fileSucceeded (file: File): Unit = {
+    if (useRestart) {
+      restartFileLock.synchronized {        // sync multiple class instances
+        val pw = new PrintWriter(
+          new OutputStreamWriter(
+            new FileOutputStream(restartFile, true), // true=append
+              encoding), true)              // charsetName, true=autoFlush
+        try pw.println(file.getName) finally pw.close()
+      }
+    }
+  }
+
 }
