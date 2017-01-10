@@ -26,13 +26,12 @@ import org.clulab.reach.export.arizona.ArizonaOutputter
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Add processing restart capability, debugging of configuration. Cleanups.
+  *   Last Modified: Remove obsoleted log file parameter.
   */
 class ReachCLI(
   val papersDir: File,
   val outputDir: File,
   val outputFormat: String,
-  val logFile: File,
   val skipFiles: Set[String] = Set.empty[String]
 ) extends LazyLogging {
 
@@ -141,7 +140,6 @@ class ReachCLI(
         val mentionMgr = new MentionManager()
         val lines = mentionMgr.sortMentionsToStrings(mentions)
         val outFile = new File(outputDir, s"$paperId.txt")
-        logger.info(s"writing ${outFile.getName} ...")
         FileUtils.writeLines(outFile, lines.asJavaCollection)
 
       // Handle FRIES-style output (w/ assembly)
@@ -207,10 +205,6 @@ object ReachCLI extends App with LazyLogging {
     if (args.isEmpty) ConfigFactory.load()
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
-  val logFile = new File(config.getString("logging.logfile"))
-  if (logFile.exists)                     // clean up old logfile, if it exists
-    FileUtils.forceDelete(logFile)
-
   val papersDir = new File(config.getString("papersDir"))
   logger.debug(s"(ReachCLI.init): papersDir=${papersDir}")
   val outDir = new File(config.getString("outDir"))
@@ -254,7 +248,7 @@ object ReachCLI extends App with LazyLogging {
   }
 
   // create a new batch class and process the input papers
-  val cli = new ReachCLI(papersDir, outDir, outputType, logFile, skipFiles)
+  val cli = new ReachCLI(papersDir, outDir, outputType, skipFiles)
   cli.processPapers(Some(threadLimit), withAssembly)
 
 
