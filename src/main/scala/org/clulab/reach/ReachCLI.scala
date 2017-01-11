@@ -1,38 +1,38 @@
 package org.clulab.reach
 
-import org.clulab.reach.export.cmu.CMUExporter
-
 import scala.collection.JavaConverters._
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
-import ai.lum.common.FileUtils._
-import org.clulab.reach.assembly._
-import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
-import org.clulab.odin._
-import org.clulab.reach.export.OutputDegrader
-import org.clulab.reach.utils.MentionManager
-import org.clulab.reach.export.fries._
-import org.clulab.reach.export.indexcards.IndexCardOutput
-import org.clulab.reach.mentions.CorefMention
 import java.io.{ File, FileOutputStream, OutputStreamWriter, PrintWriter }
 import java.util.Date
 
+import ai.lum.common.FileUtils._
+import org.clulab.odin._
+import org.clulab.reach.assembly._
+import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
+import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.export.arizona.ArizonaOutputter
+import org.clulab.reach.export.cmu.CMUExporter
+import org.clulab.reach.export.fries._
+import org.clulab.reach.export.indexcards.IndexCardOutput
+import org.clulab.reach.mentions.CorefMention
+import org.clulab.reach.utils.MentionManager
 
 /**
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Remove obsoleted log file parameter.
+  *   Last Modified: Add more processing statistics to logging via new class.
   */
-class ReachCLI(
+class ReachCLI (
   val papersDir: File,
   val outputDir: File,
   val outputFormat: String,
-  val skipFiles: Set[String] = Set.empty[String]
+  val skipFiles: Set[String] = Set.empty[String],
+  val statsKeeper: ProcessingStats = new ProcessingStats
 ) extends LazyLogging {
 
   /** Process papers **/
@@ -98,26 +98,30 @@ class ReachCLI(
     val startTime = ReachCLI.now
 
     logger.info(s"$startTime: Starting $paperId")
-    logger.debug(s"  ${ nsToS(startNS, System.nanoTime) }s: $paperId: started reading")
+    logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: started reading")
 
     // entry must be kept around for outputter
     val entry = PaperReader.getEntryFromPaper(file)
     val mentions = PaperReader.getMentionsFromEntry(entry)
 
-    logger.debug(s"  ${ nsToS(startNS, System.nanoTime) }s: $paperId: finished reading")
+    logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
     // generate output
     outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
 
-    // record successful processing of input file for possible batch restart
-    ReachCLI.fileSucceeded(file)
-
-    // time elapsed (processing + writing output)
+    // elapsed time: processing + writing output
     val endTime = ReachCLI.now
     val endNS = System.nanoTime
+    val duration = durationToS(startNS, endNS)
+    val elapsed = durationToS(statsKeeper.startNS, endNS)
+    val avg = statsKeeper.update(duration)
 
-    logger.debug(s"  ${ nsToS(startNS, System.nanoTime) }s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
-    logger.info(s"$endTime: Finished $paperId successfully (${nsToS(startNS, endNS)} seconds)")
+    logger.debug(s"  ${duration}s: $paperId: finished writing JSON to ${outputDir.getCanonicalPath}")
+    logger.info(s"$endTime: Finished $paperId successfully (${duration} seconds)")
+    logger.info(s"$endTime: PapersDone: ${avg(0)}, ElapsedTime: ${elapsed}, Average: ${avg(1)}")
+
+    // record successful processing of input file for possible batch restart
+    ReachCLI.fileSucceeded(file)
   }
 
   /**
@@ -193,12 +197,13 @@ class ReachCLI(
     }
   }
 
-  private def nsToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
+  /** Return the duration, in seconds, between the given nanosecond time values. */
+  private def durationToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }
 
 
 object ReachCLI extends App with LazyLogging {
-  private val restartFileLock = new Object  // lock file object for restart file
+  private val restartFileLock = new AnyRef  // lock file object for restart file
 
   // use specified config file or the default one if one is not provided
   val config =

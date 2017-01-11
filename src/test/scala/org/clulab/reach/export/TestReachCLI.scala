@@ -1,16 +1,17 @@
 package org.clulab.reach.export
 
 import java.io.File
-import org.clulab.reach.ReachCLI
 import org.clulab.reach.TestUtils._
 import org.clulab.utils.Files
 import org.scalatest.{FlatSpec, Matchers}
+
+import org.clulab.reach.ReachCLI
 
 /**
   * Tests the functionality of ReachCLI on the NXML papers in src/test/resources/inputs/nxml
   * Author: mihais and hickst
   * Date: 12/4/15
-  * Last Modified: Update for past breaking logging changes: obsoleting of log file.
+  * Last Modified: Move import to highlight oddity that test is in a different package tested class.
   */
 class TestReachCLI extends FlatSpec with Matchers {
   val nxmlDir = readResourceAsFile("inputs/test-nxml")
