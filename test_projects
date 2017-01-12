@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 sbt test
-sbt main/test
 sbt causalAssembly/test
 sbt export/test
+sbt main/test
