@@ -143,6 +143,7 @@ class NxmlSearcher(val indexDir:String) {
     result.size
   }
 
+  /** Use case for Natasa, before the Jan 2016 PI meeting */
   def useCase(resultDir:String): Unit = {
     val eventDocs = search("phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds")
     val result = intersection(eventDocs, search("""Ras AND (ROS OR "antioxidant response element" OR Warburg OR MAPK OR "Raf/Mek/Erk" OR Akt OR NfkB OR TGFb OR TGFbeta OR TGFb1 OR TGFbeta1 OR integrins OR ADAM OR EGF OR EGFR OR RTK OR apoptosis OR autophagy OR proliferation OR "transcription factors" OR ATM OR p53 OR RB OR "tumor suppressors" OR glycolysis OR "pentose phosphate pathway" OR OXPHOS OR mitochondria OR "cell cycle" OR "energy balance" OR exosomes OR RAGE OR HMGB1)"""))
@@ -220,7 +221,8 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
-  def useCase3(resultDir:String): Unit = {
+  /** Use case for childrens health */
+  def useCaseCH(resultDir:String): Unit = {
     vanillaUseCase(
       "children AND ((TNFAlpha AND nutrition) OR (inflammation AND stunting) OR (kcal AND inflammation) OR (protein AND inflammation) OR (nutrition AND inflammation))",
       resultDir)
@@ -232,6 +234,9 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  //
+  // 4 queries for an older use case for Natasa
+  //
   // Natasa's use case, first query
   def useCase4a(resultDir:String): Unit = {
     vanillaUseCase("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein")""", resultDir)
@@ -249,10 +254,25 @@ class NxmlSearcher(val indexDir:String) {
     vanillaUseCase("""(TGFbeta1 OR "Transforming Growth Factor beta 1") AND (BMP OR "Bone Morphogenetic Protein") AND pancreas""", resultDir)
   }
 
+  /** Dengue use case */
   def useCaseDengue(resultDir:String): Unit = {
     vanillaUseCase(
       """(Dengue OR den OR denv OR Dengue-1 Dengue-2 OR Dengue-3 OR Dengue-4 OR Dengue1 Dengue2 OR Dengue3 OR Dengue4 OR Den-1 OR Den-2 OR Den-3 OR Den-4 OR Den1 OR Den2 OR Den3 OR Den4 OR Denv1 OR Denv2 OR Denv3 OR Denv4 Denv-1 OR Denv-2 OR Denv-3 OR Denv-4) AND (serotype OR serotypes OR viremia OR "capillary leakage" OR "hemorrhagic fever" OR "self-limited dengue fever" OR fever OR "dengue shock syndrome" OR "inapparent dengue infection" OR "serial infection" OR "homologous response" OR "heterologous response" OR "immune evasion" OR "arthropod borne" OR mosquito OR mosquitoes OR "mosquito-borne" OR prm OR ns1 OR ns2a OR ns2b OR ns3 OR ns4a OR ns4 OR ns5)""",
       resultDir)
+  }
+
+  //
+  // Phase III evaluation use cases
+  //
+  /** Phase III use case (a) */
+  def useCasePhase3a(resultDir:String): Unit = {
+    // vanillaUseCase(s"""$GAB2 AND ($AKT OR $BETA_CATENIN OR $PAI1 OR $GRB2)""", resultDir)
+    vanillaUseCase(s"""$GAB2 AND ($AKT OR $BETA_CATENIN OR $PAI1 OR $GRB2) AND $PANCREAS""", resultDir)
+  }
+  /** Phase III use case (b) */
+  def useCasePhase3b(resultDir:String): Unit = {
+    //vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG)""", resultDir)
+    vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG) AND $PANCREAS""", resultDir)
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -280,6 +300,17 @@ object NxmlSearcher {
   val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
   val TOTAL_HITS = 500000
 
+  // necessary for Phase III queries
+  val ERK = """(ERK OR ERK1 OR MK03 OR MAPK3 OR ERK2 OR MK01 OR MAPK1 OR ERK1\/2 OR "mitogen\-activated protein kinase 3" OR "mitogen\-activated protein kinase 1")"""
+  val MEK = """(MEK OR MEK1 OR MP2K1 OR MAP2K1 OR MEK2 OR MP2K2 OR MAP2K1 OR MEK1\/2 OR "dual specificity mitogen\-activated protein kinase kinase 1" OR "dual specificity mitogen\-activated protein kinase kinase 2")"""
+  val AKT = """(AKT OR AKT1 OR AKT2 OR P31751 OR AKT1\/2 OR "rac\-alpha serine\/threonine\-protein kinase" OR "rac-beta serine\/threonine\-protein kinase")"""
+  val GAB2 = """(GAB2 OR "grb2\-associated\-binding protein 2")"""
+  val BETA_CATENIN = """(beta\-catenin OR "catenin beta\-1" OR ctnnb1)"""
+  val PAI1 = """(PAI1 OR PAI\-1 OR "PAI 1" OR "plasminogen activator inhibitor 1")"""
+  val PANCREAS = """(pancreas OR pancreatic)"""
+  val GRB2 = """(GRB2 OR "growth factor receptor\-bound protein 2")"""
+  val PHASE3_DRUG = """AZD6244"""
+
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
     val indexDir = props.getProperty("index")
@@ -290,8 +321,8 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      // searcher.useCaseDengue(resultDir)
-      searcher.useCase(resultDir)
+      // searcher.useCase(resultDir)
+      searcher.useCasePhase3b(resultDir)
     }
 
     searcher.close()
