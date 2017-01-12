@@ -272,7 +272,9 @@ class NxmlSearcher(val indexDir:String) {
   /** Phase III use case (b) */
   def useCasePhase3b(resultDir:String): Unit = {
     //vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG)""", resultDir)
-    vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG) AND $PANCREAS""", resultDir)
+    //vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG) AND $PANCREAS""", resultDir)
+    //vanillaUseCase(s"""$MEK AND $PHASE3_DRUG AND $PANCREAS""", resultDir) // v1
+    vanillaUseCase(s"""$MEK AND ($PHASE3_DRUG OR $AKT) AND $PANCREAS""", resultDir) // v3
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -301,9 +303,10 @@ object NxmlSearcher {
   val TOTAL_HITS = 500000
 
   // necessary for Phase III queries
-  val ERK = """(ERK OR ERK1 OR MK03 OR MAPK3 OR ERK2 OR MK01 OR MAPK1 OR ERK1\/2 OR "mitogen\-activated protein kinase 3" OR "mitogen\-activated protein kinase 1")"""
-  val MEK = """(MEK OR MEK1 OR MP2K1 OR MAP2K1 OR MEK2 OR MP2K2 OR MAP2K1 OR MEK1\/2 OR "dual specificity mitogen\-activated protein kinase kinase 1" OR "dual specificity mitogen\-activated protein kinase kinase 2")"""
-  val AKT = """(AKT OR AKT1 OR AKT2 OR P31751 OR AKT1\/2 OR "rac\-alpha serine\/threonine\-protein kinase" OR "rac-beta serine\/threonine\-protein kinase")"""
+  // FIXME: removed "ERK1\/2" from ERK, "AKT1\/2" from AKT, "MEK1\/2" from MEK. Too many false positives. Why?
+  val ERK = """(ERK OR ERK1 OR MK03 OR MAPK3 OR ERK2 OR MK01 OR MAPK1 OR "mitogen\-activated protein kinase 3" OR "mitogen\-activated protein kinase 1")"""
+  val MEK = """(MEK OR MEK1 OR MP2K1 OR MAP2K1 OR MEK2 OR MP2K2 OR MAP2K1 OR "dual specificity mitogen\-activated protein kinase kinase 1" OR "dual specificity mitogen\-activated protein kinase kinase 2")"""
+  val AKT = """(AKT OR AKT1 OR AKT2 OR "rac\-alpha serine\/threonine\-protein kinase" OR "rac-beta serine\/threonine\-protein kinase")"""
   val GAB2 = """(GAB2 OR "grb2\-associated\-binding protein 2")"""
   val BETA_CATENIN = """(beta\-catenin OR "catenin beta\-1" OR ctnnb1)"""
   val PAI1 = """(PAI1 OR PAI\-1 OR "PAI 1" OR "plasminogen activator inhibitor 1")"""
