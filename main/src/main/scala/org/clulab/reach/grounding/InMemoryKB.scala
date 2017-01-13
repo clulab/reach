@@ -11,7 +11,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for apply all transforms argument reversal.
+  *   Last Modified: Update for refactor of KB resolution.
   */
 class InMemoryKB (
 
@@ -36,7 +36,7 @@ class InMemoryKB (
     text: String,
     namespace: String,
     refId: String,
-    species: String = KBEntry.NoSpeciesValue
+    species: String = NoSpeciesValue
   ): Int = {
     var addCount: Int = 0
     additionKeys(text).foreach { key =>
@@ -155,9 +155,11 @@ class InMemoryKB (
     return None                             // tried all keys: no success
   }
 
-  /** Wrap the given KB entry in a new KB resolution formed from this KB and the given KB entry. */
-  private def newResolution (entry: KBEntry): KBResolution =
-    new KBResolution(entry, metaInfo.asInstanceOf[KBMetaInfo])
+  /** Return a new KB resolution formed from given KB entry and this KB's meta information. */
+  private def newResolution (entry: KBEntry): KBResolution = new KBResolution(
+    entry.text, entry.key, entry.namespace, entry.id, entry.species,
+    metaInfo.asInstanceOf[KBMetaInfo]
+  )
 
   /** Wrap the given sequence of KB entries as a sorted sequence of resolutions with
       meta information from this KB. */
