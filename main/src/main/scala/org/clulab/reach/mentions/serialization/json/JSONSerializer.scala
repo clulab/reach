@@ -353,7 +353,6 @@ object JSONSerializer extends LazyLogging {
       // build KB resolution object
       val kbr = new KBResolution(
         text = (grounding \ "text").extract[String],
-        key = (grounding \ "key").extract[String],
         namespace = (grounding \ "namespace").extract[String],
         id = (grounding \ "id").extract[String],
         species = (grounding \ "species").extract[String]
