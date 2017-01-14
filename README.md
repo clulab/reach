@@ -130,7 +130,7 @@ The sieve-based assembly system can be run over a directory of `.nxml` and/or `.
 
 In `src/main/resources/application.conf`, you will need to...
 
-1. set `outputType` to "assembly-tsv"
+1. set `outputTypes` to `["assembly-tsv"]`
 2. set your input directory of papers via `papersDir`
 3. set your output directory via `outDir`
 

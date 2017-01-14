@@ -8,8 +8,8 @@ import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import java.io.{ File, FileOutputStream, OutputStreamWriter, PrintWriter }
 import java.util.Date
-
 import ai.lum.common.FileUtils._
+import ai.lum.common.ConfigUtils._
 import org.clulab.odin._
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
@@ -30,10 +30,19 @@ import org.clulab.reach.utils.MentionManager
 class ReachCLI (
   val papersDir: File,
   val outputDir: File,
-  val outputFormat: String,
+  val outputFormats: Seq[String],
   val skipFiles: Set[String] = Set.empty[String],
   val statsKeeper: ProcessingStats = new ProcessingStats
 ) extends LazyLogging {
+
+  /** legacy constructor for a single output format */
+  def this(
+    papersDir: File,
+    outputDir: File,
+    outputFormat: String,
+    skipFiles: Set[String] = Set.empty[String],
+    statsKeeper: ProcessingStats = new ProcessingStats
+  ) { this(papersDir, outputDir, Seq(outputFormat), skipFiles, statsKeeper) }
 
   /** Process papers **/
   def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
@@ -106,8 +115,10 @@ class ReachCLI (
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
-    // generate output
-    outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
+    // generate outputs
+    // NOTE: Assembly can't be run before calling this method without additional refactoring,
+    // as different output formats apply different filters before running assembly
+    outputFormats.foreach(outputFormat => outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly))
 
     // elapsed time: processing + writing output
     val endTime = ReachCLI.now
@@ -210,23 +221,24 @@ object ReachCLI extends App with LazyLogging {
     if (args.isEmpty) ConfigFactory.load()
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
-  val papersDir = new File(config.getString("papersDir"))
+  val papersDir: File = config[File]("papersDir")
   logger.debug(s"(ReachCLI.init): papersDir=${papersDir}")
-  val outDir = new File(config.getString("outDir"))
+  val outDir: File = config[File]("outDir")
   logger.debug(s"(ReachCLI.init): outDir=${outDir}")
-  val outputType = config.getString("outputType")
-  logger.debug(s"(ReachCLI.init): outputType=${outputType}")
-  val encoding = config.getString("encoding")
+  // seq of output types
+  val outputTypes: List[String] = config[List[String]]("outputTypes")
+  logger.debug(s"(ReachCLI.init): outputTypes=${outputTypes.mkString(", ")}")
+  val encoding: String = config[String]("encoding")
   logger.debug(s"(ReachCLI.init): encoding=${encoding}")
 
   // should assembly be performed?
-  val withAssembly = config.getBoolean("withAssembly")
+  val withAssembly: Boolean = config[Boolean]("withAssembly")
   logger.debug(s"(ReachCLI.init): withAssembly=${withAssembly}")
 
   // configure the optional restart capability
-  val useRestart = config.getBoolean("restart.useRestart")
+  val useRestart: Boolean = config[Boolean]("restart.useRestart")
   logger.debug(s"(ReachCLI.init): useRestart=${useRestart}")
-  val restartFile = new File(config.getString("restart.logfile"))
+  val restartFile: File = config[File]("restart.logfile")
   logger.debug(s"(ReachCLI.init): restartFile=${restartFile}")
   val skipFiles = if (useRestart && restartFile.exists)
     Source.fromFile(restartFile, encoding).getLines().toSet
@@ -234,7 +246,7 @@ object ReachCLI extends App with LazyLogging {
     Set.empty[String]
 
   // the number of threads to use for parallelization
-  val threadLimit = config.getInt("threadLimit")
+  val threadLimit: Int = config[Int]("threadLimit")
   logger.debug(s"(ReachCLI.init): threadLimit=${threadLimit}")
 
   logger.info(s"ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
@@ -253,7 +265,7 @@ object ReachCLI extends App with LazyLogging {
   }
 
   // create a new batch class and process the input papers
-  val cli = new ReachCLI(papersDir, outDir, outputType, skipFiles)
+  val cli = new ReachCLI(papersDir, outDir, outputTypes, skipFiles)
   cli.processPapers(Some(threadLimit), withAssembly)
 
 
