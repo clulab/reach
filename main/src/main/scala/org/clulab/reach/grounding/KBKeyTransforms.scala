@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Reverse args to apply all transforms.
+  *   Last Modified: Add utility lowercase key transforms.
   */
 trait KBKeyTransforms {
 
@@ -45,6 +45,12 @@ trait KBKeyTransforms {
 
   /** A key transform which implements a minimal transform function for Mentions. */
   def identityMKT (mention:BioTextBoundMention): KeyCandidates = Seq(mention.text)
+
+  /** A key transform which implements a minimal canonicalization function for Strings. */
+  def lowercaseKT (text:String): KeyCandidates = Seq(text.toLowerCase)
+
+  /** A key transform which implements a minimal canonicalization function for Mentions. */
+  def lowercaseMKT (mention:BioTextBoundMention): KeyCandidates = Seq(mention.text.toLowerCase)
 
 
   /** Try to remove all of the suffixes in the given set from the given text. */
