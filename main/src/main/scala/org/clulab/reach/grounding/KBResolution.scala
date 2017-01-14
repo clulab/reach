@@ -9,15 +9,12 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor to eliminate embedded KB entry.
+  *   Last Modified: Remove key field. Compare text canonicalized to lower case.
   */
 class KBResolution (
 
   /** Text for this entry, loaded from the external KB. */
   val text: String,
-
-  /** Computed key string, which indexes this entry. */
-  val key: String,
 
   /** The external namespace for this entry (e.g., go, uniprot). */
   val namespace: String = DefaultNamespace,
@@ -42,6 +39,7 @@ class KBResolution (
       that.canEqual(this) &&
       this.namespace == that.namespace &&
       this.id == that.id &&
+      this.text.toLowerCase == that.text.toLowerCase &&
       this.species == that.species
     )
     case _ => false
@@ -50,10 +48,11 @@ class KBResolution (
   /** Redefine hashCode. */
   override def hashCode: Int = {
     val h0 = stringHash("org.clulab.reach.grounding.KBResolution")
-    val h1 = mix(h0, namespace.hashCode)
-    val h2 = mix(h1, id.hashCode)
-    val h3 = mixLast(h2, species.hashCode)
-    finalizeHash(h3, 4)
+    val h1 = mix(h0, text.toLowerCase.hashCode)
+    val h2 = mix(h1, namespace.hashCode)
+    val h3 = mix(h2, id.hashCode)
+    val h4 = mixLast(h3, species.hashCode)
+    finalizeHash(h4, 4)
   }
 
   /** Tell whether this entry has an associated species or not. */
