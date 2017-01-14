@@ -6,15 +6,14 @@ import org.clulab.reach.grounding.ReachContextKBLister._
 
 
 /**
- * Unit tests of the Context KBs lister object.
- *   Last Modified: Update for use of Uberon organ KB.
- */
+  * Unit tests of the Context KBs lister object.
+  *   Last Modified: Update for removal of key field from KB resolution.
+  */
 class TestReachContextKBLister extends FlatSpec with Matchers {
 
   val ctxList = ReachContextKBLister.listContextKBs
 
   def hasId (cg:ContextGrounding, id:String): Boolean = cg.id.contains(id)
-  def hasKey (cg:ContextGrounding, key:String): Boolean = cg.key.contains(key)
   def hasText (cg:ContextGrounding, text:String): Boolean = cg.text.contains(text)
 
   "Context KBs list" should "have at least 1000 entries" in {
@@ -56,7 +55,6 @@ class TestReachContextKBLister extends FlatSpec with Matchers {
     species should not be empty
     (species.count(cg => hasText(cg, "biovar"))) should be (4)
     (species.count(cg => hasText(cg, "occidentalis"))) should be (6)
-    (species.count(cg => hasKey(cg, "baumannii"))) should be (2)
     // species.filter(cg => hasText(cg, "Zymomonas")).foreach(System.err.println(_))
   }
 
