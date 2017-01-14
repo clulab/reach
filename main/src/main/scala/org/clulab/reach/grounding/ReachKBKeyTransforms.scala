@@ -150,7 +150,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
   /** List of default mention transforms to apply in the absence of specific transform arguments. */
   // val DefaultMentionKeyTransforms = Seq( identityMKT _, canonicalMKT _ )
-  val DefaultMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT, canonicalMKT _ )
+  val DefaultMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT _, canonicalMKT _ )
 
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
