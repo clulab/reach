@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for rename of lookup function.
+  *   Last Modified: Update for rename of lookup function. Add debugging KB dump.
   */
 class TestTsvKBs extends FlatSpec with Matchers {
 
@@ -120,6 +120,7 @@ class CellLocKBL extends IMKBLookup {
     resourceId = "MIR:00000000"
   )
   memoryKB = (new TsvIMKBFactory).make(meta)
+  // memoryKB.dump                             // DEBUGGING
 }
 
 class ProtFamKBL extends IMKBLookup {
@@ -132,4 +133,5 @@ class ProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   memoryKB = (new TsvIMKBFactory).make(meta)
+  // memoryKB.dump                             // DEBUGGING
 }
