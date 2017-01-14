@@ -42,7 +42,7 @@ class TestReachCLI extends FlatSpec with Matchers {
   // Tests usage of a single output type
   it should "output FRIES correctly on NXML papers with Assembly" in {
     println(s"Will output FRIES with Assembly output in directory ${friesWithAssemblyDir.getAbsolutePath}")
-    val cli = new ReachCLI(papersDir = nxmlDir, outputDir = friesWithAssemblyDir, outputFormat = "fries")
+    val cli = ReachCLI(papersDir = nxmlDir, outputDir = friesWithAssemblyDir, outputFormat = "fries")
     val errorCount = cli.processPapers(threadLimit = nThreads, withAssembly = true)
     errorCount should be (0)
   }
