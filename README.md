@@ -86,13 +86,13 @@ The most common usage of Reach is to parse a directory containing one or more pa
 In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing the files to be processed should be specified using the `papersDir` variable.
 
 ```scala
-sbt "runMain org.clulab.reach.ReachCLI /path/to/yourapplication.conf"
+sbt "runMain org.clulab.reach.RunReachCLI /path/to/yourapplication.conf"
 ```
 
 If the configuration file is omitted, Reach uses the default `.conf`. That is, the command:
 
 ```scala
-sbt "runMain org.clulab.reach.ReachCLI"
+sbt "runMain org.clulab.reach.RunReachCLI"
 ```
 
 will run the system using the `.conf` file under `src/main/resources/application.conf`.
@@ -125,12 +125,12 @@ Marco A. Valenzuela-Esc\'{a}rcega and Mihai Surdeanu},
 
 The sieve-based assembly system can be run over a directory of `.nxml` and/or `.csv` files:
  ```scala
- sbt "runMain org.clulab.reach.ReachCLI"
+ sbt "runMain org.clulab.reach.RunReachCLI"
  ```
 
 In `src/main/resources/application.conf`, you will need to...
 
-1. set `outputType` to "assembly-tsv"
+1. set `outputTypes` to `["assembly-tsv"]`
 2. set your input directory of papers via `papersDir`
 3. set your output directory via `outDir`
 
