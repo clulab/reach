@@ -2,16 +2,17 @@ package org.clulab.reach.grounding
 
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
-// import org.clulab.reach.grounding.KBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
 import org.clulab.reach.grounding.Speciated._
 
+import org.clulab.reach.grounding.InMemoryKB._
+
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Begin to totally redo internal data structures.
+  *   Last Modified: Continue rewrite: redo lookups.
   */
 class InMemoryKB (
 
@@ -23,11 +24,11 @@ class InMemoryKB (
 
 )  {
 
-  /** MultiMap of NS/ID (namespace/id) to KB Entries. */
-  val nsidMap = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
-
   /** MultiMap of varying text keys to NS/ID. */
   val keysMap = new HashMap[String, Set[String]] with MultiMap[String, String]
+
+  /** MultiMap of NS/ID (namespace/id) to KB Entries. */
+  val nsidMap = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
 
 
   /** Return a sequence of ALL the KB entries in this KB. */
@@ -86,120 +87,75 @@ class InMemoryKB (
     KBKeyTransforms.applyAllTransforms(keyTransforms.queryKTs, text)
 
 
+  /** Return resolutions for the set of KB entries for the given NS/ID string. */
+  def lookupNsId (nsId:String): Resolutions = newResolutions(nsidMap.getOrElse(nsId, NoEntries))
+
+  /** Return resolutions for the set of KB entries for the given namespace and ID strings. */
+  def lookupNsId (namespace:String, id:String): Resolutions =
+    lookupNsId(makeNamespaceId(namespace, id))
+
+  /** Try lookups for all given NS/IDs until one succeeds or all fail. */
+  def lookupNsIds (nsIds: NsIdSet): Resolutions = newResolutions(lookupEntries(nsIds))
+
+
   /** Return resolutions for the set of all KB entries for the given text string. */
-  def lookup (text:String): Resolutions = lookupKeys(queryKeys(text))
-
-  /** Return resolutions for the set of all KB entries indexed by the given key string. */
-  def lookupKey (key:String): Resolutions =
-    newResolutions(nsidMap.get(key).map(eset => eset.toSeq)) // TODO LATER
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupKeys (allKeys:KeyCandidates): Resolutions =
-    applyLookupFn(lookupKey, allKeys)
-
+  def lookup (text:String): Resolutions = lookupNsIds(lookupKeys(queryKeys(text)))
 
   /** Find the set of KB entries, for the given text string, which match the given
       single species. Returns resolutions for matching entries or None. */
   def lookupByASpecies (text:String, species:String): Resolutions =
-    lookupKeysByASpecies(queryKeys(text), species)
-
-  /** Find the set of KB entries, for the given key, which match the given single species.
-      Returns resolutions for matching entries or None. */
-  def lookupKeyByASpecies (key:String, species:String): Resolutions =
-    newResolutions(nsidMap.get(key)         // TODO LATER
-                   .map(eset => eset.toSeq.filter(kbe => kbe.species == species))
-                   .filter(_.nonEmpty))
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupKeysByASpecies (allKeys:KeyCandidates, species:String): Resolutions = {
-    allKeys.foreach { key =>
-      val entries = lookupKeyByASpecies(key, species)
-      if (entries.isDefined) return entries
-    }
-    return None                             // tried all keys: no success
-  }
-
+    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
+                   .filter(kbe => kbe.species == species))
 
   /** Finds the set of KB entries, for the given text string, which contains a species
       in the given set of species. Returns resolutions for matching entries or None. */
  def lookupBySpecies (text:String, speciesSet:SpeciesNameSet): Resolutions =
-   lookupKeysBySpecies(queryKeys(text), speciesSet)
-
-  /** Finds the set of KB entries, for the given key, which contains a species in the
-      given set of species. Returns resolutions for matching entries or None. */
-  def lookupKeyBySpecies (key:String, speciesSet:SpeciesNameSet): Resolutions =
-    newResolutions(nsidMap.get(key)         // TODO LATER
-                   .map(eset => eset.toSeq.filter(kbe => isMemberOf(kbe.species, speciesSet)))
-                   .filter(_.nonEmpty))
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupKeysBySpecies (allKeys:KeyCandidates,
-                           speciesSet:SpeciesNameSet): Resolutions =
-  {
-    allKeys.foreach { key =>
-      val entries = lookupKeyBySpecies(key, speciesSet)
-      if (entries.isDefined) return entries
-    }
-    return None                             // tried all keys: no success
-  }
-
+    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
+                   .filter(kbe => isMemberOf(kbe.species, speciesSet)))
 
   /** Finds the set of KB entries, for the given text string, which have humans as the species.
       Returns resolutions for matching entries or None. */
-  def lookupHuman (text:String): Resolutions = lookupKeysHuman(queryKeys(text))
-
-  /** Finds the set of KB entries, for the given key, which have humans as the species.
-      Returns resolutions for matching entries or None. */
-  def lookupKeyHuman (key:String): Resolutions =
-    newResolutions(nsidMap.get(key)         // TODO LATER
-                   .map(eset => eset.toSeq.filter(kbe => isHumanSpecies(kbe.species)))
-                   .filter(_.nonEmpty))
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupKeysHuman (allKeys:KeyCandidates): Resolutions =
-    applyLookupFn(lookupKeyHuman, allKeys)
+  def lookupHuman (text:String): Resolutions =
+    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
+                   .filter(kbe => isHumanSpecies(kbe.species)))
 
 
   /** Find the set of KB entries, for the given text string, which do not contain a species.
       Returns resolutions for matching entries or None. */
-  def lookupNoSpecies (text:String): Resolutions = lookupKeysNoSpecies(queryKeys(text))
-
-  /** Find the set of KB entries, for the given key, which do not contain a species.
-      Returns resolutions for matching entries or None. */
-  def lookupKeyNoSpecies (key:String): Resolutions =
-    newResolutions(nsidMap.get(key)         // TODO LATER
-                   .map(eset => eset.toSeq.filter(kbe => kbe.hasNoSpecies))
-                   .filter(_.nonEmpty))
-
-  /** Try lookups for all given keys until one succeeds or all fail. */
-  def lookupKeysNoSpecies (allKeys:KeyCandidates): Resolutions =
-    applyLookupFn(lookupKeyNoSpecies, allKeys)
-
+  def lookupNoSpecies (text:String): Resolutions =
+    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
+                   .filter(kbe => kbe.hasNoSpecies))
 
 
   /** Try lookup function on all given keys until one succeeds or all fail. */
-  private def applyLookupFn (fn:(String) => Resolutions, allKeys:KeyCandidates): Resolutions = {
-    allKeys.foreach { key =>
-      val entries = fn.apply(key)
-      if (entries.isDefined) return entries
+  private def tryKeyLookups (fn:(String) => NsIdSet, keys: KeyCandidates): NsIdSet = {
+    keys.foreach { key =>
+      val nsIdSet = fn.apply(key)
+      if (!nsIdSet.isEmpty) return nsIdSet
     }
-    return None                             // tried all keys: no success
+    return EmptyNsIdSet                          // tried all keys: no success
   }
+
+  /** Return NS/IDs for the set of all KB entries indexed by the given key string. */
+  private def lookupKey (key:String): NsIdSet = keysMap.getOrElse(key, EmptyNsIdSet)
+
+  /** Lookup the given keys in order, returning the set of NS/IDs for the first key found. */
+  private def lookupKeys (keys:KeyCandidates): NsIdSet = tryKeyLookups(lookupKey, keys)
+
+  /** Return a combined Set of KB entries for all the given NS/IDs. */
+  private def lookupEntries (nsIds: NsIdSet): Set[KBEntry] =
+    nsIds.flatMap(nsidMap.get(_)).flatten
 
   /** Return a new KB resolution formed from given KB entry and this KB's meta information. */
   private def newResolution (entry: KBEntry): KBResolution = new KBResolution(
-    entry.text, entry.namespace, entry.id, entry.species,
-    metaInfo.asInstanceOf[KBMetaInfo]
+    entry.text, entry.namespace, entry.id, entry.species, metaInfo.asInstanceOf[KBMetaInfo]
   )
 
   /** Wrap the given sequence of KB entries as a sorted sequence of resolutions with
       meta information from this KB. */
-  private def newResolutions (entries: Option[Seq[KBEntry]]): Resolutions = {
-    val resSeq = entries.map(_.map(kbe => newResolution(kbe)))
-    resSeq.map { resolutions =>
-      // enforce the desired sorting of entries:
-      selectHuman(resolutions) ++ selectNoSpecies(resolutions) ++ selectNotHuman(resolutions)
-    }
+  private def newResolutions (entries: Set[KBEntry]): Resolutions = {
+    if (entries.isEmpty) None
+    else Some(orderResolutions(entries.map(kbe => newResolution(kbe)).toSeq))
   }
 
   /** Store the given KB entry under the given NS/ID, if the entry is not already present. */
@@ -207,5 +163,19 @@ class InMemoryKB (
 
   /** Store the given NS/ID under the given text key, if the NS/ID not already present. */
   private def storeKey (key: String, nsId: String) = keysMap.addBinding(key, nsId)
+}
 
+
+object InMemoryKB {
+  /** Type of the values in the NS/ID Map. */
+  type KBEntries = Set[KBEntry]
+
+  /** Constant denoting an empty set of KB entries. */
+  val NoEntries = Set.empty[KBEntry]
+
+  /** Type of the values in the Keys Map. */
+  type NsIdSet = Set[String]
+
+  /** Constant denoting an empty set of NS/IDs. */
+  val EmptyNsIdSet = Set.empty[String]
 }
