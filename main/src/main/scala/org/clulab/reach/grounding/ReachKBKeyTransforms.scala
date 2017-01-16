@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Expand default transforms.
+  *   Last Modified: Reduce default transforms to match previous, for now.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -141,16 +141,16 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
 
 
   /** List of default transforms to apply during the KB's entry creation phase. */
-  // val DefaultAddKeyTransforms = Seq( identityKT _, canonicalKT _ )
-  val DefaultAddKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+  // val DefaultAddKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+  val DefaultAddKeyTransforms = Seq( canonicalKT _ )
 
   /** List of default transforms to apply in the absence of specific transform arguments. */
-  // val DefaultQueryKeyTransforms = Seq( identityKT _, canonicalKT _ )
-  val DefaultQueryKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+  // val DefaultQueryKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+  val DefaultQueryKeyTransforms = Seq( canonicalKT _ )
 
   /** List of default mention transforms to apply in the absence of specific transform arguments. */
-  // val DefaultMentionKeyTransforms = Seq( identityMKT _, canonicalMKT _ )
-  val DefaultMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT _, canonicalMKT _ )
+  // val DefaultMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT _, canonicalMKT _ )
+  val DefaultMentionKeyTransforms = Seq( canonicalMKT _ )
 
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
