@@ -10,7 +10,7 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Update for refactor of KB resolution.
+  *   Last Modified: Update for IMKB rewrite.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
@@ -40,9 +40,9 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   "First mention" should "have more candidates" in {
     mentions should have size (4)
     (mentions(0).hasMoreCandidates) should be (false)
-    (mentions(1).hasMoreCandidates) should be (false)
-    (mentions(2).hasMoreCandidates) should be (false)
-    (mentions(3).hasMoreCandidates) should be (false)
+    (mentions(1).hasMoreCandidates) should be (true)
+    (mentions(2).hasMoreCandidates) should be (true)
+    (mentions(3).hasMoreCandidates) should be (true)
   }
 
   "All mentions" should "have non-empty nsId string" in {
@@ -61,7 +61,7 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   }
 
   "After copy, no mentions" should "have more candidates" in {
-    (mentions.forall(! _.hasMoreCandidates)) should be (true)
+    (mentions.forall(_.hasMoreCandidates)) should be (true)
   }
 
   "After copy, all mentions" should "still have non-empty nsId string" in {
