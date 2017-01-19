@@ -14,6 +14,7 @@ org.clulab.reach.TestModelEntities \
 org.clulab.reach.TestNERLabeling \
 org.clulab.reach.TestOrganResolutions \
 org.clulab.reach.TestOverrides \
+org.clulab.reach.TestPhase3Overrides \
 org.clulab.reach.TestProteinResolutions \
 org.clulab.reach.TestReachContextKBLister \
 org.clulab.reach.TestReachGrounder \

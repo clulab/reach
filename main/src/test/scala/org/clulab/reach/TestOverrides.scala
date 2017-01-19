@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add test of some sample families now grounded by the BE KB.
+  *   Last Modified: Update for Phase3 override version of 1/17/2016.
   */
 class TestOverrides extends FlatSpec with Matchers {
   val Chemical = "Simple_chemical"
@@ -107,11 +107,9 @@ class TestOverrides extends FlatSpec with Matchers {
     "AKT", "LDH", "NFAT", "SOD", "VEGFR" )
 
   // Override entries added to give BE families priority over GGP:
-  val be4f = """Fos, GST, INS, p38, PDGF,
-                PDGFR, RAF, Src, STAT5, and TSC are important families."""
+  val be4f = """Fos, GST, INS, PDGF, PDGFR, RAF, Src, and TSC are important families."""
   val be4f_ids = Seq(
-    "FOS_family", "GST", "INS", "p38", "PDGF",
-    "PDGFR", "RAF", "SRC", "STAT5", "TSC" )
+    "FOS_family", "GST", "INS", "PDGF", "PDGFR", "RAF", "SRC", "TSC" )
 
   // A few sample previous Override Family entries, replaced by BE family KB.
   val be5f = """ACAD, ACSL, ACTN, ADCY, ADH,
