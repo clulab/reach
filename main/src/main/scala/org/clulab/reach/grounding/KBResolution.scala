@@ -3,22 +3,30 @@ package org.clulab.reach.grounding
 /**
   * Class holding information about a specific resolution from the in-memory Knowledge Base.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Make class serializable.
+  *   Last Modified: Hide embedded implementation from users.
   */
 class KBResolution (
 
   /** KB entry containing relevant resolution information. */
-  val entry: KBEntry,
+  private val entry: KBEntry,
 
   /** Meta information about the KB from which this resolution was created. */
   val metaInfo: Option[KBMetaInfo] = None
 
 ) extends Serializable {
 
+  /** Alternate constructors which do not require access to embedded KBEntry. */
+  def this (text: String, key: String, namespace: String, id: String) =
+    this(new KBEntry(text, key, namespace, id))
+
+  def this (text: String, key: String, namespace: String, id: String, species: String) =
+    this(new KBEntry(text, key, namespace, id, species))
+
+
   // Facade functions for field access:
-  def namespace: String = entry.namespace
   def text: String = entry.text
   def key: String = entry.key
+  def namespace: String = entry.namespace
   def id: String = entry.id
   def species: String = entry.species
 
