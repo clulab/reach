@@ -88,7 +88,7 @@ object FillBlanks extends App with LazyLogging{
   //val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
   val participantA = Participant("uniprot","P19838")
   //val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
-  val participantB = Participant("go", "GO:0006915")
+  val participantB = Participant("uniprot", "O14757") // Chek1
 
 
   val nxmlDir = "/work/enoriega/fillblanks/nxml"
