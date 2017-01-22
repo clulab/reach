@@ -9,6 +9,7 @@ org.clulab.reach.TestFamilyResolutions \
 org.clulab.reach.TestGrounding \
 org.clulab.reach.TestGroundingTrait \
 org.clulab.reach.TestKBSupport \
+org.clulab.reach.TestKBKeyTransforms \
 org.clulab.reach.TestMiscLookups \
 org.clulab.reach.TestModelEntities \
 org.clulab.reach.TestNERLabeling \
