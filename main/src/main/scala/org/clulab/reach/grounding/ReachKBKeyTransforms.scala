@@ -8,17 +8,20 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Reduce default transforms to match previous, for now.
+  *   Last Modified: Update for key candidates wrapper.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
-  /** A key transform which implements a canonicalization function for Strings. */
-  def canonicalKT (text:String): KeyCandidates = {
-    var key:String = text.toLowerCase
+  /** Canonicalize the given text string into a key for both storage and lookup. */
+  def makeCanonicalKey (text:String): String = {
+    var key: String = text.toLowerCase
     // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
     key = key.filterNot(KeyCharactersToRemove)
-    stripAllSuffixesKT(AllKeysStopSuffixes, key)
+    stripAllSuffixes(AllKeysStopSuffixes, key)
   }
+
+  /** A key transform which implements a canonicalization function for Strings. */
+  def canonicalKT (text:String): KeyCandidates = toKeyCandidates(makeCanonicalKey(text))
 
   /** A key transform which implements a canonicalization function for Mentions. */
   def canonicalMKT (mention:BioTextBoundMention): KeyCandidates = canonicalKT(mention.text)
@@ -92,15 +95,6 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
       case PTMPrefixPat(prefix, restOfKey) => Seq(restOfKey)
       case _ => NoCandidates                // signal failure
     }
-  }
-
-
-  /** Canonicalize the given text string into a key for both storage and lookup. */
-  def makeCanonicalKey (text:String): String = {
-    var key:String = text.toLowerCase
-    // KeyStopWords.foreach { word => key = key.replaceAll(word, "") }
-    key = key.filterNot(KeyCharactersToRemove)
-    stripAllSuffixes(AllKeysStopSuffixes, key).getOrElse("")
   }
 
 }

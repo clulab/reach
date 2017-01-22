@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add utility lowercase key transforms.
+  *   Last Modified: Add/use key candidates wrapper. Redo suffix stripper.
   */
 trait KBKeyTransforms {
 
@@ -41,50 +41,49 @@ trait KBKeyTransforms {
 
 
   /** A key transform which implements an Identity function for Strings. */
-  def identityKT (text:String): KeyCandidates = Seq(text)
+  def identityKT (text:String): KeyCandidates = toKeyCandidates(text)
 
   /** A key transform which implements a minimal transform function for Mentions. */
-  def identityMKT (mention:BioTextBoundMention): KeyCandidates = Seq(mention.text)
+  def identityMKT (mention:BioTextBoundMention): KeyCandidates = toKeyCandidates(mention.text)
 
   /** A key transform which implements a minimal canonicalization function for Strings. */
-  def lowercaseKT (text:String): KeyCandidates = Seq(text.toLowerCase)
+  def lowercaseKT (text:String): KeyCandidates = toKeyCandidates(text.toLowerCase)
 
   /** A key transform which implements a minimal canonicalization function for Mentions. */
-  def lowercaseMKT (mention:BioTextBoundMention): KeyCandidates = Seq(mention.text.toLowerCase)
+  def lowercaseMKT (mention:BioTextBoundMention): KeyCandidates =
+    toKeyCandidates(mention.text.toLowerCase)
 
 
   /** Try to remove all of the suffixes in the given set from the given text. */
-  def stripAllSuffixes (suffixes:Seq[String], text:String): Option[String] = {
+  def stripAllSuffixes (suffixes:Seq[String], text:String): String = {
     var done:Boolean = false
-    var lastText = text                     // prepare for first round
-    var modText = text                      // remember text before stripping
+    var lastText = text.trim                // prepare for first round
+    var modText = text.trim                 // remember text before stripping
     while (!done) {
       suffixes.foreach { suffix =>          // try all suffixes
-        modText = modText.stripSuffix(suffix)
+        modText = modText.stripSuffix(suffix).trim
       }
       if (modText == lastText)              // if no suffixes were stripped in last round
         done = true                         // done: exit the loop
       else                                  // else try another round of stripping
         lastText = modText                  // update result from last round
     }
-    if (modText.trim.equals(""))            // if no stem text left at all
-      return None                           // then signal failure
-    else if (modText == text)               // else if no suffixes were stripped at all
-      return Some(text)                     // return unchanged text
-    else                                    // else something was stripped
-      return Some(modText)                  // so return the new string
+    modText                                 // return new or unchanged string
   }
 
   /** Try to remove all of the suffixes in the given set from the given text. */
-  def stripAllSuffixesKT (suffixes:Seq[String], text:String): KeyCandidates = {
-    val stripped = stripAllSuffixes(suffixes, text)
-    if (stripped.isDefined) Seq(stripped.get) else NoCandidates
-  }
+  def stripAllSuffixesKT (suffixes:Seq[String], text:String): KeyCandidates =
+    toKeyCandidates(stripAllSuffixes(suffixes, text))
 
   /** Try to remove all of the suffixes in the given set from the given mention text. */
   def stripAllSuffixesMKT (suffixes:Seq[String], mention:BioTextBoundMention): KeyCandidates =
     stripAllSuffixesKT(suffixes, mention.text)
 
+  /** Transform the given string into (a possibly empty) key candidates. */
+  def toKeyCandidates (text:String): KeyCandidates = if (text.nonEmpty) Seq(text) else NoCandidates
+
+  /** Transform the given sequence of strings into (a possibly empty) key candidates. */
+  def toKeyCandidates (candidates: Seq[String]): KeyCandidates = candidates.filter(_.nonEmpty)
 }
 
 
