@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Add more key candidate and transform tests.
   */
 class TestKBKeyTransforms extends FlatSpec with Matchers {
 
@@ -73,6 +73,20 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (toKeyCandidates(" XXX ")) should equal (Seq(" XXX ")) // no trimming
   }
 
+  "toKeyCandidates(sequences[string])" should "return correct results" in {
+    (toKeyCandidates(Seq(""))) should be (empty)
+    (toKeyCandidates(Seq("string"))) should equal (Seq("string"))
+    (toKeyCandidates(Seq("STRING"))) should equal (Seq("STRING")) // no case change
+    (toKeyCandidates(Seq("a to z"))) should equal (Seq("a to z"))
+    (toKeyCandidates(Seq("string one/two-tree"))) should equal (Seq("string one/two-tree"))
+    (toKeyCandidates(Seq(" XXX "))) should equal (Seq(" XXX ")) // no trimming
+    (toKeyCandidates(Seq("", "", ""))) should be (empty)
+    (toKeyCandidates(Seq("a", "ZZ"))) should equal (Seq("a", "ZZ"))
+    (toKeyCandidates(Seq("a", "b", "c"))) should equal (Seq("a", "b", "c"))
+    (toKeyCandidates(Seq("a", "", "c"))) should equal (Seq("a", "c"))
+    (toKeyCandidates(Seq("", "XXX", ""))) should equal (Seq("XXX"))
+  }
+
 
   // test apply all transforms (string)
   def firstKT (text:String): KeyCandidates = Seq(text.head.toString)
@@ -80,6 +94,7 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
   def revKT (text:String): KeyCandidates = Seq(text.reverse)
 
   def kt_id = Seq(identityKT _)
+  def kt_lc = Seq(lowercaseKT _)
   def kt_first = Seq(firstKT _)
   def kt_last = Seq(lastKT _)
   def kt_rev = Seq(revKT _)
@@ -103,6 +118,10 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_last, "ABC-XYZ").head) should equal ("Z")
     (applyAllTransforms(kt_rev, "abcxyz").head) should equal ("zyxcba")
     (applyAllTransforms(kt_rev, "ABCXYZ").head) should equal ("ZYXCBA")
+    (applyAllTransforms(kt_lc, "abcxyz").head) should equal ("abcxyz")
+    (applyAllTransforms(kt_lc, "ABCXYZ").head) should equal ("abcxyz")
+    (applyAllTransforms(kt_lc, "a/bc-xy z").head) should equal ("a/bc-xy z")
+    (applyAllTransforms(kt_lc, "AlBeRt EiNsTeIn").head) should equal ("albert einstein")
   }
 
   "applyAllTransforms(XXX, multiple KTs)" should "do the right things" in {
