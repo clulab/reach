@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests of InMemoryKBs.
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Add entries tests.
+  *   Last Modified: Enable lookup method tests.
   */
 class TestIMKB extends FlatSpec with Matchers {
   val eFactory = new EmptyIMKBFactory
@@ -67,16 +67,18 @@ class TestIMKB extends FlatSpec with Matchers {
   }
 
   "Empty KB 1" should "be able to resolve lookups based on previous filling" in {
-    // // eImkb1.dump                              // DEBUGGING
-    // (eImkb1.lookup("")) should be (empty)
-    // (eImkb1.lookup("abc").size) should be (1)
-    // (eImkb1.lookup("ABC").size) should be (1)
-    // (eImkb1.lookup("a b c").size) should be (1)
-    // (eImkb1.lookup("A B C").size) should be (1)
-    // (eImkb1.lookup("A-b-C").size) should be (1)
-    // (eImkb1.lookup("A/b-C").size) should be (1)
-    // (eImkb1.lookup("a/b/c").size) should be (1)
-    // (eImkb1.lookup("A/B-C DE")) should be (empty)
+    // eImkb1.dump                              // DEBUGGING
+    (eImkb1.lookup("")) should be (empty)
+    (eImkb1.lookup("abc").head.size) should be (5)
+    (eImkb1.lookup("ABC").head.size) should be (5)
+    (eImkb1.lookup("a b c").head.size) should be (5)
+    (eImkb1.lookup("A B C").head.size) should be (5)
+    (eImkb1.lookup("A-b-C").head.size) should be (5)
+    (eImkb1.lookup("A/b-C").head.size) should be (5)
+    (eImkb1.lookup("a/b/c").head.size) should be (5)
+    (eImkb1.lookup("a/b")) should be (empty)
+    (eImkb1.lookup("a/b/d")) should be (empty)
+    (eImkb1.lookup("A/B-C DE")) should be (empty)
   }
 
 
@@ -117,19 +119,19 @@ class TestIMKB extends FlatSpec with Matchers {
   }
 
   "Empty KB 2" should "be able to resolve lookups based on previous filling" in {
-    // // eImkb2.dump                              // DEBUGGING
-    // (eImkb2.lookup("")) should be (empty)
-    // (eImkb2.lookup("abc").size) should be (3)
-    // (eImkb2.lookup("ABC").size) should be (3)
-    // (eImkb2.lookup("xyz").size) should be (2)
-    // (eImkb2.lookup("XYZ").size) should be (2)
-    // (eImkb2.lookup("EntryKey").size) should be (1)
-    // (eImkb2.lookup("entrykey").size) should be (1)
-    // (eImkb2.lookup("Entry Key").size) should be (1)
-    // (eImkb2.lookup("entry key").size) should be (1)
-    // (eImkb2.lookup("Entry-Key").size) should be (1)
-    // (eImkb2.lookup("entry-key").size) should be (1)
-    // (eImkb2.lookup("A/B-C DE")) should be (empty)
+    // eImkb2.dump                              // DEBUGGING
+    (eImkb2.lookup("")) should be (empty)
+    (eImkb2.lookup("abc").head.size) should be (5)
+    (eImkb2.lookup("ABC").head.size) should be (3)
+    (eImkb2.lookup("xyz").head.size) should be (2)
+    (eImkb2.lookup("XYZ").head.size) should be (2)
+    (eImkb2.lookup("EntryKey").head.size) should be (2)
+    (eImkb2.lookup("entrykey").head.size) should be (2)
+    (eImkb2.lookup("Entry Key").head.size) should be (2)
+    (eImkb2.lookup("entry key").head.size) should be (2)
+    (eImkb2.lookup("Entry-Key").head.size) should be (2)
+    (eImkb2.lookup("entry-key").head.size) should be (2)
+    (eImkb2.lookup("A/B-C DE")) should be (empty)
   }
 }
 
