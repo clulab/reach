@@ -12,7 +12,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Continue rewrite: redo lookups.
+  *   Last Modified: Dont return add entries count. Rename NS/ID map.
   */
 class InMemoryKB (
 
@@ -38,7 +38,7 @@ class InMemoryKB (
   def keys: Seq[String] = keysMap.keys.toSeq
 
   /** Return a sequence of ALL the NS/ID keys in this KB. */
-  def nsIDs: Seq[String] = nsidMap.keys.toSeq
+  def nsIds: Seq[String] = nsidMap.keys.toSeq
 
   def dump: Unit = {
     keys.sorted.foreach { key =>
@@ -57,24 +57,21 @@ class InMemoryKB (
   }
 
   /** Create and add zero or more KB entries for the given info.
-    * Duplicate entries are not added. Return the number of entries added.
+    * Duplicate entries are not added.
     */
   def addEntries (
     text: String,
     namespace: String,
     refId: String,
     species: String = NoSpeciesValue
-  ): Int = {
-    var addCount: Int = 0
+  ): Unit = {
     val ns = namespace.toLowerCase          // canonicalize namespace
     val nsId = makeNamespaceId(ns, refId)   // make NS/ID key
     val kbe = new KBEntry(text, ns, refId, species.toLowerCase)
     storeEntry(nsId, kbe)                   // store KB entry under NS/ID key
     additionKeys(text).foreach { key =>     // transform text into 1 or more keys
       storeKey(key, nsId)                   // map each key to the same NS/ID key
-      addCount += 1                         // count how many mutated keys
     }
-    return addCount                         // return count of new keys added
   }
 
 
