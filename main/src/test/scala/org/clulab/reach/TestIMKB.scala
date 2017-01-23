@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests of InMemoryKBs.
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Reorder existing IMKB tests by difficulty.
+  *   Last Modified: Add entries tests.
   */
 class TestIMKB extends FlatSpec with Matchers {
   val eFactory = new EmptyIMKBFactory
@@ -35,27 +35,34 @@ class TestIMKB extends FlatSpec with Matchers {
   }
 
   "Empty KB 1" should "add unique keys only" in {
-    eImkb1.addEntries("abc", "Key", "Value")
+    eImkb1.addEntries("abc", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)
     (eImkb1.nsIds.size) should be (1)
-    eImkb1.addEntries("ABC", "Key", "Value")
+    (eImkb1.entries.size) should be (1)
+    eImkb1.addEntries("ABC", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)        // key should not increment key count
     (eImkb1.nsIds.size) should be (1)       // same nsId should not increment key count
-    eImkb1.addEntries("a b c", "Key", "Value")
+    (eImkb1.entries.size) should be (1)     // key should not increment entry count
+    eImkb1.addEntries("a b c", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)        // key should not increment key count
     (eImkb1.nsIds.size) should be (1)       // same nsId should not increment key count
-    eImkb1.addEntries("A B C", "Key", "Value")
+    (eImkb1.entries.size) should be (2)     // new key should increment entry count
+    eImkb1.addEntries("A B C", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)        // key should not increment key count
     (eImkb1.nsIds.size) should be (1)       // same nsId should not increment key count
-    eImkb1.addEntries("A-b-C", "Key", "Value")
+    (eImkb1.entries.size) should be (2)     // key should not increment entry count
+    eImkb1.addEntries("A-b-C", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)        // key should not increment key count
     (eImkb1.nsIds.size) should be (1)       // same nsId should not increment key count
-    eImkb1.addEntries("A/b-C", "Key", "Value")
+    (eImkb1.entries.size) should be (3)     // new key should increment entry count
+    eImkb1.addEntries("A/b-C", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)        // key should not increment key count
     (eImkb1.nsIds.size) should be (1)       // same nsId should not increment key count
-    eImkb1.addEntries("a/b/c", "Key", "Value")
+    (eImkb1.entries.size) should be (4)     // new key should increment entry count
+    eImkb1.addEntries("a/b/c", "ns1", "A-Value")
     (eImkb1.keys.size) should be (1)        // key should not increment key count
     (eImkb1.nsIds.size) should be (1)       // same nsId should not increment key count
+    (eImkb1.entries.size) should be (5)     // new key should increment entry count
     // eImkb1.dump                             // DEBUGGING
   }
 
@@ -77,25 +84,36 @@ class TestIMKB extends FlatSpec with Matchers {
     eImkb2.addEntries("abc", "tst1", "abc1")
     (eImkb2.keys.size) should be (1)
     (eImkb2.nsIds.size) should be (1)
+    (eImkb2.entries.size) should be (1)
     eImkb2.addEntries("abc", "tst1", "abc1")
-    (eImkb2.keys.size) should be (1)         // same add should be idempotent
-    (eImkb2.nsIds.size) should be (1)        // same nsId should not increment key count
+    (eImkb2.keys.size) should be (1)        // same add should be idempotent
+    (eImkb2.nsIds.size) should be (1)       // same nsId should not increment key count
+    (eImkb2.entries.size) should be (1)     // same key should not increment entry count
     eImkb2.addEntries("ABC", "tst1", "abc1")
-    (eImkb2.keys.size) should be (2)         // should have only added one more
-    (eImkb2.nsIds.size) should be (1)        // same nsId should not increment key count
+    (eImkb2.keys.size) should be (2)        // should have only added one more
+    (eImkb2.nsIds.size) should be (1)       // same nsId should not increment key count
+    (eImkb2.entries.size) should be (1)     // key should increment entry count
     eImkb2.addEntries("XYZ", "tst1", "abc1")
-    (eImkb2.keys.size) should be (4)         // should have added two more entries
-    (eImkb2.nsIds.size) should be (1)        // same nsId should not increment key count
+    (eImkb2.keys.size) should be (4)        // should have added two more entries
+    (eImkb2.nsIds.size) should be (1)       // same nsId should not increment key count
+    (eImkb2.entries.size) should be (2)     // new key should increment entry count
     eImkb2.addEntries("abc", "tst1", "abc2")
-    (eImkb2.keys.size) should be (4)         // same key should not increment key count
-    (eImkb2.nsIds.size) should be (2)        // new nsId should have added one more key
+    (eImkb2.keys.size) should be (4)        // same key should not increment key count
+    (eImkb2.nsIds.size) should be (2)       // new nsId should have added one more key
+    (eImkb2.entries.size) should be (3)     // new value should increment entry count
     eImkb2.addEntries("ABC", "tst1", "abc2")
-    (eImkb2.keys.size) should be (4)         // same key should not increment key count
-    (eImkb2.nsIds.size) should be (2)        // same nsId should not increment key count
+    (eImkb2.keys.size) should be (4)        // same key should not increment key count
+    (eImkb2.nsIds.size) should be (2)       // same nsId should not increment key count
+    (eImkb2.entries.size) should be (3)     // key should not increment entry count
     eImkb2.addEntries("EntryKey", "tst2", "abc2")
-    (eImkb2.keys.size) should be (6)         // new key should increment key count
-    (eImkb2.nsIds.size) should be (3)        // new nsId should increment key count
-    // eImkb2.dump                              // DEBUGGING
+    (eImkb2.keys.size) should be (6)        // new key should increment key count
+    (eImkb2.nsIds.size) should be (3)       // new nsId should increment key count
+    (eImkb2.entries.size) should be (4)     // new key/ns/value should increment entry count
+    eImkb2.addEntries("abc", "tst2", "abc2")
+    (eImkb2.keys.size) should be (6)        // key should not increment key count
+    (eImkb2.nsIds.size) should be (3)       // nsId should not increment key count
+    (eImkb2.entries.size) should be (5)     // new key/ns/value should increment entry count
+    // eImkb2.dump                             // DEBUGGING
   }
 
   "Empty KB 2" should "be able to resolve lookups based on previous filling" in {
