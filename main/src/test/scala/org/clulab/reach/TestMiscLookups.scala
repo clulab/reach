@@ -3,13 +3,14 @@ package org.clulab.reach
 import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 import org.clulab.reach.grounding._
+import org.clulab.reach.grounding.KBLookupSet._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachMiscLookups._
 
 /**
   * Unit tests of additional lookup tables and knowledge bases.
   *   Written by: Tom Hicks. 7/10/2016.
-  *   Last Modified: Add tests for gene name affixes.
+  *   Last Modified: Update for changed lookups.
   */
 class TestMiscLookups extends FlatSpec with Matchers {
 
@@ -70,15 +71,15 @@ class TestMiscLookups extends FlatSpec with Matchers {
     (pds.contains("Q1")) should be (false)        // not in KB
     (pds.contains("P31749")) should be (false)    // not in KB
     (pds.contains("14_3_3")) should be (true)     // first entry in list
-    (pds.contains("AAA")) should be (false)       // entries are lowercase
+    (pds.contains("AAA")) should be (true)
     (pds.contains("aaa")) should be (true)
-    (pds.contains("AICARFT_IMPCHas")) should be (false) // entries are lowercase
+    (pds.contains("AICARFT_IMPCHas")) should be (true)
     (pds.contains("aicarft_impchas")) should be (true)
-    (pds.contains("HAT")) should be (false)       // entries are lowercase
+    (pds.contains("HAT")) should be (true)
     (pds.contains("hat")) should be (true)
-    (pds.contains("ZU5")) should be (false)       // entries are lowercase
+    (pds.contains("ZU5")) should be (true)
     (pds.contains("zu5")) should be (true)        // last entry in list
-    (pds.contains("Germane")) should be (false)    // entries are lowercase
+    (pds.contains("Germane")) should be (true)
     (pds.contains("germane")) should be (true)    // odd but true
   }
 
@@ -114,17 +115,17 @@ class TestMiscLookups extends FlatSpec with Matchers {
     (gna.contains("affix")) should be (false)     // not in KB
     (gna.contains("uaz")) should be (false)       // not in KB
     (gna.contains("activated")) should be (true)  // first entry in list
-    (gna.contains("ACTIVATED")) should be (false) // entries are lowercase
+    (gna.contains("ACTIVATED")) should be (true)
     (gna.contains("flag")) should be (true)
-    (gna.contains("Flag")) should be (false)      // entries are lowercase
-    (gna.contains("FLAG")) should be (false)      // entries are lowercase
+    (gna.contains("Flag")) should be (true)
+    (gna.contains("FLAG")) should be (true)
     (gna.contains("gst")) should be (true)
-    (gna.contains("GST")) should be (false)       // entries are lowercase
+    (gna.contains("GST")) should be (true)
     (gna.contains("phospho")) should be (true)
     (gna.contains("phosphor")) should be (true)
     (gna.contains("phosphorylated")) should be (true)
+    (gna.contains("shRNA")) should be (true)
     (gna.contains("shrna")) should be (true)      // last entry in list
-    (gna.contains("shRNA")) should be (false)     // entries are lowercase
   }
 
   "Gene Name Affixes" should "test that isGeneNameAffix method works" in {

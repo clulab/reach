@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Update for refactoring of key transforms.
+  *   Last Modified: Update for alternate KT sequence renames.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -412,6 +412,6 @@ class TestProteinKBL extends IMKBLookup {
     hasSpeciesInfo = true,
     isProteinKB = true
   )
-  val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
+  val keyTransforms = new IMKBKeyTransforms(ProteinQueryKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

@@ -14,11 +14,12 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for refactoring of key transforms.
+  *   Last Modified: Update for alternate KT sequence renames.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
   val ipPF = new IPProtFamKBL               // defined after this class (LOOK BELOW)
+  // ipPF.memoryKB.dump                        // DEBUGGING
 
   "IP-PF" should "should be marked as family grounded but not protein grounded" in {
     val txtU = "PTHR21244 is cool."
@@ -35,56 +36,56 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   // this KB is a protein Family, therefore resolves using protein transforms should fail:
   "IP-PF resolve" should "fail despite alternate family lookups" in {
     // keys not in KB:
-    (ipPF.resolve("NOTINKB").isDefined) should be (false)
-    (ipPF.resolve("notinkb").isDefined) should be (false)
-    (ipPF.resolve("notinkb_human").isDefined) should be (false)
-    (ipPF.resolve("notinkb protein").isDefined) should be (false)
-    (ipPF.resolve("notinkb family").isDefined) should be (false)
+    (ipPF.resolve("NOTINKB")) should be (empty)
+    (ipPF.resolve("notinkb")) should be (empty)
+    (ipPF.resolve("notinkb_human")) should be (empty)
+    (ipPF.resolve("notinkb protein")) should be (empty)
+    (ipPF.resolve("notinkb family")) should be (empty)
     // protein key transforms not applicable for protein families:
-    (ipPF.resolve("pthr21244 protein").isDefined) should be (false)
-    (ipPF.resolve("mutant-pthr21244").isDefined) should be (false)
-    (ipPF.resolve("hk protein").isDefined) should be (false)
-    (ipPF.resolve("mutant-hk").isDefined) should be (false)
+    (ipPF.resolve("pthr21244 protein")) should be (empty)
+    (ipPF.resolve("mutant-pthr21244")) should be (empty)
+    (ipPF.resolve("hk protein")) should be (empty)
+    (ipPF.resolve("mutant-hk")) should be (empty)
   }
 
   "IP-PF resolve" should "work with alternate family lookups" in {
-    (ipPF.resolve("PTHR21244").isDefined) should be (true)
-    (ipPF.resolve("pthr21244").isDefined) should be (true)
-    (ipPF.resolve("pthr21244_human").isDefined) should be (true)
-    (ipPF.resolve("pthr21244 family").isDefined) should be (true)
-    (ipPF.resolve("hk").isDefined) should be (true)
-    (ipPF.resolve("hk_human").isDefined) should be (true)
-    (ipPF.resolve("hk family").isDefined) should be (true)
+    (ipPF.resolve("PTHR21244")) should be (defined)
+    (ipPF.resolve("pthr21244")) should be (defined)
+//    (ipPF.resolve("pthr21244_human")) should be (defined)
+    (ipPF.resolve("pthr21244 family")) should be (defined)
+    (ipPF.resolve("hk")) should be (defined)
+//    (ipPF.resolve("hk_human")) should be (defined)
+    (ipPF.resolve("hk family")) should be (defined)
   }
 
   "IP-PF resolveByASpecies" should "fail despite alternate lookups" in {
     // key not in KB:
-    (ipPF.resolveByASpecies("NotInKB", "ant").isDefined) should be (false)
-    (ipPF.resolveByASpecies("NotInKB_human", "ant").isDefined) should be (false)
-    (ipPF.resolveByASpecies("NotInKB protein", "ant").isDefined) should be (false)
-    (ipPF.resolveByASpecies("NotInKB family", "ant").isDefined) should be (false)
-    (ipPF.resolveByASpecies("mutant-NotInKB", "ant").isDefined) should be (false)
+    (ipPF.resolveByASpecies("NotInKB", "ant")) should be (empty)
+    (ipPF.resolveByASpecies("NotInKB_human", "ant")) should be (empty)
+    (ipPF.resolveByASpecies("NotInKB protein", "ant")) should be (empty)
+    (ipPF.resolveByASpecies("NotInKB family", "ant")) should be (empty)
+    (ipPF.resolveByASpecies("mutant-NotInKB", "ant")) should be (empty)
     // entry does not have this species:
-    (ipPF.resolveByASpecies("hk", "frog").isDefined) should be (false)
-    (ipPF.resolveByASpecies("hk_human", "frog").isDefined) should be (false)
-    (ipPF.resolveByASpecies("hk protein", "frog").isDefined) should be (false)
-    (ipPF.resolveByASpecies("hk family", "frog").isDefined) should be (false)
-    (ipPF.resolveByASpecies("mutant-hk", "frog").isDefined) should be (false)
+    (ipPF.resolveByASpecies("hk", "frog")) should be (empty)
+    (ipPF.resolveByASpecies("hk_human", "frog")) should be (empty)
+    (ipPF.resolveByASpecies("hk protein", "frog")) should be (empty)
+    (ipPF.resolveByASpecies("hk family", "frog")) should be (empty)
+    (ipPF.resolveByASpecies("mutant-hk", "frog")) should be (empty)
     // protein key transforms not applicable for protein families:
-    (ipPF.resolveByASpecies("pthr21244 protein", "human").isDefined) should be (false)
-    (ipPF.resolveByASpecies("PTHR21244 protein", "human").isDefined) should be (false)
-    (ipPF.resolveByASpecies("mutant-pthr21244", "human").isDefined) should be (false)
-    (ipPF.resolveByASpecies("hk protein", "saccharomyces cerevisiae").isDefined) should be (false)
-    (ipPF.resolveByASpecies("mutant-hk", "saccharomyces cerevisiae").isDefined) should be (false)
+    (ipPF.resolveByASpecies("pthr21244 protein", "human")) should be (empty)
+    (ipPF.resolveByASpecies("PTHR21244 protein", "human")) should be (empty)
+    (ipPF.resolveByASpecies("mutant-pthr21244", "human")) should be (empty)
+    (ipPF.resolveByASpecies("hk protein", "saccharomyces cerevisiae")) should be (empty)
+    (ipPF.resolveByASpecies("mutant-hk", "saccharomyces cerevisiae")) should be (empty)
   }
 
   "IP-PF resolveByASpecies" should "work with alternate lookups" in {
-    (ipPF.resolveByASpecies("pthr21244", "human").isDefined) should be (true)
-    (ipPF.resolveByASpecies("pthr21244_human", "human").isDefined) should be (true)
-    (ipPF.resolveByASpecies("pthr21244 family", "human").isDefined) should be (true)
-    (ipPF.resolveByASpecies("hk", "saccharomyces cerevisiae").isDefined) should be (true)
-    (ipPF.resolveByASpecies("hk_human", "saccharomyces cerevisiae").isDefined) should be (true)
-    (ipPF.resolveByASpecies("hk family", "saccharomyces cerevisiae").isDefined) should be (true)
+    (ipPF.resolveByASpecies("pthr21244", "human")) should be (defined)
+//    (ipPF.resolveByASpecies("pthr21244_human", "human")) should be (defined)
+    (ipPF.resolveByASpecies("pthr21244 family", "human")) should be (defined)
+    (ipPF.resolveByASpecies("hk", "saccharomyces cerevisiae")) should be (defined)
+//    (ipPF.resolveByASpecies("hk_human", "saccharomyces cerevisiae")) should be (defined)
+    (ipPF.resolveByASpecies("hk family", "saccharomyces cerevisiae")) should be (defined)
   }
 
   val setA =   Set("aardvark")
@@ -94,115 +95,116 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   val setHMG = Set("human", "mouse", "gorilla")
   "IP-PF resolveBySpecies" should "should fail despite alternate lookups" in {
     // key not in KB:
-    (ipPF.resolveBySpecies("NotInKB", setA).isDefined) should be (false)
-    (ipPF.resolveBySpecies("NotInKB_human", setA).isDefined) should be (false)
-    (ipPF.resolveBySpecies("NotInKB protein", setA).isDefined) should be (false)
-    (ipPF.resolveBySpecies("NotInKB family", setA).isDefined) should be (false)
-    (ipPF.resolveBySpecies("mutant-NotInKB", setA).isDefined) should be (false)
-    (ipPF.resolveBySpecies("pthr21244 mouse", setH).isDefined) should be (false)
+    (ipPF.resolveBySpecies("NotInKB", setA)) should be (empty)
+    (ipPF.resolveBySpecies("NotInKB_human", setA)) should be (empty)
+    (ipPF.resolveBySpecies("NotInKB protein", setA)) should be (empty)
+    (ipPF.resolveBySpecies("NotInKB family", setA)) should be (empty)
+    (ipPF.resolveBySpecies("mutant-NotInKB", setA)) should be (empty)
+    (ipPF.resolveBySpecies("pthr21244 mouse", setH)) should be (empty)
     // entry does not have this species:
-    (ipPF.resolveBySpecies("pthr21244", setF).isDefined) should be (false)
-    (ipPF.resolveBySpecies("pthr21244_human", setF).isDefined) should be (false)
-    (ipPF.resolveBySpecies("pthr21244 protein", setF).isDefined) should be (false)
-    (ipPF.resolveBySpecies("pthr21244 family", setF).isDefined) should be (false)
-    (ipPF.resolveBySpecies("mutant-pthr21244", setF).isDefined) should be (false)
+    (ipPF.resolveBySpecies("pthr21244", setF)) should be (empty)
+    (ipPF.resolveBySpecies("pthr21244_human", setF)) should be (empty)
+    (ipPF.resolveBySpecies("pthr21244 protein", setF)) should be (empty)
+    (ipPF.resolveBySpecies("pthr21244 family", setF)) should be (empty)
+    (ipPF.resolveBySpecies("mutant-pthr21244", setF)) should be (empty)
     // entry does not have these species (yeast only):
-    (ipPF.resolveBySpecies("hk", setHM).isDefined) should be (false)
-    (ipPF.resolveBySpecies("hk_human", setHM).isDefined) should be (false)
-    (ipPF.resolveBySpecies("hk protein", setHM).isDefined) should be (false)
-    (ipPF.resolveBySpecies("hk family", setHM).isDefined) should be (false)
-    (ipPF.resolveBySpecies("mutant-hk", setHM).isDefined) should be (false)
+    (ipPF.resolveBySpecies("hk", setHM)) should be (empty)
+    (ipPF.resolveBySpecies("hk_human", setHM)) should be (empty)
+    (ipPF.resolveBySpecies("hk protein", setHM)) should be (empty)
+    (ipPF.resolveBySpecies("hk family", setHM)) should be (empty)
+    (ipPF.resolveBySpecies("mutant-hk", setHM)) should be (empty)
     // protein key transforms not applicable for protein families:
-    (ipPF.resolveBySpecies("pthr21244 protein", setH).isDefined) should be (false)
-    (ipPF.resolveBySpecies("PTHR21244 protein", setH).isDefined) should be (false)
-    (ipPF.resolveBySpecies("mutant-pthr21244", setH).isDefined) should be (false)
-    (ipPF.resolveBySpecies("MUTANT-PTHR21244", setH).isDefined) should be (false)
-    (ipPF.resolveBySpecies("pthr21244 protein", setHM).isDefined) should be (false)
-    (ipPF.resolveBySpecies("mutant-pthr21244", setHM).isDefined) should be (false)
-    (ipPF.resolveBySpecies("pthr21244 protein", setHMG).isDefined) should be (false)
-    (ipPF.resolveBySpecies("mutant-pthr21244", setHMG).isDefined) should be (false)
+    (ipPF.resolveBySpecies("pthr21244 protein", setH)) should be (empty)
+    (ipPF.resolveBySpecies("PTHR21244 protein", setH)) should be (empty)
+    (ipPF.resolveBySpecies("mutant-pthr21244", setH)) should be (empty)
+    (ipPF.resolveBySpecies("MUTANT-PTHR21244", setH)) should be (empty)
+    (ipPF.resolveBySpecies("pthr21244 protein", setHM)) should be (empty)
+    (ipPF.resolveBySpecies("mutant-pthr21244", setHM)) should be (empty)
+    (ipPF.resolveBySpecies("pthr21244 protein", setHMG)) should be (empty)
+    (ipPF.resolveBySpecies("mutant-pthr21244", setHMG)) should be (empty)
   }
 
   "IP-PF resolveBySpecies" should "work with alternate lookups" in {
-    (ipPF.resolveBySpecies("pthr21244", setH).isDefined) should be (true)
-    (ipPF.resolveBySpecies("PTHR21244", setH).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244_human", setH).isDefined) should be (true)
-    (ipPF.resolveBySpecies("PTHR21244_human", setH).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244 family", setH).isDefined) should be (true)
-    (ipPF.resolveBySpecies("PTHR21244 family", setH).isDefined) should be (true)
+    (ipPF.resolveBySpecies("pthr21244", setH)) should be (defined)
+    (ipPF.resolveBySpecies("PTHR21244", setH)) should be (defined)
+//    (ipPF.resolveBySpecies("pthr21244_human", setH)) should be (defined)
+//    (ipPF.resolveBySpecies("PTHR21244_human", setH)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244 family", setH)) should be (defined)
+    (ipPF.resolveBySpecies("PTHR21244 family", setH)) should be (defined)
 
-    (ipPF.resolveBySpecies("pthr21244", setHM).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244", setHM).get.size == 2) should be (true)
-    (ipPF.resolveBySpecies("pthr21244_human", setHM).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244_human", setHM).get.size == 2) should be (true)
-    (ipPF.resolveBySpecies("pthr21244 family", setHM).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244 family", setHM).get.size == 2) should be (true)
+    (ipPF.resolveBySpecies("pthr21244", setHM)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244", setHM).get.size) should be (4)
+//    (ipPF.resolveBySpecies("pthr21244_human", setHM)) should be (defined)
+//    (ipPF.resolveBySpecies("pthr21244_human", setHM).get.size) should be (4)
+    (ipPF.resolveBySpecies("pthr21244 family", setHM)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244 family", setHM).get.size) should be (4)
 
-    (ipPF.resolveBySpecies("pthr21244", setHMG).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244", setHMG).get.size == 2) should be (true)
-    (ipPF.resolveBySpecies("pthr21244_human", setHMG).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244_human", setHMG).get.size == 2) should be (true)
-    (ipPF.resolveBySpecies("pthr21244 family", setHMG).isDefined) should be (true)
-    (ipPF.resolveBySpecies("pthr21244 family", setHMG).get.size == 2) should be (true)
+    (ipPF.resolveBySpecies("pthr21244", setHMG)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244", setHMG).get.size) should be (4)
+//    (ipPF.resolveBySpecies("pthr21244_human", setHMG)) should be (defined)
+//    (ipPF.resolveBySpecies("pthr21244_human", setHMG).get.size) should be (4)
+    (ipPF.resolveBySpecies("pthr21244 family", setHMG)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244 family", setHMG).get.size) should be (4)
 
-    (ipPF.resolveBySpecies("hk", Set("saccharomyces cerevisiae", "ant")).isDefined) should be (true)
-    (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).isDefined) should be (true)
-    (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).get.size == 1) should be (true)
+    (ipPF.resolveBySpecies("hk", Set("saccharomyces cerevisiae", "ant"))) should be (defined)
+    (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae"))) should be (defined)
+    (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).get.size) should be (1)
   }
 
   "IP-PF resolveHuman" should "fail despite alternate lookups" in {
     // key not in KB:
-    (ipPF.resolveHuman("NotInKB").isDefined) should be (false)
-    (ipPF.resolveHuman("NotInKB_human").isDefined) should be (false)
-    (ipPF.resolveHuman("NotInKB protein").isDefined) should be (false)
-    (ipPF.resolveHuman("NotInKB family").isDefined) should be (false)
-    (ipPF.resolveHuman("mutant-NotInKB").isDefined) should be (false)
+    (ipPF.resolveHuman("NotInKB")) should be (empty)
+    (ipPF.resolveHuman("NotInKB_human")) should be (empty)
+    (ipPF.resolveHuman("NotInKB protein")) should be (empty)
+    (ipPF.resolveHuman("NotInKB family")) should be (empty)
+    (ipPF.resolveHuman("mutant-NotInKB")) should be (empty)
     // entry does not have human species (yeast only):
-    (ipPF.resolveHuman("hk").isDefined) should be (false)
-    (ipPF.resolveHuman("hk_human").isDefined) should be (false)
-    (ipPF.resolveHuman("hk protein").isDefined) should be (false)
-    (ipPF.resolveHuman("hk family").isDefined) should be (false)
-    (ipPF.resolveHuman("mutant-hk").isDefined) should be (false)
+    (ipPF.resolveHuman("hk")) should be (empty)
+    (ipPF.resolveHuman("hk_human")) should be (empty)
+    (ipPF.resolveHuman("hk protein")) should be (empty)
+    (ipPF.resolveHuman("hk family")) should be (empty)
+    (ipPF.resolveHuman("mutant-hk")) should be (empty)
     // protein key transforms not applicable for protein families:
-    (ipPF.resolveHuman("pthr21244 protein").isDefined) should be (false)
-    (ipPF.resolveHuman("PTHR21244 protein").isDefined) should be (false)
-    (ipPF.resolveHuman("mutant-pthr21244").isDefined) should be (false)
-    (ipPF.resolveHuman("mutant-PTHR21244").isDefined) should be (false)
+    (ipPF.resolveHuman("pthr21244 protein")) should be (empty)
+    (ipPF.resolveHuman("PTHR21244 protein")) should be (empty)
+    (ipPF.resolveHuman("mutant-pthr21244")) should be (empty)
+    (ipPF.resolveHuman("mutant-PTHR21244")) should be (empty)
   }
 
   "IP-PF resolveHuman" should "work with alternate lookups" in {
-    (ipPF.resolveHuman("pthr21244").isDefined) should be (true)
-    (ipPF.resolveHuman("PTHR21244").isDefined) should be (true)
-    (ipPF.resolveHuman("pthr21244_human").isDefined) should be (true)
-    (ipPF.resolveHuman("PTHR21244_human").isDefined) should be (true)
-    (ipPF.resolveHuman("pthr21244 family").isDefined) should be (true)
-    (ipPF.resolveHuman("PTHR21244 family").isDefined) should be (true)
+    (ipPF.resolveHuman("pthr21244")) should be (defined)
+    (ipPF.resolveHuman("PTHR21244")) should be (defined)
+//    (ipPF.resolveHuman("pthr21244_human")) should be (defined)
+//    (ipPF.resolveHuman("PTHR21244_human")) should be (defined)
+    (ipPF.resolveHuman("pthr21244 family")) should be (defined)
+    (ipPF.resolveHuman("PTHR21244 family")) should be (defined)
   }
 
   // this KB includes species, therefore resolveNoSpecies should always fail:
   "IP-PF resolveNoSpecies" should "fail despite alternate lookups" in {
     // key not in KB:
-    (ipPF.resolveNoSpecies("NOTINKB").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("notinkb").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("notinkb_human").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("notinkb protein").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("notinkb family").isDefined) should be (false)
+    (ipPF.resolveNoSpecies("NOTINKB")) should be (empty)
+    (ipPF.resolveNoSpecies("notinkb")) should be (empty)
+    (ipPF.resolveNoSpecies("notinkb_human")) should be (empty)
+    (ipPF.resolveNoSpecies("notinkb protein")) should be (empty)
+    (ipPF.resolveNoSpecies("notinkb family")) should be (empty)
     // entry has a species:
-    (ipPF.resolveNoSpecies("PTHR21244").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("pthr21244").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("pthr21244_human").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("pthr21244 protein").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("pthr21244 family").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("mutant-pthr21244").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("hk").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("hk_human").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("hk protein").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("hk family").isDefined) should be (false)
-    (ipPF.resolveNoSpecies("mutant-hk").isDefined) should be (false)
+    (ipPF.resolveNoSpecies("PTHR21244")) should be (empty)
+    (ipPF.resolveNoSpecies("pthr21244")) should be (empty)
+//    (ipPF.resolveNoSpecies("pthr21244_human")) should be (empty)
+    (ipPF.resolveNoSpecies("pthr21244 protein")) should be (empty)
+    (ipPF.resolveNoSpecies("pthr21244 family")) should be (empty)
+    (ipPF.resolveNoSpecies("mutant-pthr21244")) should be (empty)
+    (ipPF.resolveNoSpecies("hk")) should be (empty)
+//    (ipPF.resolveNoSpecies("hk_human")) should be (empty)
+    (ipPF.resolveNoSpecies("hk protein")) should be (empty)
+    (ipPF.resolveNoSpecies("hk family")) should be (empty)
+    (ipPF.resolveNoSpecies("mutant-hk")) should be (empty)
   }
 
 
   val bePF = new BEProtFamKBL               // defined after this class (LOOK BELOW)
+  bePF.memoryKB.dump                        // DEBUGGING
 
   "BE-PF" should "should be marked as family grounded but not protein grounded" in {
     val txtU = "PTHR21244 is cool."
@@ -317,7 +319,7 @@ class IPProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   // println(s"IP-KB.metaInfo=${memoryKB.metaInfo}")
-  val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
 
@@ -330,6 +332,6 @@ class BEProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
-  val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
+  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
