@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add/use key candidates wrapper. Redo suffix stripper.
+  *   Last Modified: Add applyTransform methods.
   */
 trait KBKeyTransforms {
 
@@ -24,6 +24,14 @@ trait KBKeyTransforms {
   type MentionKeyTransformFn = (BioTextBoundMention) => KeyCandidates
   type MentionKeyTransforms = Seq[MentionKeyTransformFn]
 
+
+  /** Apply the given transform function to the given text, return any non-empty result strings. */
+  def applyTransform (transformFn: KeyTransformFn, text: String): KeyCandidates =
+    toKeyCandidates(transformFn.apply(text))
+
+  /** Apply the given transform function to the given texts, return any non-empty result strings. */
+  def applyTransform (transformFn: KeyTransformFn, texts: Seq[String]): KeyCandidates =
+    toKeyCandidates(texts.flatMap(transformFn.apply(_)))
 
   /** Apply the given key transforms to the given string, returning a (possibly empty)
       sequence of potential key strings. */

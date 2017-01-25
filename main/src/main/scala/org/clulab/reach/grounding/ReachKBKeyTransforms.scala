@@ -1,6 +1,7 @@
 package org.clulab.reach.grounding
 
 import org.clulab.reach.mentions._
+import org.clulab.reach.grounding.KBLookupSet._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
@@ -8,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Update for key candidates wrapper.
+  *   Last Modified: Rename default KTs. Add cased-sensitive KTs. Remove gene name/protein lookups.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -134,49 +135,30 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val TrailingMutationPat = """(?i)(.*)\s+\w+\s+mutant""".r
 
 
-  /** List of default transforms to apply during the KB's entry creation phase. */
-  // val DefaultAddKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
-  val DefaultAddKeyTransforms = Seq( canonicalKT _ )
+  /** Default list of text transforms to use with a KB. */
+  val DefaultKeyTransforms = Seq( canonicalKT _ )
 
-  /** List of default transforms to apply in the absence of specific transform arguments. */
-  // val DefaultQueryKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
-  val DefaultQueryKeyTransforms = Seq( canonicalKT _ )
-
-  /** List of default mention transforms to apply in the absence of specific transform arguments. */
-  // val DefaultMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT _, canonicalMKT _ )
+  /** Default list of additional mention transforms to apply during the KB's query phase. */
   val DefaultMentionKeyTransforms = Seq( canonicalMKT _ )
 
 
+  /** List of text transforms to use with a case-sensitive KB. */
+  val CasedKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+
+  /** List of additional mention transforms to use with a case-sensitive KB. */
+  val CasedMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT _, canonicalMKT _ )
+
+
   /** List of transform methods to apply for alternate Protein Family lookups. */
-  val FamilyKeyTransforms = Seq( stripFamilyPostAttributives _ )
+  val FamilyQueryKeyTransforms = Seq( stripFamilyPostAttributives _ )
 
   /** List of transform methods to apply for alternate Organ lookups. */
-  val OrganKeyTransforms = Seq( stripOrganPostAttributives _ )
+  val OrganQueryKeyTransforms = Seq( stripOrganPostAttributives _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
-  val ProteinKeyTransforms = Seq( stripProteinPostAttributives _,
-                                  stripMutantProtein _,
-                                  stripGeneNameAffixes _,
-                                  hyphenatedProteinKey _,
-                                  stripPTMPrefixes _ )
-
-  /** Set of gene name affix strings extracted from the Sorger bioentities file. */
-  val GeneNameAffixes: Set[String] =
-    ReachKBUtils.readLines(GeneNameAffixesFilename)
-                .map(affix => makeCanonicalKey(affix.trim)).toSet
-
-  /** Tell whether the given string names a gene name affix or not. */
-  def isGeneNameAffix (affix: String): Boolean =
-    GeneNameAffixes.contains(makeCanonicalKey(affix))
-
-
-  /** Set of short protein domain strings. */
-  val ProteinDomainShortNames: Set[String] =
-    ReachKBUtils.readLines(ProteinDomainShortNamesFilename)
-                .map(suffix => makeCanonicalKey(suffix.trim)).toSet
-
-  /** Tell whether the given string names a protein domain or not. */
-  def isProteinDomain (domain: String): Boolean =
-    ProteinDomainShortNames.contains(makeCanonicalKey(domain))
-
+  val ProteinQueryKeyTransforms = Seq( stripProteinPostAttributives _,
+                                       stripMutantProtein _,
+                                       stripGeneNameAffixes _,
+                                       hyphenatedProteinKey _,
+                                       stripPTMPrefixes _ )
 }

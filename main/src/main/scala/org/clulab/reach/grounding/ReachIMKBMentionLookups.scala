@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Simplify IMKBMentionLookup instantiation.
+  *   Last Modified: Switch to actual intended key transforms.
   */
 object ReachIMKBMentionLookups {
 
@@ -30,7 +30,7 @@ object ReachIMKBMentionLookups {
   val StaticCellLocation2 = staticCellLocation2KBML // Uniprot subcellular KB
   val StaticChemical = staticChemicalKBML
   val StaticDrug = staticDrugKBML
-  // val StaticMetabolite = staticMetaboliteKBML    // REPLACED by PubChem
+  // val StaticMetabolite = staticMetaboliteKBML    // Replaced by PubChem
   val StaticProtein = staticProteinKBML
   val StaticProteinComplex = staticProteinComplexKBML
   val StaticProteinFamily0 = staticProteinFamily0KBML
@@ -149,8 +149,7 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(GendProteinFilename),
       isProteinKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(ProteinQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -164,8 +163,7 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(ProteinQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -177,8 +175,7 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true                    // treat complexes as a protein KB
     )
-    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(ProteinQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -193,8 +190,7 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(GendProteinFilename),
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -207,8 +203,7 @@ object ReachIMKBMentionLookups {
       resourceId = "MIR:00000028",
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -222,8 +217,7 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -235,8 +229,7 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -284,8 +277,7 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/uberon/",
       resourceId = "MIR:00000446"
     )
-    // val keyTransforms = new IMKBKeyTransforms(OrganKeyTransforms, OrganKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    val keyTransforms = new IMKBKeyTransforms(OrganQueryKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 

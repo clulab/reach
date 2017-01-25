@@ -12,7 +12,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Dont return add entries count. Rename NS/ID map.
+  *   Last Modified: Redo lookups to be sequential.
   */
 class InMemoryKB (
 
@@ -40,6 +40,7 @@ class InMemoryKB (
   /** Return a sequence of ALL the NS/ID keys in this KB. */
   def nsIds: Seq[String] = nsidMap.keys.toSeq
 
+  /** Print a textual representation of the IMKB contents to standard output. */
   def dump: Unit = {
     keys.sorted.foreach { key =>
       println(s"${key}:")
@@ -56,9 +57,7 @@ class InMemoryKB (
     }
   }
 
-  /** Create and add zero or more KB entries for the given info.
-    * Duplicate entries are not added.
-    */
+  /** Add zero or more KB entries for the given info. Duplicate entries are not added. */
   def addEntries (
     text: String,
     namespace: String,
@@ -69,20 +68,11 @@ class InMemoryKB (
     val nsId = makeNamespaceId(ns, refId)   // make NS/ID key
     val kbe = new KBEntry(text, ns, refId, species.toLowerCase)
     storeEntry(nsId, kbe)                   // store KB entry under NS/ID key
-    additionKeys(text).foreach { key =>     // transform text into 1 or more keys
+    // transform the given text into one or more keys for the key -> NS/ID map. */
+    applyAllTransforms(keyTransforms.baseKTs, text).foreach { key =>
       storeKey(key, nsId)                   // map each key to the same NS/ID key
     }
   }
-
-
-  /** Apply key transforms to the given text string to return all storage keys. */
-  def additionKeys (text:String): KeyCandidates =
-    KBKeyTransforms.applyAllTransforms(keyTransforms.additionKTs, text)
-
-  /** Apply key transforms to the given text string to return all query keys. */
-  def queryKeys (text:String): KeyCandidates =
-    KBKeyTransforms.applyAllTransforms(keyTransforms.queryKTs, text)
-
 
   /** Return resolutions for the set of KB entries for the given NS/ID string. */
   def lookupNsId (nsId:String): Resolutions = newResolutions(nsidMap.getOrElse(nsId, NoEntries))
@@ -96,52 +86,52 @@ class InMemoryKB (
 
 
   /** Return resolutions for the set of all KB entries for the given text string. */
-  def lookup (text:String): Resolutions = lookupNsIds(lookupKeys(queryKeys(text)))
+  def lookup (text:String): Resolutions = newResolutions(search(text, None))
 
   /** Find the set of KB entries, for the given text string, which match the given
       single species. Returns resolutions for matching entries or None. */
   def lookupByASpecies (text:String, species:String): Resolutions =
-    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
-                   .filter(kbe => kbe.species == species))
+    newResolutions(search(text, Some((kbe:KBEntry) => kbe.species == species)))
 
   /** Finds the set of KB entries, for the given text string, which contains a species
       in the given set of species. Returns resolutions for matching entries or None. */
  def lookupBySpecies (text:String, speciesSet:SpeciesNameSet): Resolutions =
-    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
-                   .filter(kbe => isMemberOf(kbe.species, speciesSet)))
+   newResolutions(search(text, Some((kbe:KBEntry) => isMemberOf(kbe.species, speciesSet))))
 
   /** Finds the set of KB entries, for the given text string, which have humans as the species.
       Returns resolutions for matching entries or None. */
   def lookupHuman (text:String): Resolutions =
-    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
-                   .filter(kbe => isHumanSpecies(kbe.species)))
-
+    newResolutions(search(text, Some((kbe:KBEntry) => isHumanSpecies(kbe.species))))
 
   /** Find the set of KB entries, for the given text string, which do not contain a species.
       Returns resolutions for matching entries or None. */
   def lookupNoSpecies (text:String): Resolutions =
-    newResolutions(lookupEntries(lookupKeys(queryKeys(text)))
-                   .filter(kbe => kbe.hasNoSpecies))
+    newResolutions(search(text, Some((kbe:KBEntry) => kbe.hasNoSpecies)))
 
 
-  /** Try lookup function on all given keys until one succeeds or all fail. */
-  private def tryKeyLookups (fn:(String) => NsIdSet, keys: KeyCandidates): NsIdSet = {
-    keys.foreach { key =>
-      val nsIdSet = fn.apply(key)
-      if (!nsIdSet.isEmpty) return nsIdSet
+  private def search (text: String, filterFn: Option[EntryFilter]): KBEntries = {
+    (keyTransforms.baseKTs ++ keyTransforms.queryKTs).foreach { ktFn =>
+      ktFn.apply(text).foreach { key =>       // generate and try candidate keys
+        val entries = if (filterFn.isDefined) // optionally filter any entries found
+          filteredEntries(lookupKey(key), filterFn.get)
+        else
+          lookupEntries(lookupKey(key))
+        if (entries.nonEmpty) return entries // if qualifying entries found, return them
+      }
     }
-    return EmptyNsIdSet                          // tried all keys: no success
+    NoEntries                               // tried everything w/o result
   }
 
   /** Return NS/IDs for the set of all KB entries indexed by the given key string. */
   private def lookupKey (key:String): NsIdSet = keysMap.getOrElse(key, EmptyNsIdSet)
 
-  /** Lookup the given keys in order, returning the set of NS/IDs for the first key found. */
-  private def lookupKeys (keys:KeyCandidates): NsIdSet = tryKeyLookups(lookupKey, keys)
+  /** Return a combined Set of KB entries for all the given NS/IDs. */
+  private def lookupEntries (nsIds: NsIdSet): KBEntries =
+    nsIds.flatMap(nsidMap.get(_)).flatten
 
   /** Return a combined Set of KB entries for all the given NS/IDs. */
-  private def lookupEntries (nsIds: NsIdSet): Set[KBEntry] =
-    nsIds.flatMap(nsidMap.get(_)).flatten
+  private def filteredEntries (nsIds: NsIdSet, filterFn: EntryFilter): KBEntries =
+    lookupEntries(nsIds).filter(filterFn)
 
   /** Return a new KB resolution formed from given KB entry and this KB's meta information. */
   private def newResolution (entry: KBEntry): KBResolution = new KBResolution(
@@ -166,6 +156,9 @@ class InMemoryKB (
 object InMemoryKB {
   /** Type of the values in the NS/ID Map. */
   type KBEntries = Set[KBEntry]
+
+  /** Type defining a filter function over KB entries. */
+  type EntryFilter = KBEntry => Boolean
 
   /** Constant denoting an empty set of KB entries. */
   val NoEntries = Set.empty[KBEntry]
