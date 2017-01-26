@@ -14,11 +14,13 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Update for alternate KT sequence renames.
+  *   Last Modified: Test with cased key transforms. Update/add tests for enhanced KTs.
+  *                  Restore _human tests.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
   val ipPF = new IPProtFamKBL               // defined after this class (LOOK BELOW)
+  // println("== IP_PF ==========================================================")
   // ipPF.memoryKB.dump                        // DEBUGGING
 
   "IP-PF" should "should be marked as family grounded but not protein grounded" in {
@@ -51,10 +53,16 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   "IP-PF resolve" should "work with alternate family lookups" in {
     (ipPF.resolve("PTHR21244")) should be (defined)
     (ipPF.resolve("pthr21244")) should be (defined)
-//    (ipPF.resolve("pthr21244_human")) should be (defined)
+    (ipPF.resolve("pthr21244_human")) should be (defined)
+    (ipPF.resolve("pthr21244_Human")) should be (defined)
+    (ipPF.resolve("pthr21244_HUMAN")) should be (defined)
     (ipPF.resolve("pthr21244 family")) should be (defined)
+    (ipPF.resolve("pthr21244 Family")) should be (defined)
+    (ipPF.resolve("pthr21244 FAMILY")) should be (defined)
     (ipPF.resolve("hk")) should be (defined)
-//    (ipPF.resolve("hk_human")) should be (defined)
+    (ipPF.resolve("hk_human")) should be (defined)
+    (ipPF.resolve("hk_Human")) should be (defined)
+    (ipPF.resolve("hk_HUMAN")) should be (defined)
     (ipPF.resolve("hk family")) should be (defined)
   }
 
@@ -81,10 +89,10 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
   "IP-PF resolveByASpecies" should "work with alternate lookups" in {
     (ipPF.resolveByASpecies("pthr21244", "human")) should be (defined)
-//    (ipPF.resolveByASpecies("pthr21244_human", "human")) should be (defined)
+    (ipPF.resolveByASpecies("pthr21244_human", "human")) should be (defined)
     (ipPF.resolveByASpecies("pthr21244 family", "human")) should be (defined)
     (ipPF.resolveByASpecies("hk", "saccharomyces cerevisiae")) should be (defined)
-//    (ipPF.resolveByASpecies("hk_human", "saccharomyces cerevisiae")) should be (defined)
+    (ipPF.resolveByASpecies("hk_human", "saccharomyces cerevisiae")) should be (defined)
     (ipPF.resolveByASpecies("hk family", "saccharomyces cerevisiae")) should be (defined)
   }
 
@@ -127,28 +135,28 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   "IP-PF resolveBySpecies" should "work with alternate lookups" in {
     (ipPF.resolveBySpecies("pthr21244", setH)) should be (defined)
     (ipPF.resolveBySpecies("PTHR21244", setH)) should be (defined)
-//    (ipPF.resolveBySpecies("pthr21244_human", setH)) should be (defined)
-//    (ipPF.resolveBySpecies("PTHR21244_human", setH)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244_human", setH)) should be (defined)
+    (ipPF.resolveBySpecies("PTHR21244_human", setH)) should be (defined)
     (ipPF.resolveBySpecies("pthr21244 family", setH)) should be (defined)
     (ipPF.resolveBySpecies("PTHR21244 family", setH)) should be (defined)
 
     (ipPF.resolveBySpecies("pthr21244", setHM)) should be (defined)
     (ipPF.resolveBySpecies("pthr21244", setHM).get.size) should be (4)
-//    (ipPF.resolveBySpecies("pthr21244_human", setHM)) should be (defined)
-//    (ipPF.resolveBySpecies("pthr21244_human", setHM).get.size) should be (4)
+    (ipPF.resolveBySpecies("pthr21244_human", setHM)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244_human", setHM).get.size) should be (4)
     (ipPF.resolveBySpecies("pthr21244 family", setHM)) should be (defined)
     (ipPF.resolveBySpecies("pthr21244 family", setHM).get.size) should be (4)
 
     (ipPF.resolveBySpecies("pthr21244", setHMG)) should be (defined)
     (ipPF.resolveBySpecies("pthr21244", setHMG).get.size) should be (4)
-//    (ipPF.resolveBySpecies("pthr21244_human", setHMG)) should be (defined)
-//    (ipPF.resolveBySpecies("pthr21244_human", setHMG).get.size) should be (4)
+    (ipPF.resolveBySpecies("pthr21244_human", setHMG)) should be (defined)
+    (ipPF.resolveBySpecies("pthr21244_human", setHMG).get.size) should be (4)
     (ipPF.resolveBySpecies("pthr21244 family", setHMG)) should be (defined)
     (ipPF.resolveBySpecies("pthr21244 family", setHMG).get.size) should be (4)
 
     (ipPF.resolveBySpecies("hk", Set("saccharomyces cerevisiae", "ant"))) should be (defined)
     (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae"))) should be (defined)
-    (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).get.size) should be (1)
+    (ipPF.resolveBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).get.size) should be (5)
   }
 
   "IP-PF resolveHuman" should "fail despite alternate lookups" in {
@@ -174,8 +182,8 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
   "IP-PF resolveHuman" should "work with alternate lookups" in {
     (ipPF.resolveHuman("pthr21244")) should be (defined)
     (ipPF.resolveHuman("PTHR21244")) should be (defined)
-//    (ipPF.resolveHuman("pthr21244_human")) should be (defined)
-//    (ipPF.resolveHuman("PTHR21244_human")) should be (defined)
+    (ipPF.resolveHuman("pthr21244_human")) should be (defined)
+    (ipPF.resolveHuman("PTHR21244_human")) should be (defined)
     (ipPF.resolveHuman("pthr21244 family")) should be (defined)
     (ipPF.resolveHuman("PTHR21244 family")) should be (defined)
   }
@@ -191,12 +199,12 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     // entry has a species:
     (ipPF.resolveNoSpecies("PTHR21244")) should be (empty)
     (ipPF.resolveNoSpecies("pthr21244")) should be (empty)
-//    (ipPF.resolveNoSpecies("pthr21244_human")) should be (empty)
+    (ipPF.resolveNoSpecies("pthr21244_human")) should be (empty)
     (ipPF.resolveNoSpecies("pthr21244 protein")) should be (empty)
     (ipPF.resolveNoSpecies("pthr21244 family")) should be (empty)
     (ipPF.resolveNoSpecies("mutant-pthr21244")) should be (empty)
     (ipPF.resolveNoSpecies("hk")) should be (empty)
-//    (ipPF.resolveNoSpecies("hk_human")) should be (empty)
+    (ipPF.resolveNoSpecies("hk_human")) should be (empty)
     (ipPF.resolveNoSpecies("hk protein")) should be (empty)
     (ipPF.resolveNoSpecies("hk family")) should be (empty)
     (ipPF.resolveNoSpecies("mutant-hk")) should be (empty)
@@ -204,7 +212,8 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
 
 
   val bePF = new BEProtFamKBL               // defined after this class (LOOK BELOW)
-  bePF.memoryKB.dump                        // DEBUGGING
+  // println("== BE_PF ==========================================================")
+  // bePF.memoryKB.dump                        // DEBUGGING
 
   "BE-PF" should "should be marked as family grounded but not protein grounded" in {
     val txtU = "PTHR21244 is cool."
@@ -216,16 +225,6 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (isFamilyGrounded(menL)) should be (true)
     (isProteinGrounded(menU)) should be (false)
     (isProteinGrounded(menL)) should be (false)
-  }
-
-  "BE-PF resolve" should "fail despite alternate lookups" in {
-    // keys not in KB:
-    (bePF.resolve("NOTINKB")) should be (empty)
-    (bePF.resolve("notinkb")) should be (empty)
-    (bePF.resolve("notinkb_human")) should be (empty)
-    (bePF.resolve("notinkb protein")) should be (empty)
-    (bePF.resolve("notinkb family")) should be (empty)
-    (bePF.resolve("mutant-acad")) should be (empty) // mutant pattern not matched
   }
 
   "BE-PF resolve" should "work for protein family Bioentities" in {
@@ -262,17 +261,44 @@ class TestFamilyResolutions extends FlatSpec with Matchers {
     (bePF.resolve("WNT")) should be (defined) // last entry
   }
 
+  "BE-PF resolve" should "fail despite alternate lookups" in {
+    (bePF.resolve("NOTINKB")) should be (empty) // keys not in KB
+    (bePF.resolve("notinkb")) should be (empty)
+    (bePF.resolve("notinkb_human")) should be (empty)
+    (bePF.resolve("notinkb protein")) should be (empty)
+    (bePF.resolve("notinkb family")) should be (empty)
+    (bePF.resolve("mutant-acad")) should be (empty) // mutant pattern not matched
+    (bePF.resolve("ERK_family")) should be (empty)  // _family is allowed but this one not in KB
+    (bePF.resolve("Erk_family")) should be (empty)
+    (bePF.resolve("erk_family")) should be (empty)
+    (bePF.resolve("ERK_FAMILY")) should be (empty)
+    (bePF.resolve("Erk_FAMILY")) should be (empty)
+    (bePF.resolve("erk_FAMILY")) should be (empty)
+    (bePF.resolve("ERK1/2_family")) should be (empty)
+    (bePF.resolve("Erk1/2_family")) should be (empty)
+    (bePF.resolve("erk1/2_family")) should be (empty)
+    (bePF.resolve("ERK-1/2_family")) should be (empty)
+    (bePF.resolve("Erk-1/2_family")) should be (empty)
+    (bePF.resolve("erk-1/2_family")) should be (empty)
+  }
+
   "BE-PF resolve" should "work via alternate lookups" in {
     (bePF.resolve("4EBP family")) should be (defined)
     (bePF.resolve("ABL family")) should be (defined)
-    (bePF.resolve("ABL_family family")) should be (defined)
+    (bePF.resolve("ABL_family family")) should be (defined) // _family should not be stripped
+    (bePF.resolve("ABL_family protein family")) should be (defined) // _family should not be stripped
     (bePF.resolve("ERK family")) should be (defined)
     (bePF.resolve("Erk family")) should be (defined)
     (bePF.resolve("erk family")) should be (defined)
     (bePF.resolve("ERK 1/2 family")) should be (defined)
+    (bePF.resolve("Erk 1/2 family")) should be (defined)
+    (bePF.resolve("erk 1/2 family")) should be (defined)
     (bePF.resolve("ERK1/2 family")) should be (defined)
     (bePF.resolve("Erk1/2 family")) should be (defined)
+    (bePF.resolve("erk1/2 family")) should be (defined)
+    (bePF.resolve("ERK-1/2 family")) should be (defined)
     (bePF.resolve("Erk-1/2 family")) should be (defined)
+    (bePF.resolve("erk-1/2 family")) should be (defined)
     (bePF.resolve("IkappaB kinase family")) should be (defined)
     (bePF.resolve("inhibin family")) should be (defined)
     (bePF.resolve("Sulfonylurea_receptor family")) should be (defined)
@@ -319,7 +345,7 @@ class IPProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   // println(s"IP-KB.metaInfo=${memoryKB.metaInfo}")
-  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
+  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms, CasedKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
 
@@ -332,6 +358,6 @@ class BEProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
-  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms)
+  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms, CasedKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

@@ -14,11 +14,12 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Update for alternate KT sequence renames.
+  *   Last Modified: Test with cased key transforms.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
   val imkbP = new TestProteinKBL           // defined after this class (LOOK BELOW)
+  // imkbP.memoryKB.dump                        // DEBUGGING
 
   "ProteinKBL resolves" should "should be marked as protein grounded but not family grounded" in {
     val txtU = "PTHR2 is cool."
@@ -31,7 +32,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (isFamilyGrounded(menU)) should be (false)
     (isFamilyGrounded(menL)) should be (false)
   }
-
 
   "ProteinKBL resolve" should "fail despite alternate lookups" in {
     // keys not in KB:
@@ -269,9 +269,9 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveBySpecies("MUTANT-PTHR2", setH)) should be (defined)
 
     (imkbP.resolveBySpecies("pthr2", setHM)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2", setHM).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2", setHM).get) should have size 8
     (imkbP.resolveBySpecies("pthr2_human", setHM)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2_human", setHM).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2_human", setHM).get) should have size 8
     (imkbP.resolveBySpecies("pthr2 protein", setHM)) should be (defined)
     (imkbP.resolveBySpecies("mutant-pthr2", setHM)) should be (defined)
 
@@ -401,7 +401,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
 }
 
-
 // Protein KB using alternate protein resolutions
 class TestProteinKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(
@@ -412,6 +411,6 @@ class TestProteinKBL extends IMKBLookup {
     hasSpeciesInfo = true,
     isProteinKB = true
   )
-  val keyTransforms = new IMKBKeyTransforms(ProteinQueryKeyTransforms)
+  val keyTransforms = new IMKBKeyTransforms(ProteinQueryKeyTransforms, CasedKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
