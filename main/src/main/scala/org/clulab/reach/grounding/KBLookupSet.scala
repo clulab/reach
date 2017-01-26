@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * A class to create/manipulate
   *   Written by: Tom Hicks. 1/11/2017.
-  *   Last Modified: Update for renamed method.
+  *   Last Modified: Rename GNA dataset to GNP.
   */
 class KBLookupSet (
 
@@ -70,14 +70,14 @@ object KBLookupSet {
 
   val kbLookupSetFactory = new KBLookupSetFactory
 
-  /** Set of gene name affix strings extracted from the Sorger bioentities file. */
-  val GeneNameAffixes: KBLookupSet = {
+  /** Set of gene name prefix strings extracted from the affixes of the Sorger bioentities file. */
+  val GeneNamePrefixes: KBLookupSet = {
     val gnaKTs = Seq( identityKT _, lowercaseKT _ )
     kbLookupSetFactory.makeFromFile(GeneNameAffixesFilename, gnaKTs)
   }
 
-  /** Tell whether the given string names a gene name affix or not. */
-  def isGeneNameAffix (affix: String): Boolean = GeneNameAffixes.contains(affix)
+  /** Tell whether the given string names a gene name prefix or not. */
+  def isGeneNamePrefix (prefix: String): Boolean = GeneNamePrefixes.contains(prefix)
 
 
   /** Set of short protein domain strings. */
