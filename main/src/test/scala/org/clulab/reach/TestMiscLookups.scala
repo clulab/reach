@@ -10,7 +10,7 @@ import org.clulab.reach.grounding.ReachMiscLookups._
 /**
   * Unit tests of additional lookup tables and knowledge bases.
   *   Written by: Tom Hicks. 7/10/2016.
-  *   Last Modified: Update for changed lookups.
+  *   Last Modified: Update for rename to gene name prefix.
   */
 class TestMiscLookups extends FlatSpec with Matchers {
 
@@ -104,49 +104,49 @@ class TestMiscLookups extends FlatSpec with Matchers {
   }
 
 
-  // Tests of the singleton Gene Name Affixes set:
-  val gna = GeneNameAffixes
+  // Tests of the singleton Gene Name Prefixes set:
+  val gnp = GeneNamePrefixes
 
-  "Gene Name Affixes" should "test that contains method works" in {
-    (gna.contains("NOT-IN-KB")) should be (false) // not in KB
-    (gna.contains("not-in-kb")) should be (false) // not in KB
-    (gna.contains("prefix")) should be (false)    // not in KB
-    (gna.contains("suffix")) should be (false)    // not in KB
-    (gna.contains("affix")) should be (false)     // not in KB
-    (gna.contains("uaz")) should be (false)       // not in KB
-    (gna.contains("activated")) should be (true)  // first entry in list
-    (gna.contains("ACTIVATED")) should be (true)
-    (gna.contains("flag")) should be (true)
-    (gna.contains("Flag")) should be (true)
-    (gna.contains("FLAG")) should be (true)
-    (gna.contains("gst")) should be (true)
-    (gna.contains("GST")) should be (true)
-    (gna.contains("phospho")) should be (true)
-    (gna.contains("phosphor")) should be (true)
-    (gna.contains("phosphorylated")) should be (true)
-    (gna.contains("shRNA")) should be (true)
-    (gna.contains("shrna")) should be (true)      // last entry in list
+  "Gene Name Prefixes" should "test that contains method works" in {
+    (gnp.contains("NOT-IN-KB")) should be (false) // not in KB
+    (gnp.contains("not-in-kb")) should be (false) // not in KB
+    (gnp.contains("prefix")) should be (false)    // not in KB
+    (gnp.contains("suffix")) should be (false)    // not in KB
+    (gnp.contains("affix")) should be (false)     // not in KB
+    (gnp.contains("uaz")) should be (false)       // not in KB
+    (gnp.contains("activated")) should be (true)  // first entry in list
+    (gnp.contains("ACTIVATED")) should be (true)
+    (gnp.contains("flag")) should be (true)
+    (gnp.contains("Flag")) should be (true)
+    (gnp.contains("FLAG")) should be (true)
+    (gnp.contains("gst")) should be (true)
+    (gnp.contains("GST")) should be (true)
+    (gnp.contains("phospho")) should be (true)
+    (gnp.contains("phosphor")) should be (true)
+    (gnp.contains("phosphorylated")) should be (true)
+    (gnp.contains("shRNA")) should be (true)
+    (gnp.contains("shrna")) should be (true)      // last entry in list
   }
 
-  "Gene Name Affixes" should "test that isGeneNameAffix method works" in {
-    (isGeneNameAffix("NOT-IN-KB")) should be (false) // not in KB
-    (isGeneNameAffix("not-in-kb")) should be (false) // not in KB
-    (isGeneNameAffix("prefix")) should be (false)    // not in KB
-    (isGeneNameAffix("suffix")) should be (false)    // not in KB
-    (isGeneNameAffix("affix")) should be (false)     // not in KB
-    (isGeneNameAffix("uaz")) should be (false)       // not in KB
-    (isGeneNameAffix("activated")) should be (true)  // first entry in list
-    (isGeneNameAffix("ACTIVATED")) should be (true)  // case should not matter
-    (isGeneNameAffix("flag")) should be (true)
-    (isGeneNameAffix("Flag")) should be (true)       // case should not matter
-    (isGeneNameAffix("FLAG")) should be (true)       // case should not matter
-    (isGeneNameAffix("gst")) should be (true)
-    (isGeneNameAffix("GST")) should be (true)        // case should not matter
-    (isGeneNameAffix("phospho")) should be (true)
-    (isGeneNameAffix("phosphor")) should be (true)
-    (isGeneNameAffix("phosphorylated")) should be (true)
-    (isGeneNameAffix("shrna")) should be (true)      // last entry in list
-    (isGeneNameAffix("shRNA")) should be (true)      // last entry in list
+  "Gene Name Prefixes" should "test that isGeneNamePrefix method works" in {
+    (isGeneNamePrefix("NOT-IN-KB")) should be (false) // not in KB
+    (isGeneNamePrefix("not-in-kb")) should be (false) // not in KB
+    (isGeneNamePrefix("prefix")) should be (false)    // not in KB
+    (isGeneNamePrefix("suffix")) should be (false)    // not in KB
+    (isGeneNamePrefix("affix")) should be (false)     // not in KB
+    (isGeneNamePrefix("uaz")) should be (false)       // not in KB
+    (isGeneNamePrefix("activated")) should be (true)  // first entry in list
+    (isGeneNamePrefix("ACTIVATED")) should be (true)  // case should not matter
+    (isGeneNamePrefix("flag")) should be (true)
+    (isGeneNamePrefix("Flag")) should be (true)       // case should not matter
+    (isGeneNamePrefix("FLAG")) should be (true)       // case should not matter
+    (isGeneNamePrefix("gst")) should be (true)
+    (isGeneNamePrefix("GST")) should be (true)        // case should not matter
+    (isGeneNamePrefix("phospho")) should be (true)
+    (isGeneNamePrefix("phosphor")) should be (true)
+    (isGeneNamePrefix("phosphorylated")) should be (true)
+    (isGeneNamePrefix("shrna")) should be (true)      // last entry in list
+    (isGeneNamePrefix("shRNA")) should be (true)      // last entry in list
   }
 
 }
