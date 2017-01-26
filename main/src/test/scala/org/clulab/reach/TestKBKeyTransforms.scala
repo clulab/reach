@@ -9,29 +9,29 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Add more key candidate and transform tests.
+  *   Last Modified: Increase tests. Add tests for stripAllKeysSuffixes.
   */
 class TestKBKeyTransforms extends FlatSpec with Matchers {
 
-  // test makeCanonicalKey
-  "makeCanonicalKey(identical)" should "return identical string" in {
-    (makeCanonicalKey("identical")) should equal ("identical")
+  // test canonicalKey
+  "canonicalKey(identical)" should "return identical string" in {
+    (canonicalKey("identical")) should equal ("identical")
   }
 
-  "makeCanonicalKey(a non-identical)" should "return a non-identical string" in {
-    (makeCanonicalKey("a non-identical")) should not equal ("a non-identical")
+  "canonicalKey(a non-identical)" should "return a non-identical string" in {
+    (canonicalKey("a non-identical")) should not equal ("a non-identical")
   }
 
-  "makeCanonicalKey(A-B and/or C)" should "return abandorc" in {
-    (makeCanonicalKey("A-B and/or C")) should equal ("abandorc")
+  "canonicalKey(A-B and/or C)" should "return abandorc" in {
+    (canonicalKey("A-B and/or C")) should equal ("abandorc")
   }
 
-  "makeCanonicalKey(MAN_human)" should "return man" in {
-    (makeCanonicalKey("MAN_human")) should equal ("man")
+  "canonicalKey(MAN_human)" should "return man" in {
+    (canonicalKey("MAN_human")) should equal ("man_human")
   }
 
-  "makeCanonicalKey(WO-MAN_HUMAN)" should "return woman" in {
-    (makeCanonicalKey("WO-MAN_HUMAN")) should equal ("woman")
+  "canonicalKey(WO-MAN_HUMAN)" should "return woman" in {
+    (canonicalKey("WO-MAN")) should equal ("woman")
   }
 
   // test stripAllSuffixes
@@ -63,6 +63,22 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (stripAllSuffixes(seq2, "string one one one")) should equal ("string")
   }
 
+  // test stripAllKeysSuffixes
+  "stripAllKeysSuffixes" should "strip the right suffixes" in {
+    (stripAllKeysSuffixes("string_human")) should equal ("string")
+    (stripAllKeysSuffixes("String_human")) should equal ("String")
+    (stripAllKeysSuffixes("STRING_human")) should equal ("STRING")
+    (stripAllKeysSuffixes("string_Human")) should equal ("string")
+    (stripAllKeysSuffixes("String_Human")) should equal ("String")
+    (stripAllKeysSuffixes("STRING_Human")) should equal ("STRING")
+    (stripAllKeysSuffixes("string_HUMAN")) should equal ("string")
+    (stripAllKeysSuffixes("String_HUMAN")) should equal ("String")
+    (stripAllKeysSuffixes("STRING_HUMAN")) should equal ("STRING")
+    (stripAllKeysSuffixes("being human")) should equal ("being human")
+    (stripAllKeysSuffixes("Being Human")) should equal ("Being Human")
+    (stripAllKeysSuffixes("BEING HUMAN")) should equal ("BEING HUMAN")
+  }
+
   // test toKeyCandidates
   "toKeyCandidates(string)" should "return correct results" in {
     (toKeyCandidates("")) should be (empty)
@@ -70,7 +86,7 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (toKeyCandidates("STRING")) should equal (Seq("STRING")) // no case change
     (toKeyCandidates("a to z")) should equal (Seq("a to z"))
     (toKeyCandidates("string one/two-tree")) should equal (Seq("string one/two-tree"))
-    (toKeyCandidates(" XXX ")) should equal (Seq(" XXX ")) // no trimming
+    (toKeyCandidates(" XXX ")) should equal (Seq("XXX")) // trimming
   }
 
   "toKeyCandidates(sequences[string])" should "return correct results" in {
@@ -79,7 +95,7 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (toKeyCandidates(Seq("STRING"))) should equal (Seq("STRING")) // no case change
     (toKeyCandidates(Seq("a to z"))) should equal (Seq("a to z"))
     (toKeyCandidates(Seq("string one/two-tree"))) should equal (Seq("string one/two-tree"))
-    (toKeyCandidates(Seq(" XXX "))) should equal (Seq(" XXX ")) // no trimming
+    (toKeyCandidates(Seq(" XXX "))) should equal (Seq("XXX")) // trimming
     (toKeyCandidates(Seq("", "", ""))) should be (empty)
     (toKeyCandidates(Seq("a", "ZZ"))) should equal (Seq("a", "ZZ"))
     (toKeyCandidates(Seq("a", "b", "c"))) should equal (Seq("a", "b", "c"))
@@ -127,20 +143,20 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
   "applyAllTransforms(XXX, multiple KTs)" should "do the right things" in {
     (applyAllTransforms(kt_all, "abcxyz").size) should be (4)
     (applyAllTransforms(kt_all, "ABCXYZ").size) should be (4)
-    (applyAllTransforms(kt_all, " X ").size) should be (4)
+    (applyAllTransforms(kt_all, " X ").size) should be (2)
     (applyAllTransforms(kt_all, "abcxyz")) should equal (Seq("abcxyz", "a", "z", "zyxcba"))
     (applyAllTransforms(kt_all, "ABCXYZ")) should equal (Seq("ABCXYZ", "A", "Z", "ZYXCBA"))
-    (applyAllTransforms(kt_all, " X ")) should equal (Seq(" X ", " ", " ", " X "))
+    (applyAllTransforms(kt_all, " X ")) should equal (Seq("X", "X"))
   }
 
   // Test real Reach transforms
-  def kt_hyphenPK = Seq(hyphenatedProteinKey _)
-  def kt_stripPPA = Seq(stripProteinPostAttributives _)
-  def kt_stripMP  = Seq(stripMutantProtein _)
-  def kt_stripPTMP = Seq(stripPTMPrefixes _)
-  def kt_stripGNA = Seq(stripGeneNameAffixes _)
-  def kt_stripFPA = Seq(stripFamilyPostAttributives _)
-  def kt_stripOPA = Seq(stripOrganPostAttributives _)
+  def kt_hyphenPK = Seq(hyphenatedProteinKT _)
+  def kt_stripPPA = Seq(stripProteinPostAttributivesKT _)
+  def kt_stripMP  = Seq(stripMutantProteinKT _)
+  def kt_stripPTMP = Seq(stripPTMPrefixesKT _)
+  def kt_stripGNA = Seq(stripGeneNameAffixesKT _)
+  def kt_stripFPA = Seq(stripFamilyPostAttributivesKT _)
+  def kt_stripOPA = Seq(stripOrganPostAttributivesKT _)
 
   "applyAllTransforms(hyphenatedProteinKey, various strings)" should "return stems" in {
     (applyAllTransforms(kt_hyphenPK, "LHS-RHS")) should equal (Seq("RHS"))
@@ -152,9 +168,20 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
 
   "applyAllTransforms(stripProteinPostAttributives, various strings)" should "return stems" in {
     (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
-    (applyAllTransforms(kt_stripPPA, "HAIRY protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "Hairy protein")) should equal (Seq("Hairy"))
+    (applyAllTransforms(kt_stripPPA, "HAIRY protein")) should equal (Seq("HAIRY"))
+    (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "Hairy Protein")) should equal (Seq("Hairy"))
+    (applyAllTransforms(kt_stripPPA, "HAIRY PROTEIN")) should equal (Seq("HAIRY"))
+    (applyAllTransforms(kt_stripPPA, "hairy Protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "hairy PROTEIN")) should equal (Seq("hairy"))
     (applyAllTransforms(kt_stripPPA, "odd mutant protein")) should equal (Seq("odd"))
-    (applyAllTransforms(kt_stripPPA, "Odd Mutant protein")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripPPA, "Odd mutant protein")) should equal (Seq("Odd"))
+    (applyAllTransforms(kt_stripPPA, "ODD mutant protein")) should equal (Seq("ODD"))
+    (applyAllTransforms(kt_stripPPA, "odd Mutant Protein")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripPPA, "Odd MUTANT Protein")) should equal (Seq("Odd"))
+    (applyAllTransforms(kt_stripPPA, "ODD mutant Protein")) should equal (Seq("ODD"))
+    (applyAllTransforms(kt_stripPPA, "ODD mutant PROTEIN")) should equal (Seq("ODD"))
   }
 
   "applyAllTransforms(stripOrganPostAttributives, various strings)" should "return stems" in {
@@ -173,6 +200,19 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_stripOPA, "purple cells tissues fluids")) should equal (Seq("purple"))
   }
 
+  "applyAllTransforms(stripOrganPostAttributives, various strings)" should "work un-cased" in {
+    (applyAllTransforms(kt_stripOPA, "RED CELL")) should equal (Seq("RED"))
+    (applyAllTransforms(kt_stripOPA, "red CELLS")) should equal (Seq("red"))
+    (applyAllTransforms(kt_stripOPA, "Blue Tissue")) should equal (Seq("Blue"))
+    (applyAllTransforms(kt_stripOPA, "blue Tissues")) should equal (Seq("blue"))
+    (applyAllTransforms(kt_stripOPA, "GrEeN fluid")) should equal (Seq("GrEeN"))
+    (applyAllTransforms(kt_stripOPA, "green FlUiDs")) should equal (Seq("green"))
+    (applyAllTransforms(kt_stripOPA, "PURPLE cell TISSUE")) should equal (Seq("PURPLE"))
+    (applyAllTransforms(kt_stripOPA, "purple CELL TISSUES")) should equal (Seq("purple"))
+    (applyAllTransforms(kt_stripOPA, "Purple Cell Fluid")) should equal (Seq("Purple"))
+    (applyAllTransforms(kt_stripOPA, "purple cellS tissueS fluidS")) should equal (Seq("purple"))
+  }
+
   "applyAllTransforms(stripMutantProtein, various strings)" should "return stems" in {
     (applyAllTransforms(kt_stripMP, "crazy weird mutant")) should equal (Seq("crazy"))
     (applyAllTransforms(kt_stripMP, "Crazy Weird Mutant")) should equal (Seq("Crazy"))
@@ -183,9 +223,30 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
 
   "applyAllTransforms(stripFamilyPostAttributives, various strings)" should "return stems" in {
     (applyAllTransforms(kt_stripFPA, "parsnip family")) should equal (Seq("parsnip"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip Family")) should equal (Seq("parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip family")) should equal (Seq("Parsnip"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP family")) should equal (Seq("PARSNIP"))
+    (applyAllTransforms(kt_stripFPA, "parsnip FAMILY")) should equal (Seq("parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip Family")) should equal (Seq("Parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip FAMILY")) should equal (Seq("Parsnip"))
     (applyAllTransforms(kt_stripFPA, "sad protein family")) should equal (Seq("sad"))
-    (applyAllTransforms(kt_stripFPA, "SAD protein family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "Sad protein family")) should equal (Seq("Sad"))
+    (applyAllTransforms(kt_stripFPA, "SAD protein family")) should equal (Seq("SAD"))
+    (applyAllTransforms(kt_stripFPA, "sad protein FAMILY")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "sad PROTEIN family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "sad PROTEIN Family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "Sad Protein Family")) should equal (Seq("Sad"))
+    (applyAllTransforms(kt_stripFPA, "SAD PROTEIN FAMILY")) should equal (Seq("SAD"))
   }
 
+  "applyAllTransforms(stripFamilyPostAttributives, _family)" should "not return stems" in {
+    (applyAllTransforms(kt_stripFPA, "parsnip_family")) should equal (Seq("parsnip_family"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip_family")) should equal (Seq("Parsnip_family"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP_family")) should equal (Seq("PARSNIP_family"))
+    (applyAllTransforms(kt_stripFPA, "parsnip_Family")) should equal (Seq("parsnip_Family"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip_Family")) should equal (Seq("Parsnip_Family"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP_Family")) should equal (Seq("PARSNIP_Family"))
+    (applyAllTransforms(kt_stripFPA, "parsnip_FAMILY")) should equal (Seq("parsnip_FAMILY"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip_FAMILY")) should equal (Seq("Parsnip_FAMILY"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP_FAMILY")) should equal (Seq("PARSNIP_FAMILY"))
+  }
 }
