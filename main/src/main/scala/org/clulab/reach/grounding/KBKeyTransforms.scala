@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Add applyTransform methods.
+  *   Last Modified: Try to ensure consistent trimming.
   */
 trait KBKeyTransforms {
 
@@ -88,10 +88,12 @@ trait KBKeyTransforms {
     stripAllSuffixesKT(suffixes, mention.text)
 
   /** Transform the given string into (a possibly empty) key candidates. */
-  def toKeyCandidates (text:String): KeyCandidates = if (text.nonEmpty) Seq(text) else NoCandidates
+  def toKeyCandidates (text:String): KeyCandidates =
+    if (text.trim.nonEmpty) Seq(text.trim) else NoCandidates
 
   /** Transform the given sequence of strings into (a possibly empty) key candidates. */
-  def toKeyCandidates (candidates: Seq[String]): KeyCandidates = candidates.filter(_.nonEmpty)
+  def toKeyCandidates (candidates: Seq[String]): KeyCandidates =
+    candidates.map(_.trim).filter(_.nonEmpty)
 }
 
 

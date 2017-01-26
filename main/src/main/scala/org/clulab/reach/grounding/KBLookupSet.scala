@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * A class to create/manipulate
   *   Written by: Tom Hicks. 1/11/2017.
-  *   Last Modified: Get working. Move gene name and protein domain lookup sets here.
+  *   Last Modified: Update for renamed method.
   */
 class KBLookupSet (
 
@@ -86,6 +86,6 @@ object KBLookupSet {
 
   /** Tell whether the given string names a protein domain or not. */
   def isProteinDomain (domain: String): Boolean =
-    ProteinDomainShortNames.contains(makeCanonicalKey(domain))
+    ProteinDomainShortNames.contains(canonicalKey(domain))
 
 }

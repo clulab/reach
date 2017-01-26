@@ -11,7 +11,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Add orderResolutions method. Rename resolution arguments for clarity.
+  *   Last Modified: Trim & lowercase namespaces, trim ID.
   */
 object ReachKBUtils {
 
@@ -26,7 +26,7 @@ object ReachKBUtils {
 
   /** Return a formatted string containing this entry's namespace and ID. */
   def makeNamespaceId (namespace:String, id:String): String =
-    s"${namespace}${NamespaceIdSeparator}${id}"
+    s"${namespace.trim.toLowerCase}${NamespaceIdSeparator}${id.trim}"
 
 
   /** Return a file for the given filename in the knowledge bases directory. */

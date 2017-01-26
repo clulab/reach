@@ -12,7 +12,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Redo lookups to be sequential.
+  *   Last Modified: Make query transforms a constant. Try to ensure consistent trimming.
   */
 class InMemoryKB (
 
@@ -29,6 +29,9 @@ class InMemoryKB (
 
   /** MultiMap of NS/ID (namespace/id) to KB Entries. */
   val nsidMap = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
+
+  /** The key transforms to be used when querying this KB. */
+  val queryTransforms = keyTransforms.baseKTs ++ keyTransforms.queryKTs
 
 
   /** Return a sequence of ALL the KB entries in this KB. */
@@ -64,22 +67,23 @@ class InMemoryKB (
     refId: String,
     species: String = NoSpeciesValue
   ): Unit = {
+    val trimText = text.trim                // insure no trailing whitespace
     val ns = namespace.toLowerCase          // canonicalize namespace
     val nsId = makeNamespaceId(ns, refId)   // make NS/ID key
-    val kbe = new KBEntry(text, ns, refId, species.toLowerCase)
+    val kbe = new KBEntry(trimText, ns, refId, species.toLowerCase)
     storeEntry(nsId, kbe)                   // store KB entry under NS/ID key
     // transform the given text into one or more keys for the key -> NS/ID map. */
-    applyAllTransforms(keyTransforms.baseKTs, text).foreach { key =>
+    applyAllTransforms(keyTransforms.baseKTs, trimText).foreach { key =>
       storeKey(key, nsId)                   // map each key to the same NS/ID key
     }
   }
 
   /** Return resolutions for the set of KB entries for the given NS/ID string. */
-  def lookupNsId (nsId:String): Resolutions = newResolutions(nsidMap.getOrElse(nsId, NoEntries))
+  def lookupNsId (nsId:String): Resolutions = newResolutions(nsidMap.getOrElse(nsId.trim, NoEntries))
 
   /** Return resolutions for the set of KB entries for the given namespace and ID strings. */
   def lookupNsId (namespace:String, id:String): Resolutions =
-    lookupNsId(makeNamespaceId(namespace, id))
+    lookupNsId(makeNamespaceId(namespace, id)) // trimming handled in makeNamespaceId
 
   /** Try lookups for all given NS/IDs until one succeeds or all fail. */
   def lookupNsIds (nsIds: NsIdSet): Resolutions = newResolutions(lookupEntries(nsIds))
@@ -108,10 +112,12 @@ class InMemoryKB (
   def lookupNoSpecies (text:String): Resolutions =
     newResolutions(search(text, Some((kbe:KBEntry) => kbe.hasNoSpecies)))
 
-
+  /** Generate one or more keys from the given text string, look the keys up and
+      return the first set of KB entries which passes the optionally given filter. */
   private def search (text: String, filterFn: Option[EntryFilter]): KBEntries = {
-    (keyTransforms.baseKTs ++ keyTransforms.queryKTs).foreach { ktFn =>
-      ktFn.apply(text).foreach { key =>       // generate and try candidate keys
+    val cleanText = stripAllKeysSuffixes(text.trim) // remove default stop suffixes
+    queryTransforms.foreach { ktFn =>
+      ktFn.apply(cleanText).foreach { key =>  // generate and try candidate keys
         val entries = if (filterFn.isDefined) // optionally filter any entries found
           filteredEntries(lookupKey(key), filterFn.get)
         else
