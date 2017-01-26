@@ -1,5 +1,7 @@
 package org.clulab.reach.grounding
 
+import scala.util.matching.Regex
+
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.KBLookupSet._
 import org.clulab.reach.grounding.ReachKBConstants._
@@ -9,7 +11,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Organ pattern repeats. Use pattern for protein KT. Simplify family pattern.
+  *   Last Modified: Add gene name suffix stripper built on pattern stripper.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -24,6 +26,12 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def canonicalMKT (mention:BioTextBoundMention): KeyCandidates = canonicalKT(mention.text)
 
 
+  // def handleHyphenationKTs (text:String): KeyCandidates = {
+  //   if (!text.contains("-"))
+  //     return NoCandidates
+  //   // TODO: GNA, proteinDomain suffix PTMprefixes?
+  // }
+
   /** Check for one of several types of hyphen-separated strings and, if found,
     * extract and return the candidate text portion, else return the text unchanged. */
   def hyphenatedProteinKT (text:String): KeyCandidates = text.trim match {
@@ -32,11 +40,8 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     case _ => NoCandidates                // signal failure
   }
 
-  /** Check for suffixes matching pattern, return matched RHS or trimmed text. */
-  def stripAllKeysSuffixes (text:String): String = text.trim match {
-    case AllKeysSuffixPat(lhs) => lhs.trim
-    case ttext:String => ttext
-  }
+  /** Remove suffixes from all keys candidates. */
+  def stripAllKeysSuffixes (text:String): String = stripSuffixByPattern(AllKeysSuffixPat, text)
 
   /** Return the portion of the text string minus one of the protein family postpositional
     * attributives, if found in the given text string, else return no candidates. */
@@ -50,13 +55,11 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
 
   /** Remove affixes from given dash-separated key, return concatenated string of non-affixes. */
   def stripGeneNameAffixesKT (text:String): KeyCandidates = {
-    if (text.contains("-")) {
-      val stripped = text.split("-").filterNot(isGeneNameAffix(_))
-      if (!stripped.isEmpty)
-        Seq(stripped.mkString("-"))
-      else Seq(text)
-    }
-    else NoCandidates
+    val noSuffixes = stripSuffixByPattern(GeneNameSuffixPat, text) // remove any suffixes
+    val noPrefixes = noSuffixes.split("-").filterNot(isGeneNamePrefix(_))
+    if (noPrefixes.nonEmpty)
+      Seq(noPrefixes.mkString("-"))
+    else Seq(noSuffixes)
   }
 
   /** Return the portion of the text string before a trailing mutation phrase,
@@ -88,6 +91,12 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     case _ => NoCandidates                // signal failure
   }
 
+  /** Remove suffix(es) matching given pattern from text, return matched part or text.
+    * Trims matching part or text as a side effect. */
+  def stripSuffixByPattern (pattern:Regex, text:String): String = text.trim match {
+    case pattern(matched) => matched.trim
+    case ttext:String => ttext
+  }
 }
 
 
@@ -101,6 +110,9 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val UnderscoreFamilySuffixPat = """(?i)(.*_family)""".r
   val FamilyPostAttributivePat =  """(?i)(.*?)(?: protein family|family)""".r
 
+  /** The set of suffixes to remove from all keys to create a lookup key. */
+  val GeneNameSuffixPat = """(?i)(.*?)(?:-?e?GFP)+""".r
+
   /** Pattern matching 2 text strings separated by a hyphen, case insensitive. */
   val HyphenatedNamePat = """(?i)(\w+)-(\w+)""".r
 
@@ -108,7 +120,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val KeyCharactersToRemove = " /-".toSet
 
   /** Match patterns to create an organ lookup key. */
-  val OrganPostAttributivePat = "(?i)(.*?)(?: cells?| tissues?| fluids?)+".r
+  val OrganPostAttributivePat = """(?i)(.*?)(?: cells?| tissues?| fluids?)+""".r
 
   /** Match protein names beginning with special PTM-related prefix characters. */
   val PTMPrefixPat = """(p|u)([A-Z0-9_-][A-Za-z0-9_-]*)""".r
