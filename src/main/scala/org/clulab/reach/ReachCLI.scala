@@ -6,10 +6,10 @@ import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
-import java.io.{ File, FileOutputStream, OutputStreamWriter, PrintWriter }
+import java.io.File
 import java.util.Date
-
 import ai.lum.common.FileUtils._
+import ai.lum.common.ConfigUtils._
 import org.clulab.odin._
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
@@ -21,6 +21,7 @@ import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.utils.MentionManager
 
+
 /**
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
@@ -30,10 +31,31 @@ import org.clulab.reach.utils.MentionManager
 class ReachCLI (
   val papersDir: File,
   val outputDir: File,
-  val outputFormat: String,
-  val skipFiles: Set[String] = Set.empty[String],
-  val statsKeeper: ProcessingStats = new ProcessingStats
+  val outputFormats: Seq[String],
+  val statsKeeper: ProcessingStats = new ProcessingStats,
+  val encoding: String = "utf-8",
+  val restartFile: Option[File] = None
 ) extends LazyLogging {
+
+  val skipFiles: Set[String] = restartFile match {
+    case None => Set.empty[String]
+    case Some(f) =>
+      val src = Source.fromFile(f, encoding)
+      // get set of nonempty lines
+      val lines: Set[String] = src.getLines().filter(_.nonEmpty).toSet
+      // close the file
+      src.close()
+      lines
+  }
+
+  private val restartFileLock = new AnyRef  // lock file object for restart file
+
+  /** In the restart log file, record the given file as successfully completed. */
+  def fileSucceeded(file: File): Unit = if (restartFile.nonEmpty) {
+    restartFileLock.synchronized {
+      restartFile.get.writeString(s"${file.getName}\n", charset = encoding, append = true)
+    }
+  }
 
   /** Process papers **/
   def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
@@ -52,7 +74,7 @@ class ReachCLI (
       file <- files
       filename = file.getName
       paperID = FilenameUtils.removeExtension(filename)
-      if (!skipFiles.contains(filename))
+      if ! skipFiles.contains(filename)
     } yield {
       val error: Int = try {
         processPaper(file, withAssembly)
@@ -106,8 +128,10 @@ class ReachCLI (
 
     logger.debug(s"  ${ durationToS(startNS, System.nanoTime) }s: $paperId: finished reading")
 
-    // generate output
-    outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly)
+    // generate outputs
+    // NOTE: Assembly can't be run before calling this method without additional refactoring,
+    // as different output formats apply different filters before running assembly
+    outputFormats.foreach(outputFormat => outputMentions(mentions, entry, paperId, startTime, outputDir, outputFormat, withAssembly))
 
     // elapsed time: processing + writing output
     val endTime = ReachCLI.now
@@ -121,7 +145,7 @@ class ReachCLI (
     logger.info(s"$endTime: PapersDone: ${avg(0)}, ElapsedTime: ${elapsed}, Average: ${avg(1)}")
 
     // record successful processing of input file for possible batch restart
-    ReachCLI.fileSucceeded(file)
+    fileSucceeded(file)
   }
 
   /**
@@ -201,40 +225,51 @@ class ReachCLI (
   private def durationToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }
 
+object ReachCLI {
 
-object ReachCLI extends App with LazyLogging {
-  private val restartFileLock = new AnyRef  // lock file object for restart file
+  /** Return a new timestamp each time called. */
+  def now = new Date()
+
+  /** legacy constructor for a single output format */
+  def apply(
+    papersDir: File,
+    outputDir: File,
+    outputFormat: String,
+    statsKeeper: ProcessingStats = new ProcessingStats,
+    encoding: String = "utf-8",
+    restartFile: Option[File] = None
+  ):ReachCLI = new ReachCLI(papersDir, outputDir, Seq(outputFormat), statsKeeper, encoding, restartFile)
+}
+
+object RunReachCLI extends App with LazyLogging {
 
   // use specified config file or the default one if one is not provided
   val config =
     if (args.isEmpty) ConfigFactory.load()
     else ConfigFactory.parseFile(new File(args(0))).resolve()
 
-  val papersDir = new File(config.getString("papersDir"))
+  val papersDir: File = config[File]("papersDir")
   logger.debug(s"(ReachCLI.init): papersDir=${papersDir}")
-  val outDir = new File(config.getString("outDir"))
+  val outDir: File = config[File]("outDir")
   logger.debug(s"(ReachCLI.init): outDir=${outDir}")
-  val outputType = config.getString("outputType")
-  logger.debug(s"(ReachCLI.init): outputType=${outputType}")
-  val encoding = config.getString("encoding")
+  // seq of output types
+  val outputTypes: List[String] = config[List[String]]("outputTypes")
+  logger.debug(s"(ReachCLI.init): outputTypes=${outputTypes.mkString(", ")}")
+  val encoding: String = config[String]("encoding")
   logger.debug(s"(ReachCLI.init): encoding=${encoding}")
 
   // should assembly be performed?
-  val withAssembly = config.getBoolean("withAssembly")
+  val withAssembly: Boolean = config[Boolean]("withAssembly")
   logger.debug(s"(ReachCLI.init): withAssembly=${withAssembly}")
 
   // configure the optional restart capability
-  val useRestart = config.getBoolean("restart.useRestart")
+  val useRestart: Boolean = config[Boolean]("restart.useRestart")
   logger.debug(s"(ReachCLI.init): useRestart=${useRestart}")
-  val restartFile = new File(config.getString("restart.logfile"))
+  val restartFile: File = config[File]("restart.logfile")
   logger.debug(s"(ReachCLI.init): restartFile=${restartFile}")
-  val skipFiles = if (useRestart && restartFile.exists)
-    Source.fromFile(restartFile, encoding).getLines().toSet
-  else
-    Set.empty[String]
 
   // the number of threads to use for parallelization
-  val threadLimit = config.getInt("threadLimit")
+  val threadLimit: Int = config[Int]("threadLimit")
   logger.debug(s"(ReachCLI.init): threadLimit=${threadLimit}")
 
   logger.info(s"ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
@@ -253,24 +288,13 @@ object ReachCLI extends App with LazyLogging {
   }
 
   // create a new batch class and process the input papers
-  val cli = new ReachCLI(papersDir, outDir, outputType, skipFiles)
+  val cli = new ReachCLI(
+    papersDir,
+    outDir,
+    outputTypes,
+    encoding = encoding,
+    restartFile = if (useRestart) Some(restartFile) else None
+  )
   cli.processPapers(Some(threadLimit), withAssembly)
-
-
-  /** Return a new timestamp each time called. */
-  def now = new Date()
-
-  /** In the restart log file, record the given file as successfully completed. */
-  def fileSucceeded (file: File): Unit = {
-    if (useRestart) {
-      restartFileLock.synchronized {        // sync multiple class instances
-        val pw = new PrintWriter(
-          new OutputStreamWriter(
-            new FileOutputStream(restartFile, true), // true=append
-              encoding), true)              // charsetName, true=autoFlush
-        try pw.println(file.getName) finally pw.close()
-      }
-    }
-  }
 
 }
