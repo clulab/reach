@@ -460,6 +460,11 @@ object DarpaActions {
       triggerHead <- DependencyUtils.findHeadStrict(trigger.tokenInterval, trigger.sentenceObj)
       argHead <- DependencyUtils.findHeadStrict(arg.tokenInterval, arg.sentenceObj)
     } yield deps.shortestPath(triggerHead, argHead, ignoreDirection = true)
+
+    //println("Trigger: " + trigger.start + " -> " + trigger.end + " " + trigger.label)
+    //println("Argument: " + arg.start + " -> " + arg.end + " " + arg.label)
+    //println(s"Shortest path: ${shortestPath.get.mkString(", ")} in sentence ${trigger.sentenceObj.words.mkString(", ")}")
+
     shortestPath match {
       case None => Nil
       case Some(path) =>
