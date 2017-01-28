@@ -14,8 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/4/2015.
-  *   Last Modified: Test with cased key transforms. Update/add tests for enhanced KTs.
-  *                  Restore _human tests.
+  *   Last Modified: Update for rename of KB key transforms group.
   */
 class TestFamilyResolutions extends FlatSpec with Matchers {
 
@@ -345,7 +344,7 @@ class IPProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   // println(s"IP-KB.metaInfo=${memoryKB.metaInfo}")
-  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms, CasedKeyTransforms)
+  val keyTransforms = new KBKeyTransformsGroup(FamilyQueryKeyTransforms, CasedKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
 
@@ -358,6 +357,6 @@ class BEProtFamKBL extends IMKBLookup {
     isFamilyKB = true
   )
   // println(s"BE-KB.metaInfo=${memoryKB.metaInfo}")
-  val keyTransforms = new IMKBKeyTransforms(FamilyQueryKeyTransforms, CasedKeyTransforms)
+  val keyTransforms = new KBKeyTransformsGroup(FamilyQueryKeyTransforms, CasedKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

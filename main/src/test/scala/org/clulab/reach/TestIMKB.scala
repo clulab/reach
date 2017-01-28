@@ -9,19 +9,19 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests of InMemoryKBs.
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Update for hiding of KB entry class.
+  *   Last Modified: Update for rename of KB key transforms group.
   */
 class TestIMKB extends FlatSpec with Matchers {
   val eFactory = new EmptyIMKBFactory
 
   // create empty IMKB with one canonical key transform:
   val canonKTs = Seq( canonicalKT _)
-  val ktConfig1 = new IMKBKeyTransforms(canonKTs, canonKTs)
+  val ktConfig1 = new KBKeyTransformsGroup(canonKTs, canonKTs)
   val eImkb1 = eFactory.makeIMKB(ktConfig1) // configure new IMKB (factory below)
 
   // create empty IMKB with several types of storage key transforms:
   val multiKTs = Seq( identityKT _, lowercaseKT _, canonicalKT _)
-  val ktConfig2 = new IMKBKeyTransforms(multiKTs, multiKTs)
+  val ktConfig2 = new KBKeyTransformsGroup(multiKTs, multiKTs)
   val eImkb2 = eFactory.makeIMKB(ktConfig2) // configure new IMKB (factory below)
 
   "Empty KB" should "not be able to lookup anything while empty" in {
@@ -137,7 +137,7 @@ class TestIMKB extends FlatSpec with Matchers {
 
 
 class EmptyIMKBFactory {
-  def makeIMKB(keyTransforms: IMKBKeyTransforms): InMemoryKB = {
+  def makeIMKB(keyTransforms: KBKeyTransformsGroup): InMemoryKB = {
     val metaInfo = new IMKBMetaInfo(kbFilename=None, namespace="tst", baseURI="http://test.com")
     new InMemoryKB(metaInfo, keyTransforms)
   }
