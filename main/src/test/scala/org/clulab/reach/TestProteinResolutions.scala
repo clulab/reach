@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Test with cased key transforms.
+  *   Last Modified: WIP: Update for larger result sizes.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -276,15 +276,15 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveBySpecies("mutant-pthr2", setHM)) should be (defined)
 
     (imkbP.resolveBySpecies("pthr2", setHMG)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2", setHMG).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2", setHMG).get) should have size 8
     (imkbP.resolveBySpecies("pthr2_human", setHMG)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2_human", setHMG).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2_human", setHMG).get) should have size 8
     (imkbP.resolveBySpecies("pthr2 protein", setHMG)) should be (defined)
     (imkbP.resolveBySpecies("mutant-pthr2", setHMG)) should be (defined)
 
     (imkbP.resolveBySpecies("zyx-1", Set("caenorhabditis elegans", "ant"))) should be (defined)
     (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans"))) should be (defined)
-    (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get) should have size 1
+    (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get) should have size 2
   }
 
   "ProteinKBL resolveBySpecies" should "work via protein domain lookup" in {
