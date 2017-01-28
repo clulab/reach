@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Remove outdated commented lines. Simplify IMKBLookup instantiation.
+  *   Last Modified: Update for rename to KB key transforms group.
   */
 object ReachIMKBLookups {
 
@@ -90,8 +90,8 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    // val keyTransforms = new KBKeyTransformsGroup(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
     new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -103,8 +103,8 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    // val keyTransforms = new KBKeyTransformsGroup(ProteinKeyTransforms, ProteinKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
     new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -117,8 +117,8 @@ object ReachIMKBLookups {
       resourceId = "MIR:00000028",
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    // val keyTransforms = new KBKeyTransformsGroup(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
     new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -132,8 +132,8 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    // val keyTransforms = new KBKeyTransformsGroup(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
     new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -145,8 +145,8 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isFamilyKB = true
     )
-    // val keyTransforms = new IMKBKeyTransforms(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new IMKBKeyTransforms() // REPLACE LATER WITH ABOVE
+    // val keyTransforms = new KBKeyTransformsGroup(FamilyKeyTransforms, FamilyKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
     new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 

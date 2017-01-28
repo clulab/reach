@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Hide the KBEntry class, an internal artifact of IMKB.
+  *   Last Modified: Update for rename of KB key transforms group.
   */
 class InMemoryKB (
 
@@ -22,7 +22,7 @@ class InMemoryKB (
   val metaInfo: IMKBMetaInfo = new IMKBMetaInfo(),
 
   /** Configuration record containing KB key transforms for this KB. */
-  val keyTransforms: IMKBKeyTransforms = new IMKBKeyTransforms()
+  val keyTransforms: KBKeyTransformsGroup = new KBKeyTransformsGroup()
 
 )  {
 
