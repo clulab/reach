@@ -6,24 +6,9 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Ensure key candidates by wrapping applyAllTransforms methods.
+  *   Last Modified: Move Type aliases to companion object.
   */
 trait KBKeyTransforms {
-
-  /** Type alias for a (possibly empty) sequence of key transform results. */
-  type KeyCandidates = Seq[String]
-  val NoCandidates = Seq.empty[String]
-
-  /** Type alias for functions which take a text string and return a (possibly empty)
-      list of potential key strings. */
-  type KeyTransformFn = (String) => KeyCandidates
-  type KeyTransforms = Seq[KeyTransformFn]
-
-  /** Type alias for functions which take a mention and return a (possibly empty)
-      list of potential key strings. */
-  type MentionKeyTransformFn = (BioTextBoundMention) => KeyCandidates
-  type MentionKeyTransforms = Seq[MentionKeyTransformFn]
-
 
   /** Apply the given transform function to the given text, return any non-empty result strings. */
   def applyTransform (transformFn: KeyTransformFn, text: String): KeyCandidates =
@@ -95,5 +80,21 @@ trait KBKeyTransforms {
 }
 
 
-/** Trait Companion Object allows Mixin OR Import pattern. */
-object KBKeyTransforms extends KBKeyTransforms { }
+/** This object does NOT implement the selfless-trait pattern because the class is extended. */
+object KBKeyTransforms {
+
+  /** Type alias for a (possibly empty) sequence of key transform results. */
+  type KeyCandidates = Seq[String]
+  val NoCandidates = Seq.empty[String]
+
+  /** Type alias for functions which take a text string and return a (possibly empty)
+      list of potential key strings. */
+  type KeyTransformFn = (String) => KeyCandidates
+  type KeyTransforms = Seq[KeyTransformFn]
+
+  /** Type alias for functions which take a mention and return a (possibly empty)
+      list of potential key strings. */
+  type MentionKeyTransformFn = (BioTextBoundMention) => KeyCandidates
+  type MentionKeyTransforms = Seq[MentionKeyTransformFn]
+
+}

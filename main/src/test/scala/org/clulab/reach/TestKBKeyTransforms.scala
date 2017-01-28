@@ -4,12 +4,13 @@ import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
 
 import org.clulab.reach.grounding._
+import org.clulab.reach.grounding.KBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Increase tests. Add tests for stripAllKeysSuffixes.
+  *   Last Modified: Update for move of KB key transform type aliases.
   */
 class TestKBKeyTransforms extends FlatSpec with Matchers {
 

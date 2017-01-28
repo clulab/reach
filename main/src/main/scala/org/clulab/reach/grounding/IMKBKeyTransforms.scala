@@ -1,11 +1,12 @@
 package org.clulab.reach.grounding
 
+import org.clulab.reach.grounding.KBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 /**
   * A record class containing key transforms used to configure an in-memory KB upon instantiation.
   *   Written by: Tom Hicks. 1/1/2017.
-  *   Last Modified: Reorder args by usage frequency. Rename base key transforms.
+  *   Last Modified: Update for move of KB key transform type aliases.
   */
 case class IMKBKeyTransforms (
 

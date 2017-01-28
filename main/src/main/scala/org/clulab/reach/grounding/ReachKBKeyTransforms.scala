@@ -3,6 +3,7 @@ package org.clulab.reach.grounding
 import scala.util.matching.Regex
 
 import org.clulab.reach.mentions._
+import org.clulab.reach.grounding.KBKeyTransforms._
 import org.clulab.reach.grounding.KBLookupSet._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
@@ -11,7 +12,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Add gene name suffix stripper built on pattern stripper.
+  *   Last Modified: Update for move of KB key transform type aliases.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 

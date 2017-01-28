@@ -2,6 +2,7 @@ package org.clulab.reach.grounding
 
 import collection.mutable.{ HashSet, Set }
 
+import org.clulab.reach.grounding.KBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBConstants._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
@@ -9,7 +10,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * A class to create/manipulate
   *   Written by: Tom Hicks. 1/11/2017.
-  *   Last Modified: Rename GNA dataset to GNP.
+  *   Last Modified: Update for move of KB key transform type aliases.
   */
 class KBLookupSet (
 
