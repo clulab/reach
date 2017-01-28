@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for rename of lookup function.
+  *   Last Modified: Update for hiding of KB entry class.
   */
 class IMKBLookup (
 
@@ -15,8 +15,8 @@ class IMKBLookup (
 
 ) extends KBLookup {
 
-  /** Return a sequence over the entries in this KB. */
-  def entries = memoryKB.entries
+  /** Return an optional sequence of the resolutions from this KB. */
+  def resolutions: Resolutions = memoryKB.resolutions
 
   /** Return meta information about the external KB from which this KB was created. */
   def metaInfo: IMKBMetaInfo = memoryKB.metaInfo

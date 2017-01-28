@@ -1,5 +1,7 @@
 package org.clulab.reach.grounding
 
+import scala.Serializable
+import scala.util.hashing.MurmurHash3._
 import collection.mutable.{ HashMap, HashSet, Map, MultiMap, Set }
 
 import org.clulab.reach.grounding.ReachKBConstants._
@@ -12,7 +14,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Make query transforms a constant. Try to ensure consistent trimming.
+  *   Last Modified: Hide the KBEntry class, an internal artifact of IMKB.
   */
 class InMemoryKB (
 
@@ -25,17 +27,17 @@ class InMemoryKB (
 )  {
 
   /** MultiMap of varying text keys to NS/ID. */
-  val keysMap = new HashMap[String, Set[String]] with MultiMap[String, String]
+  private val keysMap = new HashMap[String, Set[String]] with MultiMap[String, String]
 
   /** MultiMap of NS/ID (namespace/id) to KB Entries. */
-  val nsidMap = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
+  private val nsidMap = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
 
   /** The key transforms to be used when querying this KB. */
-  val queryTransforms = keyTransforms.baseKTs ++ keyTransforms.queryKTs
+  private val queryTransforms = keyTransforms.baseKTs ++ keyTransforms.queryKTs
 
 
-  /** Return a sequence of ALL the KB entries in this KB. */
-  def entries: Seq[KBEntry] = nsidMap.values.flatten.toSeq
+  /** Return a sequence of ALL the KB resolutions in this KB. */
+  def resolutions: Resolutions = newResolutions(nsidMap.values.flatten)
 
   /** Return a sequence of ALL the NS/ID keys in this KB. */
   def keys: Seq[String] = keysMap.keys.toSeq
@@ -151,6 +153,13 @@ class InMemoryKB (
     else Some(orderResolutions(entries.map(kbe => newResolution(kbe)).toSeq))
   }
 
+  /** Wrap the given iterable of KB entries as a sorted sequence of resolutions with
+      meta information from this KB. */
+  private def newResolutions (entries: Iterable[KBEntry]): Resolutions = {
+    if (entries.isEmpty) None
+    else Some(orderResolutions(entries.toSeq.map(kbe => newResolution(kbe))))
+  }
+
   /** Store the given KB entry under the given NS/ID, if the entry is not already present. */
   private def storeEntry (nsId: String, entry: KBEntry) = nsidMap.addBinding(nsId, entry)
 
@@ -160,18 +169,78 @@ class InMemoryKB (
 
 
 object InMemoryKB {
-  /** Type of the values in the NS/ID Map. */
-  type KBEntries = Set[KBEntry]
-
-  /** Type defining a filter function over KB entries. */
-  type EntryFilter = KBEntry => Boolean
-
-  /** Constant denoting an empty set of KB entries. */
-  val NoEntries = Set.empty[KBEntry]
-
   /** Type of the values in the Keys Map. */
   type NsIdSet = Set[String]
 
   /** Constant denoting an empty set of NS/IDs. */
   val EmptyNsIdSet = Set.empty[String]
+
+  /** Type of the values in the NS/ID Map. */
+  private type KBEntries = Set[KBEntry]
+
+  /** Type defining a filter function over KB entries. */
+  private type EntryFilter = KBEntry => Boolean
+
+  /** Constant denoting an empty set of KB entries. */
+  private val NoEntries = Set.empty[KBEntry]
+
+
+  /**
+    * Class holding information about a specific entry in an InMemory Knowledge Base.
+    *   Written by: Tom Hicks. 10/25/2015.
+    *   Last Modified: Limit the scope of the KBEntry class by embedding it in IMKB.
+    */
+  private class KBEntry (
+
+    /** Text for this entry, loaded from the external KB. */
+    val text: String,
+
+    /** The external namespace for this entry (e.g., go, uniprot). */
+    val namespace: String = DefaultNamespace,
+
+    /** The reference ID, relative to the namespace for this entry (e.g., GO:0033110, P12345). */
+    val id: String,
+
+    /** The species associated with this entry, if any. Empty string represents no species. */
+    val species: String = NoSpeciesValue
+
+  ) extends Serializable {
+
+    /** Helper method for equals redefinition. */
+    def canEqual (other: Any): Boolean = other.isInstanceOf[KBEntry]
+
+    /** Redefine instance equality based on matching some fields of this class. */
+    override def equals (other: Any): Boolean = other match {
+      case that: KBEntry => (
+        that.canEqual(this) &&
+          this.namespace == that.namespace &&
+          this.id == that.id &&
+          this.text.toLowerCase == that.text.toLowerCase &&
+          this.species == that.species
+      )
+      case _ => false
+    }
+
+    /** Redefine hashCode. */
+    override def hashCode: Int = {
+      val h0 = stringHash("org.clulab.reach.grounding.KBEntry")
+      val h1 = mix(h0, text.toLowerCase.hashCode)
+      val h2 = mix(h1, namespace.hashCode)
+      val h3 = mix(h2, id.hashCode)
+      val h4 = mixLast(h3, species.hashCode)
+      finalizeHash(h4, 4)
+    }
+
+    /** Tell whether this entry has an associated species or not. */
+    def hasSpecies: Boolean = (species != NoSpeciesValue)
+    def hasNoSpecies: Boolean = (species == NoSpeciesValue)
+
+    /** Return a formatted string containing this entry's namespace and ID. */
+    def nsId: String = ReachKBUtils.makeNamespaceId(namespace, id)
+
+    /** Override method to provide logging/debugging printout. */
+    override def toString: String =
+      s"<KBEntry: ${text}, ${namespace}, ${id}, ${species}>"
+  }
+
 }
