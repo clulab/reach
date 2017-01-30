@@ -10,7 +10,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * A class to create/manipulate
   *   Written by: Tom Hicks. 1/11/2017.
-  *   Last Modified: Replace explicit factory class with object apply method.
+  *   Last Modified: Refactor protein kinase lookup set here.
   */
 class KBLookupSet (
 
@@ -65,8 +65,8 @@ object KBLookupSet {
 
   /** Set of gene name prefix strings extracted from the affixes of the Sorger bioentities file. */
   val GeneNamePrefixes: KBLookupSet = {
-    val gnaKTs = Seq( identityKT _, lowercaseKT _ )
-    KBLookupSet(GeneNameAffixesFilename, gnaKTs)
+    val gnaTransforms = Seq( identityKT _, lowercaseKT _ )
+    KBLookupSet(GeneNameAffixesFilename, gnaTransforms)
   }
 
   /** Tell whether the given string names a gene name prefix or not. */
@@ -78,7 +78,13 @@ object KBLookupSet {
     KBLookupSet(ProteinDomainShortNamesFilename, CasedKeyTransforms)
 
   /** Tell whether the given string names a protein domain or not. */
-  def isProteinDomain (domain: String): Boolean =
-    ProteinDomainShortNames.contains(canonicalKey(domain))
+  def isProteinDomain (domain: String): Boolean = ProteinDomainShortNames.contains(domain)
+
+
+  /** Set of protein kinase names. */
+  val ProteinKinaseIds: KBLookupSet = KBLookupSet(ProteinKinasesFilename, IdentityKeyTransforms)
+
+  /** Tell whether the given ID string names a protein kinase or not. */
+  def isProteinKinase (id: String): Boolean = ProteinKinaseIds.contains(id)
 
 }
