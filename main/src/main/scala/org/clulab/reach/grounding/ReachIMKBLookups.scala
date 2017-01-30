@@ -1,16 +1,17 @@
 package org.clulab.reach.grounding
 
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for rename to KB key transforms group.
+  *   Last Modified: Replace test arguments of KB key transforms groups.
   */
 object ReachIMKBLookups {
 
   /** Single factory instance to generate Tsv IMKB classes. */
-  val tsvIMKBFactory = new TsvIMKBFactory
+  val TsvIMKBFactory = new TsvIMKBFactory
 
 
   /** KB lookup to resolve subcellular location names via static KB. */
@@ -21,7 +22,7 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/go/",
       resourceId = "MIR:00000022"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB lookup to resolve subcellular location names via static KB. */
@@ -32,7 +33,7 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/uniprot/",
       resourceId = "MIR:00000005"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB lookup to resolve small molecule (metabolite) names via static KB. */
@@ -43,7 +44,7 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/hmdb/",
       resourceId = "MIR:00000051"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB lookup to resolve small molecule (chemical) names via static KB. */
@@ -54,7 +55,7 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/pubchem.compound/",
       resourceId = "MIR:00000034"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB lookup to resolve small molecule (drug) names via static KB. */
@@ -65,7 +66,7 @@ object ReachIMKBLookups {
       baseURI = "http://identifiers.org/pubchem.compound/",
       resourceId = "MIR:00000034"
     )
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB lookup to resolve small molecule (chemical) names via static KB. */
@@ -76,11 +77,12 @@ object ReachIMKBLookups {
   //     baseURI = "http://identifiers.org/chebi/",
   //     resourceId = "MIR:00100009"
   //   )
-  //   new IMKBLookup(tsvIMKBFactory.make(metaInfo))
+  //   new IMKBLookup(TsvIMKBFactory.make(metaInfo))
   // }
 
 
-  /** KB accessor to resolve protein names via static KBs with alternate lookups. */
+
+  /** KB accessor to resolve protein names via static KB. */
   def staticProteinKBLookup: IMKBLookup = {
     val metaInfo = new IMKBMetaInfo(
       namespace = "uniprot",
@@ -90,9 +92,8 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    // val keyTransforms = new KBKeyTransformsGroup(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
+    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB accessor to resolve protein complex names via static KBs with alternate lookups. */
@@ -103,9 +104,8 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true
     )
-    // val keyTransforms = new KBKeyTransformsGroup(ProteinKeyTransforms, ProteinKeyTransforms)
-    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
+    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
@@ -117,9 +117,8 @@ object ReachIMKBLookups {
       resourceId = "MIR:00000028",
       isFamilyKB = true
     )
-    // val keyTransforms = new KBKeyTransformsGroup(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
@@ -132,9 +131,8 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isFamilyKB = true
     )
-    // val keyTransforms = new KBKeyTransformsGroup(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
   /** KB lookup to resolve protein family names via static KBs with alternate lookups. */
@@ -145,9 +143,8 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isFamilyKB = true
     )
-    // val keyTransforms = new KBKeyTransformsGroup(FamilyKeyTransforms, FamilyKeyTransforms)
-    val keyTransforms = new KBKeyTransformsGroup() // REPLACE LATER WITH ABOVE
-    new IMKBLookup(tsvIMKBFactory.make(metaInfo, keyTransforms))
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
+    new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
 }
