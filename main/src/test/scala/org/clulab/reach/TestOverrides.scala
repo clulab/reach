@@ -13,8 +13,6 @@ import TestUtils._
   */
 class TestOverrides extends FlatSpec with Matchers {
 
-  // ReachIMKBMentionLookups.StaticProtein.memoryKB.dump // REMOVE LATER
-
   val Chemical = "Simple_chemical"
   val Family = "Family"
   val GGP = "Gene_or_gene_product"
