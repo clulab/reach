@@ -9,7 +9,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 12/20/2015.
-  *   Last Modified: Update for rename of KB key transforms group.
+  *   Last Modified: Update for changed arguments of KB key transforms group.
   */
 class TestOrganResolutions extends FlatSpec with Matchers {
 
@@ -69,6 +69,6 @@ class TestOrganResolutions extends FlatSpec with Matchers {
 // Protein family KB using alternate protein resolutions
 class TestOctKBL extends IMKBLookup {
   val meta = new IMKBMetaInfo(kbFilename = Some(ContextOrganFilename))
-  val keyTransforms = new KBKeyTransformsGroup(OrganQueryKeyTransforms, CasedKeyTransforms)
+  val keyTransforms = KBKeyTransformsGroup(DefaultKeyTransforms, OrganAuxKeyTransforms, DefaultKeyTransforms)
   memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }
