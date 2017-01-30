@@ -12,7 +12,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Update for move of KB key transform type aliases.
+  *   Last Modified: Add identity key transform sequence. Remove mention handling.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -22,9 +22,6 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
 
   /** A key transform which implements a canonicalization function for Strings. */
   def canonicalKT (text:String): KeyCandidates = toKeyCandidates(canonicalKey(text))
-
-  /** A key transform which implements a canonicalization function for Mentions. */
-  def canonicalMKT (mention:BioTextBoundMention): KeyCandidates = canonicalKT(mention.text)
 
 
   // def handleHyphenationKTs (text:String): KeyCandidates = {
@@ -118,7 +115,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   val HyphenatedNamePat = """(?i)(\w+)-(\w+)""".r
 
   /** The set of characters to remove from the text to create a lookup key. */
-  val KeyCharactersToRemove = " /-".toSet
+  val KeyCharactersToRemove = " '/-".toSet
 
   /** Match patterns to create an organ lookup key. */
   val OrganPostAttributivePat = """(?i)(.*?)(?: cells?| tissues?| fluids?)+""".r
@@ -139,27 +136,24 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   /** Default list of text transforms to use with a KB. */
   val DefaultKeyTransforms = Seq( canonicalKT _ )
 
-  /** Default list of additional mention transforms to apply during the KB's query phase. */
-  val DefaultMentionKeyTransforms = Seq( canonicalMKT _ )
-
-
   /** List of text transforms to use with a case-sensitive KB. */
-  val CasedKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+  // val CasedKeyTransforms = Seq( identityKT _, lowercaseKT _, canonicalKT _ )
+  val CasedKeyTransforms = Seq( identityKT _, canonicalKT _ )
 
-  /** List of additional mention transforms to use with a case-sensitive KB. */
-  val CasedMentionKeyTransforms = Seq( identityMKT _, lowercaseMKT _, canonicalMKT _ )
+  /** Key transform sequence containing a single identity key transform (a NOP). */
+  val IdentityKeyTransforms = Seq ( identityKT _ )
 
 
   /** List of transform methods to apply for alternate Protein Family lookups. */
-  val FamilyQueryKeyTransforms = Seq( stripFamilyPostAttributivesKT _ )
+  val FamilyAuxKeyTransforms = Seq( stripFamilyPostAttributivesKT _ )
 
   /** List of transform methods to apply for alternate Organ lookups. */
-  val OrganQueryKeyTransforms = Seq( stripOrganPostAttributivesKT _ )
+  val OrganAuxKeyTransforms = Seq( stripOrganPostAttributivesKT _ )
 
   /** List of transform methods to apply for alternate Protein lookups. */
-  val ProteinQueryKeyTransforms = Seq( stripProteinPostAttributivesKT _,
-                                       stripMutantProteinKT _,
-                                       stripGeneNameAffixesKT _,
-                                       hyphenatedProteinKT _,
-                                       stripPTMPrefixesKT _ )
+  val ProteinAuxKeyTransforms = Seq( stripProteinPostAttributivesKT _,
+                                     stripMutantProteinKT _,
+                                     stripGeneNameAffixesKT _,
+                                     hyphenatedProteinKT _,
+                                     stripPTMPrefixesKT _ )
 }

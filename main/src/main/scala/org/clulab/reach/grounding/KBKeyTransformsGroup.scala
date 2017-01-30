@@ -6,22 +6,23 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * A record class containing key transforms used to configure an in-memory KB upon instantiation.
   *   Written by: Tom Hicks. 1/1/2017.
-  *   Last Modified: Rename this class to KB key transforms group.
+  *   Last Modified: Redo arguments and defaults for updated lookup/transform logic.
   */
 case class KBKeyTransformsGroup (
-
-  /** Additional lookup key transformations applied during query of the KB. */
-  val queryKTs: KeyTransforms = DefaultKeyTransforms,
 
   /** Key transforms used to create storage keys upon addition & retrieval of an entry. */
   val baseKTs: KeyTransforms = DefaultKeyTransforms,
 
-  /** Key transforms used to lookup keys from Mentions, upon addition & retrieval of an entry. */
-  val mentionQueryKTs: MentionKeyTransforms = DefaultMentionKeyTransforms
+  /** Additional lookup key transformations, applied during a query of the KB. */
+  val auxKTs: KeyTransforms = NoTransforms,
+
+  /** Normalization lookup key transformations, applied to the results of the additional
+      lookup key transforms during a query of the KB. */
+  val postKTs: KeyTransforms = IdentityKeyTransforms
 
 )  {
 
   override def toString: String =
-    s"<KBKeyTransformsGroup: $baseKTs, $queryKTs, $mentionQueryKTs>"
+    s"<KBKeyTransformsGroup: $baseKTs, $auxKTs, $postKTs>"
 
 }

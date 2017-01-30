@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for rename to KB key transforms group.
+  *   Last Modified: Update for changed arguments of KB key transforms group.
   */
 object ReachIMKBMentionLookups {
 
@@ -149,8 +149,7 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(GendProteinFilename),
       isProteinKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(ProteinQueryKeyTransforms)
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB accessor to resolve protein names via static KB. */
@@ -163,7 +162,7 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(ProteinQueryKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -175,7 +174,7 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true                    // treat complexes as a protein KB
     )
-    val keyTransforms = new KBKeyTransformsGroup(ProteinQueryKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -190,8 +189,7 @@ object ReachIMKBMentionLookups {
       kbFilename = Some(GendProteinFilename),
       isFamilyKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(FamilyQueryKeyTransforms)
-    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
+    new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo))
   }
 
   /** KB accessor to resolve protein family names via static KB. */
@@ -203,7 +201,7 @@ object ReachIMKBMentionLookups {
       resourceId = "MIR:00000028",
       isFamilyKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(FamilyQueryKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -217,7 +215,7 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isFamilyKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(FamilyQueryKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -229,7 +227,7 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isFamilyKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(FamilyQueryKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, FamilyAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -277,7 +275,7 @@ object ReachIMKBMentionLookups {
       baseURI = "http://identifiers.org/uberon/",
       resourceId = "MIR:00000446"
     )
-    val keyTransforms = new KBKeyTransformsGroup(OrganQueryKeyTransforms)
+    val keyTransforms = KBKeyTransformsGroup(DefaultKeyTransforms, OrganAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 

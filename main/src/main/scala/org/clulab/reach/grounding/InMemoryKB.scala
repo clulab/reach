@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Update for rename of KB key transforms group.
+  *   Last Modified: Complete logic for nested key transform search algorithm.
   */
 class InMemoryKB (
 
@@ -31,9 +31,6 @@ class InMemoryKB (
 
   /** MultiMap of NS/ID (namespace/id) to KB Entries. */
   private val nsidMap = new HashMap[String, Set[KBEntry]] with MultiMap[String, KBEntry]
-
-  /** The key transforms to be used when querying this KB. */
-  private val queryTransforms = keyTransforms.baseKTs ++ keyTransforms.queryKTs
 
 
   /** Return a sequence of ALL the KB resolutions in this KB. */
@@ -114,21 +111,41 @@ class InMemoryKB (
   def lookupNoSpecies (text:String): Resolutions =
     newResolutions(search(text, Some((kbe:KBEntry) => kbe.hasNoSpecies)))
 
+
   /** Generate one or more keys from the given text string, look the keys up and
       return the first set of KB entries which passes the optionally given filter. */
   private def search (text: String, filterFn: Option[EntryFilter]): KBEntries = {
     val cleanText = stripAllKeysSuffixes(text.trim) // remove default stop suffixes
-    queryTransforms.foreach { ktFn =>
-      ktFn.apply(cleanText).foreach { key =>  // generate and try candidate keys
-        val entries = if (filterFn.isDefined) // optionally filter any entries found
-          filteredEntries(lookupKey(key), filterFn.get)
-        else
-          lookupEntries(lookupKey(key))
-        if (entries.nonEmpty) return entries // if qualifying entries found, return them
+
+    keyTransforms.baseKTs.foreach { bktFn =>    // try each base key transform in order:
+      bktFn.apply(cleanText).foreach { key =>   // walk list of candidate keys
+        val entries = findAndFilterEntries(key, filterFn) // lookup key, maybe filter results
+        if (entries.nonEmpty) return entries    // if qualifying entries found, return them
       }
     }
-    NoEntries                               // tried everything w/o result
+
+    keyTransforms.auxKTs.foreach { aktFn =>       // try any auxiliary key transforms
+      aktFn.apply(cleanText).foreach { auxKey =>  // walk list of generated auxiliary keys
+        keyTransforms.postKTs.foreach { pktFn =>  // transform each aux key w/ post processing
+          pktFn.apply(auxKey).foreach { key =>    // walk list of post processed candidate keys
+            val entries = findAndFilterEntries(key, filterFn) // lookup key, maybe filter results
+            if (entries.nonEmpty) return entries        // if qualifying entries found, return them
+          }
+        }
+      }
+    }
+
+    NoEntries                             // all possible keys tried w/o result
   }
+
+  /** Lookup given key and filter any resulting KB entries through the optional given filter. */
+  private def findAndFilterEntries (key: String, filterFn: Option[EntryFilter]): KBEntries = {
+    if (filterFn.isDefined)              // optionally filter any entries found
+      filteredEntries(lookupKey(key), filterFn.get)
+    else
+      lookupEntries(lookupKey(key))
+  }
+
 
   /** Return NS/IDs for the set of all KB entries indexed by the given key string. */
   private def lookupKey (key:String): NsIdSet = keysMap.getOrElse(key, EmptyNsIdSet)

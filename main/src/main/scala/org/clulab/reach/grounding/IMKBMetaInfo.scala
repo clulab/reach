@@ -5,7 +5,7 @@ import org.clulab.reach.grounding.ReachKBConstants._
 /**
   * Class holding meta-information for an in-memory knowledge base instance.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Refactor out abstract class.
+  *   Last Modified: Fix output of KB filename in toString method.
   */
 class IMKBMetaInfo (
 
@@ -34,6 +34,6 @@ class IMKBMetaInfo (
   def referenceURI (id:String): String = s"${baseURI}${id}"
 
   override def toString: String =
-    s"<IMKBMetaInfo: $namespace, $kbFilename, $baseURI, $resourceId, sp=$hasSpeciesInfo, f=$isFamilyKB, p=$isProteinKB>"
+    s"""<IMKBMetaInfo: $namespace, ${kbFilename.getOrElse("")}, $baseURI, $resourceId, sp=$hasSpeciesInfo, f=$isFamilyKB, p=$isProteinKB>"""
 
 }

@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.KBKeyTransforms._
 /**
   * Methods for transforming text strings into potential keys for lookup in KBs.
   *   Written by Tom Hicks. 10/22/2015.
-  *   Last Modified: Move Type aliases to companion object.
+  *   Last Modified: Add no transforms constant. Remove mention handling.
   */
 trait KBKeyTransforms {
 
@@ -23,26 +23,12 @@ trait KBKeyTransforms {
   def applyAllTransforms (transformFns: KeyTransforms, text: String): KeyCandidates =
     toKeyCandidates(transformFns.flatMap(_.apply(text)))
 
-  /** Apply the given mention key transforms to the given mention, returning
-      a (possibly empty) sequence of potential key strings. */
-  def applyAllTransforms (
-    transformFns: MentionKeyTransforms,
-    mention: BioTextBoundMention
-  ): KeyCandidates = toKeyCandidates(transformFns.flatMap(_.apply(mention)))
-
 
   /** A key transform which implements an Identity function for Strings. */
   def identityKT (text:String): KeyCandidates = toKeyCandidates(text)
 
-  /** A key transform which implements a minimal transform function for Mentions. */
-  def identityMKT (mention:BioTextBoundMention): KeyCandidates = toKeyCandidates(mention.text)
-
   /** A key transform which implements a minimal canonicalization function for Strings. */
   def lowercaseKT (text:String): KeyCandidates = toKeyCandidates(text.toLowerCase)
-
-  /** A key transform which implements a minimal canonicalization function for Mentions. */
-  def lowercaseMKT (mention:BioTextBoundMention): KeyCandidates =
-    toKeyCandidates(mention.text.toLowerCase)
 
 
   /** Try to remove all of the suffixes in the given set from the given text. */
@@ -66,10 +52,6 @@ trait KBKeyTransforms {
   def stripAllSuffixesKT (suffixes:Seq[String], text:String): KeyCandidates =
     toKeyCandidates(stripAllSuffixes(suffixes, text))
 
-  /** Try to remove all of the suffixes in the given set from the given mention text. */
-  def stripAllSuffixesMKT (suffixes:Seq[String], mention:BioTextBoundMention): KeyCandidates =
-    stripAllSuffixesKT(suffixes, mention.text)
-
   /** Transform the given string into (a possibly empty) key candidates. */
   def toKeyCandidates (text:String): KeyCandidates =
     if (text.trim.nonEmpty) Seq(text.trim) else NoCandidates
@@ -91,10 +73,6 @@ object KBKeyTransforms {
       list of potential key strings. */
   type KeyTransformFn = (String) => KeyCandidates
   type KeyTransforms = Seq[KeyTransformFn]
-
-  /** Type alias for functions which take a mention and return a (possibly empty)
-      list of potential key strings. */
-  type MentionKeyTransformFn = (BioTextBoundMention) => KeyCandidates
-  type MentionKeyTransforms = Seq[MentionKeyTransformFn]
+  val NoTransforms = Seq.empty[KeyTransformFn]
 
 }
