@@ -10,7 +10,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * A class to create/manipulate
   *   Written by: Tom Hicks. 1/11/2017.
-  *   Last Modified: Update for move of KB key transform type aliases.
+  *   Last Modified: Replace explicit factory class with object apply method.
   */
 class KBLookupSet (
 
@@ -50,11 +50,11 @@ class KBLookupSet (
 }
 
 
-/** Factory class to create KB Lookup Sets. */
-class KBLookupSetFactory {
+/** Companion object to define useful constants and lookup sets. */
+object KBLookupSet {
 
   /** Create and return a KBLookupSet by reading and transforming lines from the given file. */
-  def makeFromFile (
+  def apply (
     filename: String,
     keyTransforms: KeyTransforms = DefaultKeyTransforms
   ): KBLookupSet = {
@@ -63,18 +63,10 @@ class KBLookupSetFactory {
     kbls
   }
 
-}
-
-
-/** Companion object to define useful constants and lookup sets. */
-object KBLookupSet {
-
-  val kbLookupSetFactory = new KBLookupSetFactory
-
   /** Set of gene name prefix strings extracted from the affixes of the Sorger bioentities file. */
   val GeneNamePrefixes: KBLookupSet = {
     val gnaKTs = Seq( identityKT _, lowercaseKT _ )
-    kbLookupSetFactory.makeFromFile(GeneNameAffixesFilename, gnaKTs)
+    KBLookupSet(GeneNameAffixesFilename, gnaKTs)
   }
 
   /** Tell whether the given string names a gene name prefix or not. */
@@ -83,7 +75,7 @@ object KBLookupSet {
 
   /** Set of short protein domain strings. */
   val ProteinDomainShortNames: KBLookupSet =
-    kbLookupSetFactory.makeFromFile(ProteinDomainShortNamesFilename, CasedKeyTransforms)
+    KBLookupSet(ProteinDomainShortNamesFilename, CasedKeyTransforms)
 
   /** Tell whether the given string names a protein domain or not. */
   def isProteinDomain (domain: String): Boolean =
