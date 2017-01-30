@@ -1,11 +1,12 @@
 package org.clulab.reach.grounding
 
+import scala.Serializable
 import org.clulab.reach.grounding.ReachKBConstants._
 
 /**
   * Class holding meta-information for an in-memory knowledge base instance.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Fix output of KB filename in toString method.
+  *   Last Modified: Make this class serializable.
   */
 class IMKBMetaInfo (
 
@@ -24,7 +25,7 @@ class IMKBMetaInfo (
   isFamilyKB: Boolean = false,              // does KB contain protein family entries
   isProteinKB: Boolean = false              // does KB contain protein entries
 
-) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) {
+) extends KBMetaInfo (namespace, hasSpeciesInfo, isFamilyKB, isProteinKB) with Serializable {
 
   /**
     * Using the given ID string, generate a URI which references an entry

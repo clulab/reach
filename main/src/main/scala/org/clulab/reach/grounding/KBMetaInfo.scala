@@ -1,11 +1,12 @@
 package org.clulab.reach.grounding
 
+import scala.Serializable
 import org.clulab.reach.grounding.ReachKBConstants._
 
 /**
   * Class to hold common meta data for different types of knowledge bases.
   *   Written by Tom Hicks. 12/11/2016.
-  *   Last Modified: Refactor out abstract class.
+  *   Last Modified: Make this class serializable.
   */
 class KBMetaInfo (
 
@@ -21,7 +22,7 @@ class KBMetaInfo (
   /** Flag identifying this KB as containing protein or protein complex entries. */
   val isProteinKB: Boolean = false
 
-)  {
+)  extends Serializable {
 
   /** Override method to provide logging/debugging printout. */
   override def toString: String =
