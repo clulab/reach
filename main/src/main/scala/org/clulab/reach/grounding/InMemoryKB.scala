@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.InMemoryKB._
 /**
   * Class implementing an in-memory knowledge base indexed by key and species.
   *   Written by: Tom Hicks. 10/25/2015.
-  *   Last Modified: Complete logic for nested key transform search algorithm.
+  *   Last Modified: Replacement of reverse lookups: add species for NS/ID method.
   */
 class InMemoryKB (
 
@@ -85,7 +85,11 @@ class InMemoryKB (
     lookupNsId(makeNamespaceId(namespace, id)) // trimming handled in makeNamespaceId
 
   /** Try lookups for all given NS/IDs until one succeeds or all fail. */
-  def lookupNsIds (nsIds: NsIdSet): Resolutions = newResolutions(lookupEntries(nsIds))
+  def lookupNsIds (nsIds: Set[String]): Resolutions = newResolutions(lookupEntries(nsIds))
+
+  /** Return the set of species for the entries mapped by the given NS/ID key. */
+  def speciesForNsId (nsId:String): SpeciesNameSet =
+    nsidMap.getOrElse(nsId.trim, NoEntries).map(_.species).filter(_ != NoSpeciesValue).toSet
 
 
   /** Return resolutions for the set of all KB entries for the given text string. */

@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Base class merging logic for local Knowledge Base lookups on top of in-memory KB.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Update for hiding of KB entry class.
+  *   Last Modified: Add species for NS/ID method.
   */
 class IMKBLookup (
 
@@ -15,11 +15,14 @@ class IMKBLookup (
 
 ) extends KBLookup {
 
+  /** Return meta information about the external KB from which this KB was created. */
+  def metaInfo: IMKBMetaInfo = memoryKB.metaInfo
+
   /** Return an optional sequence of the resolutions from this KB. */
   def resolutions: Resolutions = memoryKB.resolutions
 
-  /** Return meta information about the external KB from which this KB was created. */
-  def metaInfo: IMKBMetaInfo = memoryKB.metaInfo
+  /** Return the set of species for the entries mapped by the given NS/ID key. */
+  def speciesForNsId (nsId:String): SpeciesNameSet = memoryKB.speciesForNsId(nsId)
 
 
   /** Resolve the given text string to an optional entry in a knowledge base.

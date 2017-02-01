@@ -11,7 +11,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Trim & lowercase namespaces, trim ID.
+  *   Last Modified: Modify methods to use species name sets.
   */
 object ReachKBUtils {
 
@@ -96,11 +96,11 @@ object ReachKBUtils {
     resSeq.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return only resolutions (sorted) with a species in the given set. */
-  def selectBySpecies (resSeq:Seq[KBResolution], species:Seq[String]): Seq[KBResolution] =
+  def selectBySpecies (resSeq:Seq[KBResolution], species:SpeciesNameSet): Seq[KBResolution] =
     resSeq.filter(kbr => species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return only resolutions (sorted) without a species in the given set. */
-  def selectByNotSpecies (resSeq:Seq[KBResolution], species:Seq[String]): Seq[KBResolution] =
+  def selectByNotSpecies (resSeq:Seq[KBResolution], species:SpeciesNameSet): Seq[KBResolution] =
     resSeq.filter(kbr => !species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Return given sequence of resolutions ordered in the application default manner. */
