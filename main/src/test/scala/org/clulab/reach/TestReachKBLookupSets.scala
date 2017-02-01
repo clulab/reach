@@ -5,14 +5,13 @@ import TestUtils._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.KBLookupSet._
 import org.clulab.reach.grounding.ReachKBKeyTransforms._
-import org.clulab.reach.grounding.ReachMiscLookups._
 
 /**
   * Unit tests of additional lookup tables and knowledge bases.
   *   Written by: Tom Hicks. 7/10/2016.
-  *   Last Modified: Update for rename to gene name prefix.
+  *   Last Modified: Rename class. Update for removal of misc lookups class. Remove unused test.
   */
-class TestMiscLookups extends FlatSpec with Matchers {
+class TestReachKBLookupSets extends FlatSpec with Matchers {
 
   // Tests of the singleton Protein Kinases set:
   val pkl = ProteinKinaseIds
@@ -150,7 +149,3 @@ class TestMiscLookups extends FlatSpec with Matchers {
   }
 
 }
-
-// Save: useful for testing reverse lookup KBs (TBD):
-// pds.theKB.foreach { case (k, entries) =>              // for DEBUGGING
-//   println(s"${k} => ${entries.toString()}") }         // for DEBUGGING

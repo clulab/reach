@@ -6,7 +6,6 @@ org.clulab.reach.TestKBSupport \
 org.clulab.reach.TestKBLookupSet \
 org.clulab.reach.TestKBKeyTransforms \
 org.clulab.reach.TestIMKB \
-org.clulab.reach.TestMiscLookups \
 org.clulab.reach.TestModelEntities \
 org.clulab.reach.TestGroundingTrait \
 org.clulab.reach.TestNERLabeling \
@@ -15,6 +14,7 @@ org.clulab.reach.TestAzFailsafeKB \
 org.clulab.reach.TestAdHocIMKBs \
 org.clulab.reach.TestTsvKBs \
 org.clulab.reach.TestOverrides \
+org.clulab.reach.TestReachKBLookupSets \
 org.clulab.reach.TestProteinResolutions \
 org.clulab.reach.TestFamilyResolutions \
 org.clulab.reach.TestComplexResolutions \
