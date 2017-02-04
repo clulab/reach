@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Update for changed arguments of KB key transforms group.
+  *   Last Modified: Update for leading mutation pattern.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -40,7 +40,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("notinkb_human")) should be (empty)
     (imkbP.resolve("notinkb protein")) should be (empty)
     (imkbP.resolve("notinkb family")) should be (empty)
-    (imkbP.resolve("mutant-zyx-1")) should be (empty) // mutant pattern not matched
     // family key transforms not applicable for proteins:
     (imkbP.resolve("pthr2 family")) should be (empty)
     (imkbP.resolve("zyx-1 family")) should be (empty)
@@ -52,6 +51,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("pthr2_human")) should be (defined)
     (imkbP.resolve("pthr2 protein")) should be (defined)
     (imkbP.resolve("mutant-pthr2")) should be (defined)
+    (imkbP.resolve("mutant-zyx-1")) should be (defined)
     (imkbP.resolve("zyx-1")) should be (defined)
     (imkbP.resolve("zyx-1_human")) should be (defined)
     (imkbP.resolve("zyx-1 protein")) should be (defined)
@@ -164,7 +164,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("NotInKB protein", "ant")) should be (empty)
     (imkbP.resolveByASpecies("NotInKB family", "ant")) should be (empty)
     (imkbP.resolveByASpecies("mutant-NotInKB", "ant")) should be (empty)
-    (imkbP.resolveByASpecies("mutant-zyx-1", "caenorhabditis elegans")) should be (empty)
     // entry does not have this species:
     (imkbP.resolveByASpecies("zyx-1", "frog")) should be (empty)
     (imkbP.resolveByASpecies("zyx-1_human", "frog")) should be (empty)
@@ -185,6 +184,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("zyx-1", "caenorhabditis elegans")) should be (defined)
     (imkbP.resolveByASpecies("zyx-1_human", "caenorhabditis elegans")) should be (defined)
     (imkbP.resolveByASpecies("zyx-1 protein", "caenorhabditis elegans")) should be (defined)
+    (imkbP.resolveByASpecies("mutant-zyx-1", "caenorhabditis elegans")) should be (defined)
   }
 
   "ProteinKBL resolveByASpecies" should "work via protein domain lookup" in {
@@ -244,7 +244,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveBySpecies("pthr2 protein", setF)) should be (empty)
     (imkbP.resolveBySpecies("pthr2 family", setF)) should be (empty)
     (imkbP.resolveBySpecies("mutant-pthr2", setF)) should be (empty)
-    // entry does not have these species (yeast only):
+    // entry does not have these species (nematode only):
     (imkbP.resolveBySpecies("zyx-1", setHM)) should be (empty)
     (imkbP.resolveBySpecies("zyx-1_human", setHM)) should be (empty)
     (imkbP.resolveBySpecies("zyx-1 protein", setHM)) should be (empty)
@@ -320,7 +320,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveHuman("NotInKB protein")) should be (empty)
     (imkbP.resolveHuman("NotInKB family")) should be (empty)
     (imkbP.resolveHuman("mutant-NotInKB")) should be (empty)
-    // entry does not have human species (yeast only):
+    // entry does not have human species (nematode only):
     (imkbP.resolveHuman("zyx-1")) should be (empty)
     (imkbP.resolveHuman("zyx-1_human")) should be (empty)
     (imkbP.resolveHuman("zyx-1 protein")) should be (empty)

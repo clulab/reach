@@ -10,7 +10,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Update for move of KB key transform type aliases.
+  *   Last Modified: Add/update KT tests. Update for leading mutations.
   */
 class TestKBKeyTransforms extends FlatSpec with Matchers {
 
@@ -150,39 +150,124 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_all, " X ")) should equal (Seq("X", "X"))
   }
 
-  // Test real Reach transforms
-  def kt_hyphenPK = Seq(hyphenatedProteinKT _)
-  def kt_stripPPA = Seq(stripProteinPostAttributivesKT _)
-  def kt_stripMP  = Seq(stripMutantProteinKT _)
-  def kt_stripPTMP = Seq(stripPTMPrefixesKT _)
-  def kt_stripGNA = Seq(stripGeneNameAffixesKT _)
-  def kt_stripFPA = Seq(stripFamilyPostAttributivesKT _)
-  def kt_stripOPA = Seq(stripOrganPostAttributivesKT _)
 
-  "applyAllTransforms(hyphenatedProteinKey, various strings)" should "return stems" in {
-    (applyAllTransforms(kt_hyphenPK, "LHS-RHS")) should equal (Seq("RHS"))
-    (applyAllTransforms(kt_hyphenPK, "lhs-aai")) should equal (Seq("lhs"))
-    (applyAllTransforms(kt_hyphenPK, "AKT1-AAI")) should equal (Seq("AKT1"))
-    (applyAllTransforms(kt_hyphenPK, "Akt1-Aai")) should equal (Seq("Akt1"))
-    (applyAllTransforms(kt_hyphenPK, "AAI-AKT1")) should equal (Seq("AKT1"))
+  // Test real Reach key transforms
+  def kt_stripFPA = Seq(stripFamilyPostAttributivesKT _)
+  def kt_stripGNA = Seq(stripGeneNameAffixesKT _)
+  def kt_stripMP  = Seq(stripMutantProteinKT _)
+  def kt_stripOPA = Seq(stripOrganPostAttributivesKT _)
+  def kt_stripPD = Seq(stripProteinDomainKT _)
+  def kt_stripPPA = Seq(stripProteinPostAttributivesKT _)
+  def kt_stripPTMP = Seq(stripPTMPrefixesKT _)
+
+  "applyAllTransforms(stripFamilyPostAttributives, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripFPA, "parsnip family")) should equal (Seq("parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip family")) should equal (Seq("Parsnip"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP family")) should equal (Seq("PARSNIP"))
+    (applyAllTransforms(kt_stripFPA, "parsnip FAMILY")) should equal (Seq("parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip Family")) should equal (Seq("Parsnip"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip FAMILY")) should equal (Seq("Parsnip"))
+    (applyAllTransforms(kt_stripFPA, "sad protein family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "Sad protein family")) should equal (Seq("Sad"))
+    (applyAllTransforms(kt_stripFPA, "SAD protein family")) should equal (Seq("SAD"))
+    (applyAllTransforms(kt_stripFPA, "sad protein FAMILY")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "sad PROTEIN family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "sad PROTEIN Family")) should equal (Seq("sad"))
+    (applyAllTransforms(kt_stripFPA, "Sad Protein Family")) should equal (Seq("Sad"))
+    (applyAllTransforms(kt_stripFPA, "SAD PROTEIN FAMILY")) should equal (Seq("SAD"))
   }
 
-  "applyAllTransforms(stripProteinPostAttributives, various strings)" should "return stems" in {
-    (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
-    (applyAllTransforms(kt_stripPPA, "Hairy protein")) should equal (Seq("Hairy"))
-    (applyAllTransforms(kt_stripPPA, "HAIRY protein")) should equal (Seq("HAIRY"))
-    (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
-    (applyAllTransforms(kt_stripPPA, "Hairy Protein")) should equal (Seq("Hairy"))
-    (applyAllTransforms(kt_stripPPA, "HAIRY PROTEIN")) should equal (Seq("HAIRY"))
-    (applyAllTransforms(kt_stripPPA, "hairy Protein")) should equal (Seq("hairy"))
-    (applyAllTransforms(kt_stripPPA, "hairy PROTEIN")) should equal (Seq("hairy"))
-    (applyAllTransforms(kt_stripPPA, "odd mutant protein")) should equal (Seq("odd"))
-    (applyAllTransforms(kt_stripPPA, "Odd mutant protein")) should equal (Seq("Odd"))
-    (applyAllTransforms(kt_stripPPA, "ODD mutant protein")) should equal (Seq("ODD"))
-    (applyAllTransforms(kt_stripPPA, "odd Mutant Protein")) should equal (Seq("odd"))
-    (applyAllTransforms(kt_stripPPA, "Odd MUTANT Protein")) should equal (Seq("Odd"))
-    (applyAllTransforms(kt_stripPPA, "ODD mutant Protein")) should equal (Seq("ODD"))
-    (applyAllTransforms(kt_stripPPA, "ODD mutant PROTEIN")) should equal (Seq("ODD"))
+  "applyAllTransforms(stripFamilyPostAttributives, _family)" should "not return stems" in {
+    (applyAllTransforms(kt_stripFPA, "parsnip_family")) should equal (Seq("parsnip_family"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip_family")) should equal (Seq("Parsnip_family"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP_family")) should equal (Seq("PARSNIP_family"))
+    (applyAllTransforms(kt_stripFPA, "parsnip_Family")) should equal (Seq("parsnip_Family"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip_Family")) should equal (Seq("Parsnip_Family"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP_Family")) should equal (Seq("PARSNIP_Family"))
+    (applyAllTransforms(kt_stripFPA, "parsnip_FAMILY")) should equal (Seq("parsnip_FAMILY"))
+    (applyAllTransforms(kt_stripFPA, "Parsnip_FAMILY")) should equal (Seq("Parsnip_FAMILY"))
+    (applyAllTransforms(kt_stripFPA, "PARSNIP_FAMILY")) should equal (Seq("PARSNIP_FAMILY"))
+  }
+
+  "applyAllTransforms(stripGeneNameAffixes, various strings)" should "strip suffixes" in {
+    (applyAllTransforms(kt_stripGNA, "NoSuffix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "BadSuffix-e")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "BadSuffix-gf")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "BadSuffix e")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "BadSuffix gf")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "dashend-")) should equal (Seq("dashend"))
+    (applyAllTransforms(kt_stripGNA, "DashEnd-")) should equal (Seq("DashEnd"))
+    (applyAllTransforms(kt_stripGNA, "stem-egfp")) should equal (Seq("stem"))
+    (applyAllTransforms(kt_stripGNA, "Stem-eGfp")) should equal (Seq("Stem"))
+    (applyAllTransforms(kt_stripGNA, "STEM-eGFP")) should equal (Seq("STEM"))
+    (applyAllTransforms(kt_stripGNA, "stem egfp")) should equal (Seq("stem"))
+    (applyAllTransforms(kt_stripGNA, "Stem eGfp")) should equal (Seq("Stem"))
+    (applyAllTransforms(kt_stripGNA, "STEM eGFP")) should equal (Seq("STEM"))
+    (applyAllTransforms(kt_stripGNA, "stem-gfp")) should equal (Seq("stem"))
+    (applyAllTransforms(kt_stripGNA, "Stem-Gfp")) should equal (Seq("Stem"))
+    (applyAllTransforms(kt_stripGNA, "STEM-GFP")) should equal (Seq("STEM"))
+    (applyAllTransforms(kt_stripGNA, "stem gfp")) should equal (Seq("stem"))
+    (applyAllTransforms(kt_stripGNA, "Stem Gfp")) should equal (Seq("Stem"))
+    (applyAllTransforms(kt_stripGNA, "STEM GFP")) should equal (Seq("STEM"))
+  }
+
+  "applyAllTransforms(stripGeneNameAffixes, various strings)" should "strip prefixes" in {
+    (applyAllTransforms(kt_stripGNA, "noprefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "NoPrefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "No Prefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "pre-BadPrefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "fla-BadPrefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "pre BadPrefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "fla BadPrefix")) should be (empty)
+    (applyAllTransforms(kt_stripGNA, "egfp-stem")) should equal (Seq("stem"))
+    (applyAllTransforms(kt_stripGNA, "eGfp-Stem")) should equal (Seq("Stem"))
+    (applyAllTransforms(kt_stripGNA, "eGFP-STEM")) should equal (Seq("STEM"))
+    (applyAllTransforms(kt_stripGNA, "gfp-stem")) should equal (Seq("stem"))
+    (applyAllTransforms(kt_stripGNA, "Gfp-Stem")) should equal (Seq("Stem"))
+    (applyAllTransforms(kt_stripGNA, "GFP-STEM")) should equal (Seq("STEM"))
+  }
+
+  "applyAllTransforms(stripGeneNameAffixes, various strings)" should "strip prefixes too" in {
+    (applyAllTransforms(kt_stripGNA, "egfp-KRAS")) should equal (Seq("KRAS"))
+    (applyAllTransforms(kt_stripGNA, "eGfp-KRAS")) should equal (Seq("KRAS"))
+    (applyAllTransforms(kt_stripGNA, "EGFP-KRas")) should equal (Seq("KRas"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL2")) should equal (Seq("IL2"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL-2")) should equal (Seq("IL-2"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL 2")) should equal (Seq("IL 2"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL-2-RA")) should equal (Seq("IL-2-RA"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL7")) should equal (Seq("IL7"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL-7")) should equal (Seq("IL-7"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL-7R")) should equal (Seq("IL-7R"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL 7")) should equal (Seq("IL 7"))
+    (applyAllTransforms(kt_stripGNA, "gfp-IL-7R-alpha")) should equal (Seq("IL-7R-alpha"))
+  }
+
+  "applyAllTransforms(stripGeneNameAffixes, various strings)" should "strip multiple prefixes" in {
+    (applyAllTransforms(kt_stripGNA, "Lenti-MYR-Rh-Luc-adv")) should be (empty) // all prefixes
+    (applyAllTransforms(kt_stripGNA, "Myr-Rh-Luc-adv-GFP")) should be (empty) // all affixes
+    (applyAllTransforms(kt_stripGNA, "myr-flag-akt1")) should equal (Seq("akt1"))
+    (applyAllTransforms(kt_stripGNA, "Myr-Flag-Akt1")) should equal (Seq("Akt1"))
+    (applyAllTransforms(kt_stripGNA, "MYR-FLAG-AKT1")) should equal (Seq("AKT1"))
+    (applyAllTransforms(kt_stripGNA, "activated-myr-flag-akt1")) should equal (Seq("akt1"))
+    (applyAllTransforms(kt_stripGNA, "Activated-Myr-Flag-Akt1")) should equal (Seq("Akt1"))
+    (applyAllTransforms(kt_stripGNA, "ACTIVATED-MYR-FLAG-AKT1")) should equal (Seq("AKT1"))
+    (applyAllTransforms(kt_stripGNA, "p-MYR-HA-Flag-Akt1")) should equal (Seq("Akt1"))
+  }
+
+  "applyAllTransforms(stripMutantProtein, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripMP, "crazy weird mutant")) should equal (Seq("crazy"))
+    (applyAllTransforms(kt_stripMP, "Crazy Weird Mutant")) should equal (Seq("Crazy"))
+    (applyAllTransforms(kt_stripMP, "crazy API mutant")) should equal (Seq("crazy"))
+    (applyAllTransforms(kt_stripMP, "phosphorylated WILD XK mutant")) should equal (Seq("WILD"))
+    (applyAllTransforms(kt_stripMP, "Phosphorylated WILD XK mutant")) should equal (Seq("WILD"))
+    (applyAllTransforms(kt_stripMP, "mutant-odd")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripMP, "mutant odd")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripMP, "Mutant-Odd")) should equal (Seq("Odd"))
+    (applyAllTransforms(kt_stripMP, "Mutant Odd")) should equal (Seq("Odd"))
+    (applyAllTransforms(kt_stripMP, "MUTANT-ODD")) should equal (Seq("ODD"))
+    (applyAllTransforms(kt_stripMP, "MUTANT ODD")) should equal (Seq("ODD"))
+    (applyAllTransforms(kt_stripMP, "mutant-zyx-1")) should equal (Seq("zyx-1"))
+    (applyAllTransforms(kt_stripMP, "mutant zyx 1")) should equal (Seq("zyx 1"))
   }
 
   "applyAllTransforms(stripOrganPostAttributives, various strings)" should "return stems" in {
@@ -214,40 +299,32 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_stripOPA, "purple cellS tissueS fluidS")) should equal (Seq("purple"))
   }
 
-  "applyAllTransforms(stripMutantProtein, various strings)" should "return stems" in {
-    (applyAllTransforms(kt_stripMP, "crazy weird mutant")) should equal (Seq("crazy"))
-    (applyAllTransforms(kt_stripMP, "Crazy Weird Mutant")) should equal (Seq("Crazy"))
-    (applyAllTransforms(kt_stripMP, "crazy API mutant")) should equal (Seq("crazy"))
-    (applyAllTransforms(kt_stripMP, "phosphorylated WILD XK mutant")) should equal (Seq("WILD"))
-    (applyAllTransforms(kt_stripMP, "Phosphorylated WILD XK mutant")) should equal (Seq("WILD"))
+  "applyAllTransforms(stripProteinDomainKey, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripPD, "LHS-RHS")) should be (empty) // not a PD
+    (applyAllTransforms(kt_stripPD, "AAI-AKT1")) should be (empty) // PD on LHS
+    (applyAllTransforms(kt_stripPD, "lhs-aai")) should equal (Seq("lhs"))
+    (applyAllTransforms(kt_stripPD, "akt1-aai")) should equal (Seq("akt1"))
+    (applyAllTransforms(kt_stripPD, "Akt1-Aai")) should equal (Seq("Akt1"))
+    (applyAllTransforms(kt_stripPD, "AKT1-AAI")) should equal (Seq("AKT1"))
   }
 
-  "applyAllTransforms(stripFamilyPostAttributives, various strings)" should "return stems" in {
-    (applyAllTransforms(kt_stripFPA, "parsnip family")) should equal (Seq("parsnip"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip family")) should equal (Seq("Parsnip"))
-    (applyAllTransforms(kt_stripFPA, "PARSNIP family")) should equal (Seq("PARSNIP"))
-    (applyAllTransforms(kt_stripFPA, "parsnip FAMILY")) should equal (Seq("parsnip"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip Family")) should equal (Seq("Parsnip"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip FAMILY")) should equal (Seq("Parsnip"))
-    (applyAllTransforms(kt_stripFPA, "sad protein family")) should equal (Seq("sad"))
-    (applyAllTransforms(kt_stripFPA, "Sad protein family")) should equal (Seq("Sad"))
-    (applyAllTransforms(kt_stripFPA, "SAD protein family")) should equal (Seq("SAD"))
-    (applyAllTransforms(kt_stripFPA, "sad protein FAMILY")) should equal (Seq("sad"))
-    (applyAllTransforms(kt_stripFPA, "sad PROTEIN family")) should equal (Seq("sad"))
-    (applyAllTransforms(kt_stripFPA, "sad PROTEIN Family")) should equal (Seq("sad"))
-    (applyAllTransforms(kt_stripFPA, "Sad Protein Family")) should equal (Seq("Sad"))
-    (applyAllTransforms(kt_stripFPA, "SAD PROTEIN FAMILY")) should equal (Seq("SAD"))
+  "applyAllTransforms(stripProteinPostAttributives, various strings)" should "return stems" in {
+    (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "Hairy protein")) should equal (Seq("Hairy"))
+    (applyAllTransforms(kt_stripPPA, "HAIRY protein")) should equal (Seq("HAIRY"))
+    (applyAllTransforms(kt_stripPPA, "hairy protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "Hairy Protein")) should equal (Seq("Hairy"))
+    (applyAllTransforms(kt_stripPPA, "HAIRY PROTEIN")) should equal (Seq("HAIRY"))
+    (applyAllTransforms(kt_stripPPA, "hairy Protein")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "hairy PROTEIN")) should equal (Seq("hairy"))
+    (applyAllTransforms(kt_stripPPA, "odd mutant protein")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripPPA, "Odd mutant protein")) should equal (Seq("Odd"))
+    (applyAllTransforms(kt_stripPPA, "ODD mutant protein")) should equal (Seq("ODD"))
+    (applyAllTransforms(kt_stripPPA, "odd Mutant Protein")) should equal (Seq("odd"))
+    (applyAllTransforms(kt_stripPPA, "Odd MUTANT Protein")) should equal (Seq("Odd"))
+    (applyAllTransforms(kt_stripPPA, "ODD mutant Protein")) should equal (Seq("ODD"))
+    (applyAllTransforms(kt_stripPPA, "ODD mutant PROTEIN")) should equal (Seq("ODD"))
   }
 
-  "applyAllTransforms(stripFamilyPostAttributives, _family)" should "not return stems" in {
-    (applyAllTransforms(kt_stripFPA, "parsnip_family")) should equal (Seq("parsnip_family"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip_family")) should equal (Seq("Parsnip_family"))
-    (applyAllTransforms(kt_stripFPA, "PARSNIP_family")) should equal (Seq("PARSNIP_family"))
-    (applyAllTransforms(kt_stripFPA, "parsnip_Family")) should equal (Seq("parsnip_Family"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip_Family")) should equal (Seq("Parsnip_Family"))
-    (applyAllTransforms(kt_stripFPA, "PARSNIP_Family")) should equal (Seq("PARSNIP_Family"))
-    (applyAllTransforms(kt_stripFPA, "parsnip_FAMILY")) should equal (Seq("parsnip_FAMILY"))
-    (applyAllTransforms(kt_stripFPA, "Parsnip_FAMILY")) should equal (Seq("Parsnip_FAMILY"))
-    (applyAllTransforms(kt_stripFPA, "PARSNIP_FAMILY")) should equal (Seq("PARSNIP_FAMILY"))
-  }
+  // TODO PTMP tests
 }
