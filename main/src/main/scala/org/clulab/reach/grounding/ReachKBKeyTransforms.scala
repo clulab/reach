@@ -12,7 +12,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Add identity key transform sequence. Remove mention handling.
+  *   Last Modified: Cleanup, regularize auxiliary KTs. Add leading mutation pattern.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -24,40 +24,31 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def canonicalKT (text:String): KeyCandidates = toKeyCandidates(canonicalKey(text))
 
 
-  // def handleHyphenationKTs (text:String): KeyCandidates = {
-  //   if (!text.contains("-"))
-  //     return NoCandidates
-  //   // TODO: GNA, proteinDomain suffix PTMprefixes?
-  // }
-
-  /** Check for one of several types of hyphen-separated strings and, if found,
-    * extract and return the candidate text portion, else return the text unchanged. */
-  def hyphenatedProteinKT (text:String): KeyCandidates = text.trim match {
-    // check for RHS protein domain or LHS mutant spec: return protein portion only
-    case HyphenatedNamePat(lhs, rhs) => if (isProteinDomain(rhs)) Seq(lhs.trim) else Seq(rhs.trim)
-    case _ => NoCandidates                // signal failure
-  }
-
   /** Remove suffixes from all keys candidates. */
   def stripAllKeysSuffixes (text:String): String = stripSuffixByPattern(AllKeysSuffixPat, text)
 
   /** Return the portion of the text string minus one of the protein family postpositional
     * attributives, if found in the given text string, else return no candidates. */
-  def stripFamilyPostAttributivesKT (text:String): KeyCandidates = {
-    text.trim match {
-      case UnderscoreFamilySuffixPat(ttext) => Seq(ttext)
-      case FamilyPostAttributivePat(lhs) => Seq(lhs.trim)
-      case _ => NoCandidates                // signal failure
-    }
+  def stripFamilyPostAttributivesKT (text:String): KeyCandidates = text.trim match {
+    case UnderscoreFamilySuffixPat(ttext) => Seq(ttext)
+    case FamilyPostAttributivePat(lhs) => Seq(lhs.trim)
+    case _ => NoCandidates                // signal failure
   }
 
-  /** Remove affixes from given dash-separated key, return concatenated string of non-affixes. */
+  /** Try to remove some specific affixes from the given hyphenated text and return a
+      dash-concatenated string of non-affixes, or no candidates if no affixes removed. */
   def stripGeneNameAffixesKT (text:String): KeyCandidates = {
-    val noSuffixes = stripSuffixByPattern(GeneNameSuffixPat, text) // remove any suffixes
-    val noPrefixes = noSuffixes.split("-").filterNot(isGeneNamePrefix(_))
-    if (noPrefixes.nonEmpty)
-      Seq(noPrefixes.mkString("-"))
-    else Seq(noSuffixes)
+    val trimText = text.trim
+    val sansSuffixes = stripSuffixByPattern(GeneNameSuffixPat, trimText) // remove any suffixes
+    val sansPrefixes = sansSuffixes.split("-").filterNot(isGeneNamePrefix(_)).mkString("-")
+    if (sansPrefixes == "" || sansPrefixes == trimText) // if all parts or no parts were affixes
+      return NoCandidates                               // signal failure
+    else if (sansPrefixes != sansSuffixes)  // if some prefixes were stripped
+      Seq(sansPrefixes)                     // return new candidate string
+    else {
+      if (sansSuffixes == trimText) NoCandidates // if no suffixes were stripped
+      else Seq(sansSuffixes)                     // else return de-suffixed string
+    }
   }
 
   /** Return the portion of the text string before a trailing mutation phrase,
@@ -65,6 +56,7 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def stripMutantProteinKT (text:String): KeyCandidates = text.trim match {
     case PhosphorMutationPat(chunk) => Seq(chunk.trim)
     case TrailingMutationPat(lhs) => Seq(lhs.trim)
+    case LeadingMutationPat(rhs) => Seq(rhs.trim)
     case _ => NoCandidates                  // signal failure
   }
 
@@ -73,6 +65,13 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def stripOrganPostAttributivesKT (text:String): KeyCandidates = text.trim match {
     case OrganPostAttributivePat(lhs) => Seq(lhs.trim)
     case _ => NoCandidates                  // signal failure
+  }
+
+  /** Check for hyphen-separated strings where the RHS is a protein domain specification.
+    * Extract and return the candidate text portion, else return no candidates. */
+  def stripProteinDomainKT (text:String): KeyCandidates = text.trim match {
+    case HyphenatedNamePat(lhs, rhs) => if (isProteinDomain(rhs)) Seq(lhs.trim) else NoCandidates
+    case _ => NoCandidates                // signal failure
   }
 
   /** Return the portion of the text string minus one of the protein postpositional
@@ -117,6 +116,9 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   /** The set of characters to remove from the text to create a lookup key. */
   val KeyCharactersToRemove = " '/-".toSet
 
+  /** Match mutation string at end of text string, case insensitive. */
+  val LeadingMutationPat = """(?i)mutant(?: |-)+(.*)""".r
+
   /** Match patterns to create an organ lookup key. */
   val OrganPostAttributivePat = """(?i)(.*?)(?: cells?| tissues?| fluids?)+""".r
 
@@ -153,7 +155,7 @@ object ReachKBKeyTransforms extends ReachKBKeyTransforms {
   /** List of transform methods to apply for alternate Protein lookups. */
   val ProteinAuxKeyTransforms = Seq( stripProteinPostAttributivesKT _,
                                      stripMutantProteinKT _,
+                                     stripProteinDomainKT _,
                                      stripGeneNameAffixesKT _,
-                                     hyphenatedProteinKT _,
                                      stripPTMPrefixesKT _ )
 }
