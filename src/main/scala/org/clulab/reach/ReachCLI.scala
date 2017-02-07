@@ -26,7 +26,7 @@ import org.clulab.reach.utils.MentionManager
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Add more processing statistics to logging via new class.
+  *   Last Modified: Fix: previous file handling changes did not create empty restart file.
   */
 class ReachCLI (
   val papersDir: File,
@@ -286,6 +286,10 @@ object RunReachCLI extends App with LazyLogging {
   } else if (!outDir.isDirectory) {
     sys.error(s"${outDir.getCanonicalPath} is not a directory")
   }
+
+  // insure existance of specified restart file
+  if (useRestart)
+    restartFile.createNewFile()
 
   // create a new batch class and process the input papers
   val cli = new ReachCLI(
