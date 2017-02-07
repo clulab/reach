@@ -5,6 +5,7 @@ import org.clulab.odin._
 import org.clulab.reach._
 import org.clulab.reach.mentions._
 import org.clulab.struct.DirectedGraph
+import org.clulab.utils.DependencyUtils
 import scala.annotation.tailrec
 
 
@@ -454,26 +455,32 @@ object DarpaActions {
     // it is possible for the trigger and the arg to be in different sentences because of coreference
     if (trigger.sentence != arg.sentence) return Nil
     val deps = trigger.sentenceObj.dependencies.get
-    // find the shortest path between any token in the trigger and any token in the argument
-    var shortestPath: Seq[Int] = null
-    for (tok1 <- trigger.tokenInterval; tok2 <- arg.tokenInterval) {
-      val path = deps.shortestPath(tok1, tok2, ignoreDirection = true)
-      if (shortestPath == null || path.length < shortestPath.length) {
-        shortestPath = path
-      }
+    // find shortestPath between the trigger head token and the argument head token
+    val shortestPath: Option[Seq[Int]] = for {
+      triggerHead <- DependencyUtils.findHeadStrict(trigger.tokenInterval, trigger.sentenceObj)
+      argHead <- DependencyUtils.findHeadStrict(arg.tokenInterval, arg.sentenceObj)
+    } yield deps.shortestPath(triggerHead, argHead, ignoreDirection = true)
+
+    //println("Trigger: " + trigger.start + " -> " + trigger.end + " " + trigger.label)
+    //println("Argument: " + arg.start + " -> " + arg.end + " " + arg.label)
+    //println(s"Shortest path: ${shortestPath.get.mkString(", ")} in sentence ${trigger.sentenceObj.words.mkString(", ")}")
+
+    shortestPath match {
+      case None => Nil
+      case Some(path) =>
+        val shortestPathWithAdjMods = addAdjectivalModifiers(path, deps)
+        val nnMods = nounModifiers(arg.tokenInterval.indices, deps)
+        val ofMods = ofModifiers(arg.tokenInterval.indices, deps)
+        // get all tokens considered negatives
+        val negatives = for {
+          tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods).distinct // a single token can't negate twice
+          if !excluded.contains(tok)
+          lemma = trigger.sentenceObj.lemmas.get(tok)
+          if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
+        } yield tok
+        // return number of negatives
+        negatives
     }
-    val shortestPathWithAdjMods = addAdjectivalModifiers(shortestPath, deps)
-    val nnMods = nounModifiers(arg.tokenInterval.indices, deps)
-    val ofMods = ofModifiers(arg.tokenInterval.indices, deps)
-    // get all tokens considered negatives
-    val negatives = for {
-      tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods).distinct // a single token can't negate twice
-      if !excluded.contains(tok)
-      lemma = trigger.sentenceObj.lemmas.get(tok)
-      if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
-    } yield tok
-    // return number of negatives
-    negatives
   }
 
   /**
