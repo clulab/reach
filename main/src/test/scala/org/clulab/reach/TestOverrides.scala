@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Fix two tests using obsoleted override strings.
+  *   Last Modified: Minor comment update on AA short test.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -220,7 +220,8 @@ class TestOverrides extends FlatSpec with Matchers {
     mentions.count(_ matches "Simple_chemical") should be (6)
   }
 
-  // Amino Acid abbreviations relabeled as Sites (but only 20/22 because of conflicts):
+  // Amino Acid abbreviations relabeled as Sites (but only 20/22 because of protein conflicts)
+  // Should all be GROUNDED correctly as UAZ-S-* via the NER override file.
   aa_short should "have Site labels" in {
     val aas_mentions =  getBioMentions(aa_short)
     aas_mentions should not be (empty)
