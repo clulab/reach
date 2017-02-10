@@ -5,20 +5,25 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import scala.io.Source
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+
 import org.apache.commons.io.{ FileUtils, FilenameUtils }
 import java.io.File
 import java.util.Date
+
 import ai.lum.common.FileUtils._
 import ai.lum.common.ConfigUtils._
+
 import org.clulab.odin._
 import org.clulab.reach.assembly._
 import org.clulab.reach.assembly.export.{ AssemblyExporter, AssemblyRow, ExportFilters }
 import org.clulab.reach.export.OutputDegrader
 import org.clulab.reach.export.arizona.ArizonaOutputter
 import org.clulab.reach.export.cmu.CMUExporter
-import org.clulab.reach.export.fries._
+import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
+import org.clulab.reach.export.mentions.MentionsJsonOutput
 import org.clulab.reach.mentions.CorefMention
+import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
 
 
@@ -26,7 +31,7 @@ import org.clulab.reach.utils.MentionManager
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Fix: previous file handling changes did not create empty restart file.
+  *   Last Modified: Add output in Mentions-JSON format.
   */
 class ReachCLI (
   val papersDir: File,
@@ -188,10 +193,16 @@ class ReachCLI (
         outputter.writeJSON(paperId, mentionsForOutput, Seq(entry), startTime, procTime, outFile)
 
       // Handle Index cards (NOTE: outdated!)
-      case ("indexcard", _)=>
+      case ("indexcard", _) =>
         // time elapsed (w/o assembly)
         val procTime = ReachCLI.now
-        val outputter =new IndexCardOutput()
+        val outputter = new IndexCardOutput()
+        outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
+
+      // Handle Mentions-JSON output format (w/o assembly)
+      case ("mentions-json", _) =>
+        val procTime = ReachCLI.now
+        val outputter = new MentionsJsonOutput(encoding)
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
 
       // assembly output
