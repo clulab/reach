@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Object which implements all Reach KB Mention Lookup creators and instances.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Update for changed arguments of KB key transforms group.
+  *   Last Modified: Revert to using default (canonical) key transforms.
   */
 object ReachIMKBMentionLookups {
 
@@ -162,7 +162,7 @@ object ReachIMKBMentionLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -174,7 +174,7 @@ object ReachIMKBMentionLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true                    // treat complexes as a protein KB
     )
-    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBMentionLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
