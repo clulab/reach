@@ -1,4 +1,4 @@
-package org.clulab.reach.export.mentions
+package org.clulab.reach.export.serial
 
 import java.io.File
 import java.nio.file.{Files, Paths}
@@ -14,18 +14,18 @@ import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 
 /**
-  * Defines classes and methods used to output the Mentions-JSON output format.
+  * Defines classes and methods used to output the serial-json output format.
   *   Written by: Tom Hicks. 2/9/2016.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Rename output type and this class.
   */
-class MentionsJsonOutput (
+class SerialJsonOutput (
 
   /** The character set encoding to use when writing out the JSON to a file. */
   encoding: String = "utf-8"
 
 ) extends JsonOutputter with LazyLogging {
 
-  /** Returns the given mentions in the Mentions-JSON format, as one big string. */
+  /** Returns the given mentions in the serial-json format, as one big string. */
   override def toJSON (
     paperId:String,
     allMentions:Seq[Mention],

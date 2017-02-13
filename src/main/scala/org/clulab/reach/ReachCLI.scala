@@ -21,7 +21,7 @@ import org.clulab.reach.export.arizona.ArizonaOutputter
 import org.clulab.reach.export.cmu.CMUExporter
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
-import org.clulab.reach.export.mentions.MentionsJsonOutput
+import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.mentions.CorefMention
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.utils.MentionManager
@@ -31,7 +31,7 @@ import org.clulab.reach.utils.MentionManager
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Add output in Mentions-JSON format.
+  *   Last Modified: Rename output to serial-json format.
   */
 class ReachCLI (
   val papersDir: File,
@@ -199,10 +199,10 @@ class ReachCLI (
         val outputter = new IndexCardOutput()
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
 
-      // Handle Mentions-JSON output format (w/o assembly)
-      case ("mentions-json", _) =>
+      // Handle Serial-JSON output format (w/o assembly)
+      case ("serial-json", _) =>
         val procTime = ReachCLI.now
-        val outputter = new MentionsJsonOutput(encoding)
+        val outputter = new SerialJsonOutput(encoding)
         outputter.writeJSON(paperId, mentions, Seq(entry), startTime, procTime, outFile)
 
       // assembly output
