@@ -605,4 +605,11 @@ class TestTemplaticSimpleEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent43)
     hasEventWithArguments("Ubiquitination", Seq("MEK5D"), mentions) should be (true)
   }
+
+  val sent44 = "Activated Akt phosphorylates FoxO3a protein at Ser-318 and Ser-321 and Ser 253"
+  sent44 should "contain three controlled phosphorylations" in {
+    val mentions = getBioMentions(sent44)
+    mentions.filter(_ matches "Phosphorylation") should have size (3)
+    mentions.filter(_ matches "Positive_regulation") should have size (3)
+  }
 }

@@ -1,123 +1,150 @@
-- name: alias_${ label }_paren1_nil
+- name: alias_${ aLabel }-${ bLabel }_paren1_nil
   example: "Ras (H-Ras, K-Ras, N-Ras)"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ^ ${ aCapture }
     [tag="-LRB-"]
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*?
     [tag="-RRB-"]
 
-- name: alias_${ label }_paren2_referredto
+- name: alias_${ aLabel }-${ bLabel }_paren2_referredto
   example: "Ras (also referred to as H-Ras, K-Ras, or N-Ras)"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
     [tag="RB"]?
     "referred" "to" "as"
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*?
     [tag="-RRB-"]
 
-- name: alias_${ label }_paren3_knownas
+- name: alias_${ aLabel }-${ bLabel }_paren3_knownas
   example: "Ras (also known as H-Ras, K-Ras, N-Ras)"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
     [tag="RB"]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*?
     [tag="-RRB-"]
 
-- name: alias_${ label }_paren4_called
+- name: alias_${ aLabel }-${ bLabel }_paren4_called
   example: "Ras (commonly called H-Ras, K-Ras or N-Ras)"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     [tag="-LRB-"]
     ("which" [lemma="be"])?
     [tag="RB"]?
     [lemma=/^call|term|name$/ & tag="VBN"]
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*?
     [tag="-RRB-"]
 
-- name: alias_${ label }_paren5_alias
+- name: alias_${ aLabel }-${ bLabel }_paren5_alias
   example: "Ras (a.k.a. H-Ras/K-Ras/N-Ras)"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     [tag="-LRB-"]
     [word=/^alias|a\.k\.a\.$/]
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*?
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*?
     [tag="-RRB-"]
 
-- name: alias_${ label }_comma1_referredto
+- name: alias_${ aLabel }-${ bLabel }_comma1_referredto
   example: "Ras, which is typically referred to as H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     ","
     ("which" [lemma="be"])?
     [tag="RB"]?
     "referred" "to" "as"
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*
     [tag=/^\.|,|:$/]
 
-- name: alias_${ label }_comma2_knownas
+- name: alias_${ aLabel }-${ bLabel }_comma2_knownas
   example: "Ras, usually designated H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     ","
     ("which" [lemma="be"])?
     [tag="RB"]?
     [word=/^known|designated$/ & tag="VBN"] "as"?
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*
     [tag=/^\.|,|:$/]
 
-- name: alias_${ label }_comma2_called
+- name: alias_${ aLabel }-${ bLabel }_comma2_called
   example: "Ras, sometimes termed H-Ras, K-Ras, or N-Ras,"
   label: Alias
   action: mkBioMention
   priority: ${ priority }
   type: token
   pattern: |
-    @alias:${ label }
+    ${ aCapture }
     ","
     ("which" [lemma="be"])?
     [tag="RB"]?
     [lemma=/^call|term|name$/ & tag="VBN"]
-    @alias:${ label }
-    ([word=/^,|\/|or$/]+ @alias:${ label })*
+    ${ bCapture }
+    ([word=/^,|\/|or$/]+ ${ bCapture })*
     [tag=/^\.|,|:$/]
+
+- name: alias_${ aLabel }-${ bLabel }_homolog
+  example: "We studied the effects of the Pax6 homologs eyeless and eyegone."
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    ${ aCapture }
+    [lemma="homolog"]
+    ${ bCapture }
+    (("," ${ bCapture })* ","? and ${ bCapture })?
+
+- name: alias_${ aLabel }-${ bLabel }_homolog2
+  example: "Eyeless, a homolog of Pax6, is the subject of this work."
+  label: Alias
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+    ${ aCapture }
+    (("," ${ aCapture })* ","? and ${ aCapture })?
+    ","
+    (the | a)?
+    [lemma="homolog"]
+    of
+    ${ bCapture }
 

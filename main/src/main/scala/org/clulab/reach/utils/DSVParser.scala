@@ -31,6 +31,7 @@ class DSVParser {
   ): Seq[FriesEntry] = {
     // Sniff out the delimiter based on the file's extension
     val delimiter: String = getDelimiter(file)
+    val splitPattern = getSplitPattern(delimiter)
 
     val numCols = if (sectionIdColumn != -1) 4 else 3
 
@@ -42,7 +43,7 @@ class DSVParser {
 
     val entries = for (line <- lines.toSeq) yield {
 
-      val columns: Seq[String] = line.split(delimiter, numCols)
+      val columns: Seq[String] = line.split(splitPattern, numCols)
       val docID = columns(docIdColumn)
       val sectionID = if (sectionIdColumn != -1) columns(sectionIdColumn) else ""
       val chunkID = columns(chunkIdColumn)
@@ -87,10 +88,18 @@ class DSVParser {
     )
   }
 
-  /** Sniff out the delimiter based on the file's extension */
+  /** Sniff out the based on the file's extension */
   def getDelimiter(file: File): String = FilenameUtils.getExtension(file.getName) match {
     case "tsv" => "\t"
-    case _ => ","
+    case "csv" => ","
+    case other => throw new Exception(s"'$other' is not a supported extension")
+  }
+
+  /** Create a safe split pattern based on the delimiter */
+  def getSplitPattern(delimiter: String): String = delimiter match {
+    case "," => DSVParser.CSV
+    case "\t" => DSVParser.TSV
+    case other => other
   }
 
   /** Remove extra quotes surrounding a text string */
@@ -101,6 +110,7 @@ class DSVParser {
 }
 
 object DSVParser {
-
+  val CSV = """,(?=([^\"]*\"[^\"]*\")*[^\"]*$)"""
+  val TSV = """\t"""
   val Quoted = new Regex("^\"(.*?)\"$")
 }

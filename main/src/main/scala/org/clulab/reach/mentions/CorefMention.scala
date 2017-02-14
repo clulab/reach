@@ -19,7 +19,7 @@ class CorefTextBoundMention(
 
   def hasGenericMutation: Boolean = {
     this.mutants.exists(mut => mut.isGeneric) ||
-    (this.isGeneric && this.text.toLowerCase.take(6) == "mutant" && this.mutants.isEmpty) //FIXME: hack until mutant detection is better
+    (this.isGeneric && this.text.toLowerCase.take(6) == "mutant") //FIXME: hack until mutant detection is better
   }
 
   def toSingletons: Seq[CorefTextBoundMention] = {

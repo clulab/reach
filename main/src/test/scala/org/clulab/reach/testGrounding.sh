@@ -4,6 +4,7 @@
 sbt 'test-only \
 org.clulab.reach.TestAdHocIMKBs \
 org.clulab.reach.TestAzFailsafeKB \
+org.clulab.reach.TestComplexResolutions \
 org.clulab.reach.TestFamilyResolutions \
 org.clulab.reach.TestGrounding \
 org.clulab.reach.TestGroundingTrait \
@@ -11,7 +12,7 @@ org.clulab.reach.TestKBSupport \
 org.clulab.reach.TestMiscLookups \
 org.clulab.reach.TestModelEntities \
 org.clulab.reach.TestNERLabeling \
-org.clulab.reach.TestOrganCellTypeResolutions \
+org.clulab.reach.TestOrganResolutions \
 org.clulab.reach.TestOverrides \
 org.clulab.reach.TestProteinResolutions \
 org.clulab.reach.TestReachContextKBLister \

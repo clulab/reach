@@ -27,6 +27,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bindings) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
   }
 
@@ -41,6 +42,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bindings) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
   }
 
@@ -80,6 +82,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
 
     mentions = getBioMentions(sent5b)
@@ -88,6 +91,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     for (b <- bs) {
       b.arguments.get("theme").get should have size (2) // each binding must have exactly two themes
       b.arguments.get("theme").get.exists(_.text == "Ras") should be (true) // Ras is a theme in all these
+      b.asInstanceOf[BioEventMention].isDirect should be (true)
     }
   }
 
@@ -297,6 +301,8 @@ class TestBindingEvents extends FlatSpec with Matchers {
     hasEventWithArguments("Binding", List("Ku70", "Ku80"), mentions) should be (true)
   }
 
+  // ms: removed these two unit tests; too ambiguous
+  /*
   val sent25 = "Identification by mass spectroscopy of DNA-PKcs associated with XRCC1"
   sent25 should "contain 1 binding event" in {
     val mentions = getBioMentions(sent25)
@@ -307,6 +313,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent26)
     hasEventWithArguments("Binding", List("DNA-PKcs", "XRCC1"), mentions) should be (true)
   }
+  */
 
   val sent27 = "Once bound to the DSB, the DNA-PK holoenzyme facilitates the recruitment..."
   sent27 should "contain 1 binding event (MARCO)" in {

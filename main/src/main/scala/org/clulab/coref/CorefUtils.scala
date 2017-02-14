@@ -102,9 +102,11 @@ object CorefUtils {
   def compatibleMutants(a: CorefMention, b: CorefMention): Boolean = {
     val sameMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) &&
       b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
+    val subsetMutants = a.mutants.filterNot(_.isGeneric).forall(am => b.mutants.exists(_.text == am.text)) ||
+      b.mutants.filterNot(_.isGeneric).forall(bm => a.mutants.exists(_.text == bm.text))
     if (sameMutants && !a.hasGenericMutation && !b.hasGenericMutation) true
-    else if (a.hasGenericMutation && b.mutants.nonEmpty) true
-    else if (b.hasGenericMutation && a.mutants.nonEmpty) true
+    else if (subsetMutants && a.hasGenericMutation && b.mutants.nonEmpty) true
+    else if (subsetMutants && b.hasGenericMutation && a.mutants.nonEmpty) true
     else false
   }
 
@@ -120,9 +122,7 @@ object CorefUtils {
       a.label == b.label &&
       a.nonGeneric && b.nonGeneric &&
       compatibleContext(a, b) &&
-      a.isGrounded && b.isGrounded &&
-      ((a.grounding().get.namespace == ReachKBConstants.DefaultNamespace) ^
-        (b.grounding().get.namespace == ReachKBConstants.DefaultNamespace))
+      a.isGrounded && b.isGrounded
   }
 
   /**
@@ -167,21 +167,20 @@ object CorefUtils {
     case impossible => 0
   }
 
+  /**
+    * Return all the text-bound mentions of this mention's arguments (recursively)
+    */
   def collapseArguments(mention: Mention): Set[Mention] = {
     if (mention.isInstanceOf[CorefTextBoundMention]) return Set(mention)
-    Set(mention) ++ mention.arguments.values.flatten.flatMap(m => collapseArguments(m)).toSet
+    mention.arguments.values.flatten.flatMap(m => collapseArguments(m)).toSet
   }
 
-  /**
-    * Given two [[Mention]]s, determine whether any event has both as (nested) arguments.
-    * @param a
-    * @param b
-    * @param evts
-    * @return
-    */
+  /** Return true if at least one event has both as (nested) arguments, given two [[Mention]]s */
   def coArguments(generic: Mention, nonGeneric: Mention, evts: Seq[Mention]): Boolean = {
     val argSets = evts.map(collapseArguments(_))
-    argSets.exists(args => args.contains(generic) &&
-      args.exists(_.toBioMention.grounding == nonGeneric.toBioMention.grounding))
+    argSets.exists(args =>
+      args.contains(generic) &&
+      args.exists(a => a.toBioMention.sharesGroundingWith(nonGeneric.toBioMention))
+    )
   }
 }
