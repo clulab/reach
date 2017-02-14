@@ -2,7 +2,7 @@ name := "reach-main"
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-  "org.clulab" % "bioresources" % "1.1.21",
+  "org.clulab" % "bioresources" % "1.1.22",
   "org.clulab" %% "processors-main" % "6.0.3-SNAPSHOT",
   "org.clulab" %% "processors-corenlp" % "6.0.3-SNAPSHOT",
   "org.clulab" %% "processors-models" % "6.0.3-SNAPSHOT",
