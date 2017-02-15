@@ -63,31 +63,32 @@ package object context {
 
   }
 
-  trait RichTree {
+  trait RichTree extends Any {
     def toJson:JObject
     def printJson: String = pretty(render(this.toJson))
   }
 
-  case class RichTerminal(t:Terminal) extends Terminal(t.label, t.text, t.interval) with RichTree{
+  implicit class RichTerminal(val t:Terminal) extends AnyVal with RichTree {
 
     def toJson: JObject = {
       // Create a dictionary to be rendered as JSON
-      ("label" -> this.label) ~
-      ("text" -> this.text) ~
-      ("start" -> this.interval.start) ~
-      ("end" -> this.interval.end)
+      ("label" -> t.label) ~
+      ("text" -> t.text) ~
+      ("start" -> t.interval.start) ~
+      ("end" -> t.interval.end)
     }
+
   }
 
-  case class  RichNonTerminal(t:NonTerminal) extends NonTerminal(t.label, t.children, t.attributes) with RichTree{
+  implicit class RichNonTerminal(val t:NonTerminal) extends AnyVal with RichTree {
 
     def toJson: JObject = {
       // Create a dictionary to be rendered as JSON
-      ("label" -> this.label) ~
-      ("text" -> this.text) ~
-      ("start" -> this.interval.start) ~
-      ("end" -> this.interval.end)
+      ("label" -> t.label) ~
+      ("attributes" -> t.attributes) ~
+        ("children" -> t.children.map(_.toJson))
     }
+
   }
 
   implicit def tree2RichTree(tree :Tree):RichTree = tree match {
