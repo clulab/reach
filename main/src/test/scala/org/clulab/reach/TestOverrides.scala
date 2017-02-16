@@ -9,10 +9,11 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add test of some sample families now grounded by the BE KB.
+  *   Last Modified: Add tests of some subcellular location overrides.
   */
 class TestOverrides extends FlatSpec with Matchers {
   val Chemical = "Simple_chemical"
+  val CellComp = "Cellular_component"
   val Family = "Family"
   val GGP = "Gene_or_gene_product"
   val Protein = "Protein"
@@ -133,6 +134,9 @@ class TestOverrides extends FlatSpec with Matchers {
   val chem = "GTP, GDP, cyclododecane, TAK-165, and estrone are important molecules. "
   val chem_ids = Seq("6830", "8977", "18529", "644692", "5870")
 
+  val cell = "Exosomes, Mitochondria, and mitochondrion are important subcellular components. "
+  val cell_ids = Seq("GO:0070062", "GO:0005739", "GO:0005739")
+
   val estros = "Estrone E1, estradiol E2, and estriol E3 do not cause cancer."
 
   val aminos = "Alanine, arginine, asparagine, aspartic acid, aspartate, cysteine, glutamic acid, glutamate, glutamine, glycine, histidine, isoleucine, leucine, lysine, methionine, phenylalanine, proline, serine, threonine, tryptophan, tyrosine, and valine are amino acids"
@@ -208,6 +212,7 @@ class TestOverrides extends FlatSpec with Matchers {
   testMentions(be4f,     be4f_ids, Family,   Some(Family),  false)
   testMentions(be5f,     be5f_ids, Family,   Some(Family),  false)
   testMentions(chem,     chem_ids, Chemical, Some(Chemical), true)
+  testMentions(cell,     cell_ids, CellComp, Some(CellComp), false)
   testMentions(aminos,   aa_ids,   Site,     Some(Site),    false)
 
   // special test for Estrogens and their nicknames:
