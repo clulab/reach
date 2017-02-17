@@ -8,6 +8,7 @@ import org.clulab.reach.mentions.BioTextBoundMention
 import org.clulab.context.ml.PreAnnotatedDoc
 import org.clulab.context.ContextClass
 import org.clulab.utils.Serializer
+import org.clulab.context.RichTree
 
 // object ContextLabel extends Enumeration{
 //   val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value
@@ -99,54 +100,58 @@ case class ArticleAnnotations(val name:String,
 object ArticleAnnotations{
   def readPaperAnnotations(directory:String):ArticleAnnotations = {
     // Read the tsv annotations from a paper
-    val rawSentences = Source.fromFile(new File(directory, "sentences.tsv")).getLines
-    val sentences:Map[Int, String] = rawSentences.map{
-      s =>
-        val tokens = s.split("\t")
-        if(tokens.size < 2){
-          (tokens(0).toInt, "")
-        }
-        else
-          (tokens(0).toInt, tokens(1))
+    val rawSentences = Source.fromFile(new File(directory, "sentences.txt")).getLines
+    val sentences:Map[Int, String] = rawSentences.zipWithIndex.map{
+      case (s, i) => (i -> s)
     }.toMap
 
-    val rawEvents = Source.fromFile(new File(directory, "events.tsv")).getLines
-    val events = rawEvents.map{
-      s =>
-        val tokens = s.split("\t")
+    val rawEvents = Source.fromFile(new File(directory, "annotated_event_intervals.tsv")).getLines.toList
+    val events = rawEvents.map(_.split("\t")).map{
+      case tokens =>
         val sentenceId = tokens(0).toInt
 
         val bounds = tokens(1).split("-").map(_.toInt)
         val (start, end) = (bounds(0), bounds(1))
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
-        val contexts:Seq[ContextType] =
-          if(tokens.size == 3) tokens(2).split(",").map(ContextType.parse(_))
-          else{
-            // TODO: Uncomment this and fix it in the files
-            //println(s"DEBUG: Event without context in $directory")
-            Seq()
-          }
+        val contexts:Seq[ContextType] = if(tokens.size == 3 && tokens(2) != "") tokens(2).split(",").map(ContextType.parse(_)) else Seq()
 
         EventAnnotation(sentenceId, interval, Some(contexts))
     }.toSeq
 
-    val rawContext = Source.fromFile(new File(directory, "context.tsv")).getLines
-    val context = rawContext.map{
-      s =>
-        val tokens = s.split("\t")
+    val rawReachContext = Source.fromFile(new File(directory, "mention_intervals.txt")).getLines
+    val reachContext = rawReachContext.map(_.split(" ")).collect{
+      case tokens if tokens.size > 1 =>
 
         val sentenceId = tokens(0).toInt
 
-        val bounds = tokens(1).split("-").map(_.toInt)
-        val (start, end) = (bounds(0), bounds(1))
+        val data = tokens(1).split("%")
+
+        val (start, end) = (data(0).toInt, data(1).toInt)
+        val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
+        val context = ContextType.parse(data(3))
+
+        ContextAnnotation(sentenceId, interval, context)
+    }.toSeq
+
+    val rawManualContext = Source.fromFile(new File(directory, "manual_context_mentions.tsv")).getLines
+    val manualContext = rawManualContext.map(_.split("\t")).map{
+      tokens =>
+
+        val sentenceId = tokens(0).toInt
+
+        val bounds = tokens(1).split("-")
+
+        val (start, end) = (bounds(0).toInt, bounds(1).toInt)
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
         val context = ContextType.parse(tokens(2))
 
         ContextAnnotation(sentenceId, interval, context)
     }.toSeq
 
+    val context = reachContext ++ manualContext
+
     val soffFile = new File(directory, "standoff.json")
-    val standoff = None //if(soffFile.exists) Some(Tree.readJson(soffFile.getPath)) else None TODO: Uncomment this when the pullrequest is accepted
+    val standoff = if(soffFile.exists) Some(RichTree.readJson(soffFile.getPath)) else None
 
     val preprocessed:Option[PreAnnotatedDoc] = {
       val ppFile = new File(directory, "preprocessed.ser")
