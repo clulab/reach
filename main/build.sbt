@@ -3,17 +3,16 @@ name := "reach-main"
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.4" % "test",
   "org.clulab" % "bioresources" % "1.1.22",
-  "org.clulab" %% "processors-main" % "6.0.3-SNAPSHOT",
-  "org.clulab" %% "processors-corenlp" % "6.0.3-SNAPSHOT",
-  "org.clulab" %% "processors-models" % "6.0.3-SNAPSHOT",
-  "com.typesafe" % "config" % "1.2.1",
+  "org.clulab" %% "processors-main" % "6.0.4",
+  "org.clulab" %% "processors-corenlp" % "6.0.4",
+  "org.clulab" %% "processors-models" % "6.0.4",
   "commons-io" % "commons-io" % "2.4",
   "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
   "jline" % "jline" % "2.12.1",
   "org.apache.lucene" % "lucene-core" % "5.3.1",
   "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
   "org.apache.lucene" % "lucene-queryparser" % "5.3.1",
-  "ai.lum" %% "nxmlreader" % "0.0.7",
+  "ai.lum" %% "nxmlreader" % "0.0.9",
   // logging
   "ch.qos.logback" %  "logback-classic" % "1.1.7",
   "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0"
