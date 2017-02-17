@@ -1,6 +1,8 @@
 #Changes
 =======
 
++ **1.3.3** - Fix lib clash: allow ai.lum.common to dicate typesafe.config version.
++ **1.3.3** - Use consistent SBT version across projects. Update ai.lum.nxmlreader to special release 0.0.9.
 + **1.3.3** - Find shortest path between heads in actions. Add/allow outputter for JSON serialization format.
 + **1.3.3** - Fix trigger affecting countSemanticNegatives. Add restart capability and more logging stats to ReachCLI.
 + **1.3.3** - Added a new tabular format for the DyCE CMU model. Update Phase3 use cases. Add/use root path in config.
