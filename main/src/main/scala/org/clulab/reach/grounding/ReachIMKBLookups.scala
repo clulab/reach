@@ -6,7 +6,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Object which implements all Reach KB Lookup instances.
   *   Written by: Tom Hicks. 10/23/2015.
-  *   Last Modified: Replace test arguments of KB key transforms groups.
+  *   Last Modified: Revert to using default (canonical) key transforms.
   */
 object ReachIMKBLookups {
 
@@ -92,7 +92,7 @@ object ReachIMKBLookups {
       hasSpeciesInfo = true,
       isProteinKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
@@ -104,7 +104,7 @@ object ReachIMKBLookups {
       baseURI = "https://github.com/sorgerlab/bioentities",
       isProteinKB = true
     )
-    val keyTransforms = new KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+    val keyTransforms = new KBKeyTransformsGroup(DefaultKeyTransforms, ProteinAuxKeyTransforms, DefaultKeyTransforms)
     new IMKBLookup(TsvIMKBFactory.make(metaInfo, keyTransforms))
   }
 
