@@ -25,6 +25,32 @@ case class Query(val strategy:QueryStrategy.Strategy, val A:Participant, val B:O
   */
 object LuceneQueries extends LazyLogging{
 
+  logger.info("Loading KBs...")
+  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("bio_process.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
+  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("hgnc.tsv.gz")).getLines.toSeq
+
+  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).distinct)
+
+  val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
+  val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
+  val nxmlDir = "/work/enoriega/fillblanks/nxml"
+
+  logger.info("Loading lucene record...")
+  // Load the serialized record if exists, otherwise create a new one
+  val ldcFile = new File(nxmlDir, "luceneDocRecord.ser")
+  val luceneDocRecord = if(ldcFile.exists()){
+    Serializer.load[mutable.HashMap[Int, String]](ldcFile.getAbsolutePath)
+  }
+  else{
+    mutable.HashMap[Int, String]()
+  }
+
   /***
     * Gets the synonyms from the KB files
     * @param term Grounding ID without namespace to look for
@@ -79,33 +105,6 @@ object LuceneQueries extends LazyLogging{
 
     existing.toList ++ newPapers
   }
-
-  logger.info("Loading KBs...")
-  var lines = ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("uniprot-proteins.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("GO-subcellular-locations.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PubChem.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("PFAM-families.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("bio_process.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("ProteinFamilies.tsv.gz")).getLines.toSeq
-  lines ++= ReachKBUtils.sourceFromResource(ReachKBUtils.makePathInKBDir("hgnc.tsv.gz")).getLines.toSeq
-
-  val dict = lines.map{ l => val t = l.split("\t"); (t(1), t(0)) }.groupBy(t=> t._1).mapValues(l => l.map(_._2).distinct)
-
-  val indexDir = "/data/nlp/corpora/pmc_openaccess/pmc_aug2016_index"
-  val nxmlSearcher:NxmlSearcher = new NxmlSearcher(indexDir)
-  val nxmlDir = "/work/enoriega/fillblanks/nxml"
-
-  logger.info("Loading lucene record...")
-  // Load the serialized record if exists, otherwise create a new one
-  val ldcFile = new File(nxmlDir, "luceneDocRecord.ser")
-  val luceneDocRecord = if(ldcFile.exists()){
-    Serializer.load[mutable.HashMap[Int, String]](ldcFile.getAbsolutePath)
-  }
-  else{
-    mutable.HashMap[Int, String]()
-  }
-  ///////////////////////
 
 
 //  val totalHits = 200 // Max # of hits per query

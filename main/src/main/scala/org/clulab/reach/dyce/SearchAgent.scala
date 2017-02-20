@@ -14,10 +14,12 @@ import scalax.collection.mutable.Graph // shortcuts
 /**
   * Created by enrique on 18/02/17.
   */
-trait SearchAgent extends LazyLogging{
+trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with ParticipantChoosingStrategy {
 
   val model:Graph[Participant, LDiEdge]
   var iterationNum = 0
+
+
 
   def focusedSearch(source:Participant, destination:Participant):Unit ={
     logger.info(s"Starting focused search with end points $source and $destination")
@@ -28,7 +30,9 @@ trait SearchAgent extends LazyLogging{
       logger.info(s"Chosen end query elements: $a, $b")
       val query = choseQuery(source, destination, this.model)
       logger.info(s"Chosen query: $query")
-      val findings = lucenePlusReach(query)
+      val paperIds = informationRetrival(query)
+      logger.info(s"Found ${paperIds.size} IR matches")
+      val findings = informationExtraction(paperIds)
       logger.info(s"Found ${findings.size} connections")
       reconcile(findings)
     }
@@ -52,13 +56,15 @@ trait SearchAgent extends LazyLogging{
                            destination:Participant,
                            model:Graph[Participant, LDiEdge]):Boolean
 
-  def choseEndPoints(source:Participant,
-                     destination:Participant,
-                     model:Graph[Participant, LDiEdge]):(Participant, Participant)
+//  def choseEndPoints(source:Participant,
+//                     destination:Participant,
+//                     model:Graph[Participant, LDiEdge]):(Participant, Participant)
 
   def choseQuery(source:Participant, destination:Participant, model:Graph[Participant, LDiEdge]):Query
 
-  def lucenePlusReach(query:Query):Iterable[Connection]
+//  def informationRetrival(query: Query):Iterable[String]
+//
+//  def informationExtraction(pmcids:Iterable[String]):Iterable[Connection]
 
   def reconcile(findings:Iterable[Connection]):Unit
 }
