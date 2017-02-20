@@ -14,9 +14,16 @@ import scalax.collection.mutable.Graph // shortcuts
 /**
   * Created by enrique on 18/02/17.
   */
+
+object SearchAgent{
+  type Model = Graph[Participant, LDiEdge]
+}
+
+import SearchAgent.Model
+
 trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with ParticipantChoosingStrategy {
 
-  val model:Graph[Participant, LDiEdge]
+  val model:Model
   var iterationNum = 0
 
 
@@ -39,7 +46,7 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
     logger.info(s"Focused search finished after $iterationNum iterations")
   }
 
-  def hasFinished(source:Participant, destination:Participant, model:Graph[Participant, LDiEdge]):Boolean = {
+  def hasFinished(source:Participant, destination:Participant, model:Model):Boolean = {
     if(successStopCondition(source, destination, model) != None)
       true
     else if(failureStopCondition(source, destination, model))
@@ -50,34 +57,28 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
   def successStopCondition(source:Participant,
                            destination:Participant,
-                           model:Graph[Participant, LDiEdge]):Option[Seq[Connection]]
+                           model:Model):Option[Seq[Connection]]
 
   def failureStopCondition(source:Participant,
                            destination:Participant,
-                           model:Graph[Participant, LDiEdge]):Boolean
+                           model:Model):Boolean
 
-//  def choseEndPoints(source:Participant,
-//                     destination:Participant,
-//                     model:Graph[Participant, LDiEdge]):(Participant, Participant)
 
-  def choseQuery(source:Participant, destination:Participant, model:Graph[Participant, LDiEdge]):Query
+  def choseQuery(source:Participant, destination:Participant, model:Model):Query
 
-//  def informationRetrival(query: Query):Iterable[String]
-//
-//  def informationExtraction(pmcids:Iterable[String]):Iterable[Connection]
 
   def reconcile(findings:Iterable[Connection]):Unit
 }
 
 
-abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends SearchAgent with LazyLogging{
+abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends SearchAgent {
 
-  val G:Graph[Participant, LDiEdge] = Graph[Participant, LDiEdge](participantA, participantB)
+  val G:Model = Graph[Participant, LDiEdge](participantA, participantB)
 
   var (nodesCount, edgesCount) = (0, 0)
   var (prevNodesCount, prevEdgesCount) = (0, 0)
 
-  override def successStopCondition(source: Participant, destination: Participant, model: Graph[Participant, LDiEdge]) = {
+  override def successStopCondition(source: Participant, destination: Participant, model: Model) = {
     (model find source, model find destination) match {
       case (Some(pa), Some(pb)) =>
         pa shortestPathTo pb match{
@@ -95,7 +96,7 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
 
   override def failureStopCondition(source: Participant,
                                     destination: Participant,
-                                    model: Graph[Participant, LDiEdge]) = {
+                                    model: Model) = {
     if((nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
       logger.info("The model didn't change.")
       true
