@@ -1,6 +1,7 @@
 package org.clulab.reach.dyce
 
 
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.dyce.QueryStrategy._
 import scalax.collection.edge.LDiEdge
 import scalax.collection.mutable.Graph
@@ -23,5 +24,34 @@ class LuceneReachSearchAgent(participantA:Participant, participantB:Participant)
                           destination: Participant,
                           model: Model) = Query(Cascade, source, Some(destination))
 
+
+}
+
+
+object LuceneReachSearchAgent extends App with LazyLogging{
+
+  val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
+  // val participantA = Participant("uniprot","P19838")
+  val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
+  //val participantB = Participant("uniprot", "O14757") // Chek1
+
+  logger.info(s"About to start a focused search with")
+
+  val agent = new LuceneReachSearchAgent(participantA, participantB)
+  agent.focusedSearch(participantA, participantB)
+
+  agent.successStopCondition(participantA, participantB, agent.model) match {
+    case Some(path) =>
+      println("Success!!")
+      logger.info(path.mkString(" || "))
+//      for(c <- path){
+//        println(s"Evidence of $c")
+//        println()
+//        val sentences = evidence(c)
+//        println(sentences.mkString("\n"))
+//        println("----------------------------")
+//      }
+    case None => println("Failure")
+  }
 
 }
