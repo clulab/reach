@@ -17,5 +17,6 @@ libraryDependencies ++= Seq(
   // logging
   "ch.qos.logback" %  "logback-classic" % "1.1.7",
   "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
-  "org.scala-graph" %% "graph-core" % "1.11.3"
+  "org.scala-graph" %% "graph-core" % "1.11.3",
+  "org.xerial" % "sqlite-jdbc" % "3.16.1"
 )
