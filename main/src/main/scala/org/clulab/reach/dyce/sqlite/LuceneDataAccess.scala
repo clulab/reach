@@ -24,7 +24,7 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
       |   pa TEXT NOT NULL,
       |   pb TEXT,
       |   type TEXT NOT NULL,
-      |   UNIQUE (pa, pb, type) ON CONFLICT IGNORE
+      |   UNIQUE (pa, pb, type)
     | );""".stripMargin
 
   val queryResultTable =
