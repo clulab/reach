@@ -100,7 +100,7 @@ object LuceneQueries extends LazyLogging{
     }
 
     // Reserialize the record
-    Serializer.save[mutable.HashMap[Int, String]](luceneDocRecord, ldcFile.getAbsolutePath)
+    // Serializer.save[mutable.HashMap[Int, String]](luceneDocRecord, ldcFile.getAbsolutePath)
 
     existing.toList ++ newPapers
   }
