@@ -67,7 +67,11 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 
     val conn = getConnection
 
-    val selectStatement = conn.prepareStatement("SELECT id FROM Queries WHERE pa = ? AND pb = ? AND type = ?")
+    val selectStatement = q.B match {
+      case Some(b) => conn.prepareStatement("SELECT id FROM Queries WHERE pa = ? AND pb = ? AND type = ?")
+      case None => conn.prepareStatement("SELECT id FROM Queries WHERE pa = ? AND pb IS NULL AND type = ?")
+    }
+
     selectStatement.setString(1, q.A.id)
     selectStatement.setString(3, q.strategy.toString)
     q.B match {
