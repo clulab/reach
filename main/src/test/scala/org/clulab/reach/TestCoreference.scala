@@ -8,6 +8,7 @@ import org.clulab.reach.mentions._
 /**
   * Tests coreference-based events
   * Date: 5/22/15
+  * Last Modified: issue #347: remove bad commented-out test24.
   */
 class TestCoreference extends FlatSpec with Matchers {
   val sent1 = "ASPP2 is even more common than BEF, and it is often ubiquitinated."
@@ -250,22 +251,6 @@ class TestCoreference extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent23)
     mentions filter (_ matches "Regulation") should have size (0)
   }
-
-  // TODO: it seems we miss NegAct(Binding(Gab1, p85), PI-3)?
-  // TODO: we miss NegReg(Controller = Binding(Gab1, p85), Controlled = Act(EGF, PI-3))?
-  /*
-  val sent24 = "there have been several reports suggesting that Shp2 may specifically de-phosphorylate the tyrosine " +
-    "phosphorylation sites on Gab1 that bind to p85, thus terminating recruitment of PI-3 kinase and EGF-induced " +
-    "activation of the PI-3 kinase pathway"
-  sent24 should "have a Binding as a controller if it produces an ActivationEvent" in {
-    val mentions = getBioMentions(sent24)
-    val act = mentions.filter(m => m.matches("ActivationEvent"))
-    if (act.nonEmpty) {
-      val controller = act.head.arguments("controller").head.toCorefMention
-      (controller.antecedentOrElse(controller) matches "Binding") should be (true)
-    }
-  }
-  */
 
   val sent25 = "Another example can be given with mutated p53. The pivotal role of p53 as a tumor suppressor is " +
     "illustrated by the fact that this protein is found mutated in ∼50% of human cancers. In most cases, mutations " +
