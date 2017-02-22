@@ -73,10 +73,13 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
     }
 
     selectStatement.setString(1, q.A.id)
-    selectStatement.setString(3, q.strategy.toString)
+
     q.B match {
-      case Some(b) => selectStatement.setString(2, b.id)
-      case None => selectStatement.setNull(2, java.sql.Types.VARCHAR)
+      case Some(b) =>
+        selectStatement.setString(2, b.id)
+        selectStatement.setString(3, q.strategy.toString)
+      case None =>
+        selectStatement.setString(2, q.strategy.toString)
     }
 
     // Only continue if this result set is empty
