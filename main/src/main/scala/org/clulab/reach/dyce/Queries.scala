@@ -57,7 +57,7 @@ object LuceneQueries extends LazyLogging{
     */
   def resolveParticipant(term:String) = {
 
-    FillBlanks.dict.lift(term) match {
+    dict.lift(term) match {
       case Some(l) => "(" + l.map( x => "\"" + x + "\"").mkString(" OR ") + ")"
       case None =>
         logger.debug(s"Warning: missing term in the KB: $term")
@@ -88,7 +88,7 @@ object LuceneQueries extends LazyLogging{
 
     val tfs = toFetch.toSet
     // Fetch the Document objects
-    val docs = FillBlanks.nxmlSearcher.docs(tfs)
+    val docs = nxmlSearcher.docs(tfs)
     val newPapers = docs.toSeq.sortBy(-_._2).map(d => d._1.get("id"))
 
     // Save them to disk
