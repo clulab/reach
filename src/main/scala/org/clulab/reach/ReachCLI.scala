@@ -31,7 +31,7 @@ import org.clulab.reach.utils.MentionManager
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Rename output to serial-json format.
+  *   Last Modified: Minor editing cleanups.
   */
 class ReachCLI (
   val papersDir: File,
@@ -42,6 +42,8 @@ class ReachCLI (
   val restartFile: Option[File] = None
 ) extends LazyLogging {
 
+  /** Return a (possibly empty) set of filenames for input file (papers) which have
+      already been successfully processed and which can be skipped. */
   val skipFiles: Set[String] = restartFile match {
     case None => Set.empty[String]
     case Some(f) =>
@@ -53,17 +55,18 @@ class ReachCLI (
       lines
   }
 
-  private val restartFileLock = new AnyRef  // lock file object for restart file
+  /** Lock file object for restart file. */
+  private val restartFileLock = new AnyRef
 
   /** In the restart log file, record the given file as successfully completed. */
-  def fileSucceeded(file: File): Unit = if (restartFile.nonEmpty) {
+  def fileSucceeded (file: File): Unit = if (restartFile.nonEmpty) {
     restartFileLock.synchronized {
       restartFile.get.writeString(s"${file.getName}\n", charset = encoding, append = true)
     }
   }
 
   /** Process papers **/
-  def processPapers(threadLimit: Option[Int], withAssembly: Boolean): Int = {
+  def processPapers (threadLimit: Option[Int], withAssembly: Boolean): Int = {
     logger.info("Initializing Reach ...")
 
     val _ = PaperReader.rs.extractFrom("Blah", "", "")
@@ -83,8 +86,7 @@ class ReachCLI (
     } yield {
       val error: Int = try {
         processPaper(file, withAssembly)
-        // no error
-        0
+        0                                   // no error
       } catch {
         case e: Exception =>
           val report =
@@ -111,15 +113,15 @@ class ReachCLI (
     errorCount.sum
   }
 
-  def prepareMentionsForMITRE(mentions: Seq[Mention]): Seq[CorefMention] = {
+  def prepareMentionsForMITRE (mentions: Seq[Mention]): Seq[CorefMention] = {
     // NOTE: We're already doing this in the exporter, but the mentions given to the
     // Assembler probably need to match since flattening results in a loss of information
     OutputDegrader.prepareForOutput(mentions)
   }
 
-  def doAssembly(mns: Seq[Mention]): Assembler = Assembler(mns)
+  def doAssembly (mns: Seq[Mention]): Assembler = Assembler(mns)
 
-  def processPaper(file: File, withAssembly: Boolean): Unit = {
+  def processPaper (file: File, withAssembly: Boolean): Unit = {
     val paperId = FilenameUtils.removeExtension(file.getName)
     val startNS = System.nanoTime
     val startTime = ReachCLI.now
@@ -153,10 +155,8 @@ class ReachCLI (
     fileSucceeded(file)
   }
 
-  /**
-    * Write output for mentions originating from a single FriesEntry
-    */
-  def outputMentions(
+  /** Write output for mentions originating from a single FriesEntry. */
+  def outputMentions (
     mentions: Seq[Mention],
     entry: FriesEntry,
     paperId: String,
@@ -236,25 +236,34 @@ class ReachCLI (
   private def durationToS (startNS:Long, endNS:Long): Long = (endNS - startNS) / 1000000000L
 }
 
-object ReachCLI {
 
+/**
+  * Legacy companion object to initialize a processing class with the given parameters and
+  * run it on the papers in the specified directory.
+  */
+object ReachCLI {
   /** Return a new timestamp each time called. */
   def now = new Date()
 
   /** legacy constructor for a single output format */
-  def apply(
+  def apply (
     papersDir: File,
     outputDir: File,
     outputFormat: String,
     statsKeeper: ProcessingStats = new ProcessingStats,
     encoding: String = "utf-8",
     restartFile: Option[File] = None
-  ):ReachCLI = new ReachCLI(papersDir, outputDir, Seq(outputFormat), statsKeeper, encoding, restartFile)
+  ): ReachCLI =
+    new ReachCLI(papersDir, outputDir, Seq(outputFormat), statsKeeper, encoding, restartFile)
 }
 
-object RunReachCLI extends App with LazyLogging {
 
-  // use specified config file or the default one if one is not provided
+/**
+  * Object which reads the configuration file, initializes a processing class from it,
+  * and processes a directory of papers.
+  */
+object RunReachCLI extends App with LazyLogging {
+  // use the specified config file, or the default one if one is not specified
   val config =
     if (args.isEmpty) ConfigFactory.load()
     else ConfigFactory.parseFile(new File(args(0))).resolve()
@@ -298,11 +307,11 @@ object RunReachCLI extends App with LazyLogging {
     sys.error(s"${outDir.getCanonicalPath} is not a directory")
   }
 
-  // insure existance of specified restart file
+  // insure existance of the specified restart file
   if (useRestart)
     restartFile.createNewFile()
 
-  // create a new batch class and process the input papers
+  // create a new processing class and process the specified batch of input papers
   val cli = new ReachCLI(
     papersDir,
     outDir,
