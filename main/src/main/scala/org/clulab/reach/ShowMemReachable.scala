@@ -14,8 +14,6 @@ object ShowMemReachable extends App {
 
   println(s"Creating ReachIMKBMentionLookups object...")
   val riml = ReachIMKBMentionLookups
-  println(s"Creating ReachMiscLookups object...")
-  val rsl = ReachMiscLookups
 
   println(s"Sizing ReachIMKBMentionLookups object...")
   val rimlSize = meter.measureDeep(riml)
@@ -44,12 +42,10 @@ object ShowMemReachable extends App {
   val mgcSize = meter.measureDeep(riml.ModelGendChemical)
   val mgpafSize = meter.measureDeep(riml.ModelGendProteinAndFamily)
 
-  val rslSize = meter.measureDeep(rsl.ReverseSpeciesLookup)
-
   val sumSizes = cclSize + ccl2Size + cctSize + coSize + csSize +
                  cttSize + sbpSize + sclSize + scl2Size + scSize +
                  sdSize + spSize + spcSize + spf0Size + spfSize +
-                 spf2Size + mgclSize + mgcSize + mgpafSize + rslSize
+                 spf2Size + mgclSize + mgcSize + mgpafSize
 
   println(s"          ContextCellLine = ${cclSize}")
   println(s"         ContextCellLine2 = ${ccl2Size}")
@@ -70,8 +66,7 @@ object ShowMemReachable extends App {
   println(s"    ModelGendCellLocation = ${mgclSize}")
   println(s"        ModelGendChemical = ${mgcSize}")
   println(s"ModelGendProteinAndFamily = ${mgpafSize}")
-  println(s"      ReversSpeciesLookup = ${rslSize}")
 
   println(s"                    TOTAL = ${sumSizes}")
-  println(s"               RIML + RSL = ${rimlSize + rslSize}")
+  println(s"                     RIML = ${rimlSize}")
 }
