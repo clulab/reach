@@ -93,9 +93,15 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
       statement2.addBatch
     }
 
-    conn.setAutoCommit(false)
-    statement2.executeBatch
-    conn.setAutoCommit(true)
+    try{
+      conn.setAutoCommit(false)
+      statement2.executeBatch
+      conn.setAutoCommit(true)
+    }catch {
+      case e:Exception =>
+        logger.error(s"Problem storing results for $q")
+    }
+
 
 
     conn.close
@@ -103,8 +109,44 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 
 }
 
-object DeleteMe extends App {
-  val q = Query(QueryStrategy.Singleton,  Participant("uniprot", "Q13315"), None)
-  val la = new LuceneDataAccess("eraseme.sqlite")
-  la.insert(q)
+object BuildLuceneDB extends App {
+  // Get the db path as the first parameter and the gid_pairs as the second
+  val dbPath = args(0)
+  val pairPath = args(1)
+
+  // Instantiate our DB controller
+  val controller = new LuceneDataAccess(dbPath)
+
+  // Create the database
+  println("Creating the database ...")
+  controller.createDatabase()
+
+  // Read the pairs as a stream
+  println("Reading the participant pairs list")
+  val pairs = io.Source.fromFile(pairPath).getLines().map(_.split('\t'))
+
+  // Go into the populating loop
+  println("Executing the queries ...")
+  var i = 0
+  val amount = 4*pairs.size
+  for(pair <- pairs){
+    // Create the query instances per pair
+    val queries = Seq(Query(QueryStrategy.Spatial, Participant("", pair(0)), Some(Participant("", pair(1)))),
+      Query(QueryStrategy.Conjunction, Participant("", pair(0)), Some(Participant("", pair(1)))),
+      Query(QueryStrategy.Singleton, Participant("", pair(0)), None),
+      Query(QueryStrategy.Singleton, Participant("", pair(1)), None)
+    )
+
+    // Insert them into the database
+    queries foreach {
+      q =>
+        i += 1
+        controller.insert(q)
+    }
+
+    if(i % 40 == 0){
+      println(s"Processed $i queries out of $amount")
+    }
+  }
+
 }
