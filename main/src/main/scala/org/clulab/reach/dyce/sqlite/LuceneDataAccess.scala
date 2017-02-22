@@ -98,7 +98,7 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 }
 
 object DeleteMe extends App {
-  val q = Query(QueryStrategy.Spatial,  Participant("uniprot", "Q13315"), None)
+  val q = Query(QueryStrategy.Singleton,  Participant("uniprot", "Q13315"), None)
   val la = new LuceneDataAccess("eraseme.sqlite")
   la.insert(q)
 }
