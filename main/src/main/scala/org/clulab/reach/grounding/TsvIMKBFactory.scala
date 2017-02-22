@@ -1,47 +1,33 @@
 package org.clulab.reach.grounding
 
-import scala.io.Source
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Refactor for standardized 2-5 column KB format.
+  *   Last Modified: Add inactive debugging dump.
   */
-class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
+class TsvIMKBFactory {
 
   /** Main factory method to create, fill, and return an encapsulate knowledge base. */
   def make (
-    namespace: String = DefaultNamespace,
-    kbFilename: String = "",                // default for KBs with no file to load
-    hasSpeciesInfo: Boolean = false,        // default to KBs without species info
-    metaInfo: Option[IMKBMetaInfo] = None
+    metaInfo: IMKBMetaInfo,
+    keyTransforms: KBKeyTransformsGroup = new KBKeyTransformsGroup()
   ): InMemoryKB = {
-    val imkb: InMemoryKB = new InMemoryKB(namespace.toLowerCase, hasSpeciesInfo,
-                                          metaInfo.getOrElse(new IMKBMetaInfo()))
-    if (kbFilename != "")
-      loadFromKBDir(imkb, kbFilename, namespace)     // load new in-memory KB
-    // imkb.imkb.foreach { case (k, entries) =>   // for DEBUGGING
-    //   entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING
-    imkb
+    val imkb: InMemoryKB = new InMemoryKB(metaInfo, keyTransforms)
+    // load new in-memory KB, if filename specified:
+    metaInfo.kbFilename.foreach { loadFromKBDir(imkb, _, metaInfo.namespace) }
+    metaInfo.kbFilename.foreach { filename =>
+      loadFromKBDir(imkb, filename, metaInfo.namespace) // load new in-memory KB
+      // if (filename == "XYZ-KB.tsv.gz") {                // DEBUGGING
+      //   imkb.dump                              // DEBUGGING
+      // }
+    }
+    return imkb
   }
-
-  /** Additional factory method to workaround option. */
-  def make (namespace: String, kbFilename: String,
-            hasSpeciesInfo: Boolean, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(namespace, kbFilename, hasSpeciesInfo, Some(metaInfo))
-
-  /** Additional factory method to default unused arguments. */
-  def make (namespace: String, kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(namespace, kbFilename, hasSpeciesInfo = false, Some(metaInfo))
-
-  /** Additional factory method to default unused arguments. */
-  def make (kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(DefaultNamespace, kbFilename, hasSpeciesInfo = false, Some(metaInfo))
-
-  /** Additional factory method to default unused arguments. */
-  def make (kbFilename: String): InMemoryKB = make(DefaultNamespace, kbFilename, hasSpeciesInfo = false, None)
 
 
   /**
@@ -69,9 +55,10 @@ class TsvIMKBFactory extends Speciated with ReachKBKeyTransforms {
   private def processFields (imkb:InMemoryKB, fields:Seq[String], namespace:String): Unit = {
     val text = fields(0)
     val refId = fields(1)
-    val species = if ((fields.size > 2) && (fields(2) != "")) fields(2)
-                  else KBEntry.NoSpeciesValue
-    imkb.addCanonicalEntry(text, namespace, refId, species) // store new entry
+    if ((fields.size > 2) && (fields(2) != ""))
+      imkb.addEntries(text, namespace, refId, fields(2)) // store new KB entries w/ species
+    else
+      imkb.addEntries(text, namespace, refId)            // store new KB entries w/o species
   }
 
   /** Check for required fields in one row of a TSV input file. */

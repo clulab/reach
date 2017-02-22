@@ -6,16 +6,17 @@ import org.clulab.odin._
 import org.clulab.reach._
 import org.clulab.reach.context._
 import org.clulab.reach.mentions._
+import org.clulab.reach.grounding.ReachIMKBMentionLookups._
 import org.clulab.reach.grounding.ReachKBUtils._
-import org.clulab.reach.grounding.ReachMiscLookups._
+import org.clulab.reach.grounding.Speciated._
 import org.clulab.reach.utils.MentionManager
 
 /**
   * Class which implements methods to select the best groundings for a sequence of mentions.
   *   Written by Tom Hicks. 2/9/2016.
-  *   Last Modified: Update import for class rename.
+  *   Last Modified: Update for replacement of reverse lookups.
   */
-class ReachGrounder extends Speciated with LazyLogging {
+class ReachGrounder extends LazyLogging {
 
   val config = ConfigFactory.load()
   val overrideSpecies = config.getBoolean("grounding.overrideSpecies")
@@ -77,7 +78,7 @@ class ReachGrounder extends Speciated with LazyLogging {
   def groundBySpecies (mention: BioTextBoundMention, context: Seq[String]): Unit = {
     if (mention.hasMoreCandidates) {        // sanity check
       val cands = mention.candidates.get    // get all candidates
-      val candNames: Seq[String] = cands.map(_.species) // all candidate species names
+      val candNames = cands.map(_.species).toSet // all candidate species names
 
       // reverse map set of NS/IDs to set of species name strings:
       val contextNames = contextToSpeciesNameSet(context)
@@ -93,10 +94,10 @@ class ReachGrounder extends Speciated with LazyLogging {
     }
   }
 
-
-  /** Reverse lookup the given NS/ID strings to return an optional set of species names. */
-  private def contextToSpeciesNameSet (context: Seq[String]): Seq[String] = {
-    context.flatMap(nsId => ReverseSpeciesLookup.lookup(nsId)).flatten.map(_.toLowerCase)
+  /** Return a possibly empty set of all species name strings for the given context of NS/IDs. */
+  private def contextToSpeciesNameSet (context: Seq[String]): SpeciesNameSet = {
+    val ctx:Set[String] = context.toSet
+    ctx.flatMap(ContextSpecies.speciesForNsId(_)).map(_.toLowerCase)
   }
 
   private def printMention (mention:BioMention): Unit =

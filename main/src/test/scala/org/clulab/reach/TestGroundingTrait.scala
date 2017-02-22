@@ -10,7 +10,7 @@ import TestUtils._
 /**
   * Unit tests of the grounding trait.
   *   Written by: Tom Hicks. 2/16/2016.
-  *   Last Modified: Update for better grounding.
+  *   Last Modified: Update for IMKB rewrite.
   */
 class TestGroundingTrait extends FlatSpec with Matchers {
 
@@ -18,9 +18,9 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   val text1 = "AKT1 and amniocyte are not found in bullfrog adenoid."
   val mentions = getBioMentions(text1)
   val mentions2 = getBioMentions(text1)        // another copy
-  val kbr1 = new KBResolution(new KBEntry("test-1", "test1", "UAZtest", "ID1"))
-  val kbr2 = new KBResolution(new KBEntry("test2",  "test2", "UAZtest", "ID2"))
-  val kbr3 = new KBResolution(new KBEntry("TEST-3", "test3", "UAZtest", "ID3"))
+  val kbr1 = new KBResolution("test-1", "test1", "UAZtest", "ID1")
+  val kbr2 = new KBResolution("test2",  "test2", "UAZtest", "ID2")
+  val kbr3 = new KBResolution("TEST-3", "test3", "UAZtest", "ID3")
   val resols: Resolutions = Some(Seq(kbr1, kbr2, kbr3))
 
   text1 should "produce 4 entities mentions" in {
@@ -40,9 +40,9 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   "First mention" should "have more candidates" in {
     mentions should have size (4)
     (mentions(0).hasMoreCandidates) should be (false)
-    (mentions(1).hasMoreCandidates) should be (false)
-    (mentions(2).hasMoreCandidates) should be (false)
-    (mentions(3).hasMoreCandidates) should be (false)
+    (mentions(1).hasMoreCandidates) should be (true)
+    (mentions(2).hasMoreCandidates) should be (true)
+    (mentions(3).hasMoreCandidates) should be (true)
   }
 
   "All mentions" should "have non-empty nsId string" in {
@@ -61,7 +61,7 @@ class TestGroundingTrait extends FlatSpec with Matchers {
   }
 
   "After copy, no mentions" should "have more candidates" in {
-    (mentions.forall(! _.hasMoreCandidates)) should be (true)
+    (mentions.forall(_.hasMoreCandidates)) should be (true)
   }
 
   "After copy, all mentions" should "still have non-empty nsId string" in {

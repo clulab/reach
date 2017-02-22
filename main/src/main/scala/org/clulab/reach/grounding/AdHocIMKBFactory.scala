@@ -2,29 +2,32 @@ package org.clulab.reach.grounding
 
 import scala.io.Source
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * Factory class for creating and loading an in-memory KB from a mixed-namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Refactor for standardized 2-5 column KB format.
+  *   Last Modified: Add inactive debugging dump.
   */
-class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
+class AdHocIMKBFactory {
 
   /** Main factory method to create, fill, and return an encapsulated knowledge base. */
-  def make (kbFilename:String = "", metaInfo:Option[IMKBMetaInfo] = None): InMemoryKB = {
-    // all adhoc KBs have species info because human is assumed if species not given:
-    val imkb: InMemoryKB = new InMemoryKB(true, metaInfo.getOrElse(new IMKBMetaInfo()))
-    if (kbFilename != "")
-      loadFromKBDir(imkb, kbFilename)     // load new in-memory KB
-    // imkb.imkb.foreach { case (k, entries) =>   // for DEBUGGING
-    //   entries.foreach { ent => println(ent.toString()) }} // for DEBUGGING
+  def make (
+    metaInfo: IMKBMetaInfo,
+    keyTransforms: KBKeyTransformsGroup = new KBKeyTransformsGroup()
+  ): InMemoryKB = {
+    val imkb: InMemoryKB = new InMemoryKB(metaInfo)
+    // load new in-memory KB, if filename specified:
+    metaInfo.kbFilename.foreach { filename =>
+      loadFromKBDir(imkb, filename)         // load new in-memory KB
+      // if (filename == "NER-Grounding-Override.tsv.gz") { // DEBUGGING
+      //   imkb.dump                                        // DEBUGGING
+      // }
+    }
     return imkb
   }
-
-  /** Additional factory method to workaround meta info option. */
-  def make (kbFilename: String, metaInfo: IMKBMetaInfo): InMemoryKB =
-    make(kbFilename, Some(metaInfo))
 
 
   /**
@@ -53,7 +56,7 @@ class AdHocIMKBFactory extends Speciated with ReachKBKeyTransforms {
     val refId = fields(1)
     val species = if (fields(2) != "") fields(2) else Speciated.Human
     val namespace = fields(3)
-    imkb.addCanonicalEntry(text, namespace, refId, species) // store new entry
+    imkb.addEntries(text, namespace, refId, species) // store new KB entries
   }
 
   /** Check for required fields in one row of the TSV input file. */

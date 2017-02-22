@@ -253,7 +253,6 @@ package object json {
     def jsonAST: JValue = {
       // components needed to construct KBResolution
       ("text" -> kbr.text) ~
-      ("key" -> kbr.key) ~
       ("namespace" -> kbr.namespace) ~
       ("id" -> kbr.id) ~
       ("species" -> kbr.species)

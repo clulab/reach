@@ -8,16 +8,18 @@ import TestUtils._
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
 import org.clulab.reach.grounding.ReachKBUtils._
 
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Add tests for gene name affix stripping.
+  *   Last Modified: Update for GNA transform enhancement.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
   val imkbP = new TestProteinKBL           // defined after this class (LOOK BELOW)
+  // imkbP.memoryKB.dump                        // DEBUGGING
 
   "ProteinKBL resolves" should "should be marked as protein grounded but not family grounded" in {
     val txtU = "PTHR2 is cool."
@@ -31,7 +33,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (isFamilyGrounded(menL)) should be (false)
   }
 
-
   "ProteinKBL resolve" should "fail despite alternate lookups" in {
     // keys not in KB:
     (imkbP.resolve("NOTINKB")) should be (empty)
@@ -39,7 +40,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("notinkb_human")) should be (empty)
     (imkbP.resolve("notinkb protein")) should be (empty)
     (imkbP.resolve("notinkb family")) should be (empty)
-    (imkbP.resolve("mutant-zyx-1")) should be (empty) // mutant pattern not matched
     // family key transforms not applicable for proteins:
     (imkbP.resolve("pthr2 family")) should be (empty)
     (imkbP.resolve("zyx-1 family")) should be (empty)
@@ -51,6 +51,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("pthr2_human")) should be (defined)
     (imkbP.resolve("pthr2 protein")) should be (defined)
     (imkbP.resolve("mutant-pthr2")) should be (defined)
+    (imkbP.resolve("mutant-zyx-1")) should be (defined)
     (imkbP.resolve("zyx-1")) should be (defined)
     (imkbP.resolve("zyx-1_human")) should be (defined)
     (imkbP.resolve("zyx-1 protein")) should be (defined)
@@ -115,9 +116,8 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("suffix-notinkb")) should be (empty)
     (imkbP.resolve("xxx-NOTINKB")) should be (empty)
     (imkbP.resolve("u-notinkb")) should be (empty)
-    (imkbP.resolve("rAAV")) should be (empty)            // only prefix
-    (imkbP.resolve("EGFP-MCHY")) should be (empty)       // only prefixes
-    (imkbP.resolve("GFP-Mchy-SH")) should be (empty)     // only prefixes
+    (imkbP.resolve("rAAV")) should be (empty)            // only non-entity prefix
+    (imkbP.resolve("EGFP-MCHY")) should be (empty)       // only non-entity prefixes
     (imkbP.resolve("shRNA")) should be (empty)           // only suffix
     (imkbP.resolve("KD-shRNA")) should be (empty)        // only suffixes
     (imkbP.resolve("Gfp-kd")) should be (empty)          // only prefix & suffix
@@ -149,6 +149,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("Myr-Flag-Akt-1")) should be (defined)    // multiple prefix
     (imkbP.resolve("Sh-Myr-Flag-Akt1")) should be (defined)  // multiple prefix
     (imkbP.resolve("SH-MYR-FLAG-Akt-1")) should be (defined) // multiple prefix
+    (imkbP.resolve("GFP-Mchy-SH")) should be (defined)       // only prefixes
     (imkbP.resolve("GFP-KRAS-KD")) should be (defined)       // prefix & suffix
     (imkbP.resolve("GFP-KRAS-Kd")) should be (defined)       // prefix & suffix
     (imkbP.resolve("WT-Gfp-KRAS-Kd-shRNA")) should be (defined) // prefixes & suffixes
@@ -163,7 +164,6 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("NotInKB protein", "ant")) should be (empty)
     (imkbP.resolveByASpecies("NotInKB family", "ant")) should be (empty)
     (imkbP.resolveByASpecies("mutant-NotInKB", "ant")) should be (empty)
-    (imkbP.resolveByASpecies("mutant-zyx-1", "caenorhabditis elegans")) should be (empty)
     // entry does not have this species:
     (imkbP.resolveByASpecies("zyx-1", "frog")) should be (empty)
     (imkbP.resolveByASpecies("zyx-1_human", "frog")) should be (empty)
@@ -184,6 +184,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveByASpecies("zyx-1", "caenorhabditis elegans")) should be (defined)
     (imkbP.resolveByASpecies("zyx-1_human", "caenorhabditis elegans")) should be (defined)
     (imkbP.resolveByASpecies("zyx-1 protein", "caenorhabditis elegans")) should be (defined)
+    (imkbP.resolveByASpecies("mutant-zyx-1", "caenorhabditis elegans")) should be (defined)
   }
 
   "ProteinKBL resolveByASpecies" should "work via protein domain lookup" in {
@@ -243,7 +244,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveBySpecies("pthr2 protein", setF)) should be (empty)
     (imkbP.resolveBySpecies("pthr2 family", setF)) should be (empty)
     (imkbP.resolveBySpecies("mutant-pthr2", setF)) should be (empty)
-    // entry does not have these species (yeast only):
+    // entry does not have these species (nematode only):
     (imkbP.resolveBySpecies("zyx-1", setHM)) should be (empty)
     (imkbP.resolveBySpecies("zyx-1_human", setHM)) should be (empty)
     (imkbP.resolveBySpecies("zyx-1 protein", setHM)) should be (empty)
@@ -268,22 +269,22 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveBySpecies("MUTANT-PTHR2", setH)) should be (defined)
 
     (imkbP.resolveBySpecies("pthr2", setHM)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2", setHM).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2", setHM).get) should have size 8
     (imkbP.resolveBySpecies("pthr2_human", setHM)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2_human", setHM).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2_human", setHM).get) should have size 8
     (imkbP.resolveBySpecies("pthr2 protein", setHM)) should be (defined)
     (imkbP.resolveBySpecies("mutant-pthr2", setHM)) should be (defined)
 
     (imkbP.resolveBySpecies("pthr2", setHMG)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2", setHMG).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2", setHMG).get) should have size 8
     (imkbP.resolveBySpecies("pthr2_human", setHMG)) should be (defined)
-    (imkbP.resolveBySpecies("pthr2_human", setHMG).get) should have size 2
+    (imkbP.resolveBySpecies("pthr2_human", setHMG).get) should have size 8
     (imkbP.resolveBySpecies("pthr2 protein", setHMG)) should be (defined)
     (imkbP.resolveBySpecies("mutant-pthr2", setHMG)) should be (defined)
 
     (imkbP.resolveBySpecies("zyx-1", Set("caenorhabditis elegans", "ant"))) should be (defined)
     (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans"))) should be (defined)
-    (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get) should have size 1
+    (imkbP.resolveBySpecies("zyx-1", Set("ant", "caenorhabditis elegans")).get) should have size 2
   }
 
   "ProteinKBL resolveBySpecies" should "work via protein domain lookup" in {
@@ -319,7 +320,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolveHuman("NotInKB protein")) should be (empty)
     (imkbP.resolveHuman("NotInKB family")) should be (empty)
     (imkbP.resolveHuman("mutant-NotInKB")) should be (empty)
-    // entry does not have human species (yeast only):
+    // entry does not have human species (nematode only):
     (imkbP.resolveHuman("zyx-1")) should be (empty)
     (imkbP.resolveHuman("zyx-1_human")) should be (empty)
     (imkbP.resolveHuman("zyx-1 protein")) should be (empty)
@@ -400,10 +401,16 @@ class TestProteinResolutions extends FlatSpec with Matchers {
 
 }
 
-
 // Protein KB using alternate protein resolutions
-class TestProteinKBL extends IMKBProteinLookup {
-  val meta = new IMKBMetaInfo("http://identifiers.org/uniprot/", "MIR:00100164")
-  meta.put("protein", "true")               // mark as from a protein KB
-  memoryKB = (new TsvIMKBFactory).make("uniprot", StaticProteinFilename, true, meta)
+class TestProteinKBL extends IMKBLookup {
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticProteinFilename),
+    namespace = "uniprot",
+    baseURI = "http://identifiers.org/uniprot/",
+    resourceId = "MIR:00100164",
+    hasSpeciesInfo = true,
+    isProteinKB = true
+  )
+  val keyTransforms = KBKeyTransformsGroup(CasedKeyTransforms, ProteinAuxKeyTransforms, CasedKeyTransforms)
+  memoryKB = (new TsvIMKBFactory).make(meta, keyTransforms)
 }

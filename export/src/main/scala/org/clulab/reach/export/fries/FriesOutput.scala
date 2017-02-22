@@ -29,7 +29,7 @@ import org.clulab.serialization.json.JSONSerializer.formats
 /**
   * Defines classes and methods used to build and output the FRIES format.
   *   Written by: Mihai Surdeanu and Tom Hicks.
-  *   Last Modified: Output alternate candidate groundings and grounding species.
+  *   Last Modified: Deduplicate alternate candidate groundings.
   */
 class FriesOutput extends JsonOutputter with LazyLogging {
 
@@ -366,7 +366,7 @@ class FriesOutput extends JsonOutputter with LazyLogging {
     val altGroundings = new FrameList
     mention.candidates.foreach(cands =>
       cands.tail.foreach(cand => altGroundings += makeGrounding(cand)))
-    altGroundings
+    altGroundings.distinct
   }
 
 

@@ -6,24 +6,23 @@ import TestUtils._
 import org.clulab.reach.grounding._
 import org.clulab.reach.grounding.ReachKBConstants._
 
-
 /**
   * Unit tests to ensure the in-memory KB is working for grounding.
   *   Written by: Tom Hicks. 10/26/2015.
-  *   Last Modified: Update for removal of lookup any.
+  *   Last Modified: Update for IMKB rewrite.
   */
 class TestTsvKBs extends FlatSpec with Matchers {
 
   // Tests of non-speciated (2-column) knowledge base
-  val imkb2 = (new TsvIMKBFactory).make("uniprot", StaticCellLocation2Filename,
-    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
+  val imkb2 = (new CellLocKBL).memoryKB     // defined after this class (LOOK BELOW)
+  // imkb2.dump                                // DEBUGGING
 
-  "InMemoryKB COL-2" should "lookupAll on IMKB from COL-2 TSV file" in {
-    (imkb2.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (imkb2.lookupAll("not-in-kb").isDefined) should be (false) // not in KB
-    (imkb2.lookupAll("DENDRITE").isDefined) should be (false)  // uppercase
-    (imkb2.lookupAll("dendrite").isDefined) should be (true)
-    (imkb2.lookupAll("telomere").isDefined) should be (true)
+  "InMemoryKB COL-2" should "lookup on IMKB from COL-2 TSV file" in {
+    (imkb2.lookup("NOT-IN-KB").isDefined) should be (false) // not in KB
+    (imkb2.lookup("not-in-kb").isDefined) should be (false) // not in KB
+    (imkb2.lookup("DENDRITE").isDefined) should be (true)
+    (imkb2.lookup("dendrite").isDefined) should be (true)
+    (imkb2.lookup("telomere").isDefined) should be (true)
   }
 
   "InMemoryKB COL-2" should "fail to lookupByASpecies on IMKB from COL-2 TSV file" in {
@@ -45,7 +44,7 @@ class TestTsvKBs extends FlatSpec with Matchers {
   "InMemoryKB COL-2" should "fail to lookupHuman on IMKB from COL-2 TSV file" in {
     (imkb2.lookupHuman("NOT-IN-KB").isDefined) should be (false) // not in KB
     (imkb2.lookupHuman("not-in-kb").isDefined) should be (false) // not in KB
-    (imkb2.lookupHuman("DENDRITE").isDefined) should be (false)  // uppercase
+    (imkb2.lookupHuman("DENDRITE").isDefined) should be (false)  // KB has no species
     (imkb2.lookupHuman("dendrite").isDefined) should be (false)  // KB has no species
     (imkb2.lookupHuman("telomere").isDefined) should be (false)  // KB has no species
   }
@@ -53,32 +52,31 @@ class TestTsvKBs extends FlatSpec with Matchers {
   "InMemoryKB COL-2" should "lookupNoSpecies on IMKB from COL-2 TSV file" in {
     (imkb2.lookupNoSpecies("NOT-IN-KB").isDefined) should be (false) // not in KB
     (imkb2.lookupNoSpecies("not-in-kb").isDefined) should be (false) // not in KB
-    (imkb2.lookupNoSpecies("DENDRITE").isDefined) should be (false)  // uppercase
+    (imkb2.lookupNoSpecies("DENDRITE").isDefined) should be (true)
     (imkb2.lookupNoSpecies("dendrite").isDefined) should be (true)
     (imkb2.lookupNoSpecies("telomere").isDefined) should be (true)
   }
 
 
   // Tests of speciated (3-column) knowledge base
-  val imkbPF = (new TsvIMKBFactory).make("interpro", StaticProteinFamily2Filename, hasSpeciesInfo = true,
-    new IMKBMetaInfo("http://identifiers.org/uazclu/", "MIR:00000000"))
+  val imkbPF = (new ProtFamKBL).memoryKB // defined after this class (LOOK BELOW)
+  // imkbPF.dump                               // DEBUGGING
 
-  // test lookups directly in IMKB (remember: all test keys must be lowercased to succeed!)
-
-  "InMemoryKB COL-3" should "lookupAll on IMKB from COL-3 gzipped TSV file" in {
-    (imkbPF.lookupAll("NOT-IN-KB").isDefined) should be (false) // not in KB
-    (imkbPF.lookupAll("PTHR21244").isDefined) should be (false) // uppercase
-    (imkbPF.lookupAll("pthr21244").isDefined) should be (true)
-    (imkbPF.lookupAll("hk").isDefined) should be (true)
+  // tests lookups directly in IMKB
+  "InMemoryKB COL-3" should "lookup on IMKB from COL-3 gzipped TSV file" in {
+    (imkbPF.lookup("NOT-IN-KB").isDefined) should be (false) // not in KB
+    (imkbPF.lookup("PTHR21244").isDefined) should be (true)
+    (imkbPF.lookup("pthr21244").isDefined) should be (true)
+    (imkbPF.lookup("hk").isDefined) should be (true)
   }
 
   "InMemoryKB COL-3" should "lookupByASpecies on IMKB from COL-3 gzipped TSV file" in {
     (imkbPF.lookupByASpecies("NOT-IN-KB", "human").isDefined) should be (false) // not in KB
-    (imkbPF.lookupByASpecies("PTHR21244", "human").isDefined) should be (false) // uppercase
+    (imkbPF.lookupByASpecies("pthr21244", "aardvark").isDefined) should be (false) // not in KB
     (imkbPF.lookupByASpecies("pthr21244", "HUMAN").isDefined) should be (false) // species uppercase
+    (imkbPF.lookupByASpecies("PTHR21244", "human").isDefined) should be (true)
     (imkbPF.lookupByASpecies("pthr21244", "human").isDefined) should be (true)
     (imkbPF.lookupByASpecies("pthr21244", "mouse").isDefined) should be (true)
-    (imkbPF.lookupByASpecies("pthr21244", "aardvark").isDefined) should be (false) // not in KB
     (imkbPF.lookupByASpecies("hk", "saccharomyces cerevisiae").isDefined) should be (true)
   }
 
@@ -87,21 +85,21 @@ class TestTsvKBs extends FlatSpec with Matchers {
     (imkbPF.lookupBySpecies("pthr21244", Set("human")).isDefined) should be (true)
     val pt = imkbPF.lookupBySpecies("pthr21244", Set("human", "mouse"))
     (pt.isDefined) should be (true)
-    (pt.get.size == 2) should be (true)
+    (pt.get.size) should be (4)
     (imkbPF.lookupBySpecies("pthr21244", Set("human","mouse","gorilla")).isDefined) should be (true)
     val pt2 = (imkbPF.lookupBySpecies("pthr21244", Set("human", "mouse","gorilla")))
     (pt2.isDefined) should be (true)
-    (pt2.get.size == 2) should be (true)
+    (pt2.get.size) should be (4)
     (imkbPF.lookupBySpecies("hk", Set("human", "mouse")).isDefined) should be (false)
     (imkbPF.lookupBySpecies("hk", Set("saccharomyces cerevisiae", "ant")).isDefined) should be (true)
     (imkbPF.lookupBySpecies("hk", Set("ant", "saccharomyces cerevisiae")).isDefined) should be (true)
     (imkbPF.lookupBySpecies(
-      "hk", Set("ant", "saccharomyces cerevisiae")).get.size == 1) should be (true)
+      "hk", Set("ant", "saccharomyces cerevisiae")).get.size) should be (5)
   }
 
   "InMemoryKB COL-3" should "lookupHuman on IMKB from COL-3 gzipped TSV file" in {
     (imkbPF.lookupHuman("hk").isDefined) should be (false) // yeast only
-    (imkbPF.lookupHuman("PTHR21244").isDefined) should be (false)
+    (imkbPF.lookupHuman("PTHR21244").isDefined) should be (true)
     (imkbPF.lookupHuman("pthr21244").isDefined) should be (true)
   }
 
@@ -113,4 +111,26 @@ class TestTsvKBs extends FlatSpec with Matchers {
     (imkbPF.lookupNoSpecies("hk").isDefined) should be (false)        // has a species
   }
 
+}
+
+class CellLocKBL extends IMKBLookup {
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticCellLocation2Filename),
+    namespace = "uniprot",
+    baseURI = "http://identifiers.org/uazclu/",
+    resourceId = "MIR:00000000"
+  )
+  memoryKB = (new TsvIMKBFactory).make(meta)
+}
+
+class ProtFamKBL extends IMKBLookup {
+  val meta = new IMKBMetaInfo(
+    kbFilename = Some(StaticProteinFamily2Filename),
+    namespace = "interpro",
+    baseURI = "http://identifiers.org/uazclu/",
+    resourceId = "MIR:00000000",
+    hasSpeciesInfo = true,
+    isFamilyKB = true
+  )
+  memoryKB = (new TsvIMKBFactory).make(meta)
 }

@@ -9,20 +9,21 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Add test of some sample families now grounded by the BE KB.
+  *   Last Modified: Minor comment update on AA short test.
   */
 class TestOverrides extends FlatSpec with Matchers {
+
   val Chemical = "Simple_chemical"
   val Family = "Family"
   val GGP = "Gene_or_gene_product"
   val Protein = "Protein"
   val Site = "Site"
 
-  val ggp1 = "Ack1, AKT1, AKT2, ASPP1, ASPP2 are GGPs."
-  val ggp1_ids = Seq("Q07912", "P31749", "P31751", "Q96KQ4", "Q13625")
+  val ggp1 = "ADAM17, AKT1, AKT2, ASPP1, ASPP2 are GGPs."
+  val ggp1_ids = Seq("P78536", "P31749", "P31751", "Q96KQ4", "Q13625")
 
-  val ggp2 = "Cdc42, EGF, EGFR, ErbB, ERK5, GSK3beta are GGPs."
-  val ggp2_ids = Seq("P60953", "P01133", "P00533", "P00533", "Q13164", "P49841")
+  val ggp2 = "Cas8, EGF, EGFR, ErbB, ERK5, GSK3beta are GGPs."
+  val ggp2_ids = Seq("Q14790", "P01133", "P00533", "P00533", "Q13164", "P49841")
 
   val ggp3 = "HRAS, IGF-1, JNK1, GSK3alpha, KRAS, MAP2K1 are GGPs."
   val ggp3_ids = Seq("P01112", "P05019", "P45983", "P49840", "P01116", "Q02750")
@@ -219,7 +220,8 @@ class TestOverrides extends FlatSpec with Matchers {
     mentions.count(_ matches "Simple_chemical") should be (6)
   }
 
-  // Amino Acid abbreviations relabeled as Sites (but only 20/22 because of conflicts):
+  // Amino Acid abbreviations relabeled as Sites (but only 20/22 because of protein conflicts)
+  // Should all be GROUNDED correctly as UAZ-S-* via the NER override file.
   aa_short should "have Site labels" in {
     val aas_mentions =  getBioMentions(aa_short)
     aas_mentions should not be (empty)

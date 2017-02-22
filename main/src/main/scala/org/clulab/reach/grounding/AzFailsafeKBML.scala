@@ -2,11 +2,13 @@ package org.clulab.reach.grounding
 
 import org.clulab.odin._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.ReachKBKeyTransforms._
+import org.clulab.reach.grounding.Speciated._
 
 /**
   * KB accessor implementation which always resolves each mention with a local, fake ID.
   *   Written by: Tom Hicks. 10/28/2015.
-  *   Last Modified: Refactor singleton instance here.
+  *   Last Modified: Update for changing IMKB.
   */
 class AzFailsafeKBML extends IMKBMentionLookup {
 
@@ -14,15 +16,13 @@ class AzFailsafeKBML extends IMKBMentionLookup {
 
   // base resolve of text string which does all the work for this class
   override def resolve (text:String): Resolutions = {
-    val key = makeCanonicalKey(text)
-    val resolutions = memoryKB.lookupNoSpecies(key)
-    if (resolutions.isDefined)                  // text key has been resolved
+    val resolutions = memoryKB.lookupNoSpecies(text)
+    if (resolutions.isDefined)                  // text has been resolved
       return resolutions
-    else {                                      // else no existing entry for this text key
+    else {                                      // else no existing entries for this text
       val refId = "UAZ%05d".format(idCntr.next) // so create a new reference ID
-      val entry = new KBEntry(text, key, DefaultNamespace, refId) // create a new KB entry
-      memoryKB.addEntry(entry)                  // insert the new KB entry
-      return memoryKB.toResolutions(entry)      // wrap return value as resolutions
+      memoryKB.addEntries(text, DefaultNamespace, refId) // create new KB entries for this text
+      return memoryKB.lookupNoSpecies(text)     // and return results from repeating lookup
     }
   }
 

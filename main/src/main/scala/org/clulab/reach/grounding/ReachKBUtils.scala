@@ -5,27 +5,28 @@ import java.util.zip.GZIPInputStream
 import scala.io.Source
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.ReachKBConstants._
+import org.clulab.reach.grounding.Speciated._
 
 
 /**
   * Support methods for writing local KB accessors.
   *   Written by Tom Hicks. 10/23/2015.
-  *   Last Modified: Cleanup: remove unneeded class prefixes.
+  *   Last Modified: Modify methods to use species name sets.
   */
-object ReachKBUtils extends Speciated {
+object ReachKBUtils {
 
   /** Tell whether the given mention is grounded from a protein family KB or not. */
   def isFamilyGrounded (mention:BioMention): Boolean =
-    mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("family"))
+    mention.isGrounded && mention.grounding.get.metaInfo.isFamilyKB
 
   /** Tell whether the given mention is grounded from a protein KB or not. */
   def isProteinGrounded (mention:BioMention): Boolean =
-    mention.isGrounded && mention.grounding.get.metaInfo.exists(_.contains("protein"))
+    mention.isGrounded && mention.grounding.get.metaInfo.isProteinKB
 
 
   /** Return a formatted string containing this entry's namespace and ID. */
   def makeNamespaceId (namespace:String, id:String): String =
-    s"${namespace}${NamespaceIdSeparator}${id}"
+    s"${namespace.trim.toLowerCase}${NamespaceIdSeparator}${id.trim}"
 
 
   /** Return a file for the given filename in the knowledge bases directory. */
@@ -73,37 +74,40 @@ object ReachKBUtils extends Speciated {
   }
 
   /** Filter sequence to return human resolutions (sorted). */
-  def selectHuman (resolutions:Seq[KBResolution]): Seq[KBResolution] =
-    resolutions.filter(kbr => isHumanSpecies(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+  def selectHuman (resSeq:Seq[KBResolution]): Seq[KBResolution] =
+    resSeq.filter(kbr => isHumanSpecies(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return resolutions which have no species. */
-  def selectNoSpecies (resolutions:Seq[KBResolution]): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.hasNoSpecies)
+  def selectNoSpecies (resSeq:Seq[KBResolution]): Seq[KBResolution] =
+    resSeq.filter(kbr => kbr.hasNoSpecies)
 
   /** Filter sequence to return only resolutions (sorted) with a non-human species. */
-  def selectNotHuman (resolutions:Seq[KBResolution]): Seq[KBResolution] = {
-    resolutions.filter(kbr => kbr.hasSpecies && !isHumanSpecies(kbr.species))
-              .sortBy(kbr => (kbr.species, kbr.id))
+  def selectNotHuman (resSeq:Seq[KBResolution]): Seq[KBResolution] = {
+    resSeq.filter(kbr => kbr.hasSpecies && !isHumanSpecies(kbr.species))
+          .sortBy(kbr => (kbr.species, kbr.id))
   }
 
   /** Filter sequence to return only resolutions (sorted) with the given species. */
-  def selectASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.species == species).sortBy(_.id)
+  def selectASpecies (resSeq:Seq[KBResolution], species:String): Seq[KBResolution] =
+    resSeq.filter(kbr => kbr.species == species).sortBy(_.id)
 
   /** Filter sequence to return only resolutions (sorted) without the given species. */
-  def selectNotASpecies (resolutions:Seq[KBResolution], species:String): Seq[KBResolution] =
-    resolutions.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
+  def selectNotASpecies (resSeq:Seq[KBResolution], species:String): Seq[KBResolution] =
+    resSeq.filter(kbr => kbr.species != species).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return only resolutions (sorted) with a species in the given set. */
-  def selectBySpecies (resolutions:Seq[KBResolution], species:Seq[String]): Seq[KBResolution] =
-    resolutions.filter(kbr => species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+  def selectBySpecies (resSeq:Seq[KBResolution], species:SpeciesNameSet): Seq[KBResolution] =
+    resSeq.filter(kbr => species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
 
   /** Filter sequence to return only resolutions (sorted) without a species in the given set. */
-  def selectByNotSpecies (resolutions:Seq[KBResolution], species:Seq[String]): Seq[KBResolution] =
-    resolutions.filter(kbr => !species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+  def selectByNotSpecies (resSeq:Seq[KBResolution], species:SpeciesNameSet): Seq[KBResolution] =
+    resSeq.filter(kbr => !species.contains(kbr.species)).sortBy(kbr => (kbr.species, kbr.id))
+
+  /** Return given sequence of resolutions ordered in the application default manner. */
+  def orderResolutions (resSeq: Seq[KBResolution]): Seq[KBResolution] =
+    selectHuman(resSeq) ++ selectNoSpecies(resSeq) ++ selectNotHuman(resSeq)
 
 }
-
 
 /** Class to implement an incrementing counter for generating unique IDs. */
 class IncrementingCounter {

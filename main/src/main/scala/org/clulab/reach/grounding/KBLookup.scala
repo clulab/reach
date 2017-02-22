@@ -1,11 +1,13 @@
 package org.clulab.reach.grounding
 
+import org.clulab.reach.grounding.Speciated._
+
 /**
   * Trait for simple and species-specific string lookup in local knowledge bases.
   *   Written by Tom Hicks. 10/28/2015.
-  *   Last Modified: Redo to return resolution sequences.
+  *   Last Modified: Refactor for consistent selfless traits and extension vs imports.
   */
-trait KBLookup extends Speciated {
+trait KBLookup {
 
   /** Resolve the given text string to an optional entry in a knowledge base.
     * Return a resolution for the entry, if any found.
