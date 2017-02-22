@@ -30,7 +30,7 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
   def focusedSearch(source:Participant, destination:Participant):Unit ={
     logger.info(s"Starting focused search with end points $source and $destination")
-    while(hasFinished(source, destination, this.model)){
+    while(!hasFinished(source, destination, this.model)){
       iterationNum += 1
       logger.info(s"Iteration #$iterationNum")
       val (a, b) = choseEndPoints(source, destination, this.model)
