@@ -1,10 +1,13 @@
 package org.clulab.reach.dyce.sqlite
 
+import java.io.File
 import java.sql._
 
 import com.typesafe.scalalogging.LazyLogging
 import jdk.internal.org.objectweb.asm.util.Printer
 import org.clulab.reach.dyce.{Connection => _, _}
+
+import scala.util.{Failure, Success, Try}
 
 /**
   * Class that encapsulates the SQLite access related to Lucene queries
@@ -62,54 +65,78 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 
   def insert(q:Query): Unit ={
 
-    // Execute the lucene query to get the results
-    val results = this.informationRetrival(q)
-
     val conn = getConnection
 
-    try{
-      val statement = conn.prepareStatement(insertQueryCommand)
-      statement.setString(1, q.A.id)
-
-      q.B match {
-        case Some(b) =>
-          statement.setString(2, b.id)
-        case None =>
-          statement.setNull(2, java.sql.Types.VARCHAR)
-      }
-
-      statement.setString(3, q.strategy.toString)
-      statement.executeUpdate
-
-      // Get the qid
-      val x = conn.prepareStatement("SELECT last_insert_rowid();");
-      val rs = x.executeQuery()
-      rs.next
-      val qid = rs.getInt(1)
-
-      val statement2 = conn.prepareStatement(insertQueryResults)
-      for(r <- results){
-        statement2.setInt(1, qid)
-        statement2.setString(2, r)
-        statement2.addBatch
-      }
-
-      try{
-        conn.setAutoCommit(false)
-        statement2.executeBatch
-        conn.setAutoCommit(true)
-      }catch {
-        case e:Exception =>
-          logger.error(s"Problem storing results for $q")
-      }
-
-    } catch {
-      case e:Exception =>
-        logger.error(s"Problem storing results for $q")
+    val selectStatement = conn.prepareStatement("SELECT queryid FROM Queries WHERE pa = ? AND pb = ? AND type = ?")
+    selectStatement.setString(1, q.A.id)
+    selectStatement.setString(3, q.strategy.toString)
+    q.B match {
+      case Some(b) => selectStatement.setString(1, b.id)
+      case None => selectStatement.setNull(2, java.sql.Types.VARCHAR)
     }
 
+    // Only continue if this result set is empty
+    val rs = selectStatement.executeQuery
+    if(!rs.next()){
+      // Test wether the record already exists
+      // Execute the lucene query to get the results
+      val resultsTry = Try(this.informationRetrival(q))
+
+      resultsTry match {
+        case Success(results) => {
+
+
+          try{
+            val statement = conn.prepareStatement(insertQueryCommand)
+            statement.setString(1, q.A.id)
+
+            q.B match {
+              case Some(b) =>
+                statement.setString(2, b.id)
+              case None =>
+                statement.setNull(2, java.sql.Types.VARCHAR)
+            }
+
+            statement.setString(3, q.strategy.toString)
+            statement.executeUpdate
+
+            // Get the qid
+            val x = conn.prepareStatement("SELECT last_insert_rowid();");
+            val rs = x.executeQuery()
+            rs.next
+            val qid = rs.getInt(1)
+
+            val statement2 = conn.prepareStatement(insertQueryResults)
+            for(r <- results){
+              statement2.setInt(1, qid)
+              statement2.setString(2, r)
+              statement2.addBatch
+            }
+
+            try{
+              conn.setAutoCommit(false)
+              statement2.executeBatch
+              conn.setAutoCommit(true)
+            }catch {
+              case e:Exception =>
+                logger.error(s"Problem storing results for $q")
+            }
+
+          } catch {
+            case e:Exception =>
+              logger.error(s"Problem storing results for $q")
+          }
+
+
+
+        }
+        case Failure(e) => logger.error(s"Error doing information retrival for $q")
+
+      }
+    }
 
     conn.close
+
   }
 
 }
@@ -123,8 +150,11 @@ object BuildLuceneDB extends App {
   val controller = new LuceneDataAccess(dbPath)
 
   // Create the database
-  println("Creating the database ...")
-  controller.createDatabase()
+  if(!new File(dbPath).exists){
+    println("Creating the database ...")
+    controller.createDatabase()
+  }
+
 
   // Read the pairs as a stream
   println("Reading the participant pairs list")
