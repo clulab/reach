@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure alternate resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/16/2015.
-  *   Last Modified: Update for leading mutation pattern.
+  *   Last Modified: Update for GNA transform enhancement.
   */
 class TestProteinResolutions extends FlatSpec with Matchers {
 
@@ -116,9 +116,8 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("suffix-notinkb")) should be (empty)
     (imkbP.resolve("xxx-NOTINKB")) should be (empty)
     (imkbP.resolve("u-notinkb")) should be (empty)
-    (imkbP.resolve("rAAV")) should be (empty)            // only prefix
-    (imkbP.resolve("EGFP-MCHY")) should be (empty)       // only prefixes
-    (imkbP.resolve("GFP-Mchy-SH")) should be (empty)     // only prefixes
+    (imkbP.resolve("rAAV")) should be (empty)            // only non-entity prefix
+    (imkbP.resolve("EGFP-MCHY")) should be (empty)       // only non-entity prefixes
     (imkbP.resolve("shRNA")) should be (empty)           // only suffix
     (imkbP.resolve("KD-shRNA")) should be (empty)        // only suffixes
     (imkbP.resolve("Gfp-kd")) should be (empty)          // only prefix & suffix
@@ -150,6 +149,7 @@ class TestProteinResolutions extends FlatSpec with Matchers {
     (imkbP.resolve("Myr-Flag-Akt-1")) should be (defined)    // multiple prefix
     (imkbP.resolve("Sh-Myr-Flag-Akt1")) should be (defined)  // multiple prefix
     (imkbP.resolve("SH-MYR-FLAG-Akt-1")) should be (defined) // multiple prefix
+    (imkbP.resolve("GFP-Mchy-SH")) should be (defined)       // only prefixes
     (imkbP.resolve("GFP-KRAS-KD")) should be (defined)       // prefix & suffix
     (imkbP.resolve("GFP-KRAS-Kd")) should be (defined)       // prefix & suffix
     (imkbP.resolve("WT-Gfp-KRAS-Kd-shRNA")) should be (defined) // prefixes & suffixes

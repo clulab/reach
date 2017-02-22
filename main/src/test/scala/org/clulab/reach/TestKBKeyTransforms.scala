@@ -10,7 +10,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
 /**
   * Unit tests to ensure grounding is working properly
   *   Written by: Tom Hicks. 1/22/2017.
-  *   Last Modified: Add/update KT tests. Update for leading mutations.
+  *   Last Modified: Update for GNA transform enhancement.
   */
 class TestKBKeyTransforms extends FlatSpec with Matchers {
 
@@ -189,6 +189,7 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_stripFPA, "PARSNIP_FAMILY")) should equal (Seq("PARSNIP_FAMILY"))
   }
 
+
   "applyAllTransforms(stripGeneNameAffixes, various strings)" should "strip suffixes" in {
     (applyAllTransforms(kt_stripGNA, "NoSuffix")) should be (empty)
     (applyAllTransforms(kt_stripGNA, "BadSuffix-e")) should be (empty)
@@ -242,9 +243,7 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_stripGNA, "gfp-IL-7R-alpha")) should equal (Seq("IL-7R-alpha"))
   }
 
-  "applyAllTransforms(stripGeneNameAffixes, various strings)" should "strip multiple prefixes" in {
-    (applyAllTransforms(kt_stripGNA, "Lenti-MYR-Rh-Luc-adv")) should be (empty) // all prefixes
-    (applyAllTransforms(kt_stripGNA, "Myr-Rh-Luc-adv-GFP")) should be (empty) // all affixes
+  "applyAllTransforms(stripGeneNameAffixes, various strings)" should "handle multiple affixes" in {
     (applyAllTransforms(kt_stripGNA, "myr-flag-akt1")) should equal (Seq("akt1"))
     (applyAllTransforms(kt_stripGNA, "Myr-Flag-Akt1")) should equal (Seq("Akt1"))
     (applyAllTransforms(kt_stripGNA, "MYR-FLAG-AKT1")) should equal (Seq("AKT1"))
@@ -252,7 +251,14 @@ class TestKBKeyTransforms extends FlatSpec with Matchers {
     (applyAllTransforms(kt_stripGNA, "Activated-Myr-Flag-Akt1")) should equal (Seq("Akt1"))
     (applyAllTransforms(kt_stripGNA, "ACTIVATED-MYR-FLAG-AKT1")) should equal (Seq("AKT1"))
     (applyAllTransforms(kt_stripGNA, "p-MYR-HA-Flag-Akt1")) should equal (Seq("Akt1"))
+    (applyAllTransforms(kt_stripGNA, "GFP-eGfp")) should be (empty)     // all suffixes
+    (applyAllTransforms(kt_stripGNA, "eGFP-gfp-Gfp")) should be (empty) // all suffixes
+    (applyAllTransforms(kt_stripGNA, "Myr-MYR-myr")) should equal (Seq("myr")) // all prefixes
+    (applyAllTransforms(kt_stripGNA, "Lenti-MYR-Rh-Luc-adv")) should equal (Seq("adv")) // all prefixes
+    (applyAllTransforms(kt_stripGNA, "Myr-Rh-Luc-adv-GFP")) should equal (Seq("adv")) // all affixes
+    (applyAllTransforms(kt_stripGNA, "Myr-Rh-Luc-MYR-eGfp-GFP")) should equal (Seq("MYR")) // all affixes
   }
+
 
   "applyAllTransforms(stripMutantProtein, various strings)" should "return stems" in {
     (applyAllTransforms(kt_stripMP, "crazy weird mutant")) should equal (Seq("crazy"))

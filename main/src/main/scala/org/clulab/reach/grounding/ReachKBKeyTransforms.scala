@@ -12,7 +12,7 @@ import org.clulab.reach.grounding.ReachKBKeyTransforms._
   * REACH-related methods for transforming mentions and text strings into potential keys
   * for lookup in KBs.
   *   Written by Tom Hicks. 11/10/2015.
-  *   Last Modified: Cleanup, regularize auxiliary KTs. Add leading mutation pattern.
+  *   Last Modified: A little smarter gene name affix stripping.
   */
 trait ReachKBKeyTransforms extends KBKeyTransforms {
 
@@ -32,7 +32,7 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def stripFamilyPostAttributivesKT (text:String): KeyCandidates = text.trim match {
     case UnderscoreFamilySuffixPat(ttext) => Seq(ttext)
     case FamilyPostAttributivePat(lhs) => Seq(lhs.trim)
-    case _ => NoCandidates                // signal failure
+    case _ => NoCandidates                  // signal failure
   }
 
   /** Try to remove some specific affixes from the given hyphenated text and return a
@@ -40,14 +40,18 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
   def stripGeneNameAffixesKT (text:String): KeyCandidates = {
     val trimText = text.trim
     val sansSuffixes = stripSuffixByPattern(GeneNameSuffixPat, trimText) // remove any suffixes
-    val sansPrefixes = sansSuffixes.split("-").filterNot(isGeneNamePrefix(_)).mkString("-")
-    if (sansPrefixes == "" || sansPrefixes == trimText) // if all parts or no parts were affixes
-      return NoCandidates                               // signal failure
-    else if (sansPrefixes != sansSuffixes)  // if some prefixes were stripped
-      Seq(sansPrefixes)                     // return new candidate string
-    else {
-      if (sansSuffixes == trimText) NoCandidates // if no suffixes were stripped
-      else Seq(sansSuffixes)                     // else return de-suffixed string
+    val prefixParts = sansSuffixes.split("-")
+    val sansAffixes = prefixParts.filterNot(isGeneNamePrefix(_)).mkString("-") // strip prefixes
+    if (sansAffixes == trimText)            // if no affixes found anywhere
+      return NoCandidates                   // signal failure
+    if (sansAffixes == "")                  // if all parts were affixes
+      return Seq(prefixParts.last)          // return last prefix as candidate stem
+    else if (sansAffixes != sansSuffixes)   // if some prefixes were stripped
+      Seq(sansAffixes)                      // return new candidate string
+    else {                                  // else no prefixes were stripped: check suffixes
+      if (sansSuffixes == trimText)         // if no suffixes were stripped
+        NoCandidates                        // signal failure
+      else Seq(sansSuffixes)                // else return de-suffixed string
     }
   }
 
@@ -71,7 +75,7 @@ trait ReachKBKeyTransforms extends KBKeyTransforms {
     * Extract and return the candidate text portion, else return no candidates. */
   def stripProteinDomainKT (text:String): KeyCandidates = text.trim match {
     case HyphenatedNamePat(lhs, rhs) => if (isProteinDomain(rhs)) Seq(lhs.trim) else NoCandidates
-    case _ => NoCandidates                // signal failure
+    case _ => NoCandidates                  // signal failure
   }
 
   /** Return the portion of the text string minus one of the protein postpositional
