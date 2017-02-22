@@ -4,7 +4,7 @@ import java.sql._
 
 import com.typesafe.scalalogging.LazyLogging
 import jdk.internal.org.objectweb.asm.util.Printer
-import org.clulab.reach.dyce.{LuceneIRStrategy, LuceneQueries, Query}
+import org.clulab.reach.dyce.{Connection => _, _}
 
 /**
   * Class that encapsulates the SQLite access related to Lucene queries
@@ -95,4 +95,10 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
     conn.close
   }
 
+}
+
+object DeleteMe extends App {
+  val q = Query(QueryStrategy.Spatial,  Participant("uniprot", "Q13315"), Some(Participant("uniprot", "P42345")))
+  val la = new LuceneDataAccess("eraseme.sqlite")
+  la.insert(q)
 }
