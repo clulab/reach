@@ -67,18 +67,24 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 
     val conn = getConnection
 
-    val statement = conn.prepareStatement(insertQueryCommand, Statement.RETURN_GENERATED_KEYS)
+    val statement = conn.prepareStatement(insertQueryCommand)
     statement.setString(1, q.A.id)
 
     q.B match {
       case Some(b) =>
         statement.setString(2, b.id)
       case None =>
-        statement.setString(2, null)
+        statement.setNull(2, java.sql.Types.VARCHAR)
     }
 
     statement.setString(3, q.strategy.toString)
-    val qid = statement.executeUpdate
+    statement.executeUpdate
+
+    // Get the qid
+    val x = conn.prepareStatement("SELECT last_insert_rowid();");
+    val rs = x.executeQuery()
+    rs.next
+    val qid = rs.getInt(1)
 
     val statement2 = conn.prepareStatement(insertQueryResults)
     for(r <- results){
