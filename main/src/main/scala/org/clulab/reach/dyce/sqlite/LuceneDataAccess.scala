@@ -67,41 +67,46 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 
     val conn = getConnection
 
-    val statement = conn.prepareStatement(insertQueryCommand)
-    statement.setString(1, q.A.id)
-
-    q.B match {
-      case Some(b) =>
-        statement.setString(2, b.id)
-      case None =>
-        statement.setNull(2, java.sql.Types.VARCHAR)
-    }
-
-    statement.setString(3, q.strategy.toString)
-    statement.executeUpdate
-
-    // Get the qid
-    val x = conn.prepareStatement("SELECT last_insert_rowid();");
-    val rs = x.executeQuery()
-    rs.next
-    val qid = rs.getInt(1)
-
-    val statement2 = conn.prepareStatement(insertQueryResults)
-    for(r <- results){
-      statement2.setInt(1, qid)
-      statement2.setString(2, r)
-      statement2.addBatch
-    }
-
     try{
-      conn.setAutoCommit(false)
-      statement2.executeBatch
-      conn.setAutoCommit(true)
-    }catch {
+      val statement = conn.prepareStatement(insertQueryCommand)
+      statement.setString(1, q.A.id)
+
+      q.B match {
+        case Some(b) =>
+          statement.setString(2, b.id)
+        case None =>
+          statement.setNull(2, java.sql.Types.VARCHAR)
+      }
+
+      statement.setString(3, q.strategy.toString)
+      statement.executeUpdate
+
+      // Get the qid
+      val x = conn.prepareStatement("SELECT last_insert_rowid();");
+      val rs = x.executeQuery()
+      rs.next
+      val qid = rs.getInt(1)
+
+      val statement2 = conn.prepareStatement(insertQueryResults)
+      for(r <- results){
+        statement2.setInt(1, qid)
+        statement2.setString(2, r)
+        statement2.addBatch
+      }
+
+      try{
+        conn.setAutoCommit(false)
+        statement2.executeBatch
+        conn.setAutoCommit(true)
+      }catch {
+        case e:Exception =>
+          logger.error(s"Problem storing results for $q")
+      }
+
+    } catch {
       case e:Exception =>
         logger.error(s"Problem storing results for $q")
     }
-
 
 
     conn.close
