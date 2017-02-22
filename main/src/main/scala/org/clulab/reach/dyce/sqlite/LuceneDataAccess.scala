@@ -123,7 +123,7 @@ object BuildLuceneDB extends App {
 
   // Read the pairs as a stream
   println("Reading the participant pairs list")
-  val pairs = io.Source.fromFile(pairPath).getLines().map(_.split('\t'))
+  val pairs = io.Source.fromFile(pairPath).getLines().toList.map(_.split('\t'))
 
   // Go into the populating loop
   println("Executing the queries ...")
