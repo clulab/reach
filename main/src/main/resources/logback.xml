@@ -22,9 +22,18 @@
         </encoder>
     </appender>
 
+    <appender name="context_annotator" class="ch.qos.logback.core.FileAppender">
+        <param name="Append" value="false" />
+        <file>annotator.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <root level="${loglevel}">
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
+        <appender-ref ref="context_annotator"/>
     </root>
 
 </configuration>

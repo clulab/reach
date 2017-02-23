@@ -1,9 +1,11 @@
 package org.clulab.context.ml
 
 import java.io._
-import collection.mutable.{ListBuffer, ArrayBuffer}
+
+import collection.mutable.{ArrayBuffer, ListBuffer}
 import util.Random
 import ai.lum.common.Interval
+import com.typesafe.scalalogging.LazyLogging
 import org.clulab.processors._
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Counter
@@ -22,7 +24,7 @@ import org.clulab.utils.Serializer
 
 class PreAnnotatedDoc(val serializedDoc:String, val mentions:String) extends Serializable
 
-object DatasetAnnotator extends App{
+object DatasetAnnotator extends App with LazyLogging{
   // Preannotates the dataset and stores the serialized document in the directory
 
   val corpusDir = new File(args(0))
@@ -39,7 +41,26 @@ object DatasetAnnotator extends App{
 
     println(s"Started annotating $dir...")
     val sentences = annotations.sentences
+    // TODO: Change this to use white space tokenizing
     var doc = processor.mkDocumentFromSentences((0 until sentences.size).map(sentences))
+    //var doc = processor.mkDocumentFromTokens((0 until sentences.size).map(sentences).map(_.split(" ").toSeq).toSeq)
+
+    // Make sure we have the same number of sentences in the document object as in the annotations
+    if(sentences.size != doc.sentences.size){
+      val s = s"Document ${annotations.name} has fewer sentences than it should. Sentences file: ${sentences.size}\tDocument: ${doc.sentences.size}"
+      logger.info(s)
+    }
+    // Make sure the tokens are the same
+    for(i <- 0 until sentences.size){
+      val groundTruthTokens = sentences(i).split(" ").filter(_ != "").size
+      val annotatedTokens = doc.sentences(i).words.size
+
+      if(groundTruthTokens != annotatedTokens){
+        val s = s"Document ${annotations.name}, line $i has different number of tokens than it should. Ground truth:$groundTruthTokens\tAnnotated:$annotatedTokens"
+        logger.info(s)
+      }
+    }
+
     doc = processor.annotate(doc)
 
     println(s"Extracting entities from $dir...")
