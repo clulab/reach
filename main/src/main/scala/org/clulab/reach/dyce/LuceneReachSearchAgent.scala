@@ -27,8 +27,25 @@ class LuceneReachSearchAgent(participantA:Participant, participantB:Participant)
 
 }
 
+class SQLiteSearchAgent(participantA:Participant, participantB:Participant) extends SimplePathAgent(participantA, participantB)
+  with MostConnectedParticipantsStrategy
+  with SQLIRStrategy
+  with SQLIteIEStrategy {
 
-object LuceneReachSearchAgent extends App with LazyLogging{
+
+  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
+
+
+
+  override def choseQuery(source: Participant,
+                          destination: Participant,
+                          model: Model) = Query(Cascade, source, Some(destination))
+
+
+}
+
+
+object CoolSearchAgent extends App with LazyLogging{
 
   val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
   // val participantA = Participant("uniprot","P19838")
@@ -37,7 +54,8 @@ object LuceneReachSearchAgent extends App with LazyLogging{
 
   logger.info(s"About to start a focused search with")
 
-  val agent = new LuceneReachSearchAgent(participantA, participantB)
+  //val agent = new LuceneReachSearchAgent(participantA, participantB)
+  val agent = new SQLiteSearchAgent(participantA, participantB)
   agent.focusedSearch(participantA, participantB)
 
   agent.successStopCondition(participantA, participantB, agent.model) match {

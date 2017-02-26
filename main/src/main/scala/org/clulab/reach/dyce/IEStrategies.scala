@@ -8,6 +8,7 @@ import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json.REACHMentionSeq
 import org.clulab.reach.PaperReader
+import org.clulab.reach.dyce.sqlite.SQLiteQueries
 import org.clulab.reach.mentions.{BioMention, BioTextBoundMention, CorefEventMention, CorefMention}
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
 
@@ -328,6 +329,37 @@ trait REACHIEStrategy extends IEStrategy {
 
     val connections:Iterable[Connection] = buildEdges(activations)
     logger.info(s"Extracted ${connections.size} connections")
+    connections
+  }
+}
+
+trait SQLIteIEStrategy extends IEStrategy{
+
+  val daIE = new SQLiteQueries("/Users/enrique/Desktop/dyce/code/interactions.sqlite")
+
+  def informationExtraction(pmcids: Iterable[String]):Iterable[Connection] = {
+
+    // Query the DB
+    val info = pmcids flatMap daIE.ieQuery
+
+    // Group the info by interaction
+    val groups = info.groupBy(i => (i._1, i._2, i._3))
+
+    // Filter out the interactions that appear only once
+    val interactions = groups.mapValues{
+      l =>
+        val first = l.head
+        val freq =  l.map(_._4).sum
+        val evidence = l.flatMap(_._5)
+        (first._1, first._2, first._3, freq, evidence)
+    }.values.filter(_._4 > 1)
+
+    // Instantiate interaction objects
+    val connections = interactions map {
+      c =>
+        new Connection(Participant("", c._1), Participant("", c._2), c._3, c._5)
+    }
+
     connections
   }
 }

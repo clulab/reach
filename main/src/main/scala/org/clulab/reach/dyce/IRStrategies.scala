@@ -1,5 +1,6 @@
 package org.clulab.reach.dyce
 
+import org.clulab.reach.dyce.sqlite.SQLiteQueries
 import org.clulab.reach.dyce.QueryStrategy._
 
 /**
@@ -31,6 +32,31 @@ trait LuceneIRStrategy extends IRStrategy{
 
     }
 
+
+    pmcids
+  }
+}
+
+trait SQLIRStrategy extends IRStrategy{
+
+  val daIR = new SQLiteQueries("/Users/enrique/Desktop/lucene_queries.sqlite")
+
+  override def informationRetrival(query: Query) = {
+    val pmcids: Iterable[String] = query.strategy match {
+      case Singleton => daIR.singletonQuery(query.A)
+      case Disjunction => daIR.binaryDisonjunctionQuery(query.A, query.B.get)
+      case Conjunction => daIR.binaryConjunctionQuery(query.A, query.B.get)
+      case Spatial => daIR.binarySpatialQuery(query.A, query.B.get)
+      case Cascade => {
+        var results = daIR.binarySpatialQuery(query.A, query.B.get)
+        if (results.isEmpty) {
+          results = daIR.binaryConjunctionQuery(query.A, query.B.get)
+          if (results.isEmpty)
+            results = daIR.binaryDisonjunctionQuery(query.A, query.B.get)
+        }
+        results
+      }
+    }
 
     pmcids
   }

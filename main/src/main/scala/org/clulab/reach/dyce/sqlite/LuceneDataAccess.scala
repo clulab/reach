@@ -146,6 +146,9 @@ class LuceneDataAccess(val path:String) extends LazyLogging with LuceneIRStrateg
 
   }
 
+
+
+
 }
 
 object BuildLuceneDB extends App {
