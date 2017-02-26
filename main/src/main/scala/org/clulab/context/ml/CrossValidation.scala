@@ -30,7 +30,12 @@ import org.json4s.native.JsonMethods._
 
 object CrossValidation extends App {
 
-      def classifyWithPolicy(anns:ArticleAnnotations):Seq[(Boolean, Boolean)] = {
+  /***
+    * Base line for the evaluation
+    * @param anns
+    * @return
+    */
+  def classifyWithPolicy(anns:ArticleAnnotations):Seq[(Boolean, Boolean)] = {
         // Simulates Policy 4
 
         // Restore the mentions from JSON
@@ -40,9 +45,12 @@ object CrossValidation extends App {
 
         val manualContextAnnotations = anns.contextAnnotations
 
-        val contextMentions = entities.filter(e => ContextClass.isContextMention(e) && e.label == "Cellular_component")
+        // Get all the context mentions in the document besides those manually annotated by a biologist
+        //val contextMentions = entities.filter(e => ContextClass.isContextMention(e) && e.label == "Cellular_component")
+        val contextMentions = entities.filter(e => ContextClass.isContextMention(e))
           .map(_.asInstanceOf[BioTextBoundMention])
 
+        // Keep only the extracted context mentions that don't overlap with a manually annotated context mention
         val filteredMentions = contextMentions.filter{
           m =>
             !manualContextAnnotations.exists{
@@ -54,6 +62,8 @@ object CrossValidation extends App {
 
         // All the context types in the paper
         val augmentedCtxAnnotations = manualContextAnnotations ++ filteredMentions
+
+        // Get all the different context types in the paper
         val ctxTypes:Set[ContextType] = augmentedCtxAnnotations.map(_.contextType).toSet
 
         // Group the event with the context annotations
@@ -88,125 +98,132 @@ object CrossValidation extends App {
             }).toSeq
         }
 
-        // val hits:Seq[(Boolean, Boolean)] = anns.eventAnnotations.toSeq.flatMap{
-        //   e =>
-        //   ctxTypes.map{
-        //     x => (true, true)
-        //   }.toSeq
-        // }
-
 
         hits.flatten
       }
 
-      // First parameter: Corpus directory
+  // First parameter: Corpus directory
 
-      println("== Context ML model cross validation ==")
-      println
+  println("== Context ML model cross validation ==")
+  println
 
-      val corpusDir = new File(args(0))
+  val corpusDir = new File(args(0))
 
-      // Create a map with the article annotations
-      val annotations = loadAnnotations(corpusDir).map(a => (a.name -> a)).toMap
+  // Create a map with the article annotations
+  val annotations = loadAnnotations(corpusDir).map(a => (a.name -> a)).toMap
 
-      // Extract all the feartues ahead of time
-      println(s"Extracting all featrues of ${annotations.size} papers...")
-      val data:Map[String, Iterable[RVFDatum[String, String]]] =
-          annotations.map{
-              case(name, ann) =>
-                // Extract features
-                val features = extractFeatures(ann).values
-                (name -> features)
-          }.toMap
+  // Extract all the feartues ahead of time
+  // Key: Paper ID
+  // Value: Iterable of annotations ??
+  println(s"Extracting all featrues of ${annotations.size} papers...")
+  val data:Map[String, Iterable[RVFDatum[String, String]]] =
+      annotations.map{
+          case(name, ann) =>
+            // Extract features
+            val features = extractFeatures(ann).values
+            (name -> features)
+      }.toMap
 
-      val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
-      val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
-      val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
-      val allDeterministicResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
+  val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
+  val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
+  val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
+  val allDeterministicResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
 
-      // CV Loop
-      val keySet = annotations.keySet
+  // CV Loop
+  val keySet = annotations.keySet
 
-      for(evalFold <- keySet){
+  // Iterate through each paper, where each is the "evaluation fold"
+  for(evalFold <- keySet){
 
-          // Do the policy classification for comparison purposes
-          val evalAnnotations = annotations(evalFold)
-          val policyHits = classifyWithPolicy(evalAnnotations)
-          val policyResults = new BinaryClassificationResults(policyHits)
-          deterministicCVResults += Tuple2(evalFold, policyResults)
-          allDeterministicResults ++= policyHits
+      // Do the policy classification for comparison purposes
+      val evalAnnotations = annotations(evalFold) // Fetch the paper annotations for the current paper(fold)
+      val policyHits = classifyWithPolicy(evalAnnotations) // Run the baseline
+      val policyResults = new BinaryClassificationResults(policyHits) // Compute the performance of the baseline
+      // Store the baseline results
+      deterministicCVResults += Tuple2(evalFold, policyResults)
+      allDeterministicResults ++= policyHits
+      /////////////////////////////
 
-          println(s"Testing fold: ${annotations(evalFold).name} ...")
-          val trainingFolds = keySet - evalFold
+      // Fetch the training papers (training fold
+      println(s"Testing fold: ${annotations(evalFold).name} ...")
+      val trainingFolds = keySet - evalFold
 
-          // Training fold's dataset
-          println("Training")
-          val trainingDataset = new RVFDataset[String, String]()
+      // Training fold's dataset
+      println("Training")
+      val trainingDataset = new RVFDataset[String, String]()
 
-          // Training loop
-          for(trainingFold <- trainingFolds){
+      // Training loop
+      for(trainingFold <- trainingFolds){
 
-            val trainingData = data(trainingFold)
+        // Fetch the precomputed features of this paper
+        val trainingData = data(trainingFold)
 
-            // Add the data of this paper to the training dataset
-            for(datum <- trainingData){
-              trainingDataset += datum
-            }
-          }
-
-          // Balance dataset
-          val balancedDataset = balanceDataset(trainingDataset)
-
-          println(s"Sizes: ${trainingDataset.size} - ${balancedDataset.size}")
-
-          println(s"Training fold size:${balancedDataset.size}\tPositives: ${balancedDataset.labels.filter(balancedDataset.labelLexicon.get(_) == "true").size}\tNegatives: ${balancedDataset.labels.filter(balancedDataset.labelLexicon.get(_) == "false").size}")
-
-          // Normalize dataset
-          val scalers = normalize(balancedDataset)
-
-          // Train the classifier
-          val classifier = train(balancedDataset)
-
-          println("Evaluation ...")
-          // Extract the evaluation fold features
-          val testingData = data(evalFold)
-
-          println(s"Testing fold size: ${testingData.size}\tPositives: ${testingData.filter(_.label == "true").size}\tNegatives: ${testingData.filter(_.label == "false").size}")
-
-          // Evaluate the testing data using the trained classifier
-
-          // Results is an array with the tuples (truth, prediction) boolean values
-          val results = new mutable.ArrayBuffer[(Boolean, Boolean)]
-          println(s"DEBUG: Testing data size: ${testingData.size}")
-          for(datum <- testingData){
-              val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, scalers)
-              val scaledDatum = new RVFDatum(datum.label, scaledFeats)
-
-
-
-              val predictedLabel = if(datum.getFeatureCount("sentenceDistance_SAME") >= 1) true; else classifier.classOf(scaledDatum) == "true"
-
-              val truth = datum.label == "true"
-
-              results += Tuple2(truth, predictedLabel)
-          }
-
-          val bcr = new BinaryClassificationResults(results.toSeq)
-          println(bcr)
-          println("Policy 4")
-          println(policyResults)
-          println
-          cvResults += (evalFold -> bcr)
-          allResults ++= results
+        // Add the data of this paper to the training dataset
+        for(datum <- trainingData){
+          trainingDataset += datum
+        }
       }
 
-      val microAverage = new BinaryClassificationResults(allResults)
-      val policyMicroAverage = new BinaryClassificationResults(allDeterministicResults)
+      // Balance dataset
+      // TODO: Explicitly state the classes proportions
+      val balancedDataset = balanceDataset(trainingDataset, negativesPerPositive = 3)
 
+      println(s"Original size:${trainingDataset.size} - After class-balancing size:${balancedDataset.size}")
+
+      println(s"Positives: ${balancedDataset.labels.filter(balancedDataset.labelLexicon.get(_) == "true").size}\tNegatives: ${balancedDataset.labels.filter(balancedDataset.labelLexicon.get(_) == "false").size}")
+
+      // Normalize dataset
+      // Store the scalers to normalize the testing fold
+      val scalers = normalize(balancedDataset)
+
+      // Train the classifier
+      val classifier = train(balancedDataset)
+
+      println("Evaluation ...")
+      // Extract the evaluation fold features
+      val testingData = data(evalFold)
+
+      // NO class balancing here, as this is the testing dataset
+      println(s"Testing fold size: ${testingData.size}\tPositives: ${testingData.filter(_.label == "true").size}\tNegatives: ${testingData.filter(_.label == "false").size}")
+
+      // Evaluate the testing data using the trained classifier
+
+      // Results is an array with the tuples (truth, prediction) boolean values
+      val results = new mutable.ArrayBuffer[(Boolean, Boolean)]
+      for(datum <- testingData){
+
+          // Scale the datum with the scalers from training
+          val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, scalers)
+          val scaledDatum = new RVFDatum(datum.label, scaledFeats)
+
+
+          // Evaluate this prediction
+          val predictedLabel = if(datum.getFeatureCount("sentenceDistance_SAME") >= 1) true; else classifier.classOf(scaledDatum) == "true"
+
+          val truth = datum.label == "true"
+
+           // Store the results of the fold
+          results += Tuple2(truth, predictedLabel)
+      }
+
+      val bcr = new BinaryClassificationResults(results.toSeq)
+      println("ML classifier")
+      println(bcr)
+      println("Policy 4")
+      println(policyResults)
       println
-      println(s"Microaveraged ML results of ${keySet.size} folds:")
-      println(microAverage)
-      println(s"Microaveraged deterministic results of ${keySet.size} folds:")
-      println(policyMicroAverage)
+      cvResults += (evalFold -> bcr)
+      allResults ++= results
+  }
+
+  // Compute microaveraged scores for ML an baseline
+  val microAverage = new BinaryClassificationResults(allResults)
+  val policyMicroAverage = new BinaryClassificationResults(allDeterministicResults)
+
+  println
+  println(s"Microaveraged ML results of ${keySet.size} folds:")
+  println(microAverage)
+  println(s"Microaveraged deterministic results of ${keySet.size} folds:")
+  println(policyMicroAverage)
 
 }

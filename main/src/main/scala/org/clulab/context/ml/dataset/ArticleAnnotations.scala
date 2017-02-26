@@ -32,12 +32,16 @@ object ContextType{
       case "uberon" => this(ContextClass.Organ, annotationId)
       case "tissuelist" => this(ContextClass.TissueType, annotationId)
       case "go" => this(ContextClass.Cellular_component, annotationId)
+      case "atcc" => this(ContextClass.CellLine, annotationId)
+      case "uniprot" => this(ContextClass.Cellular_component, annotationId)
       case "uaz" =>
         val y = gid.split("-")
         if(y.size < 2){
             if(y(0).toLowerCase.contains("uberon"))
               this(ContextClass.Organ, annotationId)
             else if(y(0).toLowerCase.contains("cl:"))
+              this(ContextClass.CellLine, annotationId)
+            else if(y(0).toLowerCase.contains("cvcl"))
               this(ContextClass.CellLine, annotationId)
             else
               println(s"DEBUG: Unrecognized context id $annotationId - ContextType.parse")
@@ -90,7 +94,7 @@ case class ContextAnnotation(val sentenceId: Int,
      }
    }
 
-case class ArticleAnnotations(val name:String,
+case class ArticleAnnotations(name:String,
    val sentences:Map[Int, String],
    val eventAnnotations:Seq[EventAnnotation],
    val contextAnnotations:Seq[ContextAnnotation],
@@ -98,22 +102,40 @@ case class ArticleAnnotations(val name:String,
    val preprocessed:Option[PreAnnotatedDoc] = None)
 
 object ArticleAnnotations{
+
+  /***
+    * Extracts the PMCID from a path
+    * @param s Path string
+    * @return The PMCID if only happens once in the string
+    */
+  def extractPMCID(s:String):String = {
+    val pmcidExtractor = """.*(PMC\d+).*""".r
+
+    s match {
+      case pmcidExtractor(id) => id
+      case _ =>
+        println(s"DEBUG: Didn't find a pmcid in $s")
+        s
+    }
+  }
+
+
   def readPaperAnnotations(directory:String):ArticleAnnotations = {
     // Read the tsv annotations from a paper
     val rawSentences = Source.fromFile(new File(directory, "sentences.txt")).getLines
     val sentences:Map[Int, String] = rawSentences.zipWithIndex.map{
-      case (s, i) => (i -> s)
+      case (s, i) => i -> s
     }.toMap
 
     val rawEvents = Source.fromFile(new File(directory, "annotated_event_intervals.tsv")).getLines.toList
     val events = rawEvents.map(_.split("\t")).map{
-      case tokens =>
+       tokens =>
         val sentenceId = tokens(0).toInt
 
         val bounds = tokens(1).split("-").map(_.toInt)
         val (start, end) = (bounds(0), bounds(1))
         val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
-        val contexts:Seq[ContextType] = if(tokens.size == 3 && tokens(2) != "") tokens(2).split(",").map(ContextType.parse(_)) else Seq()
+        val contexts:Seq[ContextType] = if(tokens.length == 3 && tokens(2) != "") tokens(2).split(",").map(ContextType.parse) else Seq()
 
         EventAnnotation(sentenceId, interval, Some(contexts))
     }.toSeq
@@ -156,13 +178,6 @@ object ArticleAnnotations{
     val preprocessed:Option[PreAnnotatedDoc] = {
       val ppFile = new File(directory, "preprocessed.ser")
       if(ppFile.exists){
-        // val ois = new ObjectInputStream(new FileInputStream(ppFile)) {
-        //   override def resolveClass(desc: java.io.ObjectStreamClass): Class[_] = {
-        //     try { Class.forName(desc.getName, false, getClass.getClassLoader) }
-        //     catch { case ex: ClassNotFoundException => super.resolveClass(desc) }
-        //   }
-        // }
-
         Some(Serializer.load[PreAnnotatedDoc](ppFile.getAbsolutePath))
       }
       else{
@@ -170,6 +185,6 @@ object ArticleAnnotations{
       }
     }
 
-    ArticleAnnotations(directory, sentences, events, context, standoff, preprocessed)
+    ArticleAnnotations(extractPMCID(directory), sentences, events, context, standoff, preprocessed)
   }
 }

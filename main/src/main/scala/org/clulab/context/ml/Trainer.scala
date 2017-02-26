@@ -24,8 +24,49 @@ import org.clulab.utils.Serializer
 
 class PreAnnotatedDoc(val serializedDoc:String, val mentions:String) extends Serializable
 
+/***
+  * Generates a set of Processor's document objects for each file in the directory The first argument is the path to the
+  * corpus
+  */
 object DatasetAnnotator extends App with LazyLogging{
   // Preannotates the dataset and stores the serialized document in the directory
+
+  def annotatePaper(annotations:ArticleAnnotations):PreAnnotatedDoc = {
+
+    val name = annotations.name
+    println(s"Started annotating $name...")
+    val sentences = annotations.sentences
+    // TODO: Change this to use white space tokenizing
+    var doc = processor.mkDocumentFromSentences((0 until sentences.size).map(sentences))
+    //var doc = processor.mkDocumentFromTokens((0 until sentences.size).map(sentences).map(_.split(" ").toSeq).toSeq)
+
+    // Make sure we have the same number of sentences in the document object as in the annotations
+    if (sentences.size != doc.sentences.size) {
+      val s = s"Document ${annotations.name} has fewer sentences than it should. Sentences file: ${sentences.size}\tDocument: ${doc.sentences.size}"
+      logger.info(s)
+    }
+    // Make sure the tokens are the same
+    for (i <- 0 until sentences.size) {
+      val groundTruthTokens = sentences(i).split(" ").filter(_ != "").size
+      val annotatedTokens = doc.sentences(i).words.size
+
+      if (groundTruthTokens != annotatedTokens) {
+        val s = s"Document ${annotations.name}, line $i has different number of tokens than it should. Ground truth:$groundTruthTokens\tAnnotated:$annotatedTokens"
+        logger.info(s)
+      }
+    }
+
+    doc = processor.annotate(doc)
+
+    println(s"Extracting entities from $name...")
+    val entities = reach.extractEntitiesFrom(doc).map(_.asInstanceOf[CorefMention])
+
+    val serializedEntities: String = compact(render(JSONSerializer.jsonAST(entities)))
+
+    val preprocessedAnnotations = new PreAnnotatedDoc(docSerializer.save(doc), serializedEntities)
+
+    preprocessedAnnotations
+  }
 
   val corpusDir = new File(args(0))
 
@@ -39,46 +80,18 @@ object DatasetAnnotator extends App with LazyLogging{
   for(annotations <- allAnnotations.par){
     val dir = new File(annotations.name)
 
-    println(s"Started annotating $dir...")
-    val sentences = annotations.sentences
-    // TODO: Change this to use white space tokenizing
-    var doc = processor.mkDocumentFromSentences((0 until sentences.size).map(sentences))
-    //var doc = processor.mkDocumentFromTokens((0 until sentences.size).map(sentences).map(_.split(" ").toSeq).toSeq)
 
-    // Make sure we have the same number of sentences in the document object as in the annotations
-    if(sentences.size != doc.sentences.size){
-      val s = s"Document ${annotations.name} has fewer sentences than it should. Sentences file: ${sentences.size}\tDocument: ${doc.sentences.size}"
-      logger.info(s)
-    }
-    // Make sure the tokens are the same
-    for(i <- 0 until sentences.size){
-      val groundTruthTokens = sentences(i).split(" ").filter(_ != "").size
-      val annotatedTokens = doc.sentences(i).words.size
-
-      if(groundTruthTokens != annotatedTokens){
-        val s = s"Document ${annotations.name}, line $i has different number of tokens than it should. Ground truth:$groundTruthTokens\tAnnotated:$annotatedTokens"
-        logger.info(s)
-      }
-    }
-
-    doc = processor.annotate(doc)
-
-    println(s"Extracting entities from $dir...")
-    val entities = reach.extractEntitiesFrom(doc).map(_.asInstanceOf[CorefMention])
-
-    val serializedEntities:String = compact(render(JSONSerializer.jsonAST(entities)))
-
-    val preprocessedAnnotations = new PreAnnotatedDoc(docSerializer.save(doc), serializedEntities)
+    val preprocessedAnnotations = annotatePaper(annotations)
     Serializer.save[PreAnnotatedDoc](preprocessedAnnotations, new File(dir, "preprocessed.ser").getAbsolutePath)
-    //val oos = new ObjectOutputStream(new FileOutputStream(new File(dir, "preprocessed.ser")))
-    // oos.writeObject(preprocessedAnnotations)
-    // oos.close
 
 
     println(s"Finished annotating $dir...")
   }
 }
 
+/***
+  * Trains a context model from the corpus
+  */
 object Trainer {
 
   // Loading reach system
@@ -96,21 +109,18 @@ object Trainer {
 
     val sentences = annotations.sentences.values
 
-    val (doc:Document, entities:Seq[BioMention]) = annotations.preprocessed match {
-      case Some(preprocessed) =>
-        val docSer = new DocumentSerializer
-        val jsonAST = parse(preprocessed.mentions)
-        val e = JSONSerializer.toCorefMentions(jsonAST)
-        (docSer.load(preprocessed.serializedDoc), e.map(_.asInstanceOf[BioMention]))
+    val preprocessed = annotations.preprocessed match {
+      case Some(preprocessed) => preprocessed
       case None =>
         println(s"Annotating ${annotations.name} ...")
-
-        var d = processor.mkDocumentFromSentences(sentences)
-        d = processor.annotate(d)
-        println("Extracting entities ...")
-        val e = reach.extractEntitiesFrom(d)
-        (d, e)
+        val a = DatasetAnnotator.annotatePaper(annotations)
+        a
     }
+
+    val docSer = new DocumentSerializer
+    val jsonAST = parse(preprocessed.mentions)
+    val e = JSONSerializer.toCorefMentions(jsonAST)
+    val (doc:Document, entities:Seq[BioMention]) = (docSer.load(preprocessed.serializedDoc), e.map(_.asInstanceOf[BioMention]))
 
 
     // Don't use the system-extracted events for trainig
@@ -126,7 +136,8 @@ object Trainer {
     var events = annotations.eventAnnotations
 
     // Filter out non-context mentions and cellular component mentions, because we don't have training data for this.
-    val contextMentions = entities.filter(e => ContextClass.isContextMention(e) && e.label == "Cellular_component")
+    //val contextMentions = entities.filter(e => ContextClass.isContextMention(e) && e.label == "Cellular_component")
+    val contextMentions = entities.filter(e => ContextClass.isContextMention(e))
       .map(_.asInstanceOf[BioTextBoundMention])
 
     // Build the counts of the context annotations
@@ -196,7 +207,7 @@ object Trainer {
           lex.get(labels(i)) == "false"
       }
 
-      assert(positiveIndices.size <= negativeIndices.size)
+      assert(positiveIndices.size <= negativeIndices.size, "There are more positive than negative instances")
 
       // Do a random sample of the negatives up to the specified ratio
       val suffledNegativeIndices = Random.shuffle(negativeIndices)

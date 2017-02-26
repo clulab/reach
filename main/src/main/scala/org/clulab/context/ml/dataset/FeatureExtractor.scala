@@ -16,12 +16,12 @@ object BinnedDistance extends Enumeration{
 // of an instance of PairFeatures
 case class PairID(
   // Sentence # and token interval
-  val textBoundLocation:EventAnnotation,
+  textBoundLocation:EventAnnotation,
   // Context's grounded id
-  val context:ContextType
+  context:ContextType
 )
 {
-  override def equals(o:Any) = o match {
+  override def equals(o:Any):Boolean = o match {
     case that:PairID =>
       this.textBoundLocation == that.textBoundLocation && this.context == that.context
     case _ => false
