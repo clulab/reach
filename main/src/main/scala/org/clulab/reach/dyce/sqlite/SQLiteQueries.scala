@@ -11,10 +11,18 @@ import org.clulab.reach.dyce.Participant
   */
 class SQLiteQueries(path:String) extends LazyLogging{
 
+  def removeNamespace(id:String):String = {
+    val tokens = id.split(":")
+    tokens.size match {
+      case i:Int if i > 1 => tokens.drop(1).mkString(":")
+      case 1 => id
+    }
+  }
+
   // Load the JDBC driver
   Class.forName("org.sqlite.JDBC")
 
-  private def getConnection = DriverManager.getConnection(s"jdbc:sqlite:$path");
+  private val getConnection = DriverManager.getConnection(s"jdbc:sqlite:$path");
 
 
   /***
@@ -33,8 +41,8 @@ class SQLiteQueries(path:String) extends LazyLogging{
 
     val cmd = conn.prepareStatement(command)
 
-    cmd.setString(1, a.id)
-    cmd.setString(2, b.id)
+    cmd.setString(1, removeNamespace(a.id))
+    cmd.setString(2, removeNamespace(b.id))
 
     val resultSet = cmd.executeQuery()
 
@@ -44,7 +52,7 @@ class SQLiteQueries(path:String) extends LazyLogging{
       pmcids += resultSet.getString("pmcid")
 
     cmd.close
-    conn.close
+    //conn.close
 
     // Do a set to remove duplicate entries, the back to a seq
     pmcids.toSeq
@@ -60,8 +68,8 @@ class SQLiteQueries(path:String) extends LazyLogging{
 
     val cmd = conn.prepareStatement(command)
 
-    cmd.setString(1, a.id)
-    cmd.setString(2, b.id)
+    cmd.setString(1, removeNamespace(a.id))
+    cmd.setString(2, removeNamespace(b.id))
 
     val resultSet = cmd.executeQuery()
 
@@ -71,7 +79,7 @@ class SQLiteQueries(path:String) extends LazyLogging{
       pmcids += resultSet.getString("pmcid")
 
     cmd.close
-    conn.close
+    //conn.close
 
     // Do a set to remove duplicate entries, the back to a seq
     pmcids.toSeq
@@ -87,8 +95,8 @@ class SQLiteQueries(path:String) extends LazyLogging{
 
     val cmd = conn.prepareStatement(command)
 
-    cmd.setString(1, a.id)
-    cmd.setString(2, b.id)
+    cmd.setString(1, removeNamespace(a.id))
+    cmd.setString(2, removeNamespace(b.id))
 
     val resultSet = cmd.executeQuery()
 
@@ -98,7 +106,7 @@ class SQLiteQueries(path:String) extends LazyLogging{
       pmcids += resultSet.getString("pmcid")
 
     cmd.close
-    conn.close
+    //conn.close
 
     // Do a set to remove duplicate entries, the back to a seq
     pmcids.toSet.toSeq
@@ -124,25 +132,25 @@ class SQLiteQueries(path:String) extends LazyLogging{
       pmcids += resultSet.getString("pmcid")
 
     cmd.close
-    conn.close
+    //conn.close
 
     pmcids.toSeq
   }
 
-  def ieQuery(pmcid:String):Seq[(String, String, Boolean, Int, Iterable[String])] = {
+  def ieQuery(pmcids:Iterable[String]):Seq[(String, String, Boolean, Int, Iterable[String])] = {
 
     // Fetch the interactions for the paper
     val commandInteractions =
-      """ SELECT i.*, pi.frequency
+      s""" SELECT i.*, pi.frequency
         |  FROM Paper_Interaction AS pi
         |  INNER JOIN Interactions AS i
         |  ON interaction = id
-        | WHERE pmcid = ?
+        | WHERE pmcid in (${pmcids.map(s => s"'$s'").mkString(",")})
       """.stripMargin
 
     // Fetch the evidence for the interactions
     val commandEvidence =
-      """ SELECT evidence
+      """ SELECT pmcid, evidence
         |  FROM Evidence
         |  WHERE interaction = ?
       """.stripMargin
@@ -151,7 +159,7 @@ class SQLiteQueries(path:String) extends LazyLogging{
 
     var cmd = conn.prepareStatement(commandInteractions)
 
-    cmd.setString(1, pmcid)
+    //cmd.setString(1, pmcid)
 
     var resultSet = cmd.executeQuery
 
@@ -175,25 +183,32 @@ class SQLiteQueries(path:String) extends LazyLogging{
 
     val returnVal = new mutable.ArrayBuffer[(String, String, Boolean, Int, Iterable[String])]
 
-    cmd = conn.prepareStatement(commandEvidence)
+//    cmd = conn.prepareStatement(commandEvidence)
+//
+//    for(interaction <- interactions){
+//      val id = interaction._1
+//      cmd.setInt(1, id)
+//
+//      resultSet = cmd.executeQuery
+//      val ev = new mutable.ArrayBuffer[String]
+//
+//      while(resultSet.next)
+//        ev += s"${resultSet.getString("pmcid")}: ${resultSet.getString("evidence")}"
+//
+//      returnVal += Tuple5(interaction._2, interaction._3, interaction._4, interaction._5, ev.toSeq)
+//
+//      resultSet.close()
+//
+//    }
+//
+//    cmd.close()
 
-    for(interaction <- interactions){
-      val id = interaction._1
-      cmd.setInt(1, id)
-
-      resultSet = cmd.executeQuery
-      val ev = new mutable.ArrayBuffer[String]
-
-      while(resultSet.next)
-        ev += s"$pmcid: ${resultSet.getString("evidence")}"
-
-      returnVal += Tuple5(interaction._2, interaction._3, interaction._4, interaction._5, ev.toSeq)
-
-      resultSet.close()
-      cmd.close()
+    for(interaction <- interactions) {
+      returnVal += Tuple5(interaction._2, interaction._3, interaction._4, interaction._5, Nil)
     }
 
-    conn.close()
+    //if(!conn.isClosed)
+      //conn.close()
 
     returnVal.toSeq
   }

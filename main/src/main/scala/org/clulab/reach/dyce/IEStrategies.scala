@@ -340,10 +340,11 @@ trait SQLIteIEStrategy extends IEStrategy{
   def informationExtraction(pmcids: Iterable[String]):Iterable[Connection] = {
 
     // Query the DB
-    val info = pmcids flatMap daIE.ieQuery
+    //val info = pmcids.take(100).grouped(40) flatMap daIE.ieQuery
+    val info = pmcids.take(100).grouped(40) flatMap daIE.ieQuery
 
     // Group the info by interaction
-    val groups = info.groupBy(i => (i._1, i._2, i._3))
+    val groups = info.toSeq.groupBy(i => (i._1, i._2, i._3))
 
     // Filter out the interactions that appear only once
     val interactions = groups.mapValues{

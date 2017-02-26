@@ -47,9 +47,9 @@ class SQLiteSearchAgent(participantA:Participant, participantB:Participant) exte
 
 object CoolSearchAgent extends App with LazyLogging{
 
-  val participantA =  Participant("uniprot", "Q13315") // ATM, Grounding ID of the controller
+  val participantA =  Participant("uniprot", "O14746") // ATM, Grounding ID of the controller
   // val participantA = Participant("uniprot","P19838")
-  val participantB = Participant("uniprot", "P42345") // mTOR, Grounding ID of the controller
+  val participantB = Participant("uniprot", "P01308") // mTOR, Grounding ID of the controller
   //val participantB = Participant("uniprot", "O14757") // Chek1
 
   logger.info(s"About to start a focused search with")
