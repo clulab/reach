@@ -341,7 +341,7 @@ trait SQLIteIEStrategy extends IEStrategy{
 
     // Query the DB
     //val info = pmcids.take(100).grouped(40) flatMap daIE.ieQuery
-    val info = pmcids.take(100).grouped(40) flatMap daIE.ieQuery
+    val info = pmcids.grouped(40) flatMap daIE.ieQuery
 
     // Group the info by interaction
     val groups = info.toSeq.groupBy(i => (i._1, i._2, i._3))
