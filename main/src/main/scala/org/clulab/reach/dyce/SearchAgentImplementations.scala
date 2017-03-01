@@ -123,7 +123,7 @@ object CoolSearchAgent extends App with LazyLogging{
   logger.info("")
   logger.info("Postmortem analysis:")
   logger.info(s"Exact matches: $hits\t Alternative matches: ${successes-hits}")
-
+  logger.info("")
   // Length counts
   val lengths = pathLengths.groupBy(identity).mapValues(_.size)
   logger.info(s"Alternate path lengths:")
