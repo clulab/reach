@@ -226,6 +226,12 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+def useCase3b(resultDir:String): Unit = {
+    vanillaUseCase(
+      "(children OR childhood OR infant) AND (undernutrition OR nutrition OR inflammation OR stunting OR kcal OR malnutrition )",
+      resultDir)
+  }
+
   def useCaseTB(resultDir:String): Unit = {
     vanillaUseCase(
       """ "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """,
@@ -251,7 +257,8 @@ class NxmlSearcher(val indexDir:String) {
 
   def useCaseDengue(resultDir:String): Unit = {
     vanillaUseCase(
-      """(Dengue OR den OR denv OR Dengue-1 Dengue-2 OR Dengue-3 OR Dengue-4 OR Dengue1 Dengue2 OR Dengue3 OR Dengue4 OR Den-1 OR Den-2 OR Den-3 OR Den-4 OR Den1 OR Den2 OR Den3 OR Den4 OR Denv1 OR Denv2 OR Denv3 OR Denv4 Denv-1 OR Denv-2 OR Denv-3 OR Denv-4) AND (serotype OR serotypes OR viremia OR "capillary leakage" OR "hemorrhagic fever" OR "self-limited dengue fever" OR fever OR "dengue shock syndrome" OR "inapparent dengue infection" OR "serial infection" OR "homologous response" OR "heterologous response" OR "immune evasion" OR "arthropod borne" OR mosquito OR mosquitoes OR "mosquito-borne" OR prm OR ns1 OR ns2a OR ns2b OR ns3 OR ns4a OR ns4 OR ns5)""",
+    //  """(Dengue OR den OR denv OR Dengue-1 Dengue-2 OR Dengue-3 OR Dengue-4 OR Dengue1 Dengue2 OR Dengue3 OR Dengue4 OR Den-1 OR Den-2 OR Den-3 OR Den-4 OR Den1 OR Den2 OR Den3 OR Den4 OR Denv1 OR Denv2 OR Denv3 OR Denv4 Denv-1 OR Denv-2 OR Denv-3 OR Denv-4) AND (serotype OR serotypes OR viremia OR "capillary leakage" OR "hemorrhagic fever" OR "self-limited dengue fever" OR fever OR "dengue shock syndrome" OR "inapparent dengue infection" OR "serial infection" OR "homologous response" OR "heterologous response" OR "immune evasion" OR "arthropod borne" OR mosquito OR mosquitoes OR "mosquito-borne" OR prm OR ns1 OR ns2a OR ns2b OR ns3 OR ns4a OR ns4 OR ns5)""",
+	"(bacteria OR virus) AND disease AND immunology",
       resultDir)
   }
 
@@ -278,7 +285,7 @@ class NxmlSearcher(val indexDir:String) {
 
 object NxmlSearcher {
   val logger = LoggerFactory.getLogger(classOf[NxmlSearcher])
-  val TOTAL_HITS = 500000
+  val TOTAL_HITS = 100000
 
   def main(args:Array[String]): Unit = {
     val props = StringUtils.argsToProperties(args)
@@ -290,7 +297,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseDengue(resultDir)
+      searcher.useCase3b(resultDir)
     }
 
     searcher.close()
