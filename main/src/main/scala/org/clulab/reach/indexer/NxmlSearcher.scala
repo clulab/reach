@@ -264,17 +264,31 @@ class NxmlSearcher(val indexDir:String) {
   //
   // Phase III evaluation use cases
   //
-  /** Phase III use case (a) */
+  /** Phase III CMU use case (a) */
   def useCasePhase3a(resultDir:String): Unit = {
-    // vanillaUseCase(s"""$GAB2 AND ($AKT OR $BETA_CATENIN OR $PAI1 OR $GRB2)""", resultDir)
-    vanillaUseCase(s"""$GAB2 AND ($AKT OR $BETA_CATENIN OR $PAI1 OR $GRB2) AND $PANCREAS""", resultDir)
+    // vanillaUseCase(s"""($GAB2) AND ($AKT OR $BETA_CATENIN OR $PAI1 OR $GRB2)""", resultDir)
+    vanillaUseCase(s"""($GAB2) AND ($AKT OR $BETA_CATENIN OR $PAI1 OR $GRB2) AND ($PANCREAS)""", resultDir)
   }
-  /** Phase III use case (b) */
+  /** Phase III CMU use case (b) */
   def useCasePhase3b(resultDir:String): Unit = {
-    //vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG)""", resultDir)
-    //vanillaUseCase(s"""$MEK AND ($ERK OR $AKT OR $PHASE3_DRUG) AND $PANCREAS""", resultDir)
-    //vanillaUseCase(s"""$MEK AND $PHASE3_DRUG AND $PANCREAS""", resultDir) // v1
-    vanillaUseCase(s"""$MEK AND ($PHASE3_DRUG OR $AKT) AND $PANCREAS""", resultDir) // v3
+    //vanillaUseCase(s"""($MEK) AND ($ERK OR $AKT OR $PHASE3_DRUG)""", resultDir)
+    //vanillaUseCase(s"""($MEK) AND ($ERK OR $AKT OR $PHASE3_DRUG) AND $PANCREAS""", resultDir)
+    //vanillaUseCase(s"""($MEK) AND $PHASE3_DRUG AND ($PANCREAS)""", resultDir) // v1
+    vanillaUseCase(s"""($MEK) AND ($PHASE3_DRUG OR $AKT) AND ($PANCREAS)""", resultDir) // v3
+  }
+  /** Phase III CMU use case (c) 3/1/2017 */
+  def useCasePhase3c(resultDir:String): Unit = {
+    // SEARCH 1 GAB2
+    //vanillaUseCase(s"""($GAB2) AND (phosphatidylinositol OR proliferation OR SHC1 OR PI3K OR PIK3 OR $GRB2 OR PTPN11 OR SFN OR YWHAH OR HCK OR AKT OR $BETA_CATENIN OR Calcineurin OR SERPINE1) NOT "Fc-epsilon receptor" NOT osteoclast NOT "mast cell"""", resultDir)
+
+    // SEARCH 2 catenin
+    //vanillaUseCase(s"""$BETA_CATENIN AND (Wnt OR AXIN1 OR AXIN2 OR AXIN OR APC OR CSNK1A1 OR GSK3B OR TCF OR LEF OR TCF\\/LEF OR CDK2 OR PTPN6 OR CCEACAM1 OR insulin OR PML OR RANBP2 OR YAP1 OR GSK3 OR HSPB8 OR SERPINE1 OR AKT OR PTPN13 OR ACAP1 OR MST1R) NOT neuroblasts NOT neurogenesis NOT anoikis NOT cardiac NOT EMT NOT breast NOT embryonic NOT osteoblast NOT synapse NOT muscle NOT renal""", resultDir)
+
+    // SEARCH 3 MEK inh
+    //vanillaUseCase(s"""(Pancreas OR PDAC OR "pancreatic cancer") AND ($MEK OR "MEK inhibitor" OR "MEK inhibition" OR Trametinib OR Selumetinib OR Pimasertib OR PD184352 OR PD318088 OR PD0325901 OR AZD6244 OR AZD6300 OR TAK-733) AND ($AKT) AND ($ERK OR Ki67 OR RB)""", resultDir)
+
+    // SEARCH 3 alternative
+    vanillaUseCase(s"""(Pancreas OR PDAC OR "pancreatic ductal adenocarcinoma" OR "pancreatic cancer") AND ($MEK OR "MEK inhibitor" OR "MEK inhibition" OR Trametinib OR Selumetinib OR Pimasertib OR PD184352 OR PD318088 OR PD0325901 OR AZD6244 OR AZD6300 OR TAK-733) AND ($AKT OR $ERK OR Ki67 OR RB)""", resultDir)
   }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
@@ -304,14 +318,14 @@ object NxmlSearcher {
 
   // necessary for Phase III queries
   // FIXME: removed "ERK1\/2" from ERK, "AKT1\/2" from AKT, "MEK1\/2" from MEK. Too many false positives. Why?
-  val ERK = """(ERK OR ERK1 OR MK03 OR MAPK3 OR ERK2 OR MK01 OR MAPK1 OR "mitogen\-activated protein kinase 3" OR "mitogen\-activated protein kinase 1")"""
-  val MEK = """(MEK OR MEK1 OR MP2K1 OR MAP2K1 OR MEK2 OR MP2K2 OR MAP2K1 OR "dual specificity mitogen\-activated protein kinase kinase 1" OR "dual specificity mitogen\-activated protein kinase kinase 2")"""
-  val AKT = """(AKT OR AKT1 OR AKT2 OR "rac\-alpha serine\/threonine\-protein kinase" OR "rac-beta serine\/threonine\-protein kinase")"""
-  val GAB2 = """(GAB2 OR "grb2\-associated\-binding protein 2")"""
-  val BETA_CATENIN = """(beta\-catenin OR "catenin beta\-1" OR ctnnb1)"""
-  val PAI1 = """(PAI1 OR PAI\-1 OR "PAI 1" OR "plasminogen activator inhibitor 1")"""
-  val PANCREAS = """(pancreas OR pancreatic)"""
-  val GRB2 = """(GRB2 OR "growth factor receptor\-bound protein 2")"""
+  val ERK = """ERK OR ERK1 OR MK03 OR MAPK3 OR ERK2 OR MK01 OR MAPK1 OR "mitogen\-activated protein kinase 3" OR "mitogen\-activated protein kinase 1""""
+  val MEK = """MEK OR MEK1 OR MP2K1 OR MAP2K1 OR MEK2 OR MP2K2 OR MAP2K1 OR "dual specificity mitogen\-activated protein kinase kinase 1" OR "dual specificity mitogen\-activated protein kinase kinase 2""""
+  val AKT = """AKT OR AKT1 OR AKT2 OR "rac\-alpha serine\/threonine\-protein kinase" OR "rac-beta serine\/threonine\-protein kinase""""
+  val GAB2 = """GAB2 OR "grb2\-associated\-binding protein 2""""
+  val BETA_CATENIN = """beta\-catenin OR B\-catenin OR "catenin beta\-1" OR ctnnb1"""
+  val PAI1 = """PAI1 OR PAI\-1 OR "PAI 1" OR "plasminogen activator inhibitor 1""""
+  val PANCREAS = """pancreas OR pancreatic"""
+  val GRB2 = """GRB2 OR "growth factor receptor\-bound protein 2""""
   val PHASE3_DRUG = """AZD6244"""
 
   def main(args:Array[String]): Unit = {
@@ -325,7 +339,7 @@ object NxmlSearcher {
       searcher.searchByIds(ids, resultDir)
     } else {
       searcher.useCase(resultDir)
-      //searcher.useCasePhase3b(resultDir)
+      // searcher.useCasePhase3c(resultDir)
     }
 
     searcher.close()

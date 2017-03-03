@@ -156,15 +156,27 @@
     site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
 
 
+# This captures incorrect syntax by the constituent parser
 - name: ${ eventName }_syntax_7_verb_wrong
   priority: ${ priority }
-  example: "EGF is tyronsine ${ verbalTriggerLemma }ed."
+  example: "EGF is tyrosine ${ verbalTriggerLemma }ed."
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma}/ & word=/ed$/]
-    theme:BioChemicalEntity = <amod nsubj nn?
+    theme:BioChemicalEntity = <amod nsubj /appos|nn|conj_(and|or|nor)|cc/{,2}
     site:Site = <amod
+
+# This captures the correct syntax for the rule above; this applies to the NN dep parser
+- name: ${ eventName }_syntax_7_verb_correct
+  priority: ${ priority }
+  example: "EGF is tyrosine ${ verbalTriggerLemma }ed."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma}/ & word=/ed$/]
+    theme:BioChemicalEntity = /nsubj|nsubjpass/ /appos|nn|conj_(and|or|nor)|cc/{,2} # the parser incorrectly assigns nsubj here...
+    site:Site = /amod|npadvmod/
 
 
 - name: ${ eventName }_syntax_1a_noun
