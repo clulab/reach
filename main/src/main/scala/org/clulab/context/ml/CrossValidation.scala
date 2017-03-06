@@ -5,6 +5,7 @@
 package org.clulab.context.ml
 
 import java.io.File
+
 import collection.mutable
 import org.clulab.learning._
 import Trainer._
@@ -15,7 +16,8 @@ import org.clulab.odin._
 import org.clulab.context.ContextEngine
 import org.clulab.reach.mentions._
 import java.io._
-import collection.mutable.{ListBuffer, ArrayBuffer}
+
+import collection.mutable.{ArrayBuffer, ListBuffer}
 import util.Random
 import ai.lum.common.Interval
 import org.clulab.processors._
@@ -121,6 +123,7 @@ object CrossValidation extends App {
           case(name, ann) =>
             // Extract features
             val features = extractFeatures(ann).values
+
             (name -> features)
       }.toMap
 
@@ -158,15 +161,20 @@ object CrossValidation extends App {
         // Fetch the precomputed features of this paper
         val trainingData = data(trainingFold)
 
+        // Balance dataset
+        // val balancedSlice = balanceDataset(trainingData, negativesPerPositive = 3)
+
         // Add the data of this paper to the training dataset
+        //for(datum <- balancedSlice) {
         for(datum <- trainingData){
+
           trainingDataset += datum
         }
       }
 
       // Balance dataset
-      // TODO: Explicitly state the classes proportions
       val balancedDataset = balanceDataset(trainingDataset, negativesPerPositive = 3)
+      //val balancedDataset = trainingDataset
 
       println(s"Original size:${trainingDataset.size} - After class-balancing size:${balancedDataset.size}")
 
@@ -226,4 +234,12 @@ object CrossValidation extends App {
   println(s"Microaveraged deterministic results of ${keySet.size} folds:")
   println(policyMicroAverage)
 
+
+  // Plots
+  val individualResults = cvResults.values
+
+  println("Precision - Size:")
+  for(cv <- individualResults){
+    println(s"${cv.precision}\t-\t${cv.size}")
+  }
 }

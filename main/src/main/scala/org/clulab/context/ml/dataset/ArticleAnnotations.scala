@@ -134,7 +134,7 @@ object ArticleAnnotations{
 
         val bounds = tokens(1).split("-").map(_.toInt)
         val (start, end) = (bounds(0), bounds(1))
-        val interval = if(start == end) Interval.singleton(start) else Interval.closed(start, end)
+        val interval = if(start == end) Interval.singleton(start) else Interval.open(start, end)
         val contexts:Seq[ContextType] = if(tokens.length == 3 && tokens(2) != "") tokens(2).split(",").map(ContextType.parse) else Seq()
 
         EventAnnotation(sentenceId, interval, Some(contexts))
@@ -153,7 +153,7 @@ object ArticleAnnotations{
         val context = ContextType.parse(data(3))
 
         ContextAnnotation(sentenceId, interval, context)
-    }.toSeq
+    }.toSeq.filter(c => c.contextType != ContextClass.Undetermined)
 
     val rawManualContext = Source.fromFile(new File(directory, "manual_context_mentions.tsv")).getLines
     val manualContext = rawManualContext.map(_.split("\t")).map{
@@ -168,7 +168,7 @@ object ArticleAnnotations{
         val context = ContextType.parse(tokens(2))
 
         ContextAnnotation(sentenceId, interval, context)
-    }.toSeq
+    }.toSeq.filter(c => c.contextType != ContextClass.Undetermined)
 
     val context = reachContext ++ manualContext
 

@@ -2,7 +2,7 @@ package org.clulab.context.ml
 
 import java.io._
 
-import collection.mutable.{ArrayBuffer, ListBuffer}
+import collection.mutable
 import util.Random
 import ai.lum.common.Interval
 import com.typesafe.scalalogging.LazyLogging
@@ -18,6 +18,7 @@ import org.clulab.context.ml.dataset._
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.mentions._
 import org.clulab.context._
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.json4s.native.JsonMethods._
 import org.clulab.utils.Serializer
@@ -74,11 +75,12 @@ object DatasetAnnotator extends App with LazyLogging{
   val reach = new ReachSystem
   val processor = reach.processor
   val docSerializer = new DocumentSerializer
+  val directories = corpusDir.listFiles.filter(_.isDirectory)
   //
-  val allAnnotations = corpusDir.listFiles.filter(_.isDirectory).map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
+  val allAnnotations = directories.map(d => ArticleAnnotations.readPaperAnnotations(d.getPath))
 
-  for(annotations <- allAnnotations.par){
-    val dir = new File(annotations.name)
+  for((dir, annotations) <- directories.zip(allAnnotations).par){
+    //val dir = new File(annotations.name)
 
 
     val preprocessedAnnotations = annotatePaper(annotations)
@@ -141,7 +143,17 @@ object Trainer {
       .map(_.asInstanceOf[BioTextBoundMention])
 
     // Build the counts of the context annotations
-    val contextCounts:Map[String, Int] = contextMentions.groupBy(_.nsId).mapValues(_.size)
+    val contextCounts:mutable.Map[String, Int] = mutable.HashMap() ++ contextMentions.groupBy(_.nsId).mapValues(_.size)
+
+    // Add the counts of the manual annotations
+    for(ct <- annotations.contextAnnotations.map(_.contextType)){
+      if(contextCounts.contains(ct.id)){
+        contextCounts(ct.id) += 1
+      }else{
+        contextCounts += ct.id -> 1
+      }
+    }
+
 
     // Filter out the reach context mentions that overlap with any of the manual annotations
     val manualContextAnnotations = annotations.contextAnnotations
@@ -188,6 +200,32 @@ object Trainer {
 
   def normalize(dataset:RVFDataset[String, String]):ScaleRange[String] = Datasets.svmScaleDataset(dataset)
 
+  def balanceDataset(data:Iterable[RVFDatum[String, String]], negativesPerPositive:Int) = {
+    val positiveIndices = data.zipWithIndex.filter{
+      case (datum, ix) =>
+        if(datum.label == "true") true else false
+    }.map(_._2)
+
+    val negativeIndices = data.zipWithIndex.filter{
+      case (datum, ix) =>
+        if(datum.label == "false") true else false
+    }.map(_._2)
+
+    assert(positiveIndices.size <= negativeIndices.size, "There are more positive than negative instances")
+
+    // Do a random sample of the negatives up to the specified ratio
+    val suffledNegativeIndices = Random.shuffle(negativeIndices)
+
+    val amount = positiveIndices.size * negativesPerPositive
+    val toTake = if(amount <= negativeIndices.size) amount else negativeIndices.size
+
+    val sampledNegativeIndices = negativeIndices.take(toTake)
+
+    val indices2Keep = (positiveIndices ++ sampledNegativeIndices).toSeq.sorted
+
+    indices2Keep.map(data.toSeq)
+  }
+
   def balanceDataset(dataset:RVFDataset[String, String],
      negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
@@ -223,9 +261,9 @@ object Trainer {
       val ll = dataset.labelLexicon
       val fl = dataset.featureLexicon
 
-      val labels = new ArrayBuffer[Int]
-      val features = new ArrayBuffer[Array[Int]]
-      val values = new ArrayBuffer[Array[Double]]
+      val labels = new mutable.ArrayBuffer[Int]
+      val features = new mutable.ArrayBuffer[Array[Int]]
+      val values = new mutable.ArrayBuffer[Array[Double]]
       for(i <- indices2Keep){
         labels += dataset.labels(i)
         features += dataset.features(i)
@@ -235,10 +273,11 @@ object Trainer {
       new RVFDataset(ll, fl, labels, features, values)
   }
 
-  def train(dataset:RVFDataset[String, String]):LogisticRegressionClassifier[String, String] = {
+  def train(dataset:RVFDataset[String, String]) = {
     // Train the logistic regression
 
-    val lrc = new LogisticRegressionClassifier[String, String](C=0.1, bias=true)
+    //val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
+    val lrc = new LogisticRegressionClassifier[String, String](C=.001, bias=true)
     lrc.train(dataset)
 
     // Return the trained logistic regression classifier
