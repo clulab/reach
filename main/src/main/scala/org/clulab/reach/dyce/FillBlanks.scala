@@ -40,7 +40,7 @@ case class Participant(namespace:String, id:String){
   override def toString: String = s"$namespace:$id"
 }
 
-case class Connection(controller:Participant, controlled:Participant, sign:Boolean, evidence:Iterable[String]){
+case class Connection(controller:Participant, controlled:Participant, sign:Boolean, evidence:Iterable[String], reference:String = ""){
 
   override def canEqual(that: Any): Boolean = that.isInstanceOf[Connection]
 

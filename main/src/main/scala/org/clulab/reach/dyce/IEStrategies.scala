@@ -20,6 +20,7 @@ import scala.collection.parallel.ForkJoinTaskSupport
   */
 trait IEStrategy extends LazyLogging {
   def informationExtraction(pmcids: Iterable[String]):Iterable[Connection]
+  def getEvidence(connection:Connection):Iterable[String]
 }
 
 trait REACHIEStrategy extends IEStrategy {
@@ -331,13 +332,15 @@ trait REACHIEStrategy extends IEStrategy {
     logger.info(s"Extracted ${connections.size} connections")
     connections
   }
+
+  override def getEvidence(connection: Connection) = Seq()
 }
 
 trait SQLIteIEStrategy extends IEStrategy{
 
   val daIE = new SQLiteQueries("/Users/enrique/Desktop/dyce/code/interactions.sqlite")
 
-  def informationExtraction(pmcids: Iterable[String]):Iterable[Connection] = {
+  override def informationExtraction(pmcids: Iterable[String]):Iterable[Connection] = {
 
     // Query the DB
     //val info = pmcids.take(100).grouped(40) flatMap daIE.ieQuery
@@ -363,4 +366,7 @@ trait SQLIteIEStrategy extends IEStrategy{
 
     connections
   }
+
+
+  override def getEvidence(connection: Connection) = daIE.fetchEvidence(connection)
 }

@@ -60,4 +60,5 @@ trait SQLIRStrategy extends IRStrategy{
 
     pmcids
   }
+
 }

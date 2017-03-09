@@ -48,9 +48,10 @@ class SQLiteSearchAgent(participantA:Participant, participantB:Participant) exte
 
 object CoolSearchAgent extends App with LazyLogging{
 
-  def getParticipants(path:List[Connection]):List[Participant] = {
+  def getParticipants(path:List[Connection]):List[String] = {
     path match {
-      case h::t => h.controller :: getParticipants(t)
+      case h::t =>
+        h.controller.id :: (if(t == Nil) List(h.controlled.id) else getParticipants(t))
       case Nil => Nil
     }
   }
@@ -70,6 +71,25 @@ object CoolSearchAgent extends App with LazyLogging{
 
   logger.info(s"About to do ${dataSet.size} searches ...")
   logger.info(s"")
+
+
+  /***
+    * Prints the sentences that back the evidence found
+    * @param path
+    */
+  def printEvidence(path: Seq[Connection], agent:SearchAgent) = {
+    val evidence:Seq[Iterable[String]] = path map agent.getEvidence
+
+    for((c, e) <- path zip evidence){
+      logger.info("")
+      logger.info(s"Evidence for connection $c")
+      logger.info("")
+      for(s <- e){
+        logger.info(s)
+      }
+    }
+  }
+
   for((datum, ix) <- dataSet.zipWithIndex){
     logger.info(s"Searching for path: ${datum._1}-${datum._2}-${datum._3}")
 
@@ -87,7 +107,7 @@ object CoolSearchAgent extends App with LazyLogging{
         successes += 1
         successIterations += agent.iterationNum
         logger.info("Success!!")
-        logger.info(path.mkString(" || "))
+        logger.info("Path: " + path.mkString(" || "))
       //      for(c <- path){
       //        println(s"Evidence of $c")
       //        println()
@@ -96,16 +116,27 @@ object CoolSearchAgent extends App with LazyLogging{
       //        println("----------------------------")
       //      }
 
+        printEvidence(path, agent)
+
        // Analysis
         val participants = getParticipants(path.toList)
         val groundTruth = datum.productIterator.toList
+        logger.info("GT: " + groundTruth.mkString(" || "))
 
-        if(participants == groundTruth)
+        assert(participants.head == groundTruth.head)
+        assert(participants.last == groundTruth.last)
+
+        if(participants == groundTruth) {
           hits += 1
+          logger.info(s"Type: Exact")
+        }
         else{
           // Get the length of the paths
           pathLengths += participants.length
+          logger.info(s"Type: Alternative")
         }
+
+        logger.info("End Success")
 
       case None =>
         failures += 1

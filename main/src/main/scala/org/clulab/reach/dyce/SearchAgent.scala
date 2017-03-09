@@ -38,7 +38,10 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
       val query = choseQuery(a, b, this.model)
       logger.info(s"Chosen query: $query")
       val paperIds = informationRetrival(query)
-      logger.info(s"Found ${paperIds.size} IR matches")
+      if(!paperIds.isEmpty)
+        logger.info(s"Found ${paperIds.size} IR matches")
+      else
+        logger.info(s"Empty query $query")
       val findings = informationExtraction(paperIds)
       logger.info(s"Found ${findings.size} connections")
       reconcile(findings)
@@ -97,7 +100,9 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
   override def failureStopCondition(source: Participant,
                                     destination: Participant,
                                     model: Model) = {
-    if((nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
+    if(this.iterationNum >= 10)
+      true
+    else if((nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
       logger.info("The model didn't change.")
       true
     }
@@ -127,4 +132,23 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
     logger.info(s"Model connections; Before: $prevEdgesCount\tAfter: $edgesCount")
   }
 
+}
+
+abstract class MultiplePathsAgent(participantA:Participant, participantB:Participant)
+  extends SimplePathAgent(participantA, participantB){
+
+  override def successStopCondition(source: Participant, destination: Participant, model: Model) = {
+    (model find source, model find destination) match {
+      case (Some(pa), Some(pb)) =>
+        pa shortestPathTo pb match{
+          case Some(path) => Some{
+            path.edges.map{
+              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq(""))
+            }.toSeq
+          }
+          case None => None
+        }
+      case _ => None
+    }
+  }
 }
