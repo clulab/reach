@@ -32,6 +32,10 @@ class GFSModel extends SearchModel{
 
   override def nodes = G.nodes map (_.value)
 
+  override def numNodes = G.nodes.size
+
+  override def numEdges = G.edges.size
+
   override def edges = G.edges map edgeToConnection
 
   override def degree(node: Participant) = G.find(node) match {
