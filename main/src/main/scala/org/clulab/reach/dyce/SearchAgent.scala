@@ -113,16 +113,16 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
     */
    override def reconcile(connections: Iterable[Connection]){
     // How large was the graph before?
-    this.prevNodesCount = this.model.nodes.size
-    this.prevEdgesCount = this.model.edges.size
+    this.prevNodesCount = this.model.numNodes
+    this.prevEdgesCount = this.model.numEdges
     // Make labeled directed edges out of each connection
      // SUBSTITUTED
 //    val edges = connections map {c => (c.controller ~+> c.controlled)(c.sign)}
     // Add them to the graph
     this.model addEdges connections
     // How large is it now?
-    this.nodesCount = this.model.nodes.size
-    this.edgesCount = this.model.edges.size
+    this.nodesCount = this.model.numNodes
+    this.edgesCount = this.model.numEdges
 
     logger.info(s"Model participants; Before: $prevNodesCount\tAfter: $nodesCount")
     logger.info(s"Model connections; Before: $prevEdgesCount\tAfter: $edgesCount")

@@ -18,5 +18,8 @@ libraryDependencies ++= Seq(
   "ch.qos.logback" %  "logback-classic" % "1.1.7",
   "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0",
   "org.scala-graph" %% "graph-core" % "1.11.3",
+  "org.apache.tinkerpop" % "gremlin-core" % "3.2.4",
+  "org.apache.tinkerpop" % "tinkergraph-gremlin" % "3.2.4",
+  "com.michaelpollmeier" %% "gremlin-scala" % "3.2.4.1",
   "org.xerial" % "sqlite-jdbc" % "3.16.1"
 )

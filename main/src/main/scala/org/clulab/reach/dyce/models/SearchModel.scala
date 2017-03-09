@@ -20,6 +20,9 @@ abstract class SearchModel {
   def nodes:Iterable[Participant]
   def edges:Iterable[Connection]
 
+  def numNodes:Int
+  def numEdges:Int
+
   def connectedComponents():Iterable[Set[Participant]]
 
   def getConnectedComponentOf(node:Participant):Option[Iterable[Participant]]
