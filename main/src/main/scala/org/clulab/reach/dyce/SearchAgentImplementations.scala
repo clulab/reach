@@ -3,10 +3,8 @@ package org.clulab.reach.dyce
 
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.dyce.QueryStrategy._
-import scalax.collection.edge.LDiEdge
-import scalax.collection.mutable.Graph
-import SearchAgent.Model
 import collection.mutable
+import org.clulab.reach.dyce.models._
 
 /**
   * Created by enrique on 18/02/17.
@@ -17,13 +15,14 @@ class LuceneReachSearchAgent(participantA:Participant, participantB:Participant)
   with REACHIEStrategy {
 
 
-  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
+  //override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
+  override val model:SearchModel = new GFSModel(participantA, participantB) // Directed graph with the model.
 
 
 
   override def choseQuery(source: Participant,
                           destination: Participant,
-                          model: Model) = Query(Cascade, source, Some(destination))
+                          model: SearchModel) = Query(Cascade, source, Some(destination))
 
 
 }
@@ -34,13 +33,14 @@ class SQLiteSearchAgent(participantA:Participant, participantB:Participant) exte
   with SQLIteIEStrategy {
 
 
-  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
+//  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
+  override val model:SearchModel = new GFSModel(participantA, participantB) // Directed graph with the model.
 
 
 
   override def choseQuery(source: Participant,
                           destination: Participant,
-                          model: Model) = Query(Cascade, source, Some(destination))
+                          model: SearchModel) = Query(Cascade, source, Some(destination))
 
 
 }

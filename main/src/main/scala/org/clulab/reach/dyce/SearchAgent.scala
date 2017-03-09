@@ -1,29 +1,18 @@
 package org.clulab.reach.dyce
 
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.odin.Mention
-import org.clulab.reach.grounding.KBResolution
-import org.clulab.reach.mentions.{BioMention, BioTextBoundMention, CorefEventMention, CorefMention}
+import org.clulab.reach.dyce.models._
 
 import scala.collection.mutable
-import scalax.collection.GraphPredef._
-import scalax.collection.edge.Implicits._
-import scalax.collection.edge.LDiEdge
-import scalax.collection.mutable.Graph // shortcuts
 
 /**
   * Created by enrique on 18/02/17.
   */
 
-object SearchAgent{
-  type Model = Graph[Participant, LDiEdge]
-}
-
-import SearchAgent.Model
 
 trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with ParticipantChoosingStrategy {
 
-  val model:Model
+  val model:SearchModel
   var iterationNum = 0
 
   val triedPairs = new mutable.HashSet[(Participant, Participant)]
@@ -49,7 +38,7 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
     logger.info(s"Focused search finished after $iterationNum iterations")
   }
 
-  def hasFinished(source:Participant, destination:Participant, model:Model):Boolean = {
+  def hasFinished(source:Participant, destination:Participant, model:SearchModel):Boolean = {
     if(successStopCondition(source, destination, model) != None)
       true
     else if(failureStopCondition(source, destination, model))
@@ -60,14 +49,14 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
   def successStopCondition(source:Participant,
                            destination:Participant,
-                           model:Model):Option[Seq[Connection]]
+                           model:SearchModel):Option[Seq[Connection]]
 
   def failureStopCondition(source:Participant,
                            destination:Participant,
-                           model:Model):Boolean
+                           model:SearchModel):Boolean
 
 
-  def choseQuery(source:Participant, destination:Participant, model:Model):Query
+  def choseQuery(source:Participant, destination:Participant, model:SearchModel):Query
 
 
   def reconcile(findings:Iterable[Connection]):Unit
@@ -76,12 +65,13 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
 abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends SearchAgent {
 
-  val model:Model = Graph[Participant, LDiEdge](participantA, participantB)
+  val model:SearchModel = new GFSModel(participantA, participantB)
 
   var (nodesCount, edgesCount) = (0, 0)
   var (prevNodesCount, prevEdgesCount) = (0, 0)
 
-  override def successStopCondition(source: Participant, destination: Participant, model: Model) = {
+  override def successStopCondition(source: Participant, destination: Participant, model: SearchModel) = {
+    /* SUBSTITUTED
     (model find source, model find destination) match {
       case (Some(pa), Some(pb)) =>
         pa shortestPathTo pb match{
@@ -94,12 +84,17 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
         }
       case _ => None
     }
+    */
+
+
+    model.shortestPath(source, destination)
+
   }
 
 
   override def failureStopCondition(source: Participant,
                                     destination: Participant,
-                                    model: Model) = {
+                                    model: SearchModel) = {
     if(this.iterationNum >= 10)
       true
     else if((nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
@@ -121,9 +116,10 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
     this.prevNodesCount = this.model.nodes.size
     this.prevEdgesCount = this.model.edges.size
     // Make labeled directed edges out of each connection
-    val edges = connections map {c => (c.controller ~+> c.controlled)(c.sign)}
+     // SUBSTITUTED
+//    val edges = connections map {c => (c.controller ~+> c.controlled)(c.sign)}
     // Add them to the graph
-    this.model ++= edges
+    this.model addEdges connections
     // How large is it now?
     this.nodesCount = this.model.nodes.size
     this.edgesCount = this.model.edges.size
@@ -134,21 +130,21 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
 
 }
 
-abstract class MultiplePathsAgent(participantA:Participant, participantB:Participant)
-  extends SimplePathAgent(participantA, participantB){
-
-  override def successStopCondition(source: Participant, destination: Participant, model: Model) = {
-    (model find source, model find destination) match {
-      case (Some(pa), Some(pb)) =>
-        pa shortestPathTo pb match{
-          case Some(path) => Some{
-            path.edges.map{
-              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq(""))
-            }.toSeq
-          }
-          case None => None
-        }
-      case _ => None
-    }
-  }
-}
+//abstract class MultiplePathsAgent(participantA:Participant, participantB:Participant)
+//  extends SimplePathAgent(participantA, participantB){
+//
+//  override def successStopCondition(source: Participant, destination: Participant, model: SearchModel) = {
+//    (model find source, model find destination) match {
+//      case (Some(pa), Some(pb)) =>
+//        pa shortestPathTo pb match{
+//          case Some(path) => Some{
+//            path.edges.map{
+//              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq(""))
+//            }.toSeq
+//          }
+//          case None => None
+//        }
+//      case _ => None
+//    }
+//  }
+//}
