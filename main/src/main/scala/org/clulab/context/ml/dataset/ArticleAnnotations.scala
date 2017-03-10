@@ -14,7 +14,7 @@ import org.clulab.context.RichTree
 //   val Species, CellLine, CellType, Organ, CellularLocation, UNDETERMINED = Value
 // }
 
-case class ContextType(val contextType:ContextClass.Value, val id:String)
+case class ContextType(val contextClass:ContextClass.Value, val id:String)
 
 object ContextType{
 

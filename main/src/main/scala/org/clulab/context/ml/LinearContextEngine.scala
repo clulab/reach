@@ -51,7 +51,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                     }
 
                     // Create the context map
-                    val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextType.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
+                    val contextMap:Map[String, Seq[String]] = contextTypes.map(t => (t.contextClass.toString, t.id)).groupBy(t => t._1).mapValues(v => v.map(_._2)).mapValues(_.toSet.toSeq)
 
                     // Assign context
                     bioMention.context = Some(contextMap)

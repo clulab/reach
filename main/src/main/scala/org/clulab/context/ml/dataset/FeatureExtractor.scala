@@ -7,6 +7,7 @@ import org.clulab.learning._
 import scala.util.Try
 import org.clulab.struct.Counter
 import org.clulab.context.ContextClass
+import collection.mutable
 
 object BinnedDistance extends Enumeration{
   val SAME, CLOSE, FAR = Value
@@ -36,19 +37,51 @@ case class PairFeatures(
   val dependencyDistance:Option[BinnedDistance.Value],
   //val discourseDistance:BinnedDistance.Value,
   val dependencyPath:Seq[String],
-  val posPath:Seq[String]
+  val posPath:Seq[String],
+  val evtSentenceFirstPerson:Boolean,
+  val ctxSentenceFirstPerson:Boolean,
+  val evtSentencePastTense:Boolean,
+  val ctxSentencePastTense:Boolean,
+  val evtSentencePresentTense:Boolean,
+  val ctxSentencePresentTense:Boolean,
+  val closesCtxOfClass:Boolean
   //var contextDocFrequency:Option[Int] = None
 ){
   def toSeq(feda:Boolean=false):Seq[String] = {
-    val features = Seq(
+    val features = new mutable.ArrayBuffer[String]
+
+    features ++= Seq(
       s"sentenceDistance_${this.sentenceDistance}",
       s"contextPOSTag_${this.contextPOSTag}",
       s"eventPOSTag_${this.eventPOSTag}",
       s"dependencyDistance_${this.dependencyDistance}"
       //s"discourseDistance_${this.discourseDistance}",
       //s"dependencyPath_${this.dependencyPath.mkString("_")}",
-      //s"posPath_${this.posPath.mkString("_")}"
+      //s"posPath_${this.posPath.mkString("_")}",
     ) ++ this.dependencyPath.map(s => s"depBigram_$s") ++ this.posPath.map(s => s"posBigram_$s")
+
+    if(evtSentenceFirstPerson)
+      features += "evtSentenceFirstPerson"
+
+    if(ctxSentenceFirstPerson)
+      features += "ctxSentenceFirstPerson"
+
+    if(evtSentencePastTense)
+      features += "evtSentencePastTense"
+
+    if(ctxSentencePastTense)
+      features += "ctxSentencePastTense"
+
+    if(evtSentencePresentTense)
+      features += "evtSentencePresentTense"
+
+    if(ctxSentencePresentTense)
+      features += "ctxSentencePresentTense"
+
+    if(closesCtxOfClass)
+      features += "closesCtxOfClass"
+
+
 
 
     if(feda){
@@ -72,7 +105,7 @@ object FeatureExtractor{
       event <- events;
       contextMention <- contextMentions
     } yield {
-      extractFeatures(doc, event, contextMention)
+      extractFeatures(doc, event, contextMention, contextMentions map contextMention2Annotation)
     }
 
   def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:String):RVFDatum[String, String] = {
@@ -104,13 +137,13 @@ object FeatureExtractor{
      ContextType.parse(m))
 
   def extractFeatures(doc:Document, event:BioMention,
-     contextMention:BioTextBoundMention):PairFeatures = extractFeatures(doc,
+     contextMention:BioTextBoundMention, contextMentions:Iterable[ContextAnnotation]):PairFeatures = extractFeatures(doc,
         bioMention2Annotation(event),
-        contextMention2Annotation(contextMention))
+        contextMention2Annotation(contextMention), contextMentions)
 
   def extractFeatures(doc:Document, event:EventAnnotation,
-     contextMention:BioTextBoundMention):PairFeatures = extractFeatures(doc,
-        event, contextMention2Annotation(contextMention))
+     contextMention:BioTextBoundMention, contextMentions:Iterable[ContextAnnotation]):PairFeatures = extractFeatures(doc,
+        event, contextMention2Annotation(contextMention), contextMentions)
 
   object FeatureProcessing{
     def binSentenceDistance(d:Int):BinnedDistance.Value = {
@@ -164,7 +197,8 @@ object FeatureExtractor{
 
   }
 
-  def extractFeatures(doc:Document, event:EventAnnotation, contextMention:ContextAnnotation):PairFeatures = {
+  def extractFeatures(doc:Document, event:EventAnnotation, contextMention:ContextAnnotation
+                      , contextMentions:Iterable[ContextAnnotation]):PairFeatures = {
 
     val id = PairID(event, contextMention.contextType)
 
@@ -241,7 +275,20 @@ object FeatureExtractor{
     val eventPOS= FeatureProcessing.clusterPOSTag(Try(doc.sentences(event.sentenceId).tags.get.apply(event.interval.start)).getOrElse(""))
     val contextPOS = FeatureProcessing.clusterPOSTag(Try(doc.sentences(contextMention.sentenceId).tags.get.apply(contextMention.interval.start)).getOrElse(""))
 
-    PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength, dependencyPath.getOrElse(Seq()), clusteredPOSPath)
+    // TODO: Here I call the phi features
+    val evtSCPRP = eventSentenceContainsPRP(doc, event)
+    val ctxSCPRP = contextSentenceContainsPRP(doc, contextMention)
+    val evtSPastT = eventSentenceContainsPastTense(doc, event)
+    val ctxSPastT = contextSentenceContainsPastTense(doc, contextMention)
+    val evtSPresentT = eventSentenceContainsPresentTense(doc, event)
+    val ctxSPresentT = contextSentenceContainsPresentTense(doc, contextMention)
+    val closestOfCategory = isItClosestContextOfSameCategory(event, contextMention, contextMentions)
+
+
+    PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength,
+      dependencyPath.getOrElse(Seq()), clusteredPOSPath,
+      evtSCPRP, ctxSCPRP, evtSPastT, ctxSPastT, evtSPresentT, ctxSPresentT, closestOfCategory
+    )
   }
 
   def extractFeaturesFromCorpus(doc:Document, eventAnnotations:Seq[EventAnnotation],
@@ -250,7 +297,92 @@ object FeatureExtractor{
       event <- eventAnnotations;
       contextAnnotation <- contextAnnotations
     } yield {
-      extractFeatures(doc, event, contextAnnotation)
+      extractFeatures(doc, event, contextAnnotation, contextAnnotations)
     }
+
+  /// Phi Features
+  def eventSentenceContainsPRP(doc:Document, event:EventAnnotation):Boolean = sentenceContainsPRP(doc, event.sentenceId)
+  def contextSentenceContainsPRP(doc:Document, context:ContextAnnotation):Boolean = sentenceContainsPRP(doc, context.sentenceId)
+  def eventSentenceContainsPastTense(doc:Document, event:EventAnnotation):Boolean = sentenceContainsSimplePastTense(doc, event.sentenceId)
+  def contextSentenceContainsPastTense(doc:Document, context:ContextAnnotation):Boolean = sentenceContainsSimplePastTense(doc, context.sentenceId)
+  def eventSentenceContainsPresentTense(doc:Document, event:EventAnnotation):Boolean = sentenceContainsSimplePresentTense(doc, event.sentenceId)
+  def contextSentenceContainsPresentTense(doc:Document, context:ContextAnnotation):Boolean = sentenceContainsSimplePresentTense(doc, context.sentenceId)
+
+
+  def isItClosestContextOfSameCategory(event:EventAnnotation,
+                                       context:ContextAnnotation,
+                                       otherContexts:Iterable[ContextAnnotation]):Boolean = {
+    val bounds = Seq(event.sentenceId, context.sentenceId)
+    val (start, end) = (bounds.min, bounds.max)
+
+
+    val filteredContexts = otherContexts.filter{
+      c =>
+        if(c.sentenceId == context.sentenceId &&  c.interval == context.interval && c.contextType == context.contextType)
+          false
+        else
+          true
+    }
+    assert(filteredContexts.size == otherContexts.size -1)
+    val interval = Interval.closed(start, end)
+
+    if(interval.length >= 3){
+      val contextCategory = context.contextType.contextClass.toString
+
+      val contextClasses = filteredContexts.collect{
+        case c if interval.contains(c.sentenceId) =>
+          c.contextType.contextClass.toString
+      }.toList.toSet
+
+      //println(s"$contextCategory || ${contextClasses.toSet}")
+      val ret = !(contextClasses.toSet.contains(contextCategory))
+
+      ret
+    }
+    else
+      true
+
+
+
+  }
+  ////////////////
+
+  def sentenceContainsSimplePRP(doc:Document, ix:Int) = sentenceContainsSimpleTags(doc, ix, Set("PRP"))
+
+  def sentenceContainsSimplePastTense(doc:Document, ix:Int) = sentenceContainsSimpleTags(doc, ix, Set("VBD", "VBN"))
+
+  def sentenceContainsSimplePresentTense(doc:Document, ix:Int) = sentenceContainsSimpleTags(doc, ix, Set("VBG", "VBP", "VBZ"))
+
+  def sentenceContainsSimpleTags(doc:Document, ix:Int, tags:Set[String]):Boolean = {
+    val sentence = doc.sentences(ix)
+    val tags = sentence.tags.get.toSet
+    val evidence:Iterable[Boolean] = tags map {
+      tag =>
+        if(tags contains tag)
+          true
+        else
+          false
+    }
+
+    evidence.exists(identity)
+  }
+
+  def sentenceContainsPRP(doc:Document, ix:Int):Boolean = {
+    val targetWords = Set("we", "us", "our", "ours", "ourselves", "i", "me", "my", "mine", "myself")
+    val sentence = doc.sentences(ix)
+    val tags = sentence.tags.get
+    val lemmas = sentence.lemmas.get
+
+    val x = (tags zip lemmas) filter {
+      case (tag, lemma) =>
+        if(tag == "PRP" && targetWords.contains(lemma))
+          true
+        else
+          false
+    }
+
+    !x.isEmpty
+  }
+  ////////////////
 
 }
