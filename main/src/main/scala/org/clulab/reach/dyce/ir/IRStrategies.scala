@@ -1,7 +1,7 @@
-package org.clulab.reach.dyce
+package org.clulab.reach.dyce.ir
 
+import QueryStrategy._
 import org.clulab.reach.dyce.sqlite.SQLiteQueries
-import org.clulab.reach.dyce.QueryStrategy._
 
 /**
   * Created by enrique on 20/02/17.

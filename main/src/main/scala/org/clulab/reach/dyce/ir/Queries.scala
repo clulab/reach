@@ -1,10 +1,11 @@
-package org.clulab.reach.dyce
+package org.clulab.reach.dyce.ir
 
 import java.io.File
 
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.queryparser.classic.QueryParserBase
+import org.clulab.reach.dyce.Participant
 import org.clulab.reach.grounding.ReachKBUtils
 import org.clulab.reach.indexer.NxmlSearcher
 import org.clulab.utils.Serializer

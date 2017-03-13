@@ -5,6 +5,7 @@ import java.sql._
 
 import com.typesafe.scalalogging.LazyLogging
 import jdk.internal.org.objectweb.asm.util.Printer
+import org.clulab.reach.dyce.ir.{LuceneIRStrategy, Query, QueryStrategy}
 import org.clulab.reach.dyce.{Connection => _, _}
 
 import scala.util.{Failure, Success, Try}

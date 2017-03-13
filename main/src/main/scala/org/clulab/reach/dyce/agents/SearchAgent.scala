@@ -1,7 +1,10 @@
-package org.clulab.reach.dyce
+package org.clulab.reach.dyce.agents
 
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.reach.dyce.ie.IEStrategy
+import org.clulab.reach.dyce.ir.{IRStrategy, Query}
 import org.clulab.reach.dyce.models._
+import org.clulab.reach.dyce.{Connection, Participant, ParticipantChoosingStrategy}
 
 import scala.collection.mutable
 
@@ -49,7 +52,7 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
   def successStopCondition(source:Participant,
                            destination:Participant,
-                           model:SearchModel):Option[Seq[Connection]]
+                           model:SearchModel):Option[Seq[Seq[Connection]]]
 
   def failureStopCondition(source:Participant,
                            destination:Participant,
@@ -70,25 +73,12 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
   var (nodesCount, edgesCount) = (0, 0)
   var (prevNodesCount, prevEdgesCount) = (0, 0)
 
+
   override def successStopCondition(source: Participant, destination: Participant, model: SearchModel) = {
-    /* SUBSTITUTED
-    (model find source, model find destination) match {
-      case (Some(pa), Some(pb)) =>
-        pa shortestPathTo pb match{
-          case Some(path) => Some{
-            path.edges.map{
-              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq(""))
-            }.toSeq
-          }
-          case None => None
-        }
-      case _ => None
+    model.shortestPath(source, destination) match {
+      case Some(path) => Some(Seq(path))
+      case None => None
     }
-    */
-
-
-    model.shortestPath(source, destination)
-
   }
 
 
@@ -116,13 +106,12 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
     this.prevNodesCount = this.model.numNodes
     this.prevEdgesCount = this.model.numEdges
     // Make labeled directed edges out of each connection
-     // SUBSTITUTED
-//    val edges = connections map {c => (c.controller ~+> c.controlled)(c.sign)}
     // Add them to the graph
     this.model addEdges connections
     // How large is it now?
     this.nodesCount = this.model.numNodes
     this.edgesCount = this.model.numEdges
+
 
     logger.info(s"Model participants; Before: $prevNodesCount\tAfter: $nodesCount")
     logger.info(s"Model connections; Before: $prevEdgesCount\tAfter: $edgesCount")
@@ -130,21 +119,43 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
 
 }
 
-//abstract class MultiplePathsAgent(participantA:Participant, participantB:Participant)
-//  extends SimplePathAgent(participantA, participantB){
-//
-//  override def successStopCondition(source: Participant, destination: Participant, model: SearchModel) = {
-//    (model find source, model find destination) match {
-//      case (Some(pa), Some(pb)) =>
-//        pa shortestPathTo pb match{
-//          case Some(path) => Some{
-//            path.edges.map{
-//              e => Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq(""))
-//            }.toSeq
-//          }
-//          case None => None
-//        }
-//      case _ => None
-//    }
-//  }
-//}
+abstract class MultiplePathsAgent(participantA:Participant, participantB:Participant, val maxIdleIterations:Int = 10)
+  extends SimplePathAgent(participantA, participantB){
+
+  var noChangeIterations = 0
+  var prevSolution:Seq[Seq[Connection]] = Seq()
+
+  private def sameAs(a:Seq[Seq[Connection]], b:Seq[Seq[Connection]]):Boolean = {
+    if(a.size != b.size)
+      false
+    else{
+      true
+    }
+  }
+
+  override def successStopCondition(source: Participant, destination: Participant, model: SearchModel) = {
+    val allPaths = model.allPaths(source, destination).toSeq
+
+    if(sameAs(allPaths, prevSolution))
+      noChangeIterations += 1
+    else
+      noChangeIterations = 0
+
+    if(allPaths.nonEmpty && (allPaths.size >= 10 || this.noChangeIterations == maxIdleIterations))
+      Some(allPaths)
+    else
+      None
+  }
+
+  override def failureStopCondition(source: Participant, destination: Participant, model: SearchModel): Boolean = {
+    if(this.noChangeIterations >= 10)
+      true
+    else if((nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
+      logger.info("The model didn't change.")
+      true
+    }
+    else
+      false
+  }
+
+}
