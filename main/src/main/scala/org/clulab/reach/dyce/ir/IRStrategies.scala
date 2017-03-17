@@ -39,7 +39,7 @@ trait LuceneIRStrategy extends IRStrategy{
 
 trait SQLIRStrategy extends IRStrategy{
 
-  val daIR = new SQLiteQueries("/Users/enrique/Desktop/lucene_queries.sqlite")
+  val daIR = new SQLiteQueries("/Users/enrique/Research/focused_reading/sqlite/lucene_queries.sqlite")
 
   override def informationRetrival(query: Query) = {
     val pmcids: Iterable[String] = query.strategy match {

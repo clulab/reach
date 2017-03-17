@@ -8,7 +8,7 @@ import org.clulab.reach.dyce.{Connection, Participant}
   */
 trait SQLIteIEStrategy extends IEStrategy{
 
-  val daIE = new SQLiteQueries("/Users/enrique/Desktop/dyce/code/interactions.sqlite")
+  val daIE = new SQLiteQueries("/Users/enrique/Research/focused_reading/sqlite/interactions.sqlite")
 
   override def informationExtraction(pmcids: Iterable[String]):Iterable[Connection] = {
 

@@ -50,11 +50,12 @@ object SimplePath extends App with LazyLogging{
     }
 
     // The first argument is the input file
-    val dataSet:Iterable[(String, String, String)] = io.Source.fromFile(args(0)).getLines
+    val dataSet:Iterable[Seq[String]] = io.Source.fromFile(args(0)).getLines
       .map{
         s =>
-          val t = s.split("\t");
-          (t(0), t(1), t(2))
+          val t = s.split("\t").toSeq
+          //(t(0), t(1), t(2))
+          t
       }.toSeq
 
     var (successes, failures, hits) = (0, 0, 0)
@@ -84,10 +85,10 @@ object SimplePath extends App with LazyLogging{
     }
 
     for((datum, ix) <- dataSet.zipWithIndex){
-      logger.info(s"Searching for path: ${datum._1}-${datum._2}-${datum._3}")
+      logger.info(s"Searching for path: ${datum.mkString(" - ")}")
 
-      val participantA =  Participant("", datum._1)
-      val participantB = Participant("", datum._3)
+      val participantA =  Participant("", datum.head)
+      val participantB = Participant("", datum.last)
 
       logger.info(s"About to start a focused search $ix of ${dataSet.size}")
 
@@ -110,13 +111,14 @@ object SimplePath extends App with LazyLogging{
 
           // Analysis
           val participants = getParticipants(path.toList)
-          val groundTruth = datum.productIterator.map(_.asInstanceOf[String]).toList
+          val groundTruth = datum.toList
           logger.info("GT: " + groundTruth.mkString(" || "))
 
           assert(participants.head == groundTruth.head)
           assert(participants.last == groundTruth.last)
 
-          val matchType = if(participants == groundTruth) {
+          val relevantParticipants = participants filter (p => groundTruth.contains(p))
+          val matchType = if(relevantParticipants == groundTruth) {
             hits += 1
             logger.info(s"Type: Exact")
             "exact"

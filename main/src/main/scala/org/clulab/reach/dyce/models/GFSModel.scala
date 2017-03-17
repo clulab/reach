@@ -116,7 +116,7 @@ class GFSModel extends SearchModel{
                                parentsCache: mutable.HashMap[Participant
                                  , mutable.ArrayBuffer[(Participant, Boolean)]], depth:Int):
   Iterable[List[Connection]] = {
-    if(depth <= 5){
+    if(depth <= 6){
       val parents = parentsCache(node).toList
 
       parents flatMap {

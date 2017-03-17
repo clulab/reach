@@ -57,11 +57,12 @@ object MultiplePath extends App with LazyLogging{
   }
 
   // The first argument is the input file
-  val dataSet:Iterable[(String, String, String)] = io.Source.fromFile(args(0)).getLines
+  val dataSet:Iterable[Seq[String]] = io.Source.fromFile(args(0)).getLines
     .map{
       s =>
-        val t = s.split("\t");
-        (t(0), t(1), t(2))
+        val t = s.split("\t").toSeq
+        //(t(0), t(1), t(2))
+        t
     }.toSeq
 
   var (successes, failures, hits) = (0, 0, 0)
@@ -91,10 +92,10 @@ object MultiplePath extends App with LazyLogging{
   }
 
   for((datum, ix) <- dataSet.zipWithIndex){
-    logger.info(s"Searching for path: ${datum._1}-${datum._2}-${datum._3}")
+    logger.info(s"Searching for path: ${datum.mkString(" - ")}")
 
-    val participantA =  Participant("", datum._1)
-    val participantB = Participant("", datum._3)
+    val participantA =  Participant("", datum.head)
+    val participantB = Participant("", datum.last)
 
     logger.info(s"About to start a focused search $ix of ${dataSet.size}")
 
@@ -115,24 +116,34 @@ object MultiplePath extends App with LazyLogging{
 
 
         // Analysis
-        val participants = getParticipants(paths.head.toList)
-        val groundTruth = datum.productIterator.map(_.asInstanceOf[String]).toList
-//        logger.info("GT: " + groundTruth.mkString(" || "))
+        val groundTruth = datum.toList
 
-        assert(participants.head == groundTruth.head)
-        assert(participants.last == groundTruth.last)
+        var exactMatch = false
 
-        val matchType = if(participants == groundTruth) {
+        for(path <- paths){
+          val participants = getParticipants(path.toList)
+
+          //        logger.info("GT: " + groundTruth.mkString(" || "))
+
+          assert(participants.head == groundTruth.head)
+          assert(participants.last == groundTruth.last)
+
+          val relevantParticipants = participants filter (p => groundTruth.contains(p))
+          val matchType = if(relevantParticipants == groundTruth) {
+            exactMatch = true
+            logger.info(s"Type: Exact")
+            "exact"
+          }
+          else{
+            // Get the length of the paths
+            pathLengths += participants.length
+            logger.info(s"Type: Alternative")
+            "alternative"
+          }
+        }
+
+        if(exactMatch)
           hits += 1
-          logger.info(s"Type: Exact")
-          "exact"
-        }
-        else{
-          // Get the length of the paths
-          pathLengths += participants.length
-          logger.info(s"Type: Alternative")
-          "alternative"
-        }
 
         serializeItem(paths, groundTruth, "Undefined", agent, new File(s"hits_multi/hit_$ix.json"))
 
