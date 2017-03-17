@@ -1,15 +1,18 @@
-package org.clulab.reach.dyce.executable
+package org.clulab.reach.focusedreading.executable
 
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.dyce.{Connection, Participant}
-import org.clulab.reach.dyce.agents._
+import org.clulab.reach.focusedreading.{Connection, Participant}
+import org.clulab.reach.focusedreading.agents._
 import java.io.File
+import java.nio.file.Paths
+
 import org.json4s.JsonDSL._
 import org.json4s._
+
 import scala.collection.JavaConverters._
 import org.json4s.native.JsonMethods._
-import org.apache.commons.io.{ FileUtils, FilenameUtils }
-
+import org.apache.commons.io.{FileUtils, FilenameUtils}
+import org.clulab.reach.focusedreading.tracing.AgentRunTrace
 
 import scala.collection.mutable
 
@@ -97,7 +100,8 @@ object SimplePath extends App with LazyLogging{
       // val agent = new SQLiteMultiPathSearchAgent(participantA, participantB)
       agent.focusedSearch(participantA, participantB)
 
-      agent.successStopCondition(participantA, participantB, agent.model) match {
+
+      val recoveredPath = agent.successStopCondition(participantA, participantB, agent.model) match {
         case Some(paths) =>
           successes += 1
           successIterations += agent.iterationNum
@@ -135,14 +139,28 @@ object SimplePath extends App with LazyLogging{
 
           logger.info("End Success")
 
+          Some(path)
+
         case None =>
           failures += 1
           failureIterations += agent.iterationNum
           logger.info("Failure")
+          None
 
       }
 
+      // Store the trace for analysis
+      val trace = AgentRunTrace(participantA, participantB,
+        agent.trace, recoveredPath, Some(datum))
 
+      val tracePath = AgentRunTrace.getFileName(datum)
+
+      recoveredPath match {
+        case Some(_) =>
+          AgentRunTrace.save(trace, Paths.get("traces", "successes", tracePath))
+        case None =>
+          AgentRunTrace.save(trace, Paths.get("traces", "failures", tracePath))
+      }
 
 
       logger.info("")

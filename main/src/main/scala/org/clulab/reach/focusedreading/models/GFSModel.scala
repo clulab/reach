@@ -1,6 +1,6 @@
-package org.clulab.reach.dyce.models
+package org.clulab.reach.focusedreading.models
 
-import org.clulab.reach.dyce.{Connection, Participant}
+import org.clulab.reach.focusedreading.{Connection, Participant}
 
 import scalax.collection.edge.LDiEdge
 import scalax.collection.mutable.Graph

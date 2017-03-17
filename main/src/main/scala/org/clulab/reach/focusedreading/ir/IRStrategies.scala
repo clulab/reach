@@ -1,7 +1,7 @@
-package org.clulab.reach.dyce.ir
+package org.clulab.reach.focusedreading.ir
 
 import QueryStrategy._
-import org.clulab.reach.dyce.sqlite.SQLiteQueries
+import org.clulab.reach.focusedreading.sqlite.SQLiteQueries
 
 /**
   * Created by enrique on 20/02/17.

@@ -1,8 +1,8 @@
-package org.clulab.reach.dyce.models
+package org.clulab.reach.focusedreading.models
 
 import gremlin.scala._
 import org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerGraph
-import org.clulab.reach.dyce.{Connection, Participant}
+import org.clulab.reach.focusedreading.{Connection, Participant}
 
 /**
   * Created by enrique on 09/03/17.

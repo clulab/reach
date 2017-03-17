@@ -1,7 +1,7 @@
-package org.clulab.reach.dyce
+package org.clulab.reach.focusedreading
 
 import collection.mutable
-import org.clulab.reach.dyce.models._
+import org.clulab.reach.focusedreading.models._
 
 /**
   * Created by enrique on 19/02/17.

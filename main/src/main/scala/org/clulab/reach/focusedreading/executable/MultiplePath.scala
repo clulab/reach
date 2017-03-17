@@ -1,8 +1,8 @@
-package org.clulab.reach.dyce.executable
+package org.clulab.reach.focusedreading.executable
 
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.dyce.{Connection, Participant}
-import org.clulab.reach.dyce.agents._
+import org.clulab.reach.focusedreading.{Connection, Participant}
+import org.clulab.reach.focusedreading.agents._
 import java.io.File
 import org.json4s.JsonDSL._
 import org.json4s._

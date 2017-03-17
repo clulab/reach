@@ -1,4 +1,4 @@
-package org.clulab.reach.dyce
+package org.clulab.reach.focusedreading
 
 import com.typesafe.scalalogging.LazyLogging
 import org.json4s._

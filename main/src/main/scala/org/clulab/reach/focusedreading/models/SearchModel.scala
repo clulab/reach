@@ -1,6 +1,6 @@
-package org.clulab.reach.dyce.models
+package org.clulab.reach.focusedreading.models
 
-import org.clulab.reach.dyce.{Participant, Connection}
+import org.clulab.reach.focusedreading.{Participant, Connection}
 
 /**
   * Created by enrique on 08/03/17.

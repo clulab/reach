@@ -1,11 +1,11 @@
-package org.clulab.reach.dyce.agents
+package org.clulab.reach.focusedreading.agents
 
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.dyce.ie.{REACHIEStrategy, SQLIteIEStrategy}
-import org.clulab.reach.dyce.ir.QueryStrategy._
-import org.clulab.reach.dyce.ir.{LuceneIRStrategy, Query, SQLIRStrategy}
-import org.clulab.reach.dyce.models._
-import org.clulab.reach.dyce.{Connection, MostConnectedParticipantsStrategy, Participant}
+import org.clulab.reach.focusedreading.ie.{REACHIEStrategy, SQLIteIEStrategy}
+import org.clulab.reach.focusedreading.ir.QueryStrategy._
+import org.clulab.reach.focusedreading.ir.{LuceneIRStrategy, Query, SQLIRStrategy}
+import org.clulab.reach.focusedreading.models._
+import org.clulab.reach.focusedreading.{Connection, MostConnectedParticipantsStrategy, Participant}
 
 import scala.collection.mutable
 
@@ -44,7 +44,6 @@ class SQLiteSearchAgent(participantA:Participant, participantB:Participant) exte
   override def choseQuery(source: Participant,
                           destination: Participant,
                           model: SearchModel) = Query(Cascade, source, Some(destination))
-
 
 }
 

@@ -1,12 +1,15 @@
-package org.clulab.reach.dyce.agents
+package org.clulab.reach.focusedreading.agents
 
 import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.dyce.ie.IEStrategy
-import org.clulab.reach.dyce.ir.{IRStrategy, Query}
-import org.clulab.reach.dyce.models._
-import org.clulab.reach.dyce.{Connection, Participant, ParticipantChoosingStrategy}
+import org.clulab.reach.focusedreading.ie.IEStrategy
+import org.clulab.reach.focusedreading.ir.{IRStrategy, Query}
+import org.clulab.reach.focusedreading.models._
+import org.clulab.reach.focusedreading.{Connection, Participant, ParticipantChoosingStrategy}
+import org.clulab.reach.focusedreading.tracing.IterativeStep
 
 import scala.collection.mutable
+import scalax.collection.edge.LDiEdge
+import scalax.collection.mutable.Graph
 
 /**
   * Created by enrique on 18/02/17.
@@ -19,6 +22,8 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
   var iterationNum = 0
 
   val triedPairs = new mutable.HashSet[(Participant, Participant)]
+
+  val trace = new mutable.ArrayBuffer[IterativeStep]
 
   def focusedSearch(source:Participant, destination:Participant):Unit ={
     logger.info(s"Starting focused search with end points $source and $destination")
@@ -36,7 +41,20 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
         logger.info(s"Empty query $query")
       val findings = informationExtraction(paperIds)
       logger.info(s"Found ${findings.size} connections")
+
+      val modelGraphBefore = getStateGraph
       reconcile(findings)
+      val modelGraphAfter = getStateGraph
+
+      // Store the step into the trace
+      // TODO: Return IR scores from IRStrategy
+      // TODO: Return the PMCIDS in each connection
+      val step = IterativeStep(iterationNum, modelGraphBefore, modelGraphAfter, (a, b), query.strategy,
+        paperIds.map(p => (p, 0.0)), findings)
+
+      // Add it to the trace
+      trace += step
+
     }while(!hasFinished(source, destination, this.model))
     logger.info(s"Focused search finished after $iterationNum iterations")
   }
@@ -63,6 +81,11 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
 
   def reconcile(findings:Iterable[Connection]):Unit
+
+  def getStateGraph = this.model match {
+    case gsfModel:GFSModel => Some(gsfModel.G.clone())
+    case _ => None
+  }
 }
 
 

@@ -1,11 +1,11 @@
-package org.clulab.reach.dyce.ie
+package org.clulab.reach.focusedreading.ie
 
 import java.io.File
 
 import org.clulab.odin.{EventMention, Mention}
 import org.clulab.reach.PaperReader
-import org.clulab.reach.dyce.ir.LuceneQueries
-import org.clulab.reach.dyce.{Connection, Participant}
+import org.clulab.reach.focusedreading.ir.LuceneQueries
+import org.clulab.reach.focusedreading.{Connection, Participant}
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.clulab.reach.mentions.serialization.json._

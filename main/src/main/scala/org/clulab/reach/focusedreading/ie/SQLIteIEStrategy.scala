@@ -1,7 +1,7 @@
-package org.clulab.reach.dyce.ie
+package org.clulab.reach.focusedreading.ie
 
-import org.clulab.reach.dyce.sqlite.SQLiteQueries
-import org.clulab.reach.dyce.{Connection, Participant}
+import org.clulab.reach.focusedreading.sqlite.SQLiteQueries
+import org.clulab.reach.focusedreading.{Connection, Participant}
 
 /**
   * Created by enrique on 12/03/17.
