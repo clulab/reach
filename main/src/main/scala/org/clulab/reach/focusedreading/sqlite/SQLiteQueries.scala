@@ -86,7 +86,7 @@ class SQLiteQueries(path:String) extends LazyLogging{
     pmcids.toSeq
   }
 
-  def binaryDisonjunctionQuery(a:Participant, b:Participant):Iterable[String] = {
+  def binaryDisjunctionQuery(a:Participant, b:Participant):Iterable[String] = {
     val command =
       """ SELECT pmcid FROM Queries INNER JOIN QueryResults
         | ON id = queryid WHERE type = 'Singleton' AND (pa = ? OR pa = ?)
