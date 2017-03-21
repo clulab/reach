@@ -44,7 +44,7 @@ trait SQLIRStrategy extends IRStrategy{
   override def informationRetrival(query: Query) = {
     val pmcids: Iterable[String] = query.strategy match {
       case Singleton => daIR.singletonQuery(query.A)
-      case Disjunction => daIR.binaryDisonjunctionQuery(query.A, query.B.get)
+      case Disjunction => daIR.binaryDisjunctionQuery(query.A, query.B.get)
       case Conjunction => daIR.binaryConjunctionQuery(query.A, query.B.get)
       case Spatial => daIR.binarySpatialQuery(query.A, query.B.get)
       case Cascade => {
@@ -52,7 +52,7 @@ trait SQLIRStrategy extends IRStrategy{
         if (results.isEmpty) {
           results = daIR.binaryConjunctionQuery(query.A, query.B.get)
           if (results.isEmpty)
-            results = daIR.binaryDisonjunctionQuery(query.A, query.B.get)
+            results = daIR.binaryDisjunctionQuery(query.A, query.B.get)
         }
         results
       }
