@@ -206,7 +206,8 @@ object CrossValidation extends App {
 
 
           // Evaluate this prediction
-          val predictedLabel = if(datum.getFeatureCount("sentenceDistance_SAME") >= 1) true; else classifier.classOf(scaledDatum) == "true"
+          //val predictedLabel = if(datum.getFeatureCount("sentenceDistance_SAME") >= 1) true; else classifier.classOf(scaledDatum) == "true"
+          val predictedLabel = classifier.classOf(scaledDatum) == "true"
 
           val truth = datum.label == "true"
 

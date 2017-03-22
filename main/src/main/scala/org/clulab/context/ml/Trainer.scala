@@ -276,8 +276,8 @@ object Trainer {
   def train(dataset:RVFDataset[String, String]) = {
     // Train the logistic regression
 
-    //val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
-    val lrc = new LogisticRegressionClassifier[String, String](C=.001, bias=true)
+    val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
+    //val lrc = new LogisticRegressionClassifier[String, String](C=.001, bias=true)
     lrc.train(dataset)
 
     // Return the trained logistic regression classifier
