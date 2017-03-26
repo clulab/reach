@@ -22,6 +22,9 @@ import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.json4s.native.JsonMethods._
 import org.clulab.utils.Serializer
+import libsvm._
+
+import scala.collection.immutable.IndexedSeq
 
 class PreAnnotatedDoc(val serializedDoc:String, val mentions:String) extends Serializable
 
@@ -195,6 +198,20 @@ object Trainer {
         (id, datum)
     }
 
+    // Filter out the negatives that don't pass a threshold
+    val filteredData = data.filter{
+      case (pairId, datum) =>
+        if(datum.label == "false"){
+          if(datum.getFeatureCount("context_frequency") > 5) // TODO: Parameterize this value
+            true
+          else
+            false
+        }
+        else{
+          true
+        }
+    }
+
     data
   }
 
@@ -226,8 +243,40 @@ object Trainer {
     indices2Keep.map(data.toSeq)
   }
 
+  def sortByVectorDifference(dataset: RVFDataset[String, String], positiveIndices: IndexedSeq[Int], negativeIndices: IndexedSeq[Int]) = {
+    def vectorDifference(keys: Set[String], a: RVFDatum[String, String], b: RVFDatum[String, String]): Double = {
+      val diffs = keys.par.map {
+        k =>
+          a.getFeatureCount(k) - b.getFeatureCount(k)
+      }.seq
+
+      val magnitude = Math.sqrt(diffs.map(v => v*v).sum)
+
+      magnitude
+    }
+
+    val keys = dataset.featureLexicon.keySet.toSet
+    val positives = positiveIndices map dataset.mkDatum map (_.asInstanceOf[RVFDatum[String, String]])
+
+    val negativeRanks = for(i <- negativeIndices) yield {
+      val datum = dataset.mkDatum(i).asInstanceOf[RVFDatum[String, String]]
+      val distances = positives map {
+        p =>
+          val distance = vectorDifference(keys, datum, p)
+
+          distance
+      }
+
+      distances.min
+    }
+
+    val candidates  = negativeIndices zip negativeRanks
+
+    candidates.sortBy{case (ix, d) => d}.map(_._1)
+  }
+
   def balanceDataset(dataset:RVFDataset[String, String],
-     negativesPerPositive:Int=4):RVFDataset[String, String] = {
+                     negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
       val positiveIndices = 0.until(dataset.size).filter{
         i =>
@@ -247,13 +296,16 @@ object Trainer {
 
       assert(positiveIndices.size <= negativeIndices.size, "There are more positive than negative instances")
 
+      // Sort the negatives by vector difference
+      //val sortedNegatives = sortByVectorDifference(dataset, positiveIndices, negativeIndices)
+
       // Do a random sample of the negatives up to the specified ratio
       val suffledNegativeIndices = Random.shuffle(negativeIndices)
 
       val amount = positiveIndices.size * negativesPerPositive
       val toTake = if(amount <= negativeIndices.size) amount else negativeIndices.size
 
-      val sampledNegativeIndices = negativeIndices.take(toTake)
+      val sampledNegativeIndices = suffledNegativeIndices.take(toTake)//sortedNegatives.take(toTake) //negativeIndices.take(toTake)
 
       val indices2Keep = (positiveIndices ++ sampledNegativeIndices).sorted
 
@@ -276,8 +328,18 @@ object Trainer {
   def train(dataset:RVFDataset[String, String]) = {
     // Train the logistic regression
 
+    // Measure sparsity
+    val dimensions = dataset.featureLexicon.size.toDouble
+    val sum = dataset.values.map(_.size/dimensions).sum
+    val denseness = sum / dataset.values.size
+
+    println(s"DENSENESS: $denseness")
+
     val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
-    //val lrc = new LogisticRegressionClassifier[String, String](C=.001, bias=true)
+    //val lrc = new LogisticRegressionClassifier[String, String](C=.005, bias=true)
+
+    //val params:svm_parameter = new svm_parameter
+    //val lrc = new LibSVMClassifier[String, String](RBFKernel, probability = false)
     lrc.train(dataset)
 
     // Return the trained logistic regression classifier

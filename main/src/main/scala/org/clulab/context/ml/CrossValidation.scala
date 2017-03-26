@@ -153,7 +153,7 @@ object CrossValidation extends App {
 
       // Training fold's dataset
       println("Training")
-      val trainingDataset = new RVFDataset[String, String]()
+      var trainingDataset = new RVFDataset[String, String]()
 
       // Training loop
       for(trainingFold <- trainingFolds){
@@ -170,10 +170,13 @@ object CrossValidation extends App {
 
           trainingDataset += datum
         }
+
+        // Do feature selection
+        trainingDataset = FeatureUtils.featureSelection(trainingDataset)
       }
 
       // Balance dataset
-      val balancedDataset = balanceDataset(trainingDataset, negativesPerPositive = 3)
+      val balancedDataset = balanceDataset(trainingDataset, negativesPerPositive = 1)
       //val balancedDataset = trainingDataset
 
       println(s"Original size:${trainingDataset.size} - After class-balancing size:${balancedDataset.size}")

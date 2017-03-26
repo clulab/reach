@@ -53,68 +53,123 @@ case class PairFeatures(
   ctxNegationInTails:Boolean
   //var contextDocFrequency:Option[Int] = None
 ){
-  def toSeq(feda:Boolean=false):Seq[String] = {
-    val features = new mutable.ArrayBuffer[String]
+//  def toSeq(feda:Boolean=false):Seq[String] = {
+//    val features = new mutable.ArrayBuffer[String]
+//
+//    features ++= Seq(
+//      //s"contextPOSTag_${this.contextPOSTag}",
+//      //s"eventPOSTag_${this.eventPOSTag}"
+//      //s"discourseDistance_${this.discourseDistance}",
+//      //s"dependencyPath_${this.dependencyPath.mkString("_")}",
+//      //s"posPath_${this.posPath.mkString("_")}",
+//    ) ++ this.dependencyPath.map(s => s"depBigram_$s") ++ this.posPath.map(s => s"posBigram_$s")
+//
+//    features ++= contextPOSTag map (cp => s"contextPOSTag_$cp")
+//    features ++= eventPOSTag map (ep => s"eventPOSTag_$ep")
+//    features ++= Seq.fill(this.dependencyDistance match {case Some(n) => n; case None => 0})("dependencyDistance")
+//
+//    features ++= Seq.fill(this.sentenceDistance)("sentenceDistance")
+//
+//    if(evtSentenceFirstPerson)
+//      features += "evtSentenceFirstPerson"
+//
+//    if(ctxSentenceFirstPerson)
+//      features += "ctxSentenceFirstPerson"
+//
+//    if(evtSentencePastTense)
+//      features += "evtSentencePastTense"
+//
+//    if(ctxSentencePastTense)
+//      features += "ctxSentencePastTense"
+//
+//    if(evtSentencePresentTense)
+//      features += "evtSentencePresentTense"
+//
+//    if(ctxSentencePresentTense)
+//      features += "ctxSentencePresentTense"
+//
+//    if(closesCtxOfClass)
+//      features += "closesCtxOfClass"
+//
+//
+//    for(t <- evtDependencyTails){
+//      features += s"evtDepTail_$t"
+//    }
+//
+//    for(t <- ctxDependencyTails){
+//      features += s"ctxDepTail_$t"
+//    }
+//
+//    if(evtNegationInTails)
+//      features += "evtNegationInTail"
+//
+//    if(ctxNegationInTails)
+//      features += "ctxNegationIntTail"
+//
+//
+//
+//    if(feda){
+//      for(label <- Seq("general") ++ ContextClass.values.toSeq; f <- features)
+//        yield {
+//          s"${label}_$f"
+//        }
+//    }
+//    else
+//      features
+//
+//  }
 
-    features ++= Seq(
-      s"contextPOSTag_${this.contextPOSTag}",
-      s"eventPOSTag_${this.eventPOSTag}"
-      //s"discourseDistance_${this.discourseDistance}",
-      //s"dependencyPath_${this.dependencyPath.mkString("_")}",
-      //s"posPath_${this.posPath.mkString("_")}",
-    ) ++ this.dependencyPath.map(s => s"depBigram_$s") ++ this.posPath.map(s => s"posBigram_$s")
+  def toMap():Map[String, Double] = {
+    val featureMap = new mutable.HashMap[String, Double]()
 
-    features ++= Seq.fill(this.dependencyDistance match {case Some(n) => n; case None => 0})("dependencyDistance")
-
-    features ++= Seq.fill(this.sentenceDistance)("sentenceDistance")
-
+    // Binary features (Categorical mapped to binary)
     if(evtSentenceFirstPerson)
-      features += "evtSentenceFirstPerson"
+      featureMap += ("evtSentenceFirstPerson" -> 1)
 
     if(ctxSentenceFirstPerson)
-      features += "ctxSentenceFirstPerson"
+      featureMap += ("ctxSentenceFirstPerson" -> 1)
 
     if(evtSentencePastTense)
-      features += "evtSentencePastTense"
+      featureMap += ("evtSentencePastTense" -> 1)
 
     if(ctxSentencePastTense)
-      features += "ctxSentencePastTense"
+      featureMap += ("ctxSentencePastTense" -> 1)
 
     if(evtSentencePresentTense)
-      features += "evtSentencePresentTense"
+      featureMap += ("evtSentencePresentTense" -> 1)
 
     if(ctxSentencePresentTense)
-      features += "ctxSentencePresentTense"
+      featureMap += ("ctxSentencePresentTense" -> 1)
 
     if(closesCtxOfClass)
-      features += "closesCtxOfClass"
-
-
-    for(t <- evtDependencyTails){
-      features += s"evtDepTail_$t"
-    }
-
-    for(t <- ctxDependencyTails){
-      features += s"ctxDepTail_$t"
-    }
+      featureMap += ("closesCtxOfClass" -> 1)
 
     if(evtNegationInTails)
-      features += "evtNegationInTail"
+      featureMap += ("evtNegationInTail" -> 1)
 
     if(ctxNegationInTails)
-      features += "ctxNegationIntTail"
+      featureMap += ("ctxNegationIntTail" -> 1)
 
 
+    // Integer features
+//    featureMap ++= this.dependencyPath.map(s => s"depBigram_$s").groupBy(identity).mapValues(_.length)
+//    featureMap ++= this.posPath.map(s => s"posBigram_$s").groupBy(identity).mapValues(_.length)
+//    featureMap ++= contextPOSTag.map(cp => s"contextPOSTag_$cp").groupBy(identity).mapValues(_.length)
+//    featureMap ++= eventPOSTag.map(ep => s"eventPOSTag_$ep").groupBy(identity).mapValues(_.length)
 
-    if(feda){
-      for(label <- Seq("general") ++ ContextClass.values.toSeq; f <- features)
-        yield {
-          s"${label}_$f"
-        }
-    }
-    else
-      features
+    val dependencyDistance:Double = this.dependencyDistance match {case Some(n:Int) => n.toDouble; case None => 0.0}
+    featureMap += ("dependencyDistance" ->dependencyDistance)
 
+    featureMap += ("sentenceDistance" -> this.sentenceDistance.toDouble)
+
+    featureMap ++= evtDependencyTails.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
+
+    featureMap ++= ctxDependencyTails.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
+
+    // Real features
+
+
+    featureMap.toMap
   }
 }
 
@@ -130,33 +185,94 @@ object FeatureExtractor{
       extractFeatures(doc, event, contextMention, contextMentions map contextMention2Annotation)
     }
 
+//  def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:String):RVFDatum[String, String] = {
+//      // Iterate over the instances to build a Datum instance
+//      val c = new Counter[String]
+//
+//      for(i <- instances; f <- i.toSeq()){
+//        // Concatenate the feature name and its value
+//        c.incrementCount(f)
+//      }
+//
+//
+//      // Aggregate by mean
+//      val numInstances = instances.size.toDouble
+//      val keys = c.keySet
+//
+//      for(k <- keys){
+//        val count = c.getCount(k)
+//        c.setCount(k, count / numInstances)
+//      }
+//      // Add the context id counts
+//      val contextTypeFreq = Seq.fill(contextFrequency)("context_frequency")
+//      // Add the same feature multiple times according to the example
+//      contextTypeFreq foreach (c.incrementCount(_))
+//
+//
+//      // Aggregate by mean
+//
+//      new RVFDatum[String, String](label, c)
+//  }
+
+  def computeQuantiles(key: String, values: Seq[Double], bins: Int):Seq[(String, Double)] = {
+    val cutPoints = (1 to bins).map(i => values.max/bins * i)
+
+    val quantiles = values.groupBy{
+      v =>
+        var bin = 0
+        val range = (0 until bins).reverse
+        for(i <- range){
+          if(v <= cutPoints(i))
+            bin = i
+        }
+
+        bin
+    }.mapValues(_.length)
+
+    quantiles.map{
+      case (q, v) =>
+        (s"quant$q-$key", v.toDouble)
+    }.toSeq
+  }
+
   def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:String):RVFDatum[String, String] = {
-      // Iterate over the instances to build a Datum instance
-      val c = new Counter[String]
+    val c = new Counter[String]
+    val maps = instances.map(_.toMap)
+    val allKeys = maps.flatMap(_.keys).toSet
 
-      for(i <- instances; f <- i.toSeq()){
-        // Concatenate the feature name and its value
-        c.incrementCount(f)
+    val aggregationType = Map(
+      "dependencyDistance" -> Seq("mean", "quantiles", "min", "max"),
+      "sentenceDistance" -> Seq("mean", "quantiles", "min", "max")
+    )
+
+    for(key <- allKeys){
+      val values = maps.map(_.lift(key) match {case Some(v) => v; case None => 0.0})
+
+      // The distance features
+      if(key == "sentenceDistance" || key == "dependencyDistance"){
+        c.setCount(s"mean_$key", values.sum/values.length)
+        c.setCount(s"min_$key", values.min)
+        c.setCount(s"max_$key", values.max)
+        val quantiles = computeQuantiles(key, values, 4)
+        for((k, v) <- quantiles){
+          c.setCount(k, v)
+        }
       }
-
-
-      // Aggregate by mean
-      val numInstances = instances.size.toDouble
-      val keys = c.keySet
-
-      for(k <- keys){
-        val count = c.getCount(k)
-        c.setCount(k, count / numInstances)
+      else if(key.startsWith("depBigram") || key.startsWith("posBigram") || key.startsWith("evtDepTail") || key.startsWith("ctxDepTail")){
+        c.setCount(s"mean_$key", values.sum/values.length)
+        c.setCount(s"min_$key", values.min)
+        c.setCount(s"max_$key", values.max)
       }
-      // Add the context id counts
-      val contextTypeFreq = Seq.fill(contextFrequency)("context_frequency")
-      // Add the same feature multiple times according to the example
-      contextTypeFreq foreach (c.incrementCount(_))
+      // Default aggregation: mean
+      else{
+        c.setCount(s"mean_$key", values.sum/values.length)
+      }
+    }
 
+    // Add the ctx frequency val
+    c.setCount("context_frequency", contextFrequency)
 
-      // Aggregate by mean
-
-      new RVFDatum[String, String](label, c)
+    new RVFDatum[String, String](label, c)
   }
 
   def bioMention2Annotation(mention:BioMention) = mention match {
@@ -207,7 +323,7 @@ object FeatureExtractor{
         return "NN"
       else if(tag.startsWith("VB"))
         return "VB"
-      else if(Set(",", "-RRB-", ".", ":", ";", "LRB").contains(tag))
+      else if(Set(",", "-RRB-", ".", ":", ";", "-LRB-").contains(tag))
         return "BOGUS"
       else
         return tag
@@ -348,7 +464,7 @@ object FeatureExtractor{
 
         val pos_path = (start to end).map{
             i => Try(tags(i)).getOrElse("")
-        }.map(FeatureProcessing.clusterPOSTag)
+        }.map(FeatureProcessing.clusterPOSTag).filter(_ != "BOGUS")
 
         // Make bigrams
         val pos_bigrams:Seq[String] = {
@@ -366,13 +482,13 @@ object FeatureExtractor{
     val eventPOS= {
       val tags = doc.sentences(event.sentenceId).tags.get
       val evtTags = event.interval.map(i => Try(tags(i))).collect{ case Success(t) => t}
-      evtTags map FeatureProcessing.clusterPOSTag
+      evtTags map FeatureProcessing.clusterPOSTag filter (_ != "BOGUS")
       //FeatureProcessing.clusterPOSTag(Try(doc.sentences(event.sentenceId).tags.get.apply(event.interval.start)).getOrElse(""))
     }
     val contextPOS = {
       val tags = doc.sentences(contextMention.sentenceId).tags.get
       val ctxTags = event.interval.map(i => Try(tags(i))).collect{ case Success(t) => t}
-      ctxTags map FeatureProcessing.clusterPOSTag
+      ctxTags map FeatureProcessing.clusterPOSTag filter (_ != "BOGUS")
     }
 
     // TODO: Here I call the phi features
@@ -537,4 +653,12 @@ object FeatureExtractor{
 
   // FEATURES //////////////////////
 
+}
+
+object FeatureUtils{
+  def featureSelection(dataset:RVFDataset[String, String]):RVFDataset[String, String] = {
+    //dataset.removeFeaturesByFrequency(20).asInstanceOf[RVFDataset[String, String]]
+    //dataset.removeFeaturesByInformationGain(.01).asInstanceOf[RVFDataset[String, String]]
+    dataset
+  }
 }
