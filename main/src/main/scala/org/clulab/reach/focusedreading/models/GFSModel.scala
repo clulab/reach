@@ -159,4 +159,20 @@ class GFSModel extends SearchModel{
     }
   }
 
+  override def rankedNodes = {
+    val nodes = G.nodes.map{
+      n =>
+        val v = n.value
+        val degree = n.degree
+
+        (v, degree)
+    }.toSeq
+
+    val sortedNodes = nodes.sortBy(_._2).reverse.map(_._1)
+
+    val ranks = sortedNodes.zipWithIndex.toMap
+
+    ranks
+  }
+
 }

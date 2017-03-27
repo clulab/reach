@@ -33,4 +33,6 @@ abstract class SearchModel {
 
   def degree(node:Participant):Int
 
+  def rankedNodes:Map[Participant, Int]
+
 }

@@ -6,6 +6,7 @@ import org.clulab.reach.focusedreading.ir.{IRStrategy, Query}
 import org.clulab.reach.focusedreading.models._
 import org.clulab.reach.focusedreading.{Connection, Participant, ParticipantChoosingStrategy}
 import org.clulab.reach.focusedreading.tracing.IterativeStep
+import org.clulab.reach.focusedreading.reinforcement_learning.State
 
 import scala.collection.mutable
 import scalax.collection.edge.LDiEdge
@@ -89,7 +90,21 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 }
 
 
-abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends SearchAgent {
+abstract class RLEnabledAgent(participantA:Participant, participantB:Participant) extends SearchAgent {
+
+  def observeReward:Double = {
+    this.successStopCondition(participantA, participantB, model) match {
+      case Some(_) =>
+        1.0
+      case None => 0.0
+    }
+  }
+
+}
+
+
+abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends RLEnabledAgent(participantA, participantB) {
+
 
   val model:SearchModel = new GFSModel(participantA, participantB)
 

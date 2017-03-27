@@ -98,4 +98,6 @@ class TinkerPopModel extends SearchModel{
     case Some(v) => v.bothE.count.head.toInt
     case None => 0
   }
+
+  override def rankedNodes = Map()
 }

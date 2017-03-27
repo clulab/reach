@@ -21,5 +21,7 @@ libraryDependencies ++= Seq(
   "org.apache.tinkerpop" % "gremlin-core" % "3.2.4",
   "org.apache.tinkerpop" % "tinkergraph-gremlin" % "3.2.4",
   "com.michaelpollmeier" %% "gremlin-scala" % "3.2.4.1",
-  "org.xerial" % "sqlite-jdbc" % "3.16.1"
+  "org.xerial" % "sqlite-jdbc" % "3.16.1",
+  "org.scalanlp" %% "breeze" % "0.13",
+  "org.scalanlp" %% "breeze-natives" % "0.13"
 )
