@@ -70,7 +70,7 @@ class ReachCLI (
     logger.info("Initializing Reach ...")
 
     val _ = PaperReader.rs.extractFrom("Blah", "", "")
-    val files = papersDir.listFiles.par
+    val files = papersDir.listFilesByRegex(pattern = """.*\.(nxml|csv|tsv)$""", caseSensitive = false, recursive = true).toVector.par
 
     // limit parallelization
     if (threadLimit.nonEmpty) {
