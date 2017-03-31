@@ -7,6 +7,7 @@ import org.clulab.reach.focusedreading.reinforcement_learning.{Actions, RankBin,
 import org.clulab.reach.focusedreading.reinforcement_learning.policies._
 import org.clulab.reach.focusedreading.ir._
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.reach.focusedreading.reinforcement_learning.environment.SimplePathEnvironment
 import org.clulab.utils.Serializer
 
 import collection.mutable
@@ -19,9 +20,8 @@ class SARSA(dataset:Seq[Seq[String]], alpha:Double = 0.5, gamma:Double = 1.0) ex
   // For now we only care about the end points
   val trainingEpisodes = dataset map (e => (e.head, e.last))
 
-  val tolerance = 0.001
   var stable = true
-  val episodeBound = 1500000
+  val episodeBound = 150
   var episodeCount = 0
 
 
@@ -35,99 +35,53 @@ class SARSA(dataset:Seq[Seq[String]], alpha:Double = 0.5, gamma:Double = 1.0) ex
       stable = true
       for(episode <- trainingEpisodes){
 
-        val participantA = Participant("", episode._1)
-        val participantB = Participant("", episode._2)
-        val queryLog = new mutable.ArrayBuffer[(Participant, Participant)]
-        val introductions = new mutable.HashMap[Participant, Int]
+        if(episodeCount <= episodeBound){
+          // Instantiate an environment for this episode
+          val participantA = Participant("", episode._1)
+          val participantB = Participant("", episode._2)
 
-        var iterationNum = 0
+          val environment = new SimplePathEnvironment(participantA, participantB)
 
-        // Instantiate an agent for this episode
-        val agent = new SQLiteSearchAgent(participantA, participantB)
+          // Observe the initial state
+          var currentState = environment.observeState
 
-        introductions += participantA -> 0
-        introductions += participantB -> 0
+          // Evaluate the policy
+          var currentAction = policy.selectAction(currentState)
 
-        do{
-          // Clear the iteration flag in the policy
+          // Enter into the episode loop
+          while(!environment.finishedEpisode){
+            // Execute chosen action and observe reward
+            val reward = environment.executePolicy(currentAction)
 
-          iterationNum += 1
+            // Observe the new state after executing the action
+            val nextState = environment.observeState
 
-          val (a, b) = agent.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
-          agent.triedPairs += Tuple2(a, b)
-
-          queryLog += Tuple2(a, b)
-
-          //val query = agent.choseQuery(a, b, agent.model)
-
-          // Fetch the current state
-          val currentState = fillState(agent.model, iterationNum, a, b, queryLog, introductions)
-
-          // Compute the chosen action
-          val action = policy.selectAction(currentState)
+            // Chose a new action
+            val nextAction = policy.selectAction(nextState)
 
 
-          // Build a query object based on the action
-          val query = action match {
-            case Actions.Conjunction => Query(QueryStrategy.Conjunction, a, Some(b))
-            case Actions.Disjunction => Query(QueryStrategy.Disjunction, a, Some(b))
+            // Perform the update
+            val actionValues = policy.values
+            val changed = actionValues.tdUpdate((currentState, currentAction), (nextState, nextAction), reward, alpha, gamma)
+
+            // Keep track of the fluctuations of the values
+            if(changed)
+              stable = false
+
+
+            // Update the state and action
+            currentState = nextState
+            currentAction = nextAction
+
           }
-
-          val paperIds = agent.informationRetrival(query)
-
-          val findings = agent.informationExtraction(paperIds)
-
-          // Count the introductions
-          for(f <- findings){
-            val x = f.controller
-            val y = f.controlled
-
-            if(!introductions.contains(x))
-              introductions += (x -> iterationNum)
-
-            if(!introductions.contains(y))
-              introductions += (y -> iterationNum)
-          }
-
-
-          val modelGraphBefore = agent.getStateGraph
-          agent.reconcile(findings)
-          val modelGraphAfter = agent.getStateGraph
-
-          val observedReward = agent.observeReward
-
-          // Observe the next step
-          val (c, d) = agent.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
-          val augmentedQueryLog = queryLog ++ Seq(Tuple2(c, d))
-          val resultingStep = fillState(agent.model, iterationNum+1, c, d, augmentedQueryLog, introductions)
-
-          // Had the epoc terminated?
-          val terminated = agent.hasFinished(participantA, participantB, agent.model)
-
-          // Se what's the next action selected by the policy
-          val nextAction = policy.selectAction(resultingStep)
-
-          // Do the policy improvement (update step)
-          val qValue = policy.actionValues((currentState, action))
-
-          // Make sure that the qValue of the next step is Zero if it is a terminating step
-          val nextActionQValue = if(!terminated) policy.actionValues((resultingStep, nextAction)) else 0.0
-
-          // Apply the Bellman equation for this value's update
-          val newQValue = qValue + alpha * (observedReward+gamma*(nextActionQValue-qValue))
-
-          policy.actionValues.set((currentState, action), newQValue)
-
-          if(Math.abs(newQValue-qValue) > tolerance)
-            stable = false
-
 
           episodeCount += 1
 
           if(episodeCount % 10 == 0)
             logger.info(s"Episode $episodeCount")
+        }
 
-        }while(!agent.hasFinished(participantA, participantB, agent.model))
+
       }
     }while(!stable && episodeCount <= episodeBound)
 
@@ -202,10 +156,11 @@ object SARSA extends App {
     }.toSeq
 
   val policyIteration = new SARSA(dataSet.toSeq)
-  val initialPolicy = new EpGreedyPolicy(0.1)
+  val qFunction = new TabularValues[(State, Actions.Value)](0)
+  val initialPolicy = new EpGreedyPolicy(0.1, qFunction)
 
   val learntPolicy = policyIteration.iteratePolicy(initialPolicy)
 
   // Store the policy somewhere
-  Serializer.save(learntPolicy, "learnt_policy.ser")
+  // Serializer.save(learntPolicy, "learnt_policy.ser")
 }

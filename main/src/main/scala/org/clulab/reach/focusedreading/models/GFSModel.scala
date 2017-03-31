@@ -23,7 +23,7 @@ class GFSModel extends SearchModel{
   }
 
 
-  private def connectionToEdge(c:Connection):LDiEdge[Participant] = (c.controller ~+> c.controlled)(c.sign)
+  def connectionToEdge(c:Connection):LDiEdge[Participant] = (c.controller ~+> c.controlled)(c.sign)
   private def edgeToConnection(e:G.EdgeT):Connection = Connection(e.source, e.target, e.label.value.asInstanceOf[Boolean], Seq())
 
   val G = Graph[Participant, LDiEdge]()

@@ -125,7 +125,7 @@ abstract class SimplePathAgent(participantA:Participant, participantB:Participan
                                     model: SearchModel) = {
     if(this.iterationNum >= 10)
       true
-    else if((nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
+    else if(iterationNum > 0 && (nodesCount, edgesCount) == (prevNodesCount, prevEdgesCount)){
       logger.info("The model didn't change.")
       true
     }
