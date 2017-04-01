@@ -1,13 +1,19 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policies
 
+import java.io.{BufferedWriter, FileWriter}
+
 import breeze.linalg._
 import breeze.stats.distributions.Multinomial
-import org.clulab.reach.focusedreading.reinforcement_learning.{Actions, State}
+import org.clulab.reach.focusedreading.reinforcement_learning.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.states.State
+import org.json4s._
+import org.json4s.native.JsonMethods._
+import org.json4s.JsonDSL._
 
 /**
   * Created by enrique on 26/03/17.
   */
-class EpGreedyPolicy(epsilon:Double, val values:Values[(State, Actions.Value)]) extends Policy {
+class EpGreedyPolicy(epsilon:Double, val values:Values) extends Policy {
 
   assert(epsilon <= 1 && epsilon >= 0, s"Invalid Epsilon value: $epsilon")
 
@@ -30,4 +36,20 @@ class EpGreedyPolicy(epsilon:Double, val values:Values[(State, Actions.Value)]) 
     // Return the random sample
     choice
   }
+
+  override def save(path:String): Unit ={
+    val ast = {
+      ("type" -> "ep_greedy") ~
+      ("epsilon" -> epsilon) ~
+        ("values" -> values.toJson)
+    }
+
+    val json = pretty(render(ast))
+
+    val bfw = new BufferedWriter(new FileWriter(path))
+    bfw.write(json)
+    bfw.close
+  }
+
+  def makeGreedy:GreedyPolicy = new GreedyPolicy(values)
 }

@@ -23,5 +23,7 @@ libraryDependencies ++= Seq(
   "com.michaelpollmeier" %% "gremlin-scala" % "3.2.4.1",
   "org.xerial" % "sqlite-jdbc" % "3.16.1",
   "org.scalanlp" %% "breeze" % "0.13",
-  "org.scalanlp" %% "breeze-natives" % "0.13"
+  "org.scalanlp" %% "breeze-natives" % "0.13",
+  "org.scalanlp" %% "breeze-viz" % "0.13",
+  "org.jfree" % "jfreechart" % "1.0.19"
 )

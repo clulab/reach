@@ -4,9 +4,9 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.focusedreading.ie.IEStrategy
 import org.clulab.reach.focusedreading.ir.{IRStrategy, Query}
 import org.clulab.reach.focusedreading.models._
+import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 import org.clulab.reach.focusedreading.{Connection, Participant, ParticipantChoosingStrategy}
 import org.clulab.reach.focusedreading.tracing.IterativeStep
-import org.clulab.reach.focusedreading.reinforcement_learning.State
 
 import scala.collection.mutable
 import scalax.collection.edge.LDiEdge

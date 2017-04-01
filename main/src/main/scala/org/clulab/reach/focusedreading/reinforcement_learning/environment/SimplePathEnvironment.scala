@@ -4,15 +4,16 @@ import org.clulab.reach.focusedreading.Participant
 import org.clulab.reach.focusedreading.agents.SQLiteSearchAgent
 import org.clulab.reach.focusedreading.ir.{Query, QueryStrategy}
 import org.clulab.reach.focusedreading.models.{GFSModel, SearchModel}
-import org.clulab.reach.focusedreading.reinforcement_learning.{Actions, RankBin, State}
+import org.clulab.reach.focusedreading.reinforcement_learning.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
+import org.clulab.reach.focusedreading.reinforcement_learning.states.{FocusedReadingState, RankBin, State}
 
 import scala.collection.mutable
 
 /**
   * Created by enrique on 30/03/17.
   */
-class SimplePathEnvironment(participantA:Participant, participantB:Participant) {
+class SimplePathEnvironment(participantA:Participant, participantB:Participant) extends Environment {
 
   val agent = new SQLiteSearchAgent(participantA, participantB)
   val queryLog = new mutable.ArrayBuffer[(Participant, Participant)]
@@ -23,7 +24,7 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
 
   var iterationNum = 0
 
-  def executePolicy(action:Actions.Value, persist:Boolean = true):Double = {
+  override def executePolicy(action:Actions.Value, persist:Boolean = true):Double = {
 
     if(persist)
       iterationNum += 1
@@ -72,13 +73,13 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
     // Return the observed reward
     if(!agent.hasFinished(participantA, participantB, agent.model)){
       // If this episode hasn't finished
-      0.0
+      -0.05
     }
     else{
       // If finished successfuly
       agent.successStopCondition(participantA, participantB, agent.model) match{
         case Some(p) => 1.0
-        case None => 0.0
+        case None => -1.0
       }
     }
   }
@@ -103,10 +104,10 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
       val paRank = getRank(a, ranks)
       val pbRank = getRank(b, ranks)
 
-      State(RankBin.First, RankBin.Bottom, iterationNum, paQueryLogCount,pbQueryLogCount,sameComponent,paIntro,pbIntro)
+      FocusedReadingState(RankBin.First, RankBin.Bottom, iterationNum, paQueryLogCount,pbQueryLogCount,sameComponent,paIntro,pbIntro)
   }
 
-  def observeState:State = {
+  override def observeState:State = {
     if(queryLog.length > 0)
       fillState(agent.model, iterationNum, queryLog, introductions)
     else{
@@ -142,6 +143,6 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
     }
   }
 
-  def finishedEpisode:Boolean = agent.hasFinished(participantA, participantB, agent.model)
+  override def finishedEpisode:Boolean = agent.hasFinished(participantA, participantB, agent.model)
 
 }
