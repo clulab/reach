@@ -26,6 +26,8 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 
   val trace = new mutable.ArrayBuffer[IterativeStep]
 
+  val papersRead = new mutable.ArrayBuffer[String]
+
   def focusedSearch(source:Participant, destination:Participant):Unit ={
     logger.info(s"Starting focused search with end points $source and $destination")
     do{
@@ -36,6 +38,8 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
       val query = choseQuery(a, b, this.model)
       logger.info(s"Chosen query: $query")
       val paperIds = informationRetrival(query)
+      // Keep track of the papers read
+      papersRead ++= paperIds
       if(!paperIds.isEmpty)
         logger.info(s"Found ${paperIds.size} IR matches")
       else
