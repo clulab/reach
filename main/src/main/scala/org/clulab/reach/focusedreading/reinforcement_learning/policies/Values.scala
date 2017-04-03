@@ -9,6 +9,11 @@ import org.json4s.JsonAST.JObject
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
+import org.json4s.JsonAST.JObject
+import org.json4s._
+import org.json4s.native.JsonMethods._
+import org.json4s.JsonDSL._
+import scala.language.implicitConversions
 
 /**
   * Created by enrique on 26/03/17.
@@ -20,6 +25,26 @@ abstract class Values(val tolerance:Double = 1e-4){
   def apply(key:(State, Actions.Value)):Double
   def tdUpdate(current:(State, Actions.Value), next:(State, Actions.Value), reward:Double, rate:Double, decay:Double):Boolean
   def toJson:JObject
+}
+
+object Values{
+  implicit lazy val formats = DefaultFormats
+
+  def loadValues(ast:JObject):Values = {
+    (ast \ "type") match {
+      case JString("linear") =>
+        val vals = (ast \ "coefficients").asInstanceOf[JObject].obj
+
+        // Make a map out of the coefficients
+        val coefficients = new mutable.HashMap[String, Double]
+        for((k, v) <- vals){
+          coefficients += (k -> v.extract[Double])
+        }
+        new LinearApproximationValues(coefficients)
+      case _ =>
+        throw new NotImplementedError("Not yet implemented")
+    }
+  }
 }
 
 class TabularValues(default:Double) extends Values {
@@ -54,9 +79,9 @@ class TabularValues(default:Double) extends Values {
 }
 
 
-class LinearApproximationValues extends Values {
+class LinearApproximationValues(val coefficients:mutable.HashMap[String, Double] = new mutable.HashMap[String, Double]) extends Values {
 
-  val coefficients = new mutable.HashMap[String, Double]
+  //val coefficients = new mutable.HashMap[String, Double]
 
   val coefficientMemory = new mutable.ArrayBuffer[DenseVector[Double]]
 
