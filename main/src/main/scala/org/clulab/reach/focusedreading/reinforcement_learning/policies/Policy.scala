@@ -26,7 +26,7 @@ object Policy {
       case "ep_greedy" =>
         val epsilon = (ast \ "epsilon").extract[Double]
         val values = Values.loadValues((ast \ "values").extract[JObject])
-        new EpGreedyPolicy(epsilon, new LinearApproximationValues)
+        new EpGreedyPolicy(epsilon, values)
       case _ =>
         throw new NotImplementedError("Not yet implemented")
     }

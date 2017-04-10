@@ -94,20 +94,8 @@ trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with Parti
 }
 
 
-abstract class RLEnabledAgent(participantA:Participant, participantB:Participant) extends SearchAgent {
 
-  def observeReward:Double = {
-    this.successStopCondition(participantA, participantB, model) match {
-      case Some(_) =>
-        1.0
-      case None => 0.0
-    }
-  }
-
-}
-
-
-abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends RLEnabledAgent(participantA, participantB) {
+abstract class SimplePathAgent(participantA:Participant, participantB:Participant) extends SearchAgent {
 
 
   val model:SearchModel = new GFSModel(participantA, participantB)

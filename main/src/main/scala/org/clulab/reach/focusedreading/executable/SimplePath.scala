@@ -89,6 +89,7 @@ object SimplePath extends App with LazyLogging{
 
     val times = new mutable.ArrayBuffer[Long]
     val papers = new mutable.ArrayBuffer[String]
+    var numQueries = 0
 
     for((datum, ix) <- dataSet.zipWithIndex){
 
@@ -168,6 +169,7 @@ object SimplePath extends App with LazyLogging{
           AgentRunTrace.save(trace, Paths.get("traces", "failures", tracePath))
       }
 
+      numQueries += agent.iterationNum
       val end = System.nanoTime()
 
       times += (end - start)
@@ -207,5 +209,6 @@ object SimplePath extends App with LazyLogging{
 
     logger.info(s"Average running time: $averageRuntime")
     logger.info(s"Unique papers read: ${papers.toSet.size}")
+    logger.info(s"# of queries: $numQueries")
 }
 
