@@ -33,14 +33,20 @@ object Values{
   def loadValues(ast:JObject):Values = {
     (ast \ "type") match {
       case JString("linear") =>
-        val vals = (ast \ "coefficients").asInstanceOf[JObject].obj
+        val valsExplore = (ast \ "coefficientsExplore").asInstanceOf[JObject].obj
+        val valsExploit = (ast \ "coefficientsExploit").asInstanceOf[JObject].obj
 
         // Make a map out of the coefficients
-        val coefficients = new mutable.HashMap[String, Double]
-        for((k, v) <- vals){
-          coefficients += (k -> v.extract[Double])
+        val coefficientsExplore = new mutable.HashMap[String, Double]
+        for((k, v) <- valsExplore){
+          coefficientsExplore += (k -> v.extract[Double])
         }
-        new LinearApproximationValues(coefficients)
+
+        val coefficientsExploit = new mutable.HashMap[String, Double]
+        for((k, v) <- valsExploit){
+          coefficientsExploit += (k -> v.extract[Double])
+        }
+        new LinearApproximationValues(coefficientsExplore, coefficientsExploit)
       case _ =>
         throw new NotImplementedError("Not yet implemented")
     }
@@ -79,15 +85,22 @@ class TabularValues(default:Double) extends Values {
 }
 
 
-class LinearApproximationValues(val coefficients:mutable.HashMap[String, Double] = new mutable.HashMap[String, Double]) extends Values {
+class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, Double] = new mutable.HashMap[String, Double], val coefficientsExploit:mutable.HashMap[String, Double] = new mutable.HashMap[String, Double]) extends Values {
 
   //val coefficients = new mutable.HashMap[String, Double]
 
-  val coefficientMemory = new mutable.ArrayBuffer[DenseVector[Double]]
+  val coefficientMemoryExplore = new mutable.ArrayBuffer[DenseVector[Double]]
+  val coefficientMemoryExploit = new mutable.ArrayBuffer[DenseVector[Double]]
 
   override def apply(key:(State, Actions.Value)): Double = {
+
+    val action = key._2
+    val coefficients = action match {
+      case Actions.Conjunction => coefficientsExploit
+      case Actions.Disjunction => coefficientsExplore
+    }
     // Encode the state vector into features
-    val features = key._1.toFeatures ++ Actions.toFeatures(key._2)
+    val features = Map("bias" -> 1.0) ++ key._1.toFeatures //++ Actions.toFeatures(key._2)
 
     // Do the dot product with the coefficients
     val products = features map {
@@ -102,8 +115,14 @@ class LinearApproximationValues(val coefficients:mutable.HashMap[String, Double]
 
   override def tdUpdate(current:(State, Actions.Value), next:(State, Actions.Value), reward: Double, rate: Double, decay: Double): Boolean = {
 
+    val action = current._2
+    val coefficients = action match {
+      case Actions.Conjunction => coefficientsExploit
+      case Actions.Disjunction => coefficientsExplore
+    }
+
     // The gradient are the feature values because this is a linear function optimizing MSE
-    val gradient = current._1.toFeatures ++ Actions.toFeatures(current._2)
+    val gradient = Map("bias" -> 1.0) ++ current._1.toFeatures //++ Actions.toFeatures(current._2)
 
     val currentVal = this(current)
     val nextVal =this(next)
@@ -132,12 +151,19 @@ class LinearApproximationValues(val coefficients:mutable.HashMap[String, Double]
 
   override def toJson = {
     ("type" -> "linear") ~
-      ("coefficients" -> coefficients.toMap)
+      ("coefficientsExplore" -> coefficientsExplore.toMap) ~
+      ("coefficientsExploit" -> coefficientsExploit.toMap)
   }
 
   private def storeCurrentCoefficients(): Unit ={
-    val keys = coefficients.keySet.toSeq.sorted
-    val vals = keys map coefficients
-    coefficientMemory += DenseVector(vals.toArray)
+
+
+    val keysExplore = coefficientsExplore.keySet.toSeq.sorted
+    val valsExplore = keysExplore map coefficientsExplore
+    coefficientMemoryExplore += DenseVector(valsExplore.toArray)
+
+    val keysExploit = coefficientsExploit.keySet.toSeq.sorted
+    val valsExploit = keysExploit map coefficientsExploit
+    coefficientMemoryExploit += DenseVector(valsExploit.toArray)
   }
 }

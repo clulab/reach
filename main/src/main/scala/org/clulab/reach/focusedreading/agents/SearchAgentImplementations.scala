@@ -8,7 +8,7 @@ import org.clulab.reach.focusedreading.reinforcement_learning.Actions
 import org.clulab.reach.focusedreading.models._
 import org.clulab.reach.focusedreading.reinforcement_learning.states._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
-import org.clulab.reach.focusedreading.{Connection, MostConnectedParticipantsStrategy, Participant}
+import org.clulab.reach.focusedreading.{Connection, ExploreExploitParticipantsStrategy, MostConnectedParticipantsStrategy, Participant}
 
 import scala.collection.mutable
 
@@ -69,7 +69,8 @@ class SQLiteMultiPathSearchAgent(participantA:Participant, participantB:Particip
 }
 
 
-class PolicySearchAgent(participantA:Participant, participantB:Participant, policy:Policy) extends SimplePathAgent(participantA, participantB)
+class PolicySearchAgent(participantA:Participant, participantB:Participant, val policy:Policy) extends SimplePathAgent(participantA, participantB)
+  //with ExploreExploitParticipantsStrategy
   with MostConnectedParticipantsStrategy
   with SQLIRStrategy
   with SQLIteIEStrategy {
@@ -80,6 +81,9 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, poli
   introductions += participantA -> 0
   introductions += participantB -> 0
 
+  override def choseEndPoints(source: Participant, destination: Participant, previouslyChosen: Set[(Participant, Participant)], model: SearchModel): (Participant, Participant) = {
+    super.choseEndPoints(source, destination, previouslyChosen, model)
+  }
 
   //  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
   override val model:SearchModel = new GFSModel(participantA, participantB) // Directed graph with the model.
@@ -101,10 +105,18 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, poli
 
 
 
+    // UNCOMMENT for policy learnt query strategy
     action match {
-      case Actions.Conjunction =>  Query(Conjunction, source, Some(destination))
-      case Actions.Disjunction =>  Query(Disjunction, source, Some(destination))
+      case Actions.Conjunction =>
+        Query(Conjunction, source, Some(destination))
+      case Actions.Disjunction =>
+        Query(Disjunction, source, Some(destination))
     }
+    ///////////
+
+    // UNCOMMENT for deterministic query strategy
+    //Query(Cascade, source, Some(destination))
+    //////////
 
 
   }

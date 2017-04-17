@@ -1,6 +1,6 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.environment
 
-import org.clulab.reach.focusedreading.Participant
+import org.clulab.reach.focusedreading.{MostConnectedAndRecentParticipantsStrategy, MostConnectedParticipantsStrategy, Participant}
 import org.clulab.reach.focusedreading.agents.SQLiteSearchAgent
 import org.clulab.reach.focusedreading.ir.{Query, QueryStrategy}
 import org.clulab.reach.focusedreading.models.{GFSModel, SearchModel}
@@ -29,7 +29,25 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
     if(persist)
       iterationNum += 1
 
+    // UNCOMMENT for deterministic endpoint choosing
     val (a, b) = agent.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
+    ///////
+
+    // UNCOMMENT for policy selected endpoint choosing
+//    val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
+//      override val participantIntroductions = introductions
+//    }
+//    val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
+//
+//    val selectedChooser = action match {
+//      case Actions.Conjunction =>
+//        exploitChooser
+//      case Actions.Disjunction =>
+//        exploreChooser
+//    }
+//
+//    val (a, b) = selectedChooser.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
+    ////////
 
     if(persist){
       agent.triedPairs += Tuple2(a, b)
@@ -41,8 +59,10 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
 
     // Build a query object based on the action
     val query = action match {
-      case Actions.Conjunction => Query(QueryStrategy.Conjunction, a, Some(b))
-      case Actions.Disjunction => Query(QueryStrategy.Disjunction, a, Some(b))
+      case Actions.Conjunction =>
+        Query(QueryStrategy.Conjunction, a, Some(b))
+      case Actions.Disjunction =>
+        Query(QueryStrategy.Disjunction, a, Some(b))
     }
 
     val paperIds = agent.informationRetrival(query)

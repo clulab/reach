@@ -47,23 +47,23 @@ object RandomWalk extends App{
     println(s"State $i: $chosenAction")
   }
 
-  // Print the results of the actions
-
-  val f = Figure()
-  val p = f.subplot(0)
-  val x = linspace(0.0, policyIterator.controlCount.toDouble, policyIterator.controlCount)
-
-  val num = qFunction.coefficients.size
-  val names = qFunction.coefficients.keySet.toSeq.sorted
-  for(i <- 0 until num) {
-    val history = DenseVector(qFunction.coefficientMemory.map(v => v(i)).toArray)
-    p += plot(x, history, '-', null, names(i))
-  }
-
-  p.xlabel = "Update #"
-  p.ylabel = "Coef value"
-
-  f.saveas("plot.png")
+//  // Print the results of the actions
+//
+//  val f = Figure()
+//  val p = f.subplot(0)
+//  val x = linspace(0.0, policyIterator.controlCount.toDouble, policyIterator.controlCount)
+//
+//  val num = qFunction.coefficients.size
+//  val names = qFunction.coefficients.keySet.toSeq.sorted
+//  for(i <- 0 until num) {
+//    val history = DenseVector(qFunction.coefficientMemory.map(v => v(i)).toArray)
+//    p += plot(x, history, '-', null, names(i))
+//  }
+//
+//  p.xlabel = "Update #"
+//  p.ylabel = "Coef value"
+//
+//  f.saveas("plot.png")
 
 
 }

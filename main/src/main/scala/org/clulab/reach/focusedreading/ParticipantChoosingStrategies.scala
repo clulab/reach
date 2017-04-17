@@ -2,6 +2,9 @@ package org.clulab.reach.focusedreading
 
 import collection.mutable
 import org.clulab.reach.focusedreading.models._
+import org.clulab.reach.focusedreading.reinforcement_learning.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
+import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 
 /**
   * Created by enrique on 19/02/17.
@@ -20,18 +23,8 @@ trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
                      model:SearchModel) = {
 
     // Find the components to which each endpoint belongs
-    // SUBSTITUTED val components = (GraphUtils.getComponentOf(source, model), GraphUtils.getComponentOf(destination, model))
     val components = (model.getConnectedComponentOf(source), model.getConnectedComponentOf(destination))
 
-    // Sort the components by their degree
-    // SUBSTITUTED
-//    var (sA, sB) = components match {
-//      case (Some(comS:Set[model.NodeT]), Some(comD:Set[model.NodeT])) =>
-//        val sortedS = comS.toSeq.sortBy(n => n.degree).reverse.map(n => (n.degree, n.value))
-//        val sortedD = comD.toSeq.sortBy(n => n.degree).reverse.map(n => (n.degree, n.value))
-//        (sortedS, sortedD)
-//      case _ => throw new RuntimeException("BEEEP!!")
-//    }
 
     // Sorted by degree
     var (sA, sB) = components match {
@@ -103,4 +96,106 @@ trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
     (a, b)
   }
 
+}
+
+trait MostConnectedAndRecentParticipantsStrategy extends ParticipantChoosingStrategy{
+  val participantIntroductions:mutable.HashMap[Participant, Int]
+
+  override def choseEndPoints(source: Participant, destination: Participant,
+                              previouslyChosen: Set[(Participant, Participant)],
+                              model: SearchModel): (Participant, Participant) = {
+
+
+    val mostRecentIteration = participantIntroductions.values.max
+
+    val possibleEndpoints = participantIntroductions map { case(p, i) => if(i == mostRecentIteration) Some(p) else None} collect { case Some(p) => p }
+
+
+    val sourceComponent = model.getConnectedComponentOf(source).get.toSet
+    val destComponent = model.getConnectedComponentOf(destination).get.toSet
+
+    val sourceChoices = possibleEndpoints.filter(p => sourceComponent.contains(p)).toSeq.sortBy(p => model.degree(p)).reverse
+    val destChoices = possibleEndpoints.filter(p => destComponent.contains(p)).toSeq.sortBy(p => model.degree(p)).reverse
+
+    val endpoints = {
+      val a = if(sourceChoices.size > 0) sourceChoices.head else source
+      val b = if(destChoices.size > 0) destChoices.head else destination
+
+      if(a != b)
+        (a, b)
+      else
+        (source, a)
+    }
+
+
+    endpoints
+
+  }
+
+  /**
+    * Checks wether there's a change from the latest endpoints
+    */
+  def differentEndpoints(a:(Participant, Participant), previouslyChosen:Set[(Participant, Participant)]) = !previouslyChosen.contains(a)
+
+  /**
+    * Picks two enpoints from the stacks
+    * @param sA
+    * @param sB
+    * @return
+    */
+  def pickEndpoints(sA:mutable.Stack[Participant], sB:mutable.Stack[Participant], defaultA:Participant, defaultB:Participant):(Participant, Participant) = {
+
+    val (left, right) = if(sA.size <= sB.size) (sA, sB) else (sB, sA)
+    val a = left.size match {
+      case 0 => defaultA
+      case _ => left.pop()
+    }
+
+    var b = right.size match {
+      case 0 => defaultB
+      case _ => right.pop()
+    }
+
+    var stop = false
+    while(!stop){
+      if(right.nonEmpty) {
+        b = right.pop()
+        stop = a != b
+      }
+      else
+        stop = true
+    }
+
+    (a, b)
+  }
+}
+
+trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
+
+
+  def observeState:State
+  val policy:Policy
+
+  val introductions:mutable.HashMap[Participant, Int] = new mutable.HashMap[Participant, Int]()
+
+  val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
+    override val participantIntroductions = introductions
+  }
+
+  val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
+
+  override def choseEndPoints(source: Participant, destination: Participant,
+                              previouslyChosen: Set[(Participant, Participant)]
+                              , model: SearchModel): (Participant, Participant) = {
+
+    val state = this.observeState
+    val action = policy.selectAction(state)
+
+    action match {
+      case Actions.Disjunction =>
+        exploreChooser.choseEndPoints(source, destination, previouslyChosen, model)
+      case Actions.Conjunction =>
+        exploitChooser.choseEndPoints(source, destination, previouslyChosen, model)
+    }
+  }
 }

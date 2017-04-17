@@ -1,11 +1,11 @@
 package org.clulab.reach.focusedreading.executable
 
-import java.io.File
+import java.io.{BufferedWriter, File, FileOutputStream, FileWriter}
 import java.nio.file.Paths
 
 import org.apache.commons.io.FileUtils
 import org.clulab.reach.focusedreading.{Connection, Participant}
-import org.clulab.reach.focusedreading.agents.{SQLiteSearchAgent, SearchAgent, PolicySearchAgent}
+import org.clulab.reach.focusedreading.agents.{PolicySearchAgent, SQLiteSearchAgent, SearchAgent}
 import org.clulab.reach.focusedreading.executable.SimplePath.{args, logger}
 import org.clulab.reach.focusedreading.tracing.AgentRunTrace
 import org.json4s.native.JsonMethods.{pretty, render}
@@ -88,6 +88,8 @@ object SimplePathRL extends App with LazyLogging{
   val papers = new mutable.ArrayBuffer[String]
   var numQueries = 0
 
+  val bootstrap = new mutable.HashMap[Int, (Boolean, Int, String)]() // (Success, # queries, papers)
+
   for((datum, ix) <- dataSet.zipWithIndex){
 
     val start = System.nanoTime()
@@ -160,11 +162,14 @@ object SimplePathRL extends App with LazyLogging{
 
     val tracePath = AgentRunTrace.getFileName(datum)
 
+    var success = true
     recoveredPath match {
       case Some(_) =>
         AgentRunTrace.save(trace, Paths.get("traces", "successes", tracePath))
+        success = true
       case None =>
         AgentRunTrace.save(trace, Paths.get("traces", "failures", tracePath))
+        success = false
     }
 
     numQueries += agent.iterationNum
@@ -172,6 +177,8 @@ object SimplePathRL extends App with LazyLogging{
 
     times += (end - start)
     papers ++= agent.papersRead
+
+    bootstrap += (ix -> (success, agent.iterationNum, agent.papersRead.mkString(",")))
 
     logger.info("")
   }
@@ -205,8 +212,22 @@ object SimplePathRL extends App with LazyLogging{
 
   val averageRuntime = (times.sum / times.size)
 
+  // Store info for bootstrapping
+
+
   logger.info(s"Average running time: $averageRuntime")
   logger.info(s"Unique papers read: ${papers.toSet.size}")
   logger.info(s"# of queries: $numQueries")
+
+  val bootstrapLines = bootstrap.map {
+    case (ix, v) =>
+      s"$ix\t${v._1}\t${v._2}\t${v._3}\n"
+  }
+
+  //val osw = new BufferedWriter(new FileWriter("rl_bootstrap.txt"))
+
+  //bootstrapLines foreach osw.write
+
+  //osw.close
 
 }

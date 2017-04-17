@@ -3,7 +3,7 @@ package org.clulab.reach.focusedreading.executable
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.focusedreading.{Connection, Participant}
 import org.clulab.reach.focusedreading.agents._
-import java.io.File
+import java.io.{BufferedWriter, File, FileWriter}
 import java.nio.file.Paths
 
 import org.json4s.JsonDSL._
@@ -91,6 +91,8 @@ object SimplePath extends App with LazyLogging{
     val papers = new mutable.ArrayBuffer[String]
     var numQueries = 0
 
+    val bootstrap = new mutable.HashMap[Int, (Boolean, Int, String)]() // (Success, # queries, papers)
+
     for((datum, ix) <- dataSet.zipWithIndex){
 
       val start = System.nanoTime()
@@ -162,11 +164,14 @@ object SimplePath extends App with LazyLogging{
 
       val tracePath = AgentRunTrace.getFileName(datum)
 
+      var success = true
       recoveredPath match {
         case Some(_) =>
           AgentRunTrace.save(trace, Paths.get("traces", "successes", tracePath))
+          success = true
         case None =>
           AgentRunTrace.save(trace, Paths.get("traces", "failures", tracePath))
+          success = false
       }
 
       numQueries += agent.iterationNum
@@ -174,6 +179,8 @@ object SimplePath extends App with LazyLogging{
 
       times += (end - start)
       papers ++= agent.papersRead
+
+      bootstrap += (ix -> (success, agent.iterationNum, agent.papersRead.mkString(",")))
 
       logger.info("")
     }
@@ -210,5 +217,16 @@ object SimplePath extends App with LazyLogging{
     logger.info(s"Average running time: $averageRuntime")
     logger.info(s"Unique papers read: ${papers.toSet.size}")
     logger.info(s"# of queries: $numQueries")
+
+  val bootstrapLines = bootstrap.map {
+    case (ix, v) =>
+      s"$ix\t${v._1}\t${v._2}\t${v._3}\n"
+  }
+
+  val osw = new BufferedWriter(new FileWriter("baseline_bootstrap.txt"))
+
+  bootstrapLines foreach osw.write
+
+  osw.close
 }
 

@@ -66,6 +66,7 @@ class SARSA(environmentFabric:() => Option[Environment], episodeBound:Int, burnI
             currentState = nextState
             currentAction = nextAction
 
+
             controlCount += 1
           }
 

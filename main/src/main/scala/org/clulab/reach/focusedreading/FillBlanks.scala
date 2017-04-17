@@ -35,7 +35,7 @@ case class Participant(namespace:String, id:String){
     case _ => false
   }
 
-  override def hashCode(): Int = (this.id + this.namespace).hashCode
+  override def hashCode(): Int =  (this.id + this.namespace).hashCode
 
   override def toString: String = s"$namespace:$id"
 }

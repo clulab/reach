@@ -1,5 +1,7 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.exec.focused_reading
 
+import breeze.linalg.{DenseVector, linspace}
+import breeze.plot.{Figure, plot}
 import org.clulab.reach.focusedreading.Participant
 import org.clulab.reach.focusedreading.reinforcement_learning.environment.{Environment, SimplePathEnvironment}
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.{EpGreedyPolicy, LinearApproximationValues, TabularValues}
@@ -32,7 +34,7 @@ object TabularSARSA extends App {
       None
   }
 
-  val policyIteration = new SARSA(focusedReadingFabric, 10000, 30)
+  val policyIteration = new SARSA(focusedReadingFabric, 10000, 30, 0.005)
   val qFunction = new TabularValues(0)
   val initialPolicy = new EpGreedyPolicy(0.1, qFunction)
 
@@ -66,7 +68,7 @@ object LinearSARSA extends App {
       None
   }
 
-  val policyIteration = new SARSA(focusedReadingFabric, 10000, 30)
+  val policyIteration = new SARSA(focusedReadingFabric, 2000, 30)
   val qFunction = new LinearApproximationValues
   val initialPolicy = new EpGreedyPolicy(0.1, qFunction)
 
@@ -75,5 +77,53 @@ object LinearSARSA extends App {
   // Store the policy somewhere
   // Serializer.save(learntPolicy, "learnt_policy.ser")
   learntPolicy.save("learnt_policy.json")
+
+  val f = Figure()
+  val p = f.subplot(0)
+  val x = linspace(0.0, policyIteration.controlCount.toDouble, policyIteration.controlCount)
+
+  val num = qFunction.coefficientsExplore.size
+  val names = qFunction.coefficientsExplore.keySet.toSeq.sorted
+  for(i <- 0 until num) {
+    val history = DenseVector(qFunction.coefficientMemoryExplore.map {
+      v =>
+        if(v.length == 0)
+          0.0
+        else
+          v(i)
+    }.toArray)
+
+    p += plot(x, history, '-', null, names(i))
+  }
+
+  p.legend = true
+  p.xlabel = "Update #"
+  p.ylabel = "Coef Explore value"
+
+  f.saveas("plot_explore.png")
+
+//  val f2 = Figure()
+//  val p2 = f.subplot(0)
+//  val x2= linspace(0.0, policyIteration.controlCount.toDouble, policyIteration.controlCount)
+//
+//  val num2 = qFunction.coefficientsExploit.size
+//  val names2 = qFunction.coefficientsExploit.keySet.toSeq.sorted
+//  for(i <- 0 until num2) {
+//    val history = DenseVector(qFunction.coefficientMemoryExploit.map {
+//      v =>
+//        if(v.length == 0)
+//          0.0
+//        else
+//          v(i)
+//    }.toArray)
+//
+//    p2 += plot(x2, history, '-', null, names(i))
+//  }
+//
+//  p2.legend = true
+//  p2.xlabel = "Update #"
+//  p2.ylabel = "Coef Exploit value"
+//
+//  f2.saveas("plot_exploit.png")
 }
 
