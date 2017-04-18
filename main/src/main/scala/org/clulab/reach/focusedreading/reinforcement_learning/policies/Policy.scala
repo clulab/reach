@@ -12,8 +12,8 @@ import scala.language.implicitConversions
 /**
   * Created by enrique on 26/03/17.
   */
-abstract class Policy(val actionSet:Set[Action]) {
-  def selectAction(s:State):Action
+abstract class Policy {
+  def selectAction(s:State, possibleActions:Set[Action]):Action
 
   // Save the policy as json
   def save(path:String)
@@ -27,8 +27,8 @@ object Policy {
       case "ep_greedy" =>
         val epsilon = (ast \ "epsilon").extract[Double]
         val values = Values.loadValues((ast \ "values").extract[JObject])
-        val actions = values.asInstanceOf[LinearApproximationValues].coefficients.keySet
-        new EpGreedyPolicy(epsilon, values, actions)
+        //val actions = values.asInstanceOf[LinearApproximationValues].coefficients.keySet
+        new EpGreedyPolicy(epsilon, values)
       case _ =>
         throw new NotImplementedError("Not yet implemented")
     }

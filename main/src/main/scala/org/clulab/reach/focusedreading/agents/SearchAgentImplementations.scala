@@ -5,7 +5,7 @@ import org.clulab.reach.focusedreading.ie.{REACHIEStrategy, SQLIteIEStrategy}
 import org.clulab.reach.focusedreading.ir.QueryStrategy._
 import org.clulab.reach.focusedreading.ir.{LuceneIRStrategy, Query, SQLIRStrategy}
 import org.clulab.reach.focusedreading.models._
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Explore, Exploit}
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, ExploreQuery, ExploitQuery}
 import org.clulab.reach.focusedreading.reinforcement_learning.states._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.{Connection, ExploreExploitParticipantsStrategy, MostConnectedParticipantsStrategy, Participant}
@@ -70,13 +70,13 @@ class SQLiteMultiPathSearchAgent(participantA:Participant, participantB:Particip
 
 
 class PolicySearchAgent(participantA:Participant, participantB:Participant, val policy:Policy) extends SimplePathAgent(participantA, participantB)
-  //with ExploreExploitParticipantsStrategy
-  with MostConnectedParticipantsStrategy
+  with ExploreExploitParticipantsStrategy
+  //with MostConnectedParticipantsStrategy
   with SQLIRStrategy
   with SQLIteIEStrategy {
 
   val queryLog = new mutable.ArrayBuffer[(Participant, Participant)]
-  val introductions = new mutable.HashMap[Participant, Int]
+  //val introductions = new mutable.HashMap[Participant, Int]
 
   introductions += participantA -> 0
   introductions += participantB -> 0
@@ -96,20 +96,21 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
     queryLog += Tuple2(source, destination)
 
+    val possibleActions:Set[Action] = Set(ExploreQuery(), ExploitQuery())
 
     // Create state
     val state = this.observeState
 
     // Query the policy
-    val action = policy.selectAction(state)
+    val action = policy.selectAction(state, possibleActions)
 
 
 
     // UNCOMMENT for policy learnt query strategy
     action match {
-      case et:Exploit =>
+      case et:ExploitQuery =>
         Query(Conjunction, source, Some(destination))
-      case er:Explore =>
+      case er:ExploreQuery =>
         Query(Disjunction, source, Some(destination))
     }
     ///////////

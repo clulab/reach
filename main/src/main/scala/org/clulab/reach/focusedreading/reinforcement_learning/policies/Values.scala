@@ -1,7 +1,9 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policies
 
 import breeze.linalg.DenseVector
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Exploit, Explore}
+import breeze.stats.distributions.Uniform
+import org.clulab.reach.focusedreading.reinforcement_learning.randGen
+import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 
 import collection.mutable
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
@@ -35,21 +37,41 @@ object Values{
     (ast \ "type") match {
       case JString("linear") =>
 
-        val valsExplore = (ast \ "coefficientsExplore").asInstanceOf[JObject].obj
-        val valsExploit = (ast \ "coefficientsExploit").asInstanceOf[JObject].obj
+        val valsExploreQuery = (ast \ "coefficientsExploreQuery").asInstanceOf[JObject].obj
+        val valsExploitQuery = (ast \ "coefficientsExploitQuery").asInstanceOf[JObject].obj
+        val valsExploreEndpoints = (ast \ "coefficientsExploreEndpoints").asInstanceOf[JObject].obj
+        val valsExploitEndpoints = (ast \ "coefficientsExploitEndpoints").asInstanceOf[JObject].obj
+
 
         // Make a map out of the coefficients
-        val coefficientsExplore = new mutable.HashMap[String, Double]
-        for((k, v) <- valsExplore){
-          coefficientsExplore += (k -> v.extract[Double])
+        val coefficientsExploreQuery = new mutable.HashMap[String, Double]
+        for((k, v) <- valsExploreQuery){
+          coefficientsExploreQuery += (k -> v.extract[Double])
         }
 
-        val coefficientsExploit = new mutable.HashMap[String, Double]
-        for((k, v) <- valsExploit){
-          coefficientsExploit += (k -> v.extract[Double])
+        val coefficientsExploreEndpoints = new mutable.HashMap[String, Double]
+        for((k, v) <- valsExploreQuery){
+          coefficientsExploreEndpoints += (k -> v.extract[Double])
         }
-        new LinearApproximationValues(Map(Explore().asInstanceOf[Action] -> coefficientsExplore, Exploit() -> coefficientsExploit))
-        //new LinearApproximationValues(Set[Action]())
+
+        val coefficientsExploitQuery = new mutable.HashMap[String, Double]
+        for((k, v) <- valsExploitQuery){
+          coefficientsExploitQuery += (k -> v.extract[Double])
+        }
+
+        val coefficientsExploitEndpoints = new mutable.HashMap[String, Double]
+        for((k, v) <- valsExploitQuery){
+          coefficientsExploitEndpoints += (k -> v.extract[Double])
+        }
+
+        val coefficientsMap = Map(
+          ExploreQuery().asInstanceOf[Action] -> coefficientsExploreQuery,
+          ExploitQuery() -> coefficientsExploitQuery,
+          ExploreEndpoints() -> coefficientsExploreEndpoints,
+          ExploitEndpoints() -> coefficientsExploitEndpoints
+        )
+
+        new LinearApproximationValues(coefficientsMap)
       case _ =>
         throw new NotImplementedError("Not yet implemented")
     }
@@ -90,6 +112,8 @@ class TabularValues(default:Double) extends Values {
 
 class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[String, Double]]) extends Values {
 
+  val uniformDist = Uniform(-1, 1)(randGen)
+
   def this(actions:Set[Action]) = {
     this(actions.map(a => a -> new mutable.HashMap[String, Double]).toMap)
   }
@@ -111,7 +135,7 @@ class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[Str
     // Do the dot product with the coefficients
     val products = features map {
       case (k, v) =>
-        val coefficient = actionCoefficients.lift(k).getOrElse(0.0)
+        val coefficient = actionCoefficients.lift(k).getOrElse(uniformDist.sample())
         coefficient*v
     }
 
@@ -156,8 +180,10 @@ class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[Str
     val maps = coefficients.map{case (k, v) => (k.toString -> v)}.toSeq
     ("type" -> "linear") ~
       //("coefficients" -> maps)
-      ("coefficientsExplore" -> coefficients(Explore()).toMap) ~
-      ("coefficientsExploit" -> coefficients(Exploit()).toMap)
+      ("coefficientsExploreQuery" -> coefficients(ExploreQuery()).toMap) ~
+      ("coefficientsExploitQuery" -> coefficients(ExploitQuery()).toMap) ~
+      ("coefficientsExploreEndpoints" -> coefficients(ExploreEndpoints()).toMap) ~
+      ("coefficientsExploitEndpoints" -> coefficients(ExploitEndpoints()).toMap)
   }
 
   private def storeCurrentCoefficients(): Unit ={

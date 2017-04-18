@@ -4,7 +4,7 @@ import org.clulab.reach.focusedreading.{MostConnectedAndRecentParticipantsStrate
 import org.clulab.reach.focusedreading.agents.SQLiteSearchAgent
 import org.clulab.reach.focusedreading.ir.{Query, QueryStrategy}
 import org.clulab.reach.focusedreading.models.{GFSModel, SearchModel}
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Exploit, Explore}
+import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.reinforcement_learning.states.{FocusedReadingState, RankBin, State}
 
@@ -24,45 +24,26 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
 
   var iterationNum = 0
 
-  override def executePolicy(action:Action, persist:Boolean = true):Double = {
+  // Stages
+  val ENDPOINT = true
+  val QUERY = false
 
-    if(persist)
-      iterationNum += 1
+  var stage:Boolean = ENDPOINT
 
-    // UNCOMMENT for deterministic endpoint choosing
-    val (a, b) = agent.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
-    ///////
 
-    // UNCOMMENT for policy selected endpoint choosing
-//    val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
-//      override val participantIntroductions = introductions
-//    }
-//    val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
-//
-//    val selectedChooser = action match {
-//      case Actions.Conjunction =>
-//        exploitChooser
-//      case Actions.Disjunction =>
-//        exploreChooser
-//    }
-//
-//    val (a, b) = selectedChooser.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
-    ////////
+  private def executePolicyQueryStage(action:Action, persist:Boolean):Double = {
 
-    if(persist){
-      agent.triedPairs += Tuple2(a, b)
-      queryLog += Tuple2(a, b)
-    }
-
-    // Fetch the current state
-    //val currentState = fillState(agent.model, iterationNum, a, b, queryLog, introductions)
+    // Fetch the endpoints
+    val (a, b) = queryLog.last
 
     // Build a query object based on the action
     val query = action match {
-      case _:Exploit =>
+      case _:ExploitQuery =>
         Query(QueryStrategy.Conjunction, a, Some(b))
-      case _:Explore =>
+      case _:ExploreQuery =>
         Query(QueryStrategy.Disjunction, a, Some(b))
+      case _ =>
+        throw new RuntimeException("Got an invalid action type for the query stage")
     }
 
     val paperIds = agent.informationRetrival(query)
@@ -90,6 +71,10 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
     // Increment the iteration count
     agent.iterationNum += 1
 
+    // Set the stage to endpoint
+    stage = ENDPOINT
+
+
     // Return the observed reward
     if(!agent.hasFinished(participantA, participantB, agent.model)){
       // If this episode hasn't finished
@@ -102,6 +87,52 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
         case None => -1.0
       }
     }
+  }
+
+  private def executePolicyEndpointsStage(action:Action, persist:Boolean):Double = {
+    if(persist)
+      iterationNum += 1
+
+    // UNCOMMENT for deterministic endpoint choosing
+    //val (a, b) = agent.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
+    ///////
+
+
+
+    // UNCOMMENT for policy selected endpoint choosing
+    val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
+      override val participantIntroductions = introductions
+    }
+    val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
+
+    val selectedChooser = action match {
+      case _:ExploitEndpoints => exploitChooser
+      case _:ExploreEndpoints => exploreChooser
+      case _ => throw new RuntimeException("Invalid action for the ENDPOINTS stage")
+    }
+
+    val (a, b) = selectedChooser.choseEndPoints(participantA, participantB, agent.triedPairs.toSet, agent.model)
+    ////////
+
+
+    if(persist){
+      agent.triedPairs += Tuple2(a, b)
+      queryLog += Tuple2(a, b)
+    }
+
+    stage = QUERY
+
+    0.0 //TODO: Tinker with this reward
+  }
+
+  override def executePolicy(action:Action, persist:Boolean = true):Double = (stage: @unchecked) match {
+    case QUERY => executePolicyQueryStage(action, persist)
+    case ENDPOINT => executePolicyEndpointsStage(action, persist)
+  }
+
+  override def possibleActions(): Set[Action] = (stage: @unchecked) match {
+    case ENDPOINT => Set(ExploitEndpoints(), ExploreEndpoints())
+    case QUERY => Set(ExploitQuery(), ExploreQuery())
   }
 
   private def fillState(model:SearchModel, iterationNum:Int, queryLog:Seq[(Participant, Participant)], introductions:mutable.Map[Participant, Int]):State = {

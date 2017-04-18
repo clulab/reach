@@ -3,9 +3,10 @@ package org.clulab.reach.focusedreading.reinforcement_learning.policies
 import java.io.{BufferedWriter, FileWriter}
 
 import breeze.linalg._
-import breeze.stats.distributions.Multinomial
+import breeze.stats.distributions.{Multinomial, Uniform}
 import org.clulab.reach.focusedreading.reinforcement_learning.actions.Action
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
+import org.clulab.reach.focusedreading.reinforcement_learning.randGen
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
@@ -14,25 +15,40 @@ import org.json4s.JsonDSL._
   * Created by enrique on 26/03/17.
   */
 
-class EpGreedyPolicy(epsilon:Double, val values:Values, override val actionSet:Set[Action]) extends Policy(actionSet) {
+class EpGreedyPolicy(epsilons:Iterator[Double], val values:Values) extends Policy {
 
-  assert(epsilon <= 1 && epsilon >= 0, s"Invalid Epsilon value: $epsilon")
 
-  override def selectAction(s: State):Action= {
+  def this(epsilon:Double, values:Values){
+    this(Stream.continually[Double](epsilon).iterator, values)
+  }
+
+  var firstEpsilon:Option[Double] = None
+
+
+  override def selectAction(s: State, possibleActions:Set[Action]):Action= {
+
+    val epsilon = epsilons.next()
+
+    if(firstEpsilon == None)
+      firstEpsilon = Some(epsilon)
+
+    assert(epsilon <= 1 && epsilon >= 0, s"Invalid Epsilon value: $epsilon")
 
     // Is there a more idiomatic way to do this in scala?
-    val numActions = actionSet.size
+    val numActions = possibleActions.size
 
     val slice = epsilon / numActions
     val greedyProb = 1 - epsilon + slice
 
-    val possibleActions:Seq[(State, Action)] = actionSet.map(a => (s, a)).toSeq.reverse // TODO: The order of this matters! Figure out why
-    val possibleActionValues = possibleActions map (k => values(k))
-    val sortedActions = possibleActions.zip(possibleActionValues).sortBy{case(sa, v) => v}.map(_._1._2).reverse
+    val stateActions:Seq[(State, Action)] = possibleActions.map(a => (s, a)).toSeq // TODO: The order of this matters! Figure out why
+    val stateActionValues = stateActions map (k => values(k))
+    val sortedActions = stateActions.zip(stateActionValues).sortBy{case(sa, v) => v}.map(_._1._2).reverse
     val probs = greedyProb::List.fill(numActions-1)(slice)
 
     // Do a random sample from a multinomial distribution using probs as parameter
-    val dist = Multinomial(DenseVector(probs.toArray))
+    implicit val rand = randGen // This sets the random number generator for the
+    val dist = new Multinomial(DenseVector(probs.toArray))
+
 
     val choiceIx = dist.sample
     val choice = sortedActions(choiceIx)
@@ -44,7 +60,7 @@ class EpGreedyPolicy(epsilon:Double, val values:Values, override val actionSet:S
   override def save(path:String): Unit ={
     val ast = {
       ("type" -> "ep_greedy") ~
-      ("epsilon" -> epsilon) ~
+      ("epsilon" -> firstEpsilon.getOrElse(0.0)) ~
         ("values" -> values.toJson)
     }
 
@@ -55,5 +71,5 @@ class EpGreedyPolicy(epsilon:Double, val values:Values, override val actionSet:S
     bfw.close
   }
 
-  def makeGreedy:GreedyPolicy = new GreedyPolicy(values, actionSet)
+  def makeGreedy:GreedyPolicy = new GreedyPolicy(values)
 }

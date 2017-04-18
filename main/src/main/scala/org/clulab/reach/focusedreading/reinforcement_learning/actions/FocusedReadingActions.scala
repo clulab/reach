@@ -6,10 +6,14 @@ package org.clulab.reach.focusedreading.reinforcement_learning.actions
 
 sealed class FocusedReadingAction() extends Action
 
-case class Explore() extends FocusedReadingAction{
+case class ExploreQuery() extends FocusedReadingAction{
   override def toString: String = "Explore"
 }
 
-case class Exploit() extends FocusedReadingAction{
+case class ExploitQuery() extends FocusedReadingAction{
   override def toString: String = "Exploit"
 }
+
+case class ExploreEndpoints() extends FocusedReadingAction
+
+case class ExploitEndpoints() extends FocusedReadingAction

@@ -2,7 +2,7 @@ package org.clulab.reach.focusedreading
 
 import collection.mutable
 import org.clulab.reach.focusedreading.models._
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Explore, Exploit}
+import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 
@@ -175,6 +175,7 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
 
   def observeState:State
   val policy:Policy
+  val possibleActions:Set[Action] = Set(ExploreEndpoints(), ExploitEndpoints())
 
   val introductions:mutable.HashMap[Participant, Int] = new mutable.HashMap[Participant, Int]()
 
@@ -189,12 +190,12 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
                               , model: SearchModel): (Participant, Participant) = {
 
     val state = this.observeState
-    val action = policy.selectAction(state)
+    val action = policy.selectAction(state, possibleActions)
 
     action match {
-      case er:Explore =>
+      case er:ExploreEndpoints =>
         exploreChooser.choseEndPoints(source, destination, previouslyChosen, model)
-      case et:Exploit =>
+      case et:ExploitEndpoints =>
         exploitChooser.choseEndPoints(source, destination, previouslyChosen, model)
     }
   }

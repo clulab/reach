@@ -3,7 +3,7 @@ package org.clulab.reach.focusedreading.reinforcement_learning.exec.focused_read
 import breeze.linalg.{DenseVector, linspace}
 import breeze.plot.{Figure, plot}
 import org.clulab.reach.focusedreading.Participant
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Exploit, Explore}
+import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.environment.{Environment, SimplePathEnvironment}
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.{EpGreedyPolicy, LinearApproximationValues, TabularValues}
 import org.clulab.reach.focusedreading.reinforcement_learning.policy_iteration.td.SARSA
@@ -71,10 +71,18 @@ object LinearSARSA extends App {
       None
   }
 
-  val policyIteration = new SARSA(focusedReadingFabric, 2000, 30, 0.01)
-  val possibleActions = Set(Exploit(), Explore()).asInstanceOf[Set[Action]]
+  val numEpisodes = 2000
+
+  val policyIteration = new SARSA(focusedReadingFabric, numEpisodes, 30, 0.01)
+  val possibleActions:Set[Action] = Set(ExploitQuery(), ExploreQuery(), ExploreEndpoints(), ExploitEndpoints())
   val qFunction = new LinearApproximationValues(possibleActions)
-  val initialPolicy = new EpGreedyPolicy(0.1, qFunction, qFunction.coefficients.keySet)
+
+  // Decaying epsilon
+  val epsilon = 0.3
+  val epsilonDecrease = (epsilon-0.01)/numEpisodes
+  val eps = (0 to numEpisodes).toStream.map(i => epsilon-(i*epsilonDecrease)).iterator ++ Stream.continually(0.01)
+  ///////////////////
+  val initialPolicy = new EpGreedyPolicy(eps, qFunction)
 
   val learntPolicy = policyIteration.iteratePolicy(initialPolicy)
 
