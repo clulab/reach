@@ -1,6 +1,6 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policies
 
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Action
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 import org.json4s.JsonAST.JObject
 import org.json4s._
@@ -12,8 +12,8 @@ import scala.language.implicitConversions
 /**
   * Created by enrique on 26/03/17.
   */
-trait Policy {
-  def selectAction(s:State):Actions.Value
+abstract class Policy(val actionSet:Set[Action]) {
+  def selectAction(s:State):Action
 
   // Save the policy as json
   def save(path:String)
@@ -27,7 +27,8 @@ object Policy {
       case "ep_greedy" =>
         val epsilon = (ast \ "epsilon").extract[Double]
         val values = Values.loadValues((ast \ "values").extract[JObject])
-        new EpGreedyPolicy(epsilon, values)
+        val actions = values.asInstanceOf[LinearApproximationValues].coefficients.keySet
+        new EpGreedyPolicy(epsilon, values, actions)
       case _ =>
         throw new NotImplementedError("Not yet implemented")
     }

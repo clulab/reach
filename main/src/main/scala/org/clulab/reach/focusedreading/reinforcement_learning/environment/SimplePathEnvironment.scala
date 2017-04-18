@@ -4,7 +4,7 @@ import org.clulab.reach.focusedreading.{MostConnectedAndRecentParticipantsStrate
 import org.clulab.reach.focusedreading.agents.SQLiteSearchAgent
 import org.clulab.reach.focusedreading.ir.{Query, QueryStrategy}
 import org.clulab.reach.focusedreading.models.{GFSModel, SearchModel}
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Exploit, Explore}
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.reinforcement_learning.states.{FocusedReadingState, RankBin, State}
 
@@ -24,7 +24,7 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
 
   var iterationNum = 0
 
-  override def executePolicy(action:Actions.Value, persist:Boolean = true):Double = {
+  override def executePolicy(action:Action, persist:Boolean = true):Double = {
 
     if(persist)
       iterationNum += 1
@@ -59,9 +59,9 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
 
     // Build a query object based on the action
     val query = action match {
-      case Actions.Exploit =>
+      case _:Exploit =>
         Query(QueryStrategy.Conjunction, a, Some(b))
-      case Actions.Explore =>
+      case _:Explore =>
         Query(QueryStrategy.Disjunction, a, Some(b))
     }
 

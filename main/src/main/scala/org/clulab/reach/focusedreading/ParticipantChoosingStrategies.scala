@@ -2,7 +2,7 @@ package org.clulab.reach.focusedreading
 
 import collection.mutable
 import org.clulab.reach.focusedreading.models._
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Explore, Exploit}
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 
@@ -192,9 +192,9 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
     val action = policy.selectAction(state)
 
     action match {
-      case Actions.Explore =>
+      case er:Explore =>
         exploreChooser.choseEndPoints(source, destination, previouslyChosen, model)
-      case Actions.Exploit =>
+      case et:Exploit =>
         exploitChooser.choseEndPoints(source, destination, previouslyChosen, model)
     }
   }

@@ -1,7 +1,7 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policies
 
 import breeze.linalg.DenseVector
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Exploit, Explore}
 
 import collection.mutable
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
@@ -23,8 +23,8 @@ import scala.language.implicitConversions
 
 abstract class Values(val tolerance:Double = 1e-4){
 
-  def apply(key:(State, Actions.Value)):Double
-  def tdUpdate(current:(State, Actions.Value), next:(State, Actions.Value), reward:Double, rate:Double, decay:Double):Boolean
+  def apply(key:(State, Action)):Double
+  def tdUpdate(current:(State, Action), next:(State, Action), reward:Double, rate:Double, decay:Double):Boolean
   def toJson:JObject
 }
 
@@ -34,6 +34,7 @@ object Values{
   def loadValues(ast:JObject):Values = {
     (ast \ "type") match {
       case JString("linear") =>
+
         val valsExplore = (ast \ "coefficientsExplore").asInstanceOf[JObject].obj
         val valsExploit = (ast \ "coefficientsExploit").asInstanceOf[JObject].obj
 
@@ -47,7 +48,8 @@ object Values{
         for((k, v) <- valsExploit){
           coefficientsExploit += (k -> v.extract[Double])
         }
-        new LinearApproximationValues(coefficientsExplore, coefficientsExploit)
+        new LinearApproximationValues(Map(Explore().asInstanceOf[Action] -> coefficientsExplore, Exploit() -> coefficientsExploit))
+        //new LinearApproximationValues(Set[Action]())
       case _ =>
         throw new NotImplementedError("Not yet implemented")
     }
@@ -55,9 +57,9 @@ object Values{
 }
 
 class TabularValues(default:Double) extends Values {
-  val backEnd = new mutable.HashMap[(State, Actions.Value), Double]
+  val backEnd = new mutable.HashMap[(State, Action), Double]
 
-  override def apply(key:(State, Actions.Value)): Double = {
+  override def apply(key:(State, Action)): Double = {
     if(backEnd.contains(key))
       backEnd(key)
     else{
@@ -66,7 +68,7 @@ class TabularValues(default:Double) extends Values {
     }
   }
 
-  override def tdUpdate(current:(State, Actions.Value), next:(State, Actions.Value), reward:Double, rate:Double, decay:Double) = {
+  override def tdUpdate(current:(State, Action), next:(State, Action), reward:Double, rate:Double, decay:Double) = {
     val value:Double = this(current)
     val newValue:Double = value + (rate*(reward + decay*this(next) - value))
 
@@ -86,27 +88,30 @@ class TabularValues(default:Double) extends Values {
 }
 
 
-class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, Double] = new mutable.HashMap[String, Double], val coefficientsExploit:mutable.HashMap[String, Double] = new mutable.HashMap[String, Double]) extends Values {
+class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[String, Double]]) extends Values {
+
+  def this(actions:Set[Action]) = {
+    this(actions.map(a => a -> new mutable.HashMap[String, Double]).toMap)
+  }
 
   //val coefficients = new mutable.HashMap[String, Double]
 
-  val coefficientMemoryExplore = new mutable.ArrayBuffer[DenseVector[Double]]
-  val coefficientMemoryExploit = new mutable.ArrayBuffer[DenseVector[Double]]
+  val coefficientMemory:Map[Action, mutable.ArrayBuffer[DenseVector[Double]]] = coefficients.keys.map{
+    k => k -> new mutable.ArrayBuffer[DenseVector[Double]]
+  }.toMap
 
-  override def apply(key:(State, Actions.Value)): Double = {
+  override def apply(key:(State, Action)): Double = {
 
     val action = key._2
-    val coefficients = action match {
-      case Actions.Exploit => coefficientsExploit
-      case Actions.Explore => coefficientsExplore
-    }
+    val actionCoefficients = coefficients(action)
+
     // Encode the state vector into features
     val features = Map("bias" -> 1.0) ++ key._1.toFeatures //++ Actions.toFeatures(key._2)
 
     // Do the dot product with the coefficients
     val products = features map {
       case (k, v) =>
-        val coefficient = coefficients.lift(k).getOrElse(0.0)
+        val coefficient = actionCoefficients.lift(k).getOrElse(0.0)
         coefficient*v
     }
 
@@ -114,13 +119,10 @@ class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, 
     products.sum
   }
 
-  override def tdUpdate(current:(State, Actions.Value), next:(State, Actions.Value), reward: Double, rate: Double, decay: Double): Boolean = {
+  override def tdUpdate(current:(State, Action), next:(State, Action), reward: Double, rate: Double, decay: Double): Boolean = {
 
     val action = current._2
-    val coefficients = action match {
-      case Actions.Exploit => coefficientsExploit
-      case Actions.Explore => coefficientsExplore
-    }
+    val actionCoefficients = coefficients(action)
 
     // The gradient are the feature values because this is a linear function optimizing MSE
     val gradient = Map("bias" -> 1.0) ++ current._1.toFeatures //++ Actions.toFeatures(current._2)
@@ -135,9 +137,9 @@ class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, 
 
     // Now perform the update
     for(k <- gradient.keys){
-      val value = coefficients.lift(k).getOrElse(0.0)
+      val value = actionCoefficients.lift(k).getOrElse(0.0)
       val newValue = value + delta*gradient(k)
-      coefficients(k) = newValue
+      actionCoefficients(k) = newValue
 
       // Return whether the current changed above the requested tolerance
       if(Math.abs(newValue - value) > tolerance)
@@ -151,20 +153,19 @@ class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, 
   }
 
   override def toJson = {
+    val maps = coefficients.map{case (k, v) => (k.toString -> v)}.toSeq
     ("type" -> "linear") ~
-      ("coefficientsExplore" -> coefficientsExplore.toMap) ~
-      ("coefficientsExploit" -> coefficientsExploit.toMap)
+      //("coefficients" -> maps)
+      ("coefficientsExplore" -> coefficients(Explore()).toMap) ~
+      ("coefficientsExploit" -> coefficients(Exploit()).toMap)
   }
 
   private def storeCurrentCoefficients(): Unit ={
-
-
-    val keysExplore = coefficientsExplore.keySet.toSeq.sorted
-    val valsExplore = keysExplore map coefficientsExplore
-    coefficientMemoryExplore += DenseVector(valsExplore.toArray)
-
-    val keysExploit = coefficientsExploit.keySet.toSeq.sorted
-    val valsExploit = keysExploit map coefficientsExploit
-    coefficientMemoryExploit += DenseVector(valsExploit.toArray)
+    for(action <- coefficients.keys){
+      val localCoefficients = coefficients(action)
+      val keys = localCoefficients.keySet.toSeq.sorted
+      val vals = keys map localCoefficients
+      coefficientMemory(action) += DenseVector(vals.toArray)
+    }
   }
 }

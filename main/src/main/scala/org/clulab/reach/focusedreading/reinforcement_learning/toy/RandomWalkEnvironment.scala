@@ -1,6 +1,6 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.toy
 
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, Exploit, Explore}
 import org.clulab.reach.focusedreading.reinforcement_learning.environment.Environment
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 
@@ -18,15 +18,15 @@ case class RandomWalkEnvironment(startingState:Int, val numStates:Int) extends E
 
   private def reward(state:Int) = if(state == numStates) 1.0 else -0.01
 
-  override def executePolicy(action: Actions.Value, persist: Boolean = true): Double = {
+  override def executePolicy(action: Action, persist: Boolean = true): Double = {
 
     // Move to wherever the action says
     action match {
-      case Actions.Exploit =>
+      case _:Exploit =>
         // Left
         if(currentState > 0)
           currentState -= 1
-      case Actions.Explore =>
+      case _:Explore =>
         // Right
         if(currentState < 5)
           currentState += 1
