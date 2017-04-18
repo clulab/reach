@@ -4,7 +4,7 @@ import java.io.{BufferedWriter, FileWriter}
 
 import breeze.linalg._
 import breeze.stats.distributions.Multinomial
-import org.clulab.reach.focusedreading.reinforcement_learning.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 import org.json4s._
 import org.json4s.native.JsonMethods._

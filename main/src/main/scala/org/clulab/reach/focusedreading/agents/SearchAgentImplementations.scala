@@ -4,8 +4,8 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.focusedreading.ie.{REACHIEStrategy, SQLIteIEStrategy}
 import org.clulab.reach.focusedreading.ir.QueryStrategy._
 import org.clulab.reach.focusedreading.ir.{LuceneIRStrategy, Query, SQLIRStrategy}
-import org.clulab.reach.focusedreading.reinforcement_learning.Actions
 import org.clulab.reach.focusedreading.models._
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.states._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.{Connection, ExploreExploitParticipantsStrategy, MostConnectedParticipantsStrategy, Participant}
@@ -107,9 +107,9 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
     // UNCOMMENT for policy learnt query strategy
     action match {
-      case Actions.Conjunction =>
+      case Actions.Exploit =>
         Query(Conjunction, source, Some(destination))
-      case Actions.Disjunction =>
+      case Actions.Explore =>
         Query(Disjunction, source, Some(destination))
     }
     ///////////

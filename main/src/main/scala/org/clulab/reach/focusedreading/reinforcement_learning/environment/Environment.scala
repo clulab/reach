@@ -1,6 +1,6 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.environment
 
-import org.clulab.reach.focusedreading.reinforcement_learning.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 
 /**

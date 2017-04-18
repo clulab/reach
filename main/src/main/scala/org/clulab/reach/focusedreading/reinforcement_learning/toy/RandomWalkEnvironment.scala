@@ -1,7 +1,7 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.toy
 
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.environment.Environment
-import org.clulab.reach.focusedreading.reinforcement_learning.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 
 /**
@@ -22,11 +22,11 @@ case class RandomWalkEnvironment(startingState:Int, val numStates:Int) extends E
 
     // Move to wherever the action says
     action match {
-      case Actions.Conjunction =>
+      case Actions.Exploit =>
         // Left
         if(currentState > 0)
           currentState -= 1
-      case Actions.Disjunction =>
+      case Actions.Explore =>
         // Right
         if(currentState < 5)
           currentState += 1

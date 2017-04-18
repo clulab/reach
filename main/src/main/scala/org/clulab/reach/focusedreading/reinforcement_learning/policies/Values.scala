@@ -1,9 +1,9 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policies
 
 import breeze.linalg.DenseVector
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
 
 import collection.mutable
-import org.clulab.reach.focusedreading.reinforcement_learning.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 import org.json4s.JsonAST.JObject
 import org.json4s._
@@ -13,6 +13,7 @@ import org.json4s.JsonAST.JObject
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
+
 import scala.language.implicitConversions
 
 /**
@@ -96,8 +97,8 @@ class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, 
 
     val action = key._2
     val coefficients = action match {
-      case Actions.Conjunction => coefficientsExploit
-      case Actions.Disjunction => coefficientsExplore
+      case Actions.Exploit => coefficientsExploit
+      case Actions.Explore => coefficientsExplore
     }
     // Encode the state vector into features
     val features = Map("bias" -> 1.0) ++ key._1.toFeatures //++ Actions.toFeatures(key._2)
@@ -117,8 +118,8 @@ class LinearApproximationValues(val coefficientsExplore:mutable.HashMap[String, 
 
     val action = current._2
     val coefficients = action match {
-      case Actions.Conjunction => coefficientsExploit
-      case Actions.Disjunction => coefficientsExplore
+      case Actions.Exploit => coefficientsExploit
+      case Actions.Explore => coefficientsExplore
     }
 
     // The gradient are the feature values because this is a linear function optimizing MSE

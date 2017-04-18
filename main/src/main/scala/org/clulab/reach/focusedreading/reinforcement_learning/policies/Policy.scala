@@ -1,11 +1,12 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policies
 
-import org.clulab.reach.focusedreading.reinforcement_learning.Actions
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Actions
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
 import org.json4s.JsonAST.JObject
 import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.JsonDSL._
+
 import scala.language.implicitConversions
 
 /**
