@@ -16,6 +16,10 @@ import scalax.collection.mutable.Graph
   * Created by enrique on 18/02/17.
   */
 
+object FocusedReadingStage extends Enumeration{
+  val EndPoints, Query = Value
+}
+
 
 trait SearchAgent extends LazyLogging with IRStrategy with IEStrategy with ParticipantChoosingStrategy {
 
