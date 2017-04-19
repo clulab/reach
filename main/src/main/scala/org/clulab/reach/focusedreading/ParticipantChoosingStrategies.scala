@@ -14,6 +14,36 @@ trait ParticipantChoosingStrategy {
                      destination:Participant,
                      previouslyChosen:Set[(Participant, Participant)],
                      model:SearchModel):(Participant, Participant)
+
+  /**
+    * Checks wether there's a change from the latest endpoints
+    */
+  def differentEndpoints(a:(Participant, Participant), previouslyChosen:Set[(Participant, Participant)]) = !previouslyChosen.contains(a)
+
+  /**
+    * Picks two enpoints from the stacks
+    * @param sA
+    * @param sB
+    * @return
+    */
+  def pickEndpoints(sA:mutable.Stack[Participant], sB:mutable.Stack[Participant]):(Participant, Participant) = {
+
+    val (left, right) = if(sA.size <= sB.size) (sA, sB) else (sB, sA)
+    val a = left.pop()
+    var b = right.pop()
+
+    var stop = false
+    while(!stop){
+      if(right.nonEmpty) {
+        b = right.pop()
+        stop = a != b
+      }
+      else
+        stop = true
+    }
+
+    (a, b)
+  }
 }
 
 trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
@@ -60,41 +90,10 @@ trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
     }
 
 
-
-
     endpoints
   }
 
-  /**
-    * Checks wether there's a change from the latest endpoints
-    */
-  def differentEndpoints(a:(Participant, Participant), previouslyChosen:Set[(Participant, Participant)]) = !previouslyChosen.contains(a)
 
-
-  /**
-    * Picks two enpoints from the stacks
-    * @param sA
-    * @param sB
-    * @return
-    */
-  def pickEndpoints(sA:mutable.Stack[Participant], sB:mutable.Stack[Participant]):(Participant, Participant) = {
-
-    val (left, right) = if(sA.size <= sB.size) (sA, sB) else (sB, sA)
-    val a = left.pop()
-    var b = right.pop()
-
-    var stop = false
-    while(!stop){
-      if(right.nonEmpty) {
-        b = right.pop()
-        stop = a != b
-      }
-      else
-        stop = true
-    }
-
-    (a, b)
-  }
 
 }
 
@@ -132,42 +131,6 @@ trait MostConnectedAndRecentParticipantsStrategy extends ParticipantChoosingStra
 
   }
 
-  /**
-    * Checks wether there's a change from the latest endpoints
-    */
-  def differentEndpoints(a:(Participant, Participant), previouslyChosen:Set[(Participant, Participant)]) = !previouslyChosen.contains(a)
-
-  /**
-    * Picks two enpoints from the stacks
-    * @param sA
-    * @param sB
-    * @return
-    */
-  def pickEndpoints(sA:mutable.Stack[Participant], sB:mutable.Stack[Participant], defaultA:Participant, defaultB:Participant):(Participant, Participant) = {
-
-    val (left, right) = if(sA.size <= sB.size) (sA, sB) else (sB, sA)
-    val a = left.size match {
-      case 0 => defaultA
-      case _ => left.pop()
-    }
-
-    var b = right.size match {
-      case 0 => defaultB
-      case _ => right.pop()
-    }
-
-    var stop = false
-    while(!stop){
-      if(right.nonEmpty) {
-        b = right.pop()
-        stop = a != b
-      }
-      else
-        stop = true
-    }
-
-    (a, b)
-  }
 }
 
 trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
@@ -178,6 +141,7 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
   def getIterationNum:Int
   val policy:Policy
   var lastActionChosen:Option[Action] = None
+  val chosenEndpointsLog = new mutable.ArrayBuffer[((Participant, Participant),(Participant, Participant))]
   ///////////////////
 
 
@@ -260,6 +224,10 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
     // Exploit state
     val (exploitEndpoints, exploitState) = observeExploitState(source, destination, previouslyChosen, model)
     //////////////////////
+
+    // DEBUG: Keep track of how many times the explore/exploit pairs are equal
+    chosenEndpointsLog += Tuple2(exploreEndpoints, exploitEndpoints)
+
 
     val states = possibleActions map {
       case _:ExploreEndpoints =>

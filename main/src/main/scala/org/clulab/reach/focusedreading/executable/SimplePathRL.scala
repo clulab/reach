@@ -68,6 +68,7 @@ object SimplePathRL extends App with LazyLogging{
   val papers = new mutable.ArrayBuffer[String]
   var numQueries = 0
   val actionCounts = new mutable.HashMap[String, Int]()
+  val ep = new mutable.ArrayBuffer[((Participant, Participant),(Participant, Participant))]()
 
   val bootstrap = new mutable.HashMap[Int, (Boolean, Int, String)]() // (Success, # queries, papers)
 
@@ -169,6 +170,11 @@ object SimplePathRL extends App with LazyLogging{
           actionCounts += k -> v
     }
 
+    agent.chosenEndpointsLog foreach {
+      x=>
+        ep += x
+    }
+
     logger.info("")
   }
   logger.info(s"Finished attaining $successes successes and $failures failures")
@@ -214,11 +220,30 @@ object SimplePathRL extends App with LazyLogging{
   }
 
 
+  logger.info("")
   logger.info(s"Chosen action counts")
   actionCounts foreach {
     case (a, c) =>
       logger.info(s"$a: $c")
   }
+
+  logger.info("")
+  logger.info("Explore/Exploit endpoiny analysis:")
+
+  var same, different = 0
+  for((explore, exploit) <- ep){
+    val (exploreA, exploreB) = explore
+    val (exploitA, exploitB) = exploit
+
+    if(exploreA == exploitA
+      && exploreB == exploitB)
+      same += 1
+    else
+      different += 1
+  }
+
+  logger.info(s"Same outcome: $same")
+  logger.info(s"Different outcome: $different")
 
   //val osw = new BufferedWriter(new FileWriter("rl_bootstrap.txt"))
 

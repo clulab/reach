@@ -23,7 +23,7 @@ import scala.language.implicitConversions
   */
 
 
-abstract class Values(val tolerance:Double = 1e-3){
+abstract class Values(val tolerance:Double = 3e-4){
 
   def apply(key:(State, Action)):Double
   def tdUpdate(current:(State, Action), next:(State, Action), reward:Double, rate:Double, decay:Double):Boolean
