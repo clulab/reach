@@ -9,6 +9,7 @@ import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.states._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading._
+import org.clulab.reach.focusedreading.agents.FocusedReadingStage._
 
 import scala.collection.mutable
 
@@ -77,10 +78,10 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
   // Fields
 
   //// Stages
-  val ENDPOINT = true
-  val QUERY = false
+  //val ENDPOINT = true
+  //val QUERY = false
 
-  var stage:Boolean = ENDPOINT
+  var stage:FocusedReadingStage.Value = FocusedReadingStage.EndPoints
 
   this.introductions += participantA -> 0
   this.introductions += participantB -> 0
@@ -94,7 +95,7 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     val endpoints = super.choseEndPoints(source, destination, previouslyChosen, model)
 
     // Set the stage to query after choosing the endpoints
-    stage = QUERY
+    stage = FocusedReadingStage.Query
 
     endpoints
   }
@@ -137,7 +138,7 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
 
     // Set the process stage to endpoint
-    stage = ENDPOINT
+    stage = FocusedReadingStage.EndPoints
 
     queryActionToStrategy(action, a, b)
   }
@@ -238,7 +239,7 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     iterationNum += 1
 
     // Set the stage to endpoint
-    stage = ENDPOINT
+    stage = FocusedReadingStage.EndPoints
 
 
     // Return the observed reward
@@ -286,7 +287,7 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
       queryLog += Tuple2(a, b)
     }
 
-    stage = QUERY
+    stage = FocusedReadingStage.Query
 
     0.0 //TODO: Tinker with this reward
   }
@@ -294,13 +295,13 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
   // Public methods
   def executePolicy(action:Action, persist:Boolean = true):Double = (stage: @unchecked) match {
-    case QUERY => executePolicyQueryStage(action, persist)
-    case ENDPOINT => executePolicyEndpointsStage(action, persist)
+    case FocusedReadingStage.Query => executePolicyQueryStage(action, persist)
+    case FocusedReadingStage.EndPoints => executePolicyEndpointsStage(action, persist)
   }
 
   def possibleActions(): Seq[Action] = (stage: @unchecked) match {
-    case ENDPOINT => Seq(ExploitEndpoints(), ExploreEndpoints())
-    case QUERY => Seq(ExploitQuery(), ExploreQuery())
+    case FocusedReadingStage.EndPoints => Seq(ExploitEndpoints(), ExploreEndpoints())
+    case FocusedReadingStage.Query => Seq(ExploitQuery(), ExploreQuery())
   }
   /////////////////
 

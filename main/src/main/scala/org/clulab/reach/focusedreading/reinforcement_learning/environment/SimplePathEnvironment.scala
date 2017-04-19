@@ -5,6 +5,7 @@ import org.clulab.reach.focusedreading.agents.{PolicySearchAgent, SQLiteSearchAg
 import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.DummyPolicy
 import org.clulab.reach.focusedreading.reinforcement_learning.states.State
+import org.clulab.reach.focusedreading.agents.FocusedReadingStage
 
 
 /**
@@ -23,10 +24,10 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
 
   override def observeStates: Seq[State] = {
     (agent.stage: @unchecked) match {
-      case agent.QUERY =>
+      case FocusedReadingStage.Query =>
         val state = agent.observeState
         Seq(state, state)
-      case agent.ENDPOINT =>
+      case FocusedReadingStage.EndPoints =>
         val exploreState = agent.observeExploreState(participantA, participantB, agent.triedPairs.toSet, agent.model)._2
         val exploitState = agent.observeExploitState(participantA, participantB, agent.triedPairs.toSet, agent.model)._2
 
@@ -41,6 +42,6 @@ class SimplePathEnvironment(participantA:Participant, participantB:Participant) 
     }
   }
 
-  override def finishedEpisode:Boolean = agent.stage == agent.ENDPOINT && agent.hasFinished(participantA, participantB, agent.model)
+  override def finishedEpisode:Boolean = agent.stage == FocusedReadingStage.EndPoints && agent.hasFinished(participantA, participantB, agent.model)
 
 }
