@@ -4,7 +4,7 @@ import collection.mutable
 import org.clulab.reach.focusedreading.models._
 import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
-import org.clulab.reach.focusedreading.reinforcement_learning.states.State
+import org.clulab.reach.focusedreading.reinforcement_learning.states.{FocusedReadingState, State}
 
 /**
   * Created by enrique on 19/02/17.
@@ -173,30 +173,125 @@ trait MostConnectedAndRecentParticipantsStrategy extends ParticipantChoosingStra
 trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
 
 
+  // Abstract members
   def observeState:State
+  def getIterationNum:Int
   val policy:Policy
-  val possibleActions:Set[Action] = Set(ExploreEndpoints(), ExploitEndpoints())
+  ///////////////////
 
+
+  // Concrete members
+  val queryLog = new mutable.ArrayBuffer[(Participant, Participant)]
   val introductions:mutable.HashMap[Participant, Int] = new mutable.HashMap[Participant, Int]()
+  ///////////////////
 
-  val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
+  // Private auxiliary members
+  protected val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
     override val participantIntroductions = introductions
   }
 
-  val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
+  protected val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
 
+  private val possibleActions:Seq[Action] = Seq(ExploreEndpoints(), ExploitEndpoints())
+
+  private def peekState(a:Participant, b:Participant):State = {
+    this.queryLog += Tuple2(a, b)
+    val containsA = introductions.contains(a)
+    val containsB = introductions.contains(b)
+
+    if (!containsA)
+      introductions += a -> getIterationNum
+    if (!containsB)
+      introductions += b -> getIterationNum
+
+    val state = this.observeState
+
+    // Undo the changes
+    queryLog.remove(queryLog.size - 1)
+    if (!containsA)
+      introductions.remove(a)
+    if (!containsB)
+      introductions.remove(b)
+
+    state
+  }
+  ///////////////////////////
+
+  // Alternate state observation methods
+  def observeExploreState(source: Participant, destination: Participant,
+                          previouslyChosen: Set[(Participant, Participant)]
+                          , model: SearchModel):((Participant, Participant), State) =
+    observeStrategtState(exploreChooser, source, destination, previouslyChosen, model)
+
+  def observeExploitState(source: Participant, destination: Participant,
+                          previouslyChosen: Set[(Participant, Participant)]
+                          , model: SearchModel):((Participant, Participant), State) =
+    observeStrategtState(exploitChooser, source, destination, previouslyChosen, model)
+
+  private def observeStrategtState(chooser:ParticipantChoosingStrategy,
+                                   source: Participant, destination: Participant,
+                                   previouslyChosen: Set[(Participant, Participant)],
+                                   model: SearchModel):((Participant, Participant), State) = {
+    val endpoints = chooser.choseEndPoints(source, destination, previouslyChosen, model)
+
+    var a = endpoints._1
+    var b = endpoints._2
+
+    val state = peekState(a, b)
+
+    (endpoints, state)
+  }
+  /////////////////////////////////////
+
+  // Strategy implementation
   override def choseEndPoints(source: Participant, destination: Participant,
                               previouslyChosen: Set[(Participant, Participant)]
                               , model: SearchModel): (Participant, Participant) = {
 
-    val state = this.observeState
-    val action = policy.selectAction(state, possibleActions)
+    // Endpoint choices
 
-    action match {
-      case er:ExploreEndpoints =>
-        exploreChooser.choseEndPoints(source, destination, previouslyChosen, model)
-      case et:ExploitEndpoints =>
-        exploitChooser.choseEndPoints(source, destination, previouslyChosen, model)
+
+    // State variations
+    // Explore state
+    val (exploreEndpoints, exploreState) = observeExploreState(source, destination, previouslyChosen, model)
+
+
+    // Exploit state
+    val (exploitEndpoints, exploitState) = observeExploitState(source, destination, previouslyChosen, model)
+    //////////////////////
+
+    val states = possibleActions map {
+      case _:ExploreEndpoints =>
+        exploreState
+      case _:ExploitEndpoints =>
+        exploitState
     }
+
+
+    // Choose the action
+    val (_, action) = policy.selectAction(states, possibleActions)
+
+    val chosenEndpoints = action match {
+      case _:ExploreEndpoints =>
+        exploreEndpoints
+      case _:ExploitEndpoints =>
+        exploitEndpoints
+    }
+
+    // Persist the changes to the state
+    this.queryLog += chosenEndpoints
+
+    val a = chosenEndpoints._1
+    val b = chosenEndpoints._2
+
+    if(!introductions.contains(a))
+      introductions += a -> getIterationNum
+    if(!introductions.contains(b))
+      introductions += b -> getIterationNum
+    //////////////////////////////////
+
+    // Return the chosen endpoints
+    chosenEndpoints
   }
+  /////////////////////////
 }

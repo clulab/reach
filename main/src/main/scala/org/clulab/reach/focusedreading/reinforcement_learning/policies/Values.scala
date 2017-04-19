@@ -23,7 +23,7 @@ import scala.language.implicitConversions
   */
 
 
-abstract class Values(val tolerance:Double = 1e-4){
+abstract class Values(val tolerance:Double = 1e-3){
 
   def apply(key:(State, Action)):Double
   def tdUpdate(current:(State, Action), next:(State, Action), reward:Double, rate:Double, decay:Double):Boolean
@@ -161,7 +161,7 @@ class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[Str
 
     // Now perform the update
     for(k <- gradient.keys){
-      val value = actionCoefficients.lift(k).getOrElse(0.0)
+      val value = actionCoefficients.lift(k).getOrElse(uniformDist.sample())
       val newValue = value + delta*gradient(k)
       actionCoefficients(k) = newValue
 

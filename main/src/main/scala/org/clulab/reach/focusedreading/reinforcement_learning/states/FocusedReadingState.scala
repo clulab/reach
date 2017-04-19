@@ -61,7 +61,7 @@ case class FocusedReadingState(paRank:RankBin.Value,
       "sameComponent" ->  (sameComponent match{ case true => 1.0; case false => 0.0 }),
       "paIterationIntroduction" -> paIterationIntroduction.toDouble,
       "pbIterationIntroduction" -> pbIterationIntroduction.toDouble
-    )  ++ RankBin.toFeatures(paRank, "paRank") ++ RankBin.toFeatures(pbRank, "pbRank")
+    )  //++ RankBin.toFeatures(paRank, "paRank") ++ RankBin.toFeatures(pbRank, "pbRank")
   }
 }
 

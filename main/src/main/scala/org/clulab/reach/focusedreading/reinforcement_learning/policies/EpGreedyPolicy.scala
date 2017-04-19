@@ -25,7 +25,7 @@ class EpGreedyPolicy(epsilons:Iterator[Double], val values:Values) extends Polic
   var firstEpsilon:Option[Double] = None
 
 
-  override def selectAction(s: State, possibleActions:Set[Action]):Action= {
+  override def selectAction(ss:Seq[State], possibleActions:Seq[Action]):(State, Action) = {
 
     val epsilon = epsilons.next()
 
@@ -40,7 +40,7 @@ class EpGreedyPolicy(epsilons:Iterator[Double], val values:Values) extends Polic
     val slice = epsilon / numActions
     val greedyProb = 1 - epsilon + slice
 
-    val stateActions:Seq[(State, Action)] = possibleActions.map(a => (s, a)).toSeq // TODO: The order of this matters! Figure out why
+    val stateActions:Seq[(State, Action)] = ss zip possibleActions  //TODO: The order of this matters! Figure out why
     val stateActionValues = stateActions map (k => values(k))
     val sortedActions = stateActions.zip(stateActionValues).sortBy{case(sa, v) => v}.map(_._1._2).reverse
     val probs = greedyProb::List.fill(numActions-1)(slice)
@@ -53,8 +53,11 @@ class EpGreedyPolicy(epsilons:Iterator[Double], val values:Values) extends Polic
     val choiceIx = dist.sample
     val choice = sortedActions(choiceIx)
 
+    val originalIndex = possibleActions.indexOf(choice)
+    val usedState = ss(originalIndex)
+
     // Return the random sample
-    choice
+    (usedState, choice)
   }
 
   override def save(path:String): Unit ={

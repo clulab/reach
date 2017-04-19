@@ -8,3 +8,7 @@ package org.clulab.reach.focusedreading.reinforcement_learning.states
 trait State {
   def toFeatures:Map[String, Double]
 }
+
+case class DummyState() extends State{
+  override def toFeatures: Map[String, Double] = Map()
+}

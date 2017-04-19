@@ -5,10 +5,10 @@ import org.clulab.reach.focusedreading.ie.{REACHIEStrategy, SQLIteIEStrategy}
 import org.clulab.reach.focusedreading.ir.QueryStrategy._
 import org.clulab.reach.focusedreading.ir.{LuceneIRStrategy, Query, SQLIRStrategy}
 import org.clulab.reach.focusedreading.models._
-import org.clulab.reach.focusedreading.reinforcement_learning.actions.{Action, ExploreQuery, ExploitQuery}
+import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.states._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
-import org.clulab.reach.focusedreading.{Connection, ExploreExploitParticipantsStrategy, MostConnectedParticipantsStrategy, Participant}
+import org.clulab.reach.focusedreading._
 
 import scala.collection.mutable
 
@@ -56,7 +56,6 @@ class SQLiteMultiPathSearchAgent(participantA:Participant, participantB:Particip
   with SQLIteIEStrategy {
 
 
-  //  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
   override val model:SearchModel = new GFSModel(participantA, participantB) // Directed graph with the model.
 
 
@@ -75,62 +74,86 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
   with SQLIRStrategy
   with SQLIteIEStrategy {
 
-  val queryLog = new mutable.ArrayBuffer[(Participant, Participant)]
-  //val introductions = new mutable.HashMap[Participant, Int]
+  // Fields
 
-  introductions += participantA -> 0
-  introductions += participantB -> 0
+  //// Stages
+  val ENDPOINT = true
+  val QUERY = false
 
-  override def choseEndPoints(source: Participant, destination: Participant, previouslyChosen: Set[(Participant, Participant)], model: SearchModel): (Participant, Participant) = {
-    super.choseEndPoints(source, destination, previouslyChosen, model)
+  var stage:Boolean = ENDPOINT
+
+  this.introductions += participantA -> 0
+  this.introductions += participantB -> 0
+  ////////////
+
+  override def choseEndPoints(source: Participant, destination: Participant,
+                              previouslyChosen: Set[(Participant, Participant)],
+                              model: SearchModel): (Participant, Participant) = {
+
+    // Choose the endpoints with the policy
+    val endpoints = super.choseEndPoints(source, destination, previouslyChosen, model)
+
+    // Set the stage to query after choosing the endpoints
+    stage = QUERY
+
+    endpoints
   }
 
-  //  override val model:Model = Graph[Participant, LDiEdge](participantA, participantB) // Directed graph with the model.
   override val model:SearchModel = new GFSModel(participantA, participantB) // Directed graph with the model.
 
+  override def reconcile(connections: Iterable[Connection]): Unit = {
+    // Count the introductions
+    for(f <- connections){
+      val x = f.controller
+      val y = f.controlled
 
 
-  override def choseQuery(source: Participant,
-                          destination: Participant,
+      if(!introductions.contains(x))
+        introductions += (x -> iterationNum)
+
+      if(!introductions.contains(y))
+        introductions += (y -> iterationNum)
+
+
+    }
+
+    super.reconcile(connections)
+  }
+
+
+  override def choseQuery(a: Participant,
+                          b: Participant,
                           model: SearchModel) = {
 
-    queryLog += Tuple2(source, destination)
+    queryLog += Tuple2(a, b)
 
-    val possibleActions:Set[Action] = Set(ExploreQuery(), ExploitQuery())
+    val possibleActions:Seq[Action] = Seq(ExploreQuery(), ExploitQuery())
 
     // Create state
     val state = this.observeState
 
     // Query the policy
-    val action = policy.selectAction(state, possibleActions)
+    val (_, action) = policy.selectAction(state, possibleActions)
 
 
+    // Set the process stage to endpoint
+    stage = ENDPOINT
 
-    // UNCOMMENT for policy learnt query strategy
-    action match {
-      case et:ExploitQuery =>
-        Query(Conjunction, source, Some(destination))
-      case er:ExploreQuery =>
-        Query(Disjunction, source, Some(destination))
-    }
-    ///////////
-
-    // UNCOMMENT for deterministic query strategy
-    //Query(Cascade, source, Some(destination))
-    //////////
-
-
+    queryActionToStrategy(action, a, b)
   }
 
-  def observeState:State = {
-    if(queryLog.length > 0)
+  override def observeState:State = {
+    //if(queryLog.length > 0)
       fillState(this.model, iterationNum, queryLog, introductions)
-    else{
-      fillState(this.model, iterationNum, Seq((participantA, participantB)), introductions)
-    }
+    //else{
+    //  fillState(this.model, iterationNum, Seq((participantA, participantB)), introductions)
+    //}
 
   }
 
+  override def getIterationNum: Int = iterationNum
+
+  // Auxiliary methods
   private def fillState(model:SearchModel, iterationNum:Int, queryLog:Seq[(Participant, Participant)], introductions:mutable.Map[Participant, Int]):State = {
 
     val (a, b) = queryLog.last
@@ -181,24 +204,106 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     }
   }
 
-  override def reconcile(connections: Iterable[Connection]): Unit = {
+  private def executePolicyQueryStage(action:Action, persist:Boolean):Double = {
+
+    // Fetch the chosen participants (endpoints)
+    val (a, b) = queryLog.last
+
+    // Build a query object based on the action
+    val query = queryActionToStrategy(action, a, b)
+
+    val paperIds = this.informationRetrival(query)
+
+    val findings = this.informationExtraction(paperIds)
+
     // Count the introductions
-    for(f <- connections){
+    for(f <- findings){
       val x = f.controller
       val y = f.controlled
 
+      if(persist){
+        if(!introductions.contains(x))
+          introductions += (x -> iterationNum)
 
-      if(!introductions.contains(x))
-        introductions += (x -> iterationNum)
-
-      if(!introductions.contains(y))
-        introductions += (y -> iterationNum)
-
+        if(!introductions.contains(y))
+          introductions += (y -> iterationNum)
+      }
 
     }
 
-    super.reconcile(connections)
+    // Add the stuff to the model
+    reconcile(findings)
+
+    // Increment the iteration count
+    iterationNum += 1
+
+    // Set the stage to endpoint
+    stage = ENDPOINT
+
+
+    // Return the observed reward
+    if(!this.hasFinished(participantA, participantB, model)){
+      // If this episode hasn't finished
+      -0.05
+    }
+    else{
+      // If finished successfuly
+      successStopCondition(participantA, participantB, model) match{
+        case Some(p) => 1.0
+        case None => -1.0
+      }
+    }
   }
+
+  private def queryActionToStrategy(action: Action, a: Participant, b: Participant) = {
+    action match {
+      case _: ExploitQuery =>
+        Query(Conjunction, a, Some(b))
+      case _: ExploreQuery =>
+        Query(Disjunction, a, Some(b))
+      case _ =>
+        throw new RuntimeException("Got an invalid action type for the query stage")
+    }
+  }
+
+  private def executePolicyEndpointsStage(action:Action, persist:Boolean):Double = {
+    if(persist)
+      iterationNum += 1
+
+
+    val selectedChooser = action match {
+      case _:ExploitEndpoints => exploitChooser
+      case _:ExploreEndpoints => exploreChooser
+      case _ => throw new RuntimeException("Invalid action for the ENDPOINTS stage")
+    }
+
+    val (a, b) = selectedChooser.choseEndPoints(participantA, participantB, triedPairs.toSet, model)
+    ////////
+
+
+    if(persist){
+      triedPairs += Tuple2(a, b)
+      queryLog += Tuple2(a, b)
+    }
+
+    stage = QUERY
+
+    0.0 //TODO: Tinker with this reward
+  }
+
+
+  // Public methods
+  def executePolicy(action:Action, persist:Boolean = true):Double = (stage: @unchecked) match {
+    case QUERY => executePolicyQueryStage(action, persist)
+    case ENDPOINT => executePolicyEndpointsStage(action, persist)
+  }
+
+  def possibleActions(): Seq[Action] = (stage: @unchecked) match {
+    case ENDPOINT => Seq(ExploitEndpoints(), ExploreEndpoints())
+    case QUERY => Seq(ExploitQuery(), ExploreQuery())
+  }
+  /////////////////
+
 
 }
 

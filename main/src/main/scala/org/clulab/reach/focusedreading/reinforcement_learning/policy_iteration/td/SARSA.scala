@@ -36,10 +36,11 @@ class SARSA(environmentFabric:() => Option[Environment], episodeBound:Int, burnI
           val currentAlpha = alphas.next
 
           // Observe the initial state
-          var currentState = environment.observeState
+          val possibleStates = environment.observeStates
 
           // Evaluate the policy
-          var currentAction = policy.selectAction(currentState, environment.possibleActions())
+          val x = policy.selectAction(possibleStates, environment.possibleActions())
+          var (currentState, currentAction) = x
 
           // Enter into the episode loop
           while(!environment.finishedEpisode){
@@ -47,10 +48,10 @@ class SARSA(environmentFabric:() => Option[Environment], episodeBound:Int, burnI
             val reward = environment.executePolicy(currentAction)
 
             // Observe the new state after executing the action
-            val nextState = environment.observeState
+            val possibleNextStates = environment.observeStates
 
             // Chose a new action
-            val nextAction = policy.selectAction(nextState, environment.possibleActions())
+            val (nextState, nextAction) = policy.selectAction(possibleNextStates, environment.possibleActions())
 
 
             // Perform the update

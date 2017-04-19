@@ -27,27 +27,6 @@ object SimplePathRL extends App with LazyLogging{
     }
   }
 
-  /* def serializeItem(path:Seq[Connection], groundTruth:Seq[String], matchType:String, agent:SearchAgent, file:File): Unit ={
-    val pathInfo = ("ground_truth" -> groundTruth) ~
-      ("match_type" -> matchType) ~
-      ("path" -> (path map (c => s"${c.controller} ${if(c.sign) "+" else "-"}> ${c.controlled}"))) ~
-      ("evicende" -> {
-        path map {
-          c =>
-            agent.getEvidence(c)
-        }
-      })
-
-    val model = agent.model
-    val participants = path flatMap (c => Set(c.controller, c.controlled))
-
-
-    val jsonObj = ("info" -> pathInfo) ~ ("degrees" -> participants.map(d => (d.toString -> model.degree(d))).toMap)
-
-    val json = pretty(render(jsonObj))
-
-    FileUtils.writeLines(file, Seq(json).asJavaCollection)
-  } */
 
   // The first argument is the input file
   val dataSet:Iterable[Seq[String]] = io.Source.fromFile(args(0)).getLines
