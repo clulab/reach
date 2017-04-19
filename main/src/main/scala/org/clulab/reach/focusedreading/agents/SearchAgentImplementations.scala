@@ -77,9 +77,8 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
   // Fields
 
-  //// Stages
-  //val ENDPOINT = true
-  //val QUERY = false
+  val actionCounters = new mutable.HashMap[String, Int]() ++ Map[String, Int](ExploitEndpoints().toString -> 0, ExploreEndpoints().toString -> 0, ExploreQuery().toString -> 0, ExploitQuery().toString -> 0)
+
 
   var stage:FocusedReadingStage.Value = FocusedReadingStage.EndPoints
 
@@ -93,6 +92,9 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
     // Choose the endpoints with the policy
     val endpoints = super.choseEndPoints(source, destination, previouslyChosen, model)
+
+    // Keep track of the chosen actions
+    actionCounters(this.lastActionChosen.get.toString) += 1
 
     // Set the stage to query after choosing the endpoints
     stage = FocusedReadingStage.Query
@@ -136,6 +138,8 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     // Query the policy
     val (_, action) = policy.selectAction(state, possibleActions)
 
+    // Keep track of the action selection
+    actionCounters(action.toString) += 1
 
     // Set the process stage to endpoint
     stage = FocusedReadingStage.EndPoints

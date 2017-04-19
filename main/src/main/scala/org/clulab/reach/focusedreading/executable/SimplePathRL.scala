@@ -12,6 +12,7 @@ import org.json4s.native.JsonMethods.{pretty, render}
 
 import scala.collection.mutable
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.reach.focusedreading.reinforcement_learning.actions.Action
 import org.clulab.reach.focusedreading.reinforcement_learning.policies._
 
 /**
@@ -66,6 +67,7 @@ object SimplePathRL extends App with LazyLogging{
   val times = new mutable.ArrayBuffer[Long]
   val papers = new mutable.ArrayBuffer[String]
   var numQueries = 0
+  val actionCounts = new mutable.HashMap[String, Int]()
 
   val bootstrap = new mutable.HashMap[Int, (Boolean, Int, String)]() // (Success, # queries, papers)
 
@@ -159,6 +161,14 @@ object SimplePathRL extends App with LazyLogging{
 
     bootstrap += (ix -> (success, agent.iterationNum, agent.papersRead.mkString(",")))
 
+    agent.actionCounters foreach {
+      case (k, v) =>
+        if(actionCounts.contains(k))
+          actionCounts(k) += v
+        else
+          actionCounts += k -> v
+    }
+
     logger.info("")
   }
   logger.info(s"Finished attaining $successes successes and $failures failures")
@@ -201,6 +211,13 @@ object SimplePathRL extends App with LazyLogging{
   val bootstrapLines = bootstrap.map {
     case (ix, v) =>
       s"$ix\t${v._1}\t${v._2}\t${v._3}\n"
+  }
+
+
+  logger.info(s"Chosen action counts")
+  actionCounts foreach {
+    case (a, c) =>
+      logger.info(s"$a: $c")
   }
 
   //val osw = new BufferedWriter(new FileWriter("rl_bootstrap.txt"))

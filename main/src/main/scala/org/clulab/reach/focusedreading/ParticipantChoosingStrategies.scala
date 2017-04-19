@@ -177,6 +177,7 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
   def observeState:State
   def getIterationNum:Int
   val policy:Policy
+  var lastActionChosen:Option[Action] = None
   ///////////////////
 
 
@@ -270,6 +271,8 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
 
     // Choose the action
     val (_, action) = policy.selectAction(states, possibleActions)
+
+    lastActionChosen = Some(action)
 
     val chosenEndpoints = action match {
       case _:ExploreEndpoints =>
