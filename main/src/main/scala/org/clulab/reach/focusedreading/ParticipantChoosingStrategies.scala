@@ -59,8 +59,8 @@ trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
     // Sorted by degree
     var (sA, sB) = components match {
       case (Some(comS), Some(comD)) =>
-        val sortedS = comS.toSeq.map(n => (model.degree(n), n)).sortBy(n => n._1).reverse
-        val sortedD = comD.toSeq.map(n => (model.degree(n), n)).sortBy(n => n._1).reverse
+        val sortedS = comS.toSeq.map(n => (model.degree(n), n)).sortBy(n => n._1)//.reverse
+        val sortedD = comD.toSeq.map(n => (model.degree(n), n)).sortBy(n => n._1)//.reverse
         (sortedS, sortedD)
       case _ => throw new RuntimeException("BEEEP!!")
     }
@@ -73,7 +73,7 @@ trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
     ssB.pushAll(sB map (_._2))
 
     val allNodes = new mutable.Stack[Participant]()
-    allNodes.pushAll(model.nodes.toSeq.sortBy(n => model.degree(n)).reverse)
+    allNodes.pushAll(model.nodes.toSeq.sortBy(n => model.degree(n)))//.reverse)
 
     var endpoints:(Participant, Participant) = (null, null)
 
