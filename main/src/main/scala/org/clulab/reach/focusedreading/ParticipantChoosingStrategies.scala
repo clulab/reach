@@ -6,6 +6,8 @@ import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.Policy
 import org.clulab.reach.focusedreading.reinforcement_learning.states.{FocusedReadingState, State}
 
+import scala.annotation.tailrec
+
 /**
   * Created by enrique on 19/02/17.
   */
@@ -97,14 +99,62 @@ trait MostConnectedParticipantsStrategy extends ParticipantChoosingStrategy{
 
 }
 
-trait MostConnectedAndRecentParticipantsStrategy extends ParticipantChoosingStrategy{
-  val participantIntroductions:mutable.HashMap[Participant, Int]
+trait MostRecentParticipantsStrategy extends ParticipantChoosingStrategy{
+  def participantIntroductions:mutable.HashMap[Participant, Int]
 
   override def choseEndPoints(source: Participant, destination: Participant,
                               previouslyChosen: Set[(Participant, Participant)],
                               model: SearchModel): (Participant, Participant) = {
 
 
+    // Uncomment for more sophisticated, less effective version
+//    val mostRecentIteration = participantIntroductions.values.max
+//
+//    val possibleEndpoints = (participantIntroductions map {
+//      case(p, i) =>
+//        if(i == mostRecentIteration)
+//          Some(p)
+//        else
+//          None
+//    } collect { case Some(p) => p }).toSeq
+//
+//
+//    val sourceComponent = model.getConnectedComponentOf(source).get.toSet
+//    val destComponent = model.getConnectedComponentOf(destination).get.toSet
+//
+//    val sourceChoices = possibleEndpoints.filter(p => sourceComponent.contains(p)).toSeq.sortBy(p => model.degree(p))//.reverse
+//    val destChoices = possibleEndpoints.filter(p => destComponent.contains(p)).toSeq.sortBy(p => model.degree(p))//.reverse
+//
+//    val ssA = new mutable.Stack[Participant]()
+//    ssA.push(source)
+//    ssA.pushAll(sourceChoices)
+//
+//    val ssB = new mutable.Stack[Participant]()
+//    ssB.push(destination)
+//    ssB.pushAll(destChoices)
+//
+//    val allNodes = new mutable.Stack[Participant]()
+//    allNodes.pushAll(possibleEndpoints.toSeq.sortBy(n => model.degree(n)))//.reverse)
+//
+//    var endpoints:(Participant, Participant) = (null, null)
+//
+//
+//    do{
+//      endpoints = pickEndpoints(ssA, ssB)
+//    }while(!differentEndpoints(endpoints, previouslyChosen) && ssA.nonEmpty && ssB.nonEmpty)
+//
+//    // Fallback if there are no new nodes in the components
+//    if(!differentEndpoints(endpoints, previouslyChosen)){
+//      ssA.pushAll(Seq(source) ++ sourceChoices)
+//      do{
+//        endpoints = pickEndpoints(ssA, allNodes)
+//      }while(!differentEndpoints(endpoints, previouslyChosen) && ssA.nonEmpty && allNodes.nonEmpty)
+//    }
+//
+//    endpoints
+    //////////////////////////
+
+    // Uncomment for the simpler more effective implementation
     val mostRecentIteration = participantIntroductions.values.max
 
     val possibleEndpoints = participantIntroductions map { case(p, i) => if(i == mostRecentIteration) Some(p) else None} collect { case Some(p) => p }
@@ -116,21 +166,91 @@ trait MostConnectedAndRecentParticipantsStrategy extends ParticipantChoosingStra
     val sourceChoices = possibleEndpoints.filter(p => sourceComponent.contains(p)).toSeq.sortBy(p => model.degree(p)).reverse
     val destChoices = possibleEndpoints.filter(p => destComponent.contains(p)).toSeq.sortBy(p => model.degree(p)).reverse
 
+    val endpoints = pickEndpoints(sourceChoices, destChoices, source, destination, previouslyChosen)
+
+    endpoints
+    /////////////////////
+
+  }
+
+  private def pickEndpoints(sourceChoices:Seq[Participant], destChoices:Seq[Participant],
+                    source:Participant, destination:Participant,
+                   previouslyChosen:Set[(Participant, Participant)]):(Participant, Participant) = {
     val endpoints = {
       val a = if(sourceChoices.size > 0) sourceChoices.head else source
       val b = if(destChoices.size > 0) destChoices.head else destination
 
-      if(a != b)
+      val candidates = if(a != b)
         (a, b)
       else
         (source, a)
+
+      if(differentEndpoints(candidates, previouslyChosen))
+        candidates
+      else if(candidates == (source, destination))
+        candidates
+      else {
+        val newSourceChoices = if(sourceChoices.size > 0) sourceChoices.tail else Seq()
+
+        val newDestChoices = if(destChoices.size > 0) destChoices.tail else Seq()
+
+        pickEndpoints(newSourceChoices, newDestChoices, source, destination, previouslyChosen)
+      }
     }
 
 
-    endpoints
 
+
+    endpoints
   }
 
+}
+
+trait FurthestParticipantStrategy extends ParticipantChoosingStrategy{
+  override def choseEndPoints(source: Participant, destination: Participant,
+                              previouslyChosen: Set[(Participant, Participant)],
+                              model: SearchModel): (Participant, Participant) = {
+
+    val sourceComponent = sortByDistance(model.getConnectedComponentOf(source).get.toSeq, source, model)
+    val destComponent = sortByDistance(model.getConnectedComponentOf(destination).get.toSeq, destination, model)
+
+
+    val ssA = new mutable.Stack[Participant]()
+    ssA.pushAll(sourceComponent)
+
+    val ssB = new mutable.Stack[Participant]()
+    ssB.pushAll(destComponent)
+
+    var endpoints:(Participant, Participant) = (null, null)
+
+    do{
+      endpoints = pickEndpoints(ssA, ssB)
+    }while(!differentEndpoints(endpoints, previouslyChosen) && ssA.nonEmpty && ssB.nonEmpty)
+
+    endpoints
+  }
+
+  private def sortByDistance(s:Seq[Participant], reference:Participant, model:SearchModel):Seq[Participant] = {
+    val maxDist = model.numNodes -1 // This is an upper bound of the distance
+
+    val distances = s map {
+      node =>
+        model.shortestPath(reference, node) match {
+          case Some(path) =>
+            path.size - 1 // Num edges = num nodes - 1
+          case None =>
+            maxDist
+        }
+    }
+
+    val degrees = s map (node => model.degree(node))
+
+    val scores = distances zip degrees map { case (d, dd) => d +dd }
+
+    val sorted = s.zip(scores).sortBy(_._2)
+
+    sorted map (_._1)
+  }
 }
 
 trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
@@ -139,6 +259,7 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
   // Abstract members
   def observeState:State
   def getIterationNum:Int
+  def getUsedActions:Seq[Action]
   val policy:Policy
   var lastActionChosen:Option[Action] = None
   val chosenEndpointsLog = new mutable.ArrayBuffer[((Participant, Participant),(Participant, Participant))]
@@ -151,13 +272,17 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
   ///////////////////
 
   // Private auxiliary members
-  protected val exploitChooser = new {} with MostConnectedAndRecentParticipantsStrategy {
-    override val participantIntroductions = introductions
+  protected val exploitChooser = new {} with MostRecentParticipantsStrategy {
+    override def participantIntroductions: mutable.HashMap[Participant, Int] = introductions
   }
+//    override val participantIntroductions = introductions
+//  }
+
+  //protected val exploitChooser = new {} with FurthestParticipantStrategy {}
 
   protected val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
 
-  private val possibleActions:Seq[Action] = Seq(ExploreEndpoints(), ExploitEndpoints())
+  private def possibleActions:Seq[Action] = getUsedActions//Seq(ExploreEndpoints(), ExploitEndpoints())
 
   private def peekState(a:Participant, b:Participant):State = {
     this.queryLog += Tuple2(a, b)

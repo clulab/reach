@@ -47,7 +47,7 @@ class SQLiteSearchAgent(participantA:Participant, participantB:Participant) exte
 
   override def choseQuery(source: Participant,
                           destination: Participant,
-                          model: SearchModel) = Query(Cascade, source, Some(destination))
+                          model: SearchModel) = Query(Conjunction, source, Some(destination))
 
 }
 
@@ -75,9 +75,25 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
   with SQLIRStrategy
   with SQLIteIEStrategy {
 
+  // SET HERE THE ACTIONS TO USE FOR TRAINING AND RUNNING
+  val usedActions = Seq(ExploitQuery(), ExploreQuery(), ExploitEndpoints(), ExploreEndpoints())
+
+  val usedQueryActions = usedActions filter {
+    case _:ExploreQuery => true
+    case _:ExploitQuery => true
+    case _ => false
+  }
+
+  val usedEndpointActions = usedActions filter {
+    case _:ExploreEndpoints => true
+    case _:ExploitEndpoints => true
+    case _ => false
+  }
+
   // Fields
 
-  val actionCounters = new mutable.HashMap[String, Int]() ++ Map[String, Int](ExploitEndpoints().toString -> 0, ExploreEndpoints().toString -> 0, ExploreQuery().toString -> 0, ExploitQuery().toString -> 0)
+  val actionCounters = new mutable.HashMap[String, Int]() ++ usedActions.map(_.toString -> 0).toMap
+  //++ Map[String, Int](ExploitEndpoints().toString -> 0, ExploreEndpoints().toString -> 0, ExploreQuery().toString -> 0, ExploitQuery().toString -> 0)
 
 
   var stage:FocusedReadingStage.Value = FocusedReadingStage.EndPoints
@@ -130,7 +146,7 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
     queryLog += Tuple2(a, b)
 
-    val possibleActions:Seq[Action] = Seq(ExploreQuery(), ExploitQuery())
+    val possibleActions:Seq[Action] = usedQueryActions//Seq(ExploreQuery(), ExploitQuery())
 
     // Create state
     val state = this.observeState
@@ -148,15 +164,12 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
   }
 
   override def observeState:State = {
-    //if(queryLog.length > 0)
-      fillState(this.model, iterationNum, queryLog, introductions)
-    //else{
-    //  fillState(this.model, iterationNum, Seq((participantA, participantB)), introductions)
-    //}
-
+    fillState(this.model, iterationNum, queryLog, introductions)
   }
 
   override def getIterationNum: Int = iterationNum
+
+  override def getUsedActions: Seq[Action] = usedEndpointActions
 
   // Auxiliary methods
   private def fillState(model:SearchModel, iterationNum:Int, queryLog:Seq[(Participant, Participant)], introductions:mutable.Map[Participant, Int]):State = {
@@ -176,10 +189,16 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
 
     val ranks:Map[Participant, Int] = model.rankedNodes
 
-    val paRank = getRank(a, ranks)
-    val pbRank = getRank(b, ranks)
+    val paRank = (ranks(a)+1) / model.numNodes.toDouble //getRank(a, ranks)
+    val pbRank = (ranks(b)+1) / model.numNodes.toDouble //getRank(b, ranks)
 
-    FocusedReadingState(RankBin.First, RankBin.Bottom, iterationNum, paQueryLogCount,pbQueryLogCount,sameComponent,paIntro,pbIntro)
+    val paUngrounded = a.id.toUpperCase.startsWith("UAZ")
+    val pbUngrounded = b.id.toUpperCase.startsWith("UAZ")
+
+    assert(paRank >= 0 && paRank <= 1, "PA rank is out of bounds")
+    assert(pbRank >= 0 && pbRank <= 1, "PA rank is out of bounds")
+
+    FocusedReadingState(paRank, pbRank, iterationNum, paQueryLogCount,pbQueryLogCount,sameComponent,paIntro,pbIntro, paUngrounded, pbUngrounded)
   }
 
   private def getRank(p:Participant, ranks:Map[Participant, Int]):RankBin.Value = {
@@ -304,8 +323,8 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
   }
 
   def possibleActions(): Seq[Action] = (stage: @unchecked) match {
-    case FocusedReadingStage.EndPoints => Seq(ExploitEndpoints(), ExploreEndpoints())
-    case FocusedReadingStage.Query => Seq(ExploitQuery(), ExploreQuery())
+    case FocusedReadingStage.EndPoints => usedEndpointActions//Seq(ExploitEndpoints(), ExploreEndpoints())
+    case FocusedReadingStage.Query => usedQueryActions//Seq(ExploitQuery(), ExploreQuery())
   }
   /////////////////
 

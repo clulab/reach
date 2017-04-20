@@ -50,7 +50,7 @@ object Values{
         }
 
         val coefficientsExploreEndpoints = new mutable.HashMap[String, Double]
-        for((k, v) <- valsExploreQuery){
+        for((k, v) <- valsExploreEndpoints){
           coefficientsExploreEndpoints += (k -> v.extract[Double])
         }
 
@@ -60,13 +60,13 @@ object Values{
         }
 
         val coefficientsExploitEndpoints = new mutable.HashMap[String, Double]
-        for((k, v) <- valsExploitQuery){
+        for((k, v) <- valsExploitEndpoints){
           coefficientsExploitEndpoints += (k -> v.extract[Double])
         }
 
         val coefficientsMap = Map(
           ExploreQuery().asInstanceOf[Action] -> coefficientsExploreQuery,
-          ExploitQuery() -> coefficientsExploitQuery,
+          ExploitQuery().asInstanceOf[Action] -> coefficientsExploitQuery,
           ExploreEndpoints() -> coefficientsExploreEndpoints,
           ExploitEndpoints() -> coefficientsExploitEndpoints
         )
@@ -130,7 +130,7 @@ class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[Str
     val actionCoefficients = coefficients(action)
 
     // Encode the state vector into features
-    val features = Map("bias" -> 1.0) ++ key._1.toFeatures //++ Actions.toFeatures(key._2)
+    val features = Map("bias" -> 1.0) ++ key._1.toFeatures
 
     // Do the dot product with the coefficients
     val products = features map {
@@ -149,7 +149,7 @@ class LinearApproximationValues(val coefficients:Map[Action, mutable.HashMap[Str
     val actionCoefficients = coefficients(action)
 
     // The gradient are the feature values because this is a linear function optimizing MSE
-    val gradient = Map("bias" -> 1.0) ++ current._1.toFeatures //++ Actions.toFeatures(current._2)
+    val gradient = Map("bias" -> 1.0) ++ current._1.toFeatures
 
     val currentVal = this(current)
     val nextVal =this(next)

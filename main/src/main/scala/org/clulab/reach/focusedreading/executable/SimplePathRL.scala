@@ -245,10 +245,10 @@ object SimplePathRL extends App with LazyLogging{
   logger.info(s"Same outcome: $same")
   logger.info(s"Different outcome: $different")
 
-  //val osw = new BufferedWriter(new FileWriter("rl_bootstrap.txt"))
+  val osw = new BufferedWriter(new FileWriter("rl_bootstrap.txt"))
 
-  //bootstrapLines foreach osw.write
+  bootstrapLines foreach osw.write
 
-  //osw.close
+  osw.close
 
 }

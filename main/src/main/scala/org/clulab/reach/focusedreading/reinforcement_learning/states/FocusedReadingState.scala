@@ -19,18 +19,20 @@ object RankBin extends Enumeration {
   }
 }
 
-case class FocusedReadingState(paRank:RankBin.Value,
-                               pbRank:RankBin.Value,
+case class FocusedReadingState(paRank:Double,
+                               pbRank:Double,
                                iteration:Int,
                                paQueryLogCount:Int,
                                pbQueryLogCount:Int,
                                sameComponent:Boolean,
                                paIterationIntroduction:Int,
-                               pbIterationIntroduction:Int
+                               pbIterationIntroduction:Int,
+                               paUngrounded:Boolean,
+                               pbUngrounded:Boolean
                               ) extends State{
 
   override def hashCode(): Int = {
-    s"$paRank-$pbRank-$iteration-$paQueryLogCount-$pbQueryLogCount-$sameComponent-$paIterationIntroduction-$pbIterationIntroduction".hashCode
+    s"$paRank-$pbRank-$iteration-$paQueryLogCount-$pbQueryLogCount-$sameComponent-$paIterationIntroduction-$pbIterationIntroduction--$paUngrounded-$pbUngrounded".hashCode
   }
 
   override def equals(obj: scala.Any): Boolean = {
@@ -60,7 +62,11 @@ case class FocusedReadingState(paRank:RankBin.Value,
       "pbQueryLogCount" -> pbQueryLogCount.toDouble,
       "sameComponent" ->  (sameComponent match{ case true => 1.0; case false => 0.0 }),
       "paIterationIntroduction" -> paIterationIntroduction.toDouble,
-      "pbIterationIntroduction" -> pbIterationIntroduction.toDouble
+      "pbIterationIntroduction" -> pbIterationIntroduction.toDouble,
+      "paRank" -> paRank,
+      "pbRank" -> pbRank
+      //"paUngrounded" -> (paUngrounded match { case true => 1.0; case false => 0.0}),
+      //"pbUngrounded" -> (pbUngrounded match { case true => 1.0; case false => 0.0})
     )  //++ RankBin.toFeatures(paRank, "paRank") ++ RankBin.toFeatures(pbRank, "pbRank")
   }
 }
@@ -74,23 +80,23 @@ object FocusedReadingState{
     RankBin.values.size * RankBin.values.size * iterationBound * iterationBound * iterationBound * 2 * iterationBound * iterationBound
   }
 
-  def enumerate:Iterable[State] = {
-
-    val iterations = 1 to 10
-
-    val states = for{
-      paRank <- RankBin.values;
-      pbRank <- RankBin.values;
-      iteration <- iterations;
-      paQueryLogCount <- iterations;
-      pbQueryLogCount <- iterations;
-      sameComponent <- Seq(true, false);
-      paIterationIntroduction <- iterations;
-      pbIterationIntroduction <- iterations
-    } yield FocusedReadingState(paRank, pbRank, iteration, paQueryLogCount, pbQueryLogCount, sameComponent, paIterationIntroduction, pbIterationIntroduction)
-
-    assert(states.size == cardinality, s"There's a different number of stats than the computed cardinality. States: ${states.size}, Cardinality: $cardinality")
-    states
-  }
+//  def enumerate:Iterable[State] = {
+//
+//    val iterations = 1 to 10
+//
+//    val states = for{
+//      paRank <- RankBin.values;
+//      pbRank <- RankBin.values;
+//      iteration <- iterations;
+//      paQueryLogCount <- iterations;
+//      pbQueryLogCount <- iterations;
+//      sameComponent <- Seq(true, false);
+//      paIterationIntroduction <- iterations;
+//      pbIterationIntroduction <- iterations
+//    } yield FocusedReadingState(paRank, pbRank, iteration, paQueryLogCount, pbQueryLogCount, sameComponent, paIterationIntroduction, pbIterationIntroduction)
+//
+//    assert(states.size == cardinality, s"There's a different number of stats than the computed cardinality. States: ${states.size}, Cardinality: $cardinality")
+//    states
+//  }
 }
 
