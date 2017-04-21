@@ -207,6 +207,9 @@ trait MostRecentParticipantsStrategy extends ParticipantChoosingStrategy{
 }
 
 trait FurthestParticipantStrategy extends ParticipantChoosingStrategy{
+
+  val distancesCache = new mutable.HashMap[Participant, Int]()
+
   override def choseEndPoints(source: Participant, destination: Participant,
                               previouslyChosen: Set[(Participant, Participant)],
                               model: SearchModel): (Participant, Participant) = {
@@ -231,23 +234,31 @@ trait FurthestParticipantStrategy extends ParticipantChoosingStrategy{
   }
 
   private def sortByDistance(s:Seq[Participant], reference:Participant, model:SearchModel):Seq[Participant] = {
-    val maxDist = model.numNodes -1 // This is an upper bound of the distance
+    //val maxDist = model.numNodes -1 // This is an upper bound of the distance
 
     val distances = s map {
       node =>
-        model.shortestPath(reference, node) match {
-          case Some(path) =>
-            path.size - 1 // Num edges = num nodes - 1
-          case None =>
-            maxDist
+        if(distancesCache.contains(node))
+          Some(distancesCache(node))
+        else {
+          model.shortestPath(reference, node) match {
+            case Some(path) =>
+              val dist = path.size
+              distancesCache += node -> dist
+              Some(dist)
+            case None =>
+              None
+          }
         }
     }
 
-    val degrees = s map (node => model.degree(node))
+    //val degrees = s map (node => model.degree(node))
 
-    val scores = distances zip degrees map { case (d, dd) => d +dd }
+    //val scores = distances zip degrees map { case (d, dd) => d +dd }
 
-    val sorted = s.zip(scores).sortBy(_._2)
+    val sorted = s.zip(distances).collect{
+      case (p, Some(d)) => (p, d)
+    }.sortBy(_._2).reverse
 
     sorted map (_._1)
   }
@@ -278,7 +289,7 @@ trait ExploreExploitParticipantsStrategy extends ParticipantChoosingStrategy{
 //    override val participantIntroductions = introductions
 //  }
 
-  //protected val exploitChooser = new {} with FurthestParticipantStrategy {}
+//  protected val exploitChooser = new {} with FurthestParticipantStrategy {}
 
   protected val exploreChooser = new {} with MostConnectedParticipantsStrategy {}
 

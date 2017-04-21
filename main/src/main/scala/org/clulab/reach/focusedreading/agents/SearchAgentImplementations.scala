@@ -1,5 +1,7 @@
 package org.clulab.reach.focusedreading.agents
 
+import java.io.{FileOutputStream, OutputStreamWriter}
+
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.reach.focusedreading.ie.{REACHIEStrategy, SQLIteIEStrategy}
 import org.clulab.reach.focusedreading.ir.QueryStrategy._
@@ -47,7 +49,7 @@ class SQLiteSearchAgent(participantA:Participant, participantB:Participant) exte
 
   override def choseQuery(source: Participant,
                           destination: Participant,
-                          model: SearchModel) = Query(Conjunction, source, Some(destination))
+                          model: SearchModel) = Query(Disjunction, source, Some(destination))
 
 }
 
@@ -228,6 +230,8 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     }
   }
 
+
+
   private def executePolicyQueryStage(action:Action, persist:Boolean):Double = {
 
     // Fetch the chosen participants (endpoints)
@@ -273,11 +277,20 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     else{
       // If finished successfuly
       successStopCondition(participantA, participantB, model) match{
-        case Some(p) => 1.0
-        case None => -1.0
+        case Some(p) =>
+//          printSuccess("successes.txt", participantA, participantB)
+          1.0
+        case None =>
+          -1.0
       }
     }
   }
+
+//  private def printSuccess(path:String, pa:Participant, pb:Participant): Unit ={
+//    val w = new OutputStreamWriter(new FileOutputStream(path, true))
+//    w.write(s"${pa.id}\t${pb.id}\n")
+//    w.close()
+//  }
 
   private def queryActionToStrategy(action: Action, a: Participant, b: Participant) = {
     action match {

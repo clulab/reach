@@ -9,13 +9,14 @@ import org.clulab.reach.focusedreading.reinforcement_learning.policies.{EpGreedy
 import org.clulab.reach.focusedreading.reinforcement_learning.policy_iteration.td.SARSA
 
 import scala.collection.immutable.HashSet
+import scala.collection.mutable
 
 /**
   * Created by enrique on 31/03/17.
   */
 
 object LinearSARSA extends App {
-  // The first argument is the input file
+
   // The first argument is the input file
   val dataSet:Iterator[Tuple2[String, String]] = Iterator.continually(io.Source.fromFile(args(0)).getLines
     .map{
@@ -67,7 +68,7 @@ object LinearSARSA extends App {
 
   val numEpisodes = 2000
 
-  val policyIteration = new SARSA(focusedReadingFabric, numEpisodes, 30, 0.01)
+  val policyIteration = new SARSA(focusedReadingFabric, numEpisodes, 2000, 0.01)
   val possibleActions:Set[Action] = Set(ExploitQuery(), ExploreQuery(), ExploreEndpoints(), ExploitEndpoints())
   val qFunction = new LinearApproximationValues(possibleActions)
 
