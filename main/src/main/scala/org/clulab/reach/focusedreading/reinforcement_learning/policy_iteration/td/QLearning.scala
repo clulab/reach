@@ -1,15 +1,15 @@
 package org.clulab.reach.focusedreading.reinforcement_learning.policy_iteration.td
 
-import org.clulab.reach.focusedreading.reinforcement_learning.Decays
-import org.clulab.reach.focusedreading.reinforcement_learning.policies._
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.reach.focusedreading.reinforcement_learning.Decays
 import org.clulab.reach.focusedreading.reinforcement_learning.environment._
+import org.clulab.reach.focusedreading.reinforcement_learning.policies._
 
 
 /**
   * Created by enrique on 26/03/17.
   */
-class SARSA(environmentFabric:() => Option[Environment], episodeBound:Int, burnInEpisodes:Int, alpha:Double = 0.01, gamma:Double = 0.8) extends LazyLogging {
+class QLearning(environmentFabric:() => Option[Environment], episodeBound:Int, burnInEpisodes:Int, alpha:Double = 0.01, gamma:Double = 0.8) extends LazyLogging {
 
   var stable = true
   var episodeCount = 0
@@ -61,9 +61,13 @@ class SARSA(environmentFabric:() => Option[Environment], episodeBound:Int, burnI
 
             // Observe the new state after executing the action
             val possibleNextStates = environment.observeStates
+            val possibleNextActions = environment.possibleActions()
+
+            val choices = (possibleNextStates zip possibleNextActions).sortBy{case (s, a) => policy.values(s, a)}.reverse
 
             // Chose a new action
-            val (nextState, nextAction) = policy.selectAction(possibleNextStates, environment.possibleActions())
+
+            val (nextState, nextAction) = choices.head
 
 
             // Perform the update

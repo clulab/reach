@@ -231,6 +231,7 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
   }
 
 
+  private val uniquePapers = new mutable.HashSet[String]()
 
   private def executePolicyQueryStage(action:Action, persist:Boolean):Double = {
 
@@ -241,6 +242,8 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     val query = queryActionToStrategy(action, a, b)
 
     val paperIds = this.informationRetrival(query)
+
+    //this.uniquePapers ++= paperIds
 
     val findings = this.informationExtraction(paperIds)
 
@@ -276,9 +279,9 @@ class PolicySearchAgent(participantA:Participant, participantB:Participant, val 
     }
     else{
       // If finished successfuly
+      val uniquePapers = this.papersRead.toSet.size
       successStopCondition(participantA, participantB, model) match{
         case Some(p) =>
-//          printSuccess("successes.txt", participantA, participantB)
           1.0
         case None =>
           -1.0

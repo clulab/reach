@@ -6,7 +6,8 @@ import org.clulab.reach.focusedreading.Participant
 import org.clulab.reach.focusedreading.reinforcement_learning.actions._
 import org.clulab.reach.focusedreading.reinforcement_learning.environment.{Environment, SimplePathEnvironment}
 import org.clulab.reach.focusedreading.reinforcement_learning.policies.{EpGreedyPolicy, LinearApproximationValues, TabularValues}
-import org.clulab.reach.focusedreading.reinforcement_learning.policy_iteration.td.SARSA
+import org.clulab.reach.focusedreading.reinforcement_learning.policy_iteration.td.{QLearning, SARSA}
+import org.clulab.reach.focusedreading.reinforcement_learning.{Decays, scalaRand}
 
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
@@ -18,14 +19,20 @@ import scala.collection.mutable
 object LinearSARSA extends App {
 
   // The first argument is the input file
-  val dataSet:Iterator[Tuple2[String, String]] = Iterator.continually(io.Source.fromFile(args(0)).getLines
+
+  val pairs = io.Source.fromFile(args(0)).getLines
     .map{
       s =>
         val t = s.split("\t").toSeq
         //(t(0), t(1), t(2))
         (t.head, t.last)
-    }
-  ).flatten
+    }.toList
+
+  def randomnizedPairs = {
+    scalaRand.shuffle(pairs)
+  }
+
+  val dataSet:Iterator[Tuple2[String, String]] = Iterator.continually(randomnizedPairs).flatten
 
   def focusedReadingFabric():Option[Environment] = {
     if(dataSet.hasNext){
@@ -66,16 +73,19 @@ object LinearSARSA extends App {
     f.saveas(s"plot_$title.png")
   }
 
-  val numEpisodes = 2000
 
-  val policyIteration = new SARSA(focusedReadingFabric, numEpisodes, 2000, 0.01)
+  val epochs = 30
+  val numEpisodes = pairs.size * epochs // 2000
+
+  val policyIteration = new SARSA(focusedReadingFabric, numEpisodes, 0, 0.02)
   val possibleActions:Set[Action] = Set(ExploitQuery(), ExploreQuery(), ExploreEndpoints(), ExploitEndpoints())
   val qFunction = new LinearApproximationValues(possibleActions)
 
   // Decaying epsilon
-  val epsilon = 0.3
-  val epsilonDecrease = (epsilon-0.01)/numEpisodes
-  val eps = (0 to numEpisodes).toStream.map(i => epsilon-(i*epsilonDecrease)).iterator ++ Stream.continually(0.01)
+  val epsilon = 0.4
+//  val epsilonDecrease = (epsilon-0.01)/(numEpisodes/2.0)
+//  val eps = (0 to (numEpisodes/2)).toStream.map(i => epsilon-(i*epsilonDecrease)).iterator ++ Stream.continually(0.01)
+  val eps = Decays.exponentialDecay(epsilon, 0.1, pairs.size*(epochs-2), pairs.size).iterator
   ///////////////////
   val initialPolicy = new EpGreedyPolicy(eps, qFunction)
 
