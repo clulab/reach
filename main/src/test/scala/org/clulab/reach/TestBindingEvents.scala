@@ -467,4 +467,10 @@ class TestBindingEvents extends FlatSpec with Matchers {
     mentions filter (_ matches "Binding") shouldBe empty
   }
 
+  val sent46 = "We analyze the associations between KRAS and BRAF mutations and patients ' clinicopathological characteristics."
+  sent46 should "not contain binding events" in {
+    val mentions = getBioMentions(sent46)
+    mentions filter (_ matches "Binding") shouldBe empty
+  }
+
 }
