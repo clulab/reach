@@ -94,7 +94,7 @@ class TestJSONSerializer extends FlatSpec with Matchers {
     val mekmns = corefmentions.filter(_.text == "MEK")
     mekmns should have size 1
     val mek = mekmns.head
-    (mek.jsonAST \ "modifications" \ "modification-type").extract[String] should equal ("PTM")
+    (mek.jsonAST \ "modifications" \\ "modification-type").extract[String] should equal ("PTM")
   }
 
   it should "still contain a PTM after serialization/deserialization" in {
@@ -102,7 +102,7 @@ class TestJSONSerializer extends FlatSpec with Matchers {
     val mekmns = deserializedCorefMentions.filter(_.text == "MEK")
     mekmns should have size 1
     val mek = mekmns.head
-    (mek.jsonAST \ "modifications" \ "modification-type").extract[String] should equal ("PTM")
+    (mek.jsonAST \ "modifications" \\ "modification-type").extract[String] should equal ("PTM")
   }
 
   val text2 = "MEK activates K-RAS."
