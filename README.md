@@ -14,7 +14,7 @@ Reach is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(
 Please scroll down to the bottom of this page for additional resources, including a Reach output visualizer, REST API, and datasets created with Reach.
 
 # Licensing
-This project is, and will always be, free for *research purposes*. However, starting on the next release, we will be using a licence that restricts its use for *commercial purposes*. Details are forthcoming.
+This project is, and will always be, free for *research purposes*. However, starting with version 1.2, we are using a license that restricts its use for *commercial purposes*. Please contact us for details.
 
 # Changes
 + **1.3.3** - Sub-project split into main, assembly, export.
