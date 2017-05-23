@@ -8,7 +8,7 @@ import org.clulab.reach.grounding.Speciated._
 /**
   * Factory class for creating and loading an in-memory KB from a namespaced TSV file.
   *   Written by: Tom Hicks. 1/19/2016.
-  *   Last Modified: Add inactive debugging dump.
+  *   Last Modified: Fix: remove redundant load.
   */
 class TsvIMKBFactory {
 
@@ -19,10 +19,9 @@ class TsvIMKBFactory {
   ): InMemoryKB = {
     val imkb: InMemoryKB = new InMemoryKB(metaInfo, keyTransforms)
     // load new in-memory KB, if filename specified:
-    metaInfo.kbFilename.foreach { loadFromKBDir(imkb, _, metaInfo.namespace) }
     metaInfo.kbFilename.foreach { filename =>
       loadFromKBDir(imkb, filename, metaInfo.namespace) // load new in-memory KB
-      // if (filename == "XYZ-KB.tsv.gz") {                // DEBUGGING
+      // if (filename == "XYZ-KB.tsv.gz") {       // DEBUGGING
       //   imkb.dump                              // DEBUGGING
       // }
     }

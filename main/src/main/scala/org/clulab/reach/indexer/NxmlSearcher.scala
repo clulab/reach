@@ -291,6 +291,13 @@ class NxmlSearcher(val indexDir:String) {
     vanillaUseCase(s"""(Pancreas OR PDAC OR "pancreatic ductal adenocarcinoma" OR "pancreatic cancer") AND ($MEK OR "MEK inhibitor" OR "MEK inhibition" OR Trametinib OR Selumetinib OR Pimasertib OR PD184352 OR PD318088 OR PD0325901 OR AZD6244 OR AZD6300 OR TAK-733) AND ($AKT OR $ERK OR Ki67 OR RB)""", resultDir)
   }
 
+  /** Use case for neuro cognitive development */
+  def useCaseNCD(resultDir:String): Unit = {
+    vanillaUseCase(
+      "(children OR fetal OR prenatal OR neonatal OR infant OR childhood) AND (neuro OR cognitive OR early) AND (development OR ECD) AND measure",
+      resultDir)
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
@@ -339,7 +346,8 @@ object NxmlSearcher {
       searcher.searchByIds(ids, resultDir)
     } else {
       searcher.useCase(resultDir)
-      // searcher.useCasePhase3c(resultDir)
+      //searcher.useCasePhase3c(resultDir)
+      //searcher.useCaseNCD(resultDir)
     }
 
     searcher.close()

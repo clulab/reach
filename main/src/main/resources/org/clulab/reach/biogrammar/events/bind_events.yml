@@ -139,18 +139,20 @@
       trigger = /cooperation|affinity|association|interaction/
       theme1:BioChemicalEntity+ = </prep_(of|to)/{,2} acomp? prep_between conj_and?
 
-- name: binding11_token
-  label: Binding
-  action: mkBinding
-  priority: ${ priority }
-  type: token
-  pattern: |
-      (?<trigger> /cooperation|affinity|association|interaction/ )
-      "between"
-      [tag="DT"]?
-      @theme1:BioChemicalEntity
-      "and"
-      @theme2:BioChemicalEntity
+## Commented out because of event overgeneration in cases like
+## "We analyze the associations between KRAS and BRAF mutations and patients' clinicopathological characteristics."
+#- name: binding11_token
+#  label: Binding
+#  action: mkBinding
+#  priority: ${ priority }
+#  type: token
+#  pattern: |
+#      (?<trigger> /cooperation|affinity|association|interaction/)
+#      "between"
+#      [tag="DT"]?
+#      @theme1:BioChemicalEntity
+#      "and"
+#      @theme2:BioChemicalEntity
 
 - name: binding12
   label: Binding
