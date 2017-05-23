@@ -294,7 +294,7 @@ class NxmlSearcher(val indexDir:String) {
   /** Use case for neuro cognitive development */
   def useCaseNCD(resultDir:String): Unit = {
     vanillaUseCase(
-      "children AND (neuro OR cognitive) AND development AND measure",
+      "(children OR fetal OR prenatal OR neonatal OR infant OR childhood) AND (neuro OR cognitive OR early) AND (development OR ECD) AND measure",
       resultDir)
   }
 
