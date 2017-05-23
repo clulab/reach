@@ -372,6 +372,15 @@
     theme1:BioChemicalEntity+ = (<rcmod | <vmod)
     theme2:BioChemicalEntity+ = (<rcmod | <vmod) (<rcmod | rcmod)
 
+- name: binding_thatisbound_surface
+  label: Binding
+  type: token
+  action: mkBinding
+  priority: ${ priority }
+  example: "Src tyrosyl phosphorylates Ras that is GTP bound"
+  pattern: |
+    @theme1:BioChemicalEntity that [lemma=be] @theme2:BioChemicalEntity (?<trigger> [word=bound])
+
 # rules for "Complex formation"
 - name: binding_complex_formation_1
   label: Binding
