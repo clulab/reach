@@ -1,0 +1,33 @@
+- name: convert_with_controller
+  label: Conversion # Refers to the entry in the taxonomy
+  action: mkBioMention
+  priority: ${ priority }
+  pattern: |
+      trigger = [lemma=/convert/ & tag=/^V/]
+      controller:BioChemicalEntity*  = nsubj nn?
+      substrate:BioChemicalEntity+ = dobj
+      product:BioChemicalEntity+ = dobj? prep_to
+
+- name: conversion
+  label: Conversion
+  action: mkBioMention
+  priority: ${ priority }
+  pattern: |
+      trigger = [lemma=/conversion/ & tag=/^NN/]
+      substrate:BioChemicalEntity+ = prep_of
+      product:BioChemicalEntity+ = prep_of? prep_to
+
+- name: conversion_token
+  label: Conversion
+  action: mkBioMention
+  priority: ${ priority }
+  type: token
+  pattern: |
+      @controller:BioChemicalEntity (?<trigger> [lemma=convert])
+      @substrate:BioChemicalEntity /^(in)?to$/
+      @product:BioChemicalEntity
+
+  # "X synthesis from Y"
+  # "synthesis of X from Y"
+  # "the interconversion of X and Y"
+  # "A catalyzes the interconversion of X and Y"
