@@ -15,6 +15,10 @@ vars:
   #negActTriggers: "inhibit|knockdown|limit|lower|negat|reduc|reliev|repress|restrict|revers|sequester|slow|starv|suppress|supress"
 
 rules:
+  - import: org/clulab/reach/biogrammar/events/conversion.yml
+    vars:
+      priority: "7"
+
   - import: org/clulab/reach/biogrammar/events/bind_events.yml
     vars:
       excludeObj: "promoter"

@@ -26,6 +26,7 @@
     - Event:
         - SimpleEvent:
             - Binding
+            - Conversion
             - Generic_event
             - Translocation
             - Amount:
