@@ -1163,4 +1163,23 @@ class TestModifications extends FlatSpec with Matchers {
     akt should have size (1)
     akt.head.countMutations should be (1)
   }
+
+  val modSiteExcludeTest1 = "The PTEN protein contains a CK2 phosphorylation site."
+  modSiteExcludeTest1 should "not contain any phosphorylation of CK2" in {
+    val mentions = getBioMentions(modSiteExcludeTest1)
+    hasEventWithArguments("Phosphorylation", List("CK2"), mentions) should be (false)
+  }
+
+  val modSiteExcludeTest2 = "Mutations of the AKT1 phosphorylation site of RUNX3 decreased RUNX3 sumoylation."
+  modSiteExcludeTest2 should "not contain any phosphorylation of AKT1" in {
+    val mentions = getBioMentions(modSiteExcludeTest2)
+    hasEventWithArguments("Phosphorylation", List("AKT1"), mentions) should be (false)
+  }
+
+  val modSiteExcludeTest3 = "We studied the MEK phosphorlyation site of ERK."
+  modSiteExcludeTest3 should "not contain any phosphorylation of MEK" in {
+    val mentions = getBioMentions(modSiteExcludeTest3)
+    hasEventWithArguments("Phosphorylation", List("MEK"), mentions) should be (false)
+  }
+
 }
