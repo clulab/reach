@@ -291,6 +291,12 @@ class NxmlSearcher(val indexDir:String) {
     vanillaUseCase(s"""(Pancreas OR PDAC OR "pancreatic ductal adenocarcinoma" OR "pancreatic cancer") AND ($MEK OR "MEK inhibitor" OR "MEK inhibition" OR Trametinib OR Selumetinib OR Pimasertib OR PD184352 OR PD318088 OR PD0325901 OR AZD6244 OR AZD6300 OR TAK-733) AND ($AKT OR $ERK OR Ki67 OR RB)""", resultDir)
   }
 
+  /** Phase III May 2017 CMU/UPitt */
+  def useCasePhase3d(resultDir:String): Unit = {
+    // query partial
+    vanillaUseCase(s"""melanoma AND (p70S6K OR S6 OR gsk OR gsk3 OR gsk3a OR gsk3b OR src OR 4ebp1 OR "eIF4E\\-binding protein 1" OR PHASI OR ybi OR YBX1 OR NSEP1 OR YB1 OR CRD OR Y\\-box OR SkMel\\-133)""", resultDir)
+  }
+
   /** Use case for neuro cognitive development */
   def useCaseNCD(resultDir:String): Unit = {
     vanillaUseCase(
@@ -345,8 +351,8 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase(resultDir)
-      //searcher.useCasePhase3c(resultDir)
+      //searcher.useCase(resultDir)
+      searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD(resultDir)
     }
 
