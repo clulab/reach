@@ -316,7 +316,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    @theme:BioChemicalEntity (?<trigger> [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (/^(on|at)$/ @site:Site)? (?! [lemma=of])
+    @theme:BioChemicalEntity (?<trigger> [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (/^(on|at)$/ @site:Site)? (?! [lemma=of|lemma=site])
 
 
 # relies on EventSite modifications
