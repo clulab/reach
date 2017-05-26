@@ -435,11 +435,11 @@ class Coref extends LazyLogging {
       // share more complete grounding based on alias map
       mentions.filter(_.isInstanceOf[TextBoundMention]).foreach {
         mention =>
-          val kbRes = mention.grounding.get
-          if (aliases contains kbRes) {
+          val kbRes = mention.grounding
+          if (kbRes.nonEmpty && aliases.contains(kbRes.get)) {
             logger.debug(s"${mention.text} matches " +
-              s"${aliases(kbRes).getOrElse(Nil).map(_.text).mkString("{'", "', '", "}")}")
-            mention.nominate(aliases(kbRes))
+              s"${aliases(kbRes.get).getOrElse(Nil).map(_.text).mkString("{'", "', '", "}")}")
+            mention.nominate(aliases(kbRes.get))
             mention.sieves += "aliasGroundingMatch"
           }
       }
