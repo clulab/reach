@@ -305,4 +305,16 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent43)
     mentions.filter(_ matches "Positive_activation") should have size (0)
   }
+
+  val sent44 = "AR function increases docetaxel sensitivity."
+  sent44 should "contain no activations" in {
+    val mentions = getBioMentions(sent44)
+    mentions.filter(_ matches "Positive_activation") should have size (0)
+  }
+
+  val sent45 = "The consequences of increased AR function might then increase docetaxel resistance via increasing p21 expression."
+  sent45 should "contain no activations" in {
+    val mentions = getBioMentions(sent45)
+    mentions.filter(_ matches "Positive_activation") should have size (0)
+  }
 }
