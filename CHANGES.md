@@ -1,6 +1,7 @@
 #Changes
 =======
 
++ **1.3.3** - Add serial JSON output format to API.
 + **1.3.3** - Fix lib clash: allow ai.lum.common to dicate typesafe.config version.
 + **1.3.3** - Use consistent SBT version across projects. Update ai.lum.nxmlreader to special release 0.0.9.
 + **1.3.3** - Find shortest path between heads in actions. Add/allow outputter for JSON serialization format.
