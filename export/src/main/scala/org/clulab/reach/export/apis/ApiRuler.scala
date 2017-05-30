@@ -15,7 +15,7 @@ import scala.collection.JavaConverters._
 /**
   * External interface class to accept and process text strings and NXML documents,
   * returning REACH results in either FRIES or IndexCard JSON format.
-  *   Last modified: Fix call to serial JSON output format.
+  *   Last modified: Fix remaining call to serial JSON output format.
   */
 object ApiRuler {
   // a response is a heterogeneous Java Map from String to either String or Boolean
@@ -79,7 +79,7 @@ object ApiRuler {
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
         case "serial-json" =>
-          serialOutputter.writeJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
+          serialOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
         case _ =>
           friesOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
       }
