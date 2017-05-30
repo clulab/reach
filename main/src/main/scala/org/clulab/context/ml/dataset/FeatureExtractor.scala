@@ -182,7 +182,7 @@ object FeatureExtractor{
       event <- events;
       contextMention <- contextMentions
     } yield {
-      extractFeatures(doc, event, contextMention, contextMentions map contextMention2Annotation)
+      extractFeatures(doc, event, contextMention, contextMentions map contextMention2Annotation, Set[FeatureFamily]()) //TODO: Add the feature families correctly
     }
 
 //  def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:String):RVFDatum[String, String] = {
@@ -287,13 +287,13 @@ object FeatureExtractor{
      ContextType.parse(m))
 
   def extractFeatures(doc:Document, event:BioMention,
-     contextMention:BioTextBoundMention, contextMentions:Iterable[ContextAnnotation]):PairFeatures = extractFeatures(doc,
+     contextMention:BioTextBoundMention, contextMentions:Iterable[ContextAnnotation], featureFamilies:Set[FeatureFamily]):PairFeatures = extractFeatures(doc,
         bioMention2Annotation(event),
-        contextMention2Annotation(contextMention), contextMentions)
+        contextMention2Annotation(contextMention), contextMentions, featureFamilies)
 
   def extractFeatures(doc:Document, event:EventAnnotation,
-     contextMention:BioTextBoundMention, contextMentions:Iterable[ContextAnnotation]):PairFeatures = extractFeatures(doc,
-        event, contextMention2Annotation(contextMention), contextMentions)
+     contextMention:BioTextBoundMention, contextMentions:Iterable[ContextAnnotation], featureFamilies:Set[FeatureFamily]):PairFeatures = extractFeatures(doc,
+        event, contextMention2Annotation(contextMention), contextMentions, featureFamilies)
 
   object FeatureProcessing{
     def binSentenceDistance(d:Int):BinnedDistance.Value = {
@@ -387,10 +387,19 @@ object FeatureExtractor{
   }
 
   def extractFeatures(doc:Document, event:EventAnnotation, contextMention:ContextAnnotation
-                      , contextMentions:Iterable[ContextAnnotation]):PairFeatures = {
+                      , contextMentions:Iterable[ContextAnnotation], featureFamilies:Set[FeatureFamily]):PairFeatures = {
 
     val id = PairID(event, contextMention.contextType)
 
+//    for{ family <- featureFamilies }{
+//      family match {
+//        case _:Depedency =>
+//          Unit
+//        case _:Phi =>
+//          Unit
+//
+//      }
+//    }
 
 
     // FEATURES //////////////////////
@@ -525,7 +534,7 @@ object FeatureExtractor{
       event <- eventAnnotations;
       contextAnnotation <- contextAnnotations
     } yield {
-      extractFeatures(doc, event, contextAnnotation, contextAnnotations)
+      extractFeatures(doc, event, contextAnnotation, contextAnnotations, Set[FeatureFamily]()) // TODO: Add feature families
     }
 
   /// Phi Features
