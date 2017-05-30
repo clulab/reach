@@ -6,6 +6,7 @@ import org.clulab.odin.Mention
 import org.clulab.reach._
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
+import org.clulab.reach.export.serial.SerialJsonOutput
 import org.clulab.reach.utils.IncrementingId
 import ai.lum.nxmlreader._
 import scala.collection.JavaConverters._
@@ -14,7 +15,7 @@ import scala.collection.JavaConverters._
 /**
   * External interface class to accept and process text strings and NXML documents,
   * returning REACH results in either FRIES or IndexCard JSON format.
-  *   Last Modified: Import all of ai.lum.nxmlreader. Update reader call.
+ *   Last modified: Add serial JSON output format.
   */
 object ApiRuler {
   // a response is a heterogeneous Java Map from String to either String or Boolean
@@ -36,8 +37,9 @@ object ApiRuler {
 
   val reach = new ReachSystem               // start reach system
 
-  val friesOutputter = new FriesOutput         // converts results to json in FRIES format
-  val indexCardOutputter = new IndexCardOutput // converts results to json in Index Card format
+  val friesOutputter = new FriesOutput         // converts results to JSON in FRIES format
+  val indexCardOutputter = new IndexCardOutput // converts results to JSON in Index Card format
+  val serialOutputter = new SerialJsonOutput("utf-8") // converts results to serialized JSON
 
   /** Extracts raw text from given nxml and returns a response with all the mentions. */
   def annotateNxml(nxml: String, outFormat: String): Response = {
@@ -73,10 +75,14 @@ object ApiRuler {
       val mentions = lazyMentions
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
-      val json = if (outFormat == "indexcard")
-        indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
-      else
-        friesOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
+      val json = outFormat.toLowerCase match {
+        case "indexcard" =>
+          indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
+        case "serial-json" =>
+          serialOutputter.writeJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
+        case _ =>
+          friesOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
+      }
       Map("resultJson" -> json, "hasError" -> false).asJava
     } catch {
       case e: Exception => Map("resultJson" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
@@ -93,15 +99,18 @@ object ApiRuler {
       val mentions = lazyMentions
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
-      val json = if (outFormat == "indexcard")
-        indexCardOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
-      else
-        friesOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
+      val json = outFormat.toLowerCase match {
+        case "indexcard" =>
+          indexCardOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
+        case "serial-json" =>
+          serialOutputter.writeJSON(requestId, mentions, entries, startTime, endTime, prefix)
+        case _ =>
+          friesOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
+      }
       Map("resultJson" -> json, "hasError" -> false).asJava
     } catch {
       case e: Exception => Map("resultJson" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
     }
   }
-
 
 }
