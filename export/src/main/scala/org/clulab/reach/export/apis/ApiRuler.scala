@@ -16,7 +16,7 @@ import scala.collection.JavaConverters._
 /**
   * External interface class to accept and process text strings and NXML documents,
   * returning REACH results in either FRIES or IndexCard JSON format.
-  *   Last modified: Add Arizona format TSV output.
+  *   Last modified: Recognize some aliases for Arizona TSV output format in the API.
   */
 object ApiRuler {
   // a response is a heterogeneous Java Map from String to either String or Boolean
@@ -77,7 +77,7 @@ object ApiRuler {
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
       val resultString = outFormat.toLowerCase match {
-        case "arizona" =>
+        case "arizona" | "csv" | "tsv" =>
           ArizonaOutputter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
