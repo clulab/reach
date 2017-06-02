@@ -1,6 +1,7 @@
 #Changes
 =======
 
++ **1.3.3** - Added option to use FastBioNLPProcessor, which makes Reach ~40% faster.
 + **1.3.3** - Add serial JSON output format to API.
 + **1.3.3** - Fix lib clash: allow ai.lum.common to dicate typesafe.config version.
 + **1.3.3** - Use consistent SBT version across projects. Update ai.lum.nxmlreader to special release 0.0.9.
