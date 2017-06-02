@@ -6,8 +6,9 @@ import org.clulab.odin._
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{Rules, readResource}
-import org.clulab.processors.Document
-import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.processors.{Document, Processor}
+import org.clulab.processors.bionlp.{BioNLPProcessor, FastBioNLPProcessor}
+
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
 import org.clulab.reach.context._
@@ -18,10 +19,10 @@ import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 
 
 class ReachSystem(
-    rules: Option[Rules] = None,
-    proc: Option[BioNLPProcessor] = None,
-    contextEngineType: Engine = Dummy,
-    contextParams: Map[String, String] = Map()
+  rules: Option[Rules] = None,
+  proc: Option[Processor] = None,
+  contextEngineType: Engine = Dummy,
+  contextParams: Map[String, String] = Map()
 ) extends LazyLogging {
 
   import ReachSystem._
@@ -289,6 +290,18 @@ object ReachSystem {
         em.displayLabel = "Protein"
       }
     }
+  }
+
+  def chooseProcessor(procType:String):Processor = {
+    val proc = procType.toLowerCase match {
+      case "fastbionlp" =>
+        println("CHOOSING FASTBIO")
+        new FastBioNLPProcessor(withChunks = false)
+      case _ =>
+        println("CHOOSING BIO")
+        new BioNLPProcessor(withChunks = false)
+    }
+    proc
   }
 
 }

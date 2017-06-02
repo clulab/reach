@@ -1,17 +1,20 @@
 package org.clulab.reach
 
 import java.io._
+
 import org.clulab.reach.context.ContextEngineFactory.Engine
+
 import scala.collection.JavaConverters._
 import com.typesafe.config.ConfigFactory
 import org.apache.commons.io.FilenameUtils
 import org.clulab.odin._
 import org.clulab.reach.utils.DSVParser
-import org.clulab.utils.Serializer
+
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import com.typesafe.scalalogging.LazyLogging
+import org.clulab.utils.Serializer
 
 
 object PaperReader extends LazyLogging {
@@ -20,6 +23,7 @@ object PaperReader extends LazyLogging {
   type Dataset = Map[PaperId, Vector[Mention]]
 
   logger.debug("loading ...")
+  // to set a custom conf file add -Dconfig.file=/path/to/conf/file to the cmd line for sbt
   val config = ConfigFactory.load()
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
@@ -36,8 +40,12 @@ object PaperReader extends LazyLogging {
   val contextEngineParams: Map[String, String] =
     context.createContextEngineParams(contextConfig)
 
+  // which processor to use
+  val procType: String = config.getString("proc")
+  val proc = ReachSystem.chooseProcessor(procType)
+
   // initialize ReachSystem with appropriate context engine
-  lazy val rs = new ReachSystem(contextEngineType = contextEngineType, contextParams = contextEngineParams)
+  lazy val rs = new ReachSystem(proc = Some(proc), contextEngineType = contextEngineType, contextParams = contextEngineParams)
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
@@ -146,6 +154,7 @@ object PaperReader extends LazyLogging {
 
 object ReadPapers extends App with LazyLogging {
 
+  // to set a custom conf file add -Dconfig.file=/path/to/conf/file to the cmd line for sbt
   val config = ConfigFactory.load()
 
   val papersDir = config.getString("ReadPapers.papersDir")
@@ -157,3 +166,4 @@ object ReadPapers extends App with LazyLogging {
   logger.info("serializing ...")
   Serializer.save(dataset, outFile)
 }
+

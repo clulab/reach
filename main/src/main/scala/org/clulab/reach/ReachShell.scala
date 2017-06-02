@@ -9,7 +9,7 @@ import jline.console.history.FileHistory
 import scala.collection.immutable.ListMap
 import org.clulab.reach.display._
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import RuleReader._
+import org.clulab.processors.bionlp.{BioNLPProcessor, FastBioNLPProcessor}
 
 object ReachShell extends App {
   println("Loading ReachSystem ...")
@@ -21,11 +21,14 @@ object ReachShell extends App {
   val contextConfig = config.getConfig("contextEngine.params").root
   val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
 
-  // initialize ReachSystem with appropriate context engine
-  var reach = new ReachSystem(contextEngineType = contextEngineType,
-                              contextParams = contextEngineParams)
+  // which processor to use
+  val procType: String = config.getString("proc")
+  val proc = ReachSystem.chooseProcessor(procType)
 
-  val proc = reach.processor
+  // initialize ReachSystem with appropriate context engine
+  var reach = new ReachSystem(proc = Some(proc),
+                              contextEngineType = contextEngineType,
+                              contextParams = contextEngineParams)
 
   val history = new FileHistory(new File(System.getProperty("user.home"), ".reachshellhistory"))
   sys addShutdownHook {
