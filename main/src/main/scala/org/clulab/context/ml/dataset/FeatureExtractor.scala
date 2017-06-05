@@ -32,25 +32,25 @@ case class PairID(
 case class PairFeatures(
   id:PairID,
   //val sentenceDistance:BinnedDistance.Value,
-  sentenceDistance:Int,
-  contextPOSTag:Seq[String],
-  eventPOSTag:Seq[String],
+  var sentenceDistance:Option[Int] = None,
+  var contextPOSTag:Option[Seq[String]] = None,
+  var eventPOSTag:Option[Seq[String]] = None,
   //val dependencyDistance:Option[BinnedDistance.Value],
-  dependencyDistance:Option[Int],
+  var dependencyDistance:Option[Int] = None,
   //val discourseDistance:BinnedDistance.Value,
-  dependencyPath:Seq[String],
-  posPath:Seq[String],
-  evtSentenceFirstPerson:Boolean,
-  ctxSentenceFirstPerson:Boolean,
-  evtSentencePastTense:Boolean,
-  ctxSentencePastTense:Boolean,
-  evtSentencePresentTense:Boolean,
-  ctxSentencePresentTense:Boolean,
-  closesCtxOfClass:Boolean,
-  evtDependencyTails:Seq[String],
-  ctxDependencyTails:Seq[String],
-  evtNegationInTails:Boolean,
-  ctxNegationInTails:Boolean
+  var dependencyPath:Option[Seq[String]] = None,
+  var posPath:Option[Seq[String]] = None,
+  var evtSentenceFirstPerson:Option[Boolean] = None,
+  var ctxSentenceFirstPerson:Option[Boolean] = None,
+  var evtSentencePastTense:Option[Boolean] = None,
+  var ctxSentencePastTense:Option[Boolean] = None,
+  var evtSentencePresentTense:Option[Boolean] = None,
+  var ctxSentencePresentTense:Option[Boolean] = None,
+  var closesCtxOfClass:Option[Boolean] = None,
+  var evtDependencyTails:Option[Seq[String]] = None,
+  var ctxDependencyTails:Option[Seq[String]] = None,
+  var evtNegationInTails:Option[Boolean] = None,
+  var ctxNegationInTails:Option[Boolean] = None
   //var contextDocFrequency:Option[Int] = None
 ){
 //  def toSeq(feda:Boolean=false):Seq[String] = {
@@ -123,32 +123,75 @@ case class PairFeatures(
     val featureMap = new mutable.HashMap[String, Double]()
 
     // Binary features (Categorical mapped to binary)
-    if(evtSentenceFirstPerson)
-      featureMap += ("evtSentenceFirstPerson" -> 1)
+    evtSentenceFirstPerson match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("evtSentenceFirstPerson" -> 1)
+      case None => Unit
+    }
 
-    if(ctxSentenceFirstPerson)
-      featureMap += ("ctxSentenceFirstPerson" -> 1)
 
-    if(evtSentencePastTense)
-      featureMap += ("evtSentencePastTense" -> 1)
+    ctxSentenceFirstPerson match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("ctxSentenceFirstPerson" -> 1)
+      case None => Unit
+    }
 
-    if(ctxSentencePastTense)
-      featureMap += ("ctxSentencePastTense" -> 1)
 
-    if(evtSentencePresentTense)
-      featureMap += ("evtSentencePresentTense" -> 1)
+    evtSentencePastTense match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("evtSentencePastTense" -> 1)
+      case None => Unit
+    }
 
-    if(ctxSentencePresentTense)
-      featureMap += ("ctxSentencePresentTense" -> 1)
 
-    if(closesCtxOfClass)
-      featureMap += ("closesCtxOfClass" -> 1)
+    ctxSentencePastTense match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("ctxSentencePastTense" -> 1)
+      case None => Unit
+    }
 
-    if(evtNegationInTails)
-      featureMap += ("evtNegationInTail" -> 1)
+    evtSentencePresentTense match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("evtSentencePresentTense" -> 1)
+      case None => Unit
+    }
 
-    if(ctxNegationInTails)
-      featureMap += ("ctxNegationIntTail" -> 1)
+    ctxSentencePresentTense match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("ctxSentencePresentTense" -> 1)
+      case None => Unit
+    }
+
+
+    closesCtxOfClass match {
+      case Some(v) =>
+        if(v)
+          if(v)
+            featureMap += ("closesCtxOfClass" -> 1)
+      case None => Unit
+    }
+
+    evtNegationInTails match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("evtNegationInTail" -> 1)
+      case None => Unit
+    }
+
+    ctxNegationInTails match {
+      case Some(v) =>
+        if(v)
+          featureMap += ("ctxNegationIntTail" -> 1)
+      case None => Unit
+    }
+
+
 
 
     // Integer features
@@ -160,11 +203,22 @@ case class PairFeatures(
     val dependencyDistance:Double = this.dependencyDistance match {case Some(n:Int) => n.toDouble; case None => 0.0}
     featureMap += ("dependencyDistance" ->dependencyDistance)
 
-    featureMap += ("sentenceDistance" -> this.sentenceDistance.toDouble)
+    val sentenceDistance:Double = this.sentenceDistance match {case Some(n) => n.toDouble; case None => 0.0}
+    featureMap += ("sentenceDistance" -> sentenceDistance)
 
-    featureMap ++= evtDependencyTails.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
+    evtDependencyTails match {
+      case Some(tails) =>
+        featureMap ++= tails.map(t => s"evtDepTail_$t").groupBy(identity).mapValues(_.length)
+      case None => Unit
+    }
 
-    featureMap ++= ctxDependencyTails.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
+
+    ctxDependencyTails match {
+      case Some(tails) =>
+        featureMap ++= tails.map(t => s"ctxDepTail_$t").groupBy(identity).mapValues(_.length)
+      case None => Unit
+    }
+
 
     // Real features
 
@@ -391,15 +445,7 @@ object FeatureExtractor{
 
     val id = PairID(event, contextMention.contextType)
 
-//    for{ family <- featureFamilies }{
-//      family match {
-//        case _:Depedency =>
-//          Unit
-//        case _:Phi =>
-//          Unit
-//
-//      }
-//    }
+
 
 
     // FEATURES //////////////////////
@@ -518,13 +564,39 @@ object FeatureExtractor{
     val evtNegation = if(evtDependencyTails.filter(tail => tail.contains("neg")).size > 0) true else false
 
     //
+    val features = new PairFeatures(id)
+
+    for{ family <- featureFamilies }{
+      family match {
+        case _:Depedency => {
+          features.dependencyPath = dependencyPath
+
+        }
+        case _:Phi =>
+          Unit
+
+      }
+    }
 
 
-    PairFeatures(id, sentenceDistance, contextPOS, eventPOS, dependencyLength,
-      dependencyPath.getOrElse(Seq()), clusteredPOSPath,
-      evtSCPRP, ctxSCPRP, evtSPastT, ctxSPastT, evtSPresentT, ctxSPresentT, closestOfCategory,
-      evtDependencyTails map (tail => tail.mkString("_")), ctxDependencyTails map (tail => tail.mkString("_")),
-      evtNegation, ctxNegation
+    PairFeatures(id,
+      sentenceDistance = Some(sentenceDistance),
+      contextPOSTag = Some(contextPOS),
+      Some(eventPOS),
+      dependencyLength,
+      Some(dependencyPath.getOrElse(Seq())),
+      Some(clusteredPOSPath),
+      Some(evtSCPRP),
+      Some(ctxSCPRP),
+      Some(evtSPastT),
+      Some(ctxSPastT),
+      Some(evtSPresentT),
+      Some(ctxSPresentT),
+      Some(closestOfCategory),
+      Some(evtDependencyTails map (tail => tail.mkString("_"))),
+      Some(ctxDependencyTails map (tail => tail.mkString("_"))),
+      Some(evtNegation),
+      Some(ctxNegation)
     )
   }
 
