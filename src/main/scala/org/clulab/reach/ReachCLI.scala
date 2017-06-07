@@ -263,10 +263,8 @@ object ReachCLI {
   * and processes a directory of papers.
   */
 object RunReachCLI extends App with LazyLogging {
-  // use the specified config file, or the default one if one is not specified
-  val config =
-    if (args.isEmpty) ConfigFactory.load()
-    else ConfigFactory.parseFile(new File(args(0))).resolve()
+  // to set a custom conf file add -Dconfig.file=/path/to/conf/file to the cmd line for sbt
+  val config = ConfigFactory.load()
 
   val papersDir: File = config[File]("papersDir")
   logger.debug(s"(ReachCLI.init): papersDir=${papersDir}")

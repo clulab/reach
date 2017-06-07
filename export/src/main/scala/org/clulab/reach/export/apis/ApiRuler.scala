@@ -4,6 +4,7 @@ import java.util.{Date, Map => JMap}
 import com.typesafe.config.ConfigFactory
 import org.clulab.odin.Mention
 import org.clulab.reach._
+import org.clulab.reach.export.arizona.ArizonaOutputter
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
@@ -15,7 +16,7 @@ import scala.collection.JavaConverters._
 /**
   * External interface class to accept and process text strings and NXML documents,
   * returning REACH results in either FRIES or IndexCard JSON format.
-  *   Last modified: Fix remaining call to serial JSON output format.
+  *   Last modified: Recognize some aliases for Arizona TSV output format in the API (v2).
   */
 object ApiRuler {
   // a response is a heterogeneous Java Map from String to either String or Boolean
@@ -75,7 +76,9 @@ object ApiRuler {
       val mentions = lazyMentions
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
-      val json = outFormat.toLowerCase match {
+      val resultString = outFormat.toLowerCase match {
+        case "arizona" | "csv" | "tsv" =>
+          ArizonaOutputter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
         case "serial-json" =>
@@ -83,9 +86,9 @@ object ApiRuler {
         case _ =>
           friesOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
       }
-      Map("resultJson" -> json, "hasError" -> false).asJava
+      Map("result" -> resultString, "hasError" -> false).asJava
     } catch {
-      case e: Exception => Map("resultJson" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
+      case e: Exception => Map("result" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
     }
   }
 
@@ -99,7 +102,9 @@ object ApiRuler {
       val mentions = lazyMentions
       val endTime = new Date()
       val requestId = s"${prefix}${apiRequestCntr.genNextId()}"
-      val json = outFormat.toLowerCase match {
+      val resultString = outFormat.toLowerCase match {
+        case "arizona" | "csv" | "tsv" =>
+          ArizonaOutputter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
         case "serial-json" =>
@@ -107,9 +112,9 @@ object ApiRuler {
         case _ =>
           friesOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
       }
-      Map("resultJson" -> json, "hasError" -> false).asJava
+      Map("result" -> resultString, "hasError" -> false).asJava
     } catch {
-      case e: Exception => Map("resultJson" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
+      case e: Exception => Map("result" -> "", "hasError" -> true, "errorMessage" -> e.getMessage).asJava
     }
   }
 
