@@ -443,6 +443,7 @@ object FeatureExtractor{
   def extractFeatures(doc:Document, event:EventAnnotation, contextMention:ContextAnnotation
                       , contextMentions:Iterable[ContextAnnotation], featureFamilies:Set[FeatureFamily]):PairFeatures = {
 
+    //id connects event and context mention and is used as the id for the returned PairFeatures object
     val id = PairID(event, contextMention.contextType)
 
 
@@ -563,41 +564,69 @@ object FeatureExtractor{
     val ctxNegation = if(ctxDependencyTails.filter(tail => tail.contains("neg")).size > 0) true else false
     val evtNegation = if(evtDependencyTails.filter(tail => tail.contains("neg")).size > 0) true else false
 
-    //
+    // Instantiate new instance of PairFeatures with id and then select features to be used in classifier:
     val features = new PairFeatures(id)
 
+    // Select feature families to be used in classifier
     for{ family <- featureFamilies }{
       family match {
+        case _:Positional => {
+          features.sentenceDistance = Some(sentenceDistance)
+          features.dependencyDistance = dependencyLength
+          features.closesCtxOfClass = Some(closestOfCategory)
+        }
         case _:Depedency => {
           features.dependencyPath = dependencyPath
 
         }
-        case _:Phi =>
-          Unit
-
+        case _:Phi => {
+          features.evtSentenceFirstPerson = Some(evtSCPRP)
+          features.ctxSentenceFirstPerson = Some(ctxSCPRP)
+          features.evtSentencePastTense = Some(evtSPastT)
+          features.ctxSentencePastTense = Some(ctxSPastT)
+          features.evtSentencePresentTense = Some(evtSPresentT)
+          features.ctxSentencePresentTense = Some(ctxSPresentT)
+        }
+        case _:Negation => {
+          features.evtNegationInTails = Some(evtNegation)
+          features.ctxNegationInTails = Some(ctxNegation)
+        }
+        case _:Tails => {
+          features.evtDependencyTails = Some(evtDependencyTails map (tail => tail.mkString("_")))
+          features.ctxDependencyTails = Some(ctxDependencyTails map (tail => tail.mkString("_")))
+        }
+        case _:POS => {
+          features.contextPOSTag = Some(contextPOS)
+          features.eventPOSTag = Some(eventPOS)
+          features.posPath = Some(clusteredPOSPath)
+        }
       }
     }
 
-
+    // return the selected features:
+    features
+    // or return all features:
+    /*
     PairFeatures(id,
       sentenceDistance = Some(sentenceDistance),
       contextPOSTag = Some(contextPOS),
-      Some(eventPOS),
-      dependencyLength,
-      Some(dependencyPath.getOrElse(Seq())),
-      Some(clusteredPOSPath),
-      Some(evtSCPRP),
-      Some(ctxSCPRP),
-      Some(evtSPastT),
-      Some(ctxSPastT),
-      Some(evtSPresentT),
-      Some(ctxSPresentT),
-      Some(closestOfCategory),
-      Some(evtDependencyTails map (tail => tail.mkString("_"))),
-      Some(ctxDependencyTails map (tail => tail.mkString("_"))),
-      Some(evtNegation),
-      Some(ctxNegation)
+      eventPOSTag = Some(eventPOS),
+      dependencyDistance = dependencyLength,
+      dependencyPath = Some(dependencyPath.getOrElse(Seq())),
+      posPath = Some(clusteredPOSPath),
+      evtSentenceFirstPerson = Some(evtSCPRP),
+      ctxSentenceFirstPerson = Some(ctxSCPRP),
+      evtSentencePastTense = Some(evtSPastT),
+      ctxSentencePastTense = Some(ctxSPastT),
+      evtSentencePresentTense = Some(evtSPresentT),
+      ctxSentencePresentTense = Some(ctxSPresentT),
+      closesCtxOfClass = Some(closestOfCategory),
+      evtDependencyTails = Some(evtDependencyTails map (tail => tail.mkString("_"))),
+      ctxDependencyTails = Some(ctxDependencyTails map (tail => tail.mkString("_"))),
+      evtNegationInTails = Some(evtNegation),
+      ctxNegationInTails = Some(ctxNegation)
     )
+    */
   }
 
   def extractFeaturesFromCorpus(doc:Document, eventAnnotations:Seq[EventAnnotation],
