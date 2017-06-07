@@ -303,6 +303,27 @@ class NxmlSearcher(val indexDir:String) {
       "(children OR fetal OR prenatal OR neonatal OR infant OR childhood) AND (neuro OR cognitive OR early) AND (development OR ECD) AND measure",
       resultDir)
   }
+  def useCaseNCD2(resultDir:String): Unit = {
+    // changes from original query:
+    // removed: "reading", "BRIEF"
+    // the 4th AND used to be an OR. I am fairly sure it should be an AND
+    vanillaUseCase(
+      """(
+        |  (children OR fetal OR prenatal OR neonatal OR infant OR childhood OR early) AND
+        |  (neuro OR brain OR cognitive) AND
+        |  (development OR ECD) AND
+        |  (measure OR assess OR assessing OR screen OR screening OR score OR outcome OR quotient)
+        |)
+        |AND
+        |(
+        |  (motor OR language OR cognition OR executive function OR social OR emotional OR socio\\-emotional) OR
+        |  ("school readiness" OR literacy OR numeracy) OR
+        |  (Mullens OR Mullen OR Griffiths OR Wechsler OR WPPSI OR WISC OR WAIS OR Stanford Binet OR Stanford-Binet OR "Peabody Picture Vocabulary Test" OR PPVT OR "Expressive Vocabulary Test" OR EVT OR "Preschool Language Scales" OR PLS OR "Receptive One\\-Word" OR ROWPVT OR "Expressive One\\-Word" OR EOWPVT OR Socio\\-emotional OR "Child Behavior Checklist" OR CBCL OR "Behavior Assessment System for Children" OR BASC OR Connors OR "Strengths and Difficulties Questionnaire" OR SDQ OR "NICHQ Vanderbilt" OR Vanderbilt OR "Behavior Rating Inventory of Executive Function" OR BRIEF OR "Developmental NEuroPSYchological Assessment" OR NEPSY OR Bracken OR BSRA OR BBCS OR "ABC Inventory" OR "Ages and Stages" OR ASQ OR "Extended Ages and Stages Questionnaire" OR EASQ OR "Parents Evaluation of Developmental Status" OR PEDS OR PEDS\\:DM OR Denver OR Beery\\-Buktenica OR "Visual Motor Integration" OR "Beery VMI" OR Bayley OR MacArthur\\-Bates OR MacArthur OR CDI OR MB\\-CDI) OR (EEG OR electroencephalogram OR fNIRS OR "functional near\\-infrared spectroscopy" OR MRI OR "magnetic resonance imaging" OR "eye tracking" OR actigraphy)
+        |)
+        |(NOT "highway decline aging")
+        |""".stripMargin,
+      resultDir)
+  }
 
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
@@ -351,9 +372,9 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      //searcher.useCase(resultDir)
-      searcher.useCasePhase3d(resultDir)
-      //searcher.useCaseNCD(resultDir)
+      searcher.useCase(resultDir)
+      //searcher.useCasePhase3d(resultDir)
+      //searcher.useCaseNCD2(resultDir)
     }
 
     searcher.close()
