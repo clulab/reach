@@ -16,7 +16,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = prepc_by? (dobj | xcomp | ccomp) /conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/{,2}
+    controlled:${ controlledType } = prepc_by? (/dobj|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
+      (/conj|dep|dobj|cc|nn|prep_of|prep_in$|amod/){,2}
     controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | agent | <vmod) /appos|nn|conj_|cc|prep_of|prep_in$/{,2}
 
 
