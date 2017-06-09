@@ -121,14 +121,14 @@ object CrossValidation extends App {
     POS())
 
 
-  // Extract all the feartues ahead of time
+  // Extract all the features ahead of time
   // Key: Paper ID
   // Value: Iterable of annotations ??
-  println(s"Extracting all featrues of ${annotations.size} papers...")
+  println(s"Extracting all features of ${annotations.size} papers...")
   val data:Map[String, Iterable[RVFDatum[String, String]]] =
       annotations.map{
           case(name, ann) =>
-            // Extract features
+            // Extract features:
             val features = extractFeatures(ann, featureFamilies).values
 
             (name -> features)

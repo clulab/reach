@@ -44,7 +44,7 @@ case class BinaryClassificationResults(truth:Seq[Boolean], predictions:Seq[Boole
 
     def f1Score:Double = fBScore(1)
 
-    def confusionMatrix:String = s"\t\tPredicted P\t|\tPredicted N\t|\t\nActual P\t|\t$truePositives\t|\t$falsePositives\nActual N\t|\t$falseNegatives\t|\t$trueNegatives\nTotal items:\t|\t${trueNegatives+truePositives+falseNegatives+falsePositives}"
+    def confusionMatrix:String = s"\t\tPredicted P\t|\tPredicted N\t|\t\nActual P\t|\t$truePositives\t|\t$falseNegatives\nActual N\t|\t$falsePositives\t|\t$trueNegatives\nTotal items:\t|\t${trueNegatives+truePositives+falseNegatives+falsePositives}"
 
     override def toString:String = {
         s"P:$precision\tR:$recall\tF1:$f1Score\tHits:$hits\tPositive hits:$positiveHits\tMisses:$misses\b\n$confusionMatrix\n"
