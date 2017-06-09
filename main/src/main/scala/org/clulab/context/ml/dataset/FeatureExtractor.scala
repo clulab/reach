@@ -604,9 +604,9 @@ object FeatureExtractor{
     }
 
     // return the selected features:
-    features
+    //features
     // or return all features:
-    /*
+    ///*
     PairFeatures(id,
       sentenceDistance = Some(sentenceDistance),
       contextPOSTag = Some(contextPOS),
@@ -626,7 +626,7 @@ object FeatureExtractor{
       evtNegationInTails = Some(evtNegation),
       ctxNegationInTails = Some(ctxNegation)
     )
-    */
+    //*/
   }
 
   def extractFeaturesFromCorpus(doc:Document, eventAnnotations:Seq[EventAnnotation],
