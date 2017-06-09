@@ -8,6 +8,6 @@ trait FeatureFamily;
 sealed case class Positional() extends FeatureFamily;
 sealed case class Depedency() extends FeatureFamily;
 sealed case class Phi() extends FeatureFamily;
-sealed case class Negation() extends FeatureFamily;
+sealed case class NegationProperty() extends FeatureFamily;
 sealed case class Tails() extends FeatureFamily;
 sealed case class POS() extends FeatureFamily;

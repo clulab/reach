@@ -10,7 +10,7 @@ import collection.mutable
 import org.clulab.learning._
 import Trainer._
 import org.clulab.reach._
-import org.clulab.context.ml.dataset._
+import org.clulab.context.ml.dataset.{FeatureFamily, _}
 import org.clulab.processors._
 import org.clulab.odin._
 import org.clulab.context.ContextEngine
@@ -114,6 +114,13 @@ object CrossValidation extends App {
   // Create a map with the article annotations
   val annotations = loadAnnotations(corpusDir).map(a => (a.name -> a)).toMap
 
+  val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
+    Phi(),
+    NegationProperty(),
+    Tails(),
+    POS())
+
+
   // Extract all the feartues ahead of time
   // Key: Paper ID
   // Value: Iterable of annotations ??
@@ -122,7 +129,7 @@ object CrossValidation extends App {
       annotations.map{
           case(name, ann) =>
             // Extract features
-            val features = extractFeatures(ann).values
+            val features = extractFeatures(ann, featureFamilies).values
 
             (name -> features)
       }.toMap

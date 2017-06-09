@@ -231,12 +231,14 @@ object FeatureExtractor{
 
   def extractFeatures(doc:Document,
     events:Seq[BioMention],
-    contextMentions:Seq[BioTextBoundMention]):Seq[PairFeatures] =
+    contextMentions:Seq[BioTextBoundMention],
+    featureFamilies:Set[FeatureFamily]):Seq[PairFeatures] =
+
     for{
       event <- events;
       contextMention <- contextMentions
     } yield {
-      extractFeatures(doc, event, contextMention, contextMentions map contextMention2Annotation, Set[FeatureFamily]()) //TODO: Add the feature families correctly
+      extractFeatures(doc, event, contextMention, contextMentions map contextMention2Annotation, featureFamilies) //TODO: Add the feature families correctly
     }
 
 //  def mkRVFDatum(instances:Seq[PairFeatures], contextFrequency:Int, label:String):RVFDatum[String, String] = {
@@ -587,7 +589,7 @@ object FeatureExtractor{
           features.evtSentencePresentTense = Some(evtSPresentT)
           features.ctxSentencePresentTense = Some(ctxSPresentT)
         }
-        case _:Negation => {
+        case _:NegationProperty => {
           features.evtNegationInTails = Some(evtNegation)
           features.ctxNegationInTails = Some(ctxNegation)
         }
@@ -604,9 +606,9 @@ object FeatureExtractor{
     }
 
     // return the selected features:
-    //features
+    features
     // or return all features:
-    ///*
+    /*
     PairFeatures(id,
       sentenceDistance = Some(sentenceDistance),
       contextPOSTag = Some(contextPOS),
@@ -626,16 +628,16 @@ object FeatureExtractor{
       evtNegationInTails = Some(evtNegation),
       ctxNegationInTails = Some(ctxNegation)
     )
-    //*/
+    */
   }
 
   def extractFeaturesFromCorpus(doc:Document, eventAnnotations:Seq[EventAnnotation],
-     contextAnnotations:Seq[ContextAnnotation]):Seq[PairFeatures] =
+     contextAnnotations:Seq[ContextAnnotation], featureFamilies:Set[FeatureFamily]):Seq[PairFeatures] =
     for{
       event <- eventAnnotations;
       contextAnnotation <- contextAnnotations
     } yield {
-      extractFeatures(doc, event, contextAnnotation, contextAnnotations, Set[FeatureFamily]()) // TODO: Add feature families
+      extractFeatures(doc, event, contextAnnotation, contextAnnotations, featureFamilies)
     }
 
   /// Phi Features

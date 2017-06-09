@@ -110,7 +110,7 @@ object Trainer {
       .filter(_.eventAnnotations.size >= 20)
   }
 
-  def extractFeatures(annotations:ArticleAnnotations):Map[PairID, RVFDatum[String, String]] = {
+  def extractFeatures(annotations:ArticleAnnotations, featureFamilies:Set[FeatureFamily]):Map[PairID, RVFDatum[String, String]] = {
 
     val sentences = annotations.sentences.values
 
@@ -172,7 +172,7 @@ object Trainer {
 
     // Extract features from reach's mentions
     println("Extracting features ...")
-    val pairs:Seq[PairFeatures] = FeatureExtractor.extractFeaturesFromCorpus(doc, events, manualContextAnnotations ++ filteredMentions)
+    val pairs:Seq[PairFeatures] = FeatureExtractor.extractFeaturesFromCorpus(doc, events, manualContextAnnotations ++ filteredMentions, featureFamilies)
 
     // Group the data by event location and context id
     val groupedPairs:Map[PairID, Seq[PairFeatures]] = pairs.groupBy(_.id)
@@ -362,10 +362,16 @@ object Trainer {
     // Training dataset
     val dataset = new RVFDataset[String, String]()
 
+    val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
+      Phi(),
+      NegationProperty(),
+      Tails(),
+      POS())
+
     // Extract features
     for(ann <- annotations){
 
-      val data = extractFeatures(ann)
+      val data = extractFeatures(ann, featureFamilies)
       // Add the data of this paper to the training dataset
       for(datum <- data.values){
         dataset += datum

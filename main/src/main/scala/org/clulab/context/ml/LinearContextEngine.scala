@@ -11,6 +11,12 @@ import org.clulab.utils.Serializer
 
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {
 
+  val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
+    Phi(),
+    NegationProperty(),
+    Tails(),
+    POS())
+
   // Load the trained data
   val classifier = LiblinearClassifier.loadFrom[String, String](parametersFile.getAbsolutePath)
   val normalizers:ScaleRange[String] = Serializer.load[ScaleRange[String]](normalizersFile.getAbsolutePath)
@@ -33,7 +39,7 @@ class LinearContextEngine(val parametersFile:File, val normalizersFile:File) ext
                         t =>
                             val mentions = contextMentions.filter(m => ContextType.parse(m) == t)
                             // Create feature pairs
-                            val instances = FeatureExtractor.extractFeatures(bioMention.document, Seq(bioMention), mentions)
+                            val instances = FeatureExtractor.extractFeatures(bioMention.document, Seq(bioMention), mentions, featureFamilies)
                             // Get the type frequency
                             val contextTypeCount:Int = paperContextTypeCounts.get.apply(t.id)
                             // Make the datum instance for classification
