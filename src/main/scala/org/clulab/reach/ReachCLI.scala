@@ -295,12 +295,12 @@ object RunReachCLI extends App with LazyLogging {
 
   logger.info(s"ReachCLI (${if (withAssembly) "w/" else "w/o"} assembly) begins ...")
 
-  // if input papers directory does not exist there is nothing to do
+  // if input papers directory does not exist, there is nothing to do
   if (!papersDir.exists) {
     sys.error(s"${papersDir.getCanonicalPath} does not exist")
   }
 
-  // if output directory does not exist create it
+  // if output directory does not exist, create it
   if (!outDir.exists) {
     logger.info(s"Creating output directory: ${outDir.getCanonicalPath}")
     FileUtils.forceMkdir(outDir)

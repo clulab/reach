@@ -20,6 +20,7 @@ import java.io._
 import collection.mutable.{ArrayBuffer, ListBuffer}
 import util.Random
 import ai.lum.common.Interval
+import com.typesafe.config.ConfigFactory
 import org.clulab.processors._
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Counter
@@ -113,6 +114,13 @@ object CrossValidation extends App {
 
   // Create a map with the article annotations
   val annotations = loadAnnotations(corpusDir).map(a => (a.name -> a)).toMap
+
+  val iAmHere: String = "Sean is writing code here."
+  // Specify config.  Pasted from ReachCLI.scala:
+  // use specified config file or the default one if one is not provided
+  val config =
+    if (args.isEmpty) ConfigFactory.load()
+    else ConfigFactory.parseFile(new File(args(0))).resolve()
 
   val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
     Phi(),
