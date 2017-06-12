@@ -362,7 +362,7 @@ object Trainer {
     // Training dataset
     val dataset = new RVFDataset[String, String]()
 
-    val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
+    val featureFamilies = Set[FeatureFamily](Positional(), Dependency(),
       Phi(),
       NegationProperty(),
       Tails(),

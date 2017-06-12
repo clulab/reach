@@ -30,6 +30,8 @@ import org.clulab.reach.mentions._
 import org.clulab.context._
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.json4s.native.JsonMethods._
+//To convert java list to scala.List: (reference: https://stackoverflow.com/questions/17913215/how-to-get-a-list-with-the-typesafe-config-library)
+import collection.JavaConversions._
 
 object CrossValidation extends App {
 
@@ -115,19 +117,36 @@ object CrossValidation extends App {
   // Create a map with the article annotations
   val annotations = loadAnnotations(corpusDir).map(a => (a.name -> a)).toMap
 
-  val iAmHere: String = "Sean is writing code here."
   // Specify config.  Pasted from ReachCLI.scala:
   // use specified config file or the default one if one is not provided
   val config =
-    if (args.isEmpty) ConfigFactory.load()
-    else ConfigFactory.parseFile(new File(args(0))).resolve()
+    // Assuming path to papers if this first argument (i.e. not specified in config file):
+    // If args only contain path to papers:
+    if (args.length == 1) ConfigFactory.load()
+    // else:
+    //   for now, specifying config file as second argument:
+    else ConfigFactory.parseFile(new File(args(1))).resolve()
 
-  val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
+  val featureFamiliesList = config.getStringList("contextEngine.params.featureFamilies").toList
+  
+  // search for featureFamily string in list of featureFamilies and, if featureFamily is included, append to Set()
+  //instantiate empty Set of featureFamily Trait objects:f
+  // currently using using var set for appending (could use val mutable.Set, but I'm not sure if that would break something (i.e. if other code is expecting the default immutable Set)
+  var featureFamilies = Set.empty[FeatureFamily]
+  if (featureFamiliesList.contains("Positional")) featureFamilies += Positional()
+  if (featureFamiliesList.contains("Dependency")) featureFamilies += Dependency()
+  if (featureFamiliesList.contains("Phi")) featureFamilies += Phi()
+  if (featureFamiliesList.contains("NegationProperty")) featureFamilies += NegationProperty()
+  if (featureFamiliesList.contains("Tails")) featureFamilies += Tails()
+  if (featureFamiliesList.contains("POS")) featureFamilies += POS()
+
+  // Hardcoded feature families:
+  /*val featureFamilies = Set[FeatureFamily](Positional(), Dependency(),
     Phi(),
     NegationProperty(),
     Tails(),
     POS())
-
+  */
 
   // Extract all the features ahead of time
   // Key: Paper ID

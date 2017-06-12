@@ -577,7 +577,7 @@ object FeatureExtractor{
           features.dependencyDistance = dependencyLength
           features.closesCtxOfClass = Some(closestOfCategory)
         }
-        case _:Depedency => {
+        case _:Dependency => {
           features.dependencyPath = dependencyPath
 
         }

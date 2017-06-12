@@ -11,7 +11,7 @@ import org.clulab.utils.Serializer
 
 class LinearContextEngine(val parametersFile:File, val normalizersFile:File) extends ContextEngine {
 
-  val featureFamilies = Set[FeatureFamily](Positional(), Depedency(),
+  val featureFamilies = Set[FeatureFamily](Positional(), Dependency(),
     Phi(),
     NegationProperty(),
     Tails(),

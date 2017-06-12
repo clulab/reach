@@ -6,7 +6,7 @@ package org.clulab.context.ml.dataset
 trait FeatureFamily;
 
 sealed case class Positional() extends FeatureFamily;
-sealed case class Depedency() extends FeatureFamily;
+sealed case class Dependency() extends FeatureFamily;
 sealed case class Phi() extends FeatureFamily;
 sealed case class NegationProperty() extends FeatureFamily;
 sealed case class Tails() extends FeatureFamily;
