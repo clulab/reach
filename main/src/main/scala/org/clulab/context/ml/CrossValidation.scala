@@ -128,7 +128,7 @@ object CrossValidation extends App {
     else ConfigFactory.parseFile(new File(args(1))).resolve()
 
   val featureFamiliesList = config.getStringList("contextEngine.params.featureFamilies").toList
-  
+
   // search for featureFamily string in list of featureFamilies and, if featureFamily is included, append to Set()
   //instantiate empty Set of featureFamily Trait objects:f
   // currently using using var set for appending (could use val mutable.Set, but I'm not sure if that would break something (i.e. if other code is expecting the default immutable Set)
