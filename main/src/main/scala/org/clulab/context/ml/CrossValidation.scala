@@ -127,7 +127,7 @@ object CrossValidation extends App {
     //   for now, specifying config file as second argument:
     else ConfigFactory.parseFile(new File(args(1))).resolve()
 
-  val featureFamiliesList = config.getStringList("contextEngine.params.featureFamilies").toList
+  val featureFamiliesList = config.getStringList("contextCrossValidation.featureFamilies").toList
 
   // search for featureFamily string in list of featureFamilies and, if featureFamily is included, append to Set()
   //instantiate empty Set of featureFamily Trait objects:f
