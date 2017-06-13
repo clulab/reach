@@ -2,6 +2,7 @@ package org.clulab.reach.mentions.serialization.json
 
 import org.clulab.serialization.json.DocOps
 import org.clulab.serialization.json.JSONSerializer._
+import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps }
 import org.clulab.odin
 import org.clulab.odin._
 import org.clulab.reach.grounding.{KBResolution}
@@ -40,7 +41,7 @@ object JSONSerializer extends LazyLogging {
     val mentionList: List[JValue] = mentions.map{
       case cm: CorefMention => CorefMentionOps(cm).jsonAST
       case bm: BioMention => BioMentionOps(bm).jsonAST
-      case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
+      case m: Mention => OdinMentionOps(m).jsonAST
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
     ("documents" -> docMap) ~ ("mentions" -> mentionList)
