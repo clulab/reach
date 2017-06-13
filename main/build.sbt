@@ -1,25 +1,37 @@
 name := "reach-main"
 
 libraryDependencies ++= {
-
-  val procVer = "6.0.5"
+  val akkaV = "2.5.2"
+  val luceVer = "5.3.1"
+  val procVer = "6.0.6-SNAPSHOT"
 
   Seq(
-    "org.scalatest" %% "scalatest" % "2.2.4" % "test",
-    "org.clulab" % "bioresources" % "1.1.22",
-    "org.clulab" %% "processors-main" % procVer,
-    "org.clulab" %% "processors-corenlp" % procVer,
-    "org.clulab" %% "processors-models" % procVer,
-    "commons-io" % "commons-io" % "2.4",
-    "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
-    "jline" % "jline" % "2.12.1",
-    "org.apache.lucene" % "lucene-core" % "5.3.1",
-    "org.apache.lucene" % "lucene-analyzers-common" % "5.3.1",
-    "org.apache.lucene" % "lucene-queryparser" % "5.3.1",
-    "ai.lum" %% "nxmlreader" % "0.0.9",
+    "ai.lum"              %%  "nxmlreader"  % "0.0.9",
+    "commons-io"           %  "commons-io"  % "2.4",
+    "jline"                %  "jline"       % "2.12.1",
+
+    "org.apache.lucene"    %  "lucene-core"              % luceVer,
+    "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
+    "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
+    "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
+    "org.clulab"           %  "bioresources"             % "1.1.22",
+    "org.clulab"          %%  "processors-main"          % procVer,
+    "org.clulab"          %%  "processors-corenlp"       % procVer,
+    "org.clulab"          %%  "processors-models"        % procVer,
+
     // logging
-    "ch.qos.logback" %  "logback-classic" % "1.1.7",
-    "com.typesafe.scala-logging" %%  "scala-logging" % "3.4.0"
+    "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.4.0",
+    "ch.qos.logback"               %  "logback-classic"  % "1.1.7",
+    "org.slf4j"                    %  "slf4j-api"        % "1.7.10",
+
+    // AKKA
+    "com.typesafe.akka"   %%  "akka-actor"   % akkaV,
+//  "com.typesafe.akka"   %%  "akka-remote"  % akkaV,
+    "com.typesafe.akka"   %%  "akka-slf4j"   % akkaV,
+
+    // testing
+    "org.scalatest"       %%  "scalatest"      % "2.2.4"  % "test",
+    "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test"
   )
 
 }
