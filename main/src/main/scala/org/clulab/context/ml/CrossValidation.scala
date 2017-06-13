@@ -121,7 +121,7 @@ object CrossValidation extends App {
   // Specify config.  Pasted from ReachCLI.scala:
   // use specified config file or the default one if one is not provided
   val config =
-    // Assuming path to papers if this first argument (i.e. not specified in config file):
+    // Assuming path to papers is the first argument (i.e. not specified in config file):
     // If args only contain path to papers:
     if (args.length == 1) ConfigFactory.load()
     // else:
