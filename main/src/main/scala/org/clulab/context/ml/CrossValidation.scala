@@ -26,6 +26,7 @@ import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.struct.Counter
 import org.clulab.serialization.DocumentSerializer
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
+import org.clulab.utils.Serializer
 import org.clulab.reach.mentions._
 import org.clulab.context._
 import org.clulab.reach.mentions.serialization.json.JSONSerializer
@@ -280,4 +281,16 @@ object CrossValidation extends App {
   for(cv <- individualResults){
     println(s"${cv.precision}\t-\t${cv.size}")
   }
+
+  val results = CrossValResults(microAverage, cvResults.values.toList, featureFamilies.toSeq)
+
+  val filename = "cv_" + featureFamiliesList.mkString("_") + ".ser"
+
+  Serializer.save(results, filename)
+
 }
+
+
+case class CrossValResults(results:BinaryClassificationResults,
+                           foldsResults:Seq[BinaryClassificationResults],
+                           featureFamilies:Seq[FeatureFamily])
