@@ -12,7 +12,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Extract and return data from replies.
   */
 class ProcessorCoreClient (
 
@@ -37,6 +37,7 @@ class ProcessorCoreClient (
   /** Constructs a document of tokens from free text; includes sentence splitting and tokenization */
   def mkDocument (text:String, keepText:Boolean = false): Document = {
     val reply = callServer(MkDocumentCmd(text, keepText))
+    reply.doc
   }
 
   /** Constructs a document of tokens from an array of untokenized sentences */
@@ -47,6 +48,7 @@ class ProcessorCoreClient (
   ): Document = {
     val reply = callServer(
       MkDocumentFromSentencesCmd(sentences, keepText, charactersBetweenSentences))
+    reply.doc
   }
 
   /** Constructs a document of tokens from an array of tokenized sentences */
@@ -59,6 +61,7 @@ class ProcessorCoreClient (
     val reply = callServer(
       MkDocumentFromTokensCmd(sentences, keepText,
                               charactersBetweenSentences, charactersBetweenTokens))
+    reply.doc
   }
 
   /**
@@ -68,16 +71,19 @@ class ProcessorCoreClient (
     */
   def preprocessText (origText:String): String = {
     val reply = callServer(PreprocessTextCmd(origText))
+    reply.text
   }
 
   /** Runs preprocessText on each sentence */
   def preprocessSentences (origSentences:Iterable[String]): Iterable[String] = {
     val reply = callServer(PreprocessSentencesCmd(origSentences))
+    reply.sentences
   }
 
   /** Runs preprocessText on each token */
   def preprocessTokens (origSentences:Iterable[Iterable[String]]): Iterable[Iterable[String]] = {
     val reply = callServer(PreprocessTokensCmd(origSentences))
+    reply.tokens
   }
 
   //
@@ -130,10 +136,12 @@ class ProcessorCoreClient (
 
   def annotate (text:String, keepText:Boolean = false): Document = {
     val reply = callServer(AnnotateStringCmd(text, keepText))
+    reply.doc
   }
 
   def annotateFromSentences (sentences:Iterable[String], keepText:Boolean = false): Document = {
     val reply = callServer(AnnotateFromSentencesCmd(sentences, keepText))
+    reply.doc
   }
 
   def annotateFromTokens (
@@ -141,10 +149,12 @@ class ProcessorCoreClient (
     keepText:Boolean = false
   ): Document = {
     val reply = callServer(AnnotateFromTokensCmd(tokens, keepText))
+    reply.doc
   }
 
   def annotate (doc:Document): Document = {
     val reply = callServer(AnnotateCmd(doc))
+    reply.doc
   }
 
  }
