@@ -299,4 +299,22 @@ class TestActivationEvents extends FlatSpec with Matchers {
     mentions.filter(_ matches "Transcription") should have size (1)
     mentions.filter(_ matches "Positive_activation") should have size (1)
   }
+
+  val sent43 = "GAPDH catalyzes the conversion of glyceraldehyde-3-phosphate to 1,3-bisphosphoglycerate."
+  sent43 should "contain no activations" in {
+    val mentions = getBioMentions(sent43)
+    mentions.filter(_ matches "Positive_activation") should have size (0)
+  }
+
+  val sent44 = "AR function increases docetaxel sensitivity."
+  sent44 should "contain no activations" in {
+    val mentions = getBioMentions(sent44)
+    mentions.filter(_ matches "Positive_activation") should have size (0)
+  }
+
+  val sent45 = "The consequences of increased AR function might then increase docetaxel resistance via increasing p21 expression."
+  sent45 should "contain no activations" in {
+    val mentions = getBioMentions(sent45)
+    mentions.filter(_ matches "Positive_activation") should have size (0)
+  }
 }

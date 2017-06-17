@@ -18,6 +18,7 @@ libraryDependencies ++= {
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-models"        % procVer,
+    "org.clulab"          %%  "odin"                     % procVer,
 
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.4.0",

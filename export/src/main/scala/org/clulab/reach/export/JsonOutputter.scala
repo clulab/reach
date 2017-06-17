@@ -9,7 +9,7 @@ import org.clulab.reach.ReachConstants._
 import ai.lum.nxmlreader.NxmlDocument
 import org.clulab.reach.assembly.Assembler
 import org.clulab.reach.FriesEntry
-import org.clulab.serialization.json._
+import org.clulab.odin.serialization.json._
 
 
 /**

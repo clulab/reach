@@ -2,8 +2,9 @@ package org.clulab.reach.mentions.serialization
 
 import org.clulab.odin
 import org.clulab.odin._
-import org.clulab.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
-import org.clulab.serialization.json.{ MentionOps => OdinMentionOps, JSONSerialization, OdinPathOps }
+import org.clulab.odin.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
+import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps, OdinPathOps }
+import org.clulab.serialization.json.JSONSerialization
 import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.KBResolution
@@ -24,7 +25,7 @@ package object json {
     // NOTE: order matters due to inheritance
     case cm: CorefMention => CorefMentionOps(cm).jsonAST
     case bm: BioMention => BioMentionOps(bm).jsonAST
-    case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
+    case m: Mention => OdinMentionOps(m).jsonAST
   }
 
   implicit class MentionJSONOps(m: Mention) extends OdinMentionOps(m) {
