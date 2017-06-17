@@ -10,8 +10,7 @@ libraryDependencies ++= {
     "org.clulab" %% "processors-main" % procVer,
     "org.clulab" %% "processors-corenlp" % procVer,
     "org.clulab" %% "processors-models" % procVer,
-    // FIXME: we may want to change "odin" to "processors-odin" for consistency...
-    "org.clulab" %% "odin" % procVer,
+    "org.clulab" %% "processors-odin" % procVer,
     "commons-io" % "commons-io" % "2.4",
     "org.biopax.paxtools" % "paxtools-core" % "4.3.1",
     "jline" % "jline" % "2.12.1",
