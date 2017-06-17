@@ -241,7 +241,7 @@ class ReachSystem(
 
 }
 
-object ReachSystem {
+object ReachSystem extends LazyLogging {
 
   /** This function should set the right displayMention for each mention.
     * NB: By default the displayMention is set to the main label of the mention,
@@ -295,10 +295,10 @@ object ReachSystem {
   def chooseProcessor(procType:String):Processor = {
     val proc = procType.toLowerCase match {
       case "fastbionlp" =>
-        println("CHOOSING FASTBIO")
+        logger.info("Choosing FastBio processor")
         new FastBioNLPProcessor(withChunks = false)
       case _ =>
-        println("CHOOSING BIO")
+        logger.info("Choosing Bio processor")
         new BioNLPProcessor(withChunks = false)
     }
     proc
