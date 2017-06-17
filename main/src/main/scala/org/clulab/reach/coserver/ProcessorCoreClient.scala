@@ -1,18 +1,23 @@
 package org.clulab.reach.coserver
 
+import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.concurrent.duration._
+import scala.language.postfixOps
 
 import com.typesafe.config.{ Config, ConfigValueFactory, ConfigFactory }
 import com.typesafe.scalalogging.LazyLogging
 
 import akka.actor.{ ActorRef, ActorSystem, Props, Actor }
+import akka.pattern.ask
+import akka.util.Timeout
 
+import org.clulab.processors._
 import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Read ask timeout from config.
+  *   Last Modified: Make it compile.
   */
 class ProcessorCoreClient (
 
@@ -40,7 +45,7 @@ class ProcessorCoreClient (
   /** Constructs a document of tokens from free text; includes sentence splitting and tokenization */
   def mkDocument (text:String, keepText:Boolean = false): Document = {
     val reply = callServer(MkDocumentCmd(text, keepText))
-    reply.doc
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** Constructs a document of tokens from an array of untokenized sentences */
@@ -51,7 +56,7 @@ class ProcessorCoreClient (
   ): Document = {
     val reply = callServer(
       MkDocumentFromSentencesCmd(sentences, keepText, charactersBetweenSentences))
-    reply.doc
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** Constructs a document of tokens from an array of tokenized sentences */
@@ -64,7 +69,7 @@ class ProcessorCoreClient (
     val reply = callServer(
       MkDocumentFromTokensCmd(sentences, keepText,
                               charactersBetweenSentences, charactersBetweenTokens))
-    reply.doc
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /**
@@ -74,19 +79,19 @@ class ProcessorCoreClient (
     */
   def preprocessText (origText:String): String = {
     val reply = callServer(PreprocessTextCmd(origText))
-    reply.text
+    reply.asInstanceOf[TextMsg].text
   }
 
   /** Runs preprocessText on each sentence */
   def preprocessSentences (origSentences:Iterable[String]): Iterable[String] = {
     val reply = callServer(PreprocessSentencesCmd(origSentences))
-    reply.sentences
+    reply.asInstanceOf[SentencesMsg].sentences
   }
 
   /** Runs preprocessText on each token */
   def preprocessTokens (origSentences:Iterable[Iterable[String]]): Iterable[Iterable[String]] = {
     val reply = callServer(PreprocessTokensCmd(origSentences))
-    reply.tokens
+    reply.asInstanceOf[TokensMsg].tokens
   }
 
   //
@@ -138,26 +143,26 @@ class ProcessorCoreClient (
   }
 
   def annotate (text:String, keepText:Boolean = false): Document = {
-    val reply = callServer(AnnotateStringCmd(text, keepText))
-    reply.doc
+    val reply = callServer(AnnotateTextCmd(text, keepText))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   def annotateFromSentences (sentences:Iterable[String], keepText:Boolean = false): Document = {
     val reply = callServer(AnnotateFromSentencesCmd(sentences, keepText))
-    reply.doc
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   def annotateFromTokens (
     sentences:Iterable[Iterable[String]],
     keepText:Boolean = false
   ): Document = {
-    val reply = callServer(AnnotateFromTokensCmd(tokens, keepText))
-    reply.doc
+    val reply = callServer(AnnotateFromTokensCmd(sentences, keepText))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   def annotate (doc:Document): Document = {
     val reply = callServer(AnnotateCmd(doc))
-    reply.doc
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
  }
