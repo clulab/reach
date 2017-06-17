@@ -2,11 +2,9 @@ package org.clulab.reach.export.fries
 
 import java.io._
 import java.util.Date
-
 import com.typesafe.scalalogging.LazyLogging
-
 import scala.collection.mutable.{HashMap, ListBuffer, Set => MSet}
-import org.json4s.native.Serialization
+import org.json4s.jackson.Serialization
 import org.clulab.reach.assembly.export.{CausalPrecedence, Equivalence}
 import org.clulab.reach.assembly.{Assembler, RoleWithFeatures}
 import org.clulab.reach.assembly.export.AssemblyLink

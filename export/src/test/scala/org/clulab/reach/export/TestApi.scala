@@ -4,7 +4,6 @@ import org.clulab.reach.FriesEntry
 import org.clulab.reach.TestUtils._
 import org.clulab.reach.export.apis.Api
 import org.scalatest._
-
 import scala.io.Source
 
 
