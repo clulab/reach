@@ -108,7 +108,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=prep_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controlled:${ controlledType } = /prep_of|prep_in$/ /conj_|cc|nn|amod/{,2}
+    controlled:${ controlledType } = /prep_of/ /conj_|cc|nn|amod/{,2}
     controller:${ controllerType } = /cc|nn|amod/{1,2} | conj_or prep_by nn?
 
 - name: Negative_${ ruleType }_syntax_5_noun
