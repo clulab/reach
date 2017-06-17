@@ -12,7 +12,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Extract and return data from replies.
+  *   Last Modified: Read ask timeout from config.
   */
 class ProcessorCoreClient (
 
@@ -24,8 +24,11 @@ class ProcessorCoreClient (
   // fire up the actor system
   private val system = ActorSystem("proc-core-client")
 
-  // TODO: Read configuration for RPC timeout LATER
-  implicit val timeout = Timeout(5 seconds)
+  // load application configuration from the configuration file
+  private val config = ConfigFactory.load().getConfig("ProcessorCoreClient")
+
+  private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 15
+  implicit val timeout = Timeout(patience seconds)
 
   /** Send the given message to the server and block until response comes back. */
   private def callServer (request: ProcessorCoreCommand): ProcessorCoreReply = {
