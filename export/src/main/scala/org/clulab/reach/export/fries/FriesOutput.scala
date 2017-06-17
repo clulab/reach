@@ -22,7 +22,7 @@ import org.clulab.reach.utils.IncrementingId
 import org.clulab.reach.utils.MentionManager._
 import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
-import org.clulab.serialization.json
+import org.clulab.odin.serialization.json
 import org.clulab.serialization.json.JSONSerializer.formats
 
 

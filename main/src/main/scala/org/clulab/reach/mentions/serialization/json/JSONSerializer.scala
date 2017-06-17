@@ -1,10 +1,10 @@
 package org.clulab.reach.mentions.serialization.json
 
 import org.clulab.serialization.json.DocOps
-import org.clulab.serialization.json.JSONSerializer._
+import org.clulab.odin.serialization.json.JSONSerializer._
 import org.clulab.odin
 import org.clulab.odin._
-import org.clulab.reach.grounding.{KBResolution}
+import org.clulab.reach.grounding.KBResolution
 import org.clulab.reach.mentions._
 import org.clulab.struct.{DirectedGraph, Edge, Interval}
 import org.json4s.JsonDSL._
@@ -40,7 +40,7 @@ object JSONSerializer extends LazyLogging {
     val mentionList: List[JValue] = mentions.map{
       case cm: CorefMention => CorefMentionOps(cm).jsonAST
       case bm: BioMention => BioMentionOps(bm).jsonAST
-      case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
+      case m: Mention => org.clulab.odin.serialization.json.MentionOps(m).jsonAST
     }.toList
     val docMap: Map[String, JValue] = mentionsToDocsJMap(mentions)
     ("documents" -> docMap) ~ ("mentions" -> mentionList)
@@ -393,9 +393,9 @@ object JSONSerializer extends LazyLogging {
     case JString(BioEventMention.string) => Some(toBioMention(mjson, docMap))
     case JString(BioRelationMention.string) => Some(toBioMention(mjson, docMap))
     // Mentions
-    case JString(org.clulab.serialization.json.TextBoundMention.string) => Some(toMention(mjson, docMap))
-    case JString(org.clulab.serialization.json.EventMention.string) => Some(toMention(mjson, docMap))
-    case JString(org.clulab.serialization.json.RelationMention.string) => Some(toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.TextBoundMention.string) => Some(toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.EventMention.string) => Some(toMention(mjson, docMap))
+    case JString(org.clulab.odin.serialization.json.RelationMention.string) => Some(toMention(mjson, docMap))
     // failure
     case _ => None
   }
