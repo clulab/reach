@@ -1,5 +1,5 @@
 /***
-* Does cross validation on the ML context model to verify the performance of the implementaiton
+* Does cross validation on the ML context model to verify the performance of the implementation
 */
 
 package org.clulab.context.ml
@@ -284,8 +284,10 @@ object CrossValidation extends App {
 
   val results = CrossValResults(microAverage, cvResults.values.toList, featureFamilies.toSeq)
 
-  val filename = "cv_" + featureFamiliesList.mkString("_") + ".ser"
+  // add output directory path from args (currently third argument) to filename:
+  val filename = args(2) + "/cv_" + featureFamiliesList.mkString("_") + ".ser"
 
+  // Save serialized output:
   Serializer.save(results, filename)
 
 }
