@@ -6,7 +6,7 @@ import org.clulab.reach.assembly.AssemblyManager
 import org.clulab.reach.assembly.relations.classifier.AssemblyRelationClassifier
 import org.clulab.reach.assembly.sieves.{Constraints, SieveUtils}
 import org.json4s.DefaultFormats
-import org.json4s.native.JsonMethods
+import org.json4s.jackson.JsonMethods
 import org.json4s.JsonAST.JValue
 import com.typesafe.scalalogging.LazyLogging
 import java.io.File

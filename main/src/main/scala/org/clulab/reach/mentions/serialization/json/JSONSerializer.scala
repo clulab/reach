@@ -10,7 +10,7 @@ import org.clulab.reach.mentions._
 import org.clulab.struct.{DirectedGraph, Edge, Interval}
 import org.json4s.JsonDSL._
 import org.json4s._
-import org.json4s.native.JsonMethods._
+import org.json4s.jackson.JsonMethods._
 import java.io.File
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.processors.Document
