@@ -285,7 +285,9 @@ object CrossValidation extends App {
   val results = CrossValResults(microAverage, cvResults.values.toList, featureFamilies.toSeq)
 
   // add output directory path from args (currently third argument) to filename:
-  val filename = args(2) + "/cv_" + featureFamiliesList.mkString("_") + ".ser"
+  val outputDirPath = args(2)
+  val outputFile = new File(outputDirPath, s"cv_${featureFamiliesList.mkString("_")}.ser")
+  val filename = outputFile.getAbsolutePath
 
   // Save serialized output:
   Serializer.save(results, filename)
