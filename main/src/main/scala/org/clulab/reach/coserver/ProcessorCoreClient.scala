@@ -17,7 +17,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Make it compile.
+  *   Last Modified: Comment out annotator actions with mutable arguments.
   */
 class ProcessorCoreClient (
 
@@ -103,44 +103,44 @@ class ProcessorCoreClient (
   //
 
   /** Part of speech tagging; modifies the document in place. */
-  def tagPartsOfSpeech (doc:Document): Unit = {
-    val reply = callServer(TagPartsOfSpeechCmd(doc))
-  }
+  // def tagPartsOfSpeech (doc:Document): Unit = {
+  //   val reply = callServer(TagPartsOfSpeechCmd(doc))
+  // }
 
-  /** Lematization; modifies the document in place. */
-  def lemmatize (doc:Document): Unit = {
-    val reply = callServer(LemmatizeCmd(doc))
-  }
+  // /** Lematization; modifies the document in place. */
+  // def lemmatize (doc:Document): Unit = {
+  //   val reply = callServer(LemmatizeCmd(doc))
+  // }
 
-  /** NER; modifies the document in place. */
-  def recognizeNamedEntities (doc:Document): Unit = {
-    val reply = callServer(RecognizeNamedEntitiesCmd(doc))
-  }
+  // /** NER; modifies the document in place. */
+  // def recognizeNamedEntities (doc:Document): Unit = {
+  //   val reply = callServer(RecognizeNamedEntitiesCmd(doc))
+  // }
 
-  /** Syntactic parsing; modifies the document in place. */
-  def parse (doc:Document): Unit = {
-    val reply = callServer(ParseCmd(doc))
-  }
+  // /** Syntactic parsing; modifies the document in place. */
+  // def parse (doc:Document): Unit = {
+  //   val reply = callServer(ParseCmd(doc))
+  // }
 
-  /** Shallow parsing; modifies the document in place. */
-  def chunking (doc:Document): Unit = {
-    val reply = callServer(ChunkingCmd(doc))
-  }
+  // /** Shallow parsing; modifies the document in place. */
+  // def chunking (doc:Document): Unit = {
+  //   val reply = callServer(ChunkingCmd(doc))
+  // }
 
-  /** SRL; modifies the document in place. */
-  def labelSemanticRoles (doc:Document): Unit = {
-    val reply = callServer(LabelSemanticRolesCmd(doc))
-  }
+  // /** SRL; modifies the document in place. */
+  // def labelSemanticRoles (doc:Document): Unit = {
+  //   val reply = callServer(LabelSemanticRolesCmd(doc))
+  // }
 
-  /** Coreference resolution; modifies the document in place. */
-  def resolveCoreference (doc:Document): Unit = {
-    val reply = callServer(ResolveCoreferenceCmd(doc))
-  }
+  // /** Coreference resolution; modifies the document in place. */
+  // def resolveCoreference (doc:Document): Unit = {
+  //   val reply = callServer(ResolveCoreferenceCmd(doc))
+  // }
 
-  /** Discourse parsing; modifies the document in place. */
-  def discourse (doc:Document): Unit = {
-    val reply = callServer(DiscourseCmd(doc))
-  }
+  // /** Discourse parsing; modifies the document in place. */
+  // def discourse (doc:Document): Unit = {
+  //   val reply = callServer(DiscourseCmd(doc))
+  // }
 
   def annotate (text:String, keepText:Boolean = false): Document = {
     val reply = callServer(AnnotateTextCmd(text, keepText))
