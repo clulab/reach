@@ -7,24 +7,20 @@ import scala.language.postfixOps
 import com.typesafe.config.{ Config, ConfigValueFactory, ConfigFactory }
 import com.typesafe.scalalogging.LazyLogging
 
-import akka.actor.{ ActorRef, ActorSystem, Props, Actor }
+import akka.actor._
 import akka.pattern.ask
 import akka.util.Timeout
 
 import org.clulab.processors._
+import org.clulab.processors.coserver.ProcessorCoreServer
 import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Comment out annotator actions with mutable arguments.
+  *   Last Modified: Update for use of server instance.
   */
-class ProcessorCoreClient (
-
-  /** The ActorRef to the pool of actors which actually implement the calls in this trait. */
-  val server: ActorRef
-
-) extends LazyLogging {
+class ProcessorCoreClient extends LazyLogging {
 
   // fire up the actor system
   private val system = ActorSystem("proc-core-client")
@@ -32,12 +28,19 @@ class ProcessorCoreClient (
   // load application configuration from the configuration file
   private val config = ConfigFactory.load().getConfig("ProcessorCoreClient")
 
+  // figure out a good timeout value for requests to the server
   private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 15
   implicit val timeout = Timeout(patience seconds)
 
+  // fire up the processor core server and get a path to use to call it
+  val serverPath: ActorPath = ProcessorCoreServer.instance
+  logger.info(s"(ProcessorCoreClient): server path: ${serverPath}")
+  val server: ActorSelection = system.actorSelection(serverPath)
+  logger.info(s"(ProcessorCoreClient): found server ref: ${server}")
+
   /** Send the given message to the server and block until response comes back. */
   private def callServer (request: ProcessorCoreCommand): ProcessorCoreReply = {
-    val response = server ? request         // call returning Future
+    val response = server.ask(request)      // call returning Future
     Await.result(response, timeout.duration).asInstanceOf[ProcessorCoreReply]
   }
 
