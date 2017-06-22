@@ -22,14 +22,11 @@ object ScoreExtractor{
     }
 
     def getScores(arguments:Array[String]):Map[String, BigDecimal] = {
-        //
         // Gets the scores of specified type.  Function currently reads in args
         // Get the input directory containing the .ser files:
         val inputDirectoryString = arguments(0)
         // Get the Score type, of either 'F1', 'Precision', or 'Recall':
         val scoreTypeString = arguments(1)
-        // Set the output directory in which to save sorted output (in .txt):
-        val outputDirectoryString = arguments(2)
 
         println(s"Extracting ${scoreTypeString} scores.")
 
