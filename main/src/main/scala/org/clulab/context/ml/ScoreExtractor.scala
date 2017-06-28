@@ -71,6 +71,7 @@ object ScoreExtractor{
                 case "F1" =>  println(s"Extracting ${scoreTypeString} Score:")
                 case "Precision" => println(s"Extracting ${scoreTypeString} Score:")
                 case "Recall" =>  println(s"Extracting ${scoreTypeString} Score:")
+                case "All" => println(s"Extracting ${scoreTypeString} scores.  Scores will be sorted by F1.")
                 case _ => throw new RuntimeException("Unexpected score type string.  Second argument to Scala application should be: F1, Precision, or Recall.")
             }
             //Get score type:
@@ -81,14 +82,31 @@ object ScoreExtractor{
                     case "Recall" => results.results.recall
                 }
             }
-            val scoreValue:BigDecimal = matchScoreType(scoreTypeString, results)
-            println(s"${scoreTypeString} Score:")
-            println(scoreValue)
+    
+            def getAllScores(results:CrossValResults) = {
+                // Returns tuple of F1, Precision, Recall, in that order
+                val allScores = (results.results.f1Score, results.results.precision, results.results.recall)
+                allScores
+            }
+            
+            // if you only want one score type:
+            val stringListScoreTypes = List("F1", "Precision", "Recall")
+            if (stringListScoreTypes.contains(scoreTypeString)) {
+                val scoreValue: BigDecimal = matchScoreType(scoreTypeString, results)
+                println(s"${scoreTypeString} Score:")
+                println(scoreValue)
+                // Add key-value pair to Map:
+                subsetScoreMap += (key -> scoreValue)
+                println(subsetScoreMap)
+            }
+            else {
+                // get all score types in tuple:
+                val scoreValues = getAllScores(results)
+                subsetScoreMap += (key -> scoreValues)
+                println(subsetScoreMap)
+            }
 
-            // Add key-value pair to Map:
-            //val scoreValue = 1.234 * i
-            subsetScoreMap += (key -> scoreValue)
-            println(subsetScoreMap)
+
             //i += 1
     }
     // Return map:
