@@ -26,12 +26,15 @@ object SortByScore extends App {
     
     // The output directory in which to save sorted output (in .csv):
     val outputDirectoryString = arguments(2)
-    val savePath = new StringBuilder
-    savePath ++= outputDirectoryString
-    savePath ++= "/"
-    savePath ++= "Sorted_"
-    savePath ++= args(1)
-    savePath ++= "_Scores.csv"
+
+    val savePath = new File(new File(outputDirectoryString), s"Sorted_${args(1)}_Scores.csv").getAbsolutePath
+
+//    val savePath = new StringBuilder
+//    savePath ++= outputDirectoryString
+//    savePath ++= "/"
+//    savePath ++= "Sorted_"
+//    savePath ++= args(1)
+//    savePath ++= "_Scores.csv"
     // Sort map by value:
     //https://stackoverflow.com/questions/2972871/how-to-sort-a-scala-collection-mapjava-lang-string-int-by-its-values
     println("Sorted feature subsets:")
