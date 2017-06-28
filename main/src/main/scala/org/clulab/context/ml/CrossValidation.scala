@@ -36,6 +36,13 @@ import collection.JavaConversions._
 
 object CrossValidation extends App {
 
+  def sampleStatistics[T<:Double](s:Iterable[T]):(Double, Double) = {
+    val avg = s.sum[Double]/s.size
+    val stde = Math.sqrt((s.map(_ - avg).map(i => Math.pow(i, 2))).sum[Double] / (s.size - 1.0))
+
+    (avg, stde)
+  }
+
   /***
     * Base line for the evaluation
     * @param anns
@@ -166,6 +173,8 @@ object CrossValidation extends App {
   val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
   val allDeterministicResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
+  val sparsenesses = new mutable.ArrayBuffer[Double]()
+  val featureCounts = new mutable.ArrayBuffer[Double]()
 
   // CV Loop
   val keySet = annotations.keySet
@@ -190,6 +199,7 @@ object CrossValidation extends App {
       println("Training")
       var trainingDataset = new RVFDataset[String, String]()
 
+      val sparsenessMeter = new SparsenessMeter
       // Training loop
       for(trainingFold <- trainingFolds){
 
@@ -202,7 +212,7 @@ object CrossValidation extends App {
         // Add the data of this paper to the training dataset
         //for(datum <- balancedSlice) {
         for(datum <- trainingData){
-
+          sparsenessMeter.accountVector(datum)
           trainingDataset += datum
         }
 
@@ -253,7 +263,10 @@ object CrossValidation extends App {
           results += Tuple2(truth, predictedLabel)
       }
 
+      val sparseness = sparsenessMeter.sparseness
+      val features = sparsenessMeter.totalFeatures
       val bcr = new BinaryClassificationResults(results.toSeq)
+      println(s"Sparseness: $sparseness\tTotal features: $features")
       println("ML classifier")
       println(bcr)
       println("Policy 4")
@@ -261,6 +274,9 @@ object CrossValidation extends App {
       println
       cvResults += (evalFold -> bcr)
       allResults ++= results
+      sparsenesses += sparseness
+      featureCounts += features
+
   }
 
   // Compute microaveraged scores for ML an baseline
@@ -282,7 +298,11 @@ object CrossValidation extends App {
     println(s"${cv.precision}\t-\t${cv.size}")
   }
 
-  val results = CrossValResults(microAverage, cvResults.values.toList, featureFamilies.toSeq)
+  val sparsenessStats = sampleStatistics(sparsenesses)
+  val featureCountStats = sampleStatistics(featureCounts)
+
+  val results = CrossValResults(microAverage, cvResults.values.toList,
+    sparsenessStats, featureCountStats, featureFamilies.toSeq)
 
   // add output directory path from args (currently third argument) to filename:
   val outputDir = new File(args(2))
@@ -299,6 +319,9 @@ object CrossValidation extends App {
 }
 
 
+
 case class CrossValResults(results:BinaryClassificationResults,
                            foldsResults:Seq[BinaryClassificationResults],
+                           sparseness:(Double, Double), // Sample mean and standard error of sparseness across folds
+                           numFeatures:(Double, Double), // Sample mean and standard error of # present features across folds
                            featureFamilies:Seq[FeatureFamily])

@@ -329,11 +329,11 @@ object Trainer {
     // Train the logistic regression
 
     // Measure sparsity
-    val dimensions = dataset.featureLexicon.size.toDouble
-    val sum = dataset.values.map(_.size/dimensions).sum
-    val denseness = sum / dataset.values.size
-
-    println(s"DENSENESS: $denseness")
+//    val dimensions = dataset.featureLexicon.size.toDouble
+//    val sum = dataset.values.map(_.size/dimensions).sum
+//    val denseness = sum / dataset.values.size
+//
+//    println(s"DENSENESS: $denseness")
 
     val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
     //val lrc = new LogisticRegressionClassifier[String, String](C=.005, bias=true)
