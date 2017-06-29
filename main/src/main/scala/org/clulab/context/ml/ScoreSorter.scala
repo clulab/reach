@@ -21,7 +21,9 @@ object SortByScore extends App {
     val stringListScoreTypes = List("F1", "Precision", "Recall")
     if (stringListScoreTypes.contains(scoreTypeString)) {
         //Get all scores in a map where the key is the string of feature families and the value is cross validation score (F1, Precision, or Recall):
-        val scoreMap = ScoreExtractor.getScores(arguments)
+        // make ScoreExtractor class object:
+        val SE = new ScoreExtractor()
+        val scoreMap = SE.getScores(arguments)
         
         // The output directory in which to save sorted output (in .csv):
         val outputDirectoryString = arguments(2)
@@ -34,7 +36,8 @@ object SortByScore extends App {
         // https://stackoverflow.com/questions/26445478/scala-sort-a-map-based-on-tuple-values
         println("Sorted feature subsets:")
         val sortedSB = new StringBuilder
-        scoreMap.toSeq.sortBy(-_._2).foreach{
+        //scoreMap.toSeq.sortBy(-_._2).foreach{
+        scoreMap.toSeq.sortBy(_._2).foreach{
             keyVal =>
             //println(keyVal.toString)
             var keyValString = keyVal.toString.drop(1)
@@ -50,8 +53,12 @@ object SortByScore extends App {
         bw.close()
         println(s"Sorted file written to: ${savePath.toString()}")
     }
+    //if you want all score types, sorted by F1:
     else {
-        val scoreMap = ScoreExtractor.getScores(arguments)
+        // make ScoreExtractor class object:
+        val SE = new ScoreExtractor()
+        // Only need to specify input directory as string and overloaded getScores will be called to return all scores:
+        val scoreMap = SE.getScores(arguments(0))
     
         // The output directory in which to save sorted output (in .csv):
         val outputDirectoryString = arguments(2)
@@ -64,7 +71,9 @@ object SortByScore extends App {
         // https://stackoverflow.com/questions/26445478/scala-sort-a-map-based-on-tuple-values
         println("Sorted feature subsets:")
         val sortedSB = new StringBuilder
-        scoreMap.toSeq.sortBy(-_._2).foreach{
+        // to get highest first:
+        //scoreMap.toSeq.sortBy(-_._2).foreach{
+        scoreMap.toSeq.sortBy(_._2).foreach{
             keyVal =>
                 println(keyVal.toString)
                 var keyValString = keyVal.toString.drop(1)
