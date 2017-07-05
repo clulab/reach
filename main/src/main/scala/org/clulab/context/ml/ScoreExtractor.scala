@@ -20,7 +20,7 @@ class ScoreExtractor{
         extensions.exists(file.getName.endsWith(_))
       }
     }
-
+    
     def getScores(arguments:Array[String]):Map[String, BigDecimal] = {
         // Gets the scores of specified type.  Function currently reads in args
         // Get the input directory containing the .ser files:
@@ -96,7 +96,7 @@ class ScoreExtractor{
         subsetScoreMap
   }
     
-    def getScores(inputDirectory: String): Map[String, (Double, Double, Double)] = {
+    def getScores(inputDirectory: String): Map[String, (Double, Double, Double, (Double, Double), (Double, Double))] = {
         // Gets the scores of specified type.  Function currently reads in args
         // Get the input directory containing the .ser files:
         val inputDirectoryString = inputDirectory
@@ -119,7 +119,19 @@ class ScoreExtractor{
         val stringListScoreTypes = List("F1", "Precision", "Recall")
         
         //Instatiate empty map:
-        var subsetScoreMap = Map.empty[String, (Double, Double, Double)]
+        var subsetScoreMap = Map.empty[String, (Double, Double, Double, (Double, Double), (Double, Double))]
+    
+        def getAllScores(results: CrossValResults) = {
+            // Returns tuple of F1, Precision, Recall, in that order
+            val allScores = (results.results.f1Score, results.results.precision, results.results.recall)
+            allScores
+        }
+    
+        def getAllScoresAndFeatureDescriptors(results: CrossValResults) = {
+            // Returns tuple of F1, Precision, Recall, spareseness, and numFeatures in that order
+            val allScoresAndFD = (results.results.f1Score, results.results.precision, results.results.recall, results.sparseness, results.numFeatures)
+            allScoresAndFD
+        }
         
         // Read in serialized files and extract score:
         files.foreach {
@@ -163,13 +175,9 @@ class ScoreExtractor{
                 }
                 */
                 
-                def getAllScores(results: CrossValResults) = {
-                    // Returns tuple of F1, Precision, Recall, in that order
-                    val allScores = (results.results.f1Score, results.results.precision, results.results.recall)
-                    allScores
-                }
+
     
-                val scoreValues = getAllScores(results)
+                val scoreValues = getAllScoresAndFeatureDescriptors(results)
                 subsetScoreMap += (key -> scoreValues)
                 println(subsetScoreMap)
                 
