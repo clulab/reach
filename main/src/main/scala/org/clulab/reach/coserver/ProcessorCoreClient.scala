@@ -18,7 +18,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Update for use of ref to pooled router.
+  *   Last Modified: Reset one leftover debug statement.
   */
 class ProcessorCoreClient extends LazyLogging {
 
@@ -34,7 +34,7 @@ class ProcessorCoreClient extends LazyLogging {
 
   // fire up the processor core server and get a ref to the message router
   val router: ActorRef = ProcessorCoreServer.router
-  logger.info(s"(ProcessorCoreClient): router: ${router}")
+  logger.debug(s"(ProcessorCoreClient): router: ${router}")
 
   /** Send the given message to the server and block until response comes back. */
   private def callServer (request: ProcessorCoreCommand): ProcessorCoreReply = {
