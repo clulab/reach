@@ -18,29 +18,27 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Update for use of server instance.
+  *   Last Modified: Update for use of ref to pooled router.
   */
 class ProcessorCoreClient extends LazyLogging {
 
   // fire up the actor system
-  private val system = ActorSystem("proc-core-client")
+  private val system = ActorSystem("proc-core-server")
 
   // load application configuration from the configuration file
   private val config = ConfigFactory.load().getConfig("ProcessorCoreClient")
 
   // figure out a good timeout value for requests to the server
-  private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 15
+  private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 30
   implicit val timeout = Timeout(patience seconds)
 
-  // fire up the processor core server and get a path to use to call it
-  val serverPath: ActorPath = ProcessorCoreServer.instance
-  logger.info(s"(ProcessorCoreClient): server path: ${serverPath}")
-  val server: ActorSelection = system.actorSelection(serverPath)
-  logger.info(s"(ProcessorCoreClient): found server ref: ${server}")
+  // fire up the processor core server and get a ref to the message router
+  val router: ActorRef = ProcessorCoreServer.router
+  logger.info(s"(ProcessorCoreClient): router: ${router}")
 
   /** Send the given message to the server and block until response comes back. */
   private def callServer (request: ProcessorCoreCommand): ProcessorCoreReply = {
-    val response = server.ask(request)      // call returning Future
+    val response = router ? request         // call returning Future
     Await.result(response, timeout.duration).asInstanceOf[ProcessorCoreReply]
   }
 
