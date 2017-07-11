@@ -18,7 +18,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Reset one leftover debug statement.
+  *   Last Modified: Restore annotator call tests.
   */
 class ProcessorCoreClient extends LazyLogging {
 
@@ -95,53 +95,47 @@ class ProcessorCoreClient extends LazyLogging {
     reply.asInstanceOf[TokensMsg].tokens
   }
 
-  //
-  // The following annotators modify the document in place, which is not too elegant.
-  // There are two reasons for this:
-  //   (a) Some annotators (e.g., Stanford's CoreNLP) require some state
-  //       (i.e., their Annotation object) to be passed between operations.
-  //   (b) It is more efficient during annotate(), where all the possible operations are chained.
-  //
 
-  /** Part of speech tagging; modifies the document in place. */
-  // def tagPartsOfSpeech (doc:Document): Unit = {
-  //   val reply = callServer(TagPartsOfSpeechCmd(doc))
-  // }
+  /** Part of speech tagging. Modified document is returned. */
+  def tagPartsOfSpeech (doc:Document): Document = {
+    val reply = callServer(TagPartsOfSpeechCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
+  }
 
-  // /** Lematization; modifies the document in place. */
-  // def lemmatize (doc:Document): Unit = {
-  //   val reply = callServer(LemmatizeCmd(doc))
-  // }
+  /** Lematization. Modified document is returned. */
+  def lemmatize (doc:Document): Unit = {
+    val reply = callServer(LemmatizeCmd(doc))
+  }
 
-  // /** NER; modifies the document in place. */
-  // def recognizeNamedEntities (doc:Document): Unit = {
-  //   val reply = callServer(RecognizeNamedEntitiesCmd(doc))
-  // }
+  /** NER - Named Entity Recognition. Modified document is returned. */
+  def recognizeNamedEntities (doc:Document): Unit = {
+    val reply = callServer(RecognizeNamedEntitiesCmd(doc))
+  }
 
-  // /** Syntactic parsing; modifies the document in place. */
-  // def parse (doc:Document): Unit = {
-  //   val reply = callServer(ParseCmd(doc))
-  // }
+  /** Syntactic parsing. Modified document is returned. */
+  def parse (doc:Document): Unit = {
+    val reply = callServer(ParseCmd(doc))
+  }
 
-  // /** Shallow parsing; modifies the document in place. */
-  // def chunking (doc:Document): Unit = {
-  //   val reply = callServer(ChunkingCmd(doc))
-  // }
+  /** Shallow parsing. Modified document is returned. */
+  def chunking (doc:Document): Unit = {
+    val reply = callServer(ChunkingCmd(doc))
+  }
 
-  // /** SRL; modifies the document in place. */
-  // def labelSemanticRoles (doc:Document): Unit = {
-  //   val reply = callServer(LabelSemanticRolesCmd(doc))
-  // }
+  /** SRL - Semantic Role Labeling. Modified document is returned. */
+  def labelSemanticRoles (doc:Document): Unit = {
+    val reply = callServer(LabelSemanticRolesCmd(doc))
+  }
 
-  // /** Coreference resolution; modifies the document in place. */
-  // def resolveCoreference (doc:Document): Unit = {
-  //   val reply = callServer(ResolveCoreferenceCmd(doc))
-  // }
+  /** Coreference resolution. Modified document is returned. */
+  def resolveCoreference (doc:Document): Unit = {
+    val reply = callServer(ResolveCoreferenceCmd(doc))
+  }
 
-  // /** Discourse parsing; modifies the document in place. */
-  // def discourse (doc:Document): Unit = {
-  //   val reply = callServer(DiscourseCmd(doc))
-  // }
+  /** Discourse parsing. Modified document is returned. */
+  def discourse (doc:Document): Unit = {
+    val reply = callServer(DiscourseCmd(doc))
+  }
 
   def annotate (text:String, keepText:Boolean = false): Document = {
     val reply = callServer(AnnotateTextCmd(text, keepText))
