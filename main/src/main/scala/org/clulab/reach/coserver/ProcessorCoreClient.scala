@@ -18,7 +18,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Restore annotator call tests.
+  *   Last Modified: Make calls to annotators return Document.
   */
 class ProcessorCoreClient extends LazyLogging {
 
@@ -103,39 +103,47 @@ class ProcessorCoreClient extends LazyLogging {
   }
 
   /** Lematization. Modified document is returned. */
-  def lemmatize (doc:Document): Unit = {
+  def lemmatize (doc:Document): Document = {
     val reply = callServer(LemmatizeCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** NER - Named Entity Recognition. Modified document is returned. */
-  def recognizeNamedEntities (doc:Document): Unit = {
+  def recognizeNamedEntities (doc:Document): Document = {
     val reply = callServer(RecognizeNamedEntitiesCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** Syntactic parsing. Modified document is returned. */
-  def parse (doc:Document): Unit = {
+  def parse (doc:Document): Document = {
     val reply = callServer(ParseCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** Shallow parsing. Modified document is returned. */
-  def chunking (doc:Document): Unit = {
+  def chunking (doc:Document): Document = {
     val reply = callServer(ChunkingCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** SRL - Semantic Role Labeling. Modified document is returned. */
-  def labelSemanticRoles (doc:Document): Unit = {
+  def labelSemanticRoles (doc:Document): Document = {
     val reply = callServer(LabelSemanticRolesCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** Coreference resolution. Modified document is returned. */
-  def resolveCoreference (doc:Document): Unit = {
+  def resolveCoreference (doc:Document): Document = {
     val reply = callServer(ResolveCoreferenceCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
 
   /** Discourse parsing. Modified document is returned. */
-  def discourse (doc:Document): Unit = {
+  def discourse (doc:Document): Document = {
     val reply = callServer(DiscourseCmd(doc))
+    reply.asInstanceOf[DocumentMsg].doc
   }
+
 
   def annotate (text:String, keepText:Boolean = false): Document = {
     val reply = callServer(AnnotateTextCmd(text, keepText))
