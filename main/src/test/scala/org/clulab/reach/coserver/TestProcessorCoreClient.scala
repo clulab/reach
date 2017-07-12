@@ -10,7 +10,7 @@ import org.clulab.processors.Document
 /**
   * Tests of the ProcessorCoreClient.
   *   Written by: Tom Hicks. 6/20/2017.
-  *   Last Modified: Add remaining tests for non-annotator methods.
+  *   Last Modified: Add annotator methods tests.
   */
 class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
 
@@ -160,6 +160,96 @@ class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
     (reply.size) should equal(2)
     (reply.flatten) should equal(toks.flatten)
   }
+
+
+  // tagPartsOfSpeech
+  it should "tagPartsOfSpeech in a small document" in {
+    val text = "This is a document with a single sentence."
+    val doc1 = client.mkDocument(text, true)
+    val doc = client.tagPartsOfSpeech(doc1)
+    val sentences = doc.sentences
+    (sentences.size) should equal(1)
+    (sentences(0).tags) should not be (empty)
+  }
+
+  // lemmatize
+  it should "lemmatize a small document" in {
+    val text = "Children like smaller documents with smaller sentences."
+    val doc1 = client.mkDocument(text, true)
+    val doc2 = client.tagPartsOfSpeech(doc1)
+    val doc = client.lemmatize(doc2)
+    val sentences = doc.sentences
+    (sentences.size) should equal(1)
+    (sentences(0).lemmas) should not be (empty)
+  }
+
+  // recognizeNamedEntities
+  it should "recognize named entities in a small document" in {
+    val text = "On 6/8/2017, I sent a file containing some C# code to none@nowhere.com."
+    val doc1 = client.mkDocument(text, true)
+    val doc2 = client.tagPartsOfSpeech(doc1)
+    val doc3 = client.lemmatize(doc2)
+    val doc = client.recognizeNamedEntities(doc3)
+    val sentences = doc.sentences
+    (sentences.size) should equal(1)
+    (sentences(0).tags) should not be (empty)
+    (sentences(0).lemmas) should not be (empty)
+    (sentences(0).entities) should not be (empty)
+  }
+
+  // parse
+  it should "parse a small document" in {
+    val text =
+"""This document has multiple sentences. Each should be processed by the processor.
+   A Reach document should be returned."""
+    val doc1 = client.mkDocument(text, true)
+    val doc = client.parse(doc1)
+    val sentences = doc.sentences
+    (sentences.size) should equal(3)
+    (sentences(0).syntacticTree) should not be (empty)
+    (sentences(1).syntacticTree) should not be (empty)
+    (sentences(2).syntacticTree) should not be (empty)
+  }
+
+  // chunking
+  it should "chunk a small document" in {
+    val text = "Each document can contain many sentences. This document has two sentences."
+    val doc1 = client.mkDocument(text, true)
+    val doc2 = client.tagPartsOfSpeech(doc1)
+    val doc = client.chunking(doc2)
+    val sentences = doc.sentences
+    (sentences.size) should equal(2)
+    (sentences(0).tags) should not be (empty)
+    (sentences(0).chunks) should not be (empty)
+    (sentences(1).chunks) should not be (empty)
+  }
+
+  // resolveCoreference
+  it should "resolve coreference in a small document" in {
+    val text = "This is a document and it has one sentence and we like it."
+    val doc1 = client.mkDocument(text, true)
+    val doc2 = client.tagPartsOfSpeech(doc1)
+    val doc3 = client.lemmatize(doc2)
+    val doc4 = client.recognizeNamedEntities(doc3)
+    val doc5 = client.parse(doc4)
+    val doc = client.resolveCoreference(doc5)
+    val sentences = doc.sentences
+    (sentences.size) should equal(1)
+    (doc.coreferenceChains) should not be (empty)
+  }
+
+  // discourse
+  it should "parse discourse in a small document" in {
+    val text = "Despite what he said, this is a simple document containing small sentences."
+    val doc1 = client.mkDocument(text, true)
+    val doc2 = client.tagPartsOfSpeech(doc1)
+    val doc3 = client.lemmatize(doc2)
+    val doc4 = client.parse(doc3)
+    val doc = client.discourse(doc4)
+    // NOTE: following fails if the correct Processor type is not used:
+    // (doc.discourseTree) should not be (empty) // TODO: LATER fix test
+  }
+
 
   // annotate(text)
   it should "annotate text, default keep" in {
