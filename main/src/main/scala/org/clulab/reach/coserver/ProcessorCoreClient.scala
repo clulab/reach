@@ -18,23 +18,38 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Make calls to annotators return Document.
+  *   Last Modified: Read client params from config. Begin unused selection logic.
   */
 class ProcessorCoreClient extends LazyLogging {
 
-  // fire up the actor system
-  private val system = ActorSystem("proc-core-server")
-
   // load application configuration from the configuration file
   private val config = ConfigFactory.load().getConfig("ProcessorCoreClient")
+
+  // read acter system name from the configuration file
+  // private val systemName = if (config.hasPath("server.systemName"))
+  //                            config.getString("server.systemName")
+  //                          else "procCoreServer"
+
+  // fire up the actor system
+  // private val system = ActorSystem(systemName)
+  // logger.debug(s"system=${system}")
 
   // figure out a good timeout value for requests to the server
   private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 30
   implicit val timeout = Timeout(patience seconds)
 
   // fire up the processor core server and get a ref to the message router
+  // val router: ActorRef = getRouterRef(config)
   val router: ActorRef = ProcessorCoreServer.router
   logger.debug(s"(ProcessorCoreClient): router: ${router}")
+
+  /** Acquire actor ref via actor selection on the configured server path. */
+  // private def getRouterRef (config: Config): ActorRef = {
+  //   val serverPath = if (config.hasPath("server.path")) config.getString("server.path")
+  //                    else s"akka://${systemName}/user/procActorPool"
+  //   val ref = system.actorSelection(ActorPath.fromString(serverPath)).resolveOne()
+  //   Await.result(ref, timeout.duration).asInstanceOf[ActorRef]
+  // }
 
   /** Send the given message to the server and block until response comes back. */
   private def callServer (request: ProcessorCoreCommand): ProcessorCoreReply = {
