@@ -10,7 +10,7 @@ import org.clulab.processors.Document
 /**
   * Tests of the ProcessorCoreClient.
   *   Written by: Tom Hicks. 6/20/2017.
-  *   Last Modified: Add annotator methods tests.
+  *   Last Modified: Add unused, development-time error return test.
   */
 class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
 
@@ -31,6 +31,12 @@ class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
     logger.debug(s"(TestProcessorCoreClient): router=${router}")
     (router) should not be (null)
   }
+
+  // ErrorTest -- needs special errorTest method to be defined in client
+  // it should "throw exception for error test" in {
+  //   val ex = the [RuntimeException] thrownBy client.errorTest
+  //   (ex.getMessage) should equal ("This is a fake error from the ErrorTest command.")
+  // }
 
   // mkDocument
   it should "make document from zero-length text, keep text" in {

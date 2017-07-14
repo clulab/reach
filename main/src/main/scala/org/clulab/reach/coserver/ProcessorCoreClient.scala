@@ -18,7 +18,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Read client params from config. Begin unused selection logic.
+  *   Last Modified: Rethrow runtime exceptions returned by the server.
   */
 class ProcessorCoreClient extends LazyLogging {
 
@@ -54,7 +54,13 @@ class ProcessorCoreClient extends LazyLogging {
   /** Send the given message to the server and block until response comes back. */
   private def callServer (request: ProcessorCoreCommand): ProcessorCoreReply = {
     val response = router ? request         // call returning Future
-    Await.result(response, timeout.duration).asInstanceOf[ProcessorCoreReply]
+    val result = Await.result(response, timeout.duration)
+    if (result.isInstanceOf[ServerExceptionMsg]) {
+      val exception = result.asInstanceOf[ServerExceptionMsg].exception
+      throw new RuntimeException(exception.getMessage())
+    }
+    else
+      result.asInstanceOf[ProcessorCoreReply]
   }
 
 
@@ -183,4 +189,9 @@ class ProcessorCoreClient extends LazyLogging {
     reply.asInstanceOf[DocumentMsg].doc
   }
 
- }
+  // Only for error testing -- should not be exposed as part of API
+  // def errorTest: Unit = {
+  //   callServer(ErrorTestCmd())              // should throw RuntimeException
+  // }
+
+}
