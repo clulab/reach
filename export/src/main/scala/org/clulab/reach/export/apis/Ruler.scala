@@ -2,24 +2,21 @@ package org.clulab.reach.export.apis
 
 import org.clulab.odin.impl.{OdinCompileException, OdinNamedCompileException}
 import org.clulab.processors.Document
-import org.clulab.processors.corenlp.CoreNLPProcessor
-import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach._
 import org.clulab.reach.brat.Brat
 import org.clulab.reach.export.apis.open.OpenSystem
 import scala.collection.JavaConverters._
 import scala.util.{Failure, Success, Try}
 
-
+/**
+  * Singleton to run the Open Domain system with the given text and rules.
+  *   Last Modified: Redo to use processor core client.
+  */
 object Ruler {
 
-  // read rules for ReachSystem from resource
-  val reachRules = RuleReader.mkRules()
-  // pass in reachRules
-  val reach = new ReachSystem(Some(reachRules))
-  // setup open domain system
-  val odProc = new CoreNLPProcessor(withDiscourse = ShallowNLPProcessor.NO_DISCOURSE)
-  val od = new OpenSystem(Some(odProc))
+  val reachRules = RuleReader.mkRules()         // read rules for ReachSystem from resource
+  val reach = new ReachSystem(Some(reachRules)) // pass in reachRules
+  val od = new OpenSystem()                     // setup open domain system
 
   /** Run the Open Domain system with the given text and rules. */
   def runOpen(text: String, rules: String): RulerResults = {
