@@ -35,6 +35,7 @@ import org.json4s.native.JsonMethods._
 import collection.JavaConversions._
 
 object CrossValidation extends App {
+  // When running CrossValidation, first argument to scala is the directory of corpus, second is the config file, and third is where to save the serialized output of the crossval procedure.
 
   def sampleStatistics[T<:Double](s:Iterable[T]):(Double, Double) = {
     val avg = s.sum[Double]/s.size
@@ -129,7 +130,7 @@ object CrossValidation extends App {
   // use specified config file or the default one if one is not provided
   val config =
     // Assuming path to papers is the first argument (i.e. not specified in config file):
-    // If args only contain path to papers:
+    // If args only contain path to papers, load default config file:
     if (args.length == 1) ConfigFactory.load()
     // else:
     //   for now, specifying config file as second argument:
@@ -303,7 +304,8 @@ object CrossValidation extends App {
 
   val results = CrossValResults(microAverage, cvResults.values.toList,
     sparsenessStats, featureCountStats, featureFamilies.toSeq)
-
+    
+  //Save crossval output:
   // add output directory path from args (currently third argument) to filename:
   val outputDir = new File(args(2))
   // Create the directory if it doesn't exist yet

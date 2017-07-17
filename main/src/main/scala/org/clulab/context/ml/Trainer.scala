@@ -345,7 +345,34 @@ object Trainer {
     // Return the trained logistic regression classifier
     lrc
   }
-
+  
+  def train(dataset:RVFDataset[String, String], classifierType:String) = {
+    // Train the model of type specified in classifierType
+    
+    // Measure sparsity
+    //    val dimensions = dataset.featureLexicon.size.toDouble
+    //    val sum = dataset.values.map(_.size/dimensions).sum
+    //    val denseness = sum / dataset.values.size
+    //
+    //    println(s"DENSENESS: $denseness")
+  
+    val classifier  = classifierType match {
+      case "L1LogisticRegressionClassifier" => {new L1LogisticRegressionClassifier[String, String](C = .005, bias = true)}
+      case "LibSVMClassifier" => {new LibSVMClassifier[String, String](RBFKernel, probability = false)}
+    }
+    
+    //val lrc = new LogisticRegressionClassifier[String, String](C=.005, bias=true)
+    
+    //val params:svm_parameter = new svm_parameter
+    //val lrc = new LibSVMClassifier[String, String](RBFKernel, probability = false)
+    
+    //Train classifier:
+    classifier.train(dataset)
+    
+    // Return the trained classifier
+    classifier
+  }
+  
   def main(args:Array[String]){
     // Trains a LM model out of the annotations and the reach mentions
     // First parameter: Corpus directory
