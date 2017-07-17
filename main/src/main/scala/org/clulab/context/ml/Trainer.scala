@@ -394,6 +394,8 @@ object Trainer {
     // save the model to outputFile path: (Right now, first argument should be path to directory containing papers, second the config file, third where to save cross val results, and fourth where to save the serialized model.
     // Since cross val results are hard coded to be saved to path of third argument, if no config file is specified, save model to path specified in second argument.) -Sean Hendryx July 17th '17
     val outputFile = if (args.length == 4) {new File(args(3))} else {new File(args(1))}
+    // get classifier type from config file:
+    val classifierType = config.getString("contextCrossValidation.classifierType")
 
     val annotations = loadAnnotations(corpusDir)
 
@@ -423,7 +425,8 @@ object Trainer {
     val scalers:ScaleRange[String] = normalize(balancedDataset)
 
     // Train the classifier
-    val classifier = train(balancedDataset)
+    println(s"Training $classifierType classifier.")
+    val classifier = train(balancedDataset, classifierType = classifierType)
 
     // Store the trained model
     classifier.saveTo(outputFile.getAbsolutePath)
