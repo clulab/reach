@@ -5,6 +5,7 @@ import java.io._
 import collection.mutable
 import util.Random
 import ai.lum.common.Interval
+import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.clulab.processors._
 import org.clulab.processors.bionlp.BioNLPProcessor
@@ -23,6 +24,7 @@ import org.clulab.reach.mentions.serialization.json.JSONSerializer
 import org.json4s.native.JsonMethods._
 import org.clulab.utils.Serializer
 import libsvm._
+import org.clulab.context.ml.CrossValidation.args
 
 import scala.collection.immutable.IndexedSeq
 
@@ -382,7 +384,16 @@ object Trainer {
     println
 
     val corpusDir = new File(args(0))
-    val outputFile = new File(args(1))
+    val config =
+      // Assuming path to papers is the first argument (i.e. not specified in config file):
+      // If args only contain path to papers, load default config file:
+      if (args.length == 1) ConfigFactory.load()
+      // else:
+      //   for now, specifying config file as second argument:
+      else ConfigFactory.parseFile(new File(args(1))).resolve()
+    // save the model to outputFile path: (Right now, first argument should be path to directory containing papers, second the config file, third where to save cross val results, and fourth where to save the serialized model.
+    // Since cross val results are hard coded to be saved to path of third argument, if no config file is specified, save model to path specified in second argument.) -Sean Hendryx July 17th '17
+    val outputFile = if (args.length == 4) {new File(args(3))} else {new File(args(1))}
 
     val annotations = loadAnnotations(corpusDir)
 
