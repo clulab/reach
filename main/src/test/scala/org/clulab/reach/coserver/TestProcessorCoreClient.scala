@@ -10,7 +10,7 @@ import org.clulab.processors.Document
 /**
   * Tests of the ProcessorCoreClient.
   *   Written by: Tom Hicks. 6/20/2017.
-  *   Last Modified: Add unused, development-time error return test.
+  *   Last Modified: Update for use of BioNLP.
   */
 class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
 
@@ -241,7 +241,7 @@ class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
     val doc = client.resolveCoreference(doc5)
     val sentences = doc.sentences
     (sentences.size) should equal(1)
-    (doc.coreferenceChains) should not be (empty)
+    (doc.coreferenceChains) should be (empty) // BioNLP does not use coreference
   }
 
   // discourse

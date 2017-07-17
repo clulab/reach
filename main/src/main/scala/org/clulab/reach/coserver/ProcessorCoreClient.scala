@@ -18,7 +18,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Rethrow runtime exceptions returned by the server.
+  *   Last Modified: Update for use of BioNLP.
   */
 class ProcessorCoreClient extends LazyLogging {
 
@@ -35,7 +35,7 @@ class ProcessorCoreClient extends LazyLogging {
   // logger.debug(s"system=${system}")
 
   // figure out a good timeout value for requests to the server
-  private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 30
+  private val patience = if (config.hasPath("askTimeout")) config.getInt("askTimeout") else 180
   implicit val timeout = Timeout(patience seconds)
 
   // fire up the processor core server and get a ref to the message router
