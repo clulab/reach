@@ -179,7 +179,7 @@ object CrossValidation extends App {
 
             (name -> features)
       }.toMap
-
+  
   val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
