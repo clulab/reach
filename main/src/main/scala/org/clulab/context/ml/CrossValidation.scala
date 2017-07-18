@@ -35,7 +35,7 @@ import org.json4s.native.JsonMethods._
 import collection.JavaConversions._
 
 object CrossValidation extends App {
-  // When running CrossValidation, first argument to scala is the directory of corpus, second is the config file, and third is where to save the serialized output of the crossval procedure.
+  // First argument should be path to the directory containing the corpus of papers, second the config file, third where to save cross val results, and fourth where to save the serialized model. -Sean Hendryx July 17th '17
 
   def sampleStatistics[T<:Double](s:Iterable[T]):(Double, Double) = {
     val avg = s.sum[Double]/s.size
@@ -135,6 +135,10 @@ object CrossValidation extends App {
     // else:
     //   for now, specifying config file as second argument:
     else ConfigFactory.parseFile(new File(args(1))).resolve()
+    
+  // get classifier type from config file:
+  val classifierType = config.getString("contextCrossValidation.classifierType")
+  println(s"Training $classifierType classifier.")
 
   val featureFamiliesList = config.getStringList("contextCrossValidation.featureFamilies").toList
 
@@ -148,8 +152,14 @@ object CrossValidation extends App {
   if (featureFamiliesList.contains("NegationProperty")) featureFamilies += NegationProperty()
   if (featureFamiliesList.contains("Tails")) featureFamilies += Tails()
   if (featureFamiliesList.contains("POS")) featureFamilies += POS()
+  
 
-  // Hardcoded feature families:
+  // save the model to outputFile path: (Right now, first argument should be path to directory containing papers, second the config file, third where to save cross val results, and fourth where to save the serialized model.
+  // Since cross val results are hard coded to be saved to path of third argument, if no config file is specified, save model to path specified in second argument.) -Sean Hendryx July 17th '17
+  //val outputFile = if (args.length == 4) {new File(args(3))} else {new File(args(1))}
+
+    
+    // Hardcoded feature families:
   /*val featureFamilies = Set[FeatureFamily](Positional(), Dependency(),
     Phi(),
     NegationProperty(),
@@ -234,7 +244,7 @@ object CrossValidation extends App {
       val scalers = normalize(balancedDataset)
 
       // Train the classifier
-      val classifier = train(balancedDataset)
+      val classifier = train(balancedDataset, classifierType = classifierType)
 
       println("Evaluation ...")
       // Extract the evaluation fold features
