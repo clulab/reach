@@ -22,7 +22,7 @@ package object json {
     // NOTE: order matters due to inheritance
     case cm: CorefMention => CorefMentionOps(cm).jsonAST
     case bm: BioMention => BioMentionOps(bm).jsonAST
-    case m: Mention => org.clulab.odin.serialization.json.MentionOps(m).jsonAST
+    case m: Mention => OdinMentionOps(m).jsonAST
   }
 
   implicit class MentionJSONOps(m: Mention) extends OdinMentionOps(m) {
