@@ -278,9 +278,9 @@ object Trainer {
   def balanceDataset(dataset:RVFDataset[String, String],
                      negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
-    // Here we can chance the implementation of data set balancing to something else
+    // Here we can change the implementation of data set balancing to something else
     randomlyBalanceDataset(dataset, negativesPerPositive)
-    // We could add anothe implementation here, for example, the euclidian distance similarity
+    // We could add another implementation here, for example, the euclidian distance similarity
   }
 
   private def euclidianDistanceBalanceDataset(dataset:RVFDataset[String, String],
