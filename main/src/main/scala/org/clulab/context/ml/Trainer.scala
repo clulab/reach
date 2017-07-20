@@ -278,51 +278,104 @@ object Trainer {
   def balanceDataset(dataset:RVFDataset[String, String],
                      negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
-      val positiveIndices = 0.until(dataset.size).filter{
-        i =>
-          val lex = dataset.labelLexicon
-          val labels = dataset.labels
+    // Here we can chance the implementation of data set balancing to something else
+    randomlyBalanceDataset(dataset, negativesPerPositive)
+    // We could add anothe implementation here, for example, the euclidian distance similarity
+  }
 
-          lex.get(labels(i)) == "true"
-      }
+  private def euclidianDistanceBalanceDataset(dataset:RVFDataset[String, String],
+                                              negativesPerPositive:Int):RVFDataset[String, String] = {
+    val (positiveIndices: IndexedSeq[Int], negativeIndices: IndexedSeq[Int]) = classIndices(dataset)
 
-      val negativeIndices = 0.until(dataset.size).filter{
-        i =>
-          val lex = dataset.labelLexicon
-          val labels = dataset.labels
+    val selectedNegatives = new mutable.HashSet[Int]()
 
-          lex.get(labels(i)) == "false"
-      }
+    //TODO: Implement here the selection loop
+    for(positiveIndex <- positiveIndices){
+      val positiveDatum = dataset.mkDatum(positiveIndex).asInstanceOf[RVFDatum[String, String]]
+      // For each negative index do something ...
+      // Store the negative index in selectedNegatives if chosen
+      // Make sure to not consider this index again if stored. Take it out of the "pool"
+    }
 
-      assert(positiveIndices.size <= negativeIndices.size, "There are more positive than negative instances")
+    // Create a new dataset object with only the chosen elements
+    buildDatasetObject(dataset, positiveIndices ++ selectedNegatives)
+  }
 
-      // Sort the negatives by vector difference
-      //val sortedNegatives = sortByVectorDifference(dataset, positiveIndices, negativeIndices)
 
-      // Do a random sample of the negatives up to the specified ratio
-      val suffledNegativeIndices = Random.shuffle(negativeIndices)
+  private def euclidianDistance(a:RVFDatum[String, String], b:RVFDatum[String, String]):Double = {
+    def sqr(v:Double) = v*v
+    val (labelsA, labelsB) = (a.features.toSet, b.features.toSet)
 
-      val amount = positiveIndices.size * negativesPerPositive
-      val toTake = if(amount <= negativeIndices.size) amount else negativeIndices.size
+    val intersection = (labelsA & labelsB).map(i => a.getFeatureCount(i) - b.getFeatureCount(i)).map(sqr)
+    val onlyA = labelsA.diff(labelsB).map(a.getFeatureCount).map(sqr)
+    val onlyB = labelsB.diff(labelsA).map(b.getFeatureCount).map(sqr)
 
-      val sampledNegativeIndices = suffledNegativeIndices.take(toTake)//sortedNegatives.take(toTake) //negativeIndices.take(toTake)
+    // Compute the sum of squares
+    val sum = intersection.sum + onlyA.sum + onlyB.sum
 
-      val indices2Keep = (positiveIndices ++ sampledNegativeIndices).sorted
+    // Return the square root
+    Math.sqrt(sum)
+  }
 
-      // Build a new dataset
-      val ll = dataset.labelLexicon
-      val fl = dataset.featureLexicon
 
-      val labels = new mutable.ArrayBuffer[Int]
-      val features = new mutable.ArrayBuffer[Array[Int]]
-      val values = new mutable.ArrayBuffer[Array[Double]]
-      for(i <- indices2Keep){
-        labels += dataset.labels(i)
-        features += dataset.features(i)
-        values += dataset.values(i)
-      }
 
-      new RVFDataset(ll, fl, labels, features, values)
+  private def randomlyBalanceDataset(dataset:RVFDataset[String, String],
+                     negativesPerPositive:Int):RVFDataset[String, String] = {
+
+    val (positiveIndices: IndexedSeq[Int], negativeIndices: IndexedSeq[Int]) = classIndices(dataset)
+
+    assert(positiveIndices.size <= negativeIndices.size, "There are more positive than negative instances")
+
+    // Sort the negatives by vector difference
+    //val sortedNegatives = sortByVectorDifference(dataset, positiveIndices, negativeIndices)
+
+    // Do a random sample of the negatives up to the specified ratio
+    val suffledNegativeIndices = Random.shuffle(negativeIndices)
+
+    val amount = positiveIndices.size * negativesPerPositive
+    val toTake = if(amount <= negativeIndices.size) amount else negativeIndices.size
+
+    val sampledNegativeIndices = suffledNegativeIndices.take(toTake)//sortedNegatives.take(toTake) //negativeIndices.take(toTake)
+
+    val indices2Keep = (positiveIndices ++ sampledNegativeIndices).sorted
+
+    buildDatasetObject(dataset, indices2Keep)
+  }
+
+  private def buildDatasetObject(original: RVFDataset[String, String], indices2Keep: Seq[Int]) = {
+    // Build a new dataset
+    val ll = original.labelLexicon
+    val fl = original.featureLexicon
+
+    val labels = new mutable.ArrayBuffer[Int]
+    val features = new mutable.ArrayBuffer[Array[Int]]
+    val values = new mutable.ArrayBuffer[Array[Double]]
+    for (i <- indices2Keep) {
+      labels += original.labels(i)
+      features += original.features(i)
+      values += original.values(i)
+    }
+
+    new RVFDataset(ll, fl, labels, features, values)
+  }
+
+  private def classIndices(dataset: RVFDataset[String, String]) = {
+    val positiveIndices = 0.until(dataset.size).filter {
+      i =>
+        val lex = dataset.labelLexicon
+        val labels = dataset.labels
+
+        lex.get(labels(i)) == "true"
+    }
+
+    val negativeIndices = 0.until(dataset.size).filter {
+      i =>
+        val lex = dataset.labelLexicon
+        val labels = dataset.labels
+
+        lex.get(labels(i)) == "false"
+    }
+    (positiveIndices, negativeIndices)
   }
 
   def train(dataset:RVFDataset[String, String]) = {
