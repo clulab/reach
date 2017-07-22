@@ -3,13 +3,13 @@ package org.clulab.reach.export
 import java.io._
 import java.util.Date
 import scala.collection.mutable
-import org.json4s.native.Serialization
+import org.json4s.jackson.Serialization
 import org.clulab.odin.Mention
 import org.clulab.reach.ReachConstants._
 import ai.lum.nxmlreader.NxmlDocument
 import org.clulab.reach.assembly.Assembler
 import org.clulab.reach.FriesEntry
-import org.clulab.serialization.json._
+import org.clulab.odin.serialization.json._
 
 
 /**

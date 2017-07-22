@@ -1,19 +1,18 @@
 package org.clulab.reach.export
 
 import java.util.Date
-
 import org.clulab.reach.FriesEntry
 import org.clulab.reach.TestUtils._
 import org.clulab.reach.export.fries._
 import org.json4s._
-import org.json4s.native.JsonMethods._
+import org.json4s.jackson.JsonMethods._
 import org.scalatest.{FlatSpec, Matchers}
 
 
 /**
   * Test the JSON output by the FRIES output formatter program.
   *   Written by: Tom Hicks. 5/19/2016
-  *   Last Modified: Rewrite order dependent tests.
+  *   Last Modified: Update test for switch to Jackson.
   */
 class TestFriesOutput extends FlatSpec with Matchers {
 
@@ -33,11 +32,11 @@ class TestFriesOutput extends FlatSpec with Matchers {
   }
 
   it should "produce valid JSON string" in {
-    // println(s"JSON=$jStr")                  // DEBUGGING
+    // println(s"jStr=$jStr")                  // DEBUGGING
     jStr should not be empty
-    jStr should include ("\"events\":")
-    jStr should include ("\"entities\":")
-    jStr should include ("\"sentences\":")
+    jStr should include ("\"events\" :")
+    jStr should include ("\"entities\" :")
+    jStr should include ("\"sentences\" :")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -147,11 +146,11 @@ class TestFriesOutput extends FlatSpec with Matchers {
   val json2 = parse(jStr2)
 
   text2 should "produce valid JSON string" in {
-    // println(s"JSON=$jStr2")                  // DEBUGGING
+    // println(s"jStr2=$jStr2")                // DEBUGGING
     jStr2 should not be empty
-    jStr2 should include ("\"events\":")
-    jStr2 should include ("\"entities\":")
-    jStr2 should include ("\"sentences\":")
+    jStr2 should include ("\"events\" :")
+    jStr2 should include ("\"entities\" :")
+    jStr2 should include ("\"sentences\" :")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {
@@ -178,11 +177,11 @@ class TestFriesOutput extends FlatSpec with Matchers {
   val json3 = parse(jStr3)
 
   text3 should "produce valid JSON string" in {
-    // println(s"JSON=$jStr2")                  // DEBUGGING
+    // println(s"jStr3=$jStr3")                // DEBUGGING
     jStr3 should not be empty
-    jStr3 should include ("\"events\":")
-    jStr3 should include ("\"entities\":")
-    jStr3 should include ("\"sentences\":")
+    jStr3 should include ("\"events\" :")
+    jStr3 should include ("\"entities\" :")
+    jStr3 should include ("\"sentences\" :")
   }
 
   it should "produce parseable JSON with 3 top-level sections" in {

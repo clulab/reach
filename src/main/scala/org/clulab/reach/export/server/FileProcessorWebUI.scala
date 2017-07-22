@@ -2,7 +2,7 @@ package org.clulab.reach.export.server
 
 import akka.http.scaladsl.Http
 import akka.actor.ActorSystem
-import akka.http.scaladsl.model.{Multipart, StatusCodes}
+import akka.http.scaladsl.model.Multipart
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.scaladsl._
@@ -17,8 +17,9 @@ import org.clulab.reach.mentions._
 import org.clulab.reach.mentions.serialization.json._
 import org.clulab.reach.PaperReader
 import org.clulab.reach.export.arizona.ArizonaOutputter
-import org.json4s.{DefaultFormats, native}
-import scala.concurrent.{ExecutionContextExecutor, Future}
+import org.json4s.DefaultFormats
+import org.json4s.jackson.Serialization
+import scala.concurrent.ExecutionContextExecutor
 import scala.util.{Failure, Success}
 
 
@@ -31,7 +32,7 @@ trait FileUpload {
 
   def processFile(tempFile: File, outputType: String): String
 
-  implicit val serialization = native.Serialization
+  implicit val serialization = Serialization
   implicit val formats = DefaultFormats
   implicit val system: ActorSystem
   implicit def executionContext: ExecutionContextExecutor

@@ -2,17 +2,15 @@ package org.clulab.reach.mentions.serialization
 
 import org.clulab.odin
 import org.clulab.odin._
-import org.clulab.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
-import org.clulab.serialization.json.{ MentionOps => OdinMentionOps, JSONSerialization, OdinPathOps }
+import org.clulab.odin.serialization.json.{ TextBoundMentionOps, RelationMentionOps, EventMentionOps }
+import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps, OdinPathOps }
+import org.clulab.serialization.json.JSONSerialization
 import org.clulab.reach.mentions.serialization.json.{ JSONSerializer => ReachJSONSerializer }
 import org.clulab.reach.mentions._
 import org.clulab.reach.grounding.KBResolution
-import java.nio.charset.StandardCharsets
-import java.nio.file.{Files, Paths}
-import java.io.File
 import org.json4s._
 import org.json4s.JsonDSL._
-import org.json4s.native._
+import org.json4s.jackson._
 
 
 package object json {
@@ -24,7 +22,7 @@ package object json {
     // NOTE: order matters due to inheritance
     case cm: CorefMention => CorefMentionOps(cm).jsonAST
     case bm: BioMention => BioMentionOps(bm).jsonAST
-    case m: Mention => org.clulab.serialization.json.MentionOps(m).jsonAST
+    case m: Mention => OdinMentionOps(m).jsonAST
   }
 
   implicit class MentionJSONOps(m: Mention) extends OdinMentionOps(m) {
@@ -35,14 +33,6 @@ package object json {
     /** Includes "documents" field for simple deserialization **/
     override def completeAST: JValue = REACHMentionSeq(Seq(m)).jsonAST
 
-    /**
-      * Serialize mentions to json file
-      */
-    override def saveJSON(file: String, pretty: Boolean): Unit = {
-      require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), Seq(m).json(pretty).getBytes(StandardCharsets.UTF_8))
-    }
-    override def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
   }
 
   /** For Seq[BioMention], Seq[CorefMention], etc */
@@ -50,14 +40,6 @@ package object json {
 
     override def jsonAST: JValue = ReachJSONSerializer.jsonAST(mentions)
 
-    /**
-      * Serialize mentions to json file
-      */
-    def saveJSON(file: String, pretty: Boolean): Unit = {
-      require(file.endsWith(".json"), "file should have .json extension")
-      Files.write(Paths.get(file), mentions.json(pretty).getBytes(StandardCharsets.UTF_8))
-    }
-    def saveJSON(file: File, pretty: Boolean): Unit = saveJSON(file.getAbsolutePath, pretty)
   }
 
   /** generate a json string from the given ast */
