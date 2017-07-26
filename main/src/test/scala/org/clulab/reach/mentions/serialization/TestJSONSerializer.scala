@@ -14,21 +14,21 @@ class TestJSONSerializer extends FlatSpec with Matchers {
   val text = "Phosphorylated MEK activates K-RAS."
   val mentions = getMentionsFromText(text)
   val corefmentions = mentions.map(_.toCorefMention)
+  val corefJAST = corefmentions.jsonAST
   val biomentions = mentions.map(_.toBioMention)
-  val mentionsJSON = readFileContent("inputs/json/serializedDocument.json")
-  val mentionsAST = parse(mentionsJSON)
+  val bioJAST = biomentions.jsonAST
 
   // printMentions(Try(biomentions), true)        // DEBUGGING
 
   "JSONSerializer" should "serialize a Seq[BioMention] to json correctly" in {
-    val mentions2 = JSONSerializer.toBioMentions(corefmentions.jsonAST)
+    val mentions2 = JSONSerializer.toCorefMentions(corefJAST)
     mentions2 should have size (corefmentions.size)
     mentions2.map(_.label) should equal (corefmentions.map(_.label))
     mentions2.map(_.document.equivalenceHash) should equal (corefmentions.map(_.document.equivalenceHash))
   }
 
   it should "deserialize a Seq[BioMention] from json correctly" in {
-    val mentions2 = JSONSerializer.toBioMentions(mentionsAST)
+    val mentions2 = JSONSerializer.toBioMentions(bioJAST)
     mentions2 should have size (biomentions.size)
     mentions2.map(_.label) should equal (biomentions.map(_.label))
     mentions2.map(_.document.equivalenceHash) should equal (biomentions.map(_.document.equivalenceHash))
@@ -45,7 +45,7 @@ class TestJSONSerializer extends FlatSpec with Matchers {
     m.tokenInterval should equal (m.tokenInterval)
     m.grounding() should equal (m.grounding())
     // test deserialization
-    val mentions2 = JSONSerializer.toBioMentions(mentionsAST)
+    val mentions2 = JSONSerializer.toBioMentions(bioJAST)
     mentions2 should have size (mentions.size)
     val Seq(deserializedbm) = mentions2.filter(m => (m matches "Entity") && (m.text == "MEK"))
     deserializedbm.label should equal (m.label)
@@ -63,7 +63,7 @@ class TestJSONSerializer extends FlatSpec with Matchers {
   }
 
   it should "deserialize a Seq[CorefMention] from json correctly" in {
-    val mentions2 = JSONSerializer.toCorefMentions(mentionsAST)
+    val mentions2 = JSONSerializer.toCorefMentions(corefJAST)
     mentions2 should have size corefmentions.size
     mentions2.map(_.label) should equal (corefmentions.map(_.label))
     mentions2.map(_.document.equivalenceHash) should equal (corefmentions.map(_.document.equivalenceHash))
