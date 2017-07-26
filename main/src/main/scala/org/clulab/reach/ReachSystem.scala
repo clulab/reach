@@ -1,26 +1,27 @@
 package org.clulab.reach
 
+import scala.collection.immutable.HashSet
+import scala.collection.mutable
+
+import ai.lum.nxmlreader.NxmlDocument
+import com.typesafe.scalalogging.LazyLogging
+
 import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
+import org.clulab.processors.{Document, Processor}
+import org.clulab.reach.context._
+import org.clulab.reach.context.ContextEngineFactory.Engine._
+import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{Rules, readResource}
-import org.clulab.processors.{Document, Processor}
-import org.clulab.processors.bionlp.{BioNLPProcessor, FastBioNLPProcessor}
-
-import scala.collection.immutable.HashSet
-import scala.collection.mutable
-import org.clulab.reach.context._
-import org.clulab.reach.context.ContextEngineFactory.Engine._
-import ai.lum.nxmlreader.NxmlDocument
-import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 
 
 class ReachSystem(
   rules: Option[Rules] = None,
-  proc: Option[Processor] = None,
+  pcc: Option[ProcessorCoreClient] = None,
   contextEngineType: Engine = Dummy,
   contextParams: Map[String, String] = Map()
 ) extends LazyLogging {
@@ -45,7 +46,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor
-  val processor = if (proc.isEmpty) new BioNLPProcessor(withChunks = false) else proc.get
+  val processor = if (pcc.nonEmpty) pcc.get else new ProcessorCoreClient
   processor.annotate("something")
 
   /** returns string with all rules used by the system */
@@ -292,16 +293,16 @@ object ReachSystem extends LazyLogging {
     }
   }
 
-  def chooseProcessor(procType:String):Processor = {
-    val proc = procType.toLowerCase match {
-      case "fastbionlp" =>
-        logger.info("Choosing FastBio processor")
-        new FastBioNLPProcessor(withChunks = false)
-      case _ =>
-        logger.info("Choosing Bio processor")
-        new BioNLPProcessor(withChunks = false)
-    }
-    proc
-  }
+  // def chooseProcessor(procType:String):Processor = {
+  //   val proc = procType.toLowerCase match {
+  //     case "fastbionlp" =>
+  //       logger.info("Choosing FastBio processor")
+  //       new FastBioNLPProcessor(withChunks = false)
+  //     case _ =>
+  //       logger.info("Choosing Bio processor")
+  //       new BioNLPProcessor(withChunks = false)
+  //   }
+  //   proc
+  // }
 
 }
