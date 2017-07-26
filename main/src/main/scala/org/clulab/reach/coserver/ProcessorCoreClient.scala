@@ -18,7 +18,7 @@ import org.clulab.processors.coserver.ProcessorCoreServerMessages._
 /**
   * Reach client for the Processors Core Server.
   *   Written by: Tom Hicks. 6/9/2017.
-  *   Last Modified: Update for use of BioNLP.
+  *   Last Modified: Update for removal of semantic roles.
   */
 class ProcessorCoreClient extends LazyLogging {
 
@@ -144,12 +144,6 @@ class ProcessorCoreClient extends LazyLogging {
   /** Shallow parsing. Modified document is returned. */
   def chunking (doc:Document): Document = {
     val reply = callServer(ChunkingCmd(doc))
-    reply.asInstanceOf[DocumentMsg].doc
-  }
-
-  /** SRL - Semantic Role Labeling. Modified document is returned. */
-  def labelSemanticRoles (doc:Document): Document = {
-    val reply = callServer(LabelSemanticRolesCmd(doc))
     reply.asInstanceOf[DocumentMsg].doc
   }
 
