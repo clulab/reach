@@ -279,27 +279,67 @@ object Trainer {
                      negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
     // Here we can change the implementation of data set balancing to something else
-    randomlyBalanceDataset(dataset, negativesPerPositive)
-    // We could add another implementation here, for example, the euclidian distance similarity
+    //randomlyBalanceDataset(dataset, negativesPerPositive)
+    // We could add another implementation here, for example, the euclidian distance similarity:
+    euclidianDistanceBalanceDataset(dataset, negativesPerPositive)
   }
 
   private def euclidianDistanceBalanceDataset(dataset:RVFDataset[String, String],
                                               negativesPerPositive:Int):RVFDataset[String, String] = {
     val (positiveIndices: IndexedSeq[Int], negativeIndices: IndexedSeq[Int]) = classIndices(dataset)
-
+    
+    // instantiate an empty set of selectedNegative indices:
     val selectedNegatives = new mutable.HashSet[Int]()
-
+    // make a set of negativeIndices that have not been selected to search through:
+    //var unselectedNegatives = negativeIndices
+    // or instead just test whether the new negative is already inside of selectedNegatives
+    
     //TODO: Implement here the selection loop
-    for(positiveIndex <- positiveIndices){
-      val positiveDatum = dataset.mkDatum(positiveIndex).asInstanceOf[RVFDatum[String, String]]
-      // For each negative index do something ...
-      // Store the negative index in selectedNegatives if chosen
-      // Make sure to not consider this index again if stored. Take it out of the "pool"
+    // for number of negatives per positive:
+    val nPPRange = 1 to negativesPerPositive
+    for(nPP <- nPPRange) {
+      for (positiveIndex <- positiveIndices) {
+        println(s"finding closest negative training example for $positiveIndex")
+        val positiveDatum = dataset.mkDatum(positiveIndex).asInstanceOf[RVFDatum[String, String]]
+        // For each negative index, make the negative datum and compute distance_i to positive datum.
+        //   If the distance is less than minDist, store the negative index and set minDist to distance_i
+        var minDist = Double.MaxValue
+        
+        // Declare closestNegative which is the index of negativeIndices that indexes a datum which should be closest to the positive datum
+        // type Int:
+        var closestNegative:Int = 0
+        
+        // Make subset of negativeIndices containing only those indices which have not been selected:
+        val unselectedNegatives = negativeIndices.filterNot(selectedNegatives)
+        for (negativeIndex <- unselectedNegatives) {
+          val negativeDatum = dataset.mkDatum(negativeIndex).asInstanceOf[RVFDatum[String, String]]
+          
+          //Compute distance:
+          //println(s"minDist = $minDist")
+          val distance = euclidianDistance(positiveDatum, negativeDatum)
+          //println(s"distance = $distance")
+          closestNegative = if (distance < minDist){
+            negativeIndex
+          } else {closestNegative}
+          minDist = if (distance < minDist){
+            distance
+          } else {minDist}
+          //println(s"minDist after comparing with distance = $minDist")
+          //println(s"closestNegative: $closestNegative")
+          // end for loop
+        }
+        // Store the negative index in selectedNegatives:
+        // changed selectedNegatives ++= closestNegative to the following code:
+        println(s"closestNegative = $closestNegative")
+        selectedNegatives += closestNegative
+        // ++= wants an iterable.  From the docs: Add all the elements provided by an iterator elems to the set.
+        // Make sure to not consider this index again if stored. Take it out of the "pool"
+      }
     }
-
     // Create a new dataset object with only the chosen elements
     buildDatasetObject(dataset, positiveIndices ++ selectedNegatives)
   }
+  
 
 
   private def euclidianDistance(a:RVFDatum[String, String], b:RVFDatum[String, String]):Double = {
