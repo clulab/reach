@@ -317,4 +317,10 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent45)
     mentions.filter(_ matches "Positive_activation") should have size (0)
   }
+
+  val sent46 = "BRAF inhibition in NF1 deficient cells"
+  sent46 should "contain no activations" in {
+    val mentions = getBioMentions(sent46)
+    mentions.filter(_ matches "Negative_activation") should have size (0)
+  }
 }
