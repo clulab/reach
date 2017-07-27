@@ -1,15 +1,16 @@
 package org.clulab.reach
 
 import java.io.File
-
-import com.typesafe.config.ConfigFactory
 import jline.console.ConsoleReader
 import jline.console.history.FileHistory
 
 import scala.collection.immutable.ListMap
-import org.clulab.reach.display._
+
+import com.typesafe.config.ConfigFactory
+
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.processors.bionlp.{BioNLPProcessor, FastBioNLPProcessor}
+import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.reach.display._
 
 object ReachShell extends App {
   println("Loading ReachSystem ...")
@@ -21,12 +22,8 @@ object ReachShell extends App {
   val contextConfig = config.getConfig("contextEngine.params").root
   val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
 
-  // which processor to use
-  val procType: String = config.getString("proc")
-  val proc = ReachSystem.chooseProcessor(procType)
-
   // initialize ReachSystem with appropriate context engine
-  var reach = new ReachSystem(proc = Some(proc),
+  var reach = new ReachSystem(pcc = Some(new ProcessorCoreClient),
                               contextEngineType = contextEngineType,
                               contextParams = contextEngineParams)
 

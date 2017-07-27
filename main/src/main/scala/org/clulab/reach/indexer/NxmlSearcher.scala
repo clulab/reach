@@ -2,8 +2,10 @@ package org.clulab.reach.indexer
 
 import java.io.{FileWriter, PrintWriter, File}
 import java.nio.file.Paths
-import org.clulab.processors.bionlp.BioNLPProcessor
-import org.clulab.utils.StringUtils
+
+import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
+
 import org.apache.lucene.analysis.Analyzer
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer
 import org.apache.lucene.analysis.standard.StandardAnalyzer
@@ -13,20 +15,23 @@ import org.apache.lucene.queryparser.classic.QueryParser
 import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
-import scala.collection.mutable
+
+import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.utils.StringUtils
 import NxmlSearcher._
-import scala.collection.mutable.ArrayBuffer
 
 
 /**
- * Searches the NXML index created by NXML indexer
- * User: mihais
- * Date: 10/19/15
- */
+  * Searches the NXML index created by NXML indexer
+  * User: mihais
+  * Date: 10/19/15
+  * Last Modified: Update for processors core server.
+  */
 class NxmlSearcher(val indexDir:String) {
   val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
   val searcher = new IndexSearcher(reader)
-  val proc = new BioNLPProcessor(withChunks = false)
+  // The next variable does not seem to be used anywhere
+  // val processor = new ProcessorCoreClient   // default is BioNLP processor
 
   def close() = reader.close()
 
