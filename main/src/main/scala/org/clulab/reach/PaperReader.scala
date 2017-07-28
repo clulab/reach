@@ -2,18 +2,19 @@ package org.clulab.reach
 
 import java.io._
 
-import org.clulab.reach.context.ContextEngineFactory.Engine
-
-import scala.collection.JavaConverters._
-import com.typesafe.config.ConfigFactory
-import org.apache.commons.io.FilenameUtils
-import org.clulab.odin._
-import org.clulab.reach.utils.DSVParser
-
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
+import scala.collection.JavaConverters._
+
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
+import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
+import org.apache.commons.io.FilenameUtils
+
+import org.clulab.odin._
+import org.clulab.reach.context.ContextEngineFactory.Engine
+import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.reach.utils.DSVParser
 import org.clulab.utils.Serializer
 
 
@@ -40,12 +41,10 @@ object PaperReader extends LazyLogging {
   val contextEngineParams: Map[String, String] =
     context.createContextEngineParams(contextConfig)
 
-  // which processor to use
-  val procType: String = config.getString("proc")
-  val proc = ReachSystem.chooseProcessor(procType)
-
   // initialize ReachSystem with appropriate context engine
-  lazy val rs = new ReachSystem(proc = Some(proc), contextEngineType = contextEngineType, contextParams = contextEngineParams)
+  lazy val rs = new ReachSystem(pcc = Some(new ProcessorCoreClient),
+                                contextEngineType = contextEngineType,
+                                contextParams = contextEngineParams)
 
   /**
    * Produces Dataset from a directory of nxml and csv papers

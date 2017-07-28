@@ -1,8 +1,9 @@
 name := "reach-main"
 
 libraryDependencies ++= {
+  val akkaV = "2.5.2"
   val luceVer = "5.3.1"
-  val procVer = "6.0.6"
+  val procVer = "6.0.7"
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",
@@ -22,9 +23,16 @@ libraryDependencies ++= {
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.4.0",
     "ch.qos.logback"               %  "logback-classic"  % "1.1.7",
+    "org.slf4j"                    %  "slf4j-api"        % "1.7.10",
+
+    // AKKA
+    "com.typesafe.akka"   %%  "akka-actor"   % akkaV,
+//  "com.typesafe.akka"   %%  "akka-remote"  % akkaV,
+    "com.typesafe.akka"   %%  "akka-slf4j"   % akkaV,
 
     // testing
-    "org.scalatest"       %%  "scalatest"      % "2.2.4"  % "test"
+    "org.scalatest"       %%  "scalatest"      % "2.2.4"  % "test",
+    "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test"
   )
 
 }

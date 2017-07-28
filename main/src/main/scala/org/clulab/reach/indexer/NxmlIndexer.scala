@@ -3,26 +3,29 @@ package org.clulab.reach.indexer
 import java.io.File
 import java.nio.file.Paths
 import java.util.regex.Pattern
-import org.clulab.struct.MutableNumber
-import org.clulab.utils.{Files, StringUtils}
+
+import scala.collection.mutable
+import scala.util.{Failure, Success, Try}
+
+import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.{Document, Field, StoredField, StringField, TextField}
 import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
-import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.slf4j.LoggerFactory
-import NxmlIndexer._
-import scala.collection.mutable
-import org.clulab.processors.bionlp.BioNLPProcessor
 
-import scala.util.{Failure, Success, Try}
+import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.struct.MutableNumber
+import org.clulab.utils.{Files, StringUtils}
+import NxmlIndexer._
 
 
 /**
- * Indexes a bunch of NXML files so we can run quick searches wo/ grep :)
- * User: mihais
- * Date: 10/19/15
- */
+  * Indexes a bunch of NXML files so we can run quick searches wo/ grep :)
+  * User: mihais
+  * Date: 10/19/15
+  * Last Modified: Update for processors core server.
+  */
 class NxmlIndexer {
   def index(docsDir:String, mapFile:String, indexDir:String): Unit = {
     val files = Files.findFiles(docsDir, "nxml")
@@ -50,8 +53,7 @@ class NxmlIndexer {
     val config = new IndexWriterConfig(analyzer)
     val index = FSDirectory.open(Paths.get(indexDir))
     val writer = new IndexWriter(index, config)
-    // BioNLPProcessor to preprocess the text
-    val processor = new BioNLPProcessor(withChunks = false)
+    val processor = new ProcessorCoreClient // default is BioNLP processor
     count = 0
     var nxmlErrors = 0
     for (file <- files) {
