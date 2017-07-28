@@ -288,6 +288,7 @@ object Trainer {
                                               negativesPerPositive:Int):RVFDataset[String, String] = {
     val (positiveIndices: IndexedSeq[Int], negativeIndices: IndexedSeq[Int]) = classIndices(dataset)
     
+    
     // instantiate an empty set of selectedNegative indices:
     val selectedNegatives = new mutable.HashSet[Int]()
     // make a set of negativeIndices that have not been selected to search through:
@@ -305,9 +306,9 @@ object Trainer {
     for(nPP <- nPPRange) {
       var i_p: Int = 0
       for (positiveIndex <- positiveIndices) {
-        println(s"Positive index $i_p of $num_p_i total positive indices")
+        //println(s"Positive index $i_p of $num_p_i total positive indices")
         num_n_i = unselectedNegatives.size
-        println(s"finding closest negative training example for $positiveIndex out of $num_n_i negative indices.")
+        //println(s"finding closest negative training example for $positiveIndex out of $num_n_i negative indices.")
         val positiveDatum = dataset.mkDatum(positiveIndex).asInstanceOf[RVFDatum[String, String]]
         // For each negative index, make the negative datum and compute distance_i to positive datum.
         //   If the distance is less than minDist, store the negative index and set minDist to distance_i
@@ -338,11 +339,12 @@ object Trainer {
         }
         // Store the negative index in selectedNegatives:
         // changed selectedNegatives ++= closestNegative to the following code:
-        println(s"closestNegative = $closestNegative")
+        //println(s"closestNegative = $closestNegative")
         selectedNegatives += closestNegative
         unselectedNegatives -= closestNegative
         // ++= wants an iterable.  From the docs: Add all the elements provided by an iterator elems to the set.
         // Make sure to not consider this index again if stored. Take it out of the "pool"
+        i_p += 1
       }
     }
     // Create a new dataset object with only the chosen elements
