@@ -292,16 +292,22 @@ object Trainer {
     val selectedNegatives = new mutable.HashSet[Int]()
     // make a set of negativeIndices that have not been selected to search through:
     var unselectedNegatives = negativeIndices.toSet
+    var num_n_i: Int = unselectedNegatives.size
     // or instead just test whether the new negative is already inside of selectedNegatives
-    
+  
+    val num_p_i: Int = positiveIndices.length
     println(s"positiveIndices.length = ${positiveIndices.length}")
+    
     
     //TODO: Implement here the selection loop
     // for number of negatives per positive:
     val nPPRange = 1 to negativesPerPositive
     for(nPP <- nPPRange) {
+      var i_p: Int = 0
       for (positiveIndex <- positiveIndices) {
-        println(s"finding closest negative training example for $positiveIndex")
+        println(s"Positive index $i_p of $num_p_i total positive indices")
+        num_n_i = unselectedNegatives.size
+        println(s"finding closest negative training example for $positiveIndex out of $num_n_i negative indices.")
         val positiveDatum = dataset.mkDatum(positiveIndex).asInstanceOf[RVFDatum[String, String]]
         // For each negative index, make the negative datum and compute distance_i to positive datum.
         //   If the distance is less than minDist, store the negative index and set minDist to distance_i
