@@ -291,8 +291,10 @@ object Trainer {
     // instantiate an empty set of selectedNegative indices:
     val selectedNegatives = new mutable.HashSet[Int]()
     // make a set of negativeIndices that have not been selected to search through:
-    //var unselectedNegatives = negativeIndices
+    var unselectedNegatives = negativeIndices.toSet
     // or instead just test whether the new negative is already inside of selectedNegatives
+    
+    println(s"positiveIndices.length = ${positiveIndices.length}")
     
     //TODO: Implement here the selection loop
     // for number of negatives per positive:
@@ -310,7 +312,7 @@ object Trainer {
         var closestNegative:Int = 0
         
         // Make subset of negativeIndices containing only those indices which have not been selected:
-        val unselectedNegatives = negativeIndices.filterNot(selectedNegatives)
+        //val unselectedNegatives = negativeIndices.filterNot(selectedNegatives)
         for (negativeIndex <- unselectedNegatives) {
           val negativeDatum = dataset.mkDatum(negativeIndex).asInstanceOf[RVFDatum[String, String]]
           
@@ -332,6 +334,7 @@ object Trainer {
         // changed selectedNegatives ++= closestNegative to the following code:
         println(s"closestNegative = $closestNegative")
         selectedNegatives += closestNegative
+        unselectedNegatives -= closestNegative
         // ++= wants an iterable.  From the docs: Add all the elements provided by an iterator elems to the set.
         // Make sure to not consider this index again if stored. Take it out of the "pool"
       }
@@ -472,7 +475,7 @@ object Trainer {
     }
 
     // Balance dataset
-    val balancedDataset = balanceDataset(dataset)
+    val balancedDataset = balanceDataset(dataset, negativesPerPositive = 1)
 
     // Normalize dataset
     val scalers:ScaleRange[String] = normalize(balancedDataset)
