@@ -325,7 +325,7 @@ object Trainer {
           
           //Compute distance:
           //println(s"minDist = $minDist")
-          val distance = euclidianDistance(positiveDatum, negativeDatum)
+          val distance = euclidianDistanceIntersectingFeatures(positiveDatum, negativeDatum)
           //println(s"distance = $distance")
           closestNegative = if (distance < minDist){
             negativeIndex
@@ -367,9 +367,25 @@ object Trainer {
     // Return the square root
     Math.sqrt(sum)
   }
-
-
-
+  
+  private def euclidianDistanceIntersectingFeatures(a:RVFDatum[String, String], b:RVFDatum[String, String]):Double = {
+    // trying this to increase computational efficiency:
+    def sqr(v:Double) = v*v
+    val (labelsA, labelsB) = (a.features.toSet, b.features.toSet)
+    
+    val intersection = (labelsA & labelsB).map(i => a.getFeatureCount(i) - b.getFeatureCount(i)).map(sqr)
+    //val onlyA = labelsA.diff(labelsB).map(a.getFeatureCount).map(sqr)
+    //val onlyB = labelsB.diff(labelsA).map(b.getFeatureCount).map(sqr)
+    
+    // Compute the sum of squares
+    val sum = intersection.sum// + onlyA.sum + onlyB.sum
+    
+    // Return the sum (since square is monotonically increasing (& always positive)):
+    sum
+  }
+  
+  
+  
   private def randomlyBalanceDataset(dataset:RVFDataset[String, String],
                      negativesPerPositive:Int):RVFDataset[String, String] = {
 
