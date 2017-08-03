@@ -241,8 +241,6 @@ object CrossValidation extends App {
         // Fetch the precomputed features of this paper
         val trainingData = data(trainingFold)
         
-        val allTrain
-        
         // Balance dataset
         // val balancedSlice = balanceDataset(trainingData, negativesPerPositive = 3)
 
