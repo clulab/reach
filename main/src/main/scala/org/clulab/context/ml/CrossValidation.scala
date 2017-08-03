@@ -114,7 +114,42 @@ object CrossValidation extends App {
 
         hits.flatten
       }
-
+    /*
+    def testModelOnTrainingData(balancedDataset:RVFDataset[String, String], classifier: Trainer): Unit ={
+        println(s"Testing fold size: ${balancedDataset.size}\tPositives: ${balancedDataset.filter(_.label == "true").size}\tNegatives: ${balancedDataset.filter(_.label == "false").size}")
+    
+        // Evaluate the TRAINING data using the trained classifier
+        // Data should already be scaled
+    
+        // Results is an array with the tuples (truth, prediction) boolean values
+        val results = new mutable.ArrayBuffer[(Boolean, Boolean)]
+        for(datum <- balancedDataset){
+        
+            // Scale the datum with the scalers from training.  SHOULD ALREADY BE SCALED
+            //val scaledFeats =  Datasets.svmScaleDatum(datum.featuresCounter, scalers)
+            //val scaledDatum = new RVFDatum(datum.label, scaledFeats)
+        
+        
+            // Evaluate this prediction
+            //val predictedLabel = if(datum.getFeatureCount("sentenceDistance_SAME") >= 1) true; else classifier.classOf(scaledDatum) == "true"
+            val predictedLabel = classifier.classOf(scaledDatum) == "true"
+        
+            val truth = datum.label == "true"
+        
+            // Store the results of the fold
+            results += Tuple2(truth, predictedLabel)
+        }
+       
+    
+        val sparseness = sparsenessMeter.sparseness
+        val features = sparsenessMeter.totalFeatures
+        val bcr = new BinaryClassificationResults(results.toSeq)
+        println(s"Sparseness: $sparseness\tTotal features: $features")
+        println("ML classifier")
+        println(bcr)
+    }
+    */
+    
   // First parameter: Corpus directory
 
   println("== Context ML model cross validation ==")
@@ -205,7 +240,9 @@ object CrossValidation extends App {
 
         // Fetch the precomputed features of this paper
         val trainingData = data(trainingFold)
-
+        
+        val allTrain
+        
         // Balance dataset
         // val balancedSlice = balanceDataset(trainingData, negativesPerPositive = 3)
 
@@ -215,8 +252,9 @@ object CrossValidation extends App {
           sparsenessMeter.accountVector(datum)
           trainingDataset += datum
         }
-
-        // Do feature selection
+        
+        //Could reduce computation by running featureSelection AFTER balanceDataset
+        // Do feature selection (this function doesn't do anything right now but return its input with no side effects:
         trainingDataset = FeatureUtils.featureSelection(trainingDataset)
       }
 
@@ -234,7 +272,19 @@ object CrossValidation extends App {
 
       // Train the classifier
       val classifier = train(balancedDataset)
-
+      
+      //Evaluate classifier performance on the training set
+      // Evaluate the TRAINING data using the trained classifier
+      val trainingSetResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
+      for(datum <- balancedDataset){
+          val predictedLabel = classifier.classOf(datum) == "true"
+          val truth = datum.label == "true"
+          
+          trainingSetResults += Tuple2(truth, predictedLabel)
+      }
+      
+      
+      // Now evaluate on test set:
       println("Evaluation ...")
       // Extract the evaluation fold features
       val testingData = data(evalFold)
@@ -243,7 +293,7 @@ object CrossValidation extends App {
       println(s"Testing fold size: ${testingData.size}\tPositives: ${testingData.filter(_.label == "true").size}\tNegatives: ${testingData.filter(_.label == "false").size}")
 
       // Evaluate the testing data using the trained classifier
-
+      
       // Results is an array with the tuples (truth, prediction) boolean values
       val results = new mutable.ArrayBuffer[(Boolean, Boolean)]
       for(datum <- testingData){

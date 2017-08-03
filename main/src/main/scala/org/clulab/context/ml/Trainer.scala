@@ -279,15 +279,14 @@ object Trainer {
                      negativesPerPositive:Int=4):RVFDataset[String, String] = {
 
     // Here we can change the implementation of data set balancing to something else
-    //randomlyBalanceDataset(dataset, negativesPerPositive)
+    randomlyBalanceDataset(dataset, negativesPerPositive)
     // We could add another implementation here, for example, the euclidian distance similarity:
-    euclidianDistanceBalanceDataset(dataset, negativesPerPositive)
+    //euclidianDistanceBalanceDataset(dataset, negativesPerPositive)
   }
 
   private def euclidianDistanceBalanceDataset(dataset:RVFDataset[String, String],
                                               negativesPerPositive:Int):RVFDataset[String, String] = {
     val (positiveIndices: IndexedSeq[Int], negativeIndices: IndexedSeq[Int]) = classIndices(dataset)
-    
     
     // instantiate an empty set of selectedNegative indices:
     val selectedNegatives = new mutable.HashSet[Int]()
