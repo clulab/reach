@@ -274,7 +274,8 @@ object CrossValidation extends App {
       //Evaluate classifier performance on the training set
       // Evaluate the TRAINING data using the trained classifier
       val trainingSetResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
-      for(datum <- balancedDataset){
+      for(ix <- 0 to balancedDataset.size){
+          val datum = balancedDataset.mkDatum(ix)
           val predictedLabel = classifier.classOf(datum) == "true"
           val truth = datum.label == "true"
           
