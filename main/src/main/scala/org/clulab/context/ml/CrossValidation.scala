@@ -149,6 +149,13 @@ object CrossValidation extends App {
         println(bcr)
     }
     */
+  
+  def printTrainingResults(trainingSetResults: mutable.ArrayBuffer[(Boolean, Boolean)]){
+    val bcr = new BinaryClassificationResults(trainingSetResults.toSeq)
+    println("ML Classifier Training Results")
+    println(bcr)
+  }
+    
     
   // First parameter: Corpus directory
 
@@ -311,7 +318,9 @@ object CrossValidation extends App {
            // Store the results of the fold
           results += Tuple2(truth, predictedLabel)
       }
-
+     
+      printTrainingResults(trainingSetResults)	
+      
       val sparseness = sparsenessMeter.sparseness
       val features = sparsenessMeter.totalFeatures
       val bcr = new BinaryClassificationResults(results.toSeq)
