@@ -64,6 +64,7 @@ lazy val root = (project in file("."))
     aggregate in test := false,
     aggregate in assembly := false,
     test in assembly := {},
+    mainClass in assembly := Some("org.clulab.reach.export.server.FileProcessorWebUI"),
     assemblyJarName in assembly := s"reach-gordo-${version.value}.jar"
   )
 

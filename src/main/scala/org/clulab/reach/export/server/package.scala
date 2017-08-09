@@ -1,4 +1,4 @@
-package org.clulab.reach.assembly
+package org.clulab.reach.export
 
 import scala.annotation.tailrec
 
