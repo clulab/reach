@@ -211,6 +211,31 @@ object CrossValidation extends App {
             (name -> features)
       }.toMap
 
+
+  // Storage of the csv file's lines
+  val csvLines = new mutable.ArrayBuffer[String]()
+
+  val featuresNames = data.values.flatten.flatMap(_.features).toSet.toSeq.sorted
+  val header = Seq("PMCID", "label") ++ featuresNames
+  csvLines += header.mkString(",")
+
+  for((key, values) <- data){
+    val paperID = key
+    for(value <- values){
+      val label = value.label
+      val numbers = featuresNames map value.getFeatureCount map (_.toString)
+      val row = (Seq(key, label) ++ numbers).mkString(",")
+      csvLines += row
+    }
+  }
+
+  val ow = new OutputStreamWriter(new FileOutputStream("features.csv"))
+  for(line <- csvLines)
+    ow.write(s"$line\n")
+
+  ow.close()
+
+
   val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
