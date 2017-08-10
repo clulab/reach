@@ -214,6 +214,7 @@ object CrossValidation extends App {
   val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val allResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
+  val allTrainingResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
   val allDeterministicResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
   val sparsenesses = new mutable.ArrayBuffer[Double]()
   val featureCounts = new mutable.ArrayBuffer[Double]()
@@ -281,7 +282,7 @@ object CrossValidation extends App {
       //Evaluate classifier performance on the training set
       // Evaluate the TRAINING data using the trained classifier
       val trainingSetResults = new mutable.ArrayBuffer[(Boolean, Boolean)]
-      for(ix <- 0 to balancedDataset.size){
+      for(ix <- 0 until balancedDataset.size){
           val datum = balancedDataset.mkDatum(ix)
           val predictedLabel = classifier.classOf(datum) == "true"
           val truth = datum.label == "true"
@@ -332,16 +333,20 @@ object CrossValidation extends App {
       println
       cvResults += (evalFold -> bcr)
       allResults ++= results
+      allTrainingResults ++= trainingSetResults
       sparsenesses += sparseness
       featureCounts += features
 
   }
 
-  // Compute microaveraged scores for ML an baseline
+  // Compute microaveraged scores for ML training, validation, and deterministic baseline
+  val trainingMicroAverage = new BinaryClassificationResults(allTrainingResults)
   val microAverage = new BinaryClassificationResults(allResults)
   val policyMicroAverage = new BinaryClassificationResults(allDeterministicResults)
 
   println
+  println(s"Microaveraged ML TRAINING results of ${keySet.size} folds:")
+  println(trainingMicroAverage)
   println(s"Microaveraged ML results of ${keySet.size} folds:")
   println(microAverage)
   println(s"Microaveraged deterministic results of ${keySet.size} folds:")

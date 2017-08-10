@@ -404,7 +404,9 @@ object Trainer {
     val sampledNegativeIndices = suffledNegativeIndices.take(toTake)//sortedNegatives.take(toTake) //negativeIndices.take(toTake)
 
     val indices2Keep = (positiveIndices ++ sampledNegativeIndices).sorted
-
+    
+    //println(indices2Keep)
+    
     buildDatasetObject(dataset, indices2Keep)
   }
 
