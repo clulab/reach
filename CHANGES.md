@@ -1,6 +1,7 @@
 #Changes
 =======
 
++ **1.3.4** - Refactor internal Akka servers, resources, and file locations. Add configurable mainClass for FAT JAR.
 + **1.3.4** - Added Akka-based processors client and updated processor-client classes. Updated to use Processors 6.0.7.
 + **1.3.3** - Updated to use Bioresource 1.1.23 and Processors 6.0.6.
 + **1.3.3** - Syntax fix in activation tests. Remove prep_in from rule.

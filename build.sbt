@@ -66,9 +66,9 @@ lazy val root = (project in file("."))
     test in assembly := {},
     mainClass in assembly := {
       val sysMain = System.getProperty("mainClass")
-      Option(if (sysMain != null) sysMain else "org.clulab.reach.export.server.FileProcessorWebUI")
+      Option(if (sysMain != null) sysMain else "org.clulab.reach.RunReachCLI")
     },
-    assemblyJarName in assembly := s"reach-gordo-${version.value}.jar"
+    assemblyJarName in assembly := s"reach-${version.value}-FAT.jar"
   )
 
 lazy val main = project
