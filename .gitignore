@@ -19,3 +19,8 @@ project/plugins/project/
 # Scala-IDE specific
 .scala_dependencies
 analysis
+
+#large output files:
+features.csv
+features.csv.zip
+features.feather

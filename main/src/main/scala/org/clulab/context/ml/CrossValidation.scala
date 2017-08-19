@@ -212,30 +212,58 @@ object CrossValidation extends App {
       }.toMap
 
 
-  // Storage of the csv file's lines
-  val csvLines = new mutable.ArrayBuffer[String]()
+  val writeFeaturesToCSV: Boolean = false
+  if(writeFeaturesToCSV) {
+    // Storage of the csv file's lines
+    val csvLines = new mutable.ArrayBuffer[String]()
 
-  val featuresNames = data.values.flatten.map(_._2.features).flatten.toSet.toSeq.sorted
-  val header = Seq("PMCID", "label", "EvtID", "CtxID") ++ featuresNames
-  csvLines += header.mkString(",")
+    val featuresNames = data.values.flatten.map(_._2.features).flatten.toSet.toSeq.sorted
+    val header = Seq("PMCID", "label", "EvtID", "CtxID") ++ featuresNames
+    csvLines += header.mkString(",")
 
-  for((key, values) <- data){
-    val paperID = key
-    for(((pairId, features), ix) <- values.zipWithIndex){
-      val label = features.label
-      val eventId = s"E$ix"
-      val numbers = featuresNames map features.getFeatureCount map (_.toString)
-      val row = (Seq(key, label, eventId, pairId.context.id) ++ numbers).mkString(",")
-      csvLines += row
+    for ((key, values) <- data) {
+      val paperID = key
+      for (((pairId, features), ix) <- values.zipWithIndex) {
+        val label = features.label
+        val eventId = s"E$ix"
+        val numbers = featuresNames map features.getFeatureCount map (_.toString)
+        val row = (Seq(key, label, eventId, pairId.context.id) ++ numbers).mkString(",")
+        csvLines += row
+      }
     }
+
+    val ow = new OutputStreamWriter(new FileOutputStream("features.csv"))
+    for (line <- csvLines)
+      ow.write(s"$line\n")
+
+    ow.close()
   }
 
-  val ow = new OutputStreamWriter(new FileOutputStream("features.csv"))
-  for(line <- csvLines)
-    ow.write(s"$line\n")
+  val writeFeaturesToCSV: Boolean = false
+  if(writeFeaturesToCSV) {
+      // Storage of the csv file's lines
+      val csvLines = new mutable.ArrayBuffer[String]()
 
-  ow.close()
+      val featuresNames = data.values.flatten.flatMap(_.features).toSet.toSeq.sorted
+      val header = Seq("PMCID", "label") ++ featuresNames
+      csvLines += header.mkString(",")
 
+      for ((key, values) <- data) {
+          val paperID = key
+          for (value <- values) {
+              val label = value.label
+              val numbers = featuresNames map value.getFeatureCount map (_.toString)
+              val row = (Seq(key, label) ++ numbers).mkString(",")
+              csvLines += row
+          }
+      }
+
+      val ow = new OutputStreamWriter(new FileOutputStream("features.csv"))
+      for (line <- csvLines)
+          ow.write(s"$line\n")
+
+      ow.close()
+  }
 
   val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
   val deterministicCVResults = new mutable.HashMap[String, BinaryClassificationResults]()
@@ -286,7 +314,7 @@ object CrossValidation extends App {
         }
         
         //Could reduce computation by running featureSelection AFTER balanceDataset
-        // Do feature selection (this function doesn't do anything right now but return its input with no side effects:
+        // Do feature selection (this function doesn't do anything right now but return its input with no side effects):
         trainingDataset = FeatureUtils.featureSelection(trainingDataset)
       }
 
@@ -301,6 +329,7 @@ object CrossValidation extends App {
       // Normalize dataset
       // Store the scalers to normalize the testing fold
       val scalers = normalize(balancedDataset)
+      // IT LOOKS LIKE THE TRAINING SET HAS NOT BEEN NORMALIZED.  balancedDataset is a val so it shouldn't change state, correct?
 
       // Train the classifier
       val classifier = train(balancedDataset)

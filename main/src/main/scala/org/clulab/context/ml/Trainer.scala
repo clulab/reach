@@ -455,8 +455,13 @@ object Trainer {
 //    val denseness = sum / dataset.values.size
 //
 //    println(s"DENSENESS: $denseness")
-
-    val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
+  
+    //Trying higher C as this performed very well in Python
+    val cParam: Double = 1.0
+    //val epsParam: Double = 0.0001 // scikit learn default eps/tolerance setting
+    val epsParam: Double = 0.01
+    val lrc = new L1LogisticRegressionClassifier[String, String](C=cParam, bias=true, eps = epsParam)
+    //val lrc = new L1LogisticRegressionClassifier[String, String](C=.005, bias=true)
     //val lrc = new LogisticRegressionClassifier[String, String](C=.005, bias=true)
 
     //val params:svm_parameter = new svm_parameter
