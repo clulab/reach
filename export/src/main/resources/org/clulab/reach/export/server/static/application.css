@@ -1,0 +1,547 @@
+/*
+*= require bootstrap/css/bootstrap.min
+*= require bootstrap-table/bootstrap-table
+*= require font-awesome/css/font-awesome.min
+*/
+
+/* handle HTML5 structural elements */
+body {
+  font-family: Helvetica, Verdana, Arial, "Lucida Grande", sans-serif;
+}
+
+header, footer, nav, article, aside, section {
+    display: block;
+}
+
+.navbar {
+/*  margin-top: 10px; */
+  text-shadow: 2px 2px 5px #003366;
+  background: #0058b0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0058b0), color-stop(100%, #003366));
+  background-image: -webkit-linear-gradient(#0058b0, #003366);
+  background-image: -moz-linear-gradient(#0058b0, #003366);
+  background-image: -o-linear-gradient(#0058b0, #003366);
+  background-image: linear-gradient(#0058b0, #003366);
+  border-bottom: 2px solid #003366;
+}
+
+.navbar-brand {
+  font-size: 1.4em;
+  color: white;
+  text-shadow: 3px 3px 2px #003366;
+  margin-top: 0;
+}
+
+.navbar-nav > li > a, .navbar-right > li > a {
+  color: white;
+}
+
+.navbar-nav li a:hover, .navbar-right li a:hover {
+/*  background: #69b90b; */
+  background: #4477cc;
+}
+
+
+.footer {
+  background-color: black;
+  background-image: -webkit-gradient(linear, color-stop(0%, #333333), color-stop(5%, #555555), color-stop(10%, #777777), color-stop(15%, #333333), color-stop(20%, black), color-stop(25%, black), color-stop(300%, black));
+  background-image: -webkit-linear-gradient(#333333, #555555, #777777, #333333, black, black, black);
+  background-image: -moz-linear-gradient(#333333, #555555, #777777, #333333, black, black, black);
+  background-image: -o-linear-gradient(#333333, #555555, #777777, #333333, black, black, black);
+  background-image: linear-gradient(#333333, #555555, #777777, #333333, black, black, black);
+  color: white;
+  clear: both;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  padding: .8em 1.2em;
+}
+
+.spinner {
+  background: url(spinner66.gif) 50% 50% no-repeat transparent;
+  display: block;
+  height: 72px;
+  width: 480px;
+  padding: 0.5em;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-bottom: 15px;
+  margin-left: auto;
+  text-indent: 25px;
+}
+
+h1 {
+  color: #0058b0;
+}
+
+
+.appBtn {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(55%, #3b4145), color-stop(100%, #181a1c));
+  background-image: -webkit-linear-gradient(#3b4145 55%, #181a1c);
+  background-image: -moz-linear-gradient(#3b4145 55%, #181a1c);
+  background-image: -o-linear-gradient(#3b4145 55%, #181a1c);
+  background-image: linear-gradient(#3b4145 55%, #181a1c);
+  color: white;
+  text-shadow: 1px 1px 2px #181a1c;
+  border: 1px solid #181a1c;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.appBtn:hover {
+  color: white;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(55%, #535b60), color-stop(100%, #3b4145));
+  background-image: -webkit-linear-gradient(#535b60 55%, #3b4145);
+  background-image: -moz-linear-gradient(#535b60 55%, #3b4145);
+  background-image: -o-linear-gradient(#535b60 55%, #3b4145);
+  background-image: linear-gradient(#535b60 55%, #3b4145);
+  border: 1px solid #3b4145;
+}
+
+.appBtn-primary {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(55%, #4e8908), color-stop(100%, #335905));
+  background-image: -webkit-linear-gradient(#4e8908 55%, #335905);
+  background-image: -moz-linear-gradient(#4e8908 55%, #335905);
+  background-image: -o-linear-gradient(#4e8908 55%, #335905);
+  background-image: linear-gradient(#4e8908 55%, #335905);
+  color: white;
+  text-shadow: 1px 1px 2px #335905;
+  border: 1px solid #335905;
+}
+
+.appBtn-primary:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(55%, #69b90b), color-stop(100%, #4e8908));
+  background-image: -webkit-linear-gradient(#69b90b 55%, #4e8908);
+  background-image: -moz-linear-gradient(#69b90b 55%, #4e8908);
+  background-image: -o-linear-gradient(#69b90b 55%, #4e8908);
+  background-image: linear-gradient(#69b90b 55%, #4e8908);
+  border: 1px solid #4e8908;
+}
+
+.dropdown-menu {
+  border: 2px solid rgba(83, 91, 96, 0.5);
+  padding: 5px;
+}
+
+.dropdown-menu .appBtn {
+  font-size: .8em;
+  background: lightgrey;
+  color: #3b4145;
+  border-color: #b9b9b9;
+  text-shadow: 1px 1px 2px white;
+}
+
+.dropdown-menu td, .dropdown-menu th {
+  padding: 1px;
+}
+
+.dropdown-menu table:focus {
+  outline: none;
+}
+
+.pagination > .active > span:focus, .pagination > .active > a:focus, .pagination > .active > span:hover, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > a {
+  background-color: #0058b0;
+  border-color: #0058b0;
+}
+
+
+/* MESSAGES AND ERRORS */
+
+.errors,
+.message {
+    line-height: 2;
+    margin: 1em 0  1em 0;
+    padding: 0.2em 0.5em;
+}
+
+.message {
+    background: #f3f3ff;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
+    -moz-box-shadow: 0 0 0.25em #b2d1ff;
+    -webkit-box-shadow: 0 0 0.25em #b2d1ff;
+    box-shadow: 0 0 0.25em #b2d1ff;
+}
+
+.errors {
+    background: #fff3f3;                    /* pink */
+    border: 1px solid #ffaaaa;
+    color: #cc0000;
+    -moz-box-shadow: 0 0 0.25em #ff8888;
+    -webkit-box-shadow: 0 0 0.25em #ff8888;
+    box-shadow: 0 0 0.25em #ff8888;
+}
+
+
+/* APP-SPECIFIC */
+
+.aboutPanel {
+  font-size: 1.1em;
+}
+
+.aboutSidebar {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.clulab-header {
+  margin: 0px 0px 20px 15px;
+}
+
+.clulab-header .title {
+  color: black;
+  /* border: 1px solid red; */
+  font-size: 2.4em;
+  margin: 0px 15px;
+  padding: 4px 12px;
+  vertical-align: middle;
+  display: inline-block;
+
+  /* color: white; */
+  /* text-shadow: 2px 2px 5px #003366; */
+  /* background: #0058b0; */
+  /* background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0058b0), color-stop(100%, #003366)); */
+  /* background-image: -webkit-linear-gradient(#0058b0, #003366); */
+  /* background-image: -moz-linear-gradient(#0058b0, #003366); */
+  /* background-image: -o-linear-gradient(#0058b0, #003366); */
+  /* background-image: linear-gradient(#0058b0, #003366); */
+}
+
+.danger {
+  color: #cc0000;                           /* medium red */
+}
+
+.docList {
+  margin-left: 20px;
+  margin-right: 80px;
+}
+
+.docList li {
+  margin: 5px 0px;
+}
+
+.down10 {
+  margin-top: 10px;
+}
+
+.emphasis {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.fetchBtn {
+  background: #3b4145;
+  border: 1px solid black;
+  color: white;
+}
+
+.fileTaker {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.fileTaker input[type=file] {
+  display: inline-block;
+  color: blue;
+}
+
+.fileTaker .label {
+  float: left;
+}
+
+.fileTaker .required-indicator {
+  display: inline-block;
+  color: red;
+  margin-left: 2px;
+  margin-right: 7px;
+}
+
+.green-bordered {
+  border: 1px solid #77aa77;                /* medium green */
+}
+
+.greyed {
+  background-color: #eeeeee;
+}
+
+.hideShowBtn {
+  background: #4477cc;                      /* medium blue */
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  padding: 4px 6px 3px 6px;
+}
+
+.indented {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.indented .label {
+  margin-left: 3px;
+}
+
+.unindented {
+  margin-left: 0px;
+}
+
+.infoBox {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.kvKey {
+  margin-left: 15px;
+}
+
+.kvValue {
+  margin-left: 5px;
+}
+
+.linked {
+  color: #4477cc;                           /* medium blue */
+}
+
+.logoBlue {
+  background: url(CLU-notext-blue_68x68.png) no-repeat;
+  height: 68px;
+  width: 68px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.logoTrans {
+  background: url(CLU-notext-trans_68x68.png) no-repeat;
+  height: 68px;
+  width: 68px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.odin-header {
+  margin: 7px 0px 10px 0px;
+}
+
+.odin-header .emphasis {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.odin-header .lefty {
+  float: right;
+  background: url(Odin-raven-L_60x60.png) no-repeat transparent;
+  height: 60px;
+  width: 60px;
+}
+
+.odin-header .righty {
+  float: left;
+  background: url(Odin-raven-R_60x60.png) no-repeat transparent;
+  height: 60px;
+  width: 60px;
+}
+
+.odin-header .title {
+  color: black;
+  /* border: 1px solid red; */
+  font-size: 2.2em;
+  margin: 5px 30px 0px 30px;
+  padding: 4px 15px;
+
+  /* color: white; */
+  /* text-shadow: 2px 2px 5px #003366; */
+  /* background: #0058b0; */
+  /* background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0058b0), color-stop(100%, #003366)); */
+  /* background-image: -webkit-linear-gradient(#0058b0, #003366); */
+  /* background-image: -moz-linear-gradient(#0058b0, #003366); */
+  /* background-image: -o-linear-gradient(#0058b0, #003366); */
+  /* background-image: linear-gradient(#0058b0, #003366); */
+}
+
+.otherBtn {
+  background: #f7f7f7;                      /* very light grey */
+  border: 1px solid black;
+  color: black;
+}
+
+.outputTypeTaker {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.pubTable {
+  background-color: #eeeeee;
+  border: 0px;
+  margin: 20px 50px 30px 50px;
+  width: 700px;
+}
+
+.pubTable tr,
+.pubTable td {
+  padding: 0px 30px 10px 30px;
+}
+
+.radioButton {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.radioLabel {
+  font-weight: normal;
+  margin-left: 3px;
+}
+
+/* highlight selected radio button: */
+input[type="radio"]:checked + .radioLabel {
+  color: blue;
+}
+
+.read {
+  font-size: 1.1em;
+}
+
+.ruby {
+  border: 1px solid red;
+}
+
+.ruleBox {
+  font-family: "Lucida Console", "Courier New", Monaco, Courier, monospace;
+  font-size: .9em;
+}
+
+.rule-errors {
+  background: #fff3f3;                      /* pink */
+  border: 1px solid #ffaaaa;
+}
+
+.rule-errors::selection {                   /* WebKit/Blink Browsers */
+  color: red;
+  background: yellow;
+}
+
+.rule-errors::-moz-selection {              /* Gecko Browsers */
+  color: red;
+  background: yellow;
+}
+
+.sectionTitle {
+  font-size: 1.4em;
+}
+
+.section {
+  margin-bottom: 10px;
+}
+
+.subSection {
+  margin-right: 30px;
+}
+
+.subSection ul {
+  padding-left: 20px;
+}
+
+.subSectionTitle {
+  font-size: 1.2em;
+/*  font-style: italic; */
+}
+
+.term {
+  font-style: italic;
+}
+
+.textBox {
+  border-color: #777777;
+  border-style: solid;
+  border-width: 2px 1px 1px 2px;
+  min-height: 2em;
+  padding: 5px;
+  width: 100%;
+}
+
+.ui-dialog {
+  position: absolute;
+  background-color: #333333;
+  border: 2px solid red;
+  color: white;
+  min-height: 40px !important;
+  min-width: 150px !important;
+  height: 240px !important;
+  width: 600px !important;
+  padding: 0px;
+  resize: both;
+}
+
+.ui-dialog .ui-dialog-title {
+  float: left;
+  font-size: 1.2em;
+  margin: 6px 8px;
+  padding: 0;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+  float: right;
+  color: red;
+  margin: 8px 8px;
+  padding: 0;
+  text-align: center;
+}
+.ui-dialog .ui-dialog-titlebar-close span {
+  display: block;
+  margin: 0;
+}
+.ui-dialog .ui-dialog-titlebar-close:hover,
+.ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+
+
+.ui-dialog .ui-dialog-content {
+  position: relative;
+  top: 36px;                                /* down relative from parent top */
+  background-color: yellow;                 /* for debugging: no yellow should be visible */
+  border: 0;
+  color: black;
+  font-size: .9em;
+  margin: 0px;
+  padding: 0px;
+  resize: none;
+  height: 200px !important;
+  width: 100% !important;
+}
+
+.ui-dialog .ui-dialog-content #fb-rule-text {
+  position: relative;
+  top: -36px;                               /* align with parent */
+  background-color: #eeeeee;                /* light grey */
+  border: 0;
+  color: black;
+  text-align: left;
+  margin: 0px;
+  overflow: auto;
+  padding: 5px;
+  resize: none;
+  height: 200px !important;
+  width: 100% !important;
+}
+
+.ui-draggable .ui-dialog-titlebar { cursor: move; }
+
+.yellow-bordered {
+  border: 1px solid #ddbb77;                /* yellow brown */
+}
+
+
+/****   Color Chart    ****/
+/*    color: #003366;  uaz blue */
+/*    color: #0058b0;  uaz blue lightened */
+/*    color: #335905;  grails app green */
+/*    color: #4477cc;  medium blue */
+/*    color: #4e8908;  grails app green lightened */
+/*    color: #77aa77;  medium green */
+/*    color: #cc0000;  medium red */
+/*    color: #ddbb77;  yellow brown */
+/*    color: #fff3f3;  pink */
+/*    color: #f3fff3;  light green */

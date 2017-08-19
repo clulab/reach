@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBQuery API</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="application.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="http://localhost:8888/">
+                <i class="fa fa-home">&nbsp;KBQuery</i></a>
+            </li>
+            <li><a href="https://github.com/clulab/kbquery">
+                <i class="fa fa-github"></i>&nbsp;Github</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://agathon.sista.arizona.edu:8080/odinweb/">
+                <i class="fa fa-home"></i>&nbsp;Reach Project:</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach/wiki/Datasets">
+                <i class="fa fa-database"></i>&nbsp;Datasets (Wiki)</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach/wiki/Publications">
+                <i class="fa fa-book"></i>&nbsp;Publications (Wiki)</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach">
+                <i class="fa fa-github"></i>&nbsp;Github</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row clulab-header">
+      <div class="logoTrans" alt="CLU Lab logo"></div>
+      <span class="title">KBQuery Server API Documentation</span>
+    </div>
+
+    <!-- About section -->
+    <div class="panel panel-info indented">
+      <div class="panel-heading">
+        <h3 class="panel-title">About the KBQuery Server API</h3>
+      </div>
+      <div id="about-panel" class="panel-body aboutPanel">
+        <p>
+          The KB Query Server (API) provides a REST-ful interface to biological grounding
+          information based on the
+          <a href="https://github.com/clulab/bioresources">CLU Lab Bioresources data</a>.
+          The KBQuery API service accepts REST calls (via an HTTP GET) or JSON calls
+          (via an HTTP POST). The results are returned in JSON format.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel panel-success indented">
+      <div class="panel-heading">
+        <h3 class="panel-title">KB Lookup Request</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Request Type</th>
+              <th>Request JSON or URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/kblu/lookup</code></td>
+              <td><code>GET</code></td>
+              <td><code>?text=a+string</code></td>
+              <td>Transform the given text string in various ways and lookup the resulting
+                strings in the <code>Entries</code> database table. Return all records
+                whose <code>text</code> field matches any of the transformed strings.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/lookup</code></td>
+              <td><code>POST</code></td>
+              <td><code>{"text": "a string"}</code></td>
+              <td>Transform the given text string in various ways and lookup the resulting
+                strings in the <code>Entries</code> database table. Return all records
+                whose <code>text</code> field matches any of the transformed strings.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byText</code></td>
+              <td><code>GET</code></td>
+              <td><code>?text=a+string</code></td>
+              <td>Return records from the <code>Entries</code> database table whose
+                  <code>text</code> field exactly matches the given text argument.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byText</code></td>
+              <td><code>POST</code></td>
+              <td><code>{"text": "a string"}</code></td>
+              <td>Return records from the <code>Entries</code> database table whose
+                  <code>text</code> field exactly matches the given text argument.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byNsId</code></td>
+              <td><code>GET</code></td>
+              <td><code>?nsId=aNamespace:anID</code></td>
+              <td>Lookup the given namespace:id string and return all entries with the
+                given namespace and ID.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byNsId</code></td>
+              <td><code>POST</code></td>
+              <td><code>{"nsId": "aNamespace:anID"}</code></td>
+              <td>Lookup the given namespace:id string and return all entries with the
+                given namespace and ID.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byNsAndId</code></td>
+              <td><code>GET</code></td>
+              <td><code>?ns=aNamespace&id=anID</code></td>
+              <td>Lookup the given namespace and ID strings and return all entries with
+                  the given namespace and ID.</td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byNsAndId</code></td>
+              <td><code>POST</code></td>
+              <td><code>{"ns": "aNamespace", "id": "anID"}</code></td>
+              <td>Lookup the given namespace and ID strings and return all entries with
+                  the given namespace and ID.</td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byId</code></td>
+              <td><code>GET</code></td>
+              <td><code>?id=anID</code></td>
+              <td>Lookup the given ID string and return all entries with
+                  the given ID, in any namespace.</td>
+            </tr>
+            <tr>
+              <td><code>/kblu/byId</code></td>
+              <td><code>POST</code></td>
+              <td><code>{"id": "anID"}</code></td>
+              <td>Lookup the given ID string and return all entries with
+                  the given ID, in any namespace.</td>
+            </tr>
+            <tr>
+              <td><code>/kblu/synonyms</code></td>
+              <td><code>GET</code></td>
+              <td><code>?nsId=aNamespace:anID</code></td>
+              <td>Lookup the given namespace:id string and return just the text strings from
+                  all entries with the given namespace and ID.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/kblu/synonyms</code></td>
+              <td><code>POST</code></td>
+              <td><code>{"nsId": "aNamespace:anID"}</code></td>
+              <td>Lookup the given namespace:id string and return just the text strings from
+                  all entries with the given namespace and ID.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-warning indented yellow-bordered">
+      <div class="panel-heading">
+        <h3 class="panel-title">Server Control and Database Information</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Request type</th>
+              <th>Request form</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/</code></td>
+              <td><code>GET</code></td>
+              <td></td>
+              <td>Display this API help page.</td>
+            </tr>
+            <tr>
+              <td><code>/countEntries</code></td>
+              <td><code>GET | POST</code></td>
+              <td></td>
+              <td>
+                Return the current number of records in the <code>Entries</code> table.
+                This count is how many KB entity records have been loaded into the database.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/countKeys</code></td>
+              <td><code>GET | POST</code></td>
+              <td></td>
+              <td>
+                Return the current number of records in the <code>TKeys</code> table.
+                This count is how many KB text key records (each pointing to a corresponding
+                Entries record) have been loaded into the database.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/countSources</code></td>
+              <td><code>GET | POST</code></td>
+              <td></td>
+              <td>
+                Return the current number of records in the <code>Sources</code> table.
+                This count is how many KB files have been loaded into the database.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/dumpSources</code></td>
+              <td><code>GET | POST</code></td>
+              <td></td>
+              <td>
+                Return all the records in the <code>Sources</code> table, which holds
+                information about the KB files that have been loaded into the database.
+              </td>
+            </tr>
+            <tr>
+              <td><code>/version</code></td>
+              <td><code>GET | POST</code></td>
+              <td></td>
+              <td>Return the current version of this application.</td>
+            </tr>
+            <tr>
+              <td><code>/shutdown</code></td>
+              <td><code>POST</code></td>
+              <td></td>
+              <td>Any <code>POST</code> to this endpoint will shutdown the server.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div id="footer" class="footer" role="contentinfo">
+        &copy; Copyright 2017 by The University of Arizona. All rights reserved.
+      </div>
+    </div>
+
+  </body>
+</html>
