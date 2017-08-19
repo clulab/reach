@@ -202,11 +202,11 @@ object CrossValidation extends App {
   // Key: Paper ID
   // Value: Iterable of annotations ??
   println(s"Extracting all features of ${annotations.size} papers...")
-  val data:Map[String, Iterable[RVFDatum[String, String]]] =
+  val data:Map[String, Iterable[(PairID, RVFDatum[String, String])]] =
       annotations.map{
           case(name, ann) =>
             // Extract features:
-            val features = extractFeatures(ann, featureFamilies).values
+            val features = extractFeatures(ann, featureFamilies)
 
             (name -> features)
       }.toMap
@@ -215,16 +215,17 @@ object CrossValidation extends App {
   // Storage of the csv file's lines
   val csvLines = new mutable.ArrayBuffer[String]()
 
-  val featuresNames = data.values.flatten.flatMap(_.features).toSet.toSeq.sorted
-  val header = Seq("PMCID", "label") ++ featuresNames
+  val featuresNames = data.values.flatten.map(_._2.features).flatten.toSet.toSeq.sorted
+  val header = Seq("PMCID", "label", "EvtID", "CtxID") ++ featuresNames
   csvLines += header.mkString(",")
 
   for((key, values) <- data){
     val paperID = key
-    for(value <- values){
-      val label = value.label
-      val numbers = featuresNames map value.getFeatureCount map (_.toString)
-      val row = (Seq(key, label) ++ numbers).mkString(",")
+    for(((pairId, features), ix) <- values.zipWithIndex){
+      val label = features.label
+      val eventId = s"E$ix"
+      val numbers = featuresNames map features.getFeatureCount map (_.toString)
+      val row = (Seq(key, label, eventId, pairId.context.id) ++ numbers).mkString(",")
       csvLines += row
     }
   }
@@ -272,7 +273,7 @@ object CrossValidation extends App {
       for(trainingFold <- trainingFolds){
 
         // Fetch the precomputed features of this paper
-        val trainingData = data(trainingFold)
+        val trainingData = data(trainingFold) map (_._2)
         
         // Balance dataset
         // val balancedSlice = balanceDataset(trainingData, negativesPerPositive = 3)
@@ -319,7 +320,7 @@ object CrossValidation extends App {
       // Now evaluate on test set:
       println("Evaluation ...")
       // Extract the evaluation fold features
-      val testingData = data(evalFold)
+      val testingData = data(evalFold) map (_._2)
 
       // NO class balancing here, as this is the testing dataset
       println(s"Testing fold size: ${testingData.size}\tPositives: ${testingData.filter(_.label == "true").size}\tNegatives: ${testingData.filter(_.label == "false").size}")
