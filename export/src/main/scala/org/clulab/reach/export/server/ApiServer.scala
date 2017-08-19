@@ -22,7 +22,7 @@ import akka.stream.ActorMaterializer
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Fix static paths.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -61,6 +61,7 @@ class ApiService (
   def makeRoute (config: Config): Route = {
     val appVersion = config.getString("version")
 
+    val static = "org/clulab/reach/export/server/static"
     val routesGet = {
       logRequestResult("apiserver") {       // wrap contained paths in logger
         get {                               // GETS
@@ -79,16 +80,19 @@ class ApiService (
             }
           } ~
           path("") {                                // index page
-            getFromResource("static/api.html")
+            getFromResource(s"${static}/api.html")
+          } ~
+          path("index.html") {                      // index page
+            getFromResource(s"${static}/api.html")
           } ~
           pathPrefix("static") {                    // SHOULD WORK BUT DOES NOT
-            getFromResourceDirectory("/static")
+            getFromResourceDirectory(s"/${static}")
           } ~
           path("application.css") {                 // application stylesheet
-            getFromResource("static/application.css")
+            getFromResource(s"${static}/application.css")
           } ~
           path("CLU-notext-trans_68x68.png") {      // image
-            getFromResource("images/CLU-notext-trans_68x68.png")
+            getFromResource(s"${static}/images/CLU-notext-trans_68x68.png")
           } ~
           path("version") {                         // show version
             logger.info(s"GET version")

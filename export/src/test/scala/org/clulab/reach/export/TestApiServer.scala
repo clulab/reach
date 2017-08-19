@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Get initial tests working, add GET resource tests.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -60,17 +60,41 @@ class TestApiServer extends WordSpec
       Get("/api/test?text=ZZZ4") ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[String]
-        logger.info(s"resp=${resp}")        // DEBUGGING
+        // logger.info(s"resp=${resp}")        // DEBUGGING
         (resp) should not be (empty)
+        (resp) should equal("ZZZ4")
       }
     }
 
     "GET test2" in {
-      Get("/api/test?text=ZZZ4") ~> route ~> check {
+      Get("/api/test?text=Xyz1224") ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[String]
-        logger.info(s"resp=${resp}")        // DEBUGGING
+        // logger.info(s"resp=${resp}")        // DEBUGGING
         (resp) should not be (empty)
+        (resp) should equal("Xyz1224")
+      }
+    }
+
+    "GET HTML file" in {
+      Get("/") ~> route ~> check {
+        // logger.info(s"response=${response}") // DEBUGGING
+        mediaType should equal(MediaTypes.`text/html`)
+      }
+    }
+
+    "GET HTML index file" in {
+      Get("/index.html") ~> route ~> check {
+        // logger.info(s"response=${response}") // DEBUGGING
+        mediaType should equal(MediaTypes.`text/html`)
+      }
+    }
+
+    "GET CSS file" in {
+      Get("/application.css") ~> route ~> check {
+        // logger.info(s"response=${response}") // DEBUGGING
+        status should equal(StatusCodes.OK)
+        mediaType should equal(MediaTypes.`text/css`)
       }
     }
 
@@ -83,19 +107,21 @@ class TestApiServer extends WordSpec
         {
           status should equal(StatusCodes.OK)
           val resp = responseAs[String]
-          logger.info(s"resp=${resp}")        // DEBUGGING
+          // logger.info(s"resp=${resp}")        // DEBUGGING
           (resp) should not be (empty)
+          (resp) should equal("ZZZ4")
         }
     }
 
     "POST test2" in {
       Post("/api/test2",
-        HttpEntity(ContentTypes.`application/json`, """{ "text": "ZZZ4" }""")) ~> route ~> check
+        HttpEntity(ContentTypes.`application/json`, """{ "text": "Xyz1224" }""")) ~> route ~> check
         {
           status should equal(StatusCodes.OK)
           val resp = responseAs[String]
-          logger.info(s"resp=${resp}")        // DEBUGGING
+          // logger.info(s"resp=${resp}")        // DEBUGGING
           (resp) should not be (empty)
+          (resp) should equal("Xyz1224")
         }
     }
 
