@@ -7,7 +7,7 @@ import TestUtils._
 /**
   * Unit tests to ensure Regulation (both Pos and Neg) rules are matching correctly
   * Date: 5/19/15
-  * Last Modified: Update test for BE KBs.
+  * Last Modified: Update tests for issue #538.
   */
 class TestRegulationEvents extends FlatSpec with Matchers {
   val sent1 = "Phosphorylation of ASPP2 by MAPK is required for RAS induced increased binding to p53 and increased transactivation of pro-apoptotic genes."
@@ -548,4 +548,23 @@ class TestRegulationEvents extends FlatSpec with Matchers {
     mentions.filter(_.label.contains("Positive_regulation")) should have size (1)
     mentions.filter(_.label.contains("Positive_activation")) should have size (0)
   }
+
+  val sent60 = "ATP reduced GSH depletion"
+  sent60 should "recognize depletion as a positive activation" in {
+    val mentions = getBioMentions(sent60)
+    mentions.filter(_.label == "Positive_activation") should have size (1)
+  }
+
+  val sent61 = "ATP can deplete GSH in cells"
+  sent61 should "recognize deplete as a negative activation" in {
+    val mentions = getBioMentions(sent61)
+    mentions.filter(_.label == "Negative_activation") should have size (1)
+  }
+
+  val sent62 = "ATP depletes GSH rapidly in cells"
+  sent62 should "recognize depletes as a negative activation" in {
+    val mentions = getBioMentions(sent62)
+    mentions.filter(_.label == "Negative_activation") should have size (1)
+  }
+
 }
