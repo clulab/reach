@@ -9,6 +9,9 @@ import org.clulab.utils.DependencyUtils
 import scala.annotation.tailrec
 
 
+/**
+  * Last Modified: issue #538: Add stem for deplete/depletion.
+  */
 class DarpaActions extends Actions with LazyLogging {
 
   import DarpaActions._
@@ -358,7 +361,7 @@ object DarpaActions {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|target".r
+  val SEMANTIC_NEGATIVE_PATTERN = "attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|target".r
 
   val MODIFIER_LABELS = "amod".r
 
