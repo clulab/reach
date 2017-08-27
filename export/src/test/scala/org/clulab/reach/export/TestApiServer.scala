@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Get initial tests working, add GET resource tests.
+  *   Last Modified: Add commented test of failing getFromResourceDirectory call.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -97,6 +97,15 @@ class TestApiServer extends WordSpec
         mediaType should equal(MediaTypes.`text/css`)
       }
     }
+
+    // SHOULD WORK BUT DOES NOT:
+    // "GET CSS file from static directory" in {
+    //   Get("/static/application.css") ~> route ~> check {
+    //     // logger.info(s"response=${response}") // DEBUGGING
+    //     status should equal(StatusCodes.OK)
+    //     mediaType should equal(MediaTypes.`text/css`)
+    //   }
+    // }
 
 
     // POSTs
