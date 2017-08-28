@@ -1,6 +1,7 @@
 package org.clulab.reach.export.server
 
 import scala.concurrent.ExecutionContextExecutor
+import scala.io.Source
 
 import com.typesafe.config.{ Config, ConfigFactory }
 
@@ -22,7 +23,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Add commented test of failing getFromResourceDirectory call.
+  *   Last Modified: Get the GET text test working. Begin POST tests (not working).
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -44,6 +45,8 @@ class TestApiServer extends WordSpec
   val route = apiService.makeRoute(serverConfig) // create the service route to test
   val version = serverConfig.getString("version")
 
+  val nxmlIn = Source.fromURL(getClass.getResource("/inputs/nxml/PMCfake.nxml")).mkString
+
   "The class under test" should {
 
     "return correct JSON version string" in {
@@ -56,23 +59,17 @@ class TestApiServer extends WordSpec
 
     // GETs
 
-    "GET test" in {
-      Get("/api/test?text=ZZZ4") ~> route ~> check {
+    "GET text" in {
+      Get("/api/text?text=ZZZ4%20phosphorylates%20ATM%20") ~> route ~> check {
         status should equal(StatusCodes.OK)
-        val resp = responseAs[String]
-        // logger.info(s"resp=${resp}")        // DEBUGGING
-        (resp) should not be (empty)
-        (resp) should equal("ZZZ4")
-      }
-    }
-
-    "GET test2" in {
-      Get("/api/test?text=Xyz1224") ~> route ~> check {
-        status should equal(StatusCodes.OK)
-        val resp = responseAs[String]
-        // logger.info(s"resp=${resp}")        // DEBUGGING
-        (resp) should not be (empty)
-        (resp) should equal("Xyz1224")
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
       }
     }
 
@@ -110,27 +107,25 @@ class TestApiServer extends WordSpec
 
     // POSTs
 
-    "POST test" in {
-      Post("/api/test",
-        HttpEntity(ContentTypes.`application/json`, """{ "text": "ZZZ4" }""")) ~> route ~> check
+    "POST text" in {
+      Post("/api/text",
+        HttpEntity(ContentTypes.`application/json`, """{ "text": "akt1 phosphorylates XXX" }""")) ~> route ~> check
         {
           status should equal(StatusCodes.OK)
           val resp = responseAs[String]
           // logger.info(s"resp=${resp}")        // DEBUGGING
           (resp) should not be (empty)
-          (resp) should equal("ZZZ4")
         }
     }
 
-    "POST test2" in {
-      Post("/api/test2",
-        HttpEntity(ContentTypes.`application/json`, """{ "text": "Xyz1224" }""")) ~> route ~> check
+    "POST nxml" in {
+      Post("/api/nxml",
+        HttpEntity(ContentTypes.`application/json`, """{ "nxml": "Xyz1224" }""")) ~> route ~> check
         {
           status should equal(StatusCodes.OK)
           val resp = responseAs[String]
           // logger.info(s"resp=${resp}")        // DEBUGGING
           (resp) should not be (empty)
-          (resp) should equal("Xyz1224")
         }
     }
 
