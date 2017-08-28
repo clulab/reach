@@ -15,19 +15,66 @@ import akka.actor.ActorSystem
 import akka.event.Logging
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
+import akka.http.scaladsl.model._
 import akka.http.scaladsl.server._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
 
+import org.clulab.reach.export.apis.ApiRuler
+import org.clulab.reach.export.apis.ApiRuler._
+
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Fix static paths.
+  *   Last Modified: Implement GET text call as prototype.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
   val serverConfig = new AkkaServerConfig(argMap, Some("ApiServer"))
   val apiService = new ApiService(serverConfig)
+}
+
+
+/**
+  * Glue-code connecting API server to existing annotation functionality and
+  * hiding implementation details of the returned response map.
+  */
+trait ApiImpl {
+
+  // A couple of fallback error messages
+  private val defaultErrorMsg = "Unexpected internal server error"
+  private val noResultMsg = "Unable to retrieve result"
+
+  /** Return the results from processing the given NXML text with the REACH rulesets. */
+  def doNxml (nxmlText: String, outputFormat:String = "fries"): Response =
+    ApiRuler.annotateNxml(nxmlText, outputFormat)
+
+  /** Return the results from processing the given text with the REACH rulesets. */
+  def doText (text: String, outputFormat: String = "fries"): Response =
+    ApiRuler.annotateText(text, outputFormat)
+
+  /** Tell whether the given result response has an error or not. */
+  def hasError (response: Response): Boolean =
+    response.getOrDefault("hasError", "false").asInstanceOf[Boolean]
+
+  /** Get the error message from given result response or return a default error message. */
+  def getErrorMessage (response: Response): String =
+    response.getOrDefault("errorMsg", defaultErrorMsg).asInstanceOf[String]
+
+  /** Get the result JSON string from given result response or return an error message. */
+  def getResult (response: Response): String =
+    response.getOrDefault("result", noResultMsg).asInstanceOf[String]
+
+  /** Return the media type for the given output format string. */
+  def contentTypeFor (outputFormat: String): ContentType = outputFormat match {
+    case "fries"       => ContentTypes.`application/json`
+    case "indexcard"   => ContentTypes.`application/json`
+    case "serial-json" => ContentTypes.`application/json`
+    case "arizona"     => ContentTypes.`text/csv(UTF-8)`
+    case "tsv"         => ContentTypes.`text/csv(UTF-8)`
+    case _             => ContentTypes.`text/plain(UTF-8)`
+  }
+
 }
 
 
@@ -39,7 +86,7 @@ class ApiService (
   /** Application configuration overridden with command line arguments. */
   appConfig: AkkaServerConfig
 
-) extends Json4sSupport {
+) extends ApiImpl with Json4sSupport {
 
   val serverConfig = appConfig.config         // final args-merged configuration
 
@@ -66,16 +113,28 @@ class ApiService (
       logRequestResult("apiserver") {       // wrap contained paths in logger
         get {                               // GETS
           pathPrefix("api") {
-            path("test") {
-              parameters("text") { text =>
-                logger.info(s"GET api/test -> ${text}")
-                complete(text)
+            path("text") {
+              parameters("text", 'output ? "fries") { (text, output) =>
+                logger.info(s"GET api/text -> ${text}, ${output}")
+                val response = doText(text, output)
+                if (hasError(response))
+                  complete(StatusCodes.InternalServerError, getErrorMessage(response))
+                else
+                  complete(HttpResponse(StatusCodes.OK,
+                                        List(headers.`Content-Type`(contentTypeFor(output))),
+                                        entity = getResult(response) ))
               }
             } ~
-            path("test2") {
-              parameters("nsId") { nsId =>
-                logger.info(s"GET api/test2 -> ${nsId}")
-                complete(nsId)
+            path("nxml") {
+              parameters("nxml", 'output ? "fries") { (nxml, output) =>
+                logger.info(s"GET api/nxml -> NXML(${nxml.size}), ${output}")
+                val response = doNxml(nxml, output)
+                if (hasError(response))
+                  complete(StatusCodes.InternalServerError, getErrorMessage(response))
+                else
+                  complete(HttpResponse(StatusCodes.OK,
+                                        List(headers.`Content-Type`(contentTypeFor(output))),
+                                        entity = getResult(response) ))
               }
             }
           } ~
@@ -106,16 +165,24 @@ class ApiService (
       logRequestResult("apiserver") {       // wrap contained paths in logger
         post {                              // POSTS
           pathPrefix("api") {
-            path("test") {
-              entity(as[TextMessage]) { msg =>
-                logger.info(s"POST api/test -> ${msg}")
-                complete(msg.text)
+            path("text") {
+              parameters("text", 'output ? "fries") { (text, output) =>
+                logger.info(s"POST api/text -> ${text}, ${output}")
+                val response = doText(text, output)
+                if (hasError(response))
+                  complete(500, getErrorMessage(response))
+                else
+                  complete(getResult(response))
               }
             } ~
-            path("test2") {
-              entity(as[TextMessage]) { msg =>
-                logger.info(s"POST api/test2 -> ${msg}")
-                complete(msg.text)
+            path("nxml") {
+              parameters("nxml", 'output ? "fries") { (nxml, output) =>
+                logger.info(s"POST api/nxml -> NXML(${nxml.size}), ${output}")
+                val response = doNxml(nxml, output)
+                if (hasError(response))
+                  complete(500, getErrorMessage(response))
+                else
+                  complete(getResult(response))
               }
             }
           } ~
@@ -153,3 +220,4 @@ trait Message
 
 /** A single text string message. */
 case class TextMessage (val text: String) extends Message
+
