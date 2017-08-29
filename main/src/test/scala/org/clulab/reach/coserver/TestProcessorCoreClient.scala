@@ -253,7 +253,7 @@ class TestProcessorCoreClient extends FlatSpec with Matchers with LazyLogging {
     val doc4 = client.parse(doc3)
     val doc = client.discourse(doc4)
     // NOTE: following fails if the correct Processor type is not used:
-    // (doc.discourseTree) should not be (empty) // TODO: LATER fix test
+    // (doc.discourseTree) should not be (empty)
   }
 
 
