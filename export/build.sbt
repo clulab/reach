@@ -21,7 +21,7 @@ libraryDependencies ++= {
     "com.typesafe.akka"   %%  "akka-http"          % akkaHTTPV,
     "com.typesafe.akka"   %%  "akka-http-core"     % akkaHTTPV,
     "com.typesafe.akka"   %%  "akka-http-xml"      % akkaHTTPV,
-    "de.heikoseeberger"   %%  "akka-http-json4s"   % "1.14.0",
+    "de.heikoseeberger"   %%  "akka-http-json4s"   % "1.17.0",
 
     // testing
     "org.scalatest"       %%  "scalatest"          % "2.2.4"    % "test",
