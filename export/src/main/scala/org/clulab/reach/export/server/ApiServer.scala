@@ -5,20 +5,18 @@ import java.io.File
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.duration._
+import scala.util.{Failure, Success}
 
 import com.typesafe.config.Config
-
-import de.heikoseeberger.akkahttpjson4s.Json4sSupport
-import org.json4s.{ Formats, DefaultFormats, jackson, native }
 
 import akka.actor.ActorSystem
 import akka.event.Logging
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.marshallers.xml.ScalaXmlSupport._
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
+import akka.stream.scaladsl.Sink
 
 import org.clulab.reach.export.apis.ApiRuler
 import org.clulab.reach.export.apis.ApiRuler._
@@ -26,7 +24,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Implement GET text call as prototype.
+  *   Last Modified: Finally figure out file upload. Cleanups. Upload timeout.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -71,6 +69,8 @@ trait ApiImpl {
     case "indexcard"   => ContentTypes.`application/json`
     case "serial-json" => ContentTypes.`application/json`
     case "arizona"     => ContentTypes.`text/csv(UTF-8)`
+    case "cmu"         => ContentTypes.`text/csv(UTF-8)`
+    case "csv"         => ContentTypes.`text/csv(UTF-8)`
     case "tsv"         => ContentTypes.`text/csv(UTF-8)`
     case _             => ContentTypes.`text/plain(UTF-8)`
   }
@@ -86,12 +86,9 @@ class ApiService (
   /** Application configuration overridden with command line arguments. */
   appConfig: AkkaServerConfig
 
-) extends ApiImpl with Json4sSupport {
+) extends ApiImpl {
 
   val serverConfig = appConfig.config         // final args-merged configuration
-
-  implicit val serialization = jackson.Serialization // or native.Serialization
-  implicit val formats = DefaultFormats
 
   // setup Akka system
   implicit val system: ActorSystem = ActorSystem("apiserver", serverConfig)
@@ -108,6 +105,8 @@ class ApiService (
   def makeRoute (config: Config): Route = {
     val appVersion = config.getString("version")
 
+    val uploadTimeout = Duration(config.getString("upload-timeout")).asInstanceOf[FiniteDuration]
+
     val static = "org/clulab/reach/export/server/static"
     val routesGet = {
       logRequestResult("apiserver") {       // wrap contained paths in logger
@@ -120,21 +119,8 @@ class ApiService (
                 if (hasError(response))
                   complete(StatusCodes.InternalServerError, getErrorMessage(response))
                 else
-                  complete(HttpResponse(StatusCodes.OK,
-                                        List(headers.`Content-Type`(contentTypeFor(output))),
-                                        entity = getResult(response) ))
-              }
-            } ~
-            path("nxml") {
-              parameters("nxml", 'output ? "fries") { (nxml, output) =>
-                logger.info(s"GET api/nxml -> NXML(${nxml.size}), ${output}")
-                val response = doNxml(nxml, output)
-                if (hasError(response))
-                  complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                else
-                  complete(HttpResponse(StatusCodes.OK,
-                                        List(headers.`Content-Type`(contentTypeFor(output))),
-                                        entity = getResult(response) ))
+                  complete(HttpResponse(StatusCodes.OK)
+                           .withEntity(ContentTypes.`application/json`, getResult(response)))
               }
             }
           } ~
@@ -155,7 +141,7 @@ class ApiService (
           } ~
           path("version") {                         // show version
             logger.info(s"GET version")
-            complete( ("version" -> appVersion) )
+            complete( (s"${appVersion}") )
           }
         }
       }
@@ -166,29 +152,64 @@ class ApiService (
         post {                              // POSTS
           pathPrefix("api") {
             path("text") {
-              parameters("text", 'output ? "fries") { (text, output) =>
-                logger.info(s"POST api/text -> ${text}, ${output}")
-                val response = doText(text, output)
+              parameters("text", "output" ? "fries") { (textIn, output) =>
+                logger.info(s"POST api/text -> ${textIn}, ${output}")
+                val response = doText(textIn, output)
                 if (hasError(response))
-                  complete(500, getErrorMessage(response))
+                  complete(StatusCodes.InternalServerError, getErrorMessage(response))
                 else
-                  complete(getResult(response))
+                  complete(HttpResponse(StatusCodes.OK)
+                           .withEntity(ContentTypes.`application/json`, getResult(response)))
               }
             } ~
-            path("nxml") {
-              parameters("nxml", 'output ? "fries") { (nxml, output) =>
-                logger.info(s"POST api/nxml -> NXML(${nxml.size}), ${output}")
-                val response = doNxml(nxml, output)
-                if (hasError(response))
-                  complete(500, getErrorMessage(response))
-                else
-                  complete(getResult(response))
+            path("uploadText") {
+              toStrictEntity(uploadTimeout) {
+                entity(as[Multipart.FormData]) { formData =>
+                  parameter("output" ? "fries") { output =>
+                    logger.info(s"POST api/upText: output=${output}")
+                    fileUpload("text") {
+                      case (metaData, fileStream) =>
+                        val content = fileStream.map(_.utf8String).runWith(Sink.head)
+                        onSuccess(content) { textIn =>
+                          logger.info(s"POST api/upText: textIn.size=${textIn.size}")
+                          val response = doText(textIn, output)
+                          if (hasError(response))
+                            complete(StatusCodes.InternalServerError, getErrorMessage(response))
+                          else
+                            complete(HttpResponse(StatusCodes.OK)
+                              .withEntity(ContentTypes.`application/json`, getResult(response)))
+                        }
+                    }
+                  }
+                }
+              }
+            } ~
+            path("uploadNxml") {
+              toStrictEntity(uploadTimeout) {
+                entity(as[Multipart.FormData]) { formData =>
+                  parameter("output" ? "fries") { output =>
+                    logger.info(s"POST api/upNxml: output=${output}")
+                    fileUpload("nxml") {
+                      case (metaData, fileStream) =>
+                        val content = fileStream.map(_.utf8String).runWith(Sink.head)
+                        onSuccess(content) { nxmlIn =>
+                          logger.info(s"POST api/upNxml: nxmlIn.size=${nxmlIn.size}")
+                          val response = doNxml(nxmlIn, output)
+                          if (hasError(response))
+                            complete(StatusCodes.InternalServerError, getErrorMessage(response))
+                          else
+                            complete(HttpResponse(StatusCodes.OK)
+                              .withEntity(ContentTypes.`application/json`, getResult(response)))
+                        }
+                    }
+                  }
+                }
               }
             }
           } ~
           path("version") {                         // show version
             logger.info(s"POST version")
-            complete( ("version" -> appVersion) )
+            complete( (s"${appVersion}") )
           } ~
           path("shutdown") {                        // shut down the server
             logger.info(s"POST shutdown")
@@ -211,13 +232,9 @@ class ApiService (
   val host = appConfig.host
   val port = appConfig.port
   val bindingFuture =  Http().bindAndHandle(handler = route, interface = host, port = port)
+
+  val timeout = serverConfig.getString("akka.http.server.request-timeout")
+  val uploadTimeout = serverConfig.getString("upload-timeout")
+  logger.info(s"Server timeout: ${timeout}, Upload timeout: ${uploadTimeout}")
   logger.info(s"Server online at http://$host:$port")
 }
-
-
-/** Trait implemented by all model classes which are used as messages. */
-trait Message
-
-/** A single text string message. */
-case class TextMessage (val text: String) extends Message
-
