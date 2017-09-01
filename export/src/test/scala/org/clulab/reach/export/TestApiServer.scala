@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Update the version test. Add POST text test. Cleanups.
+  *   Last Modified: Add more tests, content type checks.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -51,15 +51,16 @@ class TestApiServer extends WordSpec
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
-        (resp.entity) should not be (null)
         // logger.info(s"resp.entity=${resp.entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/plain(UTF-8)`)
         val vers:String = resp.entity.asInstanceOf[HttpEntity.Strict].data.utf8String
         // logger.info(s"vers=${vers}")        // DEBUGGING
         (vers) should equal (version)
       }
     }
 
-    "GET text" in {
+    "GET text, default output" in {
       Get("/api/text?text=ZZZ4%20phosphorylates%20ATM%20") ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
@@ -67,6 +68,22 @@ class TestApiServer extends WordSpec
         val entity = resp.entity
         // logger.info(s"resp.entity=${entity}") // DEBUGGING
         (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`application/json`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+    "GET text, CSV output" in {
+      Get("/api/text?text=ZZZ4%20phosphorylates%20ATM%20&output=csv") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
         val entLen = entity.getContentLengthOption.orElse(-1L)
         // logger.info(s"entity.length=${entLen}") // DEBUGGING
         (entLen > 200) should be (true)
@@ -75,6 +92,9 @@ class TestApiServer extends WordSpec
 
     "GET HTML file" in {
       Get("/") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
         // logger.info(s"response=${response}") // DEBUGGING
         mediaType should equal(MediaTypes.`text/html`)
       }
@@ -82,6 +102,9 @@ class TestApiServer extends WordSpec
 
     "GET HTML index file" in {
       Get("/index.html") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
         // logger.info(s"response=${response}") // DEBUGGING
         mediaType should equal(MediaTypes.`text/html`)
       }
@@ -89,6 +112,9 @@ class TestApiServer extends WordSpec
 
     "GET CSS file" in {
       Get("/application.css") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
         // logger.info(s"response=${response}") // DEBUGGING
         status should equal(StatusCodes.OK)
         mediaType should equal(MediaTypes.`text/css`)
@@ -115,35 +141,119 @@ class TestApiServer extends WordSpec
         val entity = resp.entity
         // logger.info(s"resp.entity=${entity}") // DEBUGGING
         (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`application/json`)
         val entLen = entity.getContentLengthOption.orElse(-1L)
         // logger.info(s"entity.length=${entLen}") // DEBUGGING
         (entLen > 200) should be (true)
       }
     }
 
-    "POST upload text, default output" in {
-      Post("/api/uploadText", FormData("text" -> "akt1 phosphorylates MEK1")) ~> route ~> check {
+    "POST text, csv output" in {
+      Post("/api/text?text=akt1%20dephosphorylates%20mek1&output=csv") ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
         val entity = resp.entity
-        logger.info(s"resp.entity=${entity}") // DEBUGGING
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
         (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
         val entLen = entity.getContentLengthOption.orElse(-1L)
-        logger.info(s"entity.length=${entLen}") // DEBUGGING
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
         (entLen > 200) should be (true)
       }
     }
 
-    "POST upload nxml" in {
-      Post("/api/uploadNxml",
-        HttpEntity(ContentTypes.`application/json`, """{ "nxml": "Xyz1224" }""")) ~> route ~> check
-        {
-          status should equal(StatusCodes.OK)
-          val resp = responseAs[String]
-          // logger.info(s"resp=${resp}")        // DEBUGGING
-          (resp) should not be (empty)
-        }
+
+    "POST upload text, default output" in {
+      val mpForm = Multipart.FormData(
+        Multipart.FormData.BodyPart.Strict(
+          "text",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
+          Map("filename" -> "test.txt")))
+
+      Post("/api/uploadText", mpForm) ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`application/json`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+    "POST upload text, csv output" in {
+      val mpForm = Multipart.FormData(
+        Multipart.FormData.BodyPart.Strict(
+          "text",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
+          Map("filename" -> "test.txt")))
+
+      Post("/api/uploadText?output=csv", mpForm) ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+
+    "POST upload nxml, default output" in {
+      val mpForm = Multipart.FormData(
+        Multipart.FormData.BodyPart.Strict(
+          "nxml",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
+          Map("filename" -> "test.nxml")))
+
+      Post("/api/uploadNxml", mpForm) ~> route ~> check {
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`application/json`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+    "POST upload nxml, csv output" in {
+      val mpForm = Multipart.FormData(
+        Multipart.FormData.BodyPart.Strict(
+          "nxml",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
+          Map("filename" -> "test.nxml")))
+
+      Post("/api/uploadNxml?output=csv", mpForm) ~> route ~> check {
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+    "POST shutdown" in {
+      Post("/shutdown") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[String]
+        (resp) should not be (null)
+        (resp) should be ("Stopping API server...")
+      }
     }
 
   }

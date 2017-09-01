@@ -24,7 +24,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Finally figure out file upload. Cleanups. Upload timeout.
+  *   Last Modified: Compute returned content types.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -64,7 +64,7 @@ trait ApiImpl {
     response.getOrDefault("result", noResultMsg).asInstanceOf[String]
 
   /** Return the media type for the given output format string. */
-  def contentTypeFor (outputFormat: String): ContentType = outputFormat match {
+  def contentTypeFor (outputFormat: String): ContentType.NonBinary = outputFormat match {
     case "fries"       => ContentTypes.`application/json`
     case "indexcard"   => ContentTypes.`application/json`
     case "serial-json" => ContentTypes.`application/json`
@@ -118,9 +118,11 @@ class ApiService (
                 val response = doText(text, output)
                 if (hasError(response))
                   complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                else
+                else {
+                  val contentType = contentTypeFor(output)
                   complete(HttpResponse(StatusCodes.OK)
-                           .withEntity(ContentTypes.`application/json`, getResult(response)))
+                           .withEntity(contentType, getResult(response)))
+                }
               }
             }
           } ~
@@ -157,9 +159,11 @@ class ApiService (
                 val response = doText(textIn, output)
                 if (hasError(response))
                   complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                else
+                else {
+                  val contentType = contentTypeFor(output)
                   complete(HttpResponse(StatusCodes.OK)
-                           .withEntity(ContentTypes.`application/json`, getResult(response)))
+                           .withEntity(contentType, getResult(response)))
+                }
               }
             } ~
             path("uploadText") {
@@ -171,13 +175,14 @@ class ApiService (
                       case (metaData, fileStream) =>
                         val content = fileStream.map(_.utf8String).runWith(Sink.head)
                         onSuccess(content) { textIn =>
-                          logger.info(s"POST api/upText: textIn.size=${textIn.size}")
                           val response = doText(textIn, output)
                           if (hasError(response))
                             complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                          else
+                          else {
+                            val contentType = contentTypeFor(output)
                             complete(HttpResponse(StatusCodes.OK)
-                              .withEntity(ContentTypes.`application/json`, getResult(response)))
+                              .withEntity(contentType, getResult(response)))
+                          }
                         }
                     }
                   }
@@ -193,13 +198,14 @@ class ApiService (
                       case (metaData, fileStream) =>
                         val content = fileStream.map(_.utf8String).runWith(Sink.head)
                         onSuccess(content) { nxmlIn =>
-                          logger.info(s"POST api/upNxml: nxmlIn.size=${nxmlIn.size}")
                           val response = doNxml(nxmlIn, output)
                           if (hasError(response))
                             complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                          else
+                          else {
+                            val contentType = contentTypeFor(output)
                             complete(HttpResponse(StatusCodes.OK)
-                              .withEntity(ContentTypes.`application/json`, getResult(response)))
+                              .withEntity(contentType, getResult(response)))
+                          }
                         }
                     }
                   }
@@ -213,12 +219,12 @@ class ApiService (
           } ~
           path("shutdown") {                        // shut down the server
             logger.info(s"POST shutdown")
-            // complete request and then shut down the server in 1 second
+            // complete request and then shut down the server
             complete {
-              in (1.second) {
+              in (2.seconds) {
                 system.terminate()
               }
-              "Stopping apiserver..."
+              "Stopping API server..."
             }
           }
         }  // post
