@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Add more tests, content type checks.
+  *   Last Modified: Add tests for CMU output format.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -89,6 +89,22 @@ class TestApiServer extends WordSpec
         (entLen > 200) should be (true)
       }
     }
+
+    "GET text, CMU output" in {
+      Get("/api/text?text=ZZZ4%20phosphorylates%20ATM%20&output=cmu") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
 
     "GET HTML file" in {
       Get("/") ~> route ~> check {
@@ -206,6 +222,27 @@ class TestApiServer extends WordSpec
       }
     }
 
+    "POST upload text, CMU output" in {
+      val mpForm = Multipart.FormData(
+        Multipart.FormData.BodyPart.Strict(
+          "text",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
+          Map("filename" -> "test.txt")))
+
+      Post("/api/uploadText?output=cmu", mpForm) ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
 
     "POST upload nxml, default output" in {
       val mpForm = Multipart.FormData(
@@ -246,6 +283,27 @@ class TestApiServer extends WordSpec
         (entLen > 200) should be (true)
       }
     }
+
+    "POST upload nxml, CMU output" in {
+      val mpForm = Multipart.FormData(
+        Multipart.FormData.BodyPart.Strict(
+          "nxml",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
+          Map("filename" -> "test.nxml")))
+
+      Post("/api/uploadNxml?output=cmu", mpForm) ~> route ~> check {
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
 
     "POST shutdown" in {
       Post("/shutdown") ~> route ~> check {
