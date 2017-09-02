@@ -229,7 +229,11 @@ h1 {
 
 .emphasis {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.2em;
+}
+
+.example {
+  margin-left: 75px;
 }
 
 .fetchBtn {
@@ -295,6 +299,8 @@ h1 {
 }
 
 .kvKey {
+/*  font-style: italic; */
+/*  font-weight: normal; */
   margin-left: 15px;
 }
 
