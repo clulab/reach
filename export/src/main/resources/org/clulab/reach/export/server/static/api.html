@@ -60,12 +60,12 @@
       </div>
     </div>
 
-    <div class="panel panel-success indented">
+    <div class="panel panel-success indented green-bordered">
       <div class="panel-heading">
         <h3 class="panel-title emphasis">API Requests</h3>
       </div>
       <div class="panel-body">
-        <table class="table table-striped">
+        <table class="table">
           <thead>
             <tr>
               <th>Endpoint</th>
@@ -75,22 +75,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><code>/</code></td>
-              <td><code>GET</code></td>
+            <tr class="greyed">
+              <td class="recode">/</td>
+              <td class="recode">GET</td>
               <td></td>
               <td>Return this API help page.</td>
             </tr>
-            <tr>
-              <td><code>/version</code></td>
-              <td><code>GET | POST</code></td>
+            <tr class="greyed">
+              <td class="recode">/version</td>
+              <td class="recode">GET | POST</td>
               <td></td>
               <td>Return the current version of this application.</td>
             </tr>
-            <tr>
-              <td><code>/api/text</code></td>
-              <td><code>GET | POST</code></td>
-              <td><code>text=a+string</code></td>
+            <tr class="greyed">
+              <td class="recode">/api/text</td>
+              <td class="recode">GET | POST</td>
+              <td class="recode">text=a+string</td>
               <td>
                 Run Reach on the given text string and return the results.
               </td>
@@ -133,9 +133,9 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <td><code>/api/uploadText</code></td>
-              <td><code>POST</code></td>
+            <tr class="greyed">
+              <td class="recode">/api/uploadText</td>
+              <td class="recode">POST</td>
               <td>&nbsp;</td>
               <td>Upload a text file, process the text with Reach, and return the results.</td>
             </tr>
@@ -176,9 +176,9 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <td><code>/api/uploadNxml</code></td>
-              <td><code>POST</code></td>
+            <tr class="greyed">
+              <td class="recode">/api/uploadNxml</td>
+              <td class="recode">POST</td>
               <td>&nbsp;</td>
               <td>Upload an NXML file, process it with Reach, and return the results.</td>
             </tr>
@@ -219,11 +219,11 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <td><code>/shutdown</code></td>
-              <td><code>POST</code></td>
+            <tr class="greyed">
+              <td class="recode">/shutdown</td>
+              <td class="recode">POST</td>
               <td></td>
-              <td>Any <code>POST</code> to this endpoint will shutdown the server.</td>
+              <td class="recode">Any POST to this endpoint will shutdown the server.</td>
             </tr>
 
           </tbody>

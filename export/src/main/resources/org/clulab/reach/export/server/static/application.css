@@ -187,6 +187,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+.blue-bordered {
+  border: 1px solid #4477cc;                /* medium blue */
+}
+
 .clulab-header {
   margin: 0px 0px 20px 15px;
 }
@@ -262,6 +266,10 @@ h1 {
   color: red;
   margin-left: 2px;
   margin-right: 7px;
+}
+
+.green-bordered {
+  border: 1px solid #77aa77;                /* medium green */
 }
 
 .green-bordered {
@@ -411,6 +419,12 @@ input[type="radio"]:checked + .radioLabel {
   font-size: 1.1em;
 }
 
+.recode {                                   /* similar to <code> */
+  padding: 2px 4px;
+  color: #cc0000;                           /* medium red */
+  font-size: 1em;
+}
+
 .ruby {
   border: 1px solid red;
 }
@@ -538,7 +552,6 @@ input[type="radio"]:checked + .radioLabel {
 .yellow-bordered {
   border: 1px solid #ddbb77;                /* yellow brown */
 }
-
 
 /****   Color Chart    ****/
 /*    color: #003366;  uaz blue */
