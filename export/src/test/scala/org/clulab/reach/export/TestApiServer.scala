@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Add tests for CMU output format.
+  *   Last Modified: Update for server refactoring.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -183,7 +183,7 @@ class TestApiServer extends WordSpec
     "POST upload text, default output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
-          "text",
+          "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
           Map("filename" -> "test.txt")))
 
@@ -204,7 +204,7 @@ class TestApiServer extends WordSpec
     "POST upload text, csv output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
-          "text",
+          "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
           Map("filename" -> "test.txt")))
 
@@ -225,7 +225,7 @@ class TestApiServer extends WordSpec
     "POST upload text, CMU output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
-          "text",
+          "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
           Map("filename" -> "test.txt")))
 
@@ -247,7 +247,7 @@ class TestApiServer extends WordSpec
     "POST upload nxml, default output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
-          "nxml",
+          "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
           Map("filename" -> "test.nxml")))
 
@@ -267,7 +267,7 @@ class TestApiServer extends WordSpec
     "POST upload nxml, csv output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
-          "nxml",
+          "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
           Map("filename" -> "test.nxml")))
 
@@ -287,7 +287,7 @@ class TestApiServer extends WordSpec
     "POST upload nxml, CMU output" in {
       val mpForm = Multipart.FormData(
         Multipart.FormData.BodyPart.Strict(
-          "nxml",
+          "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
           Map("filename" -> "test.nxml")))
 

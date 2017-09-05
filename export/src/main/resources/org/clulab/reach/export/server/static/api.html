@@ -146,7 +146,7 @@
                   <span class="kvValue">
                     Accepts a <code>multipart/form-data</code>
                     argument which contains the text to be processed within the
-                    <code>text</code> part.
+                    <code>file</code> part.
                     By default, results are returned in FRIES JSON format.
                   </span>
                 </div>
@@ -163,13 +163,13 @@
                   <label class="kvKey">&nbsp;</label>
                   <span class="kvValue">
                     <div class="example">
-                      curl -XPOST -F 'text=@infile.txt' 'http://localhost:8080/api/uploadText'
+                      curl -XPOST -F 'file=@infile.txt' 'http://localhost:8080/api/uploadText'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'text=@myFile 'http://localhost:8080/api/uploadText?output=serial-json'
+                      curl -XPOST -F 'file=@myFile 'http://localhost:8080/api/uploadText?output=serial-json'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'text=@some.text' 'http://localhost:8080/api/uploadText?output=csv'
+                      curl -XPOST -F 'file=@some.text' 'http://localhost:8080/api/uploadText?output=csv'
                     </div>
                   </span>
                   </div>
@@ -189,7 +189,7 @@
                   <span class="kvValue">
                     Accepts a <code>multipart/form-data</code>
                     argument which contains the NXML to be processed within the
-                    <code>nxml</code> part.
+                    <code>file</code> part.
                     By default, results are returned in FRIES JSON format.
                   </span>
                 </div>
@@ -206,13 +206,13 @@
                   <label class="kvKey">&nbsp;</label>
                   <span class="kvValue">
                     <div class="example">
-                      curl -XPOST -F 'nxml=@infile.nxml 'http://localhost:8080/api/uploadNxml'
+                      curl -XPOST -F 'file=@infile.nxml 'http://localhost:8080/api/uploadNxml'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'nxml=@myFile.xml 'http://localhost:8080/api/uploadNxml?output=serial-json'
+                      curl -XPOST -F 'file=@myFile.xml 'http://localhost:8080/api/uploadNxml?output=serial-json'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'nxml=@some.nxml 'http://localhost:8080/api/uploadNxml?output=csv'
+                      curl -XPOST -F 'file=@some.nxml 'http://localhost:8080/api/uploadNxml?output=csv'
                     </div>
                   </span>
                   </div>

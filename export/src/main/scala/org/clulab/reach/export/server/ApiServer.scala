@@ -24,7 +24,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Compute returned content types.
+  *   Last Modified: Refactor: extract text file upload and response parsing.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -101,13 +101,37 @@ class ApiService (
   def in [U] (duration: FiniteDuration)(body: => U): Unit =
     system.scheduler.scheduleOnce(duration)(body)
 
+  /** Parse the response from the internal call and complete the routing. */
+  private def parseResponse (response:Response, output:String): Route = {
+    if (hasError(response))
+      complete(StatusCodes.InternalServerError, getErrorMessage(response))
+    else {
+      val contentType = contentTypeFor(output)
+      complete(HttpResponse(StatusCodes.OK)
+        .withEntity(contentType, getResult(response)))
+    }
+  }
+
+  /** Upload textual data from the file associated with the 'file' parameter. */
+  private def uploadTextFile (dataType:String, output:String): Route = fileUpload("file") {
+    case (metaData, fileStream) =>
+      val content = fileStream.map(_.utf8String).runWith(Sink.head)
+      onSuccess(content) { text =>
+        val response = dataType match {
+          case "nxml" => doNxml(text, output)
+          case "text" => doText(text, output)
+        }
+          parseResponse(response, output)
+      }
+  }
+
   /** Create and return the route for this app, using the given configuration, if needed. */
   def makeRoute (config: Config): Route = {
     val appVersion = config.getString("version")
-
+    val static = "org/clulab/reach/export/server/static"
     val uploadTimeout = Duration(config.getString("upload-timeout")).asInstanceOf[FiniteDuration]
 
-    val static = "org/clulab/reach/export/server/static"
+    /** Create and return the route for this server. */
     val routesGet = {
       logRequestResult("apiserver") {       // wrap contained paths in logger
         get {                               // GETS
@@ -115,14 +139,7 @@ class ApiService (
             path("text") {
               parameters("text", 'output ? "fries") { (text, output) =>
                 logger.info(s"GET api/text -> ${text}, ${output}")
-                val response = doText(text, output)
-                if (hasError(response))
-                  complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                else {
-                  val contentType = contentTypeFor(output)
-                  complete(HttpResponse(StatusCodes.OK)
-                           .withEntity(contentType, getResult(response)))
-                }
+                parseResponse(doText(text, output), output)
               }
             }
           } ~
@@ -154,16 +171,9 @@ class ApiService (
         post {                              // POSTS
           pathPrefix("api") {
             path("text") {
-              parameters("text", "output" ? "fries") { (textIn, output) =>
-                logger.info(s"POST api/text -> ${textIn}, ${output}")
-                val response = doText(textIn, output)
-                if (hasError(response))
-                  complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                else {
-                  val contentType = contentTypeFor(output)
-                  complete(HttpResponse(StatusCodes.OK)
-                           .withEntity(contentType, getResult(response)))
-                }
+              parameters("text", "output" ? "fries") { (text, output) =>
+                logger.info(s"POST api/text -> ${text}, ${output}")
+                parseResponse(doText(text, output), output)
               }
             } ~
             path("uploadText") {
@@ -171,20 +181,7 @@ class ApiService (
                 entity(as[Multipart.FormData]) { formData =>
                   parameter("output" ? "fries") { output =>
                     logger.info(s"POST api/upText: output=${output}")
-                    fileUpload("text") {
-                      case (metaData, fileStream) =>
-                        val content = fileStream.map(_.utf8String).runWith(Sink.head)
-                        onSuccess(content) { textIn =>
-                          val response = doText(textIn, output)
-                          if (hasError(response))
-                            complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                          else {
-                            val contentType = contentTypeFor(output)
-                            complete(HttpResponse(StatusCodes.OK)
-                              .withEntity(contentType, getResult(response)))
-                          }
-                        }
-                    }
+                    uploadTextFile("text", output)
                   }
                 }
               }
@@ -194,20 +191,7 @@ class ApiService (
                 entity(as[Multipart.FormData]) { formData =>
                   parameter("output" ? "fries") { output =>
                     logger.info(s"POST api/upNxml: output=${output}")
-                    fileUpload("nxml") {
-                      case (metaData, fileStream) =>
-                        val content = fileStream.map(_.utf8String).runWith(Sink.head)
-                        onSuccess(content) { nxmlIn =>
-                          val response = doNxml(nxmlIn, output)
-                          if (hasError(response))
-                            complete(StatusCodes.InternalServerError, getErrorMessage(response))
-                          else {
-                            val contentType = contentTypeFor(output)
-                            complete(HttpResponse(StatusCodes.OK)
-                              .withEntity(contentType, getResult(response)))
-                          }
-                        }
-                    }
+                    uploadTextFile("nxml", output)
                   }
                 }
               }
