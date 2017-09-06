@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Update for server refactoring.
+  *   Last Modified: Add get from resource directory test.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -137,14 +137,13 @@ class TestApiServer extends WordSpec
       }
     }
 
-    // SHOULD WORK BUT DOES NOT:
-    // "GET CSS file from static directory" in {
-    //   Get("/static/application.css") ~> route ~> check {
-    //     // logger.info(s"response=${response}") // DEBUGGING
-    //     status should equal(StatusCodes.OK)
-    //     mediaType should equal(MediaTypes.`text/css`)
-    //   }
-    // }
+    "GET image file from static subdirectory" in {
+      Get("/images/spinner66.gif") ~> route ~> check {
+        // logger.info(s"response=${response}") // DEBUGGING
+        status should equal(StatusCodes.OK)
+        mediaType should equal(MediaTypes.`image/gif`)
+      }
+    }
 
 
     // POSTs

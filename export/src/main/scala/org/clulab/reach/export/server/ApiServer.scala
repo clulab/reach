@@ -24,7 +24,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Add uploader path to route.
+  *   Last Modified: Get from resource directory now working.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -143,6 +143,9 @@ class ApiService (
               }
             }
           } ~
+          pathPrefix("images") {                    // images from static subdir
+            getFromResourceDirectory(s"${static}/images/")
+          } ~
           path("") {                                // index page
             getFromResource(s"${static}/api.html")
           } ~
@@ -152,15 +155,12 @@ class ApiService (
           path("uploader") {                        // file upload page
             getFromResource(s"${static}/fileUpload.html")
           } ~
-          pathPrefix("static") {                    // SHOULD WORK BUT DOES NOT
-            getFromResourceDirectory(s"/${static}")
-          } ~
           path("application.css") {                 // application stylesheet
             getFromResource(s"${static}/application.css")
           } ~
-          path("CLU-notext-trans_68x68.png") {      // image
-            getFromResource(s"${static}/images/CLU-notext-trans_68x68.png")
-          } ~
+          // path("images" / Segment) { name =>        // another way to serve images
+          //   getFromResource(s"${static}/images/${name}")
+          // } ~
           path("version") {                         // show version
             logger.info(s"GET version")
             complete( (s"${appVersion}") )
