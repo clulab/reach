@@ -79,10 +79,10 @@
           Next, select the desired output format for the results:
           <ul>
             <li><b>fries</b>, for FRIES Consortium JSON (the default),</li>
-            <li><b>indexcard</b>, for MITRE IndexCard JSON,</li>
             <li><b>csv</b>, for the Arizona tab-separated output format,</li>
             <li><b>tsv</b>, for the Arizona tab-separated output format,</li>
             <li><b>cmu</b>, for another tab-separated output format,</li>
+            <li><b>indexcard</b>, for MITRE IndexCard JSON,</li>
             <li>
               <b>serial-json</b>, for a JSON serialization of the entire Reach internal document
               <p class="danger">
@@ -113,12 +113,47 @@
         <h3 class="panel-title emphasis">Choose a text or NXML file for processing:</h3>
       </div>
 
-        <button id="uploadFileBtn" type="submit" class="appBtn appBtn-primary center-block"
-                form="ingest">Upload File</button>
+      <div id="input-panel" class="panel-body">
 
-        <div id="spinner" class="spinner" style="display:none;">
-          <g:message code="spinner.alt" default="Processing&hellip;" />
-        </div>
+        <form name="ingest">
+
+          <div class="form-group indented">
+            <label class="bigLabel fileTaker required" for="input-file">
+              Input File:<span class="required-indicator">*</span>
+              <input class="fileChosen" type="file" name="file" id="input-file"/>
+            </label>
+            <p class="help-block indented">
+              Click the button above to select a text file
+              or an NXML file (with extension .nxml or .xml) for uploading and processing:
+            </p>
+          </div>
+
+          <div class="form-group indented down30">
+            <label class="bigLabel" for="outputFormat">Output Format:
+              <select class="form-control col-xs-4 indented down10" id="outputFormat">
+                <option value="fries">FRIES Consortium JSON format</option>
+                <option value="csv">Arizona (tab-separated columnar format)</option>
+                <option value="cmu">CMU (tab-separated columnar format)</option>
+                <option value="indexcard">MITRE Indexcard JSON format</option>
+                <option value="serial-json">Serial-JSON (serialization of document structures)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-group checkbox indented down30">
+            <label for="download">
+              <input name="download" type="checkbox"/><span class="bigLabel">Download Output</span>
+            </label>
+          </div>
+
+          <button id="uploadFileBtn" type="submit" class="appBtn appBtn-primary center-block"
+                  form="ingest">Upload File</button>
+
+          <div id="spinner" class="spinner" style="display:none;">
+            Processing&hellip;
+          </div>
+
+        </form>
 
       </div>
     </div>   <!-- panel -->

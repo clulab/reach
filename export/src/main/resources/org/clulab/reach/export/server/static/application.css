@@ -58,7 +58,7 @@ header, footer, nav, article, aside, section {
 }
 
 .spinner {
-  background: url(spinner66.gif) 50% 50% no-repeat transparent;
+  background: url(/images/spinner66.gif) 50% 50% no-repeat transparent;
   display: block;
   height: 72px;
   width: 480px;
@@ -187,6 +187,11 @@ h1 {
   margin-bottom: 20px;
 }
 
+.bigLabel {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .blue-bordered {
   border: 1px solid #4477cc;                /* medium blue */
 }
@@ -231,6 +236,14 @@ h1 {
   margin-top: 10px;
 }
 
+.down20 {
+  margin-top: 20px;
+}
+
+.down30 {
+  margin-top: 30px;
+}
+
 .emphasis {
   font-weight: bold;
   font-size: 1.2em;
@@ -246,15 +259,11 @@ h1 {
   color: white;
 }
 
-.fileTaker {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 20px;
-}
-
-.fileTaker input[type=file] {
-  display: inline-block;
+/* .fileChosen input[type=file] */
+.fileChosen {
   color: blue;
+  font-weight: bold;
+  margin: 10px 0px 0px 20px;
 }
 
 .fileTaker .label {
@@ -262,7 +271,6 @@ h1 {
 }
 
 .fileTaker .required-indicator {
-  display: inline-block;
   color: red;
   margin-left: 2px;
   margin-right: 7px;
@@ -321,7 +329,7 @@ h1 {
 }
 
 .logoBlue {
-  background: url(CLU-notext-blue_68x68.png) no-repeat;
+  background: url(/images/CLU-notext-blue_68x68.png) no-repeat;
   height: 68px;
   width: 68px;
   vertical-align: middle;
@@ -329,7 +337,7 @@ h1 {
 }
 
 .logoTrans {
-  background: url(CLU-notext-trans_68x68.png) no-repeat;
+  background: url(/images/CLU-notext-trans_68x68.png) no-repeat;
   height: 68px;
   width: 68px;
   vertical-align: middle;
@@ -347,14 +355,14 @@ h1 {
 
 .odin-header .lefty {
   float: right;
-  background: url(Odin-raven-L_60x60.png) no-repeat transparent;
+  background: url(/images/Odin-raven-L_60x60.png) no-repeat transparent;
   height: 60px;
   width: 60px;
 }
 
 .odin-header .righty {
   float: left;
-  background: url(Odin-raven-R_60x60.png) no-repeat transparent;
+  background: url(/images/Odin-raven-R_60x60.png) no-repeat transparent;
   height: 60px;
   width: 60px;
 }
@@ -385,7 +393,6 @@ h1 {
 .outputTypeTaker {
   font-size: 1.2em;
   font-weight: bold;
-  margin: 20px;
 }
 
 .pubTable {
