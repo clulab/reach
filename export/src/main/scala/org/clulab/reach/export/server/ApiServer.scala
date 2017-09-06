@@ -24,7 +24,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Refactor: extract text file upload and response parsing.
+  *   Last Modified: Add uploader path to route.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -148,6 +148,9 @@ class ApiService (
           } ~
           path("index.html") {                      // index page
             getFromResource(s"${static}/api.html")
+          } ~
+          path("uploader") {                        // file upload page
+            getFromResource(s"${static}/fileUpload.html")
           } ~
           pathPrefix("static") {                    // SHOULD WORK BUT DOES NOT
             getFromResourceDirectory(s"/${static}")
