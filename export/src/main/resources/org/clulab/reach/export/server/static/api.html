@@ -18,10 +18,10 @@
       <nav class="navbar" role="navigation">
         <div class="container-fluid">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="http://localhost:8080/">
+            <li><a href="/">
                 <i class="fa fa-home"></i>&nbsp;API</a>
             </li>
-            <li><a href="http://localhost:8080/uploader">
+            <li><a href="/uploader">
                 <i class="glyphicon glyphicon-upload"></i>&nbsp;File Uploader</a>
             </li>
           </ul>
@@ -110,7 +110,7 @@
                 <div>
                   <label class="kvKey">Options:</label>
                   <span class="kvValue">
-                    The optional <b>query</b> argument <code>output</code> selects an output format:
+                    The optional form argument <code>output</code> selects an output format:
                     arizona, cmu, csv, indexcard, serial-json, or fries (the default).
                   </span>
                 </div>
@@ -137,10 +137,11 @@
               </td>
             </tr>
             <tr class="greyed">
-              <td class="recode">/api/uploadText</td>
+              <td class="recode">/api/uploadFile</td>
               <td class="recode">POST</td>
               <td>&nbsp;</td>
-              <td>Upload a text file, process the text with Reach, and return the results.</td>
+              <td>Upload a plain text file or NXML file, process the text with Reach,
+                and return the results in the specified format.</td>
             </tr>
             <tr class="">
               <td colspan="4">
@@ -148,8 +149,8 @@
                   <label class="kvKey">Notes:</label>
                   <span class="kvValue">
                     Accepts a <code>multipart/form-data</code>
-                    argument which contains the text to be processed within the
-                    <code>file</code> part.
+                    argument which contains the plain text or NXML text to be processed
+                    within the <code>file</code> part.
                     By default, results are returned in FRIES JSON format.
                   </span>
                 </div>
@@ -166,56 +167,25 @@
                   <label class="kvKey">&nbsp;</label>
                   <span class="kvValue">
                     <div class="example">
-                      curl -XPOST -F 'file=@infile.txt' 'http://localhost:8080/api/uploadText'
+                      curl -XPOST -F 'file=@infile.txt' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@myFile 'http://localhost:8080/api/uploadText?output=serial-json'
+                      curl -XPOST -F 'file=@myFile -F 'output=cmu' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@some.text' 'http://localhost:8080/api/uploadText?output=csv'
-                    </div>
-                  </span>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr class="greyed">
-              <td class="recode">/api/uploadNxml</td>
-              <td class="recode">POST</td>
-              <td>&nbsp;</td>
-              <td>Upload an NXML file, process it with Reach, and return the results.</td>
-            </tr>
-            <tr class="">
-              <td colspan="4">
-                <div>
-                  <label class="kvKey">Notes:</label>
-                  <span class="kvValue">
-                    Accepts a <code>multipart/form-data</code>
-                    argument which contains the NXML to be processed within the
-                    <code>file</code> part.
-                    By default, results are returned in FRIES JSON format.
-                  </span>
-                </div>
-                <div>
-                  <label class="kvKey">Options:</label>
-                  <span class="kvValue">
-                    The optional <b>query</b> argument <code>output</code> selects an output format:
-                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
-                  </span>
-                </div>
-                <div>
-                  <label class="kvKey">Examples:</label>
-                  <span class="kvValue">&nbsp;</span>
-                  <label class="kvKey">&nbsp;</label>
-                  <span class="kvValue">
-                    <div class="example">
-                      curl -XPOST -F 'file=@infile.nxml 'http://localhost:8080/api/uploadNxml'
+                      curl -XPOST -F 'file=@some.text' -F 'output=csv' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@myFile.xml 'http://localhost:8080/api/uploadNxml?output=serial-json'
+                      curl -XPOST -F 'file=@PMC1240239.nxml' 'http://localhost:8080/api/uploadFile'
                     </div>
                     <div class="example">
-                      curl -XPOST -F 'file=@some.nxml 'http://localhost:8080/api/uploadNxml?output=csv'
+                      curl -XPOST -F 'file=@myFile.xml -F 'output=serial-json' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@some.nxml -F 'output=csv' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@PMCfake.nxml -F 'output=fries' 'http://localhost:8080/api/uploadFile'
                     </div>
                   </span>
                   </div>

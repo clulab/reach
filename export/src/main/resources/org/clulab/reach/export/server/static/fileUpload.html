@@ -11,6 +11,8 @@
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="application.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/application.js"></script>
   </head>
 
   <body>
@@ -18,10 +20,10 @@
       <nav class="navbar" role="navigation">
         <div class="container-fluid">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="http://localhost:8080/">
+            <li><a href="/">
                 <i class="fa fa-home"></i>&nbsp;API</a>
             </li>
-            <li><a href="http://localhost:8080/uploader">
+            <li><a href="/uploader">
                 <i class="glyphicon glyphicon-upload"></i>&nbsp;File Uploader</a>
             </li>
           </ul>
@@ -45,14 +47,14 @@
 
     <div class="row clulab-header">
       <div class="logoTrans" alt="CLU Lab logo"></div>
-      <span class="title">File Uploader</span>
+      <span class="title">Reach File Uploader</span>
     </div>
 
     <!-- About section -->
     <div class="panel panel-info indented">
       <div class="panel-heading">
         <h3 class="panel-title emphasis">About the File Uploader
-          <span id="about-toggle" class="pull-right hideShowBtn">Show</span>
+          <span id="about-toggle" class="pull-right hideShowBtn">Hide</span>
         </h3>
       </div>
       <div id="about-panel" class="panel-body aboutPanel">
@@ -114,46 +116,49 @@
       </div>
 
       <div id="input-panel" class="panel-body">
+        <form name="ingest" id="ingest" method="post"
+              enctype="multipart/form-data" action="/api/uploadFile">
+          <fieldset>
 
-        <form name="ingest">
+            <div class="form-group indented">
+              <label class="bigLabel fileTaker required" for="input-file">
+                Input File:<span class="required-indicator">*</span>
+                <input class="fileChosen" type="file" name="file" id="input-file"/>
+              </label>
+              <p class="help-block indented">
+                Click the button above to select a text file
+                or an NXML file (with extension .nxml or .xml) for uploading and processing:
+              </p>
+            </div>
 
-          <div class="form-group indented">
-            <label class="bigLabel fileTaker required" for="input-file">
-              Input File:<span class="required-indicator">*</span>
-              <input class="fileChosen" type="file" name="file" id="input-file"/>
-            </label>
-            <p class="help-block indented">
-              Click the button above to select a text file
-              or an NXML file (with extension .nxml or .xml) for uploading and processing:
-            </p>
-          </div>
+            <div class="form-group indented down30">
+              <label class="bigLabel" for="outputFormat">Output Format:
+                <select class="form-control col-xs-4 indented down10" name="output" id="output">
+                  <option value="fries">FRIES Consortium JSON format</option>
+                  <option value="csv">Arizona (tab-separated columnar format)</option>
+                  <option value="cmu">CMU (tab-separated columnar format)</option>
+                  <option value="indexcard">MITRE Indexcard JSON format</option>
+                  <option value="serial-json">Serial-JSON (serialization of document structures)</option>
+                </select>
+              </label>
+            </div>
 
-          <div class="form-group indented down30">
-            <label class="bigLabel" for="outputFormat">Output Format:
-              <select class="form-control col-xs-4 indented down10" id="outputFormat">
-                <option value="fries">FRIES Consortium JSON format</option>
-                <option value="csv">Arizona (tab-separated columnar format)</option>
-                <option value="cmu">CMU (tab-separated columnar format)</option>
-                <option value="indexcard">MITRE Indexcard JSON format</option>
-                <option value="serial-json">Serial-JSON (serialization of document structures)</option>
-              </select>
-            </label>
-          </div>
+            <div class="form-group checkbox indented down30">
+              <label for="download">
+                <input name="download" type="checkbox"/><span class="bigLabel">Download Output</span>
+              </label>
+            </div>
 
-          <div class="form-group checkbox indented down30">
-            <label for="download">
-              <input name="download" type="checkbox"/><span class="bigLabel">Download Output</span>
-            </label>
-          </div>
+          </fieldset>
 
           <button id="uploadFileBtn" type="submit" class="appBtn appBtn-primary center-block"
                   form="ingest">Upload File</button>
 
-          <div id="spinner" class="spinner" style="display:none;">
-            Processing&hellip;
-          </div>
-
         </form>
+
+        <div id="spinner" class="spinner" style="display:none;">
+          Processing&hellip;
+        </div>
 
       </div>
     </div>   <!-- panel -->

@@ -24,7 +24,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Get from resource directory now working.
+  *   Last Modified: Consolidate file uploads into one method.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -113,15 +113,17 @@ class ApiService (
   }
 
   /** Upload textual data from the file associated with the 'file' parameter. */
-  private def uploadTextFile (dataType:String, output:String): Route = fileUpload("file") {
+  private def uploadTextFile (output:String): Route = fileUpload("file") {
     case (metaData, fileStream) =>
       val content = fileStream.map(_.utf8String).runWith(Sink.head)
       onSuccess(content) { text =>
-        val response = dataType match {
-          case "nxml" => doNxml(text, output)
-          case "text" => doText(text, output)
+        val filename = metaData.getFileName
+        val fileExt = filename.substring(filename.lastIndexOf(".") + 1)
+        val response = fileExt match {
+          case "nxml" | "xml" => doNxml(text, output)
+          case _ => doText(text, output)
         }
-          parseResponse(response, output)
+        parseResponse(response, output)
       }
   }
 
@@ -145,6 +147,9 @@ class ApiService (
           } ~
           pathPrefix("images") {                    // images from static subdir
             getFromResourceDirectory(s"${static}/images/")
+          } ~
+          pathPrefix("js") {                        // javascript from static subdir
+            getFromResourceDirectory(s"${static}/javascripts/")
           } ~
           path("") {                                // index page
             getFromResource(s"${static}/api.html")
@@ -179,22 +184,12 @@ class ApiService (
                 parseResponse(doText(text, output), output)
               }
             } ~
-            path("uploadText") {
+            path("uploadFile") {
               toStrictEntity(uploadTimeout) {
                 entity(as[Multipart.FormData]) { formData =>
-                  parameter("output" ? "fries") { output =>
-                    logger.info(s"POST api/upText: output=${output}")
-                    uploadTextFile("text", output)
-                  }
-                }
-              }
-            } ~
-            path("uploadNxml") {
-              toStrictEntity(uploadTimeout) {
-                entity(as[Multipart.FormData]) { formData =>
-                  parameter("output" ? "fries") { output =>
-                    logger.info(s"POST api/upNxml: output=${output}")
-                    uploadTextFile("nxml", output)
+                  formFields("output" ? "fries", "download" ? "off") { (output, download) =>
+                    logger.info(s"POST api/uploadFile: output=${output}, download=${download}")
+                    uploadTextFile(output)
                   }
                 }
               }

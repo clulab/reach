@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Add get from resource directory test.
+  *   Last Modified: Update tests for consolidated file upload.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -186,7 +186,7 @@ class TestApiServer extends WordSpec
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
           Map("filename" -> "test.txt")))
 
-      Post("/api/uploadText", mpForm) ~> route ~> check {
+      Post("/api/uploadFile", mpForm) ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
@@ -205,9 +205,13 @@ class TestApiServer extends WordSpec
         Multipart.FormData.BodyPart.Strict(
           "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
-          Map("filename" -> "test.txt")))
+          Map("filename" -> "test.txt")),
+        Multipart.FormData.BodyPart.Strict(
+          "output",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "csv"))
+      )
 
-      Post("/api/uploadText?output=csv", mpForm) ~> route ~> check {
+      Post("/api/uploadFile", mpForm) ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
@@ -226,9 +230,13 @@ class TestApiServer extends WordSpec
         Multipart.FormData.BodyPart.Strict(
           "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, "akt1 ubiquitinates mek1"),
-          Map("filename" -> "test.txt")))
+          Map("filename" -> "test.txt")),
+        Multipart.FormData.BodyPart.Strict(
+          "output",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "cmu"))
+      )
 
-      Post("/api/uploadText?output=cmu", mpForm) ~> route ~> check {
+      Post("/api/uploadFile", mpForm) ~> route ~> check {
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
@@ -250,7 +258,7 @@ class TestApiServer extends WordSpec
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
           Map("filename" -> "test.nxml")))
 
-      Post("/api/uploadNxml", mpForm) ~> route ~> check {
+      Post("/api/uploadFile", mpForm) ~> route ~> check {
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
         val entity = resp.entity
@@ -268,9 +276,13 @@ class TestApiServer extends WordSpec
         Multipart.FormData.BodyPart.Strict(
           "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
-          Map("filename" -> "test.nxml")))
+          Map("filename" -> "test.nxml")),
+        Multipart.FormData.BodyPart.Strict(
+          "output",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "csv"))
+      )
 
-      Post("/api/uploadNxml?output=csv", mpForm) ~> route ~> check {
+      Post("/api/uploadFile", mpForm) ~> route ~> check {
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
         val entity = resp.entity
@@ -288,9 +300,13 @@ class TestApiServer extends WordSpec
         Multipart.FormData.BodyPart.Strict(
           "file",
           HttpEntity(ContentTypes.`text/plain(UTF-8)`, nxmlIn),
-          Map("filename" -> "test.nxml")))
+          Map("filename" -> "test.nxml")),
+        Multipart.FormData.BodyPart.Strict(
+          "output",
+          HttpEntity(ContentTypes.`text/plain(UTF-8)`, "cmu"))
+      )
 
-      Post("/api/uploadNxml?output=cmu", mpForm) ~> route ~> check {
+      Post("/api/uploadFile", mpForm) ~> route ~> check {
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
         val entity = resp.entity
