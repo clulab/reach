@@ -9,7 +9,7 @@ import TestUtils._
 /**
   * Test that our override KB works properly for NER and grounding.
   *   Written by: Tom Hicks. 7/8/2016.
-  *   Last Modified: Minor comment update on AA short test.
+  *   Last Modified: Update for BioEntities changes previously added to latest BioResources.
   */
 class TestOverrides extends FlatSpec with Matchers {
 
@@ -117,14 +117,14 @@ class TestOverrides extends FlatSpec with Matchers {
   // A few sample previous Override Family entries, replaced by BE family KB.
   val be5f = """ACAD, ACSL, ACTN, ADCY, ADH,
                 ADRA, ADRA2, ADRB, ADRBK, ALDH,
-                ALDO, APOA, ARRB, ATP2A, ATP5G,
+                ALDO, APOA, ARRB, ATP5G,
                 BIRC, CAPN, Carboxylesterase, CD16, CD64,
                 MAPK, MEK, MEK1/2, MEK 1/2, ERK,
                 CSNK1, CSNK2, CTNNA, CUL, Cyclophilin are sample families."""
   val be5f_ids = Seq(
     "ACAD", "ACSL", "ACTN", "ADCY", "ADH",
     "ADRA", "ADRA2", "ADRB", "ADRBK", "ALDH",
-    "ALDO", "APOA", "ARRB", "ATP2A", "ATP5G",
+    "ALDO", "APOA", "ARRB", "ATP5G",
     "BIRC", "CAPN", "Carboxylesterase", "CD16", "CD64",
     "ERK", "MEK", "MEK", "MEK", "ERK",
     "CSNK1", "CSNK2", "CTNNA", "CUL", "Cyclophilin"
