@@ -1,19 +1,27 @@
-if (typeof jQuery !== 'undefined') {
+var ContentLoader = (function($) {
 
-  (function($) {
+  $('#spinner').ajaxStart(function() {
+    $(this).fadeIn();
+  }).ajaxStop(function() {
+    $(this).fadeOut();
+  });
 
-    $('#spinner').ajaxStart(function() {
-      $(this).fadeIn();
-    }).ajaxStop(function() {
-      $(this).fadeOut();
-    });
+  function contentSubmitted () {
+    $('#spinner').fadeIn();
+  }
 
-  })(jQuery);
+  // Public API
+  //
+  return {
+    contentSubmitted: contentSubmitted
+  };
 
-}
+}) (jQuery);
 
 
 $(document).ready(function() {
+
+  $('#spinner').hide();
 
   $('#about-toggle').click(function(ev) {
     $('#about-panel').toggle();
