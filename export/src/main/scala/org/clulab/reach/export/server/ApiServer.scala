@@ -1,6 +1,8 @@
 package org.clulab.reach.export.server
 
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.concurrent.duration.FiniteDuration
@@ -13,6 +15,7 @@ import akka.actor.ActorSystem
 import akka.event.Logging
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
+import akka.http.scaladsl.model.headers.RawHeader
 import akka.http.scaladsl.server._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
@@ -24,7 +27,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Consolidate file uploads into one method.
+  *   Last Modified: Implement download switch.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -75,6 +78,18 @@ trait ApiImpl {
     case _             => ContentTypes.`text/plain(UTF-8)`
   }
 
+  /** Return the file extension string for the given output format string. */
+  def fileExtensionFor (outputFormat: String): String = outputFormat match {
+    case "fries"       => "json"
+    case "indexcard"   => "json"
+    case "serial-json" => "json"
+    case "arizona"     => "tsv"
+    case "cmu"         => "tsv"
+    case "csv"         => "tsv"
+    case "tsv"         => "tsv"
+    case _             => "json"
+  }
+
 }
 
 
@@ -101,31 +116,54 @@ class ApiService (
   def in [U] (duration: FiniteDuration)(body: => U): Unit =
     system.scheduler.scheduleOnce(duration)(body)
 
+  /** Return a timestamped filename from the given filename string. */
+  private def makeTimestampedFilename (filename:String, extension:String=".json"): String = {
+    def iso8601 = new SimpleDateFormat("yyMMdd-HHmmss")
+    def now = iso8601.format(new Date())
+    def cleaned = filename.replaceAll("\\W", "_")
+    s"${cleaned}_${now}.${extension}"
+  }
+
   /** Parse the response from the internal call and complete the routing. */
-  private def parseResponse (response:Response, output:String): Route = {
+  private def makeResponseRoute (
+    response: Response,
+    outputFormat: String,
+    downFilename: Option[String] = None): Route =
+  {
     if (hasError(response))
       complete(StatusCodes.InternalServerError, getErrorMessage(response))
     else {
-      val contentType = contentTypeFor(output)
-      complete(HttpResponse(StatusCodes.OK)
-        .withEntity(contentType, getResult(response)))
+      val contentType = contentTypeFor(outputFormat)
+      if (downFilename.isEmpty) {
+        complete(HttpResponse(StatusCodes.OK).withEntity(contentType, getResult(response)))
+      }
+      else {
+        val contentDisposition = RawHeader("Content-Disposition",
+                                           s"attachment; filename=${downFilename.get};")
+        complete(HttpResponse(StatusCodes.OK)
+          .withEntity(contentType, getResult(response))
+          .withHeaders(contentDisposition))
+      }
     }
   }
 
   /** Upload textual data from the file associated with the 'file' parameter. */
-  private def uploadTextFile (output:String): Route = fileUpload("file") {
-    case (metaData, fileStream) =>
-      val content = fileStream.map(_.utf8String).runWith(Sink.head)
-      onSuccess(content) { text =>
-        val filename = metaData.getFileName
-        val fileExt = filename.substring(filename.lastIndexOf(".") + 1)
-        val response = fileExt match {
-          case "nxml" | "xml" => doNxml(text, output)
-          case _ => doText(text, output)
+  private def uploadTextFile (outputFormat:String, download:Boolean=false): Route =
+    fileUpload("file") {
+      case (metaData, fileStream) =>
+        val content = fileStream.map(_.utf8String).runWith(Sink.head)
+        onSuccess(content) { text =>
+          val filename = metaData.getFileName
+          val fileExt = filename.substring(filename.lastIndexOf(".") + 1)
+          val response = fileExt match {
+            case "nxml" | "xml" => doNxml(text, outputFormat)
+            case _ => doText(text, outputFormat)
+          }
+          val downExt = fileExtensionFor(outputFormat)
+          val downFilename = if (download) Some(makeTimestampedFilename(filename, downExt)) else None
+          makeResponseRoute(response, outputFormat, downFilename)
         }
-        parseResponse(response, output)
-      }
-  }
+    }
 
   /** Create and return the route for this app, using the given configuration, if needed. */
   def makeRoute (config: Config): Route = {
@@ -139,9 +177,9 @@ class ApiService (
         get {                               // GETS
           pathPrefix("api") {
             path("text") {
-              parameters("text", 'output ? "fries") { (text, output) =>
-                logger.info(s"GET api/text -> ${text}, ${output}")
-                parseResponse(doText(text, output), output)
+              parameters("text", 'output ? "fries") { (text, outputFormat) =>
+                logger.info(s"GET api/text -> ${text}, ${outputFormat}")
+                makeResponseRoute(doText(text, outputFormat), outputFormat)
               }
             }
           } ~
@@ -179,17 +217,17 @@ class ApiService (
         post {                              // POSTS
           pathPrefix("api") {
             path("text") {
-              parameters("text", "output" ? "fries") { (text, output) =>
-                logger.info(s"POST api/text -> ${text}, ${output}")
-                parseResponse(doText(text, output), output)
+              parameters("text", "output" ? "fries") { (text, outputFormat) =>
+                logger.info(s"POST api/text -> ${text}, ${outputFormat}")
+                makeResponseRoute(doText(text, outputFormat), outputFormat)
               }
             } ~
             path("uploadFile") {
               toStrictEntity(uploadTimeout) {
                 entity(as[Multipart.FormData]) { formData =>
-                  formFields("output" ? "fries", "download" ? "off") { (output, download) =>
-                    logger.info(s"POST api/uploadFile: output=${output}, download=${download}")
-                    uploadTextFile(output)
+                  formFields("output" ? "fries", "download" ? "off") { (outputFormat, download) =>
+                    logger.info(s"POST api/uploadFile: output=${outputFormat}, download=${download}")
+                    uploadTextFile(outputFormat, download == "on")
                   }
                 }
               }
