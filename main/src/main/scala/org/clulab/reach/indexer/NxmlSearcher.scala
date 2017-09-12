@@ -330,6 +330,314 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  def useCaseCrop(resultDir:String): Unit = {
+    vanillaUseCase(
+      """ "crop model" OR "crop modeling" OR "crop modelling" OR "agriculture model" OR "cropping system"  """,
+      resultDir)
+  }
+
+  def useCaseFall2017Eval(resultDir:String): Unit = {
+    vanillaUseCase(""" 
+      | AZ628 OR "AZ 628" OR "AZ\-628" OR AZD628 OR
+      | B1E OR  
+      | "cc\-82" OR
+      | MLS006010314 OR
+      | GTPL8475 OR
+      | SCHEMBL4209241 OR
+      | DTXSID70236677 OR
+      | "EX\-A302" OR
+      | "QCR\-186" OR
+      | "MolPort\-023\-293\-542"  OR
+      | "ZGBGPEDJXCYQPH\-UHFFFAOYSA\-N" OR
+      | C27H25N5O2 OR
+      | HMS3265I11 OR
+      | HMS3265I12 OR
+      | HMS3265J11 OR
+      | HMS3265J12 OR
+      | HMS3656F21 OR
+      | ABP000987 OR
+      | BDBM50430022 OR
+      | IN2126 OR
+      | ZINC38226503 OR
+      | AKOS016011304 OR
+      | 560S6B5D79 OR
+      | BCP9000346 OR
+      | "CS\-0091" OR
+      | RL05473 OR
+      | "NCGC00250380\-01" OR
+      | "4CA\-0219" OR
+      | "AC\-26863" OR
+      | "AJ\-94711" OR
+      | AK120786 OR
+      | HE069035 OR
+      | HE190443 OR
+      | "HY\-11004" OR
+      | "KB\-47460" OR
+      | "SC\-94608" OR
+      | SMR004701380 OR
+      | AB0008124 OR
+      | AX8246202 OR
+      | Y0332 OR
+      | "W\-5691" OR
+      | "J\-510421" OR
+      | "BRD\-K05804044\-001\-01\-1"
+      | """,
+      resultDir)
+
+    vanillaUseCase(
+      """ "PLX\-4720" OR PLX4720 OR "PLX 4720" OR
+      | AK162149 OR
+      | C17H14ClF2N3O3S OR
+      | 3c4c OR
+      | "Raf Kinase Inhibitor V" OR
+      | EQY31RO8HA OR
+      | MLS006010065 OR
+      | SCHEMBL133733 OR
+      | GTPL5703 OR
+      | CHEMBL1230020 OR
+      | BDBM25617 OR
+      | CTK5H0564 OR
+      | DTXSID10238711 OR
+      | "EX\-A186" OR
+      | SYN1069 OR
+      | "MolPort\-009\-679\-429" OR
+      | HMS3244C03 OR
+      | HMS3244C04 OR
+      | HMS3244D03 OR
+      | HMS3265I09 OR
+      | HMS3265I10 OR
+      | HMS3265J09 OR
+      | HMS3265J10 OR
+      | HMS3654M10 OR
+      | ACT06829 OR
+      | AOB87700 OR
+      | ABP000428 OR
+      | MFCD14635203 OR
+      | RS0085 OR
+      | ZINC39059267 OR
+      | AKOS015919071 OR
+      | "AN\-3700" OR
+      | "CS\-0094" OR
+      | DB06999 OR
+      | "NCGC00187911\-01" OR
+      | "NCGC00187911\-02" OR
+      | "4CA\-1033" OR
+      | "AC\-23171" OR
+      | BC660038 OR
+      | HE067477 OR
+      | HE413624 OR
+      | "HY\-51424" OR
+      | "KB\-59960" OR
+      | "SC\-65663" OR
+      | SMR004701225 OR
+      | AB0008154 OR
+      | "DB\-003736" OR
+      | "FT\-0673969" OR
+      | ST24048328 OR
+      | X7406 OR
+      | A19411 OR
+      | "Q\-4563" OR
+      | "J\-522979" OR
+      | "S06\-0032" OR
+      | "BRD\-K16478699\-001\-01\-9"
+      | """,
+      resultDir)
+
+    vanillaUseCase("""
+        | SB590885 OR
+        | "SB\-590885" OR
+        | "J\-501805" OR
+        | C27H27N5O2 OR
+        | "SB\-590885\-AAD" OR
+        | "EX\-A612" OR
+        | SYN1077 OR
+        | RS0086 OR
+        | AKOS024457220 OR
+        | AKOS026750409 OR
+        | AKOS027288720 OR
+        | ZINC142592382 OR
+        | "CS\-0093" OR
+        | AK257854 OR
+        | HE069097 OR
+        | HE341635 OR
+        | "HY\-10966" OR
+        | "SC\-85743" OR
+        | Y0277
+        | """,
+      resultDir) 
+
+    vanillaUseCase("""
+        | vemurafenib OR
+        | Zelboraf OR
+        | PLX4032 OR
+        | "PLX\-4032" OR
+        | "PLX 4032" OR
+        | RG7204 OR
+        | "RG 7204" OR
+        | "RO 5185426" OR
+        | 207SMY3FQT OR
+        | "Ro 51\-85426" OR
+        | RO5185426 OR
+        | NSC761431 OR
+        | "RG\-7204" OR
+        | "AK\-56796" OR
+        | "RO\-5185426" OR
+        | C23H18ClF2N3O3S OR
+        | vemurafenibum OR
+        | "HSDB 8143" OR
+        | 3og7 OR
+        | GTPL5893 OR
+        | "QCR\-44" OR
+        | CHEMBL1229517 OR
+        | CTK8C3113 OR
+        | DTXSID50238710 OR
+        | "EX\-A053" OR
+        | SYN1161 OR
+        | "GPXBXXGIAQBQNI\-UHFFFAOYSA\-N" OR
+        | "MolPort\-009\-200\-481" OR
+        | "ZX\-AFC000306" OR
+        | HMS3265M03 OR
+        | HMS3265M04 OR
+        | HMS3265N03 OR
+        | HMS3265N04 OR
+        | HMS3654P09 OR
+        | AOB87705 OR
+        | "EX\-A1335" OR
+        | ABP000429 OR
+        | "ANW\-69692" OR
+        | BDBM50396483 OR
+        | IN2235 OR
+        | MFCD18074504 OR
+        | ZINC52509366 OR
+        | AKOS007930804 OR
+        | AM81259 OR
+        | "AN\-1313" OR
+        | "CS\-0216" OR
+        | DB08881 OR
+        | "MCULE\-7244406627" OR
+        | "ME\-0096" OR
+        | "NSC\-761431" OR
+        | PB11741 OR
+        | RL05788 OR
+        | TRA0082406 OR
+        | "NCGC00250399\-01" OR
+        | "4CA\-1032" OR
+        | "AC\-25010" OR
+        | BC626573 OR
+        | HE070213 OR
+        | HE290987 OR
+        | HE413595 OR
+        | "HY\-12057" OR
+        | "KB\-59765" OR
+        | "SC\-54548" OR
+        | AB0031775 OR
+        | AB1009703 OR
+        | AX8212389 OR
+        | "TC\-158437" OR
+        | "FT\-0660388" OR
+        | "FT\-0675792" OR
+        | ST24048327 OR
+        | Y0473 OR
+        | A25476 OR
+        | D09996 OR
+        | "Q\-3409" OR
+        | "R\-7204" OR
+        | "AB01273970\-01" OR
+        | "SR\-01000941568" OR
+        | "J\-522975" OR
+        | "J\-690009" OR
+        | "SR\-01000941568\-1" OR
+        | "BRD\-K56343971\-001\-02\-3"
+        | """,
+      resultDir)
+
+    vanillaUseCase("""
+        | selumetinib OR
+        | selumetinibum OR
+        | "606143\-52\-6" OR
+        | AZD6244 OR
+        | "AZD 6244" OR
+        | "ARRY\-142886" OR
+        | "AZD\-6244" OR
+        | "ARRY 142886" OR
+        | "UNII\-6UH91I579U" OR
+        | "ARRY\-886" OR
+        | 6UH91I579U OR
+        | "NCGC00189073\-01" OR
+        | "NCGC00189073\-02" OR
+        | "AK\-40782" OR
+        | C17H15BrClFN4O3 OR
+        | DSSTox_CID_28870 OR
+        | DSSTox_RID_83139 OR
+        | DSSTox_GSID_48944 OR
+        | "Q\-101405" OR
+        | "CAS\-606143\-52\-6" OR
+        | PubChem21092 OR
+        | "JSPY\-st000254" OR
+        | SCHEMBL155456 OR
+        | GTPL5665 OR
+        | "QCR\-91" OR
+        | DTXSID3048944 OR
+        | CTK8B4577 OR
+        | "EX\-A020" OR
+        | SYN1016 OR
+        | "CYOHGALHFOKKQC\-UHFFFAOYSA\-N" OR
+        | "MolPort\-009\-679\-426" OR
+        | BCPP000367 OR
+        | "CC\-49" OR
+        | HMS3244G03 OR
+        | HMS3244G04 OR
+        | HMS3244H03 OR
+        | HMS3265K01 OR
+        | HMS3265K02 OR
+        | HMS3265L01 OR
+        | HMS3265L02 OR
+        | HMS3654O03 OR
+        | "NSC 741O78" OR
+        | AOB87732 OR
+        | API01002 OR
+        | Tox21_113362 OR
+        | ABP000918 OR
+        | "ANW\-45526" OR
+        | BDBM50355497 OR
+        | IN2233 OR
+        | MFCD11977472 OR
+        | RS0061 OR
+        | AKOS015904255 OR
+        | Tox21_113362_1 OR
+        | "ACN\-031539" OR
+        | "AN\-4474" OR
+        | BCP9000354 OR
+        | "CS\-0059" OR
+        | "EX\-8621" OR
+        | "NSC\-741078" OR
+        | "4CA\-0236" OR
+        | "AC\-25059" OR
+        | "AJ\-84328" OR
+        | AM808016 OR
+        | BC004624 OR
+        | BC660025 OR
+        | "CJ\-17817" OR
+        | HE069244 OR
+        | HE360517 OR
+        | "HY\-50706" OR
+        | "SC\-85661" OR
+        | AB0007973 OR
+        | AX8165426 OR
+        | "KB\-135452" OR
+        | "TX\-013341" OR
+        | "FT\-0674552" OR
+        | ST24031611 OR
+        | X2640 OR
+        | D09666 OR
+        | "S\-7764" OR
+        | "BRD\-K57080016\-001\-01\-9" OR
+        | "I14\-17010" OR
+        | 3EW
+        | """,
+      resultDir)
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
@@ -380,6 +688,8 @@ object NxmlSearcher {
       searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD2(resultDir)
+      //searcher.useCaseCrop(resultDir)
+      //searcher.useCaseFall2017Eval(resultDir)
     }
 
     searcher.close()
