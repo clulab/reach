@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Uploader</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="application.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/application.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/">
+                <i class="fa fa-home"></i>&nbsp;API</a>
+            </li>
+            <li><a href="/uploader">
+                <i class="glyphicon glyphicon-upload"></i>&nbsp;File Uploader</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://agathon.sista.arizona.edu:8080/odinweb/">
+                <i class="fa fa-home"></i>&nbsp;Reach Project:</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach/wiki/Datasets">
+                <i class="fa fa-database"></i>&nbsp;Datasets (Wiki)</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach/wiki/Publications">
+                <i class="fa fa-book"></i>&nbsp;Publications (Wiki)</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach">
+                <i class="fa fa-github"></i>&nbsp;Github</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row clulab-header">
+      <div class="logoTrans" alt="CLU Lab logo"></div>
+      <span class="title">Reach File Uploader</span>
+    </div>
+
+    <!-- About section -->
+    <div class="panel panel-info indented">
+      <div class="panel-heading">
+        <h3 class="panel-title emphasis">About the File Uploader
+          <span id="about-toggle" class="pull-right hideShowBtn">Hide</span>
+        </h3>
+      </div>
+      <div id="about-panel" class="panel-body aboutPanel">
+        <p>
+          This page allows a user to submit a PubMed document file in NXML format or
+          a plain text file to the Reach information extraction system for processing.
+          The text or PubMed file is uploaded from the user's local computer.
+          Reach processing results are returned directly to the browser, or downloaded
+          to the user's computer, in one of several JSON or CSV formats, selected at
+          the time the input file is uploaded.
+        </p>
+
+        <p>
+          To upload a text or NXML file for Reach processing, select the file from your
+          local filesystem by clicking the <code class="otherBtn">Choose File</code> button.
+        </p>
+
+        <p class="danger">
+          <span class="fa fa-exclamation-triangle"></span> Note: For PubMed document files,
+          only valid NXML files with extensions <b>.nxml</b> or <b>.xml</b> are permitted.
+        </p>
+
+        <p>
+          Next, select the desired output format for the results:
+          <ul>
+            <li><b>fries</b>, for FRIES Consortium JSON (the default),</li>
+            <li><b>csv</b>, for the Arizona tab-separated output format,</li>
+            <li><b>tsv</b>, for the Arizona tab-separated output format,</li>
+            <li><b>cmu</b>, for another tab-separated output format,</li>
+            <li><b>indexcard</b>, for MITRE IndexCard JSON,</li>
+            <li>
+              <b>serial-json</b>, for a JSON serialization of the entire Reach internal document
+              <p class="danger">
+                <span class="fa fa-exclamation-triangle"></span>The <b>serial-json</b>
+                format can return VERY large result files (10s of megabytes). Use this
+                format with caution.
+              </p>
+            </li>
+        </p>
+
+        <p>
+          To initiate processing, click the <code class="appBtn-primary">Upload File</code>
+          button.
+        </p>
+
+        <p>
+          After a minute or two of processing, results will be returned to the browser
+          and either displayed or downloaded to a file, depending on the selection of
+          the <code class="otherBtn">Download Output</code> checkbox and the browser
+          content settings.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="panel panel-success indented green-bordered">
+      <div class="panel-heading">
+        <h3 class="panel-title emphasis">Choose a text or NXML file for processing:</h3>
+      </div>
+
+      <div id="input-panel" class="panel-body">
+
+        <form name="ingest" id="ingest" method="post"
+              enctype="multipart/form-data" action="/api/uploadFile">
+          <fieldset>
+
+            <div class="form-group indented">
+              <label class="bigLabel fileTaker required" for="input-file">
+                Input File:<span class="required-indicator">*</span>
+                <input class="fileChosen" type="file" name="file" id="input-file"/>
+              </label>
+              <p class="help-block indented">
+                Click the button above to select a text file
+                or an NXML file (with extension .nxml or .xml) for uploading and processing:
+              </p>
+            </div>
+
+            <div class="form-group indented down30">
+              <label class="bigLabel" for="outputFormat">Output Format:
+                <select class="form-control col-xs-4 indented down10" name="output" id="output">
+                  <option value="fries">FRIES Consortium JSON format</option>
+                  <option value="csv">Arizona (tab-separated columnar format)</option>
+                  <option value="cmu">CMU (tab-separated columnar format)</option>
+                  <option value="indexcard">MITRE Indexcard JSON format</option>
+                  <option value="serial-json">Serial-JSON (serialization of document structures)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-group checkbox indented down30">
+              <label for="download">
+                <input name="download" type="checkbox"/><span class="bigLabel">Download Output</span>
+              </label>
+            </div>
+
+          </fieldset>
+
+          <button type="submit" class="appBtn appBtn-primary center-block"
+                  id="uploadFileBtn" onclick="ContentLoader.contentSubmitted();"
+                  form="ingest">Upload File</button>
+
+        </form>
+
+        <div id="spinner" class="spinner" style="display:none;">
+          Processing&hellip;
+        </div>
+
+      </div>
+    </div>   <!-- panel -->
+
+    <div class="container-fluid">
+      <div id="footer" class="footer" role="contentinfo">
+        &copy; Copyright 2017 by The University of Arizona. All rights reserved.
+      </div>
+    </div>
+
+  </body>
+</html>
