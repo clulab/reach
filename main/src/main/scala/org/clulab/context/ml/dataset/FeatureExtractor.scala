@@ -574,6 +574,7 @@ object FeatureExtractor{
       family match {
         case _:Positional => {
           features.sentenceDistance = Some(sentenceDistance)
+          //uncomment the following two features to use same feature as deterministic baseline:
           features.dependencyDistance = dependencyLength
           features.closesCtxOfClass = Some(closestOfCategory)
         }

@@ -212,9 +212,10 @@ object CrossValidation extends App {
       }.toMap
 
 
-  val writeFeaturesToCSV: Boolean = false
+  val writeFeaturesToCSV: Boolean = true
   if(writeFeaturesToCSV) {
     // Storage of the csv file's lines
+    println("Writing Features to csv file.")
     val csvLines = new mutable.ArrayBuffer[String]()
 
     val featuresNames = data.values.flatten.map(_._2.features).flatten.toSet.toSeq.sorted
@@ -237,6 +238,7 @@ object CrossValidation extends App {
       ow.write(s"$line\n")
 
     ow.close()
+    println("Written.")
   }
 
   val cvResults = new mutable.HashMap[String, BinaryClassificationResults]()
