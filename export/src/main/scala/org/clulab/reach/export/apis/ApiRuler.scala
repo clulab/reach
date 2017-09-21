@@ -5,6 +5,7 @@ import com.typesafe.config.ConfigFactory
 import org.clulab.odin.Mention
 import org.clulab.reach._
 import org.clulab.reach.export.arizona.ArizonaOutputter
+import org.clulab.reach.export.cmu.CMUExporter
 import org.clulab.reach.export.fries.FriesOutput
 import org.clulab.reach.export.indexcards.IndexCardOutput
 import org.clulab.reach.export.serial.SerialJsonOutput
@@ -16,7 +17,7 @@ import scala.collection.JavaConverters._
 /**
   * External interface class to accept and process text strings and NXML documents,
   * returning REACH results in either FRIES or IndexCard JSON format.
-  *   Last modified: Recognize some aliases for Arizona TSV output format in the API (v2).
+  *   Last modified: Add CMU output format.
   */
 object ApiRuler {
   // a response is a heterogeneous Java Map from String to either String or Boolean
@@ -79,6 +80,8 @@ object ApiRuler {
       val resultString = outFormat.toLowerCase match {
         case "arizona" | "csv" | "tsv" =>
           ArizonaOutputter.tabularOutput(mentions)
+        case "cmu" | "CMU" =>
+          CMUExporter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, nxmlDoc, startTime, endTime, prefix)
         case "serial-json" =>
@@ -105,6 +108,8 @@ object ApiRuler {
       val resultString = outFormat.toLowerCase match {
         case "arizona" | "csv" | "tsv" =>
           ArizonaOutputter.tabularOutput(mentions)
+        case "cmu" | "CMU" =>
+          CMUExporter.tabularOutput(mentions)
         case "indexcard" =>
           indexCardOutputter.toJSON(requestId, mentions, entries, startTime, endTime, prefix)
         case "serial-json" =>

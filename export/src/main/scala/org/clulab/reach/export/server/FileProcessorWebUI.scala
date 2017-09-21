@@ -85,7 +85,7 @@ object FileProcessorWebUI extends App with FileUpload {
   def handleSubmission: Route = {
     logRequestResult("reach-exporter") {    // wrapper to log all results
       path("") {                            // index page
-        getFromResource(s"$static/index.html")
+        getFromResource(s"$static/fileprocessorwebui.html")
       } ~
       path("process" / "paper") {
         (post & entity(as[Multipart.FormData])) { formdata =>

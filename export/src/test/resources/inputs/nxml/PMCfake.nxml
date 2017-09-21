@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "http://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article">
+  <?properties open_access?>
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="nlm-ta">Journal of Fake Results</journal-id>
+      <journal-title>Fake Results Perspectives</journal-title>
+      <issn pub-type="ppub">0091-6765</issn>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmid">11333182</article-id>
+      <article-id pub-id-type="pmc">issue199</article-id>
+      <article-id pub-id-type="pii">sc271_5_1835</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Research Article</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Testing Reach Issue #199.</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Hicks</surname>
+            <given-names>T</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <aff>CLU Lab, Department of Computer Science, University of Arizona</aff>
+      <pub-date pub-type="ppub">
+        <month>6</month>
+        <year>2016</year>
+      </pub-date>
+      <volume>1</volume>
+      <issue>2</issue>
+      <fpage>3</fpage>
+      <lpage>4</lpage>
+      <abstract>
+        <p>Akt inhibits the phosphorylation of AFT by BEF. The phosphorylation of AFT by BEF is inhibited by the ubiquitination of Akt.</p>
+      </abstract>
+    </article-meta>
+  </front>
+</article>
+</pmc-articleset>
