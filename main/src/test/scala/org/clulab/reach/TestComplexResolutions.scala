@@ -14,7 +14,7 @@ import org.clulab.reach.grounding.ReachKBUtils._
 /**
   * Unit tests to ensure protein complex resolutions are working for KB grounding.
   *   Written by: Tom Hicks. 11/17/2016.
-  *   Last Modified: Update for changed arguments of KB key transforms group.
+  *   Last Modified: Update for updated BE families and complexes of 8/22/2017.
   */
 class TestComplexResolutions extends FlatSpec with Matchers {
 
@@ -72,14 +72,6 @@ class TestComplexResolutions extends FlatSpec with Matchers {
   }
 
   "BE-PC resolve" should "fail for protein complex Bioentities" in {
-    // in NER Override only:
-    (bePC.resolve("Activin A")) should be (empty)
-    (bePC.resolve("activin a")) should be (empty)
-    (bePC.resolve("Activin AB")) should be (empty)
-    (bePC.resolve("AMPK alpha2beta2gamma2")) should be (empty)
-    (bePC.resolve("AMPK a2b2g2")) should be (empty)
-    (bePC.resolve("alpha2beta2gamma2")) should be (empty)
-
     (bePC.resolve("AMPK-alpha1")) should be (empty) // GGP
     (bePC.resolve("FOXP3")) should be (empty)       // GGP
   }
