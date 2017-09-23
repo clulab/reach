@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reach API Server</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="application.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/">
+                <i class="fa fa-home"></i>&nbsp;API</a>
+            </li>
+            <li><a href="/uploader">
+                <i class="glyphicon glyphicon-upload"></i>&nbsp;File Uploader</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://agathon.sista.arizona.edu:8080/odinweb/">
+                <i class="fa fa-home"></i>&nbsp;Reach Project:</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach/wiki/Datasets">
+                <i class="fa fa-database"></i>&nbsp;Datasets (Wiki)</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach/wiki/Publications">
+                <i class="fa fa-book"></i>&nbsp;Publications (Wiki)</a>
+            </li>
+            <li><a href="https://github.com/clulab/reach">
+                <i class="fa fa-github"></i>&nbsp;Github</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row clulab-header">
+      <div class="logoTrans" alt="CLU Lab logo"></div>
+      <span class="title">Reach API Server</span>
+    </div>
+
+    <!-- About section -->
+    <div class="panel panel-info indented">
+      <div class="panel-heading">
+        <h3 class="panel-title emphasis">About the Reach API Server</h3>
+      </div>
+      <div id="about-panel" class="panel-body aboutPanel">
+        <p>
+          The Reach API (Application Programming Interface) server provides a
+          built-in, lightweight REST-ful interface to a locally-running Reach system.
+          API services accept HTTP requests to run Reach on the supplied text or NXML
+          inputs and return Reach results in one of several JSON or CSV formats.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel panel-success indented green-bordered">
+      <div class="panel-heading">
+        <h3 class="panel-title emphasis">API Requests</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>Request Type</th>
+              <th>Request Arguments</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="greyed">
+              <td class="recode">/</td>
+              <td class="recode">GET</td>
+              <td></td>
+              <td>Return this API help page.</td>
+            </tr>
+            <tr class="greyed">
+              <td class="recode">/version</td>
+              <td class="recode">GET | POST</td>
+              <td></td>
+              <td>Return the current version of this application.</td>
+            </tr>
+            <tr class="greyed">
+              <td class="recode">/api/text</td>
+              <td class="recode">GET | POST</td>
+              <td class="recode">text=a+string</td>
+              <td>
+                Run Reach on the given text string and return the results.
+              </td>
+            </tr>
+            <tr class="">
+              <td colspan="4">
+                <div>
+                  <label class="kvKey">Notes:</label>
+                  <span class="kvValue">
+                    The <code>text</code> argument must be URL-encoded.
+                    By default, results are returned in FRIES JSON format.
+                  </span>
+                </div>
+                <div>
+                  <label class="kvKey">Options:</label>
+                  <span class="kvValue">
+                    The optional form argument <code>output</code> selects an output format:
+                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
+                  </span>
+                </div>
+                <div>
+                  <label class="kvKey">Examples:</label>
+                  <span class="kvValue">&nbsp;</span>
+                  <label class="kvKey">&nbsp;</label>
+                  <span class="kvValue">
+                    <div class="example">
+                      curl 'http://localhost:8080/api/text?text=Akt1+phosphorylates+mek1'
+                    </div>
+                    <div class="example">
+                      curl 'http://localhost:8080/api/text?text=Akt1%20phosphorylates%20mek1'
+                    </div>
+                    <div class="example">
+                      curl 'http://localhost:8080/api/text?text=Akt1+phosphorylates+mek1&output=serial-json'
+                    </div>
+                    <div class="example">
+                      curl 'http://localhost:8080/api/text?text=Akt1%20phosphorylates%20mek1&output=csv'
+                    </div>
+                  </span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="greyed">
+              <td class="recode">/api/uploadFile</td>
+              <td class="recode">POST</td>
+              <td>&nbsp;</td>
+              <td>Upload a plain text file or NXML file, process the text with Reach,
+                and return the results in the specified format.</td>
+            </tr>
+            <tr class="">
+              <td colspan="4">
+                <div>
+                  <label class="kvKey">Notes:</label>
+                  <span class="kvValue">
+                    Accepts a <code>multipart/form-data</code>
+                    argument which contains the plain text or NXML text to be processed
+                    within the <code>file</code> part.
+                    By default, results are returned in FRIES JSON format.
+                  </span>
+                </div>
+                <div>
+                  <label class="kvKey">Options:</label>
+                  <span class="kvValue">
+                    The optional <b>query</b> argument <code>output</code> selects an output format:
+                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
+                  </span>
+                </div>
+                <div>
+                  <label class="kvKey">Examples:</label>
+                  <span class="kvValue">&nbsp;</span>
+                  <label class="kvKey">&nbsp;</label>
+                  <span class="kvValue">
+                    <div class="example">
+                      curl -XPOST -F 'file=@infile.txt' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@myFile -F 'output=cmu' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@some.text' -F 'output=csv' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@PMC1240239.nxml' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@myFile.xml -F 'output=serial-json' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@some.nxml -F 'output=csv' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -F 'file=@PMCfake.nxml -F 'output=fries' 'http://localhost:8080/api/uploadFile'
+                    </div>
+                  </span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="greyed">
+              <td class="recode">/shutdown</td>
+              <td class="recode">POST</td>
+              <td></td>
+              <td class="recode">Any POST to this endpoint will shutdown the server.</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div id="footer" class="footer" role="contentinfo">
+        &copy; Copyright 2017 by The University of Arizona. All rights reserved.
+      </div>
+    </div>
+
+  </body>
+</html>
