@@ -22,7 +22,7 @@ import org.clulab.reach.export.server.ApiServer._
 /**
   * Unit tests of the API service class.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Update tests for consolidated file upload.
+  *   Last Modified: Add tests for new text body call.
   */
 class TestApiServer extends WordSpec
     with Matchers
@@ -165,6 +165,44 @@ class TestApiServer extends WordSpec
 
     "POST text, csv output" in {
       Post("/api/text?text=akt1%20dephosphorylates%20mek1&output=csv") ~> route ~> check {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`text/csv(UTF-8)`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+
+    "POST text, args in body, default output" in {
+      Post("/api/textBody",
+        FormData(
+          "text" -> "The AICAR molecule increases TBC1D1 phosphorylation.")) ~> route ~> check
+      {
+        status should equal(StatusCodes.OK)
+        val resp = responseAs[HttpResponse]
+        (resp) should not be (null)
+        val entity = resp.entity
+        // logger.info(s"resp.entity=${entity}") // DEBUGGING
+        (resp.entity) should not be (null)
+        contentType should equal(ContentTypes.`application/json`)
+        val entLen = entity.getContentLengthOption.orElse(-1L)
+        // logger.info(s"entity.length=${entLen}") // DEBUGGING
+        (entLen > 200) should be (true)
+      }
+    }
+
+    "POST text, args in body, csv output" in {
+      Post("/api/textBody",
+        FormData(
+          "output" -> "csv",
+          "text" -> "The AICAR molecule increases TBC1D1 phosphorylation.")) ~> route ~> check
+      {
         status should equal(StatusCodes.OK)
         val resp = responseAs[HttpResponse]
         (resp) should not be (null)
