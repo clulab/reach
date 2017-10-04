@@ -110,7 +110,7 @@
                 <div>
                   <label class="kvKey">Options:</label>
                   <span class="kvValue">
-                    The optional form argument <code>output</code> selects an output format:
+                    The optional <b>form</b> argument <code>output</code> selects an output format:
                     arizona, cmu, csv, indexcard, serial-json, or fries (the default).
                   </span>
                 </div>
@@ -133,6 +133,60 @@
                     </div>
                   </span>
                   </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="greyed">
+              <td class="recode">/api/textBody</td>
+              <td class="recode">POST</td>
+              <td></td>
+              <td>
+                Run Reach on the text string contained in the POST body and return the results.
+              </td>
+            </tr>
+            <tr class="">
+              <td colspan="4">
+                <div>
+                  <label class="kvKey">Notes:</label>
+                  <span class="kvValue">
+                    The <b>body</b> argument <code>text</code> must be URL-encoded.
+                    By default, results are returned in FRIES JSON format.
+                  </span>
+                </div>
+                <div>
+                  <label class="kvKey">Options:</label>
+                  <span class="kvValue">
+                    The optional <b>body</b> argument <code>output</code> selects an output format:
+                    arizona, cmu, csv, indexcard, serial-json, or fries (the default).
+                  </span>
+                </div>
+                <div>
+                  <label class="kvKey">Examples:</label>
+                  <span class="kvValue">&nbsp;</span>
+                  <label class="kvKey">&nbsp;</label>
+                  <span class="kvValue">
+                    <div class="example">
+                      curl -XPOST -d 'text=Akt1+phosphorylates+mek1' 'http://localhost:8080/api/textBody'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -d 'text=Akt1%20phosphorylates%20mek1' 'http://localhost:8080/api/textBody'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -d 'text=akt1+phosphorylates+mek1&output=csv' 'http://localhost:8080/api/textBody'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -d 'text=akt1+phosphorylates+mek1' -d 'output=csv' 'http://localhost:8080/api/textBody'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -d 'output=cmu' --data 'text=The+inhibition+of+AICAR+suppresses+the+phosphorylation+of+TBC1D1.' 'http://localhost:8080/api/textBody'
+                    </div>
+                    <div class="example">
+                      curl -XPOST -d 'output=cmu' --data-urlencode 'text=The inhibition of AICAR suppresses the phosphorylation of TBC1D1.' 'http://localhost:8080/api/textBody'
+                    </div>
+                    <div class="example">
+                      curl -XPOST --data-urlencode 'text=TopBP1 promotes the phosphorylation of cyclin-D1 by ATR.' 'http://localhost:8080/api/textBody'
+                    </div>
+                  </span>
                 </div>
               </td>
             </tr>

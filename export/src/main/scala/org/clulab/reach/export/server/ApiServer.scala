@@ -27,7 +27,7 @@ import org.clulab.reach.export.apis.ApiRuler._
 /**
   * Server to implement RESTful Reach API via Akka HTTP service.
   *   Written by: Tom Hicks. 8/17/2017.
-  *   Last Modified: Implement download switch.
+  *   Last Modified: Add route to process text in body of a POST.
   */
 object ApiServer extends App {
   val argMap = buildServerArgMap(args.toList)
@@ -219,6 +219,12 @@ class ApiService (
             path("text") {
               parameters("text", "output" ? "fries") { (text, outputFormat) =>
                 logger.info(s"POST api/text -> ${text}, ${outputFormat}")
+                makeResponseRoute(doText(text, outputFormat), outputFormat)
+              }
+            } ~
+            path("textBody") {
+              formFields("text", "output" ? "fries") { (text, outputFormat) =>
+                logger.info(s"POST api/bodyText -> ${text}, ${outputFormat}")
                 makeResponseRoute(doText(text, outputFormat), outputFormat)
               }
             } ~
