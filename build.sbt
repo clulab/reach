@@ -107,3 +107,5 @@ site.includeScaladoc()
 ghpages.settings
 
 git.remoteRepo := "git@github.com:clulab/reach.git"
+
+mainClass in assembly := Some("org.clulab.reach.RunReachCLI")
