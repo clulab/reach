@@ -31,7 +31,7 @@ import org.clulab.reach.utils.MentionManager
   * Class to run Reach reading and assembly then produce FRIES format output
   * from a group of input files.
   *   Written by: Gus Hahn-Powell and Tom Hicks. 5/9/2016.
-  *   Last Modified: Minor editing cleanups.
+  *   Last Modified: Update to use file input pattern.
   */
 class ReachCLI (
   val papersDir: File,
@@ -70,7 +70,7 @@ class ReachCLI (
     logger.info("Initializing Reach ...")
 
     val _ = PaperReader.rs.extractFrom("Blah", "", "")
-    val files = papersDir.listFilesByRegex(pattern = """.*\.(nxml|csv|tsv)$""", caseSensitive = false, recursive = true).toVector.par
+    val files = papersDir.listFilesByRegex(pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toVector.par
 
     // limit parallelization
     if (threadLimit.nonEmpty) {
