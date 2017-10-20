@@ -11,6 +11,8 @@ import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FilenameUtils
 
+import ai.lum.common.FileUtils._
+
 import org.clulab.odin._
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.coserver.ProcessorCoreClient
@@ -59,31 +61,31 @@ object PaperReader extends LazyLogging {
    * @return a Dataset (PaperID -> Mentions)
    */
   def readPapers(dir: File): Dataset = {
-    //val _ = rs.processor.annotate("blah")
     require(dir.isDirectory, s"'${dir.getCanonicalPath}' is not a directory")
     // read papers in parallel
-    val files = dir.listFiles.par
+    val files = dir.listFilesByRegex(
+      pattern=ReachInputFilePattern, caseSensitive=false, recursive=true).toArray.par
+
     // limit parallelization
     files.tasksupport =
       new ForkJoinTaskSupport(new scala.concurrent.forkjoin.ForkJoinPool(threadLimit))
+
     // build dataset
     val data: ParArray[(String, Vector[Mention])] = for {
-      file <- dir.listFiles.par // read papers in parallel
-      // allow either nxml or csv files
-      if file.getName.endsWith(".nxml") || file.getName.endsWith(".csv")
+      file <- files                         // read papers in parallel
     } yield readPaper(file)
     data.seq.toMap
   }
 
   /**
-    * Produces Mentions from either a .nxml or .csv/.tsv paper using [[NxmlReader]] or [[DSVParser]] and [[ReachSystem]]
-    * @param file a File with either the .csv, .tsv, or .nxml extension
+    * Produces Mentions from a few different types of input files.
+    * @param file a File with either the .csv, .tsv, .txt, or .nxml extension
     * @return (PaperID, Mentions)
     */
   def readPaper(file: File): (String, Vector[Mention]) = file match {
     case nxml if nxml.getName.endsWith(".nxml") =>
       readNXMLPaper(nxml)
-    case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith("tsv") =>
+    case dsv if dsv.getName.endsWith(".csv") || dsv.getName.endsWith(".tsv") =>
       readDSVPaper(dsv)
     case txt if txt.getName.endsWith(".txt") =>
       readPlainTextPaper(txt)
@@ -94,21 +96,21 @@ object PaperReader extends LazyLogging {
   private def readNXMLPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
-    //info(s"reading paper $paperID . . .")
+    logger.debug(s"reading paper $paperID ...")
     paperID -> rs.extractFrom(nxmlReader.read(file)).toVector
   }
 
   private def readDSVPaper(file: File): (String, Vector[Mention]) = {
-    require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .tsv and .dsv files!")
+    require(file.getName.endsWith(".tsv") || file.getName.endsWith(".csv"), s"Given ${file.getAbsolutePath}, but readDSVPaper only handles .tsv and .csv files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
-    //info(s"reading paper $paperID . . .")
+    logger.debug(s"reading paper $paperID ...")
     // get a single entry for the valid sections
     val entry = getEntryFromPaper(file)
     paperID -> rs.extractFrom(entry).toVector
   }
 
   private def readPlainTextPaper(file: File): (String, Vector[Mention]) = {
-    require(file.getName.endsWith(".txt"), s"Given ${file.getAbsolutePath}, but readPlainText only handles .txt files!")
+    require(file.getName.endsWith(".txt"), s"Given ${file.getAbsolutePath}, but readPlainTextPaper only handles .txt files!")
     val entry = getEntryFromPaper(file)
     entry.name -> rs.extractFrom(entry).toVector
   }
@@ -121,7 +123,6 @@ object PaperReader extends LazyLogging {
     * @return [[FriesEntry]]
     */
   def getEntryFromPaper(file: File): FriesEntry = file match {
-
     case nxml if nxml.getName.endsWith(".nxml") =>
       val nxmlDoc: NxmlDocument = nxmlReader.read(nxml)
       new FriesEntry(nxmlDoc)
@@ -131,6 +132,7 @@ object PaperReader extends LazyLogging {
 
     case txt if txt.getName.endsWith(".txt") =>
       val paperID = FilenameUtils.removeExtension(txt.getName)
+      logger.debug(s"reading paper $paperID ...")
       val text = getContents(file)
       FriesEntry.mkFriesEntry(paperID, text)
   }
@@ -139,13 +141,9 @@ object PaperReader extends LazyLogging {
 
   def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = rs.extractFrom(entry).toVector
 
-  def getMentionsFromPaper(file: File): Vector[Mention] = {
-    readPaper(file)._2
-  }
+  def getMentionsFromPaper(file: File): Vector[Mention] = readPaper(file)._2
 
-  /**
-   * Get mentions from text
-   */
+  /** Extract mentions from a single text string. */
   def getMentionsFromText(text: String): Seq[Mention] = rs.extractFrom(text, "", "")
 
 }
@@ -165,4 +163,3 @@ object ReadPapers extends App with LazyLogging {
   logger.info("serializing ...")
   Serializer.save(dataset, outFile)
 }
-

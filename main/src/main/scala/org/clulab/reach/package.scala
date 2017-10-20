@@ -5,8 +5,15 @@ import org.clulab.odin.impl.Taxonomy
 import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.constructor.Constructor
 
-
+/**
+  * Class to run Reach reading and assembly then produce FRIES format output
+  *   Written by: Gus Hahn-Powell. 7/16/2016.
+  *   Last Modified: Add file input pattern.
+  */
 package object reach {
+
+  /** Pattern identifying files which Reach can potentially process. */
+  val ReachInputFilePattern = """.*\.(nxml|csv|tsv)$"""
 
   // Taxonomy object
   val taxonomy = readTaxonomy("org/clulab/reach/biogrammar/taxonomy.yml")
