@@ -332,7 +332,7 @@ class NxmlSearcher(val indexDir:String) {
 
   def useCaseCrop(resultDir:String): Unit = {
     vanillaUseCase(
-      """ "crop model" OR "crop modeling" OR "crop modelling" OR "agriculture model" OR "cropping system"  """,
+      """ "drip irrigation" OR "phytate content" OR "intercropping" OR "drought conditions" OR "DSSAT" OR "agmip" OR "crop yield" OR "land model" OR "tillage" OR "farming practice" OR "rotational grazing" OR "grazing management" OR "soil system" OR "nitrogen fertilization" OR "water availability" OR "nitrogen application" OR "row spacing" OR "plant density" OR "household size" OR "crop technology" OR "farm income"  OR  "crop model" OR "crop modeling" OR "crop modelling" OR "agriculture model" OR "cropping system"  """,
       resultDir)
   }
 
@@ -685,10 +685,10 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase(resultDir)
+      //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD2(resultDir)
-      //searcher.useCaseCrop(resultDir)
+      searcher.useCaseCrop(resultDir)
       //searcher.useCaseFall2017Eval(resultDir)
     }
 
