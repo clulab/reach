@@ -2,23 +2,25 @@ package org.clulab.reach.brat
 
 import java.io.{File, InputStream}
 
-import com.typesafe.scalalogging.LazyLogging
-import org.clulab.reach.utils.BratUtils
-
 import scala.collection.mutable.HashMap
-import org.clulab.struct.Interval
-import org.clulab.processors.{Document, Sentence}
+import scala.io.Source
+
+import com.typesafe.scalalogging.LazyLogging
+
 import org.clulab.odin._
+import org.clulab.processors.{Document, Sentence}
+import org.clulab.reach.utils.BratUtils
+import org.clulab.struct.Interval
 
 object Brat extends LazyLogging {
   def readStandOff(input: String): Seq[Annotation] =
     input.lines.toSeq flatMap parseAnnotation
 
   def readStandOff(input: InputStream): Seq[Annotation] =
-    io.Source.fromInputStream(input).getLines.toSeq flatMap parseAnnotation
+    Source.fromInputStream(input).getLines.toSeq flatMap parseAnnotation
 
   def readStandOff(input: File): Seq[Annotation] =
-    io.Source.fromFile(input).getLines.toSeq flatMap parseAnnotation
+    Source.fromFile(input).getLines.toSeq flatMap parseAnnotation
 
   def parseAnnotation(line: String): Option[Annotation] = {
     val chunks = line.trim.split("\t")

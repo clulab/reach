@@ -1,13 +1,15 @@
 package org.clulab.reach
 
-import io.Source
+import java.io.File
+
+import scala.io.Source
+import scala.util.Try
+
+import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.processors.Document
-import scala.util.Try
-import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.clulab.reach.utils.MentionManager
-import java.io.File
 
 
 /**
@@ -44,7 +46,7 @@ object TestUtils {
     */
   def readFileContent(path: String) = {
     val stream = getClass.getClassLoader.getResourceAsStream(path)
-    val source = io.Source.fromInputStream(stream)
+    val source = Source.fromInputStream(stream)
     val data = source.mkString
     source.close()
     data

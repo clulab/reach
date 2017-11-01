@@ -1,5 +1,7 @@
 package org.clulab.reach
 
+import scala.io.Source
+
 /**
  * Utilities to read rule files
  */
@@ -14,14 +16,14 @@ case class Rules(entities: String, modifications: String, events: String, contex
   val contextRelationsFile = s"$resourcesPath/context/context_relations.yml"
 
   def readResource(filename: String): String = {
-    val source = io.Source.fromURL(getClass.getResource(filename))
+    val source = Source.fromURL(getClass.getResource(filename))
     val data = source.mkString
     source.close()
     data
   }
 
   def readFile(filename: String) = {
-    val source = io.Source.fromFile(filename)
+    val source = Source.fromFile(filename)
     val data = source.mkString
     source.close()
     data
