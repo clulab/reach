@@ -5,6 +5,7 @@ import java.io._
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
 import scala.collection.JavaConverters._
+import scala.io.Source
 
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import com.typesafe.config.ConfigFactory
@@ -14,8 +15,8 @@ import org.apache.commons.io.FilenameUtils
 import ai.lum.common.FileUtils._
 
 import org.clulab.odin._
+import org.clulab.processors.client.ProcessorClient
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.coserver.ProcessorCoreClient
 import org.clulab.reach.utils.DSVParser
 import org.clulab.utils.Serializer
 
@@ -28,25 +29,28 @@ object PaperReader extends LazyLogging {
   logger.debug("loading ...")
   // to set a custom conf file add -Dconfig.file=/path/to/conf/file to the cmd line for sbt
   val config = ConfigFactory.load()
+
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
   val ignoreSections = config.getStringList("ignoreSections").asScala
   val fileEncoding = config.getString("encoding")
 
-  // systems for reading papers
-  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = rs.processor.preprocessText)
-  val dsvReader = new DSVParser()
-
-  // for context engine
+  // create appropriate context engine with which to initialize ReachSystem
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   val contextConfig = config.getConfig("contextEngine.params").root
   val contextEngineParams: Map[String, String] =
     context.createContextEngineParams(contextConfig)
 
-  // initialize ReachSystem with appropriate context engine
-  lazy val rs = new ReachSystem(pcc = Some(new ProcessorCoreClient),
+  // initialize ReachSystem
+  val processor = ProcessorClient.instance
+  lazy val rs = new ReachSystem(client = Some(processor),
                                 contextEngineType = contextEngineType,
                                 contextParams = contextEngineParams)
+
+  // systems for reading papers
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = processor.preprocessText)
+  val dsvReader = new DSVParser()
+
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
@@ -115,7 +119,7 @@ object PaperReader extends LazyLogging {
     entry.name -> rs.extractFrom(entry).toVector
   }
 
-  def getContents(file: File): String = scala.io.Source.fromFile(file, fileEncoding).getLines.mkString
+  def getContents(file: File): String = Source.fromFile(file, fileEncoding).getLines.mkString
 
   /**
     * Get a single FriesEntry representing a paper

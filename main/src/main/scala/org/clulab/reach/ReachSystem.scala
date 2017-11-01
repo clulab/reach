@@ -10,9 +10,9 @@ import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
 import org.clulab.processors.{Document, Processor}
+import org.clulab.processors.client.ProcessorClient
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
-import org.clulab.reach.coserver.ProcessorCoreClient
 import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
@@ -21,7 +21,7 @@ import RuleReader.{Rules, readResource}
 
 class ReachSystem(
   rules: Option[Rules] = None,
-  pcc: Option[ProcessorCoreClient] = None,
+  client: Option[ProcessorClient] = None,
   contextEngineType: Engine = Dummy,
   contextParams: Map[String, String] = Map()
 ) extends LazyLogging {
@@ -46,7 +46,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor
-  val processor = if (pcc.nonEmpty) pcc.get else new ProcessorCoreClient
+  val processor = if (client.nonEmpty) client.get else ProcessorClient.instance
   processor.annotate("something")
 
   /** returns string with all rules used by the system */

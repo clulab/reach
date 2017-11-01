@@ -8,8 +8,8 @@ import scala.collection.immutable.ListMap
 
 import com.typesafe.config.ConfigFactory
 
+import org.clulab.processors.client.ProcessorClient
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.coserver.ProcessorCoreClient
 import org.clulab.reach.display._
 
 object ReachShell extends App {
@@ -23,7 +23,7 @@ object ReachShell extends App {
   val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem with appropriate context engine
-  var reach = new ReachSystem(pcc = Some(new ProcessorCoreClient),
+  var reach = new ReachSystem(client = Some(ProcessorClient.instance),
                               contextEngineType = contextEngineType,
                               contextParams = contextEngineParams)
 

@@ -2,20 +2,18 @@ package org.clulab.reach.export.apis.open
 
 import org.clulab.odin._
 import org.clulab.processors.Document
-import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.processors.client.ProcessorClient
 
 import scala.util.Try
 
 /**
   * Create a new Open Domain system engine.
-  *   Last Modified: Redo to use processor core client.
+  *   Last Modified: Update for client/server package/class renames.
   */
-class OpenSystem (pcc: Option[ProcessorCoreClient] = None) {
+class OpenSystem (pcc: Option[ProcessorClient] = None) {
 
-  // Use processor core client to connect to the processor core server
-  val client: ProcessorCoreClient =
-    if (pcc.nonEmpty) pcc.get
-    else new ProcessorCoreClient
+  // Use processor client to connect to the processor server
+  val client: ProcessorClient = if (pcc.nonEmpty) pcc.get else ProcessorClient.instance
 
   // For the demo, Ruler will provide us with our rules
   var cachedRules: String = ""
