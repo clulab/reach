@@ -43,14 +43,26 @@ object PaperReader extends LazyLogging {
 
   // initialize ReachSystem
   val processor = ProcessorClient.instance
-  lazy val rs = new ReachSystem(client = Some(processor),
-                                contextEngineType = contextEngineType,
-                                contextParams = contextEngineParams)
+  lazy val reachSystem = new ReachSystem(client = Some(processor),
+                                         contextEngineType = contextEngineType,
+                                         contextParams = contextEngineParams)
 
   // systems for reading papers
   val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = processor.preprocessText)
   val dsvReader = new DSVParser()
 
+
+  /** Shutdown the processor client used by this object. */
+  def shutdownClient: Unit = processor.terminate
+
+  /** Shutdown the processor server AND client. */
+  def shutdownClientServer: Unit = {
+    this.shutdownServer
+    this.shutdownClient
+  }
+
+  /** Shutdown the processor server remotely: should kill all actors and then the server. */
+  def shutdownServer: Unit = processor.shutdownServer
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
@@ -101,7 +113,7 @@ object PaperReader extends LazyLogging {
     require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
     logger.debug(s"reading paper $paperID ...")
-    paperID -> rs.extractFrom(nxmlReader.read(file)).toVector
+    paperID -> reachSystem.extractFrom(nxmlReader.read(file)).toVector
   }
 
   private def readDSVPaper(file: File): (String, Vector[Mention]) = {
@@ -110,13 +122,13 @@ object PaperReader extends LazyLogging {
     logger.debug(s"reading paper $paperID ...")
     // get a single entry for the valid sections
     val entry = getEntryFromPaper(file)
-    paperID -> rs.extractFrom(entry).toVector
+    paperID -> reachSystem.extractFrom(entry).toVector
   }
 
   private def readPlainTextPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".txt"), s"Given ${file.getAbsolutePath}, but readPlainTextPaper only handles .txt files!")
     val entry = getEntryFromPaper(file)
-    entry.name -> rs.extractFrom(entry).toVector
+    entry.name -> reachSystem.extractFrom(entry).toVector
   }
 
   def getContents(file: File): String = Source.fromFile(file, fileEncoding).getLines.mkString
@@ -143,12 +155,12 @@ object PaperReader extends LazyLogging {
 
   def getEntryFromPaper(fileName: String): FriesEntry = getEntryFromPaper(new File(fileName))
 
-  def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = rs.extractFrom(entry).toVector
+  def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = reachSystem.extractFrom(entry).toVector
 
   def getMentionsFromPaper(file: File): Vector[Mention] = readPaper(file)._2
 
   /** Extract mentions from a single text string. */
-  def getMentionsFromText(text: String): Seq[Mention] = rs.extractFrom(text, "", "")
+  def getMentionsFromText(text: String): Seq[Mention] = reachSystem.extractFrom(text, "", "")
 
 }
 

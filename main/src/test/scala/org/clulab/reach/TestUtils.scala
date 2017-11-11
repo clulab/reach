@@ -13,8 +13,9 @@ import org.clulab.reach.utils.MentionManager
 
 
 /**
- * Utility methods for the tests in this directory
- */
+  * Utility methods for the tests in this directory
+  * Last Modified: Update for reach system rename in paper reader.
+  */
 object TestUtils {
 
   // Inner object that contains the annotations to test context
@@ -57,7 +58,7 @@ object TestUtils {
     new File(url.toURI)
   }
 
-  val testReach = PaperReader.rs // All tests should use this system!
+  val testReach = PaperReader.reachSystem // All tests should use this system!
   val testReader = new NxmlReader
   val bioproc = testReach.processor // quick access to a processor, if needed.
   val docId = "testdoc"
