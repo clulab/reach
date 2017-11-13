@@ -6,3 +6,6 @@ sleep 20
 
 echo 'Running Reach CLI...'
 sbt 'run-main org.clulab.reach.RunReachCLI'
+
+# An explicit call to shutdown the server is not necessary
+# because ReachCLI shuts down both client and server.

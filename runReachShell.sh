@@ -7,4 +7,5 @@ sleep 20
 echo 'Starting Reach Shell...'
 sbt 'run-main org.clulab.reach.ReachShell'
 
-
+echo 'Stopping Processor Server...'
+sbt 'run-main org.clulab.processors.csshare.ShutdownProcessorServer'
