@@ -90,7 +90,7 @@ object ReachShell extends App {
   // manual terminal cleanup
   reader.getTerminal().restore()
   reader.shutdown()
-  processor.terminate                       // shutdown the processor client
+  processor.shutdownClient
 
   // functions
 

@@ -16,12 +16,12 @@ import ai.lum.common.FileUtils._
 
 import org.clulab.odin._
 import org.clulab.processors.client.ProcessorClient
+import org.clulab.processors.csshare.ProcessorCSController
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.utils.DSVParser
 import org.clulab.utils.Serializer
 
-
-object PaperReader extends LazyLogging {
+object PaperReader extends ProcessorCSController with LazyLogging {
 
   type PaperId = String
   type Dataset = Map[PaperId, Vector[Mention]]
@@ -53,16 +53,17 @@ object PaperReader extends LazyLogging {
 
 
   /** Shutdown the processor client used by this object. */
-  def shutdownClient: Unit = processor.terminate
+  override def shutdownClient: Unit = processor.shutdownClient
 
   /** Shutdown the processor server AND client. */
-  def shutdownClientServer: Unit = {
+  override def shutdownClientServer: Unit = {
     this.shutdownServer
     this.shutdownClient
   }
 
   /** Shutdown the processor server remotely: should kill all actors and then the server. */
-  def shutdownServer: Unit = processor.shutdownServer
+  override def shutdownServer: Unit = processor.shutdownServer
+
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
