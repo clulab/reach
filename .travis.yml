@@ -7,7 +7,4 @@ branches:
   only:
     - master
 script:
-  - sbt test
-  - sbt main/test
-  - sbt causalAssembly/test
-  - sbt export/test
+  - runAllTests.sh
