@@ -7,4 +7,4 @@ branches:
   only:
     - master
 script:
-  - runAllTests.sh
+  - ${TRAVIS_BUILD_DIR}/runAllTests.sh
