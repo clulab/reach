@@ -8,7 +8,7 @@ import scala.collection.immutable.ListMap
 
 import com.typesafe.config.ConfigFactory
 
-import org.clulab.processors.client.ProcessorClient
+import org.clulab.processors.ProcessorAnnotator
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.display._
 
@@ -23,8 +23,8 @@ object ReachShell extends App {
   val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem
-  val processor = ProcessorClient.instance
-  var reach = new ReachSystem(client = Some(processor),
+  val procAnnotator = ProcessorAnnotatorFactory(config)
+  var reach = new ReachSystem(processorAnnotator = Some(procAnnotator),
                               contextEngineType = contextEngineType,
                               contextParams = contextEngineParams)
 
@@ -90,7 +90,7 @@ object ReachShell extends App {
   // manual terminal cleanup
   reader.getTerminal().restore()
   reader.shutdown()
-  processor.shutdownClient
+  procAnnotator.shutdownClient
 
   // functions
 

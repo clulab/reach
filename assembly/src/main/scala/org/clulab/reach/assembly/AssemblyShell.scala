@@ -25,7 +25,8 @@ object AssemblyShell extends App {
   var reach = new ReachSystem(contextEngineType = contextEngineType,
     contextParams = contextEngineParams)
 
-  val proc = reach.processor
+  // TODO: fix next line: Reach no longer instantiates a full Processor
+  // val proc = reach.processor
 
   val history = new FileHistory(new File(System.getProperty("user.home"), ".assemblyshellhistory"))
   sys addShutdownHook {

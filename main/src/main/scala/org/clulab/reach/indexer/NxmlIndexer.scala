@@ -15,7 +15,8 @@ import org.apache.lucene.index.{IndexWriter, IndexWriterConfig}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
 
-import org.clulab.processors.client.ProcessorClient
+import org.clulab.processors.ProcessorAnnotator
+import org.clulab.reach.ProcessorAnnotatorFactory
 import org.clulab.struct.MutableNumber
 import org.clulab.utils.{Files, StringUtils}
 import NxmlIndexer._
@@ -25,7 +26,7 @@ import NxmlIndexer._
   * Indexes a bunch of NXML files so we can run quick searches wo/ grep :)
   * User: mihais
   * Date: 10/19/15
-  * Last Modified: Update for processors core server.
+  * Last Modified: Refactor processor client to processor annotator.
   */
 class NxmlIndexer {
   def index(docsDir:String, mapFile:String, indexDir:String): Unit = {
@@ -54,7 +55,7 @@ class NxmlIndexer {
     val config = new IndexWriterConfig(analyzer)
     val index = FSDirectory.open(Paths.get(indexDir))
     val writer = new IndexWriter(index, config)
-    val processor = ProcessorClient.instance  // default is BioNLP processor
+    val procAnnotator = ProcessorAnnotatorFactory()
     count = 0
     var nxmlErrors = 0
     for (file <- files) {
@@ -64,7 +65,7 @@ class NxmlIndexer {
       source.close()
       // This is potentially incorrect because this preprocesses both text and NXML tags...
       // TODO: this needs to be fixed by adding a preprocessing callback to NxmlReader
-      val preprocessedText = processor.preprocessText(rawText)
+      val preprocessedText = procAnnotator.preprocessText(rawText)
       // Parse the preprocessed nxml
       val nxmlDoc = Try(nxmlReader.parse(preprocessedText)) match {
         case Success(v) => v

@@ -15,7 +15,7 @@ import org.apache.commons.io.FilenameUtils
 import ai.lum.common.FileUtils._
 
 import org.clulab.odin._
-import org.clulab.processors.client.ProcessorClient
+import org.clulab.processors.ProcessorAnnotator
 import org.clulab.processors.csshare.ProcessorCSController
 import org.clulab.reach.context.ContextEngineFactory.Engine
 import org.clulab.reach.utils.DSVParser
@@ -42,27 +42,28 @@ object PaperReader extends ProcessorCSController with LazyLogging {
     context.createContextEngineParams(contextConfig)
 
   // initialize ReachSystem
-  val processor = ProcessorClient.instance
-  lazy val reachSystem = new ReachSystem(client = Some(processor),
+  val procAnnotator = ProcessorAnnotatorFactory(config)
+  lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
                                          contextEngineType = contextEngineType,
                                          contextParams = contextEngineParams)
 
   // systems for reading papers
-  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = processor.preprocessText)
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = procAnnotator.preprocessText)
   val dsvReader = new DSVParser()
 
 
-  /** Shutdown the processor client used by this object. */
-  override def shutdownClient: Unit = processor.shutdownClient
+  /** Shutdown the processor client used by this object. Ignored if not using a client/server. */
+  override def shutdownClient: Unit = procAnnotator.shutdownClient
 
-  /** Shutdown the processor server AND client. */
+  /** Shutdown the processor server AND client. Ignored if not using a client/server. */
   override def shutdownClientServer: Unit = {
     this.shutdownServer
     this.shutdownClient
   }
 
-  /** Shutdown the processor server remotely: should kill all actors and then the server. */
-  override def shutdownServer: Unit = processor.shutdownServer
+  /** Shutdown the processor server remotely: should kill all actors and then the server.
+      Ignored if not using a client/server. */
+  override def shutdownServer: Unit = procAnnotator.shutdownServer
 
 
   /**
