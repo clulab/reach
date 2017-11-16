@@ -1,9 +1,13 @@
 package org.clulab
 
 import java.util.Collection
-import org.clulab.odin.impl.Taxonomy
+
+import scala.io.Source
+
 import org.yaml.snakeyaml.Yaml
 import org.yaml.snakeyaml.constructor.Constructor
+
+import org.clulab.odin.impl.Taxonomy
 
 /**
   * Class to run Reach reading and assembly then produce FRIES format output
@@ -20,7 +24,7 @@ package object reach {
 
   private def readTaxonomy(path: String): Taxonomy = {
     val url = getClass.getClassLoader.getResource(path)
-    val source = if (url == null) io.Source.fromFile(path) else io.Source.fromURL(url)
+    val source = if (url == null) Source.fromFile(path) else Source.fromURL(url)
     val input = source.mkString
     source.close()
     val yaml = new Yaml(new Constructor(classOf[Collection[Any]]))

@@ -4,7 +4,10 @@ import scala.util.Try
 import org.scalatest._
 import TestUtils._
 
-
+/**
+  * Date: 5/19/2015.
+  * Last Modified: Update for processing annotators.
+  */
 class TestEntities extends FlatSpec with Matchers {
 
   // test data
@@ -22,20 +25,20 @@ class TestEntities extends FlatSpec with Matchers {
   }
 
   it should "extract mentions from document" in {
-    val doc = testReach.processor.annotate(text, keepText = true)
+    val doc = procAnnotator.annotate(text, keepText = true)
     doc.id = Some(docId)
     val result = Try(testReach.extractFrom(doc))
     result.isSuccess should be (true)
   }
 
   it should "not extract mentions from document without id" in {
-    val doc = testReach.processor.annotate(text, keepText = true)
+    val doc = procAnnotator.annotate(text, keepText = true)
     val result = Try(testReach.extractFrom(doc))
     result.isSuccess should be (false)
   }
 
   it should "not extract mentions from document without original text" in {
-    val doc = testReach.processor.annotate(text, keepText = false)
+    val doc = procAnnotator.annotate(text, keepText = false)
     doc.id = Some(docId)
     val result = Try(testReach.extractFrom(doc))
     result.isSuccess should be (false)
@@ -98,13 +101,13 @@ class TestEntities extends FlatSpec with Matchers {
   val sent7 = "In some cases, the presence of Ras inhibits autophagy."
   sent7 should "contain 1 BioProcess entity (\"autophagy\")" in {
     val mentions = getBioMentions(sent7)
-    mentions.count (_ matches "BioProcess") should be (1) 
+    mentions.count (_ matches "BioProcess") should be (1)
   }
 
   // test lookahead assertions on ner rules for GGP and Family entities
   val mekText = "the MEK family"
   mekText should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
-    val doc = bioproc.annotate(mekText)
+    val doc = procAnnotator.annotate(mekText)
     val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O")
     // manipulate the document for this test
     doc.id = Some("MEK-test")
@@ -118,7 +121,7 @@ class TestEntities extends FlatSpec with Matchers {
   // test lookahead assertions on ner rules for GGP and Family entities
   val mekText2 = "the MEK protein family"
   mekText2 should "contain 1 Family entity for \"MEK\" even if the entity tag is B-Gene_or_gene_product" in {
-    val doc = bioproc.annotate(mekText2)
+    val doc = procAnnotator.annotate(mekText2)
     val ggpLabels: Array[String] = Array("O", "B-Gene_or_gene_product", "O", "O")
     // manipulate the document for this test
     doc.id = Some("MEK-test")

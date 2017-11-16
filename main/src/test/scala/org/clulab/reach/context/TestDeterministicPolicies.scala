@@ -1,12 +1,11 @@
 package org.clulab.reach.context
 
-import io.Source
+import org.scalatest.{Matchers, FlatSpec}
+
 import org.clulab.reach.mentions._
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.TestUtils._
 import org.clulab.reach.TestUtils.Context._
-import org.scalatest.{Matchers, FlatSpec}
-
 
 class TestDeterministicPolicies extends FlatSpec with Matchers {
 

@@ -1,19 +1,27 @@
 package org.clulab.reach
 
-import io.Source
+import java.io.File
+
+import scala.io.Source
+import scala.util.Try
+
+import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import org.clulab.reach.mentions._
 import org.clulab.odin._
 import org.clulab.processors.Document
-import scala.util.Try
-import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
+import org.clulab.processors.bionlp.BioNLPProcessor
+import org.clulab.processors.shallownlp.ShallowNLPProcessor
 import org.clulab.reach.utils.MentionManager
-import java.io.File
 
 
 /**
- * Utility methods for the tests in this directory
- */
+  * Utility methods for the tests in this directory
+  * Last Modified: Update for processing annotators.
+  */
 object TestUtils {
+
+  // get a new or current instance of a processor annotator
+  val procAnnotator = ProcessorAnnotatorFactory()
 
   // Inner object that contains the annotations to test context
   object Context{
@@ -44,7 +52,7 @@ object TestUtils {
     */
   def readFileContent(path: String) = {
     val stream = getClass.getClassLoader.getResourceAsStream(path)
-    val source = io.Source.fromInputStream(stream)
+    val source = Source.fromInputStream(stream)
     val data = source.mkString
     source.close()
     data
@@ -55,9 +63,9 @@ object TestUtils {
     new File(url.toURI)
   }
 
-  val testReach = PaperReader.rs // All tests should use this system!
+  val testReach = PaperReader.reachSystem // All tests should use this system!
   val testReader = new NxmlReader
-  val bioproc = testReach.processor // quick access to a processor, if needed.
+
   val docId = "testdoc"
   val chunkId = "1"
   val mentionManager = new MentionManager()

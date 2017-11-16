@@ -5,6 +5,7 @@ import java.nio.file.Paths
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
+import scala.io.Source
 
 import org.apache.lucene.analysis.Analyzer
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer
@@ -16,7 +17,6 @@ import org.apache.lucene.search.{TopScoreDocCollector, IndexSearcher}
 import org.apache.lucene.store.FSDirectory
 import org.slf4j.LoggerFactory
 
-import org.clulab.reach.coserver.ProcessorCoreClient
 import org.clulab.utils.StringUtils
 import NxmlSearcher._
 
@@ -25,13 +25,11 @@ import NxmlSearcher._
   * Searches the NXML index created by NXML indexer
   * User: mihais
   * Date: 10/19/15
-  * Last Modified: Update for processors core server.
+  * Last Modified: Remove unused processors client refs.
   */
 class NxmlSearcher(val indexDir:String) {
   val reader = DirectoryReader.open(FSDirectory.open(Paths.get(indexDir)))
   val searcher = new IndexSearcher(reader)
-  // The next variable does not seem to be used anywhere
-  // val processor = new ProcessorCoreClient   // default is BioNLP processor
 
   def close() = reader.close()
 
@@ -697,7 +695,7 @@ object NxmlSearcher {
 
   def readIds(fn:String):Array[String] = {
     val ids = new ArrayBuffer[String]()
-    for(line <- io.Source.fromFile(fn).getLines()) {
+    for(line <- Source.fromFile(fn).getLines()) {
       var l = line.trim
       if (! l.startsWith("PMC"))
         l = "PMC" + l

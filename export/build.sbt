@@ -29,7 +29,7 @@ libraryDependencies ++= {
     "com.typesafe.akka"   %%  "akka-http-testkit"  % akkaHTTPV  % "test",
 
     // logging
-    "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.4.0",
+    "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
     "ch.qos.logback"               %  "logback-classic"  % "1.1.7",
     "org.slf4j"                    %  "slf4j-api"        % "1.7.10"
   )

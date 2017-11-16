@@ -5,6 +5,7 @@ import java.io._
 import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
 import scala.collection.JavaConverters._
+import scala.io.Source
 
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import com.typesafe.config.ConfigFactory
@@ -14,13 +15,13 @@ import org.apache.commons.io.FilenameUtils
 import ai.lum.common.FileUtils._
 
 import org.clulab.odin._
+import org.clulab.processors.ProcessorAnnotator
+import org.clulab.processors.csshare.ProcessorCSController
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.coserver.ProcessorCoreClient
 import org.clulab.reach.utils.DSVParser
 import org.clulab.utils.Serializer
 
-
-object PaperReader extends LazyLogging {
+object PaperReader extends ProcessorCSController with LazyLogging {
 
   type PaperId = String
   type Dataset = Map[PaperId, Vector[Mention]]
@@ -28,25 +29,42 @@ object PaperReader extends LazyLogging {
   logger.debug("loading ...")
   // to set a custom conf file add -Dconfig.file=/path/to/conf/file to the cmd line for sbt
   val config = ConfigFactory.load()
+
   // the number of threads to use for parallelization
   val threadLimit = config.getInt("threadLimit")
   val ignoreSections = config.getStringList("ignoreSections").asScala
   val fileEncoding = config.getString("encoding")
 
-  // systems for reading papers
-  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = rs.processor.preprocessText)
-  val dsvReader = new DSVParser()
-
-  // for context engine
+  // create appropriate context engine with which to initialize ReachSystem
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   val contextConfig = config.getConfig("contextEngine.params").root
   val contextEngineParams: Map[String, String] =
     context.createContextEngineParams(contextConfig)
 
-  // initialize ReachSystem with appropriate context engine
-  lazy val rs = new ReachSystem(pcc = Some(new ProcessorCoreClient),
-                                contextEngineType = contextEngineType,
-                                contextParams = contextEngineParams)
+  // initialize ReachSystem
+  val procAnnotator = ProcessorAnnotatorFactory(config)
+  lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
+                                         contextEngineType = contextEngineType,
+                                         contextParams = contextEngineParams)
+
+  // systems for reading papers
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = procAnnotator.preprocessText)
+  val dsvReader = new DSVParser()
+
+
+  /** Shutdown the processor client used by this object. Ignored if not using a client/server. */
+  override def shutdownClient: Unit = procAnnotator.shutdownClient
+
+  /** Shutdown the processor server AND client. Ignored if not using a client/server. */
+  override def shutdownClientServer: Unit = {
+    this.shutdownServer
+    this.shutdownClient
+  }
+
+  /** Shutdown the processor server remotely: should kill all actors and then the server.
+      Ignored if not using a client/server. */
+  override def shutdownServer: Unit = procAnnotator.shutdownServer
+
 
   /**
    * Produces Dataset from a directory of nxml and csv papers
@@ -97,7 +115,7 @@ object PaperReader extends LazyLogging {
     require(file.getName.endsWith(".nxml"), s"Given ${file.getAbsolutePath}, but readNXMLPaper only handles .nxml files!")
     val paperID = FilenameUtils.removeExtension(file.getName)
     logger.debug(s"reading paper $paperID ...")
-    paperID -> rs.extractFrom(nxmlReader.read(file)).toVector
+    paperID -> reachSystem.extractFrom(nxmlReader.read(file)).toVector
   }
 
   private def readDSVPaper(file: File): (String, Vector[Mention]) = {
@@ -106,16 +124,16 @@ object PaperReader extends LazyLogging {
     logger.debug(s"reading paper $paperID ...")
     // get a single entry for the valid sections
     val entry = getEntryFromPaper(file)
-    paperID -> rs.extractFrom(entry).toVector
+    paperID -> reachSystem.extractFrom(entry).toVector
   }
 
   private def readPlainTextPaper(file: File): (String, Vector[Mention]) = {
     require(file.getName.endsWith(".txt"), s"Given ${file.getAbsolutePath}, but readPlainTextPaper only handles .txt files!")
     val entry = getEntryFromPaper(file)
-    entry.name -> rs.extractFrom(entry).toVector
+    entry.name -> reachSystem.extractFrom(entry).toVector
   }
 
-  def getContents(file: File): String = scala.io.Source.fromFile(file, fileEncoding).getLines.mkString
+  def getContents(file: File): String = Source.fromFile(file, fileEncoding).getLines.mkString
 
   /**
     * Get a single FriesEntry representing a paper
@@ -139,12 +157,12 @@ object PaperReader extends LazyLogging {
 
   def getEntryFromPaper(fileName: String): FriesEntry = getEntryFromPaper(new File(fileName))
 
-  def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = rs.extractFrom(entry).toVector
+  def getMentionsFromEntry(entry: FriesEntry): Vector[Mention] = reachSystem.extractFrom(entry).toVector
 
   def getMentionsFromPaper(file: File): Vector[Mention] = readPaper(file)._2
 
   /** Extract mentions from a single text string. */
-  def getMentionsFromText(text: String): Seq[Mention] = rs.extractFrom(text, "", "")
+  def getMentionsFromText(text: String): Seq[Mention] = reachSystem.extractFrom(text, "", "")
 
 }
 
