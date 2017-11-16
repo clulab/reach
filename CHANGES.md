@@ -1,6 +1,8 @@
 #Changes
 =======
 
++ **1.4.0** - Update Reach to use Processors 6.1.5 (refactored Client/Server). Allow use of new CLUProcessor.
++ **1.4.0** - Refactor Processors Client to main Processors project. Update top level scripts to start/stop Client & Server.
 + **1.3.5** - Update to use Akka 2.5.4. Update to use Processors 6.1.4. Allow args in POST body of built-in server.
 + **1.3.5** - Update to use Processors 6.1.2 and Bioresources 1.1.24, which includes the Harvard BioEntities updates of 8/22/2017.
 + **1.3.4** - Refactor internal Akka servers, resources, and file locations. Add configurable mainClass for FAT JAR.
