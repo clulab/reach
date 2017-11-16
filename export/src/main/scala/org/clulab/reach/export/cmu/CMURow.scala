@@ -286,7 +286,7 @@ class CMURow(
       CMUExporter.CMU_LOCATION_IDENTIFIER -> getLocation,
       CMUExporter.CMU_CELL_LINE -> contextFromEvidence(AssemblyExporter.CELL_LINE),
       CMUExporter.CMU_CELL_TYPE -> contextFromEvidence(AssemblyExporter.CELL_TYPE),
-      CMUExporter.CMU_ORGANISM -> contextFromEvidence(AssemblyExporter.ORGAN),
+      CMUExporter.CMU_ORGANISM -> contextFromEvidence(AssemblyExporter.SPECIES),
       CMUExporter.CMU_POS_REG_NAME -> getPositiveControllerNames,
       CMUExporter.CMU_POS_REG_TYPE -> getPositiveControllerTypes,
       CMUExporter.CMU_POS_REG_ID -> getPositiveControllerIds,
