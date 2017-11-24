@@ -9,6 +9,7 @@ libraryDependencies ++= {
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",
     "commons-io"           %  "commons-io"  % "2.4",
     "jline"                %  "jline"       % "2.12.1",
+    "com.typesafe"         %  "config"      % "1.3.1",
 
     "org.apache.lucene"    %  "lucene-core"              % luceVer,
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
@@ -23,7 +24,7 @@ libraryDependencies ++= {
 
     // logging
     "com.typesafe.scala-logging"  %%  "scala-logging"    % "3.7.2",
-    "ch.qos.logback"               %  "logback-classic"  % "1.1.7",
+    "ch.qos.logback"               %  "logback-classic"  % "1.0.10",
     "org.slf4j"                    %  "slf4j-api"        % "1.7.10",
 
     // AKKA
@@ -32,7 +33,7 @@ libraryDependencies ++= {
     "com.typesafe.akka"   %%  "akka-slf4j"   % akkaV,
 
     // testing
-    "org.scalatest"       %%  "scalatest"      % "2.2.4"  % "test",
+    "org.scalatest"       %%  "scalatest"      % "3.0.1"  % "test",
     "com.typesafe.akka"   %%  "akka-testkit"   % akkaV    % "test"
   )
 
