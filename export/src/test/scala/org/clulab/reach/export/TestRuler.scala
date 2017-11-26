@@ -11,11 +11,12 @@ import org.clulab.reach.TestUtils._
 /**
   * Tests of the open domain Ruler class.
   *   Written by: Tom Hicks. 7/14/2017.
-  *   Last Modified: Initial creation.
+  *   Last Modified: Update for serialization changes.
   */
 class TestRuler extends FlatSpec with Matchers {
 
   val emptyText = ""
+  val text1 = "Z"
   val leoco = Source.fromURL(getClass.getResource("/inputs/inputOpenTexts/Leo-coref.txt")).mkString
   val sally = Source.fromURL(getClass.getResource("/inputs/inputOpenTexts/Sally.txt")).mkString
   val timmy = Source.fromURL(getClass.getResource("/inputs/inputOpenTexts/Timmy.txt")).mkString
@@ -99,16 +100,16 @@ class TestRuler extends FlatSpec with Matchers {
   }
 
   // test runReach
-  "open Ruler.runReach" should "not fail for empty text" in {
-    val rr = Ruler.runReach(emptyText)
+  "open Ruler.runReach" should "not fail for very small text" in {
+    val rr = Ruler.runReach(text1)
     (rr) should not be (null)
     (rr.error) should be (null)
-    (rr.text) should equal (emptyText)
+    (rr.text) should equal (text1)
     (rr.rules) should not be (empty)
     (rr.eventAnnotations) should be (empty)
-    (rr.syntaxAnnotations) should be (empty)
-    (rr.syntaxTokens) should be (empty)
-    (rr.syntaxTrees) should be (empty)
+    (rr.syntaxAnnotations) should not be (empty)
+    (rr.syntaxTokens) should not be (empty)
+    (rr.syntaxTrees) should not be (empty)
     (rr.ruleMap) should not be (empty)
   }
 

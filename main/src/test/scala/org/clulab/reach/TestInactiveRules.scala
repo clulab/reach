@@ -188,7 +188,7 @@ class TestInactiveRules extends FlatSpec with Matchers {
   /**
    * TODO: Coref
  @Test def testExchangePrepNom1() {
-    val doc = bioproc.annotate("In RAS, the exchange of GDP for GTP increased.")
+    val doc = procAnnotator.annotate("In RAS, the exchange of GDP for GTP increased.")
     val mentions = extractor.extractFrom(doc)
     val eventLabel = "Exchange"
     val assignedParty = "DANE"
@@ -207,7 +207,7 @@ class TestInactiveRules extends FlatSpec with Matchers {
   /**
    * TODO: Coref
   @Test def testExchangeObjNom1() {
-    val doc = bioproc.annotate("In Ras, GDP exchange for GTP increased.")
+    val doc = procAnnotator.annotate("In Ras, GDP exchange for GTP increased.")
     val mentions = extractor.extractFrom(doc)
     val eventLabel = "Exchange with COREF"
     val assignedParty = "DANE"

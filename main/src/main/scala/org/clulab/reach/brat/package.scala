@@ -1,6 +1,8 @@
 package org.clulab.reach
 
 import java.io.{File, FileWriter}
+
+import scala.io.Source
 import scala.language.reflectiveCalls
 
 package object brat {
@@ -10,12 +12,12 @@ package object brat {
     try { f(param) } finally { param.close() }
 
   def readFile(filename: String): String =
-    using (io.Source.fromFile(filename)) {
+    using (Source.fromFile(filename)) {
       source => source.mkString
     }
 
   def readFile(file: File): String =
-    using (io.Source.fromFile(file)) {
+    using (Source.fromFile(file)) {
       source => source.mkString
     }
 

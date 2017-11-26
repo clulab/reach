@@ -9,19 +9,19 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
-import org.clulab.processors.{Document, Processor}
+import org.clulab.processors.{ Document, ProcessorAnnotator }
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
-import org.clulab.reach.coserver.ProcessorCoreClient
-import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
+import org.clulab.reach.darpa.{ DarpaActions, MentionFilter, NegationHandler }
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
-import RuleReader.{Rules, readResource}
+import RuleReader.{ Rules, readResource }
 
+// import org.clulab.reach.utils.MentionManager
 
 class ReachSystem(
   rules: Option[Rules] = None,
-  pcc: Option[ProcessorCoreClient] = None,
+  processorAnnotator: Option[ProcessorAnnotator] = None,
   contextEngineType: Engine = Dummy,
   contextParams: Map[String, String] = Map()
 ) extends LazyLogging {
@@ -45,16 +45,15 @@ class ReachSystem(
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
-  // initialize processor
-  val processor = if (pcc.nonEmpty) pcc.get else new ProcessorCoreClient
-  processor.annotate("something")
+  // initialize processor annotator
+  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
   /** returns string with all rules used by the system */
   def allRules: String =
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
-    val doc = processor.annotate(text, keepText = true)
+    val doc = procAnnotator.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)
     doc
@@ -135,17 +134,6 @@ class ReachSystem(
     resolveDisplay(complete)
   }
 
-  // this method groups the mentions by document
-  // the sequence of documents should be sorted in order of appearance in the paper
-  def groupMentionsByDocument(mentions: Seq[BioMention], documents: Seq[Document]): Seq[Seq[BioMention]] = {
-    for (doc <- documents) yield mentions.filter(_.document == doc)
-  }
-
-  /** group mentions according to their position in the nxml standoff */
-  def groupMentionsByStandoff(mentions: Seq[BioMention], nxml: NxmlDocument): Seq[Seq[BioMention]] = {
-    mentions.groupBy(m => nxml.standoff.getTerminals(m.startOffset, m.endOffset)).values.toVector
-  }
-
   def extractFrom(text: String, docId: String, chunkId: String): Seq[BioMention] = {
     extractFrom(mkDoc(text, docId, chunkId))
   }
@@ -201,6 +189,28 @@ class ReachSystem(
     }
   }
 
+  def extractEventsFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
+    val mentions = eventEngine.extractByType[BioMention](doc, State(entities))
+    // clean modified entities
+    // remove ModificationTriggers
+    // Make sure we don't have any "ModificationTrigger" Mentions
+    val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
+    // handle multiple Negation modifications
+    NegationHandler.handleNegations(validMentions)
+    validMentions
+  }
+
+  // this method groups the mentions by document
+  // the sequence of documents should be sorted in order of appearance in the paper
+  def groupMentionsByDocument(mentions: Seq[BioMention], documents: Seq[Document]): Seq[Seq[BioMention]] = {
+    for (doc <- documents) yield mentions.filter(_.document == doc)
+  }
+
+  /** group mentions according to their position in the nxml standoff */
+  def groupMentionsByStandoff(mentions: Seq[BioMention], nxml: NxmlDocument): Seq[Seq[BioMention]] = {
+    mentions.groupBy(m => nxml.standoff.getTerminals(m.startOffset, m.endOffset)).values.toVector
+  }
+
   /** If the given mention has many mutations attached to it, return a mention for each mutation. */
   def mutationsToMentions(mention: BioTextBoundMention): Seq[BioMention] = {
     val mutations = mention.modifications.filter(_.isInstanceOf[Mutant])
@@ -222,17 +232,6 @@ class ReachSystem(
     }
   }
 
-  def extractEventsFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
-    val mentions = eventEngine.extractByType[BioMention](doc, State(entities))
-    // clean modified entities
-    // remove ModificationTriggers
-    // Make sure we don't have any "ModificationTrigger" Mentions
-    val validMentions = mentions.filterNot(_ matches "ModificationTrigger")
-    // handle multiple Negation modifications
-    NegationHandler.handleNegations(validMentions)
-    validMentions
-  }
-
   // this method gets sequence composed of sequences of mentions, one per doc.
   // each doc corresponds to a chunk of the paper, and it expects them to be in order of appearance
   def resolveCoref(eventsPerDocument: Seq[Seq[BioMention]]): Seq[CorefMention] = {
@@ -243,6 +242,15 @@ class ReachSystem(
 }
 
 object ReachSystem extends LazyLogging {
+
+  // val mentionManager = new MentionManager()
+  // def printMentions (mentions: Seq[BioMention]): Unit = {
+  //   System.err.println("MENTIONS:")
+  //   for (m <- mentions) {
+  //     mentionManager.mentionToStrings(m).foreach(System.err.println(_))
+  //     System.err.println()
+  //   }
+  // }
 
   /** This function should set the right displayMention for each mention.
     * NB: By default the displayMention is set to the main label of the mention,
@@ -292,17 +300,5 @@ object ReachSystem extends LazyLogging {
       }
     }
   }
-
-  // def chooseProcessor(procType:String):Processor = {
-  //   val proc = procType.toLowerCase match {
-  //     case "fastbionlp" =>
-  //       logger.info("Choosing FastBio processor")
-  //       new FastBioNLPProcessor(withChunks = false)
-  //     case _ =>
-  //       logger.info("Choosing Bio processor")
-  //       new BioNLPProcessor(withChunks = false)
-  //   }
-  //   proc
-  // }
 
 }

@@ -1,9 +1,10 @@
 package org.clulab.reach
 
-import org.scalatest.{Matchers, FlatSpec}
+import scala.io.Source
 import scala.util.Try                       // do not remove: needed for debugging
+
+import org.scalatest.{Matchers, FlatSpec}
 import TestUtils._
-import io.Source
 
 /**
   * Created by enoriega on 6/8/16.
@@ -11,7 +12,6 @@ import io.Source
 class TestNERStopList extends FlatSpec with Matchers {
 
   // TODO: Read the contents of the stoplist from the bioresources jar
-  //val entries:Seq[String] = Seq("cell", "cells")
   val entries = Source.fromInputStream(getClass.getClassLoader.getResourceAsStream("org/clulab/reach/kb/ner_stoplist.txt")).getLines.filter(_(0) != '#')
 
   for(entry <- entries){

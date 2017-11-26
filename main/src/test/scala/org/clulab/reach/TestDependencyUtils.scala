@@ -7,12 +7,13 @@ import org.scalatest._
 /**
   * Tests dependency utilities such as findHeadStrict
   * Date: 1/25/16
+  * Last Modified: Update for processing annotators.
   */
 class TestDependencyUtils extends FlatSpec with Matchers {
   val text1 = "Because the substrates of Shp2 are for the most part unknown, we were additionally interested in " +
     "examining the state of EGFR tyrosine phosphorylation following treatment with EGF in order to determine if the " +
     "failure of Gab1 to bind p85, and potentially recruit Shp2, would influence levels of EGFR autophosphorylation."
-  val doc1 = TestUtils.bioproc.annotate(text1, keepText = true)
+  val doc1 = TestUtils.procAnnotator.annotate(text1, keepText = true)
   val sent1 = doc1.sentences.head
   text1 should "produce 'substrates' as the head of 'the substrates of Shp2'" in {
     findHeadStrict(Interval(1, 5), sent1).get should be (2)
@@ -25,7 +26,7 @@ class TestDependencyUtils extends FlatSpec with Matchers {
   }
 
   val text2 = "The docking protein Gab1 is the primary mediator of EGF-stimulated activation of the PI-3K/Akt cell survival pathway"
-  val doc2 = TestUtils.bioproc.annotate(text2, keepText = true)
+  val doc2 = TestUtils.procAnnotator.annotate(text2, keepText = true)
   val sent2 = doc2.sentences.head
   text2 should "have the same getHeadStrict as roots" in {
     val head = findHeadStrict(Interval(0, 20), sent2).get
@@ -58,7 +59,7 @@ class TestDependencyUtils extends FlatSpec with Matchers {
   }
 
   val text3 = "."
-  val doc3 = TestUtils.bioproc.annotate(text3, keepText = true)
+  val doc3 = TestUtils.procAnnotator.annotate(text3, keepText = true)
   val sent3 = doc3.sentences.head
   text3 should "produce one head using findHeads" in {
     findHeads(Interval(0, 1), sent3.dependencies.get) should have size (1)

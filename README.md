@@ -34,7 +34,18 @@ Reach was created by the following members of the [CLU lab at the University of 
 
 # Citations
 
-If you use Reach, please cite this paper:
+If you use Reach, please cite one of the following papers:
+
+```
+@inproceedings{biocreative6,
+  title={{Large-scale automated reading with Reach discovers new cancer driving mechanisms}},
+  author={Valenzuela-Escarcega, Marco A. and Ozgun Babur and Gus Hahn-Powell and Dane Bell and Thomas Hicks and Enrique Noriega-Atala and Xia Wang and Mihai Surdeanu and Emek Demir and Clayton T. Morrison},
+  pages={201-203},
+  year={2017},
+  booktitle={Proceedings of the Sixth BioCreative Challenge Evaluation Workshop},
+  url={http://clulab.cs.arizona.edu/papers/biocreative6.pdf}
+}
+```
 
 ```
 @inproceedings{Valenzuela+:2015aa,

@@ -8,8 +8,8 @@ import scala.collection.immutable.ListMap
 
 import com.typesafe.config.ConfigFactory
 
+import org.clulab.processors.ProcessorAnnotator
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.coserver.ProcessorCoreClient
 import org.clulab.reach.display._
 
 object ReachShell extends App {
@@ -17,13 +17,14 @@ object ReachShell extends App {
 
   val config = ConfigFactory.load()
 
-  // read configuration parameters to create a context engine
+  // create appropriate context engine with which to initialize ReachSystem
   val contextEngineType = Engine.withName(config.getString("contextEngine.type"))
   val contextConfig = config.getConfig("contextEngine.params").root
   val contextEngineParams: Map[String, String] = context.createContextEngineParams(contextConfig)
 
-  // initialize ReachSystem with appropriate context engine
-  var reach = new ReachSystem(pcc = Some(new ProcessorCoreClient),
+  // initialize ReachSystem
+  val procAnnotator = ProcessorAnnotatorFactory(config)
+  var reach = new ReachSystem(processorAnnotator = Some(procAnnotator),
                               contextEngineType = contextEngineType,
                               contextParams = contextEngineParams)
 
@@ -89,17 +90,16 @@ object ReachShell extends App {
   // manual terminal cleanup
   reader.getTerminal().restore()
   reader.shutdown()
-
+  procAnnotator.shutdownClient
 
   // functions
 
   def printCommands(): Unit = {
     println("\nCOMMANDS:")
-    val longest = commands.keys.toSeq.sortBy(_.length).last.length 
+    val longest = commands.keys.toSeq.sortBy(_.length).last.length
     for ((cmd, msg) <- commands)
       println(s"\t$cmd${"\t"*(1 + (longest - cmd.length)/4)}=> $msg")
     println("")
   }
 
 }
-

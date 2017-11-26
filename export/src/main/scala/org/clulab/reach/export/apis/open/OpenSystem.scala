@@ -1,21 +1,19 @@
 package org.clulab.reach.export.apis.open
 
 import org.clulab.odin._
-import org.clulab.processors.Document
-import org.clulab.reach.coserver.ProcessorCoreClient
+import org.clulab.processors.{ Document, ProcessorAnnotator }
+import org.clulab.reach.ProcessorAnnotatorFactory
 
 import scala.util.Try
 
 /**
   * Create a new Open Domain system engine.
-  *   Last Modified: Redo to use processor core client.
+  *   Last Modified: Refactor processor client to processor annotator.
   */
-class OpenSystem (pcc: Option[ProcessorCoreClient] = None) {
+class OpenSystem (processorAnnotator: Option[ProcessorAnnotator] = None) {
 
-  // Use processor core client to connect to the processor core server
-  val client: ProcessorCoreClient =
-    if (pcc.nonEmpty) pcc.get
-    else new ProcessorCoreClient
+  // Get desired processor annotator
+  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
   // For the demo, Ruler will provide us with our rules
   var cachedRules: String = ""
@@ -23,7 +21,7 @@ class OpenSystem (pcc: Option[ProcessorCoreClient] = None) {
   var engine: ExtractorEngine = null
 
   def mkDoc (text: String): Document = {
-    client.annotate(text)
+    procAnnotator.annotate(text)
   }
 
   def extractFrom (rules: String, doc: Document): Try[Seq[Mention]] = {

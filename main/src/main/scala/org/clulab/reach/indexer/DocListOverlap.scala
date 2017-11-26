@@ -2,6 +2,7 @@ package org.clulab.reach.indexer
 
 import java.io.{FileWriter, PrintWriter}
 
+import scala.io.Source
 import scala.collection.mutable
 
 /**
@@ -27,7 +28,7 @@ object DocListOverlap {
 
   def readDocNames(fn:String): Set[String] = {
     val names = new mutable.HashSet[String]()
-    for(l <- io.Source.fromFile(fn).getLines()) {
+    for(l <- Source.fromFile(fn).getLines()) {
       val tokens = l.split("\\s+")
       if(tokens.length > 0) {
         val n = tokens(0).replaceAll(".json", "")
