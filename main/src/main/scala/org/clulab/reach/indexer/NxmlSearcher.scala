@@ -70,10 +70,10 @@ class NxmlSearcher(val indexDir:String) {
     sos.close()
   }
 
-  def saveDocs(resultDir:String, docIds:Set[(Int, Float)]): Unit = {
+  def saveDocs(resultDir:String, docIds:Set[(Int, Float)], maxDocs:Int): Unit = {
     val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
     var count = 0
-    for(docId <- docIds) {
+    for(docId <- docIds if count < maxDocs) {
       val doc = searcher.doc(docId._1)
       val id = doc.get("id")
       val nxml = doc.get("nxml")
@@ -212,18 +212,19 @@ class NxmlSearcher(val indexDir:String) {
     logger.debug("Done.")
   }
 
-  def vanillaUseCase(query:String, resultDir:String) {
+  def vanillaUseCase(query:String, resultDir:String, maxDocs:Int = Int.MaxValue) {
     val eventDocs = search(query)
     logger.debug(s"The result contains ${eventDocs.size} documents.")
-    saveDocs(resultDir, eventDocs)
+    saveDocs(resultDir, eventDocs, maxDocs)
     logger.debug("Done.")
   }
 
   /** Finds all NXML that contain at least one biochemical interaction */
-  def useCase2(resultDir:String) {
+  def useCaseAnyInteraction(resultDir:String, maxDocs:Int) {
     vanillaUseCase(
-      "phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds",
-      resultDir)
+      "phosphorylation phosphorylates ubiquitination ubiquitinates hydroxylation hydroxylates sumoylation sumoylates glycosylation glycosylates acetylation acetylates farnesylation farnesylates ribosylation ribosylates methylation methylates binding binds activation activates",
+      resultDir,
+      maxDocs)
   }
 
   /** Use case for childrens health */
@@ -685,7 +686,9 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCase(resultDir)
+      searcher.useCaseAnyInteraction(resultDir, 100000)
+
+      //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD2(resultDir)
       //searcher.useCaseCrop(resultDir)
