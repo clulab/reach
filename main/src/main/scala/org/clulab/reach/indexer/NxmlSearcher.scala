@@ -68,7 +68,7 @@ class NxmlSearcher(val indexDir:String) {
     sos.close()
   }
 
-  def saveDocs(resultDir:String, docIds:Set[(Int, Float)], maxDocs:Int, maxSize:Double = 1E9): Unit = {
+  def saveDocs(resultDir:String, docIds:Set[(Int, Float)], maxDocs:Int, maxSize:Double = 1E6): Unit = {
     val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
     var count = 0
     for(docId <- docIds if count < maxDocs) {
