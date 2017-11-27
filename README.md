@@ -7,7 +7,7 @@ Reach
 
 # What is it?
 
-Reach stands for **Re**ading and **A**ssembling **C**ontextual and **H**olistic Mechanisms from Text. In plain English, Reach is an information extraction system for the biomedical domain, which aims to read scientific literature and extract cancer signaling pathways. Reach implements a fairly complete extraction pipeline, including: recognition of biochemical entities (proteins, chemicals, etc.), grounding them to known knowledge bases such as Uniprot, extraction of BioPAX-like interactions, e.g., phosphorylation, complex assembly, positive/negative regulations, and coreference resolution, for both entities and interactions.  
+Reach stands for **Re**ading and **A**ssembling **C**ontextual and **H**olistic Mechanisms from Text. In plain English, Reach is an information extraction system for the biomedical domain, which aims to read scientific literature and extract cancer signaling pathways. Reach implements a fairly complete extraction pipeline, including: recognition of biochemical entities (proteins, chemicals, etc.), grounding them to known knowledge bases such as Uniprot, extraction of BioPAX-like interactions, e.g., phosphorylation, complex assembly, positive/negative regulations, and coreference resolution, for both entities and interactions.
 
 Reach is developed using [Odin](https://github.com/clulab/processors/wiki/ODIN-(Open-Domain-INformer)), our open-domain information extraction framework, which is released within our [`processors`](https://github.com/clulab/processors) repository.
 
@@ -17,20 +17,20 @@ Please scroll down to the bottom of this page for additional resources, includin
 This project is, and will always be, free for *research purposes*. However, starting with version 1.2, we are using a license that restricts its use for *commercial purposes*. Please contact us for details.
 
 # Changes
-+ **1.3.3** - Sub-project split into main, assembly, export.
-+ **1.3.3** - Uses bioresources 1.1.15 and processors 5.9.6.  Introduces [`json` serialization/deserialization of `CorefMention` (including grounding, modifications, etc.)](https://gist.github.com/myedibleenso/8383af789b37ba598ff64ddd12c8b35b).
-+ [more...](CHANGES.md)
++ **1.4.0** - Require separate Processors Server (Reach is the client). Add CLUProcessor type.
++ **1.4.0** - Update to use Processors 6.1.5 (for refactored Client/Server). Update run scripts.
++ [much more...](CHANGES.md)
 
-# Authors  
+# Authors
 
 Reach was created by the following members of the [CLU lab at the University of Arizona](http://clulab.cs.arizona.edu/):
 
-+ [Marco Valenzuela](https://github.com/marcovzla)  
-+ [Gus Hahn-Powell](https://github.com/myedibleenso)  
-+ [Dane Bell](https://github.com/danebell)  
-+ [Tom Hicks](https://github.com/hickst)  
-+ [Enrique Noriega](https://github.com/enoriega)  
-+ [Mihai Surdeanu](https://github.com/MihaiSurdeanu)  
++ [Marco Valenzuela](https://github.com/marcovzla)
++ [Gus Hahn-Powell](https://github.com/myedibleenso)
++ [Dane Bell](https://github.com/danebell)
++ [Tom Hicks](https://github.com/hickst)
++ [Enrique Noriega](https://github.com/enoriega)
++ [Mihai Surdeanu](https://github.com/MihaiSurdeanu)
 
 # Citations
 
@@ -72,7 +72,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 <dependency>
    <groupId>org.clulab</groupId>
    <artifactId>reach_2.11</artifactId>
-   <version>1.3.2</version>
+   <version>1.4.0</version>
 </dependency>
 ```
 
@@ -80,7 +80,7 @@ The `jar` is available on Maven Central. To use, simply add the following depend
 
 ```scala
 libraryDependencies ++= Seq(
-    "org.clulab" %% "reach" % "1.3.2"
+    "org.clulab" %% "reach" % "1.4.0"
 )
 ```
 
@@ -89,32 +89,23 @@ libraryDependencies ++= Seq(
 This is a standard sbt project, so use the usual commands (i.e. `sbt compile`, `sbt assembly`, etc.) to compile.
 Add the generated jar files under `target/` to your `$CLASSPATH`, along with the other necessary dependency jars. Take a look at `build.sbt` to see which dependencies are necessary at runtime.
 
-# Running things
+# Running Reach
 
 ## Processing a directory of `.nxml` papers
 
-The most common usage of Reach is to parse a directory containing one or more papers in the `.nxml`, or `.csv`/`.tsv` format.
-In order to run the system on such a directory of papers, you must create a `.conf` file.  See `src/main/resources/application.conf` for an example configuration file.  The directory containing the files to be processed should be specified using the `papersDir` variable.
+The most common use of Reach is to process a directory containing one or more papers in the proper formats. A Wiki page documents the [supported input formats](https://github.com/clulab/reach/wiki/Supported-Input-Formats).
 
-```scala
-sbt "runMain org.clulab.reach.RunReachCLI /path/to/yourapplication.conf"
+Some configuration is necessary before running Reach. Please refer to the [Running Reach](https://github.com/clulab/reach/wiki/Running-Reach) Wiki page for detailed information on configuring and running Reach.
+
+## The Interactive Shell
+
+An interactive shell can be run from the command line to process small fragments of entered text. The shell is useful for reviewing and understanding the operation of Reach, including NER, entity, and event processing and rule debugging. To start a Reach shell, run the [runReachShell.sh](https://github.com/clulab/reach/blob/master/runReachShell.sh) script:
+
+```
+runReachShell.sh
 ```
 
-If the configuration file is omitted, Reach uses the default `.conf`. That is, the command:
-
-```scala
-sbt "runMain org.clulab.reach.RunReachCLI"
-```
-
-will run the system using the `.conf` file under `src/main/resources/application.conf`.
-
-## The interactive shell for rule debugging
-
-```scala
-sbt "runMain org.clulab.reach.ReachShell"
-```
-
-enter `:help` to get a list of available commands.
+At the shell prompt enter `:help` to get a list of available commands.
 
 ## The sieve-based assembly system
 Reach now provides a sieve-based system for assembly of event mentions.  While still under development, the system currently has support for (1) exact deduplication for both entity and event mentions, (2) unification of mentions through coreference resolution, and (3) the reporting of intra and inter-sentence causal precedence relations (ex. A causally precedes B) using linguistic features, and (4) a feature-based classifier for causal precedence.  Future versions will include additional sieves for causal precedence and improved approximate deduplication.
@@ -150,9 +141,9 @@ Currently, two `.tsv` files are produced for assembly results **within** each pa
 1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)
 2. results without MITRE's constraints
 
-Two additional output files are produced for assembly results **across** all papers:  
+Two additional output files are produced for assembly results **across** all papers:
 
-1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)  
+1. results meeting [MITRE's (March 2016) requirements](https://github.com/clulab/reach/blob/3d4f82c87f1b4c7299ff2ceae8adc352212bd430/src/main/scala/org/clulab/assembly/AssemblyExporter.scala#L337-L352)
 2. results without MITRE's constraints
 
 ### The interactive Assembly shell

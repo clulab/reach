@@ -1,6 +1,8 @@
 #Changes
 =======
 
++ **1.4.1** - Update Wiki pages on configuring and running Reach. Update README and CHANGES files.
++ **1.4.1** - Add argument to restrict NXML input file size.
 + **1.4.0** - Update Reach to use Processors 6.1.5 (refactored Client/Server). Allow use of new CLUProcessor.
 + **1.4.0** - Refactor Processors Client to main Processors project. Update top level scripts to start/stop Client & Server.
 + **1.3.5** - Update to use Akka 2.5.4. Update to use Processors 6.1.4. Allow args in POST body of built-in server.
