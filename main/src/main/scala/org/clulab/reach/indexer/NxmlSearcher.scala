@@ -68,7 +68,7 @@ class NxmlSearcher(val indexDir:String) {
     sos.close()
   }
 
-  def saveDocs(resultDir:String, docIds:Set[(Int, Float)], maxDocs:Int): Unit = {
+  def saveDocs(resultDir:String, docIds:Set[(Int, Float)], maxDocs:Int, maxSize:Double = 1E9): Unit = {
     val sos = new PrintWriter(new FileWriter(resultDir + File.separator + "scores.tsv"))
     var count = 0
     for(docId <- docIds if count < maxDocs) {
@@ -77,11 +77,13 @@ class NxmlSearcher(val indexDir:String) {
       val nxml = doc.get("nxml")
       val year = doc.get("year")
       val size = nxml.toString.length * 2 // in bytes
-      val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
-      os.print(nxml)
-      os.close()
-      sos.println(s"$id\t${docId._2}\t$year\t$size")
-      count += 1
+      if(size <= maxSize) {
+        val os = new PrintWriter(new FileWriter(resultDir + File.separator + id + ".nxml"))
+        os.print(nxml)
+        os.close()
+        sos.println(s"$id\t${docId._2}\t$year\t$size")
+        count += 1
+      }
     }
     sos.close()
     logger.info(s"Saved $count documents.")
