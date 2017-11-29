@@ -10,7 +10,7 @@ libraryDependencies ++= {
 
   Seq(
     "ai.lum"              %%  "common"      % "0.0.8",
-    // "commons-io"           %  "commons-io"  % "2.4",
+    // "commons-io"           %  "commons-io"  % "2.5",
 
     // graph-based CSP
     "org.choco-solver"     %  "choco-graph"  % "3.3.0",
