@@ -240,6 +240,11 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  def useCaseMicroBiology(resultDir:String): Unit = {
+    vanillaUseCase(
+      """("Candidatus Pacearchaeota archaeon" OR "unclassified Candidatus Methanoperedenaceae"))""".stripMargin, resultDir)
+  }
+
   //
   // 4 queries for an older use case for Natasa
   //
@@ -686,8 +691,9 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseAnyInteraction(resultDir, 100000)
 
+      //searcher.useCaseAnyInteraction(resultDir, 100000)
+      searcher.useCase(useCaseMicroBiology)
       //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD2(resultDir)
