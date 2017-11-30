@@ -4,7 +4,7 @@ lazy val commonSettings = Seq(
 
   organization := "org.clulab",
 
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.11.11",
 
   scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
 
