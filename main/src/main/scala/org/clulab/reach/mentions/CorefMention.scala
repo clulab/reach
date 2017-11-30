@@ -45,8 +45,8 @@ class CorefTextBoundMention(
             this.document,
             this.keep,
             this.foundBy)
-          CorefMention.copyAttachments(this,copy)
-          copy.antecedents = Set(ant)
+          val updatedAnt = CorefMention.copyAttachments(this, copy)
+          copy.antecedents = Set(updatedAnt)
           copy.sieves = this.sieves
           copy
         }
@@ -146,10 +146,10 @@ class CorefEventMention(
             this.document,
             this.keep,
             this.foundBy)
-          CorefMention.copyAttachments(this,copy)
-          copy.antecedents = Set(ant)
-          copy.sieves = this.sieves
-          copy
+          val copy2 = CorefMention.copyAttachments(this,  copy)
+          copy2.antecedents = Set(ant)
+          copy2.sieves = this.sieves
+          copy2
         }
       }
     }
@@ -227,10 +227,18 @@ class CorefRelationMention(
 }
 
 object CorefMention {
-  def copyAttachments(src:BioMention, dst:CorefMention){
+  def copyAttachments(src: BioMention, dst: CorefMention): CorefMention = {
     dst.copyGroundingFrom(src)
     dst.context = src.context
-    dst.modifications ++= corefMods(src.modifications)
+    // copy mods
+    val srcMods = corefMods(src.modifications)
+    val res = dst match {
+      case tbm: BioTextBoundMention => tbm.copy(modifications = srcMods ++ dst.modifications)
+      case rel: BioRelationMention => rel.copy(modifications = srcMods ++ dst.modifications)
+      case em: BioEventMention => em.copy(modifications = srcMods ++ dst.modifications)
+      case _ => dst
+    }
+    res.toCorefMention
   }
 
   private def corefMods(modifications: Set[Modification]): Set[Modification] = {

@@ -1,19 +1,17 @@
 package org.clulab.reach.mentions
 
-import org.clulab.odin.Mention
+import org.clulab.odin.{ Mention, Modification }
 
-trait Modifications {
+trait ReachModifications {
   this: Mention =>
-
-  var modifications: Set[Modification] = Set.empty
 
   def isModified: Boolean = modifications.nonEmpty
 
   def mutants: Set[Mutant] = modifications.filter(_.isInstanceOf[Mutant]).asInstanceOf[Set[Mutant]]
 }
 
-sealed trait Modification {
-  // modifications should at least have a label that explains
+sealed trait LabeledModification extends Modification {
+  // reach modifications should at least have a label that explains
   // what kind of modification they are
   def label: String
 
@@ -35,23 +33,23 @@ case class PTM(
   }
 }
 
-case class Mutant(evidence: Mention, foundBy: String) extends Modification{
-  val label = evidence.label
-  val text = evidence.text
+case class Mutant(evidence: Mention, foundBy: String) extends LabeledModification {
+  val label: String = evidence.label
+  val text: String = evidence.text
 
   def isGeneric: Boolean = evidence.toCorefMention.isGeneric
 
   override def hashCode: Int = evidence.hashCode() * 42 + label.hashCode()
 }
 
-case class EventSite(site: Mention) extends Modification {
+case class EventSite(site: Mention) extends LabeledModification {
   val label = "EventSite"
 }
 
-case class Negation(evidence: Mention) extends Modification {
+case class Negation(evidence: Mention) extends LabeledModification {
   val label = "Negation"
 }
 
-case class Hypothesis(evidence: Mention) extends Modification{
+case class Hypothesis(evidence: Mention) extends LabeledModification {
   val label = "Hypothesis"
 }

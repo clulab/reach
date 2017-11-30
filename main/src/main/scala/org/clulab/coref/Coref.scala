@@ -32,9 +32,11 @@ class Coref extends LazyLogging {
     * Make a map from the given SimpleEvent mentions to the same mentions but with any generic mentions (including
     * in the arguments) replaced with their non-generic antecedents.
     */
-  def resolveSimpleEvents(evts: Seq[CorefEventMention],
-                          resolvedTBMs: Map[CorefTextBoundMention, Seq[CorefMention]],
-                          sieveMap: Map[CorefTextBoundMention, Set[String]]): Map[CorefEventMention, Seq[CorefEventMention]] = {
+  def resolveSimpleEvents(
+    evts: Seq[CorefEventMention],
+    resolvedTBMs: Map[CorefTextBoundMention, Seq[CorefMention]],
+    sieveMap: Map[CorefTextBoundMention, Set[String]]
+  ): Map[CorefEventMention, Seq[CorefEventMention]] = {
     require(evts.forall(_.matches("SimpleEvent")), s"Only simple events should be passed to the first argument of" +
       s" resolveSimpleEvents. you passed ${evts.filterNot(_.matches("SimpleEvent")).map(_.text).mkString("\n", "\n", "\n")}")
 
@@ -100,8 +102,8 @@ class Coref extends LazyLogging {
             specific.document,
             specific.keep,
             specific.foundBy + (if (specific.sieves.isEmpty) "" else specific.sieves.mkString(", ", ", ", "")))
-          BioMention.copyAttachments(specific, generated)
-          Seq(generated)
+          val gen2 = BioMention.copyAttachments(specific, generated)
+          Seq(gen2)
         } else Nil
       )
       specific -> value
@@ -279,8 +281,8 @@ class Coref extends LazyLogging {
                 evt.document,
                 evt.keep,
                 evt.foundBy + (if (evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
-              BioMention.copyAttachments(evt, generated)
-              Seq(generated)
+              val gen2 = BioMention.copyAttachments(evt, generated)
+              Seq(gen2)
             case evm: CorefEventMention =>
               val generated = new CorefEventMention(
                 evt.labels,
@@ -291,8 +293,8 @@ class Coref extends LazyLogging {
                 evt.document,
                 evt.keep,
                 evt.foundBy + (if (evt.sieves.isEmpty) "" else evt.sieves.mkString(", ", ", ", "")))
-              BioMention.copyAttachments(evt, generated)
-              Seq(generated)
+              val gen2 = BioMention.copyAttachments(evt, generated)
+              Seq(gen2)
           }
         }
         else Nil

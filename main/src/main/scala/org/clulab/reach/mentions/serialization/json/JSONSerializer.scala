@@ -3,6 +3,7 @@ package org.clulab.reach.mentions.serialization.json
 import org.clulab.serialization.json.DocOps
 import org.clulab.odin.serialization.json.JSONSerializer._
 import org.clulab.odin.serialization.json.{ MentionOps => OdinMentionOps }
+import org.clulab.reach.mentions.MentionOps
 import org.clulab.odin
 import org.clulab.odin._
 import org.clulab.reach.grounding.KBResolution
@@ -79,11 +80,12 @@ object JSONSerializer extends LazyLogging {
     val document = docMap(docHash)
     val keep = getKeep(mjson)
     val foundBy = getFoundBy(mjson)
+    val mods = toModifications(mjson, docMap)
 
     // build BioMention
     // NOTE: while it would be cleaner to create a Mention and THEN add the needed bio and coref attributes,
     // it would not be easy to transform the arguments & trigger post-hoc using the json...
-    val m = mjson \ "type" match {
+    val m: BioMention = mjson \ "type" match {
       case JString(BioEventMention.string) =>
         new BioEventMention(
           labels,
@@ -120,7 +122,8 @@ object JSONSerializer extends LazyLogging {
         )
 
       // paths involve Mention (not CorefMention)
-      case other => toMentionByType(mjson, docMap).get.toBioMention
+      case other =>
+        toMentionByType(mjson, docMap).get.toBioMention
     }
 
     // attach display label
@@ -132,9 +135,14 @@ object JSONSerializer extends LazyLogging {
     // update context
     setContext(m, mjson)
 
-    // update mods
-    m.modifications = toModifications(mjson, docMap)
-    m
+    // add mods
+    val res: Mention = m match {
+      case tb: TextBoundMention => tb.copy(modifications = mods)
+      case rel: RelationMention => rel.copy(modifications = mods)
+      case em: EventMention => em.copy(modifications = mods)
+    }
+
+    res.toBioMention
   }
 
   def toBioMention(mjson: JValue, doc: Document): BioMention = {
@@ -172,11 +180,12 @@ object JSONSerializer extends LazyLogging {
     val document = docMap(docHash)
     val keep = getKeep(mjson)
     val foundBy = getFoundBy(mjson)
+    val mods = toModifications(mjson, docMap)
 
     // build CorefMention
     // NOTE: while it would be cleaner to create a Mention and THEN add the needed bio and coref attributes,
     // it would not be easy to transform the arguments & trigger post-hoc using the json...
-    val m = mjson \ "type" match {
+    val m: CorefMention = mjson \ "type" match {
       case JString(CorefEventMention.string) =>
         new CorefEventMention(
           labels,
@@ -229,8 +238,13 @@ object JSONSerializer extends LazyLogging {
     setContext(m, mjson)
 
     // update mods
-    m.modifications = toModifications(mjson, docMap)
-    m
+    val res: Mention = m match {
+      case tb: TextBoundMention => tb.copy(modifications = mods)
+      case rel: RelationMention => rel.copy(modifications = mods)
+      case em: EventMention => em.copy(modifications = mods)
+    }
+
+    res.toCorefMention
   }
 
   def toCorefMention(mjson: JValue, doc: Document): CorefMention = {

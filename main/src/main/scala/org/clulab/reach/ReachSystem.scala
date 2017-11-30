@@ -218,16 +218,17 @@ class ReachSystem(
       Seq(mention)
     else {
       mutations.map { mut =>
-        val tbm = new BioTextBoundMention(mention.labels, mention.tokenInterval,
-                                          mention.sentence, mention.document,
-                                          mention.keep, mention.foundBy)
+        val tbm = new BioTextBoundMention(
+          mention.labels, mention.tokenInterval,
+          mention.sentence, mention.document,
+          mention.keep, mention.foundBy
+        )
         // copy all attachments
-        BioMention.copyAttachments(mention, tbm)
+        val tbm2 = BioMention.copyAttachments(mention, tbm).asInstanceOf[BioTextBoundMention]
         // remove all mutations
-        tbm.modifications = tbm.modifications diff mutations
+        val mods = tbm.modifications diff mutations
         // add desired mutation only
-        tbm.modifications += mut
-        tbm
+        tbm2.copy(modifications = Set(mut) ++ mods).toBioMention
       }.toSeq
     }
   }

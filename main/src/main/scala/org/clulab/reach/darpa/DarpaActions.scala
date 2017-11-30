@@ -321,8 +321,7 @@ class DarpaActions extends Actions with LazyLogging {
         val evArgs = m.arguments - "cause" - "theme" ++ Map("theme" -> Seq(theme))
         val ev = new BioEventMention(m.copy(arguments = evArgs), isDirect = true)
         // modifications other than negations belong to the SimpleEvent
-        ev.modifications = otherMods
-        ev
+        ev.copy(modifications = otherMods)
       }
 
       val splitRegs = for {
@@ -334,8 +333,7 @@ class DarpaActions extends Actions with LazyLogging {
         val regArgs = Map("controlled" -> Seq(ev), "controller" -> Seq(cause))
         val reg = new BioRelationMention(m.copy(labels = DarpaActions.REG_LABELS, arguments = regArgs).toRelationMention)
         // negations should be propagated to the newly created Positive_regulation
-        reg.modifications = negMods
-        reg
+        reg.copy(modifications = negMods)
       }
 
       splitEvs ++ splitRegs
@@ -705,12 +703,18 @@ object DarpaActions {
       // get an optional site (assume only one site)
       val siteOption = se.arguments.get("site").map(_.head)
       // create new mention for the entity
-      val modifiedEntity = new BioTextBoundMention(entity)
+      val bioEntity = new BioTextBoundMention(entity)
       // attach a modification based on the event trigger
       val label = DarpaActions.getModificationLabel(se.label)
-      BioMention.copyAttachments(entity, modifiedEntity)
-      modifiedEntity.modifications += PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
-      modifiedEntity
+      val entity2: BioMention = BioMention.copyAttachments(entity, bioEntity)
+      val ptm = PTM(label, evidence = Some(se.trigger), site = siteOption, negated)
+      // add modifications
+      val modifiedEntity = entity2 match {
+        case tbm: TextBoundMention => tbm.copy(modifications = tbm.modifications ++ Set(ptm))
+        case rel: RelationMention => rel.copy(modifications = rel.modifications ++ Set(ptm))
+        case em: EventMention => em.copy(modifications = em.modifications ++ Seq(ptm))
+      }
+      modifiedEntity.toBioMention
 
     //
     // cases for the generation of output

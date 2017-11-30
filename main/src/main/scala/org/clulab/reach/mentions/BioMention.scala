@@ -13,7 +13,7 @@ class BioTextBoundMention(
   keep: Boolean,
   foundBy: String
 ) extends TextBoundMention(labels, tokenInterval, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display with Context{
+    with ReachModifications with Grounding with Display with Context{
 
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
@@ -34,7 +34,7 @@ class BioEventMention(
   foundBy: String,
   val isDirect: Boolean = false
 ) extends EventMention(labels, mkTokenInterval(trigger, arguments), trigger, arguments, paths, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display with Context{
+    with ReachModifications with Grounding with Display with Context {
 
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
@@ -55,9 +55,10 @@ class BioRelationMention(
   sentence: Int,
   document: Document,
   keep: Boolean,
-  foundBy: String
-) extends RelationMention(labels, mkTokenInterval(arguments), arguments, paths, sentence, document, keep, foundBy)
-    with Modifications with Grounding with Display with Context {
+  foundBy: String,
+  modifications: Set[Modification] = Set.empty[Modification]
+) extends RelationMention(labels, mkTokenInterval(arguments), arguments, paths, sentence, document, keep, foundBy, modifications)
+    with ReachModifications with Grounding with Display with Context {
 
   override def hashCode: Int = {
     val mutations = modifications.filter(_.isInstanceOf[Mutant])
@@ -68,10 +69,19 @@ class BioRelationMention(
     this(m.labels, m.arguments, m.paths, m.sentence, m.document, m.keep, m.foundBy)
 }
 
-object BioMention{
-    def copyAttachments(src:BioMention, dst:BioMention){
-        dst.copyGroundingFrom(src)
-        dst.context = src.context
-        dst.modifications ++= src.modifications
+object BioMention {
+
+    def copyAttachments(src: BioMention, dst: BioMention): BioMention = {
+      dst.copyGroundingFrom(src)
+      dst.context = src.context
+      // copy mods
+      val res = dst match {
+        case tbm: TextBoundMention => tbm.copy(modifications = src.modifications ++ dst.modifications)
+        case rel: RelationMention => rel.copy(modifications = src.modifications ++ dst.modifications)
+        case em: EventMention => em.copy(modifications = src.modifications ++ dst.modifications)
+        case _ => dst
+      }
+      res.toBioMention
     }
+
 }

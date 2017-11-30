@@ -5,7 +5,7 @@ import org.clulab.reach.context.Context
 import org.clulab.odin._
 
 package object mentions {
-  type BioMention = Mention with Modifications with Grounding with Display with Context
+  type BioMention = Mention with ReachModifications with Grounding with Display with Context
   type CorefMention = BioMention with Anaphoric
   type Link = (Seq[CorefMention], AntecedentSelector) => Seq[CorefMention]
 
@@ -57,7 +57,6 @@ package object mentions {
           m.foundBy
         )
         CorefMention.copyAttachments(m, tbm)
-        tbm
       }
       case m: BioEventMention => {
         val ev = new CorefEventMention(
@@ -72,7 +71,6 @@ package object mentions {
           m.isDirect
         )
         CorefMention.copyAttachments(m, ev)
-        ev
       }
 
       case m: BioRelationMention => {
@@ -86,7 +84,6 @@ package object mentions {
           m.foundBy
         )
         CorefMention.copyAttachments(m, rel)
-        rel
       }
 
       case m: Mention => m.toBioMention.toCorefMention
