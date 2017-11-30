@@ -693,7 +693,7 @@ object NxmlSearcher {
     } else {
 
       //searcher.useCaseAnyInteraction(resultDir, 100000)
-      searcher.useCase(useCaseMicroBiology)
+      searcher.useCaseMicroBiology(resultDir)
       //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD2(resultDir)
