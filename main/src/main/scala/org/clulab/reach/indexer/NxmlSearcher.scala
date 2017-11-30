@@ -236,13 +236,16 @@ class NxmlSearcher(val indexDir:String) {
 
   def useCaseTB(resultDir:String): Unit = {
     vanillaUseCase(
-      """ "chronic inflammation" AND ("tissue damage" OR "tissue repair" OR "wound healing" OR "angiogenesis" OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR "lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """,
+      """ "chronic inflammation" AND ("tissue damage"
+        |OR "tissue repair" OR "wound healing" OR "angiogenesis"
+        |OR "fibrosis" OR "resolvin" OR "eicosanoid" OR "tumor-infiltrating lymphocyte" OR
+        |"lymphoid aggregate" OR "granuloma" OR "microbiome" OR "short-chain fatty acid") """.stripMargin,
       resultDir)
   }
 
   def useCaseMicroBiology(resultDir:String): Unit = {
     vanillaUseCase(
-      """("Candidatus Pacearchaeota archaeon" OR "unclassified Candidatus Methanoperedenaceae"))""".stripMargin, resultDir)
+      """("Candidatus Pacearchaeota archaeon" OR "unclassified Candidatus Methanoperedenaceae")""".stripMargin, resultDir)
   }
 
   //
