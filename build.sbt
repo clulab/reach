@@ -1,17 +1,17 @@
 import ReleaseTransformations._
 
 lazy val commonSettings = Seq(
-
   organization := "org.clulab",
-
-  scalaVersion := "2.11.8",
-
+  // scalaVersion := "2.11.11",
+  scalaVersion := "2.12.4",
+  crossScalaVersions := Seq("2.11.11", "2.12.4"),
   scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation"),
-
   testOptions in Test += Tests.Argument("-oD"),
-
   parallelExecution in Global := false,
 
+  //
+  // publishing settings
+  //
   // publish to a maven repo
   publishMavenStyle := true,
 
@@ -86,24 +86,26 @@ lazy val export = project
 // publishing settings
 //
 
-// these are the steps to be performed during release
+// release steps
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
   runClean,
-  runTest,
+  // runTest,
+  releaseStepCommandAndRemaining("+test"),
   setReleaseVersion,
-  ReleaseStep(action = Command.process("publishSigned", _)),
-  ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
   commitReleaseVersion,
   tagRelease,
+  // ReleaseStep(action = Command.process("publishSigned", _)),
+  releaseStepCommandAndRemaining("+publishSigned"),
   setNextVersion,
   commitNextVersion,
+  // ReleaseStep(action = Command.process("sonatypeReleaseAll", _)),
+  releaseStepCommandAndRemaining("sonatypeReleaseAll"),
   pushChanges
 )
 
 // settings for building project website
-
 site.settings
 // include documentation
 site.includeScaladoc()
