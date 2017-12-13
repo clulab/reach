@@ -685,24 +685,28 @@ object NxmlSearcher {
   val PHASE3_DRUG = """AZD6244"""
 
   def main(args:Array[String]): Unit = {
-    val props = StringUtils.argsToProperties(args)
-    val indexDir = props.getProperty("index")
-    val resultDir = props.getProperty("output")
+    //val props = StringUtils.argsToProperties(args)
+    val indexDir= args(1)
+    //val indexDir = props.getProperty("index")
+ //   val resultDir = props.getProperty("output")
+
+    val resultDir = args(2)
     val searcher = new NxmlSearcher(indexDir)
+    searcher.useCaseMicroBiology(resultDir)
 
-    if(props.containsKey("ids")) {
-      val ids = readIds(props.getProperty("ids"))
-      searcher.searchByIds(ids, resultDir)
-    } else {
-
-      //searcher.useCaseAnyInteraction(resultDir, 100000)
-      searcher.useCaseMicroBiology(resultDir)
-      //searcher.useCase(resultDir)
-      //searcher.useCasePhase3d(resultDir)
-      //searcher.useCaseNCD2(resultDir)
-      //searcher.useCaseCrop(resultDir)
-      //searcher.useCaseFall2017Eval(resultDir)
-    }
+//    if(props.containsKey("ids")) {
+//      val ids = readIds(props.getProperty("ids"))
+//      searcher.searchByIds(ids, resultDir)
+//    } else {
+//
+//      //searcher.useCaseAnyInteraction(resultDir, 100000)
+//      searcher.useCaseMicroBiology(resultDir)
+//      //searcher.useCase(resultDir)
+//      //searcher.useCasePhase3d(resultDir)
+//      //searcher.useCaseNCD2(resultDir)
+//      //searcher.useCaseCrop(resultDir)
+//      //searcher.useCaseFall2017Eval(resultDir)
+//    }
 
     searcher.close()
   }
