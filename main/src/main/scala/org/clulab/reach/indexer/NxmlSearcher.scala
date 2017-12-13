@@ -686,11 +686,11 @@ object NxmlSearcher {
 
   def main(args:Array[String]): Unit = {
     //val props = StringUtils.argsToProperties(args)
-    val indexDir= args(1)
+    val indexDir= args(0)
     //val indexDir = props.getProperty("index")
  //   val resultDir = props.getProperty("output")
 
-    val resultDir = args(2)
+    val resultDir = args(1)
     val searcher = new NxmlSearcher(indexDir)
     searcher.useCaseMicroBiology(resultDir)
 
