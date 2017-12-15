@@ -1,7 +1,7 @@
 #Changes
 =======
 
-+ **1.4.1** - Update to use released Processors 6.3.0 as new Reach base.
++ **1.4.1** - Update to use released Processors 6.3.0 as new Reach base. Update Scala to 2.11.11.
 + **1.4.1** - Update Wiki pages on configuring and running Reach. Update README and CHANGES files.
 + **1.4.1** - Add argument to restrict NXML input file size.
 + **1.4.0** - Update Reach to use Processors 6.1.5 (refactored Client/Server). Allow use of new CLUProcessor.
