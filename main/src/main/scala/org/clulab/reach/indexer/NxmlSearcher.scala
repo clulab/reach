@@ -245,7 +245,7 @@ class NxmlSearcher(val indexDir:String) {
 
   def useCaseMicroBiology(resultDir:String): Unit = {
     vanillaUseCase(
-      """("Candidatus Pacearchaeota archaeon" OR "unclassified Candidatus Methanoperedenaceae")""".stripMargin, resultDir)
+      """("Nitrosopumilales archaeon" OR "Euryarchaeota archaeon")""".stripMargin, resultDir)
   }
 
   //
