@@ -63,8 +63,10 @@ class TestKBSupport extends FlatSpec with Matchers {
 
   // test KBUtils
   "makePathInKBDir(testFile)" should "return complete filepath in KB directory" in {
-    val expected = ReachKBConstants.KBDirResourcePath + java.io.File.separator + "testFile"
-    val path = ReachKBUtils.makePathInKBDir("testFile")
+    val actualPath = ReachKBUtils.makePathInKBDir("testFile") // Really make[Resource]PathInKBDir
+    val expectedPath = ReachKBConstants.KBDirResourcePath + "/" + "testFile"
+    
+    actualPath should be (expectedPath)
   }
 
 }
