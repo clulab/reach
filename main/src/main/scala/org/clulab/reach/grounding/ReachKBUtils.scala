@@ -36,7 +36,7 @@ object ReachKBUtils {
 
   /** Return a resource path string for the given filename in the knowledge bases directory. */
   def makePathInKBDir (filename:String): String = {
-    // Resource paths use "/" instead of File.separator.  File.separator will this break under Windows.
+    // Resource paths use "/" instead of File.separator.  File.separator will break this under Windows.
     return KBDirResourcePath + "/" + filename
   }
 
