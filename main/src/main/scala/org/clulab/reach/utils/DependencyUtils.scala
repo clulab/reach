@@ -71,32 +71,76 @@ object DependencyUtils {
 
     def getIncoming(i: Int) = graph.incomingEdges.lift(i).getOrElse(Array.empty).map(_._1)
 
-    def followTrail (i: Int, heads:Seq[Int]): Seq[Int] = {
+    def loopfullFollowTrail(i: Int, heads:Seq[Int]): Int = {
+      val incoming = getIncoming(i)
+
+      incoming match {
+        case valid if valid.isEmpty => i
+        // Loop invariant: i is never already in heads, and this line prevents that
+        case loop if loop.head == i || heads.contains(loop.head) => i
+        case found if found.min < span.start || span.end <= found.max => loopfullFollowTrailOut(found.head, i +: heads, i)
+        case _ => loopfullFollowTrail(incoming.head, i +: heads)
+      }
+    }
+
+    def loopfullFollowTrailOut(i: Int, heads: Seq[Int], highest: Int): Int = {
+      val incoming = getIncoming(i)
+
+      incoming match {
+        case valid if valid.isEmpty => highest
+        // Loop invariant: i is never already in heads, and this line prevents that
+        case loop if loop.head == i || heads.contains(loop.head) => highest
+        case outgoing if outgoing.min < span.start || span.end <= outgoing.max => loopfullFollowTrailOut(incoming.head, i +: heads, highest)
+        case _ => loopfullFollowTrail(incoming.head, i +: heads)
+      }
+    }
+
+    def looplessFollowTrail (i: Int, heads:Seq[Int]): Seq[Int] = {
 
       // dependents
       val incoming = getIncoming(i)
 
       incoming match {
         case valid if valid.isEmpty | valid.contains(i) => Seq(i)
-        case found if found.min < span.start | found.max > (span.end - 1) => followTrailOut(found.head, heads ++ Seq(i), i)
-        case _ => followTrail(incoming.head, heads ++ Seq(i))
+        case found if found.min < span.start | found.max > (span.end - 1) => looplessFollowTrailOut(found.head, heads ++ Seq(i), i)
+        case _ => looplessFollowTrail(incoming.head, heads ++ Seq(i))
       }
     }
 
-    def followTrailOut (i: Int, heads:Seq[Int], highest: Int): Seq[Int] = {
+    def looplessFollowTrailOut (i: Int, heads:Seq[Int], highest: Int): Seq[Int] = {
 
       val incoming = getIncoming(i)
 
       incoming match {
         case valid if valid.isEmpty | valid.contains(i) => Seq(highest)
-        case outgoing if outgoing.min < span.start | outgoing.max > (span.end - 1) => followTrailOut (incoming.head, heads ++ Seq(i), highest)
-        case _ => followTrail (incoming.head, heads ++ Seq(i))
+        case outgoing if outgoing.min < span.start | outgoing.max > (span.end - 1) => looplessFollowTrailOut (incoming.head, heads ++ Seq(i), highest)
+        case _ => looplessFollowTrail (incoming.head, heads ++ Seq(i))
       }
     }
+    
+    def loopfullHeads = for (i <- span.start until span.end) yield loopfullFollowTrail(i, Nil)
 
-    val heads = for (i <- span.start until span.end) yield followTrail(i, Nil)
+    def looplessHeads = for (i <- span.start until span.end) yield looplessFollowTrail(i, Nil)
 
-    heads.flatten.distinct.sorted
+    def loopfullFiltered = loopfullHeads.distinct.sorted
+    
+    def looplessFiltered = looplessHeads.flatten.distinct.sorted
+    
+    def doubleFiltered = {
+      val loopfullResult = loopfullFiltered
+      val looplessResult = looplessFiltered
+      
+      require(loopfullResult == looplessResult)
+      loopfullResult
+    }
+    
+    // Use looplessFiltered for old and potentially faster functionality which will break on loops
+    def singleFiltered = loopfullFiltered
+    //def singleFiltered = looplessFiltered
+    
+    // Use singleFiltered to not perform the test
+    //doubleFiltered 
+    singleFiltered
   }
 
   /**
@@ -116,7 +160,7 @@ object DependencyUtils {
   }
 
   /**
-   * Find the highest nodes in an interval of a dependency graph, ignoring puncutation, coordinations, and prepositions.
+   * Find the highest nodes in an interval of a dependency graph, ignoring punctuation, coordinations, and prepositions.
    * Allows multiple node indices to be "highest" in the case of a tie.
    * @param span the interval within which to search
    * @param sent the Sentence within which to look
@@ -129,34 +173,77 @@ object DependencyUtils {
     val stopTags = "(.|,|\\(|\\)|:|''|``|#|$|CC|TO|IN)"
 
     def getIncoming(i: Int) = sent.dependencies.get.incomingEdges.lift(i).getOrElse(Array.empty).map(_._1)
+ 
+    def loopfullFollowTrail (i: Int, heads: Seq[Int]): Int = {
+      val incoming = getIncoming(i)
 
-    def followTrail (i: Int, heads:Seq[Int]): Seq[Int] = {
+      incoming match {
+        case valid if valid.isEmpty => i
+        // Loop invariant: i is never already in heads, and this line prevents that
+        case loop if loop.head == i || heads.contains(loop.head) => i
+        case found if found.min < span.start || span.end <= found.max => loopfullFollowTrailOut(found.head, i +: heads, i)
+        case _ => loopfullFollowTrail(incoming.head, i +: heads)
+      }
+    }
 
-      // dependents
+    def loopfullFollowTrailOut (i: Int, heads: Seq[Int], highest: Int): Int = {
+      val incoming = getIncoming(i)
+
+      incoming match {
+        case valid if valid.isEmpty => highest
+        // Loop invariant: i is never already in heads, and this line prevents that
+        case loop if loop.head == i || heads.contains(loop.head) => highest
+        case outgoing if outgoing.min < span.start || span.end <= outgoing.max => loopfullFollowTrailOut(incoming.head, i +: heads, highest)
+        case _ => loopfullFollowTrail(incoming.head, i +: heads)
+      }
+    }
+    
+    def looplessFollowTrail (i: Int, heads:Seq[Int]): Seq[Int] = {
+
+      //// dependents
       val incoming = getIncoming(i)
 
       incoming match {
         case valid if valid.isEmpty | valid.contains(i) =>  Seq(i)
-        case found if found.min < span.start | found.max > (span.end - 1) => followTrailOut(found.head, heads ++ Seq(i), i)
-        case _ => followTrail(incoming.head, heads ++ Seq(i))
+        case found if found.min < span.start | found.max > (span.end - 1) => looplessFollowTrailOut(found.head, heads ++ Seq(i), i)
+        case _ => looplessFollowTrail(incoming.head, heads ++ Seq(i))
       }
     }
 
-    def followTrailOut (i: Int, heads:Seq[Int], highest: Int): Seq[Int] = {
+    def looplessFollowTrailOut (i: Int, heads:Seq[Int], highest: Int): Seq[Int] = {
 
       val incoming = getIncoming(i)
 
       incoming match {
         case valid if valid.isEmpty | valid.contains(i) => Seq(highest)
-        case outgoing if outgoing.min < span.start | outgoing.max > (span.end - 1) => followTrailOut (incoming.head, heads ++ Seq(i), highest)
-        case _ => followTrail (incoming.head, heads ++ Seq(i))
+        case outgoing if outgoing.min < span.start | outgoing.max > (span.end - 1) => looplessFollowTrailOut (incoming.head, heads ++ Seq(i), highest)
+        case _ => looplessFollowTrail (incoming.head, heads ++ Seq(i))
       }
     }
+    
+    def loopfullHeads = for (i <- span.start until span.end) yield loopfullFollowTrail(i, Nil)
+    
+    def looplessHeads = for (i <- span.start until span.end) yield looplessFollowTrail(i, Nil)
 
-    val heads = for (i <- span.start until span.end) yield followTrail(i, Nil)
-
-    val filtered = heads.flatten.distinct.filter(x => !(sent.tags.get(x) matches stopTags)).sorted
-    filtered
+    def loopfullFiltered = loopfullHeads.distinct.filter(x => !(sent.tags.get(x) matches stopTags)).sorted
+    
+    def looplessFiltered = looplessHeads.flatten.distinct.filter(x => !(sent.tags.get(x) matches stopTags)).sorted
+    
+    def doubleFiltered = {
+      val loopfullResult = loopfullFiltered
+      val looplessResult = looplessFiltered
+      
+      require(loopfullResult == looplessResult)
+      loopfullResult
+    }
+    
+    // Use looplessFiltered for old and potentially faster functionality which will break on loops
+    def singleFiltered = loopfullFiltered
+    //def singleFiltered = looplessFiltered
+    
+    // Use singleFiltered to not perform the test
+    //doubleFiltered 
+    singleFiltered
   }
 
 
@@ -196,14 +283,15 @@ object DependencyUtils {
 
       incoming match {
         case valid if valid.isEmpty | valid.contains(i) =>  Seq(i)
+        // This does take into account a loop in heads.contains(i)
         case found if heads.contains(i) | found.min < span.start | found.max > (span.end - 1) => Seq(i)
         case _ => followTrail(incoming.head, heads ++ Seq(i))
       }
     }
 
     val heads = for (i <- span.start until span.end) yield followTrail(i, Nil)
-
-    heads.flatten.distinct.sorted
+    
+    heads.flatten.distinct.sorted    
   }
 
   /**
