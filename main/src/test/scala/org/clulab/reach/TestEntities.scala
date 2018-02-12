@@ -8,6 +8,8 @@ import TestUtils._
   * Date: 5/19/2015.
   * Last Modified: Update for processing annotators.
   */
+
+//@Ignore
 class TestEntities extends FlatSpec with Matchers {
 
   // test data
