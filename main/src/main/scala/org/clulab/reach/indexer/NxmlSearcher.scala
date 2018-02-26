@@ -227,6 +227,14 @@ class NxmlSearcher(val indexDir:String) {
       maxDocs)
   }
 
+  /** Finds all NXML that contain at least one atrial fibrilation term */
+  def useCaseAFib(resultDir:String, maxDocs:Int) {
+    vanillaUseCase(
+      """ "atrial fibrillation" OR afib  """,
+      resultDir,
+      maxDocs)
+  }
+
   /** Use case for childrens health */
   def useCaseCH(resultDir:String): Unit = {
     vanillaUseCase(
@@ -639,6 +647,16 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  def useCaseUPittJan2018(resultDir:String): Unit = {
+    vanillaUseCase(
+      """
+      | ("Transforming growth factor beta" OR TGFbeta OR TGFbeta1 OR "TGF\-beta") AND
+      | ("Transforming growth factor beta receptor" OR TGFbetaR OR TGFbeta1R OR TGF\-betaR OR SMAD3 OR SMAD4 OR P27) AND
+      | ("Glioblastoma multiforme" OR GBM)
+      | """,
+      resultDir)
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
@@ -693,6 +711,8 @@ object NxmlSearcher {
       //searcher.useCaseNCD2(resultDir)
       //searcher.useCaseCrop(resultDir)
       //searcher.useCaseFall2017Eval(resultDir)
+      //searcher.useCaseUPittJan2018(resultDir)
+      //searcher.useCaseAFib(resultDir, 100000)
     }
 
     searcher.close()
