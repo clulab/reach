@@ -230,7 +230,7 @@ class NxmlSearcher(val indexDir:String) {
   /** Finds all NXML that contain at least one atrial fibrilation term */
   def useCaseAFib(resultDir:String, maxDocs:Int) {
     vanillaUseCase(
-      """ "atrial fibrillation" OR afib  """,
+      """ ("atrial fibrillation" OR afib) AND (postoperative OR post\\-operative OR PAF OR POAF)  """,
       resultDir,
       maxDocs)
   }
@@ -704,7 +704,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseAnyInteraction(resultDir, 100000)
+      //searcher.useCaseAnyInteraction(resultDir, 100000)
 
       //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
@@ -712,7 +712,7 @@ object NxmlSearcher {
       //searcher.useCaseCrop(resultDir)
       //searcher.useCaseFall2017Eval(resultDir)
       //searcher.useCaseUPittJan2018(resultDir)
-      //searcher.useCaseAFib(resultDir, 100000)
+      searcher.useCaseAFib(resultDir, 100000)
     }
 
     searcher.close()
