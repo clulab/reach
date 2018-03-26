@@ -31,6 +31,7 @@ Reach was created by the following members of the [CLU lab at the University of 
 + [Tom Hicks](https://github.com/hickst)
 + [Enrique Noriega](https://github.com/enoriega)
 + [Mihai Surdeanu](https://github.com/MihaiSurdeanu)
++ [Clayton Morrison](https://ischool.arizona.edu/users/clayton-morrison)
 
 # Citations
 
