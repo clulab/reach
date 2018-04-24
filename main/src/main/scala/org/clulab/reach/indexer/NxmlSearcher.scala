@@ -657,6 +657,12 @@ class NxmlSearcher(val indexDir:String) {
       resultDir)
   }
 
+  def useCaseMegha(resultDir:String): Unit = {
+    vanillaUseCase(
+      """ PIM1 OR EDC3 OR DCP1A OR DDX6 """,
+      resultDir)
+  }
+
   def searchByIds(ids:Array[String], resultDir:String): Unit = {
     val result = new mutable.HashSet[(Int, Float)]()
     logger.info(s"Searching for ${ids.length} ids: ${ids.mkString(", ")}")
@@ -704,7 +710,7 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseAnyInteraction(resultDir, 100000)
+      //searcher.useCaseAnyInteraction(resultDir, 100000)
 
       //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
@@ -713,6 +719,7 @@ object NxmlSearcher {
       //searcher.useCaseFall2017Eval(resultDir)
       //searcher.useCaseUPittJan2018(resultDir)
       //searcher.useCaseAFib(resultDir, 100000)
+      searcher.useCaseMegha(resultDir)
     }
 
     searcher.close()
