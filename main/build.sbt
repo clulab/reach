@@ -3,7 +3,7 @@ name := "reach-main"
 libraryDependencies ++= {
   val akkaV = "2.5.4"
   val luceVer = "5.3.1"
-  val procVer = "6.3.0"
+  val procVer = "6.3.1-SNAPSHOT"
 
   Seq(
     "ai.lum"              %%  "nxmlreader"  % "0.0.9",
@@ -15,7 +15,7 @@ libraryDependencies ++= {
     "org.apache.lucene"    %  "lucene-analyzers-common"  % luceVer,
     "org.apache.lucene"    %  "lucene-queryparser"       % luceVer,
     "org.biopax.paxtools"  %  "paxtools-core"            % "4.3.1",
-    "org.clulab"           %  "bioresources"             % "1.1.24",
+    "org.clulab"           %  "bioresources"             % "1.1.26-SNAPSHOT",
     "org.clulab"          %%  "processors-main"          % procVer,
     "org.clulab"          %%  "processors-corenlp"       % procVer,
     "org.clulab"          %%  "processors-modelsmain"    % procVer,
