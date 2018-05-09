@@ -6,6 +6,7 @@ import com.typesafe.scalalogging.LazyLogging
 import org.clulab.processors.ProcessorAnnotator
 import org.clulab.processors.client.ProcessorClient
 import org.clulab.processors.clu.{ BioCluProcessor, CluProcessor }
+import org.clulab.processors.bionlp.BioNLPProcessor
 
 /**
   * Factory object which selects and returns a ProcessorAnnotator, configured from
@@ -30,6 +31,7 @@ object ProcessorAnnotatorFactory extends LazyLogging {
   /** Instantiate and return a processor annotator using the given configuration. */
   private def makeProcessorAnnotator (config: Config): ProcessorAnnotator = {
     config.getString("processorAnnotator.type") match {
+      case "bionlp" => new BioNLPProcessor()
       case "clu"    => new CluProcessor()
       case "clubio" => new BioCluProcessor()
       case "server" => ProcessorClient.instance
