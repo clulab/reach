@@ -66,6 +66,10 @@
       # Any BioEntity may appear as the controlled in an Activation
       - BioEntity:
           - BioProcess   # ex. "apoptosis"
+          - Locus # for TAIR
+          - go_comp # for TAIR
+          - go_func # for TAIR
+          - go_proc # for TAIR
           - BioChemicalEntity:
               - Generic_entity
               - Simple_chemical

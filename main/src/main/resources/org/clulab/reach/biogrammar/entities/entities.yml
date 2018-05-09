@@ -273,3 +273,35 @@
     [entity='I-Family']*
     )
     [lemma=inhibitor & !entity=/^(B|I)/]
+
+- name: tair-locus
+  label: Locus
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-Locus'] [entity='I-Locus']*
+
+- name: tair-go_comp
+  label: go_comp
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-go_comp'] [entity='I-go_comp']*
+
+- name: tair-go_proc
+  label: go_proc
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-go_proc'] [entity='I-go_proc']*
+
+- name: tair-go_func
+  label: go_func
+  action: mkNERMentions
+  priority: 3
+  type: token
+  pattern: |
+    [entity='B-go_func'] [entity='I-go_func']*
