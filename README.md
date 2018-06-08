@@ -155,6 +155,29 @@ You can run interactively explore assembly output for various snippets of text u
 sbt "runMain org.clulab.assembly.AssemblyShell"
 ```
 
+### Dockerize
+
+You can create a docker image by typing:
+
+```
+$ sbt dockerize
+```
+
+Then you can type the following to confirm that the image `org.clulab/reach-exe` exists:
+
+```
+$ docker images
+REPOSITORY                       TAG                 IMAGE ID            CREATED             SIZE
+org.clulab/reach-exe             latest              b371af2ec5b0        2 minutes ago       1.37GB
+org.clulab/reach-exe             v1.4.1-SNAPSHOT     b371af2ec5b0        2 minutes ago       1.37GB
+```
+
+and to run the app:
+
+```
+$ docker run org.clulab/reach-exe
+```
+
 # Modifying the code
 Reach builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
 

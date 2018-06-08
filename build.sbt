@@ -55,8 +55,36 @@ lazy val commonSettings = Seq(
 
 )
 
+lazy val dockerSettings = Seq(
+  dockerfile in docker := {
+    val targetDir = "/app"
+    // the assembly task generates a fat jar
+    val artifact: File = assembly.value
+    val artifactTargetPath = s"$targetDir/${artifact.name}"
+    val dockerConf = "docker.conf"
+    new Dockerfile {
+      from("openjdk")
+      add(artifact, artifactTargetPath)
+      copy(new File(dockerConf), file(s"$targetDir/$dockerConf"))
+      entryPoint("java", "-Dpidfile.path=/dev/null", s"-Dconfig.file=$targetDir/$dockerConf", "-jar", artifactTargetPath)
+    }
+  },
+  imageNames in docker := Seq(
+    // sets the latest tag
+    ImageName(s"${organization.value}/${name.value}:latest"),
+    // sets a name with a tag that contains the project version
+    ImageName(
+      namespace = Some(organization.value),
+      repository = name.value,
+      tag = Some("v" + version.value)
+    )
+  )
+)
+
 lazy val root = (project in file("."))
-  .settings(commonSettings: _*)
+  .enablePlugins(sbtdocker.DockerPlugin)
+  .settings(commonSettings)
+  .settings(dockerSettings)
   .aggregate(main, causalAssembly, export)
   .dependsOn(main % "test->test;compile", causalAssembly, export) // so that we can import from the console
   .settings(
@@ -81,6 +109,11 @@ lazy val causalAssembly = project.in(file("assembly"))
 lazy val export = project
   .settings(commonSettings:_*)
   .dependsOn(main % "test->test;compile->compile", causalAssembly % "test;compile") // need access to assembly/src/resources
+
+
+// add a command to dockerize
+/* addCommandAlias("dockerize", ";clean;compile;test;docker") */
+addCommandAlias("dockerize", ";clean;compile;docker")
 
 //
 // publishing settings
