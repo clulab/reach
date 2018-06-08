@@ -178,6 +178,8 @@ and to run the app:
 $ docker run org.clulab/reach-exe
 ```
 
+The docker image uses the configuration file `docker.conf`. Please edit it according to your needs.
+
 # Modifying the code
 Reach builds upon our Odin event extraction framework. If you want to modify event and entity grammars, please refer to [Odin's Wiki](https://github.com/sistanlp/processors/wiki/ODIN-(Open-Domain-INformer)) page for details. Please read the included Odin manual for details on the rule language and the Odin API.
 
