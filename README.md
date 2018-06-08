@@ -178,6 +178,8 @@ and to run the app:
 $ docker run org.clulab/reach-exe
 ```
 
+[You can use the -v option with docker run to make a file or file system available inside a container.](https://docs.oracle.com/cd/E37670_01/E75728/html/section_vtr_p2z_fp.html)
+
 The docker image uses the configuration file `docker.conf`. Please edit it according to your needs.
 
 # Modifying the code
