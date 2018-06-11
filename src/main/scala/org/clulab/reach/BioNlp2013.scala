@@ -21,7 +21,8 @@ object BioNlp2013 {
     // read bionlp 2013 dataset
     val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_train_data_rev3")
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
-      val doc = bionlpSystem.readBioNlpAnnotations(txtFile)
+      val a1 = bionlpSystem.readCorrespondingA1(txtFile)
+      val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
       val results = bionlpSystem.extractFrom(doc)
       // TODO dump event mentions (preferably as brat)
     }
@@ -54,12 +55,10 @@ class BioNlp2013System {
 
   // returns annotated document corresponding to bionlp2013 file
   // with entities provided in the corpus
-  def readBioNlpAnnotations(txtFile: File): Document = {
+  def readBioNlpAnnotations(txtFile: File, tbms: Vector[BratTBM]): Document = {
     val docId = txtFile.getBaseName() // the docId is the filename minus path and extension
     val text = txtFile.readString()
     val doc = mkDoc(text, docId)
-    val a1File = new File("""\.txt$""".r.replaceAllIn(txtFile.getCanonicalPath(), ".a1"))
-    val tbms = readA1Annotations(a1File)
     replaceNer(doc, tbms)
     // FIXME the following prints are for debugging only and should be removed
     tbms.foreach(println)
@@ -71,6 +70,11 @@ class BioNlp2013System {
     }
     // val a2File = new File("""\.txt$""".r.replaceAllIn(txtFile.getCanonicalName(), ".a2"))
     doc
+  }
+
+  def readCorrespondingA1(txtFile: File): Vector[BratTBM] = {
+    val a1File = new File("""\.txt$""".r.replaceAllIn(txtFile.getCanonicalPath(), ".a1"))
+    readA1Annotations(a1File)
   }
 
   def readA1Annotations(a1File: File): Vector[BratTBM] = {
