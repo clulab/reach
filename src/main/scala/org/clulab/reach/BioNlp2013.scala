@@ -110,4 +110,28 @@ class BioNlp2013System {
       Some(tags)
   }
 
+  def dumpA2Annotations(mentions: Seq[BioMention], entities: Seq[BratTBM]): String = {
+    // retrieve all textbound mentions
+    val tbms = mentions.flatMap {
+      case m: BioTextBoundMention => Some(m)
+      case _ => None
+    }
+    // map textbound mentions to brat id
+    val tbmToId = tbms.flatMap { m =>
+      val start = m.startOffset
+      val end = m.endOffset
+      entities.find(e => e.start <= start && e.end >= end).map(m -> _.id)
+    }.toMap
+    // retrieve all event mentions
+    val ems = mentions.flatMap {
+      case m: BioEventMention => Some(m)
+      case _ => None
+    }
+    // TODO select events to report
+    // TODO make textbound mentions for triggers
+    // TODO make event mentions for events
+    // TODO return brat standoff
+    ""
+  }
+
 }
