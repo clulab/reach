@@ -21,6 +21,7 @@ object BioNlp2013 {
     val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_train_data_rev3")
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
       val doc = bionlpSystem.readBioNlpAnnotations(txtFile)
+      val results = bionlpSystem.extractFrom(doc)
       // TODO extract event mentions
       // TODO dump event mentions (preferably as brat)
     }
@@ -34,26 +35,16 @@ case class BratTBM(id: String, label: String, start: Int, end: Int, text: String
 
 class BioNlp2013System {
 
-  val entityRules = readResource(RuleReader.entitiesMasterFile)
-  val modificationRules = readResource(RuleReader.modificationsMasterFile)
-  val eventRules = readResource(RuleReader.eventsMasterFile)
-  val contextRules = readResource(RuleReader.contextRelationsFile)
-  // initialize actions object
-  val actions = new DarpaActions
-  val entityLookup = new ReachEntityLookup // initialize entity lookup (find grounding candidates)
-  val grounder = new ReachGrounder
-  // start entity extraction engine
-  // this engine extracts all physical entities of interest
-  val entityEngine = ExtractorEngine(entityRules, actions)
-  // start modification engine
-  // this engine extracts modification features and attaches them to the corresponding entity
-  val modificationEngine = ExtractorEngine(modificationRules, actions)
-  // start event extraction engine
-  // this engine extracts simple and recursive events and applies coreference
-  val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor
   val processor = new BioNLPProcessor
   processor.annotate("something")
+
+  // initialize reach
+  val reachSystem = new ReachSystem
+
+  def extractFrom(doc: Document): Seq[BioMention] = {
+    reachSystem.extractFrom(doc)
+  }
 
   def mkDoc(text: String, docId: String): Document = {
     val doc = processor.annotate(text, keepText = true)
