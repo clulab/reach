@@ -24,6 +24,7 @@ object BioNlp2013 {
       val a1 = bionlpSystem.readCorrespondingA1(txtFile)
       val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
       val results = bionlpSystem.extractFrom(doc)
+      val a2 = bionlpSystem.dumpA2Annotations(results, a1)
       // TODO dump event mentions (preferably as brat)
     }
 
