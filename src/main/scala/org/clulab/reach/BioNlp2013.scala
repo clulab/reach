@@ -22,7 +22,6 @@ object BioNlp2013 {
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
       val doc = bionlpSystem.readBioNlpAnnotations(txtFile)
       val results = bionlpSystem.extractFrom(doc)
-      // TODO extract event mentions
       // TODO dump event mentions (preferably as brat)
     }
 
