@@ -1,6 +1,7 @@
 package org.clulab.reach
 
 import java.io.File
+import scala.collection.mutable.StringBuilder
 import org.clulab.odin._
 import org.clulab.processors.{ Document, Sentence }
 import org.clulab.processors.bionlp.BioNLPProcessor
@@ -111,6 +112,8 @@ class BioNlp2013System {
   }
 
   def dumpA2Annotations(mentions: Seq[BioMention], entities: Seq[BratTBM]): String = {
+    // start standoff
+    val standoff = new StringBuilder
     // retrieve all textbound mentions
     val tbms = mentions.flatMap {
       case m: BioTextBoundMention => Some(m)
@@ -131,7 +134,7 @@ class BioNlp2013System {
     // TODO make textbound mentions for triggers
     // TODO make event mentions for events
     // TODO return brat standoff
-    ""
+    standoff.mkString
   }
 
 }
