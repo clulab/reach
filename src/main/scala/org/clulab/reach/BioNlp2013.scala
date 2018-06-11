@@ -19,10 +19,6 @@ object BioNlp2013 {
 
     // read bionlp 2013 dataset
     val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_train_data_rev3")
-    val txtFiles = dataDir.listFilesByWildcard("*.txt").toVector
-    val a1Files = dataDir.listFilesByWildcard("*.a1").toVector
-    val a2Files = dataDir.listFilesByWildcard("*.a2").toVector
-
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
       val doc = bionlpSystem.readBioNlpAnnotations(txtFile)
       // TODO extract event mentions
