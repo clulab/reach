@@ -19,7 +19,7 @@ object BioNlp2013 {
     val bionlpSystem = new BioNlp2013System
 
     // read bionlp 2013 dataset
-    val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_train_data_rev3")
+    val dataDir = new File("/home/dane/data/bionlp/BioNLP-ST-2013_GE_train_data_rev3")
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
       val a1 = bionlpSystem.readCorrespondingA1(txtFile)
       val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
@@ -60,6 +60,9 @@ class BioNlp2013System {
     val docId = txtFile.getBaseName() // the docId is the filename minus path and extension
     val text = txtFile.readString()
     val doc = mkDoc(text, docId)
+    adjustOffsets(doc, text)
+    val a1File = new File("""\.txt$""".r.replaceAllIn(txtFile.getCanonicalPath(), ".a1"))
+    val tbms = readA1Annotations(a1File)
     replaceNer(doc, tbms)
     // FIXME the following prints are for debugging only and should be removed
     tbms.foreach(println)
@@ -91,6 +94,26 @@ class BioNlp2013System {
   def replaceNer(doc: Document, tbms: Vector[BratTBM]): Unit = {
     for (sent <- doc.sentences) {
       sent.tags = mkTags(sent, tbms)
+    }
+  }
+
+  def rageQuit() = System.exit(-1)
+
+  def adjustOffsets(doc: Document, text: String) = {
+    var off = 0
+    for {
+      (s, i) <- doc.sentences.zipWithIndex
+      (w, j) <- s.words.zipWithIndex
+    } {
+      val start = text.indexOf(w, off)
+      if (start - off > 2) {
+        println("AAAAAAAAAA")
+        rageQuit()
+      }
+      val end = start + w.size
+      doc.sentences(i).startOffsets(j) = start
+      doc.sentences(i).endOffsets(j) = end
+      off = end
     }
   }
 
