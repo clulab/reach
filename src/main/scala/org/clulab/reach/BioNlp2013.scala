@@ -173,7 +173,7 @@ class BioNlp2013System {
         arg match {
           case m: BioTextBoundMention if tbmToId contains m =>
             val id = tbmToId(m)
-            standoff ++= s"${name}:${id} "
+            standoff ++= s"${name.capitalize}:${id} "
           case _ => ()
         }
       }
