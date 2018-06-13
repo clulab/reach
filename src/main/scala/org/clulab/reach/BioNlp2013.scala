@@ -160,10 +160,9 @@ class BioNlp2013System {
         println(text.slice(s.startOffsets.head, s.endOffsets.last))
         println(s.words.mkString(" "))
         println(w)
-        throw new Exception("misalignment")
       }
       // get the closest one
-      val (tok, start) = candidates.minBy(_._2)
+      val (tok, start) = if (candidates.isEmpty) (w, -1) else candidates.minBy(_._2)
       // compute end offset
       val end = start + tok.size
       // overwrite offsets
