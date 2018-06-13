@@ -100,20 +100,20 @@ class BioNlp2013System {
   def rageQuit() = System.exit(-1)
 
   def adjustOffsets(doc: Document, text: String) = {
-    var off = 0
+    var from = 0
     for {
       (s, i) <- doc.sentences.zipWithIndex
       (w, j) <- s.words.zipWithIndex
     } {
-      val start = text.indexOf(w, off)
-      if (start - off > 2) {
+      val start = text.indexOf(w, from)
+      if (start - from > 2) {
         println("AAAAAAAAAA")
         rageQuit()
       }
       val end = start + w.size
       doc.sentences(i).startOffsets(j) = start
       doc.sentences(i).endOffsets(j) = end
-      off = end
+      from = end
     }
   }
 
