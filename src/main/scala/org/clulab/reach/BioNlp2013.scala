@@ -13,6 +13,23 @@ import RuleReader.readResource
 
 object BioNlp2013 {
 
+  /** Takes a token produced by processors and retrieves a list of reverse mappings
+    * corresponding to known character replacements applied during tokenization. <br>
+    * Returns a List ordered by of matching precedence.
+  **/
+  def tokenCandidates(term: String): List[String] = term match {
+    // parentheses and brackets
+    case "-LRB-" => List("(", "[", "{", "-LRB-")
+    case "-RRB-" => List(")", "]", "}", "-RRB-")
+    // slashes
+    case "and"   => List("/", "and", ",")
+    // handle quotes
+    case "''"    => List("\"", "''")
+    case "``"    => List("\"", "``")
+    // dashes are sometimes replaced with an empty token
+    case w       => List("-", w)
+  }
+
   def main(args: Array[String]): Unit = {
 
     // initializing all our stuff
