@@ -107,19 +107,19 @@ class BioNlp2013System {
   **/
   def tokenCandidates(term: String): List[String] = term match {
     // parentheses and brackets
-    case "-LRB-" => List("(", "-LRB-", w)
-    case "-LSB-" => List("[", "-LSB-", w)
-    case "-LCB-" => List("{", "-LCB-", w)
+    case "-LRB-" => List("(", "-LRB-")
+    case "-LSB-" => List("[", "-LSB-")
+    case "-LCB-" => List("{", "-LCB-")
 
-    case "-RRB-" => List(")", "-RRB-", w)
-    case "-RSB-" => List("]", "-RSB-", w)
-    case "-RCB-" => List("}", "-RCB-", w)
+    case "-RRB-" => List(")", "-RRB-")
+    case "-RSB-" => List("]", "-RSB-")
+    case "-RCB-" => List("}", "-RCB-")
 
     // slashes
-    case "and"   => List("/", "and", ",", w)
+    case "and"   => List("/", "and", ",")
     // handle quotes
-    case "''"    => List("\"", "''", w)
-    case "``"    => List("\"", "``", w)
+    case "''"    => List("\"", "''")
+    case "``"    => List("\"", "``")
     case w       => List(w)
   }
 
