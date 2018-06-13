@@ -1,6 +1,7 @@
 package org.clulab.reach
 
 import java.io.File
+import scala.util.control.NonFatal
 import scala.collection.mutable.StringBuilder
 import org.clulab.odin._
 import org.clulab.processors.{ Document, Sentence }
@@ -22,15 +23,19 @@ object BioNlp2013 {
     val outDir = new File("/home/marco/data/reach/output")
 
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
-      println(txtFile)
-      val a1 = bionlpSystem.readCorrespondingA1(txtFile)
-      val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
-      val results = bionlpSystem.extractFrom(doc)
-      val a2 = bionlpSystem.dumpA2Annotations(results, a1)
-      // dump standoff
-      val basename = txtFile.getBaseName()
-      val a2File = new File(outDir, basename + ".a2")
-      a2File.writeString(a2)
+      try {
+        println(txtFile)
+        val a1 = bionlpSystem.readCorrespondingA1(txtFile)
+        val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
+        val results = bionlpSystem.extractFrom(doc)
+        val a2 = bionlpSystem.dumpA2Annotations(results, a1)
+        // dump standoff
+        val basename = txtFile.getBaseName()
+        val a2File = new File(outDir, basename + ".a2")
+        a2File.writeString(a2)
+      } catch {
+        case NonFatal(e) => ()
+      }
     }
 
   }
@@ -134,6 +139,13 @@ class BioNlp2013System {
         val idx = text.indexOf(c, from)
         // don't consider candidate if index is -1
         if (idx == -1) None else Some((c, idx))
+      }
+      if (candidates.isEmpty) {
+        println("ERROR")
+        println(text.slice(s.startOffsets.head, s.endOffsets.last))
+        println(s.words.mkString(" "))
+        println(w)
+        throw new Exception("misalignment")
       }
       // get the closest one
       val (tok, start) = candidates.minBy(_._2)
