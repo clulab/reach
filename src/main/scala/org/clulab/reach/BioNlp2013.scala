@@ -107,15 +107,20 @@ class BioNlp2013System {
   **/
   def tokenCandidates(term: String): List[String] = term match {
     // parentheses and brackets
-    case "-LRB-" => List("(", "[", "{", "-LRB-", w)
-    case "-RRB-" => List(")", "]", "}", "-RRB-", w)
+    case "-LRB-" => List("(", "-LRB-", w)
+    case "-LSB-" => List("[", "-LSB-", w)
+    case "-LCB-" => List("{", "-LCB-", w)
+
+    case "-RRB-" => List(")", "-RRB-", w)
+    case "-RSB-" => List("]", "-RSB-", w)
+    case "-RCB-" => List("}", "-RCB-", w)
+
     // slashes
     case "and"   => List("/", "and", ",", w)
     // handle quotes
     case "''"    => List("\"", "''", w)
     case "``"    => List("\"", "``", w)
-    // dashes are sometimes replaced with an empty token
-    case w       => List("-", w)
+    case w       => List(w)
   }
 
   def adjustOffsets(doc: Document, text: String) = {
