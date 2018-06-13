@@ -161,23 +161,62 @@ class BioNlp2013System {
       case _ => None
     }
     // only report simple events
-    for (e <- ems if e matches "SimpleEvent") {
-      currTBMID += 1
-      currEMID += 1
-      standoff ++= s"T${currTBMID}\t${e.label} ${e.trigger.startOffset} ${e.trigger.endOffset}\t${e.trigger.text}\n"
-      standoff ++= s"E${currEMID}\t${e.label}:T${currTBMID} "
-      for {
-        (name, args) <- e.arguments
-        arg <- args
-      } {
-        arg match {
-          case m: BioTextBoundMention if tbmToId contains m =>
-            val id = tbmToId(m)
-            standoff ++= s"${name.capitalize}:${id} "
-          case _ => ()
+    for (em <- ems) em match {
+      case se if se matches "SimpleEvent" =>
+        currTBMID += 1
+        currEMID += 1
+        standoff ++= s"T${currTBMID}\t${se.label} ${se.trigger.startOffset} ${se.trigger.endOffset}\t${se.trigger.text}\n"
+        standoff ++= s"E${currEMID}\t${se.label}:T${currTBMID} "
+        for {
+          (name, args) <- se.arguments
+          arg <- args
+        } {
+          arg match {
+            case m: BioTextBoundMention if tbmToId contains m =>
+              val id = tbmToId(m)
+              standoff ++= s"${name.capitalize}:${id} "
+            case _ => ()
+          }
         }
-      }
-      standoff ++= "\n"
+        standoff ++= "\n"
+
+      case ce if ce matches "Regulation" =>
+        currTBMID += 1
+        currEMID += 1
+        val promoted = ce.arguments("controlled").head.asInstanceOf[BioEventMention]
+        standoff ++= s"T${currTBMID}\t${promoted.label} ${promoted.trigger.startOffset} ${promoted.trigger.endOffset}\t${promoted.trigger.text}\n"
+        standoff ++= s"E${currEMID}\t${promoted.label}:T${currTBMID} "
+        for {
+          (name, args) <- ce.arguments
+          arg <- args
+        } {
+          arg match {
+            case tbm: BioTextBoundMention if tbmToId contains tbm =>
+              val id = tbmToId(tbm)
+              standoff ++= s"Cause:$id "
+            case evm: BioEventMention =>
+              val subArgs = evm.arguments
+                .map{ case (n, a) =>
+                  n -> a.filter(_.isInstanceOf[BioTextBoundMention])
+                }
+                .filter{ case (n, a) => a.nonEmpty }
+              for {
+                (subName, subArgs) <- subArgs
+                subArg <- subArgs
+              } {
+                subArg match {
+                  case tbm: BioTextBoundMention if tbmToId contains tbm =>
+                    val id = tbmToId(tbm)
+                    standoff ++= s"${subName.capitalize}:$id "
+                  case _ => ()
+                }
+              }
+            case _ => ()
+          }
+        }
+        standoff ++= "\n"
+
+      case em => ()
     }
     standoff.mkString
   }
