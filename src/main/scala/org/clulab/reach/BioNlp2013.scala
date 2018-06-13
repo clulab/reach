@@ -1,6 +1,7 @@
 package org.clulab.reach
 
 import java.io.File
+import scala.util.control.NonFatal
 import scala.collection.mutable.StringBuilder
 import org.clulab.odin._
 import org.clulab.processors.{ Document, Sentence }
@@ -22,15 +23,19 @@ object BioNlp2013 {
     val outDir = new File("/home/marco/data/reach/output")
 
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
-      println(txtFile)
-      val a1 = bionlpSystem.readCorrespondingA1(txtFile)
-      val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
-      val results = bionlpSystem.extractFrom(doc)
-      val a2 = bionlpSystem.dumpA2Annotations(results, a1)
-      // dump standoff
-      val basename = txtFile.getBaseName()
-      val a2File = new File(outDir, basename + ".a2")
-      a2File.writeString(a2)
+      try {
+        println(txtFile)
+        val a1 = bionlpSystem.readCorrespondingA1(txtFile)
+        val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
+        val results = bionlpSystem.extractFrom(doc)
+        val a2 = bionlpSystem.dumpA2Annotations(results, a1)
+        // dump standoff
+        val basename = txtFile.getBaseName()
+        val a2File = new File(outDir, basename + ".a2")
+        a2File.writeString(a2)
+      } catch {
+        case NonFatal(e) => ()
+      }
     }
 
   }
@@ -116,16 +121,55 @@ class BioNlp2013System {
     }
   }
 
+  /** Takes a token produced by processors and retrieves a list of reverse mappings
+    * corresponding to known character replacements applied during tokenization. <br>
+    * Returns a List ordered by of matching precedence.
+  **/
+  def tokenCandidates(term: String): List[String] = term match {
+    // parentheses and brackets
+    case "-LRB-" => List("(", "-LRB-")
+    case "-LSB-" => List("[", "-LSB-")
+    case "-LCB-" => List("{", "-LCB-")
+
+    case "-RRB-" => List(")", "-RRB-")
+    case "-RSB-" => List("]", "-RSB-")
+    case "-RCB-" => List("}", "-RCB-")
+
+    // slashes
+    case "and"   => List("/", "and", ",")
+    // handle quotes
+    case "''"    => List("\"", "''")
+    case "``"    => List("\"", "``")
+    case w       => List(w)
+  }
+
   def adjustOffsets(doc: Document, text: String) = {
     var from = 0
     for {
       (s, i) <- doc.sentences.zipWithIndex
       (w, j) <- s.words.zipWithIndex
     } {
-      val start = text.indexOf(w, from)
-      val end = start + w.size
+      // try all candidates
+      val candidates = tokenCandidates(w).flatMap { c =>
+        val idx = text.indexOf(c, from)
+        // don't consider candidate if index is -1
+        if (idx == -1) None else Some((c, idx))
+      }
+      if (candidates.isEmpty) {
+        println("ERROR")
+        println(text.slice(s.startOffsets.head, s.endOffsets.last))
+        println(s.words.mkString(" "))
+        println(w)
+        throw new Exception("misalignment")
+      }
+      // get the closest one
+      val (tok, start) = candidates.minBy(_._2)
+      // compute end offset
+      val end = start + tok.size
+      // overwrite offsets
       doc.sentences(i).startOffsets(j) = start
       doc.sentences(i).endOffsets(j) = end
+      // new beginning
       from = end
     }
   }
