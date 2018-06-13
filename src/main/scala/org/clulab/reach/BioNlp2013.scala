@@ -18,14 +18,19 @@ object BioNlp2013 {
     // initializing all our stuff
     val bionlpSystem = new BioNlp2013System
 
-    // read bionlp 2013 dataset
-    val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_train_data_rev3")
+    val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_devel_data_rev3")
+    val outDir = new File("/home/marco/data/reach/output")
+
     for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
+      println(txtFile)
       val a1 = bionlpSystem.readCorrespondingA1(txtFile)
       val doc = bionlpSystem.readBioNlpAnnotations(txtFile, a1)
       val results = bionlpSystem.extractFrom(doc)
       val a2 = bionlpSystem.dumpA2Annotations(results, a1)
-      // TODO dump event mentions (preferably as brat)
+      // dump standoff
+      val basename = txtFile.getBaseName()
+      val a2File = new File(outDir, basename + ".a2")
+      a2File.writeString(a2)
     }
 
   }
@@ -63,13 +68,14 @@ class BioNlp2013System {
     val doc = mkDoc(text, docId)
     replaceNer(doc, tbms)
     // FIXME the following prints are for debugging only and should be removed
-    tbms.foreach(println)
-    for (s <- doc.sentences) {
-      for (i <- s.words.indices) {
-        print(s"(${s.words(i)}, ${s.tags.get(i)}, ${s.startOffsets(i)}, ${s.endOffsets(i)})")
-      }
-      println()
-    }
+    // tbms.foreach(println)
+    // for (s <- doc.sentences) {
+    //   for (i <- s.words.indices) {
+    //     print(s"(${s.words(i)}, ${s.entities.get(i)}, ${s.startOffsets(i)}, ${s.endOffsets(i)})")
+    //   }
+    //   println()
+    // }
+    // println("---")
     // val a2File = new File("""\.txt$""".r.replaceAllIn(txtFile.getCanonicalName(), ".a2"))
     doc
   }
@@ -91,11 +97,9 @@ class BioNlp2013System {
   // replaces ner in-place
   def replaceNer(doc: Document, tbms: Vector[BratTBM]): Unit = {
     for (sent <- doc.sentences) {
-      sent.tags = mkTags(sent, tbms)
+      sent.entities = mkTags(sent, tbms)
     }
   }
-
-  def rageQuit() = System.exit(-1)
 
   def adjustOffsets(doc: Document, text: String) = {
     var from = 0
@@ -122,9 +126,11 @@ class BioNlp2013System {
           if (m.start >= sent.startOffsets(i) && m.end <= sent.endOffsets(i)) {
             val tag = if (first) {
               first = false
-              s"B-${m.label}"
+              // s"B-${m.label}"
+              "B-Gene_or_gene_product"
             } else {
-              s"I-${m.label}"
+              // s"I-${m.label}"
+              "I-Gene_or_gene_product"
             }
             tags(i) = tag
           }
@@ -136,6 +142,8 @@ class BioNlp2013System {
   def dumpA2Annotations(mentions: Seq[BioMention], entities: Seq[BratTBM]): String = {
     // start standoff
     val standoff = new StringBuilder
+    var currTBMID = entities.size
+    var currEMID = 0
     // retrieve all textbound mentions
     val tbms = mentions.flatMap {
       case m: BioTextBoundMention => Some(m)
@@ -152,10 +160,25 @@ class BioNlp2013System {
       case m: BioEventMention => Some(m)
       case _ => None
     }
-    // TODO select events to report
-    // TODO make textbound mentions for triggers
-    // TODO make event mentions for events
-    // TODO return brat standoff
+    // only report simple events
+    for (e <- ems if e matches "SimpleEvent") {
+      currTBMID += 1
+      currEMID += 1
+      standoff ++= s"T${currTBMID}\t${e.label} ${e.trigger.startOffset} ${e.trigger.endOffset}\t${e.trigger.text}\n"
+      standoff ++= s"E${currEMID}\t${e.label}:T${currTBMID} "
+      for {
+        (name, args) <- e.arguments
+        arg <- args
+      } {
+        arg match {
+          case m: BioTextBoundMention if tbmToId contains m =>
+            val id = tbmToId(m)
+            standoff ++= s"${name}:${id} "
+          case _ => ()
+        }
+      }
+      standoff ++= "\n"
+    }
     standoff.mkString
   }
 
