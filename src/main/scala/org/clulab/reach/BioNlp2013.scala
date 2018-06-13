@@ -136,7 +136,7 @@ class BioNlp2013System {
     case "-RCB-" => List("}", "-RCB-")
 
     // slashes
-    case "and"   => List("/", "and", ",")
+    case "and"   => List("-", "/", "and", ",")
     // handle quotes
     case "''"    => List("\"", "''")
     case "``"    => List("\"", "``")
