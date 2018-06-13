@@ -43,8 +43,23 @@ case class BratTBM(id: String, label: String, start: Int, end: Int, text: String
 class BioNlp2013System {
 
   // initialize processor
-  val processor = new BioNLPProcessor
-  processor.annotate("something")
+  val processor = new BioNLPProcessor(withRuleNER = false)
+
+  /** Avoid using the NER */
+  def annotate(text: String): Document = {
+    val doc = processor.mkDocument(text, keepText = true)
+    processor.tagPartsOfSpeech(doc)
+    processor.lemmatize(doc)
+    //processor.recognizeNamedEntities(doc)
+    processor.parse(doc)
+    //processor.chunking(doc)
+    //processor.resolveCoreference(doc)
+    //processor.discourse(doc)
+    doc.clear()
+    doc
+  }
+  
+  annotate("something")
 
   // initialize reach
   val reachSystem = new ReachSystem
@@ -54,7 +69,7 @@ class BioNlp2013System {
   }
 
   def mkDoc(text: String, docId: String): Document = {
-    val doc = processor.annotate(text, keepText = true)
+    val doc = annotate(text)
     adjustOffsets(doc, text)
     doc.id = Some(docId)
     doc
