@@ -107,10 +107,20 @@ class BioNlp2013System {
       (s, i) <- doc.sentences.zipWithIndex
       (w, j) <- s.words.zipWithIndex
     } {
-      val start = text.indexOf(w, from)
-      val end = start + w.size
+      // try all candidates
+      val candidates = tokenCandidates(w).flatMap { c =>
+        val idx = text.indexOf(c, from)
+        // don't consider candidate if index is -1
+        if (idx == -1) None else Some((c, idx))
+      }
+      // get the closest one
+      val (tok, start) = candidates.minBy(_._2)
+      // compute end offset
+      val end = start + tok.size
+      // overwrite offsets
       doc.sentences(i).startOffsets(j) = start
       doc.sentences(i).endOffsets(j) = end
+      // new beginning
       from = end
     }
   }
