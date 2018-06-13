@@ -224,8 +224,9 @@ class BioNlp2013System {
       case se if se matches "SimpleEvent" =>
         currTBMID += 1
         currEMID += 1
-        standoff ++= s"T${currTBMID}\t${se.label} ${se.trigger.startOffset} ${se.trigger.endOffset}\t${se.trigger.text}\n"
-        standoff ++= s"E${currEMID}\t${se.label}:T${currTBMID} "
+        val lbl = se.label.replaceFirst("Auto", "").capitalize
+        standoff ++= s"T${currTBMID}\t$lbl ${se.trigger.startOffset} ${se.trigger.endOffset}\t${se.trigger.text}\n"
+        standoff ++= s"E${currEMID}\t$lbl:T${currTBMID} "
         for {
           (name, args) <- se.arguments
           arg <- args
@@ -243,8 +244,9 @@ class BioNlp2013System {
         currTBMID += 1
         currEMID += 1
         val promoted = ce.arguments("controlled").head.asInstanceOf[BioEventMention]
-        standoff ++= s"T${currTBMID}\t${promoted.label} ${promoted.trigger.startOffset} ${promoted.trigger.endOffset}\t${promoted.trigger.text}\n"
-        standoff ++= s"E${currEMID}\t${promoted.label}:T${currTBMID} "
+        val promotedLabel = promoted.label.replaceFirst("Auto", "").capitalize
+        standoff ++= s"T${currTBMID}\t$promotedLabel ${promoted.trigger.startOffset} ${promoted.trigger.endOffset}\t${promoted.trigger.text}\n"
+        standoff ++= s"E${currEMID}\t$promotedLabel:T${currTBMID} "
         for {
           (name, args) <- ce.arguments
           arg <- args
