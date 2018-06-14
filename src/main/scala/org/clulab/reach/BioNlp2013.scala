@@ -22,7 +22,7 @@ object BioNlp2013 {
     val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_devel_data_rev3")
     val outDir = new File("/home/marco/data/reach/output")
 
-    for (txtFile <- dataDir.listFilesByWildcard("*.txt")) {
+    for (txtFile <- dataDir.listFilesByWildcard("*.txt").toSeq.par) {
       try {
         println(txtFile)
         val a1 = bionlpSystem.readCorrespondingA1(txtFile)
