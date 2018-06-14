@@ -1,16 +1,16 @@
 package org.clulab.reach
 
 import java.io.File
+
 import scala.util.control.NonFatal
 import scala.collection.mutable.StringBuilder
 import org.clulab.odin._
-import org.clulab.processors.{ Document, Sentence }
+import org.clulab.processors.{Document, Sentence}
 import org.clulab.processors.bionlp.BioNLPProcessor
 import org.clulab.reach.mentions._
-import org.clulab.reach.grounding._
-import org.clulab.reach.darpa.{ DarpaActions, MentionFilter, NegationHandler }
 import ai.lum.common.FileUtils._
-import RuleReader.readResource
+
+import scala.collection.mutable
 
 object BioNlp2013 {
 
@@ -174,11 +174,11 @@ class BioNlp2013System {
   }
 
   def mkTags(sent: Sentence, tbms: Vector[BratTBM]): Option[Array[String]] = tbms match {
-    case Vector() => Some(Array.fill(sent.words.size)("O"))
-    case tbms =>
-      val tags = Array.fill(sent.words.size)("O")
+    case Vector() => Some(Array.fill(sent.words.length)("O"))
+    case nonemptyTbms =>
+      val tags = Array.fill(sent.words.length)("O")
       // only consider mentions in the current sentence
-      for (m <- tbms if m.start >= sent.startOffsets.head && m.end <= sent.endOffsets.last) {
+      for (m <- nonemptyTbms if m.start >= sent.startOffsets.head && m.end <= sent.endOffsets.last) {
         var first = true
         for (i <- tags.indices) {
           if (m.start >= sent.startOffsets(i) && m.end <= sent.endOffsets(i)) {
@@ -213,39 +213,54 @@ class BioNlp2013System {
       val end = m.endOffset
       entities.find(e => e.start <= start && e.end >= end).map(m -> _.id)
     }.toMap
-    // retrieve all event mentions
-    val ems = mentions.flatMap {
-      case m: BioEventMention => Some(m)
-      case _ => None
-    }
-    // only report simple events
-    for (em <- ems) em match {
-      case se if se matches "SimpleEvent" =>
-        currTBMID += 1
-        currEMID += 1
-        val lbl = se.label.replaceFirst("Auto", "").capitalize
-        standoff ++= s"T${currTBMID}\t$lbl ${se.trigger.startOffset} ${se.trigger.endOffset}\t${se.trigger.text}\n"
-        standoff ++= s"E${currEMID}\t$lbl:T${currTBMID} "
-        for {
-          (name, args) <- se.arguments
-          arg <- args
-        } {
-          arg match {
-            case m: BioTextBoundMention if tbmToId contains m =>
-              val id = tbmToId(m)
-              standoff ++= s"${name.capitalize}:${id} "
-            case _ => ()
-          }
-        }
-        standoff ++= "\n"
 
-      case ce if ce matches "Regulation" =>
+    // simple events that are the controlled of a BioRelationMention regulation
+    val regThemes = mentions
+      .filter(_.isInstanceOf[BioRelationMention])
+      .flatMap(m => m.arguments.getOrElse("controlled", Nil))
+
+    // keep track of SimpleEvent IDs for regulations later
+    val semToId = mutable.Map[Mention, String]()
+
+    // report simple events that aren't the controlled of a BioRelationMention regulation
+    val sems = mentions.filter(_ matches "SimpleEvent")
+      .filterNot(regThemes.contains)
+      .map(_.asInstanceOf[BioEventMention])
+    for (se <- sems) {
+      currTBMID += 1
+      currEMID += 1
+      semToId(se) = s"E$currEMID"
+      val lbl = se.label.replaceFirst("Auto", "").capitalize
+      standoff ++= s"T$currTBMID\t$lbl ${se.trigger.startOffset} ${se.trigger.endOffset}\t${se.trigger.text}\n"
+      standoff ++= s"E$currEMID\t$lbl:T$currTBMID "
+      var themeSeen = false
+      for {
+        (name, args) <- se.arguments
+        arg <- args
+      } {
+        arg match {
+          case m: BioTextBoundMention if tbmToId contains m =>
+            val id = tbmToId(m)
+            val label = if (name == "theme" && themeSeen) "Theme2" else name.capitalize
+            standoff ++= s"$label:$id "
+            if (name == "theme") themeSeen = true
+          case _ => ()
+        }
+      }
+      standoff ++= "\n"
+    }
+
+    // report regulation events
+    val rems = mentions.filter(_ matches "Regulation")
+    for (ce <- rems) ce match {
+      case ce: BioRelationMention =>
         currTBMID += 1
         currEMID += 1
         val promoted = ce.arguments("controlled").head.asInstanceOf[BioEventMention]
         val promotedLabel = promoted.label.replaceFirst("Auto", "").capitalize
-        standoff ++= s"T${currTBMID}\t$promotedLabel ${promoted.trigger.startOffset} ${promoted.trigger.endOffset}\t${promoted.trigger.text}\n"
-        standoff ++= s"E${currEMID}\t$promotedLabel:T${currTBMID} "
+        standoff ++= s"T$currTBMID\t$promotedLabel ${promoted.trigger.startOffset} "
+        standoff ++= s"${promoted.trigger.endOffset}\t${promoted.trigger.text}\n"
+        standoff ++= s"E$currEMID\t$promotedLabel:T$currTBMID "
         for {
           (name, args) <- ce.arguments
           arg <- args
@@ -275,8 +290,33 @@ class BioNlp2013System {
           }
         }
         standoff ++= "\n"
-
-      case em => ()
+      case ce: BioEventMention =>
+        currTBMID += 1
+        currEMID += 1
+        standoff ++= s"T$currTBMID\t${ce.label} ${ce.trigger.startOffset} ${ce.trigger.endOffset}\t${ce.trigger.text}\n"
+        standoff ++= s"E$currEMID\t${ce.label}:T$currTBMID "
+        for {
+          (name, args) <- ce.arguments
+          arg <- args
+        } {
+          val label = name match {
+            case "controlled" => "Theme"
+            case "controller" => "Cause"
+            case _ =>
+              println(s"$name is not an expected regulation label")
+              ""
+          }
+          arg match {
+            case m: BioTextBoundMention if tbmToId contains m =>
+              val id = tbmToId(m)
+              standoff ++= s"$label:$id "
+            case em if (em matches "Event") && (semToId contains em) =>
+              val id = semToId(em)
+              standoff ++= s"$label:$id "
+            case _ => ()
+          }
+        }
+        standoff ++= "\n"
     }
     standoff.mkString
   }
