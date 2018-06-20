@@ -19,8 +19,14 @@ object BioNlp2013 {
     // initializing all our stuff
     val bionlpSystem = new BioNlp2013System
 
-    val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_devel_data_rev3")
-    val outDir = new File("/home/marco/data/reach/output")
+    //    val dataDir = new File("/home/marco/data/reach/BioNLP-ST-2013_GE_devel_data_rev3")
+    //    val outDir = new File("/home/marco/data/reach/output")
+    //    val dataDir = new File("/home/dane/data/bionlp/2011/BioNLP-ST_2011_genia_devel_data_rev1")
+    //    val outDir = new File("/home/dane/data/bionlp/2011/output")
+//    val dataDir = new File("/home/dane/data/bionlp/2013/BioNLP-ST-2013_GE_devel_data_rev3")
+//    val outDir = new File("/home/dane/data/bionlp/2013/output")
+    val dataDir = new File("/home/dane/data/bionlp/2013/BioNLP-ST-2013_GE_test_data_rev1")
+    val outDir = new File("/home/dane/data/bionlp/2013/output-test")
 
     for (txtFile <- dataDir.listFilesByWildcard("*.txt").toSeq.par) {
       try {
@@ -48,7 +54,7 @@ case class BratTBM(id: String, label: String, start: Int, end: Int, text: String
 class BioNlp2013System {
 
   // initialize processor
-  val processor = new BioNLPProcessor(withRuleNER = false)
+  val processor = new BioNLPProcessor(withRuleNER = false, maxSentenceLength = 160)
 
   /** Avoid using the NER */
   def annotate(text: String): Document = {
@@ -63,7 +69,7 @@ class BioNlp2013System {
     doc.clear()
     doc
   }
-  
+
   annotate("something")
 
   // initialize reach
@@ -124,7 +130,7 @@ class BioNlp2013System {
   /** Takes a token produced by processors and retrieves a list of reverse mappings
     * corresponding to known character replacements applied during tokenization. <br>
     * Returns a List ordered by of matching precedence.
-  **/
+    **/
   def tokenCandidates(term: String): List[String] = term match {
     // parentheses and brackets
     case "-LRB-" => List("(", "-LRB-")
@@ -137,9 +143,17 @@ class BioNlp2013System {
 
     // slashes
     case "and"   => List("-", "/", "and", ",")
-    // handle quotes
+
+    // quotes
     case "''"    => List("\"", "''")
     case "``"    => List("\"", "``")
+
+    // hyphens in complexes
+    case ","     => List("-", ",")
+
+    // periods after an abbreviation
+    case "."     => List("", ".")
+
     case w       => List(w)
   }
 
@@ -164,7 +178,7 @@ class BioNlp2013System {
       // get the closest one
       val (tok, start) = if (candidates.isEmpty) (w, -1) else candidates.minBy(_._2)
       // compute end offset
-      val end = start + tok.size
+      val end = start + tok.length
       // overwrite offsets
       doc.sentences(i).startOffsets(j) = start
       doc.sentences(i).endOffsets(j) = end
@@ -253,6 +267,7 @@ class BioNlp2013System {
     // report regulation events
     val rems = mentions.filter(_ matches "Regulation")
     for (ce <- rems) ce match {
+      // e.g. A phosphorylates B
       case ce: BioRelationMention =>
         currTBMID += 1
         currEMID += 1
@@ -266,7 +281,7 @@ class BioNlp2013System {
           arg <- args
         } {
           arg match {
-            case tbm: BioTextBoundMention if tbmToId contains tbm =>
+            case tbm: BioTextBoundMention if tbmToId.contains(tbm) && !promoted.label.startsWith("Auto")  =>
               val id = tbmToId(tbm)
               standoff ++= s"Cause:$id "
             case evm: BioEventMention =>
@@ -290,6 +305,7 @@ class BioNlp2013System {
           }
         }
         standoff ++= "\n"
+      // e.g. A upregulates the phosphorylation of B by C
       case ce: BioEventMention =>
         currTBMID += 1
         currEMID += 1
@@ -318,6 +334,7 @@ class BioNlp2013System {
         }
         standoff ++= "\n"
     }
+
     standoff.mkString
   }
 
