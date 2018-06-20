@@ -48,8 +48,13 @@ object BioNlp2013 {
 
 }
 
+// represents a trigger as a span of text.  Used to keep track of seen triggers.
+case class Trigger(docId: Option[String], sentIdx: Int, start: Int, end: Int) extends Serializable
+
 // a brat textbound mention
-case class BratTBM(id: String, label: String, start: Int, end: Int, text: String)
+case class BratTBM(id: String, label: String, start: Int, end: Int, text: String) extends Serializable {
+  val standoff: String = s"T$id\t$label $start $end\t$text\n"
+}
 
 class BioNlp2013System {
 
@@ -212,6 +217,10 @@ class BioNlp2013System {
   }
 
   def dumpA2Annotations(mentions: Seq[BioMention], entities: Seq[BratTBM]): String = {
+
+    // keep track of triggers dumped to standoff in order to reuse ID
+    var triggerMap: Map[Trigger, BratTBM] = Map.empty[Trigger, BratTBM]
+
     // start standoff
     val standoff = new StringBuilder
     var currTBMID = entities.size
@@ -245,8 +254,29 @@ class BioNlp2013System {
       currEMID += 1
       semToId(se) = s"E$currEMID"
       val lbl = se.label.replaceFirst("Auto", "").capitalize
-      standoff ++= s"T$currTBMID\t$lbl ${se.trigger.startOffset} ${se.trigger.endOffset}\t${se.trigger.text}\n"
-      standoff ++= s"E$currEMID\t$lbl:T$currTBMID "
+      // If the same trigger is used for multiple events (ex. event split because of a coordination),
+      // we need to reuse its ID.
+      //
+      // represent the trigger
+      val trigger = Trigger(se.document.id, se.sentence, se.trigger.startOffset, se.trigger.endOffset)
+      val repr: BratTBM = if (! triggerMap.contains(trigger)) {
+        val triggerTBM = BratTBM(
+          id = s"T$currTBMID",
+          label = lbl,
+          start = se.trigger.startOffset,
+          end = se.trigger.endOffset,
+          text = se.trigger.text
+        )
+        // update map
+        triggerMap = triggerMap + (trigger -> triggerTBM)
+        triggerTBM
+      } else {
+        triggerMap(trigger)
+      }
+      // append trigger standoff
+      standoff ++= repr.standoff
+      standoff ++= s"E$currEMID\t$lbl:T${repr.id} "
+
       var themeSeen = false
       for {
         (name, args) <- se.arguments
@@ -273,9 +303,29 @@ class BioNlp2013System {
         currEMID += 1
         val promoted = ce.arguments("controlled").head.asInstanceOf[BioEventMention]
         val promotedLabel = promoted.label.replaceFirst("Auto", "").capitalize
-        standoff ++= s"T$currTBMID\t$promotedLabel ${promoted.trigger.startOffset} "
-        standoff ++= s"${promoted.trigger.endOffset}\t${promoted.trigger.text}\n"
-        standoff ++= s"E$currEMID\t$promotedLabel:T$currTBMID "
+        // If the same trigger is used for multiple events (ex. event split because of a coordination),
+        // we need to reuse its ID.
+        //
+        // represent the trigger
+        val trigger = Trigger(promoted.document.id, promoted.sentence, promoted.startOffset, promoted.trigger.endOffset)
+        val repr: BratTBM = if (! triggerMap.contains(trigger)) {
+          val triggerTBM = BratTBM(
+            id = s"T$currTBMID",
+            label = promotedLabel,
+            start = promoted.trigger.startOffset,
+            end = promoted.trigger.endOffset,
+            text = promoted.trigger.text
+          )
+          // update map
+          triggerMap = triggerMap + (trigger -> triggerTBM)
+          triggerTBM
+        } else {
+          triggerMap(trigger)
+        }
+        // append trigger standoff
+        standoff ++= repr.standoff
+        standoff ++= s"E$currEMID\t$promotedLabel:T${repr.id} "
+
         for {
           (name, args) <- ce.arguments
           arg <- args
@@ -309,8 +359,30 @@ class BioNlp2013System {
       case ce: BioEventMention =>
         currTBMID += 1
         currEMID += 1
-        standoff ++= s"T$currTBMID\t${ce.label} ${ce.trigger.startOffset} ${ce.trigger.endOffset}\t${ce.trigger.text}\n"
-        standoff ++= s"E$currEMID\t${ce.label}:T$currTBMID "
+
+        // If the same trigger is used for multiple events (ex. event split because of a coordination),
+        // we need to reuse its ID.
+        //
+        // represent the trigger
+        val trigger = Trigger(ce.document.id, ce.sentence, ce.startOffset, ce.trigger.endOffset)
+        val repr: BratTBM = if (! triggerMap.contains(trigger)) {
+          val triggerTBM = BratTBM(
+            id = s"T$currTBMID",
+            label = ce.label,
+            start = ce.trigger.startOffset,
+            end = ce.trigger.endOffset,
+            text = ce.trigger.text
+          )
+          // update map
+          triggerMap = triggerMap + (trigger -> triggerTBM)
+          triggerTBM
+        } else {
+          triggerMap(trigger)
+        }
+        // append trigger standoff
+        standoff ++= repr.standoff
+        standoff ++= s"E$currEMID\t${ce.label}:T${repr.id} "
+
         for {
           (name, args) <- ce.arguments
           arg <- args
