@@ -58,14 +58,19 @@ case class BratTBM(id: String, label: String, start: Int, end: Int, text: String
 
 class BioNlp2013System {
 
-  val targetLabels = Set("Binding",
+  // These are the only SimpleEvents allowed in the task
+  val targetLabels = Set(
+    "Binding",
+    "AutoPhosphorylation",
     "Phosphorylation",
     "Ubiquitination",
     "Acetylation",
     "Deacetylation",
     "Translocation",
-    "Transcription")
+    "Transcription"
+  )
 
+  // Change labels for print-out to work with BioNLP labels
   def labelTranslator(in: String): String = in match {
     case "Translocation" => "Localization"
     case "AutoPhosphorylation" => "Phosphorylation"
@@ -176,7 +181,11 @@ class BioNlp2013System {
     case w       => List(w)
   }
 
+  /**
+    * Change Document word offsets to align with pre-tokenized offsets so that we can identify the right NER entities
+    */
   def adjustOffsets(doc: Document, text: String) = {
+    // where to start each word search from
     var from = 0
     for {
       (s, i) <- doc.sentences.zipWithIndex
@@ -184,10 +193,12 @@ class BioNlp2013System {
     } {
       // try all candidates
       val candidates = tokenCandidates(w).flatMap { c =>
+        // find the index of this word in the pre-tokenized text
         val idx = text.indexOf(c, from)
         // don't consider candidate if index is -1
         if (idx == -1) None else Some((c, idx))
       }
+      // the alignment didn't work because the word wasn't found in the original text
       if (candidates.isEmpty) {
         println("ERROR")
         println(text.slice(s.startOffsets.head, s.endOffsets.last))
@@ -206,7 +217,11 @@ class BioNlp2013System {
     }
   }
 
+  /**
+    * From entities (text-bound mentions) in the a1 file, populate entities in the sentence to base TextBoundMentions on
+    */
   def mkTags(sent: Sentence, tbms: Vector[BratTBM]): Option[Array[String]] = tbms match {
+    // no TBMS => no entities
     case Vector() => Some(Array.fill(sent.words.length)("O"))
     case nonemptyTbms =>
       val tags = Array.fill(sent.words.length)("O")
@@ -214,6 +229,7 @@ class BioNlp2013System {
       for (m <- nonemptyTbms if m.start >= sent.startOffsets.head && m.end <= sent.endOffsets.last) {
         var first = true
         for (i <- tags.indices) {
+          // a1 TBM must be within the bounds of this token in the Document
           if (m.start >= sent.startOffsets(i) && m.end <= sent.endOffsets(i)) {
             val tag = if (first) {
               first = false
@@ -230,6 +246,10 @@ class BioNlp2013System {
       Some(tags)
   }
 
+  /**
+    * Translate Reach event mentions and new entity mentions (triggers and sites) into BRAT output for normalization
+    * and evaluation
+    */
   def dumpA2Annotations(mentions: Seq[BioMention], entities: Seq[BratTBM]): String = {
 
     // keep track of triggers dumped to standoff in order to reuse ID
@@ -260,6 +280,94 @@ class BioNlp2013System {
     // keep track of SimpleEvent IDs for regulations later
     val semToId = mutable.Map[Mention, String]()
 
+    // look up TBMs with PTM modifications -- these are events in BioNLP terms
+    val modifieds = mentions
+      .filter(_.isInstanceOf[BioTextBoundMention])
+      .filter(m => tbmToId.contains(m.asInstanceOf[BioTextBoundMention]))
+      .filter(_.modifications.exists(m => m.isInstanceOf[PTM] && targetLabels.contains(m.label)))
+    for {
+      modified <- modifieds
+      mod <- modified.modifications
+      // ensure it's a PTM we care about
+      if mod.isInstanceOf[PTM] && targetLabels.contains(mod.label) && mod.asInstanceOf[PTM].evidence.nonEmpty
+    } {
+      val ptmMod = mod.asInstanceOf[PTM]
+
+      // make a trigger from the modification's evidence
+      currTBMID += 1
+      currEMID += 1
+      semToId(modified) = s"E$currEMID"
+      val lbl = ptmMod.label
+      // If the same trigger is used for multiple events (ex. event split because of a coordination),
+      // we need to reuse its ID.
+      //
+      // represent the trigger
+      val trigger = TextualSpan(
+        modified.document.id,
+        modified.sentence,
+        ptmMod.evidence.get.startOffset,
+        ptmMod.evidence.get.endOffset
+      )
+      val repr: BratTBM = if (! triggerMap.contains(trigger)) {
+        val triggerTBM = BratTBM(
+          id = s"T$currTBMID",
+          label = lbl,
+          start = ptmMod.evidence.get.startOffset,
+          end = ptmMod.evidence.get.endOffset,
+          text = ptmMod.evidence.get.text
+        )
+        // update map
+        triggerMap = triggerMap + (trigger -> triggerTBM)
+
+        // append new trigger standoff
+        entityStandoff ++= triggerTBM.standoff
+
+        triggerTBM
+      } else {
+        triggerMap(trigger)
+      }
+      eventStandoff ++= s"E$currEMID\t$lbl:${repr.id} "
+
+      // the theme is just the original TBM (that has the modification) which already exists in the tbmToId
+      val id = tbmToId(modified.asInstanceOf[BioTextBoundMention])
+      eventStandoff ++= s"Theme:$id "
+
+      // if there's a site, print it as well
+      if (ptmMod.site.nonEmpty) {
+        val site = ptmMod.site.get
+        val ts = TextualSpan(
+          docId = site.document.id,
+          sentIdx = site.sentence,
+          start = site.startOffset,
+          end = site.endOffset
+        )
+        // check if Site in triggerMap
+        val knownSite = if (! triggerMap.contains(ts)) {
+          currTBMID += 1
+          val bratTBM = BratTBM(
+            id = s"T$currTBMID",
+            label = "Entity",
+            start = site.startOffset,
+            end = site.endOffset,
+            text = site.text
+          )
+          // update triggerMap
+          triggerMap = triggerMap + (ts -> bratTBM)
+          entityStandoff ++= bratTBM.standoff
+          bratTBM
+        } else {
+          triggerMap(ts)
+        }
+        // write site standoff
+        eventStandoff ++= s"Site:${knownSite.id} "
+      }
+
+      eventStandoff ++= "\n"
+    }
+
+    /**
+      * This SimpleEvent has at least one theme that was found in the a1-derived TBM list and isn't generic
+      */
     def hasValidArgs(mention: BioMention): Boolean = {
       mention.arguments.contains("theme") &&
         mention.arguments("theme")
@@ -268,6 +376,9 @@ class BioNlp2013System {
           .nonEmpty
     }
 
+    /**
+      * If this is a binding, it's got to have at least two valid themes
+      */
     def validBinding(mention: BioMention): Boolean = mention match {
       case binding if mention matches "Binding" =>
         binding.arguments("theme")
@@ -280,8 +391,8 @@ class BioNlp2013System {
     // report simple events that aren't the controlled of a BioRelationMention regulation
     // filters ensure that theme exists in .a1 file and that the SimpleEvent at least has a theme
     val sems = mentions.filter(_ matches "SimpleEvent")
-      .filter(m => targetLabels contains m.label)
-      .filterNot(regThemes.contains)
+      .filter(m => targetLabels contains m.label) // ignore irrelevant events
+      .filterNot(regThemes.contains) // handle simple-event-with-cause separately
       .filter(hasValidArgs)
       .filter(validBinding)
       .map(_.asInstanceOf[BioEventMention])
