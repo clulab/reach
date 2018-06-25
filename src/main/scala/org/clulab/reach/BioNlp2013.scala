@@ -620,6 +620,7 @@ class BioNlp2013System {
         for {
           (name, args) <- ce.arguments
           arg <- args
+          if !(name == "controller" && ce.label == "Transcription")
         } {
           val label = name match {
             case "controlled" => "Theme"
