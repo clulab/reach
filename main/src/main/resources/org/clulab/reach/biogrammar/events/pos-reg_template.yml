@@ -205,7 +205,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/]
+    trigger = [lemma=/be/ & tag=/^V/] []? []? [lemma=/${ triggers }/ & tag=/^N/ & !word=/(?i)^(target)/]
     controller:${ controllerType } = nsubj
     controlled:${ controlledType } = /prep_of|prep_in$/
 
