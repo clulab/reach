@@ -2,7 +2,7 @@ package org.clulab.reach
 
 import ai.lum.nxmlreader.NxmlDocument
 
-
+// Another test comment, just in case
 case class FriesEntry(
   name: String,
   chunkId: String,
