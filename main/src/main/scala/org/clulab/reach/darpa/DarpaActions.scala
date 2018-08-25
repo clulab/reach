@@ -354,7 +354,7 @@ class DarpaActions extends Actions with LazyLogging {
   }
 }
 
-object DarpaActions {
+object DarpaActions extends LazyLogging {
 
   def hasNegativePolarity(m: Mention): Boolean = if (m.label.toLowerCase startsWith "negative") true else false
   // These labels are given to the Regulation created when splitting a SimpleEvent with a cause
@@ -435,6 +435,7 @@ object DarpaActions {
       val excluded = trigger.tokenInterval.toSet
       // count total number of negatives between trigger and each argument
       val numNegatives = arguments.flatMap(arg => countSemanticNegatives(trigger, arg, excluded)).toSeq.distinct.length
+      logger.info(s"Total negatives: $numNegatives")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
@@ -480,7 +481,10 @@ object DarpaActions {
           if !excluded.contains(tok)
           lemma = trigger.sentenceObj.lemmas.get(tok)
           if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
-        } yield tok
+        } yield {
+          logger.info(s"Negative lexical unit: $lemma")
+          tok
+        }
         // return number of negatives
         negatives
     }
