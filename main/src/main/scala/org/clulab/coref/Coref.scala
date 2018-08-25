@@ -366,7 +366,7 @@ class Coref extends LazyLogging {
                   hasDet.isEmpty
                 } catch {
                   case e: Throwable =>
-                    logger.error(s"Sentence: ${sent.getSentenceText()}")
+                    logger.error(s"Sentence: ${sent.getSentenceText}")
                     logger.error(s"Mention text: ${m.text}")
                     logger.error(s"Head index is: $hd")
                     logger.error(summarizeMention(m))

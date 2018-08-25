@@ -6,19 +6,16 @@ import scala.collection.parallel.ForkJoinTaskSupport
 import scala.collection.parallel.mutable.ParArray
 import scala.collection.JavaConverters._
 import scala.io.Source
-
 import ai.lum.nxmlreader.{NxmlDocument, NxmlReader}
 import com.typesafe.config.ConfigFactory
 import com.typesafe.scalalogging.LazyLogging
 import org.apache.commons.io.FilenameUtils
-
 import ai.lum.common.FileUtils._
-
 import org.clulab.odin._
 import org.clulab.processors.ProcessorAnnotator
 import org.clulab.processors.csshare.ProcessorCSController
 import org.clulab.reach.context.ContextEngineFactory.Engine
-import org.clulab.reach.utils.DSVParser
+import org.clulab.reach.utils.{DSVParser, Preprocess}
 import org.clulab.utils.Serializer
 
 object PaperReader extends ProcessorCSController with LazyLogging {
@@ -43,12 +40,13 @@ object PaperReader extends ProcessorCSController with LazyLogging {
 
   // initialize ReachSystem
   val procAnnotator = ProcessorAnnotatorFactory(config)
+  val preproc = new Preprocess
   lazy val reachSystem = new ReachSystem(processorAnnotator = Some(procAnnotator),
                                          contextEngineType = contextEngineType,
                                          contextParams = contextEngineParams)
 
   // systems for reading papers
-  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = procAnnotator.preprocessText)
+  val nxmlReader = new NxmlReader(ignoreSections.toSet, transformText = preproc.preprocessText)
   val dsvReader = new DSVParser()
 
 
