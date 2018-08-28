@@ -2,7 +2,7 @@ name := """webapp"""
 scalaVersion := "2.11.11"
 
 libraryDependencies ++= Seq(
-  //guice,
+  guice,
   "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
 )
 
