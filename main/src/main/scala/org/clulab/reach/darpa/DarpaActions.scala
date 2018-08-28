@@ -428,6 +428,7 @@ object DarpaActions extends LazyLogging {
   def switchLabel(mention: Mention): BioMention = mention.toBioMention match {
     // We can only attempt to flip the polarity of ComplexEvents with a trigger
     case ce: BioEventMention if ce matches "ComplexEvent" =>
+
       val trigger = ce.trigger
       val arguments = ce.arguments.values.flatten
       // get token indices to exclude in the negation search
