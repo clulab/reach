@@ -6,13 +6,6 @@ import org.clulab.processors.{Document, Sentence}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
 import org.clulab.sequences.LexiconNER
-//import org.clulab.wm.eidos.EidosSystem
-//import org.clulab.wm.eidos.BuildInfo
-//import org.clulab.wm.eidos.attachments._
-//import org.clulab.wm.eidos.Aliases._
-//import org.clulab.wm.eidos.groundings.{DomainOntology, EidosOntologyGrounder, OntologyGrounding}
-////import org.clulab.wm.eidos.mentions.EidosMention
-//import org.clulab.wm.eidos.utils.{DisplayUtils, DomainParams, GroundingUtils}
 import play.api._
 import play.api.mvc._
 import play.api.libs.json._
@@ -28,9 +21,9 @@ import scala.collection.mutable.ListBuffer
 @Singleton
 class HomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  // Initialize the EidosSystem
+  // Initialize the ReachSystem
   // -------------------------------------------------
-  println("[ReachSystem] Initializing the EidosSystem ...")
+  println("[ReachSystem] Initializing the ReachSystem ...")
   val ieSystem = new ReachSystem()
   var proc = ieSystem.procAnnotator
   println("[ReachSystem] Completed Initialization ...")
@@ -73,14 +66,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     // Debug
     println(s"DOC : ${doc}")
     // extract mentions from annotated document
-    //val annotatedDocument = ieSystem.extractFromText(text, cagRelevantOnly = cagRelevantOnly)
-    //val annotatedDocument = ieSystem.extractEntitiesFrom(doc)
-    val mentions = ieSystem.extractEntitiesFrom(doc)//annotatedDocument.eidosMentions.sortBy(m => (m.odinMention.sentence, m.getClass.getSimpleName)).toVector
+    val entities = ieSystem.extractEntitiesFrom(doc)
+    val events = ieSystem.extractEventsFrom(doc, entities)
 
-    val (events, entities) = mentions partition {
-      case e:BioEventMention => true
-      case _ => false
-    }
+    val mentions = entities ++ events
 
     println(s"Done extracting the mentions ... ")
     println(s"They are : ${mentions.map(m => m.text).mkString(",\t")}")
@@ -89,7 +78,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     println("DONE .... ")
     //    println(s"Grounded Adjectives : ${groundedAdjectives.size}")
     // return the sentence and all the mentions extracted ... TODO: fix it to process all the sentences in the doc
-    (doc, events map (_.asInstanceOf[BioEventMention]), entities  map (_.asInstanceOf[BioTextBoundMention]))
+    (doc, events collect { case m:BioEventMention => m }, entities  map (_.asInstanceOf[BioTextBoundMention]))
   }
 
 
@@ -149,7 +138,6 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 
   def mkJson(text: String, doc: Document, events:Seq[BioEventMention], entities:Seq[BioTextBoundMention]): JsValue = {
     println("Found mentions (in mkJson):")
-    //eidosMentions.foreach(eidosMention => DisplayUtils.displayMention(eidosMention.odinMention))
 
     val sent = doc.sentences.head
     val syntaxJsonObj = Json.obj(
@@ -157,15 +145,12 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
         "entities" -> mkJsonFromTokens(doc),
         "relations" -> mkJsonFromDependencies(doc)
       )
-    val eidosJsonObj = mkJsonForReach(text, sent, events ++ entities)
+    val reachJsonObj = mkJsonForReach(text, sent, events ++ entities)
     val parseObj = mkParseObj(doc)
 
-    // These print the html and it's a mess to look at...
-    // println(s"Grounded Gradable Adj: ")
-    // println(s"$groundedAdjObj")
     Json.obj(
       "syntax" -> syntaxJsonObj,
-      "eidosMentions" -> eidosJsonObj,
+      "reachMentions" -> reachJsonObj,
       "parse" -> parseObj
     )
   }

@@ -389,7 +389,7 @@ head.ready(function() {
         // collect form data
         var formData = {
             'sent': $('textarea[name=text]').val(),
-            'cagRelevantOnly': $('input[name=cagRelevantOnly]').is(':checked')
+            //'cagRelevantOnly': $('input[name=cagRelevantOnly]').is(':checked')
         }
 
         if (!formData.sent.trim()) {
@@ -416,8 +416,7 @@ head.ready(function() {
         .done(function (data) {
             console.log(data);
             syntaxLiveDispatcher.post('requestRenderData', [$.extend({}, data.syntax)]);
-            eidosMentionsLiveDispatcher.post('requestRenderData', [$.extend({}, data.eidosMentions)]);
-            document.getElementById("groundedAdj").innerHTML = data.groundedAdj;
+            eidosMentionsLiveDispatcher.post('requestRenderData', [$.extend({}, data.reachMentions)]);
             document.getElementById("parse").innerHTML = data.parse;
             // hide spinner
             document.getElementById("overlay").style.display = "none";
