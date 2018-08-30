@@ -66,7 +66,7 @@ object Ruler {
     val mentions = reach.extractFrom(doc)
       // Remove ModificationTriggers from output
       .filterNot(_ matches "ModificationTrigger")
-    val rules = reach.allRules
+    val rules = reach.loadableAttributes.allRules
     val eventAnnotations = Brat.dumpStandoff(mentions, doc)
     val syntaxAnnotations = Brat.syntaxStandoff(doc)
     val ruleMap = Try(mkRuleMap(rules)).getOrElse(null).asJava

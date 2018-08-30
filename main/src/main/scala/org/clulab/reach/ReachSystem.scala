@@ -19,6 +19,38 @@ import RuleReader.{ Rules, readResource }
 
 // import org.clulab.reach.utils.MentionManager
 
+case class LoadableAttributes(entityRules:String,
+                              modificationRules:String,
+                              eventRules:String,
+                              contextRules:String)(implicit actions:DarpaActions){
+
+  // start entity extraction engine
+  // this engine extracts all physical entities of interest
+  lazy val entityEngine = ExtractorEngine(entityRules, actions)
+  // start modification engine
+  // this engine extracts modification features and attaches them to the corresponding entity
+  lazy val modificationEngine = ExtractorEngine(modificationRules, actions)
+  // start event extraction engine
+  // this engine extracts simple and recursive events and applies coreference
+  lazy val eventEngine = ExtractorEngine(eventRules, actions)
+
+  /** returns string with all rules used by the system */
+  def allRules:String = Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
+}
+
+/** Auxiliary constructors */
+object LoadableAttributes {
+  def apply(rules:RuleReader.Rules)(implicit actions:DarpaActions):LoadableAttributes =
+    // Implicit parameter unnecessarily verbose for the sake of clarity
+    LoadableAttributes(rules.entities, rules.modifications, rules.events, rules.context)(actions)
+  def apply()(implicit actions:DarpaActions):LoadableAttributes =
+    // Implicit parameter unnecessarily verbose for the sake of clarity
+    LoadableAttributes(readResource(RuleReader.entitiesMasterFile),
+      readResource(RuleReader.modificationsMasterFile),
+      readResource(RuleReader.eventsMasterFile),
+      readResource(RuleReader.contextRelationsFile))(actions)
+}
+
 class ReachSystem(
   rules: Option[Rules] = None,
   processorAnnotator: Option[ProcessorAnnotator] = None,
@@ -28,29 +60,22 @@ class ReachSystem(
 
   import ReachSystem._
 
-  val entityRules = if (rules.isEmpty) readResource(RuleReader.entitiesMasterFile) else rules.get.entities
-  val modificationRules = if (rules.isEmpty) readResource(RuleReader.modificationsMasterFile) else rules.get.modifications
-  val eventRules = if (rules.isEmpty) readResource(RuleReader.eventsMasterFile) else rules.get.events
-  val contextRules = if (rules.isEmpty) readResource(RuleReader.contextRelationsFile) else rules.get.context
-  // initialize actions object
-  val actions = new DarpaActions
+  implicit val actions = new DarpaActions
   val entityLookup = new ReachEntityLookup // initialize entity lookup (find grounding candidates)
   val grounder = new ReachGrounder
-  // start entity extraction engine
-  // this engine extracts all physical entities of interest
-  val entityEngine = ExtractorEngine(entityRules, actions)
-  // start modification engine
-  // this engine extracts modification features and attaches them to the corresponding entity
-  val modificationEngine = ExtractorEngine(modificationRules, actions)
-  // start event extraction engine
-  // this engine extracts simple and recursive events and applies coreference
-  val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
-  // initialize processor annotator
-  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
-  /** returns string with all rules used by the system */
-  def allRules: String =
-    Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
+  def reload(): Unit ={
+    loadableAttributes = loadableAttributes
+  }
+
+  def loadAttributes():LoadableAttributes = rules match {
+    case Some(r) => LoadableAttributes(r)
+    case None => LoadableAttributes()
+  }
+
+  var loadableAttributes:LoadableAttributes  = loadAttributes()
+
+  val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
     val doc = procAnnotator.annotate(text, keepText = true)
@@ -146,7 +171,7 @@ class ReachSystem(
 
   def extractEntitiesFrom(doc: Document): Seq[BioMention] = {
     // extract entities
-    val entities = entityEngine.extractByType[BioMention](doc)
+    val entities = loadableAttributes.entityEngine.extractByType[BioMention](doc)
     // attach mutations to entities
     // this step must precede alias search to prevent alias overmatching
     val mutationAddedEntities = entities flatMap {
@@ -157,14 +182,14 @@ class ReachSystem(
     // TODO: attach mutations to these entities as well
     val entitiesWithAliases = Alias.canonizeAliases(mutationAddedEntities, doc)
     // attach modification features to entities
-    val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(entitiesWithAliases))
+    val modifiedEntities = loadableAttributes.modificationEngine.extractByType[BioMention](doc, State(entitiesWithAliases))
     // add grounding candidates to entities
     entityLookup(modifiedEntities)
   }
 
   def extractEntitiesFrom(docs: Seq[Document]): Seq[Seq[BioMention]] = {
     // extract entities
-    val entities = for (doc <- docs) yield entityEngine.extractByType[BioMention](doc)
+    val entities = for (doc <- docs) yield loadableAttributes.entityEngine.extractByType[BioMention](doc)
     // attach mutations to entities
     // this step must precede alias search to prevent alias overmatching
     val mutationAddedEntities = for (entitiesInDoc <- entities) yield {
@@ -183,14 +208,14 @@ class ReachSystem(
       docEntities = entitiesWithAliases(i)
     } yield {
       // attach modification features to entities
-      val modifiedEntities = modificationEngine.extractByType[BioMention](doc, State(docEntities))
+      val modifiedEntities = loadableAttributes.modificationEngine.extractByType[BioMention](doc, State(docEntities))
       // add grounding candidates to entities
       entityLookup(modifiedEntities)
     }
   }
 
   def extractEventsFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
-    val mentions = eventEngine.extractByType[BioMention](doc, State(entities))
+    val mentions = loadableAttributes.eventEngine.extractByType[BioMention](doc, State(entities))
     // clean modified entities
     // remove ModificationTriggers
     // Make sure we don't have any "ModificationTrigger" Mentions

@@ -40,11 +40,11 @@ object ReachShell extends App {
   // use ListMap to preserve commands order
   val commands = ListMap(
     ":help" -> "show commands",
-    ":exit" -> "exit system"
+    ":exit" -> "exit system",
     //":entityrules" -> "show entity rules",
     //":modrules" -> "show modification rules",
     //":eventrules" -> "show event rules",
-    //":reload" -> "reload rules"
+    ":reload" -> "reload rules"
   )
 
   println("\nWelcome to ReachShell!")
@@ -60,15 +60,8 @@ object ReachShell extends App {
       case ":exit" | null =>
         running = false
 
-      /*case ":reload" =>
-        println("reloading rules ...")
-        try {
-          val rules = reload()
-          reach = new ReachSystem(Some(rules), Some(proc))
-          println("successfully reloaded rules")
-        } catch {
-          case e: Throwable => println(s"error reloading: ${e.getMessage}")
-        }*/
+      case ":reload" =>
+        reach.reload()
 
       //case ":entityrules" =>
         //println(reach.entityRules)
