@@ -65,7 +65,7 @@ class ReachSystem(
   val grounder = new ReachGrounder
 
   def reload(): Unit ={
-    loadableAttributes = loadableAttributes
+    loadableAttributes = loadAttributes()
   }
 
   def loadAttributes():LoadableAttributes = rules match {
