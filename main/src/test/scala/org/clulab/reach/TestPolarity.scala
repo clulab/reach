@@ -143,7 +143,7 @@ class TestPolarity extends FlatSpec with Matchers{
 
   sen16 should "have a positive activation of IL-6 by STAT3" in {
     val mentions = getBioMentions(sen16)
-    hasPositiveActivation("STAT3", "IL-6", mentions) should be (true)
+    hasPositiveActivation("IL-6", "STAT3", mentions) should be (true)
   }
 
   val sen17 = """Finally, we compared wild-type IRF3 and IRF3 5SD for their effects on TGF-beta target genes, and measured basal, i.e. autocrine TGF-beta-dependent, and TGF-beta-induced mRNA expression of Smad7, p15 Ink4B and p21 Cip1, three direct Smad3 targets that are induced by TGF-beta, and c-Myc, which is directly repressed by Smad3 in response to autocrine or added TGF-beta."""
@@ -169,9 +169,9 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen20 = """These data indicate that niacin accelerates hepatic intracellular post-translational degradation of apoB by selectively reducing triglyceride synthesis (through inhibiting both fatty acid synthesis and fatty acid esterification to produce TG) without affecting ALLN-inhibitable protease- or MTP mediated intracellular apoB processing, resulting in decreased apoB secretion and hence lower circulating levels of the atherogenic lipoproteins."""
 
-  sen20 should "have a positive activation of ApoB by Mtp" in {
+  sen20 should "have a positive activation of ApoB by MTP" in {
     val mentions = getBioMentions(sen20)
-    hasPositiveActivation("Mtp", "ApoB", mentions) should be (true)
+    hasPositiveActivation("MTP", "apoB", mentions) should be (true)
   }
 
   val sen21 = """In addition, Knockdown of CDK5 induced growth inhibition and knockdown of TP53 reduced silencing CDK5 mediated growth inhibition in the presence or absence of paclitaxel (XREF_FIG)."""
@@ -185,6 +185,6 @@ class TestPolarity extends FlatSpec with Matchers{
 
   sen22 should "have a positive activation of lipoprotein lipase by insulin" in {
     val mentions = getBioMentions(sen22)
-    hasPositiveActivation("insulin", "lipoprotein lipase", mentions) should be (true)
+    hasPositiveActivation("Insulin", "lipoprotein lipase", mentions) should be (true)
   }
 }
