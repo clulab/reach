@@ -433,7 +433,7 @@ object DarpaActions extends LazyLogging {
       val arguments = ce.arguments.values.flatten
       // get token indices to exclude in the negation search
       // do not exclude args as they may involve regulations
-      val excluded = trigger.tokenInterval.toSet
+      val excluded = trigger.tokenInterval.toSet | (arguments flatMap (_.tokenInterval)).toSet
       // count total number of negatives between trigger and each argument
       val numNegatives = arguments.flatMap(arg => countSemanticNegatives(trigger, arg, excluded)).toSeq.distinct.length
       logger.info(s"Total negatives: $numNegatives")
@@ -474,8 +474,8 @@ object DarpaActions extends LazyLogging {
       case None => Nil
       case Some(path) =>
         val shortestPathWithAdjMods = addAdjectivalModifiers(path, deps)
-        val nnMods = nounModifiers(arg.tokenInterval.indices, deps)
-        val ofMods = ofModifiers(arg.tokenInterval.indices, deps)
+        val nnMods = nounModifiers(arg.tokenInterval, deps)
+        val ofMods = ofModifiers(arg.tokenInterval, deps)
         // get all tokens considered negatives
         val negatives = for {
           tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods).distinct // a single token can't negate twice

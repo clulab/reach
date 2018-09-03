@@ -75,7 +75,7 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen7 = """The effect of this modification on FoxO1 localization and activity is controversial with CDK1 reported to cause nuclear localization and transcriptional activation, and CDK2 reported to cause cytoplasmic localization and inhibition of FoxO1."""
 
-  sen7 should "have a negative activation of FoxO1 by CDK2" in {
+  ignore should "have a negative activation of FoxO1 by CDK2" in {
     val mentions = getBioMentions(sen7)
     info(s"Num mentions: ${mentions.size}")
 
@@ -99,37 +99,37 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen10 = """Potential downstream targets of activated TAK1 include MKK4 and JNKK and MKK3 and MAPKK6, which directly activate c-Jun N-terminal kinase (JNK) and p38 MAP kinase, respectively [XREF_BIBR, XREF_BIBR]"""
 
-  sen10 should "have a positive activation of JNK by MKK4" in {
+  sen10 should "have a positive activation of c-Jun N-terminal kinase by MKK4" in {
     val mentions = getBioMentions(sen10)
-    hasPositiveActivation("JNK", "MKK4", mentions) should be (true)
+    hasPositiveActivation("MKK4", "c-Jun N-terminal kinase", mentions) should be (true)
   }
 
   val sen11 = """It has been recently shown that MAPK activation slows down mitochondrial oxidative metabolism by repressing the MITF and PGC1alpha pathway [XREF_BIBR].'"""
 
-  sen11 should "have a negative activation of Mitf by ERK" in {
+  sen11 should "have a negative activation of Mitf by MAPK (ERK?)" in {
     val mentions = getBioMentions(sen11)
-    hasNegativeActivation("ERK", "Mitf", mentions) should be (true)
+    hasNegativeActivation("MAPK", "Mitf", mentions) should be (true)
   }
 
   val sen12 = """The protein kinase mammalian target of rapamycin (mTOR) regulates mRNA translation and is inhibited by rapamycin."""
 
   sen12 should "have a negative activation of rapamycin by mTOR" in {
     val mentions = getBioMentions(sen12)
-    hasNegativeActivation("mammalian target of rapamycin", "rapamycin", mentions) should be (true)
+    hasNegativeActivation("rapamycin", "mammalian target of rapamycin", mentions) should be (true)
   }
 
   val sen13 = """Of these, 6 involved wortmannin or LY-294002 (inhibitors of phosphoinositide 3-kinase (PI3K)) or rapamycin (an inhibitor of the mammalian target of rapamycin complex 1 (mTORC1))."""
 
-  sen13 should "have a negative activation of 21641545 by mTOR" in {
+  sen13 should "have a negative activation of rapamycin by mammalian target of rapamycin" in {
     val mentions = getBioMentions(sen13)
-    hasNegativeActivation("mammalian target of rapamycin", "rapamycin", mentions) should be (true)
+    hasNegativeActivation("rapamycin", "mammalian target of rapamycin", mentions) should be (true)
   }
 
   val sen14 = """We previously showed that IGF1R knockdown blocked survival of prostate cancer cells in which Akt activation was deregulated by PTEN loss."""
 
-  sen14 should "have a negative activation of PTEN by AKT" in {
+  ignore should "have a negative activation of AKT by PTEN" in {
     val mentions = getBioMentions(sen14)
-    hasNegativeActivation("AKT", "PTEN", mentions) should be (true)
+    hasNegativeActivation("PTEN", "AKT", mentions) should be (true)
   }
 
   val sen15 = """In agreement with the ABCA1 expression level, the ApoAI mediated cholesterol efflux was significantly lower in macrophages treated with ApoE-free lipoproteins than in those treated with ApoE containing lipoproteins."""
