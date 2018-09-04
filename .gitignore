@@ -7,7 +7,7 @@ core/*.iml
 .#*
 .DS_Store
 Makefile
-
+output/*
 # sbt specific
 dist/*
 target/
