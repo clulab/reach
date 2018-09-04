@@ -361,13 +361,15 @@ object DarpaActions extends LazyLogging {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|target)".r
+  val SEMANTIC_NEGATIVE_PATTERN = "^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|target|off)".r
 
   val MODIFIER_LABELS = "amod".r
 
   val NOUN_LABELS = "nn".r
 
   val OF_LABELS = "prep_of".r
+
+  val PARTICLE_LABELS = "prt".r
 
   // patterns for "reverse" modifications
   val deAcetylatPat     = "(?i)de-?acetylat".r
@@ -476,9 +478,10 @@ object DarpaActions extends LazyLogging {
         val shortestPathWithAdjMods = addAdjectivalModifiers(path, deps)
         val nnMods = nounModifiers(arg.tokenInterval, deps)
         val ofMods = ofModifiers(arg.tokenInterval, deps)
+        val prpMods = particleModifiers(path, deps)
         // get all tokens considered negatives
         val negatives = for {
-          tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods).distinct // a single token can't negate twice
+          tok <- (shortestPathWithAdjMods ++ nnMods ++ ofMods ++ prpMods).distinct // a single token can't negate twice
           if !excluded.contains(tok)
           lemma = trigger.sentenceObj.lemmas.get(tok)
           if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
@@ -515,6 +518,16 @@ object DarpaActions extends LazyLogging {
   def getNounModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
     (tok, dep) <- deps.getIncomingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
     if NOUN_LABELS.findFirstIn(dep).isDefined
+  } yield tok
+
+  def particleModifiers(tokens:Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
+    t <- tokens
+    token <- t +: getParticleModifiers(t, deps)
+  } yield token
+
+  def getParticleModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
+    (tok, dep) <- deps.getOutgoingEdges(token)
+    if PARTICLE_LABELS.findFirstIn(dep).isDefined
   } yield tok
 
   def ofModifiers(tokens: Seq[Int], deps: DirectedGraph[String]): Seq[Int] = for {
