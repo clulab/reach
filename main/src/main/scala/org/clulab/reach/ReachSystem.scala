@@ -17,39 +17,36 @@ import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
 import RuleReader.{ Rules, readResource }
 
-// import org.clulab.reach.utils.MentionManager
 
-case class LoadableAttributes(entityRules:String,
-                              modificationRules:String,
-                              eventRules:String,
-                              contextRules:String)(implicit actions:DarpaActions){
+case class LoadableAttributes(entityRules:String, modificationRules:String,
+                              eventRules:String, contextRules:String)(implicit a:DarpaActions) {
 
-  // start entity extraction engine
-  // this engine extracts all physical entities of interest
-  lazy val entityEngine = ExtractorEngine(entityRules, actions)
+
+  lazy val entityEngine = ExtractorEngine(entityRules, a)
   // start modification engine
   // this engine extracts modification features and attaches them to the corresponding entity
-  lazy val modificationEngine = ExtractorEngine(modificationRules, actions)
+  lazy val modificationEngine = ExtractorEngine(modificationRules, a)
   // start event extraction engine
   // this engine extracts simple and recursive events and applies coreference
-  lazy val eventEngine = ExtractorEngine(eventRules, actions)
+  lazy val eventEngine = ExtractorEngine(eventRules, a, a.cleanupEvents)
 
   /** returns string with all rules used by the system */
   def allRules:String = Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 }
 
-/** Auxiliary constructors */
+/** Auxiliary constructores */
 object LoadableAttributes {
   def apply(rules:RuleReader.Rules)(implicit actions:DarpaActions):LoadableAttributes =
-    // Implicit parameter unnecessarily verbose for the sake of clarity
-    LoadableAttributes(rules.entities, rules.modifications, rules.events, rules.context)(actions)
+  // Implicit parameter unnecessarily verbose for the sake of clarity
+    LoadableAttributes(rules.entities, rules.modifications, rules.events, rules.context)
   def apply()(implicit actions:DarpaActions):LoadableAttributes =
-    // Implicit parameter unnecessarily verbose for the sake of clarity
+  // Implicit parameter unnecessarily verbose for the sake of clarity
     LoadableAttributes(readResource(RuleReader.entitiesMasterFile),
       readResource(RuleReader.modificationsMasterFile),
       readResource(RuleReader.eventsMasterFile),
-      readResource(RuleReader.contextRelationsFile))(actions)
+      readResource(RuleReader.contextRelationsFile))
 }
+
 
 class ReachSystem(
   rules: Option[Rules] = None,
@@ -61,8 +58,11 @@ class ReachSystem(
   import ReachSystem._
 
   implicit val actions = new DarpaActions
+
+  var loadableAttributes:LoadableAttributes  = loadAttributes()
   val entityLookup = new ReachEntityLookup // initialize entity lookup (find grounding candidates)
   val grounder = new ReachGrounder
+
 
   def reload(): Unit ={
     loadableAttributes = loadAttributes()
@@ -72,8 +72,6 @@ class ReachSystem(
     case Some(r) => LoadableAttributes(r)
     case None => LoadableAttributes()
   }
-
-  var loadableAttributes:LoadableAttributes  = loadAttributes()
 
   val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
@@ -216,6 +214,15 @@ class ReachSystem(
 
   def extractEventsFrom(doc: Document, entities: Seq[BioMention]): Seq[BioMention] = {
     val mentions = loadableAttributes.eventEngine.extractByType[BioMention](doc, State(entities))
+    // TODO: Review type erasure here
+//    val mentions = loadableAttributes.eventEngine.extractFrom(doc, State(entities)) flatMap {
+//      m =>
+//        if(m.isInstanceOf[BioMention])
+//          Some(m.toBioMention)
+//        else
+//          None
+//
+//    }
     // clean modified entities
     // remove ModificationTriggers
     // Make sure we don't have any "ModificationTrigger" Mentions
