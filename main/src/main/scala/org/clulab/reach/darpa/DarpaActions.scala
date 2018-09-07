@@ -528,7 +528,7 @@ object DarpaActions extends LazyLogging {
   } yield token
 
   def getNounModifiers(token: Int, deps: DirectedGraph[String]): Seq[Int] = for {
-    (tok, dep) <- deps.getIncomingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
+    (tok, dep) <- deps.getIncomingEdges(token) ++ deps.getOutgoingEdges(token) // NB: *Incoming* edges, for e.g. "Stat3 siRNA"
     if NOUN_LABELS.findFirstIn(dep).isDefined
   } yield tok
 
