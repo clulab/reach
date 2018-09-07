@@ -128,7 +128,7 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen14 = """We previously showed that IGF1R knockdown blocked survival of prostate cancer cells in which Akt activation was deregulated by PTEN loss."""
 
-  ignore should "have a negative activation of AKT by PTEN" in {
+  sen14 should "have a negative activation of AKT by PTEN" ignore {
     val mentions = getBioMentions(sen14)
     hasNegativeActivation("PTEN", "AKT", mentions) should be (true)
   }
@@ -143,7 +143,7 @@ class TestPolarity extends FlatSpec with Matchers{
   val sen15 = """In agreement with the ABCA1 expression level, the ApoAI mediated cholesterol efflux was significantly lower in macrophages treated with ApoE-free lipoproteins than in those treated with ApoE containing lipoproteins."""
 
   // Broken syntax
-  ignore should "have a positive activation of cholesterol by ApoAI" in {
+  sen15 should "have a positive activation of cholesterol by ApoAI" ignore {
     val mentions = getBioMentions(sen15)
     hasPositiveActivation("ApoAI", "cholesterol", mentions) should be (true)
   }
