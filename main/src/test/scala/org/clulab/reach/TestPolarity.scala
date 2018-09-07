@@ -150,9 +150,9 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen17 = """Finally, we compared wild-type IRF3 and IRF3 5SD for their effects on TGF-beta target genes, and measured basal, i.e. autocrine TGF-beta-dependent, and TGF-beta-induced mRNA expression of Smad7, p15 Ink4B and p21 Cip1, three direct Smad3 targets that are induced by TGF-beta, and c-Myc, which is directly repressed by Smad3 in response to autocrine or added TGF-beta."""
 
-  sen17 should "have a positive activation of SMAD3 by TGFbeta" in {
+  sen17 should "have a positive activation of Smad3 by TGF-beta" in {
     val mentions = getBioMentions(sen17)
-    hasPositiveActivation("TGFbeta", "SMAD3", mentions) should be (true)
+    hasPositiveActivation("TGF-beta", "Smad3", mentions) should be (true)
   }
 
   val sen18 = """The Wip1 gene is frequently amplified or overexpressed in human cancers, promoting tumor growth by switching off major checkpoint kinases and p53."""
