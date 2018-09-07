@@ -75,6 +75,7 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen7 = """The effect of this modification on FoxO1 localization and activity is controversial with CDK1 reported to cause nuclear localization and transcriptional activation, and CDK2 reported to cause cytoplasmic localization and inhibition of FoxO1."""
 
+  // Broken syntax
   ignore should "have a negative activation of FoxO1 by CDK2" in {
     val mentions = getBioMentions(sen7)
     info(s"Num mentions: ${mentions.size}")
@@ -132,18 +133,19 @@ class TestPolarity extends FlatSpec with Matchers{
     hasNegativeActivation("PTEN", "AKT", mentions) should be (true)
   }
 
-  val sen15 = """In agreement with the ABCA1 expression level, the ApoAI mediated cholesterol efflux was significantly lower in macrophages treated with ApoE-free lipoproteins than in those treated with ApoE containing lipoproteins."""
-
-  sen15 should "have a positive activation of cholesterol by ApoAI" in {
-    val mentions = getBioMentions(sen15)
-    hasPositiveActivation("ApoAI", "cholesterol", mentions) should be (true)
-  }
-
   val sen16 = """XREF_BIBR, XREF_BIBR By using a high content phenotypic screen (HCS) to identify selective inhibitors of IL-6 induced activation of the STAT3 pathway, 11 we identified the quinazoline 11a (XREF_FIG)."""
 
   sen16 should "have a positive activation of IL-6 by STAT3" in {
     val mentions = getBioMentions(sen16)
     hasPositiveActivation("IL-6", "STAT3", mentions) should be (true)
+  }
+
+  val sen15 = """In agreement with the ABCA1 expression level, the ApoAI mediated cholesterol efflux was significantly lower in macrophages treated with ApoE-free lipoproteins than in those treated with ApoE containing lipoproteins."""
+
+  // Broken syntax
+  ignore should "have a positive activation of cholesterol by ApoAI" in {
+    val mentions = getBioMentions(sen15)
+    hasPositiveActivation("ApoAI", "cholesterol", mentions) should be (true)
   }
 
   val sen17 = """Finally, we compared wild-type IRF3 and IRF3 5SD for their effects on TGF-beta target genes, and measured basal, i.e. autocrine TGF-beta-dependent, and TGF-beta-induced mRNA expression of Smad7, p15 Ink4B and p21 Cip1, three direct Smad3 targets that are induced by TGF-beta, and c-Myc, which is directly repressed by Smad3 in response to autocrine or added TGF-beta."""

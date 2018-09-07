@@ -361,7 +361,7 @@ object DarpaActions extends LazyLogging {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|target|off)".r
+  val SEMANTIC_NEGATIVE_PATTERN = "^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)".r
 
   val MODIFIER_LABELS = "amod".r
 
@@ -432,12 +432,24 @@ object DarpaActions extends LazyLogging {
     case ce: BioEventMention if ce matches "ComplexEvent" =>
 
       val trigger = ce.trigger
-      val arguments = ce.arguments.values.flatten
+      //val arguments = ce.arguments
+      val arguments = for{
+        k <- ce.arguments.keys
+        v <- ce.arguments(k)
+      } yield (k, v)
+
       // get token indices to exclude in the negation search
       // do not exclude args as they may involve regulations
-      val excluded = trigger.tokenInterval.toSet | (arguments flatMap (_.tokenInterval)).toSet
+      val excluded = trigger.tokenInterval.toSet | (arguments flatMap (_._2.tokenInterval)).toSet
+
+      // tokens with an incoming  prepc_by dependency
+      val deps = mention.sentenceObj.dependencies.get
+      val prepc_byed = (mention.tokenInterval filter (tok => deps.getIncomingEdges(tok).map(_._2).contains("prepc_by"))).toSet
       // count total number of negatives between trigger and each argument
-      val numNegatives = arguments.flatMap(arg => countSemanticNegatives(trigger, arg, excluded)).toSeq.distinct.length
+      val numNegatives = arguments.flatMap{
+        case (relation, arg) =>
+          countSemanticNegatives(trigger, arg, if(relation == "controller") excluded else excluded ++ prepc_byed)
+      }.toSeq.distinct.length
       logger.info(s"Total negatives: $numNegatives")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
