@@ -361,7 +361,7 @@ object DarpaActions extends LazyLogging {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|target|off)".r
+  val SEMANTIC_NEGATIVE_PATTERN = "^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)".r
 
   val MODIFIER_LABELS = "amod".r
 
