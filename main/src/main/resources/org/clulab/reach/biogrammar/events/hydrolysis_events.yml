@@ -11,9 +11,9 @@
   example: "We compared the rate of GTP hydrolysis for Ras and mUbRas in the presence of the catalytic domains of two GAPs."
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity = (<nn? nn) | (prep_of nn?) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = <prep_of? <dobj? (prep_for | prep_on) [!word=/^GAPs?$/]
-    cause:MacroMolecule = prep_by
+    theme:BioChemicalEntity = (<compound? compound) | (nmod_of compound?) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = <nmod_of? <dobj? (nmod_for | nmod_on) [!word=/^GAPs?$/]
+    cause:MacroMolecule = nmod_by
 
 - name: hydrolysis_2
   label: Hydrolysis
@@ -22,8 +22,8 @@
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity = (nn | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = <prep_to | prep_for [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = <nmod_to | nmod_for [!word=/^GAPs?$/]
 
 - name: hydrolysis_2wrong
   label: Hydrolysis
@@ -32,9 +32,9 @@
   example: "Here we show that monoubiquitination decreases the sensitivity of Ras to GAP-mediated hydrolysis"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity = (nn | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity = (<nsubj dep ccomp dobj prep_of) | (<prep_of <dobj (prep_for|prep_on|prep_in)) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = <nsubj dep ccomp prep_to
+    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity = (<nsubj dep ccomp dobj nmod_of) | (<nmod_of <dobj (nmod_for|nmod_on|nmod_in)) [!word=/^GAPs?$/]
+    cause:MacroMolecule? = <nsubj dep ccomp nmod_to
 
 - name: hydrolysis_3
   label: Hydrolysis
@@ -43,8 +43,8 @@
   example: "No increase in the rate of GTP hydrolysis was observed for mUbRas"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity = (nn | <dep) [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (< /prep_/){,2} <nsubjpass /prep_for|prep_in/ [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (compound | <dep) [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (< /nmod_/){,2} <nsubjpass /nmod_for|nmod_in/ [!word=/^GAPs?$/]
 
 - name: hydrolysis_4
   label: Hydrolysis
@@ -53,8 +53,8 @@
   example: "RasPDZ2UL retains intrinsic GTP hydrolysis activity"
   pattern: |
     trigger = [word=/(?i)hydrolysis/]
-    theme:BioChemicalEntity = (<nn)? nn [!word=/^GAPs?$/]
-    protein:BioChemicalEntity? = (<nn)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = (<compound)? compound [!word=/^GAPs?$/]
+    protein:BioChemicalEntity? = (<compound)? <dobj [word=/^has$|^have$|^had$|^retain(s|ed)?$|^show(s|ed)?$|^display(s|ed)?$/] nsubj [!word=/^GAPs?$/]
 
 - name: hydrolysis_token_1
   label: Hydrolysis
@@ -94,7 +94,7 @@
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=VBN]
     theme:BioChemicalEntity = ( <vmod | nsubjpass | <rcmod ) [!word=/^GAPs?$/]
-    cause:MacroMolecule? = agent
+    cause:MacroMolecule? = nmod_agent
 
 - name: hydrolysis_subjnom1
   label: Hydrolysis
@@ -103,5 +103,5 @@
   example: "MEK hydrolysis of Ras-GDP increased."
   pattern: |
     trigger = [word=/(?i)^hydrolysis/]
-    theme:BioChemicalEntity = prep_of [!word=/^GAPs?$/]
-    cause:MacroMolecule? = nn
+    theme:BioChemicalEntity = nmod_of [!word=/^GAPs?$/]
+    cause:MacroMolecule? = compound
