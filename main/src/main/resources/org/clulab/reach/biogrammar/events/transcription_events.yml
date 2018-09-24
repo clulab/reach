@@ -16,7 +16,7 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity =  </vmod/ /conj_|cc/*
+    theme:BioChemicalEntity =  </(acl|advcl)/ /conj_|cc/*
     cause:BioChemicalEntity? = /nmod_agent|nmod_by/
 
 

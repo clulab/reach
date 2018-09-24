@@ -18,7 +18,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = (acl|advcl)_by? (/dobj|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
       (/conj|dep|dobj|cc|compound|nmod_of|nmod_in$|amod/){,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | nmod_agent | <vmod) /appos|compound|conj_|cc|nmod_of|nmod_in$/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | nmod_agent | (<acl|<advcl)) /appos|compound|conj_|cc|nmod_of|nmod_in$/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_1b_verb
@@ -41,7 +41,7 @@
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] the? [lemma=/pathway/ & tag=/^N/]
     controlled:${ controlledType } = nmod_by /conj|dep|dobj|cc|compound|nmod_of|nmod_in$|amod/{,2}
-    controller:${ controllerType } = <xcomp? (nsubj | nmod_agent | <vmod) /appos|compound|conj_|cc|nmod_of|nmod_in$/{,2}
+    controller:${ controllerType } = <xcomp? (nsubj | nmod_agent | (<acl|<advcl)) /appos|compound|conj_|cc|nmod_of|nmod_in$/{,2}
 
 
 # Note: Captures passive voice; thus verb must be VBD|VBN
@@ -51,7 +51,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (>/^nsubj/|<vmod) /conj_|compound|cc|dep|amod/{,2}
+    controlled:${ controlledType } = (>/^nsubj/|(<acl|<advcl)) /conj_|compound|cc|dep|amod/{,2}
     controller:${ controllerType } = (nmod_agent|nmod_by) /conj_|compound|cc|dep|amod|nmod_of|nmod_in$/{,2}
 
 

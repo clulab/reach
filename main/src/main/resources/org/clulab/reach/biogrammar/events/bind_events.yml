@@ -120,7 +120,7 @@
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/bind|ligate/ & tag=/^V/]
-      theme1:BioChemicalEntity+ = <vmod <nmod_with?
+      theme1:BioChemicalEntity+ = (<acl|<advcl) <nmod_with?
 
 - name: binding10b
   label: Binding
@@ -128,7 +128,7 @@
   priority: ${ priority }
   pattern: |
       trigger = [lemma=/bind|ligate/ & tag=/^V/]
-      theme1:BioChemicalEntity = <vmod
+      theme1:BioChemicalEntity = (<acl|<advcl)
       theme2:BioChemicalEntity = /nmod_with|nmod_to/
 
 - name: binding11
@@ -185,7 +185,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [word=/ligate(s|d)?/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = <vmod | nsubj
+    theme1:BioChemicalEntity+ = (<acl|<advcl) | nsubj
     theme2:BioChemicalEntity* = /nmod_to|nmod_with/
 
 # ms: removed "associate", and "interact" from this rule. Too ambiguous
@@ -283,7 +283,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [word=bind & tag=VB]
-    theme1:BioChemicalEntity+ = <vmod [lemma="ability"] <dobj [lemma=/exhibit|have|show|display/] nsubj
+    theme1:BioChemicalEntity+ = (<acl|<advcl) [lemma="ability"] <dobj [lemma=/exhibit|have|show|display/] nsubj
     theme2:BioChemicalEntity+ = dobj
 
 - name: binding_syntax_27_verb
@@ -371,8 +371,8 @@
   example: "Src tyrosyl phosphorylates Ras that is GTP bound"
   pattern: |
     trigger = [word=bound & tag=/^VB(D|N)$/]
-    theme1:BioChemicalEntity+ = (<rcmod | <vmod)
-    theme2:BioChemicalEntity+ = (<rcmod | <vmod) (<rcmod | rcmod)
+    theme1:BioChemicalEntity+ = (<rcmod | (<acl|<advcl))
+    theme2:BioChemicalEntity+ = (<rcmod | (<acl|<advcl)) (<rcmod | rcmod)
 
 - name: binding_thatisbound_surface
   label: Binding
