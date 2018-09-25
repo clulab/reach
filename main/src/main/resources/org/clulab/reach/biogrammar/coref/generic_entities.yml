@@ -8,7 +8,7 @@
   pattern: |
     (?<! [mention=Equivalable])
     [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Equivalable]?
-    [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
+    [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^compound|amod/) & lemma=/(?i)^mutant$/]
     (?! [mention=/Generic_entity|Equivalable/])
 
 - name: Generic_mutant_known_mutation2
@@ -22,7 +22,7 @@
     [!(mention=/.*/) & tag=/\$$/ & lemma=/(?i)^its|their|whose$/]?
     [mention=Simple_chemical]?
     [word=/^substitution|deletion|duplication|insertion|frameshift$/ & !mention=Mutant & !mention=Equivalable]?
-    [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^nn|amod/) & lemma=/(?i)^mutant$/]
+    [!(mention=/.*/) & tag=/^NNS?|JJ/ & !(incoming=/^compound|amod/) & lemma=/(?i)^mutant$/]
     (?! [mention=/Generic_entity|Equivalable/])
 
 # Words with a DT POS but which are not acting as determiners, e.g. 'this' in "This is an example."
@@ -41,7 +41,7 @@
   priority: ${ priority }
   type: token
   pattern: |
-    [tag=/^N/ & !(incoming=/^nn/) & !(outgoing=nn) & !(mention=/.*/) & word=/(?i)^(protein|gene|cistron|sequence|region|frame|mutant|exon|intron|target|cytokine|factor|smad|antigen|marker|mediator)s?$/]
+    [tag=/^N/ & !(incoming=/^compound/) & !(outgoing=compound) & !(mention=/.*/) & word=/(?i)^(protein|gene|cistron|sequence|region|frame|mutant|exon|intron|target|cytokine|factor|smad|antigen|marker|mediator)s?$/]
 
 # Closed-class anaphors
 - name: PRP

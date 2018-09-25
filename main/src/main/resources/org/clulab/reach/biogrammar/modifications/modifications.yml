@@ -16,7 +16,7 @@ rules:
   action: mkBioMention
   pattern: |
     # note the use of nested lookaheads, muahaha!
-    [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent|vmod|nsubj/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
+    [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/nmod_by|nmod_agent|acl|advcl|nsubj/ & tag=/^(JJ|VBN)/] (?= @BioChemicalEntity (?! [lemma=/^(fragment|protein)/]? [lemma="by"] @BioChemicalEntity))
 
 - name: modification_trigger_2
   label: ModificationTrigger
@@ -24,7 +24,7 @@ rules:
   action: mkBioMention
   type: token
   pattern: |
-    (^[!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
+    (^[!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/nmod_by|nmod_agent/ & tag=/^NN/]) (?! [lemma="by"] @BioChemicalEntity)
 
 #- name: modification_trigger_3a
 #  label: ModificationTrigger
@@ -41,7 +41,7 @@ rules:
   type: token
   action: mkBioMention
   pattern: |
-    (?<= [mention="BioChemicalEntity"] [word=/^that|which$/] [lemma="be"]) [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/prep_by|agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
+    (?<= [mention="BioChemicalEntity"] [word=/^that|which$/] [lemma="be"]) [!lemma=/^(un|non)/ & lemma=/${modTriggerWords}/ & !outgoing=/nmod_by|nmod_agent/ & tag=/^(JJ|VBN)/] (?! [lemma="by"] @BioChemicalEntity)
 
 
 
@@ -119,4 +119,3 @@ rules:
     (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity [lemma=residue]? [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
     |
     (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity /^(at|on)/ []{,2} @site:Site [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
-

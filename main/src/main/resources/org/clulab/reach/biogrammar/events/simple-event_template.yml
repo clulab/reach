@@ -211,8 +211,8 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
     cause:BioChemicalEntity = /nmod_by|nmod_agent/ /conj_(and|or|nor)|cc|compound/{,2}
-    theme:BioChemicalEntity = nmod_of? appos? /conj_(and|or|nor)|cc|compound/{,2}
-    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
+    theme:BioChemicalEntity = nmod_of? appos?  /dep|conj_(and|or|nor)|cc|compound/{,2}
+    site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 - name: ${ eventName }_syntax_3_noun

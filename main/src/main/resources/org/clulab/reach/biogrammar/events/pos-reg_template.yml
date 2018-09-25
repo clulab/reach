@@ -51,7 +51,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBD|VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (>/^nsubj/|(<acl|<advcl)) /conj_|compound|cc|dep|amod/{,2}
+    controlled:${ controlledType } = (>/^nsubj/|nsubj|(<acl|<advcl)) /conj_|compound|cc|dep|amod/{,2}
     controller:${ controllerType } = (nmod_agent|nmod_by) /conj_|compound|cc|dep|amod|nmod_of|nmod_in$/{,2}
 
 
