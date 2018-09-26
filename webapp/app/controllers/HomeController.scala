@@ -241,10 +241,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     Json.arr(jsonRelations: _*)
   }
 
-  def getArg(r: RelationMention, name: String): TextBoundMention = r.arguments(name).head match {
-    case m: TextBoundMention => m
-    case m: EventMention => m.trigger
-    case m: RelationMention => ???
+  def getArg(r: RelationMention, name: String): TextBoundMention = r.arguments(name) match {
+    case Seq(m: TextBoundMention) => m
+    case Seq(m: EventMention) => m.trigger
+    case _ => ???
   }
 
   def mkJsonFromRelationMention(r: RelationMention, i: Int, tbmToId: Map[TextBoundMention, Int]): Json.JsValueWrapper = {
