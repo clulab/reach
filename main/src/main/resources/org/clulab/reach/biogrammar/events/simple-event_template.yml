@@ -36,6 +36,17 @@
     theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
+- name: ${ eventName }_syntax_1c_verb #Masha
+  priority: ${ priority }
+  example: "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not phosphorylate ASPP2."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
+    cause:BioChemicalEntity? = nsubj <appos
+    theme:BioChemicalEntity = dobj
+    site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+
 - name: ${ eventName }_syntax_2a_verb
   priority: ${ priority }
   example: "Human deoxycytidine kinase is ${ verbalTriggerLemma }d by ASPP2 on serine 128. The BRCT1 domain of XRCC1 is ${ verbalTriggerLemma }d in vitro by DNA-PK. ... reveals that XRCC1 is ${ verbalTriggerLemma }d by the co-immunoprecipitated DNA-PK"
@@ -202,6 +213,16 @@
     site:Site = nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = (/nmod_/ compound{,2}){1,2}
 
+- name: ${ eventName }_syntax_1c_noun #Masha
+  priority: ${ priority }
+  example: "Figure 5 shows that only the K650M and K650E mutants caused significant STAT5(Y694) phosphorylation"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
+    cause:BioChemicalEntity? = <nsubj advmod conj_and? compound?
+    site:Site = <nsubj dobj appos
+    theme:BioChemicalEntity = <nsubj dobj
 
 - name: ${ eventName }_syntax_2_noun
   priority: ${ priority }
@@ -214,6 +235,16 @@
     theme:BioChemicalEntity = nmod_of? appos?  /dep|conj_(and|or|nor)|cc|compound/{,2}
     site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
+- name: ${ eventName }_syntax_2a_noun #Masha, combine with other rule; maybe even regulation event
+  priority: ${ priority }
+  example: "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
+    cause:BioChemicalEntity = <advcl <advmod nsubj  /conj_(and|or|nor)|cc|compound/{,2}
+    theme:BioChemicalEntity = dep
+    site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 - name: ${ eventName }_syntax_3_noun
   priority: ${ priority }
