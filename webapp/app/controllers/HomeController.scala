@@ -45,10 +45,9 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 //  }
 
   // Entry method
-  def parseSentence(text: String) = Action {
+  def parseText(text: String) = Action {
     val (doc, events, mentions) = processPlaySentence(ieSystem, text)
-    println(s"Sentence returned from processPlaySentence : ${doc.sentences.head.getSentenceText}")
-    val json = mkJson(text, doc, events, mentions) // we only handle a single sentence
+    val json = mkJson(text, doc, events, mentions)
     Ok(json)
   }
 
