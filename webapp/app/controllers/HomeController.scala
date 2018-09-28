@@ -4,7 +4,7 @@ import javax.inject._
 import org.clulab.odin.{Attachment, EventMention, Mention, RelationMention, TextBoundMention}
 import org.clulab.processors.{Document, Sentence}
 import org.clulab.reach.ReachSystem
-import org.clulab.reach.mentions.{BioEventMention, BioTextBoundMention}
+import org.clulab.reach.mentions._
 import org.clulab.sequences.LexiconNER
 import play.api._
 import play.api.mvc._
@@ -45,17 +45,16 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 //  }
 
   // Entry method
-  def parseSentence(text: String) = Action {
+  def parseText(text: String) = Action {
     val (doc, events, mentions) = processPlaySentence(ieSystem, text)
-    println(s"Sentence returned from processPlaySentence : ${doc.sentences.head.getSentenceText}")
-    val json = mkJson(text, doc, events, mentions) // we only handle a single sentence
+    val json = mkJson(text, doc, events, mentions)
     Ok(json)
   }
 
   // Method where reach happens!
   def processPlaySentence(
     ieSystem: ReachSystem,
-    text: String): (Document, Seq[BioEventMention], Seq[BioTextBoundMention]) = {
+    text: String): (Document, Seq[BioMention], Seq[BioTextBoundMention]) = {
 
     def mentionOrder(m: Mention): Int = 10000 * m.sentence + m.start
 
@@ -78,7 +77,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     println("DONE .... ")
     //    println(s"Grounded Adjectives : ${groundedAdjectives.size}")
     // return the sentence and all the mentions extracted ... TODO: fix it to process all the sentences in the doc
-    (doc, events collect { case m:BioEventMention => m }, entities  map (_.asInstanceOf[BioTextBoundMention]))
+    (doc, events, entities  map (_.asInstanceOf[BioTextBoundMention]))
   }
 
 
@@ -136,7 +135,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       sb.toString
   }
 
-  def mkJson(text: String, doc: Document, events:Seq[BioEventMention], entities:Seq[BioTextBoundMention]): JsValue = {
+  def mkJson(text: String, doc: Document, events:Seq[BioMention], entities:Seq[BioTextBoundMention]): JsValue = {
     println("Found mentions (in mkJson):")
 
     val sent = doc.sentences.head
@@ -165,6 +164,11 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       case m: EventMention => Some(m)
       case _ => None
     }
+    // collect relation mentions for display
+    val relations = mentions.flatMap {
+      case m: RelationMention => Some(m)
+      case _ => None
+    }
     // collect triggers for event mentions
     val triggers = events.flatMap { e =>
       val argTriggers = for {
@@ -173,27 +177,28 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       } yield a.asInstanceOf[EventMention].trigger
       e.trigger +: argTriggers.toSeq
     }
-    // collect event arguments as text bound mentions
+    // collect arguments as text bound mentions
     val entities = for {
-      e <- events
+      e <- events ++ relations
       a <- e.arguments.values.flatten
     } yield a match {
       case m: TextBoundMention => m
-      case m: RelationMention => new TextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
+      case m: RelationMention => ???
       case m: EventMention => m.trigger
     }
     // generate id for each textbound mention
     val tbMentionToId = (entities ++ triggers ++ topLevelTBM)
-        .distinct
+      .distinct
       .zipWithIndex
       .map { case (m, i) => (m, i + 1) }
       .toMap
     // return brat output
     Json.obj(
       "text" -> sentenceText,
-      "entities" -> mkJsonFromEntities(entities ++ topLevelTBM, tbMentionToId),
+      "entities" -> mkJsonFromEntities((entities ++ topLevelTBM).distinct, tbMentionToId),
       "triggers" -> mkJsonFromEntities(triggers, tbMentionToId),
-      "events" -> mkJsonFromEventMentions(events, tbMentionToId)
+      "events" -> mkJsonFromEventMentions(events, tbMentionToId),
+      "relations" -> mkJsonFromRelationMentions(relations, tbMentionToId)
     )
   }
 
@@ -227,14 +232,41 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     )
   }
 
-  def mkArgMentions(ev: EventMention, tbmToId: Map[TextBoundMention, Int]): Seq[Json.JsValueWrapper] = {
+  def mkJsonFromRelationMentions(rr: Seq[RelationMention], tbmToId: Map[TextBoundMention, Int]): Json.JsValueWrapper = {
+    var i = 0
+    val jsonRelations = for (r <- rr) yield {
+      i += 1
+      mkJsonFromRelationMention(r, i, tbmToId)
+    }
+    Json.arr(jsonRelations: _*)
+  }
+
+  def getArg(r: RelationMention, name: String): TextBoundMention = r.arguments(name) match {
+    case Seq(m: TextBoundMention) => m
+    case Seq(m: EventMention) => m.trigger
+    case _ => ???
+  }
+
+  def mkJsonFromRelationMention(r: RelationMention, i: Int, tbmToId: Map[TextBoundMention, Int]): Json.JsValueWrapper = {
+    Json.arr(
+      s"R$i",
+      r.label,
+      // arguments are hardcoded to ensure the direction (controller -> controlled)
+      Json.arr(
+        Json.arr("controller", "T" + tbmToId(getArg(r, "controller"))),
+        Json.arr("controlled", "T" + tbmToId(getArg(r, "controlled")))
+      )
+    )
+  }
+
+  def mkArgMentions(ev: Mention, tbmToId: Map[TextBoundMention, Int]): Seq[Json.JsValueWrapper] = {
     val args = for {
       argRole <- ev.arguments.keys
       m <- ev.arguments(argRole)
     } yield {
       val arg = m match {
         case m: TextBoundMention => m
-        case m: RelationMention => new TextBoundMention(m.labels, m.tokenInterval, m.sentence, m.document, m.keep, m.foundBy)
+        case m: RelationMention => ???
         case m: EventMention => m.trigger
       }
       mkArgMention(argRole, s"T${tbmToId(arg)}")
