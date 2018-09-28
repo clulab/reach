@@ -7,9 +7,9 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & tag=/^N/ & !mention=ModificationTrigger]
     # these two should be the same
-    cause:BioChemicalEntity = nn
-    theme:BioChemicalEntity = nn
-    site:Site? = /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity = compound
+    theme:BioChemicalEntity = compound
+    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_2_noun
@@ -20,9 +20,9 @@
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & tag=/^N/ & !mention=ModificationTrigger]
     # these two should be the same
-    cause:BioChemicalEntity = prep_of
-    theme:BioChemicalEntity = prep_of
-    site:Site? = prep_of? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity = nmod_of
+    theme:BioChemicalEntity = nmod_of
+    site:Site? = nmod_of? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_1_verb
@@ -35,7 +35,7 @@
     # these two should be the same
     cause:BioChemicalEntity = /^nsubj/
     theme:BioChemicalEntity = /^nsubj/
-    site:Site? = prep_on
+    site:Site? = nmod_on
 
 
 - name: ${ eventName }_syntax_2_verb
@@ -48,9 +48,9 @@
     # these two should be the same
     # assertion on syntactic context of trigger
     # direct object of predicate must be the word "itself"
-    cause:BioChemicalEntity = (?= (dobj|agent|prep_by) [word=itself]) /^nsubj/
-    theme:BioChemicalEntity = (?= (dobj|agent|prep_by) [word=itself]) /^nsubj/
-    site:Site? = /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
+    theme:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
+    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
 # This is the only way to get this, due to horrible misparsing.

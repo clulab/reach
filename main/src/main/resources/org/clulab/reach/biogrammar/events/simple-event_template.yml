@@ -19,9 +19,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|nn|prep_of/{,2} (>> [word=by]){,2}
-    site:Site? = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = <xcomp? (nsubj |"nsubj:xsubj"| nmod_agent | (<"acl:relcl"|<advcl)) /<appos|appos|compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
+    site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_1b_verb
@@ -31,10 +31,21 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = <xcomp? (nsubj | agent | <vmod) /appos|nn|conj_(and|or|nor)|cc/{,2}
-    site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|nn|prep_of/{,2} (>> [word=by]){,2}
-    theme:BioChemicalEntity = dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | (<acl|<advcl)) /appos|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
+    theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
+
+- name: ${ eventName }_syntax_1c_verb #Masha
+  priority: ${ priority }
+  example: "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not phosphorylate ASPP2."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
+    cause:BioChemicalEntity? = nsubj <appos
+    theme:BioChemicalEntity = dobj
+    site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 - name: ${ eventName }_syntax_2a_verb
   priority: ${ priority }
@@ -43,9 +54,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = (agent|prep_by) (vmod dobj)? /conj_(and|or|nor)|nn|cc|prep_of/{,2}
-    theme:BioChemicalEntity = >nsubjpass prep_of? /conj_(and|or|nor)|nn|cc/{,2}
-    site:Site? = (agent|prep_by /conj_(and|or|nor)|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/{1,2}
+    cause:BioChemicalEntity? = (nmod_agent|nmod_by) ((acl|advcl) dobj)? /conj_(and|or|nor)|compound|cc|nmod_of/{,2}
+    theme:BioChemicalEntity = >nsubjpass nmod_of? /conj_(and|or|nor)|compound|cc/{,2}
+    site:Site? = (nmod_agent|nmod_by /conj_(and|or|nor)|compound|cc|nmod_of/{,2})? /nmod_(at|on)|conj_/{1,2}
 
 
 - name: ${ eventName }_syntax_2b_verb
@@ -55,9 +66,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity = (agent|prep_by) (vmod dobj)? /conj_(and|or|nor)|nn|cc|prep_of/{,2}
-    theme:BioChemicalEntity = <vmod /conj_(and|or|nor)|nn|cc/{,2}
-    site:Site? = (agent|prep_by /conj_(and|or|nor)|nn|cc|prep_of/{,2})? /prep_(at|on)|conj_/{1,2}
+    cause:BioChemicalEntity = (nmod_agent|nmod_by) ((acl|advcl) dobj)? /conj_(and|or|nor)|compound|cc|nmod_of/{,2}
+    theme:BioChemicalEntity = (<acl|<advcl) /conj_(and|or|nor)|compound|cc/{,2}
+    site:Site? = (nmod_agent|nmod_by /conj_(and|or|nor)|compound|cc|nmod_of/{,2})? /nmod_(at|on)|conj_/{1,2}
 
 
 - name: ${ eventName }_syntax_3a_verb
@@ -67,9 +78,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = <nn{,2}
-    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+    cause:BioChemicalEntity? = <compound{,2}
+    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 - name: ${ eventName }_syntax_3b_verb
@@ -79,9 +90,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
-    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+    cause:BioChemicalEntity? = (nmod_by) /compound|conj_(and|or|nor)|cc|nmod_of/{,2}
+    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 - name: ${ eventName }_syntax_3e_verb
@@ -91,9 +102,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = <nn{,2}
-    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
-    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+    cause:BioChemicalEntity? = <compound{,2}
+    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = < /pobj|nmod_|conj_(and|or|nor)|compound/{1,2} # NB: <
 
 
 - name: ${ eventName }_syntax_3f_verb
@@ -103,9 +114,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
-    cause:BioChemicalEntity? = (prep_by) /nn|conj_(and|or|nor)|cc|prep_of/{,2}
-    theme:BioChemicalEntity = /pobj|prep_[^bt]|conj_(and|or|nor)|nn/{1,2}
-    site:Site? = < /pobj|prep_|conj_(and|or|nor)|nn/{1,2} # NB: <
+    cause:BioChemicalEntity? = (nmod_by) /compound|conj_(and|or|nor)|cc|nmod_of/{,2}
+    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = < /pobj|nmod_|conj_(and|or|nor)|compound/{1,2} # NB: <
 
 
 - name: ${ eventName }_syntax_4_verb
@@ -115,9 +126,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = (/prep_/ /conj_(and|or|nor)|nn/{,2})? /prep_/{,2} /prep_by|agent/ /conj_(and|or|nor)|nn|prep_of/{,2}
-    theme:BioChemicalEntity = (nsubjpass /conj_(and|or|nor)|nn/{,2})
-    site:Site? = agent? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = (/nmod_/ /conj_(and|or|nor)|compound/{,2})? /nmod_/{,2} /nmod_by|nmod_agent/ /conj_(and|or|nor)|compound|nmod_of/{,2}
+    theme:BioChemicalEntity = (nsubjpass /conj_(and|or|nor)|compound/{,2})
+    site:Site? = nmod_agent? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_5_verb
@@ -127,9 +138,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = dobj /nn|conj_(and|or|nor)|cc/{,2}
-    site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = dobj /compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? nmod_(at|on) /compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_6_verb
@@ -139,9 +150,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(VBN|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|nn|conj_(and|or|nor)|cc/{,2}
-    site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = /nmod_by|nmod_agent/ /appos|compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? nmod_(at|on) /compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_verb_underwent
@@ -151,9 +162,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)underwent/ & tag=/VB/ & !mention=ModificationTrigger] [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = /prep_by|agent/ /appos|nn|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = nsubj /appos|nn|conj_(and|or|nor)|cc/{,2}
-    site:Site? = dobj? prep_(at|on) /nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = /nmod_by|nmod_agent/ /appos|compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = nsubj /appos|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? nmod_(at|on) /compound|conj_(and|or|nor)|cc/{,2}
 
 
 # This captures incorrect syntax by the constituent parser
@@ -164,7 +175,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma}/ & word=/ed$/]
-    theme:BioChemicalEntity = <amod nsubj /appos|nn|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = <amod nsubj /appos|compound|conj_(and|or|nor)|cc/{,2}
     site:Site = <amod
 
 # This captures the correct syntax for the rule above; this applies to the NN dep parser
@@ -175,8 +186,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma}/ & word=/ed$/]
-    theme:BioChemicalEntity = /nsubj|nsubjpass/ /appos|nn|conj_(and|or|nor)|cc/{,2} # the parser incorrectly assigns nsubj here...
-    site:Site = /amod|npadvmod/
+    theme:BioChemicalEntity = /nsubj|nsubjpass/ /appos|compound|conj_(and|or|nor)|cc/{,2} # the parser incorrectly assigns nsubj here...
+    site:Site = /amod|"nmod:npmod"/
 
 
 - name: ${ eventName }_syntax_1a_noun
@@ -186,9 +197,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = ((<dobj | <pobj)? (prep_by|agent) | nn | prep_of prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
-    theme:BioChemicalEntity = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
-    site:Site? = (/prep_/? nn{,2}){1,2}
+    cause:BioChemicalEntity? = ((<dobj | <pobj)? (nmod_by|nmod_agent) | compound | nmod_of nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
+    theme:BioChemicalEntity = nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = (/nmod_/? compound{,2}){1,2}
 
 
 - name: ${ eventName }_syntax_1b_noun
@@ -198,10 +209,20 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = ((<dobj | <pobj)? (prep_by|agent) | nn | /^prep_o[nf]$/{1,2} prep_by) /nn|conj_(and|or|nor)|cc/{,2} | poss
-    site:Site = prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = (/prep_/ nn{,2}){1,2}
+    cause:BioChemicalEntity? = ((<dobj | <pobj)? (nmod_by|nmod_agent) | compound | /^nmod_o[nf]$/{1,2} nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
+    site:Site = nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = (/nmod_/ compound{,2}){1,2}
 
+- name: ${ eventName }_syntax_1c_noun #Masha
+  priority: ${ priority }
+  example: "Figure 5 shows that only the K650M and K650E mutants caused significant STAT5(Y694) phosphorylation"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
+    cause:BioChemicalEntity? = <nsubj advmod conj_and? compound?
+    site:Site = <nsubj dobj appos
+    theme:BioChemicalEntity = <nsubj dobj
 
 - name: ${ eventName }_syntax_2_noun
   priority: ${ priority }
@@ -210,10 +231,20 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
-    cause:BioChemicalEntity = /prep_by|agent/ /conj_(and|or|nor)|cc|nn/{,2}
-    theme:BioChemicalEntity = prep_of? appos? /conj_(and|or|nor)|cc|nn/{,2}
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+    cause:BioChemicalEntity = /nmod_by|nmod_agent/ /conj_(and|or|nor)|cc|compound/{,2}
+    theme:BioChemicalEntity = nmod_of? appos?  /dep|conj_(and|or|nor)|cc|compound/{,2}
+    site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
+- name: ${ eventName }_syntax_2a_noun #Masha, combine with other rule; maybe even regulation event
+  priority: ${ priority }
+  example: "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
+    cause:BioChemicalEntity = <advcl <advmod nsubj  /conj_(and|or|nor)|cc|compound/{,2}
+    theme:BioChemicalEntity = dep
+    site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 - name: ${ eventName }_syntax_3_noun
   priority: ${ priority }
@@ -221,10 +252,10 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=prep_by] # nominal predicate
-    cause:BioChemicalEntity = /conj_(and|or|nor)|cc|nn/{1,2}
-    theme:BioChemicalEntity = prep_of appos? /conj_(and|or|nor)|cc|nn/{1,2}
-    site:Site? = /pobj|prep_|conj_(and|or|nor)|nn/{1,2}
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_by] # nominal predicate
+    cause:BioChemicalEntity = /conj_(and|or|nor)|cc|compound/{1,2}
+    theme:BioChemicalEntity = nmod_of appos? /conj_(and|or|nor)|cc|compound/{1,2}
+    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
@@ -234,9 +265,9 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=/prep_(by|of)/]
-    theme:BioChemicalEntity = </conj_(and|or|nor)/? /conj_(and|or|nor)|cc|nn|prep_of/{,2}
-    site:Site? = nn | <dobj? /prep_(at|on)/ num?
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=/nmod_(by|of)/]
+    theme:BioChemicalEntity = </conj_(and|or|nor)/? /conj_(and|or|nor)|cc|compound|nmod_of/{,2}
+    site:Site? = compound | <dobj? /nmod_(at|on)/ nummod?
 
 
 - name: ${ eventName }_syntax_5_noun
@@ -246,8 +277,8 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = < nn /conj_(and|or|nor)|cc|nn/{,2}
-    theme:BioChemicalEntity = < nn > /prep_in/ /conj_(and|or|nor)|cc|nn/{,2}
+    cause:BioChemicalEntity? = < compound /conj_(and|or|nor)|cc|compound/{,2}
+    theme:BioChemicalEntity = < compound > /nmod_in/ /conj_(and|or|nor)|cc|compound/{,2}
 
 
 - name: ${ eventName }_syntax_6_noun
@@ -257,9 +288,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity = <prep_via? (agent|prep_by) /nn|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = (<prep_via? /prep_(at|on)/? prep_of appos? /nn|conj_(and|or|nor)|cc/{,2}){1,2} /prep_(on|at)/?
-    site:Site? = <prep_via? ( (prep_of /nn|conj_(and|or|nor)|cc/{,2}) | ( (agent|prep_by) /nn|conj_(and|or|nor)|cc/{,2}) )? /prep_(on|at)/
+    cause:BioChemicalEntity = <nmod_via? (nmod_agent|nmod_by) /compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = (<nmod_via? /nmod_(at|on)/? nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}){1,2} /nmod_(on|at)/?
+    site:Site? = <nmod_via? ( (nmod_of /compound|conj_(and|or|nor)|cc/{,2}) | ( (nmod_agent|nmod_by) /compound|conj_(and|or|nor)|cc/{,2}) )? /nmod_(on|at)/
 
 
 - name: ${ eventName }_syntax_7_noun
@@ -268,8 +299,8 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=prep_of]
-    theme:BioChemicalEntity = < nsubj dobj prep_of appos? /nn|cc|conj/{,2}
+    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_of]
+    theme:BioChemicalEntity = < nsubj dobj nmod_of appos? /compound|cc|conj/{,2}
 
 
 - name: ${ eventName }_syntax_8_noun
@@ -279,9 +310,9 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity = <prep_in <dobj? nsubj /nn|cc|conj/{,2}
-    theme:BioChemicalEntity = prep_of appos? /nn|cc|conj/{,2} [!outgoing="prep_by"]
-    site:Site? = <prep_in <dobj? /prep_(at|on)|nn|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity = <nmod_in <dobj? nsubj /compound|cc|conj/{,2}
+    theme:BioChemicalEntity = nmod_of appos? /compound|cc|conj/{,2} [!outgoing="nmod_by"]
+    site:Site? = <nmod_in <dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 
 ##################
@@ -389,7 +420,7 @@
 #  label: ${ label }
 #  action: ${ actionFlow }
 #  pattern: |
-#    (?<theme> [mention="BioChemicalEntity" & !incoming=/prep_of|dobj/])
+#    (?<theme> [mention="BioChemicalEntity" & !incoming=/nmod_of|dobj/])
 #    ("," @BioChemicalEntity)*
 #    "and"
 #    @BioChemicalEntity

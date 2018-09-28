@@ -6,5 +6,4 @@
   label: Amount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
-    theme:BioChemicalEntity = prep_of amod? | nn
-
+    theme:BioChemicalEntity = nmod_of amod? | compound

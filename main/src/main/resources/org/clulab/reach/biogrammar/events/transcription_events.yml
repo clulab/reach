@@ -6,8 +6,8 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^N/]
-    theme:BioChemicalEntity = nn{1,2}
-    cause:BioChemicalEntity? = /agent|prep_by/
+    theme:BioChemicalEntity = compound{1,2}
+    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
 
 
 - name: expression_2
@@ -16,8 +16,8 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
-    theme:BioChemicalEntity =  </vmod/ /conj_|cc/*
-    cause:BioChemicalEntity? = /agent|prep_by/
+    theme:BioChemicalEntity =  </(acl|advcl)/ /conj_|cc/*
+    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
 
 
 - name: expression_3
@@ -27,7 +27,7 @@
   pattern: |
     trigger = [word=/(?i)(over)?express/ & tag=/^V/]
     theme:BioChemicalEntity = nsubjpass /conj_|cc/*
-    cause:BioChemicalEntity? = /agent|prep_by/
+    cause:BioChemicalEntity? = /nmod_agent|nmod_by/
 
 
 - name: transcription_0
@@ -36,8 +36,8 @@
   label: Transcription
   pattern: |
     trigger = [word=/(?i)transcription/ & tag=/^N/]
-    theme:BioChemicalEntity = <dobj nsubj prep_of? /conj_|cc/*
-    cause:BioChemicalEntity? = nn{1,2}
+    theme:BioChemicalEntity = <dobj nsubj nmod_of? /conj_|cc/*
+    cause:BioChemicalEntity? = compound{1,2}
 
 
 - name: transcription_1
@@ -46,8 +46,8 @@
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = prep_of? nn{1,2} /conj_|cc/*
-    cause:BioChemicalEntity? = prep_by
+    theme:BioChemicalEntity = nmod_of? compound{1,2} /conj_|cc/*
+    cause:BioChemicalEntity? = nmod_by
 
 
 - name: transcription_1b
@@ -56,8 +56,8 @@
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/ & !outgoing=amod]
-    theme:BioChemicalEntity = prep_of nn{,2} /conj_|cc/*
-    cause:BioChemicalEntity? = prep_by
+    theme:BioChemicalEntity = nmod_of compound{,2} /conj_|cc/*
+    cause:BioChemicalEntity? = nmod_by
 
 
 - name: transcription_2
@@ -67,7 +67,7 @@
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
     theme:BioChemicalEntity = <dep /conj_|cc/*
-    cause:BioChemicalEntity? = prep_by
+    cause:BioChemicalEntity? = nmod_by
 
 
 - name: transcription_3
@@ -76,7 +76,5 @@
   label: Transcription
   pattern: |
     trigger = [lemma=/transcription|expression/] (?! [lemma="factor"])
-    theme:BioChemicalEntity = prep_of /conj_|cc/*
-    cause:BioChemicalEntity? = prep_by
-
-
+    theme:BioChemicalEntity = nmod_of /conj_|cc/*
+    cause:BioChemicalEntity? = nmod_by
