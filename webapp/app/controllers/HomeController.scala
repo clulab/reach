@@ -5,6 +5,7 @@ import org.clulab.odin.{Attachment, EventMention, Mention, RelationMention, Text
 import org.clulab.processors.{Document, Sentence}
 import org.clulab.reach.ReachSystem
 import org.clulab.reach.mentions._
+import org.clulab.reach.display._
 import org.clulab.sequences.LexiconNER
 import play.api._
 import play.api.mvc._
@@ -150,7 +151,8 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     Json.obj(
       "syntax" -> syntaxJsonObj,
       "reachMentions" -> reachJsonObj,
-      "parse" -> parseObj
+      "parse" -> parseObj,
+      "shell" -> summarizeMentions(entities ++ events, doc)
     )
   }
 
