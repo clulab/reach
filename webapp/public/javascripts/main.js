@@ -417,6 +417,7 @@ head.ready(function() {
             console.log(data);
             syntaxLiveDispatcher.post('requestRenderData', [$.extend({}, data.syntax)]);
             eidosMentionsLiveDispatcher.post('requestRenderData', [$.extend({}, data.reachMentions)]);
+            document.getElementById("shell").innerHTML = data.shell;
             document.getElementById("parse").innerHTML = data.parse;
             // hide spinner
             document.getElementById("overlay").style.display = "none";
