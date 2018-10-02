@@ -67,6 +67,7 @@
       theme2:BioChemicalEntity+ = <compound (compound{,2} | <dep)
       #dummy: <compound >compound [word=/protein|domain|site/]
 
+
 # ms: removed "associate" from this rule; too ambiguous
 - name: binding6
   label: Binding
