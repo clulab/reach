@@ -67,6 +67,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=VBN] # passive verb
     controlled:${ controlledType } = nmod_with (acl|advcl) nmod_for
     controller:${ controllerType } = nmod_with
+
 - name: Negative_${ ruleType }_syntax_1_noun
   priority: ${ priority }
   example: ""
@@ -76,6 +77,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/]?
     controlled:${ controlledType } = /nmod_of|nmod_in$/ /compound|amod|conj_|cc/{,2}
     controller:${ controllerType } = /nmod_of/? nmod_by (<dobj|nmod_by|nmod_agent|compound|amod|nmod_of|nmod_in$){1,2} /compound|amod|conj_|cc/{,2} # the nmod_of may appear due to bad syntax
+
 - name: Negative_${ ruleType }_syntax_2_noun
   priority: ${ priority }
   example: ""
@@ -85,6 +87,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = /nmod_of|nmod_in$/? /conj_|cc|compound|amod/{1,2}
     controller:${ controllerType } = /nmod_of/? /nmod_by|nmod_agent/ /conj|cc|compound|amod/{,2} # the nmod_of may appear due to bad syntax
+
 - name: Negative_${ ruleType }_syntax_3_noun
   priority: ${ priority }
   example: "rapamycin inhibition of the phosphorylation of ERK"
@@ -94,6 +97,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/ & !outgoing=nmod_by] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = /nmod_of/ /conj_|cc|compound|amod/{,2}
     controller:${ controllerType } = /cc|compound|amod/{1,2} | conj_or nmod_by compound?
+
 - name: Negative_${ ruleType }_syntax_5_noun
   priority: ${ priority }
   example: ""
@@ -103,6 +107,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controlled:${ controlledType } = < /compound|amod/ > /nmod_/ /conj_|cc|compound|amod/{,2}
     controller:${ controllerType } = < /compound|amod/ /conj_|cc|compound|amod/{,2}
+
 - name: Negative_${ ruleType }_syntax_6_noun
   priority: ${ priority }
   example: ""
@@ -112,6 +117,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:${ controllerType } = <nmod_via (nmod_agent|nmod_by) /compound|amod|conj_|cc/{,2}
     controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|conj_|cc/{,2}){1,2}
+    
 - name: Negative_${ ruleType }_syntax_7_noun
   priority: ${ priority }
   example: "Rapamycin, an inhibitor of the mTOR kinase,"

@@ -55,6 +55,7 @@
     controller:${ controllerType } = (nmod_agent|nmod_by) /conj_|compound|cc|dep|amod|nmod_of|nmod_in$/{,2}
 
 
+
 - name: Positive_${ ruleType }_syntax_3_verb
   priority: ${ priority }
   example: ""
@@ -65,6 +66,16 @@
     controlled:${ controlledType } = ( (/pobj|nmod_[^b]|conj_|compound|amod/{,2}) | (< /pobj|nmod_|conj_|compound|amod/{1,2}) )
     controller:${ controllerType } = <compound{,2} | (nmod_by) /compound|conj_|cc|amod/{,2}
 
+- name: Positive_${ ruleType }_syntax_3a_verb #Masha
+  priority: ${ priority }
+  example: "the phosphorylation of Ras promotes the ubiquitination of MEK"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = (dobj [!lemma=/resistance|sensitivity/]) /compound|nmod_of/{,1}
+    controller:${ controllerType } = nsubj /nmod_of|compound/{,1}
+#this rule fixed 6/9 remaning act tests
 
 - name: Positive_${ ruleType }_syntax_4_verb
   priority: ${ priority }
