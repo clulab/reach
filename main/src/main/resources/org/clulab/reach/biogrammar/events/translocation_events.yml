@@ -60,7 +60,7 @@
   label: Translocation
   pattern: |
     trigger = [word=/(?i)^trans(loc|port)|release|export|recruit/ & tag=/VBN/]
-    theme:BioChemicalEntity = nsubjpass | <rcmod <appos
+    theme:BioChemicalEntity = (nsubjpass | <rcmod) <appos
     source:Cellular_component = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component? = nmod_from? nmod_to /conj|compound|cc|dep/{,2}
     cause:BioChemicalEntity? = nmod_agent | /nmod_(to|from)/{,2} nmod_by
