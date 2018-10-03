@@ -78,9 +78,9 @@
   action: mkBioMention
   example: "Under the same conditions, ASPP2 (693-1128) fragment phosphorylated by p38 SAPK had very low levels of incorporated 32P"
   pattern: |
-    "("
+    ("("|"-LRB-")
     /^\d+-\d+$/
-    ")"
+    (")"|"-RRB-")
     "fragment"
 
 # TODO GUS: must be extended with words containing domain, such as "Ferlin B-domain", or "Transcription regulator Wos2-domain"
@@ -118,9 +118,9 @@
   example: "Experiments revealed ubiquitination at Lys residues 104, 103, and 147 of K-Ras."
   type: token
   pattern: |
-    (@Site | [lemma=residue]) [word="("]?
+    (@Site | [lemma=residue]) [word="("|word="-LRB-"]?
     ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQRSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements
-    [word=")"]?
+    [word=")"|word="-RRB-"]?
 
 ###################
 # ner rules
