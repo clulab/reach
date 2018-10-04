@@ -197,7 +197,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = nsubjpass | <rcmod <appos?
+    theme1:BioChemicalEntity+ = (nsubjpass | <rcmod|<"acl:relcl") <appos?
     theme2:BioChemicalEntity+ = /nmod_agent|nmod_to|nmod_with/ compound{,2} | dobj compound{,2}
 
 - name: binding_18
@@ -252,7 +252,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [lemma="bind" & tag=/^V/]
-    theme1:BioChemicalEntity+ = nsubj /nmod_of|compound|conj_|cc/{,2}
+    theme1:BioChemicalEntity+ = (nsubj|<"acl:relcl") /nmod_of|compound|conj_|cc/{,2} <appos?
     site:Site? = nsubj | (dobj nmod_at) # domain-style pattern
     theme2:BioChemicalEntity+ = dobj /nmod_of|nmod_with|compound|conj_|cc/{,2}
 
@@ -284,7 +284,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [word=bind & tag=VB]
-    theme1:BioChemicalEntity+ = (<acl|<advcl) [lemma="ability"] <dobj [lemma=/exhibit|have|show|display/] nsubj
+    theme1:BioChemicalEntity+ = <acl_to [lemma="ability"] <dobj [lemma=/exhibit|have|show|display/] nsubj
     theme2:BioChemicalEntity+ = dobj
 
 - name: binding_syntax_27_verb
@@ -296,6 +296,8 @@
     trigger = [word=bind & tag=VB]
     theme1:BioChemicalEntity+ = <xcomp [lemma="able"] nsubj
     theme2:BioChemicalEntity+ = dobj
+
+
 
 # added to catch patterns like "increased XX binding to YY"
 # when the nmod_to is (wrongly) attached to increased instead of binding
