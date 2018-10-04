@@ -197,7 +197,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = ((<dobj | <pobj)? (nmod_by|nmod_agent) | compound | nmod_of nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
+    cause:BioChemicalEntity? = ((<dobj | <pobj)? (nmod_by|nmod_agent|"nsubj:xsubj") | compound | nmod_of nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
     theme:BioChemicalEntity = nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}
     site:Site? = (/nmod_/? compound{,2}){1,2}
 
