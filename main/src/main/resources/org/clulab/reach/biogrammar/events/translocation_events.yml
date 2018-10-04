@@ -50,7 +50,7 @@
     theme:BioChemicalEntity = dobj
     source:Cellular_component? = nmod_to? nmod_from [tag=/^N/]
     destination:Cellular_component = nmod_from? nmod_to /conj|compound|cc|dep/{,2}
-    cause:BioChemicalEntity? = nsubj | <rcmod <appos
+    cause:BioChemicalEntity? = (<"acl:relcl"| nsubj | <rcmod) <appos
 
 
 - name: translocation_3a_verb_passive
