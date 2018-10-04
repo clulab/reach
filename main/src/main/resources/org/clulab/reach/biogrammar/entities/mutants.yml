@@ -141,7 +141,7 @@
   type: token
   keep: false
   pattern: |
-    (?<= [mention=/^Family|MacroMolecule$/]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?! of [mention=/^Family|MacroMolecule$/]) (?! ("("? [mention=Mutant] ")"?))
+    (?<= [mention=/^Family|MacroMolecule$/]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?! of [mention=/^Family|MacroMolecule$/]) (?! (("("|"-LRB-")? [mention=Mutant] (")"|"-RRB-")?))
 
 - name: mutantlate_2
   label: GenericMutant
@@ -151,7 +151,7 @@
   type: token
   keep: false
   pattern: |
-    (?<! [mention=Mutant]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?= ("of" [tag=DT]?)? [mention=/^Family|MacroMolecule$/] (?! ("("? [mention=Mutant] ")"?)))
+    (?<! [mention=Mutant]) [lemma=/^(mutant|mutation)/ & !mention=Mutant] (?= ("of" [tag=DT]?)? [mention=/^Family|MacroMolecule$/] (?! (("("|"-LRB-")? [mention=Mutant] (")"|"-RRB-")?)))
 
 ##########
 # Store Mutant mods
@@ -227,7 +227,7 @@
   example: "ERK(T202M Y204E)"
   type: token
   pattern: |
-    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule) "(" @mutant:Mutant+ ")"
+    (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule) (("("|"-LRB-")|"-LRB-") @mutant:Mutant+ (")"|"-RRB-")
 
 # this grabs all Mutants that it finds within parens
 - name: mutantmod_withparens2
@@ -239,6 +239,6 @@
   pattern: |
     (@entity:Generic_entity | @entity:Family | @entity:MacroMolecule)
     (at [word=/^[ACDEFGHIKLMNPQRSTVWY]\d+$/])?
-    "("
+    (("("|"-LRB-")|"-LRB-")
     @mutant:Mutant (("," @mutant:Mutant)+ (","? [tag=CC] @mutant:Mutant)? | [tag=CC] @mutant:Mutant)
-    ")"
+    (")"|"-RRB-")

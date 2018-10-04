@@ -399,7 +399,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    @theme:BioChemicalEntity "(" [!tag=/^V/]{,4}? @site:Site? ([tag=/^,|CC/] @site:Site)* ")" (?<trigger>[lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (?! "of" @BioChemicalEntity)
+    @theme:BioChemicalEntity ("("|"-LRB-") [!tag=/^V/]{,4}? @site:Site? ([tag=/^,|CC/] @site:Site)* (")"|"-RRB-") (?<trigger>[lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (?! "of" @BioChemicalEntity)
 
 
 # too specific?
@@ -410,7 +410,7 @@
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
-    @theme:BioChemicalEntity "(" [!tag=/^V/]{,4} @site:Site? ")" (?<trigger>[lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (?! "of" @BioChemicalEntity)
+    @theme:BioChemicalEntity ("("|"-LRB-") [!tag=/^V/]{,4} @site:Site? (")"|"-RRB-") (?<trigger>[lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]) (?! "of" @BioChemicalEntity)
 
 
 #- name: ${ eventName }_token_9_noun

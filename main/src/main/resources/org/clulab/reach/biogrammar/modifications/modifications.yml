@@ -116,6 +116,6 @@ rules:
   example: "ERK(T202/Y204)"
   type: token
   pattern: |
-    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity [lemma=residue]? [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
+    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity [lemma=residue]? [word="("|word="-LRB-"]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"|word="-RRB-"]?
     |
-    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity /^(at|on)/ []{,2} @site:Site [word="("]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"]?
+    (@entity:BioChemicalEntity [tag=CC])? @entity:BioChemicalEntity /^(at|on)/ []{,2} @site:Site [word="("|word="-LRB-"]? @site:Site ([word="," | tag=CC]* @site:Site)+ [word=")"|word="-RRB-"]?
