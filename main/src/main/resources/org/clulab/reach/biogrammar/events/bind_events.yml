@@ -408,6 +408,8 @@
     (?<trigger> [lemma=/^(complex|heterodimer)/]) @theme1:BioChemicalEntity and @theme2:BioChemicalEntity # TODO: add a better lookahead constraint.
     |
     @theme1:BioChemicalEntity and @theme2:BioChemicalEntity (?<trigger> [lemma=/^(complex|heterodimer)/])
+    |
+    @theme1:BioChemicalEntity /-/ @theme2:BioChemicalEntity (?<trigger> [lemma=/^(complex|heterodimer)/])
 
 - name: binding_activity
   label: Binding
