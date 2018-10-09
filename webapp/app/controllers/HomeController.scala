@@ -139,20 +139,21 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   def mkJson(text: String, doc: Document, events:Seq[BioMention], entities:Seq[BioTextBoundMention]): JsValue = {
     println("Found mentions (in mkJson):")
 
+    val mentions = (entities ++ events).distinct
     val sent = doc.sentences.head
     val syntaxJsonObj = Json.obj(
         "text" -> text,
         "entities" -> mkJsonFromTokens(doc),
         "relations" -> mkJsonFromDependencies(doc)
       )
-    val reachJsonObj = mkJsonForReach(text, sent, events ++ entities)
+    val reachJsonObj = mkJsonForReach(text, sent, mentions)
     val parseObj = mkParseObj(doc)
 
     Json.obj(
       "syntax" -> syntaxJsonObj,
       "reachMentions" -> reachJsonObj,
       "parse" -> parseObj,
-      "shell" -> summarizeMentions(entities ++ events, doc)
+      "shell" -> summarizeMentions(mentions, doc)
     )
   }
 
