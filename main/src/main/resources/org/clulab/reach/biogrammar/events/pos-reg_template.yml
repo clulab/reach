@@ -21,6 +21,16 @@
     controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | nmod_agent | (<acl|<advcl)) /appos|compound|conj_|cc|nmod_of|nmod_in$/{,2}
 
 
+- name: Positive_${ ruleType }_syntax_1a_verb #Added by jmculnan
+  priority: ${ priority }
+  example: "X restores Y"
+  label: ${ label }
+  action: ${ actionFlow }
+  pattern: |
+    trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ posTriggers })/ & tag=/^V/]?
+    controlled:${ controlledType } = ccomp dobj
+    controller:${ controllerType } = "nsubj:xsubj" nmod_of?
+
 - name: Positive_${ ruleType }_syntax_1b_verb
   priority: ${ priority }
   example: "X positively regulates Y"
