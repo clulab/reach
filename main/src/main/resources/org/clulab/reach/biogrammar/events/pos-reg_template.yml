@@ -73,7 +73,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ( (/pobj|nmod_[^b]|conj_|compound|amod/{,2}) | (< /pobj|nmod_|conj_|compound|amod/{1,2}) )
+    controlled:${ controlledType } = ( (/nmod_[^b]|conj_|compound|amod/{,2}) | (< /nmod_|conj_|compound|amod/{1,2}) )
     controller:${ controllerType } = <compound{,2} | (nmod_by) /compound|conj_|cc|amod/{,2}
 
 - name: Positive_${ ruleType }_syntax_3a_verb #Masha
