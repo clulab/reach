@@ -29,7 +29,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !outgoing=nsubjpass & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = ( (/pobj|nmod_[^b]|conj_|compound|amod/{1,2}) | (< /pobj|nmod_|conj_|compound|amod/{1,2}) )
+    controlled:${ controlledType } = ( (/nmod_[^b]|conj_|compound|amod/{1,2}) | (< /nmod_|conj_|compound|amod/{1,2}) )
     controller:${ controllerType } = <compound|amod{,2} | (nmod_by) /compound|amod|conj_|cc|nmod_of|nmod_in$/{,2}
 - name: Negative_${ ruleType }_syntax_4_verb
   priority: ${ priority }
@@ -117,7 +117,7 @@
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
     controller:${ controllerType } = <nmod_via (nmod_agent|nmod_by) /compound|amod|conj_|cc/{,2}
     controlled:${ controlledType } = (/nmod_of|nmod_in$/ /compound|amod|conj_|cc/{,2}){1,2}
-    
+
 - name: Negative_${ ruleType }_syntax_7_noun
   priority: ${ priority }
   example: "Rapamycin, an inhibitor of the mTOR kinase,"

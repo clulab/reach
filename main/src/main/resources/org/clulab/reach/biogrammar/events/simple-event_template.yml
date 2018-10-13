@@ -1,3 +1,5 @@
+vars: org/clulab/reach/biogrammar/vars.yml
+
 # SimpleEvent tempate covers:
 #   Phosphorylation, Hydroxylation, Ubiquitination, Ribosylation, Farnesylation, Acetylation, Glycosylation, Methylation, Sumoylation
 #   Dephosphorylation, Dehydroxylation, Deubiquitination, Deribosylation, Defarnesylation, Deacetylation, Deglycosylation, Demethylation, Desumoylation
@@ -11,6 +13,7 @@
 # eventName (example) = Phosphorylation
 # actionFlow (example) = splitSimpleEvents
 #################################################
+rules:
 
 - name: ${ eventName }_syntax_1a_verb
   priority: ${ priority }
@@ -79,8 +82,8 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
     cause:BioChemicalEntity? = <compound{,2}
-    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
-    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
+    theme:BioChemicalEntity = /nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = /nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 - name: ${ eventName }_syntax_3b_verb
@@ -91,8 +94,8 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
     cause:BioChemicalEntity? = (nmod_by) /compound|conj_(and|or|nor)|cc|nmod_of/{,2}
-    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
-    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
+    theme:BioChemicalEntity = /nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = /nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 - name: ${ eventName }_syntax_3e_verb
@@ -103,8 +106,8 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
     cause:BioChemicalEntity? = <compound{,2}
-    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
-    site:Site? = < /pobj|nmod_|conj_(and|or|nor)|compound/{1,2} # NB: <
+    theme:BioChemicalEntity = /nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = < /nmod_|conj_(and|or|nor)|compound/{1,2} # NB: <
 
 
 - name: ${ eventName }_syntax_3f_verb
@@ -115,8 +118,8 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nsubjpass & tag=/^(V|JJ)/ & !mention=ModificationTrigger] # verbal predicate
     cause:BioChemicalEntity? = (nmod_by) /compound|conj_(and|or|nor)|cc|nmod_of/{,2}
-    theme:BioChemicalEntity = /pobj|nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
-    site:Site? = < /pobj|nmod_|conj_(and|or|nor)|compound/{1,2} # NB: <
+    theme:BioChemicalEntity = /nmod_[^bt]|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = < /nmod_|conj_(and|or|nor)|compound/{1,2} # NB: <
 
 
 - name: ${ eventName }_syntax_4_verb
@@ -197,7 +200,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = ((<dobj | <pobj)? (nmod_by|nmod_agent|"nsubj:xsubj") | compound | nmod_of nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
+    cause:BioChemicalEntity? = (<dobj? (nmod_by|nmod_agent|"nsubj:xsubj") | compound | nmod_of nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
     theme:BioChemicalEntity = nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}
     site:Site? = (/nmod_/? compound{,2}){1,2}
 
@@ -209,7 +212,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity? = ((<dobj | <pobj)? (nmod_by|nmod_agent) | compound | /^nmod_o[nf]$/{1,2} nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
+    cause:BioChemicalEntity? = (<dobj? (nmod_by|nmod_agent) | compound | /^nmod_o[nf]$/{1,2} nmod_by) /compound|conj_(and|or|nor)|cc/{,2} | "nmod:poss"
     site:Site = nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = (/nmod_/ compound{,2}){1,2}
 
@@ -233,7 +236,7 @@
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
     cause:BioChemicalEntity = /nmod_by|nmod_agent/ /conj_(and|or|nor)|cc|compound/{,2}
     theme:BioChemicalEntity = nmod_of? appos?  /dep|conj_(and|or|nor)|cc|compound/{,2}
-    site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = dep? /dep|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 - name: ${ eventName }_syntax_2a_noun #Masha, combine with other rule; maybe even regulation event
   priority: ${ priority }
@@ -244,7 +247,7 @@
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
     cause:BioChemicalEntity = <advcl <advmod nsubj  /conj_(and|or|nor)|cc|compound/{,2}
     theme:BioChemicalEntity = dep
-    site:Site? = dep? /dep|pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = dep? /dep|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 - name: ${ eventName }_syntax_3_noun
   priority: ${ priority }
@@ -255,7 +258,7 @@
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_by] # nominal predicate
     cause:BioChemicalEntity = /conj_(and|or|nor)|cc|compound/{1,2}
     theme:BioChemicalEntity = nmod_of appos? /conj_(and|or|nor)|cc|compound/{1,2}
-    site:Site? = /pobj|nmod_|conj_(and|or|nor)|compound/{1,2}
+    site:Site? = /nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
