@@ -24,7 +24,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj |${agents}| (<"acl:relcl"|<advcl|<advcl_by)) /nsubj|<appos|appos|compound|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
-    site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? /appos|${preps_site}|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_1b_verb
@@ -36,7 +36,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | (<acl|<advcl)) /appos|compound|conj_(and|or|nor)|cc/{,2}
     site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
-    theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    theme:BioChemicalEntity = dobj? /${preps_site}|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_1c_verb #Masha
@@ -48,7 +48,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = nsubj <appos
     theme:BioChemicalEntity = dobj
-    site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? /appos|${preps_site}|compound|conj_(and|or|nor)|cc/{,2}
 
 - name: ${ eventName }_syntax_2a_verb
   priority: ${ priority }
@@ -59,7 +59,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = (${agents}) ((acl|advcl) dobj)? /conj_(and|or|nor)|compound|cc|nmod_of/{,2}
     theme:BioChemicalEntity = >nsubjpass nmod_of? /conj_(and|or|nor)|compound|cc/{,2}
-    site:Site? = (${agents} /conj_(and|or|nor)|compound|cc|nmod_of/{,2})? /nmod_(at|on)|conj_/{1,2}
+    site:Site? = (${agents} /conj_(and|or|nor)|compound|cc|nmod_of/{,2})? /${preps_site}|conj_/{1,2}
 
 
 - name: ${ eventName }_syntax_2b_verb
@@ -71,7 +71,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity = (${agents}) ((acl|advcl) dobj)? /conj_(and|or|nor)|compound|cc|nmod_of/{,2}
     theme:BioChemicalEntity = (<acl|<advcl) /conj_(and|or|nor)|compound|cc/{,2}
-    site:Site? = (${agents} /conj_(and|or|nor)|compound|cc|nmod_of/{,2})? /nmod_(at|on)|conj_/{1,2}
+    site:Site? = (${agents} /conj_(and|or|nor)|compound|cc|nmod_of/{,2})? /${preps_site}|conj_/{1,2}
 
 
 - name: ${ eventName }_syntax_3a_verb
@@ -131,7 +131,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = (/nmod_/ /conj_(and|or|nor)|compound/{,2})? /nmod_/{,2} /${agents}/ /conj_(and|or|nor)|compound|nmod_of/{,2}
     theme:BioChemicalEntity = (nsubjpass /conj_(and|or|nor)|compound/{,2})
-    site:Site? = nmod_agent? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = nmod_agent? /${preps_site}|compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_5_verb
@@ -143,7 +143,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|compound|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = dobj /compound|conj_(and|or|nor)|cc/{,2}
-    site:Site? = dobj? nmod_(at|on) /compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? /${preps_site}/ /compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_6_verb
@@ -155,7 +155,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(VBN|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = /${agents}/ /appos|compound|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|compound|conj_(and|or|nor)|cc/{,2}
-    site:Site? = dobj? nmod_(at|on) /compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? /${preps_site}/ /compound|conj_(and|or|nor)|cc/{,2}
 
 
 - name: ${ eventName }_syntax_verb_underwent
@@ -167,7 +167,7 @@ rules:
     trigger = [word=/(?i)underwent/ & tag=/VB/ & !mention=ModificationTrigger] [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity? = /${agents}/ /appos|compound|conj_(and|or|nor)|cc/{,2}
     theme:BioChemicalEntity = nsubj /appos|compound|conj_(and|or|nor)|cc/{,2}
-    site:Site? = dobj? nmod_(at|on) /compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = dobj? /${preps_site}/ /compound|conj_(and|or|nor)|cc/{,2}
 
 
 # This captures incorrect syntax by the constituent parser
@@ -270,7 +270,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=/nmod_(by|of)/]
     theme:BioChemicalEntity = </conj_(and|or|nor)/? /conj_(and|or|nor)|cc|compound|nmod_of/{,2}
-    site:Site? = compound | <dobj? /nmod_(at|on)/ nummod?
+    site:Site? = compound | <dobj? /${preps_site}/ nummod?
 
 
 - name: ${ eventName }_syntax_5_noun
@@ -292,7 +292,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity = <nmod_via? (${agents}) /compound|conj_(and|or|nor)|cc/{,2}
-    theme:BioChemicalEntity = (<nmod_via? /nmod_(at|on)/? nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}){1,2} /nmod_(on|at)/?
+    theme:BioChemicalEntity = (<nmod_via? /${preps_site}/? nmod_of appos? /compound|conj_(and|or|nor)|cc/{,2}){1,2} /nmod_(on|at)/?
     site:Site? = <nmod_via? ( (nmod_of /compound|conj_(and|or|nor)|cc/{,2}) | ( (${agents}) /compound|conj_(and|or|nor)|cc/{,2}) )? /nmod_(on|at)/
 
 
@@ -315,7 +315,7 @@ rules:
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity = <nmod_in <dobj? nsubj /compound|cc|conj/{,2}
     theme:BioChemicalEntity = nmod_of appos? /compound|cc|conj/{,2} [!outgoing="nmod_by"]
-    site:Site? = <nmod_in <dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = <nmod_in <dobj? /${preps_site}|compound|conj_(and|or|nor)|cc/{,2}
 
 
 ##################
