@@ -1,5 +1,7 @@
+vars: org/clulab/reach/biogrammar/vars.yml
 # Amount events require a theme of BioChemicalEntity
 
+rules:
 - name: amount_1
   priority: ${ priority }
   example: "levels of neurofibromin. neurofibromin levels."

@@ -1,5 +1,7 @@
 #Transcription events require arguments of type BioChemicalEntity
+vars: org/clulab/reach/biogrammar/vars.yml
 
+rules:
 - name: expression_1
   priority: ${ priority }
   example: "PTEN protein expression was detectable by Western blot in all cell lines."

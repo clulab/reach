@@ -3,6 +3,10 @@
 #
 
 # This applies only to non-nested regs
+
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
 - name: Positive_${ ruleType }_in_response_to
   priority: ${ priority }
   label: ${ label }

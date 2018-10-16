@@ -2,7 +2,9 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+vars: org/clulab/reach/biogrammar/vars.yml
 
+rules:
 - name: translocation_1a_noun
   priority: ${ priority }
   action: mkBioMention

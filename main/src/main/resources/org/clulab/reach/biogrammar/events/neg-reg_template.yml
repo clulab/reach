@@ -2,7 +2,9 @@
 #
 # Template for negative regulation|activation
 #
+vars: org/clulab/reach/biogrammar/vars.yml
 
+rules:
 - name: Negative_${ ruleType }_syntax_1_verb
   priority: ${ priority }
   example: "X inhibits Y"

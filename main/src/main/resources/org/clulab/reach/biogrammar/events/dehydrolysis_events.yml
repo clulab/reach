@@ -4,6 +4,9 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
 - name: dehydrolysis_1
   label: Dehydrolysis
   priority: ${ priority }

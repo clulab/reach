@@ -1,7 +1,9 @@
+vars: org/clulab/reach/biogrammar/vars.yml
 #Binding events require arguments of type BioChemicalEntity
 #Use {1,2} quantifier for theme
 
 # TODO (ms): remove "associate" from binding1* rules; maybe Ok, given the stronger syntactic connections?
+rules:
 - name: binding1a
   label: Binding
   action: mkBinding

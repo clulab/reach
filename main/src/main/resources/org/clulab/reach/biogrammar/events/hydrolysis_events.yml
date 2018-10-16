@@ -4,6 +4,7 @@
 #BioChemicalEntities: "Protein", "Gene_or_gene_product", "Simple_chemical", "Complex", "GENE"
 #MacroMolecules: "Protein", "Gene_or_gene_product", "Complex", "GENE"
 
+rules:
 - name: hydrolysis_1
   label: Hydrolysis
   priority: ${ priority }

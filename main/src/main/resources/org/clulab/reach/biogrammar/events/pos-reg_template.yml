@@ -9,6 +9,10 @@
 #
 
 # note: nsubjpass for controller should not be there in an ideal world; but it does show up in practice
+
+vars: org/clulab/reach/biogrammar/vars.yml
+
+rules:
 - name: Positive_${ ruleType }_syntax_1_verb
   priority: ${ priority }
   example: "X activates Y"

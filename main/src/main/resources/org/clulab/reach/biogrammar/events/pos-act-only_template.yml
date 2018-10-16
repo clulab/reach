@@ -2,6 +2,8 @@
 # The rules below apply ONLY to activations (not regulations)
 #
 
+vars: org/clulab/reach/biogrammar/vars.yml
+rules:
 - name: Positive_${ ruleType }_syntax_results_in
   priority: ${ priority }
   example: "AKT1 results in subsequent MEK activation."
