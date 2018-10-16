@@ -450,7 +450,7 @@ object DarpaActions extends LazyLogging {
         case (relation, arg) =>
           countSemanticNegatives(trigger, arg, if(relation == "controller") excluded else excluded ++ prepc_byed)
       }.toSeq.distinct.length
-      logger.info(s"Total negatives: $numNegatives")
+      logger.debug(s"Total negatives: $numNegatives")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
@@ -498,7 +498,7 @@ object DarpaActions extends LazyLogging {
           lemma = trigger.sentenceObj.lemmas.get(tok)
           if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
         } yield {
-          logger.info(s"Negative lexical unit: $lemma")
+          logger.debug(s"Negative lexical unit: $lemma")
           tok
         }
         // return number of negatives
