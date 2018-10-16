@@ -58,7 +58,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = (${passive_agents}) ((acl|advcl) /${objects}/)? /${conjunctions}|${noun_modifiers}|${preps_theme}/{,2}
-    theme:BioChemicalEntity = >nsubjpass nmod_of? /${conjunctions}|${noun_modifiers}/{,2}
+    theme:BioChemicalEntity = >nsubjpass /${preps_theme}/? /${conjunctions}|${noun_modifiers}/{,2}
     site:Site? = (${passive_agents} /${conjunctions}|${noun_modifiers}|${preps_theme}/{,2})? /${preps_site}|${conjunctions}/{1,2}
 
 
@@ -201,7 +201,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity? = (</${objects}/? (${passive_agents}) | ${noun_modifiers} | nmod_of nmod_by) /${noun_modifiers}|${conjunctions}/{,2} | "nmod:poss"
-    theme:BioChemicalEntity = nmod_of /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
+    theme:BioChemicalEntity = /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
     site:Site? = (/nmod_/? /${noun_modifiers}/{,2}){1,2}
 
 
@@ -213,7 +213,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity? = (</${objects}/? (${passive_agents}) | ${noun_modifiers} | /^nmod_o[nf]$/{1,2} nmod_by) /${noun_modifiers}|${conjunctions}/{,2} | "nmod:poss"
-    site:Site = nmod_of /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
+    site:Site = /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
     theme:BioChemicalEntity = (/nmod_/ /${noun_modifiers}/{,2}){1,2}
 
 - name: ${ eventName }_syntax_1c_noun #Masha
@@ -235,7 +235,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
     cause:BioChemicalEntity = /${passive_agents}/ /${conjunctions}|${noun_modifiers}/{,2}
-    theme:BioChemicalEntity = nmod_of? /${conjunctions}/?  /dep|${conjunctions}|${noun_modifiers}/{,2}
+    theme:BioChemicalEntity = /${preps_theme}/? /${conjunctions}/?  /dep|${conjunctions}|${noun_modifiers}/{,2}
     site:Site? = dep? /dep|nmod_|${conjunctions}|${noun_modifiers}/{1,2}
 
 - name: ${ eventName }_syntax_2a_noun #Masha, combine with other rule; maybe even regulation event
@@ -257,7 +257,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_by] # nominal predicate
     cause:BioChemicalEntity = /${conjunctions}|${noun_modifiers}/{1,2}
-    theme:BioChemicalEntity = nmod_of /${conjunctions}/? /${conjunctions}|${noun_modifiers}/{1,2}
+    theme:BioChemicalEntity = /${preps_theme}/ /${conjunctions}/? /${conjunctions}|${noun_modifiers}/{1,2}
     site:Site? = /nmod_|${conjunctions}|${noun_modifiers}/{1,2}
 
 
@@ -292,8 +292,8 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity = <nmod_via? (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
-    theme:BioChemicalEntity = (<nmod_via? /${preps_site}/? nmod_of /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}){1,2} /nmod_(on|at)/?
-    site:Site? = <nmod_via? ( (nmod_of /${noun_modifiers}|${conjunctions}/{,2}) | ( (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}) )? /nmod_(on|at)/
+    theme:BioChemicalEntity = (<nmod_via? /${preps_site}/? /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}){1,2} /nmod_(on|at)/?
+    site:Site? = <nmod_via? ( (/${preps_theme}/ /${noun_modifiers}|${conjunctions}/{,2}) | ( (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}) )? /nmod_(on|at)/
 
 
 - name: ${ eventName }_syntax_7_noun
@@ -303,7 +303,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_of]
-    theme:BioChemicalEntity = < /${agents}/ /${objects}/ nmod_of /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
+    theme:BioChemicalEntity = < /${agents}/ /${objects}/ /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: ${ eventName }_syntax_8_noun
@@ -314,7 +314,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
     cause:BioChemicalEntity = <nmod_in </${objects}/? /${agents}/ /${noun_modifiers}|${conjunctions}/{,2}
-    theme:BioChemicalEntity = nmod_of /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2} [!outgoing="nmod_by"]
+    theme:BioChemicalEntity = /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2} [!outgoing="nmod_by"]
     site:Site? = <nmod_in </${objects}/? /${preps_site}|${noun_modifiers}|${conjunctions}/{,2}
 
 
