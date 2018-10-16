@@ -1,5 +1,5 @@
 preps_theme: "nmod_of"
-preps_site: "nmod_(at|on)"
+preps_site: "nmod_(at|on)|nmod_via|nmod_|nmod_in"
 #agents: "'nsubj:xsubj'|nmod_agent|nmod_by"
 objects: "dobj"
 agents: "nsubj"

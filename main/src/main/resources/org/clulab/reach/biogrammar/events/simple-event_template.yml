@@ -291,9 +291,9 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}]
-    cause:BioChemicalEntity = <nmod_via? (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
-    theme:BioChemicalEntity = (<nmod_via? /${preps_site}/? /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}){1,2} /nmod_(on|at)/?
-    site:Site? = <nmod_via? ( (/${preps_theme}/ /${noun_modifiers}|${conjunctions}/{,2}) | ( (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}) )? /nmod_(on|at)/
+    cause:BioChemicalEntity = </${preps_site}/? (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}
+    theme:BioChemicalEntity = (</${preps_site}/? /${preps_site}/? /${preps_theme}/ /${conjunctions}/? /${noun_modifiers}|${conjunctions}/{,2}){1,2} /${preps_site}/?
+    site:Site? = </${preps_site}/? ( (/${preps_theme}/ /${noun_modifiers}|${conjunctions}/{,2}) | ( (${passive_agents}) /${noun_modifiers}|${conjunctions}/{,2}) )? /${preps_site}/
 
 
 - name: ${ eventName }_syntax_7_noun
