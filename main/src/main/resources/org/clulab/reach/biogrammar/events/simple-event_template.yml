@@ -1,5 +1,3 @@
-vars: org/clulab/reach/biogrammar/vars.yml
-
 # SimpleEvent tempate covers:
 #   Phosphorylation, Hydroxylation, Ubiquitination, Ribosylation, Farnesylation, Acetylation, Glycosylation, Methylation, Sumoylation
 #   Dephosphorylation, Dehydroxylation, Deubiquitination, Deribosylation, Defarnesylation, Deacetylation, Deglycosylation, Demethylation, Desumoylation
@@ -13,7 +11,6 @@ vars: org/clulab/reach/biogrammar/vars.yml
 # eventName (example) = Phosphorylation
 # actionFlow (example) = splitSimpleEvents
 #################################################
-rules:
 
 - name: ${ eventName }_syntax_1a_verb
   priority: ${ priority }
