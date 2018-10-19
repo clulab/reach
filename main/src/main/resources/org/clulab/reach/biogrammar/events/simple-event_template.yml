@@ -31,7 +31,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | (<acl|<advcl)) /appos|compound|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | (<acl|<advcl))  (<appos|/appos|compound|conj_(and|or|nor)|cc/{,2}) #becky and marco #/appos|compound|conj_(and|or|nor)|cc/{,2}
     site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
@@ -253,15 +253,15 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_by] # nominal predicate
-    cause:BioChemicalEntity = /conj_(and|or|nor)|cc|compound/{1,2}
-    theme:BioChemicalEntity = nmod_of appos? /conj_(and|or|nor)|cc|compound/{1,2}
+    cause:BioChemicalEntity = /conj_(and|or|nor)|cc|compound/{1,2} #or nmod_of nmod_by
+    theme:BioChemicalEntity = nmod_of appos? /conj_(and|or|nor)|cc|compound/{1,2} #{,2}
     site:Site? = /nmod_|conj_(and|or|nor)|compound/{1,2}
 
 
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
 - name: ${ eventName }_syntax_4_noun
   priority: ${ priority }
-  example: " ... mediated by inter-Rad53 ${ nominalTriggerLemma }.  ASPP1 and ASPP2 have two conserved putative MAPK2 ${ nominalTriggerLemma } sites in their C-terminus."
+  example: " ... mediated by inter-Rad53 ${ nominalTriggerLemma }.  ASPP1 and ASPP2 have two conserved putative MAPK2 ${ nominalTriggerLemma } sites in their C-terminus." 
   label: ${ label }
   action: ${ actionFlow }
   pattern: |

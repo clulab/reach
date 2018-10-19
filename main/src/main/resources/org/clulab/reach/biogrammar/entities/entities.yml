@@ -119,7 +119,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("|word="-LRB-"]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQRSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements and R is removed to allow for RRB
     [word=")"|word="-RRB-"]?
 
 ###################
