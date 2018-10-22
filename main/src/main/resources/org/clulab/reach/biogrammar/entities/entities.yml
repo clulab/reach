@@ -20,7 +20,7 @@
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
+    (?<! [word=/(?i)^(table|figure|delta)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
   # old alt. pattern /^P\d+$/
 
 # this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
