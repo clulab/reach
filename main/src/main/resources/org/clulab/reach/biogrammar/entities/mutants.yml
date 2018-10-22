@@ -70,7 +70,7 @@
   example: "DeltaN663"
   keep: false
   pattern: |
-    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^Delta[ACDEFGHIKLMNPQRSTVWY]\d+(\/(Delta)?[ACDEFGHIKLMNPQRSTVWY]\d+)*$/]) [lemma=/^(mutant|mutation)/]?
+    [lemma=/^(mutant|mutation)/]? (?<entity>[word=/^Delta[ACDEFGHIKLMNPQRSTVWY]\d+(\/(Delta)?[ACDEFGHIKLMNPQRSTVWY]\d+)*$/] | /(?i)delta/ /[ACDEFGHIKLMNPQRSTVWY]\d+/) [lemma=/^(mutant|mutation)/]?
 
 - name: mutant_dup1
   label: DuplicationMutant

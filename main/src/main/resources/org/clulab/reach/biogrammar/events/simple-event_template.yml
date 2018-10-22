@@ -26,26 +26,14 @@
 
 - name: ${ eventName }_syntax_1b_verb
   priority: ${ priority }
-  example: "Akt ${ verbalTriggerLemma }s Ser487 on AMPK-alpha1"
+  example: "Akt ${ verbalTriggerLemma }s Ser487 on AMPK-alpha1. Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not ${ verbalTriggerLemma } ASPP2."
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | (<acl|<advcl))  (<appos|/appos|compound|conj_(and|or|nor)|cc/{,2}) #becky and marco #/appos|compound|conj_(and|or|nor)|cc/{,2}
-    site:Site = (dobj | xcomp) /conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
+    site:Site? = (dobj | xcomp)? /appos|nmod_(at|on)|conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
-
-
-- name: ${ eventName }_syntax_1c_verb #Masha
-  priority: ${ priority }
-  example: "Its many abnormal phenotypes can be rescued via overexpressing Ras, an XXX that does not phosphorylate ASPP2."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = nsubj <appos
-    theme:BioChemicalEntity = dobj
-    site:Site? = dobj? /appos|nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
 
 - name: ${ eventName }_syntax_2a_verb
   priority: ${ priority }
@@ -226,24 +214,13 @@
 
 - name: ${ eventName }_syntax_2_noun
   priority: ${ priority }
-  example: "Overexpressed PRAS40 suppressed the ${ nominalTriggerLemma } of S6K1 and 4E-BP1 at their rapamycin-sensitive ${ nominalTriggerLemma } sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed ${ nominalTriggerLemma } of PRAS40 (Ser(183)) and its binding to raptor."
+  example: "Overexpressed PRAS40 suppressed the ${ nominalTriggerLemma } of S6K1 and 4E-BP1 at their rapamycin-sensitive ${ nominalTriggerLemma } sites, and reciprocally, overexpression of S6K1 or 4E-BP1 suppressed ${ nominalTriggerLemma } of PRAS40 (Ser(183)) and its binding to raptor. All six FGFR3 mutants induced activatory ERK(T202/Y204) ${ nominalTriggerLemma } (Fig. 2)."
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
-    cause:BioChemicalEntity = /nmod_by|nmod_agent/ /conj_(and|or|nor)|cc|compound/{,2}
+    cause:BioChemicalEntity = (/nmod_by|nmod_agent/ |<advcl <advmod nsubj ) /conj_(and|or|nor)|cc|compound/{,2}
     theme:BioChemicalEntity = nmod_of? appos?  /dep|conj_(and|or|nor)|cc|compound/{,2}
-    site:Site? = dep? /dep|nmod_|conj_(and|or|nor)|compound/{1,2}
-
-- name: ${ eventName }_syntax_2a_noun #Masha, combine with other rule; maybe even regulation event
-  priority: ${ priority }
-  example: "all six FGFR3 mutants induced activatory ERK(T202/Y204) phosphorylation (Fig. 2)."
-  label: ${ label }
-  action: ${ actionFlow }
-  pattern: |
-    trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
-    cause:BioChemicalEntity = <advcl <advmod nsubj  /conj_(and|or|nor)|cc|compound/{,2}
-    theme:BioChemicalEntity = dep
     site:Site? = dep? /dep|nmod_|conj_(and|or|nor)|compound/{1,2}
 
 - name: ${ eventName }_syntax_3_noun
@@ -261,7 +238,7 @@
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
 - name: ${ eventName }_syntax_4_noun
   priority: ${ priority }
-  example: " ... mediated by inter-Rad53 ${ nominalTriggerLemma }.  ASPP1 and ASPP2 have two conserved putative MAPK2 ${ nominalTriggerLemma } sites in their C-terminus." 
+  example: " ... mediated by inter-Rad53 ${ nominalTriggerLemma }.  ASPP1 and ASPP2 have two conserved putative MAPK2 ${ nominalTriggerLemma } sites in their C-terminus."
   label: ${ label }
   action: ${ actionFlow }
   pattern: |
