@@ -36,7 +36,7 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = binding (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = <nmod_by nsubj /compound|conj_|cc/{,2}
+    theme1:BioChemicalEntity+ = <nmod_by nsubj /compound|${conjunctions}/{,2}
     theme2:BioChemicalEntity* = nmod_such_as
 
 - name: binding3
@@ -78,7 +78,7 @@ rules:
   pattern: |
       trigger = [lemma=/bind|interact|ligate/ & tag=/^V/]
       theme1:BioChemicalEntity+ = (<amod compound{,2} >nmod_of? >appos?) | nsubj
-      theme2:BioChemicalEntity+ = conj_and? dobj
+      theme2:BioChemicalEntity+ = ${conjunctions}? dobj
 
 - name: binding7a
   label: Binding
@@ -86,8 +86,8 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-      theme1:BioChemicalEntity+ = compound conj_and?
-      theme2:BioChemicalEntity* = nmod_to conj_and?
+      theme1:BioChemicalEntity+ = compound ${conjunctions}?
+      theme2:BioChemicalEntity* = nmod_to ${conjunctions}?
 
 - name: binding7b
   label: Binding
@@ -95,8 +95,8 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site" | lemma=to])
-      theme1:BioChemicalEntity* = compound conj_and?
-      theme2:BioChemicalEntity+ = nmod_to conj_and?
+      theme1:BioChemicalEntity* = compound ${conjunctions}?
+      theme2:BioChemicalEntity+ = nmod_to ${conjunctions}?
 
 - name: binding7c
   label: Binding
@@ -104,8 +104,8 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-      theme1:BioChemicalEntity+ = compound conj_and?
-      theme2:BioChemicalEntity+ = nmod_to conj_and?
+      theme1:BioChemicalEntity+ = compound ${conjunctions}?
+      theme2:BioChemicalEntity+ = nmod_to ${conjunctions}?
 
 - name: binding9
   label: Binding
@@ -140,7 +140,7 @@ rules:
   priority: ${ priority }
   pattern: |
       trigger = /cooperation|affinity|association|interaction/
-      theme1:BioChemicalEntity+ = </nmod_(of|to)/{,2} xcomp? nmod_between conj_and?
+      theme1:BioChemicalEntity+ = </nmod_(of|to)/{,2} xcomp? nmod_between ${conjunctions}?
 
 ## Commented out because of event overgeneration in cases like
 ## "We analyze the associations between KRAS and BRAF mutations and patients' clinicopathological characteristics."
