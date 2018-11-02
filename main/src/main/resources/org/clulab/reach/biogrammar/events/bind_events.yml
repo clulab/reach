@@ -27,8 +27,8 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
-    theme1:BioChemicalEntity+ = ${agents}/compound|conj_|cc/{,2}
-    theme2:BioChemicalEntity* = ${objects} /compound|conj_|cc/{,2} | /${preps_theme}/
+    theme1:BioChemicalEntity+ = ${agents}/compound|${conjunctions}/{,2}
+    theme2:BioChemicalEntity* = ${objects} /compound|${conjunctions}/{,2} | /${preps_theme}/
 
 - name: binding2
   label: Binding
