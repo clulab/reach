@@ -34,9 +34,9 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity? = <xcomp? (nsubj | nmod_agent | (<acl|<advcl))  (<appos|/appos|compound|conj_(and|or|nor)|cc/{,2}) #becky and marco #/appos|compound|conj_(and|or|nor)|cc/{,2}
-    site:Site? = (dobj | xcomp)? /appos|nmod_(at|on)|conj_(and|or|nor)|dep|cc|compound|nmod_of/{,2} (>> [word=by]){,2}
-    theme:BioChemicalEntity = dobj? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    cause:BioChemicalEntity? = <xcomp? (${agents} | ${passive_agents} | (<acl|<advcl))  (<appos|/${noun_modifiers}|${conjunctions}/{,2}) #becky and marco #/${noun_modifiers}|${conjunctions}/{,2}
+    site:Site? = (dobj | xcomp)? /nmod_(at|on)|${conjunctions}|dep|${noun_modifiers}|nmod_of/{,2} (>> [word=by]){,2}
+    theme:BioChemicalEntity = dobj? /nmod_(at|on)|${noun_modifiers}|${conjunctions}/{,2}
 
 - name: ${ eventName }_syntax_2a_verb
   priority: ${ priority }
@@ -119,7 +119,7 @@ rules:
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = (/nmod_/ /${conjunctions}|${noun_modifiers}/{,2})? /nmod_/{,2} /${passive_agents}/ /${conjunctions}|${noun_modifiers}|${preps_theme}/{,2}
     theme:BioChemicalEntity = (nsubjpass /${conjunctions}|${noun_modifiers}/{,2})
-    site:Site? = nmod_agent? /${preps_site}|${noun_modifiers}|${conjunctions}/{,2}
+    site:Site? = (${passive_agents})? /${preps_site}|${noun_modifiers}|${conjunctions}/{,2}
 
 
 - name: ${ eventName }_syntax_5_verb
@@ -222,7 +222,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
-    cause:BioChemicalEntity = (/nmod_by|nmod_agent/ |<advcl <advmod nsubj ) /conj_(and|or|nor)|cc|compound/{,2}
+    cause:BioChemicalEntity = (/${passive_agents}/ |<advcl <advmod ${agents} ) /${conjunctions}|${noun_modifiers}/{,2}
     theme:BioChemicalEntity = /${preps_theme}/? /${conjunctions}/?  /dep|${conjunctions}|${noun_modifiers}/{,2}
     site:Site? = dep? /dep|nmod_|${conjunctions}|${noun_modifiers}/{1,2}
 
