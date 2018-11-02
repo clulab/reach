@@ -1078,7 +1078,7 @@ class TestDeModifications extends FlatSpec with Matchers {
     val mentions = getBioMentions(mutantTest17)
     mentions should have size (1)
     mentions.head.countMutations should be (1)
-    mentions.head hasMutation ("DeltaF508", "DeletionMutant") should be (true)
+    mentions.head hasMutation ("ΔF508", "DeletionMutant") should be (true)
   }
 
   val mutantTest18a = "We used a deletion mutant of Raf (K29del)"

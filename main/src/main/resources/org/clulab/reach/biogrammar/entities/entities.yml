@@ -20,7 +20,7 @@
   type: token
   action: mkBioMention
   pattern: |
-    (?<! [word=/(?i)^(table|figure)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
+    (?<! [word=/(?i)^(table|figure|delta)/]) [word=/(?i)^[ACDEFGHIKLMNQRSTVWY]\d+$/ & !mention=/^(Family|Gene_or_gene_product|Simple_chemical)$/]
   # old alt. pattern /^P\d+$/
 
 # this one is ambiguous: there are proteins that have the same form; in such cases, prefer the proteins or chemicals
@@ -119,7 +119,7 @@
   type: token
   pattern: |
     (@Site | [lemma=residue]) [word="("|word="-LRB-"]?
-    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQRSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements
+    ([word="," | tag=CC]* (@site:Site | (?<site> /[A-Za-z]?\d+$/ (?! /[ACDEFGHIKLMNQSTVWY]|mM/))))+ # note that (?! "mM") is to avoid capturing measurements and R is removed to allow for RRB
     [word=")"|word="-RRB-"]?
 
 ###################
