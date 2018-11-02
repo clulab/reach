@@ -9,8 +9,8 @@ rules:
   action: mkBinding
   priority: ${ priority }
   pattern: |
-    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|dobj|xcomp/]
-    theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /compound|conj_|cc/{,2} | <nmod_by{,2} nsubj
+    trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|${objects}|xcomp/]
+    theme1:BioChemicalEntity+ = <rcmod (${conjunctions}){,2} | (${agents}) /compound|${conjunctions}/{,2} | (</${passive_agents}/){,2} ${agents}
 
 - name: binding1b
   label: Binding
@@ -18,8 +18,8 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /compound|conj_|cc/{,2} | <nmod_by{,2} nsubj
-    theme2:BioChemicalEntity+ = dobj /compound|conj_|cc/{,2} | xcomp? /nmod_(to|with)/
+    theme1:BioChemicalEntity+ = <rcmod (${conjunctions}){,2} | (${agents}) /compound|${conjunctions}/{,2} | <nmod_by{,2} ${agents}
+    theme2:BioChemicalEntity+ = ${objects} /compound|${conjunctions}/{,2} | xcomp? /${preps_theme}/
 
 - name: binding1forms
   label: Binding
@@ -27,8 +27,8 @@ rules:
   priority: ${ priority }
   pattern: |
     trigger = /form(ed|s)?/ (a)? /complex(es)?|dimers?|heteromultimers?/
-    theme1:BioChemicalEntity+ = nsubj /compound|conj_|cc/{,2}
-    theme2:BioChemicalEntity* = dobj /compound|conj_|cc/{,2} | /nmod_(to|with)/
+    theme1:BioChemicalEntity+ = ${agents}/compound|conj_|cc/{,2}
+    theme2:BioChemicalEntity* = ${objects} /compound|conj_|cc/{,2} | /${preps_theme}/
 
 - name: binding2
   label: Binding
