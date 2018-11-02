@@ -233,9 +233,9 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix} & !outgoing=nmod_by] # nominal predicate
-    cause:BioChemicalEntity = /conj_(and|or|nor)|cc|compound/{1,2} #or nmod_of nmod_by
-    theme:BioChemicalEntity = nmod_of appos? /conj_(and|or|nor)|cc|compound/{1,2} #{,2}
-    site:Site? = /nmod_|${conjunctions}|${noun_modifiers}/{1,2}
+    cause:BioChemicalEntity = /${conjunctions}|${noun_modifiers}/{1,2} #or nmod_of nmod_by
+    theme:BioChemicalEntity = /${preps_theme}/  /${conjunctions}|${noun_modifiers}/{1,2} #{,2}
+    site:Site? = /${preps_theme}|${conjunctions}|${noun_modifiers}/{1,2}
 
 
 # Site pattern motivated by: "In contrast, the EGFR T669A mutant increased both basal EGFR and ERBB3 tyrosine phosphorylation that was not augmented by MEK inhibition."
