@@ -23,7 +23,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (${agents} |${passive_agents}| </${adverbial_clause}/) /${agents}|<${conjunctions}|${noun_modifiers}|${conjunctions}/{,2}
-    theme:BioChemicalEntity = (${objects} | xcomp) /${conjunctions}|dep|${noun_modifiers}|${preps_theme}/{,2} (>> [word=by]){,2}
+    theme:BioChemicalEntity = (${objects} | xcomp) /${conjunctions}|${dep}|${noun_modifiers}|${preps_theme}/{,2} (>> [word=by]){,2}
     site:Site? = /${objects}/? /${preps_site}|${noun_modifiers}|${conjunctions}/{,2}
 
 
@@ -35,7 +35,7 @@ rules:
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = <xcomp? (${agents} | ${passive_agents} |  </${adverbial_clause}/)  (<appos|/${noun_modifiers}|${conjunctions}/{,2}) #becky and marco #/${noun_modifiers}|${conjunctions}/{,2}
-    site:Site? = (dobj | xcomp)? /nmod_(at|on)|${conjunctions}|dep|${noun_modifiers}|nmod_of/{,2} (>> [word=by]){,2}
+    site:Site? = (dobj | xcomp)? /nmod_(at|on)|${conjunctions}|${dep}|${noun_modifiers}|nmod_of/{,2} (>> [word=by]){,2}
     theme:BioChemicalEntity = dobj? /nmod_(at|on)|${noun_modifiers}|${conjunctions}/{,2}
 
 - name: ${ eventName }_syntax_2a_verb
@@ -223,8 +223,8 @@ rules:
   pattern: |
     trigger = [lemma=/${ nominalTriggerLemma }/ & ${triggerPrefix}] # nominal predicate
     cause:BioChemicalEntity = (/${passive_agents}/ | </${adverbial_clause}/ <advmod ${agents} ) /${conjunctions}|${noun_modifiers}/{,2}
-    theme:BioChemicalEntity = /${preps_theme}/? /${conjunctions}/?  /dep|${conjunctions}|${noun_modifiers}/{,2}
-    site:Site? = dep? /dep|nmod_|${conjunctions}|${noun_modifiers}/{1,2}
+    theme:BioChemicalEntity = /${preps_theme}/? /${conjunctions}/?  /${dep}|${conjunctions}|${noun_modifiers}/{,2}
+    site:Site? = /${dep}/? /${dep}|nmod_|${conjunctions}|${noun_modifiers}/{1,2}
 
 - name: ${ eventName }_syntax_3_noun
   priority: ${ priority }
