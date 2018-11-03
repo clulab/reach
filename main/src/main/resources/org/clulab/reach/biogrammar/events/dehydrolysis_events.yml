@@ -93,7 +93,7 @@
   example: "Ras-GDP is dehydrolyzed by 26S proteasome without ubiquitination"
   pattern: |
     trigger = [word=/(?i)^de-?hydrolyz/ & tag=VBN]
-    theme:BioChemicalEntity = ( (<acl|<advcl) | nsubjpass | <rcmod ) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = ( </acl|advcl/ | nsubjpass | <rcmod ) [!word=/^GAPs?$/]
     cause:MacroMolecule? = nmod_agent
 
 - name: dehydrolysis_subjnom1

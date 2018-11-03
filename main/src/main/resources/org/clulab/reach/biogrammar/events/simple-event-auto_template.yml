@@ -9,7 +9,7 @@
     # these two should be the same
     cause:BioChemicalEntity = compound
     theme:BioChemicalEntity = compound
-    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
 
 
 - name: ${ eventName }_syntax_2_noun
@@ -22,7 +22,7 @@
     # these two should be the same
     cause:BioChemicalEntity = nmod_of
     theme:BioChemicalEntity = nmod_of
-    site:Site? = nmod_of? /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = nmod_of? /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
 
 
 - name: ${ eventName }_syntax_1_verb
@@ -50,7 +50,7 @@
     # direct object of predicate must be the word "itself"
     cause:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
     theme:BioChemicalEntity = (?= (dobj|nmod_agent|nmod_by) [word=itself]) /^nsubj/
-    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)|cc/{,2}
+    site:Site? = /nmod_(at|on)|compound|conj_(and|or|nor)/{,2}
 
 
 # This is the only way to get this, due to horrible misparsing.

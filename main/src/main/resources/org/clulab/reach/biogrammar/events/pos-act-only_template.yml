@@ -9,7 +9,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^N/] [lemma=/^(${ auxtriggers })/ & tag=/^N/]?
-    controller:${ controllerType } = <nmod_in [lemma=result] nsubj /compound|amod|conj_|cc/{,2}
+    controller:${ controllerType } = <nmod_in [lemma=result] nsubj /compound|amod|conj_/{,2}
     controlled:${ controlledType } = /compound|nmod_of/
 
 
