@@ -20,7 +20,7 @@ rules:
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & !word=/^cataly/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
-    controlled:${ controlledType } = (acl|advcl)_by? (/dobj|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
+    controlled:${ controlledType } = /(acl|advcl)_by/? (/dobj|xcomp|ccomp/ [!lemma=/resistance|sensitivity/])
       (/conj|dep|dobj|cc|compound|nmod_of|nmod_in$|amod/){,2}
     controller:${ controllerType } = <xcomp? (nsubj | nsubjpass | nmod_agent | (<acl|<advcl)) /appos|compound|conj_|cc|nmod_of|nmod_in$/{,2}
 
