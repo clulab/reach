@@ -75,7 +75,7 @@ class TestBindingEvents extends FlatSpec with Matchers {
 
   val sent5 = "Figure 3. Raf and PI3K bind to ubiquitinated Ras."
   val sent5b = "Figure 3. Raf and PI3K bind more to ubiquitinated Ras than to non-ubiquitinated Ras."
-  it should "extract correct bindings with theme and theme2" in {
+  ignore should "extract correct bindings with theme and theme2" in {
     var mentions = getBioMentions(sent5)
     var bs = mentions.filter(_ matches "Binding")
     bs should have size (2)

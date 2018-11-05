@@ -426,7 +426,7 @@ class TestTemplaticSimpleDeEvents extends FlatSpec with Matchers {
   }
 
   val sent27 = "The study reveals that XRCC1 is dephosphorylated by the co-immunoprecipitated DNA-PK."
-  sent27 should "contain 1 dephosphorylation + 1 reg (GUS)" in {
+  ignore should "contain 1 dephosphorylation + 1 reg (GUS)" in {
     val mentions = getBioMentions(sent27)
     hasEventWithArguments("Dephosphorylation", List("XRCC1"), mentions) should be (true)
     hasPositiveRegulationByEntity("DNA-PK", "Dephosphorylation", List("XRCC1"), mentions) should be (true)
