@@ -84,7 +84,7 @@
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=/^VB[^N]?/]
     theme:BioChemicalEntity = dobj [!word=/^GAPs?$/]
-    cause:MacroMolecule? = (nsubj | (<xcomp? <rcmod <appos?))
+    cause:MacroMolecule? = (nsubj | (<xcomp? <"acl:relcl" <appos?))
 
 - name: hydrolysis_pass1
   label: Hydrolysis
@@ -93,7 +93,7 @@
   example: "Ras-GDP is hydrolyzed by 26S proteasome without ubiquitination"
   pattern: |
     trigger = [word=/(?i)^hydrolyz/ & tag=VBN]
-    theme:BioChemicalEntity = ( </acl|advcl/ | nsubjpass | <rcmod ) [!word=/^GAPs?$/]
+    theme:BioChemicalEntity = ( </acl|advcl/ | nsubjpass | <"acl:relcl" ) [!word=/^GAPs?$/]
     cause:MacroMolecule? = nmod_agent
 
 - name: hydrolysis_subjnom1

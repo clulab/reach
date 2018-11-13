@@ -8,7 +8,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/ & !outgoing=/nmod_(to|with)|dobj|xcomp/]
-    theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /compound|conj_/{,2} | <nmod_by{,2} nsubj
+    theme1:BioChemicalEntity+ = <"acl:relcl" conj_and{,2} | nsubj /compound|conj_/{,2} | <nmod_by{,2} nsubj
 
 - name: binding1b
   label: Binding
@@ -16,7 +16,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|associate|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = <rcmod conj_and{,2} | nsubj /compound|conj_/{,2} | <nmod_by{,2} nsubj
+    theme1:BioChemicalEntity+ = <"acl:relcl" conj_and{,2} | nsubj /compound|conj_/{,2} | <nmod_by{,2} nsubj
     theme2:BioChemicalEntity+ = dobj /compound|conj_/{,2} | xcomp? /nmod_(to|with)/
 
 - name: binding1forms
@@ -178,7 +178,7 @@
   priority: ${ priority }
   pattern: |
       trigger = /interactions?/
-      theme1:BioChemicalEntity+ = <dobj <rcmod >dep >conj_and?
+      theme1:BioChemicalEntity+ = <dobj <"acl:relcl" >dep >conj_and?
 
 - name: binding_16
   label: Binding
@@ -197,7 +197,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [lemma=/bind|ligate/ & tag=/^V/]
-    theme1:BioChemicalEntity+ = (nsubjpass | <rcmod|<"acl:relcl") <appos?
+    theme1:BioChemicalEntity+ = (nsubjpass |<"acl:relcl") <appos?
     theme2:BioChemicalEntity+ = /nmod_agent|nmod_to|nmod_with/ compound{,2} | dobj compound{,2}
 
 - name: binding_18
@@ -224,7 +224,7 @@
   priority: ${ priority }
   pattern: |
     trigger = [word=/(?i)binding|dimerization|heterodimerization|recruitment|interaction/] (?! [lemma="site"])
-    theme1:BioChemicalEntity+ = rcmod{,2} nmod_between
+    theme1:BioChemicalEntity+ = ("acl:relcl"){,2} nmod_between
 
 - name: binding_21
   label: Binding
@@ -374,8 +374,8 @@
   example: "Src tyrosyl phosphorylates Ras that is GTP bound"
   pattern: |
     trigger = [word=bound & tag=/^VB(D|N)$/]
-    theme1:BioChemicalEntity+ = (<rcmod | <acl| <advcl)
-    theme2:BioChemicalEntity+ = (<rcmod | <acl| <advcl) (<rcmod | rcmod)
+    theme1:BioChemicalEntity+ = (<"acl:relcl" | <acl| <advcl)
+    theme2:BioChemicalEntity+ = (<"acl:relcl" | <acl| <advcl) (<"acl:relcl" | "acl:relcl")
 
 - name: binding_thatisbound_surface
   label: Binding

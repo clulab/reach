@@ -106,7 +106,7 @@
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/^V|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^V/]?
     controlled:${ controlledType } = dobj /compound|amod|conj_/{,2}
-    controller:${ controllerType } = (< /xcomp|rcmod|appos/){1,2} /appos|compound|amod|conj_/{,2}
+    controller:${ controllerType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_6_verb
@@ -116,7 +116,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/ & tag=/VBN|RB/] [lemma=/^(${ auxtriggers })/ & tag=/^VBN/]?
-    controlled:${ controlledType } = (< /xcomp|rcmod|appos/){1,2} /appos|compound|amod|conj_/{,2}
+    controlled:${ controlledType } = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|amod|conj_/{,2}
     controller:${ controllerType } = /nmod_by|nmod_agent/ /appos|compound|amod|conj_/{,2}
 
 
@@ -128,7 +128,7 @@
   pattern: |
     trigger = [word=/(?i)^(${ triggers })/] # "aids" is incorrectly tagged as a noun
     controlled:${ controlledType } = nmod_in$ | nmod_to
-    controller:${ controllerType } = (nsubj | <rcmod) /appos|compound|amod|conj_/{,2}
+    controller:${ controllerType } = (nsubj | <"acl:relcl") /appos|compound|amod|conj_/{,2}
 
 
 - name: Positive_${ ruleType }_syntax_8_verb

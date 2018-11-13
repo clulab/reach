@@ -126,7 +126,7 @@
   action: ${ actionFlow }
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(V|JJ)/ & !mention=ModificationTrigger]
-    cause:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|compound|conj_(and|or|nor)/{,2}
+    cause:BioChemicalEntity = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|conj_(and|or|nor)/{,2}
     theme:BioChemicalEntity = dobj /compound|conj_(and|or|nor)/{,2}
     site:Site? = dobj? /nmod_(at|on)/ /compound|conj_(and|or|nor)/{,2}
 
@@ -139,7 +139,7 @@
   pattern: |
     trigger = [lemma=/${ verbalTriggerLemma }/ & ${triggerPrefix} & tag=/^(VBN|JJ)/ & !mention=ModificationTrigger]
     cause:BioChemicalEntity? = /nmod_by|nmod_agent/ /appos|compound|conj_(and|or|nor)/{,2}
-    theme:BioChemicalEntity = (< /xcomp|rcmod|appos/){1,2} /appos|compound|conj_(and|or|nor)/{,2}
+    theme:BioChemicalEntity = (</xcomp|appos/ | <"acl:relcl"){1,2} /appos|compound|conj_(and|or|nor)/{,2}
     site:Site? = dobj? /nmod_(at|on)/ /compound|conj_(and|or|nor)/{,2}
 
 
