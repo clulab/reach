@@ -153,7 +153,7 @@ rules:
     priority: ${deprulepriority}
     pattern: |
      after:${after_type}
-     before:${before_type} = nmod_as [lemma=result] /advcl?_of/
+     before:${before_type} = nmod_as [lemma=result] /advcl?_of|nmod_of/
 
   - name: assembly-verb-syntax-6
     example: "AFT phosphorylation results in BEF ubiqutination."
@@ -189,7 +189,7 @@ rules:
     example: "the ubiquitination of BEF is followed by the phosphorylation of AFT."
     pattern: |
       before:${before_type}
-      after:${after_type} = <nsubjpass [lemma=/^(precipitate|follow)$/] "nmod:agent"
+      after:${after_type} = <nsubjpass [lemma=/^(precipitate|follow)$/] nmod_agent
 
   - name: assembly-syntax-pass-2
     label: DirectConnection
@@ -197,7 +197,7 @@ rules:
     example: "the ubiquitination of AFT is preceded by the phosphorylation of BEF."
     pattern: |
       after:${after_type}
-      before:${before_type} = <nsubjpass [lemma=/^(precede)$/] "nmod:agent"
+      before:${before_type} = <nsubjpass [lemma=/^(precede)$/] nmod_agent
 
   - name: assembly-syntax-pass-3
     label: DirectConnection
