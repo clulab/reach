@@ -172,7 +172,7 @@ rules:
      # ..., when BEF
      # use lookaround assertion to check if WH word present
      #TODO check rcmod
-     before:${before_type} = dobj rcmod (?= advmod [tag=WRB])
+     before:${before_type} = dobj "acl:relcl" (?= advmod [tag=WRB])
 
   - name: assembly-verb-surface-7
     label: ${mylabel}
