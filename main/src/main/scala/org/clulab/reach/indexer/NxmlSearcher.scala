@@ -227,6 +227,14 @@ class NxmlSearcher(val indexDir:String) {
       maxDocs)
   }
 
+  /** Finds all NXML that contain at least one phosphorylation */
+  def useCasePhosphorylation(resultDir:String, maxDocs:Int) {
+    vanillaUseCase(
+      "phosphorylation phosphorylates",
+      resultDir,
+      maxDocs)
+  }
+
   /** Finds all NXML that contain at least one atrial fibrilation term */
   def useCaseAFib(resultDir:String, maxDocs:Int) {
     vanillaUseCase(
@@ -704,8 +712,9 @@ object NxmlSearcher {
       val ids = readIds(props.getProperty("ids"))
       searcher.searchByIds(ids, resultDir)
     } else {
-      searcher.useCaseAnyInteraction(resultDir, 100000)
+      searcher.useCasePhosphorylation(resultDir, 100000)
 
+      //searcher.useCaseAnyInteraction(resultDir, 100000)
       //searcher.useCase(resultDir)
       //searcher.useCasePhase3d(resultDir)
       //searcher.useCaseNCD2(resultDir)
