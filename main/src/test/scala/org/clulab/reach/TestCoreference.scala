@@ -460,7 +460,7 @@ class TestCoreference extends FlatSpec with Matchers {
   }
   // Series should work with 'or'
   val sent42 = "Akt1 (a.k.a. Akt334, AktTR, or Akt4H) is phosphorylated."
-  ignore should "apply Akt1 grounding to 3 made-up proteins" in {
+  sent42 should "apply Akt1 grounding to 3 made-up proteins" in {
     val mentions = getBioMentions(sent42)
     val entities = mentions filter (m => m matches "Entity")
     entities should have size (4)
@@ -469,7 +469,7 @@ class TestCoreference extends FlatSpec with Matchers {
   // Series should not work with 'and' (because we could have "BEF and Akt (a.k.a. BEF334 and Akt4H)"),
   // which isn't handled yet.
   val sent43 = "Akt1 (a.k.a. Akt334 and Akt4H) is phosphorylated."
-  ignore should "not apply Akt1 grounding to other proteins" in {
+  sent43 should "not apply Akt1 grounding to other proteins" in {
     val mentions = getBioMentions(sent43)
     val entities = mentions filter (m => m matches "Entity")
     entities should have size (3)
