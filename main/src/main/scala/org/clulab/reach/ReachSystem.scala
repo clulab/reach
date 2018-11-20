@@ -2,20 +2,19 @@ package org.clulab.reach
 
 import scala.collection.immutable.HashSet
 import scala.collection.mutable
-
 import ai.lum.nxmlreader.NxmlDocument
 import com.typesafe.scalalogging.LazyLogging
-
 import org.clulab.coref.Alias
 import org.clulab.coref.Coref
 import org.clulab.odin._
-import org.clulab.processors.{ Document, ProcessorAnnotator }
+import org.clulab.processors.{Document, ProcessorAnnotator}
 import org.clulab.reach.context._
 import org.clulab.reach.context.ContextEngineFactory.Engine._
-import org.clulab.reach.darpa.{ DarpaActions, MentionFilter, NegationHandler }
+import org.clulab.reach.darpa.{DarpaActions, MentionFilter, NegationHandler}
 import org.clulab.reach.grounding._
 import org.clulab.reach.mentions._
-import RuleReader.{ Rules, readResource }
+import RuleReader.{Rules, readResource}
+import org.clulab.reach.utils.Preprocess
 
 // import org.clulab.reach.utils.MentionManager
 
@@ -46,6 +45,7 @@ class ReachSystem(
   // this engine extracts simple and recursive events and applies coreference
   val eventEngine = ExtractorEngine(eventRules, actions, actions.cleanupEvents)
   // initialize processor annotator
+  val textPreProc = new Preprocess
   val procAnnotator = processorAnnotator.getOrElse(ProcessorAnnotatorFactory())
 
   /** returns string with all rules used by the system */
@@ -53,6 +53,9 @@ class ReachSystem(
     Seq(entityRules, modificationRules, eventRules, contextRules).mkString("\n\n")
 
   def mkDoc(text: String, docId: String, chunkId: String = ""): Document = {
+    // note that this messes with the character offsets in the text...
+    val preprocessedText = textPreProc.preprocessText(text)
+    // annotate() now preserves chatracter offsets in text, but it is too late due to preprocessText() above
     val doc = procAnnotator.annotate(text, keepText = true)
     val id = if (chunkId.isEmpty) docId else s"${docId}_${chunkId}"
     doc.id = Some(id)

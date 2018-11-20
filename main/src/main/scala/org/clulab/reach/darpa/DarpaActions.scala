@@ -365,11 +365,11 @@ object DarpaActions extends LazyLogging {
 
   val MODIFIER_LABELS = "amod".r
 
-  val NOUN_LABELS = "nn".r
+  val NOUN_LABELS = "compound".r
 
-  val OF_LABELS = "prep_of".r
+  val OF_LABELS = "nmod_of".r
 
-  val PARTICLE_LABELS = "prt".r
+  val PARTICLE_LABELS = "compound:prt".r
 
   // patterns for "reverse" modifications
   val deAcetylatPat     = "(?i)de-?acetylat".r
@@ -444,7 +444,7 @@ object DarpaActions extends LazyLogging {
 
       // tokens with an incoming  prepc_by dependency
       val deps = mention.sentenceObj.dependencies.get
-      val prepc_byed = (mention.tokenInterval filter (tok => deps.getIncomingEdges(tok).map(_._2).contains("prepc_by"))).toSet
+      val prepc_byed = (mention.tokenInterval filter (tok => deps.getIncomingEdges(tok).map(_._2).contains("advcl_by"))).toSet
       // count total number of negatives between trigger and each argument
       val numNegatives = arguments.flatMap{
         case (relation, arg) =>
@@ -684,8 +684,8 @@ object DarpaActions extends LazyLogging {
     }
     for {
       i <- edges.indices.tail
-      if edges(i-1).exists(_.startsWith("prep"))
-      if edges(i).exists(_.startsWith("prep"))
+      if edges(i-1).exists(_.startsWith("nmod"))
+      if edges(i).exists(_.startsWith("nmod"))
     } return true
     false
   }

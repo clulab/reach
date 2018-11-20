@@ -13,7 +13,7 @@ rules:
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:CellType = prep_of
+      master:CellType = nmod_of
 
   ####### A: X of Species #######
   - name: context_possessive_a_cl_s
@@ -22,7 +22,7 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Species = prep_of
+      master:Species = nmod_of
 
   - name: context_possessive_a_ct_s
     example: "sperm of a patient"
@@ -30,14 +30,14 @@ rules:
     priority: 4
     pattern: |
       dependent:CellType
-      master:Species = prep_of
+      master:Species = nmod_of
 
   - name: context_possessive_a_g_s
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Species = prep_of
+      master:Species = nmod_of
 
   - name: context_possessive_a_o_s
     example: "lung of a human"
@@ -45,7 +45,7 @@ rules:
     priority: 4
     pattern: |
       dependent:Organ
-      master:Species = prep_of
+      master:Species = nmod_of
 
   - name: context_possessive_a_t_s
     example: "smooth muscle of a human"
@@ -53,7 +53,7 @@ rules:
     priority: 4
     pattern: |
       dependent:TissueType
-      master:Species = prep_of
+      master:Species = nmod_of
 
   ####### A: X of Organ #######
   - name: context_possessive_a_cl_o
@@ -62,7 +62,7 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Organ = prep_of
+      master:Organ = nmod_of
 
   - name: context_possessive_a_ct_o
     example: "astrocytes of the brain"
@@ -70,14 +70,14 @@ rules:
     priority: 4
     pattern: |
       dependent:CellType
-      master:Organ = prep_of
+      master:Organ = nmod_of
 
   - name: context_possessive_a_g_o
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Organ = prep_of
+      master:Organ = nmod_of
 
   - name: context_possessive_a_t_o
     example: "smooth muscle of the abdomen"
@@ -85,7 +85,7 @@ rules:
     priority: 4
     pattern: |
       dependent:TissueType
-      master:Organ = prep_of
+      master:Organ = nmod_of
 
   ####### A: X of TissueType #######
   - name: context_possessive_a_cl_t
@@ -94,7 +94,7 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:TissueType = prep_of
+      master:TissueType = nmod_of
 
   - name: context_possessive_a_ct_t
     example: "astrocytes of the grey matter"
@@ -102,14 +102,14 @@ rules:
     priority: 4
     pattern: |
       dependent:CellType
-      master:TissueType = prep_of
+      master:TissueType = nmod_of
 
   - name: context_possessive_a_g_t
     label: [ContextPossessive]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:TissueType = prep_of
+      master:TissueType = nmod_of
 
 
   ####### B: CellType's X #######
@@ -212,7 +212,7 @@ rules:
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:CellType = /prep_in|prep_on|prep_at/
+      master:CellType = /nmod_in|nmod_on|nmod_at/
 
   ####### X in Species #######
   - name: context_location_cl_s
@@ -220,21 +220,21 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Species = /prep_in|prep_on|prep_at/
+      master:Species = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_ct_s
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:CellType
-      master:Species = /prep_in|prep_on|prep_at/
+      master:Species = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_g_s
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Species = /prep_in|prep_on|prep_at/
+      master:Species = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_o_s
     example: "lung in a human"
@@ -242,7 +242,7 @@ rules:
     priority: 4
     pattern: |
       dependent:Organ
-      master:Species = /prep_in|prep_on|prep_at/
+      master:Species = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_o_t
     example: "adrenal cortex in a human"
@@ -250,7 +250,7 @@ rules:
     priority: 4
     pattern: |
       dependent:TissueType
-      master:Species = /prep_in|prep_on|prep_at/
+      master:Species = /nmod_in|nmod_on|nmod_at/
 
   ####### X in Organ #######
   - name: context_location_ct_o
@@ -258,21 +258,21 @@ rules:
     priority: 4
     pattern: |
       dependent:CellType
-      master:Organ = /prep_in|prep_on|prep_at/
+      master:Organ = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_cl_o
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Organ = /prep_in|prep_on|prep_at/
+      master:Organ = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_g_o
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Organ = /prep_in|prep_on|prep_at/
+      master:Organ = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_t_o
     example: "astrocytoma in the brain"
@@ -280,7 +280,7 @@ rules:
     priority: 4
     pattern: |
       dependent:TissueType
-      master:Organ = /prep_in|prep_on|prep_at/
+      master:Organ = /nmod_in|nmod_on|nmod_at/
 
   ####### X in TissueType #######
   - name: context_location_ct_t
@@ -288,21 +288,21 @@ rules:
     priority: 4
     pattern: |
       dependent:CellType
-      master:TissueType = /prep_in|prep_on|prep_at/
+      master:TissueType = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_cl_t
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:CellLine
-      master:TissueType = /prep_in|prep_on|prep_at/
+      master:TissueType = /nmod_in|nmod_on|nmod_at/
 
   - name: context_location_g_t
     label: [ContextLocation]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:TissueType = /prep_in|prep_on|prep_at/
+      master:TissueType = /nmod_in|nmod_on|nmod_at/
   #######################################################
 
 
@@ -314,7 +314,7 @@ rules:
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:CellType = /prep_to|prep_from/
+      master:CellType = /nmod_to|nmod_from/
 
   ####### X to/from Species #######
   - name: context_direction_cl_s
@@ -322,14 +322,14 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Species = /prep_to|prep_from/
+      master:Species = /nmod_to|nmod_from/
 
   - name: context_direction_ct_s
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:CellType
-      master:Species = /prep_to|prep_from/
+      master:Species = /nmod_to|nmod_from/
 
   - name: context_direction_o_s
     example: "lung from a human"
@@ -337,14 +337,14 @@ rules:
     priority: 4
     pattern: |
       dependent:Organ
-      master:Species = /prep_to|prep_from/
+      master:Species = /nmod_to|nmod_from/
 
   - name: context_direction_g_s
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Species = /prep_to|prep_from/
+      master:Species = /nmod_to|nmod_from/
 
   - name: context_direction_t_s
     example: "adrenal cortex from a human"
@@ -352,7 +352,7 @@ rules:
     priority: 4
     pattern: |
       dependent:TissueType
-      master:Species = /prep_to|prep_from/
+      master:Species = /nmod_to|nmod_from/
 
   ####### X to/from Organ #######
   - name: context_direction_cl_o
@@ -360,21 +360,21 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:Organ = /prep_to|prep_from/
+      master:Organ = /nmod_to|nmod_from/
 
   - name: context_direction_ct_o
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:CellType
-      master:Organ = /prep_to|prep_from/
+      master:Organ = /nmod_to|nmod_from/
 
   - name: context_direction_g_o
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:Organ = /prep_to|prep_from/
+      master:Organ = /nmod_to|nmod_from/
 
   - name: context_direction_t_o
     example: "astrocytoma from the brain"
@@ -382,7 +382,7 @@ rules:
     priority: 4
     pattern: |
       dependent:TissueType
-      master:Organ = /prep_to|prep_from/
+      master:Organ = /nmod_to|nmod_from/
 
   ####### X to/from TissueType #######
   - name: context_direction_cl_t
@@ -390,19 +390,19 @@ rules:
     priority: 4
     pattern: |
       dependent:CellLine
-      master:TissueType = /prep_to|prep_from/
+      master:TissueType = /nmod_to|nmod_from/
 
   - name: context_direction_ct_t
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:CellType
-      master:TissueType = /prep_to|prep_from/
+      master:TissueType = /nmod_to|nmod_from/
 
   - name: context_direction_g_t
     label: [ContextDirection]
     priority: 4
     pattern: |
       dependent:Gene_or_gene_product
-      master:TissueType = /prep_to|prep_from/
+      master:TissueType = /nmod_to|nmod_from/
   #######################################################

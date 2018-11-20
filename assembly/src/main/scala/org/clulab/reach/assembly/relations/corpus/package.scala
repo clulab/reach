@@ -14,7 +14,7 @@ package object corpus extends LazyLogging {
   /** Additional attributes and methods for a [[CorefMention]] */
   implicit class EventOps(mention: CorefMention) extends CorefMentionOps(mention) {
     val eventLabel: String = mention.label
-    val sentenceText: String = mention.sentenceObj.getSentenceText()
+    val sentenceText: String = mention.sentenceObj.getSentenceText
     // NOTE: if mention is a TB, trigger will simply be the mention (ex. BioProcess)
     val trigger = SieveUtils.findTrigger(mention)
   }

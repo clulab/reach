@@ -6,5 +6,4 @@
   label: DecreaseAmount
   pattern: |
     trigger = [lemma=/${ triggerLemma }/]
-    theme:BioChemicalEntity = prep_of | prep_in
-
+    theme:BioChemicalEntity = nmod_of | nmod_in
