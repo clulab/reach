@@ -1,6 +1,6 @@
 #Changes
 =======
-+ **1.5.9** - We now use Universal Dependency syntax for all grammar rules rather than Stanford dependencies.
++ **1.5.0** - We now use Universal Dependency syntax for all grammar rules rather than Stanford dependencies.
 + **1.4.1** - Switched default processor to BioNLPProcessor rather than the server. The client/server config remains available.
 + **1.4.1** - Update to use released Processors 6.3.0 as new Reach base. Update Scala to 2.11.11.
 + **1.4.1** - Update Wiki pages on configuring and running Reach. Update README and CHANGES files.
