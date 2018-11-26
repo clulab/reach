@@ -200,4 +200,7 @@ class TestPolarity extends FlatSpec with Matchers{
 
   val sen58 = """Caspase-3 primarily activates PARP; however, studies have additionally indicated that caspase-6 and caspase-7 are also able to cause PARP cleavage."""
   sen58 should behave like negativeActivationBehavior(sen58, "caspase-7", "PARP", ignored = true)
+
+  val sen59 = """Phosphorylation of AKT, a downstream effector of the IGF-1R pathway, at S473 was also increased by BRCA1-KD."""
+  sen59 should behave like negativeActivationBehavior(sen59, "BRCA1-KD", "AKT")
 }
