@@ -34,6 +34,33 @@ class TestPolarity extends FlatSpec with Matchers{
   def positiveActivationBehavior(sentence:String, controller:String, controlled:String, ignored:Boolean = false): Unit = activationBehaivor(sentence, controller, controlled, positive = true, ignored)
   def negativeActivationBehavior(sentence:String, controller:String, controlled:String, ignored:Boolean = false): Unit = activationBehaivor(sentence, controller, controlled, positive = false, ignored)
 
+  def regulationBehavior(sentence:String, controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], positive:Boolean, ignored:Boolean = false): Unit ={
+
+    val description = s"contain a ${if(positive) "positive" else "negative"} regulation of ${controlledArgs.mkString(",")} by $controllerEntity"
+
+    if(!ignored) {
+      it should description in {
+        val mentions = getBioMentions(sentence)
+        info(s"Num mentions: ${mentions.size}")
+
+        val result =
+          if (positive)
+            hasPositiveRegulationByEntity(controllerEntity, controlledLabel, controlledArgs, mentions)
+          else
+            hasNegativeRegulationByEntity(controllerEntity, controlledLabel, controlledArgs, mentions)
+
+        result should be(true)
+      }
+    }
+    else{
+      it should description ignore {}
+    }
+
+
+  }
+  def positiveRegulationBehavior(sentence:String, controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], ignored:Boolean = false) = regulationBehavior(sentence, controllerEntity, controlledLabel, controlledArgs, positive = true, ignored)
+  def negativeRegulationBehavior(sentence:String, controllerEntity:String, controlledLabel:String, controlledArgs:Seq[String], ignored:Boolean = false) = regulationBehavior(sentence, controllerEntity, controlledLabel, controlledArgs, positive = false, ignored)
+
   // Broken syntax
   val sen7 = """The effect of this modification on FoxO1 localization and activity is controversial with CDK1 reported to cause nuclear localization and transcriptional activation, and CDK2 reported to cause cytoplasmic localization and inhibition of FoxO1."""
   sen7 should behave like negativeActivationBehavior(sen7, "CDK2", "FoxO1", ignored = true)
@@ -201,6 +228,6 @@ class TestPolarity extends FlatSpec with Matchers{
   val sen58 = """Caspase-3 primarily activates PARP; however, studies have additionally indicated that caspase-6 and caspase-7 are also able to cause PARP cleavage."""
   sen58 should behave like negativeActivationBehavior(sen58, "caspase-7", "PARP", ignored = true)
 
-  val sen59 = """Phosphorylation of AKT, a downstream effector of the IGF-1R pathway, at S473 was also increased by BRCA1-KD."""
-  sen59 should behave like negativeActivationBehavior(sen59, "BRCA1-KD", "AKT")
+  val sen59 = """Phosphorylation of AKT at S473 was also increased by BRCA1-KD."""
+  sen59 should behave like negativeRegulationBehavior(sen59, "BRCA1-KD", "Phosphorylation", Seq("AKT"), ignored = false)
 }
