@@ -361,7 +361,7 @@ object DarpaActions extends LazyLogging {
   val REG_LABELS = taxonomy.hypernymsFor("Positive_regulation")
 
   // These are used to detect semantic inversions of regulations/activations. See DarpaActions.countSemanticNegatives
-  val SEMANTIC_NEGATIVE_PATTERN = "(^(?i)(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)|-KD$)".r
+  val SEMANTIC_NEGATIVE_PATTERN = "(?i)(^(attenu|block|deactiv|decreas|degrad|delet|deplet|diminish|disrupt|dominant-negative|impair|imped|inhibit|knockdown|knockout|limit|loss|lower|negat|reduc|reliev|repress|restrict|revers|silenc|shRNA|siRNA|slow|starv|suppress|supress|turnover|off)|-KD$)".r
 
   val MODIFIER_LABELS = "amod".r
 
@@ -450,7 +450,7 @@ object DarpaActions extends LazyLogging {
         case (relation, arg) =>
           countSemanticNegatives(trigger, arg, if(relation == "controller") excluded else excluded ++ prepc_byed)
       }.toSeq.distinct.length
-      logger.info(s"Total negatives: $numNegatives")
+      logger.debug(s"Total negatives: $numNegatives")
       // does the label need to be flipped?
       numNegatives % 2 != 0 match {
         // odd number of negatives
@@ -498,7 +498,7 @@ object DarpaActions extends LazyLogging {
           lemma = trigger.sentenceObj.lemmas.get(tok)
           if SEMANTIC_NEGATIVE_PATTERN.findFirstIn(lemma).isDefined
         } yield {
-          logger.info(s"Negative lexical unit: $lemma")
+          logger.debug(s"Negative lexical unit: $lemma")
           tok
         }
         // return number of negatives
