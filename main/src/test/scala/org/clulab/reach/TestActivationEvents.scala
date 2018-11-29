@@ -322,4 +322,22 @@ class TestActivationEvents extends FlatSpec with Matchers {
     val mentions = getBioMentions(sent46)
     mentions.filter(_ matches "Negative_activation") should have size (0)
   }
+
+  val sent47 = "Here we present a case of a patient with metastatic CMM positive for the BRAF-V600E mutation who was treated with vemurafenib."
+  sent47 should "not pick up treated as trigger" in {
+    val mentions = getBioMentions(sent47)
+    hasPositiveActivation("vemurafenib", " BRAF", mentions) should be (false)
+  }
+
+  val sent48 = "Our group previously reported the case of a patient with a recurrent BRAF V600E mutant brainstem ganglioglioma successfully treated with vemurafenib and vinblastine."
+  sent48 should "not pick up treated as trigger" in {
+    val mentions = getBioMentions(sent47)
+    hasPositiveActivation("vemurafenib", " BRAF", mentions) should be (false)
+  }
+
+  val sent49 = "This drug, vemurafenib, selectively targets V600E mutant BRAF and it is unknown how this drug may affect autophagic flux."
+  sent49 should "not pick up targets as trigger" in {
+    val mentions = getBioMentions(sent47)
+    hasPositiveActivation("vemurafenib", " BRAF", mentions) should be (false)
+  }
 }
