@@ -86,12 +86,15 @@ class ReachSystem(
     val unfilteredEvents = extractEventsFrom(doc, entitiesWithContext)
     logger.debug(s"${unfilteredEvents.size} unfilteredEvents: ${display.summarizeMentions(unfilteredEvents,doc)}")
     val events = MentionFilter.keepMostCompleteMentions(unfilteredEvents, State(unfilteredEvents))
+
     logger.debug(s"${events.size} events after MentionFilter.keepMostCompleteMentions: ${display.summarizeMentions(events, doc)}")
     contextEngine.update(events)
     val eventsWithContext = contextEngine.assign(events)
+
     logger.debug(s"${eventsWithContext.size} events after contextEngine.assign: ${display.summarizeMentions(eventsWithContext, doc)}")
     val grounded = grounder(eventsWithContext)
     logger.debug(s"${grounded.size} events after grounder: ${display.summarizeMentions(grounded, doc)}")
+
     // Coref expects to get all mentions grouped
     // we group according to the standoff, if there is one
     // else we just make one group with all the mentions
@@ -103,7 +106,9 @@ class ReachSystem(
     val resolved = resolveCoref(groundedAndGrouped)
     logger.debug(s"${resolved.size} events after coref: ${display.summarizeMentions(resolved, doc)}")
     // Coref introduced incomplete Mentions that now need to be pruned
+
     val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+
     logger.debug(s"${complete.size} events after coref + 2nd MentionFilter.keepMostCompleteMentions: ${display.summarizeMentions(complete, doc)}")
     logger.debug(s"Resolving display...")
     resolveDisplay(complete)
