@@ -26,7 +26,9 @@ object OutputDegrader {
     * @return
     */
   def prepareForOutput(mentions: Seq[Mention]): Seq[CorefMention] = {
+
     val flattenedMentions = flattenMentions(mentions)
+
     // remove duplicates
     // Even though this has likely already been run on the mentions (via ReachSystem),
     // it unfortunately has to be run again after flattening as things that
@@ -34,6 +36,7 @@ object OutputDegrader {
     // (consider an event with a nested controller before and after flattening).
     val deduplicated = MentionFilter.keepMostCompleteMentions(flattenedMentions)
     val prepared = validateMentions(deduplicated)
+
     prepared.map(_.toCorefMention).distinct
   }
 
@@ -71,11 +74,14 @@ object OutputDegrader {
             case _ => flattenControlled(controller)
           }
           val updatedArguments = ce.arguments.updated("controller", Seq(flattenedController))
-          // TODO: should controlled be flattened?
+          // TODO: should controlled be flattened? ms: No need. Recursive controlleds are Ok in BioPax?
           val flattenedRepresentation = ce match {
-            case rel: RelationMention => rel.copy(arguments = updatedArguments)
+            case brm: BioRelationMention => brm.copyWithMods(arguments = updatedArguments)
+            case rm: RelationMention => rm.copy(arguments = updatedArguments)
+            case bem: BioEventMention => bem.copyWithMods(arguments = updatedArguments)
             case em: EventMention => em.copy(arguments = updatedArguments)
           }
+
           flattenedRepresentation.toBioMention
       }
 
