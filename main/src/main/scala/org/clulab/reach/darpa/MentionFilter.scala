@@ -11,7 +11,7 @@ object MentionFilter {
   // a simple, imperfect way of removing incomplete Mentions
   def pruneMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
 
-    val (events, nonEvents) = ms.partition(_.isInstanceOf[CorefEventMention])
+    /*val (events, nonEvents) = ms.partition(_.isInstanceOf[CorefEventMention])
     // We need to remove underspecified EventMentions of near-duplicate groupings
     // (ex. same phospho, but one is missing a site)
     val mentionGroupings =
@@ -24,7 +24,31 @@ object MentionFilter {
         val filteredEMs = ems.filter(m => m.arguments.values.flatten.size == maxSize)
         filteredEMs
       }
-    nonEvents ++ completeEventMentions.flatten.toSeq
+    nonEvents ++ completeEventMentions.flatten.toSeq*/
+
+
+
+    ms filter {
+      case m:CorefEventMention =>
+        val trigger = m.trigger
+        val args = m.arguments.values.flatten
+
+        val sentence = m.document.sentences(trigger.sentence)
+
+        !(args exists  {
+          arg =>
+            val path = sentence.dependencies.get.shortestPath(trigger.tokenInterval.end, arg.tokenInterval.start, false)
+            val lemmas = path map sentence.lemmas.get
+            lemmas exists {
+              lemma =>
+                // Do the search for a trigger word
+                // If correct => true, otherwise => false
+                false // delete dese
+            }
+        })
+
+      case _ => true
+    }
   }
 
   // Removal of incomplete Mentions with special care to Regulations
