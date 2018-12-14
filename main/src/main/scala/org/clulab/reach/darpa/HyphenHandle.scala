@@ -23,17 +23,7 @@ object HyphenHandle {
                 // Flip the controller and controlled entities to create a new event
                 val newArgs = args + ("controller" -> args("controlled")) + ("controlled" -> args("controller"))
 
-                new BioEventMention(
-                  event.labels,
-                  event.trigger,
-                  newArgs,
-                  event.paths,
-                  event.sentence,
-                  event.document,
-                  event.keep,
-                  event.foundBy,
-                  event.isDirect
-                )
+                new BioEventMention(event.copy(arguments = newArgs))
               }
               else
                 event
