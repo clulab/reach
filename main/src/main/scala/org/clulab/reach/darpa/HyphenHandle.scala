@@ -18,7 +18,7 @@ object HyphenHandle {
 
               val text = ogText.slice(sentence.startOffsets(start), sentence.endOffsets(end))
 
-              if(text.contains('-')){
+              if(text.contains('-') && text.toLowerCase.endsWith("ing")){
                 val args = event.arguments
                 // Flip the controller and controlled entities to create a new event
                 val newArgs = args + ("controller" -> args("controlled")) + ("controlled" -> args("controller"))
