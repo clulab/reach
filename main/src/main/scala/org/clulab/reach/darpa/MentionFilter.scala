@@ -8,6 +8,75 @@ import scala.collection.mutable
 
 object MentionFilter {
 
+//  def filterOverlappingMentions(ms: Seq[Mention]): Seq[Mention] = {
+////    1. Find any intersecting args + triggers for competing events.
+////
+////    2. Grab SynPaths corresponding to any intersecting args (the .paths attribute).
+////
+////    3. Check if any SynPaths (note: these are not necessarily shortest paths) pass through one of the trigger tokens for any competing events.
+//
+//  }
+
+  // Check to see if two mentions have overlapping arguments
+  def argumentsOverlap(m1: Mention, m2: Mention): Boolean = {
+    val m1Themes = m1.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
+    val m2Themes = m2.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
+    for (interval <- m1Themes) {
+      if (m2Themes.exists(interval2 => interval2.overlaps(interval))) {
+        return true
+      }
+    }
+    false
+  }
+
+  def getOverlappingMentions(m: Mention, ms: Seq[Mention]): Seq[Mention] = {
+    ms.filter(argumentsOverlap(m, _))
+  }
+
+  def filterOverlappingMentions(ms: Seq[Mention]): Seq[Mention] = {
+    // For each mention, check to see if any other mention has argument overlap
+    for {
+      i <- 0 until ms.length - 1
+      m1 = ms(i)
+      msToCheck = ms.slice(0, i) ++ ms.slice(i+1, ms.length) // fixme: I'm pretty darn inefficient
+      overlapping = getOverlappingMentions(m1, msToCheck)
+      if !triggerOverlap(m1, overlapping)
+      } yield m1
+  }
+
+  // fixme: make a better name
+  // If argument overlap is found, check to see if it's a problem: i.e., if the synPath between the trigger
+  // and an argument goes through another trigger
+  def triggerOverlap(m1: Mention, ms: Seq[Mention]): Boolean = {
+    for (m2 <- ms) {
+      if (triggerOverlap(m1, m2)) {
+        return true
+      }
+    }
+    false
+  }
+
+  def triggerOverlap(m1: Mention, m2: Mention): Boolean = {
+    m2 match {
+      case em: EventMention =>
+        // Does the synPath to the argument of m1 contain the trigger of m2?
+        val m1Themes = m1.arguments.get("theme")
+        val m2Themes = em.arguments.get("theme")
+        val overlappingThemes = m1Themes.filter(theme => m2Themes.contains(theme))
+        if (overlappingThemes.nonEmpty) {
+          overlappingThemes.get.exists(theme => synPathContainsTrigger(m1, theme, em.trigger))
+        } else false
+      case _ => false
+    }
+  }
+
+  def synPathContainsTrigger(m: Mention, theme: Mention, trigger: Mention): Boolean = {
+    val synPath = m.paths("theme").get(theme)
+    // Does the synPath contain the trigger
+    val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
+    trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok))
+  }
+
   // a simple, imperfect way of removing incomplete Mentions
   def pruneMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
 
@@ -255,7 +324,8 @@ object MentionFilter {
         moreComplete.filter(m => keepMention(m, State(moreComplete)))
           .map(_.toCorefMention)
       case Nil =>
-        pruneMentions(other.map(_.toCorefMention))
+        val noTriggerOverlap = filterOverlappingMentions(other)
+        pruneMentions(noTriggerOverlap.map(_.toCorefMention))
     }
   }
 
