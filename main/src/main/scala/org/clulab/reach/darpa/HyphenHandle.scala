@@ -6,6 +6,8 @@ object HyphenHandle {
   /**
     * Receives a sequence of BioMentions and flips the role of the arguments
     * when there's a "- ing" pattern
+    * Example: The EM-inducing TFs (TWIST1, SNAIL1, SLUG, ZEB1, and FOXC2) in the CD45 - cells were determined using qRT-PCR.
+    * A rule will match EM as controller and the other entities as controlled. This function will flip the roles
     * @param mentions The original mention sequence to operate on
     * @return A sequence of the same size with the modified BioMentions
     */
@@ -22,7 +24,7 @@ object HyphenHandle {
               val controller = controllers.head
               val sentence = event.document.sentences(event.sentence)
 
-              // Figrue out it's offset on the original text of the source
+              // Figure out it's offset on the original text of the source
               val start = controller.tokenInterval.last
               val end = if(sentence.words.length > start+1) start+1 else start
 
