@@ -33,7 +33,7 @@ object MentionFilter {
     ms.filter(argumentsOverlap(m, _))
   }
 
-  def filterOverlappingMentions(ms: Seq[Mention]): Seq[Mention] = {
+  def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
     // For each mention, check to see if any other mention has argument overlap
     for {
       i <- 0 until ms.length - 1
@@ -324,8 +324,10 @@ object MentionFilter {
         moreComplete.filter(m => keepMention(m, State(moreComplete)))
           .map(_.toCorefMention)
       case Nil =>
-        val noTriggerOverlap = filterOverlappingMentions(other)
-        pruneMentions(noTriggerOverlap.map(_.toCorefMention))
+        pruneMentions(other.map(_.toCorefMention))
+
+      //        val noTriggerOverlap = filterOverlappingMentions(other)
+//        pruneMentions(noTriggerOverlap.map(_.toCorefMention))
     }
   }
 
