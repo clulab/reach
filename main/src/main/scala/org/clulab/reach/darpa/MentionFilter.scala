@@ -4,18 +4,10 @@ import org.clulab.coref.CorefUtils._
 import org.clulab.odin._
 import org.clulab.reach.mentions._
 import scala.collection.mutable
-
+import org.clulab.processors.{Sentence, Document, ProcessorAnnotator}
 
 object MentionFilter {
 
-//  def filterOverlappingMentions(ms: Seq[Mention]): Seq[Mention] = {
-////    1. Find any intersecting args + triggers for competing events.
-////
-////    2. Grab SynPaths corresponding to any intersecting args (the .paths attribute).
-////
-////    3. Check if any SynPaths (note: these are not necessarily shortest paths) pass through one of the trigger tokens for any competing events.
-//
-//  }
 
   // Check to see if two mentions have overlapping arguments
   def argumentsOverlap(m1: Mention, m2: Mention): Boolean = {
@@ -36,12 +28,12 @@ object MentionFilter {
   def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
     // For each mention, check to see if any other mention has argument overlap
     for {
-      i <- 0 until ms.length - 1
+      i <- 0 until ms.length
       m1 = ms(i)
       msToCheck = ms.slice(0, i) ++ ms.slice(i+1, ms.length) // fixme: I'm pretty darn inefficient
       overlapping = getOverlappingMentions(m1, msToCheck)
       if !triggerOverlap(m1, overlapping)
-      } yield m1
+    } yield m1
   }
 
   // fixme: make a better name
@@ -50,6 +42,7 @@ object MentionFilter {
   def triggerOverlap(m1: Mention, ms: Seq[Mention]): Boolean = {
     for (m2 <- ms) {
       if (triggerOverlap(m1, m2)) {
+
         return true
       }
     }
@@ -58,12 +51,16 @@ object MentionFilter {
 
   def triggerOverlap(m1: Mention, m2: Mention): Boolean = {
     m2 match {
-      case em: EventMention =>
+      case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && em != m1 && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent")) =>
         // Does the synPath to the argument of m1 contain the trigger of m2?
+        println("m2 " + m2.asInstanceOf[CorefEventMention].trigger.toString() + " " + m2.asInstanceOf[CorefEventMention].trigger.tokenInterval)
+        println("interval" + em.trigger.tokenInterval)
+        println("interval m1" + m1.asInstanceOf[CorefEventMention].trigger.tokenInterval)
         val m1Themes = m1.arguments.get("theme")
         val m2Themes = em.arguments.get("theme")
         val overlappingThemes = m1Themes.filter(theme => m2Themes.contains(theme))
         if (overlappingThemes.nonEmpty) {
+          //overlappingThemes.foreach(theme => println("theme: " + theme.toString()))
           overlappingThemes.get.exists(theme => synPathContainsTrigger(m1, theme, em.trigger))
         } else false
       case _ => false
@@ -71,11 +68,14 @@ object MentionFilter {
   }
 
   def synPathContainsTrigger(m: Mention, theme: Mention, trigger: Mention): Boolean = {
-    val synPath = m.paths("theme").get(theme)
-    // Does the synPath contain the trigger
-    val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
-    trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok))
+    if (m.paths.contains("theme")) {
+      val synPath = m.paths("theme").get(theme)
+      // Does the synPath contain the trigger
+      val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
+      trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok))
+    } else false
   }
+
 
   // a simple, imperfect way of removing incomplete Mentions
   def pruneMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
@@ -84,7 +84,7 @@ object MentionFilter {
     // We need to remove underspecified EventMentions of near-duplicate groupings
     // (ex. same phospho, but one is missing a site)
     val mentionGroupings =
-      events.map(_.asInstanceOf[CorefEventMention]).groupBy(m => (m.trigger, m.label))
+    events.map(_.asInstanceOf[CorefEventMention]).groupBy(m => (m.trigger, m.label))
 
     // remove incomplete mentions
     val completeEventMentions =
@@ -129,12 +129,12 @@ object MentionFilter {
       val replacementCandidates: Seq[CorefMention] = controlled match {
         case rel: CorefRelationMention => Nil
         case ev: CorefEventMention => state.mentionsFor(reg.sentence, controlled.tokenInterval, controlled.label)
-            // If the label is the same, these MUST be CorefEventMentions (i.e SimpleEvents)
-            .map(_.toCorefMention)
-            .filter(m =>
-              m.isInstanceOf[CorefEventMention] &&
+          // If the label is the same, these MUST be CorefEventMentions (i.e SimpleEvents)
+          .map(_.toCorefMention)
+          .filter(m =>
+            m.isInstanceOf[CorefEventMention] &&
               m.antecedentOrElse(m).arguments.size > argCount &&
-                (m.asInstanceOf[CorefEventMention].trigger == ev.asInstanceOf[CorefEventMention].trigger))
+              (m.asInstanceOf[CorefEventMention].trigger == ev.asInstanceOf[CorefEventMention].trigger))
       }
       // Do we have any "more complete" Mentions to substitute for the controlled?
       replacementCandidates match {
@@ -207,11 +207,11 @@ object MentionFilter {
         // and also have no controller included in a complex
         case events => regulations diff regulationsWithComplexAsController filter { m =>
           m.arguments.contains("controller") && // maybe m doesn't even have a controller
-          !regulationsWithComplexAsController.exists { reg =>
-            // m's controller shouldn't be included in a complex
-            val participants = reg.arguments("controller").head.arguments.get("theme")
-            participants.isDefined && participants.get.contains(m.arguments("controller").head)
-          }
+            !regulationsWithComplexAsController.exists { reg =>
+              // m's controller shouldn't be included in a complex
+              val participants = reg.arguments("controller").head.arguments.get("theme")
+              participants.isDefined && participants.get.contains(m.arguments("controller").head)
+            }
         }
       }
       regulationsWithComplexAsController ++ remainingRegulations
@@ -227,7 +227,7 @@ object MentionFilter {
           val mctrld = m.arguments("controlled").head
           ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
             (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
-            m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)) &&
+              m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)) &&
             // ensure both mentions have a controller
             m.arguments.get("controller").isDefined && r.arguments.get("controller").isDefined &&
             m.arguments("controller") == r.arguments("controller") &&
@@ -245,8 +245,8 @@ object MentionFilter {
           val mctrlr = m.arguments("controller").head
           ( // Both are events w/ same trigger
             ((m.isInstanceOf[CorefRelationMention] && r.isInstanceOf[CorefRelationMention]) ||
-                (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
-                  m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)
+              (m.isInstanceOf[CorefEventMention] && r.isInstanceOf[CorefEventMention] &&
+                m.asInstanceOf[CorefEventMention].trigger == r.asInstanceOf[CorefEventMention].trigger)
               ) &&
               m.arguments("controlled") == r.arguments("controlled") &&
               mctrlr.matches("Regulation") &&
@@ -292,10 +292,10 @@ object MentionFilter {
     // We don't want to accidentally filter out any SimpleEvents
     // that are valid arguments to the filtered Regs
     val keepThese:Seq[CorefMention] =
-      corefDistinct(cleanRegulations.flatMap(_.arguments.values)
-        .flatten
-        .filter(m => m matches "SimpleEvent")
-        .map(_.toCorefMention))
+    corefDistinct(cleanRegulations.flatMap(_.arguments.values)
+      .flatten
+      .filter(m => m matches "SimpleEvent")
+      .map(_.toCorefMention))
     // Return the filtered with the arguments to the Regulations
     val remainingNonRegs = corefDistinct(pruneMentions(nonRegs) ++ keepThese)
 
@@ -310,7 +310,7 @@ object MentionFilter {
   }
 
   def keepMostCompleteMentions(ms: Seq[BioMention]): Seq[CorefMention] = {
-     keepMostCompleteMentions(ms, State(ms))
+    keepMostCompleteMentions(ms, State(ms))
   }
 
   // Filter out "incomplete" events
@@ -327,7 +327,7 @@ object MentionFilter {
         pruneMentions(other.map(_.toCorefMention))
 
       //        val noTriggerOverlap = filterOverlappingMentions(other)
-//        pruneMentions(noTriggerOverlap.map(_.toCorefMention))
+      //        pruneMentions(noTriggerOverlap.map(_.toCorefMention))
     }
   }
 
