@@ -25,7 +25,23 @@ object MentionFilter {
     ms.filter(argumentsOverlap(m, _))
   }
 
-  def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
+  def applyFilterOverlappingMentionsPerSent (ms: Seq[CorefMention], doc: Document): Seq[CorefMention] = {
+    val mentionsBySentence = ms groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
+    mentionsBySentence.foreach(m => println("whatever each mention by sentence is" + m._2))
+    val mentions = for ((m, i) <- mentionsBySentence.zipWithIndex) yield {
+      println("mention by sent m " + m)
+      filterOverlappingMentions(m._2, doc.sentences(i))
+    }
+     val mentionSeq = for {
+       i <- mentions
+       m <- i
+     } yield m
+
+    return mentionSeq.toSeq
+  }
+  //TODO check if an just return mentions.toSeq
+
+  def filterOverlappingMentions(ms: Seq[CorefMention], sent: Sentence): Seq[CorefMention] = {
     // For each mention, check to see if any other mention has argument overlap
     for {
       i <- 0 until ms.length

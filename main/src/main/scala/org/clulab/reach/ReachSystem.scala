@@ -103,9 +103,10 @@ class ReachSystem(
     val resolved = resolveCoref(groundedAndGrouped)
     logger.debug(s"${resolved.size} events after coref: ${display.summarizeMentions(resolved, doc)}")
     // Coref introduced incomplete Mentions that now need to be pruned
-    val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
-    //val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
-   // val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention), doc) //doc passed as arg to check paths other than the shortest
+    //val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
+    //val complete1 = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+    //val test = MentionFilter.applyFilterOverlappingMentionsPerSent(complete1, doc)
+    val complete = MentionFilter.applyFilterOverlappingMentionsPerSent(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention), doc) //doc passed as arg to check paths other than the shortest
     logger.debug(s"${complete.size} events after coref + 2nd MentionFilter.keepMostCompleteMentions: ${display.summarizeMentions(complete, doc)}")
     logger.debug(s"Resolving display...")
     resolveDisplay(complete)
@@ -134,8 +135,8 @@ class ReachSystem(
     // Coref expects to get all mentions grouped by document
     val resolved = resolveCoref(groupMentionsByDocument(grounded, documents))
     // Coref introduced incomplete Mentions that now need to be pruned
-    //val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
-    val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
+    val complete = MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention)
+    //val complete = MentionFilter.filterOverlappingMentions(MentionFilter.keepMostCompleteMentions(resolved, State(resolved)).map(_.toCorefMention))
 
     resolveDisplay(complete)
   }
