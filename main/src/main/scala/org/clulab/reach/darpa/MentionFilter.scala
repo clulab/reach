@@ -8,8 +8,6 @@ import org.clulab.processors.{Sentence, Document, ProcessorAnnotator}
 
 object MentionFilter {
 
-
-  // Check to see if two mentions have overlapping arguments
   def argumentsOverlap(m1: Mention, m2: Mention): Boolean = {
     val m1Themes = m1.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
     val m2Themes = m2.arguments.getOrElse("theme", Seq.empty[Mention]).map(_.tokenInterval)
@@ -25,23 +23,8 @@ object MentionFilter {
     ms.filter(argumentsOverlap(m, _))
   }
 
-  def applyFilterOverlappingMentionsPerSent (ms: Seq[CorefMention], doc: Document): Seq[CorefMention] = {
-    val mentionsBySentence = ms groupBy (_.sentence) mapValues (_.sortBy(_.start)) withDefaultValue Nil
-    mentionsBySentence.foreach(m => println("whatever each mention by sentence is" + m._2))
-    val mentions = for ((m, i) <- mentionsBySentence.zipWithIndex) yield {
-      println("mention by sent m " + m)
-      filterOverlappingMentions(m._2, doc.sentences(i))
-    }
-     val mentionSeq = for {
-       i <- mentions
-       m <- i
-     } yield m
 
-    return mentionSeq.toSeq
-  }
-  //TODO check if an just return mentions.toSeq
-
-  def filterOverlappingMentions(ms: Seq[CorefMention], sent: Sentence): Seq[CorefMention] = {
+  def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
     // For each mention, check to see if any other mention has argument overlap
     for {
       i <- 0 until ms.length
@@ -58,7 +41,6 @@ object MentionFilter {
   def triggerOverlap(m1: Mention, ms: Seq[Mention]): Boolean = {
     for (m2 <- ms) {
       if (triggerOverlap(m1, m2)) {
-
         return true
       }
     }
@@ -69,9 +51,6 @@ object MentionFilter {
     m2 match {
       case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && em != m1 && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent")) =>
         // Does the synPath to the argument of m1 contain the trigger of m2?
-        println("m2 " + m2.asInstanceOf[CorefEventMention].trigger.toString() + " " + m2.asInstanceOf[CorefEventMention].trigger.tokenInterval)
-        println("interval" + em.trigger.tokenInterval)
-        println("interval m1" + m1.asInstanceOf[CorefEventMention].trigger.tokenInterval)
         val m1Themes = m1.arguments.get("theme")
         val m2Themes = em.arguments.get("theme")
         val overlappingThemes = m1Themes.filter(theme => m2Themes.contains(theme))
@@ -88,8 +67,16 @@ object MentionFilter {
       val synPath = m.paths("theme").get(theme)
       // Does the synPath contain the trigger
       val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
-      trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok))
+      val edges = mkPrev(theme.tokenInterval.start, m.sentenceObj)
+      trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok) )
     } else false
+  }
+
+  //checks incoming rel for the given node
+  def mkPrev(node: Int, sent: Sentence): Seq[Int] = {
+    val graph = sent.dependencies.get
+    val edges = graph.incomingEdges(node)
+    edges.map(_._1).distinct
   }
 
 
