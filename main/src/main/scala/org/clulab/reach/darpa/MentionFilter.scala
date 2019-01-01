@@ -25,7 +25,8 @@ object MentionFilter {
 
 
   def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
-    // For each mention, check to see if any other mention has argument overlap
+    // For each mention, check to see if any other mention has argument overlap and if there is arg overlap,
+    // check if the path from the trigger to the overlapping argument contains a trigger of the other mention
     for {
       i <- 0 until ms.length
       m1 = ms(i)
@@ -55,7 +56,6 @@ object MentionFilter {
         val m2Themes = em.arguments.get("theme")
         val overlappingThemes = m1Themes.filter(theme => m2Themes.contains(theme))
         if (overlappingThemes.nonEmpty) {
-          //overlappingThemes.foreach(theme => println("theme: " + theme.toString()))
           overlappingThemes.get.exists(theme => synPathContainsTrigger(m1, theme, em.trigger))
         } else false
       case _ => false
@@ -67,18 +67,9 @@ object MentionFilter {
       val synPath = m.paths("theme").get(theme)
       // Does the synPath contain the trigger
       val tokensOnPath = synPath.get.flatMap(path => Seq(path._1, path._2)).toSet
-      val edges = mkPrev(theme.tokenInterval.start, m.sentenceObj)
-      trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok) )
+      trigger.tokenInterval.exists(tok => tokensOnPath.contains(tok))
     } else false
   }
-
-  //checks incoming rel for the given node
-  def mkPrev(node: Int, sent: Sentence): Seq[Int] = {
-    val graph = sent.dependencies.get
-    val edges = graph.incomingEdges(node)
-    edges.map(_._1).distinct
-  }
-
 
   // a simple, imperfect way of removing incomplete Mentions
   def pruneMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
