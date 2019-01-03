@@ -23,7 +23,6 @@ object MentionFilter {
     ms.filter(argumentsOverlap(m, _))
   }
 
-
   def filterOverlappingMentions(ms: Seq[CorefMention]): Seq[CorefMention] = {
     // For each mention, check to see if any other mention has argument overlap and if there is arg overlap,
     // check if the path from the trigger to the overlapping argument contains a trigger of the other mention +
@@ -31,11 +30,11 @@ object MentionFilter {
     for {
       i <- 0 until ms.length
       m1 = ms(i)
-      msToCheck = ms.slice(0, i) ++ ms.slice(i+1, ms.length) // fixme: I'm pretty darn inefficient
-      overlapping = getOverlappingMentions(m1, msToCheck)
+      overlapping = getOverlappingMentions(m1, ms)
       if !triggerOverlap(m1, overlapping)
     } yield m1
   }
+
 
   // fixme: make a better name
   // If argument overlap is found, check to see if it's a problem: i.e., if the synPath between the trigger
@@ -51,7 +50,7 @@ object MentionFilter {
 
   def triggerOverlap(m1: Mention, m2: Mention): Boolean = {
     m2 match {
-      case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && em != m1 && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent")) =>
+      case em: EventMention if ( em.trigger.tokenInterval != m1.asInstanceOf[CorefEventMention].trigger.tokenInterval && m1.arguments.get("theme").nonEmpty && m2.arguments.get("theme").nonEmpty && em.labels.contains("SimpleEvent")) =>
         // Does the synPath to the argument of m1 contain the trigger of m2?
         val m1Themes = m1.arguments.get("theme")
         val m2Themes = em.arguments.get("theme")
