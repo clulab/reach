@@ -15,19 +15,19 @@ object Labeler {
   def regexFromTriggers(triggers: List[String]) = s"(?i)\\b(?:${triggers.mkString("|")})\\b".r
 
   val labelTriggersMap = Map(
-    "Acetylation" -> List("acetylation"),
-    "Activation" -> List("activation", "activates"),
+    "Acetylation" -> List("acetylation", "acetylates", "is acetylated"),
+    "Activation" -> List("activation", "activates", "activate"),
     "Binding" -> List("bind", "binds", "binding"),
-    "Conversion" -> List("conversion", "transforms"),
+    "Conversion" -> List("conversion", "transforms", "is converted", "convert"),
     "Deacetylation" -> List("deacetylation"),
     "Degradation" -> List("degradation", "is degraded", "degrades"),
     "Demethylation" -> List("demethylation", "demethylates"),
     "Dephosphorylation" -> List("dephosphorylation", "dephosphorylates"),
     "Deubiquitination" -> List("deubiquitination", "deubiquitinates"),
-    "Dissociation" -> List("dissociation", "dissociates"),
+    "Dissociation" -> List("dissociation", "dissociates", "dissociate"),
     "Gene_expression" -> List("expression"),
     "Hydroxylation" -> List("hydroxylation", "hydroxylates", "is hydroxylated"),
-    "Inactivation" -> List("inactivation", "inactivates"),
+    "Inactivation" -> List("inactivation", "inactivates", "is inactivated"),
     "Localization" -> List("localization"),
     "Methylation" -> List("methylation", "is methylated"),  // trimethylates?
     "Negative_regulation" -> List("negative regulation", "negatively regulates", "downregulation"),
@@ -37,7 +37,7 @@ object Labeler {
     "Regulation" -> List("regulation"),
     "Transcription" -> List("transcription"),
     "Translation" -> List("translation"),
-    "Transport" -> List("translocation", "transports", "transport"),
+    "Transport" -> List("translocation", "transports", "transport", "translocates"),
     "Ubiquitination" -> List("ubiquitination", "ubiquitinates")
   )
 

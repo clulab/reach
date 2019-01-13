@@ -59,6 +59,7 @@ object MentionFilter {
       // that are candidates to replace the current "controlled" arg?
       val replacementCandidates: Seq[CorefMention] = controlled match {
         case rel: CorefRelationMention => Nil
+        case tex: CorefTextBoundMention => Nil
         case ev: CorefEventMention => state.mentionsFor(reg.sentence, controlled.tokenInterval, controlled.label)
             // If the label is the same, these MUST be CorefEventMentions (i.e SimpleEvents)
             .map(_.toCorefMention)
